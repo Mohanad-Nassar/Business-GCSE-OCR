@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 3. Coordinate Geometry</div>
             <h1>3.2 Circles, Tangents and Normals</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,9 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 3.2 Circles, Tangents and Normals — placeholder, content not yet written
+    //  DATA: 3.2 Circles, Tangents and Normals (CG3 [new general circle], CG5 [tangent + new normal])
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes DOUBLED in
+    //  this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Exam Qs = 2023 Q12 (a-d), 2019 Q10 (a-b).
     // ══════════════════════════════════════
     const pageMeta = {
             id: '3-2-circles-tangents-and-normals',
@@ -266,23 +268,382 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimuli for the exam parts (see examQuestions). Verbatim question text lives
+    // ONLY inside these and the examQuestions fields (ADDMATHS-CONTENT-PLAN.md §6.2).
+    const EXAM_CASE_STUDIES = {
+        "q12-2023": `<p>The point \\( A\\,(1,\\ 3) \\) lies on a circle with centre \\( (4,\\ 5) \\).</p>`,
+        "q10-2019": `<p>You are given that the line \\( y = 2x + k \\) cuts the circle \\( x^2 + y^2 = 5 \\) in two points, \\( A \\) and \\( B \\).</p>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>3.2 Circles, Tangents and Normals</strong> will appear here soon.</p>`
+            title: "What is the general equation of a circle?",
+            tag: "Key concept",
+            content: `<p>Every point on a circle is the same distance — the <strong>radius</strong> \\( r \\) — from a fixed <strong>centre</strong> \\( (a,\\ b) \\). Applying the distance formula gives the <strong>general equation of a circle</strong>: \\[ (x - a)^2 + (y - b)^2 = r^2. \\]</p>
+            <svg viewBox="0 0 240 220" width="100%" style="max-width:280px;height:auto;display:block;margin:14px auto" role="img" aria-label="A circle with centre C, a radius drawn to a point P, and the tangent line touching the circle at P at a right angle to the radius">
+              <circle cx="120" cy="120" r="70" fill="none" stroke="currentColor" stroke-width="2"/>
+              <line x1="120" y1="120" x2="169.5" y2="70.5" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="124.5" y1="25.5" x2="214.5" y2="115.5" stroke="currentColor" stroke-width="2" stroke-dasharray="5 4"/>
+              <circle cx="120" cy="120" r="3.5" fill="currentColor"/>
+              <circle cx="169.5" cy="70.5" r="3.5" fill="currentColor"/>
+              <text x="112" y="134" font-size="13" fill="currentColor">C(a, b)</text>
+              <text x="176" y="66" font-size="13" fill="currentColor">P</text>
+              <text x="138" y="88" font-size="13" fill="currentColor">r</text>
+              <text x="150" y="30" font-size="12" fill="currentColor">tangent</text>
+            </svg>
+            <ul>
+              <li>You read the centre off <strong>straight from the brackets</strong>: \\( (x - a)^2 \\) gives \\( x = a \\), \\( (y - b)^2 \\) gives \\( y = b \\). Watch the signs — \\( (x + 3)^2 = (x - (-3))^2 \\), so the centre is at \\( -3 \\).</li>
+              <li>The right-hand side is \\( r^2 \\), <strong>not</strong> \\( r \\). For \\( = 25 \\) the radius is \\( 5 \\); for \\( = 20 \\) it is \\( \\sqrt{20} = 2\\sqrt{5} \\).</li>
+              <li><strong>New at this level:</strong> at GCSE you only met circles centred at the origin, \\( x^2 + y^2 = r^2 \\). That is just the special case \\( a = b = 0 \\).</li>
+            </ul>
+            <p><strong>Example:</strong> \\( (x - 2)^2 + (y + 3)^2 = 49 \\) is a circle with centre \\( (2,\\ -3) \\) and radius \\( 7 \\).</p>`,
+            readCheck: { q: "What are the centre and radius of \\( (x + 4)^2 + (y - 1)^2 = 9 \\)?", opts: ["Centre \\( (-4,\\ 1) \\), radius \\( 3 \\)", "Centre \\( (4,\\ -1) \\), radius \\( 3 \\)", "Centre \\( (-4,\\ 1) \\), radius \\( 9 \\)", "Centre \\( (4,\\ 1) \\), radius \\( 3 \\)"], ans: 0, explain: "\\( (x+4)^2 = (x-(-4))^2 \\) so \\( a=-4 \\); \\( (y-1)^2 \\) so \\( b=1 \\); and \\( r=\\sqrt{9}=3 \\)." }
+        },
+        {
+            title: "How do you write a circle's equation from the information given?",
+            tag: "Worked example",
+            content: `<p>You are usually given one of three things. In every case you are hunting for the <strong>centre</strong> \\( (a,\\ b) \\) and \\( r^2 \\).</p>
+            <p><strong>1. Centre and radius given</strong> — substitute straight in. Centre \\( (3,\\ -1) \\), radius \\( 4 \\): \\[ (x - 3)^2 + (y + 1)^2 = 16. \\]</p>
+            <p><strong>2. Centre and a point on the circle given</strong> — the radius is the distance from the centre to that point, so find \\( r^2 \\) with the distance formula (no need to square-root).</p>
+            <table class="worked">
+              <tr><td>Centre \\( (1,\\ 2) \\), passing through \\( (4,\\ 6) \\).</td></tr>
+              <tr><td>1. \\( r^2 = (4 - 1)^2 + (6 - 2)^2 = 9 + 16 = 25 \\).</td></tr>
+              <tr><td>2. So \\( (x - 1)^2 + (y - 2)^2 = 25 \\).</td></tr>
+            </table>
+            <p><strong>3. The two ends of a diameter given</strong> — the <strong>centre is the midpoint</strong> of the diameter, and the <strong>radius is half the diameter</strong>.</p>
+            <svg viewBox="0 0 260 200" width="100%" style="max-width:300px;height:auto;display:block;margin:14px auto" role="img" aria-label="A circle with a diameter drawn between two endpoints A and B, its centre marked at the midpoint">
+              <circle cx="130" cy="100" r="75" fill="none" stroke="currentColor" stroke-width="2"/>
+              <line x1="65" y1="137.5" x2="195" y2="62.5" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="65" cy="137.5" r="3.5" fill="currentColor"/>
+              <circle cx="195" cy="62.5" r="3.5" fill="currentColor"/>
+              <circle cx="130" cy="100" r="3.5" fill="currentColor"/>
+              <text x="46" y="152" font-size="13" fill="currentColor">A</text>
+              <text x="200" y="60" font-size="13" fill="currentColor">B</text>
+              <text x="112" y="118" font-size="12" fill="currentColor">centre</text>
+            </svg>
+            <table class="worked">
+              <tr><td>Diameter from \\( A(-1,\\ 2) \\) to \\( B(5,\\ 8) \\).</td></tr>
+              <tr><td>1. Centre \\( = \\left( \\tfrac{-1 + 5}{2},\\ \\tfrac{2 + 8}{2} \\right) = (2,\\ 5) \\).</td></tr>
+              <tr><td>2. \\( r^2 = (2 - (-1))^2 + (5 - 2)^2 = 9 + 9 = 18 \\).</td></tr>
+              <tr><td>3. So \\( (x - 2)^2 + (y - 5)^2 = 18 \\).</td></tr>
+            </table>`,
+            readCheck: { q: "A circle has centre \\( (0,\\ 4) \\) and passes through \\( (3,\\ 0) \\). What is its equation?", opts: ["\\( x^2 + (y - 4)^2 = 25 \\)", "\\( x^2 + (y - 4)^2 = 5 \\)", "\\( x^2 + (y + 4)^2 = 25 \\)", "\\( (x - 3)^2 + y^2 = 25 \\)"], ans: 0, explain: "\\( r^2 = (3-0)^2 + (0-4)^2 = 9 + 16 = 25 \\); centre \\( (0,4) \\) gives \\( x^2 + (y-4)^2 = 25 \\)." }
+        },
+        {
+            title: "How do you find the centre and radius by completing the square?",
+            tag: "Method",
+            content: `<p>A circle is often given in the <strong>expanded form</strong> \\[ x^2 + y^2 + 2gx + 2fy + c = 0. \\] To recover the centre and radius, <strong>complete the square separately in \\( x \\) and in \\( y \\)</strong>, then move the numbers across.</p>
+            <table class="worked">
+              <tr><td>Find the centre and radius of \\( x^2 + y^2 - 6x + 4y - 12 = 0 \\).</td></tr>
+              <tr><td>1. Group the terms: \\( (x^2 - 6x) + (y^2 + 4y) - 12 = 0 \\).</td></tr>
+              <tr><td>2. Complete each square: \\( (x - 3)^2 - 9 + (y + 2)^2 - 4 - 12 = 0 \\).</td></tr>
+              <tr><td>3. Tidy the constants: \\( (x - 3)^2 + (y + 2)^2 = 9 + 4 + 12 = 25 \\).</td></tr>
+              <tr><td>4. Centre \\( (3,\\ -2) \\), radius \\( \\sqrt{25} = 5 \\).</td></tr>
+            </table>
+            <p>There is a shortcut worth knowing (though completing the square is the safe, mark-scheme method): comparing with \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\), the centre is \\( (-g,\\ -f) \\) and the radius is \\( \\sqrt{g^2 + f^2 - c} \\). Here \\( 2g = -6,\\ 2f = 4 \\), so \\( g = -3,\\ f = 2 \\): centre \\( (3,\\ -2) \\), radius \\( \\sqrt{9 + 4 + 12} = 5 \\). ✓</p>`,
+            readCheck: { q: "Find the centre of \\( x^2 + y^2 - 8x + 2y - 8 = 0 \\).", opts: ["\\( (4,\\ -1) \\)", "\\( (-4,\\ 1) \\)", "\\( (8,\\ -2) \\)", "\\( (-8,\\ 2) \\)"], ans: 0, explain: "\\( (x-4)^2 - 16 + (y+1)^2 - 1 - 8 = 0 \\Rightarrow (x-4)^2 + (y+1)^2 = 25 \\); centre \\( (4,-1) \\)." }
+        },
+        {
+            title: "How do you find the tangent to a circle at a point on it?",
+            tag: "Exam skill",
+            content: `<p>A <strong>tangent</strong> touches the circle at exactly one point. The key geometry fact: the <strong>radius drawn to the point of contact is perpendicular to the tangent</strong> there. So the tangent gradient is the <strong>negative reciprocal</strong> of the radius gradient.</p>
+            <table class="worked">
+              <tr><td>Find the tangent to \\( (x - 2)^2 + (y - 1)^2 = 25 \\) at the point \\( P(5,\\ 5) \\).</td></tr>
+              <tr><td>1. Check \\( P \\) is on the circle: \\( (5-2)^2 + (5-1)^2 = 9 + 16 = 25 \\). ✓</td></tr>
+              <tr><td>2. Radius gradient (centre \\( (2,1) \\) to \\( P \\)): \\( \\dfrac{5 - 1}{5 - 2} = \\dfrac{4}{3} \\).</td></tr>
+              <tr><td>3. Tangent gradient \\( = \\) negative reciprocal \\( = -\\dfrac{3}{4} \\).</td></tr>
+              <tr><td>4. Through \\( P(5,5) \\): \\( y - 5 = -\\tfrac{3}{4}(x - 5) \\), i.e. \\( 3x + 4y = 35 \\).</td></tr>
+            </table>
+            <p>Use \\( y - y_1 = m(x - x_1) \\) with the point of contact — it is faster and less error-prone than \\( y = mx + c \\).</p>`,
+            readCheck: { q: "The radius to the point of contact has gradient \\( 2 \\). What is the tangent's gradient there?", opts: ["\\( -\\tfrac{1}{2} \\)", "\\( 2 \\)", "\\( \\tfrac{1}{2} \\)", "\\( -2 \\)"], ans: 0, explain: "The tangent is perpendicular to the radius, so its gradient is the negative reciprocal of \\( 2 \\), which is \\( -\\tfrac{1}{2} \\)." }
+        },
+        {
+            title: "How do you find the normal to a circle at a point?",
+            tag: "Key concept",
+            content: `<p>The <strong>normal</strong> at a point is the line perpendicular to the tangent there. For a circle this is beautifully simple: because the radius is already perpendicular to the tangent, <strong>the normal lies along the radius — it passes through the centre.</strong></p>
+            <ul>
+              <li>So the normal at \\( P \\) is just the straight line through \\( P \\) and the <strong>centre</strong> \\( C \\).</li>
+              <li>Its gradient equals the <strong>radius gradient</strong> (the same \\( CP \\) gradient you found for the tangent) — <em>not</em> the negative reciprocal.</li>
+              <li>The word "normal" is <strong>new at this level</strong> for circles; at GCSE you only found tangents.</li>
+            </ul>
+            <table class="worked">
+              <tr><td>Normal to \\( (x - 2)^2 + (y - 1)^2 = 25 \\) at \\( P(5,\\ 5) \\).</td></tr>
+              <tr><td>1. It passes through \\( P \\) and the centre \\( (2,\\ 1) \\).</td></tr>
+              <tr><td>2. Gradient \\( = \\dfrac{5 - 1}{5 - 2} = \\dfrac{4}{3} \\) (the radius gradient).</td></tr>
+              <tr><td>3. \\( y - 5 = \\tfrac{4}{3}(x - 5) \\), i.e. \\( 4x - 3y = 5 \\).</td></tr>
+            </table>
+            <p>Quick check: the centre \\( (2,1) \\) must satisfy it — \\( 4(2) - 3(1) = 8 - 3 = 5 \\). ✓</p>`,
+            readCheck: { q: "Which statement about the normal to a circle at a point is true?", opts: ["It passes through the centre of the circle", "It is perpendicular to the radius", "It is the same line as the tangent", "It never meets the centre"], ans: 0, explain: "The normal runs along the radius, so it passes through the centre; its gradient equals the radius gradient." }
+        },
+        {
+            title: "How do you test where a line meets a circle — and when is it a tangent?",
+            tag: "Method",
+            content: `<p><strong>Substitute the line into the circle equation.</strong> That eliminates one variable and leaves a <strong>quadratic</strong>; the number of real solutions is the number of intersection points, and the <strong>discriminant</strong> \\( b^2 - 4ac \\) tells you which case you are in.</p>
+            <ul>
+              <li>\\( b^2 - 4ac > 0 \\): two solutions — the line is a <strong>chord</strong> (cuts the circle twice).</li>
+              <li>\\( b^2 - 4ac = 0 \\): one repeated solution — the line is a <strong>tangent</strong> (touches once).</li>
+              <li>\\( b^2 - 4ac < 0 \\): no real solutions — the line <strong>misses</strong> the circle.</li>
+            </ul>
+            <table class="worked">
+              <tr><td>For what values of \\( k \\) is \\( y = x + k \\) a tangent to \\( x^2 + y^2 = 8 \\)?</td></tr>
+              <tr><td>1. Substitute: \\( x^2 + (x + k)^2 = 8 \\).</td></tr>
+              <tr><td>2. Expand and simplify: \\( 2x^2 + 2kx + (k^2 - 8) = 0 \\).</td></tr>
+              <tr><td>3. Tangent \\( \\Rightarrow \\) repeated root \\( \\Rightarrow b^2 - 4ac = 0 \\): \\( (2k)^2 - 4(2)(k^2 - 8) = 0 \\).</td></tr>
+              <tr><td>4. \\( 4k^2 - 8k^2 + 64 = 0 \\Rightarrow k^2 = 16 \\Rightarrow k = \\pm 4 \\).</td></tr>
+            </table>
+            <p>To find the actual points of intersection instead, solve the quadratic for \\( x \\) and substitute each root back into the line to get \\( y \\).</p>`,
+            readCheck: { q: "Substituting a line into a circle gives \\( x^2 - 6x + 9 = 0 \\). The line is:", opts: ["a tangent", "a chord meeting the circle twice", "missing the circle", "a diameter"], ans: 0, explain: "\\( b^2 - 4ac = 36 - 36 = 0 \\), a repeated root — exactly one point of contact, so a tangent." }
+        },
+        {
+            title: "What is new here, and which facts must you just know?",
+            tag: "Common error",
+            content: `<p>This topic extends GCSE circle work; keeping the boundary straight avoids easy marks slipping away.</p>
+            <ul>
+              <li><strong>New (AS) content:</strong> the general circle \\( (x - a)^2 + (y - b)^2 = r^2 \\) with any centre; recovering the centre/radius by completing the square; and the <strong>normal</strong> to a circle. GCSE only did \\( x^2 + y^2 = r^2 \\) and tangents.</li>
+              <li><strong>MEMORISE (not on the formula sheet):</strong> the general circle equation; the distance and midpoint formulae; that perpendicular gradients multiply to \\( -1 \\); tangent \\( \\perp \\) radius; normal through the centre.</li>
+              <li><strong>Sign trap:</strong> the centre of \\( (x + a)^2 + (y + b)^2 = r^2 \\) is \\( (-a,\\ -b) \\), not \\( (a,\\ b) \\).</li>
+              <li><strong>\\( r \\) vs \\( r^2 \\) trap:</strong> the right-hand side is the radius <em>squared</em>. Take the square root — and simplify the surd — before you quote a radius.</li>
+            </ul>
+            <p>Everything else is applied straight-line geometry: gradients, perpendicularity, and \\( y - y_1 = m(x - x_1) \\), all of which carry over from 3.1.</p>`,
+            readCheck: { q: "Which of these is content new to this level (not GCSE)?", opts: ["Finding the normal to a circle at a point", "The circle \\( x^2 + y^2 = r^2 \\)", "The tangent to a circle at a point", "Reading a radius off \\( x^2 + y^2 = 25 \\)"], ans: 0, explain: "The general circle, completing the square for a circle, and the normal are the new AS content; origin-centred circles and tangents were met at GCSE." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "What are the centre and radius of \\( (x - 4)^2 + (y + 1)^2 = 36 \\)?", opts: ["Centre \\( (4,\\ -1) \\), radius \\( 6 \\)", "Centre \\( (-4,\\ 1) \\), radius \\( 6 \\)", "Centre \\( (4,\\ -1) \\), radius \\( 36 \\)", "Centre \\( (4,\\ 1) \\), radius \\( 6 \\)"], ans: 0, explain: "\\( (x-4)^2 \\Rightarrow a=4 \\); \\( (y+1)^2 \\Rightarrow b=-1 \\); \\( r=\\sqrt{36}=6 \\)." },
+        { q: "What is the radius of \\( (x - 2)^2 + (y - 7)^2 = 20 \\)?", opts: ["\\( 2\\sqrt{5} \\)", "\\( 20 \\)", "\\( \\sqrt{10} \\)", "\\( 10 \\)"], ans: 0, explain: "\\( r = \\sqrt{20} = \\sqrt{4 \\times 5} = 2\\sqrt{5} \\); the \\( 20 \\) is \\( r^2 \\), not \\( r \\)." },
+        { q: "A circle has centre \\( (3,\\ -2) \\) and radius \\( 4 \\). Its equation is:", opts: ["\\( (x - 3)^2 + (y + 2)^2 = 16 \\)", "\\( (x - 3)^2 + (y + 2)^2 = 4 \\)", "\\( (x + 3)^2 + (y - 2)^2 = 16 \\)", "\\( (x - 3)^2 + (y - 2)^2 = 16 \\)"], ans: 0, explain: "Centre \\( (3,-2) \\Rightarrow (x-3)^2 + (y+2)^2 \\); radius \\( 4 \\Rightarrow r^2 = 16 \\)." },
+        { q: "A circle has centre \\( (1,\\ 2) \\) and passes through \\( (4,\\ 6) \\). Its equation is:", opts: ["\\( (x - 1)^2 + (y - 2)^2 = 25 \\)", "\\( (x - 1)^2 + (y - 2)^2 = 5 \\)", "\\( (x - 1)^2 + (y - 2)^2 = 7 \\)", "\\( (x - 4)^2 + (y - 6)^2 = 25 \\)"], ans: 0, explain: "\\( r^2 = (4-1)^2 + (6-2)^2 = 9 + 16 = 25 \\); centre \\( (1,2) \\)." },
+        { q: "The ends of a diameter are \\( (2,\\ 3) \\) and \\( (8,\\ 11) \\). The centre of the circle is:", opts: ["\\( (5,\\ 7) \\)", "\\( (10,\\ 14) \\)", "\\( (3,\\ 4) \\)", "\\( (6,\\ 8) \\)"], ans: 0, explain: "The centre is the midpoint: \\( \\left( \\tfrac{2+8}{2},\\ \\tfrac{3+11}{2} \\right) = (5,\\ 7) \\)." },
+        { q: "The ends of a diameter are \\( (-1,\\ 2) \\) and \\( (5,\\ 8) \\). What is \\( r^2 \\)?", opts: ["\\( 18 \\)", "\\( 72 \\)", "\\( 36 \\)", "\\( 6 \\)"], ans: 0, explain: "The diameter length squared is \\( 6^2 + 6^2 = 72 \\); the radius is half the diameter, so \\( r^2 = (2-(-1))^2 + (5-2)^2 = 9 + 9 = 18 \\)." },
+        { q: "What is the centre of \\( x^2 + y^2 - 8x + 2y - 8 = 0 \\)?", opts: ["\\( (4,\\ -1) \\)", "\\( (-4,\\ 1) \\)", "\\( (8,\\ -2) \\)", "\\( (-8,\\ 2) \\)"], ans: 0, explain: "Completing the square: \\( (x-4)^2 + (y+1)^2 = 25 \\); centre \\( (4,-1) \\)." },
+        { q: "What is the radius of \\( x^2 + y^2 - 8x + 2y - 8 = 0 \\)?", opts: ["\\( 5 \\)", "\\( 25 \\)", "\\( \\sqrt{8} \\)", "\\( 3 \\)"], ans: 0, explain: "\\( (x-4)^2 + (y+1)^2 = 16 + 1 + 8 = 25 \\), so \\( r = \\sqrt{25} = 5 \\)." },
+        { q: "The radius to a point of contact has gradient \\( \\tfrac{2}{3} \\). The tangent's gradient there is:", opts: ["\\( -\\tfrac{3}{2} \\)", "\\( \\tfrac{2}{3} \\)", "\\( \\tfrac{3}{2} \\)", "\\( -\\tfrac{2}{3} \\)"], ans: 0, explain: "Tangent \\( \\perp \\) radius, so the tangent gradient is the negative reciprocal of \\( \\tfrac{2}{3} \\), namely \\( -\\tfrac{3}{2} \\)." },
+        { q: "Which statement about the normal to a circle at a point is correct?", opts: ["It passes through the centre", "It is perpendicular to the radius", "It is the same line as the tangent", "It never meets the centre"], ans: 0, explain: "The normal lies along the radius, so it passes through the centre of the circle." },
+        { q: "Substituting a line into a circle gives \\( x^2 - 6x + 9 = 0 \\). The line is:", opts: ["a tangent to the circle", "a chord cutting the circle twice", "missing the circle entirely", "a diameter of the circle"], ans: 0, explain: "\\( b^2 - 4ac = 36 - 36 = 0 \\): a repeated root, so the line touches once — a tangent." },
+        { q: "For which values of \\( k \\) is \\( y = x + k \\) a tangent to \\( x^2 + y^2 = 8 \\)?", opts: ["\\( k = \\pm 4 \\)", "\\( k = \\pm 8 \\)", "\\( k = 4 \\) only", "\\( k = \\pm 2\\sqrt{2} \\)"], ans: 0, explain: "Substituting gives \\( 2x^2 + 2kx + (k^2 - 8) = 0 \\); tangency needs \\( (2k)^2 - 8(k^2 - 8) = 0 \\Rightarrow k^2 = 16 \\Rightarrow k = \\pm 4 \\)." }
+    ];
+
+    const matchData = [
+        { term: "\\( (x - 2)^2 + (y - 3)^2 = 16 \\)", def: "Centre \\( (2,\\ 3) \\), radius \\( 4 \\)" },
+        { term: "\\( (x + 1)^2 + (y - 4)^2 = 9 \\)", def: "Centre \\( (-1,\\ 4) \\), radius \\( 3 \\)" },
+        { term: "\\( (x - 5)^2 + (y + 2)^2 = 25 \\)", def: "Centre \\( (5,\\ -2) \\), radius \\( 5 \\)" },
+        { term: "\\( x^2 + (y - 6)^2 = 49 \\)", def: "Centre \\( (0,\\ 6) \\), radius \\( 7 \\)" },
+        { term: "\\( (x - 3)^2 + (y - 1)^2 = 2 \\)", def: "Centre \\( (3,\\ 1) \\), radius \\( \\sqrt{2} \\)" },
+        { term: "Tangent to a circle", def: "Perpendicular to the radius at the point of contact" },
+        { term: "Normal to a circle", def: "Passes through the centre of the circle" },
+        { term: "Discriminant \\( > 0 \\) (line into circle)", def: "The line cuts the circle at two points" },
+        { term: "Discriminant \\( = 0 \\) (line into circle)", def: "The line is a tangent to the circle" },
+        { term: "Discriminant \\( < 0 \\) (line into circle)", def: "The line misses the circle completely" },
+        { term: "Centre from \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\)", def: "\\( (-g,\\ -f) \\)" },
+        { term: "Radius from \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\)", def: "\\( \\sqrt{g^2 + f^2 - c} \\)" }
+    ];
+
+    // FIB blanks sit in PLAIN TEXT, never inside a \( \) region (ADDMATHS-CONTENT-PLAN §8.4 Rule 3b);
+    // blank VALUES are plain text/number so server string-equality still marks them.
+    const fibData = [
+        { display: "The general equation of a circle with centre \\( (a,\\ b) \\) and radius \\( r \\) is \\( (x-a)^2 + (y-b)^2 = r^2 \\). For \\( (x-3)^2 + (y+2)^2 = 25 \\), the centre is ___B1___ and the radius is ___B2___.", blanks: { B1: "(3, -2)", B2: "5" } },
+        { display: "To find the centre and radius from the expanded form \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\), you complete the ___B1___ in \\( x \\) and in \\( y \\) separately.", blanks: { B1: "square" } },
+        { display: "At the point of contact, the radius is ___B1___ to the tangent, so the tangent gradient is the ___B2___ of the radius gradient.", blanks: { B1: "perpendicular", B2: "negative reciprocal" } },
+        { display: "The ___B1___ to a circle at a point always passes through the centre of the circle.", blanks: { B1: "normal" } },
+        { display: "To test where a line meets a circle, ___B1___ the line into the circle equation to obtain a ___B2___ equation.", blanks: { B1: "substitute", B2: "quadratic" } },
+        { display: "A line is a tangent to a circle exactly when the discriminant of that quadratic equals ___B1___.", blanks: { B1: "zero" } },
+        { display: "If the discriminant is ___B1___, the line misses the circle completely.", blanks: { B1: "negative" } },
+        { display: "Given the two ends of a diameter, the centre is the ___B1___ of the endpoints and the radius is ___B2___ the diameter.", blanks: { B1: "midpoint", B2: "half" } }
+    ];
+
+    const fibWords = ["(3, -2)", "5", "square", "perpendicular", "negative reciprocal", "normal", "substitute", "quadratic", "zero", "negative", "midpoint", "half", "(-3, 2)", "25", "parallel", "reciprocal", "tangent", "linear", "positive", "factorise", "gradient", "double"];
+
+    const tfData = [
+        { statement: "\\( (x - 2)^2 + (y - 5)^2 = 9 \\) is a circle with centre \\( (2,\\ 5) \\) and radius \\( 3 \\).", answer: true, explanation: "Read the centre from the brackets and \\( r = \\sqrt{9} = 3 \\). ✓" },
+        { statement: "\\( (x + 4)^2 + (y - 1)^2 = 16 \\) has centre \\( (4,\\ 1) \\).", answer: false, explanation: "\\( (x+4)^2 = (x-(-4))^2 \\), so the centre is \\( (-4,\\ 1) \\) — the sign flips." },
+        { statement: "The radius of \\( (x - 1)^2 + (y - 2)^2 = 20 \\) is \\( 20 \\).", answer: false, explanation: "The right-hand side is \\( r^2 \\); the radius is \\( \\sqrt{20} = 2\\sqrt{5} \\)." },
+        { statement: "The normal to a circle at a point passes through the centre of the circle.", answer: true, explanation: "The normal lies along the radius, which joins the point of contact to the centre. ✓" },
+        { statement: "At the point of contact, the tangent is perpendicular to the radius.", answer: true, explanation: "This is the key circle fact — it gives the tangent gradient as the negative reciprocal of the radius gradient." },
+        { statement: "If a line substituted into a circle gives a quadratic with a positive discriminant, the line is a tangent.", answer: false, explanation: "A positive discriminant means two intersection points (a chord); a tangent needs the discriminant to be exactly \\( 0 \\)." },
+        { statement: "The centre of \\( x^2 + y^2 - 6x + 4y - 12 = 0 \\) is \\( (3,\\ -2) \\).", answer: true, explanation: "Completing the square gives \\( (x-3)^2 + (y+2)^2 = 25 \\); centre \\( (3,-2) \\), radius \\( 5 \\). ✓" },
+        { statement: "The tangent's gradient equals the gradient of the radius to the point of contact.", answer: false, explanation: "It is the negative reciprocal of the radius gradient; the radius gradient is what the normal uses." }
+    ];
+
+    const miscData = [
+        { wrong: "\\( (x + 3)^2 + (y - 4)^2 = 25 \\) has centre \\( (3,\\ 4) \\)", correct: "Read the sign carefully: \\( (x + 3)^2 = (x - (-3))^2 \\), so the centre is \\( (-3,\\ 4) \\). A weak answer copies the \\( +3 \\) as \\( 3 \\); a strong answer flips it to \\( -3 \\).", readCheck: { q: "Centre of \\( (x + 3)^2 + (y - 4)^2 = 25 \\)?", opts: ["\\( (-3,\\ 4) \\)", "\\( (3,\\ 4) \\)", "\\( (3,\\ -4) \\)", "\\( (-3,\\ -4) \\)"], ans: 0, explain: "\\( (x+3)^2 \\Rightarrow a=-3 \\); \\( (y-4)^2 \\Rightarrow b=4 \\)." } },
+        { wrong: "For \\( (x - 1)^2 + (y - 2)^2 = 25 \\) the radius is \\( 25 \\)", correct: "The right-hand side is \\( r^2 \\), so \\( r = \\sqrt{25} = 5 \\). A weak answer quotes \\( 25 \\); a strong answer square-roots (and simplifies the surd if needed).", readCheck: { q: "Radius of \\( (x - 1)^2 + (y - 2)^2 = 25 \\)?", opts: ["\\( 5 \\)", "\\( 25 \\)", "\\( \\sqrt{5} \\)", "\\( 12.5 \\)"], ans: 0, explain: "\\( r = \\sqrt{r^2} = \\sqrt{25} = 5 \\)." } },
+        { wrong: "The tangent gradient equals the radius gradient at the point of contact", correct: "The tangent is perpendicular to the radius, so its gradient is the negative reciprocal. A weak answer reuses the radius gradient; a strong answer flips and negates it.", readCheck: { q: "Radius gradient is \\( \\tfrac{3}{4} \\). Tangent gradient?", opts: ["\\( -\\tfrac{4}{3} \\)", "\\( \\tfrac{3}{4} \\)", "\\( \\tfrac{4}{3} \\)", "\\( -\\tfrac{3}{4} \\)"], ans: 0, explain: "Negative reciprocal of \\( \\tfrac{3}{4} \\) is \\( -\\tfrac{4}{3} \\)." } },
+        { wrong: "Finding the normal by taking the negative reciprocal of the radius gradient", correct: "That is the tangent. The normal runs ALONG the radius, so it has the SAME gradient as the radius and passes through the centre. A weak answer flips the gradient; a strong answer keeps the radius gradient.", readCheck: { q: "The normal to a circle at \\( P \\) has the same gradient as:", opts: ["the radius to \\( P \\)", "the tangent at \\( P \\)", "the \\( x \\)-axis", "no other line"], ans: 0, explain: "The normal lies along the radius, so their gradients are equal." } },
+        { wrong: "A line meets a circle in two points, so it must be a tangent", correct: "A tangent touches at ONE point (discriminant \\( = 0 \\)). Two points means a chord. A weak answer confuses the two; a strong answer checks the discriminant of the substituted quadratic.", readCheck: { q: "Substituting gives a quadratic with discriminant \\( > 0 \\). The line is:", opts: ["a chord (two points)", "a tangent (one point)", "missing the circle", "the diameter"], ans: 0, explain: "Positive discriminant \\( \\Rightarrow \\) two real roots \\( \\Rightarrow \\) two intersection points \\( \\Rightarrow \\) a chord." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "'Show that ... perpendicular' — finish the job", pills: ["show that", "perpendicular", "conclude"], content: `<p><strong>0 marks:</strong> quoting the two gradients but never comparing them, or finding equations of the lines instead of gradients.</p><p><strong>Partial:</strong> correct gradients \\( 5 \\) and \\( -\\tfrac{1}{5} \\) but no conclusion.</p><p><strong>Full marks:</strong> state both gradients, show the product is \\( 5 \\times -\\tfrac{1}{5} = -1 \\), and write the concluding sentence "so the lines are perpendicular." On a "show that" the concluding statement is itself a mark.</p>`, readCheck: { q: "On 'show that two lines are perpendicular', what must you not omit?", opts: ["The concluding sentence stating they are perpendicular", "A diagram", "The equations of both lines", "The area of the triangle"], ans: 0, explain: "A 'show that' needs every step AND the concluding statement; the conclusion carries a mark." } },
+        { type: "tip", title: "Show your working on tangent/normal questions", pills: ["method", "M marks", "y - y1 = m(x - x1)"], content: `<p>Examiners award marks for the visible <strong>method</strong>: M1 for the radius gradient, M1 for using \\( m_1 m_2 = -1 \\) to get the tangent gradient (or reusing it for the normal), then A1 for a correct final equation via \\( y - y_1 = m(x - x_1) \\). Write each step so a single slip costs one mark, not all of them — and using \\( y - y_1 = m(x - x_1) \\) avoids the \\( c \\)-errors that \\( y = mx + c \\) invites.</p>`, readCheck: { q: "Why prefer \\( y - y_1 = m(x - x_1) \\) for the tangent's equation?", opts: ["It avoids errors from finding \\( c \\) separately", "It is the only allowed form", "It gives the normal automatically", "It needs no gradient"], ans: 0, explain: "Substituting the point directly avoids a separate (error-prone) step to compute \\( c \\)." } },
+        { type: "explain", title: "'Hence' + tangency by discriminant", pills: ["hence", "discriminant = 0", "tangent"], content: `<p>When a part gives you a quadratic (often "show that ... = 0") and the next says "<em>Hence</em> find \\( k \\) for which the line is a tangent", use that quadratic — do not restart. Tangent means one repeated root, so set the <strong>discriminant \\( b^2 - 4ac = 0 \\)</strong> and solve. The 2019 examiners noted many candidates failed to link "tangent" to "coincident roots" and so scored nothing on the follow-up.</p>`, readCheck: { q: "A chord is a tangent when the substituted quadratic has:", opts: ["coincident (equal) roots, so \\( b^2 - 4ac = 0 \\)", "two distinct roots", "no real roots", "a positive discriminant"], ans: 0, explain: "One point of contact means a repeated root, i.e. discriminant zero." } }
+    ];
+
+    const flashcards = [
+        { term: "General circle equation", def: "\\( (x-a)^2 + (y-b)^2 = r^2 \\), centre \\( (a,\\ b) \\), radius \\( r \\)." },
+        { term: "Centre from \\( (x-a)^2 + (y-b)^2 = r^2 \\)", def: "\\( (a,\\ b) \\) — flip the sign inside each bracket." },
+        { term: "Radius from the equation", def: "\\( r = \\sqrt{\\text{RHS}} \\); the RHS is \\( r^2 \\), not \\( r \\)." },
+        { term: "Circle from centre + radius", def: "Substitute \\( a,\\ b,\\ r \\) straight into \\( (x-a)^2 + (y-b)^2 = r^2 \\)." },
+        { term: "Circle from centre + a point", def: "\\( r^2 = \\) squared distance from centre to the point (no square root needed)." },
+        { term: "Circle from a diameter's ends", def: "Centre = midpoint of the ends; radius = half the diameter." },
+        { term: "Expanded circle form", def: "\\( x^2 + y^2 + 2gx + 2fy + c = 0 \\)." },
+        { term: "Centre from expanded form", def: "\\( (-g,\\ -f) \\)." },
+        { term: "Radius from expanded form", def: "\\( \\sqrt{g^2 + f^2 - c} \\)." },
+        { term: "Tangent–radius property", def: "The radius to the point of contact is perpendicular to the tangent." },
+        { term: "Tangent gradient", def: "Negative reciprocal of the radius gradient at the point of contact." },
+        { term: "Normal to a circle", def: "The line through the point and the centre; same gradient as the radius." },
+        { term: "Line-meets-circle test", def: "Substitute the line into the circle \\( \\to \\) quadratic \\( \\to \\) discriminant." },
+        { term: "Discriminant \\( = 0 \\) (tangency)", def: "One repeated root — the line is a tangent." },
+        { term: "Discriminant \\( > 0 \\) / \\( < 0 \\)", def: "\\( >0 \\): chord (two points); \\( <0 \\): line misses the circle." },
+        { term: "New vs GCSE", def: "GCSE: \\( x^2+y^2=r^2 \\) + tangents. New: general circle, completing the square, the normal." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "12 (a)",
+            marks: 2,
+            type: "written",
+            caseId: "q12-2023",
+            question: `<p>Determine the equation of the circle.</p>`,
+            hint: "The radius is the distance from the centre \\( (4,5) \\) to \\( A(1,3) \\); you only need \\( r^2 \\).",
+            starter: "Give the equation in the form \\( (x - a)^2 + (y - b)^2 = r^2 \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>B1</strong> — the left-hand side \\( (x - 4)^2 + (y - 5)^2 \\) (centre used correctly).</li>
+              <li><strong>B1</strong> — \\( = 13 \\), i.e. \\( (x - 4)^2 + (y - 5)^2 = 13 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One mark for the bracket structure from the centre, one for the correct \\( r^2 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most found the radius \\( \\sqrt{13} \\) but a few then wrote \\( r \\) instead of \\( r^2 \\) on the right, and some simply wrote \\( x^2 + y^2 = 13 \\), forgetting the centre is not the origin.</li>
+            </ul></div>`,
+            modelAnswer: "\\( r^2 = (1 - 4)^2 + (3 - 5)^2 = 9 + 4 = 13 \\), so the circle is \\( (x - 4)^2 + (y - 5)^2 = 13 \\).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "B1 — LHS from the centre", max: 1, points: ["Wrote \\( (x - 4)^2 + (y - 5)^2 \\) using centre \\( (4, 5) \\)"] },
+                { label: "B1 — correct \\( r^2 \\)", max: 1, points: ["\\( = 13 \\) (used \\( r^2 \\), not \\( r \\), and not the origin)"] }
+            ] }
+        },
+        {
+            num: "12 (b)",
+            marks: 2,
+            type: "written",
+            caseId: "q12-2023",
+            question: `<p>\\( B \\) is a point on the circle such that \\( AB \\) is a diameter of the circle.</p><p>Find the coordinates of \\( B \\).</p>`,
+            hint: "The centre \\( (4,5) \\) is the midpoint of the diameter \\( AB \\) — step the same vector on from the centre.",
+            starter: "Give \\( B \\) as coordinates \\( (x,\\ y) \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — use of the vector / midpoint idea: the vector from \\( A \\) to the centre equals the vector from the centre to \\( B \\) (or \\( B = 2 \\times \\text{centre} - A \\)).</li>
+              <li><strong>A1</strong> — \\( B = (7,\\ 7) \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The method mark is for a valid use of the centre as the midpoint; the accuracy mark is the correct coordinates.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most used the vector method (the step from \\( A \\) to the midpoint equals the step from the midpoint to \\( B \\)) and wrote the answer with little working. A few set up and solved midpoint equations in \\( (x, y) \\) instead.</li>
+            </ul></div>`,
+            modelAnswer: "The centre is the midpoint of \\( AB \\), so \\( B = 2(4,\\ 5) - (1,\\ 3) = (8 - 1,\\ 10 - 3) = (7,\\ 7) \\).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — midpoint/vector method", max: 1, points: ["Used the centre as the midpoint of \\( AB \\): vector \\( A \\to \\text{centre} = \\text{centre} \\to B \\), or \\( B = 2C - A \\)"] },
+                { label: "A1 — coordinates of B", max: 1, points: ["\\( B = (7,\\ 7) \\)"] }
+            ] }
+        },
+        {
+            num: "12 (c)",
+            marks: 3,
+            type: "written",
+            caseId: "q12-2023",
+            question: `<p>\\( D \\) is the point \\( (2,\\ 8) \\).</p><p>Show that \\( AD \\) and \\( DB \\) are perpendicular.</p>`,
+            hint: "Find the gradient of \\( AD \\) and of \\( DB \\), then show their product is \\( -1 \\) — and say so.",
+            starter: "This is a 'show that': state both gradients and finish with a concluding sentence.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO2)</h5><ul>
+              <li><strong>B1</strong> — gradient of \\( AD = \\dfrac{8 - 3}{2 - 1} = 5 \\) (the label "gradient AD" or the change-in-\\(y\\)/change-in-\\(x\\) fraction must be seen).</li>
+              <li><strong>B1</strong> — gradient of \\( DB = \\dfrac{8 - 7}{2 - 7} = -\\dfrac{1}{5} \\) (similarly shown).</li>
+              <li><strong>B1</strong> — since \\( 5 \\times -\\dfrac{1}{5} = -1 \\), the lines are perpendicular ("perpendicular" must be stated).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>No answer box — this is a "show that": you must display both gradients and the concluding statement. Working with the equations of the lines (rather than their gradients) tends to lose marks.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Some tried to find the equation of each line, which caused problems: a few never stated the gradients or the perpendicularity criterion. A few lost the final mark by not completing the "show that" with the statement that the lines are therefore perpendicular.</li>
+            </ul></div>`,
+            modelAnswer: "Gradient of \\( AD = \\dfrac{8 - 3}{2 - 1} = 5 \\); gradient of \\( DB = \\dfrac{8 - 7}{2 - 7} = -\\dfrac{1}{5} \\). Their product is \\( 5 \\times -\\dfrac{1}{5} = -1 \\), so \\( AD \\) and \\( DB \\) are perpendicular.",
+            markPoints: { note: "Show-that: no answer box; the concluding statement is a mark.", groups: [
+                { label: "B1 — gradient of AD", max: 1, points: ["Gradient of \\( AD = \\dfrac{8 - 3}{2 - 1} = 5 \\) (shown as a gradient)"] },
+                { label: "B1 — gradient of DB", max: 1, points: ["Gradient of \\( DB = \\dfrac{8 - 7}{2 - 7} = -\\dfrac{1}{5} \\) (shown as a gradient)"] },
+                { label: "B1 — conclusion", max: 1, points: ["Product \\( = -1 \\), and stated that \\( AD \\) and \\( DB \\) are therefore perpendicular"] }
+            ] }
+        },
+        {
+            num: "12 (d)",
+            marks: 1,
+            type: "written",
+            caseId: "q12-2023",
+            question: `<p>Explain what this tells you about the point \\( D \\).</p>`,
+            hint: "\\( AB \\) is a diameter and \\( \\angle ADB = 90^\\circ \\) — what does the angle-in-a-semicircle theorem say?",
+            starter: "One short sentence about where \\( D \\) lies.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>
+              <li><strong>B1</strong> — e.g. \\( D \\) is on the circle / \\( D \\) is on the circumference.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Any statement placing \\( D \\) on the circle earns the mark; the angle-in-a-semicircle theorem is the reason but is not required.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most stated that \\( D \\) lay on the circle (or its circumference). Justification was not required, though many quoted the angle-in-a-semicircle theorem.</li>
+            </ul></div>`,
+            modelAnswer: "Because \\( AB \\) is a diameter and \\( \\angle ADB = 90^\\circ \\), the angle-in-a-semicircle theorem tells us \\( D \\) lies on the circle (on its circumference).",
+            markPoints: { note: "Award the mark for placing D on the circle.", groups: [
+                { label: "B1 — interpret", max: 1, points: ["Stated that \\( D \\) lies on the circle / on the circumference"] }
+            ] }
+        },
+        {
+            num: "10 (a)",
+            marks: 2,
+            type: "written",
+            caseId: "q10-2019",
+            question: `<p>Show that the \\( x \\)-coordinates of \\( A \\) and \\( B \\) satisfy the equation \\[ 5x^2 + 4kx + (k^2 - 5) = 0. \\]</p>`,
+            hint: "Substitute \\( y = 2x + k \\) into \\( x^2 + y^2 = 5 \\) and expand \\( (2x + k)^2 \\) carefully.",
+            starter: "This is a 'show that' (answer given): every line of algebra must be visible, ending at the printed result.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — substitute \\( y = 2x + k \\) into the circle and attempt to simplify: \\( x^2 + (2x + k)^2 = 5 \\).</li>
+              <li><strong>A1</strong> — correctly reach the given \\( 5x^2 + 4kx + (k^2 - 5) = 0 \\) (AG).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>No answer box — the result is printed, so you must show the substitution and expansion reaching it. The one common error was failing to square the linear term into three terms.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Almost universally answered correctly; the only real error was an inability to square a linear term to give a three-term quadratic.</li>
+            </ul></div>`,
+            modelAnswer: "\\( x^2 + (2x + k)^2 = 5 \\Rightarrow x^2 + 4x^2 + 4kx + k^2 = 5 \\Rightarrow 5x^2 + 4kx + (k^2 - 5) = 0 \\), as required.",
+            markPoints: { note: "Show-that (AG): no answer box; the printed result is the target.", groups: [
+                { label: "M1 — substitute", max: 1, points: ["Substituted \\( y = 2x + k \\) into \\( x^2 + y^2 = 5 \\) and expanded \\( (2x + k)^2 \\)"] },
+                { label: "A1 — reach the AG result", max: 1, points: ["Simplified to the printed \\( 5x^2 + 4kx + (k^2 - 5) = 0 \\)"] }
+            ] }
+        },
+        {
+            num: "10 (b)",
+            marks: 2,
+            type: "written",
+            caseId: "q10-2019",
+            question: `<p>Hence find the values of \\( k \\) for which the line is a tangent to the circle.</p>`,
+            hint: "A tangent touches once, so the quadratic from part (a) has coincident roots: set its discriminant to \\( 0 \\).",
+            starter: "Give both values of \\( k \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>
+              <li><strong>M1</strong> — evidence that a tangent means coincident roots, i.e. discriminant \\( = 0 \\): \\( (4k)^2 - 4(5)(k^2 - 5) = 0 \\).</li>
+              <li><strong>A1</strong> — \\( k = \\pm 5 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>"Hence" directs you to use the quadratic from part (a). The method mark needs some indication that the roots are coincident (discriminant zero).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Poorly answered: most candidates failed to appreciate that for a chord to be a tangent the roots of the quadratic giving the intersections had to be coincident.</li>
+            </ul></div>`,
+            modelAnswer: "Tangent \\( \\Rightarrow \\) coincident roots \\( \\Rightarrow (4k)^2 - 4(5)(k^2 - 5) = 0 \\Rightarrow 16k^2 - 20k^2 + 100 = 0 \\Rightarrow k^2 = 25 \\Rightarrow k = \\pm 5 \\).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — tangent ⇒ equal roots", max: 1, points: ["Set the discriminant of part (a)'s quadratic to \\( 0 \\): \\( (4k)^2 - 4(5)(k^2 - 5) = 0 \\)"] },
+                { label: "A1 — values of k", max: 1, points: ["\\( k = \\pm 5 \\)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

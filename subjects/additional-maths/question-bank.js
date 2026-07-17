@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-17T20:50:45Z · 446 questions
+// Generated: 2026-07-17T21:19:22Z · 622 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -684,16 +684,16 @@ window.QUESTION_BANK = [
   "question": "To simplify \\( a^m \\times a^n \\) you ___B1___ the indices, and to simplify \\( a^m \\div a^n \\) you ___B2___ them.",
   "blankOptions": {
    "B1": [
-    "divide",
-    "add",
-    "term",
-    "solve"
+    "all",
+    "reciprocal",
+    "1",
+    "add"
    ],
    "B2": [
+    "unknown",
+    "power",
     "subtract",
-    "divide",
-    "solve",
-    "coefficient"
+    "identity"
    ]
   },
   "key": {
@@ -713,10 +713,10 @@ window.QUESTION_BANK = [
   "question": "The rule \\( (a^m)^n \\) tells you to ___B1___ the two indices together.",
   "blankOptions": {
    "B1": [
-    "multiply",
-    "identity",
-    "variable",
-    "add"
+    "all",
+    "add",
+    "unknown",
+    "multiply"
    ]
   },
   "key": {
@@ -735,10 +735,10 @@ window.QUESTION_BANK = [
   "question": "For any non-zero base, \\( a^0 \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "index",
-    "subtract",
-    "coefficient",
-    "1"
+    "unknown",
+    "1",
+    "variable",
+    "all"
    ]
   },
   "key": {
@@ -758,9 +758,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "reciprocal",
-    "identity",
-    "nth",
-    "solve"
+    "variable",
+    "all",
+    "1"
    ]
   },
   "key": {
@@ -780,15 +780,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "unknown",
-    "coefficient",
-    "multiply",
-    "nth"
+    "1",
+    "power",
+    "coefficient"
    ],
    "B2": [
-    "power",
-    "nth",
-    "0",
-    "index"
+    "index",
+    "identity",
+    "term",
+    "subtract"
    ]
   },
   "key": {
@@ -808,15 +808,15 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) means the statement is an ___B1___, which is true for ___B2___ values of the variable.",
   "blankOptions": {
    "B1": [
-    "coefficient",
+    "reciprocal",
+    "index",
     "identity",
-    "divide",
-    "variable"
+    "term"
    ],
    "B2": [
-    "coefficient",
-    "nth",
-    "add",
+    "multiply",
+    "term",
+    "1",
     "all"
    ]
   },
@@ -837,10 +837,10 @@ window.QUESTION_BANK = [
   "question": "In \\( a^{1/n} \\) the fraction \\( \\frac{1}{n} \\) tells you to take the ___B1___ root of \\( a \\).",
   "blankOptions": {
    "B1": [
-    "term",
-    "identity",
+    "unknown",
+    "solve",
     "nth",
-    "0"
+    "reciprocal"
    ]
   },
   "key": {
@@ -860,15 +860,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "nth",
-    "constant",
+    "divide",
     "unknown",
-    "variable"
+    "term"
    ],
    "B2": [
-    "identity",
-    "constant",
-    "solve",
-    "nth"
+    "nth",
+    "coefficient",
+    "variable",
+    "solve"
    ]
   },
   "key": {
@@ -1835,10 +1835,10 @@ window.QUESTION_BANK = [
   "question": "To simplify a surd, take out the largest perfect ___B1___ factor.",
   "blankOptions": {
    "B1": [
-    "1",
+    "cube",
     "square",
-    "(x-1)(x+1)",
-    "conjugate"
+    "conjugate",
+    "reciprocal"
    ]
   },
   "key": {
@@ -1857,10 +1857,10 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sqrt{12} = 2\\sqrt{3} \\) we used the fact that \\( 12 = 4 \\times 3 \\) and \\( \\sqrt{4} = \\) ___B1___.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
-    "calculator",
-    "exact",
-    "2"
+    "3",
+    "unlike",
+    "2",
+    "cube"
    ]
   },
   "key": {
@@ -1879,10 +1879,10 @@ window.QUESTION_BANK = [
   "question": "You can only add or subtract surds when they are ___B1___ surds (the same number under the root).",
   "blankOptions": {
    "B1": [
-    "like",
-    "exact",
-    "(x-1)(x+1)",
-    "square"
+    "reciprocal",
+    "conjugate",
+    "unlike",
+    "like"
    ]
   },
   "key": {
@@ -1901,10 +1901,10 @@ window.QUESTION_BANK = [
   "question": "To rationalise \\( \\frac{1}{2+\\sqrt{3}} \\) you multiply by its ___B1___, which is \\( 2-\\sqrt{3} \\).",
   "blankOptions": {
    "B1": [
-    "2",
-    "calculator",
-    "reciprocal",
-    "conjugate"
+    "cube",
+    "conjugate",
+    "3",
+    "exact"
    ]
   },
   "key": {
@@ -1924,9 +1924,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "1",
-    "calculator",
-    "cube",
-    "exact"
+    "expand",
+    "2",
+    "3"
    ]
   },
   "key": {
@@ -1945,9 +1945,9 @@ window.QUESTION_BANK = [
   "question": "To simplify an algebraic fraction you first ___B1___ the top and bottom, then cancel common factors.",
   "blankOptions": {
    "B1": [
-    "calculator",
+    "2",
     "(x-1)(x+1)",
-    "exact",
+    "expand",
     "factorise"
    ]
   },
@@ -1967,10 +1967,10 @@ window.QUESTION_BANK = [
   "question": "To add \\( \\frac{1}{x-1} \\) and \\( \\frac{2}{x+1} \\) you write them over the common denominator ___B1___.",
   "blankOptions": {
    "B1": [
+    "calculator",
     "(x-1)(x+1)",
-    "expand",
-    "factorise",
-    "1"
+    "2",
+    "3"
    ]
   },
   "key": {
@@ -1989,10 +1989,10 @@ window.QUESTION_BANK = [
   "question": "The instruction 'show detailed reasoning' means a ___B1___ answer with no working scores zero.",
   "blankOptions": {
    "B1": [
+    "conjugate",
+    "cube",
     "calculator",
-    "3",
-    "like",
-    "factorise"
+    "(x-1)(x+1)"
    ]
   },
   "key": {
@@ -2878,16 +2878,16 @@ window.QUESTION_BANK = [
   "question": "In the quadratic formula \\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\), the term before the \\( \\pm \\) sign is ___B1___ and the denominator is ___B2___.",
   "blankOptions": {
    "B1": [
-    "double",
-    "both",
+    "square",
     "-b",
-    "discriminant"
+    "negative",
+    "double"
    ],
    "B2": [
-    "2a",
-    "negative",
-    "exact",
-    "both"
+    "add",
+    "square",
+    "both",
+    "2a"
    ]
   },
   "key": {
@@ -2907,16 +2907,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + bx \\), take ___B1___ the coefficient of \\( x \\) and then ___B2___ it.",
   "blankOptions": {
    "B1": [
-    "q",
+    "double",
+    "discriminant",
     "half",
-    "4ac",
-    "both"
+    "3"
    ],
    "B2": [
-    "2a",
-    "-p",
     "square",
-    "double"
+    "4ac",
+    "negative",
+    "-p"
    ]
   },
   "key": {
@@ -2936,16 +2936,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + 6x - 11 \\), the number inside the bracket \\( (x + a)^2 \\) is ___B1___ and the number subtracted at the end is ___B2___.",
   "blankOptions": {
    "B1": [
-    "both",
-    "discriminant",
-    "negative",
-    "3"
+    "exact",
+    "3",
+    "half",
+    "q"
    ],
    "B2": [
-    "-p",
-    "both",
-    "20",
-    "negative"
+    "square",
+    "half",
+    "q",
+    "20"
    ]
   },
   "key": {
@@ -2966,9 +2966,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "q",
-    "exact",
+    "double",
     "discriminant",
-    "add"
+    "both"
    ]
   },
   "key": {
@@ -2987,10 +2987,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, a quadratic has no real roots.",
   "blankOptions": {
    "B1": [
-    "both",
+    "-b",
+    "2a",
     "negative",
-    "20",
-    "-b"
+    "double"
    ]
   },
   "key": {
@@ -3009,15 +3009,15 @@ window.QUESTION_BANK = [
   "question": "For \\( a(x+p)^2 + q \\) with \\( a > 0 \\), the minimum value is ___B1___ and it occurs when \\( x \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "exact",
-    "20",
-    "2a",
-    "q"
+    "q",
+    "half",
+    "negative",
+    "20"
    ],
    "B2": [
-    "square",
-    "4ac",
-    "20",
+    "half",
+    "exact",
+    "double",
     "-p"
    ]
   },
@@ -3038,10 +3038,10 @@ window.QUESTION_BANK = [
   "question": "When you take the square root of both sides you must write \\( \\pm \\) to get ___B1___ roots.",
   "blankOptions": {
    "B1": [
-    "square",
-    "discriminant",
-    "2a",
-    "both"
+    "exact",
+    "negative",
+    "both",
+    "-b"
    ]
   },
   "key": {
@@ -3060,10 +3060,10 @@ window.QUESTION_BANK = [
   "question": "A command word telling you to leave surds rather than round is ___B1___.",
   "blankOptions": {
    "B1": [
-    "half",
-    "negative",
+    "discriminant",
     "exact",
-    "-b"
+    "-p",
+    "3"
    ]
   },
   "key": {
@@ -4021,9 +4021,9 @@ window.QUESTION_BANK = [
   "question": "When you multiply or divide an inequality by a negative number you must ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "closed",
-    "3",
     "add",
+    "keeps",
+    "or",
     "reverse"
    ]
   },
@@ -4043,10 +4043,10 @@ window.QUESTION_BANK = [
   "question": "Adding or subtracting the same quantity from both sides ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "inside",
-    "reverse",
-    "or",
-    "keeps"
+    "keeps",
+    "between",
+    "3",
+    "zero"
    ]
   },
   "key": {
@@ -4065,10 +4065,10 @@ window.QUESTION_BANK = [
   "question": "To solve a quadratic inequality, first rearrange it so that one side equals ___B1___, then factorise.",
   "blankOptions": {
    "B1": [
+    "inside",
+    "3",
     "zero",
-    "open",
-    "closed",
-    "3"
+    "outside"
    ]
   },
   "key": {
@@ -4087,7 +4087,7 @@ window.QUESTION_BANK = [
   "question": "The quadratic \\( x^2 - x - 6 \\) factorises to \\( (x-3)(x+2) \\), so its critical values are \\( 3 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "3",
+    "between",
     "reverse",
     "-2",
     "flip"
@@ -4110,9 +4110,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "between",
-    "and",
-    "closed",
-    "reverse"
+    "zero",
+    "or",
+    "3"
    ]
   },
   "key": {
@@ -4131,10 +4131,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c > 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
-    "inside",
     "outside",
-    "3",
-    "open"
+    "or",
+    "add",
+    "inside"
    ]
   },
   "key": {
@@ -4153,10 +4153,10 @@ window.QUESTION_BANK = [
   "question": "A strict inequality such as \\( < \\) or \\( > \\) is shown on a number line with an ___B1___ circle.",
   "blankOptions": {
    "B1": [
-    "zero",
     "open",
-    "inside",
-    "keeps"
+    "keeps",
+    "flip",
+    "inside"
    ]
   },
   "key": {
@@ -4175,10 +4175,10 @@ window.QUESTION_BANK = [
   "question": "The solution to \\( x^2 > 9 \\) is \\( x < -3 \\) ___B1___ \\( x > 3 \\).",
   "blankOptions": {
    "B1": [
-    "inside",
-    "closed",
-    "outside",
-    "or"
+    "reverse",
+    "3",
+    "or",
+    "and"
    ]
   },
   "key": {
@@ -5048,10 +5048,10 @@ window.QUESTION_BANK = [
   "question": "A polynomial written with its powers going from highest to lowest is in ___B1___ order.",
   "blankOptions": {
    "B1": [
-    "term",
+    "constant",
     "descending",
-    "placeholder",
-    "14"
+    "coefficient",
+    "remainder"
    ]
   },
   "key": {
@@ -5070,16 +5070,16 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ of a polynomial is the highest power of the variable, and the number multiplying a power of \\( x \\) is its ___B2___.",
   "blankOptions": {
    "B1": [
-    "dividend",
-    "descending",
+    "degree",
     "ascending",
-    "degree"
+    "placeholder",
+    "constant"
    ],
    "B2": [
-    "zero",
-    "factor",
     "coefficient",
-    "constant"
+    "constant",
+    "term",
+    "zero"
    ]
   },
   "key": {
@@ -5099,10 +5099,10 @@ window.QUESTION_BANK = [
   "question": "To subtract one polynomial from another you must change the ___B1___ of every term in the second bracket.",
   "blankOptions": {
    "B1": [
+    "sign",
     "term",
-    "14",
-    "dividend",
-    "sign"
+    "degree",
+    "coefficient"
    ]
   },
   "key": {
@@ -5121,16 +5121,16 @@ window.QUESTION_BANK = [
   "question": "In long division the expression built up on top is the ___B1___ and the value left over at the end is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "ascending",
     "quotient",
-    "placeholder",
-    "term"
+    "degree",
+    "descending",
+    "ascending"
    ],
    "B2": [
-    "descending",
+    "zero",
+    "14",
     "remainder",
-    "constant",
-    "dividend"
+    "placeholder"
    ]
   },
   "key": {
@@ -5150,10 +5150,10 @@ window.QUESTION_BANK = [
   "question": "When \\( x^3 + 2x^2 - 5x + 8 \\) is divided by \\( x + 3 \\), the quotient is \\( x^2 - x - 2 \\) and the remainder is ___B1___.",
   "blankOptions": {
    "B1": [
-    "term",
     "14",
-    "remainder",
-    "factor"
+    "factor",
+    "degree",
+    "coefficient"
    ]
   },
   "key": {
@@ -5172,10 +5172,10 @@ window.QUESTION_BANK = [
   "question": "When a polynomial is divided by \\( x - a \\) and the remainder is ___B1___, then \\( x - a \\) is a factor.",
   "blankOptions": {
    "B1": [
-    "ascending",
-    "coefficient",
+    "constant",
+    "quotient",
     "zero",
-    "sign"
+    "remainder"
    ]
   },
   "key": {
@@ -5195,9 +5195,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "placeholder",
-    "constant",
-    "degree",
-    "quotient"
+    "sign",
+    "ascending",
+    "term"
    ]
   },
   "key": {
@@ -6101,10 +6101,10 @@ window.QUESTION_BANK = [
   "question": "The factor theorem states that if \\( \\text{f}(a) \\) equals ___B1___, then \\( (x - a) \\) is a factor of \\( \\text{f}(x) \\).",
   "blankOptions": {
    "B1": [
-    "factor",
-    "linear",
+    "1",
+    "is",
     "0",
-    "not"
+    "a"
    ]
   },
   "key": {
@@ -6124,9 +6124,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "0",
-    "1",
+    "is",
     "2",
-    "multiples"
+    "a"
    ]
   },
   "key": {
@@ -6145,10 +6145,10 @@ window.QUESTION_BANK = [
   "question": "To find a whole-number factor of a cubic, test the ___B1___ of the constant term.",
   "blankOptions": {
    "B1": [
-    "1",
-    "root",
+    "3/2",
+    "1/2",
     "factors",
-    "linear"
+    "factor"
    ]
   },
   "key": {
@@ -6167,10 +6167,10 @@ window.QUESTION_BANK = [
   "question": "To test whether \\( (2x - 1) \\) is a factor of \\( \\text{f}(x) \\), work out f of ___B1___.",
   "blankOptions": {
    "B1": [
-    "2",
-    "quadratic",
-    "1",
-    "1/2"
+    "1/2",
+    "3/2",
+    "0",
+    "factor"
    ]
   },
   "key": {
@@ -6189,16 +6189,16 @@ window.QUESTION_BANK = [
   "question": "The factor theorem finds ___B1___ factors of a polynomial; the remainder theorem is ___B2___ on this specification.",
   "blankOptions": {
    "B1": [
-    "0",
+    "a",
+    "factors",
     "linear",
-    "factor",
-    "quadratic"
+    "factor"
    ],
    "B2": [
     "not",
     "a",
-    "factors",
-    "3/2"
+    "root",
+    "multiples"
    ]
   },
   "key": {
@@ -6218,10 +6218,10 @@ window.QUESTION_BANK = [
   "question": "After factorising, you solve \\( \\text{f}(x) = 0 \\) by setting each ___B1___ equal to zero.",
   "blankOptions": {
    "B1": [
-    "factors",
-    "1/2",
+    "is",
     "a",
-    "factor"
+    "factor",
+    "root"
    ]
   },
   "key": {
@@ -6240,9 +6240,9 @@ window.QUESTION_BANK = [
   "question": "For \\( 2x^3 - x^2 - 7x + 6 \\), testing gives \\( \\text{f}(1) = 0 \\), so (x − ___B1___) is a factor.",
   "blankOptions": {
    "B1": [
-    "quadratic",
+    "2",
     "1",
-    "is",
+    "0",
     "root"
    ]
   },
@@ -7165,10 +7165,10 @@ window.QUESTION_BANK = [
   "question": "The first step in modelling a worded problem is to define the ___B1___ and state what it represents.",
   "blankOptions": {
    "B1": [
-    "n+2",
     "unknown",
-    "reject",
-    "2n"
+    "16",
+    "variable",
+    "units"
    ]
   },
   "key": {
@@ -7188,8 +7188,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "unknown",
-    "2n",
     "1",
+    "units",
     "reject"
    ]
   },
@@ -7209,10 +7209,10 @@ window.QUESTION_BANK = [
   "question": "To solve one linear and one quadratic equation together, use the method of ___B1___.",
   "blankOptions": {
    "B1": [
-    "n+2",
-    "reject",
-    "accept",
-    "substitution"
+    "variable",
+    "n+3",
+    "substitution",
+    "units"
    ]
   },
   "key": {
@@ -7231,10 +7231,10 @@ window.QUESTION_BANK = [
   "question": "In the boat problem the two roots were 1 and \\( -16 \\); the current speed must be positive, so the answer is ___B1___ km/h.",
   "blankOptions": {
    "B1": [
+    "n+3",
+    "1",
     "elimination",
-    "reject",
-    "2n",
-    "1"
+    "units"
    ]
   },
   "key": {
@@ -7253,10 +7253,10 @@ window.QUESTION_BANK = [
   "question": "A final answer in a real context should always be stated with its ___B1___.",
   "blankOptions": {
    "B1": [
+    "elimination",
     "accept",
-    "unknown",
-    "units",
-    "reject"
+    "minus",
+    "units"
    ]
   },
   "key": {
@@ -7275,10 +7275,10 @@ window.QUESTION_BANK = [
   "question": "The phrase \"5 more than a number \\( x \\)\" translates to \\( x \\) ___B1___ 5.",
   "blankOptions": {
    "B1": [
-    "1",
-    "plus",
-    "16",
-    "n+3"
+    "unknown",
+    "reject",
+    "units",
+    "plus"
    ]
   },
   "key": {
@@ -7297,10 +7297,10 @@ window.QUESTION_BANK = [
   "question": "Three consecutive integers can be written as \\( n \\), \\( n+1 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
+    "variable",
+    "units",
     "n+2",
-    "elimination",
-    "units"
+    "minus"
    ]
   },
   "key": {
@@ -8151,10 +8151,10 @@ window.QUESTION_BANK = [
   "question": "A rule that gives each term of a sequence from earlier terms is called a ___B1___ relationship.",
   "blankOptions": {
    "B1": [
-    "0.15",
-    "recurrence",
-    "geometric",
-    "multiplied"
+    "7",
+    "multiplied",
+    "subtracted",
+    "recurrence"
    ]
   },
   "key": {
@@ -8173,10 +8173,10 @@ window.QUESTION_BANK = [
   "question": "As well as the rule, you need a ___B1___ value before you can generate the sequence.",
   "blankOptions": {
    "B1": [
-    "starting",
     "two",
-    "11",
-    "0.85"
+    "starting",
+    "0.85",
+    "geometric"
    ]
   },
   "key": {
@@ -8195,9 +8195,9 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = x_n + a \\) the fixed number \\( a \\) is ___B1___ to each term, giving an arithmetic sequence.",
   "blankOptions": {
    "B1": [
+    "starting",
+    "1.3",
     "0.15",
-    "subtracted",
-    "multiplied",
     "added"
    ]
   },
@@ -8217,10 +8217,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = a x_n \\) each term is ___B1___ by \\( a \\), giving a geometric sequence.",
   "blankOptions": {
    "B1": [
-    "geometric",
+    "7",
+    "1.3",
     "multiplied",
-    "two",
-    "recurrence"
+    "11"
    ]
   },
   "key": {
@@ -8239,10 +8239,10 @@ window.QUESTION_BANK = [
   "question": "A second-order rule such as \\( x_{n+2} = x_{n+1} + x_n \\) needs ___B1___ starting values.",
   "blankOptions": {
    "B1": [
-    "recurrence",
     "11",
-    "divided",
-    "two"
+    "subtracted",
+    "two",
+    "0.15"
    ]
   },
   "key": {
@@ -8261,9 +8261,9 @@ window.QUESTION_BANK = [
   "question": "Compound interest of 3% per year gives \\( x_{n+1} = k x_n \\) where the multiplier \\( k \\) is ___B1___.",
   "blankOptions": {
    "B1": [
+    "one",
     "starting",
-    "two",
-    "7",
+    "divided",
     "1.03"
    ]
   },
@@ -8283,9 +8283,9 @@ window.QUESTION_BANK = [
   "question": "An asset that loses 15% of its value each year has multiplier ___B1___.",
   "blankOptions": {
    "B1": [
-    "7",
     "0.85",
-    "added",
+    "geometric",
+    "one",
     "1.03"
    ]
   },
@@ -8305,16 +8305,16 @@ window.QUESTION_BANK = [
   "question": "For \\( x_{n+1} = x_n + 4 \\) with \\( x_1 = 3 \\), the second term is ___B1___ and the third term is ___B2___.",
   "blankOptions": {
    "B1": [
-    "multiplied",
-    "1.03",
+    "0.85",
     "7",
-    "one"
+    "multiplied",
+    "added"
    ],
    "B2": [
-    "0.15",
-    "added",
-    "11",
-    "two"
+    "1.03",
+    "subtracted",
+    "geometric",
+    "11"
    ]
   },
   "key": {
@@ -8550,6 +8550,3428 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 1,
    "explain": "“Starting value” means: The first term, needed to begin the sequence"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:exam:59649aaf",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": "9",
+  "question": "<p>The point \\( A \\) has the coordinates \\( (3, 7) \\) and the point \\( B \\) has the coordinates \\( (7, 1) \\).</p>\n            <p>Find the equation of the perpendicular bisector of \\( AB \\). <strong>[5]</strong></p>",
+  "hint": "Find the midpoint of \\( AB \\), then the gradient of \\( AB \\), and take its negative reciprocal for the bisector.",
+  "starter": "Give your answer as an equation \\( y = mx + c \\) (oe).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO1)</h5>\n              <p><strong>Method A — equidistance (locus):</strong> every point equidistant from \\( A \\) and \\( B \\).</p>\n              <ul>\n                <li><strong>M1</strong> — sets the two distances equal: \\( (x-3)^2 + (y-7)^2 = (x-7)^2 + (y-1)^2 \\) (equidistant from \\( A \\) and \\( B \\)).</li>\n                <li><strong>M1</strong> — finds a correct distance/expression for one length.</li>\n                <li><strong>A1</strong> — correct unsimplified expansion.</li>\n                <li><strong>B1</strong> — reduction to linear form, e.g. \\( 8x - 12y + 8 = 0 \\).</li>\n                <li><strong>A1</strong> — 3-term equation \\( y = \\frac{2}{3}x + \\frac{2}{3} \\) (oe).</li>\n              </ul>\n              <p><strong>Method B — midpoint + negative-reciprocal gradient:</strong></p>\n              <ul>\n                <li><strong>M1</strong> — finds the gradient of the perpendicular bisector (uses gradient of \\( AB = -\\frac{3}{2} \\)).</li>\n                <li><strong>A1</strong> — perpendicular gradient \\( = \\frac{2}{3} \\).</li>\n                <li><strong>B1</strong> — midpoint of \\( AB = (5, 4) \\) (soi — seen or implied by use).</li>\n                <li><strong>M1</strong> — uses a standard line form with their midpoint and their perpendicular gradient: \\( y - 4 = \\frac{2}{3}(x - 5) \\).</li>\n                <li><strong>A1</strong> — 3-term equation \\( y = \\frac{2}{3}x + \\frac{2}{3} \\) (oe).</li>\n              </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The two methods are equivalent and each earns the full 5 marks; tick the row for whichever method you used.</li>\n              <li>The final line is marked \"oe\" — any correct 3-term equation scores (e.g. \\( 3y = 2x + 2 \\) or \\( 2x - 3y + 2 = 0 \\)).</li>\n              <li>The midpoint mark can be awarded \"soi\" — implied by correct use even if never written on its own line.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most candidates managed this question with great success. A large number also found the equation of the line \\( AB \\) as if that were something one must always do when finding the perpendicular bisector of \\( AB \\).</li>\n              <li>There were a few who did not find the midpoint, and a few who got the original gradient of \\( AB \\) wrong and so made errors from there.</li>\n              <li>A few candidates managed the first 4 marks, used \\( y = mx + c \\) rather than \\( y - y_1 = m(x - x_1) \\), and got the wrong value of \\( c \\) because of numerical slips.</li>\n            </ul></div>",
+   "modelAnswer": "Midpoint of \\( AB = \\left( \\frac{3+7}{2},\\ \\frac{7+1}{2} \\right) = (5, 4) \\). Gradient of \\( AB = \\frac{1-7}{7-3} = -\\frac{3}{2} \\), so the perpendicular gradient \\( = \\frac{2}{3} \\). Line through \\( (5, 4) \\): \\( y - 4 = \\frac{2}{3}(x - 5) \\Rightarrow y = \\frac{2}{3}x - \\frac{10}{3} + 4 = \\frac{2}{3}x + \\frac{2}{3} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:mcq:429950f6",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find the distance between \\( (1, 2) \\) and \\( (4, 6) \\).",
+  "options": [
+   "\\( 5 \\)",
+   "\\( 25 \\)",
+   "\\( \\sqrt{7} \\)",
+   "\\( 7 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sqrt{(4-1)^2 + (6-2)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5 \\). \\( 25 \\) forgets the square root."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:mcq:8858413c",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find the midpoint of \\( (2, 1) \\) and \\( (5, 7) \\).",
+  "options": [
+   "\\( (3.5,\\ 4) \\)",
+   "\\( (3,\\ 6) \\)",
+   "\\( (7,\\ 8) \\)",
+   "\\( (1.5,\\ 3) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Average each coordinate: \\( \\left( \\frac{2+5}{2},\\ \\frac{1+7}{2} \\right) = (3.5,\\ 4) \\). \\( (3, 6) \\) subtracts instead of averaging."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:mcq:5dea7530",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find the gradient of the line through \\( (2, 1) \\) and \\( (5, 7) \\).",
+  "options": [
+   "\\( 2 \\)",
+   "\\( \\frac{1}{2} \\)",
+   "\\( -2 \\)",
+   "\\( 3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( m = \\frac{7-1}{5-2} = \\frac{6}{3} = 2 \\). \\( \\frac{1}{2} \\) is run over rise (upside down)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:mcq:e581c64c",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A line has gradient \\( 3 \\). What is the gradient of a line perpendicular to it?",
+  "options": [
+   "\\( -\\frac{1}{3} \\)",
+   "\\( \\frac{1}{3} \\)",
+   "\\( -3 \\)",
+   "\\( 3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Negative reciprocal of \\( 3 \\) is \\( -\\frac{1}{3} \\). \\( \\frac{1}{3} \\) flips but forgets the minus sign."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:mcq:f1aa96b6",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which line is parallel to \\( y = 3x - 4 \\)?",
+  "options": [
+   "\\( y = 3x + 1 \\)",
+   "\\( y = -3x - 4 \\)",
+   "\\( y = \\frac{1}{3}x - 4 \\)",
+   "\\( y = -\\frac{1}{3}x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Parallel lines share the gradient \\( 3 \\); only the intercept may differ."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:mcq:918e870c",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the gradient of the line \\( y = 5 - 2x \\)?",
+  "options": [
+   "\\( -2 \\)",
+   "\\( 5 \\)",
+   "\\( 2 \\)",
+   "\\( -5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Written as \\( y = -2x + 5 \\), the coefficient of \\( x \\) is the gradient: \\( -2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:mcq:981fff76",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find the equation of the line with gradient \\( 4 \\) that crosses the \\( y \\)-axis at \\( -3 \\).",
+  "options": [
+   "\\( y = 4x - 3 \\)",
+   "\\( y = 4x + 3 \\)",
+   "\\( y = -3x + 4 \\)",
+   "\\( y = 4x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The \\( y \\)-intercept is \\( c = -3 \\), so \\( y = 4x - 3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:mcq:f5c96e88",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find the equation of the line with gradient \\( 2 \\) through \\( (2, 1) \\).",
+  "options": [
+   "\\( y = 2x - 3 \\)",
+   "\\( y = 2x + 1 \\)",
+   "\\( y = 2x - 1 \\)",
+   "\\( y = \\frac{1}{2}x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( y - 1 = 2(x - 2) = 2x - 4 \\), so \\( y = 2x - 3 \\). Check: \\( 2(2) - 3 = 1 \\) ✓."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:mcq:d8c73831",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A segment has gradient \\( \\frac{1}{2} \\). What is the gradient of its perpendicular bisector?",
+  "options": [
+   "\\( -2 \\)",
+   "\\( 2 \\)",
+   "\\( \\frac{1}{2} \\)",
+   "\\( -\\frac{1}{2} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The bisector is perpendicular, so use the negative reciprocal of \\( \\frac{1}{2} \\): \\( -2 \\). Using \\( \\frac{1}{2} \\) or \\( 2 \\) keeps the segment's own gradient."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:mcq:0ef49212",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "\\( A \\) is \\( (1, 2) \\) and \\( B \\) is \\( (5, 4) \\). Which point must lie on the perpendicular bisector of \\( AB \\)?",
+  "options": [
+   "\\( (3,\\ 3) \\)",
+   "\\( (6,\\ 6) \\)",
+   "\\( (2,\\ 1) \\)",
+   "\\( (4,\\ 2) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The bisector passes through the midpoint \\( \\left( \\frac{1+5}{2},\\ \\frac{2+4}{2} \\right) = (3,\\ 3) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:mcq:8cd33e77",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the relationship between \\( y = 2x + 1 \\) and \\( y = -\\frac{1}{2}x + 4 \\)?",
+  "options": [
+   "Perpendicular",
+   "Parallel",
+   "They are the same line",
+   "Neither parallel nor perpendicular"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The gradients multiply: \\( 2 \\times -\\frac{1}{2} = -1 \\), so the lines are perpendicular."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:mcq:b1791531",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which pair of gradients belongs to a pair of perpendicular lines?",
+  "options": [
+   "\\( \\frac{2}{3} \\) and \\( -\\frac{3}{2} \\)",
+   "\\( \\frac{2}{3} \\) and \\( \\frac{3}{2} \\)",
+   "\\( \\frac{2}{3} \\) and \\( -\\frac{2}{3} \\)",
+   "\\( \\frac{2}{3} \\) and \\( \\frac{2}{3} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Perpendicular needs \\( m_1 m_2 = -1 \\): \\( \\frac{2}{3} \\times -\\frac{3}{2} = -1 \\). \\( \\frac{2}{3} \\) and \\( \\frac{3}{2} \\) is the reciprocal without the minus."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:tf:eec0bc2e",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The distance between two points is \\( \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\).",
+  "key": {
+   "answer": true,
+   "explain": "This is Pythagoras' theorem applied to the horizontal and vertical gaps."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:tf:a2916e2b",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "You find the midpoint of a segment by subtracting the coordinates of one endpoint from the other.",
+  "key": {
+   "answer": false,
+   "explain": "You AVERAGE them: \\( \\left( \\frac{x_1+x_2}{2},\\ \\frac{y_1+y_2}{2} \\right) \\). Subtracting gives a gap, not the middle."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:tf:045eb118",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Parallel lines have equal gradients.",
+  "key": {
+   "answer": true,
+   "explain": "Same steepness, same gradient; only their \\( y \\)-intercepts differ."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:tf:16b967c5",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The gradient of a line perpendicular to one with gradient \\( \\frac{2}{3} \\) is \\( \\frac{3}{2} \\).",
+  "key": {
+   "answer": false,
+   "explain": "It is the NEGATIVE reciprocal, \\( -\\frac{3}{2} \\). Check: \\( \\frac{2}{3} \\times -\\frac{3}{2} = -1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:tf:923c3ec0",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If two lines are perpendicular, the product of their gradients is \\( -1 \\).",
+  "key": {
+   "answer": true,
+   "explain": "\\( m_1 m_2 = -1 \\) is the test for perpendicularity."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:tf:c9e34fb4",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The perpendicular bisector of \\( AB \\) passes through the midpoint of \\( AB \\).",
+  "key": {
+   "answer": true,
+   "explain": "It bisects the segment, so it must cross at the midpoint — and at a right angle."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:tf:0ea73a0a",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The gradient of the line \\( y = 7 - 3x \\) is \\( 7 \\).",
+  "key": {
+   "answer": false,
+   "explain": "Rewrite as \\( y = -3x + 7 \\); the gradient is the coefficient of \\( x \\), which is \\( -3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:tf:c57c54ef",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A vertical line has a gradient of \\( 0 \\).",
+  "key": {
+   "answer": false,
+   "explain": "A HORIZONTAL line has gradient \\( 0 \\). A vertical line has an undefined gradient — its run is zero."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:learn:70ae9397",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the distance between two points?",
+  "reading": "<p>The <strong>distance</strong> between two points is just <strong>Pythagoras' theorem</strong> in disguise. The horizontal gap is \\( x_2 - x_1 \\), the vertical gap is \\( y_2 - y_1 \\), and the straight-line distance is the hypotenuse: \\[ d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}. \\]</p>\n            <ul>\n              <li>It does not matter which point you call 1 and which you call 2 — the differences are <strong>squared</strong>, so any sign is removed.</li>\n              <li>Leave the answer as an <strong>exact surd</strong> unless a decimal is asked for.</li>\n            </ul>\n            <p><strong>Worked example — distance between \\( P(1, 2) \\) and \\( Q(4, 6) \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Horizontal gap: \\( x_2 - x_1 = 4 - 1 = 3 \\).</td></tr>\n              <tr><td>2. Vertical gap: \\( y_2 - y_1 = 6 - 2 = 4 \\).</td></tr>\n              <tr><td>3. Square and add: \\( 3^2 + 4^2 = 9 + 16 = 25 \\).</td></tr>\n              <tr><td>4. Square root: \\[ d = \\sqrt{25} = 5. \\]</td></tr>\n            </table>\n            <p>The most common slip is forgetting the final square root, or squaring only one of the two gaps.</p>",
+  "question": "Find the distance between \\( (0, 0) \\) and \\( (6, 8) \\).",
+  "options": [
+   "\\( 10 \\)",
+   "\\( 14 \\)",
+   "\\( 100 \\)",
+   "\\( \\sqrt{28} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:learn:4720dcaa",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the midpoint of a line segment?",
+  "reading": "<p>The <strong>midpoint</strong> is the point exactly halfway along a segment. You <strong>average</strong> the two \\( x \\)-coordinates and average the two \\( y \\)-coordinates: \\[ M = \\left( \\frac{x_1 + x_2}{2},\\ \\frac{y_1 + y_2}{2} \\right). \\]</p>\n            <ul>\n              <li>You <strong>add</strong> the coordinates and halve — you do <strong>not</strong> subtract them (subtracting gives a gap, not a middle).</li>\n              <li>The midpoint is the key first step for a <strong>perpendicular bisector</strong> (last card).</li>\n            </ul>\n            <p><strong>Worked example — midpoint of \\( A(-2, 1) \\) and \\( B(4, 5) \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Average the \\( x \\)-values: \\( \\frac{-2 + 4}{2} = \\frac{2}{2} = 1 \\).</td></tr>\n              <tr><td>2. Average the \\( y \\)-values: \\( \\frac{1 + 5}{2} = \\frac{6}{2} = 3 \\).</td></tr>\n              <tr><td>3. So the midpoint is \\[ M = (1,\\ 3). \\]</td></tr>\n            </table>\n            <p>Check it feels right: \\( (1, 3) \\) sits between \\( (-2, 1) \\) and \\( (4, 5) \\). ✓</p>",
+  "question": "Find the midpoint of \\( (2, 4) \\) and \\( (6, 10) \\).",
+  "options": [
+   "\\( (4,\\ 7) \\)",
+   "\\( (4,\\ 6) \\)",
+   "\\( (8,\\ 14) \\)",
+   "\\( (2,\\ 3) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\left( \\frac{2+6}{2},\\ \\frac{4+10}{2} \\right) = (4,\\ 7) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:learn:cf7800ed",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the gradient of a line?",
+  "reading": "<p>The <strong>gradient</strong> measures steepness — how much \\( y \\) changes for each step in \\( x \\). It is the <strong>rise over the run</strong>: \\[ m = \\frac{y_2 - y_1}{x_2 - x_1}. \\]</p>\n            <ul>\n              <li>A <strong>positive</strong> gradient rises left-to-right; a <strong>negative</strong> gradient falls.</li>\n              <li>A <strong>horizontal</strong> line has gradient \\( 0 \\); a <strong>vertical</strong> line has an <strong>undefined</strong> gradient (the run is zero, so you would divide by zero).</li>\n              <li>Keep the coordinates in the <strong>same order</strong> top and bottom — the \\( y \\)-difference over the matching \\( x \\)-difference — or you flip the sign.</li>\n            </ul>\n            <p><strong>Worked example — gradient through \\( A(2, 1) \\) and \\( B(5, 7) \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Rise (change in \\( y \\)): \\( 7 - 1 = 6 \\).</td></tr>\n              <tr><td>2. Run (change in \\( x \\)): \\( 5 - 2 = 3 \\).</td></tr>\n              <tr><td>3. Gradient: \\[ m = \\frac{6}{3} = 2. \\]</td></tr>\n            </table>\n            <svg viewBox=\"0 0 300 200\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"A line rising from point (2,1) to point (5,7) with a right-angled gradient triangle showing a run of 3 and a rise of 6\">\n              <line x1=\"60\" y1=\"160\" x2=\"240\" y2=\"40\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <line x1=\"60\" y1=\"160\" x2=\"240\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/>\n              <line x1=\"240\" y1=\"160\" x2=\"240\" y2=\"40\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/>\n              <circle cx=\"60\" cy=\"160\" r=\"4\" fill=\"currentColor\"/>\n              <circle cx=\"240\" cy=\"40\" r=\"4\" fill=\"currentColor\"/>\n              <text x=\"52\" y=\"176\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">A(2, 1)</text>\n              <text x=\"240\" y=\"34\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">B(5, 7)</text>\n              <text x=\"150\" y=\"176\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">run = 3</text>\n              <text x=\"248\" y=\"105\" text-anchor=\"start\" font-size=\"13\" fill=\"currentColor\">rise = 6</text>\n            </svg>\n            <p>The triangle shows it directly: go along 3, up 6, so each step across gains 2 in height — gradient 2.</p>",
+  "question": "Find the gradient of the line through \\( (1, 5) \\) and \\( (4, 2) \\).",
+  "options": [
+   "\\( -1 \\)",
+   "\\( 1 \\)",
+   "\\( 3 \\)",
+   "\\( -3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( m = \\frac{2 - 5}{4 - 1} = \\frac{-3}{3} = -1 \\) — the line falls."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:learn:a49e245e",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the equation of a straight line?",
+  "reading": "<p>Every straight line can be written as \\[ y = mx + c, \\] where \\( m \\) is the <strong>gradient</strong> and \\( c \\) is the <strong>\\( y \\)-intercept</strong> (where it crosses the \\( y \\)-axis).</p>\n            <p>When you know the gradient and <strong>one point</strong> \\( (x_1, y_1) \\), the quickest route is the <strong>point-gradient form</strong>: \\[ y - y_1 = m(x - x_1). \\]</p>\n            <p><strong>Worked example — line with gradient \\( 2 \\) through \\( (2, 1) \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Substitute into point-gradient form: \\( y - 1 = 2(x - 2) \\).</td></tr>\n              <tr><td>2. Expand the bracket: \\( y - 1 = 2x - 4 \\).</td></tr>\n              <tr><td>3. Rearrange: \\[ y = 2x - 3. \\]</td></tr>\n            </table>\n            <p>Examiners recommend point-gradient form because substituting a point into \\( y = mx + c \\) to find \\( c \\) is where careless <strong>numerical slips</strong> creep in. Check: at \\( x = 2 \\), \\( y = 2(2) - 3 = 1 \\) ✓.</p>",
+  "question": "Find the equation of the line with gradient \\( 3 \\) passing through \\( (1, 2) \\).",
+  "options": [
+   "\\( y = 3x - 1 \\)",
+   "\\( y = 3x + 2 \\)",
+   "\\( y = 3x + 1 \\)",
+   "\\( y = x + 3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( y - 2 = 3(x - 1) = 3x - 3 \\), so \\( y = 3x - 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:learn:63d4b16a",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How are the gradients of parallel and perpendicular lines related?",
+  "reading": "<p>Two straight lines relate through their gradients.</p>\n            <ul>\n              <li><strong>Parallel lines have equal gradients.</strong> If one line has gradient \\( 3 \\), every line parallel to it also has gradient \\( 3 \\) (only the intercept differs).</li>\n              <li><strong>Perpendicular lines have gradients that multiply to \\( -1 \\):</strong> \\[ m_1 m_2 = -1. \\] So one gradient is the <strong>negative reciprocal</strong> of the other: flip it upside down <em>and</em> change its sign.</li>\n            </ul>\n            <p><strong>Finding a perpendicular gradient:</strong></p>\n            <table class=\"worked\">\n              <tr><td>Gradient \\( 2 \\) → perpendicular gradient \\( -\\frac{1}{2} \\) (flip to \\( \\frac{1}{2} \\), negate).</td></tr>\n              <tr><td>Gradient \\( -\\frac{3}{4} \\) → perpendicular gradient \\( \\frac{4}{3} \\).</td></tr>\n              <tr><td>Gradient \\( \\frac{2}{3} \\) → perpendicular gradient \\( -\\frac{3}{2} \\).</td></tr>\n            </table>\n            <p>The classic error is to flip the fraction but <strong>forget the minus sign</strong>: the perpendicular to gradient \\( 3 \\) is \\( -\\frac{1}{3} \\), not \\( \\frac{1}{3} \\). Test it: \\( 3 \\times \\left(-\\frac{1}{3}\\right) = -1 \\) ✓.</p>",
+  "question": "A line has gradient \\( \\frac{4}{5} \\). What is the gradient of a line perpendicular to it?",
+  "options": [
+   "\\( -\\frac{5}{4} \\)",
+   "\\( \\frac{5}{4} \\)",
+   "\\( -\\frac{4}{5} \\)",
+   "\\( \\frac{4}{5} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Negative reciprocal: flip \\( \\frac{4}{5} \\) to \\( \\frac{5}{4} \\) and negate → \\( -\\frac{5}{4} \\). Check: \\( \\frac{4}{5} \\times -\\frac{5}{4} = -1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:learn:8d7386be",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the perpendicular bisector of a segment?",
+  "reading": "<p>The <strong>perpendicular bisector</strong> of a segment \\( AB \\) is the line that cuts \\( AB \\) <strong>in half</strong> and crosses it <strong>at a right angle</strong>. Every point on it is the <strong>same distance</strong> from \\( A \\) as from \\( B \\). You need just two ingredients:</p>\n            <ul>\n              <li>the <strong>midpoint</strong> of \\( AB \\) (the bisector passes through it), and</li>\n              <li>the <strong>negative reciprocal</strong> of the gradient of \\( AB \\) (so it is perpendicular).</li>\n            </ul>\n            <p><strong>Worked example — perpendicular bisector of \\( C(1, 2) \\) and \\( D(5, 4) \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Midpoint: \\( \\left( \\frac{1+5}{2},\\ \\frac{2+4}{2} \\right) = (3,\\ 3) \\).</td></tr>\n              <tr><td>2. Gradient of \\( CD \\): \\( \\frac{4 - 2}{5 - 1} = \\frac{2}{4} = \\frac{1}{2} \\).</td></tr>\n              <tr><td>3. Perpendicular gradient: \\( -2 \\) (negative reciprocal of \\( \\frac{1}{2} \\)).</td></tr>\n              <tr><td>4. Line through \\( (3, 3) \\): \\( y - 3 = -2(x - 3) \\Rightarrow \\ y = -2x + 9 \\).</td></tr>\n            </table>\n            <svg viewBox=\"0 0 300 200\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Segment C D with its midpoint marked, and the perpendicular bisector crossing it at a right angle\">\n              <line x1=\"123\" y1=\"48\" x2=\"177\" y2=\"192\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/>\n              <line x1=\"70\" y1=\"150\" x2=\"230\" y2=\"90\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <polyline points=\"161,116 165,127 154,131\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n              <circle cx=\"70\" cy=\"150\" r=\"4\" fill=\"currentColor\"/>\n              <circle cx=\"230\" cy=\"90\" r=\"4\" fill=\"currentColor\"/>\n              <circle cx=\"150\" cy=\"120\" r=\"4\" fill=\"currentColor\"/>\n              <text x=\"60\" y=\"166\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">C(1, 2)</text>\n              <text x=\"234\" y=\"84\" text-anchor=\"start\" font-size=\"13\" fill=\"currentColor\">D(5, 4)</text>\n              <text x=\"120\" y=\"128\" text-anchor=\"end\" font-size=\"12\" fill=\"currentColor\">M(3, 3)</text>\n              <text x=\"186\" y=\"188\" text-anchor=\"start\" font-size=\"12\" fill=\"currentColor\">bisector</text>\n            </svg>\n            <p>The dashed line is the perpendicular bisector: it meets \\( CD \\) at the midpoint \\( (3, 3) \\) at \\( 90^\\circ \\).</p>",
+  "question": "The perpendicular bisector of a segment must pass through which point of the segment?",
+  "options": [
+   "Its midpoint",
+   "One of its endpoints",
+   "The origin",
+   "Its highest point"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "By definition it bisects the segment, so it passes through the midpoint, at a right angle."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:misc:317c5acb",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Perpendicular to gradient \\( 4 \\) is \\( \\frac{1}{4} \\) — just flip the fraction.</p><p><strong>✅ The correct idea:</strong> The perpendicular gradient is the NEGATIVE reciprocal, so it is \\( -\\frac{1}{4} \\). A weak answer takes the reciprocal without the minus; a strong answer checks \\( 4 \\times -\\frac{1}{4} = -1 \\).</p>",
+  "question": "Gradient of a line perpendicular to one with gradient \\( 5 \\)?",
+  "options": [
+   "\\( -\\frac{1}{5} \\)",
+   "\\( \\frac{1}{5} \\)",
+   "\\( -5 \\)",
+   "\\( 5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Negative reciprocal of \\( 5 \\) is \\( -\\frac{1}{5} \\); \\( 5 \\times -\\frac{1}{5} = -1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:misc:61d2d85c",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For the perpendicular bisector, use the gradient of \\( AB \\) itself.</p><p><strong>✅ The correct idea:</strong> The bisector is PERPENDICULAR to \\( AB \\), so use the negative reciprocal of \\( AB \\)'s gradient. A weak answer reuses the segment's gradient; a strong answer flips and negates it before writing the line through the midpoint.</p>",
+  "question": "\\( AB \\) has gradient \\( \\frac{2}{5} \\). Gradient of its perpendicular bisector?",
+  "options": [
+   "\\( -\\frac{5}{2} \\)",
+   "\\( \\frac{2}{5} \\)",
+   "\\( \\frac{5}{2} \\)",
+   "\\( -\\frac{2}{5} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Negative reciprocal of \\( \\frac{2}{5} \\) is \\( -\\frac{5}{2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:misc:17608acc",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Midpoint of \\( (2, 1) \\) and \\( (8, 5) \\) is \\( (6, 4) \\) — subtract the coordinates.</p><p><strong>✅ The correct idea:</strong> Midpoint AVERAGES the coordinates: \\( \\left( \\frac{2+8}{2},\\ \\frac{1+5}{2} \\right) = (5, 3) \\). A weak answer subtracts to get a gap; a strong answer adds then halves.</p>",
+  "question": "Midpoint of \\( (2, 1) \\) and \\( (8, 5) \\)?",
+  "options": [
+   "\\( (5,\\ 3) \\)",
+   "\\( (6,\\ 4) \\)",
+   "\\( (10,\\ 6) \\)",
+   "\\( (3,\\ 2) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\left( \\frac{2+8}{2},\\ \\frac{1+5}{2} \\right) = (5,\\ 3) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:misc:715eecb0",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> To find the perpendicular bisector, just find the gradient — no need for the midpoint.</p><p><strong>✅ The correct idea:</strong> You need BOTH: the perpendicular gradient AND the midpoint (a point on the line). A weak answer has the right gradient but no point to pin the line down; a strong answer substitutes the midpoint into \\( y - y_1 = m(x - x_1) \\).</p>",
+  "question": "Which two things fix the perpendicular bisector of \\( AB \\)?",
+  "options": [
+   "The midpoint and the perpendicular gradient",
+   "Both endpoints only",
+   "The gradient of \\( AB \\) and one endpoint",
+   "The distance \\( AB \\) only"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A line needs a gradient and a point: the perpendicular gradient and the midpoint of \\( AB \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:misc:75e45823",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Distance between \\( (1, 1) \\) and \\( (4, 5) \\) is \\( 3 + 4 = 7 \\).</p><p><strong>✅ The correct idea:</strong> You must SQUARE the gaps, add, then square-root: \\( \\sqrt{3^2 + 4^2} = \\sqrt{25} = 5 \\). A weak answer adds the raw gaps; a strong answer applies Pythagoras.</p>",
+  "question": "Distance between \\( (1, 1) \\) and \\( (4, 5) \\)?",
+  "options": [
+   "\\( 5 \\)",
+   "\\( 7 \\)",
+   "\\( \\sqrt{7} \\)",
+   "\\( 25 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sqrt{(4-1)^2 + (5-1)^2} = \\sqrt{9 + 16} = 5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:tips:6801df88",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — The perpendicular-bisector method (show every step)",
+  "reading": "<p>Perpendicular-bisector questions reward a clear 4-step chain, and each step is a mark:</p><p><strong>0 marks:</strong> writing only the equation of \\( AB \\) (a very common wrong instinct).</p><p><strong>Partial:</strong> correct midpoint and gradient of \\( AB \\), but the bisector gradient not negated or the midpoint never used.</p><p><strong>Full marks:</strong> midpoint → gradient of \\( AB \\) → negative reciprocal → substitute the midpoint into \\( y - y_1 = m(x - x_1) \\) → tidy 3-term equation.</p>",
+  "question": "Which is the quickest full-mark route for a perpendicular bisector?",
+  "options": [
+   "Midpoint, then negative-reciprocal gradient, then the line through the midpoint",
+   "Find the equation of \\( AB \\) first",
+   "Only find the midpoint",
+   "Only find the perpendicular gradient"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "You need the midpoint (a point) and the negative-reciprocal gradient, then form the line."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:tips:bb2cfce3",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Use point-gradient form to avoid c-slips",
+  "reading": "<p>Examiners note that candidates who reach for \\( y = mx + c \\) and then substitute a point to find \\( c \\) often make a <strong>numerical slip</strong> and get the wrong intercept. Substituting straight into \\( y - y_1 = m(x - x_1) \\) has one fewer place to go wrong.</p><p><strong>Full marks:</strong> \\( y - 4 = \\frac{2}{3}(x - 5) \\Rightarrow y = \\frac{2}{3}x + \\frac{2}{3} \\), reached in one clean rearrangement.</p>",
+  "question": "Why do examiners prefer point-gradient form for these questions?",
+  "options": [
+   "It avoids the c-slip from substituting a point into y = mx + c",
+   "It is the only valid form",
+   "It never needs a gradient",
+   "It gives decimals automatically"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Point-gradient form removes the separate step of solving for \\( c \\), where slips happen."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:tips:76fbd256",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — 'oe' — equivalent forms all score",
+  "reading": "<p>Mark schemes label the final line \"<strong>oe</strong>\" (or equivalent). \\( y = \\frac{2}{3}x + \\frac{2}{3} \\), \\( 3y = 2x + 2 \\) and \\( 2x - 3y + 2 = 0 \\) are all the same line and all earn the mark — as long as it is a correct <strong>3-term equation</strong>. Do not waste time worrying your form differs from a friend's.</p>",
+  "question": "The scheme says the answer is \\( y = \\frac{2}{3}x + \\frac{2}{3} \\) oe. Which also scores?",
+  "options": [
+   "\\( 3y = 2x + 2 \\)",
+   "\\( y = \\frac{3}{2}x + \\frac{2}{3} \\)",
+   "\\( y = \\frac{2}{3}x \\)",
+   "\\( 2x + 3y = 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 3y = 2x + 2 \\) rearranges to \\( y = \\frac{2}{3}x + \\frac{2}{3} \\) — the same line."
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:fib:afb25e0d",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The distance between two points comes from ___B1___ theorem, taking the square root of the sum of the squared gaps.",
+  "blankOptions": {
+   "B1": [
+    "y",
+    "-1",
+    "reciprocal",
+    "Pythagoras"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "Pythagoras"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:fib:5059fae5",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "To find the midpoint you ___B1___ the two \\( x \\)-coordinates and do the same to the \\( y \\)-coordinates.",
+  "blankOptions": {
+   "B1": [
+    "average",
+    "x",
+    "1",
+    "-1"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "average"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:fib:2759513e",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Parallel lines always have ___B1___ gradients.",
+  "blankOptions": {
+   "B1": [
+    "y",
+    "equal",
+    "intercept",
+    "Pythagoras"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "equal"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:fib:ff054a9a",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "For two perpendicular lines the product of their gradients is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "-1",
+    "parallel",
+    "gradient",
+    "1"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "-1"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:fib:f32d09ac",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The perpendicular bisector of a segment passes through its ___B1___ and has a gradient equal to the ___B2___ of the segment's gradient.",
+  "blankOptions": {
+   "B1": [
+    "average",
+    "midpoint",
+    "-1",
+    "intercept"
+   ],
+   "B2": [
+    "reciprocal",
+    "slope",
+    "point-gradient",
+    "negative reciprocal"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "midpoint",
+    "B2": "negative reciprocal"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:fib:1afe4bb9",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "In the equation \\( y = mx + c \\), the letter \\( m \\) is the ___B1___ and \\( c \\) is the \\( y \\)-___B2___.",
+  "blankOptions": {
+   "B1": [
+    "parallel",
+    "gradient",
+    "y",
+    "x"
+   ],
+   "B2": [
+    "midpoint",
+    "y",
+    "equal",
+    "intercept"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "gradient",
+    "B2": "intercept"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:fib:2c99e31b",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The gradient of a line is the change in \\( y \\) divided by the change in ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "-1",
+    "x",
+    "equal",
+    "point-gradient"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "x"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:fib:e4069429",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The form \\( y - y_1 = m(x - x_1) \\) is called the ___B1___ form of a line.",
+  "blankOptions": {
+   "B1": [
+    "point-gradient",
+    "gradient",
+    "midpoint",
+    "slope"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "point-gradient"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:8d5c3843",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Distance between \\( (x_1, y_1) \\) and \\( (x_2, y_2) \\)”?",
+  "options": [
+   "\\( -\\frac{3}{2} \\)",
+   "\\( y - y_1 = m(x - x_1) \\)",
+   "\\( \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\)",
+   "Through the midpoint, gradient = negative reciprocal of \\( AB \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Distance between \\( (x_1, y_1) \\) and \\( (x_2, y_2) \\)” means: \\( \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:a0c63fc6",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Midpoint of \\( (x_1, y_1) \\) and \\( (x_2, y_2) \\)”?",
+  "options": [
+   "\\( 5 \\)",
+   "Through the midpoint, gradient = negative reciprocal of \\( AB \\)",
+   "\\( 0 \\)",
+   "\\( \\left( \\frac{x_1 + x_2}{2},\\ \\frac{y_1 + y_2}{2} \\right) \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Midpoint of \\( (x_1, y_1) \\) and \\( (x_2, y_2) \\)” means: \\( \\left( \\frac{x_1 + x_2}{2},\\ \\frac{y_1 + y_2}{2} \\right) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:6c5f355e",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Gradient of \\( (x_1, y_1) \\) to \\( (x_2, y_2) \\)”?",
+  "options": [
+   "\\( \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\)",
+   "Have equal gradients",
+   "\\( 0 \\)",
+   "\\( \\frac{y_2 - y_1}{x_2 - x_1} \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Gradient of \\( (x_1, y_1) \\) to \\( (x_2, y_2) \\)” means: \\( \\frac{y_2 - y_1}{x_2 - x_1} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:4903313b",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Slope-intercept form of a line”?",
+  "options": [
+   "\\( y = mx + c \\)",
+   "Have equal gradients",
+   "\\( 0 \\)",
+   "Through the midpoint, gradient = negative reciprocal of \\( AB \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Slope-intercept form of a line” means: \\( y = mx + c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:6a4c5730",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Point-gradient form of a line”?",
+  "options": [
+   "\\( y - y_1 = m(x - x_1) \\)",
+   "\\( \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\)",
+   "\\( 0 \\)",
+   "\\( (4,\\ 7) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Point-gradient form of a line” means: \\( y - y_1 = m(x - x_1) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:7b90aebe",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Parallel lines”?",
+  "options": [
+   "\\( y = mx + c \\)",
+   "Have equal gradients",
+   "\\( -\\frac{3}{2} \\)",
+   "\\( \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Parallel lines” means: Have equal gradients"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:e8f45e2d",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Perpendicular lines”?",
+  "options": [
+   "Gradients multiply to \\( -1 \\)",
+   "\\( y = mx + c \\)",
+   "\\( (4,\\ 7) \\)",
+   "Have equal gradients"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Perpendicular lines” means: Gradients multiply to \\( -1 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:825896f2",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Perpendicular gradient to \\( m \\)”?",
+  "options": [
+   "\\( -\\frac{1}{m} \\) (negative reciprocal)",
+   "\\( -\\frac{3}{2} \\)",
+   "\\( 0 \\)",
+   "\\( (4,\\ 7) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Perpendicular gradient to \\( m \\)” means: \\( -\\frac{1}{m} \\) (negative reciprocal)"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:ae3d3a98",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Perpendicular bisector of \\( AB \\)”?",
+  "options": [
+   "\\( -\\frac{3}{2} \\)",
+   "\\( \\frac{y_2 - y_1}{x_2 - x_1} \\)",
+   "Through the midpoint, gradient = negative reciprocal of \\( AB \\)",
+   "\\( \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Perpendicular bisector of \\( AB \\)” means: Through the midpoint, gradient = negative reciprocal of \\( AB \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:163f6000",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Gradient of \\( y = 2x + 5 \\)”?",
+  "options": [
+   "\\( \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\)",
+   "\\( y = mx + c \\)",
+   "\\( 2 \\)",
+   "\\( \\frac{y_2 - y_1}{x_2 - x_1} \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Gradient of \\( y = 2x + 5 \\)” means: \\( 2 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:59cb1f91",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Perpendicular gradient to \\( \\frac{2}{3} \\)”?",
+  "options": [
+   "\\( \\frac{y_2 - y_1}{x_2 - x_1} \\)",
+   "Gradients multiply to \\( -1 \\)",
+   "\\( 5 \\)",
+   "\\( -\\frac{3}{2} \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Perpendicular gradient to \\( \\frac{2}{3} \\)” means: \\( -\\frac{3}{2} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:22e7943b",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Midpoint of \\( (2, 4) \\) and \\( (6, 10) \\)”?",
+  "options": [
+   "\\( y = mx + c \\)",
+   "\\( (4,\\ 7) \\)",
+   "\\( 5 \\)",
+   "\\( \\left( \\frac{x_1 + x_2}{2},\\ \\frac{y_1 + y_2}{2} \\right) \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Midpoint of \\( (2, 4) \\) and \\( (6, 10) \\)” means: \\( (4,\\ 7) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:a4fca86c",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Distance from \\( (0, 0) \\) to \\( (3, 4) \\)”?",
+  "options": [
+   "Gradients multiply to \\( -1 \\)",
+   "\\( \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\)",
+   "\\( 5 \\)",
+   "\\( -\\frac{1}{m} \\) (negative reciprocal)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Distance from \\( (0, 0) \\) to \\( (3, 4) \\)” means: \\( 5 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-1-straight-lines:match:6e810668",
+  "pageId": "additional-maths:3-1-straight-lines",
+  "pageName": "3.1 Straight Lines",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Gradient of a horizontal line”?",
+  "options": [
+   "\\( (4,\\ 7) \\)",
+   "\\( 0 \\)",
+   "Through the midpoint, gradient = negative reciprocal of \\( AB \\)",
+   "\\( \\left( \\frac{x_1 + x_2}{2},\\ \\frac{y_1 + y_2}{2} \\right) \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Gradient of a horizontal line” means: \\( 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:exam:fd2d5422",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "12 (a)",
+  "question": "<p>Determine the equation of the circle.</p>",
+  "caseStudy": "<p>The point \\( A\\,(1,\\ 3) \\) lies on a circle with centre \\( (4,\\ 5) \\).</p>",
+  "hint": "The radius is the distance from the centre \\( (4,5) \\) to \\( A(1,3) \\); you only need \\( r^2 \\).",
+  "starter": "Give the equation in the form \\( (x - a)^2 + (y - b)^2 = r^2 \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>B1</strong> — the left-hand side \\( (x - 4)^2 + (y - 5)^2 \\) (centre used correctly).</li>\n              <li><strong>B1</strong> — \\( = 13 \\), i.e. \\( (x - 4)^2 + (y - 5)^2 = 13 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One mark for the bracket structure from the centre, one for the correct \\( r^2 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most found the radius \\( \\sqrt{13} \\) but a few then wrote \\( r \\) instead of \\( r^2 \\) on the right, and some simply wrote \\( x^2 + y^2 = 13 \\), forgetting the centre is not the origin.</li>\n            </ul></div>",
+   "modelAnswer": "\\( r^2 = (1 - 4)^2 + (3 - 5)^2 = 9 + 4 = 13 \\), so the circle is \\( (x - 4)^2 + (y - 5)^2 = 13 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:exam:138e1306",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "12 (b)",
+  "question": "<p>\\( B \\) is a point on the circle such that \\( AB \\) is a diameter of the circle.</p><p>Find the coordinates of \\( B \\).</p>",
+  "caseStudy": "<p>The point \\( A\\,(1,\\ 3) \\) lies on a circle with centre \\( (4,\\ 5) \\).</p>",
+  "hint": "The centre \\( (4,5) \\) is the midpoint of the diameter \\( AB \\) — step the same vector on from the centre.",
+  "starter": "Give \\( B \\) as coordinates \\( (x,\\ y) \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — use of the vector / midpoint idea: the vector from \\( A \\) to the centre equals the vector from the centre to \\( B \\) (or \\( B = 2 \\times \\text{centre} - A \\)).</li>\n              <li><strong>A1</strong> — \\( B = (7,\\ 7) \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The method mark is for a valid use of the centre as the midpoint; the accuracy mark is the correct coordinates.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most used the vector method (the step from \\( A \\) to the midpoint equals the step from the midpoint to \\( B \\)) and wrote the answer with little working. A few set up and solved midpoint equations in \\( (x, y) \\) instead.</li>\n            </ul></div>",
+   "modelAnswer": "The centre is the midpoint of \\( AB \\), so \\( B = 2(4,\\ 5) - (1,\\ 3) = (8 - 1,\\ 10 - 3) = (7,\\ 7) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:exam:43ded50f",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "12 (c)",
+  "question": "<p>\\( D \\) is the point \\( (2,\\ 8) \\).</p><p>Show that \\( AD \\) and \\( DB \\) are perpendicular.</p>",
+  "caseStudy": "<p>The point \\( A\\,(1,\\ 3) \\) lies on a circle with centre \\( (4,\\ 5) \\).</p>",
+  "hint": "Find the gradient of \\( AD \\) and of \\( DB \\), then show their product is \\( -1 \\) — and say so.",
+  "starter": "This is a 'show that': state both gradients and finish with a concluding sentence.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO2)</h5><ul>\n              <li><strong>B1</strong> — gradient of \\( AD = \\dfrac{8 - 3}{2 - 1} = 5 \\) (the label \"gradient AD\" or the change-in-\\(y\\)/change-in-\\(x\\) fraction must be seen).</li>\n              <li><strong>B1</strong> — gradient of \\( DB = \\dfrac{8 - 7}{2 - 7} = -\\dfrac{1}{5} \\) (similarly shown).</li>\n              <li><strong>B1</strong> — since \\( 5 \\times -\\dfrac{1}{5} = -1 \\), the lines are perpendicular (\"perpendicular\" must be stated).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>No answer box — this is a \"show that\": you must display both gradients and the concluding statement. Working with the equations of the lines (rather than their gradients) tends to lose marks.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Some tried to find the equation of each line, which caused problems: a few never stated the gradients or the perpendicularity criterion. A few lost the final mark by not completing the \"show that\" with the statement that the lines are therefore perpendicular.</li>\n            </ul></div>",
+   "modelAnswer": "Gradient of \\( AD = \\dfrac{8 - 3}{2 - 1} = 5 \\); gradient of \\( DB = \\dfrac{8 - 7}{2 - 7} = -\\dfrac{1}{5} \\). Their product is \\( 5 \\times -\\dfrac{1}{5} = -1 \\), so \\( AD \\) and \\( DB \\) are perpendicular."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:exam:c5423a07",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "12 (d)",
+  "question": "<p>Explain what this tells you about the point \\( D \\).</p>",
+  "caseStudy": "<p>The point \\( A\\,(1,\\ 3) \\) lies on a circle with centre \\( (4,\\ 5) \\).</p>",
+  "hint": "\\( AB \\) is a diameter and \\( \\angle ADB = 90^\\circ \\) — what does the angle-in-a-semicircle theorem say?",
+  "starter": "One short sentence about where \\( D \\) lies.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>\n              <li><strong>B1</strong> — e.g. \\( D \\) is on the circle / \\( D \\) is on the circumference.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Any statement placing \\( D \\) on the circle earns the mark; the angle-in-a-semicircle theorem is the reason but is not required.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most stated that \\( D \\) lay on the circle (or its circumference). Justification was not required, though many quoted the angle-in-a-semicircle theorem.</li>\n            </ul></div>",
+   "modelAnswer": "Because \\( AB \\) is a diameter and \\( \\angle ADB = 90^\\circ \\), the angle-in-a-semicircle theorem tells us \\( D \\) lies on the circle (on its circumference)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:exam:dbd2374e",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "10 (a)",
+  "question": "<p>Show that the \\( x \\)-coordinates of \\( A \\) and \\( B \\) satisfy the equation \\[ 5x^2 + 4kx + (k^2 - 5) = 0. \\]</p>",
+  "caseStudy": "<p>You are given that the line \\( y = 2x + k \\) cuts the circle \\( x^2 + y^2 = 5 \\) in two points, \\( A \\) and \\( B \\).</p>",
+  "hint": "Substitute \\( y = 2x + k \\) into \\( x^2 + y^2 = 5 \\) and expand \\( (2x + k)^2 \\) carefully.",
+  "starter": "This is a 'show that' (answer given): every line of algebra must be visible, ending at the printed result.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — substitute \\( y = 2x + k \\) into the circle and attempt to simplify: \\( x^2 + (2x + k)^2 = 5 \\).</li>\n              <li><strong>A1</strong> — correctly reach the given \\( 5x^2 + 4kx + (k^2 - 5) = 0 \\) (AG).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>No answer box — the result is printed, so you must show the substitution and expansion reaching it. The one common error was failing to square the linear term into three terms.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Almost universally answered correctly; the only real error was an inability to square a linear term to give a three-term quadratic.</li>\n            </ul></div>",
+   "modelAnswer": "\\( x^2 + (2x + k)^2 = 5 \\Rightarrow x^2 + 4x^2 + 4kx + k^2 = 5 \\Rightarrow 5x^2 + 4kx + (k^2 - 5) = 0 \\), as required."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:exam:65226a9b",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "10 (b)",
+  "question": "<p>Hence find the values of \\( k \\) for which the line is a tangent to the circle.</p>",
+  "caseStudy": "<p>You are given that the line \\( y = 2x + k \\) cuts the circle \\( x^2 + y^2 = 5 \\) in two points, \\( A \\) and \\( B \\).</p>",
+  "hint": "A tangent touches once, so the quadratic from part (a) has coincident roots: set its discriminant to \\( 0 \\).",
+  "starter": "Give both values of \\( k \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>\n              <li><strong>M1</strong> — evidence that a tangent means coincident roots, i.e. discriminant \\( = 0 \\): \\( (4k)^2 - 4(5)(k^2 - 5) = 0 \\).</li>\n              <li><strong>A1</strong> — \\( k = \\pm 5 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>\"Hence\" directs you to use the quadratic from part (a). The method mark needs some indication that the roots are coincident (discriminant zero).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Poorly answered: most candidates failed to appreciate that for a chord to be a tangent the roots of the quadratic giving the intersections had to be coincident.</li>\n            </ul></div>",
+   "modelAnswer": "Tangent \\( \\Rightarrow \\) coincident roots \\( \\Rightarrow (4k)^2 - 4(5)(k^2 - 5) = 0 \\Rightarrow 16k^2 - 20k^2 + 100 = 0 \\Rightarrow k^2 = 25 \\Rightarrow k = \\pm 5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:mcq:16d3442c",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What are the centre and radius of \\( (x - 4)^2 + (y + 1)^2 = 36 \\)?",
+  "options": [
+   "Centre \\( (4,\\ -1) \\), radius \\( 6 \\)",
+   "Centre \\( (-4,\\ 1) \\), radius \\( 6 \\)",
+   "Centre \\( (4,\\ -1) \\), radius \\( 36 \\)",
+   "Centre \\( (4,\\ 1) \\), radius \\( 6 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (x-4)^2 \\Rightarrow a=4 \\); \\( (y+1)^2 \\Rightarrow b=-1 \\); \\( r=\\sqrt{36}=6 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:mcq:52a1901b",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the radius of \\( (x - 2)^2 + (y - 7)^2 = 20 \\)?",
+  "options": [
+   "\\( 2\\sqrt{5} \\)",
+   "\\( 20 \\)",
+   "\\( \\sqrt{10} \\)",
+   "\\( 10 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( r = \\sqrt{20} = \\sqrt{4 \\times 5} = 2\\sqrt{5} \\); the \\( 20 \\) is \\( r^2 \\), not \\( r \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:mcq:17c833fb",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A circle has centre \\( (3,\\ -2) \\) and radius \\( 4 \\). Its equation is:",
+  "options": [
+   "\\( (x - 3)^2 + (y + 2)^2 = 16 \\)",
+   "\\( (x - 3)^2 + (y + 2)^2 = 4 \\)",
+   "\\( (x + 3)^2 + (y - 2)^2 = 16 \\)",
+   "\\( (x - 3)^2 + (y - 2)^2 = 16 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Centre \\( (3,-2) \\Rightarrow (x-3)^2 + (y+2)^2 \\); radius \\( 4 \\Rightarrow r^2 = 16 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:mcq:3d4d16a3",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A circle has centre \\( (1,\\ 2) \\) and passes through \\( (4,\\ 6) \\). Its equation is:",
+  "options": [
+   "\\( (x - 1)^2 + (y - 2)^2 = 25 \\)",
+   "\\( (x - 1)^2 + (y - 2)^2 = 5 \\)",
+   "\\( (x - 1)^2 + (y - 2)^2 = 7 \\)",
+   "\\( (x - 4)^2 + (y - 6)^2 = 25 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( r^2 = (4-1)^2 + (6-2)^2 = 9 + 16 = 25 \\); centre \\( (1,2) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:mcq:989765cd",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The ends of a diameter are \\( (2,\\ 3) \\) and \\( (8,\\ 11) \\). The centre of the circle is:",
+  "options": [
+   "\\( (5,\\ 7) \\)",
+   "\\( (10,\\ 14) \\)",
+   "\\( (3,\\ 4) \\)",
+   "\\( (6,\\ 8) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The centre is the midpoint: \\( \\left( \\tfrac{2+8}{2},\\ \\tfrac{3+11}{2} \\right) = (5,\\ 7) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:mcq:327f0cc5",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The ends of a diameter are \\( (-1,\\ 2) \\) and \\( (5,\\ 8) \\). What is \\( r^2 \\)?",
+  "options": [
+   "\\( 18 \\)",
+   "\\( 72 \\)",
+   "\\( 36 \\)",
+   "\\( 6 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The diameter length squared is \\( 6^2 + 6^2 = 72 \\); the radius is half the diameter, so \\( r^2 = (2-(-1))^2 + (5-2)^2 = 9 + 9 = 18 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:mcq:36f9c655",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the centre of \\( x^2 + y^2 - 8x + 2y - 8 = 0 \\)?",
+  "options": [
+   "\\( (4,\\ -1) \\)",
+   "\\( (-4,\\ 1) \\)",
+   "\\( (8,\\ -2) \\)",
+   "\\( (-8,\\ 2) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Completing the square: \\( (x-4)^2 + (y+1)^2 = 25 \\); centre \\( (4,-1) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:mcq:811c10dc",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the radius of \\( x^2 + y^2 - 8x + 2y - 8 = 0 \\)?",
+  "options": [
+   "\\( 5 \\)",
+   "\\( 25 \\)",
+   "\\( \\sqrt{8} \\)",
+   "\\( 3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (x-4)^2 + (y+1)^2 = 16 + 1 + 8 = 25 \\), so \\( r = \\sqrt{25} = 5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:mcq:5f9e9307",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The radius to a point of contact has gradient \\( \\tfrac{2}{3} \\). The tangent's gradient there is:",
+  "options": [
+   "\\( -\\tfrac{3}{2} \\)",
+   "\\( \\tfrac{2}{3} \\)",
+   "\\( \\tfrac{3}{2} \\)",
+   "\\( -\\tfrac{2}{3} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Tangent \\( \\perp \\) radius, so the tangent gradient is the negative reciprocal of \\( \\tfrac{2}{3} \\), namely \\( -\\tfrac{3}{2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:mcq:e71170d5",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which statement about the normal to a circle at a point is correct?",
+  "options": [
+   "It passes through the centre",
+   "It is perpendicular to the radius",
+   "It is the same line as the tangent",
+   "It never meets the centre"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The normal lies along the radius, so it passes through the centre of the circle."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:mcq:4d9d5e18",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Substituting a line into a circle gives \\( x^2 - 6x + 9 = 0 \\). The line is:",
+  "options": [
+   "a tangent to the circle",
+   "a chord cutting the circle twice",
+   "missing the circle entirely",
+   "a diameter of the circle"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( b^2 - 4ac = 36 - 36 = 0 \\): a repeated root, so the line touches once — a tangent."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:mcq:682a024f",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For which values of \\( k \\) is \\( y = x + k \\) a tangent to \\( x^2 + y^2 = 8 \\)?",
+  "options": [
+   "\\( k = \\pm 4 \\)",
+   "\\( k = \\pm 8 \\)",
+   "\\( k = 4 \\) only",
+   "\\( k = \\pm 2\\sqrt{2} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Substituting gives \\( 2x^2 + 2kx + (k^2 - 8) = 0 \\); tangency needs \\( (2k)^2 - 8(k^2 - 8) = 0 \\Rightarrow k^2 = 16 \\Rightarrow k = \\pm 4 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:tf:212b00fd",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( (x - 2)^2 + (y - 5)^2 = 9 \\) is a circle with centre \\( (2,\\ 5) \\) and radius \\( 3 \\).",
+  "key": {
+   "answer": true,
+   "explain": "Read the centre from the brackets and \\( r = \\sqrt{9} = 3 \\). ✓"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:tf:438fb55f",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( (x + 4)^2 + (y - 1)^2 = 16 \\) has centre \\( (4,\\ 1) \\).",
+  "key": {
+   "answer": false,
+   "explain": "\\( (x+4)^2 = (x-(-4))^2 \\), so the centre is \\( (-4,\\ 1) \\) — the sign flips."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:tf:87c7509b",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The radius of \\( (x - 1)^2 + (y - 2)^2 = 20 \\) is \\( 20 \\).",
+  "key": {
+   "answer": false,
+   "explain": "The right-hand side is \\( r^2 \\); the radius is \\( \\sqrt{20} = 2\\sqrt{5} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:tf:f1d2c7ed",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The normal to a circle at a point passes through the centre of the circle.",
+  "key": {
+   "answer": true,
+   "explain": "The normal lies along the radius, which joins the point of contact to the centre. ✓"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:tf:2b2e8f48",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "At the point of contact, the tangent is perpendicular to the radius.",
+  "key": {
+   "answer": true,
+   "explain": "This is the key circle fact — it gives the tangent gradient as the negative reciprocal of the radius gradient."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:tf:d1ff6a2d",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If a line substituted into a circle gives a quadratic with a positive discriminant, the line is a tangent.",
+  "key": {
+   "answer": false,
+   "explain": "A positive discriminant means two intersection points (a chord); a tangent needs the discriminant to be exactly \\( 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:tf:020833cf",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The centre of \\( x^2 + y^2 - 6x + 4y - 12 = 0 \\) is \\( (3,\\ -2) \\).",
+  "key": {
+   "answer": true,
+   "explain": "Completing the square gives \\( (x-3)^2 + (y+2)^2 = 25 \\); centre \\( (3,-2) \\), radius \\( 5 \\). ✓"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:tf:05358434",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The tangent's gradient equals the gradient of the radius to the point of contact.",
+  "key": {
+   "answer": false,
+   "explain": "It is the negative reciprocal of the radius gradient; the radius gradient is what the normal uses."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:learn:a4f082bc",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is the general equation of a circle?",
+  "reading": "<p>Every point on a circle is the same distance — the <strong>radius</strong> \\( r \\) — from a fixed <strong>centre</strong> \\( (a,\\ b) \\). Applying the distance formula gives the <strong>general equation of a circle</strong>: \\[ (x - a)^2 + (y - b)^2 = r^2. \\]</p>\n            <svg viewBox=\"0 0 240 220\" width=\"100%\" style=\"max-width:280px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"A circle with centre C, a radius drawn to a point P, and the tangent line touching the circle at P at a right angle to the radius\">\n              <circle cx=\"120\" cy=\"120\" r=\"70\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <line x1=\"120\" y1=\"120\" x2=\"169.5\" y2=\"70.5\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <line x1=\"124.5\" y1=\"25.5\" x2=\"214.5\" y2=\"115.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/>\n              <circle cx=\"120\" cy=\"120\" r=\"3.5\" fill=\"currentColor\"/>\n              <circle cx=\"169.5\" cy=\"70.5\" r=\"3.5\" fill=\"currentColor\"/>\n              <text x=\"112\" y=\"134\" font-size=\"13\" fill=\"currentColor\">C(a, b)</text>\n              <text x=\"176\" y=\"66\" font-size=\"13\" fill=\"currentColor\">P</text>\n              <text x=\"138\" y=\"88\" font-size=\"13\" fill=\"currentColor\">r</text>\n              <text x=\"150\" y=\"30\" font-size=\"12\" fill=\"currentColor\">tangent</text>\n            </svg>\n            <ul>\n              <li>You read the centre off <strong>straight from the brackets</strong>: \\( (x - a)^2 \\) gives \\( x = a \\), \\( (y - b)^2 \\) gives \\( y = b \\). Watch the signs — \\( (x + 3)^2 = (x - (-3))^2 \\), so the centre is at \\( -3 \\).</li>\n              <li>The right-hand side is \\( r^2 \\), <strong>not</strong> \\( r \\). For \\( = 25 \\) the radius is \\( 5 \\); for \\( = 20 \\) it is \\( \\sqrt{20} = 2\\sqrt{5} \\).</li>\n              <li><strong>New at this level:</strong> at GCSE you only met circles centred at the origin, \\( x^2 + y^2 = r^2 \\). That is just the special case \\( a = b = 0 \\).</li>\n            </ul>\n            <p><strong>Example:</strong> \\( (x - 2)^2 + (y + 3)^2 = 49 \\) is a circle with centre \\( (2,\\ -3) \\) and radius \\( 7 \\).</p>",
+  "question": "What are the centre and radius of \\( (x + 4)^2 + (y - 1)^2 = 9 \\)?",
+  "options": [
+   "Centre \\( (-4,\\ 1) \\), radius \\( 3 \\)",
+   "Centre \\( (4,\\ -1) \\), radius \\( 3 \\)",
+   "Centre \\( (-4,\\ 1) \\), radius \\( 9 \\)",
+   "Centre \\( (4,\\ 1) \\), radius \\( 3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (x+4)^2 = (x-(-4))^2 \\) so \\( a=-4 \\); \\( (y-1)^2 \\) so \\( b=1 \\); and \\( r=\\sqrt{9}=3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:learn:52f74c36",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you write a circle's equation from the information given?",
+  "reading": "<p>You are usually given one of three things. In every case you are hunting for the <strong>centre</strong> \\( (a,\\ b) \\) and \\( r^2 \\).</p>\n            <p><strong>1. Centre and radius given</strong> — substitute straight in. Centre \\( (3,\\ -1) \\), radius \\( 4 \\): \\[ (x - 3)^2 + (y + 1)^2 = 16. \\]</p>\n            <p><strong>2. Centre and a point on the circle given</strong> — the radius is the distance from the centre to that point, so find \\( r^2 \\) with the distance formula (no need to square-root).</p>\n            <table class=\"worked\">\n              <tr><td>Centre \\( (1,\\ 2) \\), passing through \\( (4,\\ 6) \\).</td></tr>\n              <tr><td>1. \\( r^2 = (4 - 1)^2 + (6 - 2)^2 = 9 + 16 = 25 \\).</td></tr>\n              <tr><td>2. So \\( (x - 1)^2 + (y - 2)^2 = 25 \\).</td></tr>\n            </table>\n            <p><strong>3. The two ends of a diameter given</strong> — the <strong>centre is the midpoint</strong> of the diameter, and the <strong>radius is half the diameter</strong>.</p>\n            <svg viewBox=\"0 0 260 200\" width=\"100%\" style=\"max-width:300px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"A circle with a diameter drawn between two endpoints A and B, its centre marked at the midpoint\">\n              <circle cx=\"130\" cy=\"100\" r=\"75\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <line x1=\"65\" y1=\"137.5\" x2=\"195\" y2=\"62.5\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <circle cx=\"65\" cy=\"137.5\" r=\"3.5\" fill=\"currentColor\"/>\n              <circle cx=\"195\" cy=\"62.5\" r=\"3.5\" fill=\"currentColor\"/>\n              <circle cx=\"130\" cy=\"100\" r=\"3.5\" fill=\"currentColor\"/>\n              <text x=\"46\" y=\"152\" font-size=\"13\" fill=\"currentColor\">A</text>\n              <text x=\"200\" y=\"60\" font-size=\"13\" fill=\"currentColor\">B</text>\n              <text x=\"112\" y=\"118\" font-size=\"12\" fill=\"currentColor\">centre</text>\n            </svg>\n            <table class=\"worked\">\n              <tr><td>Diameter from \\( A(-1,\\ 2) \\) to \\( B(5,\\ 8) \\).</td></tr>\n              <tr><td>1. Centre \\( = \\left( \\tfrac{-1 + 5}{2},\\ \\tfrac{2 + 8}{2} \\right) = (2,\\ 5) \\).</td></tr>\n              <tr><td>2. \\( r^2 = (2 - (-1))^2 + (5 - 2)^2 = 9 + 9 = 18 \\).</td></tr>\n              <tr><td>3. So \\( (x - 2)^2 + (y - 5)^2 = 18 \\).</td></tr>\n            </table>",
+  "question": "A circle has centre \\( (0,\\ 4) \\) and passes through \\( (3,\\ 0) \\). What is its equation?",
+  "options": [
+   "\\( x^2 + (y - 4)^2 = 25 \\)",
+   "\\( x^2 + (y - 4)^2 = 5 \\)",
+   "\\( x^2 + (y + 4)^2 = 25 \\)",
+   "\\( (x - 3)^2 + y^2 = 25 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( r^2 = (3-0)^2 + (0-4)^2 = 9 + 16 = 25 \\); centre \\( (0,4) \\) gives \\( x^2 + (y-4)^2 = 25 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:learn:1948ca55",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the centre and radius by completing the square?",
+  "reading": "<p>A circle is often given in the <strong>expanded form</strong> \\[ x^2 + y^2 + 2gx + 2fy + c = 0. \\] To recover the centre and radius, <strong>complete the square separately in \\( x \\) and in \\( y \\)</strong>, then move the numbers across.</p>\n            <table class=\"worked\">\n              <tr><td>Find the centre and radius of \\( x^2 + y^2 - 6x + 4y - 12 = 0 \\).</td></tr>\n              <tr><td>1. Group the terms: \\( (x^2 - 6x) + (y^2 + 4y) - 12 = 0 \\).</td></tr>\n              <tr><td>2. Complete each square: \\( (x - 3)^2 - 9 + (y + 2)^2 - 4 - 12 = 0 \\).</td></tr>\n              <tr><td>3. Tidy the constants: \\( (x - 3)^2 + (y + 2)^2 = 9 + 4 + 12 = 25 \\).</td></tr>\n              <tr><td>4. Centre \\( (3,\\ -2) \\), radius \\( \\sqrt{25} = 5 \\).</td></tr>\n            </table>\n            <p>There is a shortcut worth knowing (though completing the square is the safe, mark-scheme method): comparing with \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\), the centre is \\( (-g,\\ -f) \\) and the radius is \\( \\sqrt{g^2 + f^2 - c} \\). Here \\( 2g = -6,\\ 2f = 4 \\), so \\( g = -3,\\ f = 2 \\): centre \\( (3,\\ -2) \\), radius \\( \\sqrt{9 + 4 + 12} = 5 \\). ✓</p>",
+  "question": "Find the centre of \\( x^2 + y^2 - 8x + 2y - 8 = 0 \\).",
+  "options": [
+   "\\( (4,\\ -1) \\)",
+   "\\( (-4,\\ 1) \\)",
+   "\\( (8,\\ -2) \\)",
+   "\\( (-8,\\ 2) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (x-4)^2 - 16 + (y+1)^2 - 1 - 8 = 0 \\Rightarrow (x-4)^2 + (y+1)^2 = 25 \\); centre \\( (4,-1) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:learn:029ae3b1",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the tangent to a circle at a point on it?",
+  "reading": "<p>A <strong>tangent</strong> touches the circle at exactly one point. The key geometry fact: the <strong>radius drawn to the point of contact is perpendicular to the tangent</strong> there. So the tangent gradient is the <strong>negative reciprocal</strong> of the radius gradient.</p>\n            <table class=\"worked\">\n              <tr><td>Find the tangent to \\( (x - 2)^2 + (y - 1)^2 = 25 \\) at the point \\( P(5,\\ 5) \\).</td></tr>\n              <tr><td>1. Check \\( P \\) is on the circle: \\( (5-2)^2 + (5-1)^2 = 9 + 16 = 25 \\). ✓</td></tr>\n              <tr><td>2. Radius gradient (centre \\( (2,1) \\) to \\( P \\)): \\( \\dfrac{5 - 1}{5 - 2} = \\dfrac{4}{3} \\).</td></tr>\n              <tr><td>3. Tangent gradient \\( = \\) negative reciprocal \\( = -\\dfrac{3}{4} \\).</td></tr>\n              <tr><td>4. Through \\( P(5,5) \\): \\( y - 5 = -\\tfrac{3}{4}(x - 5) \\), i.e. \\( 3x + 4y = 35 \\).</td></tr>\n            </table>\n            <p>Use \\( y - y_1 = m(x - x_1) \\) with the point of contact — it is faster and less error-prone than \\( y = mx + c \\).</p>",
+  "question": "The radius to the point of contact has gradient \\( 2 \\). What is the tangent's gradient there?",
+  "options": [
+   "\\( -\\tfrac{1}{2} \\)",
+   "\\( 2 \\)",
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( -2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The tangent is perpendicular to the radius, so its gradient is the negative reciprocal of \\( 2 \\), which is \\( -\\tfrac{1}{2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:learn:ee9f4583",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the normal to a circle at a point?",
+  "reading": "<p>The <strong>normal</strong> at a point is the line perpendicular to the tangent there. For a circle this is beautifully simple: because the radius is already perpendicular to the tangent, <strong>the normal lies along the radius — it passes through the centre.</strong></p>\n            <ul>\n              <li>So the normal at \\( P \\) is just the straight line through \\( P \\) and the <strong>centre</strong> \\( C \\).</li>\n              <li>Its gradient equals the <strong>radius gradient</strong> (the same \\( CP \\) gradient you found for the tangent) — <em>not</em> the negative reciprocal.</li>\n              <li>The word \"normal\" is <strong>new at this level</strong> for circles; at GCSE you only found tangents.</li>\n            </ul>\n            <table class=\"worked\">\n              <tr><td>Normal to \\( (x - 2)^2 + (y - 1)^2 = 25 \\) at \\( P(5,\\ 5) \\).</td></tr>\n              <tr><td>1. It passes through \\( P \\) and the centre \\( (2,\\ 1) \\).</td></tr>\n              <tr><td>2. Gradient \\( = \\dfrac{5 - 1}{5 - 2} = \\dfrac{4}{3} \\) (the radius gradient).</td></tr>\n              <tr><td>3. \\( y - 5 = \\tfrac{4}{3}(x - 5) \\), i.e. \\( 4x - 3y = 5 \\).</td></tr>\n            </table>\n            <p>Quick check: the centre \\( (2,1) \\) must satisfy it — \\( 4(2) - 3(1) = 8 - 3 = 5 \\). ✓</p>",
+  "question": "Which statement about the normal to a circle at a point is true?",
+  "options": [
+   "It passes through the centre of the circle",
+   "It is perpendicular to the radius",
+   "It is the same line as the tangent",
+   "It never meets the centre"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The normal runs along the radius, so it passes through the centre; its gradient equals the radius gradient."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:learn:4d9d5e18",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you test where a line meets a circle — and when is it a tangent?",
+  "reading": "<p><strong>Substitute the line into the circle equation.</strong> That eliminates one variable and leaves a <strong>quadratic</strong>; the number of real solutions is the number of intersection points, and the <strong>discriminant</strong> \\( b^2 - 4ac \\) tells you which case you are in.</p>\n            <ul>\n              <li>\\( b^2 - 4ac > 0 \\): two solutions — the line is a <strong>chord</strong> (cuts the circle twice).</li>\n              <li>\\( b^2 - 4ac = 0 \\): one repeated solution — the line is a <strong>tangent</strong> (touches once).</li>\n              <li>\\( b^2 - 4ac < 0 \\): no real solutions — the line <strong>misses</strong> the circle.</li>\n            </ul>\n            <table class=\"worked\">\n              <tr><td>For what values of \\( k \\) is \\( y = x + k \\) a tangent to \\( x^2 + y^2 = 8 \\)?</td></tr>\n              <tr><td>1. Substitute: \\( x^2 + (x + k)^2 = 8 \\).</td></tr>\n              <tr><td>2. Expand and simplify: \\( 2x^2 + 2kx + (k^2 - 8) = 0 \\).</td></tr>\n              <tr><td>3. Tangent \\( \\Rightarrow \\) repeated root \\( \\Rightarrow b^2 - 4ac = 0 \\): \\( (2k)^2 - 4(2)(k^2 - 8) = 0 \\).</td></tr>\n              <tr><td>4. \\( 4k^2 - 8k^2 + 64 = 0 \\Rightarrow k^2 = 16 \\Rightarrow k = \\pm 4 \\).</td></tr>\n            </table>\n            <p>To find the actual points of intersection instead, solve the quadratic for \\( x \\) and substitute each root back into the line to get \\( y \\).</p>",
+  "question": "Substituting a line into a circle gives \\( x^2 - 6x + 9 = 0 \\). The line is:",
+  "options": [
+   "a tangent",
+   "a chord meeting the circle twice",
+   "missing the circle",
+   "a diameter"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( b^2 - 4ac = 36 - 36 = 0 \\), a repeated root — exactly one point of contact, so a tangent."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:learn:797460bd",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is new here, and which facts must you just know?",
+  "reading": "<p>This topic extends GCSE circle work; keeping the boundary straight avoids easy marks slipping away.</p>\n            <ul>\n              <li><strong>New (AS) content:</strong> the general circle \\( (x - a)^2 + (y - b)^2 = r^2 \\) with any centre; recovering the centre/radius by completing the square; and the <strong>normal</strong> to a circle. GCSE only did \\( x^2 + y^2 = r^2 \\) and tangents.</li>\n              <li><strong>MEMORISE (not on the formula sheet):</strong> the general circle equation; the distance and midpoint formulae; that perpendicular gradients multiply to \\( -1 \\); tangent \\( \\perp \\) radius; normal through the centre.</li>\n              <li><strong>Sign trap:</strong> the centre of \\( (x + a)^2 + (y + b)^2 = r^2 \\) is \\( (-a,\\ -b) \\), not \\( (a,\\ b) \\).</li>\n              <li><strong>\\( r \\) vs \\( r^2 \\) trap:</strong> the right-hand side is the radius <em>squared</em>. Take the square root — and simplify the surd — before you quote a radius.</li>\n            </ul>\n            <p>Everything else is applied straight-line geometry: gradients, perpendicularity, and \\( y - y_1 = m(x - x_1) \\), all of which carry over from 3.1.</p>",
+  "question": "Which of these is content new to this level (not GCSE)?",
+  "options": [
+   "Finding the normal to a circle at a point",
+   "The circle \\( x^2 + y^2 = r^2 \\)",
+   "The tangent to a circle at a point",
+   "Reading a radius off \\( x^2 + y^2 = 25 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The general circle, completing the square for a circle, and the normal are the new AS content; origin-centred circles and tangents were met at GCSE."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:misc:d5420264",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( (x + 3)^2 + (y - 4)^2 = 25 \\) has centre \\( (3,\\ 4) \\)</p><p><strong>✅ The correct idea:</strong> Read the sign carefully: \\( (x + 3)^2 = (x - (-3))^2 \\), so the centre is \\( (-3,\\ 4) \\). A weak answer copies the \\( +3 \\) as \\( 3 \\); a strong answer flips it to \\( -3 \\).</p>",
+  "question": "Centre of \\( (x + 3)^2 + (y - 4)^2 = 25 \\)?",
+  "options": [
+   "\\( (-3,\\ 4) \\)",
+   "\\( (3,\\ 4) \\)",
+   "\\( (3,\\ -4) \\)",
+   "\\( (-3,\\ -4) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (x+3)^2 \\Rightarrow a=-3 \\); \\( (y-4)^2 \\Rightarrow b=4 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:misc:c9750d89",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For \\( (x - 1)^2 + (y - 2)^2 = 25 \\) the radius is \\( 25 \\)</p><p><strong>✅ The correct idea:</strong> The right-hand side is \\( r^2 \\), so \\( r = \\sqrt{25} = 5 \\). A weak answer quotes \\( 25 \\); a strong answer square-roots (and simplifies the surd if needed).</p>",
+  "question": "Radius of \\( (x - 1)^2 + (y - 2)^2 = 25 \\)?",
+  "options": [
+   "\\( 5 \\)",
+   "\\( 25 \\)",
+   "\\( \\sqrt{5} \\)",
+   "\\( 12.5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( r = \\sqrt{r^2} = \\sqrt{25} = 5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:misc:d6f3404f",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The tangent gradient equals the radius gradient at the point of contact</p><p><strong>✅ The correct idea:</strong> The tangent is perpendicular to the radius, so its gradient is the negative reciprocal. A weak answer reuses the radius gradient; a strong answer flips and negates it.</p>",
+  "question": "Radius gradient is \\( \\tfrac{3}{4} \\). Tangent gradient?",
+  "options": [
+   "\\( -\\tfrac{4}{3} \\)",
+   "\\( \\tfrac{3}{4} \\)",
+   "\\( \\tfrac{4}{3} \\)",
+   "\\( -\\tfrac{3}{4} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Negative reciprocal of \\( \\tfrac{3}{4} \\) is \\( -\\tfrac{4}{3} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:misc:0c177672",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Finding the normal by taking the negative reciprocal of the radius gradient</p><p><strong>✅ The correct idea:</strong> That is the tangent. The normal runs ALONG the radius, so it has the SAME gradient as the radius and passes through the centre. A weak answer flips the gradient; a strong answer keeps the radius gradient.</p>",
+  "question": "The normal to a circle at \\( P \\) has the same gradient as:",
+  "options": [
+   "the radius to \\( P \\)",
+   "the tangent at \\( P \\)",
+   "the \\( x \\)-axis",
+   "no other line"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The normal lies along the radius, so their gradients are equal."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:misc:3190967c",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> A line meets a circle in two points, so it must be a tangent</p><p><strong>✅ The correct idea:</strong> A tangent touches at ONE point (discriminant \\( = 0 \\)). Two points means a chord. A weak answer confuses the two; a strong answer checks the discriminant of the substituted quadratic.</p>",
+  "question": "Substituting gives a quadratic with discriminant \\( > 0 \\). The line is:",
+  "options": [
+   "a chord (two points)",
+   "a tangent (one point)",
+   "missing the circle",
+   "the diameter"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Positive discriminant \\( \\Rightarrow \\) two real roots \\( \\Rightarrow \\) two intersection points \\( \\Rightarrow \\) a chord."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:tips:cd16c0ac",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — 'Show that ... perpendicular' — finish the job",
+  "reading": "<p><strong>0 marks:</strong> quoting the two gradients but never comparing them, or finding equations of the lines instead of gradients.</p><p><strong>Partial:</strong> correct gradients \\( 5 \\) and \\( -\\tfrac{1}{5} \\) but no conclusion.</p><p><strong>Full marks:</strong> state both gradients, show the product is \\( 5 \\times -\\tfrac{1}{5} = -1 \\), and write the concluding sentence \"so the lines are perpendicular.\" On a \"show that\" the concluding statement is itself a mark.</p>",
+  "question": "On 'show that two lines are perpendicular', what must you not omit?",
+  "options": [
+   "The concluding sentence stating they are perpendicular",
+   "A diagram",
+   "The equations of both lines",
+   "The area of the triangle"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A 'show that' needs every step AND the concluding statement; the conclusion carries a mark."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:tips:19d65e79",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Show your working on tangent/normal questions",
+  "reading": "<p>Examiners award marks for the visible <strong>method</strong>: M1 for the radius gradient, M1 for using \\( m_1 m_2 = -1 \\) to get the tangent gradient (or reusing it for the normal), then A1 for a correct final equation via \\( y - y_1 = m(x - x_1) \\). Write each step so a single slip costs one mark, not all of them — and using \\( y - y_1 = m(x - x_1) \\) avoids the \\( c \\)-errors that \\( y = mx + c \\) invites.</p>",
+  "question": "Why prefer \\( y - y_1 = m(x - x_1) \\) for the tangent's equation?",
+  "options": [
+   "It avoids errors from finding \\( c \\) separately",
+   "It is the only allowed form",
+   "It gives the normal automatically",
+   "It needs no gradient"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Substituting the point directly avoids a separate (error-prone) step to compute \\( c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:tips:65309f4b",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — 'Hence' + tangency by discriminant",
+  "reading": "<p>When a part gives you a quadratic (often \"show that ... = 0\") and the next says \"<em>Hence</em> find \\( k \\) for which the line is a tangent\", use that quadratic — do not restart. Tangent means one repeated root, so set the <strong>discriminant \\( b^2 - 4ac = 0 \\)</strong> and solve. The 2019 examiners noted many candidates failed to link \"tangent\" to \"coincident roots\" and so scored nothing on the follow-up.</p>",
+  "question": "A chord is a tangent when the substituted quadratic has:",
+  "options": [
+   "coincident (equal) roots, so \\( b^2 - 4ac = 0 \\)",
+   "two distinct roots",
+   "no real roots",
+   "a positive discriminant"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "One point of contact means a repeated root, i.e. discriminant zero."
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:fib:640c6671",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The general equation of a circle with centre \\( (a,\\ b) \\) and radius \\( r \\) is \\( (x-a)^2 + (y-b)^2 = r^2 \\). For \\( (x-3)^2 + (y+2)^2 = 25 \\), the centre is ___B1___ and the radius is ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "(3, -2)",
+    "midpoint",
+    "quadratic",
+    "25"
+   ],
+   "B2": [
+    "5",
+    "factorise",
+    "double",
+    "quadratic"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "(3, -2)",
+    "B2": "5"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:fib:415d512c",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "To find the centre and radius from the expanded form \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\), you complete the ___B1___ in \\( x \\) and in \\( y \\) separately.",
+  "blankOptions": {
+   "B1": [
+    "square",
+    "double",
+    "zero",
+    "normal"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "square"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:fib:731a36ec",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "At the point of contact, the radius is ___B1___ to the tangent, so the tangent gradient is the ___B2___ of the radius gradient.",
+  "blankOptions": {
+   "B1": [
+    "25",
+    "(-3, 2)",
+    "zero",
+    "perpendicular"
+   ],
+   "B2": [
+    "square",
+    "normal",
+    "negative reciprocal",
+    "zero"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "perpendicular",
+    "B2": "negative reciprocal"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:fib:dc21c842",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The ___B1___ to a circle at a point always passes through the centre of the circle.",
+  "blankOptions": {
+   "B1": [
+    "5",
+    "zero",
+    "gradient",
+    "normal"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "normal"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:fib:443bb9b5",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "To test where a line meets a circle, ___B1___ the line into the circle equation to obtain a ___B2___ equation.",
+  "blankOptions": {
+   "B1": [
+    "reciprocal",
+    "negative reciprocal",
+    "substitute",
+    "half"
+   ],
+   "B2": [
+    "parallel",
+    "factorise",
+    "linear",
+    "quadratic"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "substitute",
+    "B2": "quadratic"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:fib:68fb84ae",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A line is a tangent to a circle exactly when the discriminant of that quadratic equals ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "zero",
+    "perpendicular",
+    "reciprocal",
+    "positive"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "zero"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:fib:15e3646b",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "If the discriminant is ___B1___, the line misses the circle completely.",
+  "blankOptions": {
+   "B1": [
+    "negative",
+    "quadratic",
+    "gradient",
+    "negative reciprocal"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "negative"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:fib:d092cf26",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Given the two ends of a diameter, the centre is the ___B1___ of the endpoints and the radius is ___B2___ the diameter.",
+  "blankOptions": {
+   "B1": [
+    "double",
+    "midpoint",
+    "negative",
+    "substitute"
+   ],
+   "B2": [
+    "half",
+    "negative reciprocal",
+    "quadratic",
+    "parallel"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "midpoint",
+    "B2": "half"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:match:2c004e7c",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( (x - 2)^2 + (y - 3)^2 = 16 \\)”?",
+  "options": [
+   "Centre \\( (5,\\ -2) \\), radius \\( 5 \\)",
+   "The line is a tangent to the circle",
+   "Perpendicular to the radius at the point of contact",
+   "Centre \\( (2,\\ 3) \\), radius \\( 4 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( (x - 2)^2 + (y - 3)^2 = 16 \\)” means: Centre \\( (2,\\ 3) \\), radius \\( 4 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:match:d30b5af8",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( (x + 1)^2 + (y - 4)^2 = 9 \\)”?",
+  "options": [
+   "Centre \\( (2,\\ 3) \\), radius \\( 4 \\)",
+   "Centre \\( (-1,\\ 4) \\), radius \\( 3 \\)",
+   "\\( (-g,\\ -f) \\)",
+   "Centre \\( (5,\\ -2) \\), radius \\( 5 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( (x + 1)^2 + (y - 4)^2 = 9 \\)” means: Centre \\( (-1,\\ 4) \\), radius \\( 3 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:match:9f8a756c",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( (x - 5)^2 + (y + 2)^2 = 25 \\)”?",
+  "options": [
+   "Centre \\( (2,\\ 3) \\), radius \\( 4 \\)",
+   "The line cuts the circle at two points",
+   "Centre \\( (5,\\ -2) \\), radius \\( 5 \\)",
+   "Perpendicular to the radius at the point of contact"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( (x - 5)^2 + (y + 2)^2 = 25 \\)” means: Centre \\( (5,\\ -2) \\), radius \\( 5 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:match:f1be52d9",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( x^2 + (y - 6)^2 = 49 \\)”?",
+  "options": [
+   "\\( \\sqrt{g^2 + f^2 - c} \\)",
+   "The line misses the circle completely",
+   "Centre \\( (2,\\ 3) \\), radius \\( 4 \\)",
+   "Centre \\( (0,\\ 6) \\), radius \\( 7 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( x^2 + (y - 6)^2 = 49 \\)” means: Centre \\( (0,\\ 6) \\), radius \\( 7 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:match:0c915ca1",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( (x - 3)^2 + (y - 1)^2 = 2 \\)”?",
+  "options": [
+   "The line misses the circle completely",
+   "Centre \\( (3,\\ 1) \\), radius \\( \\sqrt{2} \\)",
+   "Centre \\( (0,\\ 6) \\), radius \\( 7 \\)",
+   "Perpendicular to the radius at the point of contact"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( (x - 3)^2 + (y - 1)^2 = 2 \\)” means: Centre \\( (3,\\ 1) \\), radius \\( \\sqrt{2} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:match:9f69199b",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Tangent to a circle”?",
+  "options": [
+   "Centre \\( (2,\\ 3) \\), radius \\( 4 \\)",
+   "Passes through the centre of the circle",
+   "Centre \\( (-1,\\ 4) \\), radius \\( 3 \\)",
+   "Perpendicular to the radius at the point of contact"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Tangent to a circle” means: Perpendicular to the radius at the point of contact"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:match:547465f2",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Normal to a circle”?",
+  "options": [
+   "Centre \\( (3,\\ 1) \\), radius \\( \\sqrt{2} \\)",
+   "Passes through the centre of the circle",
+   "Centre \\( (-1,\\ 4) \\), radius \\( 3 \\)",
+   "Centre \\( (5,\\ -2) \\), radius \\( 5 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Normal to a circle” means: Passes through the centre of the circle"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:match:48d98641",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Discriminant \\( > 0 \\) (line into circle)”?",
+  "options": [
+   "The line cuts the circle at two points",
+   "Centre \\( (-1,\\ 4) \\), radius \\( 3 \\)",
+   "Passes through the centre of the circle",
+   "Centre \\( (3,\\ 1) \\), radius \\( \\sqrt{2} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Discriminant \\( > 0 \\) (line into circle)” means: The line cuts the circle at two points"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:match:b6315b06",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Discriminant \\( = 0 \\) (line into circle)”?",
+  "options": [
+   "Centre \\( (0,\\ 6) \\), radius \\( 7 \\)",
+   "The line is a tangent to the circle",
+   "The line misses the circle completely",
+   "Centre \\( (-1,\\ 4) \\), radius \\( 3 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Discriminant \\( = 0 \\) (line into circle)” means: The line is a tangent to the circle"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:match:ee7548e6",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Discriminant \\( < 0 \\) (line into circle)”?",
+  "options": [
+   "The line cuts the circle at two points",
+   "Centre \\( (-1,\\ 4) \\), radius \\( 3 \\)",
+   "Centre \\( (2,\\ 3) \\), radius \\( 4 \\)",
+   "The line misses the circle completely"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Discriminant \\( < 0 \\) (line into circle)” means: The line misses the circle completely"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:match:78df140f",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Centre from \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\)”?",
+  "options": [
+   "Centre \\( (0,\\ 6) \\), radius \\( 7 \\)",
+   "\\( (-g,\\ -f) \\)",
+   "The line misses the circle completely",
+   "Centre \\( (5,\\ -2) \\), radius \\( 5 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Centre from \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\)” means: \\( (-g,\\ -f) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-2-circles-tangents-and-normals:match:d3faa79c",
+  "pageId": "additional-maths:3-2-circles-tangents-and-normals",
+  "pageName": "3.2 Circles, Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Radius from \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\)”?",
+  "options": [
+   "\\( (-g,\\ -f) \\)",
+   "Passes through the centre of the circle",
+   "The line is a tangent to the circle",
+   "\\( \\sqrt{g^2 + f^2 - c} \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Radius from \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\)” means: \\( \\sqrt{g^2 + f^2 - c} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:exam:9a88cb69",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "6 (a)",
+  "question": "<p>On the grid, plot the graphs of \\( y = x^2 - 4x + 1 \\) and \\( y = 2^x - 2 \\) for \\( -1 \\le x \\le 4 \\).</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 6.</strong> You are asked to work on the grid below, which has \\( x \\) from \\( -1 \\) to \\( 4 \\) and \\( y \\) from \\( -5 \\) to \\( 15 \\).</p>\n        <svg viewBox=\"0 0 470 320\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x-axis from minus 1 to 4 and y-axis from minus 5 to 15\">\n          <rect x=\"40\" y=\"30\" width=\"400\" height=\"260\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.5\"/>\n          <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.2\">\n            <line x1=\"80\" y1=\"30\" x2=\"80\" y2=\"290\"/><line x1=\"160\" y1=\"30\" x2=\"160\" y2=\"290\"/><line x1=\"240\" y1=\"30\" x2=\"240\" y2=\"290\"/><line x1=\"320\" y1=\"30\" x2=\"320\" y2=\"290\"/><line x1=\"400\" y1=\"30\" x2=\"400\" y2=\"290\"/>\n            <line x1=\"40\" y1=\"62.5\" x2=\"440\" y2=\"62.5\"/><line x1=\"40\" y1=\"127.5\" x2=\"440\" y2=\"127.5\"/><line x1=\"40\" y1=\"192.5\" x2=\"440\" y2=\"192.5\"/><line x1=\"40\" y1=\"257.5\" x2=\"440\" y2=\"257.5\"/>\n          </g>\n          <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.4\">\n            <line x1=\"120\" y1=\"30\" x2=\"120\" y2=\"290\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"290\"/><line x1=\"280\" y1=\"30\" x2=\"280\" y2=\"290\"/><line x1=\"360\" y1=\"30\" x2=\"360\" y2=\"290\"/>\n            <line x1=\"40\" y1=\"95\" x2=\"440\" y2=\"95\"/><line x1=\"40\" y1=\"160\" x2=\"440\" y2=\"160\"/>\n          </g>\n          <line x1=\"40\" y1=\"225\" x2=\"440\" y2=\"225\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <line x1=\"120\" y1=\"30\" x2=\"120\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <polygon points=\"440,225 431,221 431,229\" fill=\"currentColor\"/>\n          <polygon points=\"120,30 116,39 124,39\" fill=\"currentColor\"/>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"40\" y=\"240\">-1</text><text x=\"200\" y=\"240\">1</text><text x=\"280\" y=\"240\">2</text><text x=\"360\" y=\"240\">3</text><text x=\"440\" y=\"240\">4</text>\n            <text x=\"112\" y=\"34\" text-anchor=\"end\">15</text><text x=\"112\" y=\"99\" text-anchor=\"end\">10</text><text x=\"112\" y=\"164\" text-anchor=\"end\">5</text><text x=\"112\" y=\"294\" text-anchor=\"end\">-5</text>\n            <text x=\"132\" y=\"222\">0</text><text x=\"446\" y=\"222\">x</text><text x=\"126\" y=\"30\">y</text>\n          </g>\n        </svg>",
+  "hint": "Do this on paper (or a printout of the grid above): make a table of values for each function, plot the points, then join each with a smooth curve.",
+  "starter": "Build a table of \\( (x,\\ y) \\) values for each function at \\( x = -1, 0, 1, 2, 3, 4 \\), plot them, and join with two smooth curves.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1)</h5><ul>\n              <li><strong>For the quadratic \\( y = x^2 - 4x + 1 \\):</strong></li>\n              <li><strong>B1</strong> — correct points plotted (allow one error). Values: \\( x = -1,0,1,2,3,4 \\) give \\( y = 6,\\ 1,\\ -2,\\ -3,\\ -2,\\ 1 \\).</li>\n              <li><strong>B1</strong> — smooth curve no more than ½ square from the correct points.</li>\n              <li><strong>For the exponential \\( y = 2^x - 2 \\):</strong></li>\n              <li><strong>B1</strong> — correct points plotted (allow one error). Values: \\( x = -1,0,1,2,3,4 \\) give \\( y = -1.5,\\ -1,\\ 0,\\ 2,\\ 6,\\ 14 \\).</li>\n              <li><strong>B1</strong> — smooth curve no more than ½ square from the correct points.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Each graph earns one mark for accurate points (one slip allowed) and one for a smooth curve within ½ square. Straight-line segments between points do not earn the curve mark.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most candidates knew what was required, but carelessly drawn curves sometimes lost marks even when the method was correct.</li>\n            </ul></div>",
+   "modelAnswer": "Quadratic points \\( (x, y) \\): \\( (-1,6),\\ (0,1),\\ (1,-2),\\ (2,-3),\\ (3,-2),\\ (4,1) \\). Exponential points: \\( (-1,-1.5),\\ (0,-1),\\ (1,0),\\ (2,2),\\ (3,6),\\ (4,14) \\). The two smooth curves cross once (near \\( x \\approx 0.5 \\)) as shown:\n<svg viewBox=\"0 0 470 320\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"The quadratic y = x squared minus 4x plus 1 (solid) and the exponential y = 2 to the x minus 2 (dashed) plotted on the grid, crossing once near x = 0.5\"><rect x=\"40\" y=\"30\" width=\"400\" height=\"260\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.5\"/><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.25\"><line x1=\"80\" y1=\"30\" x2=\"80\" y2=\"290\"/><line x1=\"160\" y1=\"30\" x2=\"160\" y2=\"290\"/><line x1=\"240\" y1=\"30\" x2=\"240\" y2=\"290\"/><line x1=\"320\" y1=\"30\" x2=\"320\" y2=\"290\"/><line x1=\"400\" y1=\"30\" x2=\"400\" y2=\"290\"/><line x1=\"40\" y1=\"95\" x2=\"440\" y2=\"95\"/><line x1=\"40\" y1=\"160\" x2=\"440\" y2=\"160\"/></g><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.45\"><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"290\"/><line x1=\"280\" y1=\"30\" x2=\"280\" y2=\"290\"/><line x1=\"360\" y1=\"30\" x2=\"360\" y2=\"290\"/></g><line x1=\"40\" y1=\"225\" x2=\"440\" y2=\"225\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"120\" y1=\"30\" x2=\"120\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"440,225 431,221 431,229\" fill=\"currentColor\"/><polygon points=\"120,30 116,39 124,39\" fill=\"currentColor\"/><polyline points=\"40,147 60,165.7 80,182.8 100,198.2 120,212 140,224.2 160,234.8 180,243.7 200,251 220,256.7 240,260.8 260,263.2 280,264 300,263.2 320,260.8 340,256.7 360,251 380,243.7 400,234.8 420,224.2 440,212\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/><polyline points=\"40,244.5 60,243.3 80,241.8 100,240.1 120,238 140,235.5 160,232.6 180,229.1 200,225 220,220.1 240,214.2 260,207.3 280,199 300,189.2 320,177.5 340,163.5 360,147 380,127.3 400,103.9 420,76.1 440,43\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-dasharray=\"6 4\"/><line x1=\"157\" y1=\"233\" x2=\"157\" y2=\"225\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/><circle cx=\"157\" cy=\"233\" r=\"4\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"40\" y=\"240\">-1</text><text x=\"200\" y=\"240\">1</text><text x=\"280\" y=\"240\">2</text><text x=\"360\" y=\"240\">3</text><text x=\"440\" y=\"240\">4</text><text x=\"112\" y=\"34\" text-anchor=\"end\">15</text><text x=\"112\" y=\"164\" text-anchor=\"end\">5</text><text x=\"112\" y=\"294\" text-anchor=\"end\">-5</text><text x=\"446\" y=\"222\" text-anchor=\"start\">x</text></g><g font-size=\"11\" fill=\"currentColor\"><text x=\"300\" y=\"150\">y = x² - 4x + 1</text><text x=\"300\" y=\"120\">y = 2ˣ - 2</text><text x=\"150\" y=\"253\">root ≈ 0.5</text></g></svg>"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:exam:8398aefc",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "6 (b)",
+  "question": "<p>Hence write down the root of the equation \\( 2^x = x^2 - 4x + 3 \\), giving your answer correct to \\( 1 \\) decimal place.</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 6.</strong> You are asked to work on the grid below, which has \\( x \\) from \\( -1 \\) to \\( 4 \\) and \\( y \\) from \\( -5 \\) to \\( 15 \\).</p>\n        <svg viewBox=\"0 0 470 320\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x-axis from minus 1 to 4 and y-axis from minus 5 to 15\">\n          <rect x=\"40\" y=\"30\" width=\"400\" height=\"260\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.5\"/>\n          <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.2\">\n            <line x1=\"80\" y1=\"30\" x2=\"80\" y2=\"290\"/><line x1=\"160\" y1=\"30\" x2=\"160\" y2=\"290\"/><line x1=\"240\" y1=\"30\" x2=\"240\" y2=\"290\"/><line x1=\"320\" y1=\"30\" x2=\"320\" y2=\"290\"/><line x1=\"400\" y1=\"30\" x2=\"400\" y2=\"290\"/>\n            <line x1=\"40\" y1=\"62.5\" x2=\"440\" y2=\"62.5\"/><line x1=\"40\" y1=\"127.5\" x2=\"440\" y2=\"127.5\"/><line x1=\"40\" y1=\"192.5\" x2=\"440\" y2=\"192.5\"/><line x1=\"40\" y1=\"257.5\" x2=\"440\" y2=\"257.5\"/>\n          </g>\n          <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.4\">\n            <line x1=\"120\" y1=\"30\" x2=\"120\" y2=\"290\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"290\"/><line x1=\"280\" y1=\"30\" x2=\"280\" y2=\"290\"/><line x1=\"360\" y1=\"30\" x2=\"360\" y2=\"290\"/>\n            <line x1=\"40\" y1=\"95\" x2=\"440\" y2=\"95\"/><line x1=\"40\" y1=\"160\" x2=\"440\" y2=\"160\"/>\n          </g>\n          <line x1=\"40\" y1=\"225\" x2=\"440\" y2=\"225\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <line x1=\"120\" y1=\"30\" x2=\"120\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <polygon points=\"440,225 431,221 431,229\" fill=\"currentColor\"/>\n          <polygon points=\"120,30 116,39 124,39\" fill=\"currentColor\"/>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"40\" y=\"240\">-1</text><text x=\"200\" y=\"240\">1</text><text x=\"280\" y=\"240\">2</text><text x=\"360\" y=\"240\">3</text><text x=\"440\" y=\"240\">4</text>\n            <text x=\"112\" y=\"34\" text-anchor=\"end\">15</text><text x=\"112\" y=\"99\" text-anchor=\"end\">10</text><text x=\"112\" y=\"164\" text-anchor=\"end\">5</text><text x=\"112\" y=\"294\" text-anchor=\"end\">-5</text>\n            <text x=\"132\" y=\"222\">0</text><text x=\"446\" y=\"222\">x</text><text x=\"126\" y=\"30\">y</text>\n          </g>\n        </svg>",
+  "hint": "Setting your two graphs equal gives \\( x^2 - 4x + 1 = 2^x - 2 \\), i.e. \\( 2^x = x^2 - 4x + 3 \\). So the root is the \\( x \\)-coordinate where your two plotted curves cross — read it off the graph, do NOT use the calculator solver (\"Hence\").",
+  "starter": "Read the \\( x \\)-coordinate of the crossing point from your plotted graph, to 1 decimal place.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>\n              <li><strong>B1</strong> — \\( x = 0.4 \\) or \\( 0.5 \\) (must be to 1 d.p.). Allow \\( x \\) given inside a coordinate pair; ignore any \\( y \\)-value quoted.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The mark is for reading the \\( x \\)-coordinate of the crossing point of the two curves. Because it is a hand-drawn graph, both \\( 0.4 \\) and \\( 0.5 \\) are accepted.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Candidates who plotted the graphs correctly generally read the intersection correctly. Strictly the root should be given as \\( x = \\dots \\) only. \"Hence\" means the graph must be used — an answer from the calculator's solve function earns no credit.</li>\n            </ul></div>",
+   "modelAnswer": "Setting the plotted expressions equal, \\( x^2 - 4x + 1 = 2^x - 2 \\), which rearranges to \\( 2^x = x^2 - 4x + 3 \\). The curves cross once in range, so the root is the \\( x \\)-coordinate there: \\( x \\approx 0.5 \\) (accept \\( 0.4 \\) or \\( 0.5 \\) to 1 d.p.)."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:mcq:869690f4",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which command word asks for an accurate graph plotted on the grid?",
+  "options": [
+   "Plot",
+   "Sketch",
+   "Describe",
+   "Estimate"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\"Plot\" means work out and mark exact points, then join smoothly. \"Sketch\" is a freehand main-features graph."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:mcq:48acfef4",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the horizontal asymptote of \\( y = 5 \\times 2^x \\)?",
+  "options": [
+   "\\( y = 0 \\)",
+   "\\( y = 5 \\)",
+   "\\( y = 2 \\)",
+   "\\( x = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Every \\( y = k a^x \\) approaches the \\( x \\)-axis, so the asymptote is \\( y = 0 \\). (The value \\( 5 \\) is the \\( y \\)-intercept, not the asymptote.)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:mcq:b904ebe4",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The graph of \\( y = k a^x \\) crosses the \\( y \\)-axis at:",
+  "options": [
+   "\\( (0,\\ k) \\)",
+   "\\( (0,\\ a) \\)",
+   "\\( (k,\\ 0) \\)",
+   "\\( (0,\\ 0) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "At \\( x = 0 \\), \\( a^0 = 1 \\), so \\( y = k \\): the intercept is \\( (0,\\ k) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:mcq:d5a38e18",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How many times does \\( y = (x-1)(x+2)(x-4) \\) cross the \\( x \\)-axis?",
+  "options": [
+   "Three",
+   "Two",
+   "One",
+   "Four"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Three distinct linear factors give three distinct roots \\( x = 1,\\ -2,\\ 4 \\), so it crosses three times."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:mcq:43fe5076",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A cubic with a repeated factor \\( (x-2)^2 \\) does what at \\( x = 2 \\)?",
+  "options": [
+   "Touches the \\( x \\)-axis and turns back",
+   "Crosses the \\( x \\)-axis steeply",
+   "Has a vertical asymptote",
+   "Jumps discontinuously"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A squared (repeated) factor makes the curve touch the axis rather than cross it."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:mcq:c6514fc6",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "At which angle does \\( y = \\sin x \\) reach its maximum value of \\( 1 \\) between \\( 0^\\circ \\) and \\( 360^\\circ \\)?",
+  "options": [
+   "\\( 90^\\circ \\)",
+   "\\( 0^\\circ \\)",
+   "\\( 180^\\circ \\)",
+   "\\( 270^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sin x \\) peaks at \\( 90^\\circ \\). At \\( 0^\\circ \\) it is \\( 0 \\); \\( \\cos x \\) is the one that starts at its maximum."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:mcq:31217ca4",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which statement about \\( y = \\cos x \\) on \\( 0^\\circ \\le x \\le 360^\\circ \\) is correct?",
+  "options": [
+   "It starts at \\( 1 \\), is \\( 0 \\) at \\( 90^\\circ \\), and \\( -1 \\) at \\( 180^\\circ \\)",
+   "It starts at \\( 0 \\) and peaks at \\( 90^\\circ \\)",
+   "It starts at \\( -1 \\) at \\( 0^\\circ \\)",
+   "It has no value at \\( 90^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\cos 0^\\circ = 1,\\ \\cos 90^\\circ = 0,\\ \\cos 180^\\circ = -1 \\). Option 2 describes \\( \\sin x \\), not \\( \\cos x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:mcq:14636fa1",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The graph of \\( y = \\tan x \\) has vertical asymptotes at:",
+  "options": [
+   "\\( 90^\\circ \\) and \\( 270^\\circ \\)",
+   "\\( 0^\\circ \\) and \\( 180^\\circ \\)",
+   "\\( 45^\\circ \\) and \\( 135^\\circ \\)",
+   "It has no asymptotes"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tan x = \\sin x / \\cos x \\) is undefined where \\( \\cos x = 0 \\), i.e. at \\( 90^\\circ \\) and \\( 270^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:mcq:58010fb9",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( y = -x^2 + 4 \\), which way does the parabola open and where is its turning point?",
+  "options": [
+   "Opens downwards; maximum at \\( (0,\\ 4) \\)",
+   "Opens upwards; minimum at \\( (0,\\ 4) \\)",
+   "Opens downwards; minimum at \\( (4,\\ 0) \\)",
+   "Opens upwards; maximum at \\( (0,\\ -4) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The \\( x^2 \\) coefficient is negative, so it opens downwards with a maximum; the vertex is \\( (0,\\ 4) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:mcq:31cb7cca",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For a polynomial with a positive leading term of even degree (e.g. \\( +x^2 \\)), the ends of the graph:",
+  "options": [
+   "Both go up (to \\( +\\infty \\)) as \\( x \\to \\pm\\infty \\)",
+   "Both go down",
+   "One up, one down",
+   "Level off to an asymptote"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A positive even-degree leading term sends both ends to \\( +\\infty \\); a positive odd-degree (cubic) leading term sends one end down and one up."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:mcq:86eb7b47",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "You plot \\( y = x^2 \\) and \\( y = x + 6 \\) on the same grid and they cross at \\( x = -2 \\) and \\( x = 3 \\). These \\( x \\)-values are the solutions of:",
+  "options": [
+   "\\( x^2 = x + 6 \\)",
+   "\\( x^2 + x + 6 = 0 \\)",
+   "\\( x = 6 \\)",
+   "\\( 2x = 6 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Where the curves cross, the two expressions are equal: \\( x^2 = x + 6 \\). Its solutions are the crossing \\( x \\)-values."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:mcq:a2e3d32d",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A curve is plotted from a table of values. How should the points be joined?",
+  "options": [
+   "With a single smooth curve",
+   "With ruled straight segments between each pair",
+   "With a dotted box around them",
+   "Left as separate dots"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Plotted curve points are joined by one smooth freehand curve; straight segments lose the curve mark. (Only genuinely linear graphs are ruled.)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:tf:a1b55a78",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The command word \"sketch\" means you must plot exact points accurately to scale.",
+  "key": {
+   "answer": false,
+   "explain": "\"Sketch\" is freehand and not to scale — it must show the main features (shape, intercepts, asymptotes, turning points) but not accurately plotted points."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:tf:134964e7",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The graph of \\( y = 2^x \\) has the \\( x \\)-axis (\\( y = 0 \\)) as a horizontal asymptote.",
+  "key": {
+   "answer": true,
+   "explain": "As \\( x \\to -\\infty \\) the curve approaches \\( y = 0 \\) without ever reaching it — an asymptote."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:tf:6e6c9cd6",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The graph of \\( y = \\sin x \\) has amplitude \\( 360^\\circ \\).",
+  "key": {
+   "answer": false,
+   "explain": "Its amplitude (peak height) is \\( 1 \\); \\( 360^\\circ \\) is its period (how often it repeats)."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:tf:7a22c69b",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A cubic can have exactly two distinct real roots if one of them is repeated.",
+  "key": {
+   "answer": true,
+   "explain": "A repeated (squared) factor gives a root where the curve touches the axis, so \\( y = (x-1)^2(x+3) \\) has just two distinct roots."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:tf:b8bb3121",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The graph of \\( y = \\cos x \\) passes through \\( (0^\\circ,\\ 1) \\).",
+  "key": {
+   "answer": true,
+   "explain": "\\( \\cos 0^\\circ = 1 \\), so the cosine graph starts at its maximum on the \\( y \\)-axis."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:tf:570ac243",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A parabola \\( y = ax^2 + bx + c \\) with \\( a > 0 \\) opens downwards.",
+  "key": {
+   "answer": false,
+   "explain": "A positive \\( x^2 \\) coefficient opens the parabola upwards (a minimum); a negative one opens it downwards."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:tf:a1be8d5a",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "When plotting a curve you should join the points with ruled straight segments.",
+  "key": {
+   "answer": false,
+   "explain": "Curve points are joined with a single smooth freehand curve; straight segments lose the smoothness mark. Only genuinely linear graphs are ruled."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:tf:abf9b2fa",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The graph of \\( y = k a^x \\) always passes through \\( (0,\\ k) \\).",
+  "key": {
+   "answer": true,
+   "explain": "At \\( x = 0 \\), \\( a^0 = 1 \\), so \\( y = k \\) whatever the value of \\( a \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:learn:5a63c5da",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is the difference between 'sketch', 'plot' and 'draw'?",
+  "reading": "<p>These three command words look similar but the mark scheme treats them very differently — get the wrong one and you can lose every mark even with the right idea.</p>\n            <ul>\n              <li><strong>Sketch</strong> — a quick freehand graph showing the <strong>main features</strong>, <em>not to scale</em>. You must show the right shape, where it crosses the axes, any asymptotes and any turning points, but you do <strong>not</strong> plot exact points.</li>\n              <li><strong>Plot</strong> — an <strong>accurate</strong> graph on a printed grid: work out a table of \\( (x,\\ y) \\) points, mark each one precisely, then join them with a <strong>smooth curve</strong> (or a ruled straight line for a linear graph).</li>\n              <li><strong>Draw</strong> — like plot but with <em>reasonable</em> accuracy; used when the exact grid points matter less than a fair-looking curve.</li>\n            </ul>\n            <p>A quick rule: if the question gives you a <strong>grid</strong>, it almost always wants <em>plot</em> or <em>draw</em>; if it just says \"sketch\", a labelled freehand shape is enough.</p>",
+  "question": "A question says \"Sketch \\( y = 2^x \\)\". What is expected?",
+  "options": [
+   "A labelled freehand curve showing shape, the asymptote and the y-intercept",
+   "An accurate plot of exact points on graph paper",
+   "A table of values only",
+   "A ruled straight line"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\"Sketch\" wants the main features (shape, asymptote \\( y=0 \\), intercept), not accurately plotted points."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:learn:cd822d11",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you sketch a linear graph from its equation?",
+  "reading": "<p>A <strong>linear</strong> graph \\( y = mx + c \\) is a straight line, fixed by just two facts:</p>\n            <ul>\n              <li>the <strong>gradient</strong> \\( m \\) — how steep the line is (\\( m>0 \\) slopes up to the right, \\( m<0 \\) slopes down); and</li>\n              <li>the <strong>\\( y \\)-intercept</strong> \\( c \\) — where it cuts the \\( y \\)-axis, at \\( (0,\\ c) \\).</li>\n            </ul>\n            <p><strong>Worked example — sketch \\( y = 2x - 3 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( c = -3 \\): the line crosses the \\( y \\)-axis at \\( (0,\\ -3) \\).</td></tr>\n              <tr><td>2. \\( m = 2 \\): from that point go up \\( 2 \\) for every \\( 1 \\) across (a fairly steep upward line).</td></tr>\n              <tr><td>3. Find the \\( x \\)-intercept by setting \\( y = 0 \\): \\( 0 = 2x - 3 \\Rightarrow x = 1.5 \\), so it also passes through \\( (1.5,\\ 0) \\).</td></tr>\n            </table>\n            <p>Two points are enough to fix a straight line, so mark \\( (0,-3) \\) and \\( (1.5,\\ 0) \\) and rule a line through them.</p>",
+  "question": "Where does \\( y = -3x + 6 \\) cross the \\( y \\)-axis?",
+  "options": [
+   "\\( (0,\\ 6) \\)",
+   "\\( (6,\\ 0) \\)",
+   "\\( (0,\\ -3) \\)",
+   "\\( (2,\\ 0) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The \\( y \\)-intercept is \\( c = 6 \\), so the line cuts the \\( y \\)-axis at \\( (0,\\ 6) \\). (Its \\( x \\)-intercept is \\( (2,0) \\).)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:learn:bd0b35bb",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you sketch a quadratic from its factorised form?",
+  "reading": "<p>To sketch <strong>any</strong> polynomial you need four things: the <strong>roots</strong> (where it crosses the \\( x \\)-axis), the sign of the <strong>leading term</strong> (which way it opens / its long-run behaviour), the <strong>\\( y \\)-intercept</strong>, and any <strong>turning point</strong>.</p>\n            <p>A quadratic graph is a <strong>parabola</strong>. From <strong>factorised form</strong> the roots are read straight off; a positive \\( x^2 \\) coefficient opens <strong>upwards</strong> (a minimum), a negative one opens <strong>downwards</strong> (a maximum).</p>\n            <p><strong>Worked example — sketch \\( y = x^2 - 2x - 3 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Factorise: \\( y = (x - 3)(x + 1) \\), so the roots are \\( x = 3 \\) and \\( x = -1 \\).</td></tr>\n              <tr><td>2. Leading term \\( +x^2 \\Rightarrow \\) opens upwards (a minimum).</td></tr>\n              <tr><td>3. \\( y \\)-intercept: put \\( x = 0 \\Rightarrow y = -3 \\), i.e. \\( (0,\\ -3) \\).</td></tr>\n              <tr><td>4. Turning point sits halfway between the roots, at \\( x = 1 \\); then \\( y = 1 - 2 - 3 = -4 \\), so the vertex is \\( (1,\\ -4) \\).</td></tr>\n            </table>\n            <svg viewBox=\"0 0 320 230\" width=\"100%\" style=\"max-width:360px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Upward parabola through x = minus 1 and x = 3 with a minimum turning point at 1, minus 4 and y-intercept minus 3\">\n              <line x1=\"20\" y1=\"110\" x2=\"300\" y2=\"110\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"117\" y1=\"18\" x2=\"117\" y2=\"210\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"300,110 291,106 291,114\" fill=\"currentColor\"/>\n              <polygon points=\"117,18 113,27 121,27\" fill=\"currentColor\"/>\n              <polyline points=\"30,20 51.6,69.5 73.3,110 94.9,141.5 116.6,164 138.3,177.5 160,182 181.6,177.5 203.3,164 225,141.5 246.6,110 268.3,69.5 290,20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <circle cx=\"73.3\" cy=\"110\" r=\"3.5\" fill=\"currentColor\"/><circle cx=\"246.6\" cy=\"110\" r=\"3.5\" fill=\"currentColor\"/>\n              <circle cx=\"160\" cy=\"182\" r=\"3.5\" fill=\"currentColor\"/><circle cx=\"117\" cy=\"164\" r=\"3\" fill=\"currentColor\"/>\n              <g font-size=\"12\" fill=\"currentColor\">\n                <text x=\"70\" y=\"102\" text-anchor=\"middle\">-1</text><text x=\"250\" y=\"102\" text-anchor=\"middle\">3</text>\n                <text x=\"168\" y=\"186\">(1, -4)</text><text x=\"123\" y=\"160\">-3</text>\n                <text x=\"292\" y=\"104\" text-anchor=\"end\">x</text><text x=\"123\" y=\"26\">y</text>\n              </g>\n            </svg>\n            <p>Mark the two roots, the \\( y \\)-intercept and the vertex, then draw a smooth U through them.</p>",
+  "question": "Sketching \\( y = (x-2)(x+4) \\), where are the roots and which way does it open?",
+  "options": [
+   "Roots \\( x=2 \\) and \\( x=-4 \\); opens upwards",
+   "Roots \\( x=-2 \\) and \\( x=4 \\); opens upwards",
+   "Roots \\( x=2 \\) and \\( x=-4 \\); opens downwards",
+   "Roots \\( x=2 \\) and \\( x=4 \\); opens upwards"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Roots make each bracket zero: \\( x=2,\\ x=-4 \\). The \\( x^2 \\) coefficient is \\( +1 \\), so it opens upwards."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:learn:d1a79f00",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you sketch a cubic, and what does a repeated root do?",
+  "reading": "<p>A <strong>cubic</strong> \\( y = ax^3 + \\dots \\) has a characteristic <strong>S-shape</strong> and up to <strong>three</strong> \\( x \\)-intercepts. The sign of the leading term sets the long-run behaviour:</p>\n            <ul>\n              <li>\\( a > 0 \\): the curve comes up from bottom-left and heads to top-right (as \\( x \\to -\\infty,\\ y \\to -\\infty \\); as \\( x \\to +\\infty,\\ y \\to +\\infty \\)).</li>\n              <li>\\( a < 0 \\): the whole shape is flipped (top-left down to bottom-right).</li>\n            </ul>\n            <p><strong>Worked example — sketch \\( y = x(x-2)(x+2) \\):</strong> roots at \\( x = -2,\\ 0,\\ 2 \\); leading term \\( +x^3 \\), so it rises overall and weaves through all three roots:</p>\n            <svg viewBox=\"0 0 320 230\" width=\"100%\" style=\"max-width:360px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Positive cubic curve crossing the x-axis at minus 2, 0 and 2 with an S-shape rising from bottom-left to top-right\">\n              <line x1=\"20\" y1=\"115\" x2=\"300\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"210\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"300,115 291,111 291,119\" fill=\"currentColor\"/>\n              <polygon points=\"160,20 156,29 164,29\" fill=\"currentColor\"/>\n              <polyline points=\"30,199.4 56,115 82,75.6 108,70 134,87 160,115 186,143 212,160 238,154.4 264,115 290,30.6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <circle cx=\"56\" cy=\"115\" r=\"3.5\" fill=\"currentColor\"/><circle cx=\"160\" cy=\"115\" r=\"3.5\" fill=\"currentColor\"/><circle cx=\"264\" cy=\"115\" r=\"3.5\" fill=\"currentColor\"/>\n              <g font-size=\"12\" fill=\"currentColor\">\n                <text x=\"52\" y=\"131\" text-anchor=\"middle\">-2</text><text x=\"150\" y=\"131\" text-anchor=\"middle\">0</text><text x=\"268\" y=\"131\" text-anchor=\"middle\">2</text>\n                <text x=\"292\" y=\"109\" text-anchor=\"end\">x</text><text x=\"166\" y=\"28\">y</text>\n              </g>\n            </svg>\n            <p>A <strong>repeated root</strong> changes the picture: a squared factor such as \\( (x-1)^2 \\) makes the curve <strong>touch</strong> the \\( x \\)-axis at \\( x = 1 \\) and turn back, rather than crossing it. So \\( y = (x-1)^2(x+2) \\) touches at \\( x = 1 \\) and crosses at \\( x = -2 \\) — two distinct roots, not three.</p>",
+  "question": "How does the graph of \\( y = (x+3)^2(x-1) \\) behave at \\( x = -3 \\)?",
+  "options": [
+   "It touches the \\( x \\)-axis (repeated root) and turns back",
+   "It crosses the \\( x \\)-axis steeply",
+   "It has an asymptote there",
+   "It is undefined there"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The squared factor \\( (x+3)^2 \\) gives a repeated root, so the curve touches the axis at \\( x=-3 \\) rather than crossing."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:learn:503bdc39",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What do the graphs of sin, cos and tan look like from 0° to 360°?",
+  "reading": "<p>In this qualification angles are always in <strong>degrees</strong> (never radians). You must know the shapes of the three trig graphs over \\( 0^\\circ \\) to \\( 360^\\circ \\).</p>\n            <ul>\n              <li>\\( y = \\sin x \\): a wave starting at \\( (0^\\circ,\\ 0) \\), up to a maximum \\( 1 \\) at \\( 90^\\circ \\), back to \\( 0 \\) at \\( 180^\\circ \\), down to \\( -1 \\) at \\( 270^\\circ \\), and \\( 0 \\) again at \\( 360^\\circ \\).</li>\n              <li>\\( y = \\cos x \\): the same wave shifted — it starts at a maximum \\( 1 \\) at \\( 0^\\circ \\), is \\( 0 \\) at \\( 90^\\circ \\), \\( -1 \\) at \\( 180^\\circ \\), \\( 0 \\) at \\( 270^\\circ \\), and back to \\( 1 \\) at \\( 360^\\circ \\).</li>\n              <li>Both have <strong>amplitude</strong> \\( 1 \\) (peak height) and <strong>period</strong> \\( 360^\\circ \\) (they repeat every \\( 360^\\circ \\)).</li>\n              <li>\\( y = \\tan x \\) is different: it has <strong>period</strong> \\( 180^\\circ \\), no maximum, and <strong>vertical asymptotes</strong> at \\( 90^\\circ \\) and \\( 270^\\circ \\) where it shoots off to \\( \\pm\\infty \\).</li>\n            </ul>\n            <svg viewBox=\"0 0 440 200\" width=\"100%\" style=\"max-width:480px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Graphs of y equals sin x (solid) and y equals cos x (dashed) from 0 to 360 degrees, both with amplitude 1\">\n              <line x1=\"30\" y1=\"40\" x2=\"410\" y2=\"40\" stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.35\" stroke-dasharray=\"3 3\"/>\n              <line x1=\"30\" y1=\"160\" x2=\"410\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.35\" stroke-dasharray=\"3 3\"/>\n              <line x1=\"30\" y1=\"100\" x2=\"410\" y2=\"100\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"185\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"410,100 401,96 401,104\" fill=\"currentColor\"/>\n              <polyline points=\"40,100 70,70 100,48 130,40 160,48 190,70 220,100 250,130 280,152 310,160 340,152 370,130 400,100\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/>\n              <polyline points=\"40,40 70,48 100,70 130,100 160,130 190,152 220,160 250,152 280,130 310,100 340,70 370,48 400,40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"6 4\"/>\n              <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n                <text x=\"130\" y=\"175\">90</text><text x=\"220\" y=\"175\">180</text><text x=\"310\" y=\"175\">270</text><text x=\"400\" y=\"175\">360</text>\n                <text x=\"30\" y=\"44\" text-anchor=\"end\">1</text><text x=\"30\" y=\"164\" text-anchor=\"end\">-1</text>\n                <text x=\"405\" y=\"94\" text-anchor=\"start\">x</text>\n              </g>\n              <g font-size=\"11\" fill=\"currentColor\">\n                <text x=\"70\" y=\"63\">sin</text><text x=\"300\" y=\"90\">cos</text>\n              </g>\n            </svg>\n            <p>Solid = \\( \\sin x \\), dashed = \\( \\cos x \\). Notice \\( \\cos x \\) is just \\( \\sin x \\) shifted \\( 90^\\circ \\) to the left.</p>",
+  "question": "What are the amplitude and period of \\( y = \\cos x \\)?",
+  "options": [
+   "Amplitude \\( 1 \\), period \\( 360^\\circ \\)",
+   "Amplitude \\( 360^\\circ \\), period \\( 1 \\)",
+   "Amplitude \\( 2 \\), period \\( 180^\\circ \\)",
+   "Amplitude \\( 1 \\), period \\( 90^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\cos x \\) reaches a peak of \\( 1 \\) (amplitude) and repeats every \\( 360^\\circ \\) (period)."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:learn:bd9a0303",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What does the graph of an exponential function look like?",
+  "reading": "<p>An <strong>exponential</strong> function \\( y = k a^x \\) (with \\( a > 0 \\), \\( k > 0 \\)) has a distinctive shape controlled by \\( a \\):</p>\n            <ul>\n              <li>If \\( a > 1 \\) the graph shows <strong>growth</strong> — it rises ever more steeply to the right.</li>\n              <li>If \\( 0 < a < 1 \\) it shows <strong>decay</strong> — it falls, flattening off towards the right.</li>\n              <li>Either way the \\( x \\)-axis, \\( y = 0 \\), is a <strong>horizontal asymptote</strong>: the curve gets closer and closer to it but <strong>never touches or crosses</strong> it.</li>\n              <li>Putting \\( x = 0 \\) gives \\( y = k a^0 = k \\), so the curve <strong>always cuts the \\( y \\)-axis at \\( (0,\\ k) \\)</strong>.</li>\n            </ul>\n            <p><strong>Worked example — sketch \\( y = 8 \\times (0.5)^x \\)</strong> (decay, \\( k = 8 \\)):</p>\n            <svg viewBox=\"0 0 300 190\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Exponential decay curve starting at 0, k on the y-axis and falling towards the horizontal asymptote y = 0\">\n              <line x1=\"30\" y1=\"160\" x2=\"285\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"60\" y1=\"18\" x2=\"60\" y2=\"178\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"285,160 276,156 276,164\" fill=\"currentColor\"/>\n              <polygon points=\"60,18 56,27 64,27\" fill=\"currentColor\"/>\n              <line x1=\"60\" y1=\"160\" x2=\"285\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5 4\" stroke-opacity=\"0.7\"/>\n              <polyline points=\"60,30 85,68 110,95 135,114 160,127.5 185,137 210,144 235,148.5 260,152\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <circle cx=\"60\" cy=\"30\" r=\"3.5\" fill=\"currentColor\"/>\n              <g font-size=\"12\" fill=\"currentColor\">\n                <text x=\"66\" y=\"28\">(0, k)</text><text x=\"200\" y=\"152\">asymptote y = 0</text>\n                <text x=\"278\" y=\"153\" text-anchor=\"end\">x</text><text x=\"66\" y=\"26\" opacity=\"0\"> </text>\n              </g>\n            </svg>\n            <p>A <strong>growth</strong> curve (\\( a>1 \\)) is the mirror image: same \\( (0,k) \\) intercept and same \\( y=0 \\) asymptote on the left, but rising steeply to the right.</p>",
+  "question": "For \\( y = 3 \\times 2^x \\), where does the curve cross the \\( y \\)-axis and what is its asymptote?",
+  "options": [
+   "Crosses at \\( (0,\\ 3) \\); asymptote \\( y = 0 \\)",
+   "Crosses at \\( (0,\\ 2) \\); asymptote \\( y = 3 \\)",
+   "Crosses at \\( (0,\\ 0) \\); asymptote \\( x = 0 \\)",
+   "Crosses at \\( (0,\\ 6) \\); asymptote \\( y = 1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( y = k a^x \\) cuts the \\( y \\)-axis at \\( (0,\\ k) = (0,\\ 3) \\); the horizontal asymptote is always \\( y = 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:learn:dc214117",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you plot a graph accurately and solve an equation from it?",
+  "reading": "<p>When a question says <strong>plot</strong> and gives a grid, follow a fixed routine:</p>\n            <table class=\"worked\">\n              <tr><td>1. Make a <strong>table of values</strong>: choose each \\( x \\) on the grid and compute \\( y \\) (write down anything you evaluate on the calculator).</td></tr>\n              <tr><td>2. <strong>Plot each point</strong> carefully — to within half a small square.</td></tr>\n              <tr><td>3. Join them with a <strong>single smooth curve</strong> (freehand, not ruler-drawn segments) — unless it is a straight line, which you rule.</td></tr>\n            </table>\n            <p>Two graphs plotted on the <strong>same</strong> grid let you <strong>solve an equation graphically</strong>: the \\( x \\)-coordinate of a point where the curves <strong>cross</strong> is a solution. Read it off to the accuracy the question asks (often \\( 1 \\) decimal place).</p>\n            <p>The commonest error is joining plotted points with straight-line segments instead of a smooth curve. The left picture below is <strong>wrong</strong> (segments); the right is <strong>right</strong> (smooth):</p>\n            <svg viewBox=\"0 0 380 150\" width=\"100%\" style=\"max-width:420px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Left: five points joined by straight line segments, labelled wrong. Right: the same points joined by a smooth curve, labelled right\">\n              <g stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.4\"><line x1=\"20\" y1=\"120\" x2=\"170\" y2=\"120\"/></g>\n              <polyline points=\"30,110 65,70 100,45 135,58 160,95\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"/>\n              <g fill=\"currentColor\"><circle cx=\"30\" cy=\"110\" r=\"3\"/><circle cx=\"65\" cy=\"70\" r=\"3\"/><circle cx=\"100\" cy=\"45\" r=\"3\"/><circle cx=\"135\" cy=\"58\" r=\"3\"/><circle cx=\"160\" cy=\"95\" r=\"3\"/></g>\n              <text x=\"95\" y=\"140\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">✗ straight segments</text>\n              <g stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.4\"><line x1=\"210\" y1=\"120\" x2=\"360\" y2=\"120\"/></g>\n              <path d=\"M 220,110 Q 250,55 290,45 Q 330,40 350,95\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"/>\n              <g fill=\"currentColor\"><circle cx=\"220\" cy=\"110\" r=\"3\"/><circle cx=\"255\" cy=\"70\" r=\"3\"/><circle cx=\"290\" cy=\"45\" r=\"3\"/><circle cx=\"325\" cy=\"58\" r=\"3\"/><circle cx=\"350\" cy=\"95\" r=\"3\"/></g>\n              <text x=\"285\" y=\"140\" text-anchor=\"middle\" font-size=\"12\" fill=\"currentColor\">✓ smooth curve</text>\n            </svg>\n            <p>If the question says <strong>\"Hence\"</strong>, you <em>must</em> read the answer from your graph — using the calculator's solver instead scores <strong>0</strong>.</p>",
+  "question": "Two graphs are plotted on one grid and cross at \\( (1.9,\\ 4) \\). What does \\( x = 1.9 \\) represent?",
+  "options": [
+   "A solution of the equation formed by setting the two expressions equal",
+   "The gradient of one curve",
+   "The \\( y \\)-intercept",
+   "The period of the graph"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Where the curves cross, the two expressions are equal, so the \\( x \\)-coordinate solves the equation setting them equal."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:misc:35711e5d",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Joining plotted curve points with a ruler, giving straight segments</p><p><strong>✅ The correct idea:</strong> A curve must be joined with one smooth freehand line. A weak answer rules segments point-to-point; a strong answer draws a single smooth curve passing within half a square of every point.</p>",
+  "question": "How should plotted points on a curve be joined?",
+  "options": [
+   "With one smooth freehand curve",
+   "With ruled straight segments",
+   "Not joined at all",
+   "With a dotted rectangle"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Curves are smooth; ruled segments lose the mark. Only straight-line graphs are ruled."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:misc:363bca64",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Sketching \\( y = 2^x \\) so that it touches or crosses the \\( x \\)-axis</p><p><strong>✅ The correct idea:</strong> An exponential never reaches the \\( x \\)-axis — \\( y = 0 \\) is an asymptote it only approaches. A weak sketch cuts the axis; a strong sketch flattens towards \\( y = 0 \\) and shows the \\( y \\)-intercept \\( (0,\\ k) \\).</p>",
+  "question": "What must an exponential sketch show near the \\( x \\)-axis?",
+  "options": [
+   "The curve approaching \\( y = 0 \\) as an asymptote",
+   "The curve crossing \\( y = 0 \\)",
+   "A vertical asymptote",
+   "A turning point on the axis"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( y = 0 \\) is a horizontal asymptote; the curve gets close but never touches it."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:misc:1ed8f047",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> A quadratic sketch with no roots, vertex or intercepts labelled</p><p><strong>✅ The correct idea:</strong> A sketch is marked on its features. A weak answer is an unlabelled U; a strong answer marks the roots (\\( x \\)-intercepts), the \\( y \\)-intercept, the turning point and shows which way it opens.</p>",
+  "question": "Which features should a quadratic sketch show?",
+  "options": [
+   "Roots, \\( y \\)-intercept, turning point and direction of opening",
+   "Only the vertex",
+   "Only the \\( y \\)-intercept",
+   "Just a smooth U with no labels"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Sketch marks are for the labelled main features, not for accuracy."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:misc:6bcdbaa2",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Sketching a cubic as if it were a parabola (one turn, up to 2 roots)</p><p><strong>✅ The correct idea:</strong> A cubic has an S-shape and up to three roots. A weak answer draws a U; a strong answer shows the curve weaving through its roots with the correct end behaviour set by the leading term.</p>",
+  "question": "How many \\( x \\)-axis crossings can a cubic have?",
+  "options": [
+   "Up to three",
+   "Exactly one always",
+   "Up to two",
+   "None"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A cubic can cross the \\( x \\)-axis up to three times (a repeated root reduces the number of distinct crossings)."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:misc:3ff345b5",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Answering a \"Hence, from your graph\" part by using the calculator's equation solver</p><p><strong>✅ The correct idea:</strong> \"Hence\" and \"from your graph\" require you to read the value off the plotted graph. A weak answer types it into the solver (scoring 0); a strong answer reads the crossing point to the stated accuracy.</p>",
+  "question": "A part says \"Hence write down the root from your graph\". You should:",
+  "options": [
+   "Read the crossing point off your plotted graph",
+   "Use the calculator solve function",
+   "Factorise algebraically",
+   "Complete the square"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\"Hence/from your graph\" ties you to the graph; a calculator-only answer earns no marks."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:tips:bd679948",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Sketch vs plot vs draw",
+  "reading": "<p><strong>Sketch</strong> = freehand, not to scale, show the main features (shape, intercepts, asymptotes, turning points). <strong>Plot</strong> = accurate points on the grid, joined smoothly. <strong>Draw</strong> = reasonably accurate curve. Reading the word wrongly is a classic way to lose easy marks: an accurate plot when only a sketch is needed wastes time, and a rough sketch when a plot is required scores little.</p>",
+  "question": "The grid is provided and the word is \"plot\". You should:",
+  "options": [
+   "Work out a table of values and mark points accurately",
+   "Draw a rough freehand shape",
+   "Only describe the graph in words",
+   "Give the equation only"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A provided grid + \"plot\" means an accurate table-of-values graph."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:tips:28adde44",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Sketch feature checklist ladder",
+  "reading": "<p>Build a sketch in order and you collect every B-mark:</p><p><strong>1. Shape</strong> — right family and direction (parabola up/down, cubic S, exponential curve). <strong>2. Intercepts</strong> — mark the \\( x \\)-axis roots and the \\( y \\)-intercept. <strong>3. Asymptote</strong> — for exponentials show the curve approaching \\( y = 0 \\); for \\( \\tan x \\) show the vertical asymptotes. <strong>4. Turning point</strong> — mark and label any maximum/minimum. Miss any rung and that feature mark is gone.</p>",
+  "question": "Which feature is most often missing from an exponential sketch?",
+  "options": [
+   "The horizontal asymptote \\( y = 0 \\)",
+   "The gradient value",
+   "The period",
+   "The amplitude"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Students often let the exponential touch or cross the \\( x \\)-axis, losing the asymptote feature mark."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:tips:914e2a1c",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — \"Hence\" means read it off the graph",
+  "reading": "<p>When two graphs are plotted and a part says \"<em>Hence</em>\" (or \"from your graph\") solve or find a root, the \\( x \\)-coordinate of the <strong>crossing point</strong> is the answer. You <strong>must</strong> read it from the graph to the accuracy asked (often \\( 1 \\) d.p.). The 2024 examiners confirmed that answers obtained solely from the calculator's solve function earn no credit on a \"Hence\" part.</p>",
+  "question": "Two plotted curves cross once at \\( x \\approx 0.5 \\). A \"Hence\" part wants the root to 1 d.p. Best answer:",
+  "options": [
+   "\\( x = 0.5 \\), read from the graph",
+   "Use the calculator solver for more decimals",
+   "State there is no root",
+   "Give the \\( y \\)-value instead"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Read the crossing \\( x \\)-value to 1 d.p. from the graph; a calculator-solved value scores 0 on \"Hence\"."
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:fib:a1d268de",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A graph drawn with only its main features, not to scale, is called a ___B1___; an accurate one worked out on a grid is a ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "sketch",
+    "k",
+    "0",
+    "cross"
+   ],
+   "B2": [
+    "roots",
+    "plot",
+    "draw",
+    "downwards"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "sketch",
+    "B2": "plot"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:fib:5e3059f8",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "For the exponential graph \\( y = k a^x \\) with \\( a > 0 \\), the horizontal asymptote is the line \\( y = \\) ___B1___ and the curve crosses the \\( y \\)-axis at the value ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "touch",
+    "3",
+    "0",
+    "180"
+   ],
+   "B2": [
+    "3",
+    "cross",
+    "2",
+    "k"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "0",
+    "B2": "k"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:fib:994183c2",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A quadratic graph has the shape called a ___B1___; when the \\( x^2 \\) coefficient is positive it opens ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "draw",
+    "360",
+    "parabola",
+    "1"
+   ],
+   "B2": [
+    "plot",
+    "roots",
+    "upwards",
+    "k"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "parabola",
+    "B2": "upwards"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:fib:34117225",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The graphs of \\( y = \\sin x \\) and \\( y = \\cos x \\) both repeat every ___B1___ degrees and have amplitude ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "360",
+    "touch",
+    "plot",
+    "sketch"
+   ],
+   "B2": [
+    "roots",
+    "1",
+    "k",
+    "touch"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "360",
+    "B2": "1"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:fib:aca9d3b2",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "To find where a curve meets the \\( x \\)-axis you set \\( y = \\) ___B1___ and solve; these values are the ___B2___ of the function.",
+  "blankOptions": {
+   "B1": [
+    "cross",
+    "0",
+    "180",
+    "plot"
+   ],
+   "B2": [
+    "cross",
+    "360",
+    "2",
+    "roots"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "0",
+    "B2": "roots"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:fib:981197c4",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The cubic \\( y = (x-1)(x+2)(x-4) \\) has ___B1___ real roots; a repeated factor makes the curve ___B2___ the \\( x \\)-axis instead of crossing it.",
+  "blankOptions": {
+   "B1": [
+    "cross",
+    "3",
+    "plot",
+    "draw"
+   ],
+   "B2": [
+    "touch",
+    "upwards",
+    "downwards",
+    "1"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "3",
+    "B2": "touch"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:fib:7a13ac1e",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The graph of \\( y = \\tan x \\) has vertical asymptotes and repeats every ___B1___ degrees.",
+  "blankOptions": {
+   "B1": [
+    "360",
+    "180",
+    "0",
+    "3"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "180"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:b490def6",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = mx + c \\)”?",
+  "options": [
+   "The point \\( (0,\\ k) \\)",
+   "Exponential growth with asymptote \\( y = 0 \\)",
+   "A wave from \\( 0 \\), peak \\( 1 \\) at \\( 90^\\circ \\), period \\( 360^\\circ \\)",
+   "A straight line with gradient \\( m \\) and \\( y \\)-intercept \\( c \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( y = mx + c \\)” means: A straight line with gradient \\( m \\) and \\( y \\)-intercept \\( c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:7108c23a",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = x^2 - 4 \\)”?",
+  "options": [
+   "Accurate points on a grid, joined smoothly",
+   "Period \\( 180^\\circ \\), with asymptotes at \\( 90^\\circ \\) and \\( 270^\\circ \\)",
+   "A cubic with three real roots",
+   "An upward parabola crossing the \\( x \\)-axis at \\( \\pm 2 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( y = x^2 - 4 \\)” means: An upward parabola crossing the \\( x \\)-axis at \\( \\pm 2 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:9609c8be",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = -x^2 + 1 \\)”?",
+  "options": [
+   "A graphical solution of the equation setting them equal",
+   "Exponential growth with asymptote \\( y = 0 \\)",
+   "An upward parabola crossing the \\( x \\)-axis at \\( \\pm 2 \\)",
+   "A downward parabola with a maximum turning point"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( y = -x^2 + 1 \\)” means: A downward parabola with a maximum turning point"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:c6cd3ca3",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = (x-1)(x+1)(x-3) \\)”?",
+  "options": [
+   "A downward parabola with a maximum turning point",
+   "Exponential growth with asymptote \\( y = 0 \\)",
+   "A cubic with three real roots",
+   "A wave from \\( 0 \\), peak \\( 1 \\) at \\( 90^\\circ \\), period \\( 360^\\circ \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( y = (x-1)(x+1)(x-3) \\)” means: A cubic with three real roots"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:ee675e63",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = (x-2)^2(x+1) \\)”?",
+  "options": [
+   "Freehand graph of the main features, not to scale",
+   "A straight line with gradient \\( m \\) and \\( y \\)-intercept \\( c \\)",
+   "A cubic that touches the axis at \\( x = 2 \\)",
+   "The point \\( (0,\\ k) \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( y = (x-2)^2(x+1) \\)” means: A cubic that touches the axis at \\( x = 2 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:30153a4c",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = \\sin x \\)”?",
+  "options": [
+   "Freehand graph of the main features, not to scale",
+   "An upward parabola crossing the \\( x \\)-axis at \\( \\pm 2 \\)",
+   "A wave from \\( 0 \\), peak \\( 1 \\) at \\( 90^\\circ \\), period \\( 360^\\circ \\)",
+   "Exponential decay towards \\( y = 0 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( y = \\sin x \\)” means: A wave from \\( 0 \\), peak \\( 1 \\) at \\( 90^\\circ \\), period \\( 360^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:de636f69",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = \\cos x \\)”?",
+  "options": [
+   "The point \\( (0,\\ k) \\)",
+   "A wave starting at its maximum \\( 1 \\) when \\( x = 0^\\circ \\)",
+   "A cubic that touches the axis at \\( x = 2 \\)",
+   "A cubic with three real roots"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( y = \\cos x \\)” means: A wave starting at its maximum \\( 1 \\) when \\( x = 0^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:13aabd42",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = \\tan x \\)”?",
+  "options": [
+   "An upward parabola crossing the \\( x \\)-axis at \\( \\pm 2 \\)",
+   "A graphical solution of the equation setting them equal",
+   "Period \\( 180^\\circ \\), with asymptotes at \\( 90^\\circ \\) and \\( 270^\\circ \\)",
+   "Freehand graph of the main features, not to scale"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( y = \\tan x \\)” means: Period \\( 180^\\circ \\), with asymptotes at \\( 90^\\circ \\) and \\( 270^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:74b55225",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = k a^x,\\ a>1 \\)”?",
+  "options": [
+   "Exponential growth with asymptote \\( y = 0 \\)",
+   "A wave starting at its maximum \\( 1 \\) when \\( x = 0^\\circ \\)",
+   "Period \\( 180^\\circ \\), with asymptotes at \\( 90^\\circ \\) and \\( 270^\\circ \\)",
+   "Freehand graph of the main features, not to scale"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( y = k a^x,\\ a>1 \\)” means: Exponential growth with asymptote \\( y = 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:7fd2823c",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = k a^x,\\ 0<a<1 \\)”?",
+  "options": [
+   "A cubic with three real roots",
+   "Period \\( 180^\\circ \\), with asymptotes at \\( 90^\\circ \\) and \\( 270^\\circ \\)",
+   "The point \\( (0,\\ k) \\)",
+   "Exponential decay towards \\( y = 0 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( y = k a^x,\\ 0<a<1 \\)” means: Exponential decay towards \\( y = 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:5e27fab4",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y \\)-intercept of \\( y = k a^x \\)”?",
+  "options": [
+   "Accurate points on a grid, joined smoothly",
+   "A downward parabola with a maximum turning point",
+   "A wave starting at its maximum \\( 1 \\) when \\( x = 0^\\circ \\)",
+   "The point \\( (0,\\ k) \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( y \\)-intercept of \\( y = k a^x \\)” means: The point \\( (0,\\ k) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:561f5464",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Crossing point of two plotted graphs”?",
+  "options": [
+   "Accurate points on a grid, joined smoothly",
+   "A wave starting at its maximum \\( 1 \\) when \\( x = 0^\\circ \\)",
+   "A graphical solution of the equation setting them equal",
+   "The point \\( (0,\\ k) \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Crossing point of two plotted graphs” means: A graphical solution of the equation setting them equal"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:45333135",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Command word 'sketch'”?",
+  "options": [
+   "A downward parabola with a maximum turning point",
+   "Period \\( 180^\\circ \\), with asymptotes at \\( 90^\\circ \\) and \\( 270^\\circ \\)",
+   "A graphical solution of the equation setting them equal",
+   "Freehand graph of the main features, not to scale"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Command word 'sketch'” means: Freehand graph of the main features, not to scale"
+  }
+ },
+ {
+  "id": "additional-maths:3-3-sketching-and-plotting-graphs:match:bef4812e",
+  "pageId": "additional-maths:3-3-sketching-and-plotting-graphs",
+  "pageName": "3.3 Sketching and Plotting Graphs",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Command word 'plot'”?",
+  "options": [
+   "Exponential decay towards \\( y = 0 \\)",
+   "Accurate points on a grid, joined smoothly",
+   "A cubic that touches the axis at \\( x = 2 \\)",
+   "The point \\( (0,\\ k) \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Command word 'plot'” means: Accurate points on a grid, joined smoothly"
   }
  }
 ];

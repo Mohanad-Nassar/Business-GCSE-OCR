@@ -83,22 +83,19 @@
           "id": "3-1-straight-lines",
           "name": "3.1 Straight Lines",
           "sub": "Coordinate Geometry",
-          "file": "3.1-straight-lines.html",
-          "noQuestions": true
+          "file": "3.1-straight-lines.html"
         },
         {
           "id": "3-2-circles-tangents-and-normals",
           "name": "3.2 Circles, Tangents and Normals",
           "sub": "Coordinate Geometry",
-          "file": "3.2-circles-tangents-and-normals.html",
-          "noQuestions": true
+          "file": "3.2-circles-tangents-and-normals.html"
         },
         {
           "id": "3-3-sketching-and-plotting-graphs",
           "name": "3.3 Sketching and Plotting Graphs",
           "sub": "Coordinate Geometry",
-          "file": "3.3-sketching-and-plotting-graphs.html",
-          "noQuestions": true
+          "file": "3.3-sketching-and-plotting-graphs.html"
         }
       ]
     },

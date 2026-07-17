@@ -584,7 +584,8 @@ page is legible without KaTeX. So ADM-0 is heavier than CS-0 and must land first
 | **ADM-0** Walking skeleton | (1) `SUBJECTS["additional-maths"]` in the scaffolder = the §3 tree (11 groups, explicit dotted filename tuples). (2) Run scaffolder (writes subject.json + index.html + 37 pages). (3) Vendor KaTeX under `/vendor/katex/` + write `/math-render.js` (`renderMathIn`, lazy sniff). (4) Wire `renderMathIn` into all §8 integration points in script.js + shared surfaces. (5) Extend the scaffolder subject-conditional includes so Add Maths pages emit the math-render (+ later lab/widget) script tags. (6) Build **1.3 quadratics & completing the square** fully as the proof page (all 9 tabs incl. routed exam Qs). (7) Run the §8.5 acceptance tests + ui-reviewer on 1.3. (8) Owner review -> recipe LOCKED or tuned. | KaTeX decision (P2) | 🔄 steps 1–7 DONE 2026-07-17 (KaTeX 0.18.0 vendored; math-render.js; 6 renderMathIn wires in script.js; scaffolder + 37 pages; 1.3 built = 5 topics·12 mcq·8 tf·8 fib·12 match·5 misc·3 tips·14 cards·2 exam/5 marks; verifier + playwright render test + build round-trip all PASS; bank generated NOT uploaded). **Wiring into shared surfaces (task.html/daily-revise/worksheets/mock) = ADM-B, deferred.** Deferred within step 4: only script.js wired so far. AWAITING step 8 owner review + `--upload` go-live decision |
 | **ADM-A-W1** | Group 1 (1.1-1.4) - Algebra Toolkit | ADM-0 | 🔄 all 4 pages BUILT + verified 2026-07-17 (3 parallel builders; coordinator re-verified each + recomputed exam maths; bank rebuilt = 229 Qs / 4 pages, NOT uploaded). AWAITING owner review + go-live |
 | **ADM-A-W2** | Group 2 (2.1-2.4) - Polynomials & Equations | W1 conventions | 🔄 all 4 pages BUILT + verified 2026-07-17 (4 parallel builders; coordinator re-verified each + recomputed every cubic/division/recurrence vs real papers; bank rebuilt = 429 Qs / 8 pages, NOT uploaded). AWAITING owner review + go-live |
-| **ADM-A-W3** | Group 3 (3.1-3.3) + Group 4 (4.1-4.3) - Coordinate Geometry + LP | ADM-0 | ⬜ |
+| **ADM-A-W3** | Group 3 (3.1-3.3) - Coordinate Geometry | ADM-0 | 🔄 3 pages BUILT+verified 2026-07-17 (coordinator recomputed 2023 Q9/Q12, 2019 Q10, 2024 Q6 vs papers; builder caught a wrong root hint from coordinator — recomputed to 0.5; bank=596 Qs/11 pages, NOT uploaded) |
+| **ADM-A-W4** | Group 4 (4.1-4.3) - Linear Programming | ADM-0 | ⬜ |
 | **ADM-A-W4** | Group 5 (5.1-5.5) - Trigonometry | ADM-0 | ⬜ |
 | **ADM-A-W5** | Group 6 (6.1-6.4) + Group 7 (7.1-7.4) - Enumeration + Exp/Logs | ADM-0 | ⬜ |
 | **ADM-A-W6** | Group 8 (8.1-8.3) + Group 9 (9.1-9.3) - Calculus | W1-W2 (algebra secure) | ⬜ |
@@ -730,9 +731,9 @@ delegation produces confidently wrong maths.
 | 2.2 | The factor theorem & cubics | ✅ 2026-07-17 (6·11·8·7·12·5·3·14) | ✅ coord | ✅ 2024 Q8 + 2019 Q7, 10 marks | 🔄 bank built, NOT uploaded |
 | 2.3 | Setting up & solving equations | ✅ 2026-07-17 (6·11·8·7·11·5·3·14) | ✅ coord | ✅ 2023 Q16 (a-d), 10 marks | 🔄 bank built, NOT uploaded |
 | 2.4 | Sequences & recurrence relationships | ✅ 2026-07-17 (6·11·8·8·12·5·3·15) | ✅ coord | ✅ 2024 Q5, 3 marks | 🔄 bank built, NOT uploaded |
-| 3.1 | Straight lines | ⬜ | ⬜ | ⬜ | ⬜ |
-| 3.2 | Circles, tangents & normals | ⬜ | ⬜ | ⬜ | ⬜ |
-| 3.3 | Sketching & plotting graphs | ⬜ | ⬜ | ⬜ | ⬜ |
+| 3.1 | Straight lines | ✅ 2026-07-17 (6·12·8·8·14·5·3·14) | ✅ coord | ✅ 2023 Q9, 5 marks | 🔄 bank built, NOT uploaded |
+| 3.2 | Circles, tangents & normals | ✅ 2026-07-17 (7·12·8·8·12·5·3·16) | ✅ coord | ✅ 2023 Q12 + 2019 Q10, 12 marks | 🔄 bank built, NOT uploaded |
+| 3.3 | Sketching & plotting graphs | ✅ 2026-07-17 (7·12·8·7·14·5·3·16) | ✅ coord | ✅ 2024 Q6, 5 marks (sketch/overlay pattern) | 🔄 bank built, NOT uploaded |
 | 4.1 | Inequalities in two variables | ⬜ | ⬜ | ⬜ | ⬜ |
 | 4.2 | Constraints & objective functions | ⬜ | ⬜ | ⬜ | ⬜ |
 | 4.3 | Solving LP problems graphically | ⬜ | ⬜ | ⬜ | ⬜ |

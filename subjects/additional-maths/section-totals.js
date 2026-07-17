@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-17T20:50:45Z
+// Generated: 2026-07-17T21:19:22Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "additional-maths:1-1-notation-functions-and-indices": {
@@ -95,5 +95,38 @@ window.SECTION_TOTALS = {
   "fib": 8,
   "match": 12,
   "flashcards": 15
+ },
+ "additional-maths:3-1-straight-lines": {
+  "exam": 1,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 14
+ },
+ "additional-maths:3-2-circles-tangents-and-normals": {
+  "exam": 6,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 7,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 12,
+  "flashcards": 16
+ },
+ "additional-maths:3-3-sketching-and-plotting-graphs": {
+  "exam": 2,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 7,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 14,
+  "flashcards": 16
  }
 };

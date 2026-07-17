@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 3. Coordinate Geometry</div>
             <h1>3.3 Sketching and Plotting Graphs</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,11 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 3.3 Sketching and Plotting Graphs — placeholder, content not yet written
+    //  DATA: 3.3 Sketching and Plotting Graphs (CG4)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  DOUBLED in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Diagrams are
+    //  hand-authored theme-safe inline SVG (currentColor, no fixed fills).
+    //  Exam Q = OCR June 2024 Q6 (plot-on-grid, solve graphically).
     // ══════════════════════════════════════
     const pageMeta = {
             id: '3-3-sketching-and-plotting-graphs',
@@ -266,23 +270,354 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimulus for the 2024 Q6 exam parts. Inserted RAW (not sanitised),
+    // so the blank exam grid renders here; the SOLVED overlay lives in the
+    // modelAnswer of 6(a) (also raw). markScheme is sanitised (SVG stripped),
+    // so it carries only the value tables + the tick-the-scheme checklist.
+    const EXAM_CASE_STUDIES = {
+        "q6-2024": `<p><strong>OCR June 2024, Question 6.</strong> You are asked to work on the grid below, which has \\( x \\) from \\( -1 \\) to \\( 4 \\) and \\( y \\) from \\( -5 \\) to \\( 15 \\).</p>
+        <svg viewBox="0 0 470 320" width="100%" style="max-width:520px;height:auto;display:block;margin:12px auto" role="img" aria-label="Blank coordinate grid with x-axis from minus 1 to 4 and y-axis from minus 5 to 15">
+          <rect x="40" y="30" width="400" height="260" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
+          <g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.2">
+            <line x1="80" y1="30" x2="80" y2="290"/><line x1="160" y1="30" x2="160" y2="290"/><line x1="240" y1="30" x2="240" y2="290"/><line x1="320" y1="30" x2="320" y2="290"/><line x1="400" y1="30" x2="400" y2="290"/>
+            <line x1="40" y1="62.5" x2="440" y2="62.5"/><line x1="40" y1="127.5" x2="440" y2="127.5"/><line x1="40" y1="192.5" x2="440" y2="192.5"/><line x1="40" y1="257.5" x2="440" y2="257.5"/>
+          </g>
+          <g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.4">
+            <line x1="120" y1="30" x2="120" y2="290"/><line x1="200" y1="30" x2="200" y2="290"/><line x1="280" y1="30" x2="280" y2="290"/><line x1="360" y1="30" x2="360" y2="290"/>
+            <line x1="40" y1="95" x2="440" y2="95"/><line x1="40" y1="160" x2="440" y2="160"/>
+          </g>
+          <line x1="40" y1="225" x2="440" y2="225" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="120" y1="30" x2="120" y2="290" stroke="currentColor" stroke-width="1.5"/>
+          <polygon points="440,225 431,221 431,229" fill="currentColor"/>
+          <polygon points="120,30 116,39 124,39" fill="currentColor"/>
+          <g font-size="11" fill="currentColor" text-anchor="middle">
+            <text x="40" y="240">-1</text><text x="200" y="240">1</text><text x="280" y="240">2</text><text x="360" y="240">3</text><text x="440" y="240">4</text>
+            <text x="112" y="34" text-anchor="end">15</text><text x="112" y="99" text-anchor="end">10</text><text x="112" y="164" text-anchor="end">5</text><text x="112" y="294" text-anchor="end">-5</text>
+            <text x="132" y="222">0</text><text x="446" y="222">x</text><text x="126" y="30">y</text>
+          </g>
+        </svg>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>3.3 Sketching and Plotting Graphs</strong> will appear here soon.</p>`
+            title: "What is the difference between 'sketch', 'plot' and 'draw'?",
+            tag: "Key concept",
+            content: `<p>These three command words look similar but the mark scheme treats them very differently — get the wrong one and you can lose every mark even with the right idea.</p>
+            <ul>
+              <li><strong>Sketch</strong> — a quick freehand graph showing the <strong>main features</strong>, <em>not to scale</em>. You must show the right shape, where it crosses the axes, any asymptotes and any turning points, but you do <strong>not</strong> plot exact points.</li>
+              <li><strong>Plot</strong> — an <strong>accurate</strong> graph on a printed grid: work out a table of \\( (x,\\ y) \\) points, mark each one precisely, then join them with a <strong>smooth curve</strong> (or a ruled straight line for a linear graph).</li>
+              <li><strong>Draw</strong> — like plot but with <em>reasonable</em> accuracy; used when the exact grid points matter less than a fair-looking curve.</li>
+            </ul>
+            <p>A quick rule: if the question gives you a <strong>grid</strong>, it almost always wants <em>plot</em> or <em>draw</em>; if it just says "sketch", a labelled freehand shape is enough.</p>`,
+            readCheck: { q: "A question says \"Sketch \\( y = 2^x \\)\". What is expected?", opts: ["A labelled freehand curve showing shape, the asymptote and the y-intercept", "An accurate plot of exact points on graph paper", "A table of values only", "A ruled straight line"], ans: 0, explain: "\"Sketch\" wants the main features (shape, asymptote \\( y=0 \\), intercept), not accurately plotted points." }
+        },
+        {
+            title: "How do you sketch a linear graph from its equation?",
+            tag: "Method",
+            content: `<p>A <strong>linear</strong> graph \\( y = mx + c \\) is a straight line, fixed by just two facts:</p>
+            <ul>
+              <li>the <strong>gradient</strong> \\( m \\) — how steep the line is (\\( m>0 \\) slopes up to the right, \\( m<0 \\) slopes down); and</li>
+              <li>the <strong>\\( y \\)-intercept</strong> \\( c \\) — where it cuts the \\( y \\)-axis, at \\( (0,\\ c) \\).</li>
+            </ul>
+            <p><strong>Worked example — sketch \\( y = 2x - 3 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( c = -3 \\): the line crosses the \\( y \\)-axis at \\( (0,\\ -3) \\).</td></tr>
+              <tr><td>2. \\( m = 2 \\): from that point go up \\( 2 \\) for every \\( 1 \\) across (a fairly steep upward line).</td></tr>
+              <tr><td>3. Find the \\( x \\)-intercept by setting \\( y = 0 \\): \\( 0 = 2x - 3 \\Rightarrow x = 1.5 \\), so it also passes through \\( (1.5,\\ 0) \\).</td></tr>
+            </table>
+            <p>Two points are enough to fix a straight line, so mark \\( (0,-3) \\) and \\( (1.5,\\ 0) \\) and rule a line through them.</p>`,
+            readCheck: { q: "Where does \\( y = -3x + 6 \\) cross the \\( y \\)-axis?", opts: ["\\( (0,\\ 6) \\)", "\\( (6,\\ 0) \\)", "\\( (0,\\ -3) \\)", "\\( (2,\\ 0) \\)"], ans: 0, explain: "The \\( y \\)-intercept is \\( c = 6 \\), so the line cuts the \\( y \\)-axis at \\( (0,\\ 6) \\). (Its \\( x \\)-intercept is \\( (2,0) \\).)" }
+        },
+        {
+            title: "How do you sketch a quadratic from its factorised form?",
+            tag: "Method",
+            content: `<p>To sketch <strong>any</strong> polynomial you need four things: the <strong>roots</strong> (where it crosses the \\( x \\)-axis), the sign of the <strong>leading term</strong> (which way it opens / its long-run behaviour), the <strong>\\( y \\)-intercept</strong>, and any <strong>turning point</strong>.</p>
+            <p>A quadratic graph is a <strong>parabola</strong>. From <strong>factorised form</strong> the roots are read straight off; a positive \\( x^2 \\) coefficient opens <strong>upwards</strong> (a minimum), a negative one opens <strong>downwards</strong> (a maximum).</p>
+            <p><strong>Worked example — sketch \\( y = x^2 - 2x - 3 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Factorise: \\( y = (x - 3)(x + 1) \\), so the roots are \\( x = 3 \\) and \\( x = -1 \\).</td></tr>
+              <tr><td>2. Leading term \\( +x^2 \\Rightarrow \\) opens upwards (a minimum).</td></tr>
+              <tr><td>3. \\( y \\)-intercept: put \\( x = 0 \\Rightarrow y = -3 \\), i.e. \\( (0,\\ -3) \\).</td></tr>
+              <tr><td>4. Turning point sits halfway between the roots, at \\( x = 1 \\); then \\( y = 1 - 2 - 3 = -4 \\), so the vertex is \\( (1,\\ -4) \\).</td></tr>
+            </table>
+            <svg viewBox="0 0 320 230" width="100%" style="max-width:360px;height:auto;display:block;margin:14px auto" role="img" aria-label="Upward parabola through x = minus 1 and x = 3 with a minimum turning point at 1, minus 4 and y-intercept minus 3">
+              <line x1="20" y1="110" x2="300" y2="110" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="117" y1="18" x2="117" y2="210" stroke="currentColor" stroke-width="1.4"/>
+              <polygon points="300,110 291,106 291,114" fill="currentColor"/>
+              <polygon points="117,18 113,27 121,27" fill="currentColor"/>
+              <polyline points="30,20 51.6,69.5 73.3,110 94.9,141.5 116.6,164 138.3,177.5 160,182 181.6,177.5 203.3,164 225,141.5 246.6,110 268.3,69.5 290,20" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="73.3" cy="110" r="3.5" fill="currentColor"/><circle cx="246.6" cy="110" r="3.5" fill="currentColor"/>
+              <circle cx="160" cy="182" r="3.5" fill="currentColor"/><circle cx="117" cy="164" r="3" fill="currentColor"/>
+              <g font-size="12" fill="currentColor">
+                <text x="70" y="102" text-anchor="middle">-1</text><text x="250" y="102" text-anchor="middle">3</text>
+                <text x="168" y="186">(1, -4)</text><text x="123" y="160">-3</text>
+                <text x="292" y="104" text-anchor="end">x</text><text x="123" y="26">y</text>
+              </g>
+            </svg>
+            <p>Mark the two roots, the \\( y \\)-intercept and the vertex, then draw a smooth U through them.</p>`,
+            readCheck: { q: "Sketching \\( y = (x-2)(x+4) \\), where are the roots and which way does it open?", opts: ["Roots \\( x=2 \\) and \\( x=-4 \\); opens upwards", "Roots \\( x=-2 \\) and \\( x=4 \\); opens upwards", "Roots \\( x=2 \\) and \\( x=-4 \\); opens downwards", "Roots \\( x=2 \\) and \\( x=4 \\); opens upwards"], ans: 0, explain: "Roots make each bracket zero: \\( x=2,\\ x=-4 \\). The \\( x^2 \\) coefficient is \\( +1 \\), so it opens upwards." }
+        },
+        {
+            title: "How do you sketch a cubic, and what does a repeated root do?",
+            tag: "Method",
+            content: `<p>A <strong>cubic</strong> \\( y = ax^3 + \\dots \\) has a characteristic <strong>S-shape</strong> and up to <strong>three</strong> \\( x \\)-intercepts. The sign of the leading term sets the long-run behaviour:</p>
+            <ul>
+              <li>\\( a > 0 \\): the curve comes up from bottom-left and heads to top-right (as \\( x \\to -\\infty,\\ y \\to -\\infty \\); as \\( x \\to +\\infty,\\ y \\to +\\infty \\)).</li>
+              <li>\\( a < 0 \\): the whole shape is flipped (top-left down to bottom-right).</li>
+            </ul>
+            <p><strong>Worked example — sketch \\( y = x(x-2)(x+2) \\):</strong> roots at \\( x = -2,\\ 0,\\ 2 \\); leading term \\( +x^3 \\), so it rises overall and weaves through all three roots:</p>
+            <svg viewBox="0 0 320 230" width="100%" style="max-width:360px;height:auto;display:block;margin:14px auto" role="img" aria-label="Positive cubic curve crossing the x-axis at minus 2, 0 and 2 with an S-shape rising from bottom-left to top-right">
+              <line x1="20" y1="115" x2="300" y2="115" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="160" y1="20" x2="160" y2="210" stroke="currentColor" stroke-width="1.4"/>
+              <polygon points="300,115 291,111 291,119" fill="currentColor"/>
+              <polygon points="160,20 156,29 164,29" fill="currentColor"/>
+              <polyline points="30,199.4 56,115 82,75.6 108,70 134,87 160,115 186,143 212,160 238,154.4 264,115 290,30.6" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="56" cy="115" r="3.5" fill="currentColor"/><circle cx="160" cy="115" r="3.5" fill="currentColor"/><circle cx="264" cy="115" r="3.5" fill="currentColor"/>
+              <g font-size="12" fill="currentColor">
+                <text x="52" y="131" text-anchor="middle">-2</text><text x="150" y="131" text-anchor="middle">0</text><text x="268" y="131" text-anchor="middle">2</text>
+                <text x="292" y="109" text-anchor="end">x</text><text x="166" y="28">y</text>
+              </g>
+            </svg>
+            <p>A <strong>repeated root</strong> changes the picture: a squared factor such as \\( (x-1)^2 \\) makes the curve <strong>touch</strong> the \\( x \\)-axis at \\( x = 1 \\) and turn back, rather than crossing it. So \\( y = (x-1)^2(x+2) \\) touches at \\( x = 1 \\) and crosses at \\( x = -2 \\) — two distinct roots, not three.</p>`,
+            readCheck: { q: "How does the graph of \\( y = (x+3)^2(x-1) \\) behave at \\( x = -3 \\)?", opts: ["It touches the \\( x \\)-axis (repeated root) and turns back", "It crosses the \\( x \\)-axis steeply", "It has an asymptote there", "It is undefined there"], ans: 0, explain: "The squared factor \\( (x+3)^2 \\) gives a repeated root, so the curve touches the axis at \\( x=-3 \\) rather than crossing." }
+        },
+        {
+            title: "What do the graphs of sin, cos and tan look like from 0° to 360°?",
+            tag: "Key concept",
+            content: `<p>In this qualification angles are always in <strong>degrees</strong> (never radians). You must know the shapes of the three trig graphs over \\( 0^\\circ \\) to \\( 360^\\circ \\).</p>
+            <ul>
+              <li>\\( y = \\sin x \\): a wave starting at \\( (0^\\circ,\\ 0) \\), up to a maximum \\( 1 \\) at \\( 90^\\circ \\), back to \\( 0 \\) at \\( 180^\\circ \\), down to \\( -1 \\) at \\( 270^\\circ \\), and \\( 0 \\) again at \\( 360^\\circ \\).</li>
+              <li>\\( y = \\cos x \\): the same wave shifted — it starts at a maximum \\( 1 \\) at \\( 0^\\circ \\), is \\( 0 \\) at \\( 90^\\circ \\), \\( -1 \\) at \\( 180^\\circ \\), \\( 0 \\) at \\( 270^\\circ \\), and back to \\( 1 \\) at \\( 360^\\circ \\).</li>
+              <li>Both have <strong>amplitude</strong> \\( 1 \\) (peak height) and <strong>period</strong> \\( 360^\\circ \\) (they repeat every \\( 360^\\circ \\)).</li>
+              <li>\\( y = \\tan x \\) is different: it has <strong>period</strong> \\( 180^\\circ \\), no maximum, and <strong>vertical asymptotes</strong> at \\( 90^\\circ \\) and \\( 270^\\circ \\) where it shoots off to \\( \\pm\\infty \\).</li>
+            </ul>
+            <svg viewBox="0 0 440 200" width="100%" style="max-width:480px;height:auto;display:block;margin:14px auto" role="img" aria-label="Graphs of y equals sin x (solid) and y equals cos x (dashed) from 0 to 360 degrees, both with amplitude 1">
+              <line x1="30" y1="40" x2="410" y2="40" stroke="currentColor" stroke-width="0.6" stroke-opacity="0.35" stroke-dasharray="3 3"/>
+              <line x1="30" y1="160" x2="410" y2="160" stroke="currentColor" stroke-width="0.6" stroke-opacity="0.35" stroke-dasharray="3 3"/>
+              <line x1="30" y1="100" x2="410" y2="100" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="40" y1="20" x2="40" y2="185" stroke="currentColor" stroke-width="1.4"/>
+              <polygon points="410,100 401,96 401,104" fill="currentColor"/>
+              <polyline points="40,100 70,70 100,48 130,40 160,48 190,70 220,100 250,130 280,152 310,160 340,152 370,130 400,100" fill="none" stroke="currentColor" stroke-width="2.4"/>
+              <polyline points="40,40 70,48 100,70 130,100 160,130 190,152 220,160 250,152 280,130 310,100 340,70 370,48 400,40" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4"/>
+              <g font-size="11" fill="currentColor" text-anchor="middle">
+                <text x="130" y="175">90</text><text x="220" y="175">180</text><text x="310" y="175">270</text><text x="400" y="175">360</text>
+                <text x="30" y="44" text-anchor="end">1</text><text x="30" y="164" text-anchor="end">-1</text>
+                <text x="405" y="94" text-anchor="start">x</text>
+              </g>
+              <g font-size="11" fill="currentColor">
+                <text x="70" y="63">sin</text><text x="300" y="90">cos</text>
+              </g>
+            </svg>
+            <p>Solid = \\( \\sin x \\), dashed = \\( \\cos x \\). Notice \\( \\cos x \\) is just \\( \\sin x \\) shifted \\( 90^\\circ \\) to the left.</p>`,
+            readCheck: { q: "What are the amplitude and period of \\( y = \\cos x \\)?", opts: ["Amplitude \\( 1 \\), period \\( 360^\\circ \\)", "Amplitude \\( 360^\\circ \\), period \\( 1 \\)", "Amplitude \\( 2 \\), period \\( 180^\\circ \\)", "Amplitude \\( 1 \\), period \\( 90^\\circ \\)"], ans: 0, explain: "\\( \\cos x \\) reaches a peak of \\( 1 \\) (amplitude) and repeats every \\( 360^\\circ \\) (period)." }
+        },
+        {
+            title: "What does the graph of an exponential function look like?",
+            tag: "Key concept",
+            content: `<p>An <strong>exponential</strong> function \\( y = k a^x \\) (with \\( a > 0 \\), \\( k > 0 \\)) has a distinctive shape controlled by \\( a \\):</p>
+            <ul>
+              <li>If \\( a > 1 \\) the graph shows <strong>growth</strong> — it rises ever more steeply to the right.</li>
+              <li>If \\( 0 < a < 1 \\) it shows <strong>decay</strong> — it falls, flattening off towards the right.</li>
+              <li>Either way the \\( x \\)-axis, \\( y = 0 \\), is a <strong>horizontal asymptote</strong>: the curve gets closer and closer to it but <strong>never touches or crosses</strong> it.</li>
+              <li>Putting \\( x = 0 \\) gives \\( y = k a^0 = k \\), so the curve <strong>always cuts the \\( y \\)-axis at \\( (0,\\ k) \\)</strong>.</li>
+            </ul>
+            <p><strong>Worked example — sketch \\( y = 8 \\times (0.5)^x \\)</strong> (decay, \\( k = 8 \\)):</p>
+            <svg viewBox="0 0 300 190" width="100%" style="max-width:340px;height:auto;display:block;margin:14px auto" role="img" aria-label="Exponential decay curve starting at 0, k on the y-axis and falling towards the horizontal asymptote y = 0">
+              <line x1="30" y1="160" x2="285" y2="160" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="60" y1="18" x2="60" y2="178" stroke="currentColor" stroke-width="1.4"/>
+              <polygon points="285,160 276,156 276,164" fill="currentColor"/>
+              <polygon points="60,18 56,27 64,27" fill="currentColor"/>
+              <line x1="60" y1="160" x2="285" y2="160" stroke="currentColor" stroke-width="1.4" stroke-dasharray="5 4" stroke-opacity="0.7"/>
+              <polyline points="60,30 85,68 110,95 135,114 160,127.5 185,137 210,144 235,148.5 260,152" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="60" cy="30" r="3.5" fill="currentColor"/>
+              <g font-size="12" fill="currentColor">
+                <text x="66" y="28">(0, k)</text><text x="200" y="152">asymptote y = 0</text>
+                <text x="278" y="153" text-anchor="end">x</text><text x="66" y="26" opacity="0"> </text>
+              </g>
+            </svg>
+            <p>A <strong>growth</strong> curve (\\( a>1 \\)) is the mirror image: same \\( (0,k) \\) intercept and same \\( y=0 \\) asymptote on the left, but rising steeply to the right.</p>`,
+            readCheck: { q: "For \\( y = 3 \\times 2^x \\), where does the curve cross the \\( y \\)-axis and what is its asymptote?", opts: ["Crosses at \\( (0,\\ 3) \\); asymptote \\( y = 0 \\)", "Crosses at \\( (0,\\ 2) \\); asymptote \\( y = 3 \\)", "Crosses at \\( (0,\\ 0) \\); asymptote \\( x = 0 \\)", "Crosses at \\( (0,\\ 6) \\); asymptote \\( y = 1 \\)"], ans: 0, explain: "\\( y = k a^x \\) cuts the \\( y \\)-axis at \\( (0,\\ k) = (0,\\ 3) \\); the horizontal asymptote is always \\( y = 0 \\)." }
+        },
+        {
+            title: "How do you plot a graph accurately and solve an equation from it?",
+            tag: "Exam skill",
+            content: `<p>When a question says <strong>plot</strong> and gives a grid, follow a fixed routine:</p>
+            <table class="worked">
+              <tr><td>1. Make a <strong>table of values</strong>: choose each \\( x \\) on the grid and compute \\( y \\) (write down anything you evaluate on the calculator).</td></tr>
+              <tr><td>2. <strong>Plot each point</strong> carefully — to within half a small square.</td></tr>
+              <tr><td>3. Join them with a <strong>single smooth curve</strong> (freehand, not ruler-drawn segments) — unless it is a straight line, which you rule.</td></tr>
+            </table>
+            <p>Two graphs plotted on the <strong>same</strong> grid let you <strong>solve an equation graphically</strong>: the \\( x \\)-coordinate of a point where the curves <strong>cross</strong> is a solution. Read it off to the accuracy the question asks (often \\( 1 \\) decimal place).</p>
+            <p>The commonest error is joining plotted points with straight-line segments instead of a smooth curve. The left picture below is <strong>wrong</strong> (segments); the right is <strong>right</strong> (smooth):</p>
+            <svg viewBox="0 0 380 150" width="100%" style="max-width:420px;height:auto;display:block;margin:14px auto" role="img" aria-label="Left: five points joined by straight line segments, labelled wrong. Right: the same points joined by a smooth curve, labelled right">
+              <g stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"><line x1="20" y1="120" x2="170" y2="120"/></g>
+              <polyline points="30,110 65,70 100,45 135,58 160,95" fill="none" stroke="currentColor" stroke-width="2.2"/>
+              <g fill="currentColor"><circle cx="30" cy="110" r="3"/><circle cx="65" cy="70" r="3"/><circle cx="100" cy="45" r="3"/><circle cx="135" cy="58" r="3"/><circle cx="160" cy="95" r="3"/></g>
+              <text x="95" y="140" text-anchor="middle" font-size="12" fill="currentColor">✗ straight segments</text>
+              <g stroke="currentColor" stroke-width="1.2" stroke-opacity="0.4"><line x1="210" y1="120" x2="360" y2="120"/></g>
+              <path d="M 220,110 Q 250,55 290,45 Q 330,40 350,95" fill="none" stroke="currentColor" stroke-width="2.2"/>
+              <g fill="currentColor"><circle cx="220" cy="110" r="3"/><circle cx="255" cy="70" r="3"/><circle cx="290" cy="45" r="3"/><circle cx="325" cy="58" r="3"/><circle cx="350" cy="95" r="3"/></g>
+              <text x="285" y="140" text-anchor="middle" font-size="12" fill="currentColor">✓ smooth curve</text>
+            </svg>
+            <p>If the question says <strong>"Hence"</strong>, you <em>must</em> read the answer from your graph — using the calculator's solver instead scores <strong>0</strong>.</p>`,
+            readCheck: { q: "Two graphs are plotted on one grid and cross at \\( (1.9,\\ 4) \\). What does \\( x = 1.9 \\) represent?", opts: ["A solution of the equation formed by setting the two expressions equal", "The gradient of one curve", "The \\( y \\)-intercept", "The period of the graph"], ans: 0, explain: "Where the curves cross, the two expressions are equal, so the \\( x \\)-coordinate solves the equation setting them equal." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "Which command word asks for an accurate graph plotted on the grid?", opts: ["Plot", "Sketch", "Describe", "Estimate"], ans: 0, explain: "\"Plot\" means work out and mark exact points, then join smoothly. \"Sketch\" is a freehand main-features graph." },
+        { q: "What is the horizontal asymptote of \\( y = 5 \\times 2^x \\)?", opts: ["\\( y = 0 \\)", "\\( y = 5 \\)", "\\( y = 2 \\)", "\\( x = 0 \\)"], ans: 0, explain: "Every \\( y = k a^x \\) approaches the \\( x \\)-axis, so the asymptote is \\( y = 0 \\). (The value \\( 5 \\) is the \\( y \\)-intercept, not the asymptote.)" },
+        { q: "The graph of \\( y = k a^x \\) crosses the \\( y \\)-axis at:", opts: ["\\( (0,\\ k) \\)", "\\( (0,\\ a) \\)", "\\( (k,\\ 0) \\)", "\\( (0,\\ 0) \\)"], ans: 0, explain: "At \\( x = 0 \\), \\( a^0 = 1 \\), so \\( y = k \\): the intercept is \\( (0,\\ k) \\)." },
+        { q: "How many times does \\( y = (x-1)(x+2)(x-4) \\) cross the \\( x \\)-axis?", opts: ["Three", "Two", "One", "Four"], ans: 0, explain: "Three distinct linear factors give three distinct roots \\( x = 1,\\ -2,\\ 4 \\), so it crosses three times." },
+        { q: "A cubic with a repeated factor \\( (x-2)^2 \\) does what at \\( x = 2 \\)?", opts: ["Touches the \\( x \\)-axis and turns back", "Crosses the \\( x \\)-axis steeply", "Has a vertical asymptote", "Jumps discontinuously"], ans: 0, explain: "A squared (repeated) factor makes the curve touch the axis rather than cross it." },
+        { q: "At which angle does \\( y = \\sin x \\) reach its maximum value of \\( 1 \\) between \\( 0^\\circ \\) and \\( 360^\\circ \\)?", opts: ["\\( 90^\\circ \\)", "\\( 0^\\circ \\)", "\\( 180^\\circ \\)", "\\( 270^\\circ \\)"], ans: 0, explain: "\\( \\sin x \\) peaks at \\( 90^\\circ \\). At \\( 0^\\circ \\) it is \\( 0 \\); \\( \\cos x \\) is the one that starts at its maximum." },
+        { q: "Which statement about \\( y = \\cos x \\) on \\( 0^\\circ \\le x \\le 360^\\circ \\) is correct?", opts: ["It starts at \\( 1 \\), is \\( 0 \\) at \\( 90^\\circ \\), and \\( -1 \\) at \\( 180^\\circ \\)", "It starts at \\( 0 \\) and peaks at \\( 90^\\circ \\)", "It starts at \\( -1 \\) at \\( 0^\\circ \\)", "It has no value at \\( 90^\\circ \\)"], ans: 0, explain: "\\( \\cos 0^\\circ = 1,\\ \\cos 90^\\circ = 0,\\ \\cos 180^\\circ = -1 \\). Option 2 describes \\( \\sin x \\), not \\( \\cos x \\)." },
+        { q: "The graph of \\( y = \\tan x \\) has vertical asymptotes at:", opts: ["\\( 90^\\circ \\) and \\( 270^\\circ \\)", "\\( 0^\\circ \\) and \\( 180^\\circ \\)", "\\( 45^\\circ \\) and \\( 135^\\circ \\)", "It has no asymptotes"], ans: 0, explain: "\\( \\tan x = \\sin x / \\cos x \\) is undefined where \\( \\cos x = 0 \\), i.e. at \\( 90^\\circ \\) and \\( 270^\\circ \\)." },
+        { q: "For \\( y = -x^2 + 4 \\), which way does the parabola open and where is its turning point?", opts: ["Opens downwards; maximum at \\( (0,\\ 4) \\)", "Opens upwards; minimum at \\( (0,\\ 4) \\)", "Opens downwards; minimum at \\( (4,\\ 0) \\)", "Opens upwards; maximum at \\( (0,\\ -4) \\)"], ans: 0, explain: "The \\( x^2 \\) coefficient is negative, so it opens downwards with a maximum; the vertex is \\( (0,\\ 4) \\)." },
+        { q: "For a polynomial with a positive leading term of even degree (e.g. \\( +x^2 \\)), the ends of the graph:", opts: ["Both go up (to \\( +\\infty \\)) as \\( x \\to \\pm\\infty \\)", "Both go down", "One up, one down", "Level off to an asymptote"], ans: 0, explain: "A positive even-degree leading term sends both ends to \\( +\\infty \\); a positive odd-degree (cubic) leading term sends one end down and one up." },
+        { q: "You plot \\( y = x^2 \\) and \\( y = x + 6 \\) on the same grid and they cross at \\( x = -2 \\) and \\( x = 3 \\). These \\( x \\)-values are the solutions of:", opts: ["\\( x^2 = x + 6 \\)", "\\( x^2 + x + 6 = 0 \\)", "\\( x = 6 \\)", "\\( 2x = 6 \\)"], ans: 0, explain: "Where the curves cross, the two expressions are equal: \\( x^2 = x + 6 \\). Its solutions are the crossing \\( x \\)-values." },
+        { q: "A curve is plotted from a table of values. How should the points be joined?", opts: ["With a single smooth curve", "With ruled straight segments between each pair", "With a dotted box around them", "Left as separate dots"], ans: 0, explain: "Plotted curve points are joined by one smooth freehand curve; straight segments lose the curve mark. (Only genuinely linear graphs are ruled.)" }
+    ];
+
+    const matchData = [
+        { term: "\\( y = mx + c \\)", def: "A straight line with gradient \\( m \\) and \\( y \\)-intercept \\( c \\)" },
+        { term: "\\( y = x^2 - 4 \\)", def: "An upward parabola crossing the \\( x \\)-axis at \\( \\pm 2 \\)" },
+        { term: "\\( y = -x^2 + 1 \\)", def: "A downward parabola with a maximum turning point" },
+        { term: "\\( y = (x-1)(x+1)(x-3) \\)", def: "A cubic with three real roots" },
+        { term: "\\( y = (x-2)^2(x+1) \\)", def: "A cubic that touches the axis at \\( x = 2 \\)" },
+        { term: "\\( y = \\sin x \\)", def: "A wave from \\( 0 \\), peak \\( 1 \\) at \\( 90^\\circ \\), period \\( 360^\\circ \\)" },
+        { term: "\\( y = \\cos x \\)", def: "A wave starting at its maximum \\( 1 \\) when \\( x = 0^\\circ \\)" },
+        { term: "\\( y = \\tan x \\)", def: "Period \\( 180^\\circ \\), with asymptotes at \\( 90^\\circ \\) and \\( 270^\\circ \\)" },
+        { term: "\\( y = k a^x,\\ a>1 \\)", def: "Exponential growth with asymptote \\( y = 0 \\)" },
+        { term: "\\( y = k a^x,\\ 0<a<1 \\)", def: "Exponential decay towards \\( y = 0 \\)" },
+        { term: "\\( y \\)-intercept of \\( y = k a^x \\)", def: "The point \\( (0,\\ k) \\)" },
+        { term: "Crossing point of two plotted graphs", def: "A graphical solution of the equation setting them equal" },
+        { term: "Command word 'sketch'", def: "Freehand graph of the main features, not to scale" },
+        { term: "Command word 'plot'", def: "Accurate points on a grid, joined smoothly" }
+    ];
+
+    // FIB blanks sit in PLAIN TEXT only, never inside a \( \) region (§8.4 Rule 3b).
+    const fibData = [
+        { display: "A graph drawn with only its main features, not to scale, is called a ___B1___; an accurate one worked out on a grid is a ___B2___.", blanks: { B1: "sketch", B2: "plot" } },
+        { display: "For the exponential graph \\( y = k a^x \\) with \\( a > 0 \\), the horizontal asymptote is the line \\( y = \\) ___B1___ and the curve crosses the \\( y \\)-axis at the value ___B2___.", blanks: { B1: "0", B2: "k" } },
+        { display: "A quadratic graph has the shape called a ___B1___; when the \\( x^2 \\) coefficient is positive it opens ___B2___.", blanks: { B1: "parabola", B2: "upwards" } },
+        { display: "The graphs of \\( y = \\sin x \\) and \\( y = \\cos x \\) both repeat every ___B1___ degrees and have amplitude ___B2___.", blanks: { B1: "360", B2: "1" } },
+        { display: "To find where a curve meets the \\( x \\)-axis you set \\( y = \\) ___B1___ and solve; these values are the ___B2___ of the function.", blanks: { B1: "0", B2: "roots" } },
+        { display: "The cubic \\( y = (x-1)(x+2)(x-4) \\) has ___B1___ real roots; a repeated factor makes the curve ___B2___ the \\( x \\)-axis instead of crossing it.", blanks: { B1: "3", B2: "touch" } },
+        { display: "The graph of \\( y = \\tan x \\) has vertical asymptotes and repeats every ___B1___ degrees.", blanks: { B1: "180" } }
+    ];
+
+    const fibWords = ["sketch", "plot", "draw", "0", "k", "parabola", "upwards", "downwards", "360", "180", "1", "2", "roots", "3", "touch", "cross"];
+
+    const tfData = [
+        { statement: "The command word \"sketch\" means you must plot exact points accurately to scale.", answer: false, explanation: "\"Sketch\" is freehand and not to scale — it must show the main features (shape, intercepts, asymptotes, turning points) but not accurately plotted points." },
+        { statement: "The graph of \\( y = 2^x \\) has the \\( x \\)-axis (\\( y = 0 \\)) as a horizontal asymptote.", answer: true, explanation: "As \\( x \\to -\\infty \\) the curve approaches \\( y = 0 \\) without ever reaching it — an asymptote." },
+        { statement: "The graph of \\( y = \\sin x \\) has amplitude \\( 360^\\circ \\).", answer: false, explanation: "Its amplitude (peak height) is \\( 1 \\); \\( 360^\\circ \\) is its period (how often it repeats)." },
+        { statement: "A cubic can have exactly two distinct real roots if one of them is repeated.", answer: true, explanation: "A repeated (squared) factor gives a root where the curve touches the axis, so \\( y = (x-1)^2(x+3) \\) has just two distinct roots." },
+        { statement: "The graph of \\( y = \\cos x \\) passes through \\( (0^\\circ,\\ 1) \\).", answer: true, explanation: "\\( \\cos 0^\\circ = 1 \\), so the cosine graph starts at its maximum on the \\( y \\)-axis." },
+        { statement: "A parabola \\( y = ax^2 + bx + c \\) with \\( a > 0 \\) opens downwards.", answer: false, explanation: "A positive \\( x^2 \\) coefficient opens the parabola upwards (a minimum); a negative one opens it downwards." },
+        { statement: "When plotting a curve you should join the points with ruled straight segments.", answer: false, explanation: "Curve points are joined with a single smooth freehand curve; straight segments lose the smoothness mark. Only genuinely linear graphs are ruled." },
+        { statement: "The graph of \\( y = k a^x \\) always passes through \\( (0,\\ k) \\).", answer: true, explanation: "At \\( x = 0 \\), \\( a^0 = 1 \\), so \\( y = k \\) whatever the value of \\( a \\)." }
+    ];
+
+    const miscData = [
+        { wrong: "Joining plotted curve points with a ruler, giving straight segments", correct: "A curve must be joined with one smooth freehand line. A weak answer rules segments point-to-point; a strong answer draws a single smooth curve passing within half a square of every point.", readCheck: { q: "How should plotted points on a curve be joined?", opts: ["With one smooth freehand curve", "With ruled straight segments", "Not joined at all", "With a dotted rectangle"], ans: 0, explain: "Curves are smooth; ruled segments lose the mark. Only straight-line graphs are ruled." } },
+        { wrong: "Sketching \\( y = 2^x \\) so that it touches or crosses the \\( x \\)-axis", correct: "An exponential never reaches the \\( x \\)-axis — \\( y = 0 \\) is an asymptote it only approaches. A weak sketch cuts the axis; a strong sketch flattens towards \\( y = 0 \\) and shows the \\( y \\)-intercept \\( (0,\\ k) \\).", readCheck: { q: "What must an exponential sketch show near the \\( x \\)-axis?", opts: ["The curve approaching \\( y = 0 \\) as an asymptote", "The curve crossing \\( y = 0 \\)", "A vertical asymptote", "A turning point on the axis"], ans: 0, explain: "\\( y = 0 \\) is a horizontal asymptote; the curve gets close but never touches it." } },
+        { wrong: "A quadratic sketch with no roots, vertex or intercepts labelled", correct: "A sketch is marked on its features. A weak answer is an unlabelled U; a strong answer marks the roots (\\( x \\)-intercepts), the \\( y \\)-intercept, the turning point and shows which way it opens.", readCheck: { q: "Which features should a quadratic sketch show?", opts: ["Roots, \\( y \\)-intercept, turning point and direction of opening", "Only the vertex", "Only the \\( y \\)-intercept", "Just a smooth U with no labels"], ans: 0, explain: "Sketch marks are for the labelled main features, not for accuracy." } },
+        { wrong: "Sketching a cubic as if it were a parabola (one turn, up to 2 roots)", correct: "A cubic has an S-shape and up to three roots. A weak answer draws a U; a strong answer shows the curve weaving through its roots with the correct end behaviour set by the leading term.", readCheck: { q: "How many \\( x \\)-axis crossings can a cubic have?", opts: ["Up to three", "Exactly one always", "Up to two", "None"], ans: 0, explain: "A cubic can cross the \\( x \\)-axis up to three times (a repeated root reduces the number of distinct crossings)." } },
+        { wrong: "Answering a \"Hence, from your graph\" part by using the calculator's equation solver", correct: "\"Hence\" and \"from your graph\" require you to read the value off the plotted graph. A weak answer types it into the solver (scoring 0); a strong answer reads the crossing point to the stated accuracy.", readCheck: { q: "A part says \"Hence write down the root from your graph\". You should:", opts: ["Read the crossing point off your plotted graph", "Use the calculator solve function", "Factorise algebraically", "Complete the square"], ans: 0, explain: "\"Hence/from your graph\" ties you to the graph; a calculator-only answer earns no marks." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "Sketch vs plot vs draw", pills: ["sketch", "plot", "draw", "command words"], content: `<p><strong>Sketch</strong> = freehand, not to scale, show the main features (shape, intercepts, asymptotes, turning points). <strong>Plot</strong> = accurate points on the grid, joined smoothly. <strong>Draw</strong> = reasonably accurate curve. Reading the word wrongly is a classic way to lose easy marks: an accurate plot when only a sketch is needed wastes time, and a rough sketch when a plot is required scores little.</p>`, readCheck: { q: "The grid is provided and the word is \"plot\". You should:", opts: ["Work out a table of values and mark points accurately", "Draw a rough freehand shape", "Only describe the graph in words", "Give the equation only"], ans: 0, explain: "A provided grid + \"plot\" means an accurate table-of-values graph." } },
+        { type: "tip", title: "Sketch feature checklist ladder", pills: ["shape", "intercepts", "asymptote", "turning point"], content: `<p>Build a sketch in order and you collect every B-mark:</p><p><strong>1. Shape</strong> — right family and direction (parabola up/down, cubic S, exponential curve). <strong>2. Intercepts</strong> — mark the \\( x \\)-axis roots and the \\( y \\)-intercept. <strong>3. Asymptote</strong> — for exponentials show the curve approaching \\( y = 0 \\); for \\( \\tan x \\) show the vertical asymptotes. <strong>4. Turning point</strong> — mark and label any maximum/minimum. Miss any rung and that feature mark is gone.</p>`, readCheck: { q: "Which feature is most often missing from an exponential sketch?", opts: ["The horizontal asymptote \\( y = 0 \\)", "The gradient value", "The period", "The amplitude"], ans: 0, explain: "Students often let the exponential touch or cross the \\( x \\)-axis, losing the asymptote feature mark." } },
+        { type: "explain", title: "\"Hence\" means read it off the graph", pills: ["hence", "graphical solution", "no calculator solve"], content: `<p>When two graphs are plotted and a part says \"<em>Hence</em>\" (or \"from your graph\") solve or find a root, the \\( x \\)-coordinate of the <strong>crossing point</strong> is the answer. You <strong>must</strong> read it from the graph to the accuracy asked (often \\( 1 \\) d.p.). The 2024 examiners confirmed that answers obtained solely from the calculator's solve function earn no credit on a \"Hence\" part.</p>`, readCheck: { q: "Two plotted curves cross once at \\( x \\approx 0.5 \\). A \"Hence\" part wants the root to 1 d.p. Best answer:", opts: ["\\( x = 0.5 \\), read from the graph", "Use the calculator solver for more decimals", "State there is no root", "Give the \\( y \\)-value instead"], ans: 0, explain: "Read the crossing \\( x \\)-value to 1 d.p. from the graph; a calculator-solved value scores 0 on \"Hence\"." } }
+    ];
+
+    const flashcards = [
+        { term: "Sketch", def: "A freehand graph showing the main features, not to scale." },
+        { term: "Plot", def: "An accurate graph: table of values, points marked, joined smoothly." },
+        { term: "Draw", def: "A graph drawn to reasonable accuracy." },
+        { term: "Root of a function", def: "An \\( x \\)-value where the graph crosses the \\( x \\)-axis (\\( y = 0 \\))." },
+        { term: "Parabola", def: "The U-shaped graph of a quadratic; opens up if \\( a>0 \\), down if \\( a<0 \\)." },
+        { term: "Turning point (vertex)", def: "The maximum or minimum point of a parabola." },
+        { term: "Cubic shape", def: "An S-shaped curve with up to three real roots." },
+        { term: "Repeated root", def: "A squared factor; the curve touches the \\( x \\)-axis instead of crossing it." },
+        { term: "Leading term", def: "The highest-power term; its sign sets the graph's long-run behaviour." },
+        { term: "\\( y = \\sin x \\)", def: "Wave from \\( 0 \\), peak \\( 1 \\) at \\( 90^\\circ \\); amplitude \\( 1 \\), period \\( 360^\\circ \\)." },
+        { term: "\\( y = \\cos x \\)", def: "Wave starting at max \\( 1 \\) at \\( 0^\\circ \\); amplitude \\( 1 \\), period \\( 360^\\circ \\)." },
+        { term: "\\( y = \\tan x \\)", def: "Period \\( 180^\\circ \\); asymptotes at \\( 90^\\circ \\) and \\( 270^\\circ \\)." },
+        { term: "Amplitude", def: "The peak height of a trig wave above the midline (\\( 1 \\) for \\( \\sin,\\ \\cos \\))." },
+        { term: "Period", def: "The horizontal length after which a graph repeats." },
+        { term: "Exponential \\( y = k a^x \\)", def: "Growth if \\( a>1 \\), decay if \\( 0<a<1 \\); asymptote \\( y = 0 \\), intercept \\( (0,k) \\)." },
+        { term: "Graphical solution", def: "The \\( x \\)-coordinate where two plotted graphs cross solves the equation setting them equal." }
+    ];
+
+    // OCR June 2024 Q6 — plot two graphs and solve graphically (CG4 plotting exemplar).
+    // Authored with the SKETCH/overlay self-check pattern (§6.1): the solved overlay
+    // SVG is in the modelAnswer (rendered raw), the blank exam grid is in the case
+    // study, and the grouped markPoints ARE the mark-scheme feature checklist that the
+    // student ticks against their own paper plot. `format` is deliberately omitted so
+    // the question uses the proven `lines` self-mark widget (the dedicated click-to-plot
+    // `sketch` widget is deferred to ADM-C). Recomputed: the two curves meet once in
+    // range near x ≈ 0.46, so the root to 1 d.p. is 0.5 (MS accepts 0.4 or 0.5).
+    const examQuestions = [
+        {
+            num: "6 (a)",
+            marks: 4,
+            year: "2024",
+            type: "written",
+            caseId: "q6-2024",
+            question: `<p>On the grid, plot the graphs of \\( y = x^2 - 4x + 1 \\) and \\( y = 2^x - 2 \\) for \\( -1 \\le x \\le 4 \\).</p>`,
+            hint: "Do this on paper (or a printout of the grid above): make a table of values for each function, plot the points, then join each with a smooth curve.",
+            starter: "Build a table of \\( (x,\\ y) \\) values for each function at \\( x = -1, 0, 1, 2, 3, 4 \\), plot them, and join with two smooth curves.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1)</h5><ul>
+              <li><strong>For the quadratic \\( y = x^2 - 4x + 1 \\):</strong></li>
+              <li><strong>B1</strong> — correct points plotted (allow one error). Values: \\( x = -1,0,1,2,3,4 \\) give \\( y = 6,\\ 1,\\ -2,\\ -3,\\ -2,\\ 1 \\).</li>
+              <li><strong>B1</strong> — smooth curve no more than ½ square from the correct points.</li>
+              <li><strong>For the exponential \\( y = 2^x - 2 \\):</strong></li>
+              <li><strong>B1</strong> — correct points plotted (allow one error). Values: \\( x = -1,0,1,2,3,4 \\) give \\( y = -1.5,\\ -1,\\ 0,\\ 2,\\ 6,\\ 14 \\).</li>
+              <li><strong>B1</strong> — smooth curve no more than ½ square from the correct points.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Each graph earns one mark for accurate points (one slip allowed) and one for a smooth curve within ½ square. Straight-line segments between points do not earn the curve mark.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most candidates knew what was required, but carelessly drawn curves sometimes lost marks even when the method was correct.</li>
+            </ul></div>`,
+            modelAnswer: `Quadratic points \\( (x, y) \\): \\( (-1,6),\\ (0,1),\\ (1,-2),\\ (2,-3),\\ (3,-2),\\ (4,1) \\). Exponential points: \\( (-1,-1.5),\\ (0,-1),\\ (1,0),\\ (2,2),\\ (3,6),\\ (4,14) \\). The two smooth curves cross once (near \\( x \\approx 0.5 \\)) as shown:
+<svg viewBox="0 0 470 320" width="100%" style="max-width:520px;height:auto;display:block;margin:10px auto" role="img" aria-label="The quadratic y = x squared minus 4x plus 1 (solid) and the exponential y = 2 to the x minus 2 (dashed) plotted on the grid, crossing once near x = 0.5"><rect x="40" y="30" width="400" height="260" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/><g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.25"><line x1="80" y1="30" x2="80" y2="290"/><line x1="160" y1="30" x2="160" y2="290"/><line x1="240" y1="30" x2="240" y2="290"/><line x1="320" y1="30" x2="320" y2="290"/><line x1="400" y1="30" x2="400" y2="290"/><line x1="40" y1="95" x2="440" y2="95"/><line x1="40" y1="160" x2="440" y2="160"/></g><g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.45"><line x1="200" y1="30" x2="200" y2="290"/><line x1="280" y1="30" x2="280" y2="290"/><line x1="360" y1="30" x2="360" y2="290"/></g><line x1="40" y1="225" x2="440" y2="225" stroke="currentColor" stroke-width="1.5"/><line x1="120" y1="30" x2="120" y2="290" stroke="currentColor" stroke-width="1.5"/><polygon points="440,225 431,221 431,229" fill="currentColor"/><polygon points="120,30 116,39 124,39" fill="currentColor"/><polyline points="40,147 60,165.7 80,182.8 100,198.2 120,212 140,224.2 160,234.8 180,243.7 200,251 220,256.7 240,260.8 260,263.2 280,264 300,263.2 320,260.8 340,256.7 360,251 380,243.7 400,234.8 420,224.2 440,212" fill="none" stroke="currentColor" stroke-width="2.4"/><polyline points="40,244.5 60,243.3 80,241.8 100,240.1 120,238 140,235.5 160,232.6 180,229.1 200,225 220,220.1 240,214.2 260,207.3 280,199 300,189.2 320,177.5 340,163.5 360,147 380,127.3 400,103.9 420,76.1 440,43" fill="none" stroke="currentColor" stroke-width="2.2" stroke-dasharray="6 4"/><line x1="157" y1="233" x2="157" y2="225" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/><circle cx="157" cy="233" r="4" fill="currentColor"/><g font-size="11" fill="currentColor" text-anchor="middle"><text x="40" y="240">-1</text><text x="200" y="240">1</text><text x="280" y="240">2</text><text x="360" y="240">3</text><text x="440" y="240">4</text><text x="112" y="34" text-anchor="end">15</text><text x="112" y="164" text-anchor="end">5</text><text x="112" y="294" text-anchor="end">-5</text><text x="446" y="222" text-anchor="start">x</text></g><g font-size="11" fill="currentColor"><text x="300" y="150">y = x² - 4x + 1</text><text x="300" y="120">y = 2ˣ - 2</text><text x="150" y="253">root ≈ 0.5</text></g></svg>`,
+            markPoints: { note: "Tick each feature you got right on your paper plot (the checklist is the OCR mark scheme).", groups: [
+                { label: "B1 — quadratic points", max: 1, points: ["Plotted \\( (-1,6),(0,1),(1,-2),(2,-3),(3,-2),(4,1) \\) — allow one error"] },
+                { label: "B1 — quadratic curve", max: 1, points: ["Joined them with a smooth curve within ½ square (not straight segments)"] },
+                { label: "B1 — exponential points", max: 1, points: ["Plotted \\( (-1,-1.5),(0,-1),(1,0),(2,2),(3,6),(4,14) \\) — allow one error"] },
+                { label: "B1 — exponential curve", max: 1, points: ["Joined them with a smooth curve within ½ square"] }
+            ] }
+        },
+        {
+            num: "6 (b)",
+            marks: 1,
+            year: "2024",
+            type: "written",
+            caseId: "q6-2024",
+            question: `<p>Hence write down the root of the equation \\( 2^x = x^2 - 4x + 3 \\), giving your answer correct to \\( 1 \\) decimal place.</p>`,
+            hint: "Setting your two graphs equal gives \\( x^2 - 4x + 1 = 2^x - 2 \\), i.e. \\( 2^x = x^2 - 4x + 3 \\). So the root is the \\( x \\)-coordinate where your two plotted curves cross — read it off the graph, do NOT use the calculator solver (\"Hence\").",
+            starter: "Read the \\( x \\)-coordinate of the crossing point from your plotted graph, to 1 decimal place.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>
+              <li><strong>B1</strong> — \\( x = 0.4 \\) or \\( 0.5 \\) (must be to 1 d.p.). Allow \\( x \\) given inside a coordinate pair; ignore any \\( y \\)-value quoted.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The mark is for reading the \\( x \\)-coordinate of the crossing point of the two curves. Because it is a hand-drawn graph, both \\( 0.4 \\) and \\( 0.5 \\) are accepted.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Candidates who plotted the graphs correctly generally read the intersection correctly. Strictly the root should be given as \\( x = \\dots \\) only. "Hence" means the graph must be used — an answer from the calculator's solve function earns no credit.</li>
+            </ul></div>`,
+            modelAnswer: `Setting the plotted expressions equal, \\( x^2 - 4x + 1 = 2^x - 2 \\), which rearranges to \\( 2^x = x^2 - 4x + 3 \\). The curves cross once in range, so the root is the \\( x \\)-coordinate there: \\( x \\approx 0.5 \\) (accept \\( 0.4 \\) or \\( 0.5 \\) to 1 d.p.).`,
+            markPoints: { note: "Award the mark if you read the crossing x-value correctly.", groups: [
+                { label: "B1 — read the root", max: 1, points: ["\\( x = 0.4 \\) or \\( 0.5 \\) to 1 d.p., read from the graph (not the calculator solver)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

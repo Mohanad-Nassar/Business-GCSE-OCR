@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 3. Coordinate Geometry</div>
             <h1>3.1 Straight Lines</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,10 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 3.1 Straight Lines — placeholder, content not yet written
+    //  DATA: 3.1 Straight Lines (CG1, CG2, CG5 part — distance, midpoint, gradient,
+    //  equation of a line, parallel/perpendicular, perpendicular bisector).
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Exam Q = 2023 Q9.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '3-1-straight-lines',
@@ -268,21 +271,281 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>3.1 Straight Lines</strong> will appear here soon.</p>`
+            title: "How do you find the distance between two points?",
+            tag: "Worked example",
+            content: `<p>The <strong>distance</strong> between two points is just <strong>Pythagoras' theorem</strong> in disguise. The horizontal gap is \\( x_2 - x_1 \\), the vertical gap is \\( y_2 - y_1 \\), and the straight-line distance is the hypotenuse: \\[ d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}. \\]</p>
+            <ul>
+              <li>It does not matter which point you call 1 and which you call 2 — the differences are <strong>squared</strong>, so any sign is removed.</li>
+              <li>Leave the answer as an <strong>exact surd</strong> unless a decimal is asked for.</li>
+            </ul>
+            <p><strong>Worked example — distance between \\( P(1, 2) \\) and \\( Q(4, 6) \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Horizontal gap: \\( x_2 - x_1 = 4 - 1 = 3 \\).</td></tr>
+              <tr><td>2. Vertical gap: \\( y_2 - y_1 = 6 - 2 = 4 \\).</td></tr>
+              <tr><td>3. Square and add: \\( 3^2 + 4^2 = 9 + 16 = 25 \\).</td></tr>
+              <tr><td>4. Square root: \\[ d = \\sqrt{25} = 5. \\]</td></tr>
+            </table>
+            <p>The most common slip is forgetting the final square root, or squaring only one of the two gaps.</p>`,
+            readCheck: { q: "Find the distance between \\( (0, 0) \\) and \\( (6, 8) \\).", opts: ["\\( 10 \\)", "\\( 14 \\)", "\\( 100 \\)", "\\( \\sqrt{28} \\)"], ans: 0, explain: "\\( \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10 \\)." }
+        },
+        {
+            title: "How do you find the midpoint of a line segment?",
+            tag: "Worked example",
+            content: `<p>The <strong>midpoint</strong> is the point exactly halfway along a segment. You <strong>average</strong> the two \\( x \\)-coordinates and average the two \\( y \\)-coordinates: \\[ M = \\left( \\frac{x_1 + x_2}{2},\\ \\frac{y_1 + y_2}{2} \\right). \\]</p>
+            <ul>
+              <li>You <strong>add</strong> the coordinates and halve — you do <strong>not</strong> subtract them (subtracting gives a gap, not a middle).</li>
+              <li>The midpoint is the key first step for a <strong>perpendicular bisector</strong> (last card).</li>
+            </ul>
+            <p><strong>Worked example — midpoint of \\( A(-2, 1) \\) and \\( B(4, 5) \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Average the \\( x \\)-values: \\( \\frac{-2 + 4}{2} = \\frac{2}{2} = 1 \\).</td></tr>
+              <tr><td>2. Average the \\( y \\)-values: \\( \\frac{1 + 5}{2} = \\frac{6}{2} = 3 \\).</td></tr>
+              <tr><td>3. So the midpoint is \\[ M = (1,\\ 3). \\]</td></tr>
+            </table>
+            <p>Check it feels right: \\( (1, 3) \\) sits between \\( (-2, 1) \\) and \\( (4, 5) \\). ✓</p>`,
+            readCheck: { q: "Find the midpoint of \\( (2, 4) \\) and \\( (6, 10) \\).", opts: ["\\( (4,\\ 7) \\)", "\\( (4,\\ 6) \\)", "\\( (8,\\ 14) \\)", "\\( (2,\\ 3) \\)"], ans: 0, explain: "\\( \\left( \\frac{2+6}{2},\\ \\frac{4+10}{2} \\right) = (4,\\ 7) \\)." }
+        },
+        {
+            title: "How do you find the gradient of a line?",
+            tag: "Key concept",
+            content: `<p>The <strong>gradient</strong> measures steepness — how much \\( y \\) changes for each step in \\( x \\). It is the <strong>rise over the run</strong>: \\[ m = \\frac{y_2 - y_1}{x_2 - x_1}. \\]</p>
+            <ul>
+              <li>A <strong>positive</strong> gradient rises left-to-right; a <strong>negative</strong> gradient falls.</li>
+              <li>A <strong>horizontal</strong> line has gradient \\( 0 \\); a <strong>vertical</strong> line has an <strong>undefined</strong> gradient (the run is zero, so you would divide by zero).</li>
+              <li>Keep the coordinates in the <strong>same order</strong> top and bottom — the \\( y \\)-difference over the matching \\( x \\)-difference — or you flip the sign.</li>
+            </ul>
+            <p><strong>Worked example — gradient through \\( A(2, 1) \\) and \\( B(5, 7) \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Rise (change in \\( y \\)): \\( 7 - 1 = 6 \\).</td></tr>
+              <tr><td>2. Run (change in \\( x \\)): \\( 5 - 2 = 3 \\).</td></tr>
+              <tr><td>3. Gradient: \\[ m = \\frac{6}{3} = 2. \\]</td></tr>
+            </table>
+            <svg viewBox="0 0 300 200" width="100%" style="max-width:340px;height:auto;display:block;margin:14px auto" role="img" aria-label="A line rising from point (2,1) to point (5,7) with a right-angled gradient triangle showing a run of 3 and a rise of 6">
+              <line x1="60" y1="160" x2="240" y2="40" stroke="currentColor" stroke-width="2.5"/>
+              <line x1="60" y1="160" x2="240" y2="160" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <line x1="240" y1="160" x2="240" y2="40" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <circle cx="60" cy="160" r="4" fill="currentColor"/>
+              <circle cx="240" cy="40" r="4" fill="currentColor"/>
+              <text x="52" y="176" text-anchor="middle" font-size="13" fill="currentColor">A(2, 1)</text>
+              <text x="240" y="34" text-anchor="middle" font-size="13" fill="currentColor">B(5, 7)</text>
+              <text x="150" y="176" text-anchor="middle" font-size="13" fill="currentColor">run = 3</text>
+              <text x="248" y="105" text-anchor="start" font-size="13" fill="currentColor">rise = 6</text>
+            </svg>
+            <p>The triangle shows it directly: go along 3, up 6, so each step across gains 2 in height — gradient 2.</p>`,
+            readCheck: { q: "Find the gradient of the line through \\( (1, 5) \\) and \\( (4, 2) \\).", opts: ["\\( -1 \\)", "\\( 1 \\)", "\\( 3 \\)", "\\( -3 \\)"], ans: 0, explain: "\\( m = \\frac{2 - 5}{4 - 1} = \\frac{-3}{3} = -1 \\) — the line falls." }
+        },
+        {
+            title: "How do you find the equation of a straight line?",
+            tag: "Method",
+            content: `<p>Every straight line can be written as \\[ y = mx + c, \\] where \\( m \\) is the <strong>gradient</strong> and \\( c \\) is the <strong>\\( y \\)-intercept</strong> (where it crosses the \\( y \\)-axis).</p>
+            <p>When you know the gradient and <strong>one point</strong> \\( (x_1, y_1) \\), the quickest route is the <strong>point-gradient form</strong>: \\[ y - y_1 = m(x - x_1). \\]</p>
+            <p><strong>Worked example — line with gradient \\( 2 \\) through \\( (2, 1) \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Substitute into point-gradient form: \\( y - 1 = 2(x - 2) \\).</td></tr>
+              <tr><td>2. Expand the bracket: \\( y - 1 = 2x - 4 \\).</td></tr>
+              <tr><td>3. Rearrange: \\[ y = 2x - 3. \\]</td></tr>
+            </table>
+            <p>Examiners recommend point-gradient form because substituting a point into \\( y = mx + c \\) to find \\( c \\) is where careless <strong>numerical slips</strong> creep in. Check: at \\( x = 2 \\), \\( y = 2(2) - 3 = 1 \\) ✓.</p>`,
+            readCheck: { q: "Find the equation of the line with gradient \\( 3 \\) passing through \\( (1, 2) \\).", opts: ["\\( y = 3x - 1 \\)", "\\( y = 3x + 2 \\)", "\\( y = 3x + 1 \\)", "\\( y = x + 3 \\)"], ans: 0, explain: "\\( y - 2 = 3(x - 1) = 3x - 3 \\), so \\( y = 3x - 1 \\)." }
+        },
+        {
+            title: "How are the gradients of parallel and perpendicular lines related?",
+            tag: "Key concept",
+            content: `<p>Two straight lines relate through their gradients.</p>
+            <ul>
+              <li><strong>Parallel lines have equal gradients.</strong> If one line has gradient \\( 3 \\), every line parallel to it also has gradient \\( 3 \\) (only the intercept differs).</li>
+              <li><strong>Perpendicular lines have gradients that multiply to \\( -1 \\):</strong> \\[ m_1 m_2 = -1. \\] So one gradient is the <strong>negative reciprocal</strong> of the other: flip it upside down <em>and</em> change its sign.</li>
+            </ul>
+            <p><strong>Finding a perpendicular gradient:</strong></p>
+            <table class="worked">
+              <tr><td>Gradient \\( 2 \\) → perpendicular gradient \\( -\\frac{1}{2} \\) (flip to \\( \\frac{1}{2} \\), negate).</td></tr>
+              <tr><td>Gradient \\( -\\frac{3}{4} \\) → perpendicular gradient \\( \\frac{4}{3} \\).</td></tr>
+              <tr><td>Gradient \\( \\frac{2}{3} \\) → perpendicular gradient \\( -\\frac{3}{2} \\).</td></tr>
+            </table>
+            <p>The classic error is to flip the fraction but <strong>forget the minus sign</strong>: the perpendicular to gradient \\( 3 \\) is \\( -\\frac{1}{3} \\), not \\( \\frac{1}{3} \\). Test it: \\( 3 \\times \\left(-\\frac{1}{3}\\right) = -1 \\) ✓.</p>`,
+            readCheck: { q: "A line has gradient \\( \\frac{4}{5} \\). What is the gradient of a line perpendicular to it?", opts: ["\\( -\\frac{5}{4} \\)", "\\( \\frac{5}{4} \\)", "\\( -\\frac{4}{5} \\)", "\\( \\frac{4}{5} \\)"], ans: 0, explain: "Negative reciprocal: flip \\( \\frac{4}{5} \\) to \\( \\frac{5}{4} \\) and negate → \\( -\\frac{5}{4} \\). Check: \\( \\frac{4}{5} \\times -\\frac{5}{4} = -1 \\)." }
+        },
+        {
+            title: "How do you find the perpendicular bisector of a segment?",
+            tag: "Exam skill",
+            content: `<p>The <strong>perpendicular bisector</strong> of a segment \\( AB \\) is the line that cuts \\( AB \\) <strong>in half</strong> and crosses it <strong>at a right angle</strong>. Every point on it is the <strong>same distance</strong> from \\( A \\) as from \\( B \\). You need just two ingredients:</p>
+            <ul>
+              <li>the <strong>midpoint</strong> of \\( AB \\) (the bisector passes through it), and</li>
+              <li>the <strong>negative reciprocal</strong> of the gradient of \\( AB \\) (so it is perpendicular).</li>
+            </ul>
+            <p><strong>Worked example — perpendicular bisector of \\( C(1, 2) \\) and \\( D(5, 4) \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Midpoint: \\( \\left( \\frac{1+5}{2},\\ \\frac{2+4}{2} \\right) = (3,\\ 3) \\).</td></tr>
+              <tr><td>2. Gradient of \\( CD \\): \\( \\frac{4 - 2}{5 - 1} = \\frac{2}{4} = \\frac{1}{2} \\).</td></tr>
+              <tr><td>3. Perpendicular gradient: \\( -2 \\) (negative reciprocal of \\( \\frac{1}{2} \\)).</td></tr>
+              <tr><td>4. Line through \\( (3, 3) \\): \\( y - 3 = -2(x - 3) \\Rightarrow \\ y = -2x + 9 \\).</td></tr>
+            </table>
+            <svg viewBox="0 0 300 200" width="100%" style="max-width:340px;height:auto;display:block;margin:14px auto" role="img" aria-label="Segment C D with its midpoint marked, and the perpendicular bisector crossing it at a right angle">
+              <line x1="123" y1="48" x2="177" y2="192" stroke="currentColor" stroke-width="2" stroke-dasharray="5 4"/>
+              <line x1="70" y1="150" x2="230" y2="90" stroke="currentColor" stroke-width="2.5"/>
+              <polyline points="161,116 165,127 154,131" fill="none" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="70" cy="150" r="4" fill="currentColor"/>
+              <circle cx="230" cy="90" r="4" fill="currentColor"/>
+              <circle cx="150" cy="120" r="4" fill="currentColor"/>
+              <text x="60" y="166" text-anchor="middle" font-size="13" fill="currentColor">C(1, 2)</text>
+              <text x="234" y="84" text-anchor="start" font-size="13" fill="currentColor">D(5, 4)</text>
+              <text x="120" y="128" text-anchor="end" font-size="12" fill="currentColor">M(3, 3)</text>
+              <text x="186" y="188" text-anchor="start" font-size="12" fill="currentColor">bisector</text>
+            </svg>
+            <p>The dashed line is the perpendicular bisector: it meets \\( CD \\) at the midpoint \\( (3, 3) \\) at \\( 90^\\circ \\).</p>`,
+            readCheck: { q: "The perpendicular bisector of a segment must pass through which point of the segment?", opts: ["Its midpoint", "One of its endpoints", "The origin", "Its highest point"], ans: 0, explain: "By definition it bisects the segment, so it passes through the midpoint, at a right angle." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "Find the distance between \\( (1, 2) \\) and \\( (4, 6) \\).", opts: ["\\( 5 \\)", "\\( 25 \\)", "\\( \\sqrt{7} \\)", "\\( 7 \\)"], ans: 0, explain: "\\( \\sqrt{(4-1)^2 + (6-2)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5 \\). \\( 25 \\) forgets the square root." },
+        { q: "Find the midpoint of \\( (2, 1) \\) and \\( (5, 7) \\).", opts: ["\\( (3.5,\\ 4) \\)", "\\( (3,\\ 6) \\)", "\\( (7,\\ 8) \\)", "\\( (1.5,\\ 3) \\)"], ans: 0, explain: "Average each coordinate: \\( \\left( \\frac{2+5}{2},\\ \\frac{1+7}{2} \\right) = (3.5,\\ 4) \\). \\( (3, 6) \\) subtracts instead of averaging." },
+        { q: "Find the gradient of the line through \\( (2, 1) \\) and \\( (5, 7) \\).", opts: ["\\( 2 \\)", "\\( \\frac{1}{2} \\)", "\\( -2 \\)", "\\( 3 \\)"], ans: 0, explain: "\\( m = \\frac{7-1}{5-2} = \\frac{6}{3} = 2 \\). \\( \\frac{1}{2} \\) is run over rise (upside down)." },
+        { q: "A line has gradient \\( 3 \\). What is the gradient of a line perpendicular to it?", opts: ["\\( -\\frac{1}{3} \\)", "\\( \\frac{1}{3} \\)", "\\( -3 \\)", "\\( 3 \\)"], ans: 0, explain: "Negative reciprocal of \\( 3 \\) is \\( -\\frac{1}{3} \\). \\( \\frac{1}{3} \\) flips but forgets the minus sign." },
+        { q: "Which line is parallel to \\( y = 3x - 4 \\)?", opts: ["\\( y = 3x + 1 \\)", "\\( y = -3x - 4 \\)", "\\( y = \\frac{1}{3}x - 4 \\)", "\\( y = -\\frac{1}{3}x \\)"], ans: 0, explain: "Parallel lines share the gradient \\( 3 \\); only the intercept may differ." },
+        { q: "What is the gradient of the line \\( y = 5 - 2x \\)?", opts: ["\\( -2 \\)", "\\( 5 \\)", "\\( 2 \\)", "\\( -5 \\)"], ans: 0, explain: "Written as \\( y = -2x + 5 \\), the coefficient of \\( x \\) is the gradient: \\( -2 \\)." },
+        { q: "Find the equation of the line with gradient \\( 4 \\) that crosses the \\( y \\)-axis at \\( -3 \\).", opts: ["\\( y = 4x - 3 \\)", "\\( y = 4x + 3 \\)", "\\( y = -3x + 4 \\)", "\\( y = 4x \\)"], ans: 0, explain: "The \\( y \\)-intercept is \\( c = -3 \\), so \\( y = 4x - 3 \\)." },
+        { q: "Find the equation of the line with gradient \\( 2 \\) through \\( (2, 1) \\).", opts: ["\\( y = 2x - 3 \\)", "\\( y = 2x + 1 \\)", "\\( y = 2x - 1 \\)", "\\( y = \\frac{1}{2}x \\)"], ans: 0, explain: "\\( y - 1 = 2(x - 2) = 2x - 4 \\), so \\( y = 2x - 3 \\). Check: \\( 2(2) - 3 = 1 \\) ✓." },
+        { q: "A segment has gradient \\( \\frac{1}{2} \\). What is the gradient of its perpendicular bisector?", opts: ["\\( -2 \\)", "\\( 2 \\)", "\\( \\frac{1}{2} \\)", "\\( -\\frac{1}{2} \\)"], ans: 0, explain: "The bisector is perpendicular, so use the negative reciprocal of \\( \\frac{1}{2} \\): \\( -2 \\). Using \\( \\frac{1}{2} \\) or \\( 2 \\) keeps the segment's own gradient." },
+        { q: "\\( A \\) is \\( (1, 2) \\) and \\( B \\) is \\( (5, 4) \\). Which point must lie on the perpendicular bisector of \\( AB \\)?", opts: ["\\( (3,\\ 3) \\)", "\\( (6,\\ 6) \\)", "\\( (2,\\ 1) \\)", "\\( (4,\\ 2) \\)"], ans: 0, explain: "The bisector passes through the midpoint \\( \\left( \\frac{1+5}{2},\\ \\frac{2+4}{2} \\right) = (3,\\ 3) \\)." },
+        { q: "What is the relationship between \\( y = 2x + 1 \\) and \\( y = -\\frac{1}{2}x + 4 \\)?", opts: ["Perpendicular", "Parallel", "They are the same line", "Neither parallel nor perpendicular"], ans: 0, explain: "The gradients multiply: \\( 2 \\times -\\frac{1}{2} = -1 \\), so the lines are perpendicular." },
+        { q: "Which pair of gradients belongs to a pair of perpendicular lines?", opts: ["\\( \\frac{2}{3} \\) and \\( -\\frac{3}{2} \\)", "\\( \\frac{2}{3} \\) and \\( \\frac{3}{2} \\)", "\\( \\frac{2}{3} \\) and \\( -\\frac{2}{3} \\)", "\\( \\frac{2}{3} \\) and \\( \\frac{2}{3} \\)"], ans: 0, explain: "Perpendicular needs \\( m_1 m_2 = -1 \\): \\( \\frac{2}{3} \\times -\\frac{3}{2} = -1 \\). \\( \\frac{2}{3} \\) and \\( \\frac{3}{2} \\) is the reciprocal without the minus." }
+    ];
+
+    const matchData = [
+        { term: "Distance between \\( (x_1, y_1) \\) and \\( (x_2, y_2) \\)", def: "\\( \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\)" },
+        { term: "Midpoint of \\( (x_1, y_1) \\) and \\( (x_2, y_2) \\)", def: "\\( \\left( \\frac{x_1 + x_2}{2},\\ \\frac{y_1 + y_2}{2} \\right) \\)" },
+        { term: "Gradient of \\( (x_1, y_1) \\) to \\( (x_2, y_2) \\)", def: "\\( \\frac{y_2 - y_1}{x_2 - x_1} \\)" },
+        { term: "Slope-intercept form of a line", def: "\\( y = mx + c \\)" },
+        { term: "Point-gradient form of a line", def: "\\( y - y_1 = m(x - x_1) \\)" },
+        { term: "Parallel lines", def: "Have equal gradients" },
+        { term: "Perpendicular lines", def: "Gradients multiply to \\( -1 \\)" },
+        { term: "Perpendicular gradient to \\( m \\)", def: "\\( -\\frac{1}{m} \\) (negative reciprocal)" },
+        { term: "Perpendicular bisector of \\( AB \\)", def: "Through the midpoint, gradient = negative reciprocal of \\( AB \\)" },
+        { term: "Gradient of \\( y = 2x + 5 \\)", def: "\\( 2 \\)" },
+        { term: "Perpendicular gradient to \\( \\frac{2}{3} \\)", def: "\\( -\\frac{3}{2} \\)" },
+        { term: "Midpoint of \\( (2, 4) \\) and \\( (6, 10) \\)", def: "\\( (4,\\ 7) \\)" },
+        { term: "Distance from \\( (0, 0) \\) to \\( (3, 4) \\)", def: "\\( 5 \\)" },
+        { term: "Gradient of a horizontal line", def: "\\( 0 \\)" }
+    ];
+
+    // FIB blanks sit in PLAIN TEXT only (never inside \\( \\)) and answer VALUES are plain
+    // text so server string-equality works (ADDMATHS-CONTENT-PLAN.md §8.4 Rules 3/3b).
+    const fibData = [
+        { display: "The distance between two points comes from ___B1___ theorem, taking the square root of the sum of the squared gaps.", blanks: { B1: "Pythagoras" } },
+        { display: "To find the midpoint you ___B1___ the two \\( x \\)-coordinates and do the same to the \\( y \\)-coordinates.", blanks: { B1: "average" } },
+        { display: "Parallel lines always have ___B1___ gradients.", blanks: { B1: "equal" } },
+        { display: "For two perpendicular lines the product of their gradients is ___B1___.", blanks: { B1: "-1" } },
+        { display: "The perpendicular bisector of a segment passes through its ___B1___ and has a gradient equal to the ___B2___ of the segment's gradient.", blanks: { B1: "midpoint", B2: "negative reciprocal" } },
+        { display: "In the equation \\( y = mx + c \\), the letter \\( m \\) is the ___B1___ and \\( c \\) is the \\( y \\)-___B2___.", blanks: { B1: "gradient", B2: "intercept" } },
+        { display: "The gradient of a line is the change in \\( y \\) divided by the change in ___B1___.", blanks: { B1: "x" } },
+        { display: "The form \\( y - y_1 = m(x - x_1) \\) is called the ___B1___ form of a line.", blanks: { B1: "point-gradient" } }
+    ];
+
+    const fibWords = ["Pythagoras", "average", "equal", "-1", "midpoint", "negative reciprocal", "gradient", "intercept", "x", "point-gradient", "subtracting", "parallel", "reciprocal", "y", "slope", "1"];
+
+    const tfData = [
+        { statement: "The distance between two points is \\( \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\).", answer: true, explanation: "This is Pythagoras' theorem applied to the horizontal and vertical gaps." },
+        { statement: "You find the midpoint of a segment by subtracting the coordinates of one endpoint from the other.", answer: false, explanation: "You AVERAGE them: \\( \\left( \\frac{x_1+x_2}{2},\\ \\frac{y_1+y_2}{2} \\right) \\). Subtracting gives a gap, not the middle." },
+        { statement: "Parallel lines have equal gradients.", answer: true, explanation: "Same steepness, same gradient; only their \\( y \\)-intercepts differ." },
+        { statement: "The gradient of a line perpendicular to one with gradient \\( \\frac{2}{3} \\) is \\( \\frac{3}{2} \\).", answer: false, explanation: "It is the NEGATIVE reciprocal, \\( -\\frac{3}{2} \\). Check: \\( \\frac{2}{3} \\times -\\frac{3}{2} = -1 \\)." },
+        { statement: "If two lines are perpendicular, the product of their gradients is \\( -1 \\).", answer: true, explanation: "\\( m_1 m_2 = -1 \\) is the test for perpendicularity." },
+        { statement: "The perpendicular bisector of \\( AB \\) passes through the midpoint of \\( AB \\).", answer: true, explanation: "It bisects the segment, so it must cross at the midpoint — and at a right angle." },
+        { statement: "The gradient of the line \\( y = 7 - 3x \\) is \\( 7 \\).", answer: false, explanation: "Rewrite as \\( y = -3x + 7 \\); the gradient is the coefficient of \\( x \\), which is \\( -3 \\)." },
+        { statement: "A vertical line has a gradient of \\( 0 \\).", answer: false, explanation: "A HORIZONTAL line has gradient \\( 0 \\). A vertical line has an undefined gradient — its run is zero." }
+    ];
+
+    const miscData = [
+        { wrong: "Perpendicular to gradient \\( 4 \\) is \\( \\frac{1}{4} \\) — just flip the fraction.", correct: "The perpendicular gradient is the NEGATIVE reciprocal, so it is \\( -\\frac{1}{4} \\). A weak answer takes the reciprocal without the minus; a strong answer checks \\( 4 \\times -\\frac{1}{4} = -1 \\).", readCheck: { q: "Gradient of a line perpendicular to one with gradient \\( 5 \\)?", opts: ["\\( -\\frac{1}{5} \\)", "\\( \\frac{1}{5} \\)", "\\( -5 \\)", "\\( 5 \\)"], ans: 0, explain: "Negative reciprocal of \\( 5 \\) is \\( -\\frac{1}{5} \\); \\( 5 \\times -\\frac{1}{5} = -1 \\)." } },
+        { wrong: "For the perpendicular bisector, use the gradient of \\( AB \\) itself.", correct: "The bisector is PERPENDICULAR to \\( AB \\), so use the negative reciprocal of \\( AB \\)'s gradient. A weak answer reuses the segment's gradient; a strong answer flips and negates it before writing the line through the midpoint.", readCheck: { q: "\\( AB \\) has gradient \\( \\frac{2}{5} \\). Gradient of its perpendicular bisector?", opts: ["\\( -\\frac{5}{2} \\)", "\\( \\frac{2}{5} \\)", "\\( \\frac{5}{2} \\)", "\\( -\\frac{2}{5} \\)"], ans: 0, explain: "Negative reciprocal of \\( \\frac{2}{5} \\) is \\( -\\frac{5}{2} \\)." } },
+        { wrong: "Midpoint of \\( (2, 1) \\) and \\( (8, 5) \\) is \\( (6, 4) \\) — subtract the coordinates.", correct: "Midpoint AVERAGES the coordinates: \\( \\left( \\frac{2+8}{2},\\ \\frac{1+5}{2} \\right) = (5, 3) \\). A weak answer subtracts to get a gap; a strong answer adds then halves.", readCheck: { q: "Midpoint of \\( (2, 1) \\) and \\( (8, 5) \\)?", opts: ["\\( (5,\\ 3) \\)", "\\( (6,\\ 4) \\)", "\\( (10,\\ 6) \\)", "\\( (3,\\ 2) \\)"], ans: 0, explain: "\\( \\left( \\frac{2+8}{2},\\ \\frac{1+5}{2} \\right) = (5,\\ 3) \\)." } },
+        { wrong: "To find the perpendicular bisector, just find the gradient — no need for the midpoint.", correct: "You need BOTH: the perpendicular gradient AND the midpoint (a point on the line). A weak answer has the right gradient but no point to pin the line down; a strong answer substitutes the midpoint into \\( y - y_1 = m(x - x_1) \\).", readCheck: { q: "Which two things fix the perpendicular bisector of \\( AB \\)?", opts: ["The midpoint and the perpendicular gradient", "Both endpoints only", "The gradient of \\( AB \\) and one endpoint", "The distance \\( AB \\) only"], ans: 0, explain: "A line needs a gradient and a point: the perpendicular gradient and the midpoint of \\( AB \\)." } },
+        { wrong: "Distance between \\( (1, 1) \\) and \\( (4, 5) \\) is \\( 3 + 4 = 7 \\).", correct: "You must SQUARE the gaps, add, then square-root: \\( \\sqrt{3^2 + 4^2} = \\sqrt{25} = 5 \\). A weak answer adds the raw gaps; a strong answer applies Pythagoras.", readCheck: { q: "Distance between \\( (1, 1) \\) and \\( (4, 5) \\)?", opts: ["\\( 5 \\)", "\\( 7 \\)", "\\( \\sqrt{7} \\)", "\\( 25 \\)"], ans: 0, explain: "\\( \\sqrt{(4-1)^2 + (5-1)^2} = \\sqrt{9 + 16} = 5 \\)." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "The perpendicular-bisector method (show every step)", pills: ["midpoint", "perp gradient", "line"], content: `<p>Perpendicular-bisector questions reward a clear 4-step chain, and each step is a mark:</p><p><strong>0 marks:</strong> writing only the equation of \\( AB \\) (a very common wrong instinct).</p><p><strong>Partial:</strong> correct midpoint and gradient of \\( AB \\), but the bisector gradient not negated or the midpoint never used.</p><p><strong>Full marks:</strong> midpoint → gradient of \\( AB \\) → negative reciprocal → substitute the midpoint into \\( y - y_1 = m(x - x_1) \\) → tidy 3-term equation.</p>`, readCheck: { q: "Which is the quickest full-mark route for a perpendicular bisector?", opts: ["Midpoint, then negative-reciprocal gradient, then the line through the midpoint", "Find the equation of \\( AB \\) first", "Only find the midpoint", "Only find the perpendicular gradient"], ans: 0, explain: "You need the midpoint (a point) and the negative-reciprocal gradient, then form the line." } },
+        { type: "explain", title: "Use point-gradient form to avoid c-slips", pills: ["y − y₁ = m(x − x₁)", "no slips"], content: `<p>Examiners note that candidates who reach for \\( y = mx + c \\) and then substitute a point to find \\( c \\) often make a <strong>numerical slip</strong> and get the wrong intercept. Substituting straight into \\( y - y_1 = m(x - x_1) \\) has one fewer place to go wrong.</p><p><strong>Full marks:</strong> \\( y - 4 = \\frac{2}{3}(x - 5) \\Rightarrow y = \\frac{2}{3}x + \\frac{2}{3} \\), reached in one clean rearrangement.</p>`, readCheck: { q: "Why do examiners prefer point-gradient form for these questions?", opts: ["It avoids the c-slip from substituting a point into y = mx + c", "It is the only valid form", "It never needs a gradient", "It gives decimals automatically"], ans: 0, explain: "Point-gradient form removes the separate step of solving for \\( c \\), where slips happen." } },
+        { type: "tip", title: "'oe' — equivalent forms all score", pills: ["oe", "any correct form"], content: `<p>Mark schemes label the final line "<strong>oe</strong>" (or equivalent). \\( y = \\frac{2}{3}x + \\frac{2}{3} \\), \\( 3y = 2x + 2 \\) and \\( 2x - 3y + 2 = 0 \\) are all the same line and all earn the mark — as long as it is a correct <strong>3-term equation</strong>. Do not waste time worrying your form differs from a friend's.</p>`, readCheck: { q: "The scheme says the answer is \\( y = \\frac{2}{3}x + \\frac{2}{3} \\) oe. Which also scores?", opts: ["\\( 3y = 2x + 2 \\)", "\\( y = \\frac{3}{2}x + \\frac{2}{3} \\)", "\\( y = \\frac{2}{3}x \\)", "\\( 2x + 3y = 2 \\)"], ans: 0, explain: "\\( 3y = 2x + 2 \\) rearranges to \\( y = \\frac{2}{3}x + \\frac{2}{3} \\) — the same line." } }
+    ];
+
+    const flashcards = [
+        { term: "Distance between two points", def: "\\( \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\) — Pythagoras on the gaps." },
+        { term: "Midpoint of a segment", def: "\\( \\left( \\frac{x_1 + x_2}{2},\\ \\frac{y_1 + y_2}{2} \\right) \\) — average the coordinates." },
+        { term: "Gradient of a line", def: "\\( \\frac{y_2 - y_1}{x_2 - x_1} \\) — rise over run." },
+        { term: "Slope-intercept form", def: "\\( y = mx + c \\); \\( m \\) = gradient, \\( c \\) = \\( y \\)-intercept." },
+        { term: "Point-gradient form", def: "\\( y - y_1 = m(x - x_1) \\) — line from a gradient and one point." },
+        { term: "Parallel lines", def: "Equal gradients; different intercepts." },
+        { term: "Perpendicular lines", def: "\\( m_1 m_2 = -1 \\)." },
+        { term: "Negative reciprocal", def: "Flip a gradient over and change its sign, e.g. \\( \\frac{2}{3} \\to -\\frac{3}{2} \\)." },
+        { term: "Perpendicular bisector", def: "Line through the midpoint of \\( AB \\), perpendicular to \\( AB \\); every point on it is equidistant from \\( A \\) and \\( B \\)." },
+        { term: "Gradient of a horizontal line", def: "\\( 0 \\)." },
+        { term: "Gradient of a vertical line", def: "Undefined (the run is zero)." },
+        { term: "\\( y \\)-intercept", def: "The value of \\( c \\); where the line crosses the \\( y \\)-axis." },
+        { term: "'oe' (or equivalent)", def: "Any algebraically equal form of the answer scores the mark." },
+        { term: "Test for perpendicularity", def: "Multiply the gradients — perpendicular exactly when the product is \\( -1 \\)." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "9",
+            marks: 5,
+            type: "written",
+            question: `<p>The point \\( A \\) has the coordinates \\( (3, 7) \\) and the point \\( B \\) has the coordinates \\( (7, 1) \\).</p>
+            <p>Find the equation of the perpendicular bisector of \\( AB \\). <strong>[5]</strong></p>`,
+            hint: "Find the midpoint of \\( AB \\), then the gradient of \\( AB \\), and take its negative reciprocal for the bisector.",
+            starter: "Give your answer as an equation \\( y = mx + c \\) (oe).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO1)</h5>
+              <p><strong>Method A — equidistance (locus):</strong> every point equidistant from \\( A \\) and \\( B \\).</p>
+              <ul>
+                <li><strong>M1</strong> — sets the two distances equal: \\( (x-3)^2 + (y-7)^2 = (x-7)^2 + (y-1)^2 \\) (equidistant from \\( A \\) and \\( B \\)).</li>
+                <li><strong>M1</strong> — finds a correct distance/expression for one length.</li>
+                <li><strong>A1</strong> — correct unsimplified expansion.</li>
+                <li><strong>B1</strong> — reduction to linear form, e.g. \\( 8x - 12y + 8 = 0 \\).</li>
+                <li><strong>A1</strong> — 3-term equation \\( y = \\frac{2}{3}x + \\frac{2}{3} \\) (oe).</li>
+              </ul>
+              <p><strong>Method B — midpoint + negative-reciprocal gradient:</strong></p>
+              <ul>
+                <li><strong>M1</strong> — finds the gradient of the perpendicular bisector (uses gradient of \\( AB = -\\frac{3}{2} \\)).</li>
+                <li><strong>A1</strong> — perpendicular gradient \\( = \\frac{2}{3} \\).</li>
+                <li><strong>B1</strong> — midpoint of \\( AB = (5, 4) \\) (soi — seen or implied by use).</li>
+                <li><strong>M1</strong> — uses a standard line form with their midpoint and their perpendicular gradient: \\( y - 4 = \\frac{2}{3}(x - 5) \\).</li>
+                <li><strong>A1</strong> — 3-term equation \\( y = \\frac{2}{3}x + \\frac{2}{3} \\) (oe).</li>
+              </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The two methods are equivalent and each earns the full 5 marks; tick the row for whichever method you used.</li>
+              <li>The final line is marked "oe" — any correct 3-term equation scores (e.g. \\( 3y = 2x + 2 \\) or \\( 2x - 3y + 2 = 0 \\)).</li>
+              <li>The midpoint mark can be awarded "soi" — implied by correct use even if never written on its own line.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most candidates managed this question with great success. A large number also found the equation of the line \\( AB \\) as if that were something one must always do when finding the perpendicular bisector of \\( AB \\).</li>
+              <li>There were a few who did not find the midpoint, and a few who got the original gradient of \\( AB \\) wrong and so made errors from there.</li>
+              <li>A few candidates managed the first 4 marks, used \\( y = mx + c \\) rather than \\( y - y_1 = m(x - x_1) \\), and got the wrong value of \\( c \\) because of numerical slips.</li>
+            </ul></div>`,
+            modelAnswer: "Midpoint of \\( AB = \\left( \\frac{3+7}{2},\\ \\frac{7+1}{2} \\right) = (5, 4) \\). Gradient of \\( AB = \\frac{1-7}{7-3} = -\\frac{3}{2} \\), so the perpendicular gradient \\( = \\frac{2}{3} \\). Line through \\( (5, 4) \\): \\( y - 4 = \\frac{2}{3}(x - 5) \\Rightarrow y = \\frac{2}{3}x - \\frac{10}{3} + 4 = \\frac{2}{3}x + \\frac{2}{3} \\).",
+            markPoints: { note: "The scheme gives TWO alternative methods that each earn all 5 marks. Each stage below is worth 1 mark — tick the point matching the method you actually used (ticking both routes in a stage still counts once).", groups: [
+                { label: "Stage 1 — started a valid method (1 mark)", max: 1, points: [
+                    { text: "Method A: set the distances from \\( A \\) and \\( B \\) equal, \\( (x-3)^2+(y-7)^2=(x-7)^2+(y-1)^2 \\)", marks: 1 },
+                    { text: "Method B: found the gradient of \\( AB = -\\frac{3}{2} \\)", marks: 1 }
+                ] },
+                { label: "Stage 2 — key quantity (1 mark)", max: 1, points: [
+                    { text: "Method A: wrote a correct distance/expression for one length", marks: 1 },
+                    { text: "Method B: took the negative reciprocal → perpendicular gradient \\( = \\frac{2}{3} \\)", marks: 1 }
+                ] },
+                { label: "Stage 3 — second key quantity (1 mark)", max: 1, points: [
+                    { text: "Method A: expanded both sides correctly (unsimplified)", marks: 1 },
+                    { text: "Method B: found the midpoint of \\( AB = (5, 4) \\)", marks: 1 }
+                ] },
+                { label: "Stage 4 — form the line (1 mark)", max: 1, points: [
+                    { text: "Method A: reduced to linear form, e.g. \\( 8x - 12y + 8 = 0 \\)", marks: 1 },
+                    { text: "Method B: substituted midpoint + perpendicular gradient into \\( y - 4 = \\frac{2}{3}(x - 5) \\)", marks: 1 }
+                ] },
+                { label: "Stage 5 — final equation (1 mark)", max: 1, points: [
+                    { text: "Gave the 3-term equation \\( y = \\frac{2}{3}x + \\frac{2}{3} \\) (oe)", marks: 1 }
+                ] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>
