@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 4: International Trade and the Global Economy</div>
             <h1>4.2 Balance of Payments</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 4.2 Balance of Payments — placeholder, content not yet written
+    //  DATA: 4.2 Balance of Payments
     // ══════════════════════════════════════
     const pageMeta = {
             id: '4-2-balance-of-payments',
@@ -268,21 +268,1611 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>4.2 Balance of Payments</strong> will appear here soon.</p>`
+            title: "The balance of payments and the current account",
+            tag: "What it records, and the four components",
+            content: `<p><strong>The balance of payments is a record of all the financial transactions between a country and the rest of the world over a period of time.</strong> The exam only requires detail on the <strong>current account</strong>.</p>
+<h4>The three parts of the balance of payments</h4>
+<ul>
+<li><strong>Current account</strong> — trade plus income plus transfers. This is the GCSE focus.</li>
+<li><strong>Capital account</strong> — international capital transfers.</li>
+<li><strong>Financial account</strong> — investment flows in and out (buying businesses, property, shares, bonds).</li>
+</ul>
+<p>Careful: a <strong>Spanish firm buying land in the UK to build a factory</strong> is investment — it goes in the FINANCIAL account, NOT the current account. This is a real MCQ.</p>
+<h4>The four components of the current account</h4>
+<ul>
+<li><strong>Trade in goods</strong> — exports minus imports of physical ("visible") goods, e.g. cars, laptops, food.</li>
+<li><strong>Trade in services</strong> — exports minus imports of services, e.g. tourism, finance, insurance, education.</li>
+<li><strong>Income flows</strong> — income UK residents earn on investments abroad, minus income foreign nationals earn on their investments in the UK.</li>
+<li><strong>Transfers</strong> — money sent abroad with nothing received in return, e.g. foreign aid, or migrant workers sending money home.</li>
+</ul>
+<h4>The balance of trade</h4>
+<ul>
+<li>The <strong>balance of trade</strong> is just the record of trade in goods and services — the first TWO components. It is the largest part of the current account, but it is NOT the whole current account.</li>
+<li>The whole current account = trade in goods + trade in services + income flows + transfers.</li>
+</ul>
+<h4>The UK's pattern — learn this, it is the case study</h4>
+<ul>
+<li>The UK runs a <strong>large deficit on trade in goods</strong> but a <strong>surplus on trade in services</strong>.</li>
+<li>The UK has run an annual current account <strong>deficit since 1983</strong>.</li>
+<li>Services the UK exports: tourism, financial services/banking, insurance, education (overseas student fees), IT, transport.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is NOT part of the UK's current account?",
+                opts: ["A Spanish firm buying land in the UK to build a factory", "A UK consumer spending money on holiday in Greece", "Interest earned by a UK person from a bank account in France", "Foreign aid sent from the UK to a less developed country"],
+                ans: 0,
+                explain: "Buying land to build a factory is INVESTMENT, so it sits in the financial account. Aid is a transfer, holiday spending is an import of services, and interest from abroad is an income flow — all three are current account items."
+            }
+        },
+        {
+            title: "Balanced, surplus, deficit — and how to calculate them",
+            tag: "The arithmetic, and the marks lost on signs and units",
+            content: `<p>Add up the net figure for each of the four components, then sum them.</p>
+<ul>
+<li><strong>Balanced current account:</strong> the four components net to zero — money in equals money out.</li>
+<li><strong>Surplus:</strong> the sum of exports of goods, services, investment income and transfers is <strong>GREATER than</strong> imports. More money flows in than out.</li>
+<li><strong>Deficit:</strong> that sum is <strong>LESS than</strong> imports. More money flows out than in.</li>
+</ul>
+<h4>The precise definition of a surplus</h4>
+<p>The exam tests whether you know a surplus covers ALL FOUR components, not just trade. The "best" definition is: <strong>the sum of export revenue and the inflow of income and transfers exceeds the outflow on imports, income and transfers</strong>. A definition mentioning only goods and services is <em>almost</em> right — which is exactly why it is offered as a distractor.</p>
+<h4>Worked example — the four-component method</h4>
+<ul>
+<li>Goods: exports £200m − imports £350m = <strong>−£150m</strong></li>
+<li>Services: exports £400m − imports £100m = <strong>+£300m</strong></li>
+<li>Income flows: <strong>−£20m</strong>; Transfers: <strong>−£20m</strong></li>
+<li>Balance = −150 + 300 − 20 − 20 = <strong>+£110m surplus</strong></li>
+</ul>
+<h4>Where the marks actually go</h4>
+<ul>
+<li><strong>A deficit is NEGATIVE.</strong> Write the minus sign, or the word "deficit". Miss it and you drop a mark.</li>
+<li><strong>Write the units.</strong> "£ million" or "m". The examiners repeatedly report candidates losing a mark for omitting the £ sign or "million".</li>
+<li><strong>Deficit as a % of GDP</strong> = deficit ÷ GDP × 100. A £10bn deficit with £200bn national output = <strong>5%</strong>. This is how you judge whether a deficit is actually serious.</li>
+<li><strong>Percentage change</strong> = change ÷ original × 100. A deficit growing from £30 000m to £80 000m = 50 000/30 000 × 100 = <strong>166.67%</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "A country has a current account deficit of £10 billion and national output of £200 billion. The deficit as a percentage of national output is...",
+                opts: ["50%", "20%", "5%", "10%"],
+                ans: 2,
+                explain: "Deficit ÷ GDP × 100 = 10/200 × 100 = 5%. Expressing the deficit as a share of GDP is how you judge whether it is actually a serious problem."
+            }
+        },
+        {
+            title: "The causes of deficits and surpluses",
+            tag: "Four factors — mirror images of each other",
+            content: `<p>The causes of surpluses and deficits are essentially <strong>mirror images</strong>. Learn the four factors once, then apply each in whichever direction the question needs.</p>
+<h4>Causes of a SURPLUS</h4>
+<ul>
+<li><strong>Reputation</strong> — a strong record builds a reputation for quality, in-demand goods and services. The UK is strong in financial services, medical research, aerospace and education.</li>
+<li><strong>A weak domestic economy</strong> — limited opportunities at home push firms to sell abroad, and lower incomes reduce demand for imports.</li>
+<li><strong>A falling exchange rate</strong> — makes exports cheaper abroad and imports dearer at home.</li>
+<li><strong>Investment inflows</strong> — more income flowing in from residents' overseas investments than flows out.</li>
+</ul>
+<h4>Causes of a DEFICIT</h4>
+<ul>
+<li><strong>Poor reputation</strong> — being seen as overpriced or poor quality cuts export demand. Structural problems producing overpriced, poor-quality goods lead straight to a deficit.</li>
+<li><strong>Declining industries</strong> — relying on industries with falling demand destroys export potential. The UK's manufacturing decline is the standard example.</li>
+<li><strong>A rising exchange rate</strong> — makes exports dearer and imports cheaper.</li>
+<li><strong>Falling incomes overseas</strong> — poorer customers abroad buy fewer of our exports.</li>
+<li><strong>Investment outflows</strong> — more income flowing out to foreign investors here than flows in. A <strong>net outflow of investment income</strong> directly worsens the current account.</li>
+<li><strong>Low productivity</strong> — raises costs per unit, making UK goods less internationally competitive. This is why supply side policy (which raises productivity) improves the balance of payments.</li>
+<li><strong>Rising domestic incomes</strong> — richer consumers suck in more imports.</li>
+</ul>
+<h4>Why the UK specifically</h4>
+<ul>
+<li>Since about 1990 the UK has developed resources more suited to exporting <strong>services</strong>, so fewer resources go into goods.</li>
+<li>Imports from highly competitive Asian economies grow faster than UK exports.</li>
+<li>Foreign investment in the UK is larger than UK investment abroad, so the <strong>income account is usually in deficit</strong> — foreign-owned assets here earn more than UK-owned assets abroad.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these would most likely help CREATE a balance of payments deficit on the UK current account?",
+                opts: ["A net outflow of investment income", "A depreciation of the UK exchange rate", "An increase in the quality of UK output", "A fall in GDP per capita in the UK"],
+                ans: 0,
+                explain: "A net outflow of investment income is money leaving the current account, so it directly pushes it towards deficit. Better quality and a depreciation both boost exports; falling GDP per capita cuts import demand."
+            }
+        },
+        {
+            title: "How important is the balance of payments?",
+            tag: "It depends on the cause, the size and the duration",
+            content: `<p><strong>Never just say "a deficit is bad".</strong> The evaluation the examiners want is that the impact <strong>depends on the cause, the size relative to GDP, and whether it is short-term or persistent</strong>.</p>
+<h4>Why a deficit can matter</h4>
+<ul>
+<li><strong>Falling demand for domestic goods</strong> → firms need fewer workers → unemployment rises → the unemployed spend less → a <strong>negative cyclical spiral</strong>. This is the most serious cause.</li>
+<li><strong>Low productivity</strong> → slow to fix, because training and education take years to feed through.</li>
+<li><strong>Debt builds up</strong> — spending more on imports than is earned from exports means the country must borrow or sell assets. The UK is a <strong>net borrower</strong> and finances its deficit by attracting overseas investment.</li>
+<li><strong>Downward pressure on the exchange rate</strong> — more pounds sold to buy imports, fewer bought to buy our exports.</li>
+</ul>
+<h4>Why a deficit can be fine</h4>
+<ul>
+<li><strong>It is small relative to GDP</strong> — the single most important point for the UK. The deficit is persistent but has stayed a small percentage of GDP.</li>
+<li><strong>Lower inflation</strong> — cheap imports and less demand for domestic output ease demand-pull pressure.</li>
+<li><strong>Consumers gain</strong> — a wide variety of low-priced imports raises living standards. Global competition also means scarce resources are used more efficiently.</li>
+<li><strong>The inflow that finances it brings new technologies</strong> into the UK.</li>
+<li><strong>A lower exchange rate</strong> should make UK exports more competitive, which self-corrects some of the deficit.</li>
+</ul>
+<h4>A surplus — the same logic, reversed</h4>
+<ul>
+<li>Rising demand for domestic goods → firms hire → incomes rise → a <strong>positive spiral</strong>. Germany is the standard example.</li>
+<li>Export income more than covers imports, so <strong>debt falls</strong>.</li>
+<li>But: more demand for domestic output can create <strong>demand-pull inflation</strong>, and a <strong>stronger exchange rate</strong> eventually makes exports less competitive.</li>
+</ul>
+<p><strong>The judgement lever:</strong> a short one-off deficit after years of surplus matters far less than a persistent one — and the UK's is persistent, but small as a share of GDP.</p>`,
+            readCheck: {
+                q: "Why is the UK's persistent current account deficit judged less serious in practice?",
+                opts: ["Because it has stayed a small percentage of GDP", "Because the UK never borrows from abroad", "Because it only lasted one year", "Because the UK has a surplus on trade in goods"],
+                ans: 0,
+                explain: "Size relative to GDP is what matters most. The UK's deficit is persistent (since 1983) and so fails the 'duration' test — but it has remained a small share of GDP, which is why it is judged manageable."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "The balance of payments is best defined as...",
+            opts: ["A record of a country's total output", "A record of all financial transactions between a country and the rest of the world", "A record of the government's spending and tax revenue", "A record of a country's trade in goods only"],
+            ans: 1,
+            explain: "It records ALL international transactions. Confusing it with the government's budget (tax and spending) is the single most common misconception on this topic."
+        },
+        {
+            q: "Which of these is NOT one of the four components of the current account?",
+            opts: ["Transfers", "Income flows", "Trade in services", "Foreign direct investment in UK factories"],
+            ans: 3,
+            explain: "Investment in factories, land and shares belongs to the FINANCIAL account. The current account's four parts are trade in goods, trade in services, income flows and transfers."
+        },
+        {
+            q: "A country's current account is in surplus when...",
+            opts: ["Export revenue plus inflows of income and transfers exceed the outflows on imports, income and transfers", "Its exports of goods exceed its imports of goods", "Its government revenue exceeds its spending", "Its total output exceeds its total income"],
+            ans: 0,
+            explain: "The 'best' definition covers all four components, not just goods. A definition mentioning only goods and services is the standard distractor — it's almost right, which is the trap."
+        },
+        {
+            q: "Goods: exports £200m, imports £350m. Services: exports £400m, imports £100m. Income flows −£20m. Transfers −£20m. The current account balance is...",
+            opts: ["A surplus of £150m", "A surplus of £110m", "A deficit of £70m", "A deficit of £110m"],
+            ans: 1,
+            explain: "Net each component then sum: goods −150, services +300, income −20, transfers −20. −150 + 300 − 20 − 20 = +£110m, a surplus."
+        },
+        {
+            q: "The balance of trade is...",
+            opts: ["The record of a country's trade in goods and services", "The record of investment flows", "The same as the balance of payments", "The whole of the current account"],
+            ans: 0,
+            explain: "The balance of trade is only the goods and services part. It's the LARGEST component of the current account, but the current account also includes income flows and transfers."
+        },
+        {
+            q: "A current account surplus will most likely lead to...",
+            opts: ["A decrease in the country's debt", "A decrease in the exchange rate", "An increase in unemployment", "A decrease in the rate of inflation"],
+            ans: 0,
+            explain: "Export income more than covers import spending, so the country's overall debt falls. A surplus tends to RAISE the exchange rate, RAISE inflation pressure and LOWER unemployment — the other three are all backwards."
+        },
+        {
+            q: "Which of these is an example of trade in goods in the UK current account?",
+            opts: ["A UK airline selling transport to a firm in Dubai", "Money earned by a UK firm on investment in Australia", "A laptop imported into the UK from China", "A Japanese car company purchasing a factory in the UK"],
+            ans: 2,
+            explain: "A laptop is a physical good. The airline is selling a SERVICE, the investment earnings are INCOME FLOWS, and buying a factory is financial-account investment."
+        },
+        {
+            q: "A country's current account deficit is £4 million and its GDP is £100 million. Another country's deficit is £2 million with GDP of £40 million. Which is true?",
+            opts: ["The second country's deficit is the larger proportion of GDP", "Both deficits are the same proportion of GDP", "The first country's deficit is the larger proportion of GDP", "You cannot compare them"],
+            ans: 0,
+            explain: "First: 4/100 = 4%. Second: 2/40 = 5%. The SECOND is larger as a proportion, even though its cash deficit is smaller — which is exactly why deficits are judged relative to GDP."
+        },
+        {
+            q: "How does supply side policy improve a country's balance of payments?",
+            opts: ["By leading to a higher rate of inflation", "By raising consumption by domestic consumers", "By cancelling free trade agreements", "By improving the productivity of the labour force"],
+            ans: 3,
+            explain: "Higher productivity lowers costs per unit, so exports become more internationally competitive. Higher inflation and higher consumption would both WORSEN the balance of payments."
+        },
+        {
+            q: "A rise in the UK's exchange rate would most likely...",
+            opts: ["Improve the current account, as exports become cheaper", "Worsen the current account, as exports become dearer and imports cheaper", "Improve the current account, as imports become dearer", "Have no effect on the current account"],
+            ans: 1,
+            explain: "A stronger pound makes UK exports more expensive abroad (demand falls) and imports cheaper at home (demand rises) — both push the current account towards deficit."
+        }
+    ];
+
+    const matchData = [
+        { term: "Balance of payments", def: "A record of all financial transactions between a country and the rest of the world" },
+        { term: "Current account", def: "Trade in goods and services, plus income flows, plus transfers" },
+        { term: "Balance of trade", def: "The record of a country's trade in goods and services only" },
+        { term: "Trade in goods", def: "Exports minus imports of physical, visible items such as cars and laptops" },
+        { term: "Trade in services", def: "Exports minus imports of services such as tourism, finance and education" },
+        { term: "Income flows", def: "Earnings on investments abroad, minus earnings paid to foreign investors here" },
+        { term: "Transfers", def: "Money sent abroad with nothing received in return, e.g. foreign aid" },
+        { term: "Current account surplus", def: "Inflows from exports, income and transfers exceed the outflows" },
+        { term: "Current account deficit", def: "More money flows out of the country than flows into it" },
+        { term: "Balanced current account", def: "The four components net to zero — money in equals money out" },
+        { term: "Financial account", def: "Records investment flows, e.g. a foreign firm buying a UK factory" },
+        { term: "Net borrower", def: "A country that must attract financial inflows to finance its deficit" },
+        { term: "Deficit as a % of GDP", def: "Deficit ÷ national output × 100 — how the seriousness is judged" }
+    ];
+
+    const fibData = [
+        {
+            display: "The balance of payments records all financial transactions between a country and the ___B1___ of the world. At GCSE the focus is the ___B2___ account.",
+            blanks: { B1: "rest", B2: "current" }
+        },
+        {
+            display: "The current account has four components: trade in goods, trade in services, ___B1___ flows and ___B2___.",
+            blanks: { B1: "income", B2: "transfers" }
+        },
+        {
+            display: "A current account ___B1___ means more money flows out than in, while a ___B2___ means more money flows in than out.",
+            blanks: { B1: "deficit", B2: "surplus" }
+        },
+        {
+            display: "The UK runs a large ___B1___ on trade in goods but a ___B2___ on trade in services.",
+            blanks: { B1: "deficit", B2: "surplus" }
+        },
+        {
+            display: "A ___B1___ exchange rate makes exports cheaper and imports dearer, which tends to ___B2___ the current account balance.",
+            blanks: { B1: "falling", B2: "improve" }
+        },
+        {
+            display: "How serious a deficit is depends on its cause, its size relative to ___B1___, and whether it is short-term or ___B2___.",
+            blanks: { B1: "GDP", B2: "persistent" }
+        }
+    ];
+    const fibWords = ["rest", "current", "income", "transfers", "deficit", "surplus", "falling", "improve", "GDP", "persistent", "financial", "productivity"];
+
+    const tfData = [
+        {
+            statement: "The balance of payments is the same thing as the government's budget.",
+            answer: false,
+            explanation: "This is the single most-reported misconception on this topic. The balance of payments records a COUNTRY'S transactions with the rest of the world; the government budget is tax and spending. Examiners repeatedly saw candidates write about raising taxes to 'pay for' a trade deficit — that scores nothing."
+        },
+        {
+            statement: "A Spanish firm buying land in the UK to build a factory is recorded in the UK's current account.",
+            answer: false,
+            explanation: "That is investment, so it belongs in the FINANCIAL account. The current account covers trade in goods, trade in services, income flows and transfers."
+        },
+        {
+            statement: "The balance of trade is only part of the current account.",
+            answer: true,
+            explanation: "The balance of trade covers goods and services only. It is the largest component, but the current account also includes income flows and transfers."
+        },
+        {
+            statement: "The UK typically runs a surplus on trade in goods and a deficit on trade in services.",
+            answer: false,
+            explanation: "It is the other way round. The UK runs a large DEFICIT on goods and a SURPLUS on services — which is why the goods-only deficit is always bigger than the goods-and-services deficit."
+        },
+        {
+            statement: "A current account deficit is automatically bad for an economy.",
+            answer: false,
+            explanation: "It depends on the cause, the size relative to GDP and the duration. A deficit financed by inward investment that brings new technology, and which stays small as a share of GDP, is very different from one caused by collapsing demand for domestic goods."
+        },
+        {
+            statement: "A country's currency tends to weaken when it runs a current account deficit.",
+            answer: true,
+            explanation: "More of the currency is sold to buy imports and less is bought to purchase its exports, so supply rises and demand falls — pushing the exchange rate down. That lower rate should then make exports more competitive."
+        },
+        {
+            statement: "If a country's inflation rate falls below its trading partners', its exports become less competitive.",
+            answer: false,
+            explanation: "Lower relative inflation makes exports MORE competitive, because your prices are rising more slowly than rivals'. It is HIGHER inflation than your trading partners that damages competitiveness."
+        },
+        {
+            statement: "A deficit of £2m in a country with £40m GDP is more serious than a deficit of £4m in a country with £100m GDP.",
+            answer: true,
+            explanation: "Judge deficits relative to GDP: 2/40 = 5% versus 4/100 = 4%. The smaller cash deficit is the bigger burden — which is exactly why the UK's persistent deficit is still judged manageable."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "\"The UK has a current account deficit, so the government needs to raise taxes to pay it off.\"",
+            correct: "This is the examiners' most-flagged misconception on the whole topic, and it appears in THREE separate mark schemes. On Q3(c) they wrote: \"A common misconception is confusion between the trade balance and government finances. Several candidates wrote about the need to increase taxation to pay for the deficit.\" On Q17(c): \"Most candidates identified reasons for a persistent current account deficit but confused this with a government budget deficit.\" And on Q16(d)(iii) they warn outright: \"Try not to confuse the balance of payments on the current account with fiscal policy and the balanced government budget.\" They are completely different things. The current account is the whole COUNTRY'S trading position with the rest of the world; the budget is the GOVERNMENT'S tax and spending. A current account deficit is financed by attracting financial inflows — selling assets to overseas investors or borrowing from the rest of the world — not by taxation.",
+            readCheck: {
+                q: "How is the UK's current account deficit actually financed?",
+                opts: ["By printing money", "By raising income tax", "By attracting financial inflows — selling assets to overseas investors or borrowing abroad", "By cutting government spending"],
+                ans: 2,
+                explain: "The extract states it directly: the UK is a net borrower and must attract net financial inflows, achieved through selling its assets to overseas investors or borrowing from the rest of the world. Taxation is the government's budget, a separate matter entirely."
+            }
+        },
+        {
+            wrong: "\"Trade in goods went from −112 603 to −219 291, so trade in goods increased.\"",
+            correct: "The examiners were blunt about this on Q3(b): \"Many candidates wrote about the trade in goods and/or services increasing. This is not what the data shows, it is the deficit or surplus.\" The figures are NET values (exports minus imports), so a number moving from −112 603 to −219 291 does not mean trade increased — it means the DEFICIT grew. Likewise services rising from 95 657 to 151 339 is a growing SURPLUS. The examiners added an Assessment for learning note: \"It is recommended that students are encouraged to use key terms such as deficit or surplus when referring to the current account or trade flows and that there is a focus on the implications of a 'net value' i.e. that international trade reflects exports and imports.\" Use the words deficit and surplus in every answer.",
+            readCheck: {
+                q: "The UK's trade in goods figure moves from −112 603 to −219 291 (£m). The correct description is...",
+                opts: ["Trade in goods has decreased", "The deficit on trade in goods has grown", "The surplus on trade in goods has grown", "Trade in goods has increased"],
+                ans: 1,
+                explain: "It is a NET figure, so a more negative number means a bigger deficit — not a change in the volume of trade. Always name it as a deficit or a surplus."
+            }
+        },
+        {
+            wrong: "\"The answer is 78 296.\"",
+            correct: "That drops a mark on almost every calculation in this topic, and the examiners say so on four separate questions. On Q3(a): \"This question was generally well answered, although a significant number of candidates did not include the £ sign or millions\" — the mark scheme states \"Only 1 mark if minus sign (or deficit) missing OR if units (£ million) omitted.\" On Q11: \"some omitted the $ sign, million or negative symbol.\" On Q17(a): \"some candidates omitted the £ sign\", where the mark scheme demands the answer \"must include the £ sign and the minus sign or refer to a deficit.\" And Q21 states \"If millions (m) omitted, then maximum 1 mark.\" So write <strong>−£78 296 million</strong>, or \"a deficit of £78 296 million\". Three things every time: the sign (or the word deficit), the currency symbol, and the units. On percentage questions the same logic applies to the % sign — Q17(b) says a correct answer without the percentage sign is worth 1 mark only.",
+            readCheck: {
+                q: "You calculate a current account balance of −78 296. To earn BOTH marks you must write...",
+                opts: ["−78 296", "−£78 296 million (or 'a deficit of £78 296 million')", "78 296", "£78 296"],
+                ans: 1,
+                explain: "The mark scheme gives only 1 mark if the minus sign (or the word deficit) is missing, OR if the units (£ million) are omitted. You need the sign, the £ and the units."
+            }
+        },
+        {
+            wrong: "\"The line on the chart goes down from 2011 to 2019, so the deficit went down.\"",
+            correct: "This is the trap built into the Q16(a) chart, and the examiners flagged it as a Misconception: \"It is also complicated by the doubling up of the negative trend in the figures with the negative sense of the word 'deficit'.\" A deficit IS a negative number, so a line falling further below zero means the deficit is getting BIGGER, not smaller. The examiners noted: \"Weaker responses sometimes described only the downwards direction of the data without explaining that meant the deficit (which is a negative) increased.\" They also warned against the other half of the error: \"A common misconception is to purely trawl through data, quoting it without actually explaining it here is not enough.\" Quoting numbers is not explaining them. The winning technique they describe is simple — state the overall trend, add one variation within it (2016 to 2017 the deficit reduced, then grew again), and say what must have happened to exports and/or imports to cause it.",
+            readCheck: {
+                q: "On a chart of the current account balance, the line falls from −30 000 in 2011 to −95 000 in 2019. This means...",
+                opts: ["The deficit has decreased", "The country moved into surplus", "The deficit has increased", "Exports have increased"],
+                ans: 2,
+                explain: "A deficit is negative, so a line moving further below zero is a GROWING deficit. The 'doubling up' of a downward trend with the negative sense of the word deficit is exactly what the examiners flagged."
+            }
+        },
+        {
+            wrong: "\"The question says 'evaluate the extent to which the government should eliminate the deficit', so I'll explain HOW they could do it.\"",
+            correct: "The examiners were very specific on Q16(d)(iii): \"Candidates who answered this question well quickly realised that this question focused on 'should' rather than purely 'how'.\" Explaining policies is analysis, not evaluation — and it answers a question that wasn't asked. They added: \"This was a question with wording specifically asking about extent of intervention and whether the government should intervene. Judgements that focused on this exact question wording were likely to be more effective. This is a technique that may well be tested on future papers.\" Two more warnings worth heeding: \"a correct point is credited once, so it is useful to consider the use of summary-style conclusions that are purely repetitive\" — a conclusion that just repeats your paragraphs earns nothing. And on Q3(d)(ii), a 2-mark 'explain' question: \"Many candidates identified a reasonable reason but did not explain it. A further common error/misconception was between exchange rates and interest rates.\" Identifying is 1 mark; the explanation is the second.",
+            readCheck: {
+                q: "For 'Evaluate the extent to which the UK government SHOULD try to eliminate the current account deficit', the strongest answers...",
+                opts: ["Focused on whether it should intervene, not just how it could", "Ended with a summary repeating earlier points", "Rewrote the extract data", "Listed as many policies as possible"],
+                ans: 0,
+                explain: "The examiners said good candidates \"quickly realised that this question focused on 'should' rather than purely 'how'\", and that judgements matching the exact question wording were the most effective."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "calculation",
+            title: "Calculations: sign, symbol, units — every time",
+            pills: ["Calculate... Show your working", "2 marks", "AO2 · Quantitative skills"],
+            content: `<p>Roughly a quarter of this paper's marks are calculations, and they are lost on presentation more than on arithmetic.</p>
+<ul>
+<li><strong>Balance of trade in goods and services</strong> = balance on goods + balance on services. Work out the goods balance FIRST if the table leaves it blank: £292 867m − £412 472m = −£119 605m, then −119 605 + 85 863 = <strong>−£33 742m</strong>.</li>
+<li><strong>Current account balance</strong> = goods + services + income flows + transfers. All four, every time.</li>
+<li><strong>Percentage change</strong> = change ÷ ORIGINAL × 100. Not ÷ the new figure.</li>
+<li><strong>Deficit as % of GDP</strong> = deficit ÷ GDP × 100.</li>
+<li><strong>Converting currency:</strong> $54 692m ÷ 1.5586 = £35 090.47m. Dividing converts dollars into pounds when the rate is quoted as 1 GBP = 1.5586 USD.</li>
+<li><strong>The presentation marks:</strong> minus sign (or the word "deficit"), the £/$ symbol, and the units (million). The mark schemes cap you at 1 mark for missing any of them — and at 1 mark for a percentage without the % sign.</li>
+</ul>`,
+            readCheck: {
+                q: "A table gives export of goods £292 867m and import of goods £412 472m, and balance of trade in services £85 863m. The balance of trade in goods and services is...",
+                opts: ["£205 468m", "−£33 742m", "£33 742m", "−£119 605m"],
+                ans: 1,
+                explain: "Goods balance = 292 867 − 412 472 = −119 605. Then −119 605 + 85 863 = −£33 742m. Note the minus sign and the units — both are needed for the second mark."
+            }
+        },
+        {
+            type: "data",
+            title: "Trend questions: explain it, don't just quote it",
+            pills: ["Using the chart, explain the trend...", "2 marks", "AO1b / AO2"],
+            content: `<p>Two marks, and a reliable structure the examiners themselves described as "simple, but effective".</p>
+<ul>
+<li><strong>Mark 1 — the overall trend</strong> across the exact dates named: "overall the deficit has been increasing".</li>
+<li><strong>Mark 2 — one variation within it, OR what must have happened to exports/imports:</strong> "from 2016 to 2017 the deficit reduced, but since then has increased again", or "imports have been rising or exports falling, or both".</li>
+<li><strong>Remember a deficit is NEGATIVE</strong> — a line falling further below zero is a GROWING deficit.</li>
+<li><strong>Comparison questions need an actual comparison:</strong> "Germany has a surplus while the UK and USA have deficits" — max 1 mark if you don't compare, and just saying data is "positive or negative" is too vague.</li>
+<li><strong>Never trawl.</strong> Quoting figures without explaining them scores nothing.</li>
+</ul>`,
+            readCheck: {
+                q: "Explaining how Germany's current account position differs from the UK's and the USA's, what is needed for BOTH marks?",
+                opts: ["Listing all nine figures in the table", "Stating Germany's figures are positive", "Saying Germany has a surplus while the UK and USA have deficits, and comparing them", "Explaining why Germany exports cars"],
+                ans: 2,
+                explain: "The mark scheme gives a max of 1 mark with no comparison: one mark for knowing whether the data means surplus or deficit, and one for the comparison. 'Positive or negative' alone was judged too vague."
+            }
+        },
+        {
+            type: "analyse",
+            title: "Analyse: developed chains, not rewritten extracts",
+            pills: ["Analyse...", "6 marks", "AO1a 1 · AO2 2 · AO3a 3"],
+            content: `<p>The commonest way to lose marks here is to retell the extract. The examiners: <strong>"Candidates who scored lower marks mostly rewrote the information in the case study with no analysis."</strong></p>
+<ul>
+<li><strong>Reach Level 2 by referencing the extract</strong> — but reference it to build a chain, not to repeat it. "If there is no analysis (AO3a), then application (AO2) cannot be rewarded."</li>
+<li><strong>Develop the chain to the end.</strong> They criticised answers that wrote "more competitive producers overseas resulting in demand falling for UK producers… and then nothing further".</li>
+<li><strong>A reliable UK chain:</strong> the UK's resources shifted to services → fewer resources for goods → UK goods are dearer/lower quality than competitors' → exports fall and imports rise → the goods deficit grows.</li>
+<li><strong>Diagram questions:</strong> "A maximum of 3 marks if no relevant diagram" — half the marks gone. Fewer exports → demand for £ shifts LEFT; more imports → supply of £ shifts RIGHT; either way the exchange rate falls.</li>
+<li><strong>Match the exact currencies named</strong> in the question on your diagram and in your text.</li>
+</ul>`,
+            readCheck: {
+                q: "In a 6-mark 'analyse with a demand and supply diagram' question, omitting the diagram caps you at...",
+                opts: ["5 marks", "No cap — the text is enough", "4 marks", "3 marks"],
+                ans: 3,
+                explain: "The mark scheme states 'A maximum of 3 marks if no relevant diagram' — you lose half the marks. The examiners also stress using the diagram's labels throughout the written explanation."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "Evaluate: match every point, and answer the exact question",
+            pills: ["*Evaluate...", "6 marks", "AO2 1 · AO3a 2 · AO3b 3"],
+            content: `<p>The structural rule from the mark scheme: <strong>"Each aspect (AO3a) should be analysed and matched with an evaluation point (AO3b)."</strong> Make a point, then immediately counter it with "However…".</p>
+<ul>
+<li><strong>Ready-made matched pairs:</strong> the deficit reflects falling demand for domestic goods → unemployment. <em>However</em>: UK unemployment is relatively low at present. / The deficit pushes the exchange rate down. <em>However</em>: a lower rate should make UK exports more competitive. / The deficit is financed by inward investment. <em>However</em>: that is why the income account is in deficit — foreign-owned assets here earn more than UK assets abroad.</li>
+<li><strong>The four evaluation levers:</strong> the SIZE of the deficit, its DURATION, WHAT is being imported (inputs needed for UK production are different from consumer goods), and whether government intervention's benefits outweigh its costs.</li>
+<li><strong>Answer the exact wording.</strong> "Should the government intervene" is not "how could it".</li>
+<li><strong>Don't repeat yourself in the conclusion</strong> — "a correct point is credited once".</li>
+<li><strong>Plan first:</strong> the examiners recommend brief, note-form chains matched to evaluation before writing.</li>
+</ul>`,
+            readCheck: {
+                q: "The mark scheme's structural instruction for these 6-mark evaluate questions is that...",
+                opts: ["Diagrams are required", "You should list as many points as possible", "The conclusion should summarise every paragraph", "Each analysis point should be matched with an evaluation point"],
+                ans: 3,
+                explain: "The mark scheme states: 'Each aspect (AO3a) should be analysed and matched with an evaluation point (AO3b)'. Point, then 'However…', then a judgement that answers the exact question."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Balance of payments", def: "A record of all financial transactions between a country and the rest of the world." },
+        { term: "Current account", def: "Trade in goods + trade in services + income flows + transfers. The GCSE focus." },
+        { term: "The four components", def: "Trade in goods, trade in services, income flows, transfers. All four go into the balance." },
+        { term: "Balance of trade", def: "Trade in goods and services ONLY — the largest part of the current account, but not all of it." },
+        { term: "Trade in goods", def: "Exports − imports of visible goods (cars, laptops, food). The UK runs a large DEFICIT here." },
+        { term: "Trade in services", def: "Exports − imports of services (tourism, finance, education). The UK runs a SURPLUS here." },
+        { term: "Income flows", def: "Earnings on investments abroad minus earnings paid to foreign investors here. The UK's is usually in deficit." },
+        { term: "Transfers", def: "Money sent abroad with nothing received back — foreign aid, remittances, EU membership payments." },
+        { term: "Current account surplus", def: "Export revenue + inflows of income and transfers EXCEED the outflows on imports, income and transfers." },
+        { term: "Current account deficit", def: "More money flows out than in. The UK has run one every year since 1983." },
+        { term: "Financial account", def: "Investment flows — a foreign firm buying a UK factory goes HERE, not the current account." },
+        { term: "Deficit as % of GDP", def: "Deficit ÷ GDP × 100. £10bn deficit ÷ £200bn output = 5%. This is how seriousness is judged." },
+        { term: "Percentage change", def: "Change ÷ ORIGINAL × 100. £30 000m to £80 000m = 50 000/30 000 × 100 = 166.67%." },
+        { term: "Calculation presentation", def: "Sign (or the word deficit) + £/$ symbol + units (million). Miss any one and you drop a mark." },
+        { term: "Causes of a deficit", def: "Poor reputation, declining industries, RISING exchange rate, falling overseas incomes, investment outflows, low productivity." },
+        { term: "Causes of a surplus", def: "Good reputation, weak domestic economy, FALLING exchange rate, investment inflows. Mirror image of the deficit causes." },
+        { term: "Deficit → exchange rate", def: "More £ sold to buy imports, fewer £ bought for exports → supply up, demand down → the £ falls." },
+        { term: "Why the UK's deficit is manageable", def: "It is persistent BUT small as a % of GDP, financed by inward investment that brings new technology." },
+        { term: "The evaluation levers", def: "Depends on the CAUSE, the SIZE relative to GDP, and the DURATION (one-off vs persistent). Never just 'a deficit is bad'." }
+    ];
+    // Shared exam extracts — defined ONCE here and referenced by `caseId`
+    // from each question part, so editing an extract updates every question
+    // that uses it. Single-use stimuli keep their own inline `caseStudy`.
+    const EXAM_CASE_STUDIES = {
+        "extract-2-current-account-and-the-uk-economy": `<p><strong>Extract 2: Current Account and the UK Economy</strong></p>
+<p>The UK records a current account deficit every year, because total UK spending is greater than its GDP. The UK has to borrow by attracting investment and lending from overseas. Such investment is often accompanied by new technologies.</p>
+<p style="text-align:center;font-weight:600;margin-top:14px;">UK current account data</p>
+<table style="width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2012</th><th style="padding:6px;">2017</th><th style="padding:6px;">2022</th></tr>
+<tr><td style="padding:6px;">Trade in goods (£ million)</td><td style="padding:6px;">–112 603</td><td style="padding:6px;">–139 822</td><td style="padding:6px;">–219 291</td></tr>
+<tr><td style="padding:6px;">Trade in services (£ million)</td><td style="padding:6px;">95 657</td><td style="padding:6px;">111 897</td><td style="padding:6px;">151 339</td></tr>
+<tr><td style="padding:6px;">Income flows (£ million)</td><td style="padding:6px;">–15 960</td><td style="padding:6px;">–22 407</td><td style="padding:6px;">12 682</td></tr>
+<tr><td style="padding:6px;">Transfers (£ million)</td><td style="padding:6px;">–21 000</td><td style="padding:6px;">–22 419</td><td style="padding:6px;">–23 026</td></tr>
+<tr><td style="padding:6px;">Current account balance (£ million)</td><td style="padding:6px;">–53 906</td><td style="padding:6px;">–72 751</td><td style="padding:6px;">–</td></tr>
+</table>
+<p>The UK's total trade deficit in goods and services has widened between 2012 and 2022, from £16 946 million to £67 952 million. The different trade balances for goods and for services reflect different resources held by the UK and its trading partners. Since about 1990 the UK has developed resources that are more suitable for exporting services. German workers continue to be highly efficient in producing manufactured goods such as pharmaceuticals and cars.</p>
+<p>The UK imports goods from Germany, Japan and the USA, which are the sources of significant direct investment into the UK economy. The UK depends upon investment from overseas to finance its current account deficit. Such foreign investment in the UK is larger than UK investment abroad, partly due to English being widely used in business. The UK's Income account is usually in deficit because of significant outflows of investment income.</p>`,
+        "extract-3-current-account-balance-and-exchange-r": `<p><strong>Extract 3: Current Account Balance and Exchange Rate</strong></p>
+<img src="/images/economics/4-2-uk-current-account-balance-2011-2019-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'UK Current Account Balance', measured in £ million, with the year axis running along the top from 2011 to 2019 and the vertical axis running downwards from -30 000 at the top to -110 000 at the bottom. The balance starts at about -30 000 in 2011 and falls steeply to about -93 000 by 2013, drifts down to roughly -97 000 by 2015, reaches its lowest point of about -108 000 in 2016, then rises sharply to about -78 000 in 2017, sits at about -80 000 in 2018, and falls again to about -95 000 in 2019. The balance is negative, and therefore in deficit, in every year shown" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>Since trade is the major component of the current account, a wider deficit is primarily due to either imports rising or exports falling. As a result, there will be a shift in the demand or supply of the UK's currency (the pound £), which will change its exchange rate.</p>
+<p style="text-align:center;font-weight:600;margin-top:14px;">Current Account Balance (% of GDP)</p>
+<table style="width:100%;max-width:400px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Year</th><th style="padding:6px;">2011</th><th style="padding:6px;">2015</th><th style="padding:6px;">2019</th></tr>
+<tr><td style="padding:6px;">UK</td><td style="padding:6px;">–1.76</td><td style="padding:6px;">–4.90</td><td style="padding:6px;">–3.78</td></tr>
+<tr><td style="padding:6px;">USA</td><td style="padding:6px;">–2.87</td><td style="padding:6px;">–2.24</td><td style="padding:6px;">–2.33</td></tr>
+<tr><td style="padding:6px;">Germany</td><td style="padding:6px;">6.20</td><td style="padding:6px;">8.59</td><td style="padding:6px;">7.15</td></tr>
+</table>
+<p>The table shows that the UK's current account deficit is persistent and also represents a relatively high proportion of GDP. The deficit reflects the fact that British consumers can choose to buy imported goods at relatively low prices. On the other hand, British producers face competition in the global market both when attempting to produce goods for export and when competing with imported goods. Consequently, a trade deficit results in output being lower and unemployment being higher than when there is a surplus. Such global competition does mean, however, that scarce resources are being used more efficiently.</p>`,
+        "extract-3-uk-current-account": `<p><strong>Extract 3: UK Current Account</strong></p>
+<p>In 2017, following the depreciation of the British pound (£) in 2016, the deficit on the current account balance reduced. However, in 2018 the deficit grew in every quarter. The table below shows debit items increased, while the value of goods exports grew more slowly. UK exports faced growing competition from overseas manufacturers. In 2018, the £1.8 billion increase in the trade in goods deficit was caused mainly by imports from highly competitive Asian economies increasing more quickly than UK exports.</p>
+<p>The UK has run an annual current account deficit since 1983. A current account deficit means the UK is a net borrower with the rest of the world. The UK must attract net financial inflows to finance its current account deficit, which can be achieved through selling its assets to overseas investors or borrowing from the rest of the world.</p>
+<p style="text-align:center;font-weight:600;margin-top:14px;">UK Current Account (Quarterly data)</p>
+<table style="width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2018 Q2<br />£ million</th><th style="padding:6px;">2018 Q3<br />£ million</th></tr>
+<tr><td style="padding:6px;padding-left:18px;">Exports of goods</td><td style="padding:6px;">85 987</td><td style="padding:6px;">88 884</td></tr>
+<tr><td style="padding:6px;padding-left:18px;">Exports of services</td><td style="padding:6px;">70 760</td><td style="padding:6px;">69 721</td></tr>
+<tr><td style="padding:6px;padding-left:18px;">Imports of goods</td><td style="padding:6px;">120 560</td><td style="padding:6px;">123 880</td></tr>
+<tr><td style="padding:6px;padding-left:18px;">Imports of services</td><td style="padding:6px;">43 195</td><td style="padding:6px;">43 508</td></tr>
+<tr style="border-top:1px solid var(--border);"><td style="padding:6px;"><strong>Total trade balance</strong></td><td style="padding:6px;">–7 008</td><td style="padding:6px;">–</td></tr>
+<tr><td style="padding:6px;padding-left:18px;">a. Investment income (net)</td><td style="padding:6px;">–7 142</td><td style="padding:6px;">–10 780</td></tr>
+<tr><td style="padding:6px;padding-left:18px;">b. Other income (net)</td><td style="padding:6px;">–328</td><td style="padding:6px;">–325</td></tr>
+<tr style="border-top:1px solid var(--border);"><td style="padding:6px;"><strong>Total investment and other income (a + b)</strong></td><td style="padding:6px;">–7 470</td><td style="padding:6px;">–11 105</td></tr>
+<tr style="border-top:1px solid var(--border);"><td style="padding:6px;"><strong>Total transfers</strong></td><td style="padding:6px;">–5 476</td><td style="padding:6px;">–6 634</td></tr>
+<tr style="border-top:1px solid var(--border);"><td style="padding:6px;"><strong>Current balance</strong></td><td style="padding:6px;">–19 954</td><td style="padding:6px;">–26 522</td></tr>
+</table>
+<p>Globalisation is demonstrated by the overall growth in trade and foreign investment. In 1983, UK exports plus imports amounted to just £159565 million, while in 2017 the total was £1257706 million. Lower tariffs and expansion of free-trade areas and customs unions, which require less form filling and customs checks, have led to more competition, expanding markets and increased foreign investment. Because of this, competitive UK producers have been able to expand their sales. Improved communications, technological transfers and the development of supply chains across borders have also been contributing factors to global trade and investment growth.</p>`,
+        "extract-1-uk-trade-in-the-current-account-2009-2": `<p><strong>Extract 1: UK Trade in the Current Account 2009-2018</strong></p>
+<img src="/images/economics/4-2-uk-net-trade-goods-services-2009-2018-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'Net trade (exports - imports)', showing UK net trade in £ billion from 2009 to 2018 with two series. The dashed 'Goods and services' line runs between about -20 and -35 throughout: about -28 in 2009, its largest deficit of about -34 in 2010, its smallest deficit of about -19 in 2011, then roughly -27 in 2012, -29 in 2013, -29 in 2014, -27 in 2015, -30 in 2016, -23 in 2017 and -30 in 2018. The solid 'Goods only' line is far lower and worsens steadily: about -85 in 2009, -95 in 2010, -93 in 2011, -106 in 2012, -119 in 2013, -121 in 2014, -118 in 2015, -131 in 2016, -136 in 2017 and -137 in 2018. Both lines stay negative throughout, and the goods-only deficit is always much larger than the goods-and-services deficit" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>Trade is the largest item in the balance of payments on the current account. The chart shows the UK's trade deficits since 2009 as measured by exports minus imports for goods and services, and for goods only. The UK's exports of services are becoming an increasingly important part of its overseas trade.</p>
+<p>Globalisation has led to UK residents being able to enjoy a higher standard of living because they can access a wide range of low-priced imported goods from rapidly growing economically less developed countries. Workers in those countries are being employed in manufacturing goods for the UK market. Equally, the UK provides a wide range of services to people in other countries.</p>`,
+        "extract-3-uk-balance-of-payments": `<p><strong>Extract 3: UK balance of payments</strong></p>
+<table style="width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2007 (£m)</th><th style="padding:6px;">2016 (£m)</th></tr>
+<tr><td style="padding:6px;">Export of goods</td><td style="padding:6px;">208000</td><td style="padding:6px;"></td></tr>
+<tr><td style="padding:6px;">Import of goods</td><td style="padding:6px;">294000</td><td style="padding:6px;">437000</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods</td><td style="padding:6px;">–86000</td><td style="padding:6px;">–135000</td></tr>
+<tr><td style="padding:6px;">Export of services</td><td style="padding:6px;">138000</td><td style="padding:6px;">245000</td></tr>
+<tr><td style="padding:6px;">Import of services</td><td style="padding:6px;">100000</td><td style="padding:6px;">153000</td></tr>
+<tr><td style="padding:6px;">Balance of trade in services</td><td style="padding:6px;"></td><td style="padding:6px;">92000</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods and services</td><td style="padding:6px;">–48000</td><td style="padding:6px;">–43000</td></tr>
+</table>
+<p>The balance of payments shows a country's transactions with the rest of the world. More trade in goods and services over time is just one feature of increased globalisation.</p>
+<p>Globalisation affects producers, workers and consumers in both developed and less developed countries.</p>`,
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1(a)",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p style="text-align:center;font-weight:600;">UK balance of payments current account data for 2014</p>
+<table style="width:100%;max-width:440px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr><td style="padding:6px;">Export of goods</td><td style="padding:6px;">£292 867m</td></tr>
+<tr><td style="padding:6px;">Import of goods</td><td style="padding:6px;">£412 472m</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods</td><td style="padding:6px;">-</td></tr>
+<tr><td style="padding:6px;">Export of services</td><td style="padding:6px;">£214 856m</td></tr>
+<tr><td style="padding:6px;">Import of services</td><td style="padding:6px;">£128 993m</td></tr>
+<tr><td style="padding:6px;">Balance of trade in services</td><td style="padding:6px;">£85 863m</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods and services</td><td style="padding:6px;">-</td></tr>
+</table>
+<p style="text-align:center;font-weight:600;">Extract 3: UK balance of payments</p>`,
+            question: "Calculate the balance of trade in goods and services. Show your working.",
+            hint: "The table leaves 'Balance of trade in goods' blank on purpose — work that out FIRST (£292 867m − £412 472m), then add the services balance you are given. The answer is negative, so it needs the minus sign and the units.",
+            starter: "Balance of trade in goods = £292 867m − £412 472m = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>-£119605m + £85863m = -£33742m.</strong></p>
+<ul>
+<li>1 mark for correct working.</li>
+<li>1 mark for correct answer.</li>
+<li>Correct answer on its own is worth 2 marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "First work out the balance of trade in goods, which the table leaves blank: £292 867m − £412 472m = −£119 605m.\n\nThe balance of trade in services is given as £85 863m.\n\nBalance of trade in goods and services = −£119 605m + £85 863m = −£33 742m.\n\nSo it is a deficit of £33 742 million."
+        },
+        {
+            num: "Q1(b)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "In 2014 the USA imported goods from the UK worth 54,692 million US Dollars, USD ($). Calculate the value in pounds, GBP (£). The exchange rate was 1 GBP = 1.5586 USD. Round to two decimals. Show your working.",
+            hint: "The rate is quoted as 1 GBP = 1.5586 USD, so to go from dollars TO pounds you DIVIDE by 1.5586. Multiplying gives £85 246m — far too big, and the giveaway that you went the wrong way.",
+            starter: "$54 692 million ÷ 1.5586 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>$54,692 million / 1.5586 = £35,090.47million</strong></p>
+<ul>
+<li>1 mark for correct working.</li>
+<li>1 mark for correct answer.</li>
+<li>Correct answer on its own is worth 2 marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "The exchange rate is 1 GBP = 1.5586 USD, so each pound is worth 1.5586 dollars. To convert a dollar figure into pounds I divide by the exchange rate.\n\n$54 692 million ÷ 1.5586 = £35 090.47 million.\n\nSo the goods the USA imported from the UK were worth £35 090.47 million."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which one of the following is least likely to be an economic policy objective for the government?",
+            options: ["Boosting economic growth", "Boosting employment", "Encouraging imports", "Stimulating exports"],
+            answer: 2,
+            hint: "Read 'least likely'. Three of these are things a government actively wants. Which one would make the current account WORSE?",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1 1a)</h5>
+<p><strong>Answer: C — Encouraging imports</strong></p>
+<ul>
+<li>Growth, employment and exports are all standard government objectives. Encouraging imports would worsen the current account, so no government would target it.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        // ⚠️ Q3(a): the published OCR mark scheme's line of working is misprinted — it repeats
+        // "151 339" where the 2022 income flows figure "12 682" belongs, so as printed it sums
+        // to +60 361 rather than the −78 296 it states. The printed ANSWER (−78 296) is correct
+        // and is what the extract's own figures give. Reproduced verbatim below with a visible
+        // student-facing note in the mark scheme; do not "fix" the verbatim line silently.
+        {
+            num: "Q3(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-current-account-and-the-uk-economy",
+            question: "Using Extract 2, calculate the current account balance in 2022.  Show your working.",
+            hint: "Add ALL FOUR components for 2022, not just the trade ones: goods (−219 291) + services (151 339) + income flows (12 682) + transfers (−23 026). Note income flows are POSITIVE in 2022 — the only year they are. The answer is negative, and you lose a mark without the minus sign (or the word 'deficit') and without the units.",
+            starter: "Current account balance = −219 291 + 151 339 + 12 682 − 23 026 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>-219 291 + 151 339 + 151 339 - 23 026 = -78 296</strong></p>
+<p><strong>Answer: £ -78 296 million pounds OR deficit of £78,296 million</strong></p>
+<ul>
+<li>2 marks for a correct answer (working not required)</li>
+<li>1 mark for correct working, but incorrect answer</li>
+<li>Only 1 mark if minus sign (or deficit) missing OR if units (£ million) omitted.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>⚠️ Note on the published working</h5>
+<p>The published mark scheme's line of working repeats <strong>151 339</strong> where it should read <strong>12 682</strong> (the 2022 income flows figure from the table). As printed it sums to +60 361, not −78 296. The printed <strong>answer</strong> is correct — the working is a typo in the paper. The correct working is: −219 291 + 151 339 + 12 682 − 23 026 = <strong>−78 296</strong>. You can check it against the extract's own text, which states the 2022 trade deficit in goods and services is £67 952 million (−219 291 + 151 339 = −67 952).</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was generally well answered, although a significant number of candidates did not include the £ sign or millions.</p>
+</div>`,
+            modelAnswer: "The current account balance is the sum of all four components in the 2022 column.\n\n−219 291 (goods) + 151 339 (services) + 12 682 (income flows) − 23 026 (transfers) = −78 296.\n\nSo the current account balance in 2022 was −£78 296 million, that is a deficit of £78 296 million."
+        },
+        {
+            num: "Q3(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-current-account-and-the-uk-economy",
+            question: "Using Extract 2, state the differences in the trends in the trade in goods and in the trade in services between 2012 and 2022.",
+            hint: "These are NET figures, so do NOT say trade 'increased' — the examiners specifically penalise that. Say what happened to the DEFICIT and the SURPLUS. One mark for each of the two trends.",
+            starter: "The trade in goods has shown a growing..., while the trade in services has shown a growing...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers might include:</strong></p>
+<ul>
+<li>The trade in goods has shown a growing deficit</li>
+<li>The trade in services has shown a growing surplus</li>
+</ul>
+<p>1 mark for stating trend in goods trade. 1 mark for stating trend in services trade.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates wrote about the trade in goods and/or services increasing. This is not what the data shows, it is the deficit or surplus.</p>
+</div>
+<div class="marks-section">
+<h5>Assessment for learning</h5>
+<p>It is recommended that students are encouraged to use key terms such as deficit or surplus when referring to the current account or trade flows and that there is a focus on the implications of a 'net value' i.e. that international trade reflects exports and imports.</p>
+</div>`,
+            modelAnswer: "The trade in goods has shown a growing deficit, moving from −£112 603 million in 2012 to −£219 291 million in 2022.\n\nThe trade in services has shown a growing surplus, rising from £95 657 million in 2012 to £151 339 million in 2022.\n\nSo the two components moved in opposite directions: the goods deficit widened while the services surplus increased."
+        },
+        {
+            num: "Q3(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-current-account-and-the-uk-economy",
+            question: "Using Extract 2, analyse how changes in the UK economy have led to an increasing current account deficit.",
+            hint: "Do NOT rewrite the extract — the examiners said that is exactly what low-scoring answers did. Build a chain instead: since about 1990 the UK's resources shifted towards services → fewer resources for producing goods → UK goods are more expensive or lower quality than Germany's or Japan's → imports rise faster than exports → the goods deficit widens. Reference the actual data and a comparator country.",
+            starter: "Since about 1990 the UK has developed resources more suitable for exporting services, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>KU - Knowledge and understanding:</strong></p>
+<ul>
+<li>Shows an understanding about the links between the changing economy and the trade in goods and the trade in services which may include increased migration.</li>
+<li>May be demonstrated with a definition of the current account (deficit)</li>
+</ul>
+<p><strong>APP - Reference to the extract:</strong></p>
+<ul>
+<li>Reference to the actual data in the extract (text and table)</li>
+<li>Comparative reference to Germany/Japan or USA</li>
+<li>Reference to services or manufacturing</li>
+</ul>
+<p><strong>AN - Development of linking changes in the UK economy to changes increased deficit:</strong></p>
+<ul>
+<li>Since the UK economy now has resources that are more appropriate for services (tourism, IT etc)</li>
+<li>Therefore there are fewer resources allocated to goods which are…</li>
+<li>More expensive/lower quality than other countries</li>
+<li>Increased migration may increase transfers as people send money home</li>
+<li>Increased consumption may lead to a rise in imports.</li>
+<li>Increase in the value of the pound may lead to fewer exports/more imports due to relative changes in price</li>
+<li>There may be increased protectionism elsewhere in the world that has reduced UK exports</li>
+<li>Any other relevant points are to be credited.</li>
+</ul>
+<p><strong>N.B.</strong> 1. In order to reach Level 2, there must be reference to information in the Extract or context. 2. If there is no analysis (AO3a), then application (AO2) cannot be rewarded.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5-6 marks)</strong> (AO1a – 1, AO2 – 2 marks, AO3a – 3 marks): reasonable knowledge and understanding of trade, all terms/concepts explicitly or implicitly understood; reasonable application to trade, with understanding of some relevant elements of the scenario; good analysis of trade patterns in the form of developed links through a chain of reasoning which addresses the question.</p>
+<p><strong>Level 2 (3-4 marks)</strong> (AO1a – 1, AO2 – 1, AO3a – 2 marks): reasonable knowledge, most terms/concepts understood; limited application, an attempt to use/adapt concepts in context; reasonable analysis largely in the form of single effects, not developed into a clear chain of reasoning.</p>
+<p><strong>Level 1 (1-2 marks)</strong> (AO1a – 1, AO2 – 0, AO3a – 1 mark): reasonable knowledge, some terms/concepts understood; no application; limited analysis, an attempt which may include a single effect with some link to the question.</p>
+<p><strong>0 marks:</strong> Response is not worthy of credit.</p>
+<p><strong>N.B.</strong> Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The question requires that candidates focus on reasons for the change in values and analyse these with respect to changes in UK trade flows. Candidates who scored lower marks mostly rewrote the information in the case study with no analysis.</p>
+</div>
+<div class="marks-section">
+<h5>Misconception</h5>
+<p>A common misconception is confusion between the trade balance and government finances. Several candidates wrote about the need to increase taxation to pay for the deficit. Some candidates confused the impact of investment flows on the Balance of Payments.</p>
+</div>
+<div class="marks-section">
+<h5>Exemplar 2</h5>
+<p>This exemplar is an excellent example of how a candidate selects information (a movement away from manufacturing) explains why this has occurred and then how it has increased the deficit on current account.</p>
+</div>`,
+            modelAnswer: "Since about 1990 the UK has developed resources more suitable for exporting services than goods. Because fewer resources go into manufacturing, UK goods tend to be more expensive or lower quality than competitors' — German workers remain highly efficient at producing pharmaceuticals and cars. UK consumers therefore buy more imports while overseas buyers demand fewer UK goods, so the goods deficit widened from −£112 603 million in 2012 to −£219 291 million in 2022.\n\nThe growing services surplus has not offset this. Services rose from £95 657 million to £151 339 million, but that gain is far smaller than the worsening in goods, so the overall trade deficit still widened from £16 946 million to £67 952 million."
+        },
+        {
+            num: "Q3d(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-current-account-and-the-uk-economy",
+            question: "State two kinds of services that the UK exports.",
+            hint: "Name SERVICES, not goods — the examiners saw candidates lose marks for naming goods, and for vague answers like 'workers'. Safe choices: tourism, insurance, financial services/banking, IT, education at UK schools and colleges.",
+            starter: "1. ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers might include:</strong></p>
+<ul>
+<li>Tourism</li>
+<li>Insurance</li>
+<li>Information technology</li>
+<li>Financial services/banking</li>
+<li>Education at UK schools and colleges</li>
+</ul>
+<p>AOR (any other reasonable answer). 1 mark for each correct answer up to a maximum of 2 marks.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was generally answered well with two services identified. Some unrewarded answers were ambiguous or unclear such as 'workers' and some referred to goods.</p>
+</div>`,
+            modelAnswer: "1. Financial services and banking — UK banks and insurers based in London sell services to customers overseas, and the fees they earn are an inflow to the current account.\n\n2. Education — overseas students paying fees at UK schools, colleges and universities counts as an export of a service."
+        },
+        {
+            num: "Q3d(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-current-account-and-the-uk-economy",
+            question: "Explain one reason why there is significant investment from overseas into the UK.",
+            hint: "One mark for the reason, one for EXPLAINING it — the examiners said most candidates identified a reason but never explained it. Also do not muddle exchange rates with interest rates, which was their other flagged error.",
+            starter: "One reason is that the UK has an educated workforce, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers might include:</strong></p>
+<ul>
+<li>Investment from overseas is needed because total UK spending is greater than its national income</li>
+<li>Investment from overseas is needed to finance the current account deficit</li>
+<li>Overseas investors favour the UK because of its educated workforce</li>
+<li>Overseas investors favour the UK because English is an international language.</li>
+<li>The UK may have lower corporation/business tax</li>
+<li>Belief the UK economy will grow</li>
+<li>Higher interest rates/returns</li>
+<li>Relatively stable/developend economy</li>
+</ul>
+<p>ARA (any reasonable answer). Award 1 mark for a statement that is not explained. Award 1 more mark for the explanation.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates identified a reasonable reason but did not explain it. A further common error/misconception was between exchange rates and interest rates.</p>
+</div>`,
+            modelAnswer: "One reason is that English is widely used in business.\n\nThis makes it easier and cheaper for overseas firms to set up in the UK, because they can deal with staff, suppliers and customers without a language barrier and use the UK as a base to reach international markets. That lowers their costs, so foreign investment in the UK is larger than UK investment abroad."
+        },
+        {
+            num: "Q3d(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-current-account-and-the-uk-economy",
+            question: "Evaluate the importance of the balance of payments on current account to the UK economy. Use the information given in Extract 2 and your own knowledge.",
+            hint: "The mark scheme demands you MATCH each analysis point with an evaluation point — make a point, then immediately counter it with 'However…'. Ready-made pairs: imports grow fast because UK consumers value German/US/Japanese products, HOWEVER UK services exports also have a good reputation (but not enough to outweigh imports); the deficit is matched by a surplus on the financial account bringing new technologies, HOWEVER that is exactly why the income account is in deficit. Judge whether the deficit will persist and how far it reflects a weak UK economy.",
+            starter: "The current account deficit matters because it reflects UK consumers buying more imports, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>APP:</strong></p>
+<ul>
+<li>Reference to actual data in Extract table</li>
+<li>Distinguishing between trade balance and current account balance</li>
+<li>Reference to income/transfer accounts</li>
+<li>Reference to countries with which the UK trades (Germany, Japan, USA)</li>
+<li>Reference to the UK</li>
+</ul>
+<p><strong>NB Each aspect (AO3a) should be analysed and matched with an evaluation point (AO3b)</strong></p>
+</div>
+<div class="marks-section">
+<h5>Analysis points matched with evaluation</h5>
+<ul>
+<li>UK consumers highly value products from Germany, the USA and Japan, so imports have been growing rapidly. <strong>However:</strong> UK exports of tourism, education and other services also have a good reputation overseas. But the growth in exports of services is not sufficient to outweigh the imports.</li>
+<li>The deficit on the current account is matched by a surplus on the other accounts (financial and capital), which shows inward investment from overseas. This investment often brings new technologies to the UK. <strong>However:</strong> As a result of these investments, the UK's income account is often in deficit, because the investments in the UK by foreign companies earn more than the investments the British have made in other countries.</li>
+<li>A rising current account deficit may be due to UK incomes growing at a higher pace than in the UK's trading partners. <strong>However:</strong> Growth in GDP in the USA and some EU countries seems to be at a faster or at least equivalent pace to growth in the UK's income</li>
+<li>A rising current account deficit may keep inflation in the UK at a lower rate, because of lower priced imports. <strong>However:</strong> Growth in GDP in the USA and some EU countries seems to be at a faster or at least equivalent pace to growth in the UK's income</li>
+<li>The current account deficit reflects falling demand for domestic goods, which could lead to increased unemployment. <strong>However:</strong> The UK unemployment rate is relatively low at present, though it may grow if the current account deficit persists over time.</li>
+<li>The deficit is putting downward pressure on the exchange rate as consumers exchange their domestic currency for foreign currency to buy imports, leading to higher prices for imports. <strong>However:</strong> A lower exchange rate should make UK exports more competitive</li>
+<li>The deficit may reflect low productivity in the UK compared to its trading partners. <strong>However:</strong> If its trading partners invest in UK factories and bring new technologies, productivity should improve.</li>
+<li>If (net) exports can increase, then it may fuel future economic growth. <strong>However:</strong> given the evidence this is unlikely</li>
+</ul>
+<p><strong>Final judgement (expressed clearly):</strong> as to whether the current account will persist or whether it reflects a weak UK economy or to what extent it is problematic</p>
+<p><strong>N.B.</strong> 1. If there is no analysis/evaluation, then application (AO2) cannot be rewarded. 2. In order to reach Level 2, there must be Application (AO2), Analysis (AO3a) and Evaluation (AO3b)</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5-6 marks)</strong> (AO2 – 1, AO3a – 2 marks, AO3b – 3 marks): good application of knowledge about the current account, good understanding of all relevant elements of the scenario; reasonable analysis largely in the form of single effects; good evaluation with a fully supported judgement developed from weighing up arguments/both sides/comparing other reasonable responses; a well-developed and detailed line of reasoning which is coherent and logically structured.</p>
+<p><strong>Level 2 (3-4 marks)</strong> (AO2 – 1, AO3a – 1, AO3b – 2 marks): good application; limited analysis largely in the form of a single effect; reasonable evaluation considering arguments/both sides, there may be a judgement but this will not be fully supported.</p>
+<p><strong>Level 1 (1-2 marks)</strong> (AO2 – 0, AO3a – 1, AO3b – 1 mark): no application; limited analysis which may include a single effect that has some link to the question; limited evaluation that may include an incomplete consideration of arguments with unsupported statements.</p>
+<p><strong>0 marks:</strong> Response is not worthy of credit.</p>
+<p><strong>N.B.</strong> Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The question requires that candidates evaluate the effect of a net deficit on the UK economy. There are substantial clues in the data (although these should be developed, rather than rewritten). Some candidates wrote with regards to the impact of a surplus which was acceptable.</p>
+</div>`,
+            modelAnswer: "UK consumers highly value products from Germany, the USA and Japan, so imports have grown rapidly and the goods deficit widened to −£219 291 million by 2022. That reflects falling demand for domestic goods, which could raise unemployment. However, UK exports of tourism and education also have a good reputation overseas, and the services surplus grew to £151 339 million — though not enough to outweigh the imports.\n\nThe deficit is matched by a surplus on the financial account, showing inward investment that often brings new technologies to the UK. However, this is exactly why the UK's income account is usually in deficit: foreign-owned investments here earn more than UK investments abroad.\n\nOverall the deficit is important but not alarming. It depends chiefly on whether it persists: if the services surplus keeps growing while inward investment raises productivity, it is manageable — but if it reflects genuinely weak competitiveness in goods, unemployment would eventually rise."
+        },
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A current account surplus will most likely lead to",
+            options: ["a decrease in the country's debt", "a decrease in the exchange rate", "a decrease in the rate of inflation", "an increase in unemployment"],
+            answer: 0,
+            hint: "A surplus means export income more than covers import spending. Three of these options are what a DEFICIT does — only one fits a surplus.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — a decrease in the country's debt</strong></p>
+<ul>
+<li>With a surplus, income from exports more than covers the cost of imports, so the country's overall debt falls. A surplus tends to RAISE the exchange rate (more demand for the currency), RAISE demand-pull inflation (more demand for domestic output) and LOWER unemployment (firms hire to meet export demand) — so B, C and D are all the wrong way round.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates answered A correctly.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A country is experiencing structural problems which means overpriced and poor-quality goods being produced. This will lead to",
+            options: ["a decision to reduce the amount of regulation in the market", "a deficit of the balance of payments on current account", "an increase in the demand for the country's exports", "the country's central bank deciding to increase interest rates"],
+            answer: 1,
+            hint: "Overpriced and poor quality is the classic 'bad reputation' cause. Ask what that does to export demand — then which way the current account moves.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — a deficit of the balance of payments on current account</strong></p>
+<ul>
+<li>Overpriced, poor-quality goods reduce demand for the country's exports and push its own consumers towards imports, so the current account moves into deficit. C is the opposite of what happens; A and D are possible policy responses, not the direct result.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates answered B correctly.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q6",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>The diagram shows import and export data for the UK from 2017 to 2021.</p>
+<img src="/images/economics/4-2-uk-imports-exports-2017-2021-chart-extracted.png" alt="Line chart from the OCR exam paper showing UK imports and exports in £bn from 2017 to 2021, with a vertical axis from 550 to 750. The dashed Imports line runs at about 670 in 2017, 707 in 2018 and peaks at 737 in 2019, then falls sharply to about 611 in 2020 before recovering to about 654 in 2021. The solid Exports line runs at about 641 in 2017, 674 in 2018 and 700 in 2019, then falls to about 618 in 2020 and rises to about 637 in 2021. Imports are above exports every year except 2020, where the two lines cross and exports are slightly higher" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "What does this diagram show?",
+            options: ["Exports decreased by more than imports between 2019 and 2020", "Exports increased by less than imports between 2020 and 2021", "The demand for UK exports was greater in 2021 than in 2018", "The UK's imports were always greater than its exports"],
+            answer: 1,
+            hint: "The DASHED line is Imports and the SOLID line is Exports — check where each ends against the labels. Watch 2020 closely: the lines cross there, which is what kills option D.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: B — Exports increased by less than imports between 2020 and 2021</strong></p>
+<ul>
+<li>From 2020 to 2021 exports rose from about 618 to 637 (about +19), while imports rose from about 611 to 654 (about +43) — so exports increased by less. A is wrong: between 2019 and 2020 exports fell about 82 (700→618) but imports fell about 126 (737→611), so exports fell by LESS, not more. C is wrong: exports were about 637 in 2021, below their 2018 level of about 674. D is wrong because the lines cross in 2020, when imports (about 611) dipped just below exports (about 618).</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates answered B correctly.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is not included in the UK's balance of payments on current account?",
+            options: ["A Spanish firm buying land in the UK to build a factory", "A UK consumer spending money while on holiday in Greece", "Foreign aid money sent from the UK to a less developed country", "Interest earned by a UK individual from a bank account in France"],
+            answer: 0,
+            hint: "Read the 'not'. Sort each option into the four current-account components — goods, services, income flows, transfers. The one that fits NONE of them is investment, which belongs to a different account entirely.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: A — A Spanish firm buying land in the UK to build a factory</strong></p>
+<ul>
+<li>Buying land to build a factory is investment, so it is recorded in the FINANCIAL account, not the current account. The other three all belong to the current account: holiday spending in Greece is an import of services, foreign aid is a transfer, and interest from a French bank account is an income flow.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This was a question where several candidates selected B or D demonstrating a confusion over the concept of balance of payments on current account.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q8",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "What will help to create a balance of payments deficit on the UK current account?",
+            options: ["A depreciation of the UK exchange rate", "A fall in GDP per capita in the UK", "A net outflow of investment income", "An increase in the quality of UK output"],
+            answer: 2,
+            hint: "Three of these would IMPROVE the current account. Look for the one that is money physically leaving the current account.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — A net outflow of investment income</strong></p>
+<ul>
+<li>A net outflow of investment income is money leaving the income flows component, which pushes the current account towards deficit. A depreciation makes exports cheaper and imports dearer (improving it); a fall in GDP per capita means lower incomes and so fewer imports (improving it); and better quality output raises export demand (improving it).</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Although a significant proportion of candidates correctly answered C, there was a wider variety of responses. The answer is based on the fact that a net outflow of investment income is the only factor that would directly help lead to a deficit on the current account.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q9",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "One likely benefit of supply side policy is to improve a country's balance of payments. This is because supply side policy can",
+            options: ["improve the productivity of the UK labour force", "lead to a higher rate of inflation in the UK", "lead to higher consumption by UK consumers", "mean free trade agreements are cancelled"],
+            answer: 0,
+            hint: "Supply side policy works on the economy's productive capacity. Two of the distractors (higher inflation, higher consumption) would actually make the balance of payments WORSE.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — improve the productivity of the UK labour force</strong></p>
+<ul>
+<li>Higher productivity lowers costs per unit, so UK exports become more internationally competitive and the balance of payments improves. Higher inflation would make exports less competitive, and higher consumption would suck in more imports — both would worsen it.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly answered A.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q10",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>The balance of trade is the main component of a country's balance of payments on current account. The diagram shows the balance of trade for three countries.</p>
+<img src="/images/economics/4-2-balance-of-trade-uk-germany-china-chart-extracted.png" alt="Line chart from the OCR exam paper showing the balance of trade in $bn for three countries from 2015 to 2020, with a vertical axis from -100 to 400. China starts highest at about 358 in 2015, falls to about 255 in 2016, 215 in 2017 and a low of about 87 in 2018, recovers to about 133 in 2019 and rises steeply to about 370 in 2020. Germany is roughly flat at about 253 in 2015, 258 in 2016, 260 in 2017, 247 in 2018, 220 in 2019 and 222 in 2020. The UK is the only country below zero, at about -48 in 2015, -47 in 2016, -37 in 2017, -40 in 2018, -30 in 2019, rising to about 0 in 2020. China and Germany are in surplus every year; the UK is in deficit throughout" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "Which of these statements is correct?",
+            options: ["Exports were always greater than imports in the UK", "Germany moved from a trade surplus to a trade deficit in 2020", "Imports were greater than exports in China between 2017 and 2019", "The UK's trade balance improved the most between 2015 and 2020"],
+            answer: 3,
+            hint: "A line ABOVE zero is a surplus (exports > imports); BELOW zero is a deficit. For D, compare the SIZE of each country's change, not its level — the UK starts lowest but climbs about 48, more than anyone else gains.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: D — The UK's trade balance improved the most between 2015 and 2020</strong></p>
+<ul>
+<li>The UK rose from about −48 to about 0, an improvement of roughly 48. China rose from about 358 to about 370 (about +12) and Germany fell from about 253 to about 222. So the UK improved the most, even though it remained the weakest in level terms.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>'A' is incorrect because the balance of payments on current account was always in deficit. 'B' is incorrect because the German balance of payments on current account is always in surplus (as is the case in China rendering 'C' incorrect). D is correct because the trade balance does improve the most for UK between 2015–2019.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        // ⚠️ Q11: the published Examiner's Comment misprints the answer as "-$4637 561 million"
+        // (stray leading 4). The mark scheme itself gives −$637 561 million, which is what the
+        // table's figures produce (−924 284 + 286 723). Comment reproduced verbatim with a
+        // bracketed clarification appended.
+        {
+            num: "Q11",
+            marks: 2,
+            type: "written",
+            caseStudy: `<p><strong>Extract 3: Globalisation of the US Economy</strong></p>
+<p style="text-align:center;font-weight:600;">US Balance of Trade over 10 years</p>
+<table style="width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2009<br />(US$ million)</th><th style="padding:6px;">2019<br />(US$ million)</th></tr>
+<tr><td style="padding:6px;">Export of goods</td><td style="padding:6px;">1 056 043</td><td style="padding:6px;">1 643 161</td></tr>
+<tr><td style="padding:6px;">Import of goods</td><td style="padding:6px;">1 605 296</td><td style="padding:6px;">2 567 445</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods</td><td style="padding:6px;">–549 253</td><td style="padding:6px;">–924 284</td></tr>
+<tr><td style="padding:6px;">Export of services</td><td style="padding:6px;">501 920</td><td style="padding:6px;">853 844</td></tr>
+<tr><td style="padding:6px;">Import of services</td><td style="padding:6px;">376 081</td><td style="padding:6px;">567 121</td></tr>
+<tr><td style="padding:6px;">Balance of trade in services</td><td style="padding:6px;">125 839</td><td style="padding:6px;">286 723</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods and services</td><td style="padding:6px;">–423 414</td><td style="padding:6px;"></td></tr>
+</table>
+<p>The USA has free trade agreements with 20 countries, including its neighbours, Canada and Mexico. The agreements significantly reduce barriers to trade in addition to improving the environment for overseas investment. US producers have set up factories outside the USA to produce goods and components for the US domestic market as well as for markets overseas.</p>
+<p>As a result, US imports of goods have been increasing rapidly as the economy becomes less based on domestic manufacturing of consumer goods and more geared towards services, such as insurance, tourism and education.</p>
+<p>However, globalisation of the US economy is controversial. While consumers can enjoy a greater variety of cheaper goods, there is concern that the relative decline of domestic manufacturing leads to unemployment and lower wages.</p>`,
+            question: "Using Extract 3 calculate the 2019 balance of trade in goods and services. Show your working.",
+            hint: "Both component balances are already given for 2019 — just add them: −924 284 + 286 723. Don't recompute from exports and imports. The mark scheme wants the negative sign, the $ sign AND 'million'.",
+            starter: "Balance of trade in goods and services = −924 284 + 286 723 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>-924 284 + 286 723</strong></p>
+<p><strong>Answer: -$637 561 million or -$637,561,000,000</strong></p>
+<ul>
+<li>2 marks for a correct answer (working not required)</li>
+<li>1 mark for correct working, but incorrect answer (including missing negative/$ sign or million)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates correctly answered -$4637 561 million. Although some omitted the $ sign, million or negative symbol.</p>
+<p><em>(Note: the figure printed in the published examiner's comment, "-$4637 561 million", contains a stray "4" — the correct answer given in the mark scheme itself is −$637 561 million.)</em></p>
+</div>`,
+            modelAnswer: "The balance of trade in goods and services is the balance on goods plus the balance on services, both of which the table gives for 2019.\n\nBalance of trade in goods = −924 284. Balance of trade in services = 286 723.\n\n−924 284 + 286 723 = −637 561.\n\nSo the 2019 balance of trade in goods and services was −$637 561 million, a deficit of $637 561 million."
+        },
+        {
+            num: "Q12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The UK has a current account deficit. Which of the following is most likely to lead to this continuing in the future?",
+            options: ["Falling domestic demand", "Greater capital imports", "Higher overseas investment", "Lower productivity"],
+            answer: 3,
+            hint: "You want the option that keeps UK goods UNCOMPETITIVE. Falling domestic demand would actually cut imports and reduce the deficit.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — Lower productivity</strong></p>
+<ul>
+<li>Lower productivity raises producers' costs per unit, making UK goods and services less internationally competitive, so exports fall and the deficit persists. Falling domestic demand would reduce imports and so shrink the deficit.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The majority of candidates gave Option D as the correct response to this question. Lower productivity is likely to have a negative effect on producers' costs and would make UK goods and services less internationally competitive.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q13",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>An economy has a current account deficit of £10 billion. Its national output is £200 billion.</p>`,
+            question: "What is the deficit as a percentage of national output?",
+            options: ["5%", "10%", "20%", "50%"],
+            answer: 0,
+            hint: "Deficit ÷ national output × 100. Both figures are already in billions, so no unit conversion is needed — just divide 10 by 200.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: A — 5%</strong></p>
+<ul>
+<li>10 ÷ 200 × 100 = 5%. Expressing a deficit as a share of GDP is how its seriousness is judged — a £10bn deficit is small for an economy producing £200bn.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A high percentage of candidates gave Option A as the correct response to this question. This was the first question testing quantitative skills, so was more difficult for candidates who had a weakness in this area.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q14",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following will help to create a balance of payments surplus on the UK current account?",
+            options: ["A UK government purchase of American aircraft", "A subsidy to UK producers of exported goods", "An increase in UK government tax revenue", "An increase in UK government investment"],
+            answer: 1,
+            hint: "You need something that raises EXPORTS or cuts IMPORTS. Note that tax revenue is the government's budget, not the current account — that's the classic confusion on this topic.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — A subsidy to UK producers of exported goods</strong></p>
+<ul>
+<li>A subsidy lowers exporters' costs, so UK exports become cheaper and more competitive abroad — raising export revenue and moving the current account towards surplus. Buying American aircraft is an import (worsening it), and tax revenue is a government budget matter, not a current account flow.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A majority of candidates gave Option B as the correct response to this question. This was the answer that should clearly lead to a balance of payments surplus.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q15",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which statement best describes a current account surplus?",
+            options: ["Revenue from the export of goods and services exceeds the country's spending on imports", "Revenue from all taxes and other government revenue exceeds government expenditure", "Sum of all incomes in the country exceeds the total value added of all goods and services", "Sum of export revenue and the inflow of income and transfers exceeds the outflow on imports, income and transfers"],
+            answer: 3,
+            hint: "The word is BEST. Option A is nearly right but covers only goods and services — it leaves out two of the four components. Find the one that includes income and transfers as well.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: D — Sum of export revenue and the inflow of income and transfers exceeds the outflow on imports, income and transfers</strong></p>
+<ul>
+<li>D is the only option covering all four components of the current account. A is incomplete — it mentions only goods and services, omitting income flows and transfers. B describes a government budget surplus, not a current account surplus.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A majority of candidates gave Option D as the correct response to this question. This required knowledge of the extent of the precise definition for a current account surplus. The question wording highlights this precision, and should have resulted in option A being discarded, by asking for the statement that is 'best'.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q16(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-current-account-balance-and-exchange-r",
+            question: "Using the chart in Extract 3, explain the trend in the UK's current account deficit between 2011 and 2019.",
+            hint: "Careful with the double negative the examiners flagged: the line falls, and a deficit is already a negative — so a falling line means the deficit is GETTING BIGGER. Mark 1 = the overall trend; mark 2 = one variation within it (look at 2016 to 2017) or what must have happened to exports/imports. Do not just quote numbers.",
+            starter: "Overall the deficit has been increasing between 2011 and 2019, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Overall, the trend shows that the deficit has been increasing</li>
+<li>From 2016 to 2017, the deficit reduced, but since then has increased again</li>
+<li>The trend shows that either imports have been increasing or exports have been falling or both have been occurring</li>
+</ul>
+<p>1 mark for understanding the overall trend between 2011 and 2019. 1 mark for correct explanation e.g. variations within overall trend or changing X &gt; M.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Successful candidates answered the question for the date range, interpreted the data with precision and focused on reference to the current account deficit. Weaker responses sometimes described only the downwards direction of the data without explaining that meant the deficit (which is a negative) increased. Simple, but effective, technique often explained the overall trend between 2011 and 2019, accompanied by a single difference within the overall trend. Another successful element was to explain what might have happened to exports and/or imports to result in this data trend.</p>
+</div>
+<div class="marks-section">
+<h5>Misconception</h5>
+<p>A common misconception is to purely trawl through data, quoting it without actually explaining it here is not enough. It is also complicated by the doubling up of the negative trend in the figures with the negative sense of the word 'deficit'.</p>
+</div>`,
+            modelAnswer: "Overall the deficit increased between 2011 and 2019, from about £30 000 million to about £95 000 million. Because a deficit is negative, the falling line means the deficit was getting larger.\n\nThere was one variation within that trend: from 2016 to 2017 the deficit reduced to about £78 000 million, but since then it increased again. This suggests imports were rising or exports falling, or both."
+        },
+        {
+            num: "Q16(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-current-account-balance-and-exchange-r",
+            question: "Using the table in Extract 3, explain how Germany's current account position differs from that of the UK and the USA.",
+            hint: "You MUST actually compare — max 1 mark without a comparison. Also don't just say Germany's figures are 'positive', which the examiners called too vague: name it as a SURPLUS versus the UK's and USA's DEFICITS.",
+            starter: "Germany has a current account surplus while the UK and the USA both have deficits, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Germany has a surplus while UK and USA have a deficit</li>
+<li>Germany's X &gt; M must be greater than UK and USA's M &gt; X</li>
+</ul>
+<p>Max of 1 mark if no comparison. 1 mark for understanding of whether data means surplus or deficit. 1 mark for comparison or explanation, e.g. data or imports/exports.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Some candidates only stated whether data was positive or negative, which was too vague. Better responses explained and compared the surplus in Germany to the deficits in the UK and USA.</p>
+</div>`,
+            modelAnswer: "Germany runs a current account surplus in every year shown, at 6.20%, 8.59% and 7.15% of GDP, so its inflows exceed its outflows.\n\nThe UK and USA both run deficits throughout — in 2019 the UK was −3.78% and the USA −2.33% — so their imports exceed their exports. Germany's surplus is also far larger in size than either deficit."
+        },
+        {
+            num: "Q16(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-current-account-balance-and-exchange-r",
+            question: "Analyse, with the use of a demand and supply diagram, how the widening in the UK's current account deficit between 2011 and 2013 could have changed the exchange rate for the pound (£) against the US dollar ($).",
+            hint: "You MUST draw a diagram — without one you are capped at 3 of the 6 marks. Choose ONE route: fewer exports → less demand for £ → demand curve shifts LEFT; or more imports → more £ supplied to buy foreign currency → supply curve shifts RIGHT. Either way the exchange rate falls. Label the axes 'Price of £ in $' and 'Quantity of £' — the examiners stress matching the exact currencies in the question.",
+            starter: "The exchange rate is the price of one currency in terms of another. As the deficit widened, UK exports fell, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Diagram should include:</strong></p>
+<p><strong>Either</strong> consequence of a decrease in exports (below):</p>
+<img src="/images/economics/4-2-exchange-rate-exports-fall-ms-extracted.png" alt="Mark scheme demand and supply diagram for the pound, with 'Price of £ in $' on the vertical axis and 'Quantity of £' on the horizontal axis. A single upward-sloping supply curve S is crossed by two downward-sloping demand curves, D1 and D2, with D2 to the left of D1. The equilibrium price falls from P0 on D1 to the lower P1 on D2, showing that a fall in UK exports reduces demand for the pound and lowers the exchange rate" style="display:block;width:100%;max-width:400px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p><strong>OR</strong> consequence of an increase in imports (below):</p>
+<img src="/images/economics/4-2-exchange-rate-imports-rise-ms-extracted.png" alt="Mark scheme demand and supply diagram for the pound, with 'Price of £ in $' on the vertical axis and 'Quantity of £' on the horizontal axis. A single downward-sloping demand curve D is crossed by two upward-sloping supply curves, S1 and S2, with S2 to the right of S1. The equilibrium price falls from P0 on S1 to the lower P1 on S2, showing that a rise in UK imports increases the supply of pounds and lowers the exchange rate" style="display:block;width:100%;max-width:400px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>Candidates may also use other labels instead of Po and Pi e.g. E and E1, ER and ER1. The two diagrams may be combined into <strong>one diagram,</strong> with correct shifts.</p>
+<p><strong>Answers may include:</strong> (depending on which diagram used)</p>
+<ul>
+<li>The exchange rate is the price of one currency in terms of another.</li>
+<li>Decrease in UK's exports leads to lower demand for the pound, which shifts demand curve to the left</li>
+<li>Increase in UK's imports leads to higher supply of the pound, which shifts supply curve to the right</li>
+<li>The exchange rate of the pound falls</li>
+</ul>
+<p><strong>A maximum of 3 marks if no relevant diagram</strong></p>
+<p><strong>N.B.</strong> Any other relevant points to be credited</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5-6 marks)</strong> (AO1a – 1 mark, AO2 – 2 marks, AO3a – 3 marks): reasonable knowledge and understanding, all terms/concepts explicitly or implicitly understood; reasonable application to the impact of the current account balance on the exchange rate; good analysis in the form of developed links through a chain of reasoning which addresses the question, with any relevant diagram predominantly correct and linked to the analysis; a well-developed and detailed line of reasoning which is coherent and logically structured.</p>
+<p><strong>Level 2 (3-4 marks)</strong> (AO1a – 1 mark, AO2 – 1 mark, AO3a – 2 marks): reasonable knowledge, most terms/concepts understood; limited application; reasonable analysis largely in the form of single effects, not developed into a clear chain of reasoning; any relevant diagram may be imperfectly labelled or not linked to the analysis.</p>
+<p><strong>Level 1 (1-2 marks)</strong> (AO1a – 1 mark, AO2 – 0 marks, AO3a – 1 mark): reasonable knowledge, some terms/concepts understood; no application; limited analysis which may include a single effect with some link to the question; diagrams (if present) unlikely to be correct and not linked to the analysis.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates successfully demonstrated knowledge of exchange rates either using an appropriate diagram or definition. Many were also able to apply either their diagram and/or their text to the context of the pound (£) against the US dollar ($). It is recommended that candidates match their responses to the currency reference in the exact question wording to avoid lack of clarity in these questions.</p>
+<p>The most successful responses understood what had happened to exports and/or imports due to the widening current account deficit. They could then reason from demand/supply for these exports/imports to demand/supply of the pound. This then led to the fall in the exchange rate for the pound (£) against the US dollar ($). In effective responses, diagram labels were used throughout this explanation to help support the reasoning. This is a key technique for economists and is likely to continue to be tested in future questions.</p>
+</div>
+<div class="marks-section">
+<h5>Exchange rate diagrams</h5>
+<p>Always use the currency combination outlined in the question and apply this to your diagram and text.</p>
+</div>`,
+            modelAnswer: "The exchange rate is the price of one currency in terms of another. The chart shows the UK's deficit widening from about £30 000 million in 2011 to £93 000 million in 2013, so UK exports fell or imports rose.\n\nIf UK exports to the USA fall, American buyers need fewer pounds to pay for UK goods, so demand for the pound falls and the demand curve shifts left from D1 to D2. With supply unchanged, the equilibrium price falls from P0 to P1 — the pound depreciates against the dollar.\n\nAlternatively, buying more American goods means UK consumers sell more pounds to obtain dollars, so supply shifts right from S1 to S2 and the price again falls from P0 to P1."
+        },
+        {
+            num: "Q16d(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-current-account-balance-and-exchange-r",
+            question: "Apart from lower prices, state two other benefits that imports bring to consumers.",
+            hint: "Lower prices is EXCLUDED, so don't write it. Answer for CONSUMERS, not producers — the examiners saw candidates misread this. Think variety, quality, innovation.",
+            starter: "1. ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Greater variety/choice</li>
+<li>Better quality</li>
+<li>More innovative products</li>
+</ul>
+<p>1 mark for each valid, separate benefit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Responses for this question were good. Most candidates clearly realised the benefits that imports bring to consumers. A few candidates misread the question and answered with respect to producers.</p>
+</div>`,
+            modelAnswer: "1. Greater variety and choice — consumers can buy goods that are not produced at home at all, so they have far more options.\n\n2. Better quality — imports may be made to a higher standard than domestic alternatives, so consumers get a better product."
+        },
+        {
+            num: "Q16d(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-current-account-balance-and-exchange-r",
+            question: "The chart in Extract 3 shows that the UK's current account deficit increased from £30 000m in 2011 to £80 000m in 2018. Calculate the percentage change in the deficit between 2011 and 2018.",
+            hint: "Percentage change = CHANGE ÷ ORIGINAL × 100. The change is 80 000 − 30 000 = 50 000, and the original is 30 000 (not 80 000). Dividing by the wrong figure gives 62.5% — the classic error.",
+            starter: "Percentage change = (80 000 − 30 000) ÷ 30 000 × 100 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>(50,000/30,000) × 100 = 166.666</strong></p>
+<p><strong>Answer: 166.67%</strong></p>
+<ul>
+<li>2 marks for correct answer</li>
+<li>1 mark for correct working, but incorrect answer</li>
+<li>% sign is not required</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>(ii) Many candidates gained marks for their working for this question, even if they then made an error in their final answer.</p>
+</div>`,
+            modelAnswer: "Percentage change = change ÷ original value × 100.\n\nThe change in the deficit is £80 000m − £30 000m = £50 000m, and the original value is £30 000m.\n\n(50 000 ÷ 30 000) × 100 = 166.666…\n\nSo the deficit increased by 166.67%."
+        },
+        {
+            num: "Q16d(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-current-account-balance-and-exchange-r",
+            question: "*Evaluate the extent to which the UK government should try to eliminate the current account deficit. Use the information given in Extract 3 and your own knowledge.",
+            hint: "The examiners' key point: this asks 'SHOULD', not 'how'. Don't just list policies. Use the extract's own tension — a trade deficit means lower output and higher unemployment, BUT British consumers get imported goods at low prices and global competition means scarce resources are used more efficiently. Then judge on the deficit's size (up to −4.90% of GDP), its persistence, what is being imported, and whether intervention's costs (e.g. import taxes raising domestic prices) outweigh the benefits.",
+            starter: "One reason the government should act is that the deficit is persistent, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Reference to Extract 3 or context:</strong></p>
+<ul>
+<li>any use of data or own knowledge, e.g. linked to UK</li>
+<li>deficit is persistent / worsened</li>
+</ul>
+<p><strong>Points for discussion:</strong></p>
+<ul>
+<li>Deficit as a percentage of GDP has increased significantly since 2011 and is persistent rather than temporary</li>
+<li>Deficit suggests lower exports/higher imports may mean unemployment / lower economic growth / inflation / increased outflows of money</li>
+<li>Relevant benefits of trade, e.g. specialisation justifies deficit</li>
+<li>Consumers benefit from wide variety of low-priced imports</li>
+<li>Consequences of government action to eliminate deficit, e.g. taxes on imports, so raise domestic prices</li>
+</ul>
+<p><strong>Evaluation:</strong></p>
+<ul>
+<li>Depends on size / duration of current account deficit</li>
+<li>Depends on what is being imported, e.g. inputs needed for UK production</li>
+<li>Depends how the government eliminate the deficit as it may lead to other problems</li>
+<li>Depends whether the benefits of government intervention outweigh the costs</li>
+</ul>
+<p><strong>N.B.</strong> Any other relevant points are to be credited</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5-6 marks)</strong> (AO2 – 1, AO3a – 2 marks, AO3b – 3 marks): good application of knowledge to the issue of reducing the deficit, with good understanding of all relevant elements of the scenario; reasonable analysis largely in the form of single effects; good evaluation with a fully supported judgement developed from weighing up arguments/both sides/comparing alternatives; a well-developed and detailed line of reasoning which is coherent and logically structured.</p>
+<p><strong>Level 2 (3-4 marks)</strong> (AO2 – 1, AO3a – 1 mark, AO3b – 2 marks): good application; limited analysis largely in the form of a single effect; reasonable evaluation considering arguments/both sides, there may be a judgement but this will not be fully supported.</p>
+<p><strong>Level 1 (1-2 marks)</strong> (AO2 – 0 marks, AO3a – 1 mark, AO3b – 1 mark): no application; limited analysis which may include a single effect with some link to the question; limited evaluation with an incomplete consideration of arguments and unsupported statements.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>*Candidates who answered this question well quickly realised that this question focused on 'should' rather than purely 'how'. By this stage in the paper, candidates sometimes rushed this question. This resulted in more answers purely focused on analysis, less evaluation and misunderstanding of the question. Successful responses linked consequences of a current account deficit, such as increased unemployment, to whether the government should intervene. Given timing, some of the most successful responses moved quickly onto evaluation of the consequence to help come to an overall judgement on whether the government should intervene.</p>
+<p>This was a question with wording specifically asking about extent of intervention and whether the government should intervene. Judgements that focused on this exact question wording were likely to be more effective. This is a technique that may well be tested on future papers, so is worth ongoing practice.</p>
+<p>It is worth noting that a correct point is credited once, so it is useful to consider the use of summary-style conclusions that are purely repetitive. This may give more time to use elsewhere.</p>
+</div>
+<div class="marks-section">
+<h5>Assessment for learning</h5>
+<p>Practise brief plans for 'Evaluate' questions to increase the use of evaluation and an overall judgement. Use brief, note-form chains of reasoning and match to evaluation.</p>
+</div>
+<div class="marks-section">
+<h5>Misconception</h5>
+<p>Try not to confuse the balance of payments on the current account with fiscal policy and the balanced government budget.</p>
+</div>
+<div class="marks-section">
+<h5>Final questions</h5>
+<p>Try to leave enough time to complete all questions. For the last question, remember to include a judgement that fits the exact question set.</p>
+</div>`,
+            modelAnswer: "There is a case for acting. The deficit is persistent and relatively large, reaching −4.90% of GDP in 2015 and still −3.78% in 2019, and the extract states a trade deficit results in output being lower and unemployment higher than with a surplus. If it reflects British producers losing out to global competition, the government should intervene before unemployment rises.\n\nHowever, the same extract gives the counter-argument. British consumers can buy imports at relatively low prices, raising living standards, and global competition means scarce resources are used more efficiently. Eliminating the deficit through taxes on imports would raise domestic prices and undo both benefits.\n\nOverall the government should reduce, but not eliminate, the deficit. That depends mainly on what is being imported: if imports are inputs needed for UK production, restricting them would damage the very producers the policy aims to help. It also depends on the method — supply side measures raise productivity without the price rises protectionism brings."
+        },
+        {
+            num: "Q17(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-uk-current-account",
+            question: "Using the data in Extract 3 , calculate the total trade balance for 2018 Q3. Show your working.",
+            hint: "Total trade balance = exports of goods + exports of services − imports of goods − imports of services, using the Q3 column only. Do NOT include investment income or transfers — those come below the trade balance line. The mark scheme insists on the £ sign AND the minus sign (or the word deficit).",
+            starter: "Total trade balance = 88 884 + 69 721 − 123 880 − 43 508 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>88,884 + 69,721 – 123,880 – 43,508 = – 8,783</strong></p>
+<p><strong>– £8,783 million   OR   "deficit is £8,783 million"</strong></p>
+<ul>
+<li>2 marks for correct answer on its own, which must include the £ sign and the minus sign or refer to a deficit.</li>
+<li>Correct answer on its own without £ sign and/or minus sign or deficit is worth 1 mark only.</li>
+<li>1 mark for correct working, but incorrect answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A well answered question overall, although some candidates omitted the £ sign.</p>
+</div>`,
+            modelAnswer: "The total trade balance is exports of goods and services minus imports of goods and services, using the 2018 Q3 column.\n\nExports: 88 884 + 69 721 = 158 605. Imports: 123 880 + 43 508 = 167 388.\n\n158 605 − 167 388 = −8 783.\n\nSo the total trade balance for 2018 Q3 was −£8 783 million, that is a deficit of £8 783 million."
+        },
+        {
+            num: "Q17(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-uk-current-account",
+            question: "Using the data in Extract 3, calculate the percentage change in exports of goods between 2018 Q2 and 2018 Q3. Show your working.",
+            hint: "Change ÷ ORIGINAL × 100, where the original is the Q2 figure (85 987), not the Q3 one. Use exports of GOODS only. A correct answer without the % sign is worth just 1 mark.",
+            starter: "Percentage change = (88 884 − 85 987) ÷ 85 987 × 100 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>× 100 = 3,3691</strong></p>
+<p><strong>OR (88884-85987) / 85987 * 100</strong></p>
+<p><strong>3.37% OR 3.4%</strong></p>
+<ul>
+<li>2 marks for correct answer with correct percentage sign.</li>
+<li>Correct answer on its own with no percentage sign is worth 1 mark only.</li>
+<li>1 mark for correct working, but incorrect answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A well answered question overall</p>
+</div>`,
+            modelAnswer: "Percentage change = change ÷ original value × 100.\n\nExports of goods rose from 85 987 in 2018 Q2 to 88 884 in 2018 Q3, so the change is 88 884 − 85 987 = 2 897.\n\n(2 897 ÷ 85 987) × 100 = 3.3691…\n\nSo exports of goods increased by 3.37%."
+        },
+        {
+            num: "Q17(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-uk-current-account",
+            question: "Using Extract 3, analyse the causes of the persistent current account deficit in the UK.",
+            hint: "This is where the examiners saw the government-budget confusion most — this is the COUNTRY'S trading position, not tax and spending. Also don't stop halfway: they criticised answers that said 'competitors are more productive so demand for UK goods falls' and then wrote nothing further. Take a chain all the way to the deficit, and use the data — investment income worsened from −7 142 to −10 780 between the two quarters.",
+            starter: "One cause is that overseas manufacturers have increased their productivity compared to the UK, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Other countries' productivity gains in manufacturing and competitive power have resulted in slower growth in UK exports.</li>
+<li>Services growth has not yet compensated for slow growth in goods exports</li>
+<li>Improvement in UK incomes over time has led to higher demand for imports</li>
+<li>Low-cost imports, e.g. from China, are attractive to British companies and consumers</li>
+<li>Overseas manufacturers have increased their productivity compared to the UK, e.g. steel</li>
+<li>The exchange rate of the pound (£) may be too high, which has hampered exports, but benefited imports</li>
+<li>Inflation rate may be higher in the UK than in its trading partners</li>
+<li>Because of foreign investment in the UK economy, net investment income is a growing debit item (nearly £11 million in 2018 Q3).</li>
+</ul>
+<p><strong>Additional factors:</strong></p>
+<ul>
+<li>UK is a net borrower from the rest of the world, so financial inflows finance the deficit on its current account</li>
+<li>UK is increasingly selling its assets (shares etc.) to overseas investors</li>
+<li>The surplus (inflow from foreign investors) on the financial account finances the deficit on the current account, though that does lead to investment income being negative.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5-6 marks)</strong> (AO1a – 1 mark, AO2 – 2 marks, AO3a – 3 marks): reasonable knowledge and understanding about the current account deficit, all terms/concepts explicitly or implicitly understood; reasonable application to the data, with understanding of some relevant elements of the scenario; good analysis of causes in the form of developed links through a chain of reasoning which addresses the question; a well-developed and detailed line of reasoning which is coherent and logically structured.</p>
+<p><strong>Level 2 (3-4 marks)</strong> (AO1a – 1 mark, AO2 – 1 mark, AO3a – 2 marks): reasonable knowledge, most terms/concepts understood; limited application to the data; reasonable analysis of causes, largely in the form of single effects not developed into a clear chain of reasoning.</p>
+<p><strong>Level 1 (1-2 marks)</strong> (AO1a – 1 mark, AO2 – 0 marks, AO3a – 1 mark): reasonable knowledge, some terms/concepts understood; no application; limited analysis which may include a single effect with some link to the question.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+<p><strong>N.B.</strong> Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates identified reasons for a persistent current account deficit but confused this with a government budget deficit. Given that this question is worth 6 marks, some candidates concentrated on one cause, which could be enough however only demonstrated one link in there 'chain of reasoning'. For example, writing that more competitive producers overseas resulting in demand falling for UK producers/increasing for exports and then nothing further. Other candidates quoted statistics, rather than analysing them.</p>
+</div>`,
+            modelAnswer: "One cause is that overseas manufacturers have raised their productivity compared with the UK. Higher productivity lowers their costs per unit, so their goods undercut UK goods. British consumers therefore switch to low-cost imports from highly competitive Asian economies, while overseas buyers demand fewer UK exports — which is why the £1.8 billion rise in the 2018 goods deficit came mainly from imports growing faster than exports.\n\nA second cause sits below the trade line. Because foreign investment in the UK is so large, the income those owners earn flows out, making net investment income a growing debit item — worsening from −£7 142 million in Q2 to −£10 780 million in Q3. So the inflows financing the deficit generate income payments that deepen it, making it self-perpetuating."
+        },
+        {
+            num: "Q18",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is an example of a trade in goods in the UK balance of payments on current account?",
+            options: ["A Japanese car company purchasing a factory in the UK", "A laptop imported into the UK from China", "A UK airline selling transport facilities to a firm in Dubai", "Money earned by a UK firm on investment in Australia"],
+            answer: 1,
+            hint: "Goods are physical, visible items. Sort the others: buying a factory is investment, transport is a service, and investment earnings are income flows.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — A laptop imported into the UK from China</strong></p>
+<ul>
+<li>A laptop is a physical, visible good, so it belongs in trade in goods. Buying a factory is investment (financial account), selling transport is trade in services, and money earned on investment abroad is an income flow.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q19",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The Balance of Payments on the current account shows the balance of receipts and payments of",
+            options: ["a country's international banks", "a typical household", "foreign exchange by a country", "the government"],
+            answer: 2,
+            hint: "The current account covers the WHOLE country's dealings with the rest of the world — not one sector of it. Note that 'the government' is the classic wrong answer here: that would be the budget.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — foreign exchange by a country</strong></p>
+<ul>
+<li>The current account records the whole country's receipts and payments of foreign exchange with the rest of the world. It is not restricted to banks, to households, or to the government — option D is the common confusion with the government's budget.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q20(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-uk-trade-in-the-current-account-2009-2",
+            question: "Give two examples of services that the UK exports.",
+            hint: "Services, not goods. Tourism, education (foreign-student fees), transport, financial services, insurance, IT — any two.",
+            starter: "Example 1: ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Tourism/travel</li>
+<li>Education (foreign-student fees)</li>
+<li>Transport</li>
+<li>Financial services</li>
+<li>Pension and insurance services</li>
+<li>Telecommunication, computer and information services</li>
+<li>Intellectual property</li>
+</ul>
+<p>ARA (any reasonable answer). 1 mark for each valid example up to a maximum of 2 marks.</p>
+</div>`,
+            modelAnswer: "Example 1: Tourism — money spent in the UK by overseas visitors on hotels, travel and attractions is an inflow, so it counts as an export of a service.\n\nExample 2: Financial services — UK banks and insurers based in London selling services to clients in other countries."
+        },
+        {
+            num: "Q20(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-1-uk-trade-in-the-current-account-2009-2",
+            question: "Using the chart in Extract 1, state in which year the deficit in net trade of goods and services was at its: 1 Largest. 2 Smallest.",
+            hint: "Use the DASHED 'Goods and services' line, not the solid 'Goods only' one. Both lines are negative, so the LARGEST deficit is the LOWEST point on the chart and the smallest deficit is the highest. Check 2010 and 2011 carefully — they are adjacent years.",
+            starter: "1 Largest: ... 2 Smallest: ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>1. Largest: 2010</strong></p>
+<p><strong>2. Smallest: 2011</strong></p>
+<ul>
+<li>1 mark for each correct answer up to a total of 2 marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "1 Largest: 2010, when the goods and services line reaches its lowest point on the chart at about −£34 billion.\n\n2 Smallest: 2011, when the line rises to its highest point at about −£19 billion.\n\nBecause the figures are negative, the largest deficit is the lowest point on the chart and the smallest deficit is the highest point."
+        },
+        {
+            num: "Q20(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-1-uk-trade-in-the-current-account-2009-2",
+            question: "Using the information in Extract 1, analyse why the deficit on trade in goods and services is not as large as the deficit on trade in goods only.",
+            hint: "The whole answer turns on one fact: the services account is in SURPLUS, and that surplus partly offsets the large goods deficit. So the combined figure (about −£30bn) is far smaller than goods alone (about −£137bn). Explain BOTH sides — why UK services exports are strong (London as a global financial centre, overseas students, tourism, English as the international language) and why the goods deficit is so big (cheap imports, UK manufacturing not competitive against China).",
+            starter: "The deficit on goods and services is smaller because the net trade in services is in surplus, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The net trade in services account is usually in surplus.</li>
+<li>There is a large and growing deficit on net trade in goods.</li>
+</ul>
+<p><strong>Services:</strong></p>
+<ul>
+<li>UK's exports of services, such as tourism, financial services and education, are greater than its imports.</li>
+<li>London has become a global centre for financial services.</li>
+<li>The UK economy is increasingly becoming a services-oriented (tertiary) economy with a relative decline in the agriculture (primary) and manufacturing (secondary) sectors.</li>
+<li>The widespread use of English as the international language has meant that UK services have a competitive advantage in global services markets.</li>
+<li>Many overseas students come to study in the UK. Their fees and their living costs represent an inflow/credit/export in the current account.</li>
+<li>Many tourists from overseas visit the UK and their spending represents an inflow/credit/export in the current account, which possibly outweighs the outflow due to UK residents travelling overseas.</li>
+<li>Higher living standards in middle-income countries (e.g. China) have led to more people coming to Britain for education and tourism, which leads to a surplus on the services account.</li>
+</ul>
+<p><strong>Goods:</strong></p>
+<ul>
+<li>Although there is an overall deficit on net trade, the deficit on trade in goods only is much larger due to growing imports of cheap goods.</li>
+<li>Globalisation has led to more information being available about overseas goods, which British consumers want to import, so there is a deficit on trade in goods.</li>
+<li>British consumers like the variety of goods that are on offer through imports.</li>
+<li>UK exports of manufactured goods are not as competitive in world markets as goods from newly emerging countries such as China.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5-6 marks)</strong> (AO1a – 1, AO2 – 2 marks, AO3a – 3 marks): reasonable knowledge and understanding, all terms/concepts explicitly or implicitly understood; reasonable application of knowledge about trade accounts and deficits/surpluses, with understanding of some relevant elements of the scenario; good analysis in the form of developed links through a chain of reasoning which addresses the question.</p>
+<p><strong>Level 2 (3-4 marks)</strong> (AO1a – 1 mark, AO2 – 1 mark, AO3a – 2 marks): reasonable knowledge, most terms/concepts understood; limited application; reasonable analysis largely in the form of single effects, not developed into a clear chain of reasoning.</p>
+<p><strong>Level 1 (1-2 marks)</strong> (AO1a – 1 mark, AO2 – 0 marks, AO3a – 1 mark): reasonable knowledge, some terms/concepts understood; no application; limited analysis which may include a single effect with some link to the question.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+<p><strong>N.B.</strong> Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>`,
+            modelAnswer: "The two components pull in opposite directions. Net trade in services is in surplus, which partly cancels the goods deficit — so the combined line sits at −£30 billion in 2018 while the goods-only line is −£137 billion.\n\nThe services surplus exists because UK exports of services exceed its imports. The UK is increasingly a services-oriented economy with a relative decline in manufacturing, London has become a global centre for financial services, and the widespread use of English gives UK services a competitive advantage. Overseas students' fees and tourists' spending are both inflows.\n\nThe goods deficit is far larger because British consumers want the variety of cheap imports globalisation offers, while UK manufactured exports are not as competitive as goods from emerging countries such as China."
+        },
+        {
+            num: "Q21(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-uk-balance-of-payments",
+            question: "Calculate the balance of trade in services in 2007. You must show your working.",
+            hint: "Two routes work: export of services − import of services (£138 000m − £100 000m), or the goods and services balance minus the goods balance (−£48 000m − −£86 000m). The answer is a SURPLUS — a negative answer is capped at 1 mark, and omitting the 'm' also costs a mark.",
+            starter: "Balance of trade in services = £138 000m − £100 000m = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>£138 000m – £100 000m = £38 000m (surplus)</strong></p>
+<p><strong>OR</strong></p>
+<p><strong>£86 000m – £48 000m = £38 000m (surplus)</strong></p>
+<ul>
+<li>Give 1 mark for the correct figures from the data</li>
+<li>Give 1 mark for the correct answer.</li>
+<li>If millions (m) omitted, then maximum 1 mark.</li>
+<li>Maximum 1 mark if answer is negative or refers to a deficit.</li>
+</ul>
+</div>`,
+            modelAnswer: "The balance of trade in services is the export of services minus the import of services.\n\nIn 2007, export of services = £138 000m and import of services = £100 000m.\n\n£138 000m − £100 000m = £38 000m.\n\nSo the balance of trade in services in 2007 was a surplus of £38 000m."
+        },
+        {
+            num: "Q21(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-uk-balance-of-payments",
+            question: "Calculate the export of goods in 2016. You must show your working.",
+            hint: "Work backwards from the balance. Balance of trade in goods = exports − imports, so exports = imports + balance: £437 000m + (−£135 000m). Because the balance is negative, that means £437 000m − £135 000m. Remember the 'm'.",
+            starter: "Export of goods = £437 000m − £135 000m = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>£437 000m – £135 000m = £302 000m</strong></p>
+<ul>
+<li>Give 1 mark for the correct figures from the data.</li>
+<li>Give 1 mark for the correct answer.</li>
+<li>If millions (m) omitted, then 1 mark.</li>
+</ul>
+</div>`,
+            modelAnswer: "The balance of trade in goods equals the export of goods minus the import of goods, so rearranging gives export of goods = import of goods + balance of trade in goods.\n\nIn 2016, import of goods = £437 000m and the balance of trade in goods = −£135 000m.\n\n£437 000m − £135 000m = £302 000m.\n\nSo the export of goods in 2016 was £302 000m."
+        },
+        {
+            num: "Q21(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-uk-balance-of-payments",
+            question: "Using Extract 3, analyse the likely effect on the UK economy of the changes in the UK balance of payments between 2007 and 2016.",
+            hint: "Do the arithmetic first, because the direction surprises people: the goods deficit WORSENED by £49 000m (−86 000 to −135 000) but the services surplus GREW by £54 000m (38 000 to 92 000), so the overall trade deficit actually IMPROVED by £5 000m (−48 000 to −43 000). Then chain the effects: higher exports → economic growth → more workers needed → unemployment falls. Balance it with the fact that a deficit remains, which may depreciate the pound and cause cost-push inflation.",
+            starter: "The deficit in the balance of trade in goods has grown by £49 000m, while the surplus in services has grown by £54 000m, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (1 × AO1a, 2 × AO2, 3 × AO3a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Exports and imports of goods have increased. Imports rose at a faster rate therefore the deficit in the balance of trade in goods has grown by £49 000m</li>
+<li>Exports and imports of services have risen. Exports rose a faster rate therefore the surplus in the balance of trade in services has grown by £54 000m</li>
+<li>Therefore, as the surplus in services has grown more than the deficit in goods, the balance of trade deficit in goods and services has reduced by £5000m</li>
+<li>While the balance of trade in goods and services has improved it is still in deficit.</li>
+<li>The rise in demand for UK exports of goods and services would contribute to economic growth.</li>
+<li>More workers would be required to produce the extra exports, so employment would be expected to rise, and unemployment fall.</li>
+<li>Although the deficit has reduced, the fact that there is still a deficit may mean a depreciation of the exchange rate.</li>
+<li>If this is the case, then a cost-push effect on inflation may take place.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5-6 marks)</strong> (AO1a – 1 mark, AO2 – 2 marks, AO3a – 3 marks): reasonable knowledge and understanding, all terms/concepts explicitly or implicitly understood; reasonable application of the changes in the balance of payments, with understanding of some of the relevant elements of the scenario; good analysis of the effects in the form of developed links through a chain of reasoning which addresses the question.</p>
+<p><strong>Level 2 (3-4 marks)</strong> (AO1a – 1 mark, AO2 – 1 mark, AO3a – 2 marks): reasonable knowledge, most terms/concepts understood; limited application to the effects of the changes; reasonable analysis largely in the form of single effects, not developed into a clear chain of reasoning.</p>
+<p><strong>Level 1 (1-2 marks)</strong> (AO1a – 1 mark, AO2 – 0 marks, AO3a – 1 mark): reasonable knowledge, some terms/concepts understood; no application; limited analysis which may include a single effect that has some link to the question.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+<p><strong>N.B.</strong> Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>
+</div>`,
+            modelAnswer: "Imports of goods rose faster than exports, so the goods deficit grew by £49 000m, from −£86 000m to −£135 000m. In services, exports rose faster than imports, so the services surplus grew by £54 000m, from £38 000m to £92 000m.\n\nBecause the services surplus grew by more than the goods deficit, the overall trade balance improved by £5 000m, from −£48 000m to −£43 000m. This rise in demand for UK exports would contribute to economic growth, and more workers would be needed to produce them, so unemployment would fall.\n\nHowever it remains a deficit, so more pounds are sold to buy imports than are bought for UK exports, which may depreciate the exchange rate — making imported raw materials dearer and causing cost-push inflation."
+        },
+        {
+            num: "Q22",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<table style="width:100%;max-width:440px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Country</th><th style="padding:6px;">Current account deficit (£ million)</th><th style="padding:6px;">GDP (£ million)</th></tr>
+<tr><td style="padding:6px;">P</td><td style="padding:6px;">2</td><td style="padding:6px;">40</td></tr>
+<tr><td style="padding:6px;">Q</td><td style="padding:6px;">3</td><td style="padding:6px;">80</td></tr>
+<tr><td style="padding:6px;">R</td><td style="padding:6px;">4</td><td style="padding:6px;">100</td></tr>
+</table>
+<p>The table shows the balance of payments deficit on the current account and the size of the Gross Domestic Product (GDP) for three countries.</p>`,
+            question: "Which statement about these countries is correct?",
+            options: ["The current account deficit as a proportion of GDP is largest for country P", "The current account deficit as a proportion of GDP is largest for country Q", "The current account deficit as a proportion of GDP is largest for country R", "The current account deficit as a proportion of GDP is the same for countries Q and R"],
+            answer: 0,
+            hint: "Work out deficit ÷ GDP for all three — don't just look at the cash deficits. Country P has the SMALLEST deficit in pounds but the largest as a proportion, which is the whole point of the question.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: A — The current account deficit as a proportion of GDP is largest for country P</strong></p>
+<ul>
+<li>P: 2 ÷ 40 = <strong>5%</strong>. Q: 3 ÷ 80 = 3.75%. R: 4 ÷ 100 = 4%. So P has the largest deficit as a proportion of GDP, even though its cash deficit (£2m) is the smallest of the three — the trap. D is wrong because Q (3.75%) and R (4%) are not the same.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

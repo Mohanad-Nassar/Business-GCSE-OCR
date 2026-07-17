@@ -151,29 +151,25 @@
           "id": "4-1-importance-of-international-trade",
           "name": "4.1 Importance of International Trade",
           "sub": "International Trade and the Global Economy",
-          "file": "4.1_Importance_of_international_trade.html",
-          "noQuestions": true
+          "file": "4.1_Importance_of_international_trade.html"
         },
         {
           "id": "4-2-balance-of-payments",
           "name": "4.2 Balance of Payments",
           "sub": "International Trade and the Global Economy",
-          "file": "4.2_Balance_of_payments.html",
-          "noQuestions": true
+          "file": "4.2_Balance_of_payments.html"
         },
         {
           "id": "4-3-exchange-rates",
           "name": "4.3 Exchange Rates",
           "sub": "International Trade and the Global Economy",
-          "file": "4.3_Exchange_rates.html",
-          "noQuestions": true
+          "file": "4.3_Exchange_rates.html"
         },
         {
           "id": "4-4-globalisation",
           "name": "4.4 Globalisation",
           "sub": "International Trade and the Global Economy",
-          "file": "4.4_Globalisation.html",
-          "noQuestions": true
+          "file": "4.4_Globalisation.html"
         }
       ]
     }

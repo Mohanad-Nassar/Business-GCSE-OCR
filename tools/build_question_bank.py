@@ -66,6 +66,7 @@ import json
 import os
 import random
 import re
+import secrets
 import sys
 import urllib.error
 import urllib.parse
@@ -323,6 +324,33 @@ def djb2(text: str) -> str:
     for ch in text:
         h = ((h * 33) + ord(ch)) & 0xFFFFFFFF
     return format(h, "08x")
+
+
+def _bank_salt() -> str:
+    """Secret used to place the correct option in generated match questions.
+
+    Without it the answer was a pure function of PUBLIC data: the position was
+    djb2(term) % 4 and the term is printed in the question, so every match
+    answer was derivable from the console with no subject knowledge. The salt
+    must therefore never reach the client — it only ever affects option ORDER
+    at build time; `answer` already stays server-side in `answer_key`.
+
+    Kept in .env (gitignored) and shared the same way SUPABASE_SERVICE_ROLE_KEY
+    already is, so every machine rebuilds the same option order. Rotate it if
+    it leaks — ids are content-hashed from term+def, not position, so rotating
+    only churns `snapshot.options`, which the upsert already handles.
+    """
+    _load_dotenv()
+    salt = os.environ.get("BANK_SHUFFLE_SALT", "").strip()
+    if not salt:
+        raise SystemExit(
+            "ERROR: BANK_SHUFFLE_SALT is not set (.env).\n"
+            "  Match-question answers would be derivable from the question text "
+            "without it — refusing to build an exploitable bank.\n"
+            "  Add a long random value to .env, e.g.:\n"
+            "    BANK_SHUFFLE_SALT=" + secrets.token_urlsafe(32)
+        )
+    return salt
 
 
 def prune(d: dict) -> dict:
@@ -599,16 +627,26 @@ def build_bank(slug, pages):
             }))
 
         # Matching pairs become MCQs: pick the right definition for a term.
-        # Distractors are the next three definitions in the list (deterministic,
-        # so question ids and snapshots stay stable between rebuilds); the
-        # correct option's position is derived from the term's hash.
+        # Both the distractor choice and the correct option's position are
+        # derived from a SECRET salt (see _bank_salt) — never from the term
+        # alone. Previously distractors were "the next three definitions in the
+        # list" and the position was djb2(term) % 4, so a student who could see
+        # the question could derive the answer two different ways: by hashing
+        # the printed term, or by spotting the one option that wasn't the next
+        # three in list order. Both are now unpredictable without the salt.
+        # Still deterministic per salt, so ids and snapshots stay stable.
         match_items = [m for m in (extract_array(src, "matchData", file) or [])
                        if isinstance(m, dict) and m.get("term") and m.get("def")]
         if len(match_items) >= 4:
             n = len(match_items)
+            salt = _bank_salt()
             for i, m in enumerate(match_items):
-                options = [match_items[(i + k) % n]["def"] for k in range(1, 4)]
-                correct_pos = int(djb2(m["term"]), 16) % 4
+                rng = random.Random(salt + "|" + page_id + "|" + m["term"])
+                pool = [o["def"] for j, o in enumerate(match_items)
+                        if j != i and o["def"] != m["def"]]
+                options = rng.sample(pool, 3) if len(pool) >= 3 else \
+                    [match_items[(i + k) % n]["def"] for k in range(1, 4)]
+                correct_pos = rng.randrange(4)
                 options.insert(correct_pos, m["def"])
                 bank.append(prune({
                     "id": unique_id("match", m["term"] + "::" + m["def"]),

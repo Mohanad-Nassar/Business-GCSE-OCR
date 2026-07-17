@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-16T17:21:02Z · 1581 questions
+// Generated: 2026-07-17T06:00:54Z · 1912 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -1062,13 +1062,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Consumer”?",
   "options": [
-   "An individual or organisation that supplies goods or services",
    "A person who buys goods or services for their own personal use",
-   "Elected representatives who make laws, collect taxes and provide public services",
-   "Natural resources used in production, such as farmland, oil and fish stocks"
+   "An individual or organisation that supplies goods or services",
+   "The reward paid to workers for their labour",
+   "The value of a worker's skills, qualifications and experience"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Consumer” means: A person who buys goods or services for their own personal use"
   }
  },
@@ -1081,13 +1081,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Producer”?",
   "options": [
-   "Elected representatives who make laws, collect taxes and provide public services",
-   "An individual or organisation that supplies goods or services",
-   "Natural resources used in production, such as farmland, oil and fish stocks",
-   "The physical and mental effort of the workforce used in production"
+   "The risk-taking that combines land, labour and capital to create a good or service",
+   "The reward paid to the owner of land for its use",
+   "The value of a worker's skills, qualifications and experience",
+   "An individual or organisation that supplies goods or services"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Producer” means: An individual or organisation that supplies goods or services"
   }
  },
@@ -1100,13 +1100,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Government”?",
   "options": [
-   "Natural resources used in production, such as farmland, oil and fish stocks",
-   "The physical and mental effort of the workforce used in production",
-   "Elected representatives who make laws, collect taxes and provide public services",
-   "Man-made aids to production, such as machinery, tools and factory buildings"
+   "The reward paid for the use of capital",
+   "The reward paid to workers for their labour",
+   "The reward that goes to the entrepreneur for taking a risk",
+   "Elected representatives who make laws, collect taxes and provide public services"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“Government” means: Elected representatives who make laws, collect taxes and provide public services"
   }
  },
@@ -1119,13 +1119,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Land”?",
   "options": [
+   "Elected representatives who make laws, collect taxes and provide public services",
+   "An individual or organisation that supplies goods or services",
    "Natural resources used in production, such as farmland, oil and fish stocks",
-   "The physical and mental effort of the workforce used in production",
-   "Man-made aids to production, such as machinery, tools and factory buildings",
-   "The risk-taking that combines land, labour and capital to create a good or service"
+   "The reward that goes to the entrepreneur for taking a risk"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Land” means: Natural resources used in production, such as farmland, oil and fish stocks"
   }
  },
@@ -1138,13 +1138,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Labour”?",
   "options": [
-   "Man-made aids to production, such as machinery, tools and factory buildings",
-   "The risk-taking that combines land, labour and capital to create a good or service",
-   "The physical and mental effort of the workforce used in production",
-   "The reward paid to the owner of land for its use"
+   "An individual or organisation that supplies goods or services",
+   "Elected representatives who make laws, collect taxes and provide public services",
+   "The reward paid to workers for their labour",
+   "The physical and mental effort of the workforce used in production"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“Labour” means: The physical and mental effort of the workforce used in production"
   }
  },
@@ -1157,13 +1157,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Capital”?",
   "options": [
-   "The risk-taking that combines land, labour and capital to create a good or service",
-   "The reward paid to the owner of land for its use",
-   "The reward paid to workers for their labour",
-   "Man-made aids to production, such as machinery, tools and factory buildings"
+   "The physical and mental effort of the workforce used in production",
+   "The reward paid for the use of capital",
+   "Man-made aids to production, such as machinery, tools and factory buildings",
+   "The reward that goes to the entrepreneur for taking a risk"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“Capital” means: Man-made aids to production, such as machinery, tools and factory buildings"
   }
  },
@@ -1176,13 +1176,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Enterprise”?",
   "options": [
-   "The reward paid to the owner of land for its use",
-   "The reward paid to workers for their labour",
    "The risk-taking that combines land, labour and capital to create a good or service",
+   "The value of a worker's skills, qualifications and experience",
+   "A person who buys goods or services for their own personal use",
    "The reward paid for the use of capital"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“Enterprise” means: The risk-taking that combines land, labour and capital to create a good or service"
   }
  },
@@ -1195,13 +1195,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Rent”?",
   "options": [
-   "The reward paid to workers for their labour",
-   "The reward paid for the use of capital",
-   "The reward paid to the owner of land for its use",
-   "The reward that goes to the entrepreneur for taking a risk"
+   "Natural resources used in production, such as farmland, oil and fish stocks",
+   "The reward that goes to the entrepreneur for taking a risk",
+   "Man-made aids to production, such as machinery, tools and factory buildings",
+   "The reward paid to the owner of land for its use"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“Rent” means: The reward paid to the owner of land for its use"
   }
  },
@@ -1214,13 +1214,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Wages”?",
   "options": [
-   "The reward paid to workers for their labour",
-   "The reward paid for the use of capital",
-   "The reward that goes to the entrepreneur for taking a risk",
-   "The value of a worker's skills, qualifications and experience"
+   "Elected representatives who make laws, collect taxes and provide public services",
+   "An individual or organisation that supplies goods or services",
+   "Natural resources used in production, such as farmland, oil and fish stocks",
+   "The reward paid to workers for their labour"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Wages” means: The reward paid to workers for their labour"
   }
  },
@@ -1234,7 +1234,7 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Interest”?",
   "options": [
    "The reward that goes to the entrepreneur for taking a risk",
-   "The value of a worker's skills, qualifications and experience",
+   "Natural resources used in production, such as farmland, oil and fish stocks",
    "A person who buys goods or services for their own personal use",
    "The reward paid for the use of capital"
   ],
@@ -1252,10 +1252,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Profit”?",
   "options": [
-   "The value of a worker's skills, qualifications and experience",
+   "Elected representatives who make laws, collect taxes and provide public services",
    "The reward that goes to the entrepreneur for taking a risk",
-   "A person who buys goods or services for their own personal use",
-   "An individual or organisation that supplies goods or services"
+   "Man-made aids to production, such as machinery, tools and factory buildings",
+   "The risk-taking that combines land, labour and capital to create a good or service"
   ],
   "key": {
    "answer": 1,
@@ -1271,13 +1271,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Human capital”?",
   "options": [
+   "The reward paid to workers for their labour",
    "The value of a worker's skills, qualifications and experience",
-   "A person who buys goods or services for their own personal use",
-   "An individual or organisation that supplies goods or services",
-   "Elected representatives who make laws, collect taxes and provide public services"
+   "The reward paid for the use of capital",
+   "The risk-taking that combines land, labour and capital to create a good or service"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“Human capital” means: The value of a worker's skills, qualifications and experience"
   }
  },
@@ -2680,13 +2680,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Need”?",
   "options": [
+   "An economy combining market forces with government intervention",
    "Something desired but not essential for survival",
    "Something required to survive, such as food, water or shelter",
-   "A resource where there is not enough to satisfy all wants",
    "The infinite desire people have for goods and services"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Need” means: Something required to survive, such as food, water or shelter"
   }
  },
@@ -2699,8 +2699,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Want”?",
   "options": [
-   "A resource where there is not enough to satisfy all wants",
-   "The infinite desire people have for goods and services",
+   "The impact of a choice on a community's quality of life and fairness",
+   "Whether a choice is the best use of resources to allow growth over time",
    "How to satisfy unlimited wants with limited resources",
    "Something desired but not essential for survival"
   ],
@@ -2718,10 +2718,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Scarce resource”?",
   "options": [
-   "The infinite desire people have for goods and services",
-   "How to satisfy unlimited wants with limited resources",
+   "An economy where resources are allocated by the state",
+   "Whether a choice is the best use of resources to allow growth over time",
    "A resource where there is not enough to satisfy all wants",
-   "The next best alternative given up when making a choice"
+   "How to satisfy unlimited wants with limited resources"
   ],
   "key": {
    "answer": 2,
@@ -2737,13 +2737,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Unlimited wants”?",
   "options": [
-   "How to satisfy unlimited wants with limited resources",
+   "Something required to survive, such as food, water or shelter",
+   "The impact of a choice on resource use and pollution",
    "The infinite desire people have for goods and services",
-   "The next best alternative given up when making a choice",
-   "An economy where resources are allocated by the forces of demand and supply"
+   "The next best alternative given up when making a choice"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Unlimited wants” means: The infinite desire people have for goods and services"
   }
  },
@@ -2756,10 +2756,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “The basic economic problem”?",
   "options": [
-   "The next best alternative given up when making a choice",
-   "An economy where resources are allocated by the forces of demand and supply",
+   "A resource where there is not enough to satisfy all wants",
+   "Something desired but not essential for survival",
    "How to satisfy unlimited wants with limited resources",
-   "An economy where resources are allocated by the state"
+   "An economy combining market forces with government intervention"
   ],
   "key": {
    "answer": 2,
@@ -2775,13 +2775,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Opportunity cost”?",
   "options": [
-   "An economy where resources are allocated by the forces of demand and supply",
-   "An economy where resources are allocated by the state",
+   "The next best alternative given up when making a choice",
    "An economy combining market forces with government intervention",
-   "The next best alternative given up when making a choice"
+   "Whether a choice is the best use of resources to allow growth over time",
+   "An economy where resources are allocated by the forces of demand and supply"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Opportunity cost” means: The next best alternative given up when making a choice"
   }
  },
@@ -2794,13 +2794,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Market economy”?",
   "options": [
-   "An economy where resources are allocated by the state",
-   "An economy combining market forces with government intervention",
-   "Whether a choice is the best use of resources to allow growth over time",
-   "An economy where resources are allocated by the forces of demand and supply"
+   "The impact of a choice on a community's quality of life and fairness",
+   "An economy where resources are allocated by the forces of demand and supply",
+   "The infinite desire people have for goods and services",
+   "An economy where resources are allocated by the state"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Market economy” means: An economy where resources are allocated by the forces of demand and supply"
   }
  },
@@ -2813,13 +2813,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Planned economy”?",
   "options": [
-   "An economy combining market forces with government intervention",
-   "An economy where resources are allocated by the state",
-   "Whether a choice is the best use of resources to allow growth over time",
-   "The impact of a choice on a community's quality of life and fairness"
+   "An economy where resources are allocated by the forces of demand and supply",
+   "A resource where there is not enough to satisfy all wants",
+   "Something desired but not essential for survival",
+   "An economy where resources are allocated by the state"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Planned economy” means: An economy where resources are allocated by the state"
   }
  },
@@ -2832,10 +2832,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Mixed economy”?",
   "options": [
-   "Whether a choice is the best use of resources to allow growth over time",
-   "The impact of a choice on a community's quality of life and fairness",
+   "How to satisfy unlimited wants with limited resources",
+   "The infinite desire people have for goods and services",
    "An economy combining market forces with government intervention",
-   "The impact of a choice on resource use and pollution"
+   "Something required to survive, such as food, water or shelter"
   ],
   "key": {
    "answer": 2,
@@ -2851,13 +2851,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Economic sustainability”?",
   "options": [
-   "The impact of a choice on a community's quality of life and fairness",
-   "The impact of a choice on resource use and pollution",
-   "Something required to survive, such as food, water or shelter",
-   "Whether a choice is the best use of resources to allow growth over time"
+   "Something desired but not essential for survival",
+   "How to satisfy unlimited wants with limited resources",
+   "Whether a choice is the best use of resources to allow growth over time",
+   "The impact of a choice on resource use and pollution"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“Economic sustainability” means: Whether a choice is the best use of resources to allow growth over time"
   }
  },
@@ -2870,10 +2870,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Social sustainability”?",
   "options": [
-   "The impact of a choice on resource use and pollution",
+   "The next best alternative given up when making a choice",
    "The impact of a choice on a community's quality of life and fairness",
    "Something required to survive, such as food, water or shelter",
-   "Something desired but not essential for survival"
+   "The infinite desire people have for goods and services"
   ],
   "key": {
    "answer": 1,
@@ -2890,9 +2890,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Environmental sustainability”?",
   "options": [
    "The impact of a choice on resource use and pollution",
-   "Something required to survive, such as food, water or shelter",
-   "Something desired but not essential for survival",
-   "A resource where there is not enough to satisfy all wants"
+   "An economy combining market forces with government intervention",
+   "An economy where resources are allocated by the state",
+   "The infinite desire people have for goods and services"
   ],
   "key": {
    "answer": 0,
@@ -4566,10 +4566,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Market”?",
   "options": [
-   "Trading products — needs at least one buyer and one seller",
-   "A way of bringing together buyers and sellers to exchange goods and services",
    "How prices signal, ration and incentivise to allocate scarce resources",
-   "Where quantity demanded exactly equals quantity supplied"
+   "A way of bringing together buyers and sellers to exchange goods and services",
+   "Tangible products that you can touch, like cars and phones",
+   "Activities that provide services, e.g. banking, education and tourism"
   ],
   "key": {
    "answer": 1,
@@ -4585,13 +4585,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Exchange”?",
   "options": [
+   "Concentrating on one particular task, product or industry",
+   "Where finished goods and services are sold to consumers and firms",
    "Trading products — needs at least one buyer and one seller",
-   "How prices signal, ration and incentivise to allocate scarce resources",
-   "Where quantity demanded exactly equals quantity supplied",
-   "The direct use of natural resources, e.g. farming, fishing and mining"
+   "Manufacturing and construction — turning raw materials into finished goods"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Exchange” means: Trading products — needs at least one buyer and one seller"
   }
  },
@@ -4604,13 +4604,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Price mechanism”?",
   "options": [
-   "Where quantity demanded exactly equals quantity supplied",
-   "How prices signal, ration and incentivise to allocate scarce resources",
-   "The direct use of natural resources, e.g. farming, fishing and mining",
-   "Manufacturing and construction — turning raw materials into finished goods"
+   "Splitting a production process into tasks, each done by a specialist worker",
+   "Where factors of production, such as labour, are bought and sold",
+   "Manufacturing and construction — turning raw materials into finished goods",
+   "How prices signal, ration and incentivise to allocate scarce resources"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Price mechanism” means: How prices signal, ration and incentivise to allocate scarce resources"
   }
  },
@@ -4623,13 +4623,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Equilibrium”?",
   "options": [
-   "The direct use of natural resources, e.g. farming, fishing and mining",
-   "Where quantity demanded exactly equals quantity supplied",
+   "Intangible products that you cannot touch, like education and finance",
+   "Demand for a factor that comes from demand for the product it makes",
    "Manufacturing and construction — turning raw materials into finished goods",
-   "Activities that provide services, e.g. banking, education and tourism"
+   "Where quantity demanded exactly equals quantity supplied"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Equilibrium” means: Where quantity demanded exactly equals quantity supplied"
   }
  },
@@ -4642,13 +4642,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Primary sector”?",
   "options": [
+   "A way of bringing together buyers and sellers to exchange goods and services",
+   "Demand for a factor that comes from demand for the product it makes",
    "Manufacturing and construction — turning raw materials into finished goods",
-   "The direct use of natural resources, e.g. farming, fishing and mining",
-   "Activities that provide services, e.g. banking, education and tourism",
-   "Tangible products that you can touch, like cars and phones"
+   "The direct use of natural resources, e.g. farming, fishing and mining"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Primary sector” means: The direct use of natural resources, e.g. farming, fishing and mining"
   }
  },
@@ -4661,13 +4661,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Secondary sector”?",
   "options": [
-   "Activities that provide services, e.g. banking, education and tourism",
+   "Where quantity demanded exactly equals quantity supplied",
+   "Concentrating on one particular task, product or industry",
    "Manufacturing and construction — turning raw materials into finished goods",
-   "Tangible products that you can touch, like cars and phones",
-   "Intangible products that you cannot touch, like education and finance"
+   "The direct use of natural resources, e.g. farming, fishing and mining"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Secondary sector” means: Manufacturing and construction — turning raw materials into finished goods"
   }
  },
@@ -4680,13 +4680,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Tertiary sector”?",
   "options": [
-   "Tangible products that you can touch, like cars and phones",
+   "Where quantity demanded exactly equals quantity supplied",
+   "The direct use of natural resources, e.g. farming, fishing and mining",
    "Activities that provide services, e.g. banking, education and tourism",
-   "Intangible products that you cannot touch, like education and finance",
-   "Where factors of production, such as labour, are bought and sold"
+   "Tangible products that you can touch, like cars and phones"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Tertiary sector” means: Activities that provide services, e.g. banking, education and tourism"
   }
  },
@@ -4699,13 +4699,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Goods”?",
   "options": [
-   "Intangible products that you cannot touch, like education and finance",
-   "Tangible products that you can touch, like cars and phones",
-   "Where factors of production, such as labour, are bought and sold",
-   "Where finished goods and services are sold to consumers and firms"
+   "Manufacturing and construction — turning raw materials into finished goods",
+   "Activities that provide services, e.g. banking, education and tourism",
+   "Splitting a production process into tasks, each done by a specialist worker",
+   "Tangible products that you can touch, like cars and phones"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Goods” means: Tangible products that you can touch, like cars and phones"
   }
  },
@@ -4718,13 +4718,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Services”?",
   "options": [
-   "Where factors of production, such as labour, are bought and sold",
+   "Concentrating on one particular task, product or industry",
+   "How prices signal, ration and incentivise to allocate scarce resources",
    "Intangible products that you cannot touch, like education and finance",
-   "Where finished goods and services are sold to consumers and firms",
-   "Demand for a factor that comes from demand for the product it makes"
+   "Activities that provide services, e.g. banking, education and tourism"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Services” means: Intangible products that you cannot touch, like education and finance"
   }
  },
@@ -4738,9 +4738,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Factor market”?",
   "options": [
    "Where factors of production, such as labour, are bought and sold",
-   "Where finished goods and services are sold to consumers and firms",
-   "Demand for a factor that comes from demand for the product it makes",
-   "Concentrating on one particular task, product or industry"
+   "Concentrating on one particular task, product or industry",
+   "How prices signal, ration and incentivise to allocate scarce resources",
+   "Where quantity demanded exactly equals quantity supplied"
   ],
   "key": {
    "answer": 0,
@@ -4756,10 +4756,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Product market”?",
   "options": [
-   "Demand for a factor that comes from demand for the product it makes",
-   "Concentrating on one particular task, product or industry",
+   "Tangible products that you can touch, like cars and phones",
+   "Where factors of production, such as labour, are bought and sold",
    "Where finished goods and services are sold to consumers and firms",
-   "Splitting a production process into tasks, each done by a specialist worker"
+   "Trading products — needs at least one buyer and one seller"
   ],
   "key": {
    "answer": 2,
@@ -4775,13 +4775,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Derived demand”?",
   "options": [
-   "Concentrating on one particular task, product or industry",
-   "Demand for a factor that comes from demand for the product it makes",
+   "Where quantity demanded exactly equals quantity supplied",
    "Splitting a production process into tasks, each done by a specialist worker",
-   "A way of bringing together buyers and sellers to exchange goods and services"
+   "How prices signal, ration and incentivise to allocate scarce resources",
+   "Demand for a factor that comes from demand for the product it makes"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Derived demand” means: Demand for a factor that comes from demand for the product it makes"
   }
  },
@@ -4794,10 +4794,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Specialisation”?",
   "options": [
-   "Splitting a production process into tasks, each done by a specialist worker",
+   "Activities that provide services, e.g. banking, education and tourism",
    "Concentrating on one particular task, product or industry",
-   "A way of bringing together buyers and sellers to exchange goods and services",
-   "Trading products — needs at least one buyer and one seller"
+   "Where finished goods and services are sold to consumers and firms",
+   "A way of bringing together buyers and sellers to exchange goods and services"
   ],
   "key": {
    "answer": 1,
@@ -4813,13 +4813,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Division of labour”?",
   "options": [
-   "Splitting a production process into tasks, each done by a specialist worker",
-   "A way of bringing together buyers and sellers to exchange goods and services",
-   "Trading products — needs at least one buyer and one seller",
-   "How prices signal, ration and incentivise to allocate scarce resources"
+   "Where factors of production, such as labour, are bought and sold",
+   "Concentrating on one particular task, product or industry",
+   "How prices signal, ration and incentivise to allocate scarce resources",
+   "Splitting a production process into tasks, each done by a specialist worker"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Division of labour” means: Splitting a production process into tasks, each done by a specialist worker"
   }
  },
@@ -6625,10 +6625,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Demand”?",
   "options": [
-   "All the individual demands for a product added together",
-   "Demand for one thing (like workers) that comes from demand for something else (the product they make)",
+   "Products that can replace each other, like apples and plums",
+   "Quantity demanded changes by a smaller percentage than price — drawn as a steep curve",
    "The willingness and ability to buy a good or service at a given price in a given time period",
-   "Caused only by a change in the price of the good itself"
+   "Price multiplied by quantity sold"
   ],
   "key": {
    "answer": 2,
@@ -6644,13 +6644,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Market demand”?",
   "options": [
-   "Demand for one thing (like workers) that comes from demand for something else (the product they make)",
-   "Caused only by a change in the price of the good itself",
+   "Quantity demanded changes by a bigger percentage than price — drawn as a flat curve",
    "All the individual demands for a product added together",
-   "Caused by a non-price factor such as income, fashion or advertising"
+   "Products that can replace each other, like apples and plums",
+   "A rise in quantity demanded caused by a fall in price"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Market demand” means: All the individual demands for a product added together"
   }
  },
@@ -6663,10 +6663,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Derived demand”?",
   "options": [
-   "Caused only by a change in the price of the good itself",
+   "Price multiplied by quantity sold",
    "Demand for one thing (like workers) that comes from demand for something else (the product they make)",
-   "Caused by a non-price factor such as income, fashion or advertising",
-   "A rise in quantity demanded caused by a fall in price"
+   "A rise in quantity demanded caused by a fall in price",
+   "Quantity demanded changes by a smaller percentage than price — drawn as a steep curve"
   ],
   "key": {
    "answer": 1,
@@ -6682,13 +6682,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Movement along the demand curve”?",
   "options": [
+   "A fall in quantity demanded caused by a rise in price",
+   "Demand for one thing (like workers) that comes from demand for something else (the product they make)",
    "Caused only by a change in the price of the good itself",
-   "Caused by a non-price factor such as income, fashion or advertising",
-   "A rise in quantity demanded caused by a fall in price",
-   "A fall in quantity demanded caused by a rise in price"
+   "A rise in quantity demanded caused by a fall in price"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Movement along the demand curve” means: Caused only by a change in the price of the good itself"
   }
  },
@@ -6701,13 +6701,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Shift of the demand curve”?",
   "options": [
-   "A rise in quantity demanded caused by a fall in price",
-   "A fall in quantity demanded caused by a rise in price",
-   "Products that can replace each other, like apples and plums",
-   "Caused by a non-price factor such as income, fashion or advertising"
+   "Caused by a non-price factor such as income, fashion or advertising",
+   "The willingness and ability to buy a good or service at a given price in a given time period",
+   "Quantity demanded changes by a smaller percentage than price — drawn as a steep curve",
+   "A fall in quantity demanded caused by a rise in price"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Shift of the demand curve” means: Caused by a non-price factor such as income, fashion or advertising"
   }
  },
@@ -6720,13 +6720,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Expansion of demand”?",
   "options": [
-   "A rise in quantity demanded caused by a fall in price",
-   "A fall in quantity demanded caused by a rise in price",
-   "Products that can replace each other, like apples and plums",
-   "Products bought and used together, like consoles and games"
+   "Caused only by a change in the price of the good itself",
+   "Percentage change in quantity demanded divided by percentage change in price",
+   "Quantity demanded changes by a bigger percentage than price — drawn as a flat curve",
+   "A rise in quantity demanded caused by a fall in price"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Expansion of demand” means: A rise in quantity demanded caused by a fall in price"
   }
  },
@@ -6739,13 +6739,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Contraction of demand”?",
   "options": [
-   "Products that can replace each other, like apples and plums",
-   "Products bought and used together, like consoles and games",
-   "Percentage change in quantity demanded divided by percentage change in price",
-   "A fall in quantity demanded caused by a rise in price"
+   "Caused by a non-price factor such as income, fashion or advertising",
+   "A fall in quantity demanded caused by a rise in price",
+   "Quantity demanded changes by a bigger percentage than price — drawn as a flat curve",
+   "Products bought and used together, like consoles and games"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Contraction of demand” means: A fall in quantity demanded caused by a rise in price"
   }
  },
@@ -6758,13 +6758,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Substitute goods”?",
   "options": [
-   "Products bought and used together, like consoles and games",
-   "Products that can replace each other, like apples and plums",
-   "Percentage change in quantity demanded divided by percentage change in price",
-   "Quantity demanded changes by a bigger percentage than price — drawn as a flat curve"
+   "A rise in quantity demanded caused by a fall in price",
+   "The willingness and ability to buy a good or service at a given price in a given time period",
+   "Caused only by a change in the price of the good itself",
+   "Products that can replace each other, like apples and plums"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Substitute goods” means: Products that can replace each other, like apples and plums"
   }
  },
@@ -6778,12 +6778,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Complementary goods”?",
   "options": [
    "Percentage change in quantity demanded divided by percentage change in price",
-   "Products bought and used together, like consoles and games",
-   "Quantity demanded changes by a bigger percentage than price — drawn as a flat curve",
-   "Quantity demanded changes by a smaller percentage than price — drawn as a steep curve"
+   "All the individual demands for a product added together",
+   "Demand for one thing (like workers) that comes from demand for something else (the product they make)",
+   "Products bought and used together, like consoles and games"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Complementary goods” means: Products bought and used together, like consoles and games"
   }
  },
@@ -6797,12 +6797,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Price elasticity of demand”?",
   "options": [
    "Quantity demanded changes by a bigger percentage than price — drawn as a flat curve",
-   "Percentage change in quantity demanded divided by percentage change in price",
-   "Quantity demanded changes by a smaller percentage than price — drawn as a steep curve",
-   "Price multiplied by quantity sold"
+   "A rise in quantity demanded caused by a fall in price",
+   "All the individual demands for a product added together",
+   "Percentage change in quantity demanded divided by percentage change in price"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Price elasticity of demand” means: Percentage change in quantity demanded divided by percentage change in price"
   }
  },
@@ -6815,10 +6815,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Price elastic demand”?",
   "options": [
-   "Quantity demanded changes by a smaller percentage than price — drawn as a steep curve",
+   "The willingness and ability to buy a good or service at a given price in a given time period",
    "Price multiplied by quantity sold",
    "Quantity demanded changes by a bigger percentage than price — drawn as a flat curve",
-   "The willingness and ability to buy a good or service at a given price in a given time period"
+   "Products bought and used together, like consoles and games"
   ],
   "key": {
    "answer": 2,
@@ -6835,12 +6835,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Price inelastic demand”?",
   "options": [
    "Price multiplied by quantity sold",
+   "Demand for one thing (like workers) that comes from demand for something else (the product they make)",
    "Quantity demanded changes by a smaller percentage than price — drawn as a steep curve",
-   "The willingness and ability to buy a good or service at a given price in a given time period",
-   "All the individual demands for a product added together"
+   "The willingness and ability to buy a good or service at a given price in a given time period"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Price inelastic demand” means: Quantity demanded changes by a smaller percentage than price — drawn as a steep curve"
   }
  },
@@ -6853,9 +6853,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Total revenue”?",
   "options": [
-   "The willingness and ability to buy a good or service at a given price in a given time period",
-   "All the individual demands for a product added together",
-   "Demand for one thing (like workers) that comes from demand for something else (the product they make)",
+   "Caused only by a change in the price of the good itself",
+   "Quantity demanded changes by a smaller percentage than price — drawn as a steep curve",
+   "A rise in quantity demanded caused by a fall in price",
    "Price multiplied by quantity sold"
   ],
   "key": {
@@ -8435,13 +8435,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Supply”?",
   "options": [
-   "The amount one single firm is willing to supply at each price",
-   "All the individual supply curves in a market added together",
+   "Quantity supplied changes by a smaller percentage than price — drawn as a very steep curve",
    "The amount producers are willing and able to sell at a given price in a given time period",
-   "As price rises, quantity supplied rises — a direct relationship"
+   "Caused by a non-price factor: costs, taxes, subsidies, technology, weather, number or size of producers, regulation",
+   "Percentage change in quantity supplied divided by percentage change in price"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Supply” means: The amount producers are willing and able to sell at a given price in a given time period"
   }
  },
@@ -8454,9 +8454,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Individual supply”?",
   "options": [
-   "All the individual supply curves in a market added together",
+   "Caused by a non-price factor: costs, taxes, subsidies, technology, weather, number or size of producers, regulation",
+   "A fall in quantity supplied caused by a fall in the good's own price",
    "As price rises, quantity supplied rises — a direct relationship",
-   "A rise in quantity supplied caused by a rise in the good's own price",
    "The amount one single firm is willing to supply at each price"
   ],
   "key": {
@@ -8473,13 +8473,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Market supply”?",
   "options": [
-   "As price rises, quantity supplied rises — a direct relationship",
-   "A rise in quantity supplied caused by a rise in the good's own price",
+   "The amount producers are willing and able to sell at a given price in a given time period",
    "All the individual supply curves in a market added together",
-   "A fall in quantity supplied caused by a fall in the good's own price"
+   "A vertical supply curve — the same quantity is supplied whatever the price, like fixed stadium seats",
+   "As price rises, quantity supplied rises — a direct relationship"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Market supply” means: All the individual supply curves in a market added together"
   }
  },
@@ -8492,13 +8492,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “The law of supply”?",
   "options": [
-   "As price rises, quantity supplied rises — a direct relationship",
    "A rise in quantity supplied caused by a rise in the good's own price",
-   "A fall in quantity supplied caused by a fall in the good's own price",
-   "Caused by a non-price factor: costs, taxes, subsidies, technology, weather, number or size of producers, regulation"
+   "As price rises, quantity supplied rises — a direct relationship",
+   "The amount one single firm is willing to supply at each price",
+   "A vertical supply curve — the same quantity is supplied whatever the price, like fixed stadium seats"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“The law of supply” means: As price rises, quantity supplied rises — a direct relationship"
   }
  },
@@ -8511,13 +8511,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Expansion of supply”?",
   "options": [
-   "A rise in quantity supplied caused by a rise in the good's own price",
    "A fall in quantity supplied caused by a fall in the good's own price",
-   "Caused by a non-price factor: costs, taxes, subsidies, technology, weather, number or size of producers, regulation",
-   "A government payment that lowers a firm's costs and shifts supply to the right"
+   "A government payment that lowers a firm's costs and shifts supply to the right",
+   "A rise in quantity supplied caused by a rise in the good's own price",
+   "Percentage change in quantity supplied divided by percentage change in price"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Expansion of supply” means: A rise in quantity supplied caused by a rise in the good's own price"
   }
  },
@@ -8530,13 +8530,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Contraction of supply”?",
   "options": [
-   "Caused by a non-price factor: costs, taxes, subsidies, technology, weather, number or size of producers, regulation",
-   "A government payment that lowers a firm's costs and shifts supply to the right",
-   "Percentage change in quantity supplied divided by percentage change in price",
-   "A fall in quantity supplied caused by a fall in the good's own price"
+   "A fall in quantity supplied caused by a fall in the good's own price",
+   "A rise in quantity supplied caused by a rise in the good's own price",
+   "The amount one single firm is willing to supply at each price",
+   "The amount producers are willing and able to sell at a given price in a given time period"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Contraction of supply” means: A fall in quantity supplied caused by a fall in the good's own price"
   }
  },
@@ -8549,13 +8549,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Shift of the supply curve”?",
   "options": [
-   "A government payment that lowers a firm's costs and shifts supply to the right",
-   "Percentage change in quantity supplied divided by percentage change in price",
-   "Quantity supplied changes by a bigger percentage than price — drawn as a very flat curve",
-   "Caused by a non-price factor: costs, taxes, subsidies, technology, weather, number or size of producers, regulation"
+   "All the individual supply curves in a market added together",
+   "Caused by a non-price factor: costs, taxes, subsidies, technology, weather, number or size of producers, regulation",
+   "A fall in quantity supplied caused by a fall in the good's own price",
+   "Quantity supplied changes by a smaller percentage than price — drawn as a very steep curve"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Shift of the supply curve” means: Caused by a non-price factor: costs, taxes, subsidies, technology, weather, number or size of producers, regulation"
   }
  },
@@ -8568,13 +8568,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Subsidy”?",
   "options": [
-   "A government payment that lowers a firm's costs and shifts supply to the right",
+   "Deliberately running below maximum output (often 75–85%) so production can be increased quickly",
    "Percentage change in quantity supplied divided by percentage change in price",
-   "Quantity supplied changes by a bigger percentage than price — drawn as a very flat curve",
-   "Quantity supplied changes by a smaller percentage than price — drawn as a very steep curve"
+   "A government payment that lowers a firm's costs and shifts supply to the right",
+   "As price rises, quantity supplied rises — a direct relationship"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Subsidy” means: A government payment that lowers a firm's costs and shifts supply to the right"
   }
  },
@@ -8587,8 +8587,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Price elasticity of supply (PES)”?",
   "options": [
-   "Quantity supplied changes by a bigger percentage than price — drawn as a very flat curve",
-   "Quantity supplied changes by a smaller percentage than price — drawn as a very steep curve",
+   "The amount one single firm is willing to supply at each price",
+   "As price rises, quantity supplied rises — a direct relationship",
    "Percentage change in quantity supplied divided by percentage change in price",
    "A vertical supply curve — the same quantity is supplied whatever the price, like fixed stadium seats"
   ],
@@ -8606,10 +8606,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Price elastic supply”?",
   "options": [
-   "Quantity supplied changes by a smaller percentage than price — drawn as a very steep curve",
-   "A vertical supply curve — the same quantity is supplied whatever the price, like fixed stadium seats",
+   "Deliberately running below maximum output (often 75–85%) so production can be increased quickly",
+   "All the individual supply curves in a market added together",
    "Quantity supplied changes by a bigger percentage than price — drawn as a very flat curve",
-   "Deliberately running below maximum output (often 75–85%) so production can be increased quickly"
+   "A fall in quantity supplied caused by a fall in the good's own price"
   ],
   "key": {
    "answer": 2,
@@ -8625,13 +8625,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Price inelastic supply”?",
   "options": [
-   "A vertical supply curve — the same quantity is supplied whatever the price, like fixed stadium seats",
    "Quantity supplied changes by a smaller percentage than price — drawn as a very steep curve",
-   "Deliberately running below maximum output (often 75–85%) so production can be increased quickly",
-   "The amount producers are willing and able to sell at a given price in a given time period"
+   "As price rises, quantity supplied rises — a direct relationship",
+   "A government payment that lowers a firm's costs and shifts supply to the right",
+   "Deliberately running below maximum output (often 75–85%) so production can be increased quickly"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Price inelastic supply” means: Quantity supplied changes by a smaller percentage than price — drawn as a very steep curve"
   }
  },
@@ -8644,13 +8644,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Perfectly inelastic supply”?",
   "options": [
-   "A vertical supply curve — the same quantity is supplied whatever the price, like fixed stadium seats",
    "Deliberately running below maximum output (often 75–85%) so production can be increased quickly",
+   "A vertical supply curve — the same quantity is supplied whatever the price, like fixed stadium seats",
    "The amount producers are willing and able to sell at a given price in a given time period",
-   "The amount one single firm is willing to supply at each price"
+   "Percentage change in quantity supplied divided by percentage change in price"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“Perfectly inelastic supply” means: A vertical supply curve — the same quantity is supplied whatever the price, like fixed stadium seats"
   }
  },
@@ -8663,13 +8663,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Spare capacity”?",
   "options": [
-   "The amount producers are willing and able to sell at a given price in a given time period",
-   "The amount one single firm is willing to supply at each price",
    "Deliberately running below maximum output (often 75–85%) so production can be increased quickly",
+   "Caused by a non-price factor: costs, taxes, subsidies, technology, weather, number or size of producers, regulation",
+   "Quantity supplied changes by a smaller percentage than price — drawn as a very steep curve",
    "All the individual supply curves in a market added together"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“Spare capacity” means: Deliberately running below maximum output (often 75–85%) so production can be increased quickly"
   }
  },
@@ -10337,13 +10337,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Equilibrium price”?",
   "options": [
+   "Prices changing to show producers where resources are needed",
+   "The idea that consumers steer production decisions through their purchasing choices",
    "The price at which quantity demanded exactly equals quantity supplied",
-   "The quantity bought and sold when the market clears",
-   "Everything produced is sold — nothing is left to buy or sell",
-   "Price above equilibrium: quantity supplied exceeds quantity demanded, so the price falls"
+   "The sum of money needed to pay for a product, determined by supply and demand"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Equilibrium price” means: The price at which quantity demanded exactly equals quantity supplied"
   }
  },
@@ -10356,13 +10356,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Equilibrium quantity”?",
   "options": [
+   "The price at which quantity demanded exactly equals quantity supplied",
+   "A rising price reducing demand for a scarce resource so it goes to those willing and able to pay",
    "The quantity bought and sold when the market clears",
-   "Everything produced is sold — nothing is left to buy or sell",
-   "Price above equilibrium: quantity supplied exceeds quantity demanded, so the price falls",
-   "Price below equilibrium: quantity demanded exceeds quantity supplied, so the price rises"
+   "Price above equilibrium: quantity supplied exceeds quantity demanded, so the price falls"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Equilibrium quantity” means: The quantity bought and sold when the market clears"
   }
  },
@@ -10375,13 +10375,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Market clearing”?",
   "options": [
-   "Price above equilibrium: quantity supplied exceeds quantity demanded, so the price falls",
-   "Price below equilibrium: quantity demanded exceeds quantity supplied, so the price rises",
-   "Everything produced is sold — nothing is left to buy or sell",
-   "Demand and supply — the forces that determine price and quantity in a market"
+   "How much someone personally values a product — subjective and different for each person",
+   "Prices changing to show producers where resources are needed",
+   "The price at which quantity demanded exactly equals quantity supplied",
+   "Everything produced is sold — nothing is left to buy or sell"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“Market clearing” means: Everything produced is sold — nothing is left to buy or sell"
   }
  },
@@ -10394,13 +10394,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Excess supply (surplus)”?",
   "options": [
-   "Price above equilibrium: quantity supplied exceeds quantity demanded, so the price falls",
-   "Price below equilibrium: quantity demanded exceeds quantity supplied, so the price rises",
-   "Demand and supply — the forces that determine price and quantity in a market",
-   "Prices changing to show producers where resources are needed"
+   "Everything produced is sold — nothing is left to buy or sell",
+   "How much someone personally values a product — subjective and different for each person",
+   "The price at which quantity demanded exactly equals quantity supplied",
+   "Price above equilibrium: quantity supplied exceeds quantity demanded, so the price falls"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Excess supply (surplus)” means: Price above equilibrium: quantity supplied exceeds quantity demanded, so the price falls"
   }
  },
@@ -10414,8 +10414,8 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Excess demand (shortage)”?",
   "options": [
    "Demand and supply — the forces that determine price and quantity in a market",
-   "Prices changing to show producers where resources are needed",
    "A rising price reducing demand for a scarce resource so it goes to those willing and able to pay",
+   "Prices changing to show producers where resources are needed",
    "Price below equilibrium: quantity demanded exceeds quantity supplied, so the price rises"
   ],
   "key": {
@@ -10432,9 +10432,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Market forces”?",
   "options": [
-   "Prices changing to show producers where resources are needed",
+   "Price above equilibrium: quantity supplied exceeds quantity demanded, so the price falls",
    "A rising price reducing demand for a scarce resource so it goes to those willing and able to pay",
-   "Consumers sending information to producers about their wants through what they buy",
+   "The sum of money needed to pay for a product, determined by supply and demand",
    "Demand and supply — the forces that determine price and quantity in a market"
   ],
   "key": {
@@ -10451,13 +10451,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Signalling”?",
   "options": [
-   "A rising price reducing demand for a scarce resource so it goes to those willing and able to pay",
    "Prices changing to show producers where resources are needed",
-   "Consumers sending information to producers about their wants through what they buy",
-   "The sum of money needed to pay for a product, determined by supply and demand"
+   "Price below equilibrium: quantity demanded exceeds quantity supplied, so the price rises",
+   "The quantity bought and sold when the market clears",
+   "Price above equilibrium: quantity supplied exceeds quantity demanded, so the price falls"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Signalling” means: Prices changing to show producers where resources are needed"
   }
  },
@@ -10470,13 +10470,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Rationing”?",
   "options": [
+   "Demand and supply — the forces that determine price and quantity in a market",
+   "How much someone personally values a product — subjective and different for each person",
    "A rising price reducing demand for a scarce resource so it goes to those willing and able to pay",
-   "Consumers sending information to producers about their wants through what they buy",
-   "The sum of money needed to pay for a product, determined by supply and demand",
-   "How much someone personally values a product — subjective and different for each person"
+   "The quantity bought and sold when the market clears"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Rationing” means: A rising price reducing demand for a scarce resource so it goes to those willing and able to pay"
   }
  },
@@ -10489,10 +10489,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Transmission of preferences”?",
   "options": [
-   "The sum of money needed to pay for a product, determined by supply and demand",
-   "How much someone personally values a product — subjective and different for each person",
+   "Everything produced is sold — nothing is left to buy or sell",
+   "A rising price reducing demand for a scarce resource so it goes to those willing and able to pay",
    "Consumers sending information to producers about their wants through what they buy",
-   "The idea that consumers steer production decisions through their purchasing choices"
+   "The rectangle price × quantity under the equilibrium point"
   ],
   "key": {
    "answer": 2,
@@ -10508,13 +10508,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Price”?",
   "options": [
-   "The sum of money needed to pay for a product, determined by supply and demand",
    "How much someone personally values a product — subjective and different for each person",
-   "The idea that consumers steer production decisions through their purchasing choices",
-   "The rectangle price × quantity under the equilibrium point"
+   "A rising price reducing demand for a scarce resource so it goes to those willing and able to pay",
+   "The price at which quantity demanded exactly equals quantity supplied",
+   "The sum of money needed to pay for a product, determined by supply and demand"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Price” means: The sum of money needed to pay for a product, determined by supply and demand"
   }
  },
@@ -10527,13 +10527,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Worth”?",
   "options": [
-   "The idea that consumers steer production decisions through their purchasing choices",
-   "How much someone personally values a product — subjective and different for each person",
+   "A rising price reducing demand for a scarce resource so it goes to those willing and able to pay",
    "The rectangle price × quantity under the equilibrium point",
-   "The price at which quantity demanded exactly equals quantity supplied"
+   "The sum of money needed to pay for a product, determined by supply and demand",
+   "How much someone personally values a product — subjective and different for each person"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Worth” means: How much someone personally values a product — subjective and different for each person"
   }
  },
@@ -10546,13 +10546,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Consumer sovereignty”?",
   "options": [
+   "How much someone personally values a product — subjective and different for each person",
    "The idea that consumers steer production decisions through their purchasing choices",
-   "The rectangle price × quantity under the equilibrium point",
-   "The price at which quantity demanded exactly equals quantity supplied",
-   "The quantity bought and sold when the market clears"
+   "Prices changing to show producers where resources are needed",
+   "Everything produced is sold — nothing is left to buy or sell"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“Consumer sovereignty” means: The idea that consumers steer production decisions through their purchasing choices"
   }
  },
@@ -10565,13 +10565,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Revenue on a diagram”?",
   "options": [
-   "The price at which quantity demanded exactly equals quantity supplied",
    "The quantity bought and sold when the market clears",
-   "The rectangle price × quantity under the equilibrium point",
-   "Everything produced is sold — nothing is left to buy or sell"
+   "Consumers sending information to producers about their wants through what they buy",
+   "Price below equilibrium: quantity demanded exceeds quantity supplied, so the price rises",
+   "The rectangle price × quantity under the equilibrium point"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“Revenue on a diagram” means: The rectangle price × quantity under the equilibrium point"
   }
  },
@@ -12179,9 +12179,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Competition”?",
   "options": [
    "Rivalry between firms operating in the same market for the same customers",
-   "The number of firms in an industry and the way those businesses behave",
-   "A large number of mostly small firms, few barriers to entry, little control over price",
-   "A small number of large firms supply most of the market (five-firm share of 50%+)"
+   "Firms agreeing together to keep prices artificially high — illegal in the UK",
+   "A small number of large firms supply most of the market (five-firm share of 50%+)",
+   "Competing through the product, promotion, service and brand instead of price"
   ],
   "key": {
    "answer": 0,
@@ -12198,12 +12198,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Market structure”?",
   "options": [
    "A large number of mostly small firms, few barriers to entry, little control over price",
-   "A small number of large firms supply most of the market (five-firm share of 50%+)",
    "The number of firms in an industry and the way those businesses behave",
-   "A market with only one producer or seller of a product"
+   "Any firm with over 25% market share",
+   "Competing through the product, promotion, service and brand instead of price"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Market structure” means: The number of firms in an industry and the way those businesses behave"
   }
  },
@@ -12216,13 +12216,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Competitive market”?",
   "options": [
-   "A small number of large firms supply most of the market (five-firm share of 50%+)",
-   "A market with only one producer or seller of a product",
+   "The number of firms in an industry and the way those businesses behave",
    "A large number of mostly small firms, few barriers to entry, little control over price",
-   "Any firm with over 25% market share"
+   "A firm with enough market power to influence the price it charges",
+   "Competing through the product, promotion, service and brand instead of price"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Competitive market” means: A large number of mostly small firms, few barriers to entry, little control over price"
   }
  },
@@ -12235,13 +12235,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Oligopoly”?",
   "options": [
-   "A market with only one producer or seller of a product",
-   "Any firm with over 25% market share",
-   "Obstacles that make it hard for new firms to enter a market, like heavy advertising or patents",
-   "A small number of large firms supply most of the market (five-firm share of 50%+)"
+   "A small number of large firms supply most of the market (five-firm share of 50%+)",
+   "Competing through the product, promotion, service and brand instead of price",
+   "The UK regulator that investigates mergers, cartels and unfair trading",
+   "The number of firms in an industry and the way those businesses behave"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Oligopoly” means: A small number of large firms supply most of the market (five-firm share of 50%+)"
   }
  },
@@ -12254,13 +12254,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “True monopoly”?",
   "options": [
-   "Any firm with over 25% market share",
-   "Obstacles that make it hard for new firms to enter a market, like heavy advertising or patents",
+   "A large number of mostly small firms, few barriers to entry, little control over price",
    "A market with only one producer or seller of a product",
-   "A firm that must accept the market price — typical of competitive markets"
+   "A firm that must accept the market price — typical of competitive markets",
+   "Rivalry between firms operating in the same market for the same customers"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“True monopoly” means: A market with only one producer or seller of a product"
   }
  },
@@ -12274,12 +12274,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Monopoly power”?",
   "options": [
    "Obstacles that make it hard for new firms to enter a market, like heavy advertising or patents",
-   "A firm that must accept the market price — typical of competitive markets",
-   "A firm with enough market power to influence the price it charges",
-   "Any firm with over 25% market share"
+   "Any firm with over 25% market share",
+   "The number of firms in an industry and the way those businesses behave",
+   "A market with only one producer or seller of a product"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Monopoly power” means: Any firm with over 25% market share"
   }
  },
@@ -12292,13 +12292,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Barriers to entry”?",
   "options": [
+   "A small number of large firms supply most of the market (five-firm share of 50%+)",
+   "Competing through the product, promotion, service and brand instead of price",
    "Obstacles that make it hard for new firms to enter a market, like heavy advertising or patents",
-   "A firm that must accept the market price — typical of competitive markets",
-   "A firm with enough market power to influence the price it charges",
-   "A product priced at little or no profit to attract customers who then buy other things"
+   "A market with only one producer or seller of a product"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Barriers to entry” means: Obstacles that make it hard for new firms to enter a market, like heavy advertising or patents"
   }
  },
@@ -12311,13 +12311,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Price taker”?",
   "options": [
+   "A firm that must accept the market price — typical of competitive markets",
    "A firm with enough market power to influence the price it charges",
-   "A product priced at little or no profit to attract customers who then buy other things",
-   "Firms agreeing together to keep prices artificially high — illegal in the UK",
-   "A firm that must accept the market price — typical of competitive markets"
+   "Obstacles that make it hard for new firms to enter a market, like heavy advertising or patents",
+   "A market with only one producer or seller of a product"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Price taker” means: A firm that must accept the market price — typical of competitive markets"
   }
  },
@@ -12330,13 +12330,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Price maker”?",
   "options": [
+   "Obstacles that make it hard for new firms to enter a market, like heavy advertising or patents",
+   "A firm that must accept the market price — typical of competitive markets",
    "A firm with enough market power to influence the price it charges",
-   "A product priced at little or no profit to attract customers who then buy other things",
-   "Firms agreeing together to keep prices artificially high — illegal in the UK",
-   "Competing through the product, promotion, service and brand instead of price"
+   "A small number of large firms supply most of the market (five-firm share of 50%+)"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Price maker” means: A firm with enough market power to influence the price it charges"
   }
  },
@@ -12349,13 +12349,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Loss leader”?",
   "options": [
-   "Firms agreeing together to keep prices artificially high — illegal in the UK",
-   "Competing through the product, promotion, service and brand instead of price",
+   "A product priced at little or no profit to attract customers who then buy other things",
+   "The number of firms in an industry and the way those businesses behave",
    "The UK regulator that investigates mergers, cartels and unfair trading",
-   "A product priced at little or no profit to attract customers who then buy other things"
+   "Any firm with over 25% market share"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Loss leader” means: A product priced at little or no profit to attract customers who then buy other things"
   }
  },
@@ -12368,13 +12368,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Collusion”?",
   "options": [
-   "Competing through the product, promotion, service and brand instead of price",
+   "The number of firms in an industry and the way those businesses behave",
+   "A product priced at little or no profit to attract customers who then buy other things",
    "Firms agreeing together to keep prices artificially high — illegal in the UK",
-   "The UK regulator that investigates mergers, cartels and unfair trading",
-   "Rivalry between firms operating in the same market for the same customers"
+   "A large number of mostly small firms, few barriers to entry, little control over price"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Collusion” means: Firms agreeing together to keep prices artificially high — illegal in the UK"
   }
  },
@@ -12387,13 +12387,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Non-price competition”?",
   "options": [
-   "The UK regulator that investigates mergers, cartels and unfair trading",
-   "Rivalry between firms operating in the same market for the same customers",
-   "The number of firms in an industry and the way those businesses behave",
-   "Competing through the product, promotion, service and brand instead of price"
+   "Competing through the product, promotion, service and brand instead of price",
+   "A product priced at little or no profit to attract customers who then buy other things",
+   "A firm that must accept the market price — typical of competitive markets",
+   "The UK regulator that investigates mergers, cartels and unfair trading"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Non-price competition” means: Competing through the product, promotion, service and brand instead of price"
   }
  },
@@ -12406,13 +12406,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Competition and Markets Authority”?",
   "options": [
-   "Rivalry between firms operating in the same market for the same customers",
    "The number of firms in an industry and the way those businesses behave",
+   "The UK regulator that investigates mergers, cartels and unfair trading",
    "A large number of mostly small firms, few barriers to entry, little control over price",
-   "The UK regulator that investigates mergers, cartels and unfair trading"
+   "Rivalry between firms operating in the same market for the same customers"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Competition and Markets Authority” means: The UK regulator that investigates mergers, cartels and unfair trading"
   }
  },
@@ -14278,8 +14278,8 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Production”?",
   "options": [
    "The total output of goods and services produced in a given time period",
-   "Output per unit of input — a measure of the efficiency of the factors of production",
-   "Costs that do not vary with the level of output, like rent and salaries",
+   "Continuous small improvements suggested by workers at every level",
+   "Cost advantages outside the firm's control, available to all firms in an area or industry",
    "Costs that rise and fall with output, like raw materials"
   ],
   "key": {
@@ -14296,13 +14296,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Productivity”?",
   "options": [
-   "Costs that do not vary with the level of output, like rent and salaries",
-   "Costs that rise and fall with output, like raw materials",
-   "Total fixed costs plus total variable costs",
-   "Output per unit of input — a measure of the efficiency of the factors of production"
+   "The total output of goods and services produced in a given time period",
+   "Output per unit of input — a measure of the efficiency of the factors of production",
+   "Cost advantages outside the firm's control, available to all firms in an area or industry",
+   "Total revenue minus total cost — negative means a loss"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Productivity” means: Output per unit of input — a measure of the efficiency of the factors of production"
   }
  },
@@ -14315,10 +14315,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Fixed costs”?",
   "options": [
-   "Costs that rise and fall with output, like raw materials",
+   "Total revenue minus total cost — negative means a loss",
    "Costs that do not vary with the level of output, like rent and salaries",
-   "Total fixed costs plus total variable costs",
-   "Total cost divided by quantity produced — the cost per unit"
+   "The total output of goods and services produced in a given time period",
+   "Output per unit of input — a measure of the efficiency of the factors of production"
   ],
   "key": {
    "answer": 1,
@@ -14334,13 +14334,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Variable costs”?",
   "options": [
-   "Total fixed costs plus total variable costs",
-   "Total cost divided by quantity produced — the cost per unit",
-   "Price multiplied by quantity sold",
-   "Costs that rise and fall with output, like raw materials"
+   "Costs that rise and fall with output, like raw materials",
+   "Total revenue divided by quantity — always equals the price",
+   "Continuous small improvements suggested by workers at every level",
+   "Costs that do not vary with the level of output, like rent and salaries"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Variable costs” means: Costs that rise and fall with output, like raw materials"
   }
  },
@@ -14354,12 +14354,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Total cost”?",
   "options": [
    "Total cost divided by quantity produced — the cost per unit",
-   "Price multiplied by quantity sold",
    "Total fixed costs plus total variable costs",
-   "Total revenue divided by quantity — always equals the price"
+   "Continuous small improvements suggested by workers at every level",
+   "Rising average costs when an organisation grows too large"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Total cost” means: Total fixed costs plus total variable costs"
   }
  },
@@ -14372,13 +14372,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Average cost”?",
   "options": [
-   "Price multiplied by quantity sold",
    "Total cost divided by quantity produced — the cost per unit",
    "Total revenue divided by quantity — always equals the price",
+   "Continuous small improvements suggested by workers at every level",
    "Total revenue minus total cost — negative means a loss"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Average cost” means: Total cost divided by quantity produced — the cost per unit"
   }
  },
@@ -14391,9 +14391,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Total revenue”?",
   "options": [
+   "Total fixed costs plus total variable costs",
+   "Continuous small improvements suggested by workers at every level",
    "Total revenue divided by quantity — always equals the price",
-   "Total revenue minus total cost — negative means a loss",
-   "The fall in average (unit) cost as the scale of production rises",
    "Price multiplied by quantity sold"
   ],
   "key": {
@@ -14410,13 +14410,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Average revenue”?",
   "options": [
-   "Total revenue minus total cost — negative means a loss",
-   "The fall in average (unit) cost as the scale of production rises",
    "Total revenue divided by quantity — always equals the price",
-   "Cost advantages outside the firm's control, available to all firms in an area or industry"
+   "Costs that rise and fall with output, like raw materials",
+   "Price multiplied by quantity sold",
+   "Total revenue minus total cost — negative means a loss"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“Average revenue” means: Total revenue divided by quantity — always equals the price"
   }
  },
@@ -14429,13 +14429,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Profit or loss”?",
   "options": [
-   "The fall in average (unit) cost as the scale of production rises",
-   "Cost advantages outside the firm's control, available to all firms in an area or industry",
-   "Rising average costs when an organisation grows too large",
-   "Total revenue minus total cost — negative means a loss"
+   "Total revenue minus total cost — negative means a loss",
+   "Total revenue divided by quantity — always equals the price",
+   "Output per unit of input — a measure of the efficiency of the factors of production",
+   "Costs that rise and fall with output, like raw materials"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Profit or loss” means: Total revenue minus total cost — negative means a loss"
   }
  },
@@ -14448,13 +14448,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Economies of scale”?",
   "options": [
+   "Continuous small improvements suggested by workers at every level",
+   "Costs that rise and fall with output, like raw materials",
    "The fall in average (unit) cost as the scale of production rises",
-   "Cost advantages outside the firm's control, available to all firms in an area or industry",
-   "Rising average costs when an organisation grows too large",
-   "Continuous small improvements suggested by workers at every level"
+   "Total cost divided by quantity produced — the cost per unit"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Economies of scale” means: The fall in average (unit) cost as the scale of production rises"
   }
  },
@@ -14467,13 +14467,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “External economies of scale”?",
   "options": [
-   "Rising average costs when an organisation grows too large",
-   "Continuous small improvements suggested by workers at every level",
-   "The total output of goods and services produced in a given time period",
-   "Cost advantages outside the firm's control, available to all firms in an area or industry"
+   "The fall in average (unit) cost as the scale of production rises",
+   "Cost advantages outside the firm's control, available to all firms in an area or industry",
+   "Total revenue minus total cost — negative means a loss",
+   "Total fixed costs plus total variable costs"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“External economies of scale” means: Cost advantages outside the firm's control, available to all firms in an area or industry"
   }
  },
@@ -14486,13 +14486,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Diseconomies of scale”?",
   "options": [
+   "Costs that rise and fall with output, like raw materials",
    "Rising average costs when an organisation grows too large",
-   "Continuous small improvements suggested by workers at every level",
-   "The total output of goods and services produced in a given time period",
-   "Output per unit of input — a measure of the efficiency of the factors of production"
+   "Costs that do not vary with the level of output, like rent and salaries",
+   "Continuous small improvements suggested by workers at every level"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“Diseconomies of scale” means: Rising average costs when an organisation grows too large"
   }
  },
@@ -14505,13 +14505,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Kaizen”?",
   "options": [
-   "The total output of goods and services produced in a given time period",
-   "Output per unit of input — a measure of the efficiency of the factors of production",
+   "Continuous small improvements suggested by workers at every level",
+   "Price multiplied by quantity sold",
    "Costs that do not vary with the level of output, like rent and salaries",
-   "Continuous small improvements suggested by workers at every level"
+   "The total output of goods and services produced in a given time period"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Kaizen” means: Continuous small improvements suggested by workers at every level"
   }
  },
@@ -15985,13 +15985,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Labour market”?",
   "options": [
-   "The price of labour, set by the demand for and supply of workers",
-   "Demand for labour that comes from demand for the product it makes",
+   "Total earnings before any deductions, including bonuses and overtime",
    "Where firms demand labour and households supply it, setting the wage rate",
+   "The skills, qualifications and experience a worker builds up over time",
    "The wage where the supply of labour equals the demand for labour"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Labour market” means: Where firms demand labour and households supply it, setting the wage rate"
   }
  },
@@ -16004,10 +16004,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Wage rate”?",
   "options": [
-   "Demand for labour that comes from demand for the product it makes",
+   "Take-home pay after income tax, National Insurance and pension are deducted",
    "The price of labour, set by the demand for and supply of workers",
-   "The wage where the supply of labour equals the demand for labour",
-   "The difference in pay workers get for different jobs"
+   "The lowest hourly pay an employer is legally allowed to offer",
+   "Demand for labour that comes from demand for the product it makes"
   ],
   "key": {
    "answer": 1,
@@ -16023,13 +16023,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Derived demand”?",
   "options": [
-   "The wage where the supply of labour equals the demand for labour",
+   "An organisation that bargains collectively for higher pay and better conditions",
+   "The market where the factors of production, like labour, are bought and sold",
    "Demand for labour that comes from demand for the product it makes",
-   "The difference in pay workers get for different jobs",
-   "The skills, qualifications and experience a worker builds up over time"
+   "Total earnings before any deductions, including bonuses and overtime"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Derived demand” means: Demand for labour that comes from demand for the product it makes"
   }
  },
@@ -16042,10 +16042,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Equilibrium wage”?",
   "options": [
-   "The difference in pay workers get for different jobs",
+   "Where firms demand labour and households supply it, setting the wage rate",
    "The wage where the supply of labour equals the demand for labour",
-   "The skills, qualifications and experience a worker builds up over time",
-   "Workers cannot move jobs because their skills do not transfer"
+   "An organisation that bargains collectively for higher pay and better conditions",
+   "Total earnings before any deductions, including bonuses and overtime"
   ],
   "key": {
    "answer": 1,
@@ -16061,13 +16061,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Wage differential”?",
   "options": [
+   "The market where the factors of production, like labour, are bought and sold",
    "The skills, qualifications and experience a worker builds up over time",
-   "Workers cannot move jobs because their skills do not transfer",
-   "The difference in pay workers get for different jobs",
-   "Workers cannot or will not move to another area for work"
+   "Total earnings before any deductions, including bonuses and overtime",
+   "The difference in pay workers get for different jobs"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“Wage differential” means: The difference in pay workers get for different jobs"
   }
  },
@@ -16080,13 +16080,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Human capital”?",
   "options": [
+   "Total earnings before any deductions, including bonuses and overtime",
    "The skills, qualifications and experience a worker builds up over time",
-   "Workers cannot move jobs because their skills do not transfer",
-   "Workers cannot or will not move to another area for work",
+   "The lowest hourly pay an employer is legally allowed to offer",
    "An organisation that bargains collectively for higher pay and better conditions"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“Human capital” means: The skills, qualifications and experience a worker builds up over time"
   }
  },
@@ -16099,13 +16099,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Occupational immobility”?",
   "options": [
-   "Workers cannot or will not move to another area for work",
-   "An organisation that bargains collectively for higher pay and better conditions",
+   "The wage where the supply of labour equals the demand for labour",
    "Workers cannot move jobs because their skills do not transfer",
-   "The lowest hourly pay an employer is legally allowed to offer"
+   "The difference in pay workers get for different jobs",
+   "Total earnings before any deductions, including bonuses and overtime"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Occupational immobility” means: Workers cannot move jobs because their skills do not transfer"
   }
  },
@@ -16118,10 +16118,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Geographical immobility”?",
   "options": [
-   "An organisation that bargains collectively for higher pay and better conditions",
    "The lowest hourly pay an employer is legally allowed to offer",
+   "The difference in pay workers get for different jobs",
    "Workers cannot or will not move to another area for work",
-   "Total earnings before any deductions, including bonuses and overtime"
+   "The skills, qualifications and experience a worker builds up over time"
   ],
   "key": {
    "answer": 2,
@@ -16137,10 +16137,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Trade union”?",
   "options": [
-   "The lowest hourly pay an employer is legally allowed to offer",
-   "Total earnings before any deductions, including bonuses and overtime",
+   "Workers cannot or will not move to another area for work",
+   "Take-home pay after income tax, National Insurance and pension are deducted",
    "An organisation that bargains collectively for higher pay and better conditions",
-   "Take-home pay after income tax, National Insurance and pension are deducted"
+   "Workers cannot move jobs because their skills do not transfer"
   ],
   "key": {
    "answer": 2,
@@ -16157,12 +16157,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “National Minimum Wage”?",
   "options": [
    "Total earnings before any deductions, including bonuses and overtime",
-   "Take-home pay after income tax, National Insurance and pension are deducted",
-   "The market where the factors of production, like labour, are bought and sold",
-   "The lowest hourly pay an employer is legally allowed to offer"
+   "Where firms demand labour and households supply it, setting the wage rate",
+   "The lowest hourly pay an employer is legally allowed to offer",
+   "The skills, qualifications and experience a worker builds up over time"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“National Minimum Wage” means: The lowest hourly pay an employer is legally allowed to offer"
   }
  },
@@ -16175,10 +16175,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Gross pay”?",
   "options": [
-   "Take-home pay after income tax, National Insurance and pension are deducted",
+   "The lowest hourly pay an employer is legally allowed to offer",
    "Total earnings before any deductions, including bonuses and overtime",
-   "The market where the factors of production, like labour, are bought and sold",
-   "Where firms demand labour and households supply it, setting the wage rate"
+   "Workers cannot or will not move to another area for work",
+   "The skills, qualifications and experience a worker builds up over time"
   ],
   "key": {
    "answer": 1,
@@ -16194,13 +16194,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Net pay”?",
   "options": [
-   "The market where the factors of production, like labour, are bought and sold",
-   "Where firms demand labour and households supply it, setting the wage rate",
    "Take-home pay after income tax, National Insurance and pension are deducted",
-   "The price of labour, set by the demand for and supply of workers"
+   "Workers cannot move jobs because their skills do not transfer",
+   "Where firms demand labour and households supply it, setting the wage rate",
+   "The wage where the supply of labour equals the demand for labour"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“Net pay” means: Take-home pay after income tax, National Insurance and pension are deducted"
   }
  },
@@ -16214,8 +16214,8 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Factor market”?",
   "options": [
    "The market where the factors of production, like labour, are bought and sold",
-   "Where firms demand labour and households supply it, setting the wage rate",
-   "The price of labour, set by the demand for and supply of workers",
+   "Workers cannot or will not move to another area for work",
+   "The skills, qualifications and experience a worker builds up over time",
    "Demand for labour that comes from demand for the product it makes"
   ],
   "key": {
@@ -17812,13 +17812,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Money”?",
   "options": [
-   "Something that sets a standard of value accepted by all parties in a transaction",
+   "Both traders must want exactly what the other is offering",
+   "The institutions and products that move money from savers to borrowers",
    "Anything generally accepted as a means of payment for goods and services",
-   "The direct exchange of goods and services without using money",
-   "Both traders must want exactly what the other is offering"
+   "Takes deposits and makes loans and overdrafts to households and firms"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Money” means: Anything generally accepted as a means of payment for goods and services"
   }
  },
@@ -17831,13 +17831,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Medium of exchange”?",
   "options": [
-   "The direct exchange of goods and services without using money",
    "Both traders must want exactly what the other is offering",
-   "Something that sets a standard of value accepted by all parties in a transaction",
-   "The institutions and products that move money from savers to borrowers"
+   "Anything generally accepted as a means of payment for goods and services",
+   "A mutual owned by its members, providing savings and mortgages",
+   "Something that sets a standard of value accepted by all parties in a transaction"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“Medium of exchange” means: Something that sets a standard of value accepted by all parties in a transaction"
   }
  },
@@ -17850,13 +17850,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Barter”?",
   "options": [
-   "Both traders must want exactly what the other is offering",
-   "The direct exchange of goods and services without using money",
    "The institutions and products that move money from savers to borrowers",
-   "The UK central bank — issues notes and sets the bank rate"
+   "Something that sets a standard of value accepted by all parties in a transaction",
+   "An agreed facility to withdraw more than the account balance",
+   "The direct exchange of goods and services without using money"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Barter” means: The direct exchange of goods and services without using money"
   }
  },
@@ -17869,13 +17869,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Double coincidence of wants”?",
   "options": [
-   "The institutions and products that move money from savers to borrowers",
-   "The UK central bank — issues notes and sets the bank rate",
+   "The direct exchange of goods and services without using money",
    "Both traders must want exactly what the other is offering",
-   "Takes deposits and makes loans and overdrafts to households and firms"
+   "An agreed facility to withdraw more than the account balance",
+   "A mutual owned by its members, providing savings and mortgages"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Double coincidence of wants” means: Both traders must want exactly what the other is offering"
   }
  },
@@ -17889,9 +17889,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Financial sector”?",
   "options": [
    "The UK central bank — issues notes and sets the bank rate",
-   "Takes deposits and makes loans and overdrafts to households and firms",
+   "Something that sets a standard of value accepted by all parties in a transaction",
    "The institutions and products that move money from savers to borrowers",
-   "A mutual owned by its members, providing savings and mortgages"
+   "Both traders must want exactly what the other is offering"
   ],
   "key": {
    "answer": 2,
@@ -17907,9 +17907,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Bank of England”?",
   "options": [
-   "Takes deposits and makes loans and overdrafts to households and firms",
-   "A mutual owned by its members, providing savings and mortgages",
    "Provides compensation for a specified loss in return for a premium",
+   "Both traders must want exactly what the other is offering",
+   "Anything generally accepted as a means of payment for goods and services",
    "The UK central bank — issues notes and sets the bank rate"
   ],
   "key": {
@@ -17926,13 +17926,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Commercial bank”?",
   "options": [
-   "A mutual owned by its members, providing savings and mortgages",
    "Takes deposits and makes loans and overdrafts to households and firms",
-   "Provides compensation for a specified loss in return for a premium",
-   "The cost of borrowing money and the reward for saving it"
+   "The cost of borrowing money and the reward for saving it",
+   "Anything generally accepted as a means of payment for goods and services",
+   "Something that sets a standard of value accepted by all parties in a transaction"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Commercial bank” means: Takes deposits and makes loans and overdrafts to households and firms"
   }
  },
@@ -17945,9 +17945,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Building society”?",
   "options": [
-   "Provides compensation for a specified loss in return for a premium",
-   "The cost of borrowing money and the reward for saving it",
-   "The base interest rate set by the Bank of England",
+   "An agreed facility to withdraw more than the account balance",
+   "Something that sets a standard of value accepted by all parties in a transaction",
+   "The institutions and products that move money from savers to borrowers",
    "A mutual owned by its members, providing savings and mortgages"
   ],
   "key": {
@@ -17964,13 +17964,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Insurance company”?",
   "options": [
+   "Takes deposits and makes loans and overdrafts to households and firms",
+   "The institutions and products that move money from savers to borrowers",
    "Provides compensation for a specified loss in return for a premium",
-   "The cost of borrowing money and the reward for saving it",
-   "The base interest rate set by the Bank of England",
-   "An agreed facility to withdraw more than the account balance"
+   "Both traders must want exactly what the other is offering"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Insurance company” means: Provides compensation for a specified loss in return for a premium"
   }
  },
@@ -17983,13 +17983,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Interest rate”?",
   "options": [
-   "The base interest rate set by the Bank of England",
-   "An agreed facility to withdraw more than the account balance",
-   "The regular payment made in return for insurance cover",
-   "The cost of borrowing money and the reward for saving it"
+   "The cost of borrowing money and the reward for saving it",
+   "A mutual owned by its members, providing savings and mortgages",
+   "The UK central bank — issues notes and sets the bank rate",
+   "The institutions and products that move money from savers to borrowers"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Interest rate” means: The cost of borrowing money and the reward for saving it"
   }
  },
@@ -18002,13 +18002,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Bank rate”?",
   "options": [
-   "An agreed facility to withdraw more than the account balance",
+   "Anything generally accepted as a means of payment for goods and services",
+   "The UK central bank — issues notes and sets the bank rate",
    "The base interest rate set by the Bank of England",
-   "The regular payment made in return for insurance cover",
-   "Anything generally accepted as a means of payment for goods and services"
+   "Provides compensation for a specified loss in return for a premium"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Bank rate” means: The base interest rate set by the Bank of England"
   }
  },
@@ -18021,13 +18021,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Overdraft”?",
   "options": [
-   "The regular payment made in return for insurance cover",
-   "Anything generally accepted as a means of payment for goods and services",
    "An agreed facility to withdraw more than the account balance",
-   "Something that sets a standard of value accepted by all parties in a transaction"
+   "The base interest rate set by the Bank of England",
+   "A mutual owned by its members, providing savings and mortgages",
+   "Both traders must want exactly what the other is offering"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“Overdraft” means: An agreed facility to withdraw more than the account balance"
   }
  },
@@ -18040,13 +18040,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Premium”?",
   "options": [
-   "The regular payment made in return for insurance cover",
-   "Anything generally accepted as a means of payment for goods and services",
-   "Something that sets a standard of value accepted by all parties in a transaction",
-   "The direct exchange of goods and services without using money"
+   "The institutions and products that move money from savers to borrowers",
+   "The base interest rate set by the Bank of England",
+   "Both traders must want exactly what the other is offering",
+   "The regular payment made in return for insurance cover"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Premium” means: The regular payment made in return for insurance cover"
   }
  },
@@ -19605,10 +19605,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Economic growth”?",
   "options": [
-   "The total value of goods and services produced in a country in a year",
+   "GDP divided by the population — the output of the average person",
    "The growth over time of GDP — an increase in the value of output",
-   "GDP adjusted for inflation, so it shows actual output not just higher prices",
-   "GDP expressed in money terms, before adjusting for inflation"
+   "GDP expressed in money terms, before adjusting for inflation",
+   "GDP adjusted for inflation, so it shows actual output not just higher prices"
   ],
   "key": {
    "answer": 1,
@@ -19624,13 +19624,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “GDP”?",
   "options": [
-   "The total value of goods and services produced in a country in a year",
-   "GDP adjusted for inflation, so it shows actual output not just higher prices",
-   "GDP expressed in money terms, before adjusting for inflation",
-   "GDP divided by the population — the output of the average person"
+   "When national output actually falls",
+   "Firms spending on capital equipment such as machinery and premises",
+   "GDP divided by the population — the output of the average person",
+   "The total value of goods and services produced in a country in a year"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“GDP” means: The total value of goods and services produced in a country in a year"
   }
  },
@@ -19643,13 +19643,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Real GDP”?",
   "options": [
+   "The total value of goods and services produced in a country in a year",
    "GDP adjusted for inflation, so it shows actual output not just higher prices",
-   "GDP expressed in money terms, before adjusting for inflation",
-   "GDP divided by the population — the output of the average person",
+   "An increase in the economy's potential productive capacity",
    "Commonly two consecutive quarters of negative GDP growth"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“Real GDP” means: GDP adjusted for inflation, so it shows actual output not just higher prices"
   }
  },
@@ -19662,13 +19662,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Nominal GDP”?",
   "options": [
-   "GDP divided by the population — the output of the average person",
-   "Commonly two consecutive quarters of negative GDP growth",
    "GDP expressed in money terms, before adjusting for inflation",
-   "When national output actually falls"
+   "When national output actually falls",
+   "GDP divided by the population — the output of the average person",
+   "An increase in the economy's potential productive capacity"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“Nominal GDP” means: GDP expressed in money terms, before adjusting for inflation"
   }
  },
@@ -19681,13 +19681,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “GDP per capita”?",
   "options": [
-   "Commonly two consecutive quarters of negative GDP growth",
-   "GDP divided by the population — the output of the average person",
-   "When national output actually falls",
-   "An increase in the economy's potential productive capacity"
+   "The total value of goods and services produced in a country in a year",
+   "Firms spending on capital equipment such as machinery and premises",
+   "The skills, education and training that make workers more productive",
+   "GDP divided by the population — the output of the average person"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“GDP per capita” means: GDP divided by the population — the output of the average person"
   }
  },
@@ -19700,13 +19700,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Recession”?",
   "options": [
-   "Commonly two consecutive quarters of negative GDP growth",
-   "When national output actually falls",
+   "GDP adjusted for inflation, so it shows actual output not just higher prices",
    "An increase in the economy's potential productive capacity",
-   "Firms spending on capital equipment such as machinery and premises"
+   "A cost of growth borne by third parties, such as pollution",
+   "Commonly two consecutive quarters of negative GDP growth"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Recession” means: Commonly two consecutive quarters of negative GDP growth"
   }
  },
@@ -19719,13 +19719,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Negative growth”?",
   "options": [
-   "An increase in the economy's potential productive capacity",
-   "Firms spending on capital equipment such as machinery and premises",
    "The skills, education and training that make workers more productive",
-   "When national output actually falls"
+   "When national output actually falls",
+   "The growth over time of GDP — an increase in the value of output",
+   "A cost of growth borne by third parties, such as pollution"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Negative growth” means: When national output actually falls"
   }
  },
@@ -19739,9 +19739,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Long-run growth”?",
   "options": [
    "Firms spending on capital equipment such as machinery and premises",
-   "The skills, education and training that make workers more productive",
+   "GDP divided by the population — the output of the average person",
    "An increase in the economy's potential productive capacity",
-   "Transport, energy and digital networks that let business operate"
+   "When national output actually falls"
   ],
   "key": {
    "answer": 2,
@@ -19757,13 +19757,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Investment”?",
   "options": [
-   "The skills, education and training that make workers more productive",
-   "Transport, energy and digital networks that let business operate",
+   "Whether growth can continue without exhausting or damaging the planet",
    "Firms spending on capital equipment such as machinery and premises",
-   "A cost of growth borne by third parties, such as pollution"
+   "The growth over time of GDP — an increase in the value of output",
+   "An increase in the economy's potential productive capacity"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Investment” means: Firms spending on capital equipment such as machinery and premises"
   }
  },
@@ -19776,13 +19776,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Human capital”?",
   "options": [
+   "GDP divided by the population — the output of the average person",
    "The skills, education and training that make workers more productive",
-   "Transport, energy and digital networks that let business operate",
    "A cost of growth borne by third parties, such as pollution",
-   "Whether growth can continue without exhausting or damaging the planet"
+   "GDP expressed in money terms, before adjusting for inflation"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“Human capital” means: The skills, education and training that make workers more productive"
   }
  },
@@ -19795,10 +19795,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Infrastructure”?",
   "options": [
-   "A cost of growth borne by third parties, such as pollution",
    "Whether growth can continue without exhausting or damaging the planet",
+   "The growth over time of GDP — an increase in the value of output",
    "Transport, energy and digital networks that let business operate",
-   "The growth over time of GDP — an increase in the value of output"
+   "Commonly two consecutive quarters of negative GDP growth"
   ],
   "key": {
    "answer": 2,
@@ -19814,10 +19814,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Negative externality”?",
   "options": [
-   "Whether growth can continue without exhausting or damaging the planet",
+   "Transport, energy and digital networks that let business operate",
    "A cost of growth borne by third parties, such as pollution",
-   "The growth over time of GDP — an increase in the value of output",
-   "The total value of goods and services produced in a country in a year"
+   "An increase in the economy's potential productive capacity",
+   "The growth over time of GDP — an increase in the value of output"
   ],
   "key": {
    "answer": 1,
@@ -19833,13 +19833,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Environmental sustainability”?",
   "options": [
+   "GDP divided by the population — the output of the average person",
    "Whether growth can continue without exhausting or damaging the planet",
-   "The growth over time of GDP — an increase in the value of output",
    "The total value of goods and services produced in a country in a year",
-   "GDP adjusted for inflation, so it shows actual output not just higher prices"
+   "The skills, education and training that make workers more productive"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“Environmental sustainability” means: Whether growth can continue without exhausting or damaging the planet"
   }
  },
@@ -21481,13 +21481,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Employment”?",
   "options": [
-   "Being willing and able to work but unable to find a job",
-   "Of working age but not seeking work, e.g. a full-time carer or student",
-   "Measures unemployment by counting those receiving Jobseeker's Allowance",
-   "The use of labour to produce goods and services"
+   "Caused by a fall in demand across the whole economy",
+   "The temporary gap while a worker moves between jobs",
+   "The use of labour to produce goods and services",
+   "An industry declines, leaving a mismatch between skills and vacancies"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“Employment” means: The use of labour to produce goods and services"
   }
  },
@@ -21500,13 +21500,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Unemployment”?",
   "options": [
-   "Of working age but not seeking work, e.g. a full-time carer or student",
-   "Measures unemployment by counting those receiving Jobseeker's Allowance",
+   "The percentage of the workforce that is unemployed",
    "Being willing and able to work but unable to find a job",
-   "Surveys households using a standardised international method"
+   "The temporary gap while a worker moves between jobs",
+   "The use of labour to produce goods and services"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Unemployment” means: Being willing and able to work but unable to find a job"
   }
  },
@@ -21519,13 +21519,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Economically inactive”?",
   "options": [
-   "Measures unemployment by counting those receiving Jobseeker's Allowance",
-   "Surveys households using a standardised international method",
-   "The total number of people unemployed",
-   "Of working age but not seeking work, e.g. a full-time carer or student"
+   "Of working age but not seeking work, e.g. a full-time carer or student",
+   "The temporary gap while a worker moves between jobs",
+   "Caused by jobs only existing at certain times of the year",
+   "An industry declines, leaving a mismatch between skills and vacancies"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Economically inactive” means: Of working age but not seeking work, e.g. a full-time carer or student"
   }
  },
@@ -21538,13 +21538,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Claimant count”?",
   "options": [
-   "Surveys households using a standardised international method",
-   "The total number of people unemployed",
-   "The percentage of the workforce that is unemployed",
-   "Measures unemployment by counting those receiving Jobseeker's Allowance"
+   "The use of labour to produce goods and services",
+   "Of working age but not seeking work, e.g. a full-time carer or student",
+   "Measures unemployment by counting those receiving Jobseeker's Allowance",
+   "The percentage of the workforce that is unemployed"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“Claimant count” means: Measures unemployment by counting those receiving Jobseeker's Allowance"
   }
  },
@@ -21557,9 +21557,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Labour Force Survey”?",
   "options": [
-   "The total number of people unemployed",
-   "The percentage of the workforce that is unemployed",
-   "Everyone able and willing to work — the denominator in the rate",
+   "Of working age but not seeking work, e.g. a full-time carer or student",
+   "Caused by jobs only existing at certain times of the year",
+   "An industry declines, leaving a mismatch between skills and vacancies",
    "Surveys households using a standardised international method"
   ],
   "key": {
@@ -21576,13 +21576,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Level of unemployment”?",
   "options": [
-   "The percentage of the workforce that is unemployed",
-   "Everyone able and willing to work — the denominator in the rate",
+   "Of working age but not seeking work, e.g. a full-time carer or student",
    "Caused by jobs only existing at certain times of the year",
-   "The total number of people unemployed"
+   "The total number of people unemployed",
+   "Workers cannot move to another area to find work"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“Level of unemployment” means: The total number of people unemployed"
   }
  },
@@ -21595,10 +21595,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Unemployment rate”?",
   "options": [
-   "Everyone able and willing to work — the denominator in the rate",
-   "Caused by jobs only existing at certain times of the year",
+   "The total number of people unemployed",
+   "The use of labour to produce goods and services",
    "The percentage of the workforce that is unemployed",
-   "The temporary gap while a worker moves between jobs"
+   "Caused by jobs only existing at certain times of the year"
   ],
   "key": {
    "answer": 2,
@@ -21614,13 +21614,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Workforce”?",
   "options": [
-   "Caused by jobs only existing at certain times of the year",
-   "The temporary gap while a worker moves between jobs",
-   "An industry declines, leaving a mismatch between skills and vacancies",
-   "Everyone able and willing to work — the denominator in the rate"
+   "Being willing and able to work but unable to find a job",
+   "Everyone able and willing to work — the denominator in the rate",
+   "Measures unemployment by counting those receiving Jobseeker's Allowance",
+   "The total number of people unemployed"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Workforce” means: Everyone able and willing to work — the denominator in the rate"
   }
  },
@@ -21633,13 +21633,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Seasonal unemployment”?",
   "options": [
-   "Caused by jobs only existing at certain times of the year",
    "The temporary gap while a worker moves between jobs",
-   "An industry declines, leaving a mismatch between skills and vacancies",
-   "Caused by a fall in demand across the whole economy"
+   "The use of labour to produce goods and services",
+   "Everyone able and willing to work — the denominator in the rate",
+   "Caused by jobs only existing at certain times of the year"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Seasonal unemployment” means: Caused by jobs only existing at certain times of the year"
   }
  },
@@ -21652,13 +21652,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Frictional unemployment”?",
   "options": [
-   "An industry declines, leaving a mismatch between skills and vacancies",
    "The temporary gap while a worker moves between jobs",
-   "Caused by a fall in demand across the whole economy",
-   "Workers cannot move to another area to find work"
+   "An industry declines, leaving a mismatch between skills and vacancies",
+   "Of working age but not seeking work, e.g. a full-time carer or student",
+   "Caused by jobs only existing at certain times of the year"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Frictional unemployment” means: The temporary gap while a worker moves between jobs"
   }
  },
@@ -21671,13 +21671,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Structural unemployment”?",
   "options": [
-   "Caused by a fall in demand across the whole economy",
-   "Workers cannot move to another area to find work",
-   "The use of labour to produce goods and services",
-   "An industry declines, leaving a mismatch between skills and vacancies"
+   "An industry declines, leaving a mismatch between skills and vacancies",
+   "Being willing and able to work but unable to find a job",
+   "Everyone able and willing to work — the denominator in the rate",
+   "Surveys households using a standardised international method"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Structural unemployment” means: An industry declines, leaving a mismatch between skills and vacancies"
   }
  },
@@ -21690,13 +21690,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Cyclical unemployment”?",
   "options": [
-   "Workers cannot move to another area to find work",
-   "The use of labour to produce goods and services",
    "Caused by a fall in demand across the whole economy",
-   "Being willing and able to work but unable to find a job"
+   "Everyone able and willing to work — the denominator in the rate",
+   "Of working age but not seeking work, e.g. a full-time carer or student",
+   "Workers cannot move to another area to find work"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“Cyclical unemployment” means: Caused by a fall in demand across the whole economy"
   }
  },
@@ -21709,13 +21709,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Geographical immobility”?",
   "options": [
-   "The use of labour to produce goods and services",
+   "An industry declines, leaving a mismatch between skills and vacancies",
+   "Surveys households using a standardised international method",
    "Being willing and able to work but unable to find a job",
-   "Workers cannot move to another area to find work",
-   "Of working age but not seeking work, e.g. a full-time carer or student"
+   "Workers cannot move to another area to find work"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“Geographical immobility” means: Workers cannot move to another area to find work"
   }
  },
@@ -22076,7 +22076,7 @@ window.QUESTION_BANK = [
   "hint": "Perfect equality would put 10% in both share columns. So look for the country whose richest 10% share is LOWEST and whose poorest 10% share is HIGHEST — the closest to 10 on both. Name it, then justify with the figures.",
   "starter": "Finland has the most equal distribution, because...",
   "key": {
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answer: Finland</strong></p>\n<p><strong>Explanation may include:</strong></p>\n<ul>\n<li>Income share held by the richest 10% is lower than in the other three countries</li>\n<li>Income share held by the poorest 10% is higher than in the other three countries</li>\n<li>Income share held by the 90% is higher than in the other three countries</li>\n<li>Ratio of share held by richest 10% to share held by poorest 10% is the smallest among the four countries (5.74 compared to 18.06 in the case of the USA)</li>\n</ul>\n<p>1 mark for the correct answer, 1 mark for correct explanation.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answer: Finland</strong></p>\n<p><strong>Explanation may include:</strong></p>\n<ul>\n<li>Income share held by the richest 10% is lower than in the other three countries</li>\n<li>Income share held by the poorest 10% is higher than in the other three countries</li>\n<li>Income share held by the 90% is higher than in the other three countries</li>\n<li>Ratio of share held by richest 10% to share held by poorest 10% is the smallest among the four countries (5.74 compared to 18.06 in the case of the USA)</li>\n<li><strong>ARA</strong> (Accept Reasonable Alternatives)</li>\n</ul>\n<p>1 mark for the correct answer, 1 mark for correct explanation.</p>\n</div>",
    "modelAnswer": "Finland has the most equal income distribution.\n\nIts richest 10% take the smallest share of any of the four countries (22.4%, against 30.6% in the USA), while its poorest 10% receive the largest share (3.9%, against 1.7% in the USA) — so both figures are closest to the 10% that perfect equality would give."
   }
  },
@@ -22195,7 +22195,7 @@ window.QUESTION_BANK = [
   "hint": "State a cause AND explain it — a bare 'differences in wages' is only 1 mark. Develop it, e.g. some workers earn the minimum wage while others earn six figures, because of differences in skills and scarcity.",
   "starter": "One cause is differences in wages, because...",
   "key": {
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Income-earning assets are distributed unevenly</li>\n<li>Differences in wages</li>\n<li>Differences in education and skills/talent levels</li>\n<li>Reliance on benefits</li>\n<li>Age/Gender</li>\n<li>Unequal distribution of wealth</li>\n</ul>\n<p>2 marks for a correct explanation. Give 1 mark for a correct statement such as 'difference in wages'. Give 1 mark for some explanation such as 'caused by some workers being paid the minimum wage, but others being paid a six-figure sum'.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Income-earning assets are distributed unevenly</li>\n<li>Differences in wages</li>\n<li>Differences in education and skills/talent levels</li>\n<li>Reliance on benefits</li>\n<li>Age/Gender</li>\n<li>Unequal distribution of wealth</li>\n<li><strong>ARA</strong> (Accept Reasonable Alternatives)</li>\n</ul>\n<p>2 marks for a correct explanation. Give 1 mark for a correct statement such as 'difference in wages'. Give 1 mark for some explanation such as 'caused by some workers being paid the minimum wage, but others being paid a six-figure sum'.</p>\n</div>",
    "modelAnswer": "One cause is the uneven distribution of wealth, since income-earning assets are held mainly by the richest households.\n\nThose who own property receive rent and those with large savings receive interest and dividends, so they gain extra income on top of their wages — while households with no assets rely on wages alone, widening the gap."
   }
  },
@@ -22966,13 +22966,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Income”?",
   "options": [
+   "Reduces wealth passed on when someone dies, breaking up large estates",
+   "The legal pay floor for workers aged 23 and over",
    "A flow of money received over time for the services of a factor of production",
-   "A stock of assets owned by a person, group or country",
-   "Income earned from letting out an owned asset such as a second home",
-   "A share of a company's profits paid to its shareholders"
+   "Income earned from letting out an owned asset such as a second home"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Income” means: A flow of money received over time for the services of a factor of production"
   }
  },
@@ -22985,13 +22985,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Wealth”?",
   "options": [
-   "Income earned from letting out an owned asset such as a second home",
-   "A share of a company's profits paid to its shareholders",
+   "The slice of income taxed at 0% before any tax is paid",
    "A stock of assets owned by a person, group or country",
-   "Lacking the basic necessities — food, shelter, clothing, sanitation"
+   "A share of a company's profits paid to its shareholders",
+   "Charges a higher rate of tax on higher incomes"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Wealth” means: A stock of assets owned by a person, group or country"
   }
  },
@@ -23004,10 +23004,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Rent”?",
   "options": [
-   "A share of a company's profits paid to its shareholders",
+   "The percentage of total income going to a subgroup of the population",
    "Lacking the basic necessities — food, shelter, clothing, sanitation",
    "Income earned from letting out an owned asset such as a second home",
-   "A household with less than 60% of median income"
+   "The Human Development Index adjusted for inequality within a country"
   ],
   "key": {
    "answer": 2,
@@ -23024,12 +23024,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Dividends”?",
   "options": [
    "Lacking the basic necessities — food, shelter, clothing, sanitation",
+   "A share of a company's profits paid to its shareholders",
    "A household with less than 60% of median income",
-   "Charges a higher rate of tax on higher incomes",
-   "A share of a company's profits paid to its shareholders"
+   "The percentage of total income going to a subgroup of the population"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Dividends” means: A share of a company's profits paid to its shareholders"
   }
  },
@@ -23042,13 +23042,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Absolute poverty”?",
   "options": [
-   "A household with less than 60% of median income",
    "Lacking the basic necessities — food, shelter, clothing, sanitation",
-   "Charges a higher rate of tax on higher incomes",
-   "Takes a higher proportion of income from low earners, e.g. VAT"
+   "A flow of money received over time for the services of a factor of production",
+   "A household with less than 60% of median income",
+   "A share of a company's profits paid to its shareholders"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Absolute poverty” means: Lacking the basic necessities — food, shelter, clothing, sanitation"
   }
  },
@@ -23061,13 +23061,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Relative poverty”?",
   "options": [
-   "Charges a higher rate of tax on higher incomes",
-   "Takes a higher proportion of income from low earners, e.g. VAT",
+   "A share of a company's profits paid to its shareholders",
    "A household with less than 60% of median income",
-   "Reduces wealth passed on when someone dies, breaking up large estates"
+   "A stock of assets owned by a person, group or country",
+   "Lacking the basic necessities — food, shelter, clothing, sanitation"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Relative poverty” means: A household with less than 60% of median income"
   }
  },
@@ -23080,13 +23080,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Progressive tax”?",
   "options": [
-   "Takes a higher proportion of income from low earners, e.g. VAT",
-   "Reduces wealth passed on when someone dies, breaking up large estates",
-   "The legal pay floor for workers aged 23 and over",
-   "Charges a higher rate of tax on higher incomes"
+   "Charges a higher rate of tax on higher incomes",
+   "A share of a company's profits paid to its shareholders",
+   "Lacking the basic necessities — food, shelter, clothing, sanitation",
+   "Takes a higher proportion of income from low earners, e.g. VAT"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Progressive tax” means: Charges a higher rate of tax on higher incomes"
   }
  },
@@ -23099,13 +23099,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Regressive tax”?",
   "options": [
-   "Reduces wealth passed on when someone dies, breaking up large estates",
-   "Takes a higher proportion of income from low earners, e.g. VAT",
-   "The legal pay floor for workers aged 23 and over",
-   "The slice of income taxed at 0% before any tax is paid"
+   "The percentage of total income going to a subgroup of the population",
+   "The Human Development Index adjusted for inequality within a country",
+   "A stock of assets owned by a person, group or country",
+   "Takes a higher proportion of income from low earners, e.g. VAT"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Regressive tax” means: Takes a higher proportion of income from low earners, e.g. VAT"
   }
  },
@@ -23118,13 +23118,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Inheritance tax”?",
   "options": [
-   "Reduces wealth passed on when someone dies, breaking up large estates",
-   "The legal pay floor for workers aged 23 and over",
-   "The slice of income taxed at 0% before any tax is paid",
-   "The percentage of total income going to a subgroup of the population"
+   "A share of a company's profits paid to its shareholders",
+   "Charges a higher rate of tax on higher incomes",
+   "Takes a higher proportion of income from low earners, e.g. VAT",
+   "Reduces wealth passed on when someone dies, breaking up large estates"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Inheritance tax” means: Reduces wealth passed on when someone dies, breaking up large estates"
   }
  },
@@ -23137,13 +23137,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “National Living Wage”?",
   "options": [
-   "The legal pay floor for workers aged 23 and over",
+   "A flow of money received over time for the services of a factor of production",
    "The slice of income taxed at 0% before any tax is paid",
-   "The percentage of total income going to a subgroup of the population",
-   "The Human Development Index adjusted for inequality within a country"
+   "A stock of assets owned by a person, group or country",
+   "The legal pay floor for workers aged 23 and over"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“National Living Wage” means: The legal pay floor for workers aged 23 and over"
   }
  },
@@ -23156,13 +23156,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Personal Allowance”?",
   "options": [
-   "The percentage of total income going to a subgroup of the population",
+   "A stock of assets owned by a person, group or country",
    "The Human Development Index adjusted for inequality within a country",
-   "A flow of money received over time for the services of a factor of production",
-   "The slice of income taxed at 0% before any tax is paid"
+   "The slice of income taxed at 0% before any tax is paid",
+   "The percentage of total income going to a subgroup of the population"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“Personal Allowance” means: The slice of income taxed at 0% before any tax is paid"
   }
  },
@@ -23175,13 +23175,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Income share”?",
   "options": [
-   "The Human Development Index adjusted for inequality within a country",
    "A flow of money received over time for the services of a factor of production",
-   "A stock of assets owned by a person, group or country",
-   "The percentage of total income going to a subgroup of the population"
+   "The percentage of total income going to a subgroup of the population",
+   "Charges a higher rate of tax on higher incomes",
+   "Takes a higher proportion of income from low earners, e.g. VAT"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Income share” means: The percentage of total income going to a subgroup of the population"
   }
  },
@@ -23194,13 +23194,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “IHDI”?",
   "options": [
-   "A flow of money received over time for the services of a factor of production",
-   "A stock of assets owned by a person, group or country",
-   "Income earned from letting out an owned asset such as a second home",
-   "The Human Development Index adjusted for inequality within a country"
+   "Charges a higher rate of tax on higher incomes",
+   "Reduces wealth passed on when someone dies, breaking up large estates",
+   "The Human Development Index adjusted for inequality within a country",
+   "A stock of assets owned by a person, group or country"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“IHDI” means: The Human Development Index adjusted for inequality within a country"
   }
  },
@@ -24681,13 +24681,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Inflation”?",
   "options": [
-   "The general price level growing at a low rate, e.g. the 2% target",
-   "A sustained rise in the general level of prices over time",
    "A negative inflation rate — the general price level actually falls",
-   "How much a given amount of money can actually buy"
+   "Rising costs of production are passed on as higher prices",
+   "A sustained rise in the general level of prices over time",
+   "The nominal interest rate minus the rate of inflation"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Inflation” means: A sustained rise in the general level of prices over time"
   }
  },
@@ -24700,13 +24700,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Price stability”?",
   "options": [
-   "A negative inflation rate — the general price level actually falls",
-   "The general price level growing at a low rate, e.g. the 2% target",
+   "The nominal interest rate minus the rate of inflation",
    "How much a given amount of money can actually buy",
-   "The raw money figure, not adjusted for inflation"
+   "Consumer Price Index — tracks a weighted basket of goods and services",
+   "The general price level growing at a low rate, e.g. the 2% target"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Price stability” means: The general price level growing at a low rate, e.g. the 2% target"
   }
  },
@@ -24719,13 +24719,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Deflation”?",
   "options": [
-   "How much a given amount of money can actually buy",
-   "The raw money figure, not adjusted for inflation",
+   "Consumer Price Index — tracks a weighted basket of goods and services",
    "A figure adjusted for inflation, showing what it can buy",
-   "A negative inflation rate — the general price level actually falls"
+   "A negative inflation rate — the general price level actually falls",
+   "The general price level growing at a low rate, e.g. the 2% target"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“Deflation” means: A negative inflation rate — the general price level actually falls"
   }
  },
@@ -24738,10 +24738,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Purchasing power”?",
   "options": [
+   "The general price level growing at a low rate, e.g. the 2% target",
    "The raw money figure, not adjusted for inflation",
-   "A figure adjusted for inflation, showing what it can buy",
    "How much a given amount of money can actually buy",
-   "Consumer Price Index — tracks a weighted basket of goods and services"
+   "The nominal interest rate minus the rate of inflation"
   ],
   "key": {
    "answer": 2,
@@ -24757,13 +24757,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Nominal value”?",
   "options": [
+   "The time and effort spent shopping around comparing prices",
+   "The cost to producers of repeatedly changing price lists",
    "The raw money figure, not adjusted for inflation",
-   "A figure adjusted for inflation, showing what it can buy",
-   "Consumer Price Index — tracks a weighted basket of goods and services",
-   "Excess demand that supply cannot rise to meet bids prices up"
+   "How much a given amount of money can actually buy"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Nominal value” means: The raw money figure, not adjusted for inflation"
   }
  },
@@ -24776,10 +24776,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Real value”?",
   "options": [
-   "Consumer Price Index — tracks a weighted basket of goods and services",
+   "The time and effort spent shopping around comparing prices",
    "Excess demand that supply cannot rise to meet bids prices up",
    "A figure adjusted for inflation, showing what it can buy",
-   "Rising costs of production are passed on as higher prices"
+   "A sustained rise in the general level of prices over time"
   ],
   "key": {
    "answer": 2,
@@ -24795,13 +24795,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “CPI”?",
   "options": [
+   "Prices rise, wages rise to match, costs rise, prices rise again",
    "Excess demand that supply cannot rise to meet bids prices up",
    "Consumer Price Index — tracks a weighted basket of goods and services",
-   "Rising costs of production are passed on as higher prices",
-   "Prices rise, wages rise to match, costs rise, prices rise again"
+   "A sustained rise in the general level of prices over time"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“CPI” means: Consumer Price Index — tracks a weighted basket of goods and services"
   }
  },
@@ -24814,13 +24814,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Demand-pull inflation”?",
   "options": [
-   "Excess demand that supply cannot rise to meet bids prices up",
+   "The time and effort spent shopping around comparing prices",
+   "A sustained rise in the general level of prices over time",
    "Rising costs of production are passed on as higher prices",
-   "Prices rise, wages rise to match, costs rise, prices rise again",
-   "The cost to producers of repeatedly changing price lists"
+   "Excess demand that supply cannot rise to meet bids prices up"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Demand-pull inflation” means: Excess demand that supply cannot rise to meet bids prices up"
   }
  },
@@ -24833,13 +24833,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Cost-push inflation”?",
   "options": [
-   "Prices rise, wages rise to match, costs rise, prices rise again",
-   "The cost to producers of repeatedly changing price lists",
-   "The time and effort spent shopping around comparing prices",
-   "Rising costs of production are passed on as higher prices"
+   "Excess demand that supply cannot rise to meet bids prices up",
+   "A sustained rise in the general level of prices over time",
+   "Rising costs of production are passed on as higher prices",
+   "The raw money figure, not adjusted for inflation"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“Cost-push inflation” means: Rising costs of production are passed on as higher prices"
   }
  },
@@ -24852,13 +24852,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Wage-price spiral”?",
   "options": [
-   "Prices rise, wages rise to match, costs rise, prices rise again",
    "The cost to producers of repeatedly changing price lists",
-   "The time and effort spent shopping around comparing prices",
-   "The nominal interest rate minus the rate of inflation"
+   "Prices rise, wages rise to match, costs rise, prices rise again",
+   "How much a given amount of money can actually buy",
+   "A figure adjusted for inflation, showing what it can buy"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“Wage-price spiral” means: Prices rise, wages rise to match, costs rise, prices rise again"
   }
  },
@@ -24871,13 +24871,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Menu costs”?",
   "options": [
-   "The time and effort spent shopping around comparing prices",
-   "The nominal interest rate minus the rate of inflation",
-   "The cost to producers of repeatedly changing price lists",
-   "A sustained rise in the general level of prices over time"
+   "Consumer Price Index — tracks a weighted basket of goods and services",
+   "A negative inflation rate — the general price level actually falls",
+   "The raw money figure, not adjusted for inflation",
+   "The cost to producers of repeatedly changing price lists"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“Menu costs” means: The cost to producers of repeatedly changing price lists"
   }
  },
@@ -24890,13 +24890,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Shoe leather costs”?",
   "options": [
-   "The nominal interest rate minus the rate of inflation",
-   "The time and effort spent shopping around comparing prices",
-   "A sustained rise in the general level of prices over time",
-   "The general price level growing at a low rate, e.g. the 2% target"
+   "Prices rise, wages rise to match, costs rise, prices rise again",
+   "The raw money figure, not adjusted for inflation",
+   "How much a given amount of money can actually buy",
+   "The time and effort spent shopping around comparing prices"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Shoe leather costs” means: The time and effort spent shopping around comparing prices"
   }
  },
@@ -24909,13 +24909,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Real interest rate”?",
   "options": [
-   "A sustained rise in the general level of prices over time",
-   "The general price level growing at a low rate, e.g. the 2% target",
-   "A negative inflation rate — the general price level actually falls",
-   "The nominal interest rate minus the rate of inflation"
+   "The raw money figure, not adjusted for inflation",
+   "The nominal interest rate minus the rate of inflation",
+   "The cost to producers of repeatedly changing price lists",
+   "Excess demand that supply cannot rise to meet bids prices up"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Real interest rate” means: The nominal interest rate minus the rate of inflation"
   }
  },
@@ -26600,13 +26600,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Fiscal policy”?",
   "options": [
-   "A tax on income or wealth, paid by the person liable for it",
-   "A tax on spending, collected and passed on by the seller",
-   "Government spending exceeds tax revenue — the gap is borrowed",
-   "The government's choices about taxation and spending"
+   "Tax revenue exceeds government spending",
+   "The government's choices about taxation and spending",
+   "Money given to encourage goods with positive externalities",
+   "Outcomes a policy causes that the government did not intend"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Fiscal policy” means: The government's choices about taxation and spending"
   }
  },
@@ -26619,13 +26619,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Direct tax”?",
   "options": [
-   "A tax on spending, collected and passed on by the seller",
    "A tax on income or wealth, paid by the person liable for it",
-   "Government spending exceeds tax revenue — the gap is borrowed",
-   "Tax revenue exceeds government spending"
+   "What the government must pay on money it has borrowed",
+   "Money given to encourage goods with positive externalities",
+   "Government spending exceeds tax revenue — the gap is borrowed"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Direct tax” means: A tax on income or wealth, paid by the person liable for it"
   }
  },
@@ -26639,9 +26639,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Indirect tax”?",
   "options": [
    "A tax on spending, collected and passed on by the seller",
-   "Government spending exceeds tax revenue — the gap is borrowed",
-   "Tax revenue exceeds government spending",
-   "Tax revenue is equal to government spending"
+   "Money given to encourage goods with positive externalities",
+   "Government borrowing and spending displacing private sector activity",
+   "Government spending exceeds tax revenue — the gap is borrowed"
   ],
   "key": {
    "answer": 0,
@@ -26657,13 +26657,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Budget deficit”?",
   "options": [
+   "Money given to encourage goods with positive externalities",
+   "Government borrowing and spending displacing private sector activity",
    "Government spending exceeds tax revenue — the gap is borrowed",
-   "Tax revenue exceeds government spending",
-   "Tax revenue is equal to government spending",
-   "A direct tax charged on business profits"
+   "An indirect tax on goods like tobacco, alcohol and fuel"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Budget deficit” means: Government spending exceeds tax revenue — the gap is borrowed"
   }
  },
@@ -26676,13 +26676,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Budget surplus”?",
   "options": [
-   "Tax revenue is equal to government spending",
-   "A direct tax charged on business profits",
+   "The government's choices about taxation and spending",
    "Tax revenue exceeds government spending",
-   "An indirect tax on goods like tobacco, alcohol and fuel"
+   "Government spending exceeds tax revenue — the gap is borrowed",
+   "A tax on spending, collected and passed on by the seller"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Budget surplus” means: Tax revenue exceeds government spending"
   }
  },
@@ -26695,13 +26695,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Balanced budget”?",
   "options": [
-   "A direct tax charged on business profits",
-   "An indirect tax on goods like tobacco, alcohol and fuel",
+   "Tax revenue exceeds government spending",
    "Tax revenue is equal to government spending",
-   "Each round of spending becomes income, which is spent again"
+   "A tax on income or wealth, paid by the person liable for it",
+   "What the government must pay on money it has borrowed"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Balanced budget” means: Tax revenue is equal to government spending"
   }
  },
@@ -26714,13 +26714,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Corporation tax”?",
   "options": [
-   "An indirect tax on goods like tobacco, alcohol and fuel",
-   "Each round of spending becomes income, which is spent again",
    "A direct tax charged on business profits",
-   "Money given to encourage goods with positive externalities"
+   "Money given to encourage goods with positive externalities",
+   "Tax revenue exceeds government spending",
+   "Tax revenue is equal to government spending"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“Corporation tax” means: A direct tax charged on business profits"
   }
  },
@@ -26734,9 +26734,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Excise duty”?",
   "options": [
    "An indirect tax on goods like tobacco, alcohol and fuel",
-   "Each round of spending becomes income, which is spent again",
+   "Outcomes a policy causes that the government did not intend",
    "Money given to encourage goods with positive externalities",
-   "Government borrowing and spending displacing private sector activity"
+   "Each round of spending becomes income, which is spent again"
   ],
   "key": {
    "answer": 0,
@@ -26752,13 +26752,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Multiplier effect”?",
   "options": [
-   "Money given to encourage goods with positive externalities",
    "Each round of spending becomes income, which is spent again",
-   "Government borrowing and spending displacing private sector activity",
-   "What the government must pay on money it has borrowed"
+   "Outcomes a policy causes that the government did not intend",
+   "The government's choices about taxation and spending",
+   "A direct tax charged on business profits"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Multiplier effect” means: Each round of spending becomes income, which is spent again"
   }
  },
@@ -26771,13 +26771,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Subsidy”?",
   "options": [
-   "Money given to encourage goods with positive externalities",
-   "Government borrowing and spending displacing private sector activity",
-   "What the government must pay on money it has borrowed",
-   "Outcomes a policy causes that the government did not intend"
+   "Outcomes a policy causes that the government did not intend",
+   "Tax revenue is equal to government spending",
+   "The government's choices about taxation and spending",
+   "Money given to encourage goods with positive externalities"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Subsidy” means: Money given to encourage goods with positive externalities"
   }
  },
@@ -26790,13 +26790,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Crowding out”?",
   "options": [
-   "What the government must pay on money it has borrowed",
-   "Outcomes a policy causes that the government did not intend",
-   "Government borrowing and spending displacing private sector activity",
-   "The government's choices about taxation and spending"
+   "A tax on income or wealth, paid by the person liable for it",
+   "A direct tax charged on business profits",
+   "Each round of spending becomes income, which is spent again",
+   "Government borrowing and spending displacing private sector activity"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“Crowding out” means: Government borrowing and spending displacing private sector activity"
   }
  },
@@ -26809,13 +26809,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Debt interest”?",
   "options": [
-   "Outcomes a policy causes that the government did not intend",
-   "The government's choices about taxation and spending",
    "What the government must pay on money it has borrowed",
-   "A tax on income or wealth, paid by the person liable for it"
+   "The government's choices about taxation and spending",
+   "Money given to encourage goods with positive externalities",
+   "Government borrowing and spending displacing private sector activity"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“Debt interest” means: What the government must pay on money it has borrowed"
   }
  },
@@ -26828,9 +26828,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Unintended effects”?",
   "options": [
-   "The government's choices about taxation and spending",
-   "A tax on income or wealth, paid by the person liable for it",
    "A tax on spending, collected and passed on by the seller",
+   "Money given to encourage goods with positive externalities",
+   "The government's choices about taxation and spending",
    "Outcomes a policy causes that the government did not intend"
   ],
   "key": {
@@ -28057,13 +28057,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Monetary policy”?",
   "options": [
-   "Using interest rates, the money supply and exchange rates to influence economic activity",
    "The UK's central bank, which operates monetary policy independently of government",
    "The 9-member Bank of England committee that sets the base rate",
-   "The rate of interest at which the Bank of England lends to commercial banks"
+   "Using interest rates, the money supply and exchange rates to influence economic activity",
+   "The Bank of England creates money electronically to buy assets and raise the money supply"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Monetary policy” means: Using interest rates, the money supply and exchange rates to influence economic activity"
   }
  },
@@ -28076,13 +28076,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Bank of England”?",
   "options": [
+   "The UK's central bank, which operates monetary policy independently of government",
+   "Using taxation and government spending, controlled by the government rather than the Bank of England",
    "The 9-member Bank of England committee that sets the base rate",
-   "The rate of interest at which the Bank of England lends to commercial banks",
-   "The UK's target of 2% inflation, with a margin of 1% either way",
-   "The UK's central bank, which operates monetary policy independently of government"
+   "The Bank of England sells assets, or lets bonds mature, reducing the money supply"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“Bank of England” means: The UK's central bank, which operates monetary policy independently of government"
   }
  },
@@ -28095,13 +28095,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Monetary Policy Committee (MPC)”?",
   "options": [
-   "The 9-member Bank of England committee that sets the base rate",
-   "The rate of interest at which the Bank of England lends to commercial banks",
-   "The UK's target of 2% inflation, with a margin of 1% either way",
-   "The Bank of England creates money electronically to buy assets and raise the money supply"
+   "A mortgage whose interest payments rise and fall directly with the base rate",
+   "The type of inflation that higher interest rates directly ease, by reducing total demand",
+   "The Bank of England creates money electronically to buy assets and raise the money supply",
+   "The 9-member Bank of England committee that sets the base rate"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Monetary Policy Committee (MPC)” means: The 9-member Bank of England committee that sets the base rate"
   }
  },
@@ -28114,13 +28114,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Base rate”?",
   "options": [
+   "Lower interest rates can improve this by making exports cheaper and imports dearer",
    "The rate of interest at which the Bank of England lends to commercial banks",
-   "The UK's target of 2% inflation, with a margin of 1% either way",
-   "The Bank of England creates money electronically to buy assets and raise the money supply",
-   "The Bank of England sells assets, or lets bonds mature, reducing the money supply"
+   "Using interest rates, the money supply and exchange rates to influence economic activity",
+   "The Bank of England creates money electronically to buy assets and raise the money supply"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“Base rate” means: The rate of interest at which the Bank of England lends to commercial banks"
   }
  },
@@ -28135,8 +28135,8 @@ window.QUESTION_BANK = [
   "options": [
    "The UK's target of 2% inflation, with a margin of 1% either way",
    "The Bank of England creates money electronically to buy assets and raise the money supply",
-   "The Bank of England sells assets, or lets bonds mature, reducing the money supply",
-   "The type of inflation that higher interest rates directly ease, by reducing total demand"
+   "Lower interest rates can improve this by making exports cheaper and imports dearer",
+   "Higher UK interest rates attract foreign funds, so the pound tends to appreciate"
   ],
   "key": {
    "answer": 0,
@@ -28152,13 +28152,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Quantitative easing (QE)”?",
   "options": [
-   "The Bank of England sells assets, or lets bonds mature, reducing the money supply",
-   "The type of inflation that higher interest rates directly ease, by reducing total demand",
    "The Bank of England creates money electronically to buy assets and raise the money supply",
-   "Using taxation and government spending, controlled by the government rather than the Bank of England"
+   "The 9-member Bank of England committee that sets the base rate",
+   "The UK's target of 2% inflation, with a margin of 1% either way",
+   "Lower interest rates can improve this by making exports cheaper and imports dearer"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“Quantitative easing (QE)” means: The Bank of England creates money electronically to buy assets and raise the money supply"
   }
  },
@@ -28171,9 +28171,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Quantitative tightening (QT)”?",
   "options": [
-   "The type of inflation that higher interest rates directly ease, by reducing total demand",
+   "The UK's target of 2% inflation, with a margin of 1% either way",
    "Using taxation and government spending, controlled by the government rather than the Bank of England",
-   "Higher UK interest rates attract foreign funds, so the pound tends to appreciate",
+   "Using interest rates, the money supply and exchange rates to influence economic activity",
    "The Bank of England sells assets, or lets bonds mature, reducing the money supply"
   ],
   "key": {
@@ -28190,13 +28190,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Demand-pull inflation”?",
   "options": [
-   "The type of inflation that higher interest rates directly ease, by reducing total demand",
-   "Using taxation and government spending, controlled by the government rather than the Bank of England",
-   "Higher UK interest rates attract foreign funds, so the pound tends to appreciate",
-   "Lower interest rates can improve this by making exports cheaper and imports dearer"
+   "Using interest rates, the money supply and exchange rates to influence economic activity",
+   "The UK's target of 2% inflation, with a margin of 1% either way",
+   "Lower interest rates can improve this by making exports cheaper and imports dearer",
+   "The type of inflation that higher interest rates directly ease, by reducing total demand"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“Demand-pull inflation” means: The type of inflation that higher interest rates directly ease, by reducing total demand"
   }
  },
@@ -28209,13 +28209,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Fiscal policy”?",
   "options": [
-   "Higher UK interest rates attract foreign funds, so the pound tends to appreciate",
-   "Lower interest rates can improve this by making exports cheaper and imports dearer",
    "How optimistic people feel about the economy; can blunt or boost the effect of a rate change",
-   "Using taxation and government spending, controlled by the government rather than the Bank of England"
+   "Using taxation and government spending, controlled by the government rather than the Bank of England",
+   "The UK's target of 2% inflation, with a margin of 1% either way",
+   "A mortgage whose interest payments rise and fall directly with the base rate"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Fiscal policy” means: Using taxation and government spending, controlled by the government rather than the Bank of England"
   }
  },
@@ -28228,13 +28228,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Exchange rate effect”?",
   "options": [
-   "Lower interest rates can improve this by making exports cheaper and imports dearer",
    "Higher UK interest rates attract foreign funds, so the pound tends to appreciate",
-   "How optimistic people feel about the economy; can blunt or boost the effect of a rate change",
-   "A mortgage whose interest payments rise and fall directly with the base rate"
+   "The Bank of England sells assets, or lets bonds mature, reducing the money supply",
+   "A mortgage whose interest payments rise and fall directly with the base rate",
+   "How optimistic people feel about the economy; can blunt or boost the effect of a rate change"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Exchange rate effect” means: Higher UK interest rates attract foreign funds, so the pound tends to appreciate"
   }
  },
@@ -28247,13 +28247,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Balance of payments”?",
   "options": [
-   "How optimistic people feel about the economy; can blunt or boost the effect of a rate change",
-   "Lower interest rates can improve this by making exports cheaper and imports dearer",
+   "The UK's target of 2% inflation, with a margin of 1% either way",
    "A mortgage whose interest payments rise and fall directly with the base rate",
-   "Using interest rates, the money supply and exchange rates to influence economic activity"
+   "The 9-member Bank of England committee that sets the base rate",
+   "Lower interest rates can improve this by making exports cheaper and imports dearer"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Balance of payments” means: Lower interest rates can improve this by making exports cheaper and imports dearer"
   }
  },
@@ -28266,13 +28266,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Consumer confidence”?",
   "options": [
-   "A mortgage whose interest payments rise and fall directly with the base rate",
-   "Using interest rates, the money supply and exchange rates to influence economic activity",
-   "The UK's central bank, which operates monetary policy independently of government",
-   "How optimistic people feel about the economy; can blunt or boost the effect of a rate change"
+   "The Bank of England creates money electronically to buy assets and raise the money supply",
+   "The rate of interest at which the Bank of England lends to commercial banks",
+   "How optimistic people feel about the economy; can blunt or boost the effect of a rate change",
+   "The 9-member Bank of England committee that sets the base rate"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“Consumer confidence” means: How optimistic people feel about the economy; can blunt or boost the effect of a rate change"
   }
  },
@@ -28286,9 +28286,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Variable-rate mortgage”?",
   "options": [
    "Using interest rates, the money supply and exchange rates to influence economic activity",
-   "The UK's central bank, which operates monetary policy independently of government",
+   "Lower interest rates can improve this by making exports cheaper and imports dearer",
    "A mortgage whose interest payments rise and fall directly with the base rate",
-   "The 9-member Bank of England committee that sets the base rate"
+   "The type of inflation that higher interest rates directly ease, by reducing total demand"
   ],
   "key": {
    "answer": 2,
@@ -28308,7 +28308,7 @@ window.QUESTION_BANK = [
   "hint": "Think of things that benefit people OTHER than the buyer: education, street lighting, parks, gyms, libraries, healthcare. Any two clearly justified examples score both marks.",
   "starter": "One example is..., and a second is...",
   "key": {
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Education/schools</li>\n<li>Lighting (e.g. street lighting)</li>\n<li>Parks and gardens</li>\n<li>Gym membership</li>\n<li>Libraries</li>\n<li>Healthcare</li>\n</ul>\n<p>1 mark for each correct answer, up to a total of 2 marks. The terminology may be different, but if knowledge is evident, the mark should be awarded.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question was answered very well, with a wide array of relevant goods and services offered.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers might include:</strong></p>\n<ul>\n<li>Education/schools</li>\n<li>Lighting</li>\n<li>Parks and gardens</li>\n<li>Gym membership</li>\n<li>Libraries</li>\n<li>Healthcare</li>\n<li>Perfume</li>\n<li><strong>ARA</strong> (Accept Reasonable Alternatives)</li>\n</ul>\n<p>1 mark for each correct answer up to a total of 2 marks. The terminology may be different, but if knowledge is evident, then the mark should be awarded.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question was answered very well, with a wide array of relevant goods and services offered.</p>\n</div>",
    "modelAnswer": "One example is education, because a well-educated population benefits the wider economy through higher productivity and lower crime, not just the student themselves.\n\nA second example is healthcare, such as GP visits — treating illness early benefits other people too, by reducing the spread of disease and keeping the workforce productive."
   }
  },
@@ -28342,7 +28342,7 @@ window.QUESTION_BANK = [
   "hint": "Pair each benefit with a linked evaluation point — the mark scheme's own Misconception box stresses this. E.g. 'fewer illnesses → lower healthcare costs, HOWEVER there's an opportunity cost of the subsidy itself.' Use the extract: measles vaccination coverage rose from 81% to 91%+ with almost no deaths since 2013.",
   "starter": "Subsidising vaccinations leads to fewer cases of illness, which means...",
   "key": {
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Application:</strong> subsidies are provided for measles vaccinations; with vaccinations, cases of measles have significantly fallen since the 1960s; vaccinations provide positive externalities.</p>\n<p><strong>Answers may include (each benefit should be paired with a linked evaluation point):</strong></p>\n<ul>\n<li>Fewer cases of illness → lower healthcare costs. HOWEVER: opportunity cost of less government spending on other services such as hospitals and education.</li>\n<li>Fewer cases of illness among adults → workforce productivity rises. HOWEVER: adults may be reluctant to be vaccinated because of fake news/conspiracy theories.</li>\n<li>Fewer cases of illness among children → improved school attendance. HOWEVER: some families may not vaccinate their children due to lack of information, causing inequity in provision.</li>\n<li>A healthier, more productive workforce. HOWEVER: this depends on take-up/effectiveness of the vaccination.</li>\n<li>Less pressure on the NHS, freeing up resources. HOWEVER: the financial cost of the subsidy may outweigh the savings to the NHS.</li>\n<li>Lower price and increased availability improve quality of life. HOWEVER: firms may become reliant/inefficient or not pass on lower prices.</li>\n</ul>\n<p><strong>Judgement:</strong> whether the benefits are likely to outweigh the costs, depending on their significance or duration.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis in single effects; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Misconception</h5>\n<p>Evaluation is only awarded for a judgement or point that MATCHES the preceding point. A common error was analysing a benefit (e.g. improved living standards) and then evaluating with an UNCONNECTED point, such as \"there is an opportunity cost of government spending,\" without linking it back to how it would lower the potential gains just described.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates understood the impact of a subsidy and the benefit of vaccinations. Several either wrote a point about a negative impact, or wrote an evaluative point that did not \"pair\" with the point before.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Application:</strong> subsidies are provided for measles vaccinations; with vaccinations, cases of measles have significantly fallen since the 1960s; vaccinations provide positive externalities.</p>\n<p><strong>Answers may include (each benefit should be paired with a linked evaluation point):</strong></p>\n<ul>\n<li>Fewer cases of illness → lower healthcare costs. HOWEVER: opportunity cost of less government spending on other services such as hospitals and education.</li>\n<li>Fewer cases of illness among adults → workforce productivity rises. HOWEVER: adults may be reluctant to be vaccinated because of fake news/conspiracy theories.</li>\n<li>Fewer cases of illness among children → improved school attendance. HOWEVER: some families may not vaccinate their children due to lack of information, causing inequity in provision.</li>\n<li>A healthier, more productive workforce. HOWEVER: this depends on take-up/effectiveness of the vaccination.</li>\n<li>Less pressure on the NHS, freeing up resources. HOWEVER: the financial cost of the subsidy may outweigh the savings to the NHS.</li>\n<li>Lower price and increased availability improve quality of life. HOWEVER: firms may become reliant/inefficient or not pass on lower prices.</li>\n</ul>\n<p><strong>Final judgement (expressed clearly):</strong> as to whether the benefits are likely to outweigh the costs (depending on their significance or duration).</p>\n<p><strong>N.B.</strong></p>\n<ol>\n<li>If there is no analysis/evaluation, then application (AO2) cannot be rewarded.</li>\n<li>In order to reach Level 2, there must be Application (AO2), Analysis (AO3a) and Evaluation (AO3b).</li>\n</ol>\n<p><strong>ARA</strong> (Accept Reasonable Alternatives)</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement weighing both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis in single effects; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Misconception</h5>\n<p>Evaluation is only awarded for a judgement or point that MATCHES the preceding point. A common error was analysing a benefit (e.g. improved living standards) and then evaluating with an UNCONNECTED point, such as \"there is an opportunity cost of government spending,\" without linking it back to how it would lower the potential gains just described.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates understood the impact of a subsidy and the benefit of vaccinations. Several either wrote a point about a negative impact, or wrote an evaluative point that did not \"pair\" with the point before.</p>\n</div>",
    "modelAnswer": "Subsidising vaccinations reduces cases of measles — UK coverage rose from 81% in 2004 to over 91% in 2023, with almost no deaths since 2013. Fewer cases of illness among children improves school attendance, and a healthier adult workforce is more productive. However, this depends heavily on take-up: some adults may be reluctant to vaccinate because of fake news or conspiracy theories, limiting the benefit.\n\nA further benefit is reduced pressure on the NHS, since treating measles and its complications is expensive; freeing up these resources lets the NHS spend more on other conditions. However, the financial cost of the subsidy itself may partly or fully outweigh these savings, particularly if take-up is low.\n\nOverall, the benefits are likely to outweigh the costs, given how cheap vaccination is relative to treating outbreaks and lost productivity from illness — but the SIZE of the benefit depends entirely on how successfully the government also tackles vaccine hesitancy, since a subsidy alone cannot fix low take-up caused by misinformation."
   }
  },
@@ -28607,7 +28607,7 @@ window.QUESTION_BANK = [
   "hint": "Pick ONE route and develop it: more spending per student → higher skills/productivity → higher output/GDP per capita. A bare fact ('more spending per student') with no explanatory link is only worth 1 mark.",
   "starter": "By spending more per student, the government can raise...",
   "key": {
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>By the government spending more per student, skills/productivity will improve, which will increase output/GDP per capita</li>\n<li>By increasing teacher salaries, incomes will rise, leading to more consumption, which in turn leads to higher incomes and output (multiplier)</li>\n<li>By building more schools, the construction industry and its workers will make more profit and higher incomes</li>\n</ul>\n<p>2 marks for a clear explanation. 1 mark for an answer without an explanatory link, e.g. simply \"more spending per student\" / \"higher salaries for teachers\" / \"building more schools\".</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>By the government spending more per student, skills/productivity will improve, which will increase output/GDP per capita</li>\n<li>By increasing teacher salaries, incomes will rise, leading to more consumption, which in turn leads to higher incomes and output (multiplier)</li>\n<li>By building more schools, the construction industry and its workers will make more profit and higher incomes</li>\n<li><strong>ARA</strong> (Accept Reasonable Alternatives)</li>\n</ul>\n<p>2 marks for a clear explanation. 1 mark for an answer without an explanatory link, e.g. simply \"more spending per student\" / \"higher salaries for teachers\" / \"building more schools\".</p>\n</div>",
    "modelAnswer": "Spending more per student improves the skills and productivity of the future workforce.\n\nA more productive workforce can produce more output for the same number of workers, which raises GDP — and because GDP per capita divides this by population, higher output raises it directly."
   }
  },
@@ -29402,7 +29402,7 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Supply-side policy”?",
   "options": [
    "Government policy aimed at increasing the economy's productive capacity, rather than managing demand",
-   "The skills, knowledge and qualifications that make a worker productive",
+   "A tax on a firm's profits",
    "Transport, energy and communication networks that support economic activity",
    "A tax on income or profit, such as income tax or corporation tax"
   ],
@@ -29421,9 +29421,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Human capital”?",
   "options": [
    "The skills, knowledge and qualifications that make a worker productive",
-   "Transport, energy and communication networks that support economic activity",
-   "A tax on income or profit, such as income tax or corporation tax",
-   "A tax on a firm's profits"
+   "Policy that restricts unions' power to negotiate pay and conditions",
+   "Government policy aimed at increasing the economy's productive capacity, rather than managing demand",
+   "Selling a state-owned organisation into the private sector"
   ],
   "key": {
    "answer": 0,
@@ -29439,13 +29439,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Infrastructure”?",
   "options": [
-   "A tax on income or profit, such as income tax or corporation tax",
-   "A tax on a firm's profits",
    "Transport, energy and communication networks that support economic activity",
-   "Policy that restricts unions' power to negotiate pay and conditions"
+   "The skills, knowledge and qualifications that make a worker productive",
+   "Removing rules and regulations that create barriers to entry in a market",
+   "The next best alternative given up when a choice is made"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“Infrastructure” means: Transport, energy and communication networks that support economic activity"
   }
  },
@@ -29458,13 +29458,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Direct tax”?",
   "options": [
-   "A tax on a firm's profits",
-   "A tax on income or profit, such as income tax or corporation tax",
-   "Policy that restricts unions' power to negotiate pay and conditions",
-   "Selling a state-owned organisation into the private sector"
+   "A benefit to a third party not involved in a transaction, e.g. from vaccination",
+   "The skills, knowledge and qualifications that make a worker productive",
+   "The UK body that can block mergers that would reduce competition",
+   "A tax on income or profit, such as income tax or corporation tax"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Direct tax” means: A tax on income or profit, such as income tax or corporation tax"
   }
  },
@@ -29477,10 +29477,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Corporation tax”?",
   "options": [
+   "Public sector spending reducing the funds or opportunities available to the private sector",
    "Policy that restricts unions' power to negotiate pay and conditions",
-   "Selling a state-owned organisation into the private sector",
    "A tax on a firm's profits",
-   "Removing rules and regulations that create barriers to entry in a market"
+   "The skills, knowledge and qualifications that make a worker productive"
   ],
   "key": {
    "answer": 2,
@@ -29496,13 +29496,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Trade union reform”?",
   "options": [
-   "Selling a state-owned organisation into the private sector",
    "Policy that restricts unions' power to negotiate pay and conditions",
-   "Removing rules and regulations that create barriers to entry in a market",
-   "The UK body that can block mergers that would reduce competition"
+   "Public sector spending reducing the funds or opportunities available to the private sector",
+   "A tax on a firm's profits",
+   "A benefit to a third party not involved in a transaction, e.g. from vaccination"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Trade union reform” means: Policy that restricts unions' power to negotiate pay and conditions"
   }
  },
@@ -29515,13 +29515,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Privatisation”?",
   "options": [
-   "Removing rules and regulations that create barriers to entry in a market",
+   "Policy that restricts unions' power to negotiate pay and conditions",
+   "The next best alternative given up when a choice is made",
    "The UK body that can block mergers that would reduce competition",
-   "Selling a state-owned organisation into the private sector",
-   "Public sector spending reducing the funds or opportunities available to the private sector"
+   "Selling a state-owned organisation into the private sector"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“Privatisation” means: Selling a state-owned organisation into the private sector"
   }
  },
@@ -29534,13 +29534,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Deregulation”?",
   "options": [
+   "The skills, knowledge and qualifications that make a worker productive",
    "Removing rules and regulations that create barriers to entry in a market",
-   "The UK body that can block mergers that would reduce competition",
    "Public sector spending reducing the funds or opportunities available to the private sector",
-   "The next best alternative given up when a choice is made"
+   "Policy that restricts unions' power to negotiate pay and conditions"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“Deregulation” means: Removing rules and regulations that create barriers to entry in a market"
   }
  },
@@ -29553,13 +29553,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Competition and Markets Authority (CMA)”?",
   "options": [
-   "Public sector spending reducing the funds or opportunities available to the private sector",
    "The UK body that can block mergers that would reduce competition",
-   "The next best alternative given up when a choice is made",
-   "Unemployment caused by a mismatch between workers' skills and available jobs"
+   "Removing rules and regulations that create barriers to entry in a market",
+   "A tax on income or profit, such as income tax or corporation tax",
+   "The next best alternative given up when a choice is made"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“Competition and Markets Authority (CMA)” means: The UK body that can block mergers that would reduce competition"
   }
  },
@@ -29572,13 +29572,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Crowding out”?",
   "options": [
-   "The next best alternative given up when a choice is made",
-   "Unemployment caused by a mismatch between workers' skills and available jobs",
+   "Selling a state-owned organisation into the private sector",
    "Public sector spending reducing the funds or opportunities available to the private sector",
+   "Removing rules and regulations that create barriers to entry in a market",
    "A benefit to a third party not involved in a transaction, e.g. from vaccination"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Crowding out” means: Public sector spending reducing the funds or opportunities available to the private sector"
   }
  },
@@ -29592,12 +29592,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Opportunity cost”?",
   "options": [
    "Unemployment caused by a mismatch between workers' skills and available jobs",
-   "A benefit to a third party not involved in a transaction, e.g. from vaccination",
-   "Government policy aimed at increasing the economy's productive capacity, rather than managing demand",
-   "The next best alternative given up when a choice is made"
+   "The next best alternative given up when a choice is made",
+   "Policy that restricts unions' power to negotiate pay and conditions",
+   "The UK body that can block mergers that would reduce competition"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“Opportunity cost” means: The next best alternative given up when a choice is made"
   }
  },
@@ -29610,9 +29610,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Structural unemployment”?",
   "options": [
-   "A benefit to a third party not involved in a transaction, e.g. from vaccination",
+   "The UK body that can block mergers that would reduce competition",
+   "A tax on a firm's profits",
    "Government policy aimed at increasing the economy's productive capacity, rather than managing demand",
-   "The skills, knowledge and qualifications that make a worker productive",
    "Unemployment caused by a mismatch between workers' skills and available jobs"
   ],
   "key": {
@@ -29629,13 +29629,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Positive externality”?",
   "options": [
-   "Government policy aimed at increasing the economy's productive capacity, rather than managing demand",
+   "The UK body that can block mergers that would reduce competition",
+   "Transport, energy and communication networks that support economic activity",
    "A benefit to a third party not involved in a transaction, e.g. from vaccination",
-   "The skills, knowledge and qualifications that make a worker productive",
-   "Transport, energy and communication networks that support economic activity"
+   "Government policy aimed at increasing the economy's productive capacity, rather than managing demand"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Positive externality” means: A benefit to a third party not involved in a transaction, e.g. from vaccination"
   }
  },
@@ -29840,7 +29840,7 @@ window.QUESTION_BANK = [
   "hint": "Analyse a benefit (fewer illnesses, lower NHS costs, more productive workforce) and PAIR it with a matched limitation (opportunity cost of the subsidy, or reluctance to vaccinate) — an unlinked negative point earns no evaluation credit. End with a judgement naming what it depends on.",
   "starter": "Since 1968, measles vaccination has cut cases from around 500,000 a year to almost no deaths since 2013, which shows that...",
   "key": {
-   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Application:</strong> subsidies are provided for measles vaccinations; with vaccinations, cases of measles have significantly fallen since the 1960s; vaccinations provide positive externalities.</p>\n<p><strong>Analysis paired with evaluation (each benefit must be matched with an evaluation point):</strong></p>\n<ul>\n<li>Fewer cases of illness means lower healthcare costs — however, there is an opportunity cost in less government spending on services such as hospitals and education</li>\n<li>Fewer cases of illness among adults raises workforce productivity — however, adults may be reluctant to be vaccinated because of fake news/conspiracy theories</li>\n<li>Fewer cases of illness among children improves school attendance — however, some families may not take their children to be vaccinated due to lack of information, creating inequity</li>\n<li>Vaccinations lead to a healthier and more productive workforce — however, the degree this happens depends on take-up/effectiveness of the vaccination</li>\n<li>Less pressure on the NHS frees up resources/saves money — however, the financial cost of the subsidy may outweigh the savings to the NHS</li>\n</ul>\n<p><strong>Final judgement (expressed clearly):</strong> whether the benefits are likely to outweigh the costs, depending on their significance or duration.</p>\n<p>N.B. If there is no analysis/evaluation, application cannot be rewarded. To reach Level 2, there must be Application, Analysis AND Evaluation.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement developed from weighing up both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation with unsupported statements.</p>\n<p><strong>0 marks:</strong> response not worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates understood the impact of a subsidy and the benefit of vaccinations. There were several candidates who either wrote a point about a negative impact or wrote an evaluative point that did not \"pair\" with the point before.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Misconception</h5>\n<p>Evaluation is awarded for making a judgement or writing an evaluative point that matches with the preceding point. A common error was that candidates would analyse a benefit such as improved living standards/output in the economy and then attempt evaluation by writing that there is an opportunity cost of government spending without linking this argument to how it would lower the potential gains.</p>\n</div>",
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Application:</strong> subsidies are provided for measles vaccinations; with vaccinations, cases of measles have significantly fallen since the 1960s; vaccinations provide positive externalities.</p>\n<p><strong>Analysis paired with evaluation (each benefit must be matched with an evaluation point):</strong></p>\n<ul>\n<li>Fewer cases of illness means lower healthcare costs — however, there is an opportunity cost in less government spending on services such as hospitals and education</li>\n<li>Fewer cases of illness among adults raises workforce productivity — however, adults may be reluctant to be vaccinated because of fake news/conspiracy theories</li>\n<li>Fewer cases of illness among children improves school attendance — however, some families may not take their children to be vaccinated due to lack of information, creating inequity</li>\n<li>Vaccinations lead to a healthier and more productive workforce — however, the degree this happens depends on take-up/effectiveness of the vaccination</li>\n<li>Less pressure on the NHS frees up resources/saves money — however, the financial cost of the subsidy may outweigh the savings to the NHS</li>\n</ul>\n<p><strong>Final judgement (expressed clearly):</strong> whether the benefits are likely to outweigh the costs, depending on their significance or duration.</p>\n<p><strong>N.B.</strong></p>\n<ol>\n<li>If there is no analysis/evaluation, then application (AO2) cannot be rewarded.</li>\n<li>In order to reach Level 2, there must be Application (AO2), Analysis (AO3a) and Evaluation (AO3b).</li>\n</ol>\n<p><strong>ARA</strong> (Accept Reasonable Alternatives)</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis; good evaluation with a fully supported judgement developed from weighing up both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation with unsupported statements.</p>\n<p><strong>0 marks:</strong> response not worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates understood the impact of a subsidy and the benefit of vaccinations. There were several candidates who either wrote a point about a negative impact or wrote an evaluative point that did not \"pair\" with the point before.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Misconception</h5>\n<p>Evaluation is awarded for making a judgement or writing an evaluative point that matches with the preceding point. A common error was that candidates would analyse a benefit such as improved living standards/output in the economy and then attempt evaluation by writing that there is an opportunity cost of government spending without linking this argument to how it would lower the potential gains.</p>\n</div>",
    "modelAnswer": "Subsidising vaccinations has clear benefits. Since 1968, measles vaccination has cut cases from around 500,000 a year to almost no deaths since 2013, and UK coverage has risen from 81% (2004) to over 91% (2023). Fewer illnesses mean lower NHS treatment costs and a healthier, more productive workforce.\n\nHowever, there is an opportunity cost: the money spent subsidising vaccines could instead fund hospitals or education, so the health gains must outweigh what is given up elsewhere. Some adults also refuse vaccination because of fake news or conspiracy theories, limiting how much of the potential benefit is actually achieved.\n\nOverall, subsidised vaccination is likely to benefit society, but the extent depends on how high take-up is and whether the healthcare savings and productivity gains are large enough to justify the opportunity cost."
   }
  },
@@ -31071,13 +31071,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Externality”?",
   "options": [
-   "A cost to a third party not reflected in the market price",
-   "A benefit to a third party not reflected in the market price",
+   "The benefit received directly by the producer or consumer",
    "A cost or benefit of an economic activity that falls on a third party",
-   "The cost paid directly by the producer or consumer"
+   "Private benefit plus the external benefit enjoyed by third parties",
+   "Private cost plus the external cost imposed on third parties"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“Externality” means: A cost or benefit of an economic activity that falls on a third party"
   }
  },
@@ -31090,13 +31090,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Negative externality”?",
   "options": [
-   "A benefit to a third party not reflected in the market price",
+   "A cost or benefit of an economic activity that falls on a third party",
+   "Money paid to a producer to lower costs and increase supply",
    "A cost to a third party not reflected in the market price",
-   "The cost paid directly by the producer or consumer",
-   "Private cost plus the external cost imposed on third parties"
+   "A tax on a good or service that raises a firm's costs and shifts supply left"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Negative externality” means: A cost to a third party not reflected in the market price"
   }
  },
@@ -31109,10 +31109,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Positive externality”?",
   "options": [
-   "The cost paid directly by the producer or consumer",
+   "A cost or benefit of an economic activity that falls on a third party",
    "A benefit to a third party not reflected in the market price",
-   "Private cost plus the external cost imposed on third parties",
-   "The benefit received directly by the producer or consumer"
+   "The cost paid directly by the producer or consumer",
+   "A cost to a third party not reflected in the market price"
   ],
   "key": {
    "answer": 1,
@@ -31128,13 +31128,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Private cost”?",
   "options": [
-   "Private cost plus the external cost imposed on third parties",
-   "The cost paid directly by the producer or consumer",
-   "The benefit received directly by the producer or consumer",
-   "Private benefit plus the external benefit enjoyed by third parties"
+   "A cost or benefit of an economic activity that falls on a third party",
+   "A cost to a third party not reflected in the market price",
+   "Money paid to a producer to lower costs and increase supply",
+   "The cost paid directly by the producer or consumer"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Private cost” means: The cost paid directly by the producer or consumer"
   }
  },
@@ -31147,10 +31147,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Social cost”?",
   "options": [
-   "The benefit received directly by the producer or consumer",
+   "Government directly supplying a good or service, e.g. the NHS",
    "Private cost plus the external cost imposed on third parties",
-   "Private benefit plus the external benefit enjoyed by third parties",
-   "Benefiting from a good or service without paying for it"
+   "Laws that ban or restrict a harmful activity directly",
+   "A tax on a good or service that raises a firm's costs and shifts supply left"
   ],
   "key": {
    "answer": 1,
@@ -31166,13 +31166,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Private benefit”?",
   "options": [
-   "Private benefit plus the external benefit enjoyed by third parties",
+   "A tax on a good or service that raises a firm's costs and shifts supply left",
+   "Money paid to a producer to lower costs and increase supply",
    "The benefit received directly by the producer or consumer",
-   "Benefiting from a good or service without paying for it",
-   "A tax on a good or service that raises a firm's costs and shifts supply left"
+   "Benefiting from a good or service without paying for it"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Private benefit” means: The benefit received directly by the producer or consumer"
   }
  },
@@ -31185,13 +31185,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Social benefit”?",
   "options": [
+   "Government campaigns to encourage or discourage consumption of a good",
    "Benefiting from a good or service without paying for it",
    "Private benefit plus the external benefit enjoyed by third parties",
-   "A tax on a good or service that raises a firm's costs and shifts supply left",
-   "Money paid to a producer to lower costs and increase supply"
+   "A cost or benefit of an economic activity that falls on a third party"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“Social benefit” means: Private benefit plus the external benefit enjoyed by third parties"
   }
  },
@@ -31204,13 +31204,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Free-rider problem”?",
   "options": [
-   "A tax on a good or service that raises a firm's costs and shifts supply left",
    "Money paid to a producer to lower costs and increase supply",
-   "Government directly supplying a good or service, e.g. the NHS",
-   "Benefiting from a good or service without paying for it"
+   "A cost or benefit of an economic activity that falls on a third party",
+   "Benefiting from a good or service without paying for it",
+   "A cost to a third party not reflected in the market price"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“Free-rider problem” means: Benefiting from a good or service without paying for it"
   }
  },
@@ -31223,13 +31223,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Indirect tax”?",
   "options": [
-   "A tax on a good or service that raises a firm's costs and shifts supply left",
    "Money paid to a producer to lower costs and increase supply",
-   "Government directly supplying a good or service, e.g. the NHS",
-   "Laws that ban or restrict a harmful activity directly"
+   "A tax on a good or service that raises a firm's costs and shifts supply left",
+   "Laws that ban or restrict a harmful activity directly",
+   "Government campaigns to encourage or discourage consumption of a good"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“Indirect tax” means: A tax on a good or service that raises a firm's costs and shifts supply left"
   }
  },
@@ -31242,13 +31242,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Subsidy”?",
   "options": [
+   "A tax on a good or service that raises a firm's costs and shifts supply left",
+   "Benefiting from a good or service without paying for it",
    "Money paid to a producer to lower costs and increase supply",
-   "Government directly supplying a good or service, e.g. the NHS",
-   "Laws that ban or restrict a harmful activity directly",
-   "Government campaigns to encourage or discourage consumption of a good"
+   "A cost or benefit of an economic activity that falls on a third party"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“Subsidy” means: Money paid to a producer to lower costs and increase supply"
   }
  },
@@ -31261,13 +31261,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “State provision”?",
   "options": [
-   "Laws that ban or restrict a harmful activity directly",
-   "Government campaigns to encourage or discourage consumption of a good",
    "A cost or benefit of an economic activity that falls on a third party",
-   "Government directly supplying a good or service, e.g. the NHS"
+   "Government directly supplying a good or service, e.g. the NHS",
+   "Private cost plus the external cost imposed on third parties",
+   "Private benefit plus the external benefit enjoyed by third parties"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“State provision” means: Government directly supplying a good or service, e.g. the NHS"
   }
  },
@@ -31280,13 +31280,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “Legislation / regulation”?",
   "options": [
-   "Government campaigns to encourage or discourage consumption of a good",
-   "Laws that ban or restrict a harmful activity directly",
-   "A cost or benefit of an economic activity that falls on a third party",
-   "A cost to a third party not reflected in the market price"
+   "A cost to a third party not reflected in the market price",
+   "Benefiting from a good or service without paying for it",
+   "Government directly supplying a good or service, e.g. the NHS",
+   "Laws that ban or restrict a harmful activity directly"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“Legislation / regulation” means: Laws that ban or restrict a harmful activity directly"
   }
  },
@@ -31300,13 +31300,6520 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “Information provision”?",
   "options": [
    "Government campaigns to encourage or discourage consumption of a good",
-   "A cost or benefit of an economic activity that falls on a third party",
-   "A cost to a third party not reflected in the market price",
-   "A benefit to a third party not reflected in the market price"
+   "A benefit to a third party not reflected in the market price",
+   "Government directly supplying a good or service, e.g. the NHS",
+   "A cost to a third party not reflected in the market price"
   ],
   "key": {
    "answer": 0,
    "explain": "“Information provision” means: Government campaigns to encourage or discourage consumption of a good"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:b2549b16",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q1",
+  "question": "One reason why countries engage in international trade is that",
+  "options": [
+   "it reduces the budget deficit",
+   "some countries are worse off as a result",
+   "specialisation increases countries' standards of living",
+   "transport costs are high"
+  ],
+  "hint": "Trade's core justification is specialisation raising output and living standards — not the budget deficit, and it isn't true that trade always leaves someone worse off.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — specialisation increases countries' standards of living</strong></p>\n<ul>\n<li>Trade lets countries specialise in what they produce relatively most efficiently, raising total output and living standards. It does not automatically reduce a budget deficit, it is not true that some countries are always worse off, and high transport costs would discourage trade, not cause it.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:4ebb8a3c",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q2",
+  "question": "If the Chinese government introduces a tax on imported cars, this may",
+  "options": [
+   "decrease the price of cars in China",
+   "decrease the production of cars in China",
+   "increase the Chinese government's income",
+   "increase the quantity of car imports into China"
+  ],
+  "hint": "A tax on imports is a tariff — tariffs raise government revenue directly. Think about what a tariff does to price and quantity of imports, not domestic production.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: C — increase the Chinese government's income</strong></p>\n<ul>\n<li>A tariff is collected by the government on every unit imported, so it directly raises government revenue. It would tend to RAISE the price of imported cars (not decrease it) and REDUCE the quantity imported (not increase it), and it need not decrease domestic car production.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:7d9f63c8",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q3",
+  "question": "Member states of the EU agree to",
+  "options": [
+   "only trade with each other",
+   "share a common income tax rate",
+   "share a common interest rate",
+   "trade with each other without trade barriers"
+  ],
+  "hint": "The EU is a single market — barrier-free trade between members is the defining feature. Members do NOT share one income tax rate, and only euro-zone members share a common interest rate.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: D — trade with each other without trade barriers</strong></p>\n<ul>\n<li>The EU single market removes trade barriers between members. Members are free to trade with non-EU countries too, so A is wrong; income tax rates are set nationally, and only euro-using members share the same interest rate, set by the European Central Bank.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:bd20e9b0",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q4",
+  "question": "If a country has no international trade, which one of the following is always correct?",
+  "options": [
+   "Exports are greater than imports",
+   "Imports are greater than exports",
+   "The government budget is balanced",
+   "There are no exports or imports"
+  ],
+  "hint": "'No international trade' means autarky — by definition there is nothing crossing the border in either direction.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: D — There are no exports or imports</strong></p>\n<ul>\n<li>With no international trade, both exports and imports must be zero — you cannot have one greater than the other, and the government's budget balance is a separate, unrelated matter.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:17dbca87",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q5(i)",
+  "question": "State two kinds of services that the UK exports.",
+  "caseStudy": "<p><strong>Extract 2: Current Account and the UK Economy</strong></p>\n<p>The UK records a current account deficit every year, because total UK spending is greater than its GDP. The UK has to borrow by attracting investment and lending from overseas. Such investment is often accompanied by new technologies.</p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">UK current account data</th><th style=\"padding:6px;\">2012</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2022</th></tr>\n<tr><td style=\"padding:6px;\">Trade in goods (£ million)</td><td style=\"padding:6px;\">–112 603</td><td style=\"padding:6px;\">–139 822</td><td style=\"padding:6px;\">–219 291</td></tr>\n<tr><td style=\"padding:6px;\">Trade in services (£ million)</td><td style=\"padding:6px;\">95 657</td><td style=\"padding:6px;\">111 897</td><td style=\"padding:6px;\">151 339</td></tr>\n<tr><td style=\"padding:6px;\">Income flows (£ million)</td><td style=\"padding:6px;\">–15 960</td><td style=\"padding:6px;\">–22 407</td><td style=\"padding:6px;\">12 682</td></tr>\n<tr><td style=\"padding:6px;\">Transfers (£ million)</td><td style=\"padding:6px;\">–21 000</td><td style=\"padding:6px;\">–22 419</td><td style=\"padding:6px;\">–23 026</td></tr>\n<tr><td style=\"padding:6px;\">Current account balance (£ million)</td><td style=\"padding:6px;\">–53 906</td><td style=\"padding:6px;\">–72 751</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The UK&#39;s total trade deficit in goods and services has widened between 2012 and 2022, from £16 946 million to £67 952 million. The different trade balances for goods and for services reflect different resources held by the UK and its trading partners. Since about 1990 the UK has developed resources that are more suitable for exporting services. German workers continue to be highly efficient in producing manufactured goods such as pharmaceuticals and cars.</p>\n<p>The UK imports goods from Germany, Japan and the USA, which are the sources of significant direct investment into the UK economy. The UK depends upon investment from overseas to finance its current account deficit. Such foreign investment in the UK is larger than UK investment abroad, partly due to English being widely used in business. The UK&#39;s Income account is usually in deficit because of significant outflows of investment income.</p>",
+  "hint": "Think of the named examples: tourism, insurance, information technology, financial services/banking, or education (international students paying UK schools/colleges). Just naming two earns full marks — no explanation is needed here.",
+  "starter": "1. ...\n\n2. ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers might include:</strong></p>\n<ul>\n<li>Tourism</li>\n<li>Insurance</li>\n<li>Information technology</li>\n<li>Financial services/banking</li>\n<li>Education at UK schools and colleges</li>\n</ul>\n<p>1 mark for each correct answer up to a maximum of 2 marks. Accept other reasonable answers.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question was generally answered well with two services identified. Some unrewarded answers were ambiguous or unclear such as 'workers', and some referred to GOODS rather than services.</p>\n</div>",
+   "modelAnswer": "1. Financial services, such as banking, are sold by UK firms to overseas clients.\n\n2. Education is also exported — international students pay UK schools, colleges and universities to study here."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:bcfad06d",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q5(ii)",
+  "question": "Explain one reason why there is significant investment from overseas into the UK.",
+  "caseStudy": "<p><strong>Extract 2: Current Account and the UK Economy</strong></p>\n<p>The UK records a current account deficit every year, because total UK spending is greater than its GDP. The UK has to borrow by attracting investment and lending from overseas. Such investment is often accompanied by new technologies.</p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">UK current account data</th><th style=\"padding:6px;\">2012</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2022</th></tr>\n<tr><td style=\"padding:6px;\">Trade in goods (£ million)</td><td style=\"padding:6px;\">–112 603</td><td style=\"padding:6px;\">–139 822</td><td style=\"padding:6px;\">–219 291</td></tr>\n<tr><td style=\"padding:6px;\">Trade in services (£ million)</td><td style=\"padding:6px;\">95 657</td><td style=\"padding:6px;\">111 897</td><td style=\"padding:6px;\">151 339</td></tr>\n<tr><td style=\"padding:6px;\">Income flows (£ million)</td><td style=\"padding:6px;\">–15 960</td><td style=\"padding:6px;\">–22 407</td><td style=\"padding:6px;\">12 682</td></tr>\n<tr><td style=\"padding:6px;\">Transfers (£ million)</td><td style=\"padding:6px;\">–21 000</td><td style=\"padding:6px;\">–22 419</td><td style=\"padding:6px;\">–23 026</td></tr>\n<tr><td style=\"padding:6px;\">Current account balance (£ million)</td><td style=\"padding:6px;\">–53 906</td><td style=\"padding:6px;\">–72 751</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The UK&#39;s total trade deficit in goods and services has widened between 2012 and 2022, from £16 946 million to £67 952 million. The different trade balances for goods and for services reflect different resources held by the UK and its trading partners. Since about 1990 the UK has developed resources that are more suitable for exporting services. German workers continue to be highly efficient in producing manufactured goods such as pharmaceuticals and cars.</p>\n<p>The UK imports goods from Germany, Japan and the USA, which are the sources of significant direct investment into the UK economy. The UK depends upon investment from overseas to finance its current account deficit. Such foreign investment in the UK is larger than UK investment abroad, partly due to English being widely used in business. The UK&#39;s Income account is usually in deficit because of significant outflows of investment income.</p>",
+  "hint": "State a reason (e.g. the UK's educated workforce, English as an international language, financing the deficit, or higher UK interest rates/returns) and then EXPLAIN it — a bare label only earns 1 of the 2 marks. Don't confuse interest rates with exchange rates, a common examiner-flagged error.",
+  "starter": "One reason is that overseas investors are attracted by...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers might include:</strong></p>\n<ul>\n<li>Investment from overseas is needed because total UK spending is greater than its national income</li>\n<li>Investment from overseas is needed to finance the current account deficit</li>\n<li>Overseas investors favour the UK because of its educated workforce</li>\n<li>Overseas investors favour the UK because English is an international language</li>\n<li>The UK may have lower corporation/business tax</li>\n<li>Belief the UK economy will grow</li>\n<li>Higher interest rates/returns</li>\n<li>Relatively stable/developed economy</li>\n<li><strong>ARA</strong> (Accept Reasonable Alternatives)</li>\n</ul>\n<p>Award 1 mark for a statement that is not explained. Award 1 more mark for the explanation. Accept any other reasonable answer.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Many candidates identified a reasonable reason but did not explain it. A further common error/misconception was between exchange rates and interest rates.</p>\n</div>",
+   "modelAnswer": "One reason is that overseas investors are attracted by the higher interest rates and returns available on UK assets compared with their own country.\n\nHigher returns mean investors can earn more by placing their money in the UK, so funds flow in from abroad — helping to finance the UK's current account deficit."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:9c90823f",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q5(iii)",
+  "question": "Evaluate the importance of the balance of payments on current account to the UK economy. Use the information given in Extract 2 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 2: Current Account and the UK Economy</strong></p>\n<p>The UK records a current account deficit every year, because total UK spending is greater than its GDP. The UK has to borrow by attracting investment and lending from overseas. Such investment is often accompanied by new technologies.</p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">UK current account data</th><th style=\"padding:6px;\">2012</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2022</th></tr>\n<tr><td style=\"padding:6px;\">Trade in goods (£ million)</td><td style=\"padding:6px;\">–112 603</td><td style=\"padding:6px;\">–139 822</td><td style=\"padding:6px;\">–219 291</td></tr>\n<tr><td style=\"padding:6px;\">Trade in services (£ million)</td><td style=\"padding:6px;\">95 657</td><td style=\"padding:6px;\">111 897</td><td style=\"padding:6px;\">151 339</td></tr>\n<tr><td style=\"padding:6px;\">Income flows (£ million)</td><td style=\"padding:6px;\">–15 960</td><td style=\"padding:6px;\">–22 407</td><td style=\"padding:6px;\">12 682</td></tr>\n<tr><td style=\"padding:6px;\">Transfers (£ million)</td><td style=\"padding:6px;\">–21 000</td><td style=\"padding:6px;\">–22 419</td><td style=\"padding:6px;\">–23 026</td></tr>\n<tr><td style=\"padding:6px;\">Current account balance (£ million)</td><td style=\"padding:6px;\">–53 906</td><td style=\"padding:6px;\">–72 751</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The UK&#39;s total trade deficit in goods and services has widened between 2012 and 2022, from £16 946 million to £67 952 million. The different trade balances for goods and for services reflect different resources held by the UK and its trading partners. Since about 1990 the UK has developed resources that are more suitable for exporting services. German workers continue to be highly efficient in producing manufactured goods such as pharmaceuticals and cars.</p>\n<p>The UK imports goods from Germany, Japan and the USA, which are the sources of significant direct investment into the UK economy. The UK depends upon investment from overseas to finance its current account deficit. Such foreign investment in the UK is larger than UK investment abroad, partly due to English being widely used in business. The UK&#39;s Income account is usually in deficit because of significant outflows of investment income.</p>",
+  "hint": "Use the actual data (the deficit widened from £53,906m in 2012 to £72,751m in 2017) and pick 2–3 points from: financing via overseas investment brings new technology (but drains the income account back out); UK incomes may be rising faster than trading partners'; a weaker exchange rate could follow (raising import prices but helping export competitiveness). MATCH every point with its own 'however' and end with a clear judgement.",
+  "starter": "The current account deficit matters because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Indicative content may include:</strong></p>\n<ul>\n<li>Reference to actual data in the Extract table</li>\n<li>Distinguishing between the trade balance and the current account balance</li>\n<li>Reference to the income/transfer accounts</li>\n<li>Reference to countries with which the UK trades (Germany, Japan, USA)</li>\n<li>Reference to the UK</li>\n</ul>\n<p><strong>N.B.</strong> Each analysis point (AO3a) should be matched with its own evaluation point (AO3b).</p>\n</div>\n<div class=\"marks-section\">\n<h5>Analysis and evaluation may include</h5>\n<ul>\n<li>UK consumers highly value products from Germany, the USA and Japan, so imports have been growing rapidly. <strong>However:</strong> UK exports of tourism, education and other services also have a good reputation overseas — but the growth in exports of services is not sufficient to outweigh the imports.</li>\n<li>The deficit on the current account is matched by a surplus on the other accounts (financial and capital), which shows inward investment from overseas. This investment often brings new technologies to the UK. <strong>However:</strong> as a result of these investments, the UK's income account is often in deficit, because the investments in the UK by foreign companies earn more than the investments the British have made in other countries.</li>\n<li>A rising current account deficit may be due to UK incomes growing at a higher pace than in the UK's trading partners. <strong>However:</strong> growth in GDP in the USA and some EU countries seems to be at a faster or at least equivalent pace to growth in the UK's income.</li>\n<li>A rising current account deficit may keep inflation in the UK at a lower rate, because of lower-priced imports. <strong>However:</strong> growth in GDP in the USA and some EU countries seems to be at a faster or at least equivalent pace to growth in the UK's income.</li>\n<li>The current account deficit reflects falling demand for domestic goods, which could lead to increased unemployment. <strong>However:</strong> the UK unemployment rate is relatively low at present, though it may grow if the current account deficit persists over time.</li>\n<li>The deficit is putting downward pressure on the exchange rate, as consumers exchange domestic currency for foreign currency to buy imports, leading to higher prices for imports. <strong>However:</strong> a lower exchange rate should make UK exports more competitive.</li>\n<li>The deficit may reflect low productivity in the UK compared to its trading partners. <strong>However:</strong> if its trading partners invest in UK factories and bring new technologies, productivity should improve.</li>\n<li>If (net) exports can increase, this may fuel future economic growth. <strong>However:</strong> given the evidence, this is unlikely.</li>\n<li>Final judgement (expressed clearly): as to whether the current account deficit will persist, whether it reflects a weak UK economy, or to what extent it is problematic.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application of knowledge about the current account; reasonable analysis largely in the form of single effects; good evaluation with a fully supported judgement weighing up arguments/both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis, largely single effects not developed into a clear chain; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis with at most a single linked effect; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n<p><strong>N.B.</strong> 1. If there is no analysis/evaluation, application (AO2) cannot be rewarded. 2. To reach Level 2, there must be Application, Analysis AND Evaluation present, though not fully supported.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>The question requires that candidates evaluate the effect of a net deficit on the UK economy. There are substantial clues in the data (although these should be developed, rather than rewritten). Some candidates wrote with regard to the impact of a SURPLUS, which was acceptable.</p>\n</div>",
+   "modelAnswer": "The UK's current account deficit widened from £53,906 million in 2012 to £72,751 million in 2017, mainly from a growing goods deficit that the services surplus cannot offset. This matters because the UK must attract overseas investment to finance it, which often brings new technology. However, foreign-owned investment sends its returns back abroad, so the UK's income account tends to run a deficit too — partly cancelling the benefit.\n\nThe deficit also pushes the exchange rate down, since consumers sell pounds to buy imports. That raises import prices, but a weaker pound should make UK exports more competitive, potentially narrowing the deficit over time.\n\nOverall the deficit is a real concern but not automatically a crisis: it matters whether it reflects UK incomes simply rising faster than trading partners' (likely temporary), or persistently low UK productivity, which would need addressing directly."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:c21f6e17",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q6",
+  "question": "The USA, Canada and Mexico have worked together to reduce import and export taxes. They have also established some common employment regulations. This is an example of a",
+  "options": [
+   "current account surplus",
+   "free trade agreement",
+   "monetary policy",
+   "negative externality"
+  ],
+  "hint": "Three named countries cooperating to cut import/export taxes between themselves is the textbook description of a free trade agreement (this is NAFTA).",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: B — free trade agreement</strong></p>\n<ul>\n<li>Reducing import/export taxes between named countries is exactly what a free trade agreement does. It is not a current account surplus, a form of monetary policy, or a negative externality.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly identified the correct answer (B).</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:6589c38a",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q7",
+  "question": "An increase in a country's level of international trade will most likely benefit producers because",
+  "options": [
+   "better quality finished goods will be available",
+   "prices will be lower due to increased competition",
+   "there will be a greater choice of goods and services",
+   "there will be a larger market for buying inputs"
+  ],
+  "hint": "The question asks specifically about PRODUCERS. Better quality, lower prices and greater choice are all CONSUMER benefits — the producer-side benefit is being able to buy inputs from a much bigger market.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — there will be a larger market for buying inputs</strong></p>\n<ul>\n<li>A larger market for buying raw materials and components is a direct PRODUCER benefit. Better quality, lower prices and greater choice are benefits that fall on CONSUMERS.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly identified the correct answer (D).</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:c0d865e2",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q8",
+  "question": "If a country enters into a free trade agreement, it is most likely to lead to a decrease in the",
+  "options": [
+   "country's economic growth",
+   "level of imports",
+   "standard of living in other countries",
+   "unemployment in the country"
+  ],
+  "hint": "FTAs expand trade and output, which tends to create jobs — think about what happens to jobs, not growth or imports, which would be expected to RISE.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — unemployment in the country</strong></p>\n<ul>\n<li>Expanding trade tends to raise output and create jobs, so unemployment is likely to FALL. Economic growth and imports would be expected to RISE, not fall, and the standard of living in OTHER countries is not what the question asks about.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates answered D correctly.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:840d30fa",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q9",
+  "question": "A benefit for UK producers of international trade is",
+  "options": [
+   "an improvement in the current account",
+   "an increase in imported goods and services",
+   "greater variety of goods for consumers",
+   "increased economies of scale in production"
+  ],
+  "hint": "Again, the question is about PRODUCERS specifically. Economies of scale (falling unit costs as output rises) is the clean producer-side benefit; the other three are either consumer benefits or unrelated macro outcomes.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — increased economies of scale in production</strong></p>\n<ul>\n<li>Selling into bigger export markets lets producers raise output and benefit from economies of scale. Greater variety is a CONSUMER benefit, more imports is not obviously a \"benefit\", and the current account is not guaranteed to improve.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates answered D correctly.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:42b08475",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q10",
+  "question": "What is a benefit for consumers of international trade?",
+  "options": [
+   "Easier to sell products abroad",
+   "Greater choice of goods",
+   "Less competition",
+   "Lower costs of production"
+  ],
+  "hint": "This time the question is about CONSUMERS. 'Easier to sell products abroad' and 'lower costs of production' are producer-side ideas, and trade brings MORE competition, not less.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — Greater choice of goods</strong></p>\n<ul>\n<li>Consumers gain from the wider range of goods and services trade makes available. Selling abroad and lower production costs are producer-side ideas, and trade INCREASES competition rather than reducing it.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly answered B, although some confused consumers and firms (incorrectly answering A or D).</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:9ef9ea73",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q11(a)",
+  "question": "Using Extract 3 explain how consumers benefit from free trade agreements.",
+  "caseStudy": "<p><strong>Extract 3: Globalisation of the US Economy</strong></p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\" colspan=\"3\">US Balance of Trade over 10 years</th></tr>\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2009 (US$ million)</th><th style=\"padding:6px;\">2019 (US$ million)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">1 056 043</td><td style=\"padding:6px;\">1 643 161</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">1 605 296</td><td style=\"padding:6px;\">2 567 445</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–549 253</td><td style=\"padding:6px;\">–924 284</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">501 920</td><td style=\"padding:6px;\">853 844</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">376 081</td><td style=\"padding:6px;\">567 121</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">125 839</td><td style=\"padding:6px;\">286 723</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–423 414</td><td style=\"padding:6px;\"></td></tr>\n</table>\n<p>The USA has free trade agreements with 20 countries, including its neighbours, Canada and Mexico. The agreements significantly reduce barriers to trade in addition to improving the environment for overseas investment. US producers have set up factories outside the USA to produce goods and components for the US domestic market as well as for markets overseas.</p>\n<p>As a result, US imports of goods have been increasing rapidly as the economy becomes less based on domestic manufacturing of consumer goods and more geared towards services, such as insurance, tourism and education.</p>\n<p>However, globalisation of the US economy is controversial. While consumers can enjoy a greater variety of cheaper goods, there is concern that the relative decline of domestic manufacturing leads to unemployment and lower wages.</p>",
+  "hint": "State the mechanism AND the benefit: FTAs remove/reduce tariffs, so imports are cheaper, and more competition/supply improves prices, quality or variety. A bare 'cheaper prices' with no explanation of WHY only scores 1. You must refer to the effect on US consumers specifically, or the mark is capped at 1.",
+  "starter": "Free trade agreements more or less eliminate tariffs, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Tariffs are more or less eliminated in a free trade agreement, so imports are cheaper</li>\n<li>Consumers benefit from lower-priced imports and lower inflation/better living standards/higher purchasing power</li>\n<li>Lower trade barriers lead to lower prices</li>\n<li>More competition/supply leads to lower prices/quality/variety</li>\n</ul>\n<p>2 marks for a clear explanation of how lowering trade barriers has led to more imports or how consumers benefit. 1 mark for a statement without an explanation. <strong>Failure to refer to the effect on US consumers will restrict the maximum mark to 1.</strong></p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates successfully identified a way in which a consumer benefitted from free trade, such as lower prices. However, several did not explain the effect — for example, writing 'cheaper prices' as a benefit rather than explaining that lower tariffs lead to lower costs/prices.</p>\n</div>",
+   "modelAnswer": "Extract 3 shows the USA has free trade agreements with 20 countries, which significantly reduce trade barriers such as tariffs.\n\nBecause tariffs are largely removed, imported goods and services become cheaper for US consumers to buy, and the extra competition from foreign producers gives consumers a greater variety of cheaper goods — directly raising their purchasing power and living standards."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:fcd05751",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q11(b)",
+  "question": "Using Extract 3 analyse how the data on trade in goods and in services since 2009 reflect the changes in the structure of the US economy due to globalisation.",
+  "caseStudy": "<p><strong>Extract 3: Globalisation of the US Economy</strong></p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\" colspan=\"3\">US Balance of Trade over 10 years</th></tr>\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2009 (US$ million)</th><th style=\"padding:6px;\">2019 (US$ million)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">1 056 043</td><td style=\"padding:6px;\">1 643 161</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">1 605 296</td><td style=\"padding:6px;\">2 567 445</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–549 253</td><td style=\"padding:6px;\">–924 284</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">501 920</td><td style=\"padding:6px;\">853 844</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">376 081</td><td style=\"padding:6px;\">567 121</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">125 839</td><td style=\"padding:6px;\">286 723</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–423 414</td><td style=\"padding:6px;\"></td></tr>\n</table>\n<p>The USA has free trade agreements with 20 countries, including its neighbours, Canada and Mexico. The agreements significantly reduce barriers to trade in addition to improving the environment for overseas investment. US producers have set up factories outside the USA to produce goods and components for the US domestic market as well as for markets overseas.</p>\n<p>As a result, US imports of goods have been increasing rapidly as the economy becomes less based on domestic manufacturing of consumer goods and more geared towards services, such as insurance, tourism and education.</p>\n<p>However, globalisation of the US economy is controversial. While consumers can enjoy a greater variety of cheaper goods, there is concern that the relative decline of domestic manufacturing leads to unemployment and lower wages.</p>",
+  "hint": "Use the actual figures: the goods deficit widened (–$549,253m to –$924,284m) while the services surplus grew ($125,839m to $286,723m). Link this to the US economy moving from manufacturing (secondary sector) toward services (tertiary sector) — driven by US comparative advantage/lower costs in services. Don't just restate the numbers — explain what they SHOW. No conclusion needed.",
+  "starter": "Extract 3 shows the US balance of trade in goods worsening from –$549,253m in 2009 to –$924,284m in 2019, while...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p><strong>Answers may include:</strong></p>\n<p><strong>Changes in US economic structure:</strong></p>\n<ul>\n<li>Increasing deficit on the Balance of Trade in goods</li>\n<li>Greater surplus on Balance of Trade in services</li>\n<li>Reference may be made to the text as well as the numerical data</li>\n</ul>\n<p><strong>These indicate:</strong></p>\n<ul>\n<li>That the US economy is now less dependent on manufacturing goods (secondary sector) for the domestic market</li>\n<li>Instead, the economy is becoming more service-oriented (tertiary sector)</li>\n<li>More specialisation in the US (in services)</li>\n</ul>\n<p><strong>Globalisation has accelerated these trends</strong>, since US manufacturers cannot compete/have higher costs, leading to:</p>\n<ul>\n<li>Decline in US manufacturing</li>\n<li>Structural/regional unemployment</li>\n<li>Increased inequality</li>\n<li>More outsourcing</li>\n</ul>\n<p><strong>As the US has a better reputation/more expertise/lower costs/higher productivity in services than other countries:</strong></p>\n<ul>\n<li>Service industries are growing</li>\n<li>More employment in these industries</li>\n<li>Regions in which these are based are growing</li>\n<li>There is increased inequality</li>\n</ul>\n<ul>\n<li>As living standards in the US rise (due to globalisation) there is greater demand for imported consumer goods, widening the trade deficit (in goods)</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge and understanding; reasonable application to the trade data; good analysis with developed links/chain of reasoning.</p>\n<p><strong>Level 2 (3–4 marks):</strong> reasonable knowledge; limited application; reasonable analysis largely in single effects.</p>\n<p><strong>Level 1 (1–2 marks):</strong> some knowledge; no application; limited analysis with a single, loosely linked effect.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question asks that candidates analyse the changes in the structure of the economy since 2009. More successful responses drew on the data to exemplify the fact that there has been a move away from secondary to tertiary industry (specialisation). The best responses analysed the REASONS for this.</p>\n<p>There was a tendency for some candidates to re-write the information in Extract 3 without any analysis — for example, writing 'the economy becomes less based on domestic manufacturing…' or simply describing or quoting the data in the table.</p>\n<p><strong>Exemplar 2</strong> demonstrates a well-structured response: a relevant definition is given at the start to show good knowledge, followed by clearly identifying one cause of the changes and using the data to show the scale of the increase in the deficit. An appreciation of the US's advantage in services (linked to workforce skill level) is used to explain the growing services surplus. The data is used skilfully without simply being rewritten. This response achieved 6 out of 6 marks.</p>\n</div>",
+   "modelAnswer": "Extract 3 shows the US balance of trade in goods worsening from a deficit of $549,253 million in 2009 to $924,284 million in 2019, while the balance of trade in services improved from a surplus of $125,839 million to $286,723 million.\n\nThis reflects a structural shift away from domestic manufacturing (secondary sector) and towards services (tertiary sector). Globalisation has accelerated this: US manufacturers increasingly cannot compete with lower-cost overseas producers, so goods production moves abroad, widening the goods deficit and contributing to structural unemployment in manufacturing regions.\n\nAt the same time, the US has a comparative advantage in services — better expertise and productivity — so service industries have grown and employed more workers, which is why the services surplus has grown so strongly."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:02247aef",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q12(i)",
+  "question": "Explain what is meant by a free trade agreement.",
+  "caseStudy": "<p><strong>Extract 3: UK Current Account</strong></p>\n<p>In 2017, following the depreciation of the British pound (£) in 2016, the deficit on the current account balance reduced. However, in 2018 the deficit grew in every quarter. The table below shows debit items increased, while the value of goods exports grew more slowly. UK exports faced growing competition from overseas manufacturers. In 2018, the £1.8 billion increase in the trade in goods deficit was caused mainly by imports from highly competitive Asian economies increasing more quickly than UK exports.</p>\n<p>The UK has run an annual current account deficit since 1983. A current account deficit means the UK is a net borrower with the rest of the world. The UK must attract net financial inflows to finance its current account deficit, which can be achieved through selling its assets to overseas investors or borrowing from the rest of the world.</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\" colspan=\"3\">UK Current Account (Quarterly data)</th></tr>\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2018 Q2 (£ million)</th><th style=\"padding:6px;\">2018 Q3 (£ million)</th></tr>\n<tr><td style=\"padding:6px;\">Exports of goods</td><td style=\"padding:6px;\">85 987</td><td style=\"padding:6px;\">88 884</td></tr>\n<tr><td style=\"padding:6px;\">Exports of services</td><td style=\"padding:6px;\">70 760</td><td style=\"padding:6px;\">69 721</td></tr>\n<tr><td style=\"padding:6px;\">Imports of goods</td><td style=\"padding:6px;\">120 560</td><td style=\"padding:6px;\">123 880</td></tr>\n<tr><td style=\"padding:6px;\">Imports of services</td><td style=\"padding:6px;\">43 195</td><td style=\"padding:6px;\">43 508</td></tr>\n<tr><td style=\"padding:6px;\"><strong>Total trade balance</strong></td><td style=\"padding:6px;\">–7 008</td><td style=\"padding:6px;\">-</td></tr>\n<tr><td style=\"padding:6px;\">a. Investment income (net)</td><td style=\"padding:6px;\">–7 142</td><td style=\"padding:6px;\">–10 780</td></tr>\n<tr><td style=\"padding:6px;\">b. Other income (net)</td><td style=\"padding:6px;\">–328</td><td style=\"padding:6px;\">–325</td></tr>\n<tr><td style=\"padding:6px;\"><strong>Total investment and other income (a + b)</strong></td><td style=\"padding:6px;\">–7 470</td><td style=\"padding:6px;\">–11 105</td></tr>\n<tr><td style=\"padding:6px;\"><strong>Total transfers</strong></td><td style=\"padding:6px;\">–5 476</td><td style=\"padding:6px;\">–6 634</td></tr>\n<tr><td style=\"padding:6px;\"><strong>Current balance</strong></td><td style=\"padding:6px;\">–19 954</td><td style=\"padding:6px;\">–26 522</td></tr>\n</table>\n<p>Globalisation is demonstrated by the overall growth in trade and foreign investment. In 1983, UK exports plus imports amounted to just £159565 million, while in 2017 the total was £1257706 million. Lower tariffs and expansion of free-trade areas and customs unions, which require less form filling and customs checks, have led to more competition, expanding markets and increased foreign investment. Because of this, competitive UK producers have been able to expand their sales. Improved communications, technological transfers and the development of supply chains across borders have also been contributing factors to global trade and investment growth.</p>",
+  "hint": "Two elements needed: (1) no import tariffs or quotas WITHIN the group, AND (2) that members can still make their OWN trade deals with countries outside the group (or give a correct example, e.g. NAFTA/EFTA). Examiners said most candidates only got the first half.",
+  "starter": "A free trade agreement is where...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>There are no import tariffs or quotas on goods and services that enter one country from another country in the group</li>\n<li>The countries in the group can trade with countries outside the area in any way they wish</li>\n<li>Free Trade Agreement: free movement of goods and services between countries, without any restrictions. Examples are NAFTA and EFTA.</li>\n</ul>\n<p>1 mark for stating no tariffs or quotas for countries within the FTA. 1 mark for stating that countries within the FTA can make their own trade deals with countries outside it, OR for providing a correct example. Accept any other reasonable answer.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates identified the link between free trade areas and tariffs, but few either quoted the textbook definition or identified the fact that signatories can have differing arrangements with other countries.</p>\n</div>",
+   "modelAnswer": "A free trade agreement is where two or more countries agree to remove tariffs and quotas on trade between themselves.\n\nHowever, each country in the agreement is still free to make its own separate trade deals with countries outside the group — the UK's own agreement with the EU, for example, is one such deal."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:4c24d236",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q12(ii)",
+  "question": "Explain one cost to producers of globalisation.",
+  "caseStudy": "<p><strong>Extract 3: UK Current Account</strong></p>\n<p>In 2017, following the depreciation of the British pound (£) in 2016, the deficit on the current account balance reduced. However, in 2018 the deficit grew in every quarter. The table below shows debit items increased, while the value of goods exports grew more slowly. UK exports faced growing competition from overseas manufacturers. In 2018, the £1.8 billion increase in the trade in goods deficit was caused mainly by imports from highly competitive Asian economies increasing more quickly than UK exports.</p>\n<p>The UK has run an annual current account deficit since 1983. A current account deficit means the UK is a net borrower with the rest of the world. The UK must attract net financial inflows to finance its current account deficit, which can be achieved through selling its assets to overseas investors or borrowing from the rest of the world.</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\" colspan=\"3\">UK Current Account (Quarterly data)</th></tr>\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2018 Q2 (£ million)</th><th style=\"padding:6px;\">2018 Q3 (£ million)</th></tr>\n<tr><td style=\"padding:6px;\">Exports of goods</td><td style=\"padding:6px;\">85 987</td><td style=\"padding:6px;\">88 884</td></tr>\n<tr><td style=\"padding:6px;\">Exports of services</td><td style=\"padding:6px;\">70 760</td><td style=\"padding:6px;\">69 721</td></tr>\n<tr><td style=\"padding:6px;\">Imports of goods</td><td style=\"padding:6px;\">120 560</td><td style=\"padding:6px;\">123 880</td></tr>\n<tr><td style=\"padding:6px;\">Imports of services</td><td style=\"padding:6px;\">43 195</td><td style=\"padding:6px;\">43 508</td></tr>\n<tr><td style=\"padding:6px;\"><strong>Total trade balance</strong></td><td style=\"padding:6px;\">–7 008</td><td style=\"padding:6px;\">-</td></tr>\n<tr><td style=\"padding:6px;\">a. Investment income (net)</td><td style=\"padding:6px;\">–7 142</td><td style=\"padding:6px;\">–10 780</td></tr>\n<tr><td style=\"padding:6px;\">b. Other income (net)</td><td style=\"padding:6px;\">–328</td><td style=\"padding:6px;\">–325</td></tr>\n<tr><td style=\"padding:6px;\"><strong>Total investment and other income (a + b)</strong></td><td style=\"padding:6px;\">–7 470</td><td style=\"padding:6px;\">–11 105</td></tr>\n<tr><td style=\"padding:6px;\"><strong>Total transfers</strong></td><td style=\"padding:6px;\">–5 476</td><td style=\"padding:6px;\">–6 634</td></tr>\n<tr><td style=\"padding:6px;\"><strong>Current balance</strong></td><td style=\"padding:6px;\">–19 954</td><td style=\"padding:6px;\">–26 522</td></tr>\n</table>\n<p>Globalisation is demonstrated by the overall growth in trade and foreign investment. In 1983, UK exports plus imports amounted to just £159565 million, while in 2017 the total was £1257706 million. Lower tariffs and expansion of free-trade areas and customs unions, which require less form filling and customs checks, have led to more competition, expanding markets and increased foreign investment. Because of this, competitive UK producers have been able to expand their sales. Improved communications, technological transfers and the development of supply chains across borders have also been contributing factors to global trade and investment growth.</p>",
+  "hint": "Name a cost — e.g. lower-cost overseas competition, loss of stability from overseas-financed projects being withdrawn, or being frozen out of global supply chains — and then EXPLAIN why it harms producers. A named cost with no explanation is capped at 1 mark.",
+  "starter": "One cost to producers is...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>More competition — competing with imports from lower-cost producers overseas — which might be harmful to domestic producers whose productivity is lower</li>\n<li>Some loss of stability if projects are financed by overseas investors who may, if political and economic conditions change, withdraw their investments</li>\n<li>Producers who cannot participate in international supply chains will tend to decline</li>\n</ul>\n<p>1 mark for stating a cost which is not explained. 2 marks for providing an explained cost. Accept any other reasonable answer.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question was generally answered well, although some candidates stated a cost, rather than explaining it.</p>\n</div>",
+   "modelAnswer": "One cost is increased competition from lower-cost overseas producers, now able to sell into the UK market more easily.\n\nDomestic UK producers whose own productivity is lower cannot match these cheaper prices, so they may lose sales and market share, and in the worst cases may be forced out of business altogether — particularly firms unable to invest in new technology to close the productivity gap."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:9f3a5dec",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q12(iii)",
+  "question": "*Evaluate the benefits of globalisation to producers in the UK. Use the information given in Extract 3, on page XX, and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 3: UK Current Account</strong></p>\n<p>In 2017, following the depreciation of the British pound (£) in 2016, the deficit on the current account balance reduced. However, in 2018 the deficit grew in every quarter. The table below shows debit items increased, while the value of goods exports grew more slowly. UK exports faced growing competition from overseas manufacturers. In 2018, the £1.8 billion increase in the trade in goods deficit was caused mainly by imports from highly competitive Asian economies increasing more quickly than UK exports.</p>\n<p>The UK has run an annual current account deficit since 1983. A current account deficit means the UK is a net borrower with the rest of the world. The UK must attract net financial inflows to finance its current account deficit, which can be achieved through selling its assets to overseas investors or borrowing from the rest of the world.</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\" colspan=\"3\">UK Current Account (Quarterly data)</th></tr>\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2018 Q2 (£ million)</th><th style=\"padding:6px;\">2018 Q3 (£ million)</th></tr>\n<tr><td style=\"padding:6px;\">Exports of goods</td><td style=\"padding:6px;\">85 987</td><td style=\"padding:6px;\">88 884</td></tr>\n<tr><td style=\"padding:6px;\">Exports of services</td><td style=\"padding:6px;\">70 760</td><td style=\"padding:6px;\">69 721</td></tr>\n<tr><td style=\"padding:6px;\">Imports of goods</td><td style=\"padding:6px;\">120 560</td><td style=\"padding:6px;\">123 880</td></tr>\n<tr><td style=\"padding:6px;\">Imports of services</td><td style=\"padding:6px;\">43 195</td><td style=\"padding:6px;\">43 508</td></tr>\n<tr><td style=\"padding:6px;\"><strong>Total trade balance</strong></td><td style=\"padding:6px;\">–7 008</td><td style=\"padding:6px;\">-</td></tr>\n<tr><td style=\"padding:6px;\">a. Investment income (net)</td><td style=\"padding:6px;\">–7 142</td><td style=\"padding:6px;\">–10 780</td></tr>\n<tr><td style=\"padding:6px;\">b. Other income (net)</td><td style=\"padding:6px;\">–328</td><td style=\"padding:6px;\">–325</td></tr>\n<tr><td style=\"padding:6px;\"><strong>Total investment and other income (a + b)</strong></td><td style=\"padding:6px;\">–7 470</td><td style=\"padding:6px;\">–11 105</td></tr>\n<tr><td style=\"padding:6px;\"><strong>Total transfers</strong></td><td style=\"padding:6px;\">–5 476</td><td style=\"padding:6px;\">–6 634</td></tr>\n<tr><td style=\"padding:6px;\"><strong>Current balance</strong></td><td style=\"padding:6px;\">–19 954</td><td style=\"padding:6px;\">–26 522</td></tr>\n</table>\n<p>Globalisation is demonstrated by the overall growth in trade and foreign investment. In 1983, UK exports plus imports amounted to just £159565 million, while in 2017 the total was £1257706 million. Lower tariffs and expansion of free-trade areas and customs unions, which require less form filling and customs checks, have led to more competition, expanding markets and increased foreign investment. Because of this, competitive UK producers have been able to expand their sales. Improved communications, technological transfers and the development of supply chains across borders have also been contributing factors to global trade and investment growth.</p>",
+  "hint": "Use the extract: UK trade (exports+imports) grew from £159,565m in 1983 to £1,257,706m in 2017 — about eight times bigger — showing how significant globalisation is. Pick 2–3 benefits (larger markets/economies of scale, supply-chain access, fewer customs delays, technology transfer) and weigh them against genuine costs (structural decline in regions that can't compete, employee resentment, need for fair-tax policy) before a supported judgement.",
+  "starter": "One benefit of globalisation to UK producers is access to a much larger market, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Benefits may include:</strong></p>\n<ul>\n<li>Larger markets, beyond the UK domestic market, could lead to specialisation and economies of scale, which would lower average production costs</li>\n<li>More opportunities to participate in supply chains, both with foreign companies locating in the UK or with companies overseas</li>\n<li>Less form filling and customs delays when globalisation includes freer trade or removal of tariffs (and non-tariff barriers)</li>\n<li>More opportunities to benefit from technology and innovation worldwide</li>\n<li>More skilled workers from overseas could improve productivity among UK producers</li>\n<li>More foreign tourists visit the UK, which could help local economies and the hospitality industry</li>\n<li>Higher economic growth from trade and foreign investment should lead to higher incomes, so consumption of goods and services made by UK producers should widen and increase</li>\n<li>Corporate taxes are likely to be more equal across economies if globalisation is accompanied by tax negotiations and reform</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Evaluation may include</h5>\n<ul>\n<li>Total UK trade has increased by about eight times since 1983 (calculated from the data in the text), which demonstrates how significant globalisation is to the UK economy</li>\n<li>While there are political and environmental concerns about globalisation, on balance UK producers benefit as long as they innovate and compete with improved productivity</li>\n<li>Globalisation should overall have benefits for economic growth and employment, though in the short term there may be adjustment difficulties</li>\n<li>Those producers who cannot compete globally will need assistance, either through technical transfers or through managing their decline and the re-employment of their workers</li>\n<li>There may be structural decline and unemployment in certain regions that have not been able to participate in international supply chains, which should be balanced against the benefits</li>\n<li>Producers may find that their employees are resentful about working alongside foreigners, so there will need to be social and economic policies that ensure UK employees do not feel \"left behind\"</li>\n<li>It is necessary for the UK government to adopt policies to ensure that multinationals cannot avoid taxes, because such avoidance would be unfair with respect to UK producers</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application of knowledge to the scenario; reasonable analysis of beneficial effects largely as single effects; good evaluation with a fully supported judgement weighing up arguments/alternatives.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis, largely a single effect not developed into a chain; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis with a single, loosely linked effect; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates identified benefits to producers (and rarely only to consumers and/or the government) and were able to give a superficial judgement at the end. Only the highest-achieving candidates were able to evaluate as part of a logical argument.</p>\n</div>",
+   "modelAnswer": "One clear benefit is access to a much larger market: Extract 3 shows UK trade grew from £159,565 million in 1983 to £1,257,706 million in 2017 — about eight times bigger — letting UK producers specialise and gain economies of scale, lowering average costs. Globalisation has also cut customs delays and opened up supply chains, giving firms access to worldwide technology and innovation.\n\nHowever, these benefits are not automatic or evenly spread. Producers who cannot compete globally, particularly in regions never linked into supply chains, may face structural decline and job losses, and some employees may resent competing directly with overseas workers.\n\nOverall, globalisation likely benefits UK producers on balance, since the scale of trade growth shows how significant the opportunity is — but this depends on firms continuing to innovate on productivity, and on government policy supporting regions left behind and stopping unfair multinational tax avoidance."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:67539c85",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q13",
+  "question": "Penham Chemicals have decided to grow the business by taking part in international trade. The most likely benefit to them of doing this would be",
+  "options": [
+   "access to free trade agreements",
+   "improved production and productivity",
+   "larger market for buying inputs",
+   "technological innovation"
+  ],
+  "hint": "This mirrors the earlier 'producer benefit' MCQs — the direct benefit of trade to a growing firm is a bigger market to buy its inputs from, not the other more indirect effects listed.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — larger market for buying inputs</strong></p>\n<ul>\n<li>A larger market for buying inputs is the most direct benefit trade offers a growing firm. Access to free trade agreements, improved productivity and technological innovation may follow, but they are not the immediate benefit described.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:a8c9a675",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q14",
+  "question": "The benefits of international trade are only fully achieved if there is",
+  "options": [
+   "a constant exchange rate",
+   "free trade",
+   "globalisation",
+   "no opportunity cost"
+  ],
+  "hint": "The theoretical gains from trade rely on countries being able to trade WITHOUT barriers — that is free trade, not a fixed exchange rate or the broader idea of globalisation.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — free trade</strong></p>\n<ul>\n<li>The full gains from specialisation and trade rely on trade being genuinely FREE — without tariffs, quotas or other barriers. A constant exchange rate is not required, globalisation is a broader process rather than a precondition, and opportunity cost cannot be eliminated.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:exam:ef0a06a1",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q15",
+  "question": "A free trade agreement between two countries is where:",
+  "options": [
+   "goods and services move between countries without restrictions",
+   "the benefits of imports and exports are available to all",
+   "the costs of trade are offset by the benefits a country gains",
+   "the movement of goods and services between countries is regulated"
+  ],
+  "hint": "'Without restrictions' between the agreement's own members is the definition. The other options describe outcomes or unrelated ideas, not the definition itself — and 'regulated' is closer to protectionism than free trade.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — goods and services move between countries without restrictions</strong></p>\n<ul>\n<li>This is the core definition of a free trade agreement. Options B and C describe possible OUTCOMES rather than the definition, and option D describes the opposite — regulated trade is closer to protectionism.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:mcq:321e9e56",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of these is an example of a VISIBLE import into the UK?",
+  "options": [
+   "A holiday in France bought by a UK resident (a service)",
+   "Financial advice bought from a US bank (a service)",
+   "A German car imported into the UK (a good)",
+   "A music streaming subscription bought from a Swedish company (a service)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "Visible trade is trade in tangible GOODS — a car is something you can touch. The other three are all SERVICES, so they count as invisible trade."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:mcq:7d0382c4",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A government imposes a tariff on imported steel. The most likely immediate effect is...",
+  "options": [
+   "The price of steel in the domestic market falls",
+   "Total imports of steel increase",
+   "The government's spending automatically rises",
+   "Imports of steel become relatively more expensive"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "A tariff is a tax added to an imported good, so imported steel becomes dearer relative to domestic steel. Prices would not fall, imports would not rise, and government SPENDING isn't automatically affected (though tax revenue might rise)."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:mcq:3b889a0b",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is the best definition of a quota?",
+  "options": [
+   "A subsidy paid to a domestic producer",
+   "An agreement to remove all trade barriers",
+   "A tax added to the price of an imported good",
+   "A limit on the quantity of a good that can be imported"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "A quota restricts the QUANTITY of a good that can be imported. A tax on imports is a tariff — don't mix the two up."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:mcq:05d1dbc6",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Two countries specialise in what they produce most efficiently and then trade. Compared with each country trying to produce everything itself, total world output...",
+  "options": [
+   "Rises, because resources are used where they are relatively most productive",
+   "Is unaffected, because output depends only on population size",
+   "Falls, because trade always creates a loser",
+   "Falls, because specialisation reduces variety"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Specialisation lets each country's resources go towards what they are relatively best at producing, raising total combined output compared with every country trying to produce everything itself."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:mcq:f3697772",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of the following is a benefit of trade specifically for a UK PRODUCER, rather than for a UK consumer?",
+  "options": [
+   "Access to a market far larger than the domestic economy alone",
+   "Wider choice of goods to buy",
+   "Access to goods that cannot be made domestically",
+   "Lower prices from foreign competition"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A bigger market to sell into is a direct benefit to a PRODUCER. Choice, lower prices from competition, and access to otherwise-unavailable goods are all CONSUMER benefits."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:mcq:69150057",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "As a firm's output rises due to selling into export markets, its average cost per unit typically...",
+  "options": [
+   "Becomes impossible to measure",
+   "Falls, due to economies of scale",
+   "Rises, due to diminishing returns",
+   "Stays the same, because costs are fixed"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "Selling into bigger markets lets a firm raise output and spread its costs over more units — economies of scale, which LOWER the average cost per unit."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:mcq:f6e0ad77",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of these is the best example of structural unemployment caused by trade?",
+  "options": [
+   "A worker temporarily laid off during a national holiday",
+   "A worker made redundant after their factory closes because it cannot compete with cheaper imports, and lacks the skills for new local industries",
+   "A worker who resigns to travel for six months",
+   "A worker who retires at the normal retirement age"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "Structural unemployment happens when a whole industry declines — often because it can't compete with imports — and its workers' skills no longer match the jobs that are available."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:mcq:83a6b464",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "'Dumping' in international trade describes...",
+  "options": [
+   "A tariff being removed between two trading partners",
+   "Two countries merging their currencies",
+   "A country selling a surplus of a good abroad at a very low price, undercutting local producers",
+   "A country banning all imports of a good"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "Dumping is when a country with a big cost advantage in a good (often agricultural) sells its surplus abroad very cheaply, driving local producers out of that market."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:mcq:ac316cdd",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Within a free trade agreement, which is true?",
+  "options": [
+   "Members must share a single currency",
+   "Members can still set their own trade rules with countries outside the agreement",
+   "No trade occurs between members at all",
+   "Members must share the same interest rate"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "An FTA removes barriers BETWEEN its own members, but each member remains free to make its own separate trade arrangements with countries outside the group."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:mcq:6937ecde",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The UK–EU Trade and Cooperation Agreement (after Brexit) guarantees zero tariffs and zero quotas on trade in...",
+  "options": [
+   "Neither goods nor services",
+   "Services only, not goods",
+   "Goods only, not services",
+   "All goods and all services"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "The deal guarantees zero tariffs and zero quotas on GOODS, but this does not extend to services — a gap that matters for the UK's large financial services sector."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:tf:468f996e",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A free trade agreement means member countries no longer have any trade barriers with countries outside the agreement.",
+  "key": {
+   "answer": false,
+   "explain": "An FTA removes barriers only BETWEEN its own members. Each member is still free to set its own separate trade arrangements — including barriers — with countries outside the group."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:tf:aacf3c43",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Specialisation and trade can increase total output compared with every country trying to produce everything itself.",
+  "key": {
+   "answer": true,
+   "explain": "When each country focuses its resources on what it produces relatively most efficiently and then trades, combined output rises above what both could produce by splitting resources evenly between goods."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:tf:6d91ec89",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Cheaper imported inputs are a benefit of trade only for consumers, not producers.",
+  "key": {
+   "answer": false,
+   "explain": "Cheaper inputs (raw materials, components) are a direct PRODUCER benefit — it lowers their costs of production. Consumers benefit separately from cheaper finished goods."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:tf:e2319576",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A tariff is a limit on the quantity of a good that can be imported.",
+  "key": {
+   "answer": false,
+   "explain": "That describes a QUOTA. A tariff is a TAX added to the price of an imported good — the two tools work differently (price vs quantity)."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:tf:1b9b8c8a",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Structural unemployment can occur when a country's industries decline because they cannot compete with cheaper imports.",
+  "key": {
+   "answer": true,
+   "explain": "If workers' skills no longer match the jobs available after their industry shrinks — as with UK mining and textiles — this is structural unemployment."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:tf:3553340e",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Trade can only ever benefit both trading countries equally — there are no losers.",
+  "key": {
+   "answer": false,
+   "explain": "Even if a country gains overall, there are winners (export-competitive industries) and losers (import-competing industries) WITHIN it, and gains between two trading countries are rarely equal."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:tf:c749e7a9",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The EU single market guarantees free movement of goods, services, capital AND people between member states.",
+  "key": {
+   "answer": true,
+   "explain": "All four freedoms — goods, services, capital and people — are guaranteed within the EU single market, which is more than a typical free trade agreement offers."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:tf:02622131",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Dumping means a country bans all imports of a particular good.",
+  "key": {
+   "answer": false,
+   "explain": "Dumping means selling a SURPLUS of a good abroad at a very low price, undercutting and driving out local producers — the opposite of banning imports."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:learn:883ba198",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Why countries trade — specialisation and comparative advantage",
+  "reading": "<p><strong>International trade is the exchange of goods and services across national borders.</strong> A country's <strong>exports</strong> are the goods and services it sells to other countries; its <strong>imports</strong> are the goods and services it buys from other countries.</p>\n<h4>Visible and invisible trade</h4>\n<ul>\n<li><strong>Goods are tangible</strong> — you can touch them, e.g. a car. A <strong>visible import</strong> is a tangible product, such as a Fiat car bought from an Italian producer.</li>\n<li><strong>Services are intangible</strong> — you cannot touch them, e.g. finance. An <strong>invisible import</strong> is an intangible product, such as a UK resident's holiday in France.</li>\n<li>Every country takes part in international trade to some extent. Some, such as the UK, have extensive trade; others, such as North Korea, have very little.</li>\n</ul>\n<h4>Why countries specialise and trade</h4>\n<ul>\n<li>Countries differ in their resources — climate, natural resources, skills, technology and labour costs — so each can produce certain goods or services relatively more efficiently than others.</li>\n<li>By specialising in what they do best and trading for the rest, total global output and consumer choice both increase, compared with every country trying to produce everything itself.</li>\n<li><strong>Worked example:</strong> Country A has high rainfall (good for milk); Country B has lots of sunshine (good for bananas). Splitting resources 50/50 between the two goods, together they produce 8,000 litres of milk and 10 tonnes of bananas. If each specialises fully instead, Country A can produce 12,000 litres of milk and Country B 16 tonnes of bananas — 4,000 more litres and 6 more tonnes than before, from the SAME total resources.</li>\n<li>The UK's own specialism is <strong>services</strong> — it imports many agricultural and manufactured products, while exporting finance, education and other highly differentiated services.</li>\n</ul>",
+  "question": "Two countries split their resources evenly between two goods and produce a combined 8,000 litres of milk and 10 tonnes of bananas. If each specialises fully in the good it is better suited to, what happens to combined output?",
+  "options": [
+   "It stays the same, only which country makes what changes",
+   "It falls, because specialising removes choice",
+   "It rises, because each country produces more of what it is relatively better at",
+   "It becomes impossible to compare"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "Specialisation lets each country focus its resources on its strongest good, raising total output above what both could produce by splitting resources evenly — the basic case for trade."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:learn:1db3f5f4",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "The benefits of trade — for consumers, producers and the economy",
+  "reading": "<p>The spec asks you to explain the benefits of trade separately for <strong>consumers</strong> and <strong>producers</strong> — exam questions often name one, so keep them apart.</p>\n<h4>Benefits for consumers</h4>\n<ul>\n<li><strong>Greater choice</strong> of goods and services, including products that could not be produced domestically at all, e.g. tropical fruit in the UK.</li>\n<li><strong>Lower prices</strong> — more global competition forces firms to be efficient and price-competitive.</li>\n<li><strong>Higher quality and more innovation</strong> — specialist producers competing internationally are pushed to improve their products.</li>\n<li>Trade can also contribute to <strong>price stability</strong>, since import prices can be a lot cheaper than domestically produced equivalents.</li>\n</ul>\n<h4>Benefits for producers</h4>\n<ul>\n<li><strong>A bigger market</strong> to sell into, far beyond the domestic economy.</li>\n<li><strong>Economies of scale</strong> from higher output, which lowers average (unit) costs.</li>\n<li><strong>Cheaper and more varied inputs</strong> — a larger market for buying raw materials and components.</li>\n<li><strong>Spreading risk</strong> — operating in several geographical markets reduces the impact of a downturn in any one of them, particularly the domestic market.</li>\n<li><strong>Spread of technical knowledge</strong> — trading with foreign businesses can bring new technology, skills and ideas into a firm's own operations.</li>\n</ul>\n<h4>Benefits for the wider economy</h4>\n<ul>\n<li>Export revenue supports <strong>economic growth</strong> and <strong>employment</strong>.</li>\n<li>Access to imported raw materials and components supports domestic production that could not otherwise happen.</li>\n<li>As other countries' incomes rise from selling their own exports, they buy more imports too — trade can raise growth on a <strong>global</strong> scale, not just domestically.</li>\n<li>More trade and higher incomes generate more <strong>tax revenue</strong> (income tax, VAT, corporation tax), which can fund public services such as health and education.</li>\n</ul>",
+  "question": "A UK exporter can now buy cheaper components from overseas suppliers as trade increases. This is best described as a benefit of trade for...",
+  "options": [
+   "Consumers, through lower prices",
+   "Producers, through cheaper inputs",
+   "The government, through higher tax revenue",
+   "Consumers, through greater choice"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "Cheaper inputs for a FIRM'S OWN production is a producer benefit — a bigger, more competitive market for buying supplies. Cheaper prices for shoppers would be the consumer version."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:learn:16dea5aa",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "The risks and costs of international trade",
+  "reading": "<p>Trade is not free of costs — the spec expects you to weigh benefits against risks, for both a country and its firms.</p>\n<h4>Structural unemployment</h4>\n<ul>\n<li>Domestic industries that cannot compete with cheaper imports may decline, and their workers may lack the skills needed by growing industries — causing <strong>structural unemployment</strong>.</li>\n<li>Real examples: the decline of <strong>mining in the north of England</strong> left many workers without transferable skills, and structural unemployment persists there today. <strong>Textiles in Yorkshire</strong> is a similar case.</li>\n<li><strong>Infant industries</strong> — new, developing firms — can struggle to compete with established multinationals, limiting local employment opportunities.</li>\n</ul>\n<h4>Over-dependence and vulnerability</h4>\n<ul>\n<li><strong>Over-reliance on imports</strong> for essential goods (food, energy, medicine) creates vulnerability to global supply shocks.</li>\n<li><strong>Over-reliance on a narrow range of exports</strong> is risky if world demand for them changes: around <strong>40% of Ivory Coast's exports are cocoa products</strong> — a shift in chocolate demand, a drought, or new competitors could seriously damage its economy.</li>\n</ul>\n<h4>Inequality and other costs</h4>\n<ul>\n<li>Trade can widen inequality WITHIN a country, between winners (export-competitive industries) and losers (import-competing industries).</li>\n<li><strong>Dumping</strong>: countries with a big cost advantage in a good (often agricultural) sell their surplus abroad at very low prices, driving local producers out of the market.</li>\n<li><strong>Environmental costs</strong>: transporting large quantities of goods around the world uses significant scarce resources and is a growing environmental concern; over-exploitation of natural resources (mining, forestry, fishing) can also leave nothing for future generations.</li>\n</ul>",
+  "question": "Around 40% of Ivory Coast's export revenue comes from cocoa products. This narrow specialisation is risky mainly because...",
+  "options": [
+   "Cocoa cannot be traded internationally",
+   "It guarantees structural unemployment",
+   "It means the country cannot import anything else",
+   "A fall in world cocoa demand or prices would seriously damage the whole economy"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "Being heavily dependent on one export makes an economy vulnerable — if demand, prices or supply conditions for that one good change, there is no other major export to fall back on."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:learn:8773e022",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Free trade agreements and trade blocs",
+  "reading": "<p>Governments can choose to remove trade barriers between themselves and named partner countries — the opposite of protectionism.</p>\n<h4>Key definitions</h4>\n<ul>\n<li>A <strong>tariff</strong> is a tax a government charges on imports, raising their price to discourage purchase.</li>\n<li>A <strong>quota</strong> is a limit on the quantity of a good that can be imported in a given period.</li>\n<li>A <strong>free trade agreement (FTA)</strong> is where two or more countries agree to remove tariffs and quotas on trade between themselves — but each country can still make its OWN separate trade deals with countries outside the agreement. Examples include NAFTA (USA, Canada, Mexico) and EFTA.</li>\n<li>A <strong>trade bloc</strong> is a group of countries that join together to reduce barriers to trade between members. Trade between them becomes easier and cheaper, but countries OUTSIDE the bloc still face barriers.</li>\n</ul>\n<h4>The EU / European single market</h4>\n<ul>\n<li>The EU is an economic and political union operating as a <strong>single market</strong>, guaranteeing free movement of goods, services, capital AND people between member states — not just goods.</li>\n<li>All members must follow common standards and laws (e.g. product safety) to allow that free movement, and the EU negotiates trade deals with non-EU countries on behalf of all its members.</li>\n<li>Evidence suggests single-market GDP for EU countries was around <strong>9% higher</strong> than it would have been with tariff/non-tariff barriers in place.</li>\n</ul>\n<h4>Advantages and disadvantages of FTAs</h4>\n<ul>\n<li><strong>Trade creation</strong> (more trade within the bloc, since barriers are gone) vs <strong>trade diversion</strong> (a common external tariff can divert trade away, making some goods more expensive).</li>\n<li><strong>Stronger competition</strong> drives efficiency vs the risk of <strong>monopolies</strong> forming as firms merge to exploit economies of scale.</li>\n<li><strong>Access to a much larger market</strong> vs the risk that <strong>jobs move</strong> to member states with lower labour costs.</li>\n<li><strong>Freedom of movement</strong> for workers vs the ongoing <strong>cost of membership</strong> — EU membership cost the UK around £15bn a year.</li>\n</ul>\n<h4>Brexit — a real example</h4>\n<ul>\n<li>The UK–EU Trade and Cooperation Agreement guarantees <strong>zero tariffs and zero quotas</strong> on trade in GOODS — but this does NOT extend to services, a risk for the UK's large financial services sector.</li>\n<li>Even with zero tariffs on goods, there are extra costs from <strong>border checks</strong>, since the UK and EU no longer share identical rules — especially costly for exporters of short-shelf-life goods such as UK seafood.</li>\n</ul>",
+  "question": "Which best describes the difference between a free trade agreement and full membership of the EU single market?",
+  "options": [
+   "An FTA always includes free movement of people",
+   "There is no difference, they mean the same thing",
+   "The EU single market only covers goods, not services",
+   "An FTA usually removes tariffs on goods, but members can still set their own deals with others and needn't share free movement of people"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "An FTA typically removes tariffs/quotas between its members but leaves each country free to make its own arrangements elsewhere. Full single-market membership goes further, requiring free movement of goods, services, capital AND people, plus shared rules."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:misc:c6bd462e",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"Investment from overseas comes into the UK because of high exchange rates.\"</p><p><strong>✅ The correct idea:</strong> The examiners specifically flagged this on Q5(ii) ('Explain one reason why there is significant investment from overseas into the UK'): 'a further common error/misconception was between exchange rates and interest rates'. The mark scheme's real reasons are: financing the UK's current account deficit, an educated workforce, English as an international language, lower corporation/business tax, belief the economy will grow, a relatively stable/developed economy, and — the one most often confused — HIGHER INTEREST RATES/returns. The exchange rate is a different concept entirely (the price of a currency in terms of another), and mixing it up with the interest rate costs marks.</p>",
+  "question": "Which of these is a genuine reason overseas investors might invest in the UK, according to the mark scheme?",
+  "options": [
+   "A fixed exchange rate policy",
+   "Falling UK GDP growth",
+   "Higher interest rates/returns available in the UK",
+   "A weak exchange rate against the dollar"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "The mark scheme credits higher interest rates/returns, an educated workforce, English as an international language, and financing the deficit. Examiners specifically flagged confusing EXCHANGE rates with INTEREST rates as a common error."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:misc:a9bdf0a6",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"I'll just describe what the extract's table shows and that counts as analysis.\"</p><p><strong>✅ The correct idea:</strong> The examiners were blunt about this on Q11(b): 'There was a tendency for some candidates to re-write the information in Extract 3 without any analysis. For example, writing \"the economy becomes less based on domestic manufacturing…\" or to describe or quote the data in the table.' Real analysis needs the data turned into an EXPLAINED chain: the goods deficit widening from $549,253m to $924,284m while the services surplus grew from $125,839m to $286,723m SHOWS the US economy shifting from manufacturing (secondary sector) to services (tertiary sector) — and this happened BECAUSE the US has lower costs/higher productivity in services than in manufacturing. Quoting the numbers alone, without that explanation, scores poorly.</p>",
+  "question": "For 'analyse how the data reflects changes in economic structure', which response scores well?",
+  "options": [
+   "Listing every number in the table in order",
+   "Quoting the export and import figures from the table without further comment",
+   "Explaining that a growing goods deficit and services surplus show the economy shifting toward services, and why that is happening",
+   "Restating the extract's own sentence about domestic manufacturing"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "Examiners explicitly penalised candidates who re-wrote or quoted the table without analysis. Marks need the DATA turned into an explained chain of reasoning about WHY the structure is changing."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:misc:5600460a",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"Stating a cost or a reason is enough to get full marks on a 2-mark 'explain' question.\"</p><p><strong>✅ The correct idea:</strong> Both Q5(ii) and Q12(ii) use the identical mark scheme structure: 'Award 1 mark for a statement that is not explained. Award 1 more mark for the explanation.' The examiners repeated the same warning on Q12(ii): 'this question was generally answered well, although some candidates stated a cost, rather than explaining it.' A named point earns only HALF the marks — the second mark needs the reasoning developed, e.g. not just 'competition from imports' but WHY that competition harms a producer whose own productivity is lower.</p>",
+  "question": "'Explain one cost to producers of globalisation' is worth 2 marks. Which answer earns both marks?",
+  "options": [
+   "'Globalisation is bad for producers'",
+   "'Competition from imports' (a cost stated but not explained)",
+   "Simply naming globalisation as a cost",
+   "'Competition from lower-cost overseas producers can harm domestic producers whose own productivity is lower, forcing some out of business' (stated and explained)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "The mark scheme awards 1 mark for stating a cost, then a 2nd mark ONLY if it is explained — i.e. the chain of reasoning for WHY it is a cost is spelled out."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:misc:ba8fbf38",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"A free trade agreement means a country can no longer trade freely with anyone outside it.\"</p><p><strong>✅ The correct idea:</strong> The examiners' comment on Q12(i) was precise: 'Most candidates identified the link between Free Trade Areas and tariffs, but few either quoted the textbook definition or identified the fact that signatories can have differing arrangements with other countries.' A full 2-mark definition needs BOTH elements: (1) no tariffs/quotas WITHIN the group, AND (2) that members can still make their OWN separate trade deals with countries OUTSIDE the group (or a correct example, e.g. NAFTA/EFTA). Most students only ever wrote the first half.</p>",
+  "question": "For 'explain what is meant by a free trade agreement' (2 marks), what did examiners say most candidates missed?",
+  "options": [
+   "That members can also make their own separate trade deals with countries outside the group",
+   "That there are no tariffs within the group at all",
+   "That NAFTA is an example of an FTA",
+   "That trade barriers exist"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Examiners noted most candidates got the 'no tariffs/quotas' half but rarely mentioned that FTA members remain free to strike their OWN deals with non-members — the second mark-earning element."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:misc:c2b22b7b",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"A rising current account deficit is always straightforwardly bad news, with no offsetting factors.\"</p><p><strong>✅ The correct idea:</strong> Q5(iii)'s mark scheme is built entirely from paired points: every piece of analysis is followed by its own 'However:' counterpoint. For example: the deficit is matched by a financial-account surplus showing inward investment that brings new technology — HOWEVER that same investment means the UK's income account tends to run a deficit too, because foreign owners' profits flow back out. Or: the deficit puts downward pressure on the exchange rate, raising import prices — HOWEVER a weaker pound should make UK exports MORE competitive. Good evaluation always matches a point with its own genuine counter, not a one-sided list.</p>",
+  "question": "Evaluating a current account deficit, which pairing shows the kind of BALANCED point examiners reward?",
+  "options": [
+   "Deficits and surpluses have identical effects",
+   "The deficit reflects inward investment bringing new technology — however this investment also means the income account tends to run in deficit as profits flow back overseas",
+   "The deficit is bad, full stop",
+   "The deficit only affects the government, nobody else"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "Good evaluation MATCHES each analytical point with its own counter — e.g. inward investment is a genuine benefit, but it also explains why the income account is often in deficit. One-sided lists don't earn the evaluation marks."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:tips:fb683a28",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "definition — Definitions: state BOTH required elements",
+  "reading": "<p>The examiners were explicit on Q12(i): most candidates linked free trade agreements to tariffs, but few gave the FULL definition. Two-element definitions need BOTH parts, every time:</p>\n<ul>\n<li><strong>Free trade agreement</strong> = no import tariffs or quotas between members (1) + members can still make their OWN trade deals with countries outside the group, or a correct example such as NAFTA/EFTA (1).</li>\n<li><strong>Tariff</strong> = a tax charged on an imported good. <strong>Quota</strong> = a LIMIT on the quantity of a good that can be imported. Don't mix them up — they are opposite tools (tax vs quantity limit).</li>\n<li><strong>Trade bloc</strong> = a group of countries that reduce trade barriers BETWEEN THEMSELVES — outsiders still face barriers.</li>\n</ul>",
+  "question": "For 'explain what is meant by a free trade agreement', which single addition would most likely earn the second mark?",
+  "options": [
+   "Repeating that tariffs are removed",
+   "Stating that members can still make their own trade deals with non-members, or giving a correct example",
+   "Describing a quota instead",
+   "Saying trade always benefits both sides"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "The mark scheme's second mark is for the fact that FTA members remain free to strike separate deals with outsiders, OR a correct example (NAFTA/EFTA) — the element examiners said most candidates missed."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:tips:e6aef481",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Explain questions: STATE it, then EXPLAIN it",
+  "reading": "<p>Both Q5(ii) and Q12(ii) use the identical mark scheme structure — learn it once, apply it everywhere:</p>\n<ul>\n<li><strong>1st mark:</strong> a correct statement/reason/cost, even unexplained.</li>\n<li><strong>2nd mark:</strong> ONLY awarded if that statement is then EXPLAINED — the chain of WHY it happens.</li>\n<li>Examiners' own words: \"some candidates stated a cost, rather than explaining it\" (Q12ii) and \"many candidates identified a reasonable reason but did not explain it\" (Q5ii).</li>\n<li>Fix: after your first sentence, always add a second sentence starting \"This means...\", \"As a result...\", or \"Because...\".</li>\n</ul>",
+  "question": "'Explain one reason why there is significant investment from overseas into the UK' is worth 2 marks. Writing only 'Because of the UK's educated workforce' scores...",
+  "options": [
+   "0 marks — it's irrelevant",
+   "It cannot be marked without a calculation",
+   "2 marks — it's a full answer",
+   "1 mark — a correct but unexplained statement"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "A correct reason with no explanation of WHY it attracts investment earns only the 1st mark. The 2nd mark needs the reasoning developed — e.g. that a skilled workforce raises productivity, making UK investment more profitable."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:tips:2f52d931",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "data — Data questions: use the numbers, don't just repeat them",
+  "reading": "<p>Examiners on Q11(b) were blunt: <strong>\"There was a tendency for some candidates to re-write the information in Extract 3 without any analysis.\"</strong> Simply quoting or describing the table earns little.</p>\n<ul>\n<li><strong>Quote the actual figures</strong> as evidence (e.g. the US services surplus grew from $125,839m to $286,723m) — this shows you have used the extract, not just glanced at it.</li>\n<li><strong>Then explain what the trend MEANS</strong> — e.g. a growing services surplus alongside a widening goods deficit shows the economy shifting from manufacturing (secondary) to services (tertiary).</li>\n<li><strong>Then explain WHY</strong> it is happening — e.g. because the US has a comparative advantage/lower costs in services than in manufacturing.</li>\n<li>The best-scoring exemplar on this paper used the data \"skilfully\" with \"no suggestion of simply rewriting it\" — that phrase is the examiners' own benchmark for a Level 3 response.</li>\n</ul>",
+  "question": "Which response to a 'using the data, analyse...' question scores best?",
+  "options": [
+   "Quoting every figure from the table in order",
+   "Writing out the extract's own sentences again",
+   "Quoting a key figure, then explaining what it shows and why it is happening",
+   "Ignoring the data and writing from memory only"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "Examiners explicitly penalised re-writing or quoting data without analysis. The winning structure is: cite the figure, say what it shows, then explain the cause."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:tips:46baf5bc",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "evaluate — Evaluate & Analyse: match every point with its own counter",
+  "reading": "<p>Every 6-mark question on this paper follows the same AO2:1 / AO3a:2 / AO3b:3 split, and both evaluate questions reward a specific structure.</p>\n<ul>\n<li><strong>Q5(iii)'s mark scheme pairs every single analysis point with its own \"However:\"</strong> — e.g. inward investment brings new technology, HOWEVER it also means the income account runs a deficit as profits flow back out. Copy this pattern exactly: point, then its OWN matching counterpoint.</li>\n<li><strong>Q12(iii) instead lists Benefits, then a separate \"Evaluation may include\" section</strong> — either structure is valid, but both need a genuinely two-sided argument, not a one-sided list.</li>\n<li><strong>Name the group.</strong> Q12(iii) asks about UK PRODUCERS specifically — examiners noted candidates who strayed onto consumers or the government only \"rarely\" did so, and it cost them marks.</li>\n<li><strong>End with a clear, supported judgement</strong> — the mark scheme explicitly credits a \"final judgement (expressed clearly)\" as one of its own bullet points.</li>\n</ul>",
+  "question": "On Q5(iii)'s mark scheme, what follows almost every analysis point?",
+  "options": [
+   "A new, unrelated point",
+   "Its own matching 'However:' counterpoint",
+   "A repeat of the same point",
+   "Nothing — points stand alone"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "The mark scheme is built as point/however pairs throughout — each piece of analysis (AO3a) is matched with its own evaluation counterpoint (AO3b), which is exactly the structure a strong answer should copy."
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:fib:2d3f363b",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "International trade is the exchange of goods and ___B1___ across national ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "inside",
+    "lowers",
+    "services",
+    "tariff"
+   ],
+   "B2": [
+    "goods",
+    "imports",
+    "borders",
+    "20"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "services",
+    "B2": "borders"
+   }
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:fib:73eb9049",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A country's ___B1___ are goods and services sold abroad, while its ___B2___ are goods and services bought from abroad.",
+  "blankOptions": {
+   "B1": [
+    "raises",
+    "exports",
+    "borders",
+    "tariff"
+   ],
+   "B2": [
+    "imports",
+    "outside",
+    "goods",
+    "raises"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "exports",
+    "B2": "imports"
+   }
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:fib:a1b9fd91",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A ___B1___ is a tax charged on imported goods, while a ___B2___ is a limit on the quantity that can be imported.",
+  "blankOptions": {
+   "B1": [
+    "outside",
+    "services",
+    "tariff",
+    "imports"
+   ],
+   "B2": [
+    "quota",
+    "services",
+    "borders",
+    "imports"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "tariff",
+    "B2": "quota"
+   }
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:fib:15be8dae",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "As a firm sells into larger export markets and raises output, it can benefit from ___B1___ of scale, which ___B2___ its average costs.",
+  "blankOptions": {
+   "B1": [
+    "economies",
+    "20",
+    "tariff",
+    "raises"
+   ],
+   "B2": [
+    "tariffs",
+    "quota",
+    "imports",
+    "lowers"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "economies",
+    "B2": "lowers"
+   }
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:fib:4eab7e85",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A free trade agreement removes ___B1___ and quotas between its members, but each member can still make its own deals with countries ___B2___ the agreement.",
+  "blankOptions": {
+   "B1": [
+    "inside",
+    "exports",
+    "tariffs",
+    "tariff"
+   ],
+   "B2": [
+    "tariff",
+    "economies",
+    "20",
+    "outside"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "tariffs",
+    "B2": "outside"
+   }
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:fib:a2e4f8cf",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Around ___B1___% of Ivory Coast's export revenue comes from cocoa products, showing the risk of over-___B2___ on a narrow range of exports.",
+  "blankOptions": {
+   "B1": [
+    "services",
+    "20",
+    "economies",
+    "40"
+   ],
+   "B2": [
+    "tariff",
+    "services",
+    "tariffs",
+    "reliance"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "40",
+    "B2": "reliance"
+   }
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:e6f5b17f",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “International trade”?",
+  "options": [
+   "Goods and services bought from other countries",
+   "The exchange of goods and services across national borders",
+   "A tax charged on an imported good",
+   "Average costs falling as a firm's output increases"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“International trade” means: The exchange of goods and services across national borders"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:fc8415f4",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Exports”?",
+  "options": [
+   "Goods and services sold to other countries",
+   "A limit on the quantity of a good that can be imported",
+   "Selling a surplus of a good abroad at a very low price to undercut local producers",
+   "The exchange of goods and services across national borders"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Exports” means: Goods and services sold to other countries"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:25ef6235",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Imports”?",
+  "options": [
+   "Trade in tangible goods, e.g. cars",
+   "Goods and services sold to other countries",
+   "A group of countries that reduce trade barriers between members",
+   "Goods and services bought from other countries"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Imports” means: Goods and services bought from other countries"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:5edf42dd",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Visible trade”?",
+  "options": [
+   "Trade in tangible goods, e.g. cars",
+   "Goods and services sold to other countries",
+   "A tax charged on an imported good",
+   "Members remove tariffs/quotas between themselves but keep their own deals with outsiders"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Visible trade” means: Trade in tangible goods, e.g. cars"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:09a3b452",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Invisible trade”?",
+  "options": [
+   "Members remove tariffs/quotas between themselves but keep their own deals with outsiders",
+   "A tax charged on an imported good",
+   "Goods and services sold to other countries",
+   "Trade in intangible services, e.g. finance or tourism"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Invisible trade” means: Trade in intangible services, e.g. finance or tourism"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:7502891f",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “National specialisation”?",
+  "options": [
+   "Goods and services bought from other countries",
+   "A country focusing its resources on producing what it does relatively most efficiently",
+   "A limit on the quantity of a good that can be imported",
+   "Members remove tariffs/quotas between themselves but keep their own deals with outsiders"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“National specialisation” means: A country focusing its resources on producing what it does relatively most efficiently"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:bd6a6e87",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Economies of scale”?",
+  "options": [
+   "The exchange of goods and services across national borders",
+   "Trade in intangible services, e.g. finance or tourism",
+   "Average costs falling as a firm's output increases",
+   "A country focusing its resources on producing what it does relatively most efficiently"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Economies of scale” means: Average costs falling as a firm's output increases"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:58313aea",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Tariff”?",
+  "options": [
+   "Members remove tariffs/quotas between themselves but keep their own deals with outsiders",
+   "A country focusing its resources on producing what it does relatively most efficiently",
+   "A tax charged on an imported good",
+   "A group of countries that reduce trade barriers between members"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Tariff” means: A tax charged on an imported good"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:db2e72ed",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Quota”?",
+  "options": [
+   "Goods and services bought from other countries",
+   "Goods and services sold to other countries",
+   "A limit on the quantity of a good that can be imported",
+   "Trade in tangible goods, e.g. cars"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Quota” means: A limit on the quantity of a good that can be imported"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:638a8488",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Free trade agreement”?",
+  "options": [
+   "Average costs falling as a firm's output increases",
+   "Members remove tariffs/quotas between themselves but keep their own deals with outsiders",
+   "Trade in tangible goods, e.g. cars",
+   "Selling a surplus of a good abroad at a very low price to undercut local producers"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Free trade agreement” means: Members remove tariffs/quotas between themselves but keep their own deals with outsiders"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:16459ad0",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Trade bloc”?",
+  "options": [
+   "A limit on the quantity of a good that can be imported",
+   "Trade in tangible goods, e.g. cars",
+   "Selling a surplus of a good abroad at a very low price to undercut local producers",
+   "A group of countries that reduce trade barriers between members"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Trade bloc” means: A group of countries that reduce trade barriers between members"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:88e89fe3",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Structural unemployment”?",
+  "options": [
+   "Unemployment when workers' skills no longer match the jobs available, e.g. after an industry declines",
+   "Goods and services sold to other countries",
+   "A limit on the quantity of a good that can be imported",
+   "Trade in tangible goods, e.g. cars"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Structural unemployment” means: Unemployment when workers' skills no longer match the jobs available, e.g. after an industry declines"
+  }
+ },
+ {
+  "id": "economics:4-1-importance-of-international-trade:match:84863a72",
+  "pageId": "economics:4-1-importance-of-international-trade",
+  "pageName": "4.1 Importance of International Trade",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Dumping”?",
+  "options": [
+   "A tax charged on an imported good",
+   "Selling a surplus of a good abroad at a very low price to undercut local producers",
+   "A country focusing its resources on producing what it does relatively most efficiently",
+   "Trade in intangible services, e.g. finance or tourism"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Dumping” means: Selling a surplus of a good abroad at a very low price to undercut local producers"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:b67a7136",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q1(a)",
+  "question": "Calculate the balance of trade in goods and services. Show your working.",
+  "caseStudy": "<p style=\"text-align:center;font-weight:600;\">UK balance of payments current account data for 2014</p>\n<table style=\"width:100%;max-width:440px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">£292 867m</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">£412 472m</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">-</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">£214 856m</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">£128 993m</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">£85 863m</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">-</td></tr>\n</table>\n<p style=\"text-align:center;font-weight:600;\">Extract 3: UK balance of payments</p>",
+  "hint": "The table leaves 'Balance of trade in goods' blank on purpose — work that out FIRST (£292 867m − £412 472m), then add the services balance you are given. The answer is negative, so it needs the minus sign and the units.",
+  "starter": "Balance of trade in goods = £292 867m − £412 472m = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>-£119605m + £85863m = -£33742m.</strong></p>\n<ul>\n<li>1 mark for correct working.</li>\n<li>1 mark for correct answer.</li>\n<li>Correct answer on its own is worth 2 marks.</li>\n</ul>\n</div>",
+   "modelAnswer": "First work out the balance of trade in goods, which the table leaves blank: £292 867m − £412 472m = −£119 605m.\n\nThe balance of trade in services is given as £85 863m.\n\nBalance of trade in goods and services = −£119 605m + £85 863m = −£33 742m.\n\nSo it is a deficit of £33 742 million."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:194684fe",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q1(b)",
+  "question": "In 2014 the USA imported goods from the UK worth 54,692 million US Dollars, USD ($). Calculate the value in pounds, GBP (£). The exchange rate was 1 GBP = 1.5586 USD. Round to two decimals. Show your working.",
+  "hint": "The rate is quoted as 1 GBP = 1.5586 USD, so to go from dollars TO pounds you DIVIDE by 1.5586. Multiplying gives £85 246m — far too big, and the giveaway that you went the wrong way.",
+  "starter": "$54 692 million ÷ 1.5586 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>$54,692 million / 1.5586 = £35,090.47million</strong></p>\n<ul>\n<li>1 mark for correct working.</li>\n<li>1 mark for correct answer.</li>\n<li>Correct answer on its own is worth 2 marks.</li>\n</ul>\n</div>",
+   "modelAnswer": "The exchange rate is 1 GBP = 1.5586 USD, so each pound is worth 1.5586 dollars. To convert a dollar figure into pounds I divide by the exchange rate.\n\n$54 692 million ÷ 1.5586 = £35 090.47 million.\n\nSo the goods the USA imported from the UK were worth £35 090.47 million."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:20d47add",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q2",
+  "question": "Which one of the following is least likely to be an economic policy objective for the government?",
+  "options": [
+   "Boosting economic growth",
+   "Boosting employment",
+   "Encouraging imports",
+   "Stimulating exports"
+  ],
+  "hint": "Read 'least likely'. Three of these are things a government actively wants. Which one would make the current account WORSE?",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1 1a)</h5>\n<p><strong>Answer: C — Encouraging imports</strong></p>\n<ul>\n<li>Growth, employment and exports are all standard government objectives. Encouraging imports would worsen the current account, so no government would target it.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:2fff7393",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q3(a)",
+  "question": "Using Extract 2, calculate the current account balance in 2022.  Show your working.",
+  "caseStudy": "<p><strong>Extract 2: Current Account and the UK Economy</strong></p>\n<p>The UK records a current account deficit every year, because total UK spending is greater than its GDP. The UK has to borrow by attracting investment and lending from overseas. Such investment is often accompanied by new technologies.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">UK current account data</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2012</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2022</th></tr>\n<tr><td style=\"padding:6px;\">Trade in goods (£ million)</td><td style=\"padding:6px;\">–112 603</td><td style=\"padding:6px;\">–139 822</td><td style=\"padding:6px;\">–219 291</td></tr>\n<tr><td style=\"padding:6px;\">Trade in services (£ million)</td><td style=\"padding:6px;\">95 657</td><td style=\"padding:6px;\">111 897</td><td style=\"padding:6px;\">151 339</td></tr>\n<tr><td style=\"padding:6px;\">Income flows (£ million)</td><td style=\"padding:6px;\">–15 960</td><td style=\"padding:6px;\">–22 407</td><td style=\"padding:6px;\">12 682</td></tr>\n<tr><td style=\"padding:6px;\">Transfers (£ million)</td><td style=\"padding:6px;\">–21 000</td><td style=\"padding:6px;\">–22 419</td><td style=\"padding:6px;\">–23 026</td></tr>\n<tr><td style=\"padding:6px;\">Current account balance (£ million)</td><td style=\"padding:6px;\">–53 906</td><td style=\"padding:6px;\">–72 751</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The UK's total trade deficit in goods and services has widened between 2012 and 2022, from £16 946 million to £67 952 million. The different trade balances for goods and for services reflect different resources held by the UK and its trading partners. Since about 1990 the UK has developed resources that are more suitable for exporting services. German workers continue to be highly efficient in producing manufactured goods such as pharmaceuticals and cars.</p>\n<p>The UK imports goods from Germany, Japan and the USA, which are the sources of significant direct investment into the UK economy. The UK depends upon investment from overseas to finance its current account deficit. Such foreign investment in the UK is larger than UK investment abroad, partly due to English being widely used in business. The UK's Income account is usually in deficit because of significant outflows of investment income.</p>",
+  "hint": "Add ALL FOUR components for 2022, not just the trade ones: goods (−219 291) + services (151 339) + income flows (12 682) + transfers (−23 026). Note income flows are POSITIVE in 2022 — the only year they are. The answer is negative, and you lose a mark without the minus sign (or the word 'deficit') and without the units.",
+  "starter": "Current account balance = −219 291 + 151 339 + 12 682 − 23 026 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>-219 291 + 151 339 + 151 339 - 23 026 = -78 296</strong></p>\n<p><strong>Answer: £ -78 296 million pounds OR deficit of £78,296 million</strong></p>\n<ul>\n<li>2 marks for a correct answer (working not required)</li>\n<li>1 mark for correct working, but incorrect answer</li>\n<li>Only 1 mark if minus sign (or deficit) missing OR if units (£ million) omitted.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>⚠️ Note on the published working</h5>\n<p>The published mark scheme's line of working repeats <strong>151 339</strong> where it should read <strong>12 682</strong> (the 2022 income flows figure from the table). As printed it sums to +60 361, not −78 296. The printed <strong>answer</strong> is correct — the working is a typo in the paper. The correct working is: −219 291 + 151 339 + 12 682 − 23 026 = <strong>−78 296</strong>. You can check it against the extract's own text, which states the 2022 trade deficit in goods and services is £67 952 million (−219 291 + 151 339 = −67 952).</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question was generally well answered, although a significant number of candidates did not include the £ sign or millions.</p>\n</div>",
+   "modelAnswer": "The current account balance is the sum of all four components in the 2022 column.\n\n−219 291 (goods) + 151 339 (services) + 12 682 (income flows) − 23 026 (transfers) = −78 296.\n\nSo the current account balance in 2022 was −£78 296 million, that is a deficit of £78 296 million."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:c741ccd3",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q3(b)",
+  "question": "Using Extract 2, state the differences in the trends in the trade in goods and in the trade in services between 2012 and 2022.",
+  "caseStudy": "<p><strong>Extract 2: Current Account and the UK Economy</strong></p>\n<p>The UK records a current account deficit every year, because total UK spending is greater than its GDP. The UK has to borrow by attracting investment and lending from overseas. Such investment is often accompanied by new technologies.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">UK current account data</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2012</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2022</th></tr>\n<tr><td style=\"padding:6px;\">Trade in goods (£ million)</td><td style=\"padding:6px;\">–112 603</td><td style=\"padding:6px;\">–139 822</td><td style=\"padding:6px;\">–219 291</td></tr>\n<tr><td style=\"padding:6px;\">Trade in services (£ million)</td><td style=\"padding:6px;\">95 657</td><td style=\"padding:6px;\">111 897</td><td style=\"padding:6px;\">151 339</td></tr>\n<tr><td style=\"padding:6px;\">Income flows (£ million)</td><td style=\"padding:6px;\">–15 960</td><td style=\"padding:6px;\">–22 407</td><td style=\"padding:6px;\">12 682</td></tr>\n<tr><td style=\"padding:6px;\">Transfers (£ million)</td><td style=\"padding:6px;\">–21 000</td><td style=\"padding:6px;\">–22 419</td><td style=\"padding:6px;\">–23 026</td></tr>\n<tr><td style=\"padding:6px;\">Current account balance (£ million)</td><td style=\"padding:6px;\">–53 906</td><td style=\"padding:6px;\">–72 751</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The UK's total trade deficit in goods and services has widened between 2012 and 2022, from £16 946 million to £67 952 million. The different trade balances for goods and for services reflect different resources held by the UK and its trading partners. Since about 1990 the UK has developed resources that are more suitable for exporting services. German workers continue to be highly efficient in producing manufactured goods such as pharmaceuticals and cars.</p>\n<p>The UK imports goods from Germany, Japan and the USA, which are the sources of significant direct investment into the UK economy. The UK depends upon investment from overseas to finance its current account deficit. Such foreign investment in the UK is larger than UK investment abroad, partly due to English being widely used in business. The UK's Income account is usually in deficit because of significant outflows of investment income.</p>",
+  "hint": "These are NET figures, so do NOT say trade 'increased' — the examiners specifically penalise that. Say what happened to the DEFICIT and the SURPLUS. One mark for each of the two trends.",
+  "starter": "The trade in goods has shown a growing..., while the trade in services has shown a growing...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers might include:</strong></p>\n<ul>\n<li>The trade in goods has shown a growing deficit</li>\n<li>The trade in services has shown a growing surplus</li>\n</ul>\n<p>1 mark for stating trend in goods trade. 1 mark for stating trend in services trade.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Many candidates wrote about the trade in goods and/or services increasing. This is not what the data shows, it is the deficit or surplus.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Assessment for learning</h5>\n<p>It is recommended that students are encouraged to use key terms such as deficit or surplus when referring to the current account or trade flows and that there is a focus on the implications of a 'net value' i.e. that international trade reflects exports and imports.</p>\n</div>",
+   "modelAnswer": "The trade in goods has shown a growing deficit, moving from −£112 603 million in 2012 to −£219 291 million in 2022.\n\nThe trade in services has shown a growing surplus, rising from £95 657 million in 2012 to £151 339 million in 2022.\n\nSo the two components moved in opposite directions: the goods deficit widened while the services surplus increased."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:53a5420e",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q3(c)",
+  "question": "Using Extract 2, analyse how changes in the UK economy have led to an increasing current account deficit.",
+  "caseStudy": "<p><strong>Extract 2: Current Account and the UK Economy</strong></p>\n<p>The UK records a current account deficit every year, because total UK spending is greater than its GDP. The UK has to borrow by attracting investment and lending from overseas. Such investment is often accompanied by new technologies.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">UK current account data</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2012</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2022</th></tr>\n<tr><td style=\"padding:6px;\">Trade in goods (£ million)</td><td style=\"padding:6px;\">–112 603</td><td style=\"padding:6px;\">–139 822</td><td style=\"padding:6px;\">–219 291</td></tr>\n<tr><td style=\"padding:6px;\">Trade in services (£ million)</td><td style=\"padding:6px;\">95 657</td><td style=\"padding:6px;\">111 897</td><td style=\"padding:6px;\">151 339</td></tr>\n<tr><td style=\"padding:6px;\">Income flows (£ million)</td><td style=\"padding:6px;\">–15 960</td><td style=\"padding:6px;\">–22 407</td><td style=\"padding:6px;\">12 682</td></tr>\n<tr><td style=\"padding:6px;\">Transfers (£ million)</td><td style=\"padding:6px;\">–21 000</td><td style=\"padding:6px;\">–22 419</td><td style=\"padding:6px;\">–23 026</td></tr>\n<tr><td style=\"padding:6px;\">Current account balance (£ million)</td><td style=\"padding:6px;\">–53 906</td><td style=\"padding:6px;\">–72 751</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The UK's total trade deficit in goods and services has widened between 2012 and 2022, from £16 946 million to £67 952 million. The different trade balances for goods and for services reflect different resources held by the UK and its trading partners. Since about 1990 the UK has developed resources that are more suitable for exporting services. German workers continue to be highly efficient in producing manufactured goods such as pharmaceuticals and cars.</p>\n<p>The UK imports goods from Germany, Japan and the USA, which are the sources of significant direct investment into the UK economy. The UK depends upon investment from overseas to finance its current account deficit. Such foreign investment in the UK is larger than UK investment abroad, partly due to English being widely used in business. The UK's Income account is usually in deficit because of significant outflows of investment income.</p>",
+  "hint": "Do NOT rewrite the extract — the examiners said that is exactly what low-scoring answers did. Build a chain instead: since about 1990 the UK's resources shifted towards services → fewer resources for producing goods → UK goods are more expensive or lower quality than Germany's or Japan's → imports rise faster than exports → the goods deficit widens. Reference the actual data and a comparator country.",
+  "starter": "Since about 1990 the UK has developed resources more suitable for exporting services, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p><strong>KU - Knowledge and understanding:</strong></p>\n<ul>\n<li>Shows an understanding about the links between the changing economy and the trade in goods and the trade in services which may include increased migration.</li>\n<li>May be demonstrated with a definition of the current account (deficit)</li>\n</ul>\n<p><strong>APP - Reference to the extract:</strong></p>\n<ul>\n<li>Reference to the actual data in the extract (text and table)</li>\n<li>Comparative reference to Germany/Japan or USA</li>\n<li>Reference to services or manufacturing</li>\n</ul>\n<p><strong>AN - Development of linking changes in the UK economy to changes increased deficit:</strong></p>\n<ul>\n<li>Since the UK economy now has resources that are more appropriate for services (tourism, IT etc)</li>\n<li>Therefore there are fewer resources allocated to goods which are…</li>\n<li>More expensive/lower quality than other countries</li>\n<li>Increased migration may increase transfers as people send money home</li>\n<li>Increased consumption may lead to a rise in imports.</li>\n<li>Increase in the value of the pound may lead to fewer exports/more imports due to relative changes in price</li>\n<li>There may be increased protectionism elsewhere in the world that has reduced UK exports</li>\n<li>Any other relevant points are to be credited.</li>\n</ul>\n<p><strong>N.B.</strong> 1. In order to reach Level 2, there must be reference to information in the Extract or context. 2. If there is no analysis (AO3a), then application (AO2) cannot be rewarded.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5-6 marks)</strong> (AO1a – 1, AO2 – 2 marks, AO3a – 3 marks): reasonable knowledge and understanding of trade, all terms/concepts explicitly or implicitly understood; reasonable application to trade, with understanding of some relevant elements of the scenario; good analysis of trade patterns in the form of developed links through a chain of reasoning which addresses the question.</p>\n<p><strong>Level 2 (3-4 marks)</strong> (AO1a – 1, AO2 – 1, AO3a – 2 marks): reasonable knowledge, most terms/concepts understood; limited application, an attempt to use/adapt concepts in context; reasonable analysis largely in the form of single effects, not developed into a clear chain of reasoning.</p>\n<p><strong>Level 1 (1-2 marks)</strong> (AO1a – 1, AO2 – 0, AO3a – 1 mark): reasonable knowledge, some terms/concepts understood; no application; limited analysis, an attempt which may include a single effect with some link to the question.</p>\n<p><strong>0 marks:</strong> Response is not worthy of credit.</p>\n<p><strong>N.B.</strong> Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>The question requires that candidates focus on reasons for the change in values and analyse these with respect to changes in UK trade flows. Candidates who scored lower marks mostly rewrote the information in the case study with no analysis.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Misconception</h5>\n<p>A common misconception is confusion between the trade balance and government finances. Several candidates wrote about the need to increase taxation to pay for the deficit. Some candidates confused the impact of investment flows on the Balance of Payments.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Exemplar 2</h5>\n<p>This exemplar is an excellent example of how a candidate selects information (a movement away from manufacturing) explains why this has occurred and then how it has increased the deficit on current account.</p>\n</div>",
+   "modelAnswer": "Since about 1990 the UK has developed resources more suitable for exporting services than goods. Because fewer resources go into manufacturing, UK goods tend to be more expensive or lower quality than competitors' — German workers remain highly efficient at producing pharmaceuticals and cars. UK consumers therefore buy more imports while overseas buyers demand fewer UK goods, so the goods deficit widened from −£112 603 million in 2012 to −£219 291 million in 2022.\n\nThe growing services surplus has not offset this. Services rose from £95 657 million to £151 339 million, but that gain is far smaller than the worsening in goods, so the overall trade deficit still widened from £16 946 million to £67 952 million."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:17dbca87",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q3d(i)",
+  "question": "State two kinds of services that the UK exports.",
+  "caseStudy": "<p><strong>Extract 2: Current Account and the UK Economy</strong></p>\n<p>The UK records a current account deficit every year, because total UK spending is greater than its GDP. The UK has to borrow by attracting investment and lending from overseas. Such investment is often accompanied by new technologies.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">UK current account data</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2012</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2022</th></tr>\n<tr><td style=\"padding:6px;\">Trade in goods (£ million)</td><td style=\"padding:6px;\">–112 603</td><td style=\"padding:6px;\">–139 822</td><td style=\"padding:6px;\">–219 291</td></tr>\n<tr><td style=\"padding:6px;\">Trade in services (£ million)</td><td style=\"padding:6px;\">95 657</td><td style=\"padding:6px;\">111 897</td><td style=\"padding:6px;\">151 339</td></tr>\n<tr><td style=\"padding:6px;\">Income flows (£ million)</td><td style=\"padding:6px;\">–15 960</td><td style=\"padding:6px;\">–22 407</td><td style=\"padding:6px;\">12 682</td></tr>\n<tr><td style=\"padding:6px;\">Transfers (£ million)</td><td style=\"padding:6px;\">–21 000</td><td style=\"padding:6px;\">–22 419</td><td style=\"padding:6px;\">–23 026</td></tr>\n<tr><td style=\"padding:6px;\">Current account balance (£ million)</td><td style=\"padding:6px;\">–53 906</td><td style=\"padding:6px;\">–72 751</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The UK's total trade deficit in goods and services has widened between 2012 and 2022, from £16 946 million to £67 952 million. The different trade balances for goods and for services reflect different resources held by the UK and its trading partners. Since about 1990 the UK has developed resources that are more suitable for exporting services. German workers continue to be highly efficient in producing manufactured goods such as pharmaceuticals and cars.</p>\n<p>The UK imports goods from Germany, Japan and the USA, which are the sources of significant direct investment into the UK economy. The UK depends upon investment from overseas to finance its current account deficit. Such foreign investment in the UK is larger than UK investment abroad, partly due to English being widely used in business. The UK's Income account is usually in deficit because of significant outflows of investment income.</p>",
+  "hint": "Name SERVICES, not goods — the examiners saw candidates lose marks for naming goods, and for vague answers like 'workers'. Safe choices: tourism, insurance, financial services/banking, IT, education at UK schools and colleges.",
+  "starter": "1. ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers might include:</strong></p>\n<ul>\n<li>Tourism</li>\n<li>Insurance</li>\n<li>Information technology</li>\n<li>Financial services/banking</li>\n<li>Education at UK schools and colleges</li>\n</ul>\n<p>AOR (any other reasonable answer). 1 mark for each correct answer up to a maximum of 2 marks.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question was generally answered well with two services identified. Some unrewarded answers were ambiguous or unclear such as 'workers' and some referred to goods.</p>\n</div>",
+   "modelAnswer": "1. Financial services and banking — UK banks and insurers based in London sell services to customers overseas, and the fees they earn are an inflow to the current account.\n\n2. Education — overseas students paying fees at UK schools, colleges and universities counts as an export of a service."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:bcfad06d",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q3d(ii)",
+  "question": "Explain one reason why there is significant investment from overseas into the UK.",
+  "caseStudy": "<p><strong>Extract 2: Current Account and the UK Economy</strong></p>\n<p>The UK records a current account deficit every year, because total UK spending is greater than its GDP. The UK has to borrow by attracting investment and lending from overseas. Such investment is often accompanied by new technologies.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">UK current account data</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2012</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2022</th></tr>\n<tr><td style=\"padding:6px;\">Trade in goods (£ million)</td><td style=\"padding:6px;\">–112 603</td><td style=\"padding:6px;\">–139 822</td><td style=\"padding:6px;\">–219 291</td></tr>\n<tr><td style=\"padding:6px;\">Trade in services (£ million)</td><td style=\"padding:6px;\">95 657</td><td style=\"padding:6px;\">111 897</td><td style=\"padding:6px;\">151 339</td></tr>\n<tr><td style=\"padding:6px;\">Income flows (£ million)</td><td style=\"padding:6px;\">–15 960</td><td style=\"padding:6px;\">–22 407</td><td style=\"padding:6px;\">12 682</td></tr>\n<tr><td style=\"padding:6px;\">Transfers (£ million)</td><td style=\"padding:6px;\">–21 000</td><td style=\"padding:6px;\">–22 419</td><td style=\"padding:6px;\">–23 026</td></tr>\n<tr><td style=\"padding:6px;\">Current account balance (£ million)</td><td style=\"padding:6px;\">–53 906</td><td style=\"padding:6px;\">–72 751</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The UK's total trade deficit in goods and services has widened between 2012 and 2022, from £16 946 million to £67 952 million. The different trade balances for goods and for services reflect different resources held by the UK and its trading partners. Since about 1990 the UK has developed resources that are more suitable for exporting services. German workers continue to be highly efficient in producing manufactured goods such as pharmaceuticals and cars.</p>\n<p>The UK imports goods from Germany, Japan and the USA, which are the sources of significant direct investment into the UK economy. The UK depends upon investment from overseas to finance its current account deficit. Such foreign investment in the UK is larger than UK investment abroad, partly due to English being widely used in business. The UK's Income account is usually in deficit because of significant outflows of investment income.</p>",
+  "hint": "One mark for the reason, one for EXPLAINING it — the examiners said most candidates identified a reason but never explained it. Also do not muddle exchange rates with interest rates, which was their other flagged error.",
+  "starter": "One reason is that the UK has an educated workforce, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers might include:</strong></p>\n<ul>\n<li>Investment from overseas is needed because total UK spending is greater than its national income</li>\n<li>Investment from overseas is needed to finance the current account deficit</li>\n<li>Overseas investors favour the UK because of its educated workforce</li>\n<li>Overseas investors favour the UK because English is an international language.</li>\n<li>The UK may have lower corporation/business tax</li>\n<li>Belief the UK economy will grow</li>\n<li>Higher interest rates/returns</li>\n<li>Relatively stable/developend economy</li>\n</ul>\n<p>ARA (any reasonable answer). Award 1 mark for a statement that is not explained. Award 1 more mark for the explanation.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Many candidates identified a reasonable reason but did not explain it. A further common error/misconception was between exchange rates and interest rates.</p>\n</div>",
+   "modelAnswer": "One reason is that English is widely used in business.\n\nThis makes it easier and cheaper for overseas firms to set up in the UK, because they can deal with staff, suppliers and customers without a language barrier and use the UK as a base to reach international markets. That lowers their costs, so foreign investment in the UK is larger than UK investment abroad."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:9c90823f",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q3d(iii)",
+  "question": "Evaluate the importance of the balance of payments on current account to the UK economy. Use the information given in Extract 2 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 2: Current Account and the UK Economy</strong></p>\n<p>The UK records a current account deficit every year, because total UK spending is greater than its GDP. The UK has to borrow by attracting investment and lending from overseas. Such investment is often accompanied by new technologies.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">UK current account data</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2012</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2022</th></tr>\n<tr><td style=\"padding:6px;\">Trade in goods (£ million)</td><td style=\"padding:6px;\">–112 603</td><td style=\"padding:6px;\">–139 822</td><td style=\"padding:6px;\">–219 291</td></tr>\n<tr><td style=\"padding:6px;\">Trade in services (£ million)</td><td style=\"padding:6px;\">95 657</td><td style=\"padding:6px;\">111 897</td><td style=\"padding:6px;\">151 339</td></tr>\n<tr><td style=\"padding:6px;\">Income flows (£ million)</td><td style=\"padding:6px;\">–15 960</td><td style=\"padding:6px;\">–22 407</td><td style=\"padding:6px;\">12 682</td></tr>\n<tr><td style=\"padding:6px;\">Transfers (£ million)</td><td style=\"padding:6px;\">–21 000</td><td style=\"padding:6px;\">–22 419</td><td style=\"padding:6px;\">–23 026</td></tr>\n<tr><td style=\"padding:6px;\">Current account balance (£ million)</td><td style=\"padding:6px;\">–53 906</td><td style=\"padding:6px;\">–72 751</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The UK's total trade deficit in goods and services has widened between 2012 and 2022, from £16 946 million to £67 952 million. The different trade balances for goods and for services reflect different resources held by the UK and its trading partners. Since about 1990 the UK has developed resources that are more suitable for exporting services. German workers continue to be highly efficient in producing manufactured goods such as pharmaceuticals and cars.</p>\n<p>The UK imports goods from Germany, Japan and the USA, which are the sources of significant direct investment into the UK economy. The UK depends upon investment from overseas to finance its current account deficit. Such foreign investment in the UK is larger than UK investment abroad, partly due to English being widely used in business. The UK's Income account is usually in deficit because of significant outflows of investment income.</p>",
+  "hint": "The mark scheme demands you MATCH each analysis point with an evaluation point — make a point, then immediately counter it with 'However…'. Ready-made pairs: imports grow fast because UK consumers value German/US/Japanese products, HOWEVER UK services exports also have a good reputation (but not enough to outweigh imports); the deficit is matched by a surplus on the financial account bringing new technologies, HOWEVER that is exactly why the income account is in deficit. Judge whether the deficit will persist and how far it reflects a weak UK economy.",
+  "starter": "The current account deficit matters because it reflects UK consumers buying more imports, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>APP:</strong></p>\n<ul>\n<li>Reference to actual data in Extract table</li>\n<li>Distinguishing between trade balance and current account balance</li>\n<li>Reference to income/transfer accounts</li>\n<li>Reference to countries with which the UK trades (Germany, Japan, USA)</li>\n<li>Reference to the UK</li>\n</ul>\n<p><strong>NB Each aspect (AO3a) should be analysed and matched with an evaluation point (AO3b)</strong></p>\n</div>\n<div class=\"marks-section\">\n<h5>Analysis points matched with evaluation</h5>\n<ul>\n<li>UK consumers highly value products from Germany, the USA and Japan, so imports have been growing rapidly. <strong>However:</strong> UK exports of tourism, education and other services also have a good reputation overseas. But the growth in exports of services is not sufficient to outweigh the imports.</li>\n<li>The deficit on the current account is matched by a surplus on the other accounts (financial and capital), which shows inward investment from overseas. This investment often brings new technologies to the UK. <strong>However:</strong> As a result of these investments, the UK's income account is often in deficit, because the investments in the UK by foreign companies earn more than the investments the British have made in other countries.</li>\n<li>A rising current account deficit may be due to UK incomes growing at a higher pace than in the UK's trading partners. <strong>However:</strong> Growth in GDP in the USA and some EU countries seems to be at a faster or at least equivalent pace to growth in the UK's income</li>\n<li>A rising current account deficit may keep inflation in the UK at a lower rate, because of lower priced imports. <strong>However:</strong> Growth in GDP in the USA and some EU countries seems to be at a faster or at least equivalent pace to growth in the UK's income</li>\n<li>The current account deficit reflects falling demand for domestic goods, which could lead to increased unemployment. <strong>However:</strong> The UK unemployment rate is relatively low at present, though it may grow if the current account deficit persists over time.</li>\n<li>The deficit is putting downward pressure on the exchange rate as consumers exchange their domestic currency for foreign currency to buy imports, leading to higher prices for imports. <strong>However:</strong> A lower exchange rate should make UK exports more competitive</li>\n<li>The deficit may reflect low productivity in the UK compared to its trading partners. <strong>However:</strong> If its trading partners invest in UK factories and bring new technologies, productivity should improve.</li>\n<li>If (net) exports can increase, then it may fuel future economic growth. <strong>However:</strong> given the evidence this is unlikely</li>\n</ul>\n<p><strong>Final judgement (expressed clearly):</strong> as to whether the current account will persist or whether it reflects a weak UK economy or to what extent it is problematic</p>\n<p><strong>N.B.</strong> 1. If there is no analysis/evaluation, then application (AO2) cannot be rewarded. 2. In order to reach Level 2, there must be Application (AO2), Analysis (AO3a) and Evaluation (AO3b)</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5-6 marks)</strong> (AO2 – 1, AO3a – 2 marks, AO3b – 3 marks): good application of knowledge about the current account, good understanding of all relevant elements of the scenario; reasonable analysis largely in the form of single effects; good evaluation with a fully supported judgement developed from weighing up arguments/both sides/comparing other reasonable responses; a well-developed and detailed line of reasoning which is coherent and logically structured.</p>\n<p><strong>Level 2 (3-4 marks)</strong> (AO2 – 1, AO3a – 1, AO3b – 2 marks): good application; limited analysis largely in the form of a single effect; reasonable evaluation considering arguments/both sides, there may be a judgement but this will not be fully supported.</p>\n<p><strong>Level 1 (1-2 marks)</strong> (AO2 – 0, AO3a – 1, AO3b – 1 mark): no application; limited analysis which may include a single effect that has some link to the question; limited evaluation that may include an incomplete consideration of arguments with unsupported statements.</p>\n<p><strong>0 marks:</strong> Response is not worthy of credit.</p>\n<p><strong>N.B.</strong> Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>The question requires that candidates evaluate the effect of a net deficit on the UK economy. There are substantial clues in the data (although these should be developed, rather than rewritten). Some candidates wrote with regards to the impact of a surplus which was acceptable.</p>\n</div>",
+   "modelAnswer": "UK consumers highly value products from Germany, the USA and Japan, so imports have grown rapidly and the goods deficit widened to −£219 291 million by 2022. That reflects falling demand for domestic goods, which could raise unemployment. However, UK exports of tourism and education also have a good reputation overseas, and the services surplus grew to £151 339 million — though not enough to outweigh the imports.\n\nThe deficit is matched by a surplus on the financial account, showing inward investment that often brings new technologies to the UK. However, this is exactly why the UK's income account is usually in deficit: foreign-owned investments here earn more than UK investments abroad.\n\nOverall the deficit is important but not alarming. It depends chiefly on whether it persists: if the services surplus keeps growing while inward investment raises productivity, it is manageable — but if it reflects genuinely weak competitiveness in goods, unemployment would eventually rise."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:b58c2d52",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q4",
+  "question": "A current account surplus will most likely lead to",
+  "options": [
+   "a decrease in the country's debt",
+   "a decrease in the exchange rate",
+   "a decrease in the rate of inflation",
+   "an increase in unemployment"
+  ],
+  "hint": "A surplus means export income more than covers import spending. Three of these options are what a DEFICIT does — only one fits a surplus.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — a decrease in the country's debt</strong></p>\n<ul>\n<li>With a surplus, income from exports more than covers the cost of imports, so the country's overall debt falls. A surplus tends to RAISE the exchange rate (more demand for the currency), RAISE demand-pull inflation (more demand for domestic output) and LOWER unemployment (firms hire to meet export demand) — so B, C and D are all the wrong way round.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates answered A correctly.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:7971fe85",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q5",
+  "question": "A country is experiencing structural problems which means overpriced and poor-quality goods being produced. This will lead to",
+  "options": [
+   "a decision to reduce the amount of regulation in the market",
+   "a deficit of the balance of payments on current account",
+   "an increase in the demand for the country's exports",
+   "the country's central bank deciding to increase interest rates"
+  ],
+  "hint": "Overpriced and poor quality is the classic 'bad reputation' cause. Ask what that does to export demand — then which way the current account moves.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — a deficit of the balance of payments on current account</strong></p>\n<ul>\n<li>Overpriced, poor-quality goods reduce demand for the country's exports and push its own consumers towards imports, so the current account moves into deficit. C is the opposite of what happens; A and D are possible policy responses, not the direct result.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates answered B correctly.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:3ac8db71",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q6",
+  "question": "What does this diagram show?",
+  "options": [
+   "Exports decreased by more than imports between 2019 and 2020",
+   "Exports increased by less than imports between 2020 and 2021",
+   "The demand for UK exports was greater in 2021 than in 2018",
+   "The UK's imports were always greater than its exports"
+  ],
+  "caseStudy": "<p>The diagram shows import and export data for the UK from 2017 to 2021.</p>\n<img src=\"/images/economics/4-2-uk-imports-exports-2017-2021-chart-extracted.png\" alt=\"Line chart from the OCR exam paper showing UK imports and exports in £bn from 2017 to 2021, with a vertical axis from 550 to 750. The dashed Imports line runs at about 670 in 2017, 707 in 2018 and peaks at 737 in 2019, then falls sharply to about 611 in 2020 before recovering to about 654 in 2021. The solid Exports line runs at about 641 in 2017, 674 in 2018 and 700 in 2019, then falls to about 618 in 2020 and rises to about 637 in 2021. Imports are above exports every year except 2020, where the two lines cross and exports are slightly higher\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />",
+  "hint": "The DASHED line is Imports and the SOLID line is Exports — check where each ends against the labels. Watch 2020 closely: the lines cross there, which is what kills option D.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: B — Exports increased by less than imports between 2020 and 2021</strong></p>\n<ul>\n<li>From 2020 to 2021 exports rose from about 618 to 637 (about +19), while imports rose from about 611 to 654 (about +43) — so exports increased by less. A is wrong: between 2019 and 2020 exports fell about 82 (700→618) but imports fell about 126 (737→611), so exports fell by LESS, not more. C is wrong: exports were about 637 in 2021, below their 2018 level of about 674. D is wrong because the lines cross in 2020, when imports (about 611) dipped just below exports (about 618).</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates answered B correctly.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:8711aa85",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q7",
+  "question": "Which of these is not included in the UK's balance of payments on current account?",
+  "options": [
+   "A Spanish firm buying land in the UK to build a factory",
+   "A UK consumer spending money while on holiday in Greece",
+   "Foreign aid money sent from the UK to a less developed country",
+   "Interest earned by a UK individual from a bank account in France"
+  ],
+  "hint": "Read the 'not'. Sort each option into the four current-account components — goods, services, income flows, transfers. The one that fits NONE of them is investment, which belongs to a different account entirely.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: A — A Spanish firm buying land in the UK to build a factory</strong></p>\n<ul>\n<li>Buying land to build a factory is investment, so it is recorded in the FINANCIAL account, not the current account. The other three all belong to the current account: holiday spending in Greece is an import of services, foreign aid is a transfer, and interest from a French bank account is an income flow.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This was a question where several candidates selected B or D demonstrating a confusion over the concept of balance of payments on current account.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:2427bc63",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q8",
+  "question": "What will help to create a balance of payments deficit on the UK current account?",
+  "options": [
+   "A depreciation of the UK exchange rate",
+   "A fall in GDP per capita in the UK",
+   "A net outflow of investment income",
+   "An increase in the quality of UK output"
+  ],
+  "hint": "Three of these would IMPROVE the current account. Look for the one that is money physically leaving the current account.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — A net outflow of investment income</strong></p>\n<ul>\n<li>A net outflow of investment income is money leaving the income flows component, which pushes the current account towards deficit. A depreciation makes exports cheaper and imports dearer (improving it); a fall in GDP per capita means lower incomes and so fewer imports (improving it); and better quality output raises export demand (improving it).</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Although a significant proportion of candidates correctly answered C, there was a wider variety of responses. The answer is based on the fact that a net outflow of investment income is the only factor that would directly help lead to a deficit on the current account.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:8ec0a4ef",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q9",
+  "question": "One likely benefit of supply side policy is to improve a country's balance of payments. This is because supply side policy can",
+  "options": [
+   "improve the productivity of the UK labour force",
+   "lead to a higher rate of inflation in the UK",
+   "lead to higher consumption by UK consumers",
+   "mean free trade agreements are cancelled"
+  ],
+  "hint": "Supply side policy works on the economy's productive capacity. Two of the distractors (higher inflation, higher consumption) would actually make the balance of payments WORSE.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — improve the productivity of the UK labour force</strong></p>\n<ul>\n<li>Higher productivity lowers costs per unit, so UK exports become more internationally competitive and the balance of payments improves. Higher inflation would make exports less competitive, and higher consumption would suck in more imports — both would worsen it.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly answered A.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:9279203b",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q10",
+  "question": "Which of these statements is correct?",
+  "options": [
+   "Exports were always greater than imports in the UK",
+   "Germany moved from a trade surplus to a trade deficit in 2020",
+   "Imports were greater than exports in China between 2017 and 2019",
+   "The UK's trade balance improved the most between 2015 and 2020"
+  ],
+  "caseStudy": "<p>The balance of trade is the main component of a country's balance of payments on current account. The diagram shows the balance of trade for three countries.</p>\n<img src=\"/images/economics/4-2-balance-of-trade-uk-germany-china-chart-extracted.png\" alt=\"Line chart from the OCR exam paper showing the balance of trade in $bn for three countries from 2015 to 2020, with a vertical axis from -100 to 400. China starts highest at about 358 in 2015, falls to about 255 in 2016, 215 in 2017 and a low of about 87 in 2018, recovers to about 133 in 2019 and rises steeply to about 370 in 2020. Germany is roughly flat at about 253 in 2015, 258 in 2016, 260 in 2017, 247 in 2018, 220 in 2019 and 222 in 2020. The UK is the only country below zero, at about -48 in 2015, -47 in 2016, -37 in 2017, -40 in 2018, -30 in 2019, rising to about 0 in 2020. China and Germany are in surplus every year; the UK is in deficit throughout\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />",
+  "hint": "A line ABOVE zero is a surplus (exports > imports); BELOW zero is a deficit. For D, compare the SIZE of each country's change, not its level — the UK starts lowest but climbs about 48, more than anyone else gains.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: D — The UK's trade balance improved the most between 2015 and 2020</strong></p>\n<ul>\n<li>The UK rose from about −48 to about 0, an improvement of roughly 48. China rose from about 358 to about 370 (about +12) and Germany fell from about 253 to about 222. So the UK improved the most, even though it remained the weakest in level terms.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>'A' is incorrect because the balance of payments on current account was always in deficit. 'B' is incorrect because the German balance of payments on current account is always in surplus (as is the case in China rendering 'C' incorrect). D is correct because the trade balance does improve the most for UK between 2015–2019.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:e09a9a96",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q11",
+  "question": "Using Extract 3 calculate the 2019 balance of trade in goods and services. Show your working.",
+  "caseStudy": "<p><strong>Extract 3: Globalisation of the US Economy</strong></p>\n<p style=\"text-align:center;font-weight:600;\">US Balance of Trade over 10 years</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2009<br />(US$ million)</th><th style=\"padding:6px;\">2019<br />(US$ million)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">1 056 043</td><td style=\"padding:6px;\">1 643 161</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">1 605 296</td><td style=\"padding:6px;\">2 567 445</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–549 253</td><td style=\"padding:6px;\">–924 284</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">501 920</td><td style=\"padding:6px;\">853 844</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">376 081</td><td style=\"padding:6px;\">567 121</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">125 839</td><td style=\"padding:6px;\">286 723</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–423 414</td><td style=\"padding:6px;\"></td></tr>\n</table>\n<p>The USA has free trade agreements with 20 countries, including its neighbours, Canada and Mexico. The agreements significantly reduce barriers to trade in addition to improving the environment for overseas investment. US producers have set up factories outside the USA to produce goods and components for the US domestic market as well as for markets overseas.</p>\n<p>As a result, US imports of goods have been increasing rapidly as the economy becomes less based on domestic manufacturing of consumer goods and more geared towards services, such as insurance, tourism and education.</p>\n<p>However, globalisation of the US economy is controversial. While consumers can enjoy a greater variety of cheaper goods, there is concern that the relative decline of domestic manufacturing leads to unemployment and lower wages.</p>",
+  "hint": "Both component balances are already given for 2019 — just add them: −924 284 + 286 723. Don't recompute from exports and imports. The mark scheme wants the negative sign, the $ sign AND 'million'.",
+  "starter": "Balance of trade in goods and services = −924 284 + 286 723 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>-924 284 + 286 723</strong></p>\n<p><strong>Answer: -$637 561 million or -$637,561,000,000</strong></p>\n<ul>\n<li>2 marks for a correct answer (working not required)</li>\n<li>1 mark for correct working, but incorrect answer (including missing negative/$ sign or million)</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates correctly answered -$4637 561 million. Although some omitted the $ sign, million or negative symbol.</p>\n<p><em>(Note: the figure printed in the published examiner's comment, \"-$4637 561 million\", contains a stray \"4\" — the correct answer given in the mark scheme itself is −$637 561 million.)</em></p>\n</div>",
+   "modelAnswer": "The balance of trade in goods and services is the balance on goods plus the balance on services, both of which the table gives for 2019.\n\nBalance of trade in goods = −924 284. Balance of trade in services = 286 723.\n\n−924 284 + 286 723 = −637 561.\n\nSo the 2019 balance of trade in goods and services was −$637 561 million, a deficit of $637 561 million."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:93306e60",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q12",
+  "question": "The UK has a current account deficit. Which of the following is most likely to lead to this continuing in the future?",
+  "options": [
+   "Falling domestic demand",
+   "Greater capital imports",
+   "Higher overseas investment",
+   "Lower productivity"
+  ],
+  "hint": "You want the option that keeps UK goods UNCOMPETITIVE. Falling domestic demand would actually cut imports and reduce the deficit.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — Lower productivity</strong></p>\n<ul>\n<li>Lower productivity raises producers' costs per unit, making UK goods and services less internationally competitive, so exports fall and the deficit persists. Falling domestic demand would reduce imports and so shrink the deficit.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>The majority of candidates gave Option D as the correct response to this question. Lower productivity is likely to have a negative effect on producers' costs and would make UK goods and services less internationally competitive.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:161891dc",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q13",
+  "question": "What is the deficit as a percentage of national output?",
+  "options": [
+   "5%",
+   "10%",
+   "20%",
+   "50%"
+  ],
+  "caseStudy": "<p>An economy has a current account deficit of £10 billion. Its national output is £200 billion.</p>",
+  "hint": "Deficit ÷ national output × 100. Both figures are already in billions, so no unit conversion is needed — just divide 10 by 200.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: A — 5%</strong></p>\n<ul>\n<li>10 ÷ 200 × 100 = 5%. Expressing a deficit as a share of GDP is how its seriousness is judged — a £10bn deficit is small for an economy producing £200bn.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A high percentage of candidates gave Option A as the correct response to this question. This was the first question testing quantitative skills, so was more difficult for candidates who had a weakness in this area.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:ec6cb68f",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q14",
+  "question": "Which of the following will help to create a balance of payments surplus on the UK current account?",
+  "options": [
+   "A UK government purchase of American aircraft",
+   "A subsidy to UK producers of exported goods",
+   "An increase in UK government tax revenue",
+   "An increase in UK government investment"
+  ],
+  "hint": "You need something that raises EXPORTS or cuts IMPORTS. Note that tax revenue is the government's budget, not the current account — that's the classic confusion on this topic.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: B — A subsidy to UK producers of exported goods</strong></p>\n<ul>\n<li>A subsidy lowers exporters' costs, so UK exports become cheaper and more competitive abroad — raising export revenue and moving the current account towards surplus. Buying American aircraft is an import (worsening it), and tax revenue is a government budget matter, not a current account flow.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A majority of candidates gave Option B as the correct response to this question. This was the answer that should clearly lead to a balance of payments surplus.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:b41c5abd",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q15",
+  "question": "Which statement best describes a current account surplus?",
+  "options": [
+   "Revenue from the export of goods and services exceeds the country's spending on imports",
+   "Revenue from all taxes and other government revenue exceeds government expenditure",
+   "Sum of all incomes in the country exceeds the total value added of all goods and services",
+   "Sum of export revenue and the inflow of income and transfers exceeds the outflow on imports, income and transfers"
+  ],
+  "hint": "The word is BEST. Option A is nearly right but covers only goods and services — it leaves out two of the four components. Find the one that includes income and transfers as well.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: D — Sum of export revenue and the inflow of income and transfers exceeds the outflow on imports, income and transfers</strong></p>\n<ul>\n<li>D is the only option covering all four components of the current account. A is incomplete — it mentions only goods and services, omitting income flows and transfers. B describes a government budget surplus, not a current account surplus.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A majority of candidates gave Option D as the correct response to this question. This required knowledge of the extent of the precise definition for a current account surplus. The question wording highlights this precision, and should have resulted in option A being discarded, by asking for the statement that is 'best'.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:9205e8f3",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q16(a)",
+  "question": "Using the chart in Extract 3, explain the trend in the UK's current account deficit between 2011 and 2019.",
+  "caseStudy": "<p><strong>Extract 3: Current Account Balance and Exchange Rate</strong></p>\n<img src=\"/images/economics/4-2-uk-current-account-balance-2011-2019-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'UK Current Account Balance', measured in £ million, with the year axis running along the top from 2011 to 2019 and the vertical axis running downwards from -30 000 at the top to -110 000 at the bottom. The balance starts at about -30 000 in 2011 and falls steeply to about -93 000 by 2013, drifts down to roughly -97 000 by 2015, reaches its lowest point of about -108 000 in 2016, then rises sharply to about -78 000 in 2017, sits at about -80 000 in 2018, and falls again to about -95 000 in 2019. The balance is negative, and therefore in deficit, in every year shown\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Since trade is the major component of the current account, a wider deficit is primarily due to either imports rising or exports falling. As a result, there will be a shift in the demand or supply of the UK's currency (the pound £), which will change its exchange rate.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">Current Account Balance (% of GDP)</p>\n<table style=\"width:100%;max-width:400px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Year</th><th style=\"padding:6px;\">2011</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">UK</td><td style=\"padding:6px;\">–1.76</td><td style=\"padding:6px;\">–4.90</td><td style=\"padding:6px;\">–3.78</td></tr>\n<tr><td style=\"padding:6px;\">USA</td><td style=\"padding:6px;\">–2.87</td><td style=\"padding:6px;\">–2.24</td><td style=\"padding:6px;\">–2.33</td></tr>\n<tr><td style=\"padding:6px;\">Germany</td><td style=\"padding:6px;\">6.20</td><td style=\"padding:6px;\">8.59</td><td style=\"padding:6px;\">7.15</td></tr>\n</table>\n<p>The table shows that the UK's current account deficit is persistent and also represents a relatively high proportion of GDP. The deficit reflects the fact that British consumers can choose to buy imported goods at relatively low prices. On the other hand, British producers face competition in the global market both when attempting to produce goods for export and when competing with imported goods. Consequently, a trade deficit results in output being lower and unemployment being higher than when there is a surplus. Such global competition does mean, however, that scarce resources are being used more efficiently.</p>",
+  "hint": "Careful with the double negative the examiners flagged: the line falls, and a deficit is already a negative — so a falling line means the deficit is GETTING BIGGER. Mark 1 = the overall trend; mark 2 = one variation within it (look at 2016 to 2017) or what must have happened to exports/imports. Do not just quote numbers.",
+  "starter": "Overall the deficit has been increasing between 2011 and 2019, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Overall, the trend shows that the deficit has been increasing</li>\n<li>From 2016 to 2017, the deficit reduced, but since then has increased again</li>\n<li>The trend shows that either imports have been increasing or exports have been falling or both have been occurring</li>\n</ul>\n<p>1 mark for understanding the overall trend between 2011 and 2019. 1 mark for correct explanation e.g. variations within overall trend or changing X &gt; M.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Successful candidates answered the question for the date range, interpreted the data with precision and focused on reference to the current account deficit. Weaker responses sometimes described only the downwards direction of the data without explaining that meant the deficit (which is a negative) increased. Simple, but effective, technique often explained the overall trend between 2011 and 2019, accompanied by a single difference within the overall trend. Another successful element was to explain what might have happened to exports and/or imports to result in this data trend.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Misconception</h5>\n<p>A common misconception is to purely trawl through data, quoting it without actually explaining it here is not enough. It is also complicated by the doubling up of the negative trend in the figures with the negative sense of the word 'deficit'.</p>\n</div>",
+   "modelAnswer": "Overall the deficit increased between 2011 and 2019, from about £30 000 million to about £95 000 million. Because a deficit is negative, the falling line means the deficit was getting larger.\n\nThere was one variation within that trend: from 2016 to 2017 the deficit reduced to about £78 000 million, but since then it increased again. This suggests imports were rising or exports falling, or both."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:3cd7a97f",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q16(b)",
+  "question": "Using the table in Extract 3, explain how Germany's current account position differs from that of the UK and the USA.",
+  "caseStudy": "<p><strong>Extract 3: Current Account Balance and Exchange Rate</strong></p>\n<img src=\"/images/economics/4-2-uk-current-account-balance-2011-2019-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'UK Current Account Balance', measured in £ million, with the year axis running along the top from 2011 to 2019 and the vertical axis running downwards from -30 000 at the top to -110 000 at the bottom. The balance starts at about -30 000 in 2011 and falls steeply to about -93 000 by 2013, drifts down to roughly -97 000 by 2015, reaches its lowest point of about -108 000 in 2016, then rises sharply to about -78 000 in 2017, sits at about -80 000 in 2018, and falls again to about -95 000 in 2019. The balance is negative, and therefore in deficit, in every year shown\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Since trade is the major component of the current account, a wider deficit is primarily due to either imports rising or exports falling. As a result, there will be a shift in the demand or supply of the UK's currency (the pound £), which will change its exchange rate.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">Current Account Balance (% of GDP)</p>\n<table style=\"width:100%;max-width:400px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Year</th><th style=\"padding:6px;\">2011</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">UK</td><td style=\"padding:6px;\">–1.76</td><td style=\"padding:6px;\">–4.90</td><td style=\"padding:6px;\">–3.78</td></tr>\n<tr><td style=\"padding:6px;\">USA</td><td style=\"padding:6px;\">–2.87</td><td style=\"padding:6px;\">–2.24</td><td style=\"padding:6px;\">–2.33</td></tr>\n<tr><td style=\"padding:6px;\">Germany</td><td style=\"padding:6px;\">6.20</td><td style=\"padding:6px;\">8.59</td><td style=\"padding:6px;\">7.15</td></tr>\n</table>\n<p>The table shows that the UK's current account deficit is persistent and also represents a relatively high proportion of GDP. The deficit reflects the fact that British consumers can choose to buy imported goods at relatively low prices. On the other hand, British producers face competition in the global market both when attempting to produce goods for export and when competing with imported goods. Consequently, a trade deficit results in output being lower and unemployment being higher than when there is a surplus. Such global competition does mean, however, that scarce resources are being used more efficiently.</p>",
+  "hint": "You MUST actually compare — max 1 mark without a comparison. Also don't just say Germany's figures are 'positive', which the examiners called too vague: name it as a SURPLUS versus the UK's and USA's DEFICITS.",
+  "starter": "Germany has a current account surplus while the UK and the USA both have deficits, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Germany has a surplus while UK and USA have a deficit</li>\n<li>Germany's X &gt; M must be greater than UK and USA's M &gt; X</li>\n</ul>\n<p>Max of 1 mark if no comparison. 1 mark for understanding of whether data means surplus or deficit. 1 mark for comparison or explanation, e.g. data or imports/exports.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Some candidates only stated whether data was positive or negative, which was too vague. Better responses explained and compared the surplus in Germany to the deficits in the UK and USA.</p>\n</div>",
+   "modelAnswer": "Germany runs a current account surplus in every year shown, at 6.20%, 8.59% and 7.15% of GDP, so its inflows exceed its outflows.\n\nThe UK and USA both run deficits throughout — in 2019 the UK was −3.78% and the USA −2.33% — so their imports exceed their exports. Germany's surplus is also far larger in size than either deficit."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:6dcbfd95",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q16(c)",
+  "question": "Analyse, with the use of a demand and supply diagram, how the widening in the UK's current account deficit between 2011 and 2013 could have changed the exchange rate for the pound (£) against the US dollar ($).",
+  "caseStudy": "<p><strong>Extract 3: Current Account Balance and Exchange Rate</strong></p>\n<img src=\"/images/economics/4-2-uk-current-account-balance-2011-2019-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'UK Current Account Balance', measured in £ million, with the year axis running along the top from 2011 to 2019 and the vertical axis running downwards from -30 000 at the top to -110 000 at the bottom. The balance starts at about -30 000 in 2011 and falls steeply to about -93 000 by 2013, drifts down to roughly -97 000 by 2015, reaches its lowest point of about -108 000 in 2016, then rises sharply to about -78 000 in 2017, sits at about -80 000 in 2018, and falls again to about -95 000 in 2019. The balance is negative, and therefore in deficit, in every year shown\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Since trade is the major component of the current account, a wider deficit is primarily due to either imports rising or exports falling. As a result, there will be a shift in the demand or supply of the UK's currency (the pound £), which will change its exchange rate.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">Current Account Balance (% of GDP)</p>\n<table style=\"width:100%;max-width:400px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Year</th><th style=\"padding:6px;\">2011</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">UK</td><td style=\"padding:6px;\">–1.76</td><td style=\"padding:6px;\">–4.90</td><td style=\"padding:6px;\">–3.78</td></tr>\n<tr><td style=\"padding:6px;\">USA</td><td style=\"padding:6px;\">–2.87</td><td style=\"padding:6px;\">–2.24</td><td style=\"padding:6px;\">–2.33</td></tr>\n<tr><td style=\"padding:6px;\">Germany</td><td style=\"padding:6px;\">6.20</td><td style=\"padding:6px;\">8.59</td><td style=\"padding:6px;\">7.15</td></tr>\n</table>\n<p>The table shows that the UK's current account deficit is persistent and also represents a relatively high proportion of GDP. The deficit reflects the fact that British consumers can choose to buy imported goods at relatively low prices. On the other hand, British producers face competition in the global market both when attempting to produce goods for export and when competing with imported goods. Consequently, a trade deficit results in output being lower and unemployment being higher than when there is a surplus. Such global competition does mean, however, that scarce resources are being used more efficiently.</p>",
+  "hint": "You MUST draw a diagram — without one you are capped at 3 of the 6 marks. Choose ONE route: fewer exports → less demand for £ → demand curve shifts LEFT; or more imports → more £ supplied to buy foreign currency → supply curve shifts RIGHT. Either way the exchange rate falls. Label the axes 'Price of £ in $' and 'Quantity of £' — the examiners stress matching the exact currencies in the question.",
+  "starter": "The exchange rate is the price of one currency in terms of another. As the deficit widened, UK exports fell, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p><strong>Diagram should include:</strong></p>\n<p><strong>Either</strong> consequence of a decrease in exports (below):</p>\n<img src=\"/images/economics/4-2-exchange-rate-exports-fall-ms-extracted.png\" alt=\"Mark scheme demand and supply diagram for the pound, with 'Price of £ in $' on the vertical axis and 'Quantity of £' on the horizontal axis. A single upward-sloping supply curve S is crossed by two downward-sloping demand curves, D1 and D2, with D2 to the left of D1. The equilibrium price falls from P0 on D1 to the lower P1 on D2, showing that a fall in UK exports reduces demand for the pound and lowers the exchange rate\" style=\"display:block;width:100%;max-width:400px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p><strong>OR</strong> consequence of an increase in imports (below):</p>\n<img src=\"/images/economics/4-2-exchange-rate-imports-rise-ms-extracted.png\" alt=\"Mark scheme demand and supply diagram for the pound, with 'Price of £ in $' on the vertical axis and 'Quantity of £' on the horizontal axis. A single downward-sloping demand curve D is crossed by two upward-sloping supply curves, S1 and S2, with S2 to the right of S1. The equilibrium price falls from P0 on S1 to the lower P1 on S2, showing that a rise in UK imports increases the supply of pounds and lowers the exchange rate\" style=\"display:block;width:100%;max-width:400px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Candidates may also use other labels instead of Po and Pi e.g. E and E1, ER and ER1. The two diagrams may be combined into <strong>one diagram,</strong> with correct shifts.</p>\n<p><strong>Answers may include:</strong> (depending on which diagram used)</p>\n<ul>\n<li>The exchange rate is the price of one currency in terms of another.</li>\n<li>Decrease in UK's exports leads to lower demand for the pound, which shifts demand curve to the left</li>\n<li>Increase in UK's imports leads to higher supply of the pound, which shifts supply curve to the right</li>\n<li>The exchange rate of the pound falls</li>\n</ul>\n<p><strong>A maximum of 3 marks if no relevant diagram</strong></p>\n<p><strong>N.B.</strong> Any other relevant points to be credited</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5-6 marks)</strong> (AO1a – 1 mark, AO2 – 2 marks, AO3a – 3 marks): reasonable knowledge and understanding, all terms/concepts explicitly or implicitly understood; reasonable application to the impact of the current account balance on the exchange rate; good analysis in the form of developed links through a chain of reasoning which addresses the question, with any relevant diagram predominantly correct and linked to the analysis; a well-developed and detailed line of reasoning which is coherent and logically structured.</p>\n<p><strong>Level 2 (3-4 marks)</strong> (AO1a – 1 mark, AO2 – 1 mark, AO3a – 2 marks): reasonable knowledge, most terms/concepts understood; limited application; reasonable analysis largely in the form of single effects, not developed into a clear chain of reasoning; any relevant diagram may be imperfectly labelled or not linked to the analysis.</p>\n<p><strong>Level 1 (1-2 marks)</strong> (AO1a – 1 mark, AO2 – 0 marks, AO3a – 1 mark): reasonable knowledge, some terms/concepts understood; no application; limited analysis which may include a single effect with some link to the question; diagrams (if present) unlikely to be correct and not linked to the analysis.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates successfully demonstrated knowledge of exchange rates either using an appropriate diagram or definition. Many were also able to apply either their diagram and/or their text to the context of the pound (£) against the US dollar ($). It is recommended that candidates match their responses to the currency reference in the exact question wording to avoid lack of clarity in these questions.</p>\n<p>The most successful responses understood what had happened to exports and/or imports due to the widening current account deficit. They could then reason from demand/supply for these exports/imports to demand/supply of the pound. This then led to the fall in the exchange rate for the pound (£) against the US dollar ($). In effective responses, diagram labels were used throughout this explanation to help support the reasoning. This is a key technique for economists and is likely to continue to be tested in future questions.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Exchange rate diagrams</h5>\n<p>Always use the currency combination outlined in the question and apply this to your diagram and text.</p>\n</div>",
+   "modelAnswer": "The exchange rate is the price of one currency in terms of another. The chart shows the UK's deficit widening from about £30 000 million in 2011 to £93 000 million in 2013, so UK exports fell or imports rose.\n\nIf UK exports to the USA fall, American buyers need fewer pounds to pay for UK goods, so demand for the pound falls and the demand curve shifts left from D1 to D2. With supply unchanged, the equilibrium price falls from P0 to P1 — the pound depreciates against the dollar.\n\nAlternatively, buying more American goods means UK consumers sell more pounds to obtain dollars, so supply shifts right from S1 to S2 and the price again falls from P0 to P1."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:9ab5359a",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q16d(i)",
+  "question": "Apart from lower prices, state two other benefits that imports bring to consumers.",
+  "caseStudy": "<p><strong>Extract 3: Current Account Balance and Exchange Rate</strong></p>\n<img src=\"/images/economics/4-2-uk-current-account-balance-2011-2019-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'UK Current Account Balance', measured in £ million, with the year axis running along the top from 2011 to 2019 and the vertical axis running downwards from -30 000 at the top to -110 000 at the bottom. The balance starts at about -30 000 in 2011 and falls steeply to about -93 000 by 2013, drifts down to roughly -97 000 by 2015, reaches its lowest point of about -108 000 in 2016, then rises sharply to about -78 000 in 2017, sits at about -80 000 in 2018, and falls again to about -95 000 in 2019. The balance is negative, and therefore in deficit, in every year shown\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Since trade is the major component of the current account, a wider deficit is primarily due to either imports rising or exports falling. As a result, there will be a shift in the demand or supply of the UK's currency (the pound £), which will change its exchange rate.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">Current Account Balance (% of GDP)</p>\n<table style=\"width:100%;max-width:400px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Year</th><th style=\"padding:6px;\">2011</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">UK</td><td style=\"padding:6px;\">–1.76</td><td style=\"padding:6px;\">–4.90</td><td style=\"padding:6px;\">–3.78</td></tr>\n<tr><td style=\"padding:6px;\">USA</td><td style=\"padding:6px;\">–2.87</td><td style=\"padding:6px;\">–2.24</td><td style=\"padding:6px;\">–2.33</td></tr>\n<tr><td style=\"padding:6px;\">Germany</td><td style=\"padding:6px;\">6.20</td><td style=\"padding:6px;\">8.59</td><td style=\"padding:6px;\">7.15</td></tr>\n</table>\n<p>The table shows that the UK's current account deficit is persistent and also represents a relatively high proportion of GDP. The deficit reflects the fact that British consumers can choose to buy imported goods at relatively low prices. On the other hand, British producers face competition in the global market both when attempting to produce goods for export and when competing with imported goods. Consequently, a trade deficit results in output being lower and unemployment being higher than when there is a surplus. Such global competition does mean, however, that scarce resources are being used more efficiently.</p>",
+  "hint": "Lower prices is EXCLUDED, so don't write it. Answer for CONSUMERS, not producers — the examiners saw candidates misread this. Think variety, quality, innovation.",
+  "starter": "1. ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Greater variety/choice</li>\n<li>Better quality</li>\n<li>More innovative products</li>\n</ul>\n<p>1 mark for each valid, separate benefit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Responses for this question were good. Most candidates clearly realised the benefits that imports bring to consumers. A few candidates misread the question and answered with respect to producers.</p>\n</div>",
+   "modelAnswer": "1. Greater variety and choice — consumers can buy goods that are not produced at home at all, so they have far more options.\n\n2. Better quality — imports may be made to a higher standard than domestic alternatives, so consumers get a better product."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:071b41fd",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q16d(ii)",
+  "question": "The chart in Extract 3 shows that the UK's current account deficit increased from £30 000m in 2011 to £80 000m in 2018. Calculate the percentage change in the deficit between 2011 and 2018.",
+  "caseStudy": "<p><strong>Extract 3: Current Account Balance and Exchange Rate</strong></p>\n<img src=\"/images/economics/4-2-uk-current-account-balance-2011-2019-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'UK Current Account Balance', measured in £ million, with the year axis running along the top from 2011 to 2019 and the vertical axis running downwards from -30 000 at the top to -110 000 at the bottom. The balance starts at about -30 000 in 2011 and falls steeply to about -93 000 by 2013, drifts down to roughly -97 000 by 2015, reaches its lowest point of about -108 000 in 2016, then rises sharply to about -78 000 in 2017, sits at about -80 000 in 2018, and falls again to about -95 000 in 2019. The balance is negative, and therefore in deficit, in every year shown\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Since trade is the major component of the current account, a wider deficit is primarily due to either imports rising or exports falling. As a result, there will be a shift in the demand or supply of the UK's currency (the pound £), which will change its exchange rate.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">Current Account Balance (% of GDP)</p>\n<table style=\"width:100%;max-width:400px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Year</th><th style=\"padding:6px;\">2011</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">UK</td><td style=\"padding:6px;\">–1.76</td><td style=\"padding:6px;\">–4.90</td><td style=\"padding:6px;\">–3.78</td></tr>\n<tr><td style=\"padding:6px;\">USA</td><td style=\"padding:6px;\">–2.87</td><td style=\"padding:6px;\">–2.24</td><td style=\"padding:6px;\">–2.33</td></tr>\n<tr><td style=\"padding:6px;\">Germany</td><td style=\"padding:6px;\">6.20</td><td style=\"padding:6px;\">8.59</td><td style=\"padding:6px;\">7.15</td></tr>\n</table>\n<p>The table shows that the UK's current account deficit is persistent and also represents a relatively high proportion of GDP. The deficit reflects the fact that British consumers can choose to buy imported goods at relatively low prices. On the other hand, British producers face competition in the global market both when attempting to produce goods for export and when competing with imported goods. Consequently, a trade deficit results in output being lower and unemployment being higher than when there is a surplus. Such global competition does mean, however, that scarce resources are being used more efficiently.</p>",
+  "hint": "Percentage change = CHANGE ÷ ORIGINAL × 100. The change is 80 000 − 30 000 = 50 000, and the original is 30 000 (not 80 000). Dividing by the wrong figure gives 62.5% — the classic error.",
+  "starter": "Percentage change = (80 000 − 30 000) ÷ 30 000 × 100 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>(50,000/30,000) × 100 = 166.666</strong></p>\n<p><strong>Answer: 166.67%</strong></p>\n<ul>\n<li>2 marks for correct answer</li>\n<li>1 mark for correct working, but incorrect answer</li>\n<li>% sign is not required</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>(ii) Many candidates gained marks for their working for this question, even if they then made an error in their final answer.</p>\n</div>",
+   "modelAnswer": "Percentage change = change ÷ original value × 100.\n\nThe change in the deficit is £80 000m − £30 000m = £50 000m, and the original value is £30 000m.\n\n(50 000 ÷ 30 000) × 100 = 166.666…\n\nSo the deficit increased by 166.67%."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:74f4c9f1",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q16d(iii)",
+  "question": "*Evaluate the extent to which the UK government should try to eliminate the current account deficit. Use the information given in Extract 3 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 3: Current Account Balance and Exchange Rate</strong></p>\n<img src=\"/images/economics/4-2-uk-current-account-balance-2011-2019-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'UK Current Account Balance', measured in £ million, with the year axis running along the top from 2011 to 2019 and the vertical axis running downwards from -30 000 at the top to -110 000 at the bottom. The balance starts at about -30 000 in 2011 and falls steeply to about -93 000 by 2013, drifts down to roughly -97 000 by 2015, reaches its lowest point of about -108 000 in 2016, then rises sharply to about -78 000 in 2017, sits at about -80 000 in 2018, and falls again to about -95 000 in 2019. The balance is negative, and therefore in deficit, in every year shown\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Since trade is the major component of the current account, a wider deficit is primarily due to either imports rising or exports falling. As a result, there will be a shift in the demand or supply of the UK's currency (the pound £), which will change its exchange rate.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">Current Account Balance (% of GDP)</p>\n<table style=\"width:100%;max-width:400px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Year</th><th style=\"padding:6px;\">2011</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">UK</td><td style=\"padding:6px;\">–1.76</td><td style=\"padding:6px;\">–4.90</td><td style=\"padding:6px;\">–3.78</td></tr>\n<tr><td style=\"padding:6px;\">USA</td><td style=\"padding:6px;\">–2.87</td><td style=\"padding:6px;\">–2.24</td><td style=\"padding:6px;\">–2.33</td></tr>\n<tr><td style=\"padding:6px;\">Germany</td><td style=\"padding:6px;\">6.20</td><td style=\"padding:6px;\">8.59</td><td style=\"padding:6px;\">7.15</td></tr>\n</table>\n<p>The table shows that the UK's current account deficit is persistent and also represents a relatively high proportion of GDP. The deficit reflects the fact that British consumers can choose to buy imported goods at relatively low prices. On the other hand, British producers face competition in the global market both when attempting to produce goods for export and when competing with imported goods. Consequently, a trade deficit results in output being lower and unemployment being higher than when there is a surplus. Such global competition does mean, however, that scarce resources are being used more efficiently.</p>",
+  "hint": "The examiners' key point: this asks 'SHOULD', not 'how'. Don't just list policies. Use the extract's own tension — a trade deficit means lower output and higher unemployment, BUT British consumers get imported goods at low prices and global competition means scarce resources are used more efficiently. Then judge on the deficit's size (up to −4.90% of GDP), its persistence, what is being imported, and whether intervention's costs (e.g. import taxes raising domestic prices) outweigh the benefits.",
+  "starter": "One reason the government should act is that the deficit is persistent, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Reference to Extract 3 or context:</strong></p>\n<ul>\n<li>any use of data or own knowledge, e.g. linked to UK</li>\n<li>deficit is persistent / worsened</li>\n</ul>\n<p><strong>Points for discussion:</strong></p>\n<ul>\n<li>Deficit as a percentage of GDP has increased significantly since 2011 and is persistent rather than temporary</li>\n<li>Deficit suggests lower exports/higher imports may mean unemployment / lower economic growth / inflation / increased outflows of money</li>\n<li>Relevant benefits of trade, e.g. specialisation justifies deficit</li>\n<li>Consumers benefit from wide variety of low-priced imports</li>\n<li>Consequences of government action to eliminate deficit, e.g. taxes on imports, so raise domestic prices</li>\n</ul>\n<p><strong>Evaluation:</strong></p>\n<ul>\n<li>Depends on size / duration of current account deficit</li>\n<li>Depends on what is being imported, e.g. inputs needed for UK production</li>\n<li>Depends how the government eliminate the deficit as it may lead to other problems</li>\n<li>Depends whether the benefits of government intervention outweigh the costs</li>\n</ul>\n<p><strong>N.B.</strong> Any other relevant points are to be credited</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5-6 marks)</strong> (AO2 – 1, AO3a – 2 marks, AO3b – 3 marks): good application of knowledge to the issue of reducing the deficit, with good understanding of all relevant elements of the scenario; reasonable analysis largely in the form of single effects; good evaluation with a fully supported judgement developed from weighing up arguments/both sides/comparing alternatives; a well-developed and detailed line of reasoning which is coherent and logically structured.</p>\n<p><strong>Level 2 (3-4 marks)</strong> (AO2 – 1, AO3a – 1 mark, AO3b – 2 marks): good application; limited analysis largely in the form of a single effect; reasonable evaluation considering arguments/both sides, there may be a judgement but this will not be fully supported.</p>\n<p><strong>Level 1 (1-2 marks)</strong> (AO2 – 0 marks, AO3a – 1 mark, AO3b – 1 mark): no application; limited analysis which may include a single effect with some link to the question; limited evaluation with an incomplete consideration of arguments and unsupported statements.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>*Candidates who answered this question well quickly realised that this question focused on 'should' rather than purely 'how'. By this stage in the paper, candidates sometimes rushed this question. This resulted in more answers purely focused on analysis, less evaluation and misunderstanding of the question. Successful responses linked consequences of a current account deficit, such as increased unemployment, to whether the government should intervene. Given timing, some of the most successful responses moved quickly onto evaluation of the consequence to help come to an overall judgement on whether the government should intervene.</p>\n<p>This was a question with wording specifically asking about extent of intervention and whether the government should intervene. Judgements that focused on this exact question wording were likely to be more effective. This is a technique that may well be tested on future papers, so is worth ongoing practice.</p>\n<p>It is worth noting that a correct point is credited once, so it is useful to consider the use of summary-style conclusions that are purely repetitive. This may give more time to use elsewhere.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Assessment for learning</h5>\n<p>Practise brief plans for 'Evaluate' questions to increase the use of evaluation and an overall judgement. Use brief, note-form chains of reasoning and match to evaluation.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Misconception</h5>\n<p>Try not to confuse the balance of payments on the current account with fiscal policy and the balanced government budget.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Final questions</h5>\n<p>Try to leave enough time to complete all questions. For the last question, remember to include a judgement that fits the exact question set.</p>\n</div>",
+   "modelAnswer": "There is a case for acting. The deficit is persistent and relatively large, reaching −4.90% of GDP in 2015 and still −3.78% in 2019, and the extract states a trade deficit results in output being lower and unemployment higher than with a surplus. If it reflects British producers losing out to global competition, the government should intervene before unemployment rises.\n\nHowever, the same extract gives the counter-argument. British consumers can buy imports at relatively low prices, raising living standards, and global competition means scarce resources are used more efficiently. Eliminating the deficit through taxes on imports would raise domestic prices and undo both benefits.\n\nOverall the government should reduce, but not eliminate, the deficit. That depends mainly on what is being imported: if imports are inputs needed for UK production, restricting them would damage the very producers the policy aims to help. It also depends on the method — supply side measures raise productivity without the price rises protectionism brings."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:98adc003",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q17(a)",
+  "question": "Using the data in Extract 3 , calculate the total trade balance for 2018 Q3. Show your working.",
+  "caseStudy": "<p><strong>Extract 3: UK Current Account</strong></p>\n<p>In 2017, following the depreciation of the British pound (£) in 2016, the deficit on the current account balance reduced. However, in 2018 the deficit grew in every quarter. The table below shows debit items increased, while the value of goods exports grew more slowly. UK exports faced growing competition from overseas manufacturers. In 2018, the £1.8 billion increase in the trade in goods deficit was caused mainly by imports from highly competitive Asian economies increasing more quickly than UK exports.</p>\n<p>The UK has run an annual current account deficit since 1983. A current account deficit means the UK is a net borrower with the rest of the world. The UK must attract net financial inflows to finance its current account deficit, which can be achieved through selling its assets to overseas investors or borrowing from the rest of the world.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">UK Current Account (Quarterly data)</p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2018 Q2<br />£ million</th><th style=\"padding:6px;\">2018 Q3<br />£ million</th></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">Exports of goods</td><td style=\"padding:6px;\">85 987</td><td style=\"padding:6px;\">88 884</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">Exports of services</td><td style=\"padding:6px;\">70 760</td><td style=\"padding:6px;\">69 721</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">Imports of goods</td><td style=\"padding:6px;\">120 560</td><td style=\"padding:6px;\">123 880</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">Imports of services</td><td style=\"padding:6px;\">43 195</td><td style=\"padding:6px;\">43 508</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Total trade balance</strong></td><td style=\"padding:6px;\">–7 008</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">a. Investment income (net)</td><td style=\"padding:6px;\">–7 142</td><td style=\"padding:6px;\">–10 780</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">b. Other income (net)</td><td style=\"padding:6px;\">–328</td><td style=\"padding:6px;\">–325</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Total investment and other income (a + b)</strong></td><td style=\"padding:6px;\">–7 470</td><td style=\"padding:6px;\">–11 105</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Total transfers</strong></td><td style=\"padding:6px;\">–5 476</td><td style=\"padding:6px;\">–6 634</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Current balance</strong></td><td style=\"padding:6px;\">–19 954</td><td style=\"padding:6px;\">–26 522</td></tr>\n</table>\n<p>Globalisation is demonstrated by the overall growth in trade and foreign investment. In 1983, UK exports plus imports amounted to just £159565 million, while in 2017 the total was £1257706 million. Lower tariffs and expansion of free-trade areas and customs unions, which require less form filling and customs checks, have led to more competition, expanding markets and increased foreign investment. Because of this, competitive UK producers have been able to expand their sales. Improved communications, technological transfers and the development of supply chains across borders have also been contributing factors to global trade and investment growth.</p>",
+  "hint": "Total trade balance = exports of goods + exports of services − imports of goods − imports of services, using the Q3 column only. Do NOT include investment income or transfers — those come below the trade balance line. The mark scheme insists on the £ sign AND the minus sign (or the word deficit).",
+  "starter": "Total trade balance = 88 884 + 69 721 − 123 880 − 43 508 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>88,884 + 69,721 – 123,880 – 43,508 = – 8,783</strong></p>\n<p><strong>– £8,783 million   OR   \"deficit is £8,783 million\"</strong></p>\n<ul>\n<li>2 marks for correct answer on its own, which must include the £ sign and the minus sign or refer to a deficit.</li>\n<li>Correct answer on its own without £ sign and/or minus sign or deficit is worth 1 mark only.</li>\n<li>1 mark for correct working, but incorrect answer.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A well answered question overall, although some candidates omitted the £ sign.</p>\n</div>",
+   "modelAnswer": "The total trade balance is exports of goods and services minus imports of goods and services, using the 2018 Q3 column.\n\nExports: 88 884 + 69 721 = 158 605. Imports: 123 880 + 43 508 = 167 388.\n\n158 605 − 167 388 = −8 783.\n\nSo the total trade balance for 2018 Q3 was −£8 783 million, that is a deficit of £8 783 million."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:1084912e",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q17(b)",
+  "question": "Using the data in Extract 3, calculate the percentage change in exports of goods between 2018 Q2 and 2018 Q3. Show your working.",
+  "caseStudy": "<p><strong>Extract 3: UK Current Account</strong></p>\n<p>In 2017, following the depreciation of the British pound (£) in 2016, the deficit on the current account balance reduced. However, in 2018 the deficit grew in every quarter. The table below shows debit items increased, while the value of goods exports grew more slowly. UK exports faced growing competition from overseas manufacturers. In 2018, the £1.8 billion increase in the trade in goods deficit was caused mainly by imports from highly competitive Asian economies increasing more quickly than UK exports.</p>\n<p>The UK has run an annual current account deficit since 1983. A current account deficit means the UK is a net borrower with the rest of the world. The UK must attract net financial inflows to finance its current account deficit, which can be achieved through selling its assets to overseas investors or borrowing from the rest of the world.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">UK Current Account (Quarterly data)</p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2018 Q2<br />£ million</th><th style=\"padding:6px;\">2018 Q3<br />£ million</th></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">Exports of goods</td><td style=\"padding:6px;\">85 987</td><td style=\"padding:6px;\">88 884</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">Exports of services</td><td style=\"padding:6px;\">70 760</td><td style=\"padding:6px;\">69 721</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">Imports of goods</td><td style=\"padding:6px;\">120 560</td><td style=\"padding:6px;\">123 880</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">Imports of services</td><td style=\"padding:6px;\">43 195</td><td style=\"padding:6px;\">43 508</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Total trade balance</strong></td><td style=\"padding:6px;\">–7 008</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">a. Investment income (net)</td><td style=\"padding:6px;\">–7 142</td><td style=\"padding:6px;\">–10 780</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">b. Other income (net)</td><td style=\"padding:6px;\">–328</td><td style=\"padding:6px;\">–325</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Total investment and other income (a + b)</strong></td><td style=\"padding:6px;\">–7 470</td><td style=\"padding:6px;\">–11 105</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Total transfers</strong></td><td style=\"padding:6px;\">–5 476</td><td style=\"padding:6px;\">–6 634</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Current balance</strong></td><td style=\"padding:6px;\">–19 954</td><td style=\"padding:6px;\">–26 522</td></tr>\n</table>\n<p>Globalisation is demonstrated by the overall growth in trade and foreign investment. In 1983, UK exports plus imports amounted to just £159565 million, while in 2017 the total was £1257706 million. Lower tariffs and expansion of free-trade areas and customs unions, which require less form filling and customs checks, have led to more competition, expanding markets and increased foreign investment. Because of this, competitive UK producers have been able to expand their sales. Improved communications, technological transfers and the development of supply chains across borders have also been contributing factors to global trade and investment growth.</p>",
+  "hint": "Change ÷ ORIGINAL × 100, where the original is the Q2 figure (85 987), not the Q3 one. Use exports of GOODS only. A correct answer without the % sign is worth just 1 mark.",
+  "starter": "Percentage change = (88 884 − 85 987) ÷ 85 987 × 100 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>× 100 = 3,3691</strong></p>\n<p><strong>OR (88884-85987) / 85987 * 100</strong></p>\n<p><strong>3.37% OR 3.4%</strong></p>\n<ul>\n<li>2 marks for correct answer with correct percentage sign.</li>\n<li>Correct answer on its own with no percentage sign is worth 1 mark only.</li>\n<li>1 mark for correct working, but incorrect answer.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A well answered question overall</p>\n</div>",
+   "modelAnswer": "Percentage change = change ÷ original value × 100.\n\nExports of goods rose from 85 987 in 2018 Q2 to 88 884 in 2018 Q3, so the change is 88 884 − 85 987 = 2 897.\n\n(2 897 ÷ 85 987) × 100 = 3.3691…\n\nSo exports of goods increased by 3.37%."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:d15e5f6c",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q17(c)",
+  "question": "Using Extract 3, analyse the causes of the persistent current account deficit in the UK.",
+  "caseStudy": "<p><strong>Extract 3: UK Current Account</strong></p>\n<p>In 2017, following the depreciation of the British pound (£) in 2016, the deficit on the current account balance reduced. However, in 2018 the deficit grew in every quarter. The table below shows debit items increased, while the value of goods exports grew more slowly. UK exports faced growing competition from overseas manufacturers. In 2018, the £1.8 billion increase in the trade in goods deficit was caused mainly by imports from highly competitive Asian economies increasing more quickly than UK exports.</p>\n<p>The UK has run an annual current account deficit since 1983. A current account deficit means the UK is a net borrower with the rest of the world. The UK must attract net financial inflows to finance its current account deficit, which can be achieved through selling its assets to overseas investors or borrowing from the rest of the world.</p>\n<p style=\"text-align:center;font-weight:600;margin-top:14px;\">UK Current Account (Quarterly data)</p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2018 Q2<br />£ million</th><th style=\"padding:6px;\">2018 Q3<br />£ million</th></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">Exports of goods</td><td style=\"padding:6px;\">85 987</td><td style=\"padding:6px;\">88 884</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">Exports of services</td><td style=\"padding:6px;\">70 760</td><td style=\"padding:6px;\">69 721</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">Imports of goods</td><td style=\"padding:6px;\">120 560</td><td style=\"padding:6px;\">123 880</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">Imports of services</td><td style=\"padding:6px;\">43 195</td><td style=\"padding:6px;\">43 508</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Total trade balance</strong></td><td style=\"padding:6px;\">–7 008</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">a. Investment income (net)</td><td style=\"padding:6px;\">–7 142</td><td style=\"padding:6px;\">–10 780</td></tr>\n<tr><td style=\"padding:6px;padding-left:18px;\">b. Other income (net)</td><td style=\"padding:6px;\">–328</td><td style=\"padding:6px;\">–325</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Total investment and other income (a + b)</strong></td><td style=\"padding:6px;\">–7 470</td><td style=\"padding:6px;\">–11 105</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Total transfers</strong></td><td style=\"padding:6px;\">–5 476</td><td style=\"padding:6px;\">–6 634</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Current balance</strong></td><td style=\"padding:6px;\">–19 954</td><td style=\"padding:6px;\">–26 522</td></tr>\n</table>\n<p>Globalisation is demonstrated by the overall growth in trade and foreign investment. In 1983, UK exports plus imports amounted to just £159565 million, while in 2017 the total was £1257706 million. Lower tariffs and expansion of free-trade areas and customs unions, which require less form filling and customs checks, have led to more competition, expanding markets and increased foreign investment. Because of this, competitive UK producers have been able to expand their sales. Improved communications, technological transfers and the development of supply chains across borders have also been contributing factors to global trade and investment growth.</p>",
+  "hint": "This is where the examiners saw the government-budget confusion most — this is the COUNTRY'S trading position, not tax and spending. Also don't stop halfway: they criticised answers that said 'competitors are more productive so demand for UK goods falls' and then wrote nothing further. Take a chain all the way to the deficit, and use the data — investment income worsened from −7 142 to −10 780 between the two quarters.",
+  "starter": "One cause is that overseas manufacturers have increased their productivity compared to the UK, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Other countries' productivity gains in manufacturing and competitive power have resulted in slower growth in UK exports.</li>\n<li>Services growth has not yet compensated for slow growth in goods exports</li>\n<li>Improvement in UK incomes over time has led to higher demand for imports</li>\n<li>Low-cost imports, e.g. from China, are attractive to British companies and consumers</li>\n<li>Overseas manufacturers have increased their productivity compared to the UK, e.g. steel</li>\n<li>The exchange rate of the pound (£) may be too high, which has hampered exports, but benefited imports</li>\n<li>Inflation rate may be higher in the UK than in its trading partners</li>\n<li>Because of foreign investment in the UK economy, net investment income is a growing debit item (nearly £11 million in 2018 Q3).</li>\n</ul>\n<p><strong>Additional factors:</strong></p>\n<ul>\n<li>UK is a net borrower from the rest of the world, so financial inflows finance the deficit on its current account</li>\n<li>UK is increasingly selling its assets (shares etc.) to overseas investors</li>\n<li>The surplus (inflow from foreign investors) on the financial account finances the deficit on the current account, though that does lead to investment income being negative.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5-6 marks)</strong> (AO1a – 1 mark, AO2 – 2 marks, AO3a – 3 marks): reasonable knowledge and understanding about the current account deficit, all terms/concepts explicitly or implicitly understood; reasonable application to the data, with understanding of some relevant elements of the scenario; good analysis of causes in the form of developed links through a chain of reasoning which addresses the question; a well-developed and detailed line of reasoning which is coherent and logically structured.</p>\n<p><strong>Level 2 (3-4 marks)</strong> (AO1a – 1 mark, AO2 – 1 mark, AO3a – 2 marks): reasonable knowledge, most terms/concepts understood; limited application to the data; reasonable analysis of causes, largely in the form of single effects not developed into a clear chain of reasoning.</p>\n<p><strong>Level 1 (1-2 marks)</strong> (AO1a – 1 mark, AO2 – 0 marks, AO3a – 1 mark): reasonable knowledge, some terms/concepts understood; no application; limited analysis which may include a single effect with some link to the question.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n<p><strong>N.B.</strong> Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates identified reasons for a persistent current account deficit but confused this with a government budget deficit. Given that this question is worth 6 marks, some candidates concentrated on one cause, which could be enough however only demonstrated one link in there 'chain of reasoning'. For example, writing that more competitive producers overseas resulting in demand falling for UK producers/increasing for exports and then nothing further. Other candidates quoted statistics, rather than analysing them.</p>\n</div>",
+   "modelAnswer": "One cause is that overseas manufacturers have raised their productivity compared with the UK. Higher productivity lowers their costs per unit, so their goods undercut UK goods. British consumers therefore switch to low-cost imports from highly competitive Asian economies, while overseas buyers demand fewer UK exports — which is why the £1.8 billion rise in the 2018 goods deficit came mainly from imports growing faster than exports.\n\nA second cause sits below the trade line. Because foreign investment in the UK is so large, the income those owners earn flows out, making net investment income a growing debit item — worsening from −£7 142 million in Q2 to −£10 780 million in Q3. So the inflows financing the deficit generate income payments that deepen it, making it self-perpetuating."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:3bcce21f",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q18",
+  "question": "Which of the following is an example of a trade in goods in the UK balance of payments on current account?",
+  "options": [
+   "A Japanese car company purchasing a factory in the UK",
+   "A laptop imported into the UK from China",
+   "A UK airline selling transport facilities to a firm in Dubai",
+   "Money earned by a UK firm on investment in Australia"
+  ],
+  "hint": "Goods are physical, visible items. Sort the others: buying a factory is investment, transport is a service, and investment earnings are income flows.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — A laptop imported into the UK from China</strong></p>\n<ul>\n<li>A laptop is a physical, visible good, so it belongs in trade in goods. Buying a factory is investment (financial account), selling transport is trade in services, and money earned on investment abroad is an income flow.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:b0497f08",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q19",
+  "question": "The Balance of Payments on the current account shows the balance of receipts and payments of",
+  "options": [
+   "a country's international banks",
+   "a typical household",
+   "foreign exchange by a country",
+   "the government"
+  ],
+  "hint": "The current account covers the WHOLE country's dealings with the rest of the world — not one sector of it. Note that 'the government' is the classic wrong answer here: that would be the budget.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — foreign exchange by a country</strong></p>\n<ul>\n<li>The current account records the whole country's receipts and payments of foreign exchange with the rest of the world. It is not restricted to banks, to households, or to the government — option D is the common confusion with the government's budget.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:ee4fe717",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q20(a)",
+  "question": "Give two examples of services that the UK exports.",
+  "caseStudy": "<p><strong>Extract 1: UK Trade in the Current Account 2009-2018</strong></p>\n<img src=\"/images/economics/4-2-uk-net-trade-goods-services-2009-2018-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'Net trade (exports - imports)', showing UK net trade in £ billion from 2009 to 2018 with two series. The dashed 'Goods and services' line runs between about -20 and -35 throughout: about -28 in 2009, its largest deficit of about -34 in 2010, its smallest deficit of about -19 in 2011, then roughly -27 in 2012, -29 in 2013, -29 in 2014, -27 in 2015, -30 in 2016, -23 in 2017 and -30 in 2018. The solid 'Goods only' line is far lower and worsens steadily: about -85 in 2009, -95 in 2010, -93 in 2011, -106 in 2012, -119 in 2013, -121 in 2014, -118 in 2015, -131 in 2016, -136 in 2017 and -137 in 2018. Both lines stay negative throughout, and the goods-only deficit is always much larger than the goods-and-services deficit\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Trade is the largest item in the balance of payments on the current account. The chart shows the UK's trade deficits since 2009 as measured by exports minus imports for goods and services, and for goods only. The UK's exports of services are becoming an increasingly important part of its overseas trade.</p>\n<p>Globalisation has led to UK residents being able to enjoy a higher standard of living because they can access a wide range of low-priced imported goods from rapidly growing economically less developed countries. Workers in those countries are being employed in manufacturing goods for the UK market. Equally, the UK provides a wide range of services to people in other countries.</p>",
+  "hint": "Services, not goods. Tourism, education (foreign-student fees), transport, financial services, insurance, IT — any two.",
+  "starter": "Example 1: ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Tourism/travel</li>\n<li>Education (foreign-student fees)</li>\n<li>Transport</li>\n<li>Financial services</li>\n<li>Pension and insurance services</li>\n<li>Telecommunication, computer and information services</li>\n<li>Intellectual property</li>\n</ul>\n<p>ARA (any reasonable answer). 1 mark for each valid example up to a maximum of 2 marks.</p>\n</div>",
+   "modelAnswer": "Example 1: Tourism — money spent in the UK by overseas visitors on hotels, travel and attractions is an inflow, so it counts as an export of a service.\n\nExample 2: Financial services — UK banks and insurers based in London selling services to clients in other countries."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:fc3c25d8",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q20(b)",
+  "question": "Using the chart in Extract 1, state in which year the deficit in net trade of goods and services was at its: 1 Largest. 2 Smallest.",
+  "caseStudy": "<p><strong>Extract 1: UK Trade in the Current Account 2009-2018</strong></p>\n<img src=\"/images/economics/4-2-uk-net-trade-goods-services-2009-2018-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'Net trade (exports - imports)', showing UK net trade in £ billion from 2009 to 2018 with two series. The dashed 'Goods and services' line runs between about -20 and -35 throughout: about -28 in 2009, its largest deficit of about -34 in 2010, its smallest deficit of about -19 in 2011, then roughly -27 in 2012, -29 in 2013, -29 in 2014, -27 in 2015, -30 in 2016, -23 in 2017 and -30 in 2018. The solid 'Goods only' line is far lower and worsens steadily: about -85 in 2009, -95 in 2010, -93 in 2011, -106 in 2012, -119 in 2013, -121 in 2014, -118 in 2015, -131 in 2016, -136 in 2017 and -137 in 2018. Both lines stay negative throughout, and the goods-only deficit is always much larger than the goods-and-services deficit\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Trade is the largest item in the balance of payments on the current account. The chart shows the UK's trade deficits since 2009 as measured by exports minus imports for goods and services, and for goods only. The UK's exports of services are becoming an increasingly important part of its overseas trade.</p>\n<p>Globalisation has led to UK residents being able to enjoy a higher standard of living because they can access a wide range of low-priced imported goods from rapidly growing economically less developed countries. Workers in those countries are being employed in manufacturing goods for the UK market. Equally, the UK provides a wide range of services to people in other countries.</p>",
+  "hint": "Use the DASHED 'Goods and services' line, not the solid 'Goods only' one. Both lines are negative, so the LARGEST deficit is the LOWEST point on the chart and the smallest deficit is the highest. Check 2010 and 2011 carefully — they are adjacent years.",
+  "starter": "1 Largest: ... 2 Smallest: ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>1. Largest: 2010</strong></p>\n<p><strong>2. Smallest: 2011</strong></p>\n<ul>\n<li>1 mark for each correct answer up to a total of 2 marks.</li>\n</ul>\n</div>",
+   "modelAnswer": "1 Largest: 2010, when the goods and services line reaches its lowest point on the chart at about −£34 billion.\n\n2 Smallest: 2011, when the line rises to its highest point at about −£19 billion.\n\nBecause the figures are negative, the largest deficit is the lowest point on the chart and the smallest deficit is the highest point."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:78f7a2ff",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q20(c)",
+  "question": "Using the information in Extract 1, analyse why the deficit on trade in goods and services is not as large as the deficit on trade in goods only.",
+  "caseStudy": "<p><strong>Extract 1: UK Trade in the Current Account 2009-2018</strong></p>\n<img src=\"/images/economics/4-2-uk-net-trade-goods-services-2009-2018-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'Net trade (exports - imports)', showing UK net trade in £ billion from 2009 to 2018 with two series. The dashed 'Goods and services' line runs between about -20 and -35 throughout: about -28 in 2009, its largest deficit of about -34 in 2010, its smallest deficit of about -19 in 2011, then roughly -27 in 2012, -29 in 2013, -29 in 2014, -27 in 2015, -30 in 2016, -23 in 2017 and -30 in 2018. The solid 'Goods only' line is far lower and worsens steadily: about -85 in 2009, -95 in 2010, -93 in 2011, -106 in 2012, -119 in 2013, -121 in 2014, -118 in 2015, -131 in 2016, -136 in 2017 and -137 in 2018. Both lines stay negative throughout, and the goods-only deficit is always much larger than the goods-and-services deficit\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Trade is the largest item in the balance of payments on the current account. The chart shows the UK's trade deficits since 2009 as measured by exports minus imports for goods and services, and for goods only. The UK's exports of services are becoming an increasingly important part of its overseas trade.</p>\n<p>Globalisation has led to UK residents being able to enjoy a higher standard of living because they can access a wide range of low-priced imported goods from rapidly growing economically less developed countries. Workers in those countries are being employed in manufacturing goods for the UK market. Equally, the UK provides a wide range of services to people in other countries.</p>",
+  "hint": "The whole answer turns on one fact: the services account is in SURPLUS, and that surplus partly offsets the large goods deficit. So the combined figure (about −£30bn) is far smaller than goods alone (about −£137bn). Explain BOTH sides — why UK services exports are strong (London as a global financial centre, overseas students, tourism, English as the international language) and why the goods deficit is so big (cheap imports, UK manufacturing not competitive against China).",
+  "starter": "The deficit on goods and services is smaller because the net trade in services is in surplus, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>The net trade in services account is usually in surplus.</li>\n<li>There is a large and growing deficit on net trade in goods.</li>\n</ul>\n<p><strong>Services:</strong></p>\n<ul>\n<li>UK's exports of services, such as tourism, financial services and education, are greater than its imports.</li>\n<li>London has become a global centre for financial services.</li>\n<li>The UK economy is increasingly becoming a services-oriented (tertiary) economy with a relative decline in the agriculture (primary) and manufacturing (secondary) sectors.</li>\n<li>The widespread use of English as the international language has meant that UK services have a competitive advantage in global services markets.</li>\n<li>Many overseas students come to study in the UK. Their fees and their living costs represent an inflow/credit/export in the current account.</li>\n<li>Many tourists from overseas visit the UK and their spending represents an inflow/credit/export in the current account, which possibly outweighs the outflow due to UK residents travelling overseas.</li>\n<li>Higher living standards in middle-income countries (e.g. China) have led to more people coming to Britain for education and tourism, which leads to a surplus on the services account.</li>\n</ul>\n<p><strong>Goods:</strong></p>\n<ul>\n<li>Although there is an overall deficit on net trade, the deficit on trade in goods only is much larger due to growing imports of cheap goods.</li>\n<li>Globalisation has led to more information being available about overseas goods, which British consumers want to import, so there is a deficit on trade in goods.</li>\n<li>British consumers like the variety of goods that are on offer through imports.</li>\n<li>UK exports of manufactured goods are not as competitive in world markets as goods from newly emerging countries such as China.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5-6 marks)</strong> (AO1a – 1, AO2 – 2 marks, AO3a – 3 marks): reasonable knowledge and understanding, all terms/concepts explicitly or implicitly understood; reasonable application of knowledge about trade accounts and deficits/surpluses, with understanding of some relevant elements of the scenario; good analysis in the form of developed links through a chain of reasoning which addresses the question.</p>\n<p><strong>Level 2 (3-4 marks)</strong> (AO1a – 1 mark, AO2 – 1 mark, AO3a – 2 marks): reasonable knowledge, most terms/concepts understood; limited application; reasonable analysis largely in the form of single effects, not developed into a clear chain of reasoning.</p>\n<p><strong>Level 1 (1-2 marks)</strong> (AO1a – 1 mark, AO2 – 0 marks, AO3a – 1 mark): reasonable knowledge, some terms/concepts understood; no application; limited analysis which may include a single effect with some link to the question.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n<p><strong>N.B.</strong> Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>\n</div>",
+   "modelAnswer": "The two components pull in opposite directions. Net trade in services is in surplus, which partly cancels the goods deficit — so the combined line sits at −£30 billion in 2018 while the goods-only line is −£137 billion.\n\nThe services surplus exists because UK exports of services exceed its imports. The UK is increasingly a services-oriented economy with a relative decline in manufacturing, London has become a global centre for financial services, and the widespread use of English gives UK services a competitive advantage. Overseas students' fees and tourists' spending are both inflows.\n\nThe goods deficit is far larger because British consumers want the variety of cheap imports globalisation offers, while UK manufactured exports are not as competitive as goods from emerging countries such as China."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:43bd8bed",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q21(a)",
+  "question": "Calculate the balance of trade in services in 2007. You must show your working.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2007 (£m)</th><th style=\"padding:6px;\">2016 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">208000</td><td style=\"padding:6px;\"></td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">294000</td><td style=\"padding:6px;\">437000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–86000</td><td style=\"padding:6px;\">–135000</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">138000</td><td style=\"padding:6px;\">245000</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">100000</td><td style=\"padding:6px;\">153000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\"></td><td style=\"padding:6px;\">92000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–48000</td><td style=\"padding:6px;\">–43000</td></tr>\n</table>\n<p>The balance of payments shows a country's transactions with the rest of the world. More trade in goods and services over time is just one feature of increased globalisation.</p>\n<p>Globalisation affects producers, workers and consumers in both developed and less developed countries.</p>",
+  "hint": "Two routes work: export of services − import of services (£138 000m − £100 000m), or the goods and services balance minus the goods balance (−£48 000m − −£86 000m). The answer is a SURPLUS — a negative answer is capped at 1 mark, and omitting the 'm' also costs a mark.",
+  "starter": "Balance of trade in services = £138 000m − £100 000m = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>£138 000m – £100 000m = £38 000m (surplus)</strong></p>\n<p><strong>OR</strong></p>\n<p><strong>£86 000m – £48 000m = £38 000m (surplus)</strong></p>\n<ul>\n<li>Give 1 mark for the correct figures from the data</li>\n<li>Give 1 mark for the correct answer.</li>\n<li>If millions (m) omitted, then maximum 1 mark.</li>\n<li>Maximum 1 mark if answer is negative or refers to a deficit.</li>\n</ul>\n</div>",
+   "modelAnswer": "The balance of trade in services is the export of services minus the import of services.\n\nIn 2007, export of services = £138 000m and import of services = £100 000m.\n\n£138 000m − £100 000m = £38 000m.\n\nSo the balance of trade in services in 2007 was a surplus of £38 000m."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:a727665a",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q21(b)",
+  "question": "Calculate the export of goods in 2016. You must show your working.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2007 (£m)</th><th style=\"padding:6px;\">2016 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">208000</td><td style=\"padding:6px;\"></td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">294000</td><td style=\"padding:6px;\">437000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–86000</td><td style=\"padding:6px;\">–135000</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">138000</td><td style=\"padding:6px;\">245000</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">100000</td><td style=\"padding:6px;\">153000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\"></td><td style=\"padding:6px;\">92000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–48000</td><td style=\"padding:6px;\">–43000</td></tr>\n</table>\n<p>The balance of payments shows a country's transactions with the rest of the world. More trade in goods and services over time is just one feature of increased globalisation.</p>\n<p>Globalisation affects producers, workers and consumers in both developed and less developed countries.</p>",
+  "hint": "Work backwards from the balance. Balance of trade in goods = exports − imports, so exports = imports + balance: £437 000m + (−£135 000m). Because the balance is negative, that means £437 000m − £135 000m. Remember the 'm'.",
+  "starter": "Export of goods = £437 000m − £135 000m = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>£437 000m – £135 000m = £302 000m</strong></p>\n<ul>\n<li>Give 1 mark for the correct figures from the data.</li>\n<li>Give 1 mark for the correct answer.</li>\n<li>If millions (m) omitted, then 1 mark.</li>\n</ul>\n</div>",
+   "modelAnswer": "The balance of trade in goods equals the export of goods minus the import of goods, so rearranging gives export of goods = import of goods + balance of trade in goods.\n\nIn 2016, import of goods = £437 000m and the balance of trade in goods = −£135 000m.\n\n£437 000m − £135 000m = £302 000m.\n\nSo the export of goods in 2016 was £302 000m."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:8f72e732",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q21(c)",
+  "question": "Using Extract 3, analyse the likely effect on the UK economy of the changes in the UK balance of payments between 2007 and 2016.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2007 (£m)</th><th style=\"padding:6px;\">2016 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">208000</td><td style=\"padding:6px;\"></td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">294000</td><td style=\"padding:6px;\">437000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–86000</td><td style=\"padding:6px;\">–135000</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">138000</td><td style=\"padding:6px;\">245000</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">100000</td><td style=\"padding:6px;\">153000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\"></td><td style=\"padding:6px;\">92000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–48000</td><td style=\"padding:6px;\">–43000</td></tr>\n</table>\n<p>The balance of payments shows a country's transactions with the rest of the world. More trade in goods and services over time is just one feature of increased globalisation.</p>\n<p>Globalisation affects producers, workers and consumers in both developed and less developed countries.</p>",
+  "hint": "Do the arithmetic first, because the direction surprises people: the goods deficit WORSENED by £49 000m (−86 000 to −135 000) but the services surplus GREW by £54 000m (38 000 to 92 000), so the overall trade deficit actually IMPROVED by £5 000m (−48 000 to −43 000). Then chain the effects: higher exports → economic growth → more workers needed → unemployment falls. Balance it with the fact that a deficit remains, which may depreciate the pound and cause cost-push inflation.",
+  "starter": "The deficit in the balance of trade in goods has grown by £49 000m, while the surplus in services has grown by £54 000m, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (1 × AO1a, 2 × AO2, 3 × AO3a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Exports and imports of goods have increased. Imports rose at a faster rate therefore the deficit in the balance of trade in goods has grown by £49 000m</li>\n<li>Exports and imports of services have risen. Exports rose a faster rate therefore the surplus in the balance of trade in services has grown by £54 000m</li>\n<li>Therefore, as the surplus in services has grown more than the deficit in goods, the balance of trade deficit in goods and services has reduced by £5000m</li>\n<li>While the balance of trade in goods and services has improved it is still in deficit.</li>\n<li>The rise in demand for UK exports of goods and services would contribute to economic growth.</li>\n<li>More workers would be required to produce the extra exports, so employment would be expected to rise, and unemployment fall.</li>\n<li>Although the deficit has reduced, the fact that there is still a deficit may mean a depreciation of the exchange rate.</li>\n<li>If this is the case, then a cost-push effect on inflation may take place.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5-6 marks)</strong> (AO1a – 1 mark, AO2 – 2 marks, AO3a – 3 marks): reasonable knowledge and understanding, all terms/concepts explicitly or implicitly understood; reasonable application of the changes in the balance of payments, with understanding of some of the relevant elements of the scenario; good analysis of the effects in the form of developed links through a chain of reasoning which addresses the question.</p>\n<p><strong>Level 2 (3-4 marks)</strong> (AO1a – 1 mark, AO2 – 1 mark, AO3a – 2 marks): reasonable knowledge, most terms/concepts understood; limited application to the effects of the changes; reasonable analysis largely in the form of single effects, not developed into a clear chain of reasoning.</p>\n<p><strong>Level 1 (1-2 marks)</strong> (AO1a – 1 mark, AO2 – 0 marks, AO3a – 1 mark): reasonable knowledge, some terms/concepts understood; no application; limited analysis which may include a single effect that has some link to the question.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n<p><strong>N.B.</strong> Any other relevant points and/or evidence of learners' understanding of the connections between the various topics of both components to be credited.</p>\n</div>",
+   "modelAnswer": "Imports of goods rose faster than exports, so the goods deficit grew by £49 000m, from −£86 000m to −£135 000m. In services, exports rose faster than imports, so the services surplus grew by £54 000m, from £38 000m to £92 000m.\n\nBecause the services surplus grew by more than the goods deficit, the overall trade balance improved by £5 000m, from −£48 000m to −£43 000m. This rise in demand for UK exports would contribute to economic growth, and more workers would be needed to produce them, so unemployment would fall.\n\nHowever it remains a deficit, so more pounds are sold to buy imports than are bought for UK exports, which may depreciate the exchange rate — making imported raw materials dearer and causing cost-push inflation."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:exam:d1d716ea",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q22",
+  "question": "Which statement about these countries is correct?",
+  "options": [
+   "The current account deficit as a proportion of GDP is largest for country P",
+   "The current account deficit as a proportion of GDP is largest for country Q",
+   "The current account deficit as a proportion of GDP is largest for country R",
+   "The current account deficit as a proportion of GDP is the same for countries Q and R"
+  ],
+  "caseStudy": "<table style=\"width:100%;max-width:440px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Country</th><th style=\"padding:6px;\">Current account deficit (£ million)</th><th style=\"padding:6px;\">GDP (£ million)</th></tr>\n<tr><td style=\"padding:6px;\">P</td><td style=\"padding:6px;\">2</td><td style=\"padding:6px;\">40</td></tr>\n<tr><td style=\"padding:6px;\">Q</td><td style=\"padding:6px;\">3</td><td style=\"padding:6px;\">80</td></tr>\n<tr><td style=\"padding:6px;\">R</td><td style=\"padding:6px;\">4</td><td style=\"padding:6px;\">100</td></tr>\n</table>\n<p>The table shows the balance of payments deficit on the current account and the size of the Gross Domestic Product (GDP) for three countries.</p>",
+  "hint": "Work out deficit ÷ GDP for all three — don't just look at the cash deficits. Country P has the SMALLEST deficit in pounds but the largest as a proportion, which is the whole point of the question.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: A — The current account deficit as a proportion of GDP is largest for country P</strong></p>\n<ul>\n<li>P: 2 ÷ 40 = <strong>5%</strong>. Q: 3 ÷ 80 = 3.75%. R: 4 ÷ 100 = 4%. So P has the largest deficit as a proportion of GDP, even though its cash deficit (£2m) is the smallest of the three — the trap. D is wrong because Q (3.75%) and R (4%) are not the same.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:mcq:73aee209",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The balance of payments is best defined as...",
+  "options": [
+   "A record of a country's total output",
+   "A record of all financial transactions between a country and the rest of the world",
+   "A record of the government's spending and tax revenue",
+   "A record of a country's trade in goods only"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "It records ALL international transactions. Confusing it with the government's budget (tax and spending) is the single most common misconception on this topic."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:mcq:5f26f512",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of these is NOT one of the four components of the current account?",
+  "options": [
+   "Transfers",
+   "Income flows",
+   "Trade in services",
+   "Foreign direct investment in UK factories"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "Investment in factories, land and shares belongs to the FINANCIAL account. The current account's four parts are trade in goods, trade in services, income flows and transfers."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:mcq:62751051",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A country's current account is in surplus when...",
+  "options": [
+   "Export revenue plus inflows of income and transfers exceed the outflows on imports, income and transfers",
+   "Its exports of goods exceed its imports of goods",
+   "Its government revenue exceeds its spending",
+   "Its total output exceeds its total income"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The 'best' definition covers all four components, not just goods. A definition mentioning only goods and services is the standard distractor — it's almost right, which is the trap."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:mcq:bbd1f7c1",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Goods: exports £200m, imports £350m. Services: exports £400m, imports £100m. Income flows −£20m. Transfers −£20m. The current account balance is...",
+  "options": [
+   "A surplus of £150m",
+   "A surplus of £110m",
+   "A deficit of £70m",
+   "A deficit of £110m"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "Net each component then sum: goods −150, services +300, income −20, transfers −20. −150 + 300 − 20 − 20 = +£110m, a surplus."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:mcq:32eeae37",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The balance of trade is...",
+  "options": [
+   "The record of a country's trade in goods and services",
+   "The record of investment flows",
+   "The same as the balance of payments",
+   "The whole of the current account"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The balance of trade is only the goods and services part. It's the LARGEST component of the current account, but the current account also includes income flows and transfers."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:mcq:72e6cddc",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A current account surplus will most likely lead to...",
+  "options": [
+   "A decrease in the country's debt",
+   "A decrease in the exchange rate",
+   "An increase in unemployment",
+   "A decrease in the rate of inflation"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Export income more than covers import spending, so the country's overall debt falls. A surplus tends to RAISE the exchange rate, RAISE inflation pressure and LOWER unemployment — the other three are all backwards."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:mcq:a629811c",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of these is an example of trade in goods in the UK current account?",
+  "options": [
+   "A UK airline selling transport to a firm in Dubai",
+   "Money earned by a UK firm on investment in Australia",
+   "A laptop imported into the UK from China",
+   "A Japanese car company purchasing a factory in the UK"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "A laptop is a physical good. The airline is selling a SERVICE, the investment earnings are INCOME FLOWS, and buying a factory is financial-account investment."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:mcq:bb651812",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A country's current account deficit is £4 million and its GDP is £100 million. Another country's deficit is £2 million with GDP of £40 million. Which is true?",
+  "options": [
+   "The second country's deficit is the larger proportion of GDP",
+   "Both deficits are the same proportion of GDP",
+   "The first country's deficit is the larger proportion of GDP",
+   "You cannot compare them"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "First: 4/100 = 4%. Second: 2/40 = 5%. The SECOND is larger as a proportion, even though its cash deficit is smaller — which is exactly why deficits are judged relative to GDP."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:mcq:208e0bfc",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How does supply side policy improve a country's balance of payments?",
+  "options": [
+   "By leading to a higher rate of inflation",
+   "By raising consumption by domestic consumers",
+   "By cancelling free trade agreements",
+   "By improving the productivity of the labour force"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "Higher productivity lowers costs per unit, so exports become more internationally competitive. Higher inflation and higher consumption would both WORSEN the balance of payments."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:mcq:0cf348bc",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A rise in the UK's exchange rate would most likely...",
+  "options": [
+   "Improve the current account, as exports become cheaper",
+   "Worsen the current account, as exports become dearer and imports cheaper",
+   "Improve the current account, as imports become dearer",
+   "Have no effect on the current account"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "A stronger pound makes UK exports more expensive abroad (demand falls) and imports cheaper at home (demand rises) — both push the current account towards deficit."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:tf:6e376c6c",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The balance of payments is the same thing as the government's budget.",
+  "key": {
+   "answer": false,
+   "explain": "This is the single most-reported misconception on this topic. The balance of payments records a COUNTRY'S transactions with the rest of the world; the government budget is tax and spending. Examiners repeatedly saw candidates write about raising taxes to 'pay for' a trade deficit — that scores nothing."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:tf:aa7e728f",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A Spanish firm buying land in the UK to build a factory is recorded in the UK's current account.",
+  "key": {
+   "answer": false,
+   "explain": "That is investment, so it belongs in the FINANCIAL account. The current account covers trade in goods, trade in services, income flows and transfers."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:tf:4b700f9a",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The balance of trade is only part of the current account.",
+  "key": {
+   "answer": true,
+   "explain": "The balance of trade covers goods and services only. It is the largest component, but the current account also includes income flows and transfers."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:tf:0fd8f7ea",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The UK typically runs a surplus on trade in goods and a deficit on trade in services.",
+  "key": {
+   "answer": false,
+   "explain": "It is the other way round. The UK runs a large DEFICIT on goods and a SURPLUS on services — which is why the goods-only deficit is always bigger than the goods-and-services deficit."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:tf:0da7a7c8",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A current account deficit is automatically bad for an economy.",
+  "key": {
+   "answer": false,
+   "explain": "It depends on the cause, the size relative to GDP and the duration. A deficit financed by inward investment that brings new technology, and which stays small as a share of GDP, is very different from one caused by collapsing demand for domestic goods."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:tf:a83328e9",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A country's currency tends to weaken when it runs a current account deficit.",
+  "key": {
+   "answer": true,
+   "explain": "More of the currency is sold to buy imports and less is bought to purchase its exports, so supply rises and demand falls — pushing the exchange rate down. That lower rate should then make exports more competitive."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:tf:23cece17",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If a country's inflation rate falls below its trading partners', its exports become less competitive.",
+  "key": {
+   "answer": false,
+   "explain": "Lower relative inflation makes exports MORE competitive, because your prices are rising more slowly than rivals'. It is HIGHER inflation than your trading partners that damages competitiveness."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:tf:617e34f4",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A deficit of £2m in a country with £40m GDP is more serious than a deficit of £4m in a country with £100m GDP.",
+  "key": {
+   "answer": true,
+   "explain": "Judge deficits relative to GDP: 2/40 = 5% versus 4/100 = 4%. The smaller cash deficit is the bigger burden — which is exactly why the UK's persistent deficit is still judged manageable."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:learn:45636189",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "The balance of payments and the current account",
+  "reading": "<p><strong>The balance of payments is a record of all the financial transactions between a country and the rest of the world over a period of time.</strong> The exam only requires detail on the <strong>current account</strong>.</p>\n<h4>The three parts of the balance of payments</h4>\n<ul>\n<li><strong>Current account</strong> — trade plus income plus transfers. This is the GCSE focus.</li>\n<li><strong>Capital account</strong> — international capital transfers.</li>\n<li><strong>Financial account</strong> — investment flows in and out (buying businesses, property, shares, bonds).</li>\n</ul>\n<p>Careful: a <strong>Spanish firm buying land in the UK to build a factory</strong> is investment — it goes in the FINANCIAL account, NOT the current account. This is a real MCQ.</p>\n<h4>The four components of the current account</h4>\n<ul>\n<li><strong>Trade in goods</strong> — exports minus imports of physical (\"visible\") goods, e.g. cars, laptops, food.</li>\n<li><strong>Trade in services</strong> — exports minus imports of services, e.g. tourism, finance, insurance, education.</li>\n<li><strong>Income flows</strong> — income UK residents earn on investments abroad, minus income foreign nationals earn on their investments in the UK.</li>\n<li><strong>Transfers</strong> — money sent abroad with nothing received in return, e.g. foreign aid, or migrant workers sending money home.</li>\n</ul>\n<h4>The balance of trade</h4>\n<ul>\n<li>The <strong>balance of trade</strong> is just the record of trade in goods and services — the first TWO components. It is the largest part of the current account, but it is NOT the whole current account.</li>\n<li>The whole current account = trade in goods + trade in services + income flows + transfers.</li>\n</ul>\n<h4>The UK's pattern — learn this, it is the case study</h4>\n<ul>\n<li>The UK runs a <strong>large deficit on trade in goods</strong> but a <strong>surplus on trade in services</strong>.</li>\n<li>The UK has run an annual current account <strong>deficit since 1983</strong>.</li>\n<li>Services the UK exports: tourism, financial services/banking, insurance, education (overseas student fees), IT, transport.</li>\n</ul>",
+  "question": "Which of these is NOT part of the UK's current account?",
+  "options": [
+   "A Spanish firm buying land in the UK to build a factory",
+   "A UK consumer spending money on holiday in Greece",
+   "Interest earned by a UK person from a bank account in France",
+   "Foreign aid sent from the UK to a less developed country"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Buying land to build a factory is INVESTMENT, so it sits in the financial account. Aid is a transfer, holiday spending is an import of services, and interest from abroad is an income flow — all three are current account items."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:learn:b7ce832a",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Balanced, surplus, deficit — and how to calculate them",
+  "reading": "<p>Add up the net figure for each of the four components, then sum them.</p>\n<ul>\n<li><strong>Balanced current account:</strong> the four components net to zero — money in equals money out.</li>\n<li><strong>Surplus:</strong> the sum of exports of goods, services, investment income and transfers is <strong>GREATER than</strong> imports. More money flows in than out.</li>\n<li><strong>Deficit:</strong> that sum is <strong>LESS than</strong> imports. More money flows out than in.</li>\n</ul>\n<h4>The precise definition of a surplus</h4>\n<p>The exam tests whether you know a surplus covers ALL FOUR components, not just trade. The \"best\" definition is: <strong>the sum of export revenue and the inflow of income and transfers exceeds the outflow on imports, income and transfers</strong>. A definition mentioning only goods and services is <em>almost</em> right — which is exactly why it is offered as a distractor.</p>\n<h4>Worked example — the four-component method</h4>\n<ul>\n<li>Goods: exports £200m − imports £350m = <strong>−£150m</strong></li>\n<li>Services: exports £400m − imports £100m = <strong>+£300m</strong></li>\n<li>Income flows: <strong>−£20m</strong>; Transfers: <strong>−£20m</strong></li>\n<li>Balance = −150 + 300 − 20 − 20 = <strong>+£110m surplus</strong></li>\n</ul>\n<h4>Where the marks actually go</h4>\n<ul>\n<li><strong>A deficit is NEGATIVE.</strong> Write the minus sign, or the word \"deficit\". Miss it and you drop a mark.</li>\n<li><strong>Write the units.</strong> \"£ million\" or \"m\". The examiners repeatedly report candidates losing a mark for omitting the £ sign or \"million\".</li>\n<li><strong>Deficit as a % of GDP</strong> = deficit ÷ GDP × 100. A £10bn deficit with £200bn national output = <strong>5%</strong>. This is how you judge whether a deficit is actually serious.</li>\n<li><strong>Percentage change</strong> = change ÷ original × 100. A deficit growing from £30 000m to £80 000m = 50 000/30 000 × 100 = <strong>166.67%</strong>.</li>\n</ul>",
+  "question": "A country has a current account deficit of £10 billion and national output of £200 billion. The deficit as a percentage of national output is...",
+  "options": [
+   "50%",
+   "20%",
+   "5%",
+   "10%"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "Deficit ÷ GDP × 100 = 10/200 × 100 = 5%. Expressing the deficit as a share of GDP is how you judge whether it is actually a serious problem."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:learn:84c7c9ad",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "The causes of deficits and surpluses",
+  "reading": "<p>The causes of surpluses and deficits are essentially <strong>mirror images</strong>. Learn the four factors once, then apply each in whichever direction the question needs.</p>\n<h4>Causes of a SURPLUS</h4>\n<ul>\n<li><strong>Reputation</strong> — a strong record builds a reputation for quality, in-demand goods and services. The UK is strong in financial services, medical research, aerospace and education.</li>\n<li><strong>A weak domestic economy</strong> — limited opportunities at home push firms to sell abroad, and lower incomes reduce demand for imports.</li>\n<li><strong>A falling exchange rate</strong> — makes exports cheaper abroad and imports dearer at home.</li>\n<li><strong>Investment inflows</strong> — more income flowing in from residents' overseas investments than flows out.</li>\n</ul>\n<h4>Causes of a DEFICIT</h4>\n<ul>\n<li><strong>Poor reputation</strong> — being seen as overpriced or poor quality cuts export demand. Structural problems producing overpriced, poor-quality goods lead straight to a deficit.</li>\n<li><strong>Declining industries</strong> — relying on industries with falling demand destroys export potential. The UK's manufacturing decline is the standard example.</li>\n<li><strong>A rising exchange rate</strong> — makes exports dearer and imports cheaper.</li>\n<li><strong>Falling incomes overseas</strong> — poorer customers abroad buy fewer of our exports.</li>\n<li><strong>Investment outflows</strong> — more income flowing out to foreign investors here than flows in. A <strong>net outflow of investment income</strong> directly worsens the current account.</li>\n<li><strong>Low productivity</strong> — raises costs per unit, making UK goods less internationally competitive. This is why supply side policy (which raises productivity) improves the balance of payments.</li>\n<li><strong>Rising domestic incomes</strong> — richer consumers suck in more imports.</li>\n</ul>\n<h4>Why the UK specifically</h4>\n<ul>\n<li>Since about 1990 the UK has developed resources more suited to exporting <strong>services</strong>, so fewer resources go into goods.</li>\n<li>Imports from highly competitive Asian economies grow faster than UK exports.</li>\n<li>Foreign investment in the UK is larger than UK investment abroad, so the <strong>income account is usually in deficit</strong> — foreign-owned assets here earn more than UK-owned assets abroad.</li>\n</ul>",
+  "question": "Which of these would most likely help CREATE a balance of payments deficit on the UK current account?",
+  "options": [
+   "A net outflow of investment income",
+   "A depreciation of the UK exchange rate",
+   "An increase in the quality of UK output",
+   "A fall in GDP per capita in the UK"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A net outflow of investment income is money leaving the current account, so it directly pushes it towards deficit. Better quality and a depreciation both boost exports; falling GDP per capita cuts import demand."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:learn:7fc7b7e2",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How important is the balance of payments?",
+  "reading": "<p><strong>Never just say \"a deficit is bad\".</strong> The evaluation the examiners want is that the impact <strong>depends on the cause, the size relative to GDP, and whether it is short-term or persistent</strong>.</p>\n<h4>Why a deficit can matter</h4>\n<ul>\n<li><strong>Falling demand for domestic goods</strong> → firms need fewer workers → unemployment rises → the unemployed spend less → a <strong>negative cyclical spiral</strong>. This is the most serious cause.</li>\n<li><strong>Low productivity</strong> → slow to fix, because training and education take years to feed through.</li>\n<li><strong>Debt builds up</strong> — spending more on imports than is earned from exports means the country must borrow or sell assets. The UK is a <strong>net borrower</strong> and finances its deficit by attracting overseas investment.</li>\n<li><strong>Downward pressure on the exchange rate</strong> — more pounds sold to buy imports, fewer bought to buy our exports.</li>\n</ul>\n<h4>Why a deficit can be fine</h4>\n<ul>\n<li><strong>It is small relative to GDP</strong> — the single most important point for the UK. The deficit is persistent but has stayed a small percentage of GDP.</li>\n<li><strong>Lower inflation</strong> — cheap imports and less demand for domestic output ease demand-pull pressure.</li>\n<li><strong>Consumers gain</strong> — a wide variety of low-priced imports raises living standards. Global competition also means scarce resources are used more efficiently.</li>\n<li><strong>The inflow that finances it brings new technologies</strong> into the UK.</li>\n<li><strong>A lower exchange rate</strong> should make UK exports more competitive, which self-corrects some of the deficit.</li>\n</ul>\n<h4>A surplus — the same logic, reversed</h4>\n<ul>\n<li>Rising demand for domestic goods → firms hire → incomes rise → a <strong>positive spiral</strong>. Germany is the standard example.</li>\n<li>Export income more than covers imports, so <strong>debt falls</strong>.</li>\n<li>But: more demand for domestic output can create <strong>demand-pull inflation</strong>, and a <strong>stronger exchange rate</strong> eventually makes exports less competitive.</li>\n</ul>\n<p><strong>The judgement lever:</strong> a short one-off deficit after years of surplus matters far less than a persistent one — and the UK's is persistent, but small as a share of GDP.</p>",
+  "question": "Why is the UK's persistent current account deficit judged less serious in practice?",
+  "options": [
+   "Because it has stayed a small percentage of GDP",
+   "Because the UK never borrows from abroad",
+   "Because it only lasted one year",
+   "Because the UK has a surplus on trade in goods"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Size relative to GDP is what matters most. The UK's deficit is persistent (since 1983) and so fails the 'duration' test — but it has remained a small share of GDP, which is why it is judged manageable."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:misc:87f4d4c8",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"The UK has a current account deficit, so the government needs to raise taxes to pay it off.\"</p><p><strong>✅ The correct idea:</strong> This is the examiners' most-flagged misconception on the whole topic, and it appears in THREE separate mark schemes. On Q3(c) they wrote: \"A common misconception is confusion between the trade balance and government finances. Several candidates wrote about the need to increase taxation to pay for the deficit.\" On Q17(c): \"Most candidates identified reasons for a persistent current account deficit but confused this with a government budget deficit.\" And on Q16(d)(iii) they warn outright: \"Try not to confuse the balance of payments on the current account with fiscal policy and the balanced government budget.\" They are completely different things. The current account is the whole COUNTRY'S trading position with the rest of the world; the budget is the GOVERNMENT'S tax and spending. A current account deficit is financed by attracting financial inflows — selling assets to overseas investors or borrowing from the rest of the world — not by taxation.</p>",
+  "question": "How is the UK's current account deficit actually financed?",
+  "options": [
+   "By printing money",
+   "By raising income tax",
+   "By attracting financial inflows — selling assets to overseas investors or borrowing abroad",
+   "By cutting government spending"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "The extract states it directly: the UK is a net borrower and must attract net financial inflows, achieved through selling its assets to overseas investors or borrowing from the rest of the world. Taxation is the government's budget, a separate matter entirely."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:misc:32b4621b",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"Trade in goods went from −112 603 to −219 291, so trade in goods increased.\"</p><p><strong>✅ The correct idea:</strong> The examiners were blunt about this on Q3(b): \"Many candidates wrote about the trade in goods and/or services increasing. This is not what the data shows, it is the deficit or surplus.\" The figures are NET values (exports minus imports), so a number moving from −112 603 to −219 291 does not mean trade increased — it means the DEFICIT grew. Likewise services rising from 95 657 to 151 339 is a growing SURPLUS. The examiners added an Assessment for learning note: \"It is recommended that students are encouraged to use key terms such as deficit or surplus when referring to the current account or trade flows and that there is a focus on the implications of a 'net value' i.e. that international trade reflects exports and imports.\" Use the words deficit and surplus in every answer.</p>",
+  "question": "The UK's trade in goods figure moves from −112 603 to −219 291 (£m). The correct description is...",
+  "options": [
+   "Trade in goods has decreased",
+   "The deficit on trade in goods has grown",
+   "The surplus on trade in goods has grown",
+   "Trade in goods has increased"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "It is a NET figure, so a more negative number means a bigger deficit — not a change in the volume of trade. Always name it as a deficit or a surplus."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:misc:ab87ff9b",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"The answer is 78 296.\"</p><p><strong>✅ The correct idea:</strong> That drops a mark on almost every calculation in this topic, and the examiners say so on four separate questions. On Q3(a): \"This question was generally well answered, although a significant number of candidates did not include the £ sign or millions\" — the mark scheme states \"Only 1 mark if minus sign (or deficit) missing OR if units (£ million) omitted.\" On Q11: \"some omitted the $ sign, million or negative symbol.\" On Q17(a): \"some candidates omitted the £ sign\", where the mark scheme demands the answer \"must include the £ sign and the minus sign or refer to a deficit.\" And Q21 states \"If millions (m) omitted, then maximum 1 mark.\" So write <strong>−£78 296 million</strong>, or \"a deficit of £78 296 million\". Three things every time: the sign (or the word deficit), the currency symbol, and the units. On percentage questions the same logic applies to the % sign — Q17(b) says a correct answer without the percentage sign is worth 1 mark only.</p>",
+  "question": "You calculate a current account balance of −78 296. To earn BOTH marks you must write...",
+  "options": [
+   "−78 296",
+   "−£78 296 million (or 'a deficit of £78 296 million')",
+   "78 296",
+   "£78 296"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "The mark scheme gives only 1 mark if the minus sign (or the word deficit) is missing, OR if the units (£ million) are omitted. You need the sign, the £ and the units."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:misc:fcd71cb6",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"The line on the chart goes down from 2011 to 2019, so the deficit went down.\"</p><p><strong>✅ The correct idea:</strong> This is the trap built into the Q16(a) chart, and the examiners flagged it as a Misconception: \"It is also complicated by the doubling up of the negative trend in the figures with the negative sense of the word 'deficit'.\" A deficit IS a negative number, so a line falling further below zero means the deficit is getting BIGGER, not smaller. The examiners noted: \"Weaker responses sometimes described only the downwards direction of the data without explaining that meant the deficit (which is a negative) increased.\" They also warned against the other half of the error: \"A common misconception is to purely trawl through data, quoting it without actually explaining it here is not enough.\" Quoting numbers is not explaining them. The winning technique they describe is simple — state the overall trend, add one variation within it (2016 to 2017 the deficit reduced, then grew again), and say what must have happened to exports and/or imports to cause it.</p>",
+  "question": "On a chart of the current account balance, the line falls from −30 000 in 2011 to −95 000 in 2019. This means...",
+  "options": [
+   "The deficit has decreased",
+   "The country moved into surplus",
+   "The deficit has increased",
+   "Exports have increased"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "A deficit is negative, so a line moving further below zero is a GROWING deficit. The 'doubling up' of a downward trend with the negative sense of the word deficit is exactly what the examiners flagged."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:misc:0d230d1b",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"The question says 'evaluate the extent to which the government should eliminate the deficit', so I'll explain HOW they could do it.\"</p><p><strong>✅ The correct idea:</strong> The examiners were very specific on Q16(d)(iii): \"Candidates who answered this question well quickly realised that this question focused on 'should' rather than purely 'how'.\" Explaining policies is analysis, not evaluation — and it answers a question that wasn't asked. They added: \"This was a question with wording specifically asking about extent of intervention and whether the government should intervene. Judgements that focused on this exact question wording were likely to be more effective. This is a technique that may well be tested on future papers.\" Two more warnings worth heeding: \"a correct point is credited once, so it is useful to consider the use of summary-style conclusions that are purely repetitive\" — a conclusion that just repeats your paragraphs earns nothing. And on Q3(d)(ii), a 2-mark 'explain' question: \"Many candidates identified a reasonable reason but did not explain it. A further common error/misconception was between exchange rates and interest rates.\" Identifying is 1 mark; the explanation is the second.</p>",
+  "question": "For 'Evaluate the extent to which the UK government SHOULD try to eliminate the current account deficit', the strongest answers...",
+  "options": [
+   "Focused on whether it should intervene, not just how it could",
+   "Ended with a summary repeating earlier points",
+   "Rewrote the extract data",
+   "Listed as many policies as possible"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The examiners said good candidates \"quickly realised that this question focused on 'should' rather than purely 'how'\", and that judgements matching the exact question wording were the most effective."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:tips:c7e97a81",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "calculation — Calculations: sign, symbol, units — every time",
+  "reading": "<p>Roughly a quarter of this paper's marks are calculations, and they are lost on presentation more than on arithmetic.</p>\n<ul>\n<li><strong>Balance of trade in goods and services</strong> = balance on goods + balance on services. Work out the goods balance FIRST if the table leaves it blank: £292 867m − £412 472m = −£119 605m, then −119 605 + 85 863 = <strong>−£33 742m</strong>.</li>\n<li><strong>Current account balance</strong> = goods + services + income flows + transfers. All four, every time.</li>\n<li><strong>Percentage change</strong> = change ÷ ORIGINAL × 100. Not ÷ the new figure.</li>\n<li><strong>Deficit as % of GDP</strong> = deficit ÷ GDP × 100.</li>\n<li><strong>Converting currency:</strong> $54 692m ÷ 1.5586 = £35 090.47m. Dividing converts dollars into pounds when the rate is quoted as 1 GBP = 1.5586 USD.</li>\n<li><strong>The presentation marks:</strong> minus sign (or the word \"deficit\"), the £/$ symbol, and the units (million). The mark schemes cap you at 1 mark for missing any of them — and at 1 mark for a percentage without the % sign.</li>\n</ul>",
+  "question": "A table gives export of goods £292 867m and import of goods £412 472m, and balance of trade in services £85 863m. The balance of trade in goods and services is...",
+  "options": [
+   "£205 468m",
+   "−£33 742m",
+   "£33 742m",
+   "−£119 605m"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "Goods balance = 292 867 − 412 472 = −119 605. Then −119 605 + 85 863 = −£33 742m. Note the minus sign and the units — both are needed for the second mark."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:tips:28e827ef",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "data — Trend questions: explain it, don't just quote it",
+  "reading": "<p>Two marks, and a reliable structure the examiners themselves described as \"simple, but effective\".</p>\n<ul>\n<li><strong>Mark 1 — the overall trend</strong> across the exact dates named: \"overall the deficit has been increasing\".</li>\n<li><strong>Mark 2 — one variation within it, OR what must have happened to exports/imports:</strong> \"from 2016 to 2017 the deficit reduced, but since then has increased again\", or \"imports have been rising or exports falling, or both\".</li>\n<li><strong>Remember a deficit is NEGATIVE</strong> — a line falling further below zero is a GROWING deficit.</li>\n<li><strong>Comparison questions need an actual comparison:</strong> \"Germany has a surplus while the UK and USA have deficits\" — max 1 mark if you don't compare, and just saying data is \"positive or negative\" is too vague.</li>\n<li><strong>Never trawl.</strong> Quoting figures without explaining them scores nothing.</li>\n</ul>",
+  "question": "Explaining how Germany's current account position differs from the UK's and the USA's, what is needed for BOTH marks?",
+  "options": [
+   "Listing all nine figures in the table",
+   "Stating Germany's figures are positive",
+   "Saying Germany has a surplus while the UK and USA have deficits, and comparing them",
+   "Explaining why Germany exports cars"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "The mark scheme gives a max of 1 mark with no comparison: one mark for knowing whether the data means surplus or deficit, and one for the comparison. 'Positive or negative' alone was judged too vague."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:tips:7c9274a9",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "analyse — Analyse: developed chains, not rewritten extracts",
+  "reading": "<p>The commonest way to lose marks here is to retell the extract. The examiners: <strong>\"Candidates who scored lower marks mostly rewrote the information in the case study with no analysis.\"</strong></p>\n<ul>\n<li><strong>Reach Level 2 by referencing the extract</strong> — but reference it to build a chain, not to repeat it. \"If there is no analysis (AO3a), then application (AO2) cannot be rewarded.\"</li>\n<li><strong>Develop the chain to the end.</strong> They criticised answers that wrote \"more competitive producers overseas resulting in demand falling for UK producers… and then nothing further\".</li>\n<li><strong>A reliable UK chain:</strong> the UK's resources shifted to services → fewer resources for goods → UK goods are dearer/lower quality than competitors' → exports fall and imports rise → the goods deficit grows.</li>\n<li><strong>Diagram questions:</strong> \"A maximum of 3 marks if no relevant diagram\" — half the marks gone. Fewer exports → demand for £ shifts LEFT; more imports → supply of £ shifts RIGHT; either way the exchange rate falls.</li>\n<li><strong>Match the exact currencies named</strong> in the question on your diagram and in your text.</li>\n</ul>",
+  "question": "In a 6-mark 'analyse with a demand and supply diagram' question, omitting the diagram caps you at...",
+  "options": [
+   "5 marks",
+   "No cap — the text is enough",
+   "4 marks",
+   "3 marks"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "The mark scheme states 'A maximum of 3 marks if no relevant diagram' — you lose half the marks. The examiners also stress using the diagram's labels throughout the written explanation."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:tips:e94d0482",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "evaluate — Evaluate: match every point, and answer the exact question",
+  "reading": "<p>The structural rule from the mark scheme: <strong>\"Each aspect (AO3a) should be analysed and matched with an evaluation point (AO3b).\"</strong> Make a point, then immediately counter it with \"However…\".</p>\n<ul>\n<li><strong>Ready-made matched pairs:</strong> the deficit reflects falling demand for domestic goods → unemployment. <em>However</em>: UK unemployment is relatively low at present. / The deficit pushes the exchange rate down. <em>However</em>: a lower rate should make UK exports more competitive. / The deficit is financed by inward investment. <em>However</em>: that is why the income account is in deficit — foreign-owned assets here earn more than UK assets abroad.</li>\n<li><strong>The four evaluation levers:</strong> the SIZE of the deficit, its DURATION, WHAT is being imported (inputs needed for UK production are different from consumer goods), and whether government intervention's benefits outweigh its costs.</li>\n<li><strong>Answer the exact wording.</strong> \"Should the government intervene\" is not \"how could it\".</li>\n<li><strong>Don't repeat yourself in the conclusion</strong> — \"a correct point is credited once\".</li>\n<li><strong>Plan first:</strong> the examiners recommend brief, note-form chains matched to evaluation before writing.</li>\n</ul>",
+  "question": "The mark scheme's structural instruction for these 6-mark evaluate questions is that...",
+  "options": [
+   "Diagrams are required",
+   "You should list as many points as possible",
+   "The conclusion should summarise every paragraph",
+   "Each analysis point should be matched with an evaluation point"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "The mark scheme states: 'Each aspect (AO3a) should be analysed and matched with an evaluation point (AO3b)'. Point, then 'However…', then a judgement that answers the exact question."
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:fib:3716d925",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The balance of payments records all financial transactions between a country and the ___B1___ of the world. At GCSE the focus is the ___B2___ account.",
+  "blankOptions": {
+   "B1": [
+    "financial",
+    "persistent",
+    "rest",
+    "deficit"
+   ],
+   "B2": [
+    "current",
+    "GDP",
+    "persistent",
+    "falling"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "rest",
+    "B2": "current"
+   }
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:fib:251dcdfb",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The current account has four components: trade in goods, trade in services, ___B1___ flows and ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "income",
+    "GDP",
+    "persistent",
+    "rest"
+   ],
+   "B2": [
+    "persistent",
+    "financial",
+    "transfers",
+    "rest"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "income",
+    "B2": "transfers"
+   }
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:fib:4ed19c0d",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A current account ___B1___ means more money flows out than in, while a ___B2___ means more money flows in than out.",
+  "blankOptions": {
+   "B1": [
+    "transfers",
+    "persistent",
+    "deficit",
+    "GDP"
+   ],
+   "B2": [
+    "surplus",
+    "rest",
+    "falling",
+    "GDP"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "deficit",
+    "B2": "surplus"
+   }
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:fib:1eb08f97",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The UK runs a large ___B1___ on trade in goods but a ___B2___ on trade in services.",
+  "blankOptions": {
+   "B1": [
+    "transfers",
+    "current",
+    "deficit",
+    "persistent"
+   ],
+   "B2": [
+    "financial",
+    "persistent",
+    "surplus",
+    "rest"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "deficit",
+    "B2": "surplus"
+   }
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:fib:d99679e7",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A ___B1___ exchange rate makes exports cheaper and imports dearer, which tends to ___B2___ the current account balance.",
+  "blankOptions": {
+   "B1": [
+    "persistent",
+    "current",
+    "GDP",
+    "falling"
+   ],
+   "B2": [
+    "deficit",
+    "rest",
+    "income",
+    "improve"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "falling",
+    "B2": "improve"
+   }
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:fib:3167f1b7",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "How serious a deficit is depends on its cause, its size relative to ___B1___, and whether it is short-term or ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "GDP",
+    "deficit",
+    "income",
+    "productivity"
+   ],
+   "B2": [
+    "persistent",
+    "transfers",
+    "income",
+    "financial"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "GDP",
+    "B2": "persistent"
+   }
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:6cc51ba0",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Balance of payments”?",
+  "options": [
+   "A record of all financial transactions between a country and the rest of the world",
+   "Exports minus imports of physical, visible items such as cars and laptops",
+   "Earnings on investments abroad, minus earnings paid to foreign investors here",
+   "Records investment flows, e.g. a foreign firm buying a UK factory"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Balance of payments” means: A record of all financial transactions between a country and the rest of the world"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:1bbe56c1",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Current account”?",
+  "options": [
+   "More money flows out of the country than flows into it",
+   "Trade in goods and services, plus income flows, plus transfers",
+   "Records investment flows, e.g. a foreign firm buying a UK factory",
+   "The four components net to zero — money in equals money out"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Current account” means: Trade in goods and services, plus income flows, plus transfers"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:576d3604",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Balance of trade”?",
+  "options": [
+   "The record of a country's trade in goods and services only",
+   "The four components net to zero — money in equals money out",
+   "Trade in goods and services, plus income flows, plus transfers",
+   "Exports minus imports of physical, visible items such as cars and laptops"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Balance of trade” means: The record of a country's trade in goods and services only"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:46d1877f",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Trade in goods”?",
+  "options": [
+   "Exports minus imports of services such as tourism, finance and education",
+   "The record of a country's trade in goods and services only",
+   "Exports minus imports of physical, visible items such as cars and laptops",
+   "The four components net to zero — money in equals money out"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Trade in goods” means: Exports minus imports of physical, visible items such as cars and laptops"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:c7c12c35",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Trade in services”?",
+  "options": [
+   "Exports minus imports of services such as tourism, finance and education",
+   "Money sent abroad with nothing received in return, e.g. foreign aid",
+   "Trade in goods and services, plus income flows, plus transfers",
+   "More money flows out of the country than flows into it"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Trade in services” means: Exports minus imports of services such as tourism, finance and education"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:46432547",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Income flows”?",
+  "options": [
+   "Exports minus imports of physical, visible items such as cars and laptops",
+   "Earnings on investments abroad, minus earnings paid to foreign investors here",
+   "Records investment flows, e.g. a foreign firm buying a UK factory",
+   "Exports minus imports of services such as tourism, finance and education"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Income flows” means: Earnings on investments abroad, minus earnings paid to foreign investors here"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:0dee5e59",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Transfers”?",
+  "options": [
+   "Exports minus imports of services such as tourism, finance and education",
+   "Inflows from exports, income and transfers exceed the outflows",
+   "Money sent abroad with nothing received in return, e.g. foreign aid",
+   "Earnings on investments abroad, minus earnings paid to foreign investors here"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Transfers” means: Money sent abroad with nothing received in return, e.g. foreign aid"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:2723e7f6",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Current account surplus”?",
+  "options": [
+   "Inflows from exports, income and transfers exceed the outflows",
+   "The four components net to zero — money in equals money out",
+   "Exports minus imports of physical, visible items such as cars and laptops",
+   "A record of all financial transactions between a country and the rest of the world"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Current account surplus” means: Inflows from exports, income and transfers exceed the outflows"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:a52b63f6",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Current account deficit”?",
+  "options": [
+   "Earnings on investments abroad, minus earnings paid to foreign investors here",
+   "The record of a country's trade in goods and services only",
+   "More money flows out of the country than flows into it",
+   "A country that must attract financial inflows to finance its deficit"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Current account deficit” means: More money flows out of the country than flows into it"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:36b4ee1e",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Balanced current account”?",
+  "options": [
+   "Inflows from exports, income and transfers exceed the outflows",
+   "A record of all financial transactions between a country and the rest of the world",
+   "Money sent abroad with nothing received in return, e.g. foreign aid",
+   "The four components net to zero — money in equals money out"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Balanced current account” means: The four components net to zero — money in equals money out"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:cdcc1ae9",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Financial account”?",
+  "options": [
+   "Inflows from exports, income and transfers exceed the outflows",
+   "Money sent abroad with nothing received in return, e.g. foreign aid",
+   "More money flows out of the country than flows into it",
+   "Records investment flows, e.g. a foreign firm buying a UK factory"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Financial account” means: Records investment flows, e.g. a foreign firm buying a UK factory"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:726ad97a",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Net borrower”?",
+  "options": [
+   "Inflows from exports, income and transfers exceed the outflows",
+   "The four components net to zero — money in equals money out",
+   "Earnings on investments abroad, minus earnings paid to foreign investors here",
+   "A country that must attract financial inflows to finance its deficit"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Net borrower” means: A country that must attract financial inflows to finance its deficit"
+  }
+ },
+ {
+  "id": "economics:4-2-balance-of-payments:match:389b502e",
+  "pageId": "economics:4-2-balance-of-payments",
+  "pageName": "4.2 Balance of Payments",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Deficit as a % of GDP”?",
+  "options": [
+   "Exports minus imports of physical, visible items such as cars and laptops",
+   "Inflows from exports, income and transfers exceed the outflows",
+   "Deficit ÷ national output × 100 — how the seriousness is judged",
+   "Exports minus imports of services such as tourism, finance and education"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Deficit as a % of GDP” means: Deficit ÷ national output × 100 — how the seriousness is judged"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:a3921c7a",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q1",
+  "question": "A government can prevent the country's exchange rate from rising by",
+  "options": [
+   "buying its own currency",
+   "increasing interest rates",
+   "selling its own currency",
+   "selling its reserves of foreign currency"
+  ],
+  "hint": "To stop the currency RISING, the government needs to push its value down, or at least stop it going up — that means increasing the SUPPLY of its own currency on the market.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — selling its own currency</strong></p>\n<ul>\n<li>Selling its own currency increases its supply on the foreign exchange market, which pushes its price down — preventing (or reversing) a rise. Buying its own currency (A), raising interest rates (B), or selling foreign currency reserves (D) would all tend to push the exchange rate UP, not prevent a rise.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:036c4986",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q2(a)",
+  "question": "Analyse, with the aid of a diagram, how an increase in demand for the pound (£) may affect its exchange rate.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<p>UK balance of payments current account data for 2014.</p>\n<table style=\"width:100%;max-width:420px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2014 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">292,867</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">412,472</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">214,856</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">128,993</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">85,863</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–</td></tr>\n</table>",
+  "hint": "Diagram first: draw the market for pounds (price in another currency on the vertical axis, quantity of £ on the horizontal). An increase in demand shifts D rightward — label it D to D1, not AD. Then chain: more demand for £ (e.g. more exports) → D shifts right → equilibrium price rises from P to P1 → the pound is more expensive → more foreign currency is needed to buy the same amount of £.",
+  "starter": "An increase in demand for the pound could be caused by...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>The exchange rate is the price of a currency</li>\n<li>Increase in demand for the pound (£), for example due to more exports paid in pounds (£), shifts the demand curve D upwards/rightwards to D1</li>\n<li>This increases the equilibrium price P to P1</li>\n<li>This means that the pound (£) is more expensive and more foreign currency is needed to buy the same amount of pounds (£) than before</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge and application; good analysis with developed chains of reasoning; diagram predominantly correct and linked to the analysis (max 5 if partially correct diagram).</p>\n<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects; diagram, if present, may be imperfectly labelled (max 4 if no diagram).</p>\n<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis; diagrams (if present) unlikely to be correct (max 2 if only a diagram, no analysis).</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>",
+   "modelAnswer": "The exchange rate is the price of one currency in terms of another. An increase in demand for the pound could be caused by more exports being paid for in pounds — for example, if US buyers want more UK goods, they must first buy pounds to pay for them.\n\nThis increase in demand shifts the demand curve for pounds rightwards, from D to D1. Because the supply curve is unchanged, the new equilibrium price rises from P to P1.\n\nThis means the pound has appreciated: it is now more expensive, and more foreign currency is needed to buy the same amount of pounds than before. A US buyer, for example, would now have to give up more dollars to obtain each pound."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:8618f1e9",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q2b(i)",
+  "question": "State two ways of measuring how developed a country is.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<p>UK balance of payments current account data for 2014.</p>\n<table style=\"width:100%;max-width:420px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2014 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">292,867</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">412,472</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">214,856</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">128,993</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">85,863</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–</td></tr>\n</table>",
+  "hint": "Any two recognised development indicators — GDP per capita, life expectancy, access to healthcare/technology/education. One mark each, up to two.",
+  "starter": "1. ... 2. ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>GDP (per capita)</li>\n<li>Life expectancy</li>\n<li>Access to health care</li>\n<li>Access to technology</li>\n<li>Access to education</li>\n</ul>\n<p>1 mark for each correct answer up to a maximum of 2 marks. Any other reasonable answer to be credited.</p>\n</div>",
+   "modelAnswer": "1. GDP per capita — the average income produced per person in the country.\n\n2. Life expectancy — the average number of years a person is expected to live, which reflects access to healthcare and living standards."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:7b7e201f",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q2b(ii)",
+  "question": "Explain what is meant by a rise in the exchange rate.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<p>UK balance of payments current account data for 2014.</p>\n<table style=\"width:100%;max-width:420px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2014 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">292,867</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">412,472</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">214,856</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">128,993</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">85,863</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–</td></tr>\n</table>",
+  "hint": "Two valid routes for 2 marks: (1) more foreign currency can be bought with one unit of the home currency, OR (2) the home currency is worth more — you don't need to reference both currencies in one sentence.",
+  "starter": "A rise in the exchange rate means that...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>More foreign currency can be bought with one unit of the home currency</li>\n</ul>\n<p>1 mark for understanding that more foreign currency can be bought, without reference to the home currency. 1 mark for understanding that the home currency is worth more, without reference to a foreign currency. Allow 1 mark for understanding of the exchange rate.</p>\n</div>",
+   "modelAnswer": "A rise in the exchange rate means that one unit of the home currency, e.g. the pound, can now buy more units of a foreign currency than before.\n\nIn other words, the home currency has become worth more — it has appreciated — so foreign goods, services and travel become cheaper for people holding that currency."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:f0ea5137",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q2b(iii)",
+  "question": "Evaluate whether a rise in the exchange rate would benefit the economy of a developed country. Use the information given in Extract 3 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<p>UK balance of payments current account data for 2014.</p>\n<table style=\"width:100%;max-width:420px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2014 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">292,867</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">412,472</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">214,856</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">128,993</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">85,863</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–</td></tr>\n</table>",
+  "hint": "Use the extract's own worked example: £1 rising from $1.20 to $1.50 means a $120 US good priced at £100 now costs only £80 — good for UK consumers, bad for UK producers competing with it. Then flip to exports: UK goods become dearer abroad, so exporters may lose sales and cut jobs. Evaluate on the SIZE of the rise, how LONG it lasts, and whether other currencies move too.",
+  "starter": "An increase in the exchange rate would cause the price of imports to fall, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>An increase in the exchange rate would cause the price of imports to fall (e.g. if £1 starts at $1.20 and rises to $1.50, a US good sold at $120 was previously sold at £100 in the UK but is now sold at £80)</li>\n<li>This is good for consumers in the UK who now have greater purchasing power</li>\n<li>This is a disadvantage for UK producers as they now compete with cheaper imports</li>\n<li>UK producers may lose sales, which may force them to make workers redundant</li>\n<li>The price of exports would rise and so become less competitive in foreign markets</li>\n<li>The UK exporters may lose sales, which may force them to make workers redundant</li>\n<li>The economy has become less competitive, so it is losing sales at home and abroad — as demand falls, output falls</li>\n<li>Inflation is less likely, as the cost of imported materials falls and the demand for home-produced goods falls</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Evaluation may include</h5>\n<ul>\n<li>The effect of a rise in the exchange rate may depend on other economic variables, e.g. inflation</li>\n<li>It depends on the size of the rise — a small rise will have little impact</li>\n<li>It depends on the longevity of the rise — if it is short-lived, the effects will be minimal</li>\n<li>The value of other currencies of important trading partners may be different, and the rise may only be in relation to one currency, e.g. the pound to the dollar</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing arguments/both sides/alternatives, coherently structured.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis in a single effect; reasonable evaluation considering both sides, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation with basic/ambiguous information.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>",
+   "modelAnswer": "A rise in the exchange rate would cause the price of imports to fall. As Extract 3's example shows, if £1 rises from $1.20 to $1.50, a US good priced at $120 falls from £100 to just £80 for UK buyers — good for consumers, who gain greater purchasing power.\n\nHowever, this is a disadvantage for UK producers, who now compete with cheaper imports in their home market and may lose sales, forcing redundancies. At the same time, the price of UK exports rises in foreign markets, making them less competitive; exporters may lose overseas sales too, again risking job losses. One offsetting benefit is that inflation becomes less likely, since imported materials are cheaper and demand for home-produced goods falls.\n\nOverall, whether the economy benefits depends on the SIZE of the rise — a small movement will barely be noticed — and on how LONG it lasts, since a short-lived rise gives producers little reason to change behaviour. It also depends on which currencies moved: a rise only against the dollar, for example, would not affect trade with the Eurozone. On balance, a large and sustained rise is more likely to hurt a developed economy's producers than it helps its consumers, because production and jobs are put at risk on two fronts (imports and exports) at once."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:056d4b5a",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q3",
+  "question": "All other things being equal, what would increase the volume of imports?",
+  "options": [
+   "A fall in interest rates",
+   "A fall in the price level",
+   "A new tax on imported goods",
+   "A rise in the exchange rate"
+  ],
+  "hint": "A rise in the exchange rate (appreciation) makes foreign goods CHEAPER for domestic buyers, so the quantity of imports bought rises.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: D — A rise in the exchange rate</strong></p>\n<ul>\n<li>A rise in the exchange rate makes imports cheaper for domestic buyers, increasing the volume bought. A new tax on imports (C) would REDUCE the volume, and a fall in interest rates (A) or the price level (B) does not directly change the price of imports in the same way.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly identified the correct answer (D).</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:c754bbbe",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q4",
+  "question": "What happened to the Sterling price of the villa for the consumer?",
+  "options": [
+   "Decreased by £400",
+   "Decreased by £139.20",
+   "Increased by £100",
+   "Remained unchanged"
+  ],
+  "caseStudy": "<p>A consumer is planning a holiday. They found a villa that cost €3480 when the exchange rate was £1 = €1.20. By the time they booked the villa the exchange rate had changed to £1 = €1.16.</p>",
+  "hint": "Convert the euro price into pounds at BOTH rates by dividing: €3480 ÷ 1.20 first, then €3480 ÷ 1.16. Compare the two pound figures.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: C — Increased by £100</strong></p>\n<ul>\n<li>At £1 = €1.20: €3480 ÷ 1.20 = £2900. At £1 = €1.16: €3480 ÷ 1.16 = £3000. The pound depreciated against the euro (buys fewer euros), so the villa became £100 MORE expensive for the UK consumer, not cheaper.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly identified the correct answer (C).</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:66cfbc8a",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q5",
+  "question": "What might cause the Sterling to US Dollar exchange rate to increase from p1 to p2?",
+  "options": [
+   "Incomes of US consumers increase",
+   "Less imports are bought from the US",
+   "The UK becomes more attractive for foreign investment",
+   "UK goods become more desirable to US consumers"
+  ],
+  "caseStudy": "<p>The diagram shows the supply and demand for Sterling (£) when priced in US dollars ($).</p>\n<img src=\"/images/economics/4-3-sterling-usd-supply-demand-diagram-extracted.png\" alt=\"Supply and demand diagram for Sterling priced in US dollars. The vertical axis is Price of Sterling in US Dollars, the horizontal axis is Quantity of Sterling. A downward-sloping demand curve D is shown. Two upward-sloping supply curves are shown: S1, closer to the origin, and S2, shifted left/up from S1. D crosses S1 at a lower price p1 and quantity q1; D crosses S2 at a higher price p2 and a lower quantity q2, illustrating that a leftward shift in supply from S1 to S2 raises the price of Sterling from p1 to p2\" style=\"display:block;width:100%;max-width:480px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />",
+  "hint": "Look at the diagram carefully: the SUPPLY curve shifts from S1 to S2 (leftward), not the demand curve. Price rises because SUPPLY of pounds fell, not because demand rose — only one option changes supply rather than demand.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: B — Less imports are bought from the US</strong></p>\n<ul>\n<li>The diagram shows the SUPPLY curve shifting from S1 to S2 (leftward), not the demand curve. Fewer UK imports from the US means UK residents supply fewer pounds to buy dollars, so the supply of pounds falls — matching the diagram's S1→S2 shift and raising the price from p1 to p2.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question had a wide range of answers, rather than the correct one, which is the impact of a change on the value of the pound.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:7acab1ef",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q6",
+  "question": "What is the price that the UK producer will now have to pay for the raw materials?",
+  "options": [
+   "£2400",
+   "£20 000",
+   "£22 400",
+   "£35 000"
+  ],
+  "caseStudy": "<p>A UK producer is currently buying raw materials from the USA for $28,000. The value of the UK pound (£) in terms of the US Dollar ($) changes from £1 = $1.40 to £1 = $1.25.</p>",
+  "hint": "Divide the DOLLAR cost by the NEW rate ($1.25), not the old one, since you're finding the £ cost AFTER the rate changed: $28,000 ÷ 1.25.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: C — £22 400</strong></p>\n<ul>\n<li>$28,000 ÷ $1.25 = £22,400. At the OLD rate it would have cost £20,000 (option B) — the pound has depreciated from $1.40 to $1.25, so it buys fewer dollars, and the same $28,000 of materials now costs the UK producer MORE in pounds.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates answered C correctly.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:883cabb1",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q7",
+  "question": "Which statement is most likely to be correct?",
+  "options": [
+   "There was a decrease in the demand for pounds between 2014 and 2016",
+   "There was a decrease in the supply of pounds between 2013 and 2014",
+   "There was a fall in the rate of inflation from 2016 to 2019",
+   "There was a loss of confidence by investors in the UK economy after 2016"
+  ],
+  "caseStudy": "<p>The diagram shows the value of the UK pound (£) in terms of the Euro (€) from 2013 to 2022.</p>\n<img src=\"/images/economics/4-3-gbp-eur-2013-2022-chart-extracted.png\" alt=\"Line chart from the OCR exam paper showing the value of the UK pound in euros from 2013 to 2022. Values: 2013 about 1.23, 2014 about 1.20, 2015 about 1.27, 2016 about 1.37 (the peak), 2017 about 1.18, 2018 about 1.12, 2019 about 1.11, 2020 about 1.18, 2021 about 1.11, 2022 about 1.20. The pound rises steadily from 2013 to a peak in 2016, then falls sharply after 2016 before fluctuating between about 1.11 and 1.20\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />",
+  "hint": "The chart peaks in 2016 then falls sharply — this matches the timing of the Brexit referendum (2016). A is wrong because the rate RISES from 2014 to 2016 (more demand, not less); the chart shows an exchange rate, not an inflation rate, so C can't be read off it.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: D — There was a loss of confidence by investors in the UK economy after 2016</strong></p>\n<ul>\n<li>The pound peaks at 1.37 euros in 2016 and then falls sharply — consistent with a loss of investor confidence after the 2016 Brexit referendum. The rate RISES between 2014 and 2016 (ruling out A, which describes falling demand), and the chart shows an exchange rate, not an inflation rate (ruling out C).</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates answered D correctly.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:53781e81",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q8(i)",
+  "question": "Other than economic growth, state two economic objectives that monetary policy can achieve.",
+  "caseStudy": "<p><strong>Extract 3: Economic Policies and the Value of the Pound</strong></p>\n<p>Supply side spending (selected items), £ billion</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Government spending</th><th style=\"padding:6px;\">2001–02</th><th style=\"padding:6px;\">2011–12</th><th style=\"padding:6px;\">2021–22</th></tr>\n<tr><td style=\"padding:6px;\">General public services</td><td style=\"padding:6px;\">44.0</td><td style=\"padding:6px;\">76.8</td><td style=\"padding:6px;\">108.6</td></tr>\n<tr><td style=\"padding:6px;\">Health (NHS)</td><td style=\"padding:6px;\">59.8</td><td style=\"padding:6px;\">121.3</td><td style=\"padding:6px;\">216.8</td></tr>\n<tr><td style=\"padding:6px;\">Education</td><td style=\"padding:6px;\">51.2</td><td style=\"padding:6px;\">86.5</td><td style=\"padding:6px;\">100.3</td></tr>\n<tr><td style=\"padding:6px;\">Sum of excluded items</td><td style=\"padding:6px;\">155.0</td><td style=\"padding:6px;\">284.6</td><td style=\"padding:6px;\">425.7</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Total government spending</strong></td><td style=\"padding:6px;\"><strong>384.0</strong></td><td style=\"padding:6px;\"><strong>675.5</strong></td><td style=\"padding:6px;\"><strong>952.3</strong></td></tr>\n</table>\n<p>Government spending on education and health provision allows workers to become more productive, potentially increasing economic output.</p>\n<p>When tax revenue does not increase at the same pace as government spending, the government must borrow to cover its deficit. When government borrowing increases, interest rates may rise. Monetary policy uses interest rates to affect economic growth through their effect on borrowing for investment and consumption.</p>\n<p>When interest rates in the UK are higher than overseas, the international value of the pound increases, which may adversely affect UK exports, but should lower the inflation rate.</p>",
+  "hint": "Price stability, balance/surplus on the balance of payments, and low unemployment are the standard list. Don't just write 'inflation' on its own — examiners flagged this as too vague, since it isn't itself a named objective.",
+  "starter": "1. ... 2. ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Price stability</li>\n<li>Balance/surplus in the balance of payments</li>\n<li>Low unemployment</li>\n</ul>\n<p>1 mark for each objective up to a maximum of 2 marks.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question was generally answered well, although some candidates simply stated 'inflation' or similar, which is 'too vague' due to not being an actual objective.</p>\n</div>",
+   "modelAnswer": "1. Price stability — keeping inflation low and predictable, around the government's target rate.\n\n2. A balance, or surplus, on the balance of payments current account."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:4b5ffe23",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q8(ii)",
+  "question": "Explain how higher interest rates in the UK may lead to the international value of the pound increasing.",
+  "caseStudy": "<p><strong>Extract 3: Economic Policies and the Value of the Pound</strong></p>\n<p>Supply side spending (selected items), £ billion</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Government spending</th><th style=\"padding:6px;\">2001–02</th><th style=\"padding:6px;\">2011–12</th><th style=\"padding:6px;\">2021–22</th></tr>\n<tr><td style=\"padding:6px;\">General public services</td><td style=\"padding:6px;\">44.0</td><td style=\"padding:6px;\">76.8</td><td style=\"padding:6px;\">108.6</td></tr>\n<tr><td style=\"padding:6px;\">Health (NHS)</td><td style=\"padding:6px;\">59.8</td><td style=\"padding:6px;\">121.3</td><td style=\"padding:6px;\">216.8</td></tr>\n<tr><td style=\"padding:6px;\">Education</td><td style=\"padding:6px;\">51.2</td><td style=\"padding:6px;\">86.5</td><td style=\"padding:6px;\">100.3</td></tr>\n<tr><td style=\"padding:6px;\">Sum of excluded items</td><td style=\"padding:6px;\">155.0</td><td style=\"padding:6px;\">284.6</td><td style=\"padding:6px;\">425.7</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Total government spending</strong></td><td style=\"padding:6px;\"><strong>384.0</strong></td><td style=\"padding:6px;\"><strong>675.5</strong></td><td style=\"padding:6px;\"><strong>952.3</strong></td></tr>\n</table>\n<p>Government spending on education and health provision allows workers to become more productive, potentially increasing economic output.</p>\n<p>When tax revenue does not increase at the same pace as government spending, the government must borrow to cover its deficit. When government borrowing increases, interest rates may rise. Monetary policy uses interest rates to affect economic growth through their effect on borrowing for investment and consumption.</p>\n<p>When interest rates in the UK are higher than overseas, the international value of the pound increases, which may adversely affect UK exports, but should lower the inflation rate.</p>",
+  "hint": "Only ONE of two routes is needed: EITHER demand for £ rises because international savers move funds INTO the UK for the better return, OR supply of £ falls because British savers no longer sell pounds to save abroad / fewer imports are bought. See Misconceptions — don't say higher rates mean MORE saving abroad, that's backwards.",
+  "starter": "Demand for the pound rises, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may be either one of the two following:</strong></p>\n<ul>\n<li>Demand for the pound rises (shifts right) [1], because international savers/investors take advantage of higher returns in the UK, and withdraw their funds from overseas financial markets to exchange for pounds [1]</li>\n<li>OR: Supply of the pound falls (shifts left) [1], because British savers/investors no longer exchange their pounds for other currencies due to higher returns in the UK, or fewer imports are purchased as consumption falls [1]</li>\n</ul>\n<p>1 mark for a statement without an explanation. 2 marks for a correct explanation. N.B. Only one of the bullet points is required.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant number of candidates identified that an increase in interest rates would attract savings from overseas into UK banks, and some even referred to hot money flows.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Misconception</h5>\n<p>Some candidates confused the increase with saving and less supply of pounds in the foreign exchange market. However, a small proportion of candidates were able to identify that a fall in consumption would probably lead to a fall in imports and therefore a fall in supply, which was a sophisticated and logical point.</p>\n</div>",
+   "modelAnswer": "Higher UK interest rates make it more rewarding to hold savings in UK banks. As a result, demand for the pound rises, because international savers and investors withdraw their funds from overseas financial markets and exchange them for pounds so they can take advantage of the higher UK returns.\n\nThis rightward shift in demand for the pound pushes up its price, so its international value increases."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:f78904aa",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q8(iii)",
+  "question": "Evaluate the extent to which a rise in the foreign exchange value of the pound could affect UK consumers and producers. Use the information given in Extract 3 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 3: Economic Policies and the Value of the Pound</strong></p>\n<p>Supply side spending (selected items), £ billion</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Government spending</th><th style=\"padding:6px;\">2001–02</th><th style=\"padding:6px;\">2011–12</th><th style=\"padding:6px;\">2021–22</th></tr>\n<tr><td style=\"padding:6px;\">General public services</td><td style=\"padding:6px;\">44.0</td><td style=\"padding:6px;\">76.8</td><td style=\"padding:6px;\">108.6</td></tr>\n<tr><td style=\"padding:6px;\">Health (NHS)</td><td style=\"padding:6px;\">59.8</td><td style=\"padding:6px;\">121.3</td><td style=\"padding:6px;\">216.8</td></tr>\n<tr><td style=\"padding:6px;\">Education</td><td style=\"padding:6px;\">51.2</td><td style=\"padding:6px;\">86.5</td><td style=\"padding:6px;\">100.3</td></tr>\n<tr><td style=\"padding:6px;\">Sum of excluded items</td><td style=\"padding:6px;\">155.0</td><td style=\"padding:6px;\">284.6</td><td style=\"padding:6px;\">425.7</td></tr>\n<tr style=\"border-top:1px solid var(--border);\"><td style=\"padding:6px;\"><strong>Total government spending</strong></td><td style=\"padding:6px;\"><strong>384.0</strong></td><td style=\"padding:6px;\"><strong>675.5</strong></td><td style=\"padding:6px;\"><strong>952.3</strong></td></tr>\n</table>\n<p>Government spending on education and health provision allows workers to become more productive, potentially increasing economic output.</p>\n<p>When tax revenue does not increase at the same pace as government spending, the government must borrow to cover its deficit. When government borrowing increases, interest rates may rise. Monetary policy uses interest rates to affect economic growth through their effect on borrowing for investment and consumption.</p>\n<p>When interest rates in the UK are higher than overseas, the international value of the pound increases, which may adversely affect UK exports, but should lower the inflation rate.</p>",
+  "hint": "You MUST cover BOTH consumers AND producers to reach Level 3. Consumers: cheaper imports/lower inflation/better living standards vs domestic firms losing sales/redundancies; cheaper foreign travel vs job losses in UK tourism. Producers: cheaper imported inputs vs less competitive exports/import competition; benefit from Extract 3's lower inflation (less wage pressure) vs the time lag before this feeds through. Judge on the EXTENT — is the net effect for growth positive or negative?",
+  "starter": "The value of the pound increases when interest rates rise in the UK, and this could affect consumers by...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Reference to Extract 3 or context (AO2):</strong></p>\n<ul>\n<li>The value of the pound increases when interest rates rise in the UK</li>\n<li>The increase in the exchange rate for the pound should lower inflation, but may adversely affect exports</li>\n</ul>\n<p><strong>Extent of benefits vs costs for each group (AO3b):</strong></p>\n<p><strong>1. Consumers</strong></p>\n<ul>\n<li>Imports are cheaper, which will lower the inflation rate and improve living standards — BUT as consumers buy cheaper imports, domestic firms lose sales, which may lead to redundancies and higher unemployment</li>\n<li>Foreign travel will cost less, as a pound can be exchanged for more euros/dollars etc — BUT those employed in the domestic travel sector (e.g. hotels) may be laid off as fewer foreign tourists come to the UK</li>\n</ul>\n<p><strong>2. Producers</strong></p>\n<ul>\n<li>Those who import inputs (raw materials) and capital goods will benefit from lower costs of production — BUT output from UK firms will be less competitive in overseas markets and will also face more competition from imports in the domestic market</li>\n<li>Producers should benefit from the lower inflation rate, which will reduce the need for higher wages and will make their output more competitive again — BUT this process will take time to work through the system, and in the meantime the increased competition from overseas goods could lead to bankruptcies</li>\n<li>The quantities sold of UK export products with relatively low price elasticity of demand (inelastic PED) will not fall significantly, so total revenue will rise — BUT over time the PED for such products will become more elastic as buyers find substitutes, so revenue will fall</li>\n</ul>\n<p><strong>Final judgement on the extent, expressed clearly:</strong></p>\n<ul>\n<li>A rise in the exchange rate for the pound is clearly not advantageous for economic growth, because of the impact on total demand (consumption of domestic goods and net exports)</li>\n<li>However, individual consumers and producers may benefit</li>\n<li>If the rise in the exchange rate is short term, the extent will be limited</li>\n<li>Ultimately the rise in the exchange rate will increase the deficit on the current account (as imports rise and exports fall), with the result that the exchange rate falls back — so the negative impact on economic growth should be short term, i.e. the extent of the effect should not persist in the long run</li>\n</ul>\n<p><strong>N.B.</strong> If there is no analysis/evaluation, application (AO2) cannot be rewarded. To reach Level 3 there must be Application (AO2), Analysis (AO3a) AND Evaluation (AO3b), AND there must be reference to BOTH consumers and producers.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing arguments/both sides, coherently structured, entirely relevant and substantiated.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis in a single effect; reasonable evaluation considering both sides, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation with basic/ambiguous information.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A pleasing proportion of candidates recognised the requirements of the question and could identify an impact on at least one of consumers or producers.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Assessment for learning</h5>\n<p>This question was very accessible, which meant that candidates often started a point correctly, but did not always develop a chain of reasoning fully — for example, writing that a rise in the value of the pound would lead to less demand/revenue/profit for producers, but not explaining WHY this would happen, i.e. missing out the middle section of a chain of reasoning. Attempts at evaluation were often two unrelated points, e.g. writing about the rise potentially leading to a fall in costs for producers, but not linking to how this may mitigate or offset the fall in demand (and therefore profit) overseas.</p>\n</div>",
+   "modelAnswer": "The extract explains that the value of the pound increases when UK interest rates rise, and that this should lower inflation but may adversely affect exports.\n\nFor consumers, imports become cheaper, which lowers inflation and improves living standards, and foreign holidays cost less because a pound converts into more foreign currency. However, as consumers switch towards cheaper imports, domestic firms lose sales, risking redundancies and higher unemployment — and UK tourism firms may also suffer as fewer foreign visitors can afford to come.\n\nFor producers, those who import raw materials or machinery benefit from lower costs of production. But UK exporters face higher prices abroad and tougher competition from imports at home, and Extract 3's lower-inflation benefit — which should ease wage pressure and restore competitiveness — takes time to filter through, during which some firms may struggle.\n\nOverall, the extent of the harm depends on how long the rise in the pound lasts: a short-lived rise gives producers little reason to change their plans, and a strengthening current account deficit would eventually push the exchange rate back down again. So while a rise in the pound clearly benefits some consumers, its overall extent for the economy is limited and likely temporary."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:9891255d",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q9(a)",
+  "question": "In 2011 a UK company exported goods to the USA worth £54 million. Using Extract 2, calculate the value of the goods in US dollars ($). Show your working.",
+  "caseStudy": "<p><strong>Extract 2: Impact of Exchange Rates and Interest Rates on the UK Economy</strong></p>\n<img src=\"/images/economics/3-6-uk-pound-usd-exchange-rate-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'UK Pound against the US Dollar Exchange Rate', showing the price of the pound in dollars from 2008 to 2020. It starts at about $1.84 in 2008, falls sharply to about $1.55 by 2009, stays roughly flat around $1.55-$1.60 from 2009 to 2013 (including around $1.60 in 2011), rises slightly to a peak of about $1.65 in 2014, then falls steadily to about $1.35 by 2016, dips further to about $1.29 in 2017, recovers slightly to $1.33 in 2018, then eases to around $1.28 by 2019-2020\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>The exchange rate, which is used for international trade to convert a foreign currency into the domestic currency, or vice versa, specifies in the chart above how many US dollars ($) are needed to buy a pound (£). A fall in the exchange rate affects the price of imported goods and tourism, as well as making exports more competitive.</p>\n<p>The value of the UK pound changes in response to both political and economic factors. The Brexit vote in 2016 and the monetary policy of keeping interest rates low between 2008 and 2021 have both had a significant impact. The economic objective of low interest rates was to encourage firms and households to borrow and spend in order to stimulate economic growth. Since 2022, however, concerns about inflation have led to a policy of increasing interest rates.</p>",
+  "hint": "Read the 2011 rate off the chart (about $1.60 to the pound) and MULTIPLY, because you're converting FROM pounds TO dollars. Use a $ sign, not a £ sign, in your final answer — see Misconceptions.",
+  "starter": "£54 million × $1.60 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>54 million × 1.6 = 86.4 million</strong></p>\n<p><strong>Answer: $86.4 million (or 86.4 million, or 86.4 mn)</strong></p>\n<ul>\n<li>2 marks for a correct answer (working not required). 1 mark for correct working but an incorrect answer.</li>\n<li>No mark lost if the $ sign or the word \"dollars\" is omitted, since the question asked for \"the value in US dollars\". 1 mark only if the word million/mn is omitted.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates correctly calculated the answer as $86.4 million.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Misconception</h5>\n<p>A common misconception is to use the incorrect symbol for currency when the answer is not in pounds, i.e. to write £86.4 million rather than using a dollar sign ($).</p>\n</div>",
+   "modelAnswer": "£54 million × $1.60 = $86.4 million.\n\nThe 2011 exchange rate on Extract 2's chart is about $1.60 to the pound, so multiplying the pound value by the rate converts it into dollars: the exported goods were worth $86.4 million."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:b872ff90",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q9(b)",
+  "question": "Using Extract 2 explain what is likely to have happened to the volume of US goods and services sold to UK consumers between 2008 and 2019.",
+  "caseStudy": "<p><strong>Extract 2: Impact of Exchange Rates and Interest Rates on the UK Economy</strong></p>\n<img src=\"/images/economics/3-6-uk-pound-usd-exchange-rate-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'UK Pound against the US Dollar Exchange Rate', showing the price of the pound in dollars from 2008 to 2020. It starts at about $1.84 in 2008, falls sharply to about $1.55 by 2009, stays roughly flat around $1.55-$1.60 from 2009 to 2013 (including around $1.60 in 2011), rises slightly to a peak of about $1.65 in 2014, then falls steadily to about $1.35 by 2016, dips further to about $1.29 in 2017, recovers slightly to $1.33 in 2018, then eases to around $1.28 by 2019-2020\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>The exchange rate, which is used for international trade to convert a foreign currency into the domestic currency, or vice versa, specifies in the chart above how many US dollars ($) are needed to buy a pound (£). A fall in the exchange rate affects the price of imported goods and tourism, as well as making exports more competitive.</p>\n<p>The value of the UK pound changes in response to both political and economic factors. The Brexit vote in 2016 and the monetary policy of keeping interest rates low between 2008 and 2021 have both had a significant impact. The economic objective of low interest rates was to encourage firms and households to borrow and spend in order to stimulate economic growth. Since 2022, however, concerns about inflation have led to a policy of increasing interest rates.</p>",
+  "hint": "The chart shows the pound falling against the dollar over this period, so US goods look MORE expensive to UK buyers. You must state that the VOLUME (quantity) of imports falls, not just that prices changed.",
+  "starter": "The value of the pound has fallen against the dollar, so...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>The value of the pound has fallen / the dollar has increased in value. As a result, the quantity demanded (volume sold) of US goods and services in UK markets will have fallen, because they now appear more expensive.</li>\n</ul>\n<p>Rewardable responses must indicate that the volume/quantity of imports is falling. 2 marks for a correctly explained answer.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates correctly identified that the volume of US goods should fall, because they now appear more expensive.</p>\n</div>",
+   "modelAnswer": "Extract 2's chart shows the value of the pound falling against the US dollar between 2008 and 2019.\n\nBecause each pound now buys fewer dollars, US goods and services appear more expensive to UK consumers than before. As a result, the volume (quantity) of US goods and services sold to UK consumers is likely to have fallen, as buyers switch towards cheaper alternatives."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:ecc78d6d",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q9(c)",
+  "question": "Analyse, with the use of a supply and demand diagram, one reason for the fall of the pound (£) against the US dollar ($) between 2008 and 2019.",
+  "caseStudy": "<p><strong>Extract 2: Impact of Exchange Rates and Interest Rates on the UK Economy</strong></p>\n<img src=\"/images/economics/3-6-uk-pound-usd-exchange-rate-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'UK Pound against the US Dollar Exchange Rate', showing the price of the pound in dollars from 2008 to 2020. It starts at about $1.84 in 2008, falls sharply to about $1.55 by 2009, stays roughly flat around $1.55-$1.60 from 2009 to 2013 (including around $1.60 in 2011), rises slightly to a peak of about $1.65 in 2014, then falls steadily to about $1.35 by 2016, dips further to about $1.29 in 2017, recovers slightly to $1.33 in 2018, then eases to around $1.28 by 2019-2020\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>The exchange rate, which is used for international trade to convert a foreign currency into the domestic currency, or vice versa, specifies in the chart above how many US dollars ($) are needed to buy a pound (£). A fall in the exchange rate affects the price of imported goods and tourism, as well as making exports more competitive.</p>\n<p>The value of the UK pound changes in response to both political and economic factors. The Brexit vote in 2016 and the monetary policy of keeping interest rates low between 2008 and 2021 have both had a significant impact. The economic objective of low interest rates was to encourage firms and households to borrow and spend in order to stimulate economic growth. Since 2022, however, concerns about inflation have led to a policy of increasing interest rates.</p>",
+  "hint": "Pick ONE reason and build ONE diagram: either a decrease in demand for £ (e.g. low UK interest rates meant less overseas demand for UK bank deposits) OR an increase in supply of £ (e.g. loss of confidence after the Brexit vote caused an outflow of funds). Label the axes and curves S and D — NOT AS/AD, a real examiner-flagged mistake.",
+  "starter": "One reason for the fall of the pound is that UK interest rates were relatively low, which meant...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p><strong>Answers must include a diagram, either for:</strong> a decrease in demand for pounds (less inflow of funds), OR an increase in supply (greater outflow of funds). The two diagrams may be combined into one, with correct shifts (rightward shift in S, leftward shift in D, so the exchange rate falls).</p>\n<p><strong>Reasons may include (depending on which diagram is used):</strong></p>\n<ul>\n<li>The exchange rate is the price of one currency in terms of another. The diagram shows the supply and demand for pounds in the currency market.</li>\n<li>Because (real) interest rates were relatively low in the UK, there was less demand from overseas for UK bank deposits (financial assets), and thus less demand for the pound.</li>\n<li>Because of a lack of confidence in the UK economy after the Brexit vote, there was an outflow of financial investment/deposits/funds, which increased the supply of pounds in the market — or a fall in demand, as exporting conditions became more difficult.</li>\n<li>Candidates may also refer to exports falling due to low productivity, or imports rising due to higher incomes.</li>\n<li>In both cases: the exchange rate of the pound falls from Po to P1.</li>\n</ul>\n<p>A maximum of 4 marks if no correct diagram.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge and application; good analysis with developed chains of reasoning; diagram(s) predominantly correct and linked to the analysis.</p>\n<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects; diagram may be imperfectly labelled or not linked.</p>\n<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis (a single effect with some link to the question).</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates were able to use a diagram to demonstrate that a rise in the supply of pounds (or fall in demand) would result in a depreciation. The best answers drew on the information in Extract 2, e.g. low interest rates, and explained why the increase in supply/fall in demand happened because of this. This integration of the diagram into the written answer is a key technique likely to be tested in future questions.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Misconception</h5>\n<p>A common misconception is to use AS or AD when labelling the curves. The graph is for the pound sterling on international foreign exchange markets, so the curves should be labelled Supply (S) and Demand (D).</p>\n</div>",
+   "modelAnswer": "One reason for the fall of the pound against the dollar between 2008 and 2019 is that UK interest rates were kept relatively low for most of this period.\n\nBecause (real) interest rates in the UK were low, there was less demand from overseas savers and investors for UK bank deposits — they could earn a better return elsewhere. This meant less demand for the pound, shown by the demand curve for pounds (D) shifting leftwards to D1 on a supply and demand diagram, with the price of pounds (in dollars) on the vertical axis and the quantity of pounds on the horizontal axis.\n\nAs demand falls while supply is unchanged, the equilibrium exchange rate of the pound falls from Po to P1 — the pound depreciates against the dollar, matching the falling trend shown on Extract 2's chart."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:b5f02441",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q10(a)",
+  "question": "Calculate the change in the amount of euros you get to the pound (£) between 2009 and 2015. Show your working.",
+  "caseStudy": "<p><strong>Extract 3: The Pound (£) to Euro (€) exchange rate 2008–2017</strong></p>\n<p>The UK&#39;s exchange rate is determined by the forces of supply and demand. The exchange rate measures the price of the UK&#39;s currency, the pound (£), in terms of another currency. The table below shows the value of the pound (£) in terms of euros (€) for 2008 to 2017. (The figure given is the average for that year.)</p>\n<table style=\"width:100%;max-width:340px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Year</th><th style=\"padding:6px;\">Euros (€) to £1</th></tr>\n<tr><td style=\"padding:6px;\">2008</td><td style=\"padding:6px;\">1.26</td></tr>\n<tr><td style=\"padding:6px;\">2009</td><td style=\"padding:6px;\">1.12</td></tr>\n<tr><td style=\"padding:6px;\">2010</td><td style=\"padding:6px;\">1.16</td></tr>\n<tr><td style=\"padding:6px;\">2011</td><td style=\"padding:6px;\">1.15</td></tr>\n<tr><td style=\"padding:6px;\">2012</td><td style=\"padding:6px;\">1.23</td></tr>\n<tr><td style=\"padding:6px;\">2013</td><td style=\"padding:6px;\">1.18</td></tr>\n<tr><td style=\"padding:6px;\">2014</td><td style=\"padding:6px;\">1.24</td></tr>\n<tr><td style=\"padding:6px;\">2015</td><td style=\"padding:6px;\">1.37</td></tr>\n<tr><td style=\"padding:6px;\">2016</td><td style=\"padding:6px;\">1.22</td></tr>\n<tr><td style=\"padding:6px;\">2017</td><td style=\"padding:6px;\">1.14</td></tr>\n</table>\n<p>The euro is the currency used by many European countries including France, Germany, Italy and Spain. Changes in the exchange rate will have effects on exports and imports and the economy in general. Consumers in the UK may be affected by movements in the exchange rate in a number of ways; for example, goods which they buy from abroad may change in price.</p>",
+  "hint": "Read both years off Extract 3's table: 2009 = 1.12, 2015 = 1.37. Subtract the earlier from the later, and state the answer IS in euros — a real mark is lost for omitting the currency.",
+  "starter": "1.37 − 1.12 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>1.37 − 1.12 = 0.25 euros (25 cents)</strong></p>\n<ul>\n<li>2 marks for a correct answer. 1 mark for correct workings but an incorrect answer. Where 0.25 is given but euros are not stated, award 1 mark. OFR (own figure rule) applies.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Candidates mostly showed the ability to calculate this exchange. Candidates do need to identify that the amount is in euros to access full marks. The question did not need a specific number of decimal places, so all correctly rounded answers were accepted.</p>\n</div>",
+   "modelAnswer": "1.37 − 1.12 = 0.25 euros (25 cents).\n\nExtract 3's table shows the pound was worth 1.12 euros in 2009 and 1.37 euros in 2015, so the amount of euros you get to the pound rose by 0.25 euros over that period."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:ba96f442",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q10(b)",
+  "question": "A UK firm earned €5700 by exporting goods to France in 2017. Calculate, using Extract 3, the firm's income in pounds (£). Show your working.",
+  "caseStudy": "<p><strong>Extract 3: The Pound (£) to Euro (€) exchange rate 2008–2017</strong></p>\n<p>The UK&#39;s exchange rate is determined by the forces of supply and demand. The exchange rate measures the price of the UK&#39;s currency, the pound (£), in terms of another currency. The table below shows the value of the pound (£) in terms of euros (€) for 2008 to 2017. (The figure given is the average for that year.)</p>\n<table style=\"width:100%;max-width:340px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Year</th><th style=\"padding:6px;\">Euros (€) to £1</th></tr>\n<tr><td style=\"padding:6px;\">2008</td><td style=\"padding:6px;\">1.26</td></tr>\n<tr><td style=\"padding:6px;\">2009</td><td style=\"padding:6px;\">1.12</td></tr>\n<tr><td style=\"padding:6px;\">2010</td><td style=\"padding:6px;\">1.16</td></tr>\n<tr><td style=\"padding:6px;\">2011</td><td style=\"padding:6px;\">1.15</td></tr>\n<tr><td style=\"padding:6px;\">2012</td><td style=\"padding:6px;\">1.23</td></tr>\n<tr><td style=\"padding:6px;\">2013</td><td style=\"padding:6px;\">1.18</td></tr>\n<tr><td style=\"padding:6px;\">2014</td><td style=\"padding:6px;\">1.24</td></tr>\n<tr><td style=\"padding:6px;\">2015</td><td style=\"padding:6px;\">1.37</td></tr>\n<tr><td style=\"padding:6px;\">2016</td><td style=\"padding:6px;\">1.22</td></tr>\n<tr><td style=\"padding:6px;\">2017</td><td style=\"padding:6px;\">1.14</td></tr>\n</table>\n<p>The euro is the currency used by many European countries including France, Germany, Italy and Spain. Changes in the exchange rate will have effects on exports and imports and the economy in general. Consumers in the UK may be affected by movements in the exchange rate in a number of ways; for example, goods which they buy from abroad may change in price.</p>",
+  "hint": "2017's rate is 1.14 euros to the pound. DIVIDE the euro amount by the rate, because you're converting FROM euros TO pounds — the opposite operation from Q9(a). State the answer is in pounds.",
+  "starter": "€5700 ÷ 1.14 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>5700 ÷ 1.14 = £5000</strong></p>\n<ul>\n<li>2 marks for a correct answer. 1 mark for correct workings but an incorrect answer. Where 5000 is given but pounds are not stated, award 1 mark. OFR applies.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates showed the ability to calculate this income. Candidates do need to identify that the amount is in pounds to access full marks. The success on this question indicates that candidates are responding well to the additional quantitative demands of the new specification.</p>\n</div>",
+   "modelAnswer": "€5700 ÷ 1.14 = £5000.\n\nBecause the 2017 rate is 1.14 euros to the pound, dividing the euro income by the rate converts it back into pounds — the firm's income was £5000."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:c7716fa4",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q10(c)",
+  "question": "Using a diagram, analyse how a rise in the supply of pounds could have changed the exchange rate against the euro between 2015 and 2017.",
+  "caseStudy": "<p><strong>Extract 3: The Pound (£) to Euro (€) exchange rate 2008–2017</strong></p>\n<p>The UK&#39;s exchange rate is determined by the forces of supply and demand. The exchange rate measures the price of the UK&#39;s currency, the pound (£), in terms of another currency. The table below shows the value of the pound (£) in terms of euros (€) for 2008 to 2017. (The figure given is the average for that year.)</p>\n<table style=\"width:100%;max-width:340px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Year</th><th style=\"padding:6px;\">Euros (€) to £1</th></tr>\n<tr><td style=\"padding:6px;\">2008</td><td style=\"padding:6px;\">1.26</td></tr>\n<tr><td style=\"padding:6px;\">2009</td><td style=\"padding:6px;\">1.12</td></tr>\n<tr><td style=\"padding:6px;\">2010</td><td style=\"padding:6px;\">1.16</td></tr>\n<tr><td style=\"padding:6px;\">2011</td><td style=\"padding:6px;\">1.15</td></tr>\n<tr><td style=\"padding:6px;\">2012</td><td style=\"padding:6px;\">1.23</td></tr>\n<tr><td style=\"padding:6px;\">2013</td><td style=\"padding:6px;\">1.18</td></tr>\n<tr><td style=\"padding:6px;\">2014</td><td style=\"padding:6px;\">1.24</td></tr>\n<tr><td style=\"padding:6px;\">2015</td><td style=\"padding:6px;\">1.37</td></tr>\n<tr><td style=\"padding:6px;\">2016</td><td style=\"padding:6px;\">1.22</td></tr>\n<tr><td style=\"padding:6px;\">2017</td><td style=\"padding:6px;\">1.14</td></tr>\n</table>\n<p>The euro is the currency used by many European countries including France, Germany, Italy and Spain. Changes in the exchange rate will have effects on exports and imports and the economy in general. Consumers in the UK may be affected by movements in the exchange rate in a number of ways; for example, goods which they buy from abroad may change in price.</p>",
+  "hint": "Extract 3's table shows the rate falling from 1.37 (2015) to 1.14 (2017) — the pound depreciated. Draw supply (S) shifting rightward to S1, keeping demand fixed, and show the price falling from P to P1. Feel free to put the actual 1.37/1.14 figures on your vertical axis.",
+  "starter": "Extract 3 shows the exchange rate falling from 1.37 euros in 2015 to 1.14 euros in 2017, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p>The diagram may contain the actual figures of 1.37 and 1.14 euros on the vertical axis. Candidates may use other labels instead of P and P1, e.g. E and E1, ER and ER1.</p>\n<p><strong>Answer may include:</strong></p>\n<ul>\n<li>The exchange rate is the price of one currency in terms of another.</li>\n<li>Extract 3 shows an exchange rate of 1.37 euros in 2015 and 1.14 euros in 2017.</li>\n<li>The value of the pound will fall / depreciate / weaken / buy fewer euros.</li>\n<li>A rise in the supply of pounds leads to an outward shift of supply (S to S1).</li>\n<li>The exchange rate of the pound falls from P to P1.</li>\n</ul>\n<p>A maximum of 4 marks if no correct diagram. Apply OFR if an incorrect S shift is shown on the diagram.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge and application; good analysis with a developed chain of reasoning; diagram predominantly correct and linked to the analysis.</p>\n<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects; diagram may be improperly labelled or not linked.</p>\n<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis with some link to the question; diagram may be missing or substantially incorrect.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates performed relatively well on this question, showing understanding of an exchange rate, correctly shifting the supply curve and illustrating the change in equilibrium. Some candidates also had clear, correct context of £/€ running through the diagram and text. The best answers followed the question wording and used their diagram labels to show the direction of change in the exchange rate in their text — a key technique likely to be tested in future questions.</p>\n</div>",
+   "modelAnswer": "Extract 3 shows the exchange rate falling from 1.37 euros in 2015 to 1.14 euros in 2017, meaning the pound depreciated and now buys fewer euros.\n\nOn a supply and demand diagram for the pound (price in euros on the vertical axis, quantity of pounds on the horizontal axis), a rise in the supply of pounds shifts the supply curve rightwards from S to S1. With demand unchanged, this pushes the equilibrium price of the pound down from P (1.37) to P1 (1.14).\n\nThis fall in the exchange rate means the pound is now worth less against the euro — one pound buys fewer euros than it did in 2015."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:2087f030",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q10d(i)",
+  "question": "State what is meant by 'imports'.",
+  "caseStudy": "<p><strong>Extract 3: The Pound (£) to Euro (€) exchange rate 2008–2017</strong></p>\n<p>The UK&#39;s exchange rate is determined by the forces of supply and demand. The exchange rate measures the price of the UK&#39;s currency, the pound (£), in terms of another currency. The table below shows the value of the pound (£) in terms of euros (€) for 2008 to 2017. (The figure given is the average for that year.)</p>\n<table style=\"width:100%;max-width:340px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Year</th><th style=\"padding:6px;\">Euros (€) to £1</th></tr>\n<tr><td style=\"padding:6px;\">2008</td><td style=\"padding:6px;\">1.26</td></tr>\n<tr><td style=\"padding:6px;\">2009</td><td style=\"padding:6px;\">1.12</td></tr>\n<tr><td style=\"padding:6px;\">2010</td><td style=\"padding:6px;\">1.16</td></tr>\n<tr><td style=\"padding:6px;\">2011</td><td style=\"padding:6px;\">1.15</td></tr>\n<tr><td style=\"padding:6px;\">2012</td><td style=\"padding:6px;\">1.23</td></tr>\n<tr><td style=\"padding:6px;\">2013</td><td style=\"padding:6px;\">1.18</td></tr>\n<tr><td style=\"padding:6px;\">2014</td><td style=\"padding:6px;\">1.24</td></tr>\n<tr><td style=\"padding:6px;\">2015</td><td style=\"padding:6px;\">1.37</td></tr>\n<tr><td style=\"padding:6px;\">2016</td><td style=\"padding:6px;\">1.22</td></tr>\n<tr><td style=\"padding:6px;\">2017</td><td style=\"padding:6px;\">1.14</td></tr>\n</table>\n<p>The euro is the currency used by many European countries including France, Germany, Italy and Spain. Changes in the exchange rate will have effects on exports and imports and the economy in general. Consumers in the UK may be affected by movements in the exchange rate in a number of ways; for example, goods which they buy from abroad may change in price.</p>",
+  "hint": "Two elements for 2 marks: goods AND services bought from abroad, plus the outflow of money in exchange. Saying only 'a good bought from another country' scores 1.",
+  "starter": "Imports are goods and services...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Imports are goods and services bought from abroad / overseas / other countries</li>\n<li>There is an outflow of money in exchange for goods or services</li>\n</ul>\n<p>2 marks for a precise definition. 1 mark for some understanding shown, e.g. \"it is a good bought from another country\" (services ignored in this case).</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Candidates mostly answered this question well, with a clear idea of an outflow of money and the inclusion of both goods and services.</p>\n</div>",
+   "modelAnswer": "Imports are goods and services bought from abroad, overseas, or other countries.\n\nWhen a country imports, there is an outflow of money from that country in exchange for the goods or services received."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:5f371a5d",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q10d(ii)",
+  "question": "Explain how a rise in imports may affect employment in the UK.",
+  "caseStudy": "<p><strong>Extract 3: The Pound (£) to Euro (€) exchange rate 2008–2017</strong></p>\n<p>The UK&#39;s exchange rate is determined by the forces of supply and demand. The exchange rate measures the price of the UK&#39;s currency, the pound (£), in terms of another currency. The table below shows the value of the pound (£) in terms of euros (€) for 2008 to 2017. (The figure given is the average for that year.)</p>\n<table style=\"width:100%;max-width:340px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Year</th><th style=\"padding:6px;\">Euros (€) to £1</th></tr>\n<tr><td style=\"padding:6px;\">2008</td><td style=\"padding:6px;\">1.26</td></tr>\n<tr><td style=\"padding:6px;\">2009</td><td style=\"padding:6px;\">1.12</td></tr>\n<tr><td style=\"padding:6px;\">2010</td><td style=\"padding:6px;\">1.16</td></tr>\n<tr><td style=\"padding:6px;\">2011</td><td style=\"padding:6px;\">1.15</td></tr>\n<tr><td style=\"padding:6px;\">2012</td><td style=\"padding:6px;\">1.23</td></tr>\n<tr><td style=\"padding:6px;\">2013</td><td style=\"padding:6px;\">1.18</td></tr>\n<tr><td style=\"padding:6px;\">2014</td><td style=\"padding:6px;\">1.24</td></tr>\n<tr><td style=\"padding:6px;\">2015</td><td style=\"padding:6px;\">1.37</td></tr>\n<tr><td style=\"padding:6px;\">2016</td><td style=\"padding:6px;\">1.22</td></tr>\n<tr><td style=\"padding:6px;\">2017</td><td style=\"padding:6px;\">1.14</td></tr>\n</table>\n<p>The euro is the currency used by many European countries including France, Germany, Italy and Spain. Changes in the exchange rate will have effects on exports and imports and the economy in general. Consumers in the UK may be affected by movements in the exchange rate in a number of ways; for example, goods which they buy from abroad may change in price.</p>",
+  "hint": "The most common route: fewer goods bought from UK producers → fewer workers needed to make less UK output → employment falls. A valid alternative: more workers needed in transporting/handling the imports, or in finishing imported inputs into UK products.",
+  "starter": "If imports rise, fewer goods might be bought from UK producers, so...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answer may include — if there is a rise in imports:</strong></p>\n<ul>\n<li>Fewer goods might be bought from UK producers, so fewer workers are needed to make fewer UK goods</li>\n<li>There may be more jobs in the import sector, e.g. because more people are needed in transportation of the imports</li>\n<li>More workers may be needed to produce finished goods using imported inputs</li>\n</ul>\n<p>2 marks for a correct explanation that includes two elements. 1 mark for some understanding shown, e.g. \"fewer products are made in the UK\". To access the employment change mark, answers must have a clearly explained reason.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Full marks required a clearly explained reason for a correctly linked change in employment. Most candidates used the idea that fewer goods and services might now be bought from UK producers by UK consumers, so employment would fall as fewer UK workers would be required to make this reduced output. Successful alternative answers considered jobs in the UK involved with imports, such as their transportation.</p>\n</div>",
+   "modelAnswer": "If imports rise, UK consumers are buying more goods from abroad instead of from UK producers.\n\nThis means fewer UK-made goods need to be produced, so UK firms need fewer workers to make this smaller output — employment in those industries is likely to fall."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:b3277a7d",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q10d(iii)",
+  "question": "*Evaluate whether the change in the exchange rate between 2015 and 2017 would benefit consumers in the UK. Use the information given in Extract 3 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 3: The Pound (£) to Euro (€) exchange rate 2008–2017</strong></p>\n<p>The UK&#39;s exchange rate is determined by the forces of supply and demand. The exchange rate measures the price of the UK&#39;s currency, the pound (£), in terms of another currency. The table below shows the value of the pound (£) in terms of euros (€) for 2008 to 2017. (The figure given is the average for that year.)</p>\n<table style=\"width:100%;max-width:340px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Year</th><th style=\"padding:6px;\">Euros (€) to £1</th></tr>\n<tr><td style=\"padding:6px;\">2008</td><td style=\"padding:6px;\">1.26</td></tr>\n<tr><td style=\"padding:6px;\">2009</td><td style=\"padding:6px;\">1.12</td></tr>\n<tr><td style=\"padding:6px;\">2010</td><td style=\"padding:6px;\">1.16</td></tr>\n<tr><td style=\"padding:6px;\">2011</td><td style=\"padding:6px;\">1.15</td></tr>\n<tr><td style=\"padding:6px;\">2012</td><td style=\"padding:6px;\">1.23</td></tr>\n<tr><td style=\"padding:6px;\">2013</td><td style=\"padding:6px;\">1.18</td></tr>\n<tr><td style=\"padding:6px;\">2014</td><td style=\"padding:6px;\">1.24</td></tr>\n<tr><td style=\"padding:6px;\">2015</td><td style=\"padding:6px;\">1.37</td></tr>\n<tr><td style=\"padding:6px;\">2016</td><td style=\"padding:6px;\">1.22</td></tr>\n<tr><td style=\"padding:6px;\">2017</td><td style=\"padding:6px;\">1.14</td></tr>\n</table>\n<p>The euro is the currency used by many European countries including France, Germany, Italy and Spain. Changes in the exchange rate will have effects on exports and imports and the economy in general. Consumers in the UK may be affected by movements in the exchange rate in a number of ways; for example, goods which they buy from abroad may change in price.</p>",
+  "hint": "First identify the change: the pound FELL from 1.37 to 1.14 euros (23 cents in two years) — a depreciation. Benefits to consumers: fewer imported harmful goods bought (e.g. wine, dearer so consumers buy less, healthier); UK goods get cheaper as producers gain economies of scale from being more competitive; consumer incomes may rise if producers hire more. Costs: imports cost more so standard of living falls; imported input costs feed through as inflation; foreign holidays cost more. Evaluate on whether the fall is passed on fully, whether it's permanent, and PED of the goods affected.",
+  "starter": "Between 2015 and 2017 the pound fell from 1.37 to 1.14 euros, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p>The exchange rate has fallen between 2015 and 2017 from 1.37 to 1.14 euros, leading to:</p>\n<p><strong>Benefits:</strong></p>\n<ul>\n<li>Fewer imported harmful goods: prices of imported goods with negative externalities increase, e.g. wine, so consumers buy less and have a healthier life</li>\n<li>Lower prices for UK goods: UK producers will be more internationally competitive, so may expand and benefit from economies of scale, enabling lower prices for consumers</li>\n<li>Consumers' incomes may rise: if UK producers become more internationally competitive, they may need more workers to make more output</li>\n</ul>\n<p><strong>Costs:</strong></p>\n<ul>\n<li>Fall in standard of living: prices of imports rise, so consumers cannot afford as much / the purchasing power of their incomes has fallen</li>\n<li>As the price of imported inputs rises, this could lead to further inflation / increased prices of UK goods, harming consumers</li>\n<li>Fewer holidays abroad: prices of imported services rise, e.g. tourism abroad, so UK consumers will be less able to afford foreign holidays, leading to lower quality of life</li>\n</ul>\n<p>N.B. Answer may use either a 'Yes'/'No' approach for reasoning of benefits/costs that are then evaluated.</p>\n<p><strong>Evaluation may include:</strong></p>\n<ul>\n<li>Whether the fall (in this case 23 cents in two years) is passed on fully in higher import prices</li>\n<li>Whether the fall is likely to be permanent, or whether the exchange rate will rise again in future, e.g. using evidence in Extract 3</li>\n<li>Whether other factors change in the economy to offset or worsen the impact, e.g. the Bank of England increases the interest rate</li>\n<li>Whether PED has any impact, e.g. PED for harmful imports may be inelastic, so the negative impacts may not be reduced</li>\n<li>Judgement as to whether consumers would benefit, e.g. costs outweigh benefits</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing costs and benefits, coherently structured.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis in a single effect; reasonable evaluation considering costs and benefits, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation with an incomplete consideration of costs/benefits, basic/ambiguous information.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Candidates who answered this question well moved quickly from the context of a fall in the exchange rate to a clearly reasoned impact on consumers. Some candidates then immediately evaluated these impacts, which often gave originality and more context to their evaluation. Some success involved developing a chain of reasoning that led to a specific impact, such as a lower standard of living, and then evaluating this by considering whether it was more likely to lead to a higher standard of living. Answers could be reasoned as either agreeing or disagreeing that the fall in the exchange rate was beneficial for consumers. Successful evaluation in the form of a supported judgement was helped by the question wording, and is a technique to practise. Some evaluation went beyond repetition or vague points, including weighing the benefits against costs, the significance of the consequence, e.g. the likelihood of UK consumers buying eurozone imports, and the size of the fall relative to different levels of income.</p>\n</div>\n<div class=\"marks-section\">\n<h5>N.B.</h5>\n<p>This question is specifically about the impact on CONSUMERS, so impacts solely on producers or workers are not relevant.</p>\n</div>",
+   "modelAnswer": "Between 2015 and 2017 the pound fell from 1.37 to 1.14 euros — a depreciation of 23 cents. This makes goods imported from the Eurozone more expensive for UK consumers.\n\nOne benefit is that imports of harmful goods, such as wine, become dearer, so consumers may buy less of them and live more healthily. If UK producers become more competitive against pricier imports, they may expand, benefit from economies of scale, and lower their own prices — and may hire more workers, raising some consumers' incomes.\n\nHowever, the costs are significant: the price of all Eurozone imports rises, cutting consumers' purchasing power and standard of living, and dearer imported inputs can push up the price of UK-made goods too, adding to inflation. Foreign holidays in the Eurozone also become more expensive, reducing consumers' quality of life.\n\nOverall, whether consumers benefit depends on whether the fall is passed on fully to prices, and on the price elasticity of demand for the goods affected — if demand for Eurozone imports is inelastic, consumers simply pay more without buying less, which is a clear cost with no offsetting benefit. Given the size of the fall (23 cents, around 17%) and its persistence in the data through to 2017, the costs to consumers are likely to outweigh the benefits."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:32fc7a94",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q11",
+  "question": "Which of the following statements is correct?",
+  "options": [
+   "Exports from the UK to the US became more expensive between 2016 and 2017",
+   "Exports from the UK to the US became more expensive between 2019 and 2020",
+   "Exports from the US to the UK became less expensive between 2018 and 2019",
+   "Exports from the US to the UK became more expensive between 2017 and 2018"
+  ],
+  "caseStudy": "<p>The table shows the exchange rate of the UK pound (£) against the US dollar ($).</p>\n<table style=\"width:100%;max-width:340px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Date</th><th style=\"padding:6px;\">Exchange rate (£1)</th></tr>\n<tr><td style=\"padding:6px;\">1st January 2016</td><td style=\"padding:6px;\">$1.47</td></tr>\n<tr><td style=\"padding:6px;\">1st January 2017</td><td style=\"padding:6px;\">$1.23</td></tr>\n<tr><td style=\"padding:6px;\">1st January 2018</td><td style=\"padding:6px;\">$1.35</td></tr>\n<tr><td style=\"padding:6px;\">1st January 2019</td><td style=\"padding:6px;\">$1.27</td></tr>\n<tr><td style=\"padding:6px;\">1st January 2020</td><td style=\"padding:6px;\">$1.33</td></tr>\n</table>",
+  "hint": "Check each period: the rate FELL 2016→2017 (pound weaker = UK exports CHEAPER, not dearer, ruling out A). The rate ROSE 2019→2020 ($1.27→$1.33, pound stronger = UK exports MORE expensive for US buyers) — matches B.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — Exports from the UK to the US became more expensive between 2019 and 2020</strong></p>\n<ul>\n<li>The rate rose from $1.27 (Jan 2019) to $1.33 (Jan 2020) — the pound appreciated, making UK exports more expensive in dollar terms. Checking the others: 2016→2017 the rate FELL ($1.47→$1.23), so UK exports got CHEAPER, not dearer (A false); 2018→2019 the rate FELL ($1.35→$1.27), so US exports to the UK got MORE expensive, not less (C false); 2017→2018 the rate ROSE ($1.23→$1.35), so US exports to the UK got CHEAPER, not dearer (D false).</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:6dcbfd95",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q12",
+  "question": "Analyse, with the use of a demand and supply diagram, how the widening in the UK's current account deficit between 2011 and 2013 could have changed the exchange rate for the pound (£) against the US dollar ($).",
+  "caseStudy": "<p><strong>Extract 3: Current Account Balance and Exchange Rate</strong></p>\n<p>Since trade is the major component of the current account, a wider deficit is primarily due to either imports rising or exports falling. As a result, there will be a shift in the demand or supply of the UK's currency (the pound £), which will change its exchange rate.</p>\n<table style=\"width:100%;max-width:420px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Current Account Balance (% of GDP)</th><th style=\"padding:6px;\">2011</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">UK</td><td style=\"padding:6px;\">–1.76</td><td style=\"padding:6px;\">–4.90</td><td style=\"padding:6px;\">–3.78</td></tr>\n<tr><td style=\"padding:6px;\">USA</td><td style=\"padding:6px;\">–2.87</td><td style=\"padding:6px;\">–2.24</td><td style=\"padding:6px;\">–2.33</td></tr>\n<tr><td style=\"padding:6px;\">Germany</td><td style=\"padding:6px;\">6.20</td><td style=\"padding:6px;\">8.59</td><td style=\"padding:6px;\">7.15</td></tr>\n</table>\n<p>The table shows that the UK's current account deficit is persistent and also represents a relatively high proportion of GDP. The deficit reflects the fact that British consumers can choose to buy imported goods at relatively low prices. On the other hand, British producers face competition in the global market both when attempting to produce goods for export and when competing with imported goods. Consequently, a trade deficit results in output being lower and unemployment being higher than when there is a surplus. Such global competition does mean, however, that scarce resources are being used more efficiently.</p>",
+  "hint": "⚠️ The paper's own question text says '2011 and 2013', but the extract's table only gives figures for 2011, 2015 and 2019 — there is no 2013 figure printed anywhere in the paper. Treat the 2011→2015 widening (–1.76% to –4.90% of GDP) as the closest available evidence, and build your diagram around either falling exports (D for £ shifts left) or rising imports (S of £ shifts right).",
+  "starter": "The UK's current account deficit widened, which means either exports fell or imports rose. This would...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p>Diagram should include either the consequence of a decrease in exports OR the consequence of an increase in imports. Candidates may use other labels instead of Po and Pi, e.g. E and E1, ER and ER1. The two diagrams may be combined into one, with correct shifts.</p>\n<p><strong>Answers may include (depending on which diagram used):</strong></p>\n<ul>\n<li>The exchange rate is the price of one currency in terms of another.</li>\n<li>A decrease in the UK's exports leads to lower demand for the pound, which shifts the demand curve to the left.</li>\n<li>An increase in the UK's imports leads to higher supply of the pound, which shifts the supply curve to the right.</li>\n<li>The exchange rate of the pound falls.</li>\n</ul>\n<p>A maximum of 3 marks if no relevant diagram. N.B. Any other relevant points to be credited.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge and application; good analysis with a developed chain of reasoning; diagram(s) predominantly correct and linked to the analysis.</p>\n<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects; diagram(s) may be imperfectly labelled or not linked.</p>\n<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis with a single effect linked to the question.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates successfully demonstrated knowledge of exchange rates, using an appropriate diagram or definition. Many were also able to apply their diagram and/or text to the context of the pound (£) against the US dollar ($). It is recommended that candidates match their responses to the currency reference in the exact question wording, to avoid a lack of clarity. The most successful responses understood what had happened to exports and/or imports due to the widening current account deficit, then reasoned from demand/supply for these exports/imports to demand/supply of the pound, leading to the fall in the exchange rate. In effective responses, diagram labels were used throughout the explanation.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Exchange rate diagrams</h5>\n<p>Always use the currency combination outlined in the question and apply this consistently to your diagram and text.</p>\n</div>",
+   "modelAnswer": "The table shows the UK's current account deficit widening from –1.76% of GDP in 2011 towards –4.90% in 2015 (the closest years the extract gives to the period described). A wider deficit means either UK exports have fallen, UK imports have risen, or both.\n\nIf exports fell, this means fewer foreigners need pounds to buy UK goods, so demand for the pound falls — the demand curve for pounds shifts leftwards. If imports rose instead, UK residents need to sell more pounds to buy foreign currency, so the supply of pounds rises — the supply curve shifts rightwards.\n\nOn a diagram with the price of the pound (in US dollars) on the vertical axis and the quantity of pounds on the horizontal axis, either shift lowers the equilibrium exchange rate: the pound falls from Po to P1 against the US dollar, i.e. it depreciates."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:b0d083c3",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q13",
+  "question": "Which of the following is the most likely consequence for UK consumers of a fall in the UK exchange rate?",
+  "options": [
+   "An increase in the rate of inflation",
+   "An increase in the standard of living",
+   "An increase in overseas tourism",
+   "An increase in unemployment"
+  ],
+  "hint": "A fall (depreciation) makes imports dearer, including imported raw materials, which feeds through as cost-push inflation. The other options describe the opposite of what tends to happen.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: A — An increase in the rate of inflation</strong></p>\n<ul>\n<li>A fall in the exchange rate makes imports, including raw materials, more expensive, feeding through as inflation. It tends to REDUCE the standard of living (B) and REDUCE overseas tourism by UK residents, since their pounds buy less abroad (C), not increase it.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:5d6f5cc4",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q14",
+  "question": "The diagram shows the supply and demand for the Euro expressed in Sterling (£). If the UK increases its demand for imports from countries whose currency is the Euro, which of these will happen?",
+  "options": [
+   "The demand curve will shift downwards to the left",
+   "The demand curve will shift upwards to the right",
+   "There will be no change in the position of either the supply curve or of the demand curve",
+   "The supply curve will shift upwards to the left"
+  ],
+  "hint": "Careful — this diagram is for the EURO (priced in £), not the pound. UK residents buying more EU imports need to acquire MORE euros, so DEMAND for euros rises — the demand curve shifts right.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — The demand curve will shift upwards to the right</strong></p>\n<ul>\n<li>This diagram is for the market for EUROS, priced in Sterling. UK residents buying more imports from Eurozone countries need to buy more euros to pay for them, so demand for euros rises — the demand curve shifts right, not left, and supply is unaffected.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:899d174b",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q15",
+  "question": "Terry and June are planning a holiday to Canada. If the value of the UK pound (£) in terms of the Canadian dollar ($) is £1 = $1.75, how many dollars will they get if they exchange £500?",
+  "options": [
+   "$285.71",
+   "$375.00",
+   "$589.29",
+   "$875.00"
+  ],
+  "hint": "Converting FROM pounds TO dollars — multiply: £500 × 1.75.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: D — $875.00</strong></p>\n<ul>\n<li>£500 × $1.75 = $875.00. Dividing instead of multiplying (£500 ÷ 1.75 = $285.71) is the classic trap in option A.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:407599fa",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q16",
+  "question": "If the Swiss government allows the Swiss Franc to appreciate against the Euro, which of the following is most likely to happen?",
+  "options": [
+   "The number of Swiss watches exported will fall",
+   "The price of Swiss chocolate in France will fall",
+   "The rate of interest in Switzerland will rise",
+   "There will be more German tourists in Switzerland"
+  ],
+  "hint": "Appreciation makes Swiss EXPORTS more expensive abroad, so fewer are likely to be bought. Don't confuse cause and effect: an appreciation doesn't directly RAISE Swiss interest rates, and it makes Switzerland MORE expensive for German tourists, not less.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: A — The number of Swiss watches exported will fall</strong></p>\n<ul>\n<li>A stronger Franc makes Swiss exports, e.g. watches, more expensive in foreign currency terms, so export volumes are likely to fall. Swiss chocolate would become MORE expensive in France, not cheaper (B); appreciation is usually a consequence of factors like higher interest rates, not a cause of them (C); and a stronger Franc makes Switzerland MORE expensive for German tourists, discouraging visits (D).</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Several candidates answered 'C', demonstrating a confusion between interest rates and exchange rates.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:a9fde655",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q17",
+  "question": "Which of the following will cause a country's exchange rate to fall? Increased",
+  "options": [
+   "balance of payments surplus",
+   "demand for its exports",
+   "demand for its imports",
+   "rate of interest"
+  ],
+  "hint": "Increased demand for IMPORTS means more of the home currency is SUPPLIED (sold) to buy foreign currency — an increase in supply pushes the price DOWN. The other three options would all tend to push the exchange rate UP.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — Increased demand for its imports</strong></p>\n<ul>\n<li>Buying more imports means more of the home currency must be supplied (sold) to buy the foreign currency needed, so supply rises and the exchange rate falls. An increased balance of payments surplus (A), increased demand for exports (B), and a higher interest rate (D) would all tend to RAISE the exchange rate instead.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:17b4003e",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q18",
+  "question": "James and Jane are returning from a holiday in Slovenia and want to convert their euros (€) into UK pounds (£). If the value of the UK pound in terms of the euro is £1 = €1.15, how many pounds will they get if they exchange €300?",
+  "options": [
+   "£260.87",
+   "£298.65",
+   "£302.94",
+   "£345.00"
+  ],
+  "hint": "Converting FROM euros TO pounds — divide: €300 ÷ 1.15.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>\n<p><strong>Answer: A — £260.87</strong></p>\n<ul>\n<li>€300 ÷ 1.15 = £260.87. Multiplying instead of dividing (€300 × 1.15 = £345.00) is the trap in option D.</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:exam:5625b451",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q19",
+  "question": "The exchange rate of the UK Pound against the US Dollar depreciates from £1.00 = $1.50 to £1.00 = $1.00. As a result of this:",
+  "options": [
+   "the volume of UK exports to the US will fall",
+   "the volume of UK imports of US goods will rise",
+   "UK consumers will pay more for US goods",
+   "US consumers will pay more for UK goods"
+  ],
+  "hint": "A depreciation makes UK exports CHEAPER for US buyers (so export volume should RISE, not fall) and makes US goods MORE expensive for UK buyers (so import volume should FALL, and UK consumers pay more).",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: C — UK consumers will pay more for US goods</strong></p>\n<ul>\n<li>The pound now buys fewer dollars, so US goods cost UK consumers more in pounds. This depreciation should INCREASE UK export volumes to the US (ruling out A) and DECREASE the volume of US imports bought (ruling out B), while US consumers pay LESS for UK goods, not more (ruling out D).</li>\n</ul>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:mcq:b4ae304c",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The exchange rate is best defined as...",
+  "options": [
+   "The total value of a country's exports",
+   "The rate of inflation in a country",
+   "The interest rate set by the central bank",
+   "The price of one currency expressed in terms of another"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "The exchange rate is simply a price — the price of one currency in terms of another, e.g. £1 = $1.25."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:mcq:a8d2090e",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Under the UK's floating exchange rate system, the value of the pound is determined by...",
+  "options": [
+   "The Bank of England fixing a target rate",
+   "Government decree",
+   "The price of gold",
+   "The demand for and supply of pounds on foreign exchange markets"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "A floating exchange rate is set purely by market forces — demand for and supply of the currency — not by the government fixing its value."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:mcq:af1262dc",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A UK exporter selling more goods to the USA will cause...",
+  "options": [
+   "An increase in the demand for pounds",
+   "No change in the foreign exchange market",
+   "An increase in the supply of pounds",
+   "A decrease in the demand for pounds"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "US buyers must acquire pounds to pay for UK exports, so more exports mean more DEMAND for pounds — exports always sit on the demand side."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:mcq:6d63944f",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "UK consumers buying more imported goods from China will cause...",
+  "options": [
+   "An increase in the demand for pounds",
+   "A decrease in the demand for the Chinese yuan",
+   "An increase in the supply of pounds",
+   "A decrease in the supply of pounds"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "UK residents must sell pounds to acquire the foreign currency needed to pay for imports, so more imports mean more SUPPLY of pounds."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:mcq:6cca45d7",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "If £1 = $2.00 changes to £1 = $1.50, the pound has...",
+  "options": [
+   "Depreciated",
+   "Remained fixed",
+   "Appreciated",
+   "Been devalued by the government"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The pound now buys fewer dollars, so it has fallen in value — depreciated. 'Devalued' only applies under a FIXED exchange rate system, not the pound's floating one."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:mcq:2889726e",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A UK tourist exchanges £600 at a rate of £1 = $1.30. How many dollars do they receive?",
+  "options": [
+   "$600.00",
+   "$830.00",
+   "$780.00",
+   "$461.54"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "Converting FROM pounds TO dollars means multiplying: £600 × 1.30 = $780.00."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:mcq:4c48d6c2",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A holiday in the US costs $960. At £1 = $1.20, how much is this in pounds?",
+  "options": [
+   "£1,152",
+   "£960",
+   "£80",
+   "£800"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "Converting FROM dollars TO pounds means dividing: $960 ÷ 1.20 = £800."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:mcq:00bb3f72",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of the following would most likely cause the pound to APPRECIATE against the euro?",
+  "options": [
+   "A rise in UK inflation relative to the Eurozone",
+   "A fall in UK interest rates relative to the Eurozone",
+   "Speculators expecting the pound to fall",
+   "A rise in UK interest rates relative to the Eurozone"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "Higher UK rates (relative to the Eurozone) attract foreign savers seeking the better return, increasing demand for pounds and causing appreciation. The other three options would all cause depreciation."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:mcq:bd12e517",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "An appreciation of the pound is most likely to benefit which group?",
+  "options": [
+   "UK firms competing against cheap imports",
+   "UK consumers buying imported goods",
+   "UK tourism businesses hosting foreign visitors",
+   "UK exporters selling goods to the US"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "Appreciation makes imports cheaper, benefiting consumers who buy them. It tends to HARM exporters, tourism businesses (the UK becomes dearer for visitors) and firms competing with now-cheaper imports."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:mcq:b16ab93b",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A depreciation of the pound is most likely to cause which problem for the UK economy?",
+  "options": [
+   "A fall in the competitiveness of UK exports",
+   "A stronger current account deficit",
+   "Cheaper foreign holidays for UK residents",
+   "Cost-push inflation, as imported raw materials become more expensive"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "A depreciation makes imported inputs dearer, which firms pass on as higher prices — cost-push inflation. It tends to IMPROVE export competitiveness and the current account, and makes foreign holidays MORE expensive, not cheaper."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:tf:c40daea6",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A rise in the exchange rate is called depreciation.",
+  "key": {
+   "answer": false,
+   "explain": "A RISE in the exchange rate is called appreciation. Depreciation is a FALL — the two are opposites, and this is a common mix-up."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:tf:6f9f1d85",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Under a floating exchange rate, the government fixes the value of the currency.",
+  "key": {
+   "answer": false,
+   "explain": "Under a floating system the value is set purely by demand and supply on foreign exchange markets, not by government decree — that's how a FIXED system works instead."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:tf:2ddbb7e0",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "UK consumers buying more imports will increase the supply of pounds on foreign exchange markets.",
+  "key": {
+   "answer": true,
+   "explain": "To buy imports, UK residents must sell pounds to obtain the foreign currency needed, which increases the supply of pounds on the market."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:tf:2adee11d",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Higher UK interest rates relative to overseas tend to cause the pound to depreciate.",
+  "key": {
+   "answer": false,
+   "explain": "Higher relative interest rates ATTRACT foreign savers seeking the better return, increasing demand for pounds and causing the pound to APPRECIATE, not depreciate."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:tf:ea26cb0c",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "An appreciation of the pound tends to help control inflation.",
+  "key": {
+   "answer": true,
+   "explain": "Appreciation makes imports cheaper and reduces demand for domestic output, both of which help prevent demand-pull inflation."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:tf:142c7d09",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A depreciation of the pound always benefits UK exporters, with no downsides.",
+  "key": {
+   "answer": false,
+   "explain": "While depreciation makes exports cheaper abroad, it also makes imported raw materials more expensive and can cause inflation — so it is a genuine trade-off, not a pure benefit."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:tf:11acab98",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Devaluation and depreciation mean exactly the same thing and can be used interchangeably regardless of the exchange rate system.",
+  "key": {
+   "answer": false,
+   "explain": "Devaluation is the term for a deliberate fall under a FIXED exchange rate system; depreciation is the term for a market-driven fall under a FLOATING system like the pound's."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:tf:32d1cd15",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A stronger pound makes it cheaper for UK residents to go on holiday abroad.",
+  "key": {
+   "answer": true,
+   "explain": "Appreciation means each pound buys more foreign currency, so foreign holidays and spending abroad become cheaper for UK residents."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:learn:9ae30867",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is the exchange rate? Supply, demand and the float",
+  "reading": "<p><strong>The exchange rate is the price of one currency expressed in terms of another</strong> — e.g. £1 = $1.25. The pound is a <strong>floating exchange rate</strong>, which means its value is NOT fixed by the government but determined purely by the <strong>demand for and supply of pounds</strong> on foreign exchange markets — exactly the same demand/supply logic you already know from ordinary markets, just applied to a currency instead of a good.</p>\n<h4>Where demand for pounds comes from</h4>\n<ul>\n<li>Overseas buyers who want to purchase UK <strong>exports</strong> (goods and services) — they must first buy pounds to pay for them.</li>\n<li>Foreign savers who want to <strong>invest</strong> in UK bank accounts, UK businesses, or UK property.</li>\n<li><strong>Speculators</strong> who believe the pound's value will rise.</li>\n</ul>\n<h4>Where supply of pounds comes from</h4>\n<ul>\n<li>UK residents who want to buy <strong>imports</strong> — they must sell pounds to buy the foreign currency needed to pay for them.</li>\n<li>UK savers and firms who want to invest abroad.</li>\n<li>Speculators who believe the pound's value will fall.</li>\n</ul>\n<h4>Appreciation and depreciation — get the direction right every time</h4>\n<ul>\n<li><strong>Appreciation</strong> (a RISE in the exchange rate) = the pound is worth MORE — one pound buys MORE foreign currency. Caused by a rightward shift in demand for pounds, OR a decrease (leftward shift) in supply of pounds.</li>\n<li><strong>Depreciation</strong> (a FALL in the exchange rate) = the pound is worth LESS — one pound buys FEWER foreign currency. Caused by a rightward shift in supply of pounds, OR a decrease (leftward shift) in demand for pounds.</li>\n<li>Under a FIXED exchange rate system the equivalent terms are <strong>revaluation</strong> (up) and <strong>devaluation</strong> (down) — worth knowing they exist, but the GCSE focus is the floating pound.</li>\n</ul>",
+  "question": "A rise in the exchange rate of the pound is called...",
+  "options": [
+   "Appreciation",
+   "Revaluation",
+   "Depreciation",
+   "Devaluation"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A rise in a FLOATING currency's value is called appreciation. Devaluation and revaluation are the equivalent terms under a FIXED exchange rate system, where the government sets the change deliberately."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:learn:55ff21ae",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What shifts demand and supply of a currency",
+  "reading": "<p>Six drivers push the exchange rate in <strong>opposite</strong> directions depending on which side of the market they hit. Learn the pattern once, then apply it either way.</p>\n<h4>What increases DEMAND for pounds (appreciation)</h4>\n<ul>\n<li><strong>UK goods gain a reputation for quality</strong> → more demand for exports → more demand for £.</li>\n<li><strong>Improved UK productivity or lower UK inflation (relative to trading partners)</strong> → lower costs → more competitive exports → more demand for £.</li>\n<li><strong>Rising incomes abroad</strong> → foreigners can afford more UK exports → more demand for £.</li>\n<li><strong>Higher UK interest rates (relative to overseas)</strong> → foreign savers move funds into UK banks to earn the better return → more demand for £. (Link to 3.6 monetary policy.)</li>\n<li><strong>Lower UK corporation tax</strong> → firms keep more profit → attracts foreign investment → more demand for £.</li>\n<li><strong>Speculation</strong> that the pound will rise → speculators buy pounds now.</li>\n</ul>\n<h4>What increases SUPPLY of pounds (depreciation)</h4>\n<ul>\n<li><strong>Foreign goods gain a reputation for quality</strong> → more UK demand for imports → more £ sold to buy foreign currency.</li>\n<li><strong>Foreign productivity gains or lower foreign inflation</strong> → cheaper imports → more £ supplied.</li>\n<li><strong>Rising UK incomes</strong> → UK consumers buy more imports → more £ supplied.</li>\n<li><strong>Lower UK interest rates (relative to overseas)</strong> → UK savers move funds abroad for a better return → more £ supplied.</li>\n<li><strong>Lower foreign corporation tax</strong> → attracts UK firms to invest abroad, e.g. Tesco operating in over 10 countries → more £ supplied.</li>\n<li><strong>Speculation</strong> that the pound will fall → speculators sell pounds now.</li>\n</ul>\n<p><strong>The classic exam trap:</strong> it is easy to get demand and supply the wrong way round. Remember: foreigners buying UK EXPORTS = they DEMAND pounds. UK residents buying IMPORTS = UK residents SUPPLY pounds (because they must sell pounds to get the foreign currency).</p>",
+  "question": "Higher UK interest rates relative to overseas most directly cause...",
+  "options": [
+   "An increase in the supply of pounds",
+   "A decrease in demand for pounds",
+   "An increase in demand for pounds, as foreign savers seek the better return",
+   "No change to the exchange rate"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "Higher UK rates make holding pounds in a UK bank more rewarding, so foreign savers move funds INTO the UK to take advantage — increasing demand for pounds and causing appreciation."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:learn:1555780f",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "The effects of appreciation and depreciation — output, inflation, current account",
+  "reading": "<p>Every exam question about the EFFECTS of an exchange rate change is really asking you to run the same chain of reasoning, just in whichever direction the question specifies.</p>\n<h4>Output and employment</h4>\n<ul>\n<li><strong>Appreciation (rise):</strong> exports become more expensive abroad (less overseas demand) and imports become cheaper (domestic firms lose sales too) → lower demand for domestic output → lower output → fewer workers needed.</li>\n<li><strong>Depreciation (fall):</strong> the opposite — cheaper exports and a better ability to compete against imports at home → higher output → more workers needed.</li>\n</ul>\n<h4>Inflation</h4>\n<ul>\n<li><strong>Appreciation</strong> → lower demand for domestic products AND cheaper imported inputs → helps PREVENT demand-pull inflation.</li>\n<li><strong>Depreciation</strong> → higher demand for domestic products AND dearer imported inputs → can CAUSE inflation (both demand-pull and cost-push).</li>\n</ul>\n<h4>Firms that import raw materials or components</h4>\n<ul>\n<li><strong>Appreciation</strong> → cheaper imported inputs, lower costs of production.</li>\n<li><strong>Depreciation</strong> → more expensive imported inputs, higher costs of production.</li>\n</ul>\n<h4>The current account (link to 4.2)</h4>\n<ul>\n<li><strong>Appreciation</strong> → fewer exports, more imports → likely to WIDEN a current account deficit.</li>\n<li><strong>Depreciation</strong> → more exports, fewer imports → likely to IMPROVE the current account (move towards surplus).</li>\n</ul>\n<p><strong>The trade-off that drives every evaluate question here:</strong> a weak pound helps exporters but stokes inflation; a strong pound curbs inflation but hurts exporters. There is no single \"right\" exchange rate — only trade-offs.</p>",
+  "question": "A depreciation of the pound is most likely to...",
+  "options": [
+   "Increase cost-push inflation, as imported inputs become dearer",
+   "Make UK exports less competitive abroad",
+   "Prevent demand-pull inflation",
+   "Widen the current account deficit"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A depreciation makes imported raw materials and components more expensive, which firms pass on as higher prices — cost-push inflation. It tends to IMPROVE the current account and make exports MORE competitive, not less."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:learn:37646d15",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Effects on consumers and producers — the exam's favourite evaluate",
+  "reading": "<p>Questions on this paper repeatedly ask you to evaluate the impact on CONSUMERS and PRODUCERS by name — read which group the question specifies and don't drift.</p>\n<h4>Consumers</h4>\n<ul>\n<li><strong>Imported goods:</strong> appreciation makes them cheaper, with more choice and better quality available; depreciation makes them more expensive with less choice.</li>\n<li><strong>Money left over / quality of life:</strong> higher after an appreciation, lower after a depreciation.</li>\n<li><strong>Foreign holidays:</strong> cheaper after an appreciation (more foreign currency per £); more expensive after a depreciation.</li>\n<li><strong>Interest rates:</strong> appreciation links to lower inflation, so the central bank may CUT interest rates — good for borrowers. Depreciation links to higher inflation, so the central bank may RAISE interest rates — bad for borrowers.</li>\n</ul>\n<h4>Producers</h4>\n<ul>\n<li><strong>Imported raw materials/components:</strong> cheaper after appreciation, dearer after depreciation.</li>\n<li><strong>Exporters:</strong> appreciation makes their goods more expensive abroad, likely fewer sales; depreciation makes them cheaper abroad, likely more sales.</li>\n<li><strong>UK tourism/hospitality:</strong> benefits from depreciation, since the UK becomes cheaper for overseas visitors.</li>\n<li><strong>Overseas-holiday firms</strong> (selling holidays abroad to UK customers) benefit from appreciation, since the whole holiday costs less.</li>\n</ul>\n<h4>Real extract-based evaluation levers</h4>\n<ul>\n<li>The SIZE of the change — a small movement in the exchange rate has little impact; a large one matters more.</li>\n<li>The LENGTH of time the change lasts — a short-lived swing has minimal effect; a sustained shift matters more.</li>\n<li>Price elasticity of demand (PED) — inelastic exports may not lose much volume even after becoming more expensive, so revenue might still rise, at least until buyers find substitutes.</li>\n<li>Whether the change is passed on in full to the final price paid by consumers.</li>\n</ul>",
+  "question": "A UK firm that imports raw materials will benefit most from...",
+  "options": [
+   "A fall in the price of its own product",
+   "An appreciation of the pound",
+   "A rise in UK interest rates only",
+   "A depreciation of the pound"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "An appreciation makes the foreign currency needed to buy imported raw materials cheaper in pound terms, lowering the firm's costs of production."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:misc:886dbf4e",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"Higher UK interest rates mean British savers move MORE money abroad, increasing the supply of pounds.\"</p><p><strong>✅ The correct idea:</strong> This gets the direction backwards, and it's a real misconception the mark scheme calls out by name: 'Some candidates confused the increase with saving and less supply of pounds in the foreign exchange market.' Higher UK rates make the UK MORE attractive to save in — so foreign savers bring funds INTO the UK (demand for £ rises), and British savers have LESS reason to send money abroad (so supply of £ may fall, not rise). Either route raises the pound's value. A genuinely sophisticated version, which examiners noted was rare, links higher rates to reduced consumption, which reduces imports and therefore reduces supply of £ too. Whichever route you pick, higher UK interest rates relative to overseas always point the same way: appreciation.</p>",
+  "question": "Higher UK interest rates (relative to overseas) are most likely to cause the pound to...",
+  "options": [
+   "Appreciate, because foreign savers bring funds into the UK to earn the better return",
+   "Stay exactly the same",
+   "Depreciate, because imports become cheaper",
+   "Depreciate, because savers export more money"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Higher UK rates attract foreign savers, raising demand for £ (or reduce British saving abroad, lowering supply of £) — both point to appreciation, not depreciation."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:misc:b7d68a90",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"£54 million exported at $1.60 to the pound converts to £86.4 million.\"</p><p><strong>✅ The correct idea:</strong> The maths is right but the currency symbol is wrong — and the mark scheme flags this exact error as a common misconception: candidates writing 'to write £86.4 million rather than using a dollar sign ($).' The question asked for the value IN US DOLLARS, so the answer must be labelled $86.4 million. Whenever a calculation converts a figure INTO a different currency, the final answer needs to carry THAT currency's symbol, not the one you started with — this rule cost real marks on this exact question.</p>",
+  "question": "You correctly calculate that £54 million converts to 86.4 million in US dollars. How should you write the final answer?",
+  "options": [
+   "86.4 million pounds",
+   "£86.4 million",
+   "$86.4 million",
+   "€86.4 million"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "The question asked for the value in US dollars, so the answer must use the $ sign — using £ (the currency you started FROM, not converted TO) is the exact mistake examiners flagged."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:misc:97a27358",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"Labelling the curves on a currency diagram AS and AD, just like a macroeconomy diagram.\"</p><p><strong>✅ The correct idea:</strong> The mark scheme is direct about this: 'A common misconception is to use AS or AD when labelling the curves. The graph is for the pound sterling on international foreign exchange markets, therefore the curves should be labelled Supply (S) and Demand (D).' AS and AD refer to aggregate supply and aggregate demand for the WHOLE economy's output — a completely different diagram. A currency market diagram, like a diagram for any other market, needs ordinary Supply (S) and Demand (D) curves, with the price of the currency (in another currency) on the vertical axis and the quantity of currency traded on the horizontal axis.</p>",
+  "question": "On a diagram showing the market for pounds sterling, the two curves should be labelled...",
+  "options": [
+   "S and D",
+   "MPC and MPS",
+   "LRAS and AD",
+   "AS and AD"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The exam mark scheme explicitly warns against AS/AD — those belong to a macroeconomy diagram. A currency market is a normal market, so it needs ordinary Supply (S) and Demand (D) curves."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:misc:3540cd24",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"If the Swiss Franc appreciates, Swiss interest rates must rise as a result.\"</p><p><strong>✅ The correct idea:</strong> This reverses cause and effect, and the examiners noted it directly: 'Several candidates answered 'C' demonstrating a confusion between interest rates and exchange rates.' On this paper the link usually runs the OTHER way: a RISE in interest rates can CAUSE a currency to appreciate, by attracting foreign savers. An appreciation happening for some other reason (rising exports, foreign investment, speculation) does not automatically cause interest rates to move at all — interest rates are set separately, typically by a central bank pursuing its own objectives like price stability. Keep the two variables clearly separate, and only link them in the specific direction a question's evidence supports.</p>",
+  "question": "Why is it wrong to assume an appreciating currency automatically causes interest rates to rise?",
+  "options": [
+   "Because only the government can change the exchange rate",
+   "Because it reverses the usual direction — higher interest rates tend to CAUSE appreciation, not the other way round by default",
+   "Because interest rates and exchange rates are unrelated in every case",
+   "Because exchange rates never affect an economy"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "The exam paper repeatedly uses higher interest rates as a CAUSE of appreciation. Assuming the reverse — that appreciation causes rates to rise — is the confusion examiners reported."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:misc:a57a8f28",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"Buying more UK exports means UK residents supply more pounds.\"</p><p><strong>✅ The correct idea:</strong> This is the single most-tested trap in the whole topic, and it appears throughout this paper's mark schemes — for example the model answer for 'analyse how an increase in demand for the pound would affect its exchange rate' is built entirely on 'increase in demand for the pound... due to more exports paid in pounds', and another question offers 'a decrease in demand for pounds (less inflow of funds) OR an increase in supply (greater outflow of funds)' as the two valid routes for a FALLING pound. The rule never changes: when FOREIGNERS buy UK EXPORTS, THEY must acquire pounds to pay for them — that is DEMAND for pounds, from the foreign buyer's side. When UK RESIDENTS buy IMPORTS, THEY must sell pounds to acquire the foreign currency — that is SUPPLY of pounds, from the UK side. Mixing these up was described by examiners as producing 'a wide range of answers, rather than the correct one' on a related diagram question. Before writing about any currency-market shift, always ask: who is doing the buying, and which currency are THEY giving up?</p>",
+  "question": "A rise in the volume of UK exports sold to Japan will most directly cause...",
+  "options": [
+   "An increase in the demand for pounds, as Japanese buyers acquire pounds to pay for the goods",
+   "A decrease in the demand for pounds",
+   "No change in the market for pounds",
+   "An increase in the supply of pounds"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Japanese buyers of UK exports must first acquire pounds to pay for them — that is an increase in DEMAND for pounds, not supply. Exports always sit on the demand side of the pound market."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:tips:4283312c",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "calculation — Calculations: pick multiply or divide, and label the right currency",
+  "reading": "<p>Every currency calculation on this paper needs the SAME two checks: which way are you converting, and which currency symbol goes on the final answer?</p>\n<ul>\n<li><strong>Converting FROM the base currency (e.g. £ TO $):</strong> MULTIPLY by the rate. £54 million × $1.60 = $86.4 million.</li>\n<li><strong>Converting TO the base currency (e.g. € TO £):</strong> DIVIDE by the rate. €5700 ÷ 1.14 = £5000.</li>\n<li><strong>Label the currency you converted INTO, not the one you started from.</strong> A real mark scheme flags writing \"£86.4 million\" instead of \"$86.4 million\" as a common misconception — 1 mark is lost for the wrong symbol even with correct working.</li>\n<li><strong>Simple differences don't need conversion at all</strong> — one question just subtracts two rates from the same table (1.37 − 1.12 = 0.25 euros) and still requires you to STATE the currency (euros) to get both marks.</li>\n</ul>",
+  "question": "A UK firm earns €8000 from sales in Germany. At a rate of £1 = €1.25, its income in pounds is...",
+  "options": [
+   "€10 000 — multiply by the rate",
+   "£10 000 — multiply by the rate",
+   "£6 400 — divide by the rate",
+   "£8 000 — no conversion needed"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "Converting FROM euros TO pounds means dividing by the rate: €8000 ÷ 1.25 = £6400. Multiplying would give the wrong answer and the wrong direction of conversion."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:tips:1c64303d",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "diagram — Diagrams: label S and D, show the shift, and don't skip it",
+  "reading": "<p>Every 6-mark \"analyse with a diagram\" question on this paper caps your marks hard if the diagram is missing or wrong.</p>\n<ul>\n<li><strong>Label the curves S and D — never AS/AD.</strong> A real mark scheme calls out AS/AD labelling as a common misconception; this is a market for a CURRENCY, not a macroeconomy diagram.</li>\n<li><strong>Show which curve shifts and which way.</strong> An increase in demand for £ = D shifts right; a rise in the supply of £ = S shifts right; a widening current account deficit could be modelled either as D shifting left (fewer exports) or S shifting right (more imports) — both are accepted.</li>\n<li><strong>No diagram, or an incorrect one, caps your mark hard.</strong> One mark scheme caps at 5 with a partially correct diagram, 4 with none at all; another caps at just 3 marks with no relevant diagram.</li>\n<li><strong>Use the question's own currency pair.</strong> If the question asks about £ against $, don't drift into £ against € — examiners specifically recommend matching your diagram and text to \"the exact question wording.\"</li>\n</ul>",
+  "question": "On a 6-mark 'analyse, with the aid of a diagram' question, what happens if you write a full, correct written analysis but include no diagram at all?",
+  "options": [
+   "Nothing — diagrams are optional extras",
+   "You automatically score 0",
+   "Your mark is capped at a lower maximum, even if the written analysis is excellent",
+   "You get full marks if the writing is detailed enough"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "The mark schemes are explicit: a missing diagram caps the maximum achievable mark (e.g. 4 out of 6), regardless of how good the written analysis is."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:tips:134930ab",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "evaluate — Evaluate: name every group the question asks for, and finish the chain",
+  "reading": "<p>One examiner's \"Assessment for learning\" note is the single most useful sentence on this paper: candidates \"often started a point correctly... but did not always develop a chain of reasoning fully... missing out the middle section.\"</p>\n<ul>\n<li><strong>Finish the chain.</strong> Don't stop at \"producers lose demand\" — explain WHY (their goods are now more expensive abroad) and then WHAT FOLLOWS (lower profit, possible redundancies).</li>\n<li><strong>Reference every named group.</strong> One mark scheme states plainly: \"In order to reach Level 3, there must be reference to consumers AND producers.\" If a question names two groups, dropping one caps you below the top band.</li>\n<li><strong>Evaluation is not two disconnected points.</strong> Examiners criticised answers that mentioned a falling cost for producers without linking it back to whether that offsets the fall in demand — always connect your two sides.</li>\n<li><strong>End with a real judgement</strong> naming what it depends on: the SIZE of the change, how LONG it lasts, and the price elasticity of demand for the goods affected are the three levers used across nearly every evaluate question on this paper.</li>\n</ul>",
+  "question": "A question asks you to 'evaluate the extent to which a rise in the pound could affect UK consumers and producers.' What is required to reach the top level (Level 3)?",
+  "options": [
+   "A long answer with lots of data",
+   "Just a strong personal opinion at the end",
+   "Reference to BOTH consumers and producers, with application, analysis and evaluation all present",
+   "Only discussing the group you find easiest"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "The mark scheme is explicit that Level 3 needs application (AO2), analysis (AO3a) AND evaluation (AO3b) — and reference to every group the question names."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:tips:a82930d7",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "definition — State/Explain: two precise elements, and match the exact currency",
+  "reading": "<p>Short-answer questions reward PRECISION over length.</p>\n<ul>\n<li><strong>\"State two...\" questions need two DISTINCT, named answers</strong> — 1 mark each. Writing just \"inflation\" for \"state two economic objectives\" was flagged as \"too vague\", because inflation control isn't itself a named objective (the objective is PRICE STABILITY).</li>\n<li><strong>\"Explain what is meant by a rise in the exchange rate\" needs TWO elements</strong>: (1) more foreign currency can be bought (2) with one unit of the home currency. Either half alone is worth 1 mark.</li>\n<li><strong>\"State what is meant by imports\" needs BOTH</strong>: goods AND services bought from abroad, PLUS the outflow of money in exchange. \"A good bought from another country\" alone drops the services element and caps you at 1 mark.</li>\n<li><strong>Match the currency named in the question.</strong> Examiners specifically recommend that \"candidates match their responses to the currency reference in the exact question wording\" — if a question is about the pound against the dollar, keep your whole answer in £/$ terms, not £/€.</li>\n</ul>",
+  "question": "For 'state two economic objectives that monetary policy can achieve', which answer would be marked as too vague to credit?",
+  "options": [
+   "A balance/surplus on the balance of payments",
+   "Controlling inflation",
+   "Price stability",
+   "Low unemployment"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "Examiners noted candidates who simply wrote 'inflation' or similar were too vague — the actual objective is named PRICE STABILITY, which IS creditable."
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:fib:b0f020f2",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A ___B1___ in the exchange rate means the pound is worth more, while a ___B2___ means it is worth less.",
+  "blankOptions": {
+   "B1": [
+    "more expensive",
+    "depreciation",
+    "rise",
+    "appreciate"
+   ],
+   "B2": [
+    "fall",
+    "demand",
+    "more expensive",
+    "revaluation"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "rise",
+    "B2": "fall"
+   }
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:fib:a2deafb3",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The exchange rate is determined by the ___B1___ for and ___B2___ of a currency on foreign exchange markets.",
+  "blankOptions": {
+   "B1": [
+    "more expensive",
+    "depreciation",
+    "devaluation",
+    "demand"
+   ],
+   "B2": [
+    "supply",
+    "fall",
+    "depreciate",
+    "cheaper"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "demand",
+    "B2": "supply"
+   }
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:fib:2804f68f",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Buying UK exports means foreigners must ___B1___ pounds, while UK residents buying imports must ___B2___ pounds.",
+  "blankOptions": {
+   "B1": [
+    "demand",
+    "depreciate",
+    "appreciation",
+    "depreciation"
+   ],
+   "B2": [
+    "appreciate",
+    "supply",
+    "devaluation",
+    "appreciation"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "demand",
+    "B2": "supply"
+   }
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:fib:76dec6c4",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A rise in the exchange rate is also called ___B1___; a fall is also called ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "appreciation",
+    "demand",
+    "rise",
+    "appreciate"
+   ],
+   "B2": [
+    "revaluation",
+    "depreciate",
+    "demand",
+    "depreciation"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "appreciation",
+    "B2": "depreciation"
+   }
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:fib:bb7f1037",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Higher UK interest rates relative to overseas tend to make the pound ___B1___, because foreign savers ___B2___ pounds to earn the better return.",
+  "blankOptions": {
+   "B1": [
+    "revaluation",
+    "supply",
+    "appreciate",
+    "depreciate"
+   ],
+   "B2": [
+    "appreciation",
+    "demand",
+    "devaluation",
+    "cheaper"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "appreciate",
+    "B2": "demand"
+   }
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:fib:e5f2924b",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A depreciation makes UK exports ___B1___ for foreign buyers but makes imported raw materials ___B2___ for UK firms.",
+  "blankOptions": {
+   "B1": [
+    "cheaper",
+    "revaluation",
+    "demand",
+    "fall"
+   ],
+   "B2": [
+    "supply",
+    "more expensive",
+    "rise",
+    "fall"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "cheaper",
+    "B2": "more expensive"
+   }
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:fad5ea39",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Exchange rate”?",
+  "options": [
+   "The record of a country's trade in goods and services, plus income and transfers, with the rest of the world",
+   "A good or service bought from another country, causing an outflow of money",
+   "Comes from overseas buyers of UK exports, foreign investors, and speculators expecting the pound to rise",
+   "The price of one currency expressed in terms of another"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Exchange rate” means: The price of one currency expressed in terms of another"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:91a393ee",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Floating exchange rate”?",
+  "options": [
+   "A system where the currency's value is set purely by demand and supply on foreign exchange markets",
+   "Comes from UK buyers of imports, UK investors abroad, and speculators expecting the pound to fall",
+   "A fall in the value of a currency relative to another",
+   "A good or service sold to another country, causing an inflow of money"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Floating exchange rate” means: A system where the currency's value is set purely by demand and supply on foreign exchange markets"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:01f32852",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Appreciation”?",
+  "options": [
+   "A rise in the value of a currency relative to another",
+   "The price of one currency expressed in terms of another",
+   "A fall in the value of a currency relative to another",
+   "Buying or selling a currency in anticipation of its future value changing"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Appreciation” means: A rise in the value of a currency relative to another"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:5a0c22b6",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Depreciation”?",
+  "options": [
+   "A system where the currency's value is set purely by demand and supply on foreign exchange markets",
+   "A fall in the value of a currency relative to another",
+   "How much the quantity of exports/imports demanded responds to a price change caused by the exchange rate",
+   "A deliberate fall in a currency's value under a FIXED exchange rate system"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Depreciation” means: A fall in the value of a currency relative to another"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:0aecf5e3",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Devaluation”?",
+  "options": [
+   "A rise in the value of a currency relative to another",
+   "A deliberate fall in a currency's value under a FIXED exchange rate system",
+   "The price of one currency expressed in terms of another",
+   "Buying or selling a currency in anticipation of its future value changing"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Devaluation” means: A deliberate fall in a currency's value under a FIXED exchange rate system"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:bf7fa665",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Revaluation”?",
+  "options": [
+   "A system where the currency's value is set purely by demand and supply on foreign exchange markets",
+   "Comes from UK buyers of imports, UK investors abroad, and speculators expecting the pound to fall",
+   "A deliberate rise in a currency's value under a FIXED exchange rate system",
+   "A deliberate fall in a currency's value under a FIXED exchange rate system"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Revaluation” means: A deliberate rise in a currency's value under a FIXED exchange rate system"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:48750df4",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Demand for pounds”?",
+  "options": [
+   "A deliberate rise in a currency's value under a FIXED exchange rate system",
+   "How much the quantity of exports/imports demanded responds to a price change caused by the exchange rate",
+   "Comes from overseas buyers of UK exports, foreign investors, and speculators expecting the pound to rise",
+   "A deliberate fall in a currency's value under a FIXED exchange rate system"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Demand for pounds” means: Comes from overseas buyers of UK exports, foreign investors, and speculators expecting the pound to rise"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:21ff1422",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Supply of pounds”?",
+  "options": [
+   "Comes from UK buyers of imports, UK investors abroad, and speculators expecting the pound to fall",
+   "The price of one currency expressed in terms of another",
+   "A deliberate fall in a currency's value under a FIXED exchange rate system",
+   "Buying or selling a currency in anticipation of its future value changing"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Supply of pounds” means: Comes from UK buyers of imports, UK investors abroad, and speculators expecting the pound to fall"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:6e5e0ddb",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Speculation (currency)”?",
+  "options": [
+   "Buying or selling a currency in anticipation of its future value changing",
+   "A system where the currency's value is set purely by demand and supply on foreign exchange markets",
+   "A good or service sold to another country, causing an inflow of money",
+   "A deliberate fall in a currency's value under a FIXED exchange rate system"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Speculation (currency)” means: Buying or selling a currency in anticipation of its future value changing"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:0caa54c2",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Current account”?",
+  "options": [
+   "A system where the currency's value is set purely by demand and supply on foreign exchange markets",
+   "A good or service bought from another country, causing an outflow of money",
+   "A rise in the value of a currency relative to another",
+   "The record of a country's trade in goods and services, plus income and transfers, with the rest of the world"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Current account” means: The record of a country's trade in goods and services, plus income and transfers, with the rest of the world"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:55bbc844",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Import”?",
+  "options": [
+   "A deliberate fall in a currency's value under a FIXED exchange rate system",
+   "A good or service bought from another country, causing an outflow of money",
+   "The price of one currency expressed in terms of another",
+   "A deliberate rise in a currency's value under a FIXED exchange rate system"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Import” means: A good or service bought from another country, causing an outflow of money"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:82989d82",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Export”?",
+  "options": [
+   "A good or service sold to another country, causing an inflow of money",
+   "The record of a country's trade in goods and services, plus income and transfers, with the rest of the world",
+   "Comes from UK buyers of imports, UK investors abroad, and speculators expecting the pound to fall",
+   "Comes from overseas buyers of UK exports, foreign investors, and speculators expecting the pound to rise"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Export” means: A good or service sold to another country, causing an inflow of money"
+  }
+ },
+ {
+  "id": "economics:4-3-exchange-rates:match:3c522305",
+  "pageId": "economics:4-3-exchange-rates",
+  "pageName": "4.3 Exchange Rates",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Price elasticity of demand (trade)”?",
+  "options": [
+   "How much the quantity of exports/imports demanded responds to a price change caused by the exchange rate",
+   "The record of a country's trade in goods and services, plus income and transfers, with the rest of the world",
+   "Buying or selling a currency in anticipation of its future value changing",
+   "A deliberate rise in a currency's value under a FIXED exchange rate system"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Price elasticity of demand (trade)” means: How much the quantity of exports/imports demanded responds to a price change caused by the exchange rate"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:8618f1e9",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q1i",
+  "question": "State two ways of measuring how developed a country is.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<p>UK balance of payments current account data for 2014</p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2014</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">£292 867m</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">£412 472m</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">£214 856m</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">£128 993m</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">£85 863m</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–</td></tr>\n</table>",
+  "hint": "Any two of: GDP (per capita), life expectancy, access to health care, access to technology, access to education.",
+  "starter": "1. ... 2. ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>GDP (per capita)</li>\n<li>Life expectancy</li>\n<li>Access to health care</li>\n<li>Access to technology</li>\n<li>Access to education</li>\n</ul>\n<p>1 mark for each correct answer up to a maximum of 2 marks. Any other reasonable answer to be credited.</p>\n</div>",
+   "modelAnswer": "1. GDP per capita — the average income of the population.\n\n2. Life expectancy — how long, on average, people in the country are expected to live."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:7b7e201f",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q1ii",
+  "question": "Explain what is meant by a rise in the exchange rate.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<p>UK balance of payments current account data for 2014</p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2014</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">£292 867m</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">£412 472m</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">£214 856m</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">£128 993m</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">£85 863m</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–</td></tr>\n</table>",
+  "hint": "Think in terms of foreign currency bought per unit of home currency, OR the value of the home currency in terms of a foreign one — you only need one direction explained clearly.",
+  "starter": "A rise in the exchange rate means that...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>More foreign currency can be bought with one unit of the home currency</li>\n</ul>\n<p>1 mark for understanding that more foreign currency can be bought, without reference to the home currency. 1 mark for understanding that the home currency is worth more, without reference to a foreign currency. Allow 1 mark for general understanding of the exchange rate.</p>\n</div>",
+   "modelAnswer": "A rise in the exchange rate means that one unit of the home currency can now buy MORE units of a foreign currency than before.\n\nFor example, if £1 buys $1.20 and the rate rises, £1 might now buy $1.50 — the pound has become more valuable relative to the dollar."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:f0ea5137",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q1iii",
+  "question": "Evaluate whether a rise in the exchange rate would benefit the economy of a developed country. Use the information given in Extract 3 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<p>UK balance of payments current account data for 2014</p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2014</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">£292 867m</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">£412 472m</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">£214 856m</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">£128 993m</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">£85 863m</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–</td></tr>\n</table>",
+  "hint": "Build the chain both ways: a stronger pound makes imports CHEAPER (good for consumers) but exports more EXPENSIVE abroad (bad for exporters, who may cut jobs). Evaluate on the size of the rise, how long it lasts, and which trading partner's currency it's measured against.",
+  "starter": "A rise in the exchange rate would make imports cheaper for UK consumers, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>An increase in the exchange rate would cause the price of imports to fall (e.g. if £1 starts at $1.20 and rises to $1.50, a US good sold at $120 was previously sold at £100 in the UK but is now sold at £80)</li>\n<li>This is good for consumers in the UK who now have greater purchasing power</li>\n<li>This is a disadvantage for UK producers as they now compete with cheaper imports</li>\n<li>UK producers may lose sales which may force them to make workers redundant</li>\n<li>The price of exports would rise and so become less competitive in foreign markets</li>\n<li>The UK exporters may lose sales which may force them to make workers redundant</li>\n<li>The economy has become less competitive, so it is losing sales at home and abroad. As demand falls, output falls</li>\n<li>Inflation is less likely as the cost of imported materials falls and the demand for home-produced goods falls</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Evaluation may include</h5>\n<ul>\n<li>The effect of a rise in the exchange rate may depend on other economic variables, for example inflation</li>\n<li>It depends on the size of the rise — a small rise will have little impact</li>\n<li>It depends on the longevity of the rise — if it is short-lived, the effects will be minimal</li>\n<li>The value of other currencies of important trading partners may be different, and the rise may only be in relation to one currency, e.g. the pound against the dollar</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>",
+   "modelAnswer": "A rise in the exchange rate makes imports cheaper: if £1 rises from buying $1.20 to $1.50, a US good priced at $120 falls from £100 to £80 in the UK. This benefits UK consumers, who gain greater purchasing power over foreign goods, and can also reduce inflation because imported materials become cheaper.\n\nHowever, it is a disadvantage for UK producers. Cheaper imports compete directly with domestic goods, so producers may lose sales and be forced to make workers redundant. At the same time, UK exports become more expensive abroad and lose competitiveness, so exporters may also lose sales and cut jobs — the whole economy could see falling demand and falling output.\n\nOverall, whether the rise benefits the economy depends on its size and how long it lasts: a small, short-lived rise will have little real impact, while a large, sustained rise could seriously damage export industries. It also depends on which currency the rate has risen against — a rise against the dollar alone matters less if the UK's main trading partners use a different currency."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:8345bb0b",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q2i",
+  "question": "Explain why GDP per capita could be used as a measure for development in a less developed country.",
+  "caseStudy": "<p><strong>Extract 3: Development in Tanzania and Globalisation</strong></p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">1990</th><th style=\"padding:6px;\">2000</th><th style=\"padding:6px;\">2010</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">539</td><td style=\"padding:6px;\">552</td><td style=\"padding:6px;\">794</td></tr>\n<tr><td style=\"padding:6px;\">Government expenditure on education (% of GDP)</td><td style=\"padding:6px;\">2.14</td><td style=\"padding:6px;\">3.00</td><td style=\"padding:6px;\">4.54</td></tr>\n<tr><td style=\"padding:6px;\">Primary school enrolment (% of age group)</td><td style=\"padding:6px;\">52.04</td><td style=\"padding:6px;\">53.53</td><td style=\"padding:6px;\">92.20</td></tr>\n</table>\n<p>The above table shows that government spending on Tanzanian schools and teachers affects the number of children attending school. As a result, the adult literacy rate (the percentage of adults who can read and write) has increased from 68% in 2010 to 82% in 2021. The benefits of an educated population, which leads to a more productive workforce, is also demonstrated by the increase in GDP per capita.</p>\n<p>Higher GDP per capita is not only due to education, but also to globalisation. Investment by Chinese multinational companies in Tanzanian industries has helped to increase and diversify its trade. The Tanzanian economy is now less dependent on the widely fluctuating prices of primary agricultural products. Moreover, there is a greater variety of job opportunities.</p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2020</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">794</td><td style=\"padding:6px;\">929</td><td style=\"padding:6px;\">1 028</td></tr>\n<tr><td style=\"padding:6px;\">Exports of goods (US$ million)</td><td style=\"padding:6px;\">4 051</td><td style=\"padding:6px;\">4 834</td><td style=\"padding:6px;\">6 061</td></tr>\n<tr><td style=\"padding:6px;\">E.g. Agricultural raw material exports (% of total)</td><td style=\"padding:6px;\">5.59</td><td style=\"padding:6px;\">3.37</td><td style=\"padding:6px;\">3.30</td></tr>\n<tr><td style=\"padding:6px;\">Imports of goods (US$ million)</td><td style=\"padding:6px;\">8 060</td><td style=\"padding:6px;\">14 768</td><td style=\"padding:6px;\">8 517</td></tr>\n<tr><td style=\"padding:6px;\">E.g. Manufactured imports (% of total)</td><td style=\"padding:6px;\">60.47</td><td style=\"padding:6px;\">42.07</td><td style=\"padding:6px;\">72.32</td></tr>\n</table>",
+  "hint": "⚠️ Documented misconception: don't confuse GDP per capita (an AVERAGE) with income distribution — they are different concepts. It is NOT measured by household, family or region.",
+  "starter": "GDP per capita is total GDP divided by the population, so...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answer might include:</strong></p>\n<ul>\n<li>GDP per capita is the total GDP divided by the population</li>\n<li>It is a measure of the standard of living or well-being for the average/typical person</li>\n<li>It can indicate the degree of poverty among the population</li>\n<li>Comparisons may be made over time and between countries to measure whether development goals have been reached</li>\n<li>It can indicate the purchasing power of a typical person</li>\n</ul>\n<p>Give 1 mark for an explanation of GDP + 1 mark for some development. Or: give 2 marks for a statement with further development.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates understood that GDP per capita indicates an 'average' income and linked it to living standards.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Misconception</h5>\n<p>A common misconception is confusion between GDP per capita as an average and wealth or income distribution, which is a different concept. Furthermore, some candidates believed GDP per capita was measured by household, family or region.</p>\n</div>",
+   "modelAnswer": "GDP per capita is the total GDP of a country divided by its population, giving an approximate measure of the average income of a typical person.\n\nThis can indicate the standard of living in a less developed country, and comparing it over time or between countries shows whether development goals — such as Tanzania's rising GDP per capita — are being reached."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:3a1eaf3d",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q2ii",
+  "question": "State two benefits of globalisation for Tanzanian producers.",
+  "caseStudy": "<p><strong>Extract 3: Development in Tanzania and Globalisation</strong></p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">1990</th><th style=\"padding:6px;\">2000</th><th style=\"padding:6px;\">2010</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">539</td><td style=\"padding:6px;\">552</td><td style=\"padding:6px;\">794</td></tr>\n<tr><td style=\"padding:6px;\">Government expenditure on education (% of GDP)</td><td style=\"padding:6px;\">2.14</td><td style=\"padding:6px;\">3.00</td><td style=\"padding:6px;\">4.54</td></tr>\n<tr><td style=\"padding:6px;\">Primary school enrolment (% of age group)</td><td style=\"padding:6px;\">52.04</td><td style=\"padding:6px;\">53.53</td><td style=\"padding:6px;\">92.20</td></tr>\n</table>\n<p>The above table shows that government spending on Tanzanian schools and teachers affects the number of children attending school. As a result, the adult literacy rate (the percentage of adults who can read and write) has increased from 68% in 2010 to 82% in 2021. The benefits of an educated population, which leads to a more productive workforce, is also demonstrated by the increase in GDP per capita.</p>\n<p>Higher GDP per capita is not only due to education, but also to globalisation. Investment by Chinese multinational companies in Tanzanian industries has helped to increase and diversify its trade. The Tanzanian economy is now less dependent on the widely fluctuating prices of primary agricultural products. Moreover, there is a greater variety of job opportunities.</p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2020</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">794</td><td style=\"padding:6px;\">929</td><td style=\"padding:6px;\">1 028</td></tr>\n<tr><td style=\"padding:6px;\">Exports of goods (US$ million)</td><td style=\"padding:6px;\">4 051</td><td style=\"padding:6px;\">4 834</td><td style=\"padding:6px;\">6 061</td></tr>\n<tr><td style=\"padding:6px;\">E.g. Agricultural raw material exports (% of total)</td><td style=\"padding:6px;\">5.59</td><td style=\"padding:6px;\">3.37</td><td style=\"padding:6px;\">3.30</td></tr>\n<tr><td style=\"padding:6px;\">Imports of goods (US$ million)</td><td style=\"padding:6px;\">8 060</td><td style=\"padding:6px;\">14 768</td><td style=\"padding:6px;\">8 517</td></tr>\n<tr><td style=\"padding:6px;\">E.g. Manufactured imports (% of total)</td><td style=\"padding:6px;\">60.47</td><td style=\"padding:6px;\">42.07</td><td style=\"padding:6px;\">72.32</td></tr>\n</table>",
+  "hint": "The extract points you towards technology transfer and wider export markets from Chinese multinational investment — but any two reasonable benefits for PRODUCERS (not the economy generally) are creditable.",
+  "starter": "1. ... 2. ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers might include:</strong></p>\n<ul>\n<li>Technology transfer</li>\n<li>Wider markets / ability to export more</li>\n<li>Access to cheaper resources</li>\n<li>Opportunities for diversification</li>\n<li>Opportunities to exploit raw materials</li>\n</ul>\n<p>1 mark for each correct answer up to a total of 2 marks. The terminology may be different, but if knowledge is evident, the mark should be awarded.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This was broadly a well answered question where candidates could identify two benefits to producers. Some candidates wrote about benefits to the economy in general or other stakeholders, which was not awardable.</p>\n</div>",
+   "modelAnswer": "1. Technology transfer from Chinese multinational companies investing in Tanzanian industries.\n\n2. Wider export markets, allowing producers to diversify and become less dependent on volatile agricultural prices."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:02f6862f",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q2iii",
+  "question": "Evaluate the benefits of globalisation for workers in Tanzania. Use the information given in Extract 3 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 3: Development in Tanzania and Globalisation</strong></p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">1990</th><th style=\"padding:6px;\">2000</th><th style=\"padding:6px;\">2010</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">539</td><td style=\"padding:6px;\">552</td><td style=\"padding:6px;\">794</td></tr>\n<tr><td style=\"padding:6px;\">Government expenditure on education (% of GDP)</td><td style=\"padding:6px;\">2.14</td><td style=\"padding:6px;\">3.00</td><td style=\"padding:6px;\">4.54</td></tr>\n<tr><td style=\"padding:6px;\">Primary school enrolment (% of age group)</td><td style=\"padding:6px;\">52.04</td><td style=\"padding:6px;\">53.53</td><td style=\"padding:6px;\">92.20</td></tr>\n</table>\n<p>The above table shows that government spending on Tanzanian schools and teachers affects the number of children attending school. As a result, the adult literacy rate (the percentage of adults who can read and write) has increased from 68% in 2010 to 82% in 2021. The benefits of an educated population, which leads to a more productive workforce, is also demonstrated by the increase in GDP per capita.</p>\n<p>Higher GDP per capita is not only due to education, but also to globalisation. Investment by Chinese multinational companies in Tanzanian industries has helped to increase and diversify its trade. The Tanzanian economy is now less dependent on the widely fluctuating prices of primary agricultural products. Moreover, there is a greater variety of job opportunities.</p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2020</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">794</td><td style=\"padding:6px;\">929</td><td style=\"padding:6px;\">1 028</td></tr>\n<tr><td style=\"padding:6px;\">Exports of goods (US$ million)</td><td style=\"padding:6px;\">4 051</td><td style=\"padding:6px;\">4 834</td><td style=\"padding:6px;\">6 061</td></tr>\n<tr><td style=\"padding:6px;\">E.g. Agricultural raw material exports (% of total)</td><td style=\"padding:6px;\">5.59</td><td style=\"padding:6px;\">3.37</td><td style=\"padding:6px;\">3.30</td></tr>\n<tr><td style=\"padding:6px;\">Imports of goods (US$ million)</td><td style=\"padding:6px;\">8 060</td><td style=\"padding:6px;\">14 768</td><td style=\"padding:6px;\">8 517</td></tr>\n<tr><td style=\"padding:6px;\">E.g. Manufactured imports (% of total)</td><td style=\"padding:6px;\">60.47</td><td style=\"padding:6px;\">42.07</td><td style=\"padding:6px;\">72.32</td></tr>\n</table>",
+  "hint": "⚠️ Name the stakeholder: this asks about WORKERS specifically — the mark scheme states answers about 'the economy in general or other stakeholders' were 'not awardable'. Match every benefit with a counter-point about workers (e.g. job creation vs displacement of local producers) and finish with a clear judgement.",
+  "starter": "Workers in Tanzania may benefit from more factory jobs created by multinationals, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Reference to Extract 3 or context (AO2):</strong> Tanzania and/or Chinese multinationals; data on manufactured imports from the table; data on per capita GDP growth.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Benefits for workers vs economic sustainability costs (evaluated)</h5>\n<ul>\n<li>Greater possibility of employment in factories set up by multinationals (such as from China). <em>However</em> such factories increase competition for local small-scale producers, so workers may lose access to jobs in local villages, which provide economic sustainability locally.</li>\n<li>Access to higher skilled jobs using technology brought by multinationals. <em>However</em> such technology may reduce opportunities for unskilled workers, so the Tanzanian economy suffers from higher levels of unemployment.</li>\n<li>Workers in Tanzania may find opportunities to migrate to jobs overseas. <em>However</em> social and political factors may place considerable limits on the movement of labour, so migrating workers suffer from poor conditions and discrimination.</li>\n<li>Working households may benefit from lower inflation because of cheaper imports. <em>However</em> there could also be downward pressure on wages; cheaper imports could also displace locally produced goods, which affects economic sustainability.</li>\n<li>Final judgement expressed clearly: whether workers in Tanzania enjoy a net benefit from globalisation.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported. N.B. To reach Level 2, application, analysis AND evaluation must all be present.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation.</p>\n<p><strong>0 marks:</strong> Response is not worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Many candidates found this question very accessible and could equate globalisation with having potential benefits to workers. Some candidates did not have matching evaluative points, or summarised previous points in a conclusion, so did not score as highly on evaluation as possible. Also, some candidates wrote about different stakeholders such as the government, or wrote about problems rather than benefits, and thus did not fully address the requirements of the question.</p>\n</div>",
+   "modelAnswer": "Workers in Tanzania can benefit from more factory jobs created by Chinese multinational investment, which has helped increase and diversify Tanzania's trade. However, these factories increase competition for local small-scale producers, so some workers may lose the village-level jobs that provided local economic sustainability instead.\n\nWorkers may also gain access to higher-skilled jobs using the technology multinationals bring, which can raise their pay. But that same technology can reduce opportunities for unskilled workers, potentially raising unemployment elsewhere in the economy.\n\nA further benefit is that working households may see lower inflation because of cheaper imports — the table shows manufactured imports growing as a share of the total. However, cheaper imports can also put downward pressure on wages and displace locally produced goods.\n\nOverall, workers directly employed by new multinational investment are likely to see a net benefit, especially where they gain new skills, but this depends heavily on whether the jobs created outweigh the local jobs and industries displaced."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:a3f36849",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q3",
+  "question": "What is the most likely cost of globalisation for consumers in developed countries?",
+  "options": [
+   "Dominant global brands",
+   "Higher prices",
+   "Increased immigration",
+   "Lower prices"
+  ],
+  "hint": "⚠️ Documented misconception: candidates often pick 'increased immigration', but that's a labour-market issue, not a direct cost for consumers. Think about what happens to variety and local shops when big global brands take over.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — Dominant global brands</strong></p>\n<ul>\n<li>Dominant global brands out-compete smaller local firms, reducing genuine variety for consumers (homogenisation). Globalisation tends to LOWER prices (D is the opposite of a cost), and higher prices (B) is not the most likely effect described here.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A common misconception was that increased immigration was a cost of globalisation, rather than the more likely negative impact of dominant global brands (A).</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:085a9ce8",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q4",
+  "question": "Why can the life expectancy of the population be used to help measure the development of a country?",
+  "options": [
+   "A larger number of people need to be educated so more teachers are required",
+   "An improved life expectancy will encourage parents to have fewer children",
+   "If people live longer there will be greater demand for health services",
+   "It can help to indicate safety levels in a country are higher due to less conflict"
+  ],
+  "hint": "Life expectancy reflects underlying quality-of-life factors — including how safe and stable a country is. Think about what a longer average lifespan implies about the conditions people are living in, not just what it later causes.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — It can help to indicate safety levels in a country are higher due to less conflict</strong></p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates answered D correctly.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:4c88ce36",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q5",
+  "question": "In the past 20 years there has been more free movement of goods and greater international interdependence. What is this called?",
+  "options": [
+   "Globalisation",
+   "International trade",
+   "Specialisation",
+   "Sustainability"
+  ],
+  "hint": "This is the exact textbook definition of globalisation — free movement of goods PLUS greater interdependence between countries.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — Globalisation</strong></p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates answered A correctly, although a relatively small proportion of candidates selected B. It is worth learning definitions fully.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:f2e02b26",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q6",
+  "question": "How is this an example of social sustainability?",
+  "options": [
+   "Residents of Manaus will have shorter travel times when visiting friends",
+   "Road repairs will be less expensive for the government in the future",
+   "The firms rebuilding the road will pay increased levels of taxation",
+   "Vehicles will use less fuel as the roads are easier to drive on"
+  ],
+  "caseStudy": "<p>Permission was granted in 2022 for a major road to be rebuilt in Brazil's Amazon rainforest. The rebuilt road will help the residents of the largest Amazon city, Manaus, to stay connected to the rest of Brazil throughout the year.</p>",
+  "hint": "⚠️ Social sustainability is about people's quality of life and social connections — not government costs, tax revenue or fuel use (those are economic/environmental, not social).",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: A — Residents of Manaus will have shorter travel times when visiting friends</strong></p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates answered A correctly, although a reasonably common misconception was selecting D, which is not an example of social sustainability.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:d2afc6e2",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q7(a)",
+  "question": "Using Extract 3, calculate the 2019 balance of trade in goods and services. Show your working.",
+  "caseStudy": "<p><strong>Extract 3: Globalisation of the US Economy</strong></p>\n<p>US Balance of Trade over 10 years</p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2009 (US$m)</th><th style=\"padding:6px;\">2019 (US$m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">1 056 043</td><td style=\"padding:6px;\">1 643 161</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">1 605 296</td><td style=\"padding:6px;\">2 567 445</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–549 253</td><td style=\"padding:6px;\">–924 284</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">501 920</td><td style=\"padding:6px;\">853 844</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">376 081</td><td style=\"padding:6px;\">567 121</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">125 839</td><td style=\"padding:6px;\">286 723</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–423 414</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The USA has free trade agreements with 20 countries, including its neighbours, Canada and Mexico. The agreements significantly reduce barriers to trade in addition to improving the environment for overseas investment. US producers have set up factories outside the USA to produce goods and components for the US domestic market as well as for markets overseas.</p>\n<p>As a result, US imports of goods have been increasing rapidly as the economy becomes less based on domestic manufacturing of consumer goods and more geared towards services, such as insurance, tourism and education.</p>\n<p>However, globalisation of the US economy is controversial. While consumers can enjoy a greater variety of cheaper goods, there is concern that the relative decline of domestic manufacturing leads to unemployment and lower wages.</p>",
+  "hint": "Balance of trade in goods and services = balance of trade in goods + balance of trade in services. Use the 2019 column: −924,284 + 286,723. Keep the negative sign, the $ sign and 'million'.",
+  "starter": "Balance of trade in goods and services (2019) = −924 284 + 286 723 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>−924 284 + 286 723</strong></p>\n<p><strong>Answer: −$637 561 million (or −$637,561,000,000)</strong></p>\n<ul>\n<li>2 marks for a correct answer (working not required). 1 mark for correct working but an incorrect answer, including a missing negative/$ sign or 'million'.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates correctly answered −$637 561 million, although some omitted the $ sign, 'million', or the negative symbol.</p>\n</div>",
+   "modelAnswer": "Balance of trade in goods and services = balance of trade in goods + balance of trade in services\n\n= −924,284 + 286,723 = −$637,561 million"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:6621b8bf",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q7(b)",
+  "question": "Using Extract 3, explain how consumers benefit from free trade agreements.",
+  "caseStudy": "<p><strong>Extract 3: Globalisation of the US Economy</strong></p>\n<p>US Balance of Trade over 10 years</p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2009 (US$m)</th><th style=\"padding:6px;\">2019 (US$m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">1 056 043</td><td style=\"padding:6px;\">1 643 161</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">1 605 296</td><td style=\"padding:6px;\">2 567 445</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–549 253</td><td style=\"padding:6px;\">–924 284</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">501 920</td><td style=\"padding:6px;\">853 844</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">376 081</td><td style=\"padding:6px;\">567 121</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">125 839</td><td style=\"padding:6px;\">286 723</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–423 414</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The USA has free trade agreements with 20 countries, including its neighbours, Canada and Mexico. The agreements significantly reduce barriers to trade in addition to improving the environment for overseas investment. US producers have set up factories outside the USA to produce goods and components for the US domestic market as well as for markets overseas.</p>\n<p>As a result, US imports of goods have been increasing rapidly as the economy becomes less based on domestic manufacturing of consumer goods and more geared towards services, such as insurance, tourism and education.</p>\n<p>However, globalisation of the US economy is controversial. While consumers can enjoy a greater variety of cheaper goods, there is concern that the relative decline of domestic manufacturing leads to unemployment and lower wages.</p>",
+  "hint": "You must explain the CHAIN, not just say 'cheaper prices'. Free trade agreements remove tariffs → imports become cheaper → consumers gain lower prices, more choice or higher purchasing power. A bare statement without the mechanism is only 1 mark.",
+  "starter": "Free trade agreements remove tariffs, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Tariffs are more or less eliminated in a free trade agreement, so imports are cheaper</li>\n<li>Consumers benefit from lower priced imports and lower inflation / better living standards / higher purchasing power</li>\n<li>Lower trade barriers lead to lower prices</li>\n<li>More competition / supply leads to lower prices / quality / variety</li>\n</ul>\n<p>2 marks for a clear explanation of how lowering trade barriers has led to more imports or how consumers benefit. 1 mark for a statement without an explanation. Failure to refer to effects on US consumers will restrict the maximum mark to 1.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates successfully identified a way in which a consumer benefitted from free trade, such as lower prices. However, several did not explain the effect — for example, writing 'cheaper prices' as a benefit rather than explaining that lower tariffs lead to lower costs/prices.</p>\n</div>",
+   "modelAnswer": "Free trade agreements more or less eliminate tariffs between member countries, which makes imported goods cheaper for US consumers to buy.\n\nThis gives consumers lower prices, greater purchasing power and access to a wider variety of goods than if the US relied only on domestic production."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:d2536d1d",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q7(c)",
+  "question": "Using Extract 3, analyse how the data on trade in goods and in services since 2009 reflect the changes in the structure of the US economy due to globalisation.",
+  "caseStudy": "<p><strong>Extract 3: Globalisation of the US Economy</strong></p>\n<p>US Balance of Trade over 10 years</p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2009 (US$m)</th><th style=\"padding:6px;\">2019 (US$m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">1 056 043</td><td style=\"padding:6px;\">1 643 161</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">1 605 296</td><td style=\"padding:6px;\">2 567 445</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–549 253</td><td style=\"padding:6px;\">–924 284</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">501 920</td><td style=\"padding:6px;\">853 844</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">376 081</td><td style=\"padding:6px;\">567 121</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">125 839</td><td style=\"padding:6px;\">286 723</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–423 414</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The USA has free trade agreements with 20 countries, including its neighbours, Canada and Mexico. The agreements significantly reduce barriers to trade in addition to improving the environment for overseas investment. US producers have set up factories outside the USA to produce goods and components for the US domestic market as well as for markets overseas.</p>\n<p>As a result, US imports of goods have been increasing rapidly as the economy becomes less based on domestic manufacturing of consumer goods and more geared towards services, such as insurance, tourism and education.</p>\n<p>However, globalisation of the US economy is controversial. While consumers can enjoy a greater variety of cheaper goods, there is concern that the relative decline of domestic manufacturing leads to unemployment and lower wages.</p>",
+  "hint": "Use the actual numbers: the goods deficit widened (−549,253 to −924,284) while the services surplus grew (125,839 to 286,723). Link this to a shift from manufacturing (secondary sector) towards services (tertiary sector) — don't just re-describe the table, explain WHY globalisation caused the shift.",
+  "starter": "The data show a widening deficit in goods alongside a growing surplus in services, which suggests...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p><strong>Changes in US economic structure:</strong> increasing deficit on the balance of trade in goods; greater surplus on the balance of trade in services. Reference may be made to the text as well as the numerical data.</p>\n<p><strong>These indicate:</strong> the US economy is now less dependent on manufacturing goods (secondary sector) for the domestic market, and is instead becoming more service-oriented (tertiary sector) — more specialisation in services.</p>\n<ul>\n<li>Globalisation has accelerated these trends, since US manufacturers cannot compete / have higher costs, leading to: decline in US manufacturing; structural/regional unemployment; increased inequality; more outsourcing.</li>\n<li>As the US has a better reputation / more expertise / lower costs / higher productivity in services than other countries: service industries are growing, there is more employment in these industries, regions in which these are based are growing, and there is increased inequality.</li>\n<li>As living standards in the US rise (due to globalisation), there is greater demand for imported consumer goods, widening the trade deficit in goods.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis in the form of developed chains of reasoning.</p>\n<p><strong>Level 2 (3–4 marks):</strong> reasonable knowledge; limited application; reasonable analysis largely in single effects.</p>\n<p><strong>Level 1 (1–2 marks):</strong> reasonable knowledge; no application; limited analysis.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question asked candidates to analyse the changes in the structure of the economy since 2009. More successful responses drew on the data to exemplify the move from secondary to tertiary industry (specialisation), and the best responses analysed the REASONS for this. There was a tendency for some candidates to re-write the information in Extract 3 without any analysis — for example, writing 'the economy becomes less based on domestic manufacturing…' or simply describing/quoting the table.</p>\n<p><strong>Exemplar 2</strong> showed a well-structured response: a relevant definition given at the start, followed by clearly identifying one cause of structural change and using the data to demonstrate the scale of the increase in the deficit, plus an appreciation of the US's advantage in services. This response achieved 6 out of 6 marks.</p>\n</div>",
+   "modelAnswer": "The data show the US goods deficit widening from −$549,253m in 2009 to −$924,284m in 2019, while the services surplus grew from $125,839m to $286,723m over the same period. This reflects a structural shift in the US economy away from domestic manufacturing (the secondary sector) and towards services (the tertiary sector).\n\nGlobalisation has accelerated this shift because US manufacturers face higher costs than overseas competitors and cannot compete on price, so domestic manufacturing has declined, contributing to structural unemployment in manufacturing regions. At the same time, the US has a strong reputation, expertise and higher productivity in services such as insurance, tourism and education, so these industries have grown and expanded their exports.\n\nRising US living standards, partly driven by globalisation itself, have also increased demand for imported consumer goods, which helps explain why the goods deficit keeps widening even as the economy specialises more in services."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:907c3d66",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q7d(i)",
+  "question": "Other than free trade agreements, state two driving factors of globalisation.",
+  "caseStudy": "<p><strong>Extract 3: Globalisation of the US Economy</strong></p>\n<p>US Balance of Trade over 10 years</p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2009 (US$m)</th><th style=\"padding:6px;\">2019 (US$m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">1 056 043</td><td style=\"padding:6px;\">1 643 161</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">1 605 296</td><td style=\"padding:6px;\">2 567 445</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–549 253</td><td style=\"padding:6px;\">–924 284</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">501 920</td><td style=\"padding:6px;\">853 844</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">376 081</td><td style=\"padding:6px;\">567 121</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">125 839</td><td style=\"padding:6px;\">286 723</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–423 414</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The USA has free trade agreements with 20 countries, including its neighbours, Canada and Mexico. The agreements significantly reduce barriers to trade in addition to improving the environment for overseas investment. US producers have set up factories outside the USA to produce goods and components for the US domestic market as well as for markets overseas.</p>\n<p>As a result, US imports of goods have been increasing rapidly as the economy becomes less based on domestic manufacturing of consumer goods and more geared towards services, such as insurance, tourism and education.</p>\n<p>However, globalisation of the US economy is controversial. While consumers can enjoy a greater variety of cheaper goods, there is concern that the relative decline of domestic manufacturing leads to unemployment and lower wages.</p>",
+  "hint": "Free trade agreements are explicitly excluded by the question — don't write about lower tariffs either, as this was 'explicitly disallowed'. Pick two others, e.g. communications/internet, economies of scale, transport, FDI, movement of labour.",
+  "starter": "1. ... 2. ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Improvements in communications and information technology, OR the internet</li>\n<li>Economies of scale</li>\n<li>Rising living standards / increasing development</li>\n<li>Improvements in transportation of goods/freight</li>\n<li>Foreign direct investment</li>\n<li>Increase in international trade</li>\n<li>Movement of labour / cheaper labour costs</li>\n<li>Innovation and new technology</li>\n<li>Rise of MNCs</li>\n<li>More consumers / bigger market available</li>\n</ul>\n<p>1 mark for each driving factor up to a maximum of 2 marks.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A significant proportion of candidates were able to identify factors that had driven globalisation, although some wrote about lower tariffs/free trade agreements, which was explicitly disallowed in the wording of the question.</p>\n</div>",
+   "modelAnswer": "1. Improvements in communications and information technology, especially the internet.\n\n2. Improvements in transportation of goods, such as containerisation, making freight cheaper and faster."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:d63afad7",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q7d(ii)",
+  "question": "Explain how one of the two factors named in part (d)(i) has led many economies to become more globalised.",
+  "caseStudy": "<p><strong>Extract 3: Globalisation of the US Economy</strong></p>\n<p>US Balance of Trade over 10 years</p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2009 (US$m)</th><th style=\"padding:6px;\">2019 (US$m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">1 056 043</td><td style=\"padding:6px;\">1 643 161</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">1 605 296</td><td style=\"padding:6px;\">2 567 445</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–549 253</td><td style=\"padding:6px;\">–924 284</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">501 920</td><td style=\"padding:6px;\">853 844</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">376 081</td><td style=\"padding:6px;\">567 121</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">125 839</td><td style=\"padding:6px;\">286 723</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–423 414</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The USA has free trade agreements with 20 countries, including its neighbours, Canada and Mexico. The agreements significantly reduce barriers to trade in addition to improving the environment for overseas investment. US producers have set up factories outside the USA to produce goods and components for the US domestic market as well as for markets overseas.</p>\n<p>As a result, US imports of goods have been increasing rapidly as the economy becomes less based on domestic manufacturing of consumer goods and more geared towards services, such as insurance, tourism and education.</p>\n<p>However, globalisation of the US economy is controversial. While consumers can enjoy a greater variety of cheaper goods, there is concern that the relative decline of domestic manufacturing leads to unemployment and lower wages.</p>",
+  "hint": "Only explain ONE factor — there's no extra mark for a second. Build the chain: the factor → what it makes possible/cheaper → why that increases global trade or investment.",
+  "starter": "Improvements in transportation mean that...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may be one of the following:</strong></p>\n<ul>\n<li>Improvements in communications and IT / the internet mean ordering goods, invoicing and payments are facilitated, OR consumers become more aware of attractive, cheaper goods produced overseas because producers advertise globally, so they demand imports</li>\n<li>Economies of scale can be achieved more easily with a larger global market, OR a producer can reduce average (unit) production costs by setting up factories overseas</li>\n<li>Rising living standards lead consumers to demand a greater variety of goods, requiring retailers to source goods worldwide</li>\n<li>Improvements in transportation of goods/freight mean goods can be shipped more quickly and easily in containers</li>\n<li>Foreign direct investment means consumers globally can access a wide variety of goods and services, OR producers can source lower priced resources and labour</li>\n<li>Increase in international trade has led to greater specialisation and thus greater trade between countries</li>\n</ul>\n<p>1 mark for some understanding shown or a statement without an explanation. 2 marks for a correct explanation ('which leads to/increases...'). N.B. only one bullet point should be used — no extra mark for a second. The answer must follow on from part (d)(i).</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates who successfully identified a factor in (d)(i) were able to explain how it facilitated more globalisation.</p>\n</div>",
+   "modelAnswer": "Improvements in transportation of goods and freight, such as containerisation, mean that goods can be shipped more quickly, more easily and much more cheaply between countries.\n\nThis lowers the cost of trading internationally, which encourages firms to source materials and sell products across borders, leading many economies to become more globalised."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:d4445d3d",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q7d(iii)",
+  "question": "Evaluate the extent to which the benefits of globalisation for US producers are greater than the costs. Use the information given in Extract 3 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 3: Globalisation of the US Economy</strong></p>\n<p>US Balance of Trade over 10 years</p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2009 (US$m)</th><th style=\"padding:6px;\">2019 (US$m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">1 056 043</td><td style=\"padding:6px;\">1 643 161</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">1 605 296</td><td style=\"padding:6px;\">2 567 445</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–549 253</td><td style=\"padding:6px;\">–924 284</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">501 920</td><td style=\"padding:6px;\">853 844</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">376 081</td><td style=\"padding:6px;\">567 121</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">125 839</td><td style=\"padding:6px;\">286 723</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–423 414</td><td style=\"padding:6px;\">–</td></tr>\n</table>\n<p>The USA has free trade agreements with 20 countries, including its neighbours, Canada and Mexico. The agreements significantly reduce barriers to trade in addition to improving the environment for overseas investment. US producers have set up factories outside the USA to produce goods and components for the US domestic market as well as for markets overseas.</p>\n<p>As a result, US imports of goods have been increasing rapidly as the economy becomes less based on domestic manufacturing of consumer goods and more geared towards services, such as insurance, tourism and education.</p>\n<p>However, globalisation of the US economy is controversial. While consumers can enjoy a greater variety of cheaper goods, there is concern that the relative decline of domestic manufacturing leads to unemployment and lower wages.</p>",
+  "hint": "⚠️ Name the stakeholder: this question is about US PRODUCERS specifically — writing about the economy in general, households or the government can 'only be partially rewarded at best'. Both costs AND benefits must be covered to reach Level 3.",
+  "starter": "One benefit for US producers is that services exports grew by 70% over the decade, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Benefits of globalisation for US producers:</strong></p>\n<ul>\n<li>Producers of services have increased their exports over the 10-year period (from the extract table) by 70%</li>\n<li>Larger markets have enabled specialisation and economies of scale that lower average costs</li>\n<li>Cheaper imported inputs (machines and raw materials) are welcomed by producers and keep inflation low</li>\n<li>US producers can benefit from lower production costs (labour and resources) overseas, especially in developing countries</li>\n<li>US producers can source technology and innovations overseas and participate in supply chains for components</li>\n<li>The trade deficit is partly compensated by net inflows on other accounts in the balance of payments, reflecting foreign investment in the US economy, from which producers benefit</li>\n<li>More foreign tourists benefit the hospitality industry; more skilled foreign workers can be employed by US producers</li>\n<li>Trade according to comparative advantage benefits producers via improved global resource allocation</li>\n<li>Globalisation ultimately leads to higher domestic incomes, increasing consumption in domestic markets, so producers enjoy higher revenues</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Costs of globalisation for US producers</h5>\n<ul>\n<li>More competition from non-US producers could cause short-term difficulties for companies that don't innovate or improve quality</li>\n<li>Globalisation has led to lower demand for US manufactured goods (domestically and overseas), resulting in structural unemployment</li>\n<li>Certain regions dependent on manufacturing and mining may suffer producer bankruptcies</li>\n<li>Producers may face labour disputes if there is difficulty assimilating foreign workers</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Evaluation may include</h5>\n<ul>\n<li>Globalisation may lead to more political tensions that could affect producers' confidence — OR fewer tensions that assist producers setting up overseas facilities (FDI)</li>\n<li>Pandemics caused by frequent cross-border travel could disrupt supply chains</li>\n<li>Structural changes shown in the data may need government assistance (technical retraining, productivity advice)</li>\n<li>Weighing up positive and negative aspects over the short and long term to reach a reasoned conclusion; final judgement expressed clearly</li>\n</ul>\n<p><strong>N.B.</strong> The question asks for 'the extent to which'. Both costs and benefits need to be covered in order to achieve Level 3.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question was generally well answered, with most candidates identifying a cost or benefit for US producers and developing a chain of reasoning analysing the impact on them. A common evaluative theme was assessing the impact of globalisation on the profitability of US producers; the most successful answers discussed the type of industry or the size of the firm. Some candidates wrote about the economy in general, or focused on households or the government, so could only be partially rewarded at best. Others wrote about producers in developing countries, which again does not answer the question set. Both costs and benefits are required to achieve Level 3.</p>\n</div>",
+   "modelAnswer": "US producers have gained real benefits from globalisation. Services exports grew by around 70% over the decade shown in the extract, reflecting how larger global markets let US service producers exploit their expertise and economies of scale. Producers also benefit from cheaper imported inputs and machinery, which keeps their costs down, and from being able to source lower-cost labour and resources overseas.\n\nHowever, there are real costs too. Increasing competition from lower-cost overseas manufacturers has contributed to a widening goods deficit and a decline in US manufacturing, causing structural unemployment in regions dependent on that industry. Producers who cannot innovate or match overseas quality and price face genuine short-term difficulties, including possible bankruptcy.\n\nOverall, the benefits are likely to outweigh the costs for producers in growing, competitive industries such as services — but for manufacturers in declining regions, the costs may dominate, at least in the short run. It depends heavily on the type of industry and the firm's ability to adapt, so the extent of net benefit varies considerably across the US producer base."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:2c328359",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q8",
+  "question": "Which of the following effects would have an impact on the environmental sustainability of the country?",
+  "options": [
+   "Greater competition from other countries",
+   "Increased unemployment in other industries",
+   "Overuse of scarce resources",
+   "Reduction in choice for consumers"
+  ],
+  "caseStudy": "<p>As a result of globalisation, a less developed country has specialised in copper mining.</p>",
+  "hint": "Environmental sustainability is about whether resource use can continue long-term. Copper is a finite resource — what happens if mining uses it up faster than it can be replaced or managed?",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO2)</h5>\n<p><strong>Answer: C — Overuse of scarce resources</strong></p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A high percentage of candidates gave Option C as the correct response to this question.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:9866a024",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q9",
+  "question": "Which of the following has been a driving factor of globalisation?",
+  "options": [
+   "Better communications",
+   "Greater environmental damage",
+   "Higher taxation on imports",
+   "Increased transport costs"
+  ],
+  "hint": "Only one option would actually make trading internationally easier and cheaper — the other three would all discourage or slow down globalisation.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: A — Better communications</strong></p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A very high percentage of candidates gave Option A as the correct response to this question.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:db94ef31",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q10",
+  "question": "Which of the following is most likely to be a benefit of globalisation to producers in developed countries?",
+  "options": [
+   "A fall in unemployment",
+   "Higher environmental standards",
+   "Increased competition",
+   "Lower wage rates"
+  ],
+  "hint": "Think from the PRODUCER's point of view, not the worker's — a lower cost of a key input (labour) is a benefit to a firm's costs, even though it may be a cost for workers. The other three options all lead to a likely COST for producers.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 3,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: D — Lower wage rates</strong></p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>A majority of candidates gave Option D as the correct response to this question. The distractors here all lead to a likely cost for producers.</p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:964c5bb8",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q11",
+  "question": "One of the driving factors of globalisation is improvements in transportation. Which of the following explains this driving factor?",
+  "options": [
+   "Container ships have reduced average costs",
+   "Improved environmental sustainability",
+   "Increased use of call centres",
+   "Lower tariff barriers on imports"
+  ],
+  "hint": "Focus specifically on TRANSPORT — call centres are a communications example, and tariffs are a trade-policy example, not a transport one.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — Container ships have reduced average costs</strong></p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:977c915b",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q12",
+  "question": "Which of the following is a cost of development for workers in a less developed country?",
+  "options": [
+   "Increased foreign investment",
+   "Increased use of machinery",
+   "Less choice of domestic brands",
+   "Migration of skilled workers"
+  ],
+  "hint": "Think about automation replacing manual labour as an economy develops — which option directly threatens WORKERS' jobs, rather than being a benefit or a consumer-side effect?",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 1,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: B — Increased use of machinery</strong></p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:3dc37f03",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q13",
+  "question": "Increased GDP per capita is used to show improved development of a country because",
+  "options": [
+   "it means there will no longer be any need for state provision",
+   "markets will have become more competitive",
+   "more opportunities for work are likely to exist",
+   "no other measure of development is available"
+  ],
+  "hint": "Rising average income is generally linked to a growing economy creating jobs. Watch the extreme wording in the other options ('no longer be any need', 'no other measure available') — these overstate the case and are usually wrong on GCSE MCQs.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: C — more opportunities for work are likely to exist</strong></p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:43a50b58",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q14(a)",
+  "question": "Using the table in Extract 2, state two trends in university enrolment in Burkina Faso and China between 2010 and 2019.",
+  "caseStudy": "<p><strong>Extract 2: Determinants of Economic Growth and Fiscal Policy</strong></p>\n<table style=\"width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Burkina Faso</th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">Females in the workforce (% aged 15-64)</td><td style=\"padding:6px;\">61.2</td><td style=\"padding:6px;\">59.8</td><td style=\"padding:6px;\">59.8</td></tr>\n<tr><td style=\"padding:6px;\">Females enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">2.3</td><td style=\"padding:6px;\">3.5</td><td style=\"padding:6px;\">5.1</td></tr>\n<tr><td style=\"padding:6px;\">Males enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">4.8</td><td style=\"padding:6px;\">6.6</td><td style=\"padding:6px;\">9.0</td></tr>\n<tr><td style=\"padding:6px;\">GDP per capita growth (annual %)</td><td style=\"padding:6px;\">5.2</td><td style=\"padding:6px;\">0.9</td><td style=\"padding:6px;\">2.7</td></tr>\n</table>\n<table style=\"width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">China</th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">Females in the workforce (% aged 15-64)</td><td style=\"padding:6px;\">69.8</td><td style=\"padding:6px;\">69.1</td><td style=\"padding:6px;\">68.5</td></tr>\n<tr><td style=\"padding:6px;\">Females enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">25.0</td><td style=\"padding:6px;\">50.2</td><td style=\"padding:6px;\">59.5</td></tr>\n<tr><td style=\"padding:6px;\">Males enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">23.5</td><td style=\"padding:6px;\">42.3</td><td style=\"padding:6px;\">48.7</td></tr>\n<tr><td style=\"padding:6px;\">GDP per capita growth (annual %)</td><td style=\"padding:6px;\">10.1</td><td style=\"padding:6px;\">6.5</td><td style=\"padding:6px;\">5.7</td></tr>\n</table>\n<p>The proportion of people, especially females, who have a university education varies considerably across different countries. Knowledge and training improve labour productivity. Education is, therefore, a significant determinant of economic growth. Another important determinant is the size of the workforce. Consequently, when there are more educated women in the workforce, economic growth is higher.</p>\n<p>Percentage gains in real GDP measure economic growth. GDP per capita is an approximate measure of the average income in a country.</p>\n<p>Average years in education is one of the factors that is used to measure social and economic development. Another important factor is life expectancy, which reflects how healthy a country's population is. When development economists measure social and economic development, they find that the index for China is almost twice that for Burkina Faso.</p>",
+  "hint": "⚠️ A TREND tracks change over TIME within one series, e.g. 'female enrolment in Burkina Faso rose from 2.3% to 5.1%'. A COMPARISON between the two countries is a different question and was explicitly marked as not creditable here. Stick to university enrolment only.",
+  "starter": "1. In Burkina Faso, female university enrolment... 2. In China, ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>In both countries, university enrolment has increased</li>\n<li>In both countries, there has been an increase in female university enrolment</li>\n<li>In both countries, there has been an increase in male university enrolment</li>\n</ul>\n<p>1 mark for each correct statement.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Many candidates scored well on this question. The key was that the response needed a 'trend' rather than a comparison (between Burkina Faso and China). It also needed to focus on university enrolment rather than any of the other data in the table.</p>\n</div>",
+   "modelAnswer": "1. In Burkina Faso, female university enrolment rose steadily, from 2.3% in 2010 to 5.1% in 2019.\n\n2. In China, male university enrolment also rose over the period, from 23.5% in 2010 to 48.7% in 2019."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:0a0d858b",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q14(b)",
+  "question": "In 2019, the population of Burkina Faso reached 20.3 million and GDP amounted to US$15.7 billion. Calculate its GDP per capita in 2019. Show your working.",
+  "caseStudy": "<p><strong>Extract 2: Determinants of Economic Growth and Fiscal Policy</strong></p>\n<table style=\"width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Burkina Faso</th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">Females in the workforce (% aged 15-64)</td><td style=\"padding:6px;\">61.2</td><td style=\"padding:6px;\">59.8</td><td style=\"padding:6px;\">59.8</td></tr>\n<tr><td style=\"padding:6px;\">Females enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">2.3</td><td style=\"padding:6px;\">3.5</td><td style=\"padding:6px;\">5.1</td></tr>\n<tr><td style=\"padding:6px;\">Males enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">4.8</td><td style=\"padding:6px;\">6.6</td><td style=\"padding:6px;\">9.0</td></tr>\n<tr><td style=\"padding:6px;\">GDP per capita growth (annual %)</td><td style=\"padding:6px;\">5.2</td><td style=\"padding:6px;\">0.9</td><td style=\"padding:6px;\">2.7</td></tr>\n</table>\n<table style=\"width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">China</th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">Females in the workforce (% aged 15-64)</td><td style=\"padding:6px;\">69.8</td><td style=\"padding:6px;\">69.1</td><td style=\"padding:6px;\">68.5</td></tr>\n<tr><td style=\"padding:6px;\">Females enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">25.0</td><td style=\"padding:6px;\">50.2</td><td style=\"padding:6px;\">59.5</td></tr>\n<tr><td style=\"padding:6px;\">Males enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">23.5</td><td style=\"padding:6px;\">42.3</td><td style=\"padding:6px;\">48.7</td></tr>\n<tr><td style=\"padding:6px;\">GDP per capita growth (annual %)</td><td style=\"padding:6px;\">10.1</td><td style=\"padding:6px;\">6.5</td><td style=\"padding:6px;\">5.7</td></tr>\n</table>\n<p>The proportion of people, especially females, who have a university education varies considerably across different countries. Knowledge and training improve labour productivity. Education is, therefore, a significant determinant of economic growth. Another important determinant is the size of the workforce. Consequently, when there are more educated women in the workforce, economic growth is higher.</p>\n<p>Percentage gains in real GDP measure economic growth. GDP per capita is an approximate measure of the average income in a country.</p>\n<p>Average years in education is one of the factors that is used to measure social and economic development. Another important factor is life expectancy, which reflects how healthy a country's population is. When development economists measure social and economic development, they find that the index for China is almost twice that for Burkina Faso.</p>",
+  "hint": "GDP per capita = GDP ÷ population. Convert billions to millions first (15.7 billion = 15,700 million) so the units match the 20.3 million population figure. Keep the $ sign.",
+  "starter": "GDP per capita = $15,700 million ÷ 20.3 million = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>15 700 million ÷ 20.3 million = 773.399</strong></p>\n<p><strong>Answer: $773.4 or $773</strong></p>\n<ul>\n<li>2 marks for correct answer. 1 mark for correct working but incorrect answer. 1 mark only if the $ sign is omitted.</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question, when answered well, usually included working — this ensured that even if the final answer was incorrect, the valid working (GDP/population) received a mark. Many candidates who correctly worked out the figure also included the currency, which is required for full marks.</p>\n</div>",
+   "modelAnswer": "GDP per capita = GDP ÷ population = $15,700 million ÷ 20.3 million\n\n= $773.4 per person"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:de4f2976",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q14c(i)",
+  "question": "In addition to spending on education and healthcare, state two other ways in which a government could increase the rate of economic growth.",
+  "caseStudy": "<p><strong>Extract 2: Determinants of Economic Growth and Fiscal Policy</strong></p>\n<table style=\"width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Burkina Faso</th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">Females in the workforce (% aged 15-64)</td><td style=\"padding:6px;\">61.2</td><td style=\"padding:6px;\">59.8</td><td style=\"padding:6px;\">59.8</td></tr>\n<tr><td style=\"padding:6px;\">Females enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">2.3</td><td style=\"padding:6px;\">3.5</td><td style=\"padding:6px;\">5.1</td></tr>\n<tr><td style=\"padding:6px;\">Males enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">4.8</td><td style=\"padding:6px;\">6.6</td><td style=\"padding:6px;\">9.0</td></tr>\n<tr><td style=\"padding:6px;\">GDP per capita growth (annual %)</td><td style=\"padding:6px;\">5.2</td><td style=\"padding:6px;\">0.9</td><td style=\"padding:6px;\">2.7</td></tr>\n</table>\n<table style=\"width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">China</th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">Females in the workforce (% aged 15-64)</td><td style=\"padding:6px;\">69.8</td><td style=\"padding:6px;\">69.1</td><td style=\"padding:6px;\">68.5</td></tr>\n<tr><td style=\"padding:6px;\">Females enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">25.0</td><td style=\"padding:6px;\">50.2</td><td style=\"padding:6px;\">59.5</td></tr>\n<tr><td style=\"padding:6px;\">Males enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">23.5</td><td style=\"padding:6px;\">42.3</td><td style=\"padding:6px;\">48.7</td></tr>\n<tr><td style=\"padding:6px;\">GDP per capita growth (annual %)</td><td style=\"padding:6px;\">10.1</td><td style=\"padding:6px;\">6.5</td><td style=\"padding:6px;\">5.7</td></tr>\n</table>\n<p>The proportion of people, especially females, who have a university education varies considerably across different countries. Knowledge and training improve labour productivity. Education is, therefore, a significant determinant of economic growth. Another important determinant is the size of the workforce. Consequently, when there are more educated women in the workforce, economic growth is higher.</p>\n<p>Percentage gains in real GDP measure economic growth. GDP per capita is an approximate measure of the average income in a country.</p>\n<p>Average years in education is one of the factors that is used to measure social and economic development. Another important factor is life expectancy, which reflects how healthy a country's population is. When development economists measure social and economic development, they find that the index for China is almost twice that for Burkina Faso.</p>",
+  "hint": "Education and healthcare spending are excluded by the question. Think fiscal and monetary policy tools: investment, other government spending, tax cuts, interest rate cuts, quantitative easing.",
+  "starter": "1. ... 2. ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Increase investment</li>\n<li>Increase government spending (apart from on education/healthcare)</li>\n<li>Decrease taxes</li>\n<li>Decrease interest rates</li>\n<li>Increase in quantitative easing</li>\n</ul>\n<p>1 mark for each correct answer.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>The best responses for this question were dynamic and gave clear examples of changes in government intervention that could increase the rate of economic growth.</p>\n</div>",
+   "modelAnswer": "1. Cutting taxes, so households and firms have more disposable income to spend and invest.\n\n2. Increasing government spending on infrastructure, such as roads and ports, other than education or healthcare."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:fa30fe57",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q14c(ii)",
+  "question": "Explain one way in which government spending on healthcare directly benefits the economy.",
+  "caseStudy": "<p><strong>Extract 2: Determinants of Economic Growth and Fiscal Policy</strong></p>\n<table style=\"width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Burkina Faso</th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">Females in the workforce (% aged 15-64)</td><td style=\"padding:6px;\">61.2</td><td style=\"padding:6px;\">59.8</td><td style=\"padding:6px;\">59.8</td></tr>\n<tr><td style=\"padding:6px;\">Females enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">2.3</td><td style=\"padding:6px;\">3.5</td><td style=\"padding:6px;\">5.1</td></tr>\n<tr><td style=\"padding:6px;\">Males enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">4.8</td><td style=\"padding:6px;\">6.6</td><td style=\"padding:6px;\">9.0</td></tr>\n<tr><td style=\"padding:6px;\">GDP per capita growth (annual %)</td><td style=\"padding:6px;\">5.2</td><td style=\"padding:6px;\">0.9</td><td style=\"padding:6px;\">2.7</td></tr>\n</table>\n<table style=\"width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">China</th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">Females in the workforce (% aged 15-64)</td><td style=\"padding:6px;\">69.8</td><td style=\"padding:6px;\">69.1</td><td style=\"padding:6px;\">68.5</td></tr>\n<tr><td style=\"padding:6px;\">Females enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">25.0</td><td style=\"padding:6px;\">50.2</td><td style=\"padding:6px;\">59.5</td></tr>\n<tr><td style=\"padding:6px;\">Males enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">23.5</td><td style=\"padding:6px;\">42.3</td><td style=\"padding:6px;\">48.7</td></tr>\n<tr><td style=\"padding:6px;\">GDP per capita growth (annual %)</td><td style=\"padding:6px;\">10.1</td><td style=\"padding:6px;\">6.5</td><td style=\"padding:6px;\">5.7</td></tr>\n</table>\n<p>The proportion of people, especially females, who have a university education varies considerably across different countries. Knowledge and training improve labour productivity. Education is, therefore, a significant determinant of economic growth. Another important determinant is the size of the workforce. Consequently, when there are more educated women in the workforce, economic growth is higher.</p>\n<p>Percentage gains in real GDP measure economic growth. GDP per capita is an approximate measure of the average income in a country.</p>\n<p>Average years in education is one of the factors that is used to measure social and economic development. Another important factor is life expectancy, which reflects how healthy a country's population is. When development economists measure social and economic development, they find that the index for China is almost twice that for Burkina Faso.</p>",
+  "hint": "The examiners noted a key was to SCALE UP from a benefit for the individual to a benefit for the whole economy — e.g. healthier workers → higher productivity → higher output.",
+  "starter": "Healthier workers are more productive, which means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Healthier workers are more productive, so output rises</li>\n<li>Higher life expectancy, so workers can work for longer, so output is higher</li>\n<li>Better health for the elderly/children, so workers take less time off work to care for them, so output is higher</li>\n<li>More jobs linked to healthcare (e.g. nurses, hospital construction workers), so less unemployment</li>\n</ul>\n<p>2 marks for a correct explanation of a benefit for the economy of healthcare spending. 1 mark for some understanding shown without linking to a benefit for the economy, e.g. how output, productivity or economic development is improved.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Many responses were awarded full marks on this question. A key element was to scale up from benefits for the individual to benefits for the economy.</p>\n</div>",
+   "modelAnswer": "Government spending on healthcare means workers stay healthier, so fewer days are lost to illness and each worker is more productive while at work.\n\nThis higher productivity raises the economy's total output, directly contributing to economic growth."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:1f388b9d",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q14c(iii)",
+  "question": "*Evaluate the extent to which economic growth brings social and economic benefits to a less developed economy. Use the information given in Extract 2 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 2: Determinants of Economic Growth and Fiscal Policy</strong></p>\n<table style=\"width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Burkina Faso</th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">Females in the workforce (% aged 15-64)</td><td style=\"padding:6px;\">61.2</td><td style=\"padding:6px;\">59.8</td><td style=\"padding:6px;\">59.8</td></tr>\n<tr><td style=\"padding:6px;\">Females enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">2.3</td><td style=\"padding:6px;\">3.5</td><td style=\"padding:6px;\">5.1</td></tr>\n<tr><td style=\"padding:6px;\">Males enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">4.8</td><td style=\"padding:6px;\">6.6</td><td style=\"padding:6px;\">9.0</td></tr>\n<tr><td style=\"padding:6px;\">GDP per capita growth (annual %)</td><td style=\"padding:6px;\">5.2</td><td style=\"padding:6px;\">0.9</td><td style=\"padding:6px;\">2.7</td></tr>\n</table>\n<table style=\"width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">China</th><th style=\"padding:6px;\">2010</th><th style=\"padding:6px;\">2015</th><th style=\"padding:6px;\">2019</th></tr>\n<tr><td style=\"padding:6px;\">Females in the workforce (% aged 15-64)</td><td style=\"padding:6px;\">69.8</td><td style=\"padding:6px;\">69.1</td><td style=\"padding:6px;\">68.5</td></tr>\n<tr><td style=\"padding:6px;\">Females enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">25.0</td><td style=\"padding:6px;\">50.2</td><td style=\"padding:6px;\">59.5</td></tr>\n<tr><td style=\"padding:6px;\">Males enrolled in university (% of relevant age group)</td><td style=\"padding:6px;\">23.5</td><td style=\"padding:6px;\">42.3</td><td style=\"padding:6px;\">48.7</td></tr>\n<tr><td style=\"padding:6px;\">GDP per capita growth (annual %)</td><td style=\"padding:6px;\">10.1</td><td style=\"padding:6px;\">6.5</td><td style=\"padding:6px;\">5.7</td></tr>\n</table>\n<p>The proportion of people, especially females, who have a university education varies considerably across different countries. Knowledge and training improve labour productivity. Education is, therefore, a significant determinant of economic growth. Another important determinant is the size of the workforce. Consequently, when there are more educated women in the workforce, economic growth is higher.</p>\n<p>Percentage gains in real GDP measure economic growth. GDP per capita is an approximate measure of the average income in a country.</p>\n<p>Average years in education is one of the factors that is used to measure social and economic development. Another important factor is life expectancy, which reflects how healthy a country's population is. When development economists measure social and economic development, they find that the index for China is almost twice that for Burkina Faso.</p>",
+  "hint": "Build a chain from growth → higher tax revenue → more spending on health/education → life expectancy and future earnings. Evaluate on timescale, how the extra income is spent/distributed, and whether harms (pollution, resource depletion, worse conditions) offset the benefit. Use the word 'extent' in your judgement.",
+  "starter": "Economic growth raises GDP per capita, which increases tax revenue, allowing the government to...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Benefits:</strong></p>\n<ul>\n<li>Economic growth may lead to increases in per capita GDP, so average incomes may rise</li>\n<li>Increases in income (with tax revenue rising) enables government/households to spend more on healthcare/education/nutrition, so increases life expectancy/future earnings</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Evaluation</h5>\n<ul>\n<li>Depends on the timescale</li>\n<li>Depends how increased income is spent</li>\n<li>Depends how increased income is distributed</li>\n<li>Depends on whether harm outweighs benefit, e.g. worse working conditions / increased pollution from increased output / depletion of resources</li>\n<li>Depends how increased output is achieved — if through investment in machines, may lead to increased unemployment</li>\n<li>Comment on a harm that offers an alternative outcome to a benefit in the analysis</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis of both social and economic benefits; good evaluation with a fully supported judgement.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Many candidates showed a strong understanding of this area and were able to differentiate between social and economic benefits for less developed economies. The use of 'standard of living' proved successful in both analysis and matching evaluation. In analytical chains of reasoning, it is important to include all simple links — starting links matter, since later reasoning builds on them (e.g. growth → higher government revenue → higher healthcare spending → social/economic benefits, rather than starting mid-chain at 'increased spending on health'). This question required alertness to the word 'extent' — stronger judgements engaged with varying levels of impact based on factors such as differing levels of development. Final judgements were usually signalled by words like 'Overall' or 'In conclusion'; evaluation signalled only by 'However' sometimes turned out to be unlinked analysis of a separate point. Effective evaluation included the duration/size of growth, the government's willingness/ability to pass on benefits, and other factors reducing a predicted rise in standard of living.</p>\n</div>",
+   "modelAnswer": "Economic growth raises GDP per capita — as shown for both Burkina Faso and China in the extract — which increases the government's tax revenue. This extra revenue can be spent on healthcare and education, raising life expectancy and future earning potential, both social and economic benefits.\n\nHowever, the extent of this benefit depends heavily on how the extra income is spent and distributed. If growth is captured mainly by a small elite, ordinary households may see little improvement in living standards despite rising GDP per capita. Growth can also bring harms that offset the gains, such as increased pollution or depletion of natural resources, and if growth is driven by investment in machinery rather than labour, it could even increase unemployment.\n\nOverall, economic growth brings real social and economic benefits to a less developed economy, particularly where — as in China's much larger rise in female university enrolment — the gains are reinvested in human capital. But the extent of the benefit depends on the timescale, how evenly the extra income is distributed, and whether the government is willing and able to pass the gains on to the wider population."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:02247aef",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q15i",
+  "question": "Explain what is meant by a free trade agreement.",
+  "caseStudy": "<p><strong>Extract 3: UK Current Account</strong></p>\n<p>In 2017, following the depreciation of the British pound (£) in 2016, the deficit on the current account balance reduced. However, in 2018 the deficit grew in every quarter. The table below shows debit items increased, while the value of goods exports grew more slowly. UK exports faced growing competition from overseas manufacturers. In 2018, the £1.8 billion increase in the trade in goods deficit was caused mainly by imports from highly competitive Asian economies increasing more quickly than UK exports.</p>\n<p>The UK has run an annual current account deficit since 1983. A current account deficit means the UK is a net borrower with the rest of the world. The UK must attract net financial inflows to finance its current account deficit, which can be achieved through selling its assets to overseas investors or borrowing from the rest of the world.</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">UK Current Account (Quarterly)</th><th style=\"padding:6px;\">2018 Q2 (£m)</th><th style=\"padding:6px;\">2018 Q3 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Exports of goods</td><td style=\"padding:6px;\">85 987</td><td style=\"padding:6px;\">88 884</td></tr>\n<tr><td style=\"padding:6px;\">Exports of services</td><td style=\"padding:6px;\">70 760</td><td style=\"padding:6px;\">69 721</td></tr>\n<tr><td style=\"padding:6px;\">Imports of goods</td><td style=\"padding:6px;\">120 560</td><td style=\"padding:6px;\">123 880</td></tr>\n<tr><td style=\"padding:6px;\">Imports of services</td><td style=\"padding:6px;\">43 195</td><td style=\"padding:6px;\">43 508</td></tr>\n<tr><td style=\"padding:6px;\">Total trade balance</td><td style=\"padding:6px;\">–7 008</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;\">a. Investment income (net)</td><td style=\"padding:6px;\">–7 142</td><td style=\"padding:6px;\">–10 780</td></tr>\n<tr><td style=\"padding:6px;\">b. Other income (net)</td><td style=\"padding:6px;\">–328</td><td style=\"padding:6px;\">–325</td></tr>\n<tr><td style=\"padding:6px;\">Total investment and other income (a+b)</td><td style=\"padding:6px;\">–7 470</td><td style=\"padding:6px;\">–11 105</td></tr>\n<tr><td style=\"padding:6px;\">Total transfers</td><td style=\"padding:6px;\">–5 476</td><td style=\"padding:6px;\">–6 634</td></tr>\n<tr><td style=\"padding:6px;\">Current balance</td><td style=\"padding:6px;\">–19 954</td><td style=\"padding:6px;\">–26 522</td></tr>\n</table>\n<p>Globalisation is demonstrated by the overall growth in trade and foreign investment. In 1983, UK exports plus imports amounted to just £159 565 million, while in 2017 the total was £1 257 706 million. Lower tariffs and expansion of free-trade areas and customs unions, which require less form filling and customs checks, have led to more competition, expanding markets and increased foreign investment. Because of this, competitive UK producers have been able to expand their sales. Improved communications, technological transfers and the development of supply chains across borders have also been contributing factors to global trade and investment growth.</p>",
+  "hint": "Two elements: no tariffs/quotas WITHIN the group, plus that members can still make their own separate trade deals outside the group (or give a correct example like NAFTA/EFTA).",
+  "starter": "A free trade agreement is when...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>There are no import tariffs or quotas on goods and services that enter one country from another country in the group</li>\n<li>The countries in the group can trade with countries outside the area in any way they wish</li>\n<li>Free Trade Agreement: free movement of goods and services between countries, without any restrictions. Examples are NAFTA and EFTA.</li>\n</ul>\n<p>1 mark for stating no tariffs or quotas for countries within the FTA. 1 mark for stating that countries within the FTA can make their own trade deals with countries outside it, OR for providing a correct example. Any other reasonable answer to be credited.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates identified the link between free trade areas and tariffs, but few either quoted the textbook definition or identified that signatories can have differing arrangements with other countries.</p>\n</div>",
+   "modelAnswer": "A free trade agreement is an agreement between a group of countries to remove tariffs and quotas on goods and services traded between them.\n\nCountries within the agreement, such as members of NAFTA, can still trade freely with countries outside the group on their own separate terms."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:4c24d236",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q15ii",
+  "question": "Explain one cost to producers of globalisation.",
+  "caseStudy": "<p><strong>Extract 3: UK Current Account</strong></p>\n<p>In 2017, following the depreciation of the British pound (£) in 2016, the deficit on the current account balance reduced. However, in 2018 the deficit grew in every quarter. The table below shows debit items increased, while the value of goods exports grew more slowly. UK exports faced growing competition from overseas manufacturers. In 2018, the £1.8 billion increase in the trade in goods deficit was caused mainly by imports from highly competitive Asian economies increasing more quickly than UK exports.</p>\n<p>The UK has run an annual current account deficit since 1983. A current account deficit means the UK is a net borrower with the rest of the world. The UK must attract net financial inflows to finance its current account deficit, which can be achieved through selling its assets to overseas investors or borrowing from the rest of the world.</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">UK Current Account (Quarterly)</th><th style=\"padding:6px;\">2018 Q2 (£m)</th><th style=\"padding:6px;\">2018 Q3 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Exports of goods</td><td style=\"padding:6px;\">85 987</td><td style=\"padding:6px;\">88 884</td></tr>\n<tr><td style=\"padding:6px;\">Exports of services</td><td style=\"padding:6px;\">70 760</td><td style=\"padding:6px;\">69 721</td></tr>\n<tr><td style=\"padding:6px;\">Imports of goods</td><td style=\"padding:6px;\">120 560</td><td style=\"padding:6px;\">123 880</td></tr>\n<tr><td style=\"padding:6px;\">Imports of services</td><td style=\"padding:6px;\">43 195</td><td style=\"padding:6px;\">43 508</td></tr>\n<tr><td style=\"padding:6px;\">Total trade balance</td><td style=\"padding:6px;\">–7 008</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;\">a. Investment income (net)</td><td style=\"padding:6px;\">–7 142</td><td style=\"padding:6px;\">–10 780</td></tr>\n<tr><td style=\"padding:6px;\">b. Other income (net)</td><td style=\"padding:6px;\">–328</td><td style=\"padding:6px;\">–325</td></tr>\n<tr><td style=\"padding:6px;\">Total investment and other income (a+b)</td><td style=\"padding:6px;\">–7 470</td><td style=\"padding:6px;\">–11 105</td></tr>\n<tr><td style=\"padding:6px;\">Total transfers</td><td style=\"padding:6px;\">–5 476</td><td style=\"padding:6px;\">–6 634</td></tr>\n<tr><td style=\"padding:6px;\">Current balance</td><td style=\"padding:6px;\">–19 954</td><td style=\"padding:6px;\">–26 522</td></tr>\n</table>\n<p>Globalisation is demonstrated by the overall growth in trade and foreign investment. In 1983, UK exports plus imports amounted to just £159 565 million, while in 2017 the total was £1 257 706 million. Lower tariffs and expansion of free-trade areas and customs unions, which require less form filling and customs checks, have led to more competition, expanding markets and increased foreign investment. Because of this, competitive UK producers have been able to expand their sales. Improved communications, technological transfers and the development of supply chains across borders have also been contributing factors to global trade and investment growth.</p>",
+  "hint": "⚠️ Don't just state a cost — the examiners noted candidates lost marks by stating a cost without explaining it. Pick one and add WHY it hurts producers, e.g. more competition from lower-cost overseas producers → harmful to domestic producers whose productivity is lower.",
+  "starter": "One cost is more competition from lower-cost overseas producers, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>More competition (competing with imports from lower-cost producers overseas), which might be harmful to domestic producers whose productivity is lower</li>\n<li>Some loss of stability if projects are financed by overseas investors, who may withdraw their investments if political/economic conditions change</li>\n<li>Producers who cannot participate in international supply chains will tend to decline</li>\n</ul>\n<p>1 mark for stating a cost which is not explained. 2 marks for providing an explained cost. Any other reasonable answer to be credited.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>This question was generally answered well, although some candidates stated a cost rather than explaining it.</p>\n</div>",
+   "modelAnswer": "One cost is increased competition from lower-cost overseas producers, since globalisation opens the domestic market to cheaper imports.\n\nThis is harmful to domestic producers whose productivity is lower, as they may struggle to match the price and could lose sales or be forced to cut jobs."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:ee75db2a",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q15iii",
+  "question": "*Evaluate the benefits of globalisation to producers in the UK. Use the information given in Extract 3 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 3: UK Current Account</strong></p>\n<p>In 2017, following the depreciation of the British pound (£) in 2016, the deficit on the current account balance reduced. However, in 2018 the deficit grew in every quarter. The table below shows debit items increased, while the value of goods exports grew more slowly. UK exports faced growing competition from overseas manufacturers. In 2018, the £1.8 billion increase in the trade in goods deficit was caused mainly by imports from highly competitive Asian economies increasing more quickly than UK exports.</p>\n<p>The UK has run an annual current account deficit since 1983. A current account deficit means the UK is a net borrower with the rest of the world. The UK must attract net financial inflows to finance its current account deficit, which can be achieved through selling its assets to overseas investors or borrowing from the rest of the world.</p>\n<table style=\"width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">UK Current Account (Quarterly)</th><th style=\"padding:6px;\">2018 Q2 (£m)</th><th style=\"padding:6px;\">2018 Q3 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Exports of goods</td><td style=\"padding:6px;\">85 987</td><td style=\"padding:6px;\">88 884</td></tr>\n<tr><td style=\"padding:6px;\">Exports of services</td><td style=\"padding:6px;\">70 760</td><td style=\"padding:6px;\">69 721</td></tr>\n<tr><td style=\"padding:6px;\">Imports of goods</td><td style=\"padding:6px;\">120 560</td><td style=\"padding:6px;\">123 880</td></tr>\n<tr><td style=\"padding:6px;\">Imports of services</td><td style=\"padding:6px;\">43 195</td><td style=\"padding:6px;\">43 508</td></tr>\n<tr><td style=\"padding:6px;\">Total trade balance</td><td style=\"padding:6px;\">–7 008</td><td style=\"padding:6px;\">–</td></tr>\n<tr><td style=\"padding:6px;\">a. Investment income (net)</td><td style=\"padding:6px;\">–7 142</td><td style=\"padding:6px;\">–10 780</td></tr>\n<tr><td style=\"padding:6px;\">b. Other income (net)</td><td style=\"padding:6px;\">–328</td><td style=\"padding:6px;\">–325</td></tr>\n<tr><td style=\"padding:6px;\">Total investment and other income (a+b)</td><td style=\"padding:6px;\">–7 470</td><td style=\"padding:6px;\">–11 105</td></tr>\n<tr><td style=\"padding:6px;\">Total transfers</td><td style=\"padding:6px;\">–5 476</td><td style=\"padding:6px;\">–6 634</td></tr>\n<tr><td style=\"padding:6px;\">Current balance</td><td style=\"padding:6px;\">–19 954</td><td style=\"padding:6px;\">–26 522</td></tr>\n</table>\n<p>Globalisation is demonstrated by the overall growth in trade and foreign investment. In 1983, UK exports plus imports amounted to just £159 565 million, while in 2017 the total was £1 257 706 million. Lower tariffs and expansion of free-trade areas and customs unions, which require less form filling and customs checks, have led to more competition, expanding markets and increased foreign investment. Because of this, competitive UK producers have been able to expand their sales. Improved communications, technological transfers and the development of supply chains across borders have also been contributing factors to global trade and investment growth.</p>",
+  "hint": "Use the extract's own figure: UK trade has grown roughly eightfold since 1983. Cover benefits like economies of scale, supply chains, technology, skilled migrant workers and foreign tourism — then evaluate with structural decline in uncompetitive regions and the need for adjustment support.",
+  "starter": "UK producers benefit from larger markets beyond the domestic economy, which allow...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Benefits may include:</strong></p>\n<ul>\n<li>Larger markets beyond the UK domestic market could lead to specialisation and economies of scale, lowering average production costs</li>\n<li>More opportunities to participate in supply chains, both with foreign companies locating in the UK or with companies overseas</li>\n<li>Less form filling and customs delays when globalisation includes freer trade or removal of tariffs (and non-tariff barriers)</li>\n<li>More opportunities to benefit from technology and innovation worldwide</li>\n<li>More skilled workers from overseas could improve productivity among UK producers</li>\n<li>More foreign tourists visit the UK, helping local economies and the hospitality industry</li>\n<li>Higher economic growth from trade and foreign investment should lead to higher incomes, so consumption of goods and services made by UK producers should widen and increase</li>\n<li>Corporate taxes are likely to be more equal across economies if globalisation is accompanied by tax negotiations and reform</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Evaluation may include</h5>\n<ul>\n<li>Total UK trade has increased by about eight times since 1983 (calculated from the extract text), demonstrating how significant globalisation is to the UK economy</li>\n<li>While there are political and environmental concerns about globalisation, on balance UK producers benefit as long as they innovate and compete with improved productivity</li>\n<li>Globalisation should overall have benefits for economic growth and employment, though in the short term there may be adjustment difficulties</li>\n<li>Producers who cannot compete globally will need assistance, either through technical transfers or through managing their decline and re-employing their workers</li>\n<li>There may be structural decline and unemployment in certain regions that have not been able to participate in international supply chains, which should be balanced against the benefits</li>\n<li>Producers may find employees resentful about working alongside foreigners, requiring social and economic policies so UK employees do not feel 'left behind'</li>\n<li>It may be necessary for the UK government to ensure multinationals cannot avoid taxes, as such avoidance would be unfair to UK producers</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Examiner's Comments</h5>\n<p>Most candidates identified benefits to producers (rarely writing only about consumers and/or the government) and were able to give a superficial judgement at the end. Only the highest-achieving candidates were able to evaluate as part of a genuinely logical argument.</p>\n</div>",
+   "modelAnswer": "UK producers benefit from access to a much larger market than the domestic economy alone — the extract shows total UK trade grew roughly eightfold between 1983 and 2017, from £159,565 million to £1,257,706 million. This larger market allows specialisation and economies of scale, lowering average production costs, and gives producers more opportunities to participate in international supply chains and access new technology.\n\nHowever, these benefits are not guaranteed for every producer. Certain UK regions dependent on industries that cannot compete globally have suffered structural decline and unemployment, and producers who cannot participate in international supply chains tend to decline rather than benefit.\n\nOverall, globalisation is likely to have benefited UK producers who can innovate and compete on quality or price, especially given how dramatically UK trade has grown since 1983. But for producers in uncompetitive industries, the costs of adjustment may dominate in the short run, so government support such as retraining may be needed to spread the benefits more evenly."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:ebda43ac",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q16",
+  "question": "Which of the following is likely to be the greatest benefit of globalisation to consumers in less developed countries?",
+  "options": [
+   "A better infrastructure",
+   "A wider range of resources",
+   "Increased migration opportunities",
+   "Increased use of technology"
+  ],
+  "hint": "Think about what foreign investment typically brings first to a less developed country's consumers, alongside the goods themselves — roads, rail and other capital projects that improve everyday access to markets.",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 0,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1b)</h5>\n<p><strong>Answer: A — A better infrastructure</strong></p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:35611ef5",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q17i",
+  "question": "Explain one driving factor of globalisation.",
+  "caseStudy": "<p><strong>Extract 1: UK Trade in the Current Account 2009-2018</strong></p>\n<img src=\"/images/economics/4-4-uk-trade-current-account-2009-2018-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'Net trade (exports minus imports)', showing UK net trade in £ billion from 2009 to 2018 for two series. The dashed 'Goods and services' line stays roughly flat between about -19 and -35 throughout, starting around -28 in 2009, dipping to about -35 in 2010, rising to about -19 in 2011, then fluctuating narrowly between about -23 and -31 through to 2018. The solid 'Goods only' line starts around -85 in 2009, worsens steadily to about -95 in 2010, -94 in 2011, -106 in 2012, -119 in 2013, -122 in 2014, improves slightly to about -117 in 2015, then worsens sharply to about -132 in 2016 and -137 in both 2017 and 2018\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Trade is the largest item in the balance of payments on the current account. The chart shows the UK's trade deficits since 2009 as measured by exports minus imports for goods and services, and for goods only. The UK's exports of services are becoming an increasingly important part of its overseas trade.</p>\n<p>Globalisation has led to UK residents being able to enjoy a higher standard of living because they can access a wide range of low-priced imported goods from rapidly growing economically less developed countries. Workers in those countries are being employed in manufacturing goods for the UK market. Equally, the UK provides a wide range of services to people in other countries.</p>",
+  "hint": "State the factor, then a brief explanation of what it makes possible, e.g. better communications → easier online ordering/advertising across borders. One well-explained factor is worth full marks.",
+  "starter": "One driving factor is improvements in transport, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Increase in trade, as countries compete through lower prices and improving the quality of their goods</li>\n<li>Increase in foreign (direct) investment, where factories overseas produce more cheaply OR export to third countries</li>\n<li>Better communications, especially the internet, for placing online orders and for advertising</li>\n<li>Advances in technology, such as a computer or car being made up of many parts from suppliers in different countries</li>\n<li>Improvements in transport, such as cheaper and faster planes, which can freight goods quickly to destinations</li>\n<li>Growth of the services economy, which can be global without the need for transporting goods</li>\n</ul>\n<p>1 mark for stating one factor, 1 mark for a brief explanation of that factor.</p>\n</div>",
+   "modelAnswer": "One driving factor of globalisation is better communications, especially the internet.\n\nThis makes it far easier for businesses to place online orders, advertise globally and coordinate with suppliers in other countries, so trade between countries increases."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:d83cffd2",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q17ii",
+  "question": "Explain one cost of globalisation on environmental sustainability in less developed countries.",
+  "caseStudy": "<p><strong>Extract 1: UK Trade in the Current Account 2009-2018</strong></p>\n<img src=\"/images/economics/4-4-uk-trade-current-account-2009-2018-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'Net trade (exports minus imports)', showing UK net trade in £ billion from 2009 to 2018 for two series. The dashed 'Goods and services' line stays roughly flat between about -19 and -35 throughout, starting around -28 in 2009, dipping to about -35 in 2010, rising to about -19 in 2011, then fluctuating narrowly between about -23 and -31 through to 2018. The solid 'Goods only' line starts around -85 in 2009, worsens steadily to about -95 in 2010, -94 in 2011, -106 in 2012, -119 in 2013, -122 in 2014, improves slightly to about -117 in 2015, then worsens sharply to about -132 in 2016 and -137 in both 2017 and 2018\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Trade is the largest item in the balance of payments on the current account. The chart shows the UK's trade deficits since 2009 as measured by exports minus imports for goods and services, and for goods only. The UK's exports of services are becoming an increasingly important part of its overseas trade.</p>\n<p>Globalisation has led to UK residents being able to enjoy a higher standard of living because they can access a wide range of low-priced imported goods from rapidly growing economically less developed countries. Workers in those countries are being employed in manufacturing goods for the UK market. Equally, the UK provides a wide range of services to people in other countries.</p>",
+  "hint": "Two elements needed: name the environmental cost (pollution, or overuse of resources) AND link it clearly to environmental sustainability specifically in a less developed country — a vague answer without that link is only 1 mark.",
+  "starter": "One environmental cost is pollution from increased specialisation, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Pollution — specialisation may cause air and/or water pollution in the production process</li>\n<li>Using up resources — if raw materials are driving growth, then once depleted these economies may face economic difficulties such as unemployment</li>\n</ul>\n<p>2 marks for a clear answer relating globalisation to environmental sustainability. 1 mark for an answer where some understanding is shown, but the cost is not clearly related to environmental sustainability or to less developed countries.</p>\n</div>",
+   "modelAnswer": "One environmental cost is increased pollution, since specialising in export production can cause air and water pollution during manufacturing.\n\nThis undermines environmental sustainability because it damages the natural environment the country relies on, and may also deplete finite raw materials, causing future economic difficulties once they run out."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:ede1f148",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q17iii",
+  "question": "*Evaluate whether globalisation is beneficial to workers in less developed countries that are exporting to the UK market. Use the information given in Extract 1 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 1: UK Trade in the Current Account 2009-2018</strong></p>\n<img src=\"/images/economics/4-4-uk-trade-current-account-2009-2018-chart-extracted.png\" alt=\"Line chart from the OCR exam paper titled 'Net trade (exports minus imports)', showing UK net trade in £ billion from 2009 to 2018 for two series. The dashed 'Goods and services' line stays roughly flat between about -19 and -35 throughout, starting around -28 in 2009, dipping to about -35 in 2010, rising to about -19 in 2011, then fluctuating narrowly between about -23 and -31 through to 2018. The solid 'Goods only' line starts around -85 in 2009, worsens steadily to about -95 in 2010, -94 in 2011, -106 in 2012, -119 in 2013, -122 in 2014, improves slightly to about -117 in 2015, then worsens sharply to about -132 in 2016 and -137 in both 2017 and 2018\" style=\"display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;\" />\n<p>Trade is the largest item in the balance of payments on the current account. The chart shows the UK's trade deficits since 2009 as measured by exports minus imports for goods and services, and for goods only. The UK's exports of services are becoming an increasingly important part of its overseas trade.</p>\n<p>Globalisation has led to UK residents being able to enjoy a higher standard of living because they can access a wide range of low-priced imported goods from rapidly growing economically less developed countries. Workers in those countries are being employed in manufacturing goods for the UK market. Equally, the UK provides a wide range of services to people in other countries.</p>",
+  "hint": "⚠️ Stay focused on WORKERS specifically. Match each benefit (more jobs, higher incomes, skills) with a genuine cost (low wages, poor conditions, exposure if UK demand slows) rather than a new unrelated point, and finish with a clear judgement on the short run vs the long run.",
+  "starter": "Workers in exporting industries benefit from more jobs, as long as exports to the UK keep growing, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Benefits may include:</strong></p>\n<ul>\n<li>More jobs in industries and services exporting to the UK, as long as exports keep growing</li>\n<li>Higher incomes as a result of working in industries where active (capital) investment is taking place</li>\n<li>Higher living standards as consumption rises with higher incomes</li>\n<li>Acquiring skills in manufacturing, as long as inward investment and infrastructure is geared towards such skill acquisition</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Costs may include</h5>\n<ul>\n<li>Low wages and poor working conditions (long hours, unsafe machinery) in an export-oriented company that is not properly regulated</li>\n<li>Wider gaps between living conditions in urban (manufacturing) areas and rural (subsistence farming) areas</li>\n<li>Machines may replace workers in some cases, though that should not happen as long as exports keep growing</li>\n<li>If the UK economy slows down and imports fewer goods, there will be unemployment in the exporting less developed countries</li>\n<li>Higher inflation because of greater demand for goods</li>\n<li>Appreciation of the less developed country's currency, which may adversely affect other (primary) goods exports</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Evaluation may include</h5>\n<ul>\n<li>Evaluation as to which benefits are greatest, and the extent of the benefits</li>\n<li>Comparison of the benefits with the costs, e.g. whether job creation is offset by low wages/poor conditions</li>\n<li>Contrast between costs in the short run and benefits in the long run, e.g. as workers become more skilled their wages and conditions could improve</li>\n<li>Judgement as to whether globalisation is beneficial in the short and/or long run, and whether the benefits outweigh the costs</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing both sides.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>",
+   "modelAnswer": "Workers in less developed countries exporting to the UK can benefit from more jobs, as long as exports keep growing, and from higher incomes where capital investment is taking place — both raising living standards as consumption rises. Some workers can also acquire new manufacturing skills where inward investment supports training.\n\nHowever, these jobs often come with low wages and poor working conditions in export-oriented firms that are not properly regulated, and can widen the gap between urban manufacturing areas and rural, subsistence-farming areas. Workers are also exposed to risk: the extract shows the UK's goods trade deficit has fluctuated, and if UK demand slows, exporting workers could face unemployment.\n\nOverall, globalisation is likely to be beneficial for these workers in the short run through job creation and rising incomes, but the extent of the benefit depends on whether firms are properly regulated and on how exposed workers are to swings in UK demand — in the long run, as skills develop, conditions may improve further."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:f56b4458",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q18(a)",
+  "question": "Explain what is meant by GDP per capita.",
+  "caseStudy": "<p><strong>Extract 2: Economic Growth and Carbon Emissions</strong></p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Botswana</th><th style=\"padding:6px;\">2016</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2018</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">7 797</td><td style=\"padding:6px;\">7 859</td><td style=\"padding:6px;\">8 031</td></tr>\n<tr><td style=\"padding:6px;\">Carbon emissions (metric tons per capita)</td><td style=\"padding:6px;\">2.86</td><td style=\"padding:6px;\">3.35</td><td style=\"padding:6px;\">3.19</td></tr>\n</table>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">USA</th><th style=\"padding:6px;\">2016</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2018</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">52 534</td><td style=\"padding:6px;\">53 356</td><td style=\"padding:6px;\">54 542</td></tr>\n<tr><td style=\"padding:6px;\">Carbon emissions (metric tons per capita)</td><td style=\"padding:6px;\">15.56</td><td style=\"padding:6px;\">15.81</td><td style=\"padding:6px;\">16.14</td></tr>\n</table>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Sweden</th><th style=\"padding:6px;\">2016</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2018</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">56 196</td><td style=\"padding:6px;\">56 611</td><td style=\"padding:6px;\">57 232</td></tr>\n<tr><td style=\"padding:6px;\">Carbon emissions (metric tons per capita)</td><td style=\"padding:6px;\">4.54</td><td style=\"padding:6px;\">4.55</td><td style=\"padding:6px;\">4.47</td></tr>\n</table>\n<p>GDP per capita is used to compare living standards or development levels between countries. Economic growth over time can be measured by rising GDP per capita. Higher living standards that result from economic growth often lead to increases in carbon emissions, because people travel more by car and use more electricity.</p>\n<p>Climate change has been identified as a negative externality that arises from the carbon emitted as a result of energy production and consumption. Despite the associated opportunity costs, most countries have pledged to reduce emissions. Governments and firms, therefore, are investing in alternative renewable energy sources in order to reduce the burning of fossil fuels. Also, governments are imposing taxes on petrol and on electricity production; the taxes provide an economic incentive for firms and consumers to reduce their energy consumption.</p>",
+  "hint": "Two elements: define what GDP measures (total value of output/income in a year) AND divide by population. A bare 'GDP divided by population' with no explanation of GDP itself is only 1 mark.",
+  "starter": "GDP per capita is the total value of a country's output in one year, divided by...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>The total value added of goods and services produced in the country in one year divided by the population</li>\n<li>The total value of final output in the country in one year divided by the population</li>\n<li>The total income (wages, interest, rent, profit) of the country's inhabitants divided by the population</li>\n</ul>\n<p>2 marks for a correct answer. 1 mark for simply stating GDP divided by population. 1 mark for just defining GDP.</p>\n</div>",
+   "modelAnswer": "GDP per capita is the total value of goods and services produced in a country in one year, divided by its population.\n\nIt gives an approximate figure for the average income or output per person in that country."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:9a952e67",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q18(b)",
+  "question": "Using the table in Extract 2, calculate the difference in 2018 in GDP per capita in Sweden and Botswana. Show your working.",
+  "caseStudy": "<p><strong>Extract 2: Economic Growth and Carbon Emissions</strong></p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Botswana</th><th style=\"padding:6px;\">2016</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2018</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">7 797</td><td style=\"padding:6px;\">7 859</td><td style=\"padding:6px;\">8 031</td></tr>\n<tr><td style=\"padding:6px;\">Carbon emissions (metric tons per capita)</td><td style=\"padding:6px;\">2.86</td><td style=\"padding:6px;\">3.35</td><td style=\"padding:6px;\">3.19</td></tr>\n</table>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">USA</th><th style=\"padding:6px;\">2016</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2018</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">52 534</td><td style=\"padding:6px;\">53 356</td><td style=\"padding:6px;\">54 542</td></tr>\n<tr><td style=\"padding:6px;\">Carbon emissions (metric tons per capita)</td><td style=\"padding:6px;\">15.56</td><td style=\"padding:6px;\">15.81</td><td style=\"padding:6px;\">16.14</td></tr>\n</table>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Sweden</th><th style=\"padding:6px;\">2016</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2018</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">56 196</td><td style=\"padding:6px;\">56 611</td><td style=\"padding:6px;\">57 232</td></tr>\n<tr><td style=\"padding:6px;\">Carbon emissions (metric tons per capita)</td><td style=\"padding:6px;\">4.54</td><td style=\"padding:6px;\">4.55</td><td style=\"padding:6px;\">4.47</td></tr>\n</table>\n<p>GDP per capita is used to compare living standards or development levels between countries. Economic growth over time can be measured by rising GDP per capita. Higher living standards that result from economic growth often lead to increases in carbon emissions, because people travel more by car and use more electricity.</p>\n<p>Climate change has been identified as a negative externality that arises from the carbon emitted as a result of energy production and consumption. Despite the associated opportunity costs, most countries have pledged to reduce emissions. Governments and firms, therefore, are investing in alternative renewable energy sources in order to reduce the burning of fossil fuels. Also, governments are imposing taxes on petrol and on electricity production; the taxes provide an economic incentive for firms and consumers to reduce their energy consumption.</p>",
+  "hint": "Subtract Botswana's 2018 GDP per capita from Sweden's 2018 figure: $57,232 − $8,031.",
+  "starter": "GDP per capita difference (2018) = $57,232 − $8,031 = ...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO2)</h5>\n<p><strong>$[57 232 – 8 031] [1 mark] = $49 201 [1 mark]</strong></p>\n</div>",
+   "modelAnswer": "Difference = Sweden's GDP per capita − Botswana's GDP per capita\n\n= $57,232 − $8,031 = $49,201"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:472df1ef",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q18(c)",
+  "question": "Using Extract 2, analyse the argument that as countries become more developed with higher living standards their carbon emissions increase.",
+  "caseStudy": "<p><strong>Extract 2: Economic Growth and Carbon Emissions</strong></p>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Botswana</th><th style=\"padding:6px;\">2016</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2018</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">7 797</td><td style=\"padding:6px;\">7 859</td><td style=\"padding:6px;\">8 031</td></tr>\n<tr><td style=\"padding:6px;\">Carbon emissions (metric tons per capita)</td><td style=\"padding:6px;\">2.86</td><td style=\"padding:6px;\">3.35</td><td style=\"padding:6px;\">3.19</td></tr>\n</table>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">USA</th><th style=\"padding:6px;\">2016</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2018</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">52 534</td><td style=\"padding:6px;\">53 356</td><td style=\"padding:6px;\">54 542</td></tr>\n<tr><td style=\"padding:6px;\">Carbon emissions (metric tons per capita)</td><td style=\"padding:6px;\">15.56</td><td style=\"padding:6px;\">15.81</td><td style=\"padding:6px;\">16.14</td></tr>\n</table>\n<table style=\"width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\">Sweden</th><th style=\"padding:6px;\">2016</th><th style=\"padding:6px;\">2017</th><th style=\"padding:6px;\">2018</th></tr>\n<tr><td style=\"padding:6px;\">GDP per capita (US$)</td><td style=\"padding:6px;\">56 196</td><td style=\"padding:6px;\">56 611</td><td style=\"padding:6px;\">57 232</td></tr>\n<tr><td style=\"padding:6px;\">Carbon emissions (metric tons per capita)</td><td style=\"padding:6px;\">4.54</td><td style=\"padding:6px;\">4.55</td><td style=\"padding:6px;\">4.47</td></tr>\n</table>\n<p>GDP per capita is used to compare living standards or development levels between countries. Economic growth over time can be measured by rising GDP per capita. Higher living standards that result from economic growth often lead to increases in carbon emissions, because people travel more by car and use more electricity.</p>\n<p>Climate change has been identified as a negative externality that arises from the carbon emitted as a result of energy production and consumption. Despite the associated opportunity costs, most countries have pledged to reduce emissions. Governments and firms, therefore, are investing in alternative renewable energy sources in order to reduce the burning of fossil fuels. Also, governments are imposing taxes on petrol and on electricity production; the taxes provide an economic incentive for firms and consumers to reduce their energy consumption.</p>",
+  "hint": "Use ALL three countries: Botswana→USA supports the argument (both GDP per capita and emissions are higher in the USA), but USA→Sweden CONTRADICTS it (Sweden's GDP per capita is higher than the USA's, yet its emissions are lower). A full answer must analyse both the supporting and contradicting evidence.",
+  "starter": "Comparing Botswana and the USA supports the argument, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>\n<p><strong>Reference to data in extract:</strong></p>\n<ul>\n<li>Between Botswana and the USA, the argument is supported because both carbon emissions and GDP per capita are higher in the USA than in Botswana</li>\n<li>But between the USA and Sweden, the argument is NOT supported, because carbon emissions are lower in Sweden than in the USA, even though Sweden's GDP per capita is higher than the USA's</li>\n<li>Although the USA's carbon emissions have increased as GDP per capita has risen, Sweden's have fallen</li>\n<li>Evidently, up to a certain level of economic development carbon emissions grow, but when a country has reached a relatively high development level, carbon emissions may level off or even fall</li>\n<li>The difference between the USA and Sweden must depend on different government policies or different lifestyles (e.g. Americans are more dependent on cars and planes for transport)</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Analysis of links</h5>\n<ul>\n<li>Less developed countries' carbon emissions will probably increase with economic growth as households gain access to electricity and higher living standards</li>\n<li>Developed countries can limit carbon emissions through investment in renewable energy and a willingness to buy more expensive, less energy-intensive goods</li>\n<li>Developed countries can invest more in public transport infrastructure so people rely less on cars</li>\n<li>Public information about climate change risks is likely to have more impact once people have already reached a reasonable standard of living</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis in the form of developed links.</p>\n<p><strong>Level 2 (3–4 marks):</strong> reasonable knowledge; limited application; reasonable analysis largely in single effects.</p>\n<p><strong>Level 1 (1–2 marks):</strong> reasonable knowledge; limited application; no analysis of the links.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>",
+   "modelAnswer": "The argument is supported when comparing Botswana and the USA: both GDP per capita ($8,031 vs $54,542 in 2018) and carbon emissions (3.19 vs 16.14 metric tons per capita) are much higher in the USA, suggesting higher living standards do bring higher emissions.\n\nHowever, comparing the USA and Sweden contradicts the argument. Sweden's GDP per capita ($57,232) is actually higher than the USA's, yet its carbon emissions (4.47) are far lower than the USA's (16.14) and have even fallen slightly over the period, while the USA's have risen.\n\nThis suggests that up to a certain level of development, carbon emissions do rise with living standards as households gain access to electricity and transport. But beyond that level, developed countries can reduce emissions through investment in renewable energy, better public transport infrastructure, and less car-dependent lifestyles — so the relationship between development and emissions is not a simple straight line, and depends heavily on government policy choices."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:eb6af58a",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q19i",
+  "question": "State what is meant by 'globalisation'.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2007 (£m)</th><th style=\"padding:6px;\">2016 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">208 000</td><td style=\"padding:6px;\">302 000</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">294 000</td><td style=\"padding:6px;\">437 000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–86 000</td><td style=\"padding:6px;\">–135 000</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">138 000</td><td style=\"padding:6px;\">245 000</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">100 000</td><td style=\"padding:6px;\">153 000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">38 000</td><td style=\"padding:6px;\">92 000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–48 000</td><td style=\"padding:6px;\">–43 000</td></tr>\n</table>\n<p>The balance of payments shows a country's transactions with the rest of the world. More trade in goods and services over time is just one feature of increased globalisation.</p>\n<p>Globalisation affects producers, workers and consumers in both developed and less developed countries.</p>\n<p style=\"font-size:12px;color:var(--mid);\">⚠️ Two cells in this table (2016 export of goods; 2007 balance of trade in services) were not recoverable from the source PDF's text layer. They are reconstructed here from the other verbatim figures, since goods balance = exports − imports and services balance = exports − imports hold exactly for every other cell in this table.</p>",
+  "hint": "Give any TWO of: greater freedom of movement between countries; free movement of goods, services, people and money; expansion of world trade; expansion of capital flows; greater international interdependence. One element alone is only 1 mark.",
+  "starter": "Globalisation means...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1a)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Greater freedom of movement between countries</li>\n<li>Free movement of goods, services, people and money</li>\n<li>The expansion of world trade in goods and services</li>\n<li>The expansion of capital flows between countries</li>\n<li>Greater international interdependence</li>\n</ul>\n<p>2 marks for a correct definition referring to at least two of the elements shown. 1 mark for a general definition (one correct element). Any other reasonable answer to be credited.</p>\n</div>",
+   "modelAnswer": "Globalisation is the expansion of world trade in goods and services between countries, alongside the freer movement of capital, people and money.\n\nIt reflects growing international interdependence, as economies become more closely connected to one another."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:35611ef5-2",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "Q19ii",
+  "question": "Explain one driving factor of globalisation.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2007 (£m)</th><th style=\"padding:6px;\">2016 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">208 000</td><td style=\"padding:6px;\">302 000</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">294 000</td><td style=\"padding:6px;\">437 000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–86 000</td><td style=\"padding:6px;\">–135 000</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">138 000</td><td style=\"padding:6px;\">245 000</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">100 000</td><td style=\"padding:6px;\">153 000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">38 000</td><td style=\"padding:6px;\">92 000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–48 000</td><td style=\"padding:6px;\">–43 000</td></tr>\n</table>\n<p>The balance of payments shows a country's transactions with the rest of the world. More trade in goods and services over time is just one feature of increased globalisation.</p>\n<p>Globalisation affects producers, workers and consumers in both developed and less developed countries.</p>\n<p style=\"font-size:12px;color:var(--mid);\">⚠️ Two cells in this table (2016 export of goods; 2007 balance of trade in services) were not recoverable from the source PDF's text layer. They are reconstructed here from the other verbatim figures, since goods balance = exports − imports and services balance = exports − imports hold exactly for every other cell in this table.</p>",
+  "hint": "State the factor, then explain briefly how it increases trade or investment between countries, e.g. lower transport/labour costs abroad → more foreign direct investment.",
+  "starter": "One driving factor is the growth of multinational corporations, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 2 marks (AO1b)</h5>\n<p><strong>Answers may include:</strong></p>\n<ul>\n<li>Increase in international trade / reductions in barriers to trade</li>\n<li>Improvements in transportation</li>\n<li>Worldwide foreign investment / growth of multinational corporations</li>\n<li>Advances in technology and communications</li>\n<li>Lower costs (wages) in some countries</li>\n</ul>\n<p>2 marks for a correct explanation of one driving factor. 1 mark for some understanding shown of a driving factor. Any other reasonable answer to be credited.</p>\n</div>",
+   "modelAnswer": "One driving factor of globalisation is the growth of multinational corporations, which set up production in multiple countries.\n\nThis is often driven by lower labour and resource costs abroad, which increases foreign direct investment and trade between countries."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:7bf972df",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "Q19iii",
+  "question": "*Evaluate the costs and benefits of globalisation for consumers in less developed countries. Use the information given in Extract 3 and your own knowledge.",
+  "caseStudy": "<p><strong>Extract 3: UK balance of payments</strong></p>\n<table style=\"width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;\">\n<tr style=\"border-bottom:1px solid var(--border);\"><th style=\"padding:6px;\"></th><th style=\"padding:6px;\">2007 (£m)</th><th style=\"padding:6px;\">2016 (£m)</th></tr>\n<tr><td style=\"padding:6px;\">Export of goods</td><td style=\"padding:6px;\">208 000</td><td style=\"padding:6px;\">302 000</td></tr>\n<tr><td style=\"padding:6px;\">Import of goods</td><td style=\"padding:6px;\">294 000</td><td style=\"padding:6px;\">437 000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods</td><td style=\"padding:6px;\">–86 000</td><td style=\"padding:6px;\">–135 000</td></tr>\n<tr><td style=\"padding:6px;\">Export of services</td><td style=\"padding:6px;\">138 000</td><td style=\"padding:6px;\">245 000</td></tr>\n<tr><td style=\"padding:6px;\">Import of services</td><td style=\"padding:6px;\">100 000</td><td style=\"padding:6px;\">153 000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in services</td><td style=\"padding:6px;\">38 000</td><td style=\"padding:6px;\">92 000</td></tr>\n<tr><td style=\"padding:6px;\">Balance of trade in goods and services</td><td style=\"padding:6px;\">–48 000</td><td style=\"padding:6px;\">–43 000</td></tr>\n</table>\n<p>The balance of payments shows a country's transactions with the rest of the world. More trade in goods and services over time is just one feature of increased globalisation.</p>\n<p>Globalisation affects producers, workers and consumers in both developed and less developed countries.</p>\n<p style=\"font-size:12px;color:var(--mid);\">⚠️ Two cells in this table (2016 export of goods; 2007 balance of trade in services) were not recoverable from the source PDF's text layer. They are reconstructed here from the other verbatim figures, since goods balance = exports − imports and services balance = exports − imports hold exactly for every other cell in this table.</p>",
+  "hint": "⚠️ This question is specifically about CONSUMERS in LDCs — the mark scheme's own note says impacts solely on producers or workers are 'not relevant'. Weigh price rises for essentials against wider choice and better infrastructure, and judge whether rising incomes are likely to outpace rising prices.",
+  "starter": "A cost for LDC consumers is that prices may rise, because...",
+  "key": {
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>\n<p><strong>Costs:</strong></p>\n<ul>\n<li>Prices may rise, as more consumers are competing to buy goods and services</li>\n<li>As consumers in LDCs tend to have low incomes, they will suffer most from the rise in prices, especially of basic foodstuffs such as rice</li>\n<li>Services within LDCs may suffer, including important services such as health care, because skilled labour (e.g. doctors, nurses) may move abroad to work</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Benefits</h5>\n<ul>\n<li>A wider range of goods giving greater variety and choice for consumers</li>\n<li>Some newly available goods may have considerable benefits, such as drugs to combat disease</li>\n<li>Access to global brands; greater opportunity to travel for those who can afford it</li>\n<li>Better infrastructure due to capital inflows (foreign investment), such as road and rail links, providing consumers better access to markets</li>\n<li>Investment inflows may improve basic services such as clean water and sewerage provision</li>\n</ul>\n</div>\n<div class=\"marks-section\">\n<h5>Evaluation may include</h5>\n<ul>\n<li>Judgement as to whether greater access to goods is likely to outweigh potential price rises</li>\n<li>Judgement as to whether consumer incomes are likely to rise (due to the benefits of globalisation) more than prices</li>\n<li>Judgement as to whether capital inflows are likely to lead to skilled jobs and outweigh the possible loss of skilled labour</li>\n<li>Overall judgement of whether (potential) benefits outweigh costs</li>\n</ul>\n<p><strong>N.B.</strong> This question is specifically on the impact on consumers in LDCs, so impacts solely on producers or workers are not relevant.</p>\n</div>\n<div class=\"marks-section\">\n<h5>Levels of response</h5>\n<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing costs and benefits.</p>\n<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>\n<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>\n<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>\n</div>",
+   "modelAnswer": "A cost for consumers in less developed countries is that prices may rise as globalisation increases competition for goods and services, hitting basic foodstuffs such as rice hardest. Because consumers in LDCs tend to have low incomes, they suffer disproportionately from these price rises. Important services such as healthcare may also suffer if skilled doctors and nurses move abroad for better pay.\n\nHowever, globalisation brings real benefits too: a wider range of goods, including valuable products such as medicines, gives consumers greater choice, and foreign capital inflows can improve infrastructure such as roads, clean water and sewerage, giving consumers better access to markets and services.\n\nOverall, whether the benefits outweigh the costs depends on whether rising incomes from globalisation keep pace with rising prices, and whether the loss of skilled workers to emigration is offset by the improved services that foreign investment brings. For very low-income consumers who spend most of their income on basic foodstuffs, the price-rise cost is likely to dominate in the short run."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:exam:af431001",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "exam",
+  "type": "mcq",
+  "marks": 1,
+  "num": "Q20",
+  "question": "Which one of the following is a method of measuring development?",
+  "options": [
+   "Cost of living",
+   "Environmental sustainability",
+   "Life expectancy",
+   "Nominal income"
+  ],
+  "hint": "Nominal income is not adjusted for prices or population, and cost of living/environmental sustainability are related but different concepts. Which option is a direct, named component of the HDI?",
+  "starter": "The correct answer is...",
+  "key": {
+   "answer": 2,
+   "markScheme": "<div class=\"marks-section\">\n<h5>Mark Scheme — 1 mark (AO1a)</h5>\n<p><strong>Answer: C — Life expectancy</strong></p>\n</div>",
+   "modelAnswer": ""
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:mcq:57e33408",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is the best definition of globalisation?",
+  "options": [
+   "A rise in a country's exchange rate",
+   "A country's total exports minus imports",
+   "The growing interconnectedness and interdependence of the world's economies",
+   "The total value of goods produced in one year"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "Globalisation is the growing interconnectedness and interdependence of economies worldwide, driven by trade, investment, migration and flows of technology across borders."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:mcq:fda8e6b1",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of these is a driving factor of globalisation?",
+  "options": [
+   "Containerisation of shipping",
+   "Higher tariffs on imported goods",
+   "Restrictions on foreign investment",
+   "Rising transport costs"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Containerisation let container ships grow massively in size, giving huge economies of scale and cutting shipping costs — one of the biggest drivers of globalisation. The other three options would all SLOW globalisation."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:mcq:5db33cc9",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The Human Development Index (HDI) combines GDP per capita, education and...",
+  "options": [
+   "The exchange rate",
+   "Life expectancy",
+   "The rate of inflation",
+   "Carbon emissions"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "The HDI is a composite of three factors: income (GDP per capita), education and life expectancy — built to give a fuller picture of development than income alone."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:mcq:340e348c",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A country's HDI score is much higher than its Inequality-adjusted HDI (IHDI) score. What does this suggest?",
+  "options": [
+   "The country has very low inequality",
+   "The country's GDP per capita has fallen",
+   "The country has significant inequality in income, health or education",
+   "The country has a falling population"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "A large gap between HDI and IHDI means the average outcomes hide a lot of inequality — some people are doing far better, or worse, than the headline HDI score suggests."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:mcq:3947d067",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is most likely to be a BENEFIT of globalisation for PRODUCERS in a developed country?",
+  "options": [
+   "Exposure to demand slowdowns abroad",
+   "Access to cheaper imported inputs and larger export markets",
+   "Job losses in declining industries",
+   "Increased competition from overseas firms"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "Cheaper imported inputs and access to larger markets (economies of scale) are benefits. Increased competition and exposure to foreign demand slowdowns are costs, and job losses affect workers, not producers directly."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:mcq:22de718d",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is a genuine COST of globalisation for WORKERS in a developed country?",
+  "options": [
+   "Access to a wider variety of goods",
+   "More jobs as firms grow to serve larger markets",
+   "Job insecurity during global demand slowdowns",
+   "Greater freedom to work abroad"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "Job insecurity during global slowdowns is a real cost for workers whose jobs depend on international demand. The other options are benefits, and 'wider variety of goods' is a benefit for consumers, not workers."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:mcq:a3f70308",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is meant by the 'brain drain' in a less developed country?",
+  "options": [
+   "A fall in a country's exchange rate",
+   "Skilled workers, such as doctors, migrating abroad for higher pay",
+   "Automation replacing manual workers",
+   "Firms relocating factories to cheaper countries"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "The brain drain describes skilled or educated workers leaving a less developed country for better pay or living conditions elsewhere, reducing the supply of skilled labour at home."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:mcq:d802357b",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Rising global demand for a less developed country's exports, without a matching rise in supply, is most likely to cause...",
+  "options": [
+   "A fall in GDP per capita",
+   "Demand-pull inflation",
+   "Deflation",
+   "Lower exchange rates"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "If supply can't keep up with rising demand from globalisation, prices are bid up — demand-pull inflation. This is especially serious for essential goods like basic foodstuffs in LDCs."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:mcq:a1958b46",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of the following is an example of environmental UNsustainability linked to globalisation?",
+  "options": [
+   "A firm relocating production to a country with weaker environmental laws",
+   "A firm investing in renewable energy",
+   "A firm using more efficient specialised production",
+   "A government taxing carbon emissions"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Firms sometimes relocate production partly BECAUSE environmental laws are weaker elsewhere, which can cause significant environmental damage in the host country — a real cost of globalisation."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:mcq:3b4236e0",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In a less developed country, why does the gap between rich and poor tend to WIDEN as a result of globalisation?",
+  "options": [
+   "Because much of the extra profit from trade is kept by business owners rather than workers",
+   "Because exports always fall",
+   "Because tariffs always rise",
+   "Because GDP per capita always falls"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Even though globalisation can create jobs and raise incomes overall, much of the extra profit from globalisation-driven trade tends to be kept by business owners, widening inequality between rich and poor."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:tf:0a457857",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Globalisation is a purely modern phenomenon that only began in the last 20 years.",
+  "key": {
+   "answer": false,
+   "explain": "International trade has existed for centuries. What's new is the SCALE and SPEED enabled by modern transport and communications technology — not the existence of trade itself."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:tf:0784b1e8",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Containerisation is one of the biggest driving factors of globalisation.",
+  "key": {
+   "answer": true,
+   "explain": "Standard-size containers moved between ships, trains and trucks let container ships grow massively, giving huge economies of scale and much lower shipping costs."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:tf:c66a4c74",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "GDP per capita alone shows exactly how income is distributed within a country.",
+  "key": {
+   "answer": false,
+   "explain": "GDP per capita is only an AVERAGE. It says nothing about distribution — a country can have high GDP per capita while most income sits with a small rich minority."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:tf:496d1d48",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The Human Development Index (HDI) combines income, life expectancy and education.",
+  "key": {
+   "answer": true,
+   "explain": "The HDI is a composite measure built by the United Nations specifically to combine these three factors, overcoming the limitation of using GDP per capita alone."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:tf:86fa2346",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Globalisation only benefits large, rich countries.",
+  "key": {
+   "answer": false,
+   "explain": "Globalisation can also drive rapid growth and poverty reduction in developing economies that attract investment and export industries — though the benefits are not evenly shared."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:tf:a2d2552e",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The brain drain makes it EASIER for producers in a less developed country to hire skilled workers.",
+  "key": {
+   "answer": false,
+   "explain": "The opposite: the brain drain is skilled workers LEAVING for higher pay abroad, making it HARDER for domestic producers to hire and retain skilled labour."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:tf:7b1f423b",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Homogenisation is a cost of globalisation for consumers in developed countries.",
+  "key": {
+   "answer": true,
+   "explain": "As large international brands out-compete smaller local firms, shopping experiences become increasingly similar across countries — a real cost, even though prices may fall."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:tf:11315345",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In less developed countries, the rich-poor gap typically narrows as a result of globalisation.",
+  "key": {
+   "answer": false,
+   "explain": "It typically WIDENS — much of the extra profit from globalisation-driven trade is often kept by business owners rather than passed on to workers."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:learn:90869e4d",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Globalisation and its driving factors",
+  "reading": "<p><strong>Globalisation is the growing interconnectedness and interdependence of the world's economies</strong>, driven by increased trade, investment, migration and flows of information and technology across borders. A modern smartphone might be manufactured using parts sourced from five or six different countries — a small example of a very large trend.</p>\n<h4>Roots of large-scale globalisation</h4>\n<ul>\n<li>Traces back to the <strong>end of the Second World War</strong> — a shortage of goods pushed nations to trade and cooperate to make the most of scarce resources.</li>\n<li>The creation of the <strong>United Nations</strong> encouraged greater cultural exchange as nations sought to avoid another world war.</li>\n<li>More recently, <strong>China opening up to Western trade</strong> hugely increased world trade, given the size of its population.</li>\n<li><strong>Common misconception:</strong> globalisation is NOT a purely modern phenomenon — international trade has existed for centuries. What's new is the SCALE and SPEED enabled by modern transport and technology.</li>\n</ul>\n<h4>The driving factors — learn all four, with an example for each</h4>\n<ul>\n<li><strong>Improved transport</strong> — cheaper, faster shipping and air freight. <strong>Containerisation</strong> (standard-size containers movable between ships, trains and trucks) is probably the single biggest contributor: container ships have grown massively in size, giving huge economies of scale and much lower shipping costs.</li>\n<li><strong>Improved communications technology</strong> — the internet and mobile networks make it easy to coordinate global supply chains and sell directly to consumers in other countries.</li>\n<li><strong>Trade liberalisation</strong> — the reduction of tariffs and trade barriers via agreements and organisations such as the World Trade Organisation, and the expansion of free-trade areas and customs unions (less form-filling and fewer customs checks).</li>\n<li><strong>Growth of multinational companies (MNCs) and foreign direct investment (FDI)</strong> — many countries have relaxed rules on foreign ownership since WWII, so firms increasingly build factories and offices in multiple countries, seeking lower costs, new markets or access to resources. Most FDI into the UK comes from the USA.</li>\n</ul>\n<h4>Scale of globalisation — real numbers</h4>\n<ul>\n<li>UK exports plus imports totalled just <strong>£159,565 million in 1983</strong>, but <strong>£1,257,706 million by 2017</strong> — roughly an eightfold increase, showing how significant globalisation has been for the UK economy.</li>\n</ul>",
+  "question": "Which of these is the single biggest transport-related driver of globalisation?",
+  "options": [
+   "Slower freight trains",
+   "Containerisation of shipping",
+   "Higher airport taxes",
+   "Reduced use of ports"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "Standard-size containers moving between ships, trains and trucks allowed container ships to grow massively, giving huge economies of scale and cutting the cost of shipping goods internationally."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:learn:eff5e3fa",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How development is measured",
+  "reading": "<p><strong>GDP per capita</strong> (total GDP divided by population) is the most commonly used single measure of development — because output produced is income earned by the people who produce it, higher average income generally means people have more to spend, suggesting a more developed country.</p>\n<h4>The limitation of GDP per capita alone</h4>\n<ul>\n<li>It is only an AVERAGE — it says nothing about how income is actually distributed. A country can have a high GDP per capita while most of that income sits with a small rich minority.</li>\n<li><strong>Misconception to avoid:</strong> GDP per capita is not measured \"by household, family or region\" — it is total GDP divided by the WHOLE national population.</li>\n</ul>\n<h4>The Human Development Index (HDI)</h4>\n<ul>\n<li>Developed by the <strong>United Nations</strong>, the HDI is a COMPOSITE measure combining three factors: <strong>1. GDP per capita (income), 2. Life expectancy, 3. Education</strong> — built specifically to overcome the limitation of using income alone.</li>\n<li><strong>Life expectancy</strong> is affected by access to and affordability of healthcare, exposure to violent political conflict, and exposure to environmental issues such as drought, famine or flood.</li>\n<li><strong>Education</strong> is affected by years spent in education (which affects literacy and productivity), quality of education (facilities, technology, teacher-to-pupil ratios), and access to technology (mobile phone ownership, internet access).</li>\n</ul>\n<h4>The Inequality-adjusted HDI (IHDI)</h4>\n<ul>\n<li>The IHDI adjusts the standard HDI to account for <strong>inequality</strong> in health, education and income within a country.</li>\n<li>A SMALL gap between HDI and IHDI = low inequality. A LARGE gap = high inequality — some people are doing far better (or worse) than the average HDI score suggests.</li>\n</ul>\n<h4>Other measures worth naming</h4>\n<ul>\n<li>Access to health care, access to technology, and access to education can all be cited individually as \"ways of measuring how developed a country is\" in short-answer questions.</li>\n</ul>",
+  "question": "Why was the Human Development Index (HDI) created?",
+  "options": [
+   "To replace life expectancy as a statistic",
+   "To combine income, life expectancy and education, since GDP per capita alone doesn't show the full picture",
+   "To measure inequality only",
+   "To measure a country's exports only"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "GDP per capita alone only shows average income. The HDI was built specifically to combine it with life expectancy and education, giving a fuller picture of development."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:learn:1dd2c97f",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Globalisation in developed countries",
+  "reading": "<p>The spec asks you to evaluate costs and benefits for <strong>producers, workers and consumers</strong> separately — questions name one, and answering about the wrong group is not awardable.</p>\n<h4>Producers</h4>\n<ul>\n<li><strong>Benefits:</strong> access to more markets/customers so firms can exploit economies of scale; access to better-quality or cheaper imported inputs; access to more skilled (often cheaper) labour migrating from less developed countries; easier shared research and development with firms overseas.</li>\n<li><strong>Costs:</strong> more competition from overseas firms — some domestic industries lose competitive advantage; firms that have grown large to serve foreign markets become more exposed to demand slowdowns in those markets.</li>\n</ul>\n<h4>Workers</h4>\n<ul>\n<li><strong>Benefits:</strong> more jobs as firms grow to serve larger markets; more foreign investment creates additional jobs; greater freedom to work in other countries.</li>\n<li><strong>Costs:</strong> workers in declining industries may lack the skills to move into new industries, risking long-term unemployment; risk of job losses through automation as firms cut costs to stay competitive; job insecurity during global demand slowdowns; immigration can increase competition for jobs, helping keep wages low.</li>\n</ul>\n<h4>Consumers</h4>\n<ul>\n<li><strong>Benefits:</strong> greater choice of products worldwide; cheaper products, leaving more disposable income; skilled migration improves services (e.g. the NHS recruits many doctors and nurses from less developed countries); fewer travel restrictions.</li>\n<li><strong>Costs:</strong> <strong>homogenisation</strong> — large international firms out-compete smaller local firms, so shopping experiences become very similar across countries; <strong>price volatility</strong> from globalised markets, e.g. the pandemic and the war in Ukraine both caused significant supply disruption.</li>\n</ul>\n<h4>The three sustainabilities for developed countries</h4>\n<ul>\n<li><strong>Economic:</strong> generally improves — greater specialisation lowers costs and input prices.</li>\n<li><strong>Social:</strong> mixed — lower prices can improve quality of life, but many of the UK's poorest, most deprived areas are that way because of industries that declined due to globalisation.</li>\n<li><strong>Environmental:</strong> mixed — more efficient specialised production, but increased fossil fuel use transporting goods globally, and firms may shift production to countries with weaker environmental protections.</li>\n</ul>",
+  "question": "Which is a genuine COST of globalisation for CONSUMERS in a developed country?",
+  "options": [
+   "Greater product choice",
+   "Homogenisation of shopping experiences as global brands dominate",
+   "Cheaper products",
+   "Fewer travel restrictions"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "Homogenisation is a real cost for consumers — large international firms out-compete smaller local ones, so shops and products look increasingly similar wherever you are. The other three are benefits, not costs."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:learn:58d6f5f8",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Globalisation in less developed countries",
+  "reading": "<p>The same three stakeholder groups apply, but with different — and more mixed — effects in less developed countries (LDCs).</p>\n<h4>Producers</h4>\n<ul>\n<li><strong>Benefits:</strong> access to more markets/customers; opportunity to adopt new technologies, raising productivity and lowering average costs; ability to attract increased foreign investment, supporting growth and economies of scale.</li>\n<li><strong>Costs:</strong> vulnerability to global slowdowns, since production is aimed at international markets; difficulty hiring/retaining skilled labour due to the <strong>\"brain drain\"</strong> — people educated in LDCs move abroad for higher pay; small domestic businesses can struggle once large international firms enter the market.</li>\n</ul>\n<h4>Workers</h4>\n<ul>\n<li><strong>Benefits:</strong> greater trade and higher output generally require more workers; increased foreign investment creates more jobs; skilled workers can seek opportunities abroad (though most developed countries' immigration policies mean this route is largely open only to SKILLED workers).</li>\n<li><strong>Costs:</strong> automation used to meet rising global demand can cause job losses; exposure to job losses during global demand slowdowns; worse working conditions than would be tolerated in developed nations; much of the extra profit is often kept by business owners, widening the rich-poor gap.</li>\n</ul>\n<h4>Consumers</h4>\n<ul>\n<li><strong>Benefits:</strong> greater choice and more opportunities to travel — though this depends heavily on income; improved infrastructure (roads, rail) as a side effect of globalisation-driven investment.</li>\n<li><strong>Costs:</strong> if supply cannot keep pace with extra demand, <strong>demand-pull inflation</strong> can result — especially serious for essential goods like basic foodstuffs; the brain drain reduces the number of skilled professionals (e.g. doctors) available domestically.</li>\n</ul>\n<h4>The three sustainabilities for LDCs</h4>\n<ul>\n<li><strong>Economic:</strong> more jobs and trade create a cycle of growth, but sustainability depends on whether the country KEEPS its competitive advantage and whether growth relies on non-renewable resources.</li>\n<li><strong>Social:</strong> increased income can reduce overall poverty, but the rich-poor gap tends to WIDEN, and rising prices from increased global demand hit the poor hardest — potentially causing malnutrition.</li>\n<li><strong>Environmental:</strong> more efficient use of finite resources is generally positive, but pollution from transporting goods increases, and firms often relocate to LDCs partly BECAUSE of weaker environmental laws.</li>\n</ul>\n",
+  "question": "What is the 'brain drain' a cost of, for producers in less developed countries?",
+  "options": [
+   "Rising carbon emissions",
+   "Losing skilled workers who move abroad for higher pay",
+   "Falling exchange rates",
+   "Increased tariffs on imports"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "The brain drain is when people educated in a less developed country move abroad for higher pay or better living conditions, making it harder for domestic producers to hire and retain skilled labour."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:misc:3a3bdd59",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"GDP per capita measures how evenly income is spread across a country's population.\"</p><p><strong>✅ The correct idea:</strong> This is a documented examiner misconception on this exact paper. The mark scheme for Q2(i) — explaining why GDP per capita measures development in Tanzania — states directly: \"A common misconception is confusion between GDP per capita as an average and wealth or income distribution which is a different concept. Furthermore, some candidates believed GDP per capita was by household, family or region.\" GDP per capita is total GDP divided by the WHOLE national population — an AVERAGE. It says nothing about how that income is actually shared out; a country can have a high GDP per capita while most of the income sits with a small rich minority. Income DISTRIBUTION (equality) is a separate macroeconomic concept entirely.</p>",
+  "question": "What is the key misconception examiners reported about GDP per capita?",
+  "options": [
+   "That it excludes services",
+   "Confusing it with income distribution, or believing it is measured by household/family/region",
+   "That it can never fall",
+   "That it is measured monthly, not annually"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "The mark scheme's own words: candidates confused GDP per capita (an AVERAGE) with income distribution (a different concept), and some wrongly thought it was measured by household, family or region rather than for the whole country."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:misc:ce530b0d",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"The question asks about workers, but I'll write about benefits to the economy in general — it's basically the same thing.\"</p><p><strong>✅ The correct idea:</strong> It is NOT the same thing, and this paper punishes it directly. On Q2(iii) — 'Evaluate the benefits of globalisation for WORKERS in Tanzania' — the examiner's comments state plainly: \"some candidates wrote about benefits to the economy in general or other stakeholders which was not awardable.\" The same trap appears again on Q19(iii), which asks specifically about consumers in LDCs: the mark scheme's own N.B. warns \"this question is specifically on the impact on consumers in LDCs so impacts solely on producers or workers is not relevant.\" This is the single biggest theme on this paper — whenever a question names a stakeholder (workers / producers / consumers, and often a specific country), an answer about a different group scores ZERO on that point, no matter how good the economics is.</p>",
+  "question": "A question asks you to evaluate the benefits of globalisation for WORKERS in a named country. What happens if you write about benefits to the wider economy instead?",
+  "options": [
+   "You get half marks automatically",
+   "The examiner assumes you meant workers",
+   "You get full marks anyway, since it's related",
+   "That material is not awardable — you must answer for the exact stakeholder named"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "The mark scheme is explicit on this paper: writing about the economy in general, or about a different stakeholder, when the question names one group specifically, is 'not awardable'."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:misc:c278eaec",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"The biggest cost of globalisation for consumers in developed countries is increased immigration.\"</p><p><strong>✅ The correct idea:</strong> This is a documented examiner misconception on Q3 of this exact paper (\"What is the most likely cost of globalisation for consumers in developed countries?\"). The correct answer is A — dominant global brands — not immigration. The examiner's comments state: \"A common misconception was increased immigration was a cost of globalisation, rather than the more likely negative impact of dominant global brands.\" Dominant global brands reduce genuine variety and out-compete smaller, often more distinctive local firms — this is the effect known as homogenisation. Immigration is a labour-market issue for WORKERS, not a direct cost for consumers.</p>",
+  "question": "According to this paper's mark scheme, what is the most likely COST of globalisation for consumers in developed countries?",
+  "options": [
+   "Lower prices",
+   "More choice of goods",
+   "Increased immigration",
+   "Dominant global brands"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "The mark scheme names dominant global brands as the correct answer, and flags increased immigration as the common wrong answer — immigration is a labour-market issue, not a direct consumer cost."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:misc:04ef3d72",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"Free trade agreements are a cost to producers because there is more competition.\" (and stops there)</p><p><strong>✅ The correct idea:</strong> Stating a cost is only worth 1 of the 2 marks on this paper's short 'explain' questions — you must EXPLAIN it. On Q15(ii) ('Explain one cost to producers of globalisation'), the mark scheme awards \"1 mark for stating a cost which is not explained\" and \"2 marks for providing an explained cost.\" The examiner's comments confirm this actually cost candidates marks: \"This question was generally answered well, although some candidates stated a cost, rather than explaining it.\" The fix is a simple chain: state the cost, then add WHY it happens or WHAT it leads to — e.g. 'more competition from lower-cost overseas producers (1), which may be harmful to domestic producers whose productivity is lower (1)'.</p>",
+  "question": "On a 2-mark 'explain one cost' question, writing only 'more competition' with no further development scores...",
+  "options": [
+   "0 marks — costs are not creditable",
+   "2 marks, as long as it's true",
+   "2 marks — the cost is correct",
+   "1 mark — a stated but unexplained cost"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "The mark scheme is explicit: 1 mark for stating a cost without explanation, 2 marks only when the cost is properly explained (why it happens, or what it leads to)."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:misc:dae17a32",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \"State two trends in university enrolment\" — answered by comparing Burkina Faso and China to each other.</p><p><strong>✅ The correct idea:</strong> A comparison is not a trend, and this cost real marks on Q14(a) of this paper. The examiner's comments explain precisely: \"The key was that the response needed a 'TREND' rather than a comparison (between BF and China). It also needed to focus on university enrolment rather than any of the other data in the table.\" A TREND describes how a single variable changes over TIME within one series (e.g. 'female university enrolment in Burkina Faso rose from 2.3% to 5.1% between 2010 and 2019'). A COMPARISON instead contrasts two different series at one point in time (e.g. 'China's enrolment is higher than Burkina Faso's') — that is a different command entirely, and the wrong answer to a 'state two trends' question.</p>",
+  "question": "A question asks you to 'state two trends' in a data table covering two countries over several years. What must your answer describe?",
+  "options": [
+   "Only the most recent year's figures",
+   "How a variable changes over time within one series",
+   "The largest single number in the table",
+   "A comparison between the two countries"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "A trend tracks change over TIME. Comparing the two countries to each other, however accurate, answers a different question and was explicitly marked as not creditable here."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:tips:d664ebc4",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "definition — Definitions: name the required elements",
+  "reading": "<p>Short-answer definitions on this paper are marked element by element — learn the PRECISE wording, not just the gist.</p>\n<ul>\n<li><strong>Globalisation</strong> = the mark scheme accepts any TWO of: greater freedom of movement between countries; free movement of goods, services, people and money; the expansion of world trade in goods and services; the expansion of capital flows between countries; greater international interdependence. One element = 1 mark.</li>\n<li><strong>Free trade agreement</strong> needs TWO elements: no import tariffs/quotas between member countries (1), PLUS that members can still trade freely with countries outside the group, or a correct example such as NAFTA/EFTA (1).</li>\n<li><strong>GDP per capita</strong> = total value of output/income in a country in one year, divided by the population. A bare \"GDP divided by population\" without saying what GDP measures is only worth 1 of 2 marks.</li>\n<li><strong>Ways of measuring development</strong> — 1 mark each: GDP (per capita), life expectancy, access to health care, access to technology, access to education.</li>\n</ul>",
+  "question": "For 'state what is meant by globalisation', how many separate elements does the mark scheme require for full marks?",
+  "options": [
+   "Two",
+   "Three",
+   "Four",
+   "One"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The mark scheme gives 2 marks for a definition referring to at least two of its listed elements (free movement of goods/services/people/money, expansion of trade, expansion of capital flows, greater interdependence)."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:tips:9a9dd9df",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "stakeholder — Name the stakeholder — or score nothing",
+  "reading": "<p>This is the single most-repeated trap across the whole paper. Every extended question names a specific group — and answering about a different one is explicitly NOT awardable.</p>\n<ul>\n<li>Q2(iii) asks about <strong>WORKERS</strong> in Tanzania. The examiner's comments say some candidates \"wrote about benefits to the economy in general or other stakeholders which was not awardable.\"</li>\n<li>Q19(iii) asks about <strong>CONSUMERS</strong> in LDCs. The mark scheme's N.B. states: \"impacts solely on producers or workers is not relevant.\"</li>\n<li>Q7(d)(iii) asks about <strong>US PRODUCERS</strong>. The examiner's comments note candidates who wrote about \"the economy in general\" or \"the effects of globalisation on households or the government\" could \"only be partially rewarded at best.\"</li>\n<li><strong>Fix:</strong> before writing a single sentence, underline the named group in the question. Every analytical point AND its matching evaluative point must trace back to that exact group.</li>\n</ul>",
+  "question": "A 6-mark question asks you to evaluate the benefits of globalisation for CONSUMERS in a less developed country. Which answer content is NOT awardable?",
+  "options": [
+   "A point about producers losing skilled workers to the brain drain",
+   "A point about consumers paying higher prices for food",
+   "A point evaluating whether price rises outweigh the wider choice",
+   "A point about consumers accessing a wider range of goods"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A point about PRODUCERS losing workers answers a different question. The mark scheme explicitly excludes stakeholder-swap content — every point must be about the group actually named."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:tips:0bbe68bb",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "calculation — Calculations: show working, keep the sign and the unit",
+  "reading": "<p>Every calculation on this paper follows the same pattern: 2 marks for a correct final answer (working not required if correct), 1 mark for correct working with a wrong final answer.</p>\n<ul>\n<li><strong>Balance of trade in goods and services</strong> = balance of trade in goods + balance of trade in services. For the US in 2019: −924,284 + 286,723 = <strong>−$637,561 million</strong>. The examiners noted candidates lost marks by omitting the $ sign, \"million\", or the negative sign.</li>\n<li><strong>GDP per capita</strong> = GDP ÷ population. For Burkina Faso in 2019: $15,700 million ÷ 20.3 million = <strong>$773.4</strong>. The examiners noted: \"1 mark only if $ sign is omitted\" — units matter even when the number is right.</li>\n<li><strong>Simple differences</strong> (e.g. Sweden's GDP per capita minus Botswana's) still need 1 mark for correct working and 1 for the final figure — set your subtraction out clearly.</li>\n</ul>",
+  "question": "You correctly calculate a GDP per capita of 773.4 but forget the $ sign. According to this paper's mark scheme, you would score...",
+  "options": [
+   "2 marks — the figure is correct",
+   "0 marks — the answer is void without units",
+   "2 marks, as signs are optional",
+   "1 mark — correct working/figure but a missing required sign"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "The mark scheme is explicit: full marks require the correct figure AND the correct sign/unit. A missing $ sign caps the answer at 1 mark even when the number itself is right."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:tips:a2ac7938",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "evaluate — Analyse & Evaluate: both costs AND benefits for Level 3",
+  "reading": "<p>The extended 6-mark questions reward simple, clearly linked chains of reasoning far more than long, unfocused answers.</p>\n<ul>\n<li><strong>Cover both sides.</strong> On Q7(d)(iii) the mark scheme states plainly: \"Both costs & benefits need to be covered in order to achieve Level 3.\" A one-sided answer is capped, however detailed.</li>\n<li><strong>Match your evaluation to your analysis.</strong> The most common way marks are lost is writing an analytical point, then \"evaluating\" with an unrelated new point instead of directly weighing the first one.</li>\n<li><strong>Build a proper chain, don't just restate data.</strong> On Q7(c) examiners warned against candidates who \"re-write the information in Extract 3 without any analysis\" — e.g. simply repeating \"the economy becomes less based on domestic manufacturing\" without explaining WHY or WHAT FOLLOWS.</li>\n<li><strong>Signal your judgement clearly</strong> with words like \"Overall\" or \"In conclusion\" — evaluation signalled only by \"However\" sometimes turned out to be an unlinked extra point rather than a real weighing-up.</li>\n</ul>",
+  "question": "According to this paper's mark scheme, what is required to reach Level 3 (5–6 marks) on a 6-mark 'evaluate the extent to which...' question?",
+  "options": [
+   "Only costs need to be discussed",
+   "Both costs and benefits must be covered",
+   "As much data as possible must be quoted",
+   "Only benefits need to be discussed"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "The mark scheme for Q7(d)(iii) states directly that both costs and benefits need to be covered to achieve Level 3 — a one-sided answer, however well written, is capped at a lower level."
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:fib:3cc231e8",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Globalisation is the growing ___B1___ and interdependence of the world's ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "interconnectedness",
+    "Containerisation",
+    "inflation",
+    "Index"
+   ],
+   "B2": [
+    "economies",
+    "Containerisation",
+    "skilled",
+    "Index"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "interconnectedness",
+    "B2": "economies"
+   }
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:fib:38609e04",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "___B1___ of shipping — moving standard-size containers between ships, trains and trucks — is probably the single biggest ___B2___ factor of globalisation.",
+  "blankOptions": {
+   "B1": [
+    "brain",
+    "Containerisation",
+    "demand",
+    "inequality"
+   ],
+   "B2": [
+    "tariffs",
+    "driving",
+    "inflation",
+    "interconnectedness"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "Containerisation",
+    "B2": "driving"
+   }
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:fib:c0645902",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The Human Development ___B1___ combines GDP per capita, life expectancy and ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "Index",
+    "inequality",
+    "driving",
+    "Containerisation"
+   ],
+   "B2": [
+    "education",
+    "trade",
+    "tariffs",
+    "economies"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "Index",
+    "B2": "education"
+   }
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:fib:f79cd7f5",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A large gap between a country's HDI and its Inequality-adjusted HDI shows a high level of ___B1___ in income, health or ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "skilled",
+    "Containerisation",
+    "economies",
+    "inequality"
+   ],
+   "B2": [
+    "interconnectedness",
+    "education",
+    "Containerisation",
+    "Index"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "inequality",
+    "B2": "education"
+   }
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:fib:1f47d010",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The ___B1___ drain describes skilled workers migrating abroad, making it harder for producers in a less developed country to hire ___B2___ labour.",
+  "blankOptions": {
+   "B1": [
+    "inequality",
+    "tariffs",
+    "brain",
+    "inflation"
+   ],
+   "B2": [
+    "inflation",
+    "trade",
+    "skilled",
+    "demand"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "brain",
+    "B2": "skilled"
+   }
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:fib:a9829f7e",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "If supply cannot keep pace with rising demand from globalisation, the result is likely to be ___B1___-pull ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "brain",
+    "driving",
+    "demand",
+    "education"
+   ],
+   "B2": [
+    "education",
+    "inflation",
+    "trade",
+    "skilled"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "demand",
+    "B2": "inflation"
+   }
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:32927687",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Globalisation”?",
+  "options": [
+   "The growing interconnectedness and interdependence of the world's economies",
+   "An agreement removing tariffs and quotas on trade between member countries",
+   "Standard-size containers moved between ships, trains and trucks, cutting shipping costs",
+   "When people in one country invest in businesses in a different country"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Globalisation” means: The growing interconnectedness and interdependence of the world's economies"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:cc928a7d",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Capital flows”?",
+  "options": [
+   "When people in one country invest in businesses in a different country",
+   "The HDI adjusted to reflect inequality in income, health and education",
+   "The growing interconnectedness and interdependence of the world's economies",
+   "A firm that operates and produces across multiple countries"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Capital flows” means: When people in one country invest in businesses in a different country"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:e28bd5b2",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Containerisation”?",
+  "options": [
+   "The reduction of tariffs and other barriers to trade between countries",
+   "A composite measure combining GDP per capita, life expectancy and education",
+   "The HDI adjusted to reflect inequality in income, health and education",
+   "Standard-size containers moved between ships, trains and trucks, cutting shipping costs"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Containerisation” means: Standard-size containers moved between ships, trains and trucks, cutting shipping costs"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:98f538d5",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Trade liberalisation”?",
+  "options": [
+   "Total GDP divided by the population — an approximate measure of average income",
+   "Investment by a firm in productive assets located in another country",
+   "The reduction of tariffs and other barriers to trade between countries",
+   "The HDI adjusted to reflect inequality in income, health and education"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Trade liberalisation” means: The reduction of tariffs and other barriers to trade between countries"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:eff41c6e",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Multinational company (MNC)”?",
+  "options": [
+   "A composite measure combining GDP per capita, life expectancy and education",
+   "Shopping experiences becoming similar worldwide as global brands dominate local firms",
+   "A firm that operates and produces across multiple countries",
+   "An agreement removing tariffs and quotas on trade between member countries"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Multinational company (MNC)” means: A firm that operates and produces across multiple countries"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:723add8d",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Foreign direct investment (FDI)”?",
+  "options": [
+   "Investment by a firm in productive assets located in another country",
+   "Skilled or educated workers migrating abroad for higher pay or better conditions",
+   "The growing interconnectedness and interdependence of the world's economies",
+   "The HDI adjusted to reflect inequality in income, health and education"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Foreign direct investment (FDI)” means: Investment by a firm in productive assets located in another country"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:b8c9d1d6",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “GDP per capita”?",
+  "options": [
+   "Skilled or educated workers migrating abroad for higher pay or better conditions",
+   "Total GDP divided by the population — an approximate measure of average income",
+   "When people in one country invest in businesses in a different country",
+   "An agreement removing tariffs and quotas on trade between member countries"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“GDP per capita” means: Total GDP divided by the population — an approximate measure of average income"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:6a977c52",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Human Development Index (HDI)”?",
+  "options": [
+   "Unemployment caused by a long-term decline of an industry, e.g. due to globalisation",
+   "A firm that operates and produces across multiple countries",
+   "When people in one country invest in businesses in a different country",
+   "A composite measure combining GDP per capita, life expectancy and education"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Human Development Index (HDI)” means: A composite measure combining GDP per capita, life expectancy and education"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:6355673d",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Inequality-adjusted HDI (IHDI)”?",
+  "options": [
+   "Shopping experiences becoming similar worldwide as global brands dominate local firms",
+   "Skilled or educated workers migrating abroad for higher pay or better conditions",
+   "A composite measure combining GDP per capita, life expectancy and education",
+   "The HDI adjusted to reflect inequality in income, health and education"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Inequality-adjusted HDI (IHDI)” means: The HDI adjusted to reflect inequality in income, health and education"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:1989a79c",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Brain drain”?",
+  "options": [
+   "Skilled or educated workers migrating abroad for higher pay or better conditions",
+   "The HDI adjusted to reflect inequality in income, health and education",
+   "A firm that operates and produces across multiple countries",
+   "Total GDP divided by the population — an approximate measure of average income"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Brain drain” means: Skilled or educated workers migrating abroad for higher pay or better conditions"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:aeba08e2",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Homogenisation”?",
+  "options": [
+   "Standard-size containers moved between ships, trains and trucks, cutting shipping costs",
+   "Shopping experiences becoming similar worldwide as global brands dominate local firms",
+   "Total GDP divided by the population — an approximate measure of average income",
+   "A firm that operates and produces across multiple countries"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Homogenisation” means: Shopping experiences becoming similar worldwide as global brands dominate local firms"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:471af45b",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Free trade agreement”?",
+  "options": [
+   "Skilled or educated workers migrating abroad for higher pay or better conditions",
+   "An agreement removing tariffs and quotas on trade between member countries",
+   "Total GDP divided by the population — an approximate measure of average income",
+   "Unemployment caused by a long-term decline of an industry, e.g. due to globalisation"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Free trade agreement” means: An agreement removing tariffs and quotas on trade between member countries"
+  }
+ },
+ {
+  "id": "economics:4-4-globalisation:match:dd0a8709",
+  "pageId": "economics:4-4-globalisation",
+  "pageName": "4.4 Globalisation",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Structural unemployment”?",
+  "options": [
+   "Unemployment caused by a long-term decline of an industry, e.g. due to globalisation",
+   "A firm that operates and produces across multiple countries",
+   "Shopping experiences becoming similar worldwide as global brands dominate local firms",
+   "Investment by a firm in productive assets located in another country"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Structural unemployment” means: Unemployment caused by a long-term decline of an industry, e.g. due to globalisation"
   }
  }
 ];

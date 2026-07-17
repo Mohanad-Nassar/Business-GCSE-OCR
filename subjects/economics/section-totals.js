@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-16T17:21:02Z
+// Generated: 2026-07-17T06:00:54Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "economics:1-1-main-economic-groups-and-factors-of-production": {
@@ -197,6 +197,50 @@ window.SECTION_TOTALS = {
  },
  "economics:3-8-limitations-of-markets": {
   "exam": 33,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:4-1-importance-of-international-trade": {
+  "exam": 20,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:4-2-balance-of-payments": {
+  "exam": 39,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:4-3-exchange-rates": {
+  "exam": 31,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:4-4-globalisation": {
+  "exam": 41,
   "mcq": 10,
   "tf": 8,
   "learn": 4,

@@ -31,7 +31,17 @@ const SUPABASE_URL = "https://eaohjlyiotyqhvsizcpw.supabase.co";
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk";
 
-type Verdict = { allowContent: boolean; allowBank: boolean; unauth: boolean };
+// overrideSlugs (WP-S5): the UNDERSCORED static-file tails this student's school
+// has a PUBLISHED override for in THIS subject (from edge_gate_check's
+// override_slugs). Server-derived per-school; rides inside the cached Verdict so
+// it stays scoped to the requesting token+subject with no extra round trip.
+// Empty [] when the s5-edge migration isn't run yet (backward-compatible).
+type Verdict = {
+  allowContent: boolean;
+  allowBank: boolean;
+  unauth: boolean;
+  overrideSlugs: string[];
+};
 const CACHE = new Map<string, { verdict: Verdict; expires: number }>();
 const CACHE_TTL_MS = 60_000;
 const CACHE_MAX = 500;
@@ -135,14 +145,16 @@ async function checkAccess(token: string, subject: string): Promise<Verdict | "f
 
   let verdict: Verdict;
   if (res.status === 401 || res.status === 403) {
-    verdict = { allowContent: false, allowBank: false, unauth: true };
+    verdict = { allowContent: false, allowBank: false, unauth: true, overrideSlugs: [] };
   } else if (res.ok) {
-    let body: { allow_content?: boolean; allow_bank?: boolean } = {};
+    let body: { allow_content?: boolean; allow_bank?: boolean; override_slugs?: string[] } = {};
     try { body = await res.json(); } catch (_e) { /* fall through to deny */ }
     verdict = {
       allowContent: body.allow_content === true,
       allowBank: body.allow_bank === true,
       unauth: false,
+      // Default [] when absent (old gate / pre-migration) — backward-compatible.
+      overrideSlugs: Array.isArray(body.override_slugs) ? body.override_slugs : [],
     };
   } else if (res.status === 404) {
     // entitlements.sql not run yet on this database — don't brick the site.
@@ -208,9 +220,44 @@ export default async function contentGate(request: Request): Promise<Response | 
   }
 
   const verdict = await checkAccess(token, subject);
-  if (verdict === "fail-open") return undefined;
+  // Fail-open is deliberate for CONTENT: a gate blip locking students out of
+  // revision is worse than briefly serving a topic page too widely.
+  // It is NOT acceptable for question-bank.js, which embeds every answer key
+  // and which students never fetch (see allowBank below) — nobody's revision
+  // breaks if it 503s, so the bank fails CLOSED. Without this, any Supabase
+  // blip (or a missing edge_gate_check RPC, which fails open at line ~159 and
+  // would leave the gate silently inert) hands the whole answer key to anyone
+  // holding a cookie.
+  if (verdict === "fail-open") {
+    if (isBank) {
+      console.log("content-gate: gate unavailable — denying bank (fail-closed)", url.pathname);
+      return denyForbidden("bank_unavailable");
+    }
+    return undefined;
+  }
   if (verdict.unauth) return denyUnauth();
   if (isBank) return verdict.allowBank ? undefined : denyForbidden("bank_teacher_only");
   if (!verdict.allowContent) return denyForbidden("no_subject_access");
-  return undefined; // authorised — serve the file
+
+  // Override-fork redirect (WP-S5): access is already granted above. If this
+  // student's school has a PUBLISHED override for the requested topic, 302 to
+  // the dynamic renderer (topic.html) instead of the static master. Everyone
+  // else — and every non-overridden topic — falls through to the master file.
+  //
+  // Only real topic HTML pages redirect: a single file directly under
+  // /subjects/<subject>/ ending in .html, excluding index.html. The nested-path
+  // exclusion means exam_prep/… and other sub-paths (and every js/css/json/img
+  // asset) never match, so assets and non-topic pages always serve the master.
+  if (verdict.overrideSlugs.length) {
+    const topicMatch = url.pathname.match(/^\/subjects\/[^/]+\/([^/]+)\.html$/);
+    const fileTail = topicMatch ? decodeURIComponent(topicMatch[1]) : null;
+    if (fileTail && fileTail !== "index" && verdict.overrideSlugs.includes(fileTail)) {
+      return Response.redirect(
+        `${url.origin}/topic.html?s=${encodeURIComponent(subject)}&ov=${encodeURIComponent(fileTail)}`,
+        302,
+      );
+    }
+  }
+
+  return undefined; // authorised — serve the master file
 }

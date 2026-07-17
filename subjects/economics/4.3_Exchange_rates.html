@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 4: International Trade and the Global Economy</div>
             <h1>4.3 Exchange Rates</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 4.3 Exchange Rates — placeholder, content not yet written
+    //  DATA: 4.3 Exchange Rates
     // ══════════════════════════════════════
     const pageMeta = {
             id: '4-3-exchange-rates',
@@ -268,21 +268,1290 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>4.3 Exchange Rates</strong> will appear here soon.</p>`
+            title: "What is the exchange rate? Supply, demand and the float",
+            tag: "The price of a currency, set like any other price",
+            content: `<p><strong>The exchange rate is the price of one currency expressed in terms of another</strong> — e.g. £1 = $1.25. The pound is a <strong>floating exchange rate</strong>, which means its value is NOT fixed by the government but determined purely by the <strong>demand for and supply of pounds</strong> on foreign exchange markets — exactly the same demand/supply logic you already know from ordinary markets, just applied to a currency instead of a good.</p>
+<h4>Where demand for pounds comes from</h4>
+<ul>
+<li>Overseas buyers who want to purchase UK <strong>exports</strong> (goods and services) — they must first buy pounds to pay for them.</li>
+<li>Foreign savers who want to <strong>invest</strong> in UK bank accounts, UK businesses, or UK property.</li>
+<li><strong>Speculators</strong> who believe the pound's value will rise.</li>
+</ul>
+<h4>Where supply of pounds comes from</h4>
+<ul>
+<li>UK residents who want to buy <strong>imports</strong> — they must sell pounds to buy the foreign currency needed to pay for them.</li>
+<li>UK savers and firms who want to invest abroad.</li>
+<li>Speculators who believe the pound's value will fall.</li>
+</ul>
+<h4>Appreciation and depreciation — get the direction right every time</h4>
+<ul>
+<li><strong>Appreciation</strong> (a RISE in the exchange rate) = the pound is worth MORE — one pound buys MORE foreign currency. Caused by a rightward shift in demand for pounds, OR a decrease (leftward shift) in supply of pounds.</li>
+<li><strong>Depreciation</strong> (a FALL in the exchange rate) = the pound is worth LESS — one pound buys FEWER foreign currency. Caused by a rightward shift in supply of pounds, OR a decrease (leftward shift) in demand for pounds.</li>
+<li>Under a FIXED exchange rate system the equivalent terms are <strong>revaluation</strong> (up) and <strong>devaluation</strong> (down) — worth knowing they exist, but the GCSE focus is the floating pound.</li>
+</ul>`,
+            readCheck: {
+                q: "A rise in the exchange rate of the pound is called...",
+                opts: ["Appreciation", "Revaluation", "Depreciation", "Devaluation"],
+                ans: 0,
+                explain: "A rise in a FLOATING currency's value is called appreciation. Devaluation and revaluation are the equivalent terms under a FIXED exchange rate system, where the government sets the change deliberately."
+            }
+        },
+        {
+            title: "What shifts demand and supply of a currency",
+            tag: "Six mirror-image drivers — learn the pattern once",
+            content: `<p>Six drivers push the exchange rate in <strong>opposite</strong> directions depending on which side of the market they hit. Learn the pattern once, then apply it either way.</p>
+<h4>What increases DEMAND for pounds (appreciation)</h4>
+<ul>
+<li><strong>UK goods gain a reputation for quality</strong> → more demand for exports → more demand for £.</li>
+<li><strong>Improved UK productivity or lower UK inflation (relative to trading partners)</strong> → lower costs → more competitive exports → more demand for £.</li>
+<li><strong>Rising incomes abroad</strong> → foreigners can afford more UK exports → more demand for £.</li>
+<li><strong>Higher UK interest rates (relative to overseas)</strong> → foreign savers move funds into UK banks to earn the better return → more demand for £. (Link to 3.6 monetary policy.)</li>
+<li><strong>Lower UK corporation tax</strong> → firms keep more profit → attracts foreign investment → more demand for £.</li>
+<li><strong>Speculation</strong> that the pound will rise → speculators buy pounds now.</li>
+</ul>
+<h4>What increases SUPPLY of pounds (depreciation)</h4>
+<ul>
+<li><strong>Foreign goods gain a reputation for quality</strong> → more UK demand for imports → more £ sold to buy foreign currency.</li>
+<li><strong>Foreign productivity gains or lower foreign inflation</strong> → cheaper imports → more £ supplied.</li>
+<li><strong>Rising UK incomes</strong> → UK consumers buy more imports → more £ supplied.</li>
+<li><strong>Lower UK interest rates (relative to overseas)</strong> → UK savers move funds abroad for a better return → more £ supplied.</li>
+<li><strong>Lower foreign corporation tax</strong> → attracts UK firms to invest abroad, e.g. Tesco operating in over 10 countries → more £ supplied.</li>
+<li><strong>Speculation</strong> that the pound will fall → speculators sell pounds now.</li>
+</ul>
+<p><strong>The classic exam trap:</strong> it is easy to get demand and supply the wrong way round. Remember: foreigners buying UK EXPORTS = they DEMAND pounds. UK residents buying IMPORTS = UK residents SUPPLY pounds (because they must sell pounds to get the foreign currency).</p>`,
+            readCheck: {
+                q: "Higher UK interest rates relative to overseas most directly cause...",
+                opts: ["An increase in the supply of pounds", "A decrease in demand for pounds", "An increase in demand for pounds, as foreign savers seek the better return", "No change to the exchange rate"],
+                ans: 2,
+                explain: "Higher UK rates make holding pounds in a UK bank more rewarding, so foreign savers move funds INTO the UK to take advantage — increasing demand for pounds and causing appreciation."
+            }
+        },
+        {
+            title: "The effects of appreciation and depreciation — output, inflation, current account",
+            tag: "One chain of reasoning, run in both directions",
+            content: `<p>Every exam question about the EFFECTS of an exchange rate change is really asking you to run the same chain of reasoning, just in whichever direction the question specifies.</p>
+<h4>Output and employment</h4>
+<ul>
+<li><strong>Appreciation (rise):</strong> exports become more expensive abroad (less overseas demand) and imports become cheaper (domestic firms lose sales too) → lower demand for domestic output → lower output → fewer workers needed.</li>
+<li><strong>Depreciation (fall):</strong> the opposite — cheaper exports and a better ability to compete against imports at home → higher output → more workers needed.</li>
+</ul>
+<h4>Inflation</h4>
+<ul>
+<li><strong>Appreciation</strong> → lower demand for domestic products AND cheaper imported inputs → helps PREVENT demand-pull inflation.</li>
+<li><strong>Depreciation</strong> → higher demand for domestic products AND dearer imported inputs → can CAUSE inflation (both demand-pull and cost-push).</li>
+</ul>
+<h4>Firms that import raw materials or components</h4>
+<ul>
+<li><strong>Appreciation</strong> → cheaper imported inputs, lower costs of production.</li>
+<li><strong>Depreciation</strong> → more expensive imported inputs, higher costs of production.</li>
+</ul>
+<h4>The current account (link to 4.2)</h4>
+<ul>
+<li><strong>Appreciation</strong> → fewer exports, more imports → likely to WIDEN a current account deficit.</li>
+<li><strong>Depreciation</strong> → more exports, fewer imports → likely to IMPROVE the current account (move towards surplus).</li>
+</ul>
+<p><strong>The trade-off that drives every evaluate question here:</strong> a weak pound helps exporters but stokes inflation; a strong pound curbs inflation but hurts exporters. There is no single "right" exchange rate — only trade-offs.</p>`,
+            readCheck: {
+                q: "A depreciation of the pound is most likely to...",
+                opts: ["Increase cost-push inflation, as imported inputs become dearer", "Make UK exports less competitive abroad", "Prevent demand-pull inflation", "Widen the current account deficit"],
+                ans: 0,
+                explain: "A depreciation makes imported raw materials and components more expensive, which firms pass on as higher prices — cost-push inflation. It tends to IMPROVE the current account and make exports MORE competitive, not less."
+            }
+        },
+        {
+            title: "Effects on consumers and producers — the exam's favourite evaluate",
+            tag: "Two named groups, two directions, always a trade-off",
+            content: `<p>Questions on this paper repeatedly ask you to evaluate the impact on CONSUMERS and PRODUCERS by name — read which group the question specifies and don't drift.</p>
+<h4>Consumers</h4>
+<ul>
+<li><strong>Imported goods:</strong> appreciation makes them cheaper, with more choice and better quality available; depreciation makes them more expensive with less choice.</li>
+<li><strong>Money left over / quality of life:</strong> higher after an appreciation, lower after a depreciation.</li>
+<li><strong>Foreign holidays:</strong> cheaper after an appreciation (more foreign currency per £); more expensive after a depreciation.</li>
+<li><strong>Interest rates:</strong> appreciation links to lower inflation, so the central bank may CUT interest rates — good for borrowers. Depreciation links to higher inflation, so the central bank may RAISE interest rates — bad for borrowers.</li>
+</ul>
+<h4>Producers</h4>
+<ul>
+<li><strong>Imported raw materials/components:</strong> cheaper after appreciation, dearer after depreciation.</li>
+<li><strong>Exporters:</strong> appreciation makes their goods more expensive abroad, likely fewer sales; depreciation makes them cheaper abroad, likely more sales.</li>
+<li><strong>UK tourism/hospitality:</strong> benefits from depreciation, since the UK becomes cheaper for overseas visitors.</li>
+<li><strong>Overseas-holiday firms</strong> (selling holidays abroad to UK customers) benefit from appreciation, since the whole holiday costs less.</li>
+</ul>
+<h4>Real extract-based evaluation levers</h4>
+<ul>
+<li>The SIZE of the change — a small movement in the exchange rate has little impact; a large one matters more.</li>
+<li>The LENGTH of time the change lasts — a short-lived swing has minimal effect; a sustained shift matters more.</li>
+<li>Price elasticity of demand (PED) — inelastic exports may not lose much volume even after becoming more expensive, so revenue might still rise, at least until buyers find substitutes.</li>
+<li>Whether the change is passed on in full to the final price paid by consumers.</li>
+</ul>`,
+            readCheck: {
+                q: "A UK firm that imports raw materials will benefit most from...",
+                opts: ["A fall in the price of its own product", "An appreciation of the pound", "A rise in UK interest rates only", "A depreciation of the pound"],
+                ans: 1,
+                explain: "An appreciation makes the foreign currency needed to buy imported raw materials cheaper in pound terms, lowering the firm's costs of production."
+            }
         }
     ];
-
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "The exchange rate is best defined as...",
+            opts: ["The total value of a country's exports", "The rate of inflation in a country", "The interest rate set by the central bank", "The price of one currency expressed in terms of another"],
+            ans: 3,
+            explain: "The exchange rate is simply a price — the price of one currency in terms of another, e.g. £1 = $1.25."
+        },
+        {
+            q: "Under the UK's floating exchange rate system, the value of the pound is determined by...",
+            opts: ["The Bank of England fixing a target rate", "Government decree", "The price of gold", "The demand for and supply of pounds on foreign exchange markets"],
+            ans: 3,
+            explain: "A floating exchange rate is set purely by market forces — demand for and supply of the currency — not by the government fixing its value."
+        },
+        {
+            q: "A UK exporter selling more goods to the USA will cause...",
+            opts: ["An increase in the demand for pounds", "No change in the foreign exchange market", "An increase in the supply of pounds", "A decrease in the demand for pounds"],
+            ans: 0,
+            explain: "US buyers must acquire pounds to pay for UK exports, so more exports mean more DEMAND for pounds — exports always sit on the demand side."
+        },
+        {
+            q: "UK consumers buying more imported goods from China will cause...",
+            opts: ["An increase in the demand for pounds", "A decrease in the demand for the Chinese yuan", "An increase in the supply of pounds", "A decrease in the supply of pounds"],
+            ans: 2,
+            explain: "UK residents must sell pounds to acquire the foreign currency needed to pay for imports, so more imports mean more SUPPLY of pounds."
+        },
+        {
+            q: "If £1 = $2.00 changes to £1 = $1.50, the pound has...",
+            opts: ["Depreciated", "Remained fixed", "Appreciated", "Been devalued by the government"],
+            ans: 0,
+            explain: "The pound now buys fewer dollars, so it has fallen in value — depreciated. 'Devalued' only applies under a FIXED exchange rate system, not the pound's floating one."
+        },
+        {
+            q: "A UK tourist exchanges £600 at a rate of £1 = $1.30. How many dollars do they receive?",
+            opts: ["$600.00", "$830.00", "$780.00", "$461.54"],
+            ans: 2,
+            explain: "Converting FROM pounds TO dollars means multiplying: £600 × 1.30 = $780.00."
+        },
+        {
+            q: "A holiday in the US costs $960. At £1 = $1.20, how much is this in pounds?",
+            opts: ["£1,152", "£960", "£80", "£800"],
+            ans: 3,
+            explain: "Converting FROM dollars TO pounds means dividing: $960 ÷ 1.20 = £800."
+        },
+        {
+            q: "Which of the following would most likely cause the pound to APPRECIATE against the euro?",
+            opts: ["A rise in UK inflation relative to the Eurozone", "A fall in UK interest rates relative to the Eurozone", "Speculators expecting the pound to fall", "A rise in UK interest rates relative to the Eurozone"],
+            ans: 3,
+            explain: "Higher UK rates (relative to the Eurozone) attract foreign savers seeking the better return, increasing demand for pounds and causing appreciation. The other three options would all cause depreciation."
+        },
+        {
+            q: "An appreciation of the pound is most likely to benefit which group?",
+            opts: ["UK firms competing against cheap imports", "UK consumers buying imported goods", "UK tourism businesses hosting foreign visitors", "UK exporters selling goods to the US"],
+            ans: 1,
+            explain: "Appreciation makes imports cheaper, benefiting consumers who buy them. It tends to HARM exporters, tourism businesses (the UK becomes dearer for visitors) and firms competing with now-cheaper imports."
+        },
+        {
+            q: "A depreciation of the pound is most likely to cause which problem for the UK economy?",
+            opts: ["A fall in the competitiveness of UK exports", "A stronger current account deficit", "Cheaper foreign holidays for UK residents", "Cost-push inflation, as imported raw materials become more expensive"],
+            ans: 3,
+            explain: "A depreciation makes imported inputs dearer, which firms pass on as higher prices — cost-push inflation. It tends to IMPROVE export competitiveness and the current account, and makes foreign holidays MORE expensive, not cheaper."
+        }
+    ];
+    const matchData = [
+        { term: "Exchange rate", def: "The price of one currency expressed in terms of another" },
+        { term: "Floating exchange rate", def: "A system where the currency's value is set purely by demand and supply on foreign exchange markets" },
+        { term: "Appreciation", def: "A rise in the value of a currency relative to another" },
+        { term: "Depreciation", def: "A fall in the value of a currency relative to another" },
+        { term: "Devaluation", def: "A deliberate fall in a currency's value under a FIXED exchange rate system" },
+        { term: "Revaluation", def: "A deliberate rise in a currency's value under a FIXED exchange rate system" },
+        { term: "Demand for pounds", def: "Comes from overseas buyers of UK exports, foreign investors, and speculators expecting the pound to rise" },
+        { term: "Supply of pounds", def: "Comes from UK buyers of imports, UK investors abroad, and speculators expecting the pound to fall" },
+        { term: "Speculation (currency)", def: "Buying or selling a currency in anticipation of its future value changing" },
+        { term: "Current account", def: "The record of a country's trade in goods and services, plus income and transfers, with the rest of the world" },
+        { term: "Import", def: "A good or service bought from another country, causing an outflow of money" },
+        { term: "Export", def: "A good or service sold to another country, causing an inflow of money" },
+        { term: "Price elasticity of demand (trade)", def: "How much the quantity of exports/imports demanded responds to a price change caused by the exchange rate" }
+    ];
+    const fibData = [
+        {
+            display: "A ___B1___ in the exchange rate means the pound is worth more, while a ___B2___ means it is worth less.",
+            blanks: { B1: "rise", B2: "fall" }
+        },
+        {
+            display: "The exchange rate is determined by the ___B1___ for and ___B2___ of a currency on foreign exchange markets.",
+            blanks: { B1: "demand", B2: "supply" }
+        },
+        {
+            display: "Buying UK exports means foreigners must ___B1___ pounds, while UK residents buying imports must ___B2___ pounds.",
+            blanks: { B1: "demand", B2: "supply" }
+        },
+        {
+            display: "A rise in the exchange rate is also called ___B1___; a fall is also called ___B2___.",
+            blanks: { B1: "appreciation", B2: "depreciation" }
+        },
+        {
+            display: "Higher UK interest rates relative to overseas tend to make the pound ___B1___, because foreign savers ___B2___ pounds to earn the better return.",
+            blanks: { B1: "appreciate", B2: "demand" }
+        },
+        {
+            display: "A depreciation makes UK exports ___B1___ for foreign buyers but makes imported raw materials ___B2___ for UK firms.",
+            blanks: { B1: "cheaper", B2: "more expensive" }
+        }
+    ];
+    const fibWords = ["rise", "fall", "demand", "supply", "appreciation", "depreciation", "appreciate", "depreciate", "cheaper", "more expensive", "devaluation", "revaluation"];
+    const tfData = [
+        {
+            statement: "A rise in the exchange rate is called depreciation.",
+            answer: false,
+            explanation: "A RISE in the exchange rate is called appreciation. Depreciation is a FALL — the two are opposites, and this is a common mix-up."
+        },
+        {
+            statement: "Under a floating exchange rate, the government fixes the value of the currency.",
+            answer: false,
+            explanation: "Under a floating system the value is set purely by demand and supply on foreign exchange markets, not by government decree — that's how a FIXED system works instead."
+        },
+        {
+            statement: "UK consumers buying more imports will increase the supply of pounds on foreign exchange markets.",
+            answer: true,
+            explanation: "To buy imports, UK residents must sell pounds to obtain the foreign currency needed, which increases the supply of pounds on the market."
+        },
+        {
+            statement: "Higher UK interest rates relative to overseas tend to cause the pound to depreciate.",
+            answer: false,
+            explanation: "Higher relative interest rates ATTRACT foreign savers seeking the better return, increasing demand for pounds and causing the pound to APPRECIATE, not depreciate."
+        },
+        {
+            statement: "An appreciation of the pound tends to help control inflation.",
+            answer: true,
+            explanation: "Appreciation makes imports cheaper and reduces demand for domestic output, both of which help prevent demand-pull inflation."
+        },
+        {
+            statement: "A depreciation of the pound always benefits UK exporters, with no downsides.",
+            answer: false,
+            explanation: "While depreciation makes exports cheaper abroad, it also makes imported raw materials more expensive and can cause inflation — so it is a genuine trade-off, not a pure benefit."
+        },
+        {
+            statement: "Devaluation and depreciation mean exactly the same thing and can be used interchangeably regardless of the exchange rate system.",
+            answer: false,
+            explanation: "Devaluation is the term for a deliberate fall under a FIXED exchange rate system; depreciation is the term for a market-driven fall under a FLOATING system like the pound's."
+        },
+        {
+            statement: "A stronger pound makes it cheaper for UK residents to go on holiday abroad.",
+            answer: true,
+            explanation: "Appreciation means each pound buys more foreign currency, so foreign holidays and spending abroad become cheaper for UK residents."
+        }
+    ];
+    const miscData = [
+        {
+            wrong: "\"Higher UK interest rates mean British savers move MORE money abroad, increasing the supply of pounds.\"",
+            correct: "This gets the direction backwards, and it's a real misconception the mark scheme calls out by name: 'Some candidates confused the increase with saving and less supply of pounds in the foreign exchange market.' Higher UK rates make the UK MORE attractive to save in — so foreign savers bring funds INTO the UK (demand for £ rises), and British savers have LESS reason to send money abroad (so supply of £ may fall, not rise). Either route raises the pound's value. A genuinely sophisticated version, which examiners noted was rare, links higher rates to reduced consumption, which reduces imports and therefore reduces supply of £ too. Whichever route you pick, higher UK interest rates relative to overseas always point the same way: appreciation.",
+            readCheck: {
+                q: "Higher UK interest rates (relative to overseas) are most likely to cause the pound to...",
+                opts: ["Appreciate, because foreign savers bring funds into the UK to earn the better return", "Stay exactly the same", "Depreciate, because imports become cheaper", "Depreciate, because savers export more money"],
+                ans: 0,
+                explain: "Higher UK rates attract foreign savers, raising demand for £ (or reduce British saving abroad, lowering supply of £) — both point to appreciation, not depreciation."
+            }
+        },
+        {
+            wrong: "\"£54 million exported at $1.60 to the pound converts to £86.4 million.\"",
+            correct: "The maths is right but the currency symbol is wrong — and the mark scheme flags this exact error as a common misconception: candidates writing 'to write £86.4 million rather than using a dollar sign ($).' The question asked for the value IN US DOLLARS, so the answer must be labelled $86.4 million. Whenever a calculation converts a figure INTO a different currency, the final answer needs to carry THAT currency's symbol, not the one you started with — this rule cost real marks on this exact question.",
+            readCheck: {
+                q: "You correctly calculate that £54 million converts to 86.4 million in US dollars. How should you write the final answer?",
+                opts: ["86.4 million pounds", "£86.4 million", "$86.4 million", "€86.4 million"],
+                ans: 2,
+                explain: "The question asked for the value in US dollars, so the answer must use the $ sign — using £ (the currency you started FROM, not converted TO) is the exact mistake examiners flagged."
+            }
+        },
+        {
+            wrong: "\"Labelling the curves on a currency diagram AS and AD, just like a macroeconomy diagram.\"",
+            correct: "The mark scheme is direct about this: 'A common misconception is to use AS or AD when labelling the curves. The graph is for the pound sterling on international foreign exchange markets, therefore the curves should be labelled Supply (S) and Demand (D).' AS and AD refer to aggregate supply and aggregate demand for the WHOLE economy's output — a completely different diagram. A currency market diagram, like a diagram for any other market, needs ordinary Supply (S) and Demand (D) curves, with the price of the currency (in another currency) on the vertical axis and the quantity of currency traded on the horizontal axis.",
+            readCheck: {
+                q: "On a diagram showing the market for pounds sterling, the two curves should be labelled...",
+                opts: ["S and D", "MPC and MPS", "LRAS and AD", "AS and AD"],
+                ans: 0,
+                explain: "The exam mark scheme explicitly warns against AS/AD — those belong to a macroeconomy diagram. A currency market is a normal market, so it needs ordinary Supply (S) and Demand (D) curves."
+            }
+        },
+        {
+            wrong: "\"If the Swiss Franc appreciates, Swiss interest rates must rise as a result.\"",
+            correct: "This reverses cause and effect, and the examiners noted it directly: 'Several candidates answered 'C' demonstrating a confusion between interest rates and exchange rates.' On this paper the link usually runs the OTHER way: a RISE in interest rates can CAUSE a currency to appreciate, by attracting foreign savers. An appreciation happening for some other reason (rising exports, foreign investment, speculation) does not automatically cause interest rates to move at all — interest rates are set separately, typically by a central bank pursuing its own objectives like price stability. Keep the two variables clearly separate, and only link them in the specific direction a question's evidence supports.",
+            readCheck: {
+                q: "Why is it wrong to assume an appreciating currency automatically causes interest rates to rise?",
+                opts: ["Because only the government can change the exchange rate", "Because it reverses the usual direction — higher interest rates tend to CAUSE appreciation, not the other way round by default", "Because interest rates and exchange rates are unrelated in every case", "Because exchange rates never affect an economy"],
+                ans: 1,
+                explain: "The exam paper repeatedly uses higher interest rates as a CAUSE of appreciation. Assuming the reverse — that appreciation causes rates to rise — is the confusion examiners reported."
+            }
+        },
+        {
+            wrong: "\"Buying more UK exports means UK residents supply more pounds.\"",
+            correct: "This is the single most-tested trap in the whole topic, and it appears throughout this paper's mark schemes — for example the model answer for 'analyse how an increase in demand for the pound would affect its exchange rate' is built entirely on 'increase in demand for the pound... due to more exports paid in pounds', and another question offers 'a decrease in demand for pounds (less inflow of funds) OR an increase in supply (greater outflow of funds)' as the two valid routes for a FALLING pound. The rule never changes: when FOREIGNERS buy UK EXPORTS, THEY must acquire pounds to pay for them — that is DEMAND for pounds, from the foreign buyer's side. When UK RESIDENTS buy IMPORTS, THEY must sell pounds to acquire the foreign currency — that is SUPPLY of pounds, from the UK side. Mixing these up was described by examiners as producing 'a wide range of answers, rather than the correct one' on a related diagram question. Before writing about any currency-market shift, always ask: who is doing the buying, and which currency are THEY giving up?",
+            readCheck: {
+                q: "A rise in the volume of UK exports sold to Japan will most directly cause...",
+                opts: ["An increase in the demand for pounds, as Japanese buyers acquire pounds to pay for the goods", "A decrease in the demand for pounds", "No change in the market for pounds", "An increase in the supply of pounds"],
+                ans: 0,
+                explain: "Japanese buyers of UK exports must first acquire pounds to pay for them — that is an increase in DEMAND for pounds, not supply. Exports always sit on the demand side of the pound market."
+            }
+        }
+    ];
+    const examTips = [
+        {
+            type: "calculation",
+            title: "Calculations: pick multiply or divide, and label the right currency",
+            pills: ["Calculate... Show your working", "2 marks", "AO2 · Quantitative skills"],
+            content: `<p>Every currency calculation on this paper needs the SAME two checks: which way are you converting, and which currency symbol goes on the final answer?</p>
+<ul>
+<li><strong>Converting FROM the base currency (e.g. £ TO $):</strong> MULTIPLY by the rate. £54 million × $1.60 = $86.4 million.</li>
+<li><strong>Converting TO the base currency (e.g. € TO £):</strong> DIVIDE by the rate. €5700 ÷ 1.14 = £5000.</li>
+<li><strong>Label the currency you converted INTO, not the one you started from.</strong> A real mark scheme flags writing "£86.4 million" instead of "$86.4 million" as a common misconception — 1 mark is lost for the wrong symbol even with correct working.</li>
+<li><strong>Simple differences don't need conversion at all</strong> — one question just subtracts two rates from the same table (1.37 − 1.12 = 0.25 euros) and still requires you to STATE the currency (euros) to get both marks.</li>
+</ul>`,
+            readCheck: {
+                q: "A UK firm earns €8000 from sales in Germany. At a rate of £1 = €1.25, its income in pounds is...",
+                opts: ["€10 000 — multiply by the rate", "£10 000 — multiply by the rate", "£6 400 — divide by the rate", "£8 000 — no conversion needed"],
+                ans: 2,
+                explain: "Converting FROM euros TO pounds means dividing by the rate: €8000 ÷ 1.25 = £6400. Multiplying would give the wrong answer and the wrong direction of conversion."
+            }
+        },
+        {
+            type: "diagram",
+            title: "Diagrams: label S and D, show the shift, and don't skip it",
+            pills: ["Analyse, with the aid of a diagram...", "6 marks", "AO1a+AO2+AO3a"],
+            content: `<p>Every 6-mark "analyse with a diagram" question on this paper caps your marks hard if the diagram is missing or wrong.</p>
+<ul>
+<li><strong>Label the curves S and D — never AS/AD.</strong> A real mark scheme calls out AS/AD labelling as a common misconception; this is a market for a CURRENCY, not a macroeconomy diagram.</li>
+<li><strong>Show which curve shifts and which way.</strong> An increase in demand for £ = D shifts right; a rise in the supply of £ = S shifts right; a widening current account deficit could be modelled either as D shifting left (fewer exports) or S shifting right (more imports) — both are accepted.</li>
+<li><strong>No diagram, or an incorrect one, caps your mark hard.</strong> One mark scheme caps at 5 with a partially correct diagram, 4 with none at all; another caps at just 3 marks with no relevant diagram.</li>
+<li><strong>Use the question's own currency pair.</strong> If the question asks about £ against $, don't drift into £ against € — examiners specifically recommend matching your diagram and text to "the exact question wording."</li>
+</ul>`,
+            readCheck: {
+                q: "On a 6-mark 'analyse, with the aid of a diagram' question, what happens if you write a full, correct written analysis but include no diagram at all?",
+                opts: ["Nothing — diagrams are optional extras", "You automatically score 0", "Your mark is capped at a lower maximum, even if the written analysis is excellent", "You get full marks if the writing is detailed enough"],
+                ans: 2,
+                explain: "The mark schemes are explicit: a missing diagram caps the maximum achievable mark (e.g. 4 out of 6), regardless of how good the written analysis is."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "Evaluate: name every group the question asks for, and finish the chain",
+            pills: ["Evaluate the extent to which...", "6 marks", "AO3b"],
+            content: `<p>One examiner's "Assessment for learning" note is the single most useful sentence on this paper: candidates "often started a point correctly... but did not always develop a chain of reasoning fully... missing out the middle section."</p>
+<ul>
+<li><strong>Finish the chain.</strong> Don't stop at "producers lose demand" — explain WHY (their goods are now more expensive abroad) and then WHAT FOLLOWS (lower profit, possible redundancies).</li>
+<li><strong>Reference every named group.</strong> One mark scheme states plainly: "In order to reach Level 3, there must be reference to consumers AND producers." If a question names two groups, dropping one caps you below the top band.</li>
+<li><strong>Evaluation is not two disconnected points.</strong> Examiners criticised answers that mentioned a falling cost for producers without linking it back to whether that offsets the fall in demand — always connect your two sides.</li>
+<li><strong>End with a real judgement</strong> naming what it depends on: the SIZE of the change, how LONG it lasts, and the price elasticity of demand for the goods affected are the three levers used across nearly every evaluate question on this paper.</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks you to 'evaluate the extent to which a rise in the pound could affect UK consumers and producers.' What is required to reach the top level (Level 3)?",
+                opts: ["A long answer with lots of data", "Just a strong personal opinion at the end", "Reference to BOTH consumers and producers, with application, analysis and evaluation all present", "Only discussing the group you find easiest"],
+                ans: 2,
+                explain: "The mark scheme is explicit that Level 3 needs application (AO2), analysis (AO3a) AND evaluation (AO3b) — and reference to every group the question names."
+            }
+        },
+        {
+            type: "definition",
+            title: "State/Explain: two precise elements, and match the exact currency",
+            pills: ["State / Explain what is meant by...", "2 marks", "AO1"],
+            content: `<p>Short-answer questions reward PRECISION over length.</p>
+<ul>
+<li><strong>"State two..." questions need two DISTINCT, named answers</strong> — 1 mark each. Writing just "inflation" for "state two economic objectives" was flagged as "too vague", because inflation control isn't itself a named objective (the objective is PRICE STABILITY).</li>
+<li><strong>"Explain what is meant by a rise in the exchange rate" needs TWO elements</strong>: (1) more foreign currency can be bought (2) with one unit of the home currency. Either half alone is worth 1 mark.</li>
+<li><strong>"State what is meant by imports" needs BOTH</strong>: goods AND services bought from abroad, PLUS the outflow of money in exchange. "A good bought from another country" alone drops the services element and caps you at 1 mark.</li>
+<li><strong>Match the currency named in the question.</strong> Examiners specifically recommend that "candidates match their responses to the currency reference in the exact question wording" — if a question is about the pound against the dollar, keep your whole answer in £/$ terms, not £/€.</li>
+</ul>`,
+            readCheck: {
+                q: "For 'state two economic objectives that monetary policy can achieve', which answer would be marked as too vague to credit?",
+                opts: ["A balance/surplus on the balance of payments", "Controlling inflation", "Price stability", "Low unemployment"],
+                ans: 1,
+                explain: "Examiners noted candidates who simply wrote 'inflation' or similar were too vague — the actual objective is named PRICE STABILITY, which IS creditable."
+            }
+        }
+    ];
+    const flashcards = [
+        { term: "Exchange rate", def: "The price of one currency in terms of another, e.g. £1 = $1.25." },
+        { term: "Floating exchange rate", def: "Set purely by demand and supply on foreign exchange markets — no government fixing." },
+        { term: "Appreciation", def: "A RISE in the exchange rate; the currency is worth more." },
+        { term: "Depreciation", def: "A FALL in the exchange rate; the currency is worth less." },
+        { term: "Devaluation / Revaluation", def: "The FIXED-system equivalents of depreciation/appreciation — a deliberate government action." },
+        { term: "Demand for pounds", def: "From foreign buyers of UK exports, foreign investors, and speculators expecting a rise." },
+        { term: "Supply of pounds", def: "From UK buyers of imports, UK investors abroad, and speculators expecting a fall." },
+        { term: "The classic trap", def: "Buying EXPORTS = foreigners DEMAND pounds. Buying IMPORTS = UK residents SUPPLY pounds." },
+        { term: "What raises demand for £", def: "UK goods' reputation, better UK productivity/lower inflation, rising overseas incomes, higher UK interest rates, lower UK corp tax, bullish speculation." },
+        { term: "What raises supply of £", def: "Foreign goods' reputation, foreign productivity gains, rising UK incomes, lower UK interest rates, lower foreign corp tax, bearish speculation." },
+        { term: "Interest rates & the pound", def: "Higher UK rates (relative to overseas) attract foreign savers → more demand for £ → appreciation." },
+        { term: "Appreciation & output", def: "Exports dearer abroad, imports cheaper at home → lower demand for domestic output → lower output/employment." },
+        { term: "Depreciation & output", def: "Exports cheaper abroad, better able to compete with imports at home → higher output/employment." },
+        { term: "Appreciation & inflation", def: "Helps PREVENT demand-pull inflation — cheaper imports, less demand for domestic goods." },
+        { term: "Depreciation & inflation", def: "Can CAUSE inflation — dearer imports (cost-push) plus more demand for domestic goods (demand-pull)." },
+        { term: "Current account link", def: "Appreciation tends to widen a deficit; depreciation tends to improve it." },
+        { term: "Consumers & the exchange rate", def: "Appreciation = cheaper imports/holidays, more purchasing power; depreciation = the opposite." },
+        { term: "Producers & the exchange rate", def: "Appreciation = cheaper imported inputs but harder exporting; depreciation = dearer inputs but easier exporting." },
+        { term: "The trade-off", def: "A weak pound helps exporters but stokes inflation; a strong pound curbs inflation but hurts exporters." }
+    ];
+    // Shared exam extracts — defined ONCE here and referenced by `caseId`
+    // from each question part, so editing an extract updates every question
+    // that uses it. Single-use stimuli keep their own inline `caseStudy`.
+    const EXAM_CASE_STUDIES = {
+        "extract-3-uk-balance-of-payments": `<p><strong>Extract 3: UK balance of payments</strong></p>
+<p>UK balance of payments current account data for 2014.</p>
+<table style="width:100%;max-width:420px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2014 (£m)</th></tr>
+<tr><td style="padding:6px;">Export of goods</td><td style="padding:6px;">292,867</td></tr>
+<tr><td style="padding:6px;">Import of goods</td><td style="padding:6px;">412,472</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods</td><td style="padding:6px;">–</td></tr>
+<tr><td style="padding:6px;">Export of services</td><td style="padding:6px;">214,856</td></tr>
+<tr><td style="padding:6px;">Import of services</td><td style="padding:6px;">128,993</td></tr>
+<tr><td style="padding:6px;">Balance of trade in services</td><td style="padding:6px;">85,863</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods and services</td><td style="padding:6px;">–</td></tr>
+</table>`,
+        "extract-3-economic-policies-and-the-value-of-the": `<p><strong>Extract 3: Economic Policies and the Value of the Pound</strong></p>
+<p>Supply side spending (selected items), £ billion</p>
+<table style="width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Government spending</th><th style="padding:6px;">2001–02</th><th style="padding:6px;">2011–12</th><th style="padding:6px;">2021–22</th></tr>
+<tr><td style="padding:6px;">General public services</td><td style="padding:6px;">44.0</td><td style="padding:6px;">76.8</td><td style="padding:6px;">108.6</td></tr>
+<tr><td style="padding:6px;">Health (NHS)</td><td style="padding:6px;">59.8</td><td style="padding:6px;">121.3</td><td style="padding:6px;">216.8</td></tr>
+<tr><td style="padding:6px;">Education</td><td style="padding:6px;">51.2</td><td style="padding:6px;">86.5</td><td style="padding:6px;">100.3</td></tr>
+<tr><td style="padding:6px;">Sum of excluded items</td><td style="padding:6px;">155.0</td><td style="padding:6px;">284.6</td><td style="padding:6px;">425.7</td></tr>
+<tr style="border-top:1px solid var(--border);"><td style="padding:6px;"><strong>Total government spending</strong></td><td style="padding:6px;"><strong>384.0</strong></td><td style="padding:6px;"><strong>675.5</strong></td><td style="padding:6px;"><strong>952.3</strong></td></tr>
+</table>
+<p>Government spending on education and health provision allows workers to become more productive, potentially increasing economic output.</p>
+<p>When tax revenue does not increase at the same pace as government spending, the government must borrow to cover its deficit. When government borrowing increases, interest rates may rise. Monetary policy uses interest rates to affect economic growth through their effect on borrowing for investment and consumption.</p>
+<p>When interest rates in the UK are higher than overseas, the international value of the pound increases, which may adversely affect UK exports, but should lower the inflation rate.</p>`,
+        "extract-2-impact-of-exchange-rates-and-interest-": `<p><strong>Extract 2: Impact of Exchange Rates and Interest Rates on the UK Economy</strong></p>
+<img src="/images/economics/3-6-uk-pound-usd-exchange-rate-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'UK Pound against the US Dollar Exchange Rate', showing the price of the pound in dollars from 2008 to 2020. It starts at about $1.84 in 2008, falls sharply to about $1.55 by 2009, stays roughly flat around $1.55-$1.60 from 2009 to 2013 (including around $1.60 in 2011), rises slightly to a peak of about $1.65 in 2014, then falls steadily to about $1.35 by 2016, dips further to about $1.29 in 2017, recovers slightly to $1.33 in 2018, then eases to around $1.28 by 2019-2020" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>The exchange rate, which is used for international trade to convert a foreign currency into the domestic currency, or vice versa, specifies in the chart above how many US dollars ($) are needed to buy a pound (£). A fall in the exchange rate affects the price of imported goods and tourism, as well as making exports more competitive.</p>
+<p>The value of the UK pound changes in response to both political and economic factors. The Brexit vote in 2016 and the monetary policy of keeping interest rates low between 2008 and 2021 have both had a significant impact. The economic objective of low interest rates was to encourage firms and households to borrow and spend in order to stimulate economic growth. Since 2022, however, concerns about inflation have led to a policy of increasing interest rates.</p>`,
+        "extract-3-the-pound-to-euro-exchange-rate-2008-2": `<p><strong>Extract 3: The Pound (£) to Euro (€) exchange rate 2008–2017</strong></p>
+<p>The UK&#39;s exchange rate is determined by the forces of supply and demand. The exchange rate measures the price of the UK&#39;s currency, the pound (£), in terms of another currency. The table below shows the value of the pound (£) in terms of euros (€) for 2008 to 2017. (The figure given is the average for that year.)</p>
+<table style="width:100%;max-width:340px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Year</th><th style="padding:6px;">Euros (€) to £1</th></tr>
+<tr><td style="padding:6px;">2008</td><td style="padding:6px;">1.26</td></tr>
+<tr><td style="padding:6px;">2009</td><td style="padding:6px;">1.12</td></tr>
+<tr><td style="padding:6px;">2010</td><td style="padding:6px;">1.16</td></tr>
+<tr><td style="padding:6px;">2011</td><td style="padding:6px;">1.15</td></tr>
+<tr><td style="padding:6px;">2012</td><td style="padding:6px;">1.23</td></tr>
+<tr><td style="padding:6px;">2013</td><td style="padding:6px;">1.18</td></tr>
+<tr><td style="padding:6px;">2014</td><td style="padding:6px;">1.24</td></tr>
+<tr><td style="padding:6px;">2015</td><td style="padding:6px;">1.37</td></tr>
+<tr><td style="padding:6px;">2016</td><td style="padding:6px;">1.22</td></tr>
+<tr><td style="padding:6px;">2017</td><td style="padding:6px;">1.14</td></tr>
+</table>
+<p>The euro is the currency used by many European countries including France, Germany, Italy and Spain. Changes in the exchange rate will have effects on exports and imports and the economy in general. Consumers in the UK may be affected by movements in the exchange rate in a number of ways; for example, goods which they buy from abroad may change in price.</p>`,
+    };
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "A government can prevent the country's exchange rate from rising by",
+            options: ["buying its own currency", "increasing interest rates", "selling its own currency", "selling its reserves of foreign currency"],
+            answer: 2,
+            hint: "To stop the currency RISING, the government needs to push its value down, or at least stop it going up — that means increasing the SUPPLY of its own currency on the market.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — selling its own currency</strong></p>
+<ul>
+<li>Selling its own currency increases its supply on the foreign exchange market, which pushes its price down — preventing (or reversing) a rise. Buying its own currency (A), raising interest rates (B), or selling foreign currency reserves (D) would all tend to push the exchange rate UP, not prevent a rise.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q2(a)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-uk-balance-of-payments",
+            question: "Analyse, with the aid of a diagram, how an increase in demand for the pound (£) may affect its exchange rate.",
+            hint: "Diagram first: draw the market for pounds (price in another currency on the vertical axis, quantity of £ on the horizontal). An increase in demand shifts D rightward — label it D to D1, not AD. Then chain: more demand for £ (e.g. more exports) → D shifts right → equilibrium price rises from P to P1 → the pound is more expensive → more foreign currency is needed to buy the same amount of £.",
+            starter: "An increase in demand for the pound could be caused by...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The exchange rate is the price of a currency</li>
+<li>Increase in demand for the pound (£), for example due to more exports paid in pounds (£), shifts the demand curve D upwards/rightwards to D1</li>
+<li>This increases the equilibrium price P to P1</li>
+<li>This means that the pound (£) is more expensive and more foreign currency is needed to buy the same amount of pounds (£) than before</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge and application; good analysis with developed chains of reasoning; diagram predominantly correct and linked to the analysis (max 5 if partially correct diagram).</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects; diagram, if present, may be imperfectly labelled (max 4 if no diagram).</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis; diagrams (if present) unlikely to be correct (max 2 if only a diagram, no analysis).</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "The exchange rate is the price of one currency in terms of another. An increase in demand for the pound could be caused by more exports being paid for in pounds — for example, if US buyers want more UK goods, they must first buy pounds to pay for them.\n\nThis increase in demand shifts the demand curve for pounds rightwards, from D to D1. Because the supply curve is unchanged, the new equilibrium price rises from P to P1.\n\nThis means the pound has appreciated: it is now more expensive, and more foreign currency is needed to buy the same amount of pounds than before. A US buyer, for example, would now have to give up more dollars to obtain each pound."
+        },
+        {
+            num: "Q2b(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-uk-balance-of-payments",
+            question: "State two ways of measuring how developed a country is.",
+            hint: "Any two recognised development indicators — GDP per capita, life expectancy, access to healthcare/technology/education. One mark each, up to two.",
+            starter: "1. ... 2. ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>GDP (per capita)</li>
+<li>Life expectancy</li>
+<li>Access to health care</li>
+<li>Access to technology</li>
+<li>Access to education</li>
+</ul>
+<p>1 mark for each correct answer up to a maximum of 2 marks. Any other reasonable answer to be credited.</p>
+</div>`,
+            modelAnswer: "1. GDP per capita — the average income produced per person in the country.\n\n2. Life expectancy — the average number of years a person is expected to live, which reflects access to healthcare and living standards."
+        },
+        {
+            num: "Q2b(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-uk-balance-of-payments",
+            question: "Explain what is meant by a rise in the exchange rate.",
+            hint: "Two valid routes for 2 marks: (1) more foreign currency can be bought with one unit of the home currency, OR (2) the home currency is worth more — you don't need to reference both currencies in one sentence.",
+            starter: "A rise in the exchange rate means that...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>More foreign currency can be bought with one unit of the home currency</li>
+</ul>
+<p>1 mark for understanding that more foreign currency can be bought, without reference to the home currency. 1 mark for understanding that the home currency is worth more, without reference to a foreign currency. Allow 1 mark for understanding of the exchange rate.</p>
+</div>`,
+            modelAnswer: "A rise in the exchange rate means that one unit of the home currency, e.g. the pound, can now buy more units of a foreign currency than before.\n\nIn other words, the home currency has become worth more — it has appreciated — so foreign goods, services and travel become cheaper for people holding that currency."
+        },
+        {
+            num: "Q2b(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-uk-balance-of-payments",
+            question: "Evaluate whether a rise in the exchange rate would benefit the economy of a developed country. Use the information given in Extract 3 and your own knowledge.",
+            hint: "Use the extract's own worked example: £1 rising from $1.20 to $1.50 means a $120 US good priced at £100 now costs only £80 — good for UK consumers, bad for UK producers competing with it. Then flip to exports: UK goods become dearer abroad, so exporters may lose sales and cut jobs. Evaluate on the SIZE of the rise, how LONG it lasts, and whether other currencies move too.",
+            starter: "An increase in the exchange rate would cause the price of imports to fall, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>An increase in the exchange rate would cause the price of imports to fall (e.g. if £1 starts at $1.20 and rises to $1.50, a US good sold at $120 was previously sold at £100 in the UK but is now sold at £80)</li>
+<li>This is good for consumers in the UK who now have greater purchasing power</li>
+<li>This is a disadvantage for UK producers as they now compete with cheaper imports</li>
+<li>UK producers may lose sales, which may force them to make workers redundant</li>
+<li>The price of exports would rise and so become less competitive in foreign markets</li>
+<li>The UK exporters may lose sales, which may force them to make workers redundant</li>
+<li>The economy has become less competitive, so it is losing sales at home and abroad — as demand falls, output falls</li>
+<li>Inflation is less likely, as the cost of imported materials falls and the demand for home-produced goods falls</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Evaluation may include</h5>
+<ul>
+<li>The effect of a rise in the exchange rate may depend on other economic variables, e.g. inflation</li>
+<li>It depends on the size of the rise — a small rise will have little impact</li>
+<li>It depends on the longevity of the rise — if it is short-lived, the effects will be minimal</li>
+<li>The value of other currencies of important trading partners may be different, and the rise may only be in relation to one currency, e.g. the pound to the dollar</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing arguments/both sides/alternatives, coherently structured.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis in a single effect; reasonable evaluation considering both sides, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation with basic/ambiguous information.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+            modelAnswer: "A rise in the exchange rate would cause the price of imports to fall. As Extract 3's example shows, if £1 rises from $1.20 to $1.50, a US good priced at $120 falls from £100 to just £80 for UK buyers — good for consumers, who gain greater purchasing power.\n\nHowever, this is a disadvantage for UK producers, who now compete with cheaper imports in their home market and may lose sales, forcing redundancies. At the same time, the price of UK exports rises in foreign markets, making them less competitive; exporters may lose overseas sales too, again risking job losses. One offsetting benefit is that inflation becomes less likely, since imported materials are cheaper and demand for home-produced goods falls.\n\nOverall, whether the economy benefits depends on the SIZE of the rise — a small movement will barely be noticed — and on how LONG it lasts, since a short-lived rise gives producers little reason to change behaviour. It also depends on which currencies moved: a rise only against the dollar, for example, would not affect trade with the Eurozone. On balance, a large and sustained rise is more likely to hurt a developed economy's producers than it helps its consumers, because production and jobs are put at risk on two fronts (imports and exports) at once."
+        },
+        {
+            num: "Q3",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "All other things being equal, what would increase the volume of imports?",
+            options: ["A fall in interest rates", "A fall in the price level", "A new tax on imported goods", "A rise in the exchange rate"],
+            answer: 3,
+            hint: "A rise in the exchange rate (appreciation) makes foreign goods CHEAPER for domestic buyers, so the quantity of imports bought rises.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: D — A rise in the exchange rate</strong></p>
+<ul>
+<li>A rise in the exchange rate makes imports cheaper for domestic buyers, increasing the volume bought. A new tax on imports (C) would REDUCE the volume, and a fall in interest rates (A) or the price level (B) does not directly change the price of imports in the same way.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly identified the correct answer (D).</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>A consumer is planning a holiday. They found a villa that cost €3480 when the exchange rate was £1 = €1.20. By the time they booked the villa the exchange rate had changed to £1 = €1.16.</p>`,
+            question: "What happened to the Sterling price of the villa for the consumer?",
+            options: ["Decreased by £400", "Decreased by £139.20", "Increased by £100", "Remained unchanged"],
+            answer: 2,
+            hint: "Convert the euro price into pounds at BOTH rates by dividing: €3480 ÷ 1.20 first, then €3480 ÷ 1.16. Compare the two pound figures.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: C — Increased by £100</strong></p>
+<ul>
+<li>At £1 = €1.20: €3480 ÷ 1.20 = £2900. At £1 = €1.16: €3480 ÷ 1.16 = £3000. The pound depreciated against the euro (buys fewer euros), so the villa became £100 MORE expensive for the UK consumer, not cheaper.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly identified the correct answer (C).</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>The diagram shows the supply and demand for Sterling (£) when priced in US dollars ($).</p>
+<img src="/images/economics/4-3-sterling-usd-supply-demand-diagram-extracted.png" alt="Supply and demand diagram for Sterling priced in US dollars. The vertical axis is Price of Sterling in US Dollars, the horizontal axis is Quantity of Sterling. A downward-sloping demand curve D is shown. Two upward-sloping supply curves are shown: S1, closer to the origin, and S2, shifted left/up from S1. D crosses S1 at a lower price p1 and quantity q1; D crosses S2 at a higher price p2 and a lower quantity q2, illustrating that a leftward shift in supply from S1 to S2 raises the price of Sterling from p1 to p2" style="display:block;width:100%;max-width:480px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "What might cause the Sterling to US Dollar exchange rate to increase from p1 to p2?",
+            options: ["Incomes of US consumers increase", "Less imports are bought from the US", "The UK becomes more attractive for foreign investment", "UK goods become more desirable to US consumers"],
+            answer: 1,
+            hint: "Look at the diagram carefully: the SUPPLY curve shifts from S1 to S2 (leftward), not the demand curve. Price rises because SUPPLY of pounds fell, not because demand rose — only one option changes supply rather than demand.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Less imports are bought from the US</strong></p>
+<ul>
+<li>The diagram shows the SUPPLY curve shifting from S1 to S2 (leftward), not the demand curve. Fewer UK imports from the US means UK residents supply fewer pounds to buy dollars, so the supply of pounds falls — matching the diagram's S1→S2 shift and raising the price from p1 to p2.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question had a wide range of answers, rather than the correct one, which is the impact of a change on the value of the pound.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q6",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>A UK producer is currently buying raw materials from the USA for $28,000. The value of the UK pound (£) in terms of the US Dollar ($) changes from £1 = $1.40 to £1 = $1.25.</p>`,
+            question: "What is the price that the UK producer will now have to pay for the raw materials?",
+            options: ["£2400", "£20 000", "£22 400", "£35 000"],
+            answer: 2,
+            hint: "Divide the DOLLAR cost by the NEW rate ($1.25), not the old one, since you're finding the £ cost AFTER the rate changed: $28,000 ÷ 1.25.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: C — £22 400</strong></p>
+<ul>
+<li>$28,000 ÷ $1.25 = £22,400. At the OLD rate it would have cost £20,000 (option B) — the pound has depreciated from $1.40 to $1.25, so it buys fewer dollars, and the same $28,000 of materials now costs the UK producer MORE in pounds.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates answered C correctly.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q7",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>The diagram shows the value of the UK pound (£) in terms of the Euro (€) from 2013 to 2022.</p>
+<img src="/images/economics/4-3-gbp-eur-2013-2022-chart-extracted.png" alt="Line chart from the OCR exam paper showing the value of the UK pound in euros from 2013 to 2022. Values: 2013 about 1.23, 2014 about 1.20, 2015 about 1.27, 2016 about 1.37 (the peak), 2017 about 1.18, 2018 about 1.12, 2019 about 1.11, 2020 about 1.18, 2021 about 1.11, 2022 about 1.20. The pound rises steadily from 2013 to a peak in 2016, then falls sharply after 2016 before fluctuating between about 1.11 and 1.20" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />`,
+            question: "Which statement is most likely to be correct?",
+            options: ["There was a decrease in the demand for pounds between 2014 and 2016", "There was a decrease in the supply of pounds between 2013 and 2014", "There was a fall in the rate of inflation from 2016 to 2019", "There was a loss of confidence by investors in the UK economy after 2016"],
+            answer: 3,
+            hint: "The chart peaks in 2016 then falls sharply — this matches the timing of the Brexit referendum (2016). A is wrong because the rate RISES from 2014 to 2016 (more demand, not less); the chart shows an exchange rate, not an inflation rate, so C can't be read off it.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: D — There was a loss of confidence by investors in the UK economy after 2016</strong></p>
+<ul>
+<li>The pound peaks at 1.37 euros in 2016 and then falls sharply — consistent with a loss of investor confidence after the 2016 Brexit referendum. The rate RISES between 2014 and 2016 (ruling out A, which describes falling demand), and the chart shows an exchange rate, not an inflation rate (ruling out C).</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates answered D correctly.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q8(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-economic-policies-and-the-value-of-the",
+            question: "Other than economic growth, state two economic objectives that monetary policy can achieve.",
+            hint: "Price stability, balance/surplus on the balance of payments, and low unemployment are the standard list. Don't just write 'inflation' on its own — examiners flagged this as too vague, since it isn't itself a named objective.",
+            starter: "1. ... 2. ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Price stability</li>
+<li>Balance/surplus in the balance of payments</li>
+<li>Low unemployment</li>
+</ul>
+<p>1 mark for each objective up to a maximum of 2 marks.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was generally answered well, although some candidates simply stated 'inflation' or similar, which is 'too vague' due to not being an actual objective.</p>
+</div>`,
+            modelAnswer: "1. Price stability — keeping inflation low and predictable, around the government's target rate.\n\n2. A balance, or surplus, on the balance of payments current account."
+        },
+        {
+            num: "Q8(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-economic-policies-and-the-value-of-the",
+            question: "Explain how higher interest rates in the UK may lead to the international value of the pound increasing.",
+            hint: "Only ONE of two routes is needed: EITHER demand for £ rises because international savers move funds INTO the UK for the better return, OR supply of £ falls because British savers no longer sell pounds to save abroad / fewer imports are bought. See Misconceptions — don't say higher rates mean MORE saving abroad, that's backwards.",
+            starter: "Demand for the pound rises, because...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may be either one of the two following:</strong></p>
+<ul>
+<li>Demand for the pound rises (shifts right) [1], because international savers/investors take advantage of higher returns in the UK, and withdraw their funds from overseas financial markets to exchange for pounds [1]</li>
+<li>OR: Supply of the pound falls (shifts left) [1], because British savers/investors no longer exchange their pounds for other currencies due to higher returns in the UK, or fewer imports are purchased as consumption falls [1]</li>
+</ul>
+<p>1 mark for a statement without an explanation. 2 marks for a correct explanation. N.B. Only one of the bullet points is required.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant number of candidates identified that an increase in interest rates would attract savings from overseas into UK banks, and some even referred to hot money flows.</p>
+</div>
+<div class="marks-section">
+<h5>Misconception</h5>
+<p>Some candidates confused the increase with saving and less supply of pounds in the foreign exchange market. However, a small proportion of candidates were able to identify that a fall in consumption would probably lead to a fall in imports and therefore a fall in supply, which was a sophisticated and logical point.</p>
+</div>`,
+            modelAnswer: "Higher UK interest rates make it more rewarding to hold savings in UK banks. As a result, demand for the pound rises, because international savers and investors withdraw their funds from overseas financial markets and exchange them for pounds so they can take advantage of the higher UK returns.\n\nThis rightward shift in demand for the pound pushes up its price, so its international value increases."
+        },
+        {
+            num: "Q8(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-economic-policies-and-the-value-of-the",
+            question: "Evaluate the extent to which a rise in the foreign exchange value of the pound could affect UK consumers and producers. Use the information given in Extract 3 and your own knowledge.",
+            hint: "You MUST cover BOTH consumers AND producers to reach Level 3. Consumers: cheaper imports/lower inflation/better living standards vs domestic firms losing sales/redundancies; cheaper foreign travel vs job losses in UK tourism. Producers: cheaper imported inputs vs less competitive exports/import competition; benefit from Extract 3's lower inflation (less wage pressure) vs the time lag before this feeds through. Judge on the EXTENT — is the net effect for growth positive or negative?",
+            starter: "The value of the pound increases when interest rates rise in the UK, and this could affect consumers by...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Reference to Extract 3 or context (AO2):</strong></p>
+<ul>
+<li>The value of the pound increases when interest rates rise in the UK</li>
+<li>The increase in the exchange rate for the pound should lower inflation, but may adversely affect exports</li>
+</ul>
+<p><strong>Extent of benefits vs costs for each group (AO3b):</strong></p>
+<p><strong>1. Consumers</strong></p>
+<ul>
+<li>Imports are cheaper, which will lower the inflation rate and improve living standards — BUT as consumers buy cheaper imports, domestic firms lose sales, which may lead to redundancies and higher unemployment</li>
+<li>Foreign travel will cost less, as a pound can be exchanged for more euros/dollars etc — BUT those employed in the domestic travel sector (e.g. hotels) may be laid off as fewer foreign tourists come to the UK</li>
+</ul>
+<p><strong>2. Producers</strong></p>
+<ul>
+<li>Those who import inputs (raw materials) and capital goods will benefit from lower costs of production — BUT output from UK firms will be less competitive in overseas markets and will also face more competition from imports in the domestic market</li>
+<li>Producers should benefit from the lower inflation rate, which will reduce the need for higher wages and will make their output more competitive again — BUT this process will take time to work through the system, and in the meantime the increased competition from overseas goods could lead to bankruptcies</li>
+<li>The quantities sold of UK export products with relatively low price elasticity of demand (inelastic PED) will not fall significantly, so total revenue will rise — BUT over time the PED for such products will become more elastic as buyers find substitutes, so revenue will fall</li>
+</ul>
+<p><strong>Final judgement on the extent, expressed clearly:</strong></p>
+<ul>
+<li>A rise in the exchange rate for the pound is clearly not advantageous for economic growth, because of the impact on total demand (consumption of domestic goods and net exports)</li>
+<li>However, individual consumers and producers may benefit</li>
+<li>If the rise in the exchange rate is short term, the extent will be limited</li>
+<li>Ultimately the rise in the exchange rate will increase the deficit on the current account (as imports rise and exports fall), with the result that the exchange rate falls back — so the negative impact on economic growth should be short term, i.e. the extent of the effect should not persist in the long run</li>
+</ul>
+<p><strong>N.B.</strong> If there is no analysis/evaluation, application (AO2) cannot be rewarded. To reach Level 3 there must be Application (AO2), Analysis (AO3a) AND Evaluation (AO3b), AND there must be reference to BOTH consumers and producers.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing arguments/both sides, coherently structured, entirely relevant and substantiated.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis in a single effect; reasonable evaluation considering both sides, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation with basic/ambiguous information.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A pleasing proportion of candidates recognised the requirements of the question and could identify an impact on at least one of consumers or producers.</p>
+</div>
+<div class="marks-section">
+<h5>Assessment for learning</h5>
+<p>This question was very accessible, which meant that candidates often started a point correctly, but did not always develop a chain of reasoning fully — for example, writing that a rise in the value of the pound would lead to less demand/revenue/profit for producers, but not explaining WHY this would happen, i.e. missing out the middle section of a chain of reasoning. Attempts at evaluation were often two unrelated points, e.g. writing about the rise potentially leading to a fall in costs for producers, but not linking to how this may mitigate or offset the fall in demand (and therefore profit) overseas.</p>
+</div>`,
+            modelAnswer: "The extract explains that the value of the pound increases when UK interest rates rise, and that this should lower inflation but may adversely affect exports.\n\nFor consumers, imports become cheaper, which lowers inflation and improves living standards, and foreign holidays cost less because a pound converts into more foreign currency. However, as consumers switch towards cheaper imports, domestic firms lose sales, risking redundancies and higher unemployment — and UK tourism firms may also suffer as fewer foreign visitors can afford to come.\n\nFor producers, those who import raw materials or machinery benefit from lower costs of production. But UK exporters face higher prices abroad and tougher competition from imports at home, and Extract 3's lower-inflation benefit — which should ease wage pressure and restore competitiveness — takes time to filter through, during which some firms may struggle.\n\nOverall, the extent of the harm depends on how long the rise in the pound lasts: a short-lived rise gives producers little reason to change their plans, and a strengthening current account deficit would eventually push the exchange rate back down again. So while a rise in the pound clearly benefits some consumers, its overall extent for the economy is limited and likely temporary."
+        },
+        {
+            num: "Q9(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-impact-of-exchange-rates-and-interest-",
+            question: "In 2011 a UK company exported goods to the USA worth £54 million. Using Extract 2, calculate the value of the goods in US dollars ($). Show your working.",
+            hint: "Read the 2011 rate off the chart (about $1.60 to the pound) and MULTIPLY, because you're converting FROM pounds TO dollars. Use a $ sign, not a £ sign, in your final answer — see Misconceptions.",
+            starter: "£54 million × $1.60 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>54 million × 1.6 = 86.4 million</strong></p>
+<p><strong>Answer: $86.4 million (or 86.4 million, or 86.4 mn)</strong></p>
+<ul>
+<li>2 marks for a correct answer (working not required). 1 mark for correct working but an incorrect answer.</li>
+<li>No mark lost if the $ sign or the word "dollars" is omitted, since the question asked for "the value in US dollars". 1 mark only if the word million/mn is omitted.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates correctly calculated the answer as $86.4 million.</p>
+</div>
+<div class="marks-section">
+<h5>Misconception</h5>
+<p>A common misconception is to use the incorrect symbol for currency when the answer is not in pounds, i.e. to write £86.4 million rather than using a dollar sign ($).</p>
+</div>`,
+            modelAnswer: "£54 million × $1.60 = $86.4 million.\n\nThe 2011 exchange rate on Extract 2's chart is about $1.60 to the pound, so multiplying the pound value by the rate converts it into dollars: the exported goods were worth $86.4 million."
+        },
+        {
+            num: "Q9(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-2-impact-of-exchange-rates-and-interest-",
+            question: "Using Extract 2 explain what is likely to have happened to the volume of US goods and services sold to UK consumers between 2008 and 2019.",
+            hint: "The chart shows the pound falling against the dollar over this period, so US goods look MORE expensive to UK buyers. You must state that the VOLUME (quantity) of imports falls, not just that prices changed.",
+            starter: "The value of the pound has fallen against the dollar, so...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The value of the pound has fallen / the dollar has increased in value. As a result, the quantity demanded (volume sold) of US goods and services in UK markets will have fallen, because they now appear more expensive.</li>
+</ul>
+<p>Rewardable responses must indicate that the volume/quantity of imports is falling. 2 marks for a correctly explained answer.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates correctly identified that the volume of US goods should fall, because they now appear more expensive.</p>
+</div>`,
+            modelAnswer: "Extract 2's chart shows the value of the pound falling against the US dollar between 2008 and 2019.\n\nBecause each pound now buys fewer dollars, US goods and services appear more expensive to UK consumers than before. As a result, the volume (quantity) of US goods and services sold to UK consumers is likely to have fallen, as buyers switch towards cheaper alternatives."
+        },
+        {
+            num: "Q9(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-2-impact-of-exchange-rates-and-interest-",
+            question: "Analyse, with the use of a supply and demand diagram, one reason for the fall of the pound (£) against the US dollar ($) between 2008 and 2019.",
+            hint: "Pick ONE reason and build ONE diagram: either a decrease in demand for £ (e.g. low UK interest rates meant less overseas demand for UK bank deposits) OR an increase in supply of £ (e.g. loss of confidence after the Brexit vote caused an outflow of funds). Label the axes and curves S and D — NOT AS/AD, a real examiner-flagged mistake.",
+            starter: "One reason for the fall of the pound is that UK interest rates were relatively low, which meant...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Answers must include a diagram, either for:</strong> a decrease in demand for pounds (less inflow of funds), OR an increase in supply (greater outflow of funds). The two diagrams may be combined into one, with correct shifts (rightward shift in S, leftward shift in D, so the exchange rate falls).</p>
+<p><strong>Reasons may include (depending on which diagram is used):</strong></p>
+<ul>
+<li>The exchange rate is the price of one currency in terms of another. The diagram shows the supply and demand for pounds in the currency market.</li>
+<li>Because (real) interest rates were relatively low in the UK, there was less demand from overseas for UK bank deposits (financial assets), and thus less demand for the pound.</li>
+<li>Because of a lack of confidence in the UK economy after the Brexit vote, there was an outflow of financial investment/deposits/funds, which increased the supply of pounds in the market — or a fall in demand, as exporting conditions became more difficult.</li>
+<li>Candidates may also refer to exports falling due to low productivity, or imports rising due to higher incomes.</li>
+<li>In both cases: the exchange rate of the pound falls from Po to P1.</li>
+</ul>
+<p>A maximum of 4 marks if no correct diagram.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge and application; good analysis with developed chains of reasoning; diagram(s) predominantly correct and linked to the analysis.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects; diagram may be imperfectly labelled or not linked.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis (a single effect with some link to the question).</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates were able to use a diagram to demonstrate that a rise in the supply of pounds (or fall in demand) would result in a depreciation. The best answers drew on the information in Extract 2, e.g. low interest rates, and explained why the increase in supply/fall in demand happened because of this. This integration of the diagram into the written answer is a key technique likely to be tested in future questions.</p>
+</div>
+<div class="marks-section">
+<h5>Misconception</h5>
+<p>A common misconception is to use AS or AD when labelling the curves. The graph is for the pound sterling on international foreign exchange markets, so the curves should be labelled Supply (S) and Demand (D).</p>
+</div>`,
+            modelAnswer: "One reason for the fall of the pound against the dollar between 2008 and 2019 is that UK interest rates were kept relatively low for most of this period.\n\nBecause (real) interest rates in the UK were low, there was less demand from overseas savers and investors for UK bank deposits — they could earn a better return elsewhere. This meant less demand for the pound, shown by the demand curve for pounds (D) shifting leftwards to D1 on a supply and demand diagram, with the price of pounds (in dollars) on the vertical axis and the quantity of pounds on the horizontal axis.\n\nAs demand falls while supply is unchanged, the equilibrium exchange rate of the pound falls from Po to P1 — the pound depreciates against the dollar, matching the falling trend shown on Extract 2's chart."
+        },
+        {
+            num: "Q10(a)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-the-pound-to-euro-exchange-rate-2008-2",
+            question: "Calculate the change in the amount of euros you get to the pound (£) between 2009 and 2015. Show your working.",
+            hint: "Read both years off Extract 3's table: 2009 = 1.12, 2015 = 1.37. Subtract the earlier from the later, and state the answer IS in euros — a real mark is lost for omitting the currency.",
+            starter: "1.37 − 1.12 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>1.37 − 1.12 = 0.25 euros (25 cents)</strong></p>
+<ul>
+<li>2 marks for a correct answer. 1 mark for correct workings but an incorrect answer. Where 0.25 is given but euros are not stated, award 1 mark. OFR (own figure rule) applies.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates mostly showed the ability to calculate this exchange. Candidates do need to identify that the amount is in euros to access full marks. The question did not need a specific number of decimal places, so all correctly rounded answers were accepted.</p>
+</div>`,
+            modelAnswer: "1.37 − 1.12 = 0.25 euros (25 cents).\n\nExtract 3's table shows the pound was worth 1.12 euros in 2009 and 1.37 euros in 2015, so the amount of euros you get to the pound rose by 0.25 euros over that period."
+        },
+        {
+            num: "Q10(b)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-the-pound-to-euro-exchange-rate-2008-2",
+            question: "A UK firm earned €5700 by exporting goods to France in 2017. Calculate, using Extract 3, the firm's income in pounds (£). Show your working.",
+            hint: "2017's rate is 1.14 euros to the pound. DIVIDE the euro amount by the rate, because you're converting FROM euros TO pounds — the opposite operation from Q9(a). State the answer is in pounds.",
+            starter: "€5700 ÷ 1.14 = ...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>5700 ÷ 1.14 = £5000</strong></p>
+<ul>
+<li>2 marks for a correct answer. 1 mark for correct workings but an incorrect answer. Where 5000 is given but pounds are not stated, award 1 mark. OFR applies.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates showed the ability to calculate this income. Candidates do need to identify that the amount is in pounds to access full marks. The success on this question indicates that candidates are responding well to the additional quantitative demands of the new specification.</p>
+</div>`,
+            modelAnswer: "€5700 ÷ 1.14 = £5000.\n\nBecause the 2017 rate is 1.14 euros to the pound, dividing the euro income by the rate converts it back into pounds — the firm's income was £5000."
+        },
+        {
+            num: "Q10(c)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-the-pound-to-euro-exchange-rate-2008-2",
+            question: "Using a diagram, analyse how a rise in the supply of pounds could have changed the exchange rate against the euro between 2015 and 2017.",
+            hint: "Extract 3's table shows the rate falling from 1.37 (2015) to 1.14 (2017) — the pound depreciated. Draw supply (S) shifting rightward to S1, keeping demand fixed, and show the price falling from P to P1. Feel free to put the actual 1.37/1.14 figures on your vertical axis.",
+            starter: "Extract 3 shows the exchange rate falling from 1.37 euros in 2015 to 1.14 euros in 2017, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p>The diagram may contain the actual figures of 1.37 and 1.14 euros on the vertical axis. Candidates may use other labels instead of P and P1, e.g. E and E1, ER and ER1.</p>
+<p><strong>Answer may include:</strong></p>
+<ul>
+<li>The exchange rate is the price of one currency in terms of another.</li>
+<li>Extract 3 shows an exchange rate of 1.37 euros in 2015 and 1.14 euros in 2017.</li>
+<li>The value of the pound will fall / depreciate / weaken / buy fewer euros.</li>
+<li>A rise in the supply of pounds leads to an outward shift of supply (S to S1).</li>
+<li>The exchange rate of the pound falls from P to P1.</li>
+</ul>
+<p>A maximum of 4 marks if no correct diagram. Apply OFR if an incorrect S shift is shown on the diagram.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge and application; good analysis with a developed chain of reasoning; diagram predominantly correct and linked to the analysis.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects; diagram may be improperly labelled or not linked.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis with some link to the question; diagram may be missing or substantially incorrect.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates performed relatively well on this question, showing understanding of an exchange rate, correctly shifting the supply curve and illustrating the change in equilibrium. Some candidates also had clear, correct context of £/€ running through the diagram and text. The best answers followed the question wording and used their diagram labels to show the direction of change in the exchange rate in their text — a key technique likely to be tested in future questions.</p>
+</div>`,
+            modelAnswer: "Extract 3 shows the exchange rate falling from 1.37 euros in 2015 to 1.14 euros in 2017, meaning the pound depreciated and now buys fewer euros.\n\nOn a supply and demand diagram for the pound (price in euros on the vertical axis, quantity of pounds on the horizontal axis), a rise in the supply of pounds shifts the supply curve rightwards from S to S1. With demand unchanged, this pushes the equilibrium price of the pound down from P (1.37) to P1 (1.14).\n\nThis fall in the exchange rate means the pound is now worth less against the euro — one pound buys fewer euros than it did in 2015."
+        },
+        {
+            num: "Q10d(i)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-the-pound-to-euro-exchange-rate-2008-2",
+            question: "State what is meant by 'imports'.",
+            hint: "Two elements for 2 marks: goods AND services bought from abroad, plus the outflow of money in exchange. Saying only 'a good bought from another country' scores 1.",
+            starter: "Imports are goods and services...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Imports are goods and services bought from abroad / overseas / other countries</li>
+<li>There is an outflow of money in exchange for goods or services</li>
+</ul>
+<p>2 marks for a precise definition. 1 mark for some understanding shown, e.g. "it is a good bought from another country" (services ignored in this case).</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates mostly answered this question well, with a clear idea of an outflow of money and the inclusion of both goods and services.</p>
+</div>`,
+            modelAnswer: "Imports are goods and services bought from abroad, overseas, or other countries.\n\nWhen a country imports, there is an outflow of money from that country in exchange for the goods or services received."
+        },
+        {
+            num: "Q10d(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "extract-3-the-pound-to-euro-exchange-rate-2008-2",
+            question: "Explain how a rise in imports may affect employment in the UK.",
+            hint: "The most common route: fewer goods bought from UK producers → fewer workers needed to make less UK output → employment falls. A valid alternative: more workers needed in transporting/handling the imports, or in finishing imported inputs into UK products.",
+            starter: "If imports rise, fewer goods might be bought from UK producers, so...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answer may include — if there is a rise in imports:</strong></p>
+<ul>
+<li>Fewer goods might be bought from UK producers, so fewer workers are needed to make fewer UK goods</li>
+<li>There may be more jobs in the import sector, e.g. because more people are needed in transportation of the imports</li>
+<li>More workers may be needed to produce finished goods using imported inputs</li>
+</ul>
+<p>2 marks for a correct explanation that includes two elements. 1 mark for some understanding shown, e.g. "fewer products are made in the UK". To access the employment change mark, answers must have a clearly explained reason.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Full marks required a clearly explained reason for a correctly linked change in employment. Most candidates used the idea that fewer goods and services might now be bought from UK producers by UK consumers, so employment would fall as fewer UK workers would be required to make this reduced output. Successful alternative answers considered jobs in the UK involved with imports, such as their transportation.</p>
+</div>`,
+            modelAnswer: "If imports rise, UK consumers are buying more goods from abroad instead of from UK producers.\n\nThis means fewer UK-made goods need to be produced, so UK firms need fewer workers to make this smaller output — employment in those industries is likely to fall."
+        },
+        {
+            num: "Q10d(iii)",
+            marks: 6,
+            type: "written",
+            caseId: "extract-3-the-pound-to-euro-exchange-rate-2008-2",
+            question: "*Evaluate whether the change in the exchange rate between 2015 and 2017 would benefit consumers in the UK. Use the information given in Extract 3 and your own knowledge.",
+            hint: "First identify the change: the pound FELL from 1.37 to 1.14 euros (23 cents in two years) — a depreciation. Benefits to consumers: fewer imported harmful goods bought (e.g. wine, dearer so consumers buy less, healthier); UK goods get cheaper as producers gain economies of scale from being more competitive; consumer incomes may rise if producers hire more. Costs: imports cost more so standard of living falls; imported input costs feed through as inflation; foreign holidays cost more. Evaluate on whether the fall is passed on fully, whether it's permanent, and PED of the goods affected.",
+            starter: "Between 2015 and 2017 the pound fell from 1.37 to 1.14 euros, which means...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p>The exchange rate has fallen between 2015 and 2017 from 1.37 to 1.14 euros, leading to:</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Fewer imported harmful goods: prices of imported goods with negative externalities increase, e.g. wine, so consumers buy less and have a healthier life</li>
+<li>Lower prices for UK goods: UK producers will be more internationally competitive, so may expand and benefit from economies of scale, enabling lower prices for consumers</li>
+<li>Consumers' incomes may rise: if UK producers become more internationally competitive, they may need more workers to make more output</li>
+</ul>
+<p><strong>Costs:</strong></p>
+<ul>
+<li>Fall in standard of living: prices of imports rise, so consumers cannot afford as much / the purchasing power of their incomes has fallen</li>
+<li>As the price of imported inputs rises, this could lead to further inflation / increased prices of UK goods, harming consumers</li>
+<li>Fewer holidays abroad: prices of imported services rise, e.g. tourism abroad, so UK consumers will be less able to afford foreign holidays, leading to lower quality of life</li>
+</ul>
+<p>N.B. Answer may use either a 'Yes'/'No' approach for reasoning of benefits/costs that are then evaluated.</p>
+<p><strong>Evaluation may include:</strong></p>
+<ul>
+<li>Whether the fall (in this case 23 cents in two years) is passed on fully in higher import prices</li>
+<li>Whether the fall is likely to be permanent, or whether the exchange rate will rise again in future, e.g. using evidence in Extract 3</li>
+<li>Whether other factors change in the economy to offset or worsen the impact, e.g. the Bank of England increases the interest rate</li>
+<li>Whether PED has any impact, e.g. PED for harmful imports may be inelastic, so the negative impacts may not be reduced</li>
+<li>Judgement as to whether consumers would benefit, e.g. costs outweigh benefits</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing costs and benefits, coherently structured.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis in a single effect; reasonable evaluation considering costs and benefits, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation with an incomplete consideration of costs/benefits, basic/ambiguous information.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates who answered this question well moved quickly from the context of a fall in the exchange rate to a clearly reasoned impact on consumers. Some candidates then immediately evaluated these impacts, which often gave originality and more context to their evaluation. Some success involved developing a chain of reasoning that led to a specific impact, such as a lower standard of living, and then evaluating this by considering whether it was more likely to lead to a higher standard of living. Answers could be reasoned as either agreeing or disagreeing that the fall in the exchange rate was beneficial for consumers. Successful evaluation in the form of a supported judgement was helped by the question wording, and is a technique to practise. Some evaluation went beyond repetition or vague points, including weighing the benefits against costs, the significance of the consequence, e.g. the likelihood of UK consumers buying eurozone imports, and the size of the fall relative to different levels of income.</p>
+</div>
+<div class="marks-section">
+<h5>N.B.</h5>
+<p>This question is specifically about the impact on CONSUMERS, so impacts solely on producers or workers are not relevant.</p>
+</div>`,
+            modelAnswer: "Between 2015 and 2017 the pound fell from 1.37 to 1.14 euros — a depreciation of 23 cents. This makes goods imported from the Eurozone more expensive for UK consumers.\n\nOne benefit is that imports of harmful goods, such as wine, become dearer, so consumers may buy less of them and live more healthily. If UK producers become more competitive against pricier imports, they may expand, benefit from economies of scale, and lower their own prices — and may hire more workers, raising some consumers' incomes.\n\nHowever, the costs are significant: the price of all Eurozone imports rises, cutting consumers' purchasing power and standard of living, and dearer imported inputs can push up the price of UK-made goods too, adding to inflation. Foreign holidays in the Eurozone also become more expensive, reducing consumers' quality of life.\n\nOverall, whether consumers benefit depends on whether the fall is passed on fully to prices, and on the price elasticity of demand for the goods affected — if demand for Eurozone imports is inelastic, consumers simply pay more without buying less, which is a clear cost with no offsetting benefit. Given the size of the fall (23 cents, around 17%) and its persistence in the data through to 2017, the costs to consumers are likely to outweigh the benefits."
+        },
+        {
+            num: "Q11",
+            marks: 1,
+            type: "mcq",
+            caseStudy: `<p>The table shows the exchange rate of the UK pound (£) against the US dollar ($).</p>
+<table style="width:100%;max-width:340px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Date</th><th style="padding:6px;">Exchange rate (£1)</th></tr>
+<tr><td style="padding:6px;">1st January 2016</td><td style="padding:6px;">$1.47</td></tr>
+<tr><td style="padding:6px;">1st January 2017</td><td style="padding:6px;">$1.23</td></tr>
+<tr><td style="padding:6px;">1st January 2018</td><td style="padding:6px;">$1.35</td></tr>
+<tr><td style="padding:6px;">1st January 2019</td><td style="padding:6px;">$1.27</td></tr>
+<tr><td style="padding:6px;">1st January 2020</td><td style="padding:6px;">$1.33</td></tr>
+</table>`,
+            question: "Which of the following statements is correct?",
+            options: ["Exports from the UK to the US became more expensive between 2016 and 2017", "Exports from the UK to the US became more expensive between 2019 and 2020", "Exports from the US to the UK became less expensive between 2018 and 2019", "Exports from the US to the UK became more expensive between 2017 and 2018"],
+            answer: 1,
+            hint: "Check each period: the rate FELL 2016→2017 (pound weaker = UK exports CHEAPER, not dearer, ruling out A). The rate ROSE 2019→2020 ($1.27→$1.33, pound stronger = UK exports MORE expensive for US buyers) — matches B.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — Exports from the UK to the US became more expensive between 2019 and 2020</strong></p>
+<ul>
+<li>The rate rose from $1.27 (Jan 2019) to $1.33 (Jan 2020) — the pound appreciated, making UK exports more expensive in dollar terms. Checking the others: 2016→2017 the rate FELL ($1.47→$1.23), so UK exports got CHEAPER, not dearer (A false); 2018→2019 the rate FELL ($1.35→$1.27), so US exports to the UK got MORE expensive, not less (C false); 2017→2018 the rate ROSE ($1.23→$1.35), so US exports to the UK got CHEAPER, not dearer (D false).</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q12",
+            marks: 6,
+            type: "written",
+            caseStudy: `<p><strong>Extract 3: Current Account Balance and Exchange Rate</strong></p>
+<p>Since trade is the major component of the current account, a wider deficit is primarily due to either imports rising or exports falling. As a result, there will be a shift in the demand or supply of the UK's currency (the pound £), which will change its exchange rate.</p>
+<table style="width:100%;max-width:420px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Current Account Balance (% of GDP)</th><th style="padding:6px;">2011</th><th style="padding:6px;">2015</th><th style="padding:6px;">2019</th></tr>
+<tr><td style="padding:6px;">UK</td><td style="padding:6px;">–1.76</td><td style="padding:6px;">–4.90</td><td style="padding:6px;">–3.78</td></tr>
+<tr><td style="padding:6px;">USA</td><td style="padding:6px;">–2.87</td><td style="padding:6px;">–2.24</td><td style="padding:6px;">–2.33</td></tr>
+<tr><td style="padding:6px;">Germany</td><td style="padding:6px;">6.20</td><td style="padding:6px;">8.59</td><td style="padding:6px;">7.15</td></tr>
+</table>
+<p>The table shows that the UK's current account deficit is persistent and also represents a relatively high proportion of GDP. The deficit reflects the fact that British consumers can choose to buy imported goods at relatively low prices. On the other hand, British producers face competition in the global market both when attempting to produce goods for export and when competing with imported goods. Consequently, a trade deficit results in output being lower and unemployment being higher than when there is a surplus. Such global competition does mean, however, that scarce resources are being used more efficiently.</p>`,
+            question: "Analyse, with the use of a demand and supply diagram, how the widening in the UK's current account deficit between 2011 and 2013 could have changed the exchange rate for the pound (£) against the US dollar ($).",
+            hint: "⚠️ The paper's own question text says '2011 and 2013', but the extract's table only gives figures for 2011, 2015 and 2019 — there is no 2013 figure printed anywhere in the paper. Treat the 2011→2015 widening (–1.76% to –4.90% of GDP) as the closest available evidence, and build your diagram around either falling exports (D for £ shifts left) or rising imports (S of £ shifts right).",
+            starter: "The UK's current account deficit widened, which means either exports fell or imports rose. This would...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p>Diagram should include either the consequence of a decrease in exports OR the consequence of an increase in imports. Candidates may use other labels instead of Po and Pi, e.g. E and E1, ER and ER1. The two diagrams may be combined into one, with correct shifts.</p>
+<p><strong>Answers may include (depending on which diagram used):</strong></p>
+<ul>
+<li>The exchange rate is the price of one currency in terms of another.</li>
+<li>A decrease in the UK's exports leads to lower demand for the pound, which shifts the demand curve to the left.</li>
+<li>An increase in the UK's imports leads to higher supply of the pound, which shifts the supply curve to the right.</li>
+<li>The exchange rate of the pound falls.</li>
+</ul>
+<p>A maximum of 3 marks if no relevant diagram. N.B. Any other relevant points to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge and application; good analysis with a developed chain of reasoning; diagram(s) predominantly correct and linked to the analysis.</p>
+<p><strong>Level 2 (3–4 marks):</strong> most concepts understood; limited application; reasonable analysis largely in single effects; diagram(s) may be imperfectly labelled or not linked.</p>
+<p><strong>Level 1 (1–2 marks):</strong> some concepts understood; no application; limited analysis with a single effect linked to the question.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates successfully demonstrated knowledge of exchange rates, using an appropriate diagram or definition. Many were also able to apply their diagram and/or text to the context of the pound (£) against the US dollar ($). It is recommended that candidates match their responses to the currency reference in the exact question wording, to avoid a lack of clarity. The most successful responses understood what had happened to exports and/or imports due to the widening current account deficit, then reasoned from demand/supply for these exports/imports to demand/supply of the pound, leading to the fall in the exchange rate. In effective responses, diagram labels were used throughout the explanation.</p>
+</div>
+<div class="marks-section">
+<h5>Exchange rate diagrams</h5>
+<p>Always use the currency combination outlined in the question and apply this consistently to your diagram and text.</p>
+</div>`,
+            modelAnswer: "The table shows the UK's current account deficit widening from –1.76% of GDP in 2011 towards –4.90% in 2015 (the closest years the extract gives to the period described). A wider deficit means either UK exports have fallen, UK imports have risen, or both.\n\nIf exports fell, this means fewer foreigners need pounds to buy UK goods, so demand for the pound falls — the demand curve for pounds shifts leftwards. If imports rose instead, UK residents need to sell more pounds to buy foreign currency, so the supply of pounds rises — the supply curve shifts rightwards.\n\nOn a diagram with the price of the pound (in US dollars) on the vertical axis and the quantity of pounds on the horizontal axis, either shift lowers the equilibrium exchange rate: the pound falls from Po to P1 against the US dollar, i.e. it depreciates."
+        },
+        {
+            num: "Q13",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following is the most likely consequence for UK consumers of a fall in the UK exchange rate?",
+            options: ["An increase in the rate of inflation", "An increase in the standard of living", "An increase in overseas tourism", "An increase in unemployment"],
+            answer: 0,
+            hint: "A fall (depreciation) makes imports dearer, including imported raw materials, which feeds through as cost-push inflation. The other options describe the opposite of what tends to happen.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — An increase in the rate of inflation</strong></p>
+<ul>
+<li>A fall in the exchange rate makes imports, including raw materials, more expensive, feeding through as inflation. It tends to REDUCE the standard of living (B) and REDUCE overseas tourism by UK residents, since their pounds buy less abroad (C), not increase it.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q14",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The diagram shows the supply and demand for the Euro expressed in Sterling (£). If the UK increases its demand for imports from countries whose currency is the Euro, which of these will happen?",
+            options: ["The demand curve will shift downwards to the left", "The demand curve will shift upwards to the right", "There will be no change in the position of either the supply curve or of the demand curve", "The supply curve will shift upwards to the left"],
+            answer: 1,
+            hint: "Careful — this diagram is for the EURO (priced in £), not the pound. UK residents buying more EU imports need to acquire MORE euros, so DEMAND for euros rises — the demand curve shifts right.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — The demand curve will shift upwards to the right</strong></p>
+<ul>
+<li>This diagram is for the market for EUROS, priced in Sterling. UK residents buying more imports from Eurozone countries need to buy more euros to pay for them, so demand for euros rises — the demand curve shifts right, not left, and supply is unaffected.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q15",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Terry and June are planning a holiday to Canada. If the value of the UK pound (£) in terms of the Canadian dollar ($) is £1 = $1.75, how many dollars will they get if they exchange £500?",
+            options: ["$285.71", "$375.00", "$589.29", "$875.00"],
+            answer: 3,
+            hint: "Converting FROM pounds TO dollars — multiply: £500 × 1.75.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: D — $875.00</strong></p>
+<ul>
+<li>£500 × $1.75 = $875.00. Dividing instead of multiplying (£500 ÷ 1.75 = $285.71) is the classic trap in option A.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q16",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "If the Swiss government allows the Swiss Franc to appreciate against the Euro, which of the following is most likely to happen?",
+            options: ["The number of Swiss watches exported will fall", "The price of Swiss chocolate in France will fall", "The rate of interest in Switzerland will rise", "There will be more German tourists in Switzerland"],
+            answer: 0,
+            hint: "Appreciation makes Swiss EXPORTS more expensive abroad, so fewer are likely to be bought. Don't confuse cause and effect: an appreciation doesn't directly RAISE Swiss interest rates, and it makes Switzerland MORE expensive for German tourists, not less.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — The number of Swiss watches exported will fall</strong></p>
+<ul>
+<li>A stronger Franc makes Swiss exports, e.g. watches, more expensive in foreign currency terms, so export volumes are likely to fall. Swiss chocolate would become MORE expensive in France, not cheaper (B); appreciation is usually a consequence of factors like higher interest rates, not a cause of them (C); and a stronger Franc makes Switzerland MORE expensive for German tourists, discouraging visits (D).</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Several candidates answered 'C', demonstrating a confusion between interest rates and exchange rates.</p>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q17",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of the following will cause a country's exchange rate to fall? Increased",
+            options: ["balance of payments surplus", "demand for its exports", "demand for its imports", "rate of interest"],
+            answer: 2,
+            hint: "Increased demand for IMPORTS means more of the home currency is SUPPLIED (sold) to buy foreign currency — an increase in supply pushes the price DOWN. The other three options would all tend to push the exchange rate UP.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — Increased demand for its imports</strong></p>
+<ul>
+<li>Buying more imports means more of the home currency must be supplied (sold) to buy the foreign currency needed, so supply rises and the exchange rate falls. An increased balance of payments surplus (A), increased demand for exports (B), and a higher interest rate (D) would all tend to RAISE the exchange rate instead.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q18",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "James and Jane are returning from a holiday in Slovenia and want to convert their euros (€) into UK pounds (£). If the value of the UK pound in terms of the euro is £1 = €1.15, how many pounds will they get if they exchange €300?",
+            options: ["£260.87", "£298.65", "£302.94", "£345.00"],
+            answer: 0,
+            hint: "Converting FROM euros TO pounds — divide: €300 ÷ 1.15.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2) · Quantitative skills</h5>
+<p><strong>Answer: A — £260.87</strong></p>
+<ul>
+<li>€300 ÷ 1.15 = £260.87. Multiplying instead of dividing (€300 × 1.15 = £345.00) is the trap in option D.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "Q19",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "The exchange rate of the UK Pound against the US Dollar depreciates from £1.00 = $1.50 to £1.00 = $1.00. As a result of this:",
+            options: ["the volume of UK exports to the US will fall", "the volume of UK imports of US goods will rise", "UK consumers will pay more for US goods", "US consumers will pay more for UK goods"],
+            answer: 2,
+            hint: "A depreciation makes UK exports CHEAPER for US buyers (so export volume should RISE, not fall) and makes US goods MORE expensive for UK buyers (so import volume should FALL, and UK consumers pay more).",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — UK consumers will pay more for US goods</strong></p>
+<ul>
+<li>The pound now buys fewer dollars, so US goods cost UK consumers more in pounds. This depreciation should INCREASE UK export volumes to the US (ruling out A) and DECREASE the volume of US imports bought (ruling out B), while US consumers pay LESS for UK goods, not more (ruling out D).</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

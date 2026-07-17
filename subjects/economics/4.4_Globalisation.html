@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Economics — Unit 4: International Trade and the Global Economy</div>
             <h1>4.4 Globalisation</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,33 +256,1635 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 4.4 Globalisation — placeholder, content not yet written
+    //  DATA: 4.4 Globalisation
     // ══════════════════════════════════════
     const pageMeta = {
-            id: '4-4-globalisation',
-            badge: 'OCR GCSE Economics — Unit 4: International Trade and the Global Economy',
-            title: '4.4 Globalisation',
-            subtitle: 'Interactive revision guide',
-            subject: 'economics',
-        };
+        id: '4-4-globalisation',
+        badge: 'OCR GCSE Economics — Unit 4: International Trade and the Global Economy',
+        title: '4.4 Globalisation',
+        subtitle: 'Interactive revision guide',
+        subject: 'economics',
+    };
 
-    const topics = [
-        {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>4.4 Globalisation</strong> will appear here soon.</p>`
+const topics = [
+    {
+        title: "Globalisation and its driving factors",
+        tag: "Trade, investment, migration and the four drivers",
+        content: `<p><strong>Globalisation is the growing interconnectedness and interdependence of the world's economies</strong>, driven by increased trade, investment, migration and flows of information and technology across borders. A modern smartphone might be manufactured using parts sourced from five or six different countries — a small example of a very large trend.</p>
+<h4>Roots of large-scale globalisation</h4>
+<ul>
+<li>Traces back to the <strong>end of the Second World War</strong> — a shortage of goods pushed nations to trade and cooperate to make the most of scarce resources.</li>
+<li>The creation of the <strong>United Nations</strong> encouraged greater cultural exchange as nations sought to avoid another world war.</li>
+<li>More recently, <strong>China opening up to Western trade</strong> hugely increased world trade, given the size of its population.</li>
+<li><strong>Common misconception:</strong> globalisation is NOT a purely modern phenomenon — international trade has existed for centuries. What's new is the SCALE and SPEED enabled by modern transport and technology.</li>
+</ul>
+<h4>The driving factors — learn all four, with an example for each</h4>
+<ul>
+<li><strong>Improved transport</strong> — cheaper, faster shipping and air freight. <strong>Containerisation</strong> (standard-size containers movable between ships, trains and trucks) is probably the single biggest contributor: container ships have grown massively in size, giving huge economies of scale and much lower shipping costs.</li>
+<li><strong>Improved communications technology</strong> — the internet and mobile networks make it easy to coordinate global supply chains and sell directly to consumers in other countries.</li>
+<li><strong>Trade liberalisation</strong> — the reduction of tariffs and trade barriers via agreements and organisations such as the World Trade Organisation, and the expansion of free-trade areas and customs unions (less form-filling and fewer customs checks).</li>
+<li><strong>Growth of multinational companies (MNCs) and foreign direct investment (FDI)</strong> — many countries have relaxed rules on foreign ownership since WWII, so firms increasingly build factories and offices in multiple countries, seeking lower costs, new markets or access to resources. Most FDI into the UK comes from the USA.</li>
+</ul>
+<h4>Scale of globalisation — real numbers</h4>
+<ul>
+<li>UK exports plus imports totalled just <strong>£159,565 million in 1983</strong>, but <strong>£1,257,706 million by 2017</strong> — roughly an eightfold increase, showing how significant globalisation has been for the UK economy.</li>
+</ul>`,
+        readCheck: {
+            q: "Which of these is the single biggest transport-related driver of globalisation?",
+            opts: ["Slower freight trains", "Containerisation of shipping", "Higher airport taxes", "Reduced use of ports"],
+            ans: 1,
+            explain: "Standard-size containers moving between ships, trains and trucks allowed container ships to grow massively, giving huge economies of scale and cutting the cost of shipping goods internationally."
         }
-    ];
+    },
+    {
+        title: "How development is measured",
+        tag: "GDP per capita, the HDI, and its inequality-adjusted version",
+        content: `<p><strong>GDP per capita</strong> (total GDP divided by population) is the most commonly used single measure of development — because output produced is income earned by the people who produce it, higher average income generally means people have more to spend, suggesting a more developed country.</p>
+<h4>The limitation of GDP per capita alone</h4>
+<ul>
+<li>It is only an AVERAGE — it says nothing about how income is actually distributed. A country can have a high GDP per capita while most of that income sits with a small rich minority.</li>
+<li><strong>Misconception to avoid:</strong> GDP per capita is not measured "by household, family or region" — it is total GDP divided by the WHOLE national population.</li>
+</ul>
+<h4>The Human Development Index (HDI)</h4>
+<ul>
+<li>Developed by the <strong>United Nations</strong>, the HDI is a COMPOSITE measure combining three factors: <strong>1. GDP per capita (income), 2. Life expectancy, 3. Education</strong> — built specifically to overcome the limitation of using income alone.</li>
+<li><strong>Life expectancy</strong> is affected by access to and affordability of healthcare, exposure to violent political conflict, and exposure to environmental issues such as drought, famine or flood.</li>
+<li><strong>Education</strong> is affected by years spent in education (which affects literacy and productivity), quality of education (facilities, technology, teacher-to-pupil ratios), and access to technology (mobile phone ownership, internet access).</li>
+</ul>
+<h4>The Inequality-adjusted HDI (IHDI)</h4>
+<ul>
+<li>The IHDI adjusts the standard HDI to account for <strong>inequality</strong> in health, education and income within a country.</li>
+<li>A SMALL gap between HDI and IHDI = low inequality. A LARGE gap = high inequality — some people are doing far better (or worse) than the average HDI score suggests.</li>
+</ul>
+<h4>Other measures worth naming</h4>
+<ul>
+<li>Access to health care, access to technology, and access to education can all be cited individually as "ways of measuring how developed a country is" in short-answer questions.</li>
+</ul>`,
+        readCheck: {
+            q: "Why was the Human Development Index (HDI) created?",
+            opts: ["To replace life expectancy as a statistic", "To combine income, life expectancy and education, since GDP per capita alone doesn't show the full picture", "To measure inequality only", "To measure a country's exports only"],
+            ans: 1,
+            explain: "GDP per capita alone only shows average income. The HDI was built specifically to combine it with life expectancy and education, giving a fuller picture of development."
+        }
+    },
+    {
+        title: "Globalisation in developed countries",
+        tag: "Producers, workers, consumers — and the three sustainabilities",
+        content: `<p>The spec asks you to evaluate costs and benefits for <strong>producers, workers and consumers</strong> separately — questions name one, and answering about the wrong group is not awardable.</p>
+<h4>Producers</h4>
+<ul>
+<li><strong>Benefits:</strong> access to more markets/customers so firms can exploit economies of scale; access to better-quality or cheaper imported inputs; access to more skilled (often cheaper) labour migrating from less developed countries; easier shared research and development with firms overseas.</li>
+<li><strong>Costs:</strong> more competition from overseas firms — some domestic industries lose competitive advantage; firms that have grown large to serve foreign markets become more exposed to demand slowdowns in those markets.</li>
+</ul>
+<h4>Workers</h4>
+<ul>
+<li><strong>Benefits:</strong> more jobs as firms grow to serve larger markets; more foreign investment creates additional jobs; greater freedom to work in other countries.</li>
+<li><strong>Costs:</strong> workers in declining industries may lack the skills to move into new industries, risking long-term unemployment; risk of job losses through automation as firms cut costs to stay competitive; job insecurity during global demand slowdowns; immigration can increase competition for jobs, helping keep wages low.</li>
+</ul>
+<h4>Consumers</h4>
+<ul>
+<li><strong>Benefits:</strong> greater choice of products worldwide; cheaper products, leaving more disposable income; skilled migration improves services (e.g. the NHS recruits many doctors and nurses from less developed countries); fewer travel restrictions.</li>
+<li><strong>Costs:</strong> <strong>homogenisation</strong> — large international firms out-compete smaller local firms, so shopping experiences become very similar across countries; <strong>price volatility</strong> from globalised markets, e.g. the pandemic and the war in Ukraine both caused significant supply disruption.</li>
+</ul>
+<h4>The three sustainabilities for developed countries</h4>
+<ul>
+<li><strong>Economic:</strong> generally improves — greater specialisation lowers costs and input prices.</li>
+<li><strong>Social:</strong> mixed — lower prices can improve quality of life, but many of the UK's poorest, most deprived areas are that way because of industries that declined due to globalisation.</li>
+<li><strong>Environmental:</strong> mixed — more efficient specialised production, but increased fossil fuel use transporting goods globally, and firms may shift production to countries with weaker environmental protections.</li>
+</ul>`,
+        readCheck: {
+            q: "Which is a genuine COST of globalisation for CONSUMERS in a developed country?",
+            opts: ["Greater product choice", "Homogenisation of shopping experiences as global brands dominate", "Cheaper products", "Fewer travel restrictions"],
+            ans: 1,
+            explain: "Homogenisation is a real cost for consumers — large international firms out-compete smaller local ones, so shops and products look increasingly similar wherever you are. The other three are benefits, not costs."
+        }
+    },
+    {
+        title: "Globalisation in less developed countries",
+        tag: "The brain drain, foreign investment, and the three sustainabilities",
+        content: `<p>The same three stakeholder groups apply, but with different — and more mixed — effects in less developed countries (LDCs).</p>
+<h4>Producers</h4>
+<ul>
+<li><strong>Benefits:</strong> access to more markets/customers; opportunity to adopt new technologies, raising productivity and lowering average costs; ability to attract increased foreign investment, supporting growth and economies of scale.</li>
+<li><strong>Costs:</strong> vulnerability to global slowdowns, since production is aimed at international markets; difficulty hiring/retaining skilled labour due to the <strong>"brain drain"</strong> — people educated in LDCs move abroad for higher pay; small domestic businesses can struggle once large international firms enter the market.</li>
+</ul>
+<h4>Workers</h4>
+<ul>
+<li><strong>Benefits:</strong> greater trade and higher output generally require more workers; increased foreign investment creates more jobs; skilled workers can seek opportunities abroad (though most developed countries' immigration policies mean this route is largely open only to SKILLED workers).</li>
+<li><strong>Costs:</strong> automation used to meet rising global demand can cause job losses; exposure to job losses during global demand slowdowns; worse working conditions than would be tolerated in developed nations; much of the extra profit is often kept by business owners, widening the rich-poor gap.</li>
+</ul>
+<h4>Consumers</h4>
+<ul>
+<li><strong>Benefits:</strong> greater choice and more opportunities to travel — though this depends heavily on income; improved infrastructure (roads, rail) as a side effect of globalisation-driven investment.</li>
+<li><strong>Costs:</strong> if supply cannot keep pace with extra demand, <strong>demand-pull inflation</strong> can result — especially serious for essential goods like basic foodstuffs; the brain drain reduces the number of skilled professionals (e.g. doctors) available domestically.</li>
+</ul>
+<h4>The three sustainabilities for LDCs</h4>
+<ul>
+<li><strong>Economic:</strong> more jobs and trade create a cycle of growth, but sustainability depends on whether the country KEEPS its competitive advantage and whether growth relies on non-renewable resources.</li>
+<li><strong>Social:</strong> increased income can reduce overall poverty, but the rich-poor gap tends to WIDEN, and rising prices from increased global demand hit the poor hardest — potentially causing malnutrition.</li>
+<li><strong>Environmental:</strong> more efficient use of finite resources is generally positive, but pollution from transporting goods increases, and firms often relocate to LDCs partly BECAUSE of weaker environmental laws.</li>
+</ul>
+`,
+        readCheck: {
+            q: "What is the 'brain drain' a cost of, for producers in less developed countries?",
+            opts: ["Rising carbon emissions", "Losing skilled workers who move abroad for higher pay", "Falling exchange rates", "Increased tariffs on imports"],
+            ans: 1,
+            explain: "The brain drain is when people educated in a less developed country move abroad for higher pay or better living conditions, making it harder for domestic producers to hire and retain skilled labour."
+        }
+    }
+];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+const mcqData = [
+    {
+        q: "Which is the best definition of globalisation?",
+        opts: ["A rise in a country's exchange rate", "A country's total exports minus imports", "The growing interconnectedness and interdependence of the world's economies", "The total value of goods produced in one year"],
+        ans: 2,
+        explain: "Globalisation is the growing interconnectedness and interdependence of economies worldwide, driven by trade, investment, migration and flows of technology across borders."
+    },
+    {
+        q: "Which of these is a driving factor of globalisation?",
+        opts: ["Containerisation of shipping", "Higher tariffs on imported goods", "Restrictions on foreign investment", "Rising transport costs"],
+        ans: 0,
+        explain: "Containerisation let container ships grow massively in size, giving huge economies of scale and cutting shipping costs — one of the biggest drivers of globalisation. The other three options would all SLOW globalisation."
+    },
+    {
+        q: "The Human Development Index (HDI) combines GDP per capita, education and...",
+        opts: ["The exchange rate", "Life expectancy", "The rate of inflation", "Carbon emissions"],
+        ans: 1,
+        explain: "The HDI is a composite of three factors: income (GDP per capita), education and life expectancy — built to give a fuller picture of development than income alone."
+    },
+    {
+        q: "A country's HDI score is much higher than its Inequality-adjusted HDI (IHDI) score. What does this suggest?",
+        opts: ["The country has very low inequality", "The country's GDP per capita has fallen", "The country has significant inequality in income, health or education", "The country has a falling population"],
+        ans: 2,
+        explain: "A large gap between HDI and IHDI means the average outcomes hide a lot of inequality — some people are doing far better, or worse, than the headline HDI score suggests."
+    },
+    {
+        q: "Which is most likely to be a BENEFIT of globalisation for PRODUCERS in a developed country?",
+        opts: ["Exposure to demand slowdowns abroad", "Access to cheaper imported inputs and larger export markets", "Job losses in declining industries", "Increased competition from overseas firms"],
+        ans: 1,
+        explain: "Cheaper imported inputs and access to larger markets (economies of scale) are benefits. Increased competition and exposure to foreign demand slowdowns are costs, and job losses affect workers, not producers directly."
+    },
+    {
+        q: "Which is a genuine COST of globalisation for WORKERS in a developed country?",
+        opts: ["Access to a wider variety of goods", "More jobs as firms grow to serve larger markets", "Job insecurity during global demand slowdowns", "Greater freedom to work abroad"],
+        ans: 2,
+        explain: "Job insecurity during global slowdowns is a real cost for workers whose jobs depend on international demand. The other options are benefits, and 'wider variety of goods' is a benefit for consumers, not workers."
+    },
+    {
+        q: "What is meant by the 'brain drain' in a less developed country?",
+        opts: ["A fall in a country's exchange rate", "Skilled workers, such as doctors, migrating abroad for higher pay", "Automation replacing manual workers", "Firms relocating factories to cheaper countries"],
+        ans: 1,
+        explain: "The brain drain describes skilled or educated workers leaving a less developed country for better pay or living conditions elsewhere, reducing the supply of skilled labour at home."
+    },
+    {
+        q: "Rising global demand for a less developed country's exports, without a matching rise in supply, is most likely to cause...",
+        opts: ["A fall in GDP per capita", "Demand-pull inflation", "Deflation", "Lower exchange rates"],
+        ans: 1,
+        explain: "If supply can't keep up with rising demand from globalisation, prices are bid up — demand-pull inflation. This is especially serious for essential goods like basic foodstuffs in LDCs."
+    },
+    {
+        q: "Which of the following is an example of environmental UNsustainability linked to globalisation?",
+        opts: ["A firm relocating production to a country with weaker environmental laws", "A firm investing in renewable energy", "A firm using more efficient specialised production", "A government taxing carbon emissions"],
+        ans: 0,
+        explain: "Firms sometimes relocate production partly BECAUSE environmental laws are weaker elsewhere, which can cause significant environmental damage in the host country — a real cost of globalisation."
+    },
+    {
+        q: "In a less developed country, why does the gap between rich and poor tend to WIDEN as a result of globalisation?",
+        opts: ["Because much of the extra profit from trade is kept by business owners rather than workers", "Because exports always fall", "Because tariffs always rise", "Because GDP per capita always falls"],
+        ans: 0,
+        explain: "Even though globalisation can create jobs and raise incomes overall, much of the extra profit from globalisation-driven trade tends to be kept by business owners, widening inequality between rich and poor."
+    }
+];
+
+const matchData = [
+    { term: "Globalisation", def: "The growing interconnectedness and interdependence of the world's economies" },
+    { term: "Capital flows", def: "When people in one country invest in businesses in a different country" },
+    { term: "Containerisation", def: "Standard-size containers moved between ships, trains and trucks, cutting shipping costs" },
+    { term: "Trade liberalisation", def: "The reduction of tariffs and other barriers to trade between countries" },
+    { term: "Multinational company (MNC)", def: "A firm that operates and produces across multiple countries" },
+    { term: "Foreign direct investment (FDI)", def: "Investment by a firm in productive assets located in another country" },
+    { term: "GDP per capita", def: "Total GDP divided by the population — an approximate measure of average income" },
+    { term: "Human Development Index (HDI)", def: "A composite measure combining GDP per capita, life expectancy and education" },
+    { term: "Inequality-adjusted HDI (IHDI)", def: "The HDI adjusted to reflect inequality in income, health and education" },
+    { term: "Brain drain", def: "Skilled or educated workers migrating abroad for higher pay or better conditions" },
+    { term: "Homogenisation", def: "Shopping experiences becoming similar worldwide as global brands dominate local firms" },
+    { term: "Free trade agreement", def: "An agreement removing tariffs and quotas on trade between member countries" },
+    { term: "Structural unemployment", def: "Unemployment caused by a long-term decline of an industry, e.g. due to globalisation" }
+];
+
+const fibData = [
+    {
+        display: "Globalisation is the growing ___B1___ and interdependence of the world's ___B2___.",
+        blanks: { B1: "interconnectedness", B2: "economies" }
+    },
+    {
+        display: "___B1___ of shipping — moving standard-size containers between ships, trains and trucks — is probably the single biggest ___B2___ factor of globalisation.",
+        blanks: { B1: "Containerisation", B2: "driving" }
+    },
+    {
+        display: "The Human Development ___B1___ combines GDP per capita, life expectancy and ___B2___.",
+        blanks: { B1: "Index", B2: "education" }
+    },
+    {
+        display: "A large gap between a country's HDI and its Inequality-adjusted HDI shows a high level of ___B1___ in income, health or ___B2___.",
+        blanks: { B1: "inequality", B2: "education" }
+    },
+    {
+        display: "The ___B1___ drain describes skilled workers migrating abroad, making it harder for producers in a less developed country to hire ___B2___ labour.",
+        blanks: { B1: "brain", B2: "skilled" }
+    },
+    {
+        display: "If supply cannot keep pace with rising demand from globalisation, the result is likely to be ___B1___-pull ___B2___.",
+        blanks: { B1: "demand", B2: "inflation" }
+    }
+];
+const fibWords = ["interconnectedness", "economies", "Containerisation", "driving", "Index", "education", "inequality", "brain", "skilled", "demand", "inflation", "trade", "capital", "tariffs"];
+
+const tfData = [
+    {
+        statement: "Globalisation is a purely modern phenomenon that only began in the last 20 years.",
+        answer: false,
+        explanation: "International trade has existed for centuries. What's new is the SCALE and SPEED enabled by modern transport and communications technology — not the existence of trade itself."
+    },
+    {
+        statement: "Containerisation is one of the biggest driving factors of globalisation.",
+        answer: true,
+        explanation: "Standard-size containers moved between ships, trains and trucks let container ships grow massively, giving huge economies of scale and much lower shipping costs."
+    },
+    {
+        statement: "GDP per capita alone shows exactly how income is distributed within a country.",
+        answer: false,
+        explanation: "GDP per capita is only an AVERAGE. It says nothing about distribution — a country can have high GDP per capita while most income sits with a small rich minority."
+    },
+    {
+        statement: "The Human Development Index (HDI) combines income, life expectancy and education.",
+        answer: true,
+        explanation: "The HDI is a composite measure built by the United Nations specifically to combine these three factors, overcoming the limitation of using GDP per capita alone."
+    },
+    {
+        statement: "Globalisation only benefits large, rich countries.",
+        answer: false,
+        explanation: "Globalisation can also drive rapid growth and poverty reduction in developing economies that attract investment and export industries — though the benefits are not evenly shared."
+    },
+    {
+        statement: "The brain drain makes it EASIER for producers in a less developed country to hire skilled workers.",
+        answer: false,
+        explanation: "The opposite: the brain drain is skilled workers LEAVING for higher pay abroad, making it HARDER for domestic producers to hire and retain skilled labour."
+    },
+    {
+        statement: "Homogenisation is a cost of globalisation for consumers in developed countries.",
+        answer: true,
+        explanation: "As large international brands out-compete smaller local firms, shopping experiences become increasingly similar across countries — a real cost, even though prices may fall."
+    },
+    {
+        statement: "In less developed countries, the rich-poor gap typically narrows as a result of globalisation.",
+        answer: false,
+        explanation: "It typically WIDENS — much of the extra profit from globalisation-driven trade is often kept by business owners rather than passed on to workers."
+    }
+];
+
+const miscData = [
+    {
+        wrong: "\"GDP per capita measures how evenly income is spread across a country's population.\"",
+        correct: "This is a documented examiner misconception on this exact paper. The mark scheme for Q2(i) — explaining why GDP per capita measures development in Tanzania — states directly: \"A common misconception is confusion between GDP per capita as an average and wealth or income distribution which is a different concept. Furthermore, some candidates believed GDP per capita was by household, family or region.\" GDP per capita is total GDP divided by the WHOLE national population — an AVERAGE. It says nothing about how that income is actually shared out; a country can have a high GDP per capita while most of the income sits with a small rich minority. Income DISTRIBUTION (equality) is a separate macroeconomic concept entirely.",
+        readCheck: {
+            q: "What is the key misconception examiners reported about GDP per capita?",
+            opts: ["That it excludes services", "Confusing it with income distribution, or believing it is measured by household/family/region", "That it can never fall", "That it is measured monthly, not annually"],
+            ans: 1,
+            explain: "The mark scheme's own words: candidates confused GDP per capita (an AVERAGE) with income distribution (a different concept), and some wrongly thought it was measured by household, family or region rather than for the whole country."
+        }
+    },
+    {
+        wrong: "\"The question asks about workers, but I'll write about benefits to the economy in general — it's basically the same thing.\"",
+        correct: "It is NOT the same thing, and this paper punishes it directly. On Q2(iii) — 'Evaluate the benefits of globalisation for WORKERS in Tanzania' — the examiner's comments state plainly: \"some candidates wrote about benefits to the economy in general or other stakeholders which was not awardable.\" The same trap appears again on Q19(iii), which asks specifically about consumers in LDCs: the mark scheme's own N.B. warns \"this question is specifically on the impact on consumers in LDCs so impacts solely on producers or workers is not relevant.\" This is the single biggest theme on this paper — whenever a question names a stakeholder (workers / producers / consumers, and often a specific country), an answer about a different group scores ZERO on that point, no matter how good the economics is.",
+        readCheck: {
+            q: "A question asks you to evaluate the benefits of globalisation for WORKERS in a named country. What happens if you write about benefits to the wider economy instead?",
+            opts: ["You get half marks automatically", "The examiner assumes you meant workers", "You get full marks anyway, since it's related", "That material is not awardable — you must answer for the exact stakeholder named"],
+            ans: 3,
+            explain: "The mark scheme is explicit on this paper: writing about the economy in general, or about a different stakeholder, when the question names one group specifically, is 'not awardable'."
+        }
+    },
+    {
+        wrong: "\"The biggest cost of globalisation for consumers in developed countries is increased immigration.\"",
+        correct: "This is a documented examiner misconception on Q3 of this exact paper (\"What is the most likely cost of globalisation for consumers in developed countries?\"). The correct answer is A — dominant global brands — not immigration. The examiner's comments state: \"A common misconception was increased immigration was a cost of globalisation, rather than the more likely negative impact of dominant global brands.\" Dominant global brands reduce genuine variety and out-compete smaller, often more distinctive local firms — this is the effect known as homogenisation. Immigration is a labour-market issue for WORKERS, not a direct cost for consumers.",
+        readCheck: {
+            q: "According to this paper's mark scheme, what is the most likely COST of globalisation for consumers in developed countries?",
+            opts: ["Lower prices", "More choice of goods", "Increased immigration", "Dominant global brands"],
+            ans: 3,
+            explain: "The mark scheme names dominant global brands as the correct answer, and flags increased immigration as the common wrong answer — immigration is a labour-market issue, not a direct consumer cost."
+        }
+    },
+    {
+        wrong: "\"Free trade agreements are a cost to producers because there is more competition.\" (and stops there)",
+        correct: "Stating a cost is only worth 1 of the 2 marks on this paper's short 'explain' questions — you must EXPLAIN it. On Q15(ii) ('Explain one cost to producers of globalisation'), the mark scheme awards \"1 mark for stating a cost which is not explained\" and \"2 marks for providing an explained cost.\" The examiner's comments confirm this actually cost candidates marks: \"This question was generally answered well, although some candidates stated a cost, rather than explaining it.\" The fix is a simple chain: state the cost, then add WHY it happens or WHAT it leads to — e.g. 'more competition from lower-cost overseas producers (1), which may be harmful to domestic producers whose productivity is lower (1)'.",
+        readCheck: {
+            q: "On a 2-mark 'explain one cost' question, writing only 'more competition' with no further development scores...",
+            opts: ["0 marks — costs are not creditable", "2 marks, as long as it's true", "2 marks — the cost is correct", "1 mark — a stated but unexplained cost"],
+            ans: 3,
+            explain: "The mark scheme is explicit: 1 mark for stating a cost without explanation, 2 marks only when the cost is properly explained (why it happens, or what it leads to)."
+        }
+    },
+    {
+        wrong: "\"State two trends in university enrolment\" — answered by comparing Burkina Faso and China to each other.",
+        correct: "A comparison is not a trend, and this cost real marks on Q14(a) of this paper. The examiner's comments explain precisely: \"The key was that the response needed a 'TREND' rather than a comparison (between BF and China). It also needed to focus on university enrolment rather than any of the other data in the table.\" A TREND describes how a single variable changes over TIME within one series (e.g. 'female university enrolment in Burkina Faso rose from 2.3% to 5.1% between 2010 and 2019'). A COMPARISON instead contrasts two different series at one point in time (e.g. 'China's enrolment is higher than Burkina Faso's') — that is a different command entirely, and the wrong answer to a 'state two trends' question.",
+        readCheck: {
+            q: "A question asks you to 'state two trends' in a data table covering two countries over several years. What must your answer describe?",
+            opts: ["Only the most recent year's figures", "How a variable changes over time within one series", "The largest single number in the table", "A comparison between the two countries"],
+            ans: 1,
+            explain: "A trend tracks change over TIME. Comparing the two countries to each other, however accurate, answers a different question and was explicitly marked as not creditable here."
+        }
+    }
+];
+
+const examTips = [
+    {
+        type: "definition",
+        title: "Definitions: name the required elements",
+        pills: ["State / Explain what is meant by...", "1–2 marks", "AO1"],
+        content: `<p>Short-answer definitions on this paper are marked element by element — learn the PRECISE wording, not just the gist.</p>
+<ul>
+<li><strong>Globalisation</strong> = the mark scheme accepts any TWO of: greater freedom of movement between countries; free movement of goods, services, people and money; the expansion of world trade in goods and services; the expansion of capital flows between countries; greater international interdependence. One element = 1 mark.</li>
+<li><strong>Free trade agreement</strong> needs TWO elements: no import tariffs/quotas between member countries (1), PLUS that members can still trade freely with countries outside the group, or a correct example such as NAFTA/EFTA (1).</li>
+<li><strong>GDP per capita</strong> = total value of output/income in a country in one year, divided by the population. A bare "GDP divided by population" without saying what GDP measures is only worth 1 of 2 marks.</li>
+<li><strong>Ways of measuring development</strong> — 1 mark each: GDP (per capita), life expectancy, access to health care, access to technology, access to education.</li>
+</ul>`,
+        readCheck: {
+            q: "For 'state what is meant by globalisation', how many separate elements does the mark scheme require for full marks?",
+            opts: ["Two", "Three", "Four", "One"],
+            ans: 0,
+            explain: "The mark scheme gives 2 marks for a definition referring to at least two of its listed elements (free movement of goods/services/people/money, expansion of trade, expansion of capital flows, greater interdependence)."
+        }
+    },
+    {
+        type: "stakeholder",
+        title: "Name the stakeholder — or score nothing",
+        pills: ["Evaluate the benefits/costs for...", "6 marks", "AO2/AO3"],
+        content: `<p>This is the single most-repeated trap across the whole paper. Every extended question names a specific group — and answering about a different one is explicitly NOT awardable.</p>
+<ul>
+<li>Q2(iii) asks about <strong>WORKERS</strong> in Tanzania. The examiner's comments say some candidates "wrote about benefits to the economy in general or other stakeholders which was not awardable."</li>
+<li>Q19(iii) asks about <strong>CONSUMERS</strong> in LDCs. The mark scheme's N.B. states: "impacts solely on producers or workers is not relevant."</li>
+<li>Q7(d)(iii) asks about <strong>US PRODUCERS</strong>. The examiner's comments note candidates who wrote about "the economy in general" or "the effects of globalisation on households or the government" could "only be partially rewarded at best."</li>
+<li><strong>Fix:</strong> before writing a single sentence, underline the named group in the question. Every analytical point AND its matching evaluative point must trace back to that exact group.</li>
+</ul>`,
+        readCheck: {
+            q: "A 6-mark question asks you to evaluate the benefits of globalisation for CONSUMERS in a less developed country. Which answer content is NOT awardable?",
+            opts: ["A point about producers losing skilled workers to the brain drain", "A point about consumers paying higher prices for food", "A point evaluating whether price rises outweigh the wider choice", "A point about consumers accessing a wider range of goods"],
+            ans: 0,
+            explain: "A point about PRODUCERS losing workers answers a different question. The mark scheme explicitly excludes stakeholder-swap content — every point must be about the group actually named."
+        }
+    },
+    {
+        type: "calculation",
+        title: "Calculations: show working, keep the sign and the unit",
+        pills: ["Calculate... Show your working", "2 marks", "AO2 · Quantitative skills"],
+        content: `<p>Every calculation on this paper follows the same pattern: 2 marks for a correct final answer (working not required if correct), 1 mark for correct working with a wrong final answer.</p>
+<ul>
+<li><strong>Balance of trade in goods and services</strong> = balance of trade in goods + balance of trade in services. For the US in 2019: −924,284 + 286,723 = <strong>−$637,561 million</strong>. The examiners noted candidates lost marks by omitting the $ sign, "million", or the negative sign.</li>
+<li><strong>GDP per capita</strong> = GDP ÷ population. For Burkina Faso in 2019: $15,700 million ÷ 20.3 million = <strong>$773.4</strong>. The examiners noted: "1 mark only if $ sign is omitted" — units matter even when the number is right.</li>
+<li><strong>Simple differences</strong> (e.g. Sweden's GDP per capita minus Botswana's) still need 1 mark for correct working and 1 for the final figure — set your subtraction out clearly.</li>
+</ul>`,
+        readCheck: {
+            q: "You correctly calculate a GDP per capita of 773.4 but forget the $ sign. According to this paper's mark scheme, you would score...",
+            opts: ["2 marks — the figure is correct", "0 marks — the answer is void without units", "2 marks, as signs are optional", "1 mark — correct working/figure but a missing required sign"],
+            ans: 3,
+            explain: "The mark scheme is explicit: full marks require the correct figure AND the correct sign/unit. A missing $ sign caps the answer at 1 mark even when the number itself is right."
+        }
+    },
+    {
+        type: "evaluate",
+        title: "Analyse & Evaluate: both costs AND benefits for Level 3",
+        pills: ["Analyse / *Evaluate...", "6 marks", "AO3"],
+        content: `<p>The extended 6-mark questions reward simple, clearly linked chains of reasoning far more than long, unfocused answers.</p>
+<ul>
+<li><strong>Cover both sides.</strong> On Q7(d)(iii) the mark scheme states plainly: "Both costs & benefits need to be covered in order to achieve Level 3." A one-sided answer is capped, however detailed.</li>
+<li><strong>Match your evaluation to your analysis.</strong> The most common way marks are lost is writing an analytical point, then "evaluating" with an unrelated new point instead of directly weighing the first one.</li>
+<li><strong>Build a proper chain, don't just restate data.</strong> On Q7(c) examiners warned against candidates who "re-write the information in Extract 3 without any analysis" — e.g. simply repeating "the economy becomes less based on domestic manufacturing" without explaining WHY or WHAT FOLLOWS.</li>
+<li><strong>Signal your judgement clearly</strong> with words like "Overall" or "In conclusion" — evaluation signalled only by "However" sometimes turned out to be an unlinked extra point rather than a real weighing-up.</li>
+</ul>`,
+        readCheck: {
+            q: "According to this paper's mark scheme, what is required to reach Level 3 (5–6 marks) on a 6-mark 'evaluate the extent to which...' question?",
+            opts: ["Only costs need to be discussed", "Both costs and benefits must be covered", "As much data as possible must be quoted", "Only benefits need to be discussed"],
+            ans: 1,
+            explain: "The mark scheme for Q7(d)(iii) states directly that both costs and benefits need to be covered to achieve Level 3 — a one-sided answer, however well written, is capped at a lower level."
+        }
+    }
+];
+
+const flashcards = [
+    { term: "Globalisation", def: "The growing interconnectedness and interdependence of the world's economies, via trade, investment, migration and technology." },
+    { term: "Capital flows", def: "When people in one country invest in businesses in a different country." },
+    { term: "Containerisation", def: "Standard-size containers moved between ships, trains and trucks — probably the biggest driver of globalisation." },
+    { term: "Trade liberalisation", def: "Reducing tariffs and trade barriers via agreements and organisations like the WTO." },
+    { term: "Multinational company (MNC)", def: "A firm that operates and produces across multiple countries." },
+    { term: "Foreign direct investment (FDI)", def: "Investment by a firm in productive assets in another country, e.g. building a factory abroad." },
+    { term: "GDP per capita", def: "Total GDP divided by population — an average measure of income, NOT a measure of distribution." },
+    { term: "Human Development Index (HDI)", def: "UN composite measure combining GDP per capita, life expectancy and education." },
+    { term: "Inequality-adjusted HDI (IHDI)", def: "HDI adjusted for inequality — a big HDI–IHDI gap means high inequality." },
+    { term: "Brain drain", def: "Skilled workers (e.g. doctors) migrating from a less developed country for higher pay abroad." },
+    { term: "Homogenisation", def: "Shopping experiences becoming similar worldwide as global brands out-compete local firms — a cost for developed-country consumers." },
+    { term: "Free trade agreement", def: "Removes tariffs/quotas between member countries; members can still trade separately outside the group, e.g. NAFTA." },
+    { term: "Structural unemployment", def: "Long-term unemployment from an industry's decline, e.g. domestic manufacturing losing out to globalisation." },
+    { term: "Demand-pull inflation (LDC context)", def: "When globalisation raises demand faster than LDC supply can grow, prices — especially for basic foodstuffs — rise." },
+    { term: "Balance of trade in goods", def: "Value of goods exported minus value of goods imported." },
+    { term: "Balance of trade in services", def: "Value of services exported minus value of services imported." },
+    { term: "Naming the stakeholder", def: "Every extended question names a group (workers/producers/consumers). Writing about a different group is NOT awardable." },
+    { term: "Explain vs state a cost/benefit", def: "Stating a cost with no development = 1 mark. Explaining WHY it happens or WHAT it leads to = full marks." },
+    { term: "Trend vs comparison", def: "A trend = how ONE variable changes over TIME. A comparison = contrasting two different series. 'State a trend' needs the former." }
+];
+
+// Shared exam extracts — defined ONCE here and referenced by `caseId`
+// from each question part, so editing an extract updates every question
+// that uses it. Single-use stimuli keep their own inline `caseStudy`.
+const EXAM_CASE_STUDIES = {
+    "extract-3-uk-balance-of-payments-2014": `<p><strong>Extract 3: UK balance of payments</strong></p>
+<p>UK balance of payments current account data for 2014</p>
+<table style="width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2014</th></tr>
+<tr><td style="padding:6px;">Export of goods</td><td style="padding:6px;">£292 867m</td></tr>
+<tr><td style="padding:6px;">Import of goods</td><td style="padding:6px;">£412 472m</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods</td><td style="padding:6px;">–</td></tr>
+<tr><td style="padding:6px;">Export of services</td><td style="padding:6px;">£214 856m</td></tr>
+<tr><td style="padding:6px;">Import of services</td><td style="padding:6px;">£128 993m</td></tr>
+<tr><td style="padding:6px;">Balance of trade in services</td><td style="padding:6px;">£85 863m</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods and services</td><td style="padding:6px;">–</td></tr>
+</table>`,
+    "extract-3-development-in-tanzania-and-globalisat": `<p><strong>Extract 3: Development in Tanzania and Globalisation</strong></p>
+<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">1990</th><th style="padding:6px;">2000</th><th style="padding:6px;">2010</th></tr>
+<tr><td style="padding:6px;">GDP per capita (US$)</td><td style="padding:6px;">539</td><td style="padding:6px;">552</td><td style="padding:6px;">794</td></tr>
+<tr><td style="padding:6px;">Government expenditure on education (% of GDP)</td><td style="padding:6px;">2.14</td><td style="padding:6px;">3.00</td><td style="padding:6px;">4.54</td></tr>
+<tr><td style="padding:6px;">Primary school enrolment (% of age group)</td><td style="padding:6px;">52.04</td><td style="padding:6px;">53.53</td><td style="padding:6px;">92.20</td></tr>
+</table>
+<p>The above table shows that government spending on Tanzanian schools and teachers affects the number of children attending school. As a result, the adult literacy rate (the percentage of adults who can read and write) has increased from 68% in 2010 to 82% in 2021. The benefits of an educated population, which leads to a more productive workforce, is also demonstrated by the increase in GDP per capita.</p>
+<p>Higher GDP per capita is not only due to education, but also to globalisation. Investment by Chinese multinational companies in Tanzanian industries has helped to increase and diversify its trade. The Tanzanian economy is now less dependent on the widely fluctuating prices of primary agricultural products. Moreover, there is a greater variety of job opportunities.</p>
+<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2010</th><th style="padding:6px;">2015</th><th style="padding:6px;">2020</th></tr>
+<tr><td style="padding:6px;">GDP per capita (US$)</td><td style="padding:6px;">794</td><td style="padding:6px;">929</td><td style="padding:6px;">1 028</td></tr>
+<tr><td style="padding:6px;">Exports of goods (US$ million)</td><td style="padding:6px;">4 051</td><td style="padding:6px;">4 834</td><td style="padding:6px;">6 061</td></tr>
+<tr><td style="padding:6px;">E.g. Agricultural raw material exports (% of total)</td><td style="padding:6px;">5.59</td><td style="padding:6px;">3.37</td><td style="padding:6px;">3.30</td></tr>
+<tr><td style="padding:6px;">Imports of goods (US$ million)</td><td style="padding:6px;">8 060</td><td style="padding:6px;">14 768</td><td style="padding:6px;">8 517</td></tr>
+<tr><td style="padding:6px;">E.g. Manufactured imports (% of total)</td><td style="padding:6px;">60.47</td><td style="padding:6px;">42.07</td><td style="padding:6px;">72.32</td></tr>
+</table>`,
+    "extract-3-globalisation-of-the-us-economy": `<p><strong>Extract 3: Globalisation of the US Economy</strong></p>
+<p>US Balance of Trade over 10 years</p>
+<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2009 (US$m)</th><th style="padding:6px;">2019 (US$m)</th></tr>
+<tr><td style="padding:6px;">Export of goods</td><td style="padding:6px;">1 056 043</td><td style="padding:6px;">1 643 161</td></tr>
+<tr><td style="padding:6px;">Import of goods</td><td style="padding:6px;">1 605 296</td><td style="padding:6px;">2 567 445</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods</td><td style="padding:6px;">–549 253</td><td style="padding:6px;">–924 284</td></tr>
+<tr><td style="padding:6px;">Export of services</td><td style="padding:6px;">501 920</td><td style="padding:6px;">853 844</td></tr>
+<tr><td style="padding:6px;">Import of services</td><td style="padding:6px;">376 081</td><td style="padding:6px;">567 121</td></tr>
+<tr><td style="padding:6px;">Balance of trade in services</td><td style="padding:6px;">125 839</td><td style="padding:6px;">286 723</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods and services</td><td style="padding:6px;">–423 414</td><td style="padding:6px;">–</td></tr>
+</table>
+<p>The USA has free trade agreements with 20 countries, including its neighbours, Canada and Mexico. The agreements significantly reduce barriers to trade in addition to improving the environment for overseas investment. US producers have set up factories outside the USA to produce goods and components for the US domestic market as well as for markets overseas.</p>
+<p>As a result, US imports of goods have been increasing rapidly as the economy becomes less based on domestic manufacturing of consumer goods and more geared towards services, such as insurance, tourism and education.</p>
+<p>However, globalisation of the US economy is controversial. While consumers can enjoy a greater variety of cheaper goods, there is concern that the relative decline of domestic manufacturing leads to unemployment and lower wages.</p>`,
+    "extract-2-determinants-of-economic-growth-and-fis": `<p><strong>Extract 2: Determinants of Economic Growth and Fiscal Policy</strong></p>
+<table style="width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Burkina Faso</th><th style="padding:6px;">2010</th><th style="padding:6px;">2015</th><th style="padding:6px;">2019</th></tr>
+<tr><td style="padding:6px;">Females in the workforce (% aged 15-64)</td><td style="padding:6px;">61.2</td><td style="padding:6px;">59.8</td><td style="padding:6px;">59.8</td></tr>
+<tr><td style="padding:6px;">Females enrolled in university (% of relevant age group)</td><td style="padding:6px;">2.3</td><td style="padding:6px;">3.5</td><td style="padding:6px;">5.1</td></tr>
+<tr><td style="padding:6px;">Males enrolled in university (% of relevant age group)</td><td style="padding:6px;">4.8</td><td style="padding:6px;">6.6</td><td style="padding:6px;">9.0</td></tr>
+<tr><td style="padding:6px;">GDP per capita growth (annual %)</td><td style="padding:6px;">5.2</td><td style="padding:6px;">0.9</td><td style="padding:6px;">2.7</td></tr>
+</table>
+<table style="width:100%;max-width:560px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">China</th><th style="padding:6px;">2010</th><th style="padding:6px;">2015</th><th style="padding:6px;">2019</th></tr>
+<tr><td style="padding:6px;">Females in the workforce (% aged 15-64)</td><td style="padding:6px;">69.8</td><td style="padding:6px;">69.1</td><td style="padding:6px;">68.5</td></tr>
+<tr><td style="padding:6px;">Females enrolled in university (% of relevant age group)</td><td style="padding:6px;">25.0</td><td style="padding:6px;">50.2</td><td style="padding:6px;">59.5</td></tr>
+<tr><td style="padding:6px;">Males enrolled in university (% of relevant age group)</td><td style="padding:6px;">23.5</td><td style="padding:6px;">42.3</td><td style="padding:6px;">48.7</td></tr>
+<tr><td style="padding:6px;">GDP per capita growth (annual %)</td><td style="padding:6px;">10.1</td><td style="padding:6px;">6.5</td><td style="padding:6px;">5.7</td></tr>
+</table>
+<p>The proportion of people, especially females, who have a university education varies considerably across different countries. Knowledge and training improve labour productivity. Education is, therefore, a significant determinant of economic growth. Another important determinant is the size of the workforce. Consequently, when there are more educated women in the workforce, economic growth is higher.</p>
+<p>Percentage gains in real GDP measure economic growth. GDP per capita is an approximate measure of the average income in a country.</p>
+<p>Average years in education is one of the factors that is used to measure social and economic development. Another important factor is life expectancy, which reflects how healthy a country's population is. When development economists measure social and economic development, they find that the index for China is almost twice that for Burkina Faso.</p>`,
+    "extract-3-uk-current-account": `<p><strong>Extract 3: UK Current Account</strong></p>
+<p>In 2017, following the depreciation of the British pound (£) in 2016, the deficit on the current account balance reduced. However, in 2018 the deficit grew in every quarter. The table below shows debit items increased, while the value of goods exports grew more slowly. UK exports faced growing competition from overseas manufacturers. In 2018, the £1.8 billion increase in the trade in goods deficit was caused mainly by imports from highly competitive Asian economies increasing more quickly than UK exports.</p>
+<p>The UK has run an annual current account deficit since 1983. A current account deficit means the UK is a net borrower with the rest of the world. The UK must attract net financial inflows to finance its current account deficit, which can be achieved through selling its assets to overseas investors or borrowing from the rest of the world.</p>
+<table style="width:100%;max-width:480px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">UK Current Account (Quarterly)</th><th style="padding:6px;">2018 Q2 (£m)</th><th style="padding:6px;">2018 Q3 (£m)</th></tr>
+<tr><td style="padding:6px;">Exports of goods</td><td style="padding:6px;">85 987</td><td style="padding:6px;">88 884</td></tr>
+<tr><td style="padding:6px;">Exports of services</td><td style="padding:6px;">70 760</td><td style="padding:6px;">69 721</td></tr>
+<tr><td style="padding:6px;">Imports of goods</td><td style="padding:6px;">120 560</td><td style="padding:6px;">123 880</td></tr>
+<tr><td style="padding:6px;">Imports of services</td><td style="padding:6px;">43 195</td><td style="padding:6px;">43 508</td></tr>
+<tr><td style="padding:6px;">Total trade balance</td><td style="padding:6px;">–7 008</td><td style="padding:6px;">–</td></tr>
+<tr><td style="padding:6px;">a. Investment income (net)</td><td style="padding:6px;">–7 142</td><td style="padding:6px;">–10 780</td></tr>
+<tr><td style="padding:6px;">b. Other income (net)</td><td style="padding:6px;">–328</td><td style="padding:6px;">–325</td></tr>
+<tr><td style="padding:6px;">Total investment and other income (a+b)</td><td style="padding:6px;">–7 470</td><td style="padding:6px;">–11 105</td></tr>
+<tr><td style="padding:6px;">Total transfers</td><td style="padding:6px;">–5 476</td><td style="padding:6px;">–6 634</td></tr>
+<tr><td style="padding:6px;">Current balance</td><td style="padding:6px;">–19 954</td><td style="padding:6px;">–26 522</td></tr>
+</table>
+<p>Globalisation is demonstrated by the overall growth in trade and foreign investment. In 1983, UK exports plus imports amounted to just £159 565 million, while in 2017 the total was £1 257 706 million. Lower tariffs and expansion of free-trade areas and customs unions, which require less form filling and customs checks, have led to more competition, expanding markets and increased foreign investment. Because of this, competitive UK producers have been able to expand their sales. Improved communications, technological transfers and the development of supply chains across borders have also been contributing factors to global trade and investment growth.</p>`,
+    "extract-1-uk-trade-current-account-2009-2018": `<p><strong>Extract 1: UK Trade in the Current Account 2009-2018</strong></p>
+<img src="/images/economics/4-4-uk-trade-current-account-2009-2018-chart-extracted.png" alt="Line chart from the OCR exam paper titled 'Net trade (exports minus imports)', showing UK net trade in £ billion from 2009 to 2018 for two series. The dashed 'Goods and services' line stays roughly flat between about -19 and -35 throughout, starting around -28 in 2009, dipping to about -35 in 2010, rising to about -19 in 2011, then fluctuating narrowly between about -23 and -31 through to 2018. The solid 'Goods only' line starts around -85 in 2009, worsens steadily to about -95 in 2010, -94 in 2011, -106 in 2012, -119 in 2013, -122 in 2014, improves slightly to about -117 in 2015, then worsens sharply to about -132 in 2016 and -137 in both 2017 and 2018" style="display:block;width:100%;max-width:540px;margin:14px auto;border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px;" />
+<p>Trade is the largest item in the balance of payments on the current account. The chart shows the UK's trade deficits since 2009 as measured by exports minus imports for goods and services, and for goods only. The UK's exports of services are becoming an increasingly important part of its overseas trade.</p>
+<p>Globalisation has led to UK residents being able to enjoy a higher standard of living because they can access a wide range of low-priced imported goods from rapidly growing economically less developed countries. Workers in those countries are being employed in manufacturing goods for the UK market. Equally, the UK provides a wide range of services to people in other countries.</p>`,
+    "extract-2-economic-growth-and-carbon-emissions": `<p><strong>Extract 2: Economic Growth and Carbon Emissions</strong></p>
+<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Botswana</th><th style="padding:6px;">2016</th><th style="padding:6px;">2017</th><th style="padding:6px;">2018</th></tr>
+<tr><td style="padding:6px;">GDP per capita (US$)</td><td style="padding:6px;">7 797</td><td style="padding:6px;">7 859</td><td style="padding:6px;">8 031</td></tr>
+<tr><td style="padding:6px;">Carbon emissions (metric tons per capita)</td><td style="padding:6px;">2.86</td><td style="padding:6px;">3.35</td><td style="padding:6px;">3.19</td></tr>
+</table>
+<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">USA</th><th style="padding:6px;">2016</th><th style="padding:6px;">2017</th><th style="padding:6px;">2018</th></tr>
+<tr><td style="padding:6px;">GDP per capita (US$)</td><td style="padding:6px;">52 534</td><td style="padding:6px;">53 356</td><td style="padding:6px;">54 542</td></tr>
+<tr><td style="padding:6px;">Carbon emissions (metric tons per capita)</td><td style="padding:6px;">15.56</td><td style="padding:6px;">15.81</td><td style="padding:6px;">16.14</td></tr>
+</table>
+<table style="width:100%;max-width:520px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:13px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;">Sweden</th><th style="padding:6px;">2016</th><th style="padding:6px;">2017</th><th style="padding:6px;">2018</th></tr>
+<tr><td style="padding:6px;">GDP per capita (US$)</td><td style="padding:6px;">56 196</td><td style="padding:6px;">56 611</td><td style="padding:6px;">57 232</td></tr>
+<tr><td style="padding:6px;">Carbon emissions (metric tons per capita)</td><td style="padding:6px;">4.54</td><td style="padding:6px;">4.55</td><td style="padding:6px;">4.47</td></tr>
+</table>
+<p>GDP per capita is used to compare living standards or development levels between countries. Economic growth over time can be measured by rising GDP per capita. Higher living standards that result from economic growth often lead to increases in carbon emissions, because people travel more by car and use more electricity.</p>
+<p>Climate change has been identified as a negative externality that arises from the carbon emitted as a result of energy production and consumption. Despite the associated opportunity costs, most countries have pledged to reduce emissions. Governments and firms, therefore, are investing in alternative renewable energy sources in order to reduce the burning of fossil fuels. Also, governments are imposing taxes on petrol and on electricity production; the taxes provide an economic incentive for firms and consumers to reduce their energy consumption.</p>`,
+    "extract-3-uk-balance-of-payments-2007-2016": `<p><strong>Extract 3: UK balance of payments</strong></p>
+<table style="width:100%;max-width:460px;margin:12px auto;border-collapse:collapse;text-align:left;font-size:14px;">
+<tr style="border-bottom:1px solid var(--border);"><th style="padding:6px;"></th><th style="padding:6px;">2007 (£m)</th><th style="padding:6px;">2016 (£m)</th></tr>
+<tr><td style="padding:6px;">Export of goods</td><td style="padding:6px;">208 000</td><td style="padding:6px;">302 000</td></tr>
+<tr><td style="padding:6px;">Import of goods</td><td style="padding:6px;">294 000</td><td style="padding:6px;">437 000</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods</td><td style="padding:6px;">–86 000</td><td style="padding:6px;">–135 000</td></tr>
+<tr><td style="padding:6px;">Export of services</td><td style="padding:6px;">138 000</td><td style="padding:6px;">245 000</td></tr>
+<tr><td style="padding:6px;">Import of services</td><td style="padding:6px;">100 000</td><td style="padding:6px;">153 000</td></tr>
+<tr><td style="padding:6px;">Balance of trade in services</td><td style="padding:6px;">38 000</td><td style="padding:6px;">92 000</td></tr>
+<tr><td style="padding:6px;">Balance of trade in goods and services</td><td style="padding:6px;">–48 000</td><td style="padding:6px;">–43 000</td></tr>
+</table>
+<p>The balance of payments shows a country's transactions with the rest of the world. More trade in goods and services over time is just one feature of increased globalisation.</p>
+<p>Globalisation affects producers, workers and consumers in both developed and less developed countries.</p>
+<p style="font-size:12px;color:var(--mid);">⚠️ Two cells in this table (2016 export of goods; 2007 balance of trade in services) were not recoverable from the source PDF's text layer. They are reconstructed here from the other verbatim figures, since goods balance = exports − imports and services balance = exports − imports hold exactly for every other cell in this table.</p>`,
+};
+
+const examQuestions = [
+    {
+        num: "Q1i",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-uk-balance-of-payments-2014",
+        question: "State two ways of measuring how developed a country is.",
+        hint: "Any two of: GDP (per capita), life expectancy, access to health care, access to technology, access to education.",
+        starter: "1. ... 2. ...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>GDP (per capita)</li>
+<li>Life expectancy</li>
+<li>Access to health care</li>
+<li>Access to technology</li>
+<li>Access to education</li>
+</ul>
+<p>1 mark for each correct answer up to a maximum of 2 marks. Any other reasonable answer to be credited.</p>
+</div>`,
+        modelAnswer: "1. GDP per capita — the average income of the population.\n\n2. Life expectancy — how long, on average, people in the country are expected to live."
+    },
+    {
+        num: "Q1ii",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-uk-balance-of-payments-2014",
+        question: "Explain what is meant by a rise in the exchange rate.",
+        hint: "Think in terms of foreign currency bought per unit of home currency, OR the value of the home currency in terms of a foreign one — you only need one direction explained clearly.",
+        starter: "A rise in the exchange rate means that...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>More foreign currency can be bought with one unit of the home currency</li>
+</ul>
+<p>1 mark for understanding that more foreign currency can be bought, without reference to the home currency. 1 mark for understanding that the home currency is worth more, without reference to a foreign currency. Allow 1 mark for general understanding of the exchange rate.</p>
+</div>`,
+        modelAnswer: "A rise in the exchange rate means that one unit of the home currency can now buy MORE units of a foreign currency than before.\n\nFor example, if £1 buys $1.20 and the rate rises, £1 might now buy $1.50 — the pound has become more valuable relative to the dollar."
+    },
+    {
+        num: "Q1iii",
+        marks: 6,
+        type: "written",
+        caseId: "extract-3-uk-balance-of-payments-2014",
+        question: "Evaluate whether a rise in the exchange rate would benefit the economy of a developed country. Use the information given in Extract 3 and your own knowledge.",
+        hint: "Build the chain both ways: a stronger pound makes imports CHEAPER (good for consumers) but exports more EXPENSIVE abroad (bad for exporters, who may cut jobs). Evaluate on the size of the rise, how long it lasts, and which trading partner's currency it's measured against.",
+        starter: "A rise in the exchange rate would make imports cheaper for UK consumers, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>An increase in the exchange rate would cause the price of imports to fall (e.g. if £1 starts at $1.20 and rises to $1.50, a US good sold at $120 was previously sold at £100 in the UK but is now sold at £80)</li>
+<li>This is good for consumers in the UK who now have greater purchasing power</li>
+<li>This is a disadvantage for UK producers as they now compete with cheaper imports</li>
+<li>UK producers may lose sales which may force them to make workers redundant</li>
+<li>The price of exports would rise and so become less competitive in foreign markets</li>
+<li>The UK exporters may lose sales which may force them to make workers redundant</li>
+<li>The economy has become less competitive, so it is losing sales at home and abroad. As demand falls, output falls</li>
+<li>Inflation is less likely as the cost of imported materials falls and the demand for home-produced goods falls</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Evaluation may include</h5>
+<ul>
+<li>The effect of a rise in the exchange rate may depend on other economic variables, for example inflation</li>
+<li>It depends on the size of the rise — a small rise will have little impact</li>
+<li>It depends on the longevity of the rise — if it is short-lived, the effects will be minimal</li>
+<li>The value of other currencies of important trading partners may be different, and the rise may only be in relation to one currency, e.g. the pound against the dollar</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+        modelAnswer: "A rise in the exchange rate makes imports cheaper: if £1 rises from buying $1.20 to $1.50, a US good priced at $120 falls from £100 to £80 in the UK. This benefits UK consumers, who gain greater purchasing power over foreign goods, and can also reduce inflation because imported materials become cheaper.\n\nHowever, it is a disadvantage for UK producers. Cheaper imports compete directly with domestic goods, so producers may lose sales and be forced to make workers redundant. At the same time, UK exports become more expensive abroad and lose competitiveness, so exporters may also lose sales and cut jobs — the whole economy could see falling demand and falling output.\n\nOverall, whether the rise benefits the economy depends on its size and how long it lasts: a small, short-lived rise will have little real impact, while a large, sustained rise could seriously damage export industries. It also depends on which currency the rate has risen against — a rise against the dollar alone matters less if the UK's main trading partners use a different currency."
+    },
+    {
+        num: "Q2i",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-development-in-tanzania-and-globalisat",
+        question: "Explain why GDP per capita could be used as a measure for development in a less developed country.",
+        hint: "⚠️ Documented misconception: don't confuse GDP per capita (an AVERAGE) with income distribution — they are different concepts. It is NOT measured by household, family or region.",
+        starter: "GDP per capita is total GDP divided by the population, so...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answer might include:</strong></p>
+<ul>
+<li>GDP per capita is the total GDP divided by the population</li>
+<li>It is a measure of the standard of living or well-being for the average/typical person</li>
+<li>It can indicate the degree of poverty among the population</li>
+<li>Comparisons may be made over time and between countries to measure whether development goals have been reached</li>
+<li>It can indicate the purchasing power of a typical person</li>
+</ul>
+<p>Give 1 mark for an explanation of GDP + 1 mark for some development. Or: give 2 marks for a statement with further development.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates understood that GDP per capita indicates an 'average' income and linked it to living standards.</p>
+</div>
+<div class="marks-section">
+<h5>Misconception</h5>
+<p>A common misconception is confusion between GDP per capita as an average and wealth or income distribution, which is a different concept. Furthermore, some candidates believed GDP per capita was measured by household, family or region.</p>
+</div>`,
+        modelAnswer: "GDP per capita is the total GDP of a country divided by its population, giving an approximate measure of the average income of a typical person.\n\nThis can indicate the standard of living in a less developed country, and comparing it over time or between countries shows whether development goals — such as Tanzania's rising GDP per capita — are being reached."
+    },
+    {
+        num: "Q2ii",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-development-in-tanzania-and-globalisat",
+        question: "State two benefits of globalisation for Tanzanian producers.",
+        hint: "The extract points you towards technology transfer and wider export markets from Chinese multinational investment — but any two reasonable benefits for PRODUCERS (not the economy generally) are creditable.",
+        starter: "1. ... 2. ...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers might include:</strong></p>
+<ul>
+<li>Technology transfer</li>
+<li>Wider markets / ability to export more</li>
+<li>Access to cheaper resources</li>
+<li>Opportunities for diversification</li>
+<li>Opportunities to exploit raw materials</li>
+</ul>
+<p>1 mark for each correct answer up to a total of 2 marks. The terminology may be different, but if knowledge is evident, the mark should be awarded.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This was broadly a well answered question where candidates could identify two benefits to producers. Some candidates wrote about benefits to the economy in general or other stakeholders, which was not awardable.</p>
+</div>`,
+        modelAnswer: "1. Technology transfer from Chinese multinational companies investing in Tanzanian industries.\n\n2. Wider export markets, allowing producers to diversify and become less dependent on volatile agricultural prices."
+    },
+    {
+        num: "Q2iii",
+        marks: 6,
+        type: "written",
+        caseId: "extract-3-development-in-tanzania-and-globalisat",
+        question: "Evaluate the benefits of globalisation for workers in Tanzania. Use the information given in Extract 3 and your own knowledge.",
+        hint: "⚠️ Name the stakeholder: this asks about WORKERS specifically — the mark scheme states answers about 'the economy in general or other stakeholders' were 'not awardable'. Match every benefit with a counter-point about workers (e.g. job creation vs displacement of local producers) and finish with a clear judgement.",
+        starter: "Workers in Tanzania may benefit from more factory jobs created by multinationals, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Reference to Extract 3 or context (AO2):</strong> Tanzania and/or Chinese multinationals; data on manufactured imports from the table; data on per capita GDP growth.</p>
+</div>
+<div class="marks-section">
+<h5>Benefits for workers vs economic sustainability costs (evaluated)</h5>
+<ul>
+<li>Greater possibility of employment in factories set up by multinationals (such as from China). <em>However</em> such factories increase competition for local small-scale producers, so workers may lose access to jobs in local villages, which provide economic sustainability locally.</li>
+<li>Access to higher skilled jobs using technology brought by multinationals. <em>However</em> such technology may reduce opportunities for unskilled workers, so the Tanzanian economy suffers from higher levels of unemployment.</li>
+<li>Workers in Tanzania may find opportunities to migrate to jobs overseas. <em>However</em> social and political factors may place considerable limits on the movement of labour, so migrating workers suffer from poor conditions and discrimination.</li>
+<li>Working households may benefit from lower inflation because of cheaper imports. <em>However</em> there could also be downward pressure on wages; cheaper imports could also displace locally produced goods, which affects economic sustainability.</li>
+<li>Final judgement expressed clearly: whether workers in Tanzania enjoy a net benefit from globalisation.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported. N.B. To reach Level 2, application, analysis AND evaluation must all be present.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation.</p>
+<p><strong>0 marks:</strong> Response is not worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates found this question very accessible and could equate globalisation with having potential benefits to workers. Some candidates did not have matching evaluative points, or summarised previous points in a conclusion, so did not score as highly on evaluation as possible. Also, some candidates wrote about different stakeholders such as the government, or wrote about problems rather than benefits, and thus did not fully address the requirements of the question.</p>
+</div>`,
+        modelAnswer: "Workers in Tanzania can benefit from more factory jobs created by Chinese multinational investment, which has helped increase and diversify Tanzania's trade. However, these factories increase competition for local small-scale producers, so some workers may lose the village-level jobs that provided local economic sustainability instead.\n\nWorkers may also gain access to higher-skilled jobs using the technology multinationals bring, which can raise their pay. But that same technology can reduce opportunities for unskilled workers, potentially raising unemployment elsewhere in the economy.\n\nA further benefit is that working households may see lower inflation because of cheaper imports — the table shows manufactured imports growing as a share of the total. However, cheaper imports can also put downward pressure on wages and displace locally produced goods.\n\nOverall, workers directly employed by new multinational investment are likely to see a net benefit, especially where they gain new skills, but this depends heavily on whether the jobs created outweigh the local jobs and industries displaced."
+    },
+    {
+        num: "Q3",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "What is the most likely cost of globalisation for consumers in developed countries?",
+        options: ["Dominant global brands", "Higher prices", "Increased immigration", "Lower prices"],
+        answer: 0,
+        hint: "⚠️ Documented misconception: candidates often pick 'increased immigration', but that's a labour-market issue, not a direct cost for consumers. Think about what happens to variety and local shops when big global brands take over.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — Dominant global brands</strong></p>
+<ul>
+<li>Dominant global brands out-compete smaller local firms, reducing genuine variety for consumers (homogenisation). Globalisation tends to LOWER prices (D is the opposite of a cost), and higher prices (B) is not the most likely effect described here.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A common misconception was that increased immigration was a cost of globalisation, rather than the more likely negative impact of dominant global brands (A).</p>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q4",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Why can the life expectancy of the population be used to help measure the development of a country?",
+        options: ["A larger number of people need to be educated so more teachers are required", "An improved life expectancy will encourage parents to have fewer children", "If people live longer there will be greater demand for health services", "It can help to indicate safety levels in a country are higher due to less conflict"],
+        answer: 3,
+        hint: "Life expectancy reflects underlying quality-of-life factors — including how safe and stable a country is. Think about what a longer average lifespan implies about the conditions people are living in, not just what it later causes.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — It can help to indicate safety levels in a country are higher due to less conflict</strong></p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates answered D correctly.</p>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q5",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "In the past 20 years there has been more free movement of goods and greater international interdependence. What is this called?",
+        options: ["Globalisation", "International trade", "Specialisation", "Sustainability"],
+        answer: 0,
+        hint: "This is the exact textbook definition of globalisation — free movement of goods PLUS greater interdependence between countries.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — Globalisation</strong></p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates answered A correctly, although a relatively small proportion of candidates selected B. It is worth learning definitions fully.</p>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q6",
+        marks: 1,
+        type: "mcq",
+        caseStudy: `<p>Permission was granted in 2022 for a major road to be rebuilt in Brazil's Amazon rainforest. The rebuilt road will help the residents of the largest Amazon city, Manaus, to stay connected to the rest of Brazil throughout the year.</p>`,
+        question: "How is this an example of social sustainability?",
+        options: ["Residents of Manaus will have shorter travel times when visiting friends", "Road repairs will be less expensive for the government in the future", "The firms rebuilding the road will pay increased levels of taxation", "Vehicles will use less fuel as the roads are easier to drive on"],
+        answer: 0,
+        hint: "⚠️ Social sustainability is about people's quality of life and social connections — not government costs, tax revenue or fuel use (those are economic/environmental, not social).",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — Residents of Manaus will have shorter travel times when visiting friends</strong></p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates answered A correctly, although a reasonably common misconception was selecting D, which is not an example of social sustainability.</p>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q7(a)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-globalisation-of-the-us-economy",
+        question: "Using Extract 3, calculate the 2019 balance of trade in goods and services. Show your working.",
+        hint: "Balance of trade in goods and services = balance of trade in goods + balance of trade in services. Use the 2019 column: −924,284 + 286,723. Keep the negative sign, the $ sign and 'million'.",
+        starter: "Balance of trade in goods and services (2019) = −924 284 + 286 723 = ...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>−924 284 + 286 723</strong></p>
+<p><strong>Answer: −$637 561 million (or −$637,561,000,000)</strong></p>
+<ul>
+<li>2 marks for a correct answer (working not required). 1 mark for correct working but an incorrect answer, including a missing negative/$ sign or 'million'.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates correctly answered −$637 561 million, although some omitted the $ sign, 'million', or the negative symbol.</p>
+</div>`,
+        modelAnswer: "Balance of trade in goods and services = balance of trade in goods + balance of trade in services\n\n= −924,284 + 286,723 = −$637,561 million"
+    },
+    {
+        num: "Q7(b)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-globalisation-of-the-us-economy",
+        question: "Using Extract 3, explain how consumers benefit from free trade agreements.",
+        hint: "You must explain the CHAIN, not just say 'cheaper prices'. Free trade agreements remove tariffs → imports become cheaper → consumers gain lower prices, more choice or higher purchasing power. A bare statement without the mechanism is only 1 mark.",
+        starter: "Free trade agreements remove tariffs, which means...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Tariffs are more or less eliminated in a free trade agreement, so imports are cheaper</li>
+<li>Consumers benefit from lower priced imports and lower inflation / better living standards / higher purchasing power</li>
+<li>Lower trade barriers lead to lower prices</li>
+<li>More competition / supply leads to lower prices / quality / variety</li>
+</ul>
+<p>2 marks for a clear explanation of how lowering trade barriers has led to more imports or how consumers benefit. 1 mark for a statement without an explanation. Failure to refer to effects on US consumers will restrict the maximum mark to 1.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates successfully identified a way in which a consumer benefitted from free trade, such as lower prices. However, several did not explain the effect — for example, writing 'cheaper prices' as a benefit rather than explaining that lower tariffs lead to lower costs/prices.</p>
+</div>`,
+        modelAnswer: "Free trade agreements more or less eliminate tariffs between member countries, which makes imported goods cheaper for US consumers to buy.\n\nThis gives consumers lower prices, greater purchasing power and access to a wider variety of goods than if the US relied only on domestic production."
+    },
+    {
+        num: "Q7(c)",
+        marks: 6,
+        type: "written",
+        caseId: "extract-3-globalisation-of-the-us-economy",
+        question: "Using Extract 3, analyse how the data on trade in goods and in services since 2009 reflect the changes in the structure of the US economy due to globalisation.",
+        hint: "Use the actual numbers: the goods deficit widened (−549,253 to −924,284) while the services surplus grew (125,839 to 286,723). Link this to a shift from manufacturing (secondary sector) towards services (tertiary sector) — don't just re-describe the table, explain WHY globalisation caused the shift.",
+        starter: "The data show a widening deficit in goods alongside a growing surplus in services, which suggests...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Changes in US economic structure:</strong> increasing deficit on the balance of trade in goods; greater surplus on the balance of trade in services. Reference may be made to the text as well as the numerical data.</p>
+<p><strong>These indicate:</strong> the US economy is now less dependent on manufacturing goods (secondary sector) for the domestic market, and is instead becoming more service-oriented (tertiary sector) — more specialisation in services.</p>
+<ul>
+<li>Globalisation has accelerated these trends, since US manufacturers cannot compete / have higher costs, leading to: decline in US manufacturing; structural/regional unemployment; increased inequality; more outsourcing.</li>
+<li>As the US has a better reputation / more expertise / lower costs / higher productivity in services than other countries: service industries are growing, there is more employment in these industries, regions in which these are based are growing, and there is increased inequality.</li>
+<li>As living standards in the US rise (due to globalisation), there is greater demand for imported consumer goods, widening the trade deficit in goods.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis in the form of developed chains of reasoning.</p>
+<p><strong>Level 2 (3–4 marks):</strong> reasonable knowledge; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> reasonable knowledge; no application; limited analysis.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question asked candidates to analyse the changes in the structure of the economy since 2009. More successful responses drew on the data to exemplify the move from secondary to tertiary industry (specialisation), and the best responses analysed the REASONS for this. There was a tendency for some candidates to re-write the information in Extract 3 without any analysis — for example, writing 'the economy becomes less based on domestic manufacturing…' or simply describing/quoting the table.</p>
+<p><strong>Exemplar 2</strong> showed a well-structured response: a relevant definition given at the start, followed by clearly identifying one cause of structural change and using the data to demonstrate the scale of the increase in the deficit, plus an appreciation of the US's advantage in services. This response achieved 6 out of 6 marks.</p>
+</div>`,
+        modelAnswer: "The data show the US goods deficit widening from −$549,253m in 2009 to −$924,284m in 2019, while the services surplus grew from $125,839m to $286,723m over the same period. This reflects a structural shift in the US economy away from domestic manufacturing (the secondary sector) and towards services (the tertiary sector).\n\nGlobalisation has accelerated this shift because US manufacturers face higher costs than overseas competitors and cannot compete on price, so domestic manufacturing has declined, contributing to structural unemployment in manufacturing regions. At the same time, the US has a strong reputation, expertise and higher productivity in services such as insurance, tourism and education, so these industries have grown and expanded their exports.\n\nRising US living standards, partly driven by globalisation itself, have also increased demand for imported consumer goods, which helps explain why the goods deficit keeps widening even as the economy specialises more in services."
+    },
+    {
+        num: "Q7d(i)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-globalisation-of-the-us-economy",
+        question: "Other than free trade agreements, state two driving factors of globalisation.",
+        hint: "Free trade agreements are explicitly excluded by the question — don't write about lower tariffs either, as this was 'explicitly disallowed'. Pick two others, e.g. communications/internet, economies of scale, transport, FDI, movement of labour.",
+        starter: "1. ... 2. ...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Improvements in communications and information technology, OR the internet</li>
+<li>Economies of scale</li>
+<li>Rising living standards / increasing development</li>
+<li>Improvements in transportation of goods/freight</li>
+<li>Foreign direct investment</li>
+<li>Increase in international trade</li>
+<li>Movement of labour / cheaper labour costs</li>
+<li>Innovation and new technology</li>
+<li>Rise of MNCs</li>
+<li>More consumers / bigger market available</li>
+</ul>
+<p>1 mark for each driving factor up to a maximum of 2 marks.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A significant proportion of candidates were able to identify factors that had driven globalisation, although some wrote about lower tariffs/free trade agreements, which was explicitly disallowed in the wording of the question.</p>
+</div>`,
+        modelAnswer: "1. Improvements in communications and information technology, especially the internet.\n\n2. Improvements in transportation of goods, such as containerisation, making freight cheaper and faster."
+    },
+    {
+        num: "Q7d(ii)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-globalisation-of-the-us-economy",
+        question: "Explain how one of the two factors named in part (d)(i) has led many economies to become more globalised.",
+        hint: "Only explain ONE factor — there's no extra mark for a second. Build the chain: the factor → what it makes possible/cheaper → why that increases global trade or investment.",
+        starter: "Improvements in transportation mean that...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may be one of the following:</strong></p>
+<ul>
+<li>Improvements in communications and IT / the internet mean ordering goods, invoicing and payments are facilitated, OR consumers become more aware of attractive, cheaper goods produced overseas because producers advertise globally, so they demand imports</li>
+<li>Economies of scale can be achieved more easily with a larger global market, OR a producer can reduce average (unit) production costs by setting up factories overseas</li>
+<li>Rising living standards lead consumers to demand a greater variety of goods, requiring retailers to source goods worldwide</li>
+<li>Improvements in transportation of goods/freight mean goods can be shipped more quickly and easily in containers</li>
+<li>Foreign direct investment means consumers globally can access a wide variety of goods and services, OR producers can source lower priced resources and labour</li>
+<li>Increase in international trade has led to greater specialisation and thus greater trade between countries</li>
+</ul>
+<p>1 mark for some understanding shown or a statement without an explanation. 2 marks for a correct explanation ('which leads to/increases...'). N.B. only one bullet point should be used — no extra mark for a second. The answer must follow on from part (d)(i).</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates who successfully identified a factor in (d)(i) were able to explain how it facilitated more globalisation.</p>
+</div>`,
+        modelAnswer: "Improvements in transportation of goods and freight, such as containerisation, mean that goods can be shipped more quickly, more easily and much more cheaply between countries.\n\nThis lowers the cost of trading internationally, which encourages firms to source materials and sell products across borders, leading many economies to become more globalised."
+    },
+    {
+        num: "Q7d(iii)",
+        marks: 6,
+        type: "written",
+        caseId: "extract-3-globalisation-of-the-us-economy",
+        question: "Evaluate the extent to which the benefits of globalisation for US producers are greater than the costs. Use the information given in Extract 3 and your own knowledge.",
+        hint: "⚠️ Name the stakeholder: this question is about US PRODUCERS specifically — writing about the economy in general, households or the government can 'only be partially rewarded at best'. Both costs AND benefits must be covered to reach Level 3.",
+        starter: "One benefit for US producers is that services exports grew by 70% over the decade, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Benefits of globalisation for US producers:</strong></p>
+<ul>
+<li>Producers of services have increased their exports over the 10-year period (from the extract table) by 70%</li>
+<li>Larger markets have enabled specialisation and economies of scale that lower average costs</li>
+<li>Cheaper imported inputs (machines and raw materials) are welcomed by producers and keep inflation low</li>
+<li>US producers can benefit from lower production costs (labour and resources) overseas, especially in developing countries</li>
+<li>US producers can source technology and innovations overseas and participate in supply chains for components</li>
+<li>The trade deficit is partly compensated by net inflows on other accounts in the balance of payments, reflecting foreign investment in the US economy, from which producers benefit</li>
+<li>More foreign tourists benefit the hospitality industry; more skilled foreign workers can be employed by US producers</li>
+<li>Trade according to comparative advantage benefits producers via improved global resource allocation</li>
+<li>Globalisation ultimately leads to higher domestic incomes, increasing consumption in domestic markets, so producers enjoy higher revenues</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Costs of globalisation for US producers</h5>
+<ul>
+<li>More competition from non-US producers could cause short-term difficulties for companies that don't innovate or improve quality</li>
+<li>Globalisation has led to lower demand for US manufactured goods (domestically and overseas), resulting in structural unemployment</li>
+<li>Certain regions dependent on manufacturing and mining may suffer producer bankruptcies</li>
+<li>Producers may face labour disputes if there is difficulty assimilating foreign workers</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Evaluation may include</h5>
+<ul>
+<li>Globalisation may lead to more political tensions that could affect producers' confidence — OR fewer tensions that assist producers setting up overseas facilities (FDI)</li>
+<li>Pandemics caused by frequent cross-border travel could disrupt supply chains</li>
+<li>Structural changes shown in the data may need government assistance (technical retraining, productivity advice)</li>
+<li>Weighing up positive and negative aspects over the short and long term to reach a reasoned conclusion; final judgement expressed clearly</li>
+</ul>
+<p><strong>N.B.</strong> The question asks for 'the extent to which'. Both costs and benefits need to be covered in order to achieve Level 3.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was generally well answered, with most candidates identifying a cost or benefit for US producers and developing a chain of reasoning analysing the impact on them. A common evaluative theme was assessing the impact of globalisation on the profitability of US producers; the most successful answers discussed the type of industry or the size of the firm. Some candidates wrote about the economy in general, or focused on households or the government, so could only be partially rewarded at best. Others wrote about producers in developing countries, which again does not answer the question set. Both costs and benefits are required to achieve Level 3.</p>
+</div>`,
+        modelAnswer: "US producers have gained real benefits from globalisation. Services exports grew by around 70% over the decade shown in the extract, reflecting how larger global markets let US service producers exploit their expertise and economies of scale. Producers also benefit from cheaper imported inputs and machinery, which keeps their costs down, and from being able to source lower-cost labour and resources overseas.\n\nHowever, there are real costs too. Increasing competition from lower-cost overseas manufacturers has contributed to a widening goods deficit and a decline in US manufacturing, causing structural unemployment in regions dependent on that industry. Producers who cannot innovate or match overseas quality and price face genuine short-term difficulties, including possible bankruptcy.\n\nOverall, the benefits are likely to outweigh the costs for producers in growing, competitive industries such as services — but for manufacturers in declining regions, the costs may dominate, at least in the short run. It depends heavily on the type of industry and the firm's ability to adapt, so the extent of net benefit varies considerably across the US producer base."
+    },
+    {
+        num: "Q8",
+        marks: 1,
+        type: "mcq",
+        caseStudy: `<p>As a result of globalisation, a less developed country has specialised in copper mining.</p>`,
+        question: "Which of the following effects would have an impact on the environmental sustainability of the country?",
+        options: ["Greater competition from other countries", "Increased unemployment in other industries", "Overuse of scarce resources", "Reduction in choice for consumers"],
+        answer: 2,
+        hint: "Environmental sustainability is about whether resource use can continue long-term. Copper is a finite resource — what happens if mining uses it up faster than it can be replaced or managed?",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — Overuse of scarce resources</strong></p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A high percentage of candidates gave Option C as the correct response to this question.</p>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q9",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Which of the following has been a driving factor of globalisation?",
+        options: ["Better communications", "Greater environmental damage", "Higher taxation on imports", "Increased transport costs"],
+        answer: 0,
+        hint: "Only one option would actually make trading internationally easier and cheaper — the other three would all discourage or slow down globalisation.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: A — Better communications</strong></p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A very high percentage of candidates gave Option A as the correct response to this question.</p>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q10",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Which of the following is most likely to be a benefit of globalisation to producers in developed countries?",
+        options: ["A fall in unemployment", "Higher environmental standards", "Increased competition", "Lower wage rates"],
+        answer: 3,
+        hint: "Think from the PRODUCER's point of view, not the worker's — a lower cost of a key input (labour) is a benefit to a firm's costs, even though it may be a cost for workers. The other three options all lead to a likely COST for producers.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: D — Lower wage rates</strong></p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>A majority of candidates gave Option D as the correct response to this question. The distractors here all lead to a likely cost for producers.</p>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q11",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "One of the driving factors of globalisation is improvements in transportation. Which of the following explains this driving factor?",
+        options: ["Container ships have reduced average costs", "Improved environmental sustainability", "Increased use of call centres", "Lower tariff barriers on imports"],
+        answer: 0,
+        hint: "Focus specifically on TRANSPORT — call centres are a communications example, and tariffs are a trade-policy example, not a transport one.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — Container ships have reduced average costs</strong></p>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q12",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Which of the following is a cost of development for workers in a less developed country?",
+        options: ["Increased foreign investment", "Increased use of machinery", "Less choice of domestic brands", "Migration of skilled workers"],
+        answer: 1,
+        hint: "Think about automation replacing manual labour as an economy develops — which option directly threatens WORKERS' jobs, rather than being a benefit or a consumer-side effect?",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: B — Increased use of machinery</strong></p>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q13",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Increased GDP per capita is used to show improved development of a country because",
+        options: ["it means there will no longer be any need for state provision", "markets will have become more competitive", "more opportunities for work are likely to exist", "no other measure of development is available"],
+        answer: 2,
+        hint: "Rising average income is generally linked to a growing economy creating jobs. Watch the extreme wording in the other options ('no longer be any need', 'no other measure available') — these overstate the case and are usually wrong on GCSE MCQs.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: C — more opportunities for work are likely to exist</strong></p>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q14(a)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-2-determinants-of-economic-growth-and-fis",
+        question: "Using the table in Extract 2, state two trends in university enrolment in Burkina Faso and China between 2010 and 2019.",
+        hint: "⚠️ A TREND tracks change over TIME within one series, e.g. 'female enrolment in Burkina Faso rose from 2.3% to 5.1%'. A COMPARISON between the two countries is a different question and was explicitly marked as not creditable here. Stick to university enrolment only.",
+        starter: "1. In Burkina Faso, female university enrolment... 2. In China, ...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>In both countries, university enrolment has increased</li>
+<li>In both countries, there has been an increase in female university enrolment</li>
+<li>In both countries, there has been an increase in male university enrolment</li>
+</ul>
+<p>1 mark for each correct statement.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates scored well on this question. The key was that the response needed a 'trend' rather than a comparison (between Burkina Faso and China). It also needed to focus on university enrolment rather than any of the other data in the table.</p>
+</div>`,
+        modelAnswer: "1. In Burkina Faso, female university enrolment rose steadily, from 2.3% in 2010 to 5.1% in 2019.\n\n2. In China, male university enrolment also rose over the period, from 23.5% in 2010 to 48.7% in 2019."
+    },
+    {
+        num: "Q14(b)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-2-determinants-of-economic-growth-and-fis",
+        question: "In 2019, the population of Burkina Faso reached 20.3 million and GDP amounted to US$15.7 billion. Calculate its GDP per capita in 2019. Show your working.",
+        hint: "GDP per capita = GDP ÷ population. Convert billions to millions first (15.7 billion = 15,700 million) so the units match the 20.3 million population figure. Keep the $ sign.",
+        starter: "GDP per capita = $15,700 million ÷ 20.3 million = ...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>15 700 million ÷ 20.3 million = 773.399</strong></p>
+<p><strong>Answer: $773.4 or $773</strong></p>
+<ul>
+<li>2 marks for correct answer. 1 mark for correct working but incorrect answer. 1 mark only if the $ sign is omitted.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question, when answered well, usually included working — this ensured that even if the final answer was incorrect, the valid working (GDP/population) received a mark. Many candidates who correctly worked out the figure also included the currency, which is required for full marks.</p>
+</div>`,
+        modelAnswer: "GDP per capita = GDP ÷ population = $15,700 million ÷ 20.3 million\n\n= $773.4 per person"
+    },
+    {
+        num: "Q14c(i)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-2-determinants-of-economic-growth-and-fis",
+        question: "In addition to spending on education and healthcare, state two other ways in which a government could increase the rate of economic growth.",
+        hint: "Education and healthcare spending are excluded by the question. Think fiscal and monetary policy tools: investment, other government spending, tax cuts, interest rate cuts, quantitative easing.",
+        starter: "1. ... 2. ...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Increase investment</li>
+<li>Increase government spending (apart from on education/healthcare)</li>
+<li>Decrease taxes</li>
+<li>Decrease interest rates</li>
+<li>Increase in quantitative easing</li>
+</ul>
+<p>1 mark for each correct answer.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>The best responses for this question were dynamic and gave clear examples of changes in government intervention that could increase the rate of economic growth.</p>
+</div>`,
+        modelAnswer: "1. Cutting taxes, so households and firms have more disposable income to spend and invest.\n\n2. Increasing government spending on infrastructure, such as roads and ports, other than education or healthcare."
+    },
+    {
+        num: "Q14c(ii)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-2-determinants-of-economic-growth-and-fis",
+        question: "Explain one way in which government spending on healthcare directly benefits the economy.",
+        hint: "The examiners noted a key was to SCALE UP from a benefit for the individual to a benefit for the whole economy — e.g. healthier workers → higher productivity → higher output.",
+        starter: "Healthier workers are more productive, which means...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Healthier workers are more productive, so output rises</li>
+<li>Higher life expectancy, so workers can work for longer, so output is higher</li>
+<li>Better health for the elderly/children, so workers take less time off work to care for them, so output is higher</li>
+<li>More jobs linked to healthcare (e.g. nurses, hospital construction workers), so less unemployment</li>
+</ul>
+<p>2 marks for a correct explanation of a benefit for the economy of healthcare spending. 1 mark for some understanding shown without linking to a benefit for the economy, e.g. how output, productivity or economic development is improved.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many responses were awarded full marks on this question. A key element was to scale up from benefits for the individual to benefits for the economy.</p>
+</div>`,
+        modelAnswer: "Government spending on healthcare means workers stay healthier, so fewer days are lost to illness and each worker is more productive while at work.\n\nThis higher productivity raises the economy's total output, directly contributing to economic growth."
+    },
+    {
+        num: "Q14c(iii)",
+        marks: 6,
+        type: "written",
+        caseId: "extract-2-determinants-of-economic-growth-and-fis",
+        question: "*Evaluate the extent to which economic growth brings social and economic benefits to a less developed economy. Use the information given in Extract 2 and your own knowledge.",
+        hint: "Build a chain from growth → higher tax revenue → more spending on health/education → life expectancy and future earnings. Evaluate on timescale, how the extra income is spent/distributed, and whether harms (pollution, resource depletion, worse conditions) offset the benefit. Use the word 'extent' in your judgement.",
+        starter: "Economic growth raises GDP per capita, which increases tax revenue, allowing the government to...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Economic growth may lead to increases in per capita GDP, so average incomes may rise</li>
+<li>Increases in income (with tax revenue rising) enables government/households to spend more on healthcare/education/nutrition, so increases life expectancy/future earnings</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Evaluation</h5>
+<ul>
+<li>Depends on the timescale</li>
+<li>Depends how increased income is spent</li>
+<li>Depends how increased income is distributed</li>
+<li>Depends on whether harm outweighs benefit, e.g. worse working conditions / increased pollution from increased output / depletion of resources</li>
+<li>Depends how increased output is achieved — if through investment in machines, may lead to increased unemployment</li>
+<li>Comment on a harm that offers an alternative outcome to a benefit in the analysis</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis of both social and economic benefits; good evaluation with a fully supported judgement.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates showed a strong understanding of this area and were able to differentiate between social and economic benefits for less developed economies. The use of 'standard of living' proved successful in both analysis and matching evaluation. In analytical chains of reasoning, it is important to include all simple links — starting links matter, since later reasoning builds on them (e.g. growth → higher government revenue → higher healthcare spending → social/economic benefits, rather than starting mid-chain at 'increased spending on health'). This question required alertness to the word 'extent' — stronger judgements engaged with varying levels of impact based on factors such as differing levels of development. Final judgements were usually signalled by words like 'Overall' or 'In conclusion'; evaluation signalled only by 'However' sometimes turned out to be unlinked analysis of a separate point. Effective evaluation included the duration/size of growth, the government's willingness/ability to pass on benefits, and other factors reducing a predicted rise in standard of living.</p>
+</div>`,
+        modelAnswer: "Economic growth raises GDP per capita — as shown for both Burkina Faso and China in the extract — which increases the government's tax revenue. This extra revenue can be spent on healthcare and education, raising life expectancy and future earning potential, both social and economic benefits.\n\nHowever, the extent of this benefit depends heavily on how the extra income is spent and distributed. If growth is captured mainly by a small elite, ordinary households may see little improvement in living standards despite rising GDP per capita. Growth can also bring harms that offset the gains, such as increased pollution or depletion of natural resources, and if growth is driven by investment in machinery rather than labour, it could even increase unemployment.\n\nOverall, economic growth brings real social and economic benefits to a less developed economy, particularly where — as in China's much larger rise in female university enrolment — the gains are reinvested in human capital. But the extent of the benefit depends on the timescale, how evenly the extra income is distributed, and whether the government is willing and able to pass the gains on to the wider population."
+    },
+    {
+        num: "Q15i",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-uk-current-account",
+        question: "Explain what is meant by a free trade agreement.",
+        hint: "Two elements: no tariffs/quotas WITHIN the group, plus that members can still make their own separate trade deals outside the group (or give a correct example like NAFTA/EFTA).",
+        starter: "A free trade agreement is when...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>There are no import tariffs or quotas on goods and services that enter one country from another country in the group</li>
+<li>The countries in the group can trade with countries outside the area in any way they wish</li>
+<li>Free Trade Agreement: free movement of goods and services between countries, without any restrictions. Examples are NAFTA and EFTA.</li>
+</ul>
+<p>1 mark for stating no tariffs or quotas for countries within the FTA. 1 mark for stating that countries within the FTA can make their own trade deals with countries outside it, OR for providing a correct example. Any other reasonable answer to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates identified the link between free trade areas and tariffs, but few either quoted the textbook definition or identified that signatories can have differing arrangements with other countries.</p>
+</div>`,
+        modelAnswer: "A free trade agreement is an agreement between a group of countries to remove tariffs and quotas on goods and services traded between them.\n\nCountries within the agreement, such as members of NAFTA, can still trade freely with countries outside the group on their own separate terms."
+    },
+    {
+        num: "Q15ii",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-uk-current-account",
+        question: "Explain one cost to producers of globalisation.",
+        hint: "⚠️ Don't just state a cost — the examiners noted candidates lost marks by stating a cost without explaining it. Pick one and add WHY it hurts producers, e.g. more competition from lower-cost overseas producers → harmful to domestic producers whose productivity is lower.",
+        starter: "One cost is more competition from lower-cost overseas producers, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>More competition (competing with imports from lower-cost producers overseas), which might be harmful to domestic producers whose productivity is lower</li>
+<li>Some loss of stability if projects are financed by overseas investors, who may withdraw their investments if political/economic conditions change</li>
+<li>Producers who cannot participate in international supply chains will tend to decline</li>
+</ul>
+<p>1 mark for stating a cost which is not explained. 2 marks for providing an explained cost. Any other reasonable answer to be credited.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was generally answered well, although some candidates stated a cost rather than explaining it.</p>
+</div>`,
+        modelAnswer: "One cost is increased competition from lower-cost overseas producers, since globalisation opens the domestic market to cheaper imports.\n\nThis is harmful to domestic producers whose productivity is lower, as they may struggle to match the price and could lose sales or be forced to cut jobs."
+    },
+    {
+        num: "Q15iii",
+        marks: 6,
+        type: "written",
+        caseId: "extract-3-uk-current-account",
+        question: "*Evaluate the benefits of globalisation to producers in the UK. Use the information given in Extract 3 and your own knowledge.",
+        hint: "Use the extract's own figure: UK trade has grown roughly eightfold since 1983. Cover benefits like economies of scale, supply chains, technology, skilled migrant workers and foreign tourism — then evaluate with structural decline in uncompetitive regions and the need for adjustment support.",
+        starter: "UK producers benefit from larger markets beyond the domestic economy, which allow...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Benefits may include:</strong></p>
+<ul>
+<li>Larger markets beyond the UK domestic market could lead to specialisation and economies of scale, lowering average production costs</li>
+<li>More opportunities to participate in supply chains, both with foreign companies locating in the UK or with companies overseas</li>
+<li>Less form filling and customs delays when globalisation includes freer trade or removal of tariffs (and non-tariff barriers)</li>
+<li>More opportunities to benefit from technology and innovation worldwide</li>
+<li>More skilled workers from overseas could improve productivity among UK producers</li>
+<li>More foreign tourists visit the UK, helping local economies and the hospitality industry</li>
+<li>Higher economic growth from trade and foreign investment should lead to higher incomes, so consumption of goods and services made by UK producers should widen and increase</li>
+<li>Corporate taxes are likely to be more equal across economies if globalisation is accompanied by tax negotiations and reform</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Evaluation may include</h5>
+<ul>
+<li>Total UK trade has increased by about eight times since 1983 (calculated from the extract text), demonstrating how significant globalisation is to the UK economy</li>
+<li>While there are political and environmental concerns about globalisation, on balance UK producers benefit as long as they innovate and compete with improved productivity</li>
+<li>Globalisation should overall have benefits for economic growth and employment, though in the short term there may be adjustment difficulties</li>
+<li>Producers who cannot compete globally will need assistance, either through technical transfers or through managing their decline and re-employing their workers</li>
+<li>There may be structural decline and unemployment in certain regions that have not been able to participate in international supply chains, which should be balanced against the benefits</li>
+<li>Producers may find employees resentful about working alongside foreigners, requiring social and economic policies so UK employees do not feel 'left behind'</li>
+<li>It may be necessary for the UK government to ensure multinationals cannot avoid taxes, as such avoidance would be unfair to UK producers</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates identified benefits to producers (rarely writing only about consumers and/or the government) and were able to give a superficial judgement at the end. Only the highest-achieving candidates were able to evaluate as part of a genuinely logical argument.</p>
+</div>`,
+        modelAnswer: "UK producers benefit from access to a much larger market than the domestic economy alone — the extract shows total UK trade grew roughly eightfold between 1983 and 2017, from £159,565 million to £1,257,706 million. This larger market allows specialisation and economies of scale, lowering average production costs, and gives producers more opportunities to participate in international supply chains and access new technology.\n\nHowever, these benefits are not guaranteed for every producer. Certain UK regions dependent on industries that cannot compete globally have suffered structural decline and unemployment, and producers who cannot participate in international supply chains tend to decline rather than benefit.\n\nOverall, globalisation is likely to have benefited UK producers who can innovate and compete on quality or price, especially given how dramatically UK trade has grown since 1983. But for producers in uncompetitive industries, the costs of adjustment may dominate in the short run, so government support such as retraining may be needed to spread the benefits more evenly."
+    },
+    {
+        num: "Q16",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Which of the following is likely to be the greatest benefit of globalisation to consumers in less developed countries?",
+        options: ["A better infrastructure", "A wider range of resources", "Increased migration opportunities", "Increased use of technology"],
+        answer: 0,
+        hint: "Think about what foreign investment typically brings first to a less developed country's consumers, alongside the goods themselves — roads, rail and other capital projects that improve everyday access to markets.",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1b)</h5>
+<p><strong>Answer: A — A better infrastructure</strong></p>
+</div>`,
+        modelAnswer: ""
+    },
+    {
+        num: "Q17i",
+        marks: 2,
+        type: "written",
+        caseId: "extract-1-uk-trade-current-account-2009-2018",
+        question: "Explain one driving factor of globalisation.",
+        hint: "State the factor, then a brief explanation of what it makes possible, e.g. better communications → easier online ordering/advertising across borders. One well-explained factor is worth full marks.",
+        starter: "One driving factor is improvements in transport, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Increase in trade, as countries compete through lower prices and improving the quality of their goods</li>
+<li>Increase in foreign (direct) investment, where factories overseas produce more cheaply OR export to third countries</li>
+<li>Better communications, especially the internet, for placing online orders and for advertising</li>
+<li>Advances in technology, such as a computer or car being made up of many parts from suppliers in different countries</li>
+<li>Improvements in transport, such as cheaper and faster planes, which can freight goods quickly to destinations</li>
+<li>Growth of the services economy, which can be global without the need for transporting goods</li>
+</ul>
+<p>1 mark for stating one factor, 1 mark for a brief explanation of that factor.</p>
+</div>`,
+        modelAnswer: "One driving factor of globalisation is better communications, especially the internet.\n\nThis makes it far easier for businesses to place online orders, advertise globally and coordinate with suppliers in other countries, so trade between countries increases."
+    },
+    {
+        num: "Q17ii",
+        marks: 2,
+        type: "written",
+        caseId: "extract-1-uk-trade-current-account-2009-2018",
+        question: "Explain one cost of globalisation on environmental sustainability in less developed countries.",
+        hint: "Two elements needed: name the environmental cost (pollution, or overuse of resources) AND link it clearly to environmental sustainability specifically in a less developed country — a vague answer without that link is only 1 mark.",
+        starter: "One environmental cost is pollution from increased specialisation, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Pollution — specialisation may cause air and/or water pollution in the production process</li>
+<li>Using up resources — if raw materials are driving growth, then once depleted these economies may face economic difficulties such as unemployment</li>
+</ul>
+<p>2 marks for a clear answer relating globalisation to environmental sustainability. 1 mark for an answer where some understanding is shown, but the cost is not clearly related to environmental sustainability or to less developed countries.</p>
+</div>`,
+        modelAnswer: "One environmental cost is increased pollution, since specialising in export production can cause air and water pollution during manufacturing.\n\nThis undermines environmental sustainability because it damages the natural environment the country relies on, and may also deplete finite raw materials, causing future economic difficulties once they run out."
+    },
+    {
+        num: "Q17iii",
+        marks: 6,
+        type: "written",
+        caseId: "extract-1-uk-trade-current-account-2009-2018",
+        question: "*Evaluate whether globalisation is beneficial to workers in less developed countries that are exporting to the UK market. Use the information given in Extract 1 and your own knowledge.",
+        hint: "⚠️ Stay focused on WORKERS specifically. Match each benefit (more jobs, higher incomes, skills) with a genuine cost (low wages, poor conditions, exposure if UK demand slows) rather than a new unrelated point, and finish with a clear judgement on the short run vs the long run.",
+        starter: "Workers in exporting industries benefit from more jobs, as long as exports to the UK keep growing, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Benefits may include:</strong></p>
+<ul>
+<li>More jobs in industries and services exporting to the UK, as long as exports keep growing</li>
+<li>Higher incomes as a result of working in industries where active (capital) investment is taking place</li>
+<li>Higher living standards as consumption rises with higher incomes</li>
+<li>Acquiring skills in manufacturing, as long as inward investment and infrastructure is geared towards such skill acquisition</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Costs may include</h5>
+<ul>
+<li>Low wages and poor working conditions (long hours, unsafe machinery) in an export-oriented company that is not properly regulated</li>
+<li>Wider gaps between living conditions in urban (manufacturing) areas and rural (subsistence farming) areas</li>
+<li>Machines may replace workers in some cases, though that should not happen as long as exports keep growing</li>
+<li>If the UK economy slows down and imports fewer goods, there will be unemployment in the exporting less developed countries</li>
+<li>Higher inflation because of greater demand for goods</li>
+<li>Appreciation of the less developed country's currency, which may adversely affect other (primary) goods exports</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Evaluation may include</h5>
+<ul>
+<li>Evaluation as to which benefits are greatest, and the extent of the benefits</li>
+<li>Comparison of the benefits with the costs, e.g. whether job creation is offset by low wages/poor conditions</li>
+<li>Contrast between costs in the short run and benefits in the long run, e.g. as workers become more skilled their wages and conditions could improve</li>
+<li>Judgement as to whether globalisation is beneficial in the short and/or long run, and whether the benefits outweigh the costs</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing both sides.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+        modelAnswer: "Workers in less developed countries exporting to the UK can benefit from more jobs, as long as exports keep growing, and from higher incomes where capital investment is taking place — both raising living standards as consumption rises. Some workers can also acquire new manufacturing skills where inward investment supports training.\n\nHowever, these jobs often come with low wages and poor working conditions in export-oriented firms that are not properly regulated, and can widen the gap between urban manufacturing areas and rural, subsistence-farming areas. Workers are also exposed to risk: the extract shows the UK's goods trade deficit has fluctuated, and if UK demand slows, exporting workers could face unemployment.\n\nOverall, globalisation is likely to be beneficial for these workers in the short run through job creation and rising incomes, but the extent of the benefit depends on whether firms are properly regulated and on how exposed workers are to swings in UK demand — in the long run, as skills develop, conditions may improve further."
+    },
+    {
+        num: "Q18(a)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-2-economic-growth-and-carbon-emissions",
+        question: "Explain what is meant by GDP per capita.",
+        hint: "Two elements: define what GDP measures (total value of output/income in a year) AND divide by population. A bare 'GDP divided by population' with no explanation of GDP itself is only 1 mark.",
+        starter: "GDP per capita is the total value of a country's output in one year, divided by...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>The total value added of goods and services produced in the country in one year divided by the population</li>
+<li>The total value of final output in the country in one year divided by the population</li>
+<li>The total income (wages, interest, rent, profit) of the country's inhabitants divided by the population</li>
+</ul>
+<p>2 marks for a correct answer. 1 mark for simply stating GDP divided by population. 1 mark for just defining GDP.</p>
+</div>`,
+        modelAnswer: "GDP per capita is the total value of goods and services produced in a country in one year, divided by its population.\n\nIt gives an approximate figure for the average income or output per person in that country."
+    },
+    {
+        num: "Q18(b)",
+        marks: 2,
+        type: "written",
+        caseId: "extract-2-economic-growth-and-carbon-emissions",
+        question: "Using the table in Extract 2, calculate the difference in 2018 in GDP per capita in Sweden and Botswana. Show your working.",
+        hint: "Subtract Botswana's 2018 GDP per capita from Sweden's 2018 figure: $57,232 − $8,031.",
+        starter: "GDP per capita difference (2018) = $57,232 − $8,031 = ...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2)</h5>
+<p><strong>$[57 232 – 8 031] [1 mark] = $49 201 [1 mark]</strong></p>
+</div>`,
+        modelAnswer: "Difference = Sweden's GDP per capita − Botswana's GDP per capita\n\n= $57,232 − $8,031 = $49,201"
+    },
+    {
+        num: "Q18(c)",
+        marks: 6,
+        type: "written",
+        caseId: "extract-2-economic-growth-and-carbon-emissions",
+        question: "Using Extract 2, analyse the argument that as countries become more developed with higher living standards their carbon emissions increase.",
+        hint: "Use ALL three countries: Botswana→USA supports the argument (both GDP per capita and emissions are higher in the USA), but USA→Sweden CONTRADICTS it (Sweden's GDP per capita is higher than the USA's, yet its emissions are lower). A full answer must analyse both the supporting and contradicting evidence.",
+        starter: "Comparing Botswana and the USA supports the argument, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO1a: 1, AO2: 2, AO3a: 3)</h5>
+<p><strong>Reference to data in extract:</strong></p>
+<ul>
+<li>Between Botswana and the USA, the argument is supported because both carbon emissions and GDP per capita are higher in the USA than in Botswana</li>
+<li>But between the USA and Sweden, the argument is NOT supported, because carbon emissions are lower in Sweden than in the USA, even though Sweden's GDP per capita is higher than the USA's</li>
+<li>Although the USA's carbon emissions have increased as GDP per capita has risen, Sweden's have fallen</li>
+<li>Evidently, up to a certain level of economic development carbon emissions grow, but when a country has reached a relatively high development level, carbon emissions may level off or even fall</li>
+<li>The difference between the USA and Sweden must depend on different government policies or different lifestyles (e.g. Americans are more dependent on cars and planes for transport)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Analysis of links</h5>
+<ul>
+<li>Less developed countries' carbon emissions will probably increase with economic growth as households gain access to electricity and higher living standards</li>
+<li>Developed countries can limit carbon emissions through investment in renewable energy and a willingness to buy more expensive, less energy-intensive goods</li>
+<li>Developed countries can invest more in public transport infrastructure so people rely less on cars</li>
+<li>Public information about climate change risks is likely to have more impact once people have already reached a reasonable standard of living</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> reasonable knowledge; reasonable application; good analysis in the form of developed links.</p>
+<p><strong>Level 2 (3–4 marks):</strong> reasonable knowledge; limited application; reasonable analysis largely in single effects.</p>
+<p><strong>Level 1 (1–2 marks):</strong> reasonable knowledge; limited application; no analysis of the links.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+        modelAnswer: "The argument is supported when comparing Botswana and the USA: both GDP per capita ($8,031 vs $54,542 in 2018) and carbon emissions (3.19 vs 16.14 metric tons per capita) are much higher in the USA, suggesting higher living standards do bring higher emissions.\n\nHowever, comparing the USA and Sweden contradicts the argument. Sweden's GDP per capita ($57,232) is actually higher than the USA's, yet its carbon emissions (4.47) are far lower than the USA's (16.14) and have even fallen slightly over the period, while the USA's have risen.\n\nThis suggests that up to a certain level of development, carbon emissions do rise with living standards as households gain access to electricity and transport. But beyond that level, developed countries can reduce emissions through investment in renewable energy, better public transport infrastructure, and less car-dependent lifestyles — so the relationship between development and emissions is not a simple straight line, and depends heavily on government policy choices."
+    },
+    {
+        num: "Q19i",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-uk-balance-of-payments-2007-2016",
+        question: "State what is meant by 'globalisation'.",
+        hint: "Give any TWO of: greater freedom of movement between countries; free movement of goods, services, people and money; expansion of world trade; expansion of capital flows; greater international interdependence. One element alone is only 1 mark.",
+        starter: "Globalisation means...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1a)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Greater freedom of movement between countries</li>
+<li>Free movement of goods, services, people and money</li>
+<li>The expansion of world trade in goods and services</li>
+<li>The expansion of capital flows between countries</li>
+<li>Greater international interdependence</li>
+</ul>
+<p>2 marks for a correct definition referring to at least two of the elements shown. 1 mark for a general definition (one correct element). Any other reasonable answer to be credited.</p>
+</div>`,
+        modelAnswer: "Globalisation is the expansion of world trade in goods and services between countries, alongside the freer movement of capital, people and money.\n\nIt reflects growing international interdependence, as economies become more closely connected to one another."
+    },
+    {
+        num: "Q19ii",
+        marks: 2,
+        type: "written",
+        caseId: "extract-3-uk-balance-of-payments-2007-2016",
+        question: "Explain one driving factor of globalisation.",
+        hint: "State the factor, then explain briefly how it increases trade or investment between countries, e.g. lower transport/labour costs abroad → more foreign direct investment.",
+        starter: "One driving factor is the growth of multinational corporations, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1b)</h5>
+<p><strong>Answers may include:</strong></p>
+<ul>
+<li>Increase in international trade / reductions in barriers to trade</li>
+<li>Improvements in transportation</li>
+<li>Worldwide foreign investment / growth of multinational corporations</li>
+<li>Advances in technology and communications</li>
+<li>Lower costs (wages) in some countries</li>
+</ul>
+<p>2 marks for a correct explanation of one driving factor. 1 mark for some understanding shown of a driving factor. Any other reasonable answer to be credited.</p>
+</div>`,
+        modelAnswer: "One driving factor of globalisation is the growth of multinational corporations, which set up production in multiple countries.\n\nThis is often driven by lower labour and resource costs abroad, which increases foreign direct investment and trade between countries."
+    },
+    {
+        num: "Q19iii",
+        marks: 6,
+        type: "written",
+        caseId: "extract-3-uk-balance-of-payments-2007-2016",
+        question: "*Evaluate the costs and benefits of globalisation for consumers in less developed countries. Use the information given in Extract 3 and your own knowledge.",
+        hint: "⚠️ This question is specifically about CONSUMERS in LDCs — the mark scheme's own note says impacts solely on producers or workers are 'not relevant'. Weigh price rises for essentials against wider choice and better infrastructure, and judge whether rising incomes are likely to outpace rising prices.",
+        starter: "A cost for LDC consumers is that prices may rise, because...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (AO2: 1, AO3a: 2, AO3b: 3)</h5>
+<p><strong>Costs:</strong></p>
+<ul>
+<li>Prices may rise, as more consumers are competing to buy goods and services</li>
+<li>As consumers in LDCs tend to have low incomes, they will suffer most from the rise in prices, especially of basic foodstuffs such as rice</li>
+<li>Services within LDCs may suffer, including important services such as health care, because skilled labour (e.g. doctors, nurses) may move abroad to work</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Benefits</h5>
+<ul>
+<li>A wider range of goods giving greater variety and choice for consumers</li>
+<li>Some newly available goods may have considerable benefits, such as drugs to combat disease</li>
+<li>Access to global brands; greater opportunity to travel for those who can afford it</li>
+<li>Better infrastructure due to capital inflows (foreign investment), such as road and rail links, providing consumers better access to markets</li>
+<li>Investment inflows may improve basic services such as clean water and sewerage provision</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Evaluation may include</h5>
+<ul>
+<li>Judgement as to whether greater access to goods is likely to outweigh potential price rises</li>
+<li>Judgement as to whether consumer incomes are likely to rise (due to the benefits of globalisation) more than prices</li>
+<li>Judgement as to whether capital inflows are likely to lead to skilled jobs and outweigh the possible loss of skilled labour</li>
+<li>Overall judgement of whether (potential) benefits outweigh costs</li>
+</ul>
+<p><strong>N.B.</strong> This question is specifically on the impact on consumers in LDCs, so impacts solely on producers or workers are not relevant.</p>
+</div>
+<div class="marks-section">
+<h5>Levels of response</h5>
+<p><strong>Level 3 (5–6 marks):</strong> good application; reasonable analysis largely in single effects; good evaluation with a fully supported judgement weighing costs and benefits.</p>
+<p><strong>Level 2 (3–4 marks):</strong> good application; limited analysis; reasonable evaluation, judgement not fully supported.</p>
+<p><strong>Level 1 (1–2 marks):</strong> no application; limited analysis; limited, unsupported evaluation.</p>
+<p><strong>0 marks:</strong> No response or no work worthy of credit.</p>
+</div>`,
+        modelAnswer: "A cost for consumers in less developed countries is that prices may rise as globalisation increases competition for goods and services, hitting basic foodstuffs such as rice hardest. Because consumers in LDCs tend to have low incomes, they suffer disproportionately from these price rises. Important services such as healthcare may also suffer if skilled doctors and nurses move abroad for better pay.\n\nHowever, globalisation brings real benefits too: a wider range of goods, including valuable products such as medicines, gives consumers greater choice, and foreign capital inflows can improve infrastructure such as roads, clean water and sewerage, giving consumers better access to markets and services.\n\nOverall, whether the benefits outweigh the costs depends on whether rising incomes from globalisation keep pace with rising prices, and whether the loss of skilled workers to emigration is offset by the improved services that foreign investment brings. For very low-income consumers who spend most of their income on basic foodstuffs, the price-rise cost is likely to dominate in the short run."
+    },
+    {
+        num: "Q20",
+        marks: 1,
+        type: "mcq",
+        caseStudy: "",
+        question: "Which one of the following is a method of measuring development?",
+        options: ["Cost of living", "Environmental sustainability", "Life expectancy", "Nominal income"],
+        answer: 2,
+        hint: "Nominal income is not adjusted for prices or population, and cost of living/environmental sustainability are related but different concepts. Which option is a direct, named component of the HDI?",
+        starter: "The correct answer is...",
+        markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO1a)</h5>
+<p><strong>Answer: C — Life expectancy</strong></p>
+</div>`,
+        modelAnswer: ""
+    }
+];
+
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

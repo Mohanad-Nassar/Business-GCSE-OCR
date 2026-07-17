@@ -2,7 +2,7 @@
 // ALL SECTION TOTALS — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py: every subject's section
 // totals merged into one map keyed by subject-prefixed page id.
-// Generated: 2026-07-16T17:21:05Z
+// Generated: 2026-07-17T06:00:54Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS_ALL = {
  "business:1-1-role-of-business-enterprise": {
@@ -612,6 +612,50 @@ window.SECTION_TOTALS_ALL = {
  },
  "economics:3-8-limitations-of-markets": {
   "exam": 33,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:4-1-importance-of-international-trade": {
+  "exam": 20,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:4-2-balance-of-payments": {
+  "exam": 39,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:4-3-exchange-rates": {
+  "exam": 31,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 4,
+  "misc": 5,
+  "tips": 4,
+  "fib": 6,
+  "match": 13,
+  "flashcards": 19
+ },
+ "economics:4-4-globalisation": {
+  "exam": 41,
   "mcq": 10,
   "tf": 8,
   "learn": 4,
