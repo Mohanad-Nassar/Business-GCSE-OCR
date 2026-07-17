@@ -585,7 +585,7 @@ page is legible without KaTeX. So ADM-0 is heavier than CS-0 and must land first
 | **ADM-A-W1** | Group 1 (1.1-1.4) - Algebra Toolkit | ADM-0 | 🔄 all 4 pages BUILT + verified 2026-07-17 (3 parallel builders; coordinator re-verified each + recomputed exam maths; bank rebuilt = 229 Qs / 4 pages, NOT uploaded). AWAITING owner review + go-live |
 | **ADM-A-W2** | Group 2 (2.1-2.4) - Polynomials & Equations | W1 conventions | 🔄 all 4 pages BUILT + verified 2026-07-17 (4 parallel builders; coordinator re-verified each + recomputed every cubic/division/recurrence vs real papers; bank rebuilt = 429 Qs / 8 pages, NOT uploaded). AWAITING owner review + go-live |
 | **ADM-A-W3** | Group 3 (3.1-3.3) - Coordinate Geometry | ADM-0 | 🔄 3 pages BUILT+verified 2026-07-17 (coordinator recomputed 2023 Q9/Q12, 2019 Q10, 2024 Q6 vs papers; builder caught a wrong root hint from coordinator — recomputed to 0.5; bank=596 Qs/11 pages, NOT uploaded) |
-| **ADM-A-W4** | Group 4 (4.1-4.3) - Linear Programming | ADM-0 | ⬜ |
+| **ADM-A-W4** | Group 4 (4.1-4.3) - Linear Programming | ADM-0 | 🔄 3 pages BUILT+verified 2026-07-17 (coordinator recomputed 2023 Q10, 2024 Q16 non-integer optimum 2.5, 2019 Q11 profit £412 vs papers). NOT uploaded |
 | **ADM-A-W4** | Group 5 (5.1-5.5) - Trigonometry | ADM-0 | ⬜ |
 | **ADM-A-W5** | Group 6 (6.1-6.4) + Group 7 (7.1-7.4) - Enumeration + Exp/Logs | ADM-0 | ⬜ |
 | **ADM-A-W6** | Group 8 (8.1-8.3) + Group 9 (9.1-9.3) - Calculus | W1-W2 (algebra secure) | ⬜ |
@@ -734,9 +734,9 @@ delegation produces confidently wrong maths.
 | 3.1 | Straight lines | ✅ 2026-07-17 (6·12·8·8·14·5·3·14) | ✅ coord | ✅ 2023 Q9, 5 marks | 🔄 bank built, NOT uploaded |
 | 3.2 | Circles, tangents & normals | ✅ 2026-07-17 (7·12·8·8·12·5·3·16) | ✅ coord | ✅ 2023 Q12 + 2019 Q10, 12 marks | 🔄 bank built, NOT uploaded |
 | 3.3 | Sketching & plotting graphs | ✅ 2026-07-17 (7·12·8·7·14·5·3·16) | ✅ coord | ✅ 2024 Q6, 5 marks (sketch/overlay pattern) | 🔄 bank built, NOT uploaded |
-| 4.1 | Inequalities in two variables | ⬜ | ⬜ | ⬜ | ⬜ |
-| 4.2 | Constraints & objective functions | ⬜ | ⬜ | ⬜ | ⬜ |
-| 4.3 | Solving LP problems graphically | ⬜ | ⬜ | ⬜ | ⬜ |
+| 4.1 | Inequalities in two variables | ✅ 2026-07-17 (6·12·8·8·14·5·3·16) | ✅ coord | ✅ 2023 Q10, 6 marks | 🔄 bank built, NOT uploaded |
+| 4.2 | Constraints & objective functions | ✅ 2026-07-17 (6·12·8·8·14·5·3·16) | ✅ coord | — none standalone (on 4.3) | 🔄 bank built, NOT uploaded |
+| 4.3 | Solving LP problems graphically | ✅ 2026-07-17 (6·12·8·8·14·5·3·15) | ✅ coord | ✅ 2024 Q16 + 2019 Q11, 23 marks | 🔄 bank built, NOT uploaded |
 | 5.1 | Trig ratios for any angle | ⬜ | ⬜ | ⬜ | ⬜ |
 | 5.2 | Sine & cosine rules | ⬜ | ⬜ | ⬜ | ⬜ |
 | 5.3 | Trigonometric identities | ⬜ | ⬜ | ⬜ | ⬜ |

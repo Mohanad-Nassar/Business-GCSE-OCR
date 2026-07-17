@@ -109,22 +109,19 @@
           "id": "4-1-inequalities-in-two-variables",
           "name": "4.1 Inequalities in Two Variables",
           "sub": "Linear Programming",
-          "file": "4.1-inequalities-in-two-variables.html",
-          "noQuestions": true
+          "file": "4.1-inequalities-in-two-variables.html"
         },
         {
           "id": "4-2-constraints-and-objective-functions",
           "name": "4.2 Constraints and Objective Functions",
           "sub": "Linear Programming",
-          "file": "4.2-constraints-and-objective-functions.html",
-          "noQuestions": true
+          "file": "4.2-constraints-and-objective-functions.html"
         },
         {
           "id": "4-3-solving-lp-problems-graphically",
           "name": "4.3 Solving LP Problems Graphically",
           "sub": "Linear Programming",
-          "file": "4.3-solving-lp-problems-graphically.html",
-          "noQuestions": true
+          "file": "4.3-solving-lp-problems-graphically.html"
         }
       ]
     },

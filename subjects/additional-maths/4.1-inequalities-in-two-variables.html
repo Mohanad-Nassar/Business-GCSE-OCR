@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 4. Linear Programming</div>
             <h1>4.1 Inequalities in Two Variables</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -266,23 +266,303 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimulus for the 2023 Q10 exam parts (see examQuestions). The blank grid
+    // (x from 0 to 11, y from 0 to 10) matches the printed booklet grid; students plot
+    // on paper and self-check against the correctly-shaded overlay in modelAnswer.
+    const EXAM_CASE_STUDIES = {
+        "q10-2023": `<p><strong>OCR June 2023, Question 10.</strong> Work on the grid below, which has \\( x \\) from \\( 0 \\) to \\( 11 \\) and \\( y \\) from \\( 0 \\) to \\( 10 \\). Shade the region that is <strong>not</strong> satisfied by the inequalities, so that the required (feasible) region is left clear.</p>
+        <svg viewBox="0 0 470 320" width="100%" style="max-width:520px;height:auto;display:block;margin:12px auto" role="img" aria-label="Blank coordinate grid with x-axis from 0 to 11 and y-axis from 0 to 10">
+          <rect x="40" y="30" width="400" height="260" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
+          <g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.2">
+            <line x1="76" y1="30" x2="76" y2="290"/><line x1="113" y1="30" x2="113" y2="290"/><line x1="149" y1="30" x2="149" y2="290"/><line x1="185" y1="30" x2="185" y2="290"/><line x1="222" y1="30" x2="222" y2="290"/><line x1="258" y1="30" x2="258" y2="290"/><line x1="295" y1="30" x2="295" y2="290"/><line x1="331" y1="30" x2="331" y2="290"/><line x1="367" y1="30" x2="367" y2="290"/><line x1="404" y1="30" x2="404" y2="290"/>
+            <line x1="40" y1="264" x2="440" y2="264"/><line x1="40" y1="238" x2="440" y2="238"/><line x1="40" y1="212" x2="440" y2="212"/><line x1="40" y1="186" x2="440" y2="186"/><line x1="40" y1="160" x2="440" y2="160"/><line x1="40" y1="134" x2="440" y2="134"/><line x1="40" y1="108" x2="440" y2="108"/><line x1="40" y1="82" x2="440" y2="82"/><line x1="40" y1="56" x2="440" y2="56"/>
+          </g>
+          <line x1="40" y1="290" x2="440" y2="290" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="40" y1="30" x2="40" y2="290" stroke="currentColor" stroke-width="1.5"/>
+          <polygon points="440,290 431,286 431,294" fill="currentColor"/>
+          <polygon points="40,30 36,39 44,39" fill="currentColor"/>
+          <g font-size="10" fill="currentColor" text-anchor="middle">
+            <text x="40" y="304">0</text><text x="76" y="304">1</text><text x="113" y="304">2</text><text x="149" y="304">3</text><text x="185" y="304">4</text><text x="222" y="304">5</text><text x="258" y="304">6</text><text x="295" y="304">7</text><text x="331" y="304">8</text><text x="367" y="304">9</text><text x="404" y="304">10</text><text x="440" y="304">11</text>
+            <text x="32" y="268" text-anchor="end">1</text><text x="32" y="242" text-anchor="end">2</text><text x="32" y="216" text-anchor="end">3</text><text x="32" y="190" text-anchor="end">4</text><text x="32" y="164" text-anchor="end">5</text><text x="32" y="138" text-anchor="end">6</text><text x="32" y="112" text-anchor="end">7</text><text x="32" y="86" text-anchor="end">8</text><text x="32" y="60" text-anchor="end">9</text><text x="32" y="34" text-anchor="end">10</text>
+            <text x="446" y="294" text-anchor="start">x</text><text x="34" y="26">y</text>
+          </g>
+        </svg>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>4.1 Inequalities in Two Variables</strong> will appear here soon.</p>`
+            title: "What does a linear inequality in two variables look like on a grid?",
+            tag: "Key concept",
+            content: `<p>An equation such as \\( y = x + 1 \\) is a single <strong>line</strong>. An <strong>inequality</strong> such as \\( y \\ge x + 1 \\) is a whole <strong>region</strong> — a <strong>half-plane</strong>: every point on one side of the line, together with the line itself.</p>
+            <ul>
+              <li>The line itself is called the <strong>boundary</strong>. You find it by replacing the inequality sign with an equals sign (here \\( y = x + 1 \\)).</li>
+              <li>The boundary splits the grid into two halves. One half satisfies the inequality; the other does not.</li>
+              <li>A point either <strong>satisfies</strong> the inequality (its coordinates make the statement true) or it does not. For \\( y \\ge x + 1 \\), the point \\( (0, 4) \\) works because \\( 4 \\ge 1 \\), but \\( (4, 0) \\) fails because \\( 0 \\ge 5 \\) is false.</li>
+            </ul>
+            <p>The whole of Linear Programming (Group 4) is built on this idea: describe a situation with several inequalities, then find the region where they are all true at once.</p>`,
+            readCheck: { q: "Which point satisfies \\( y \\ge x + 1 \\)?", opts: ["\\( (1,\\ 5) \\)", "\\( (5,\\ 1) \\)", "\\( (3,\\ 0) \\)", "\\( (4,\\ 2) \\)"], ans: 0, explain: "\\( (1,5) \\): \\( 5 \\ge 1 + 1 = 2 \\) is true. \\( (5,1) \\) gives \\( 1 \\ge 6 \\), false; \\( (4,2) \\) gives \\( 2 \\ge 5 \\), false." }
+        },
+        {
+            title: "How do you draw the boundary line — solid or dashed?",
+            tag: "Method",
+            content: `<p>Draw the boundary as an ordinary straight line, then decide its <strong>style</strong> from the inequality sign:</p>
+            <table class="worked">
+              <tr><td>1. \\( \\le \\) or \\( \\ge \\): the line <strong>is</strong> part of the region, so draw it <strong>solid</strong>.</td></tr>
+              <tr><td>2. \\( < \\) or \\( > \\) (strict): the line is <strong>not</strong> part of the region, so draw it <strong>dashed</strong>.</td></tr>
+            </table>
+            <p>To plot the boundary quickly, use its intercepts. For \\( x + 2y = 11 \\): put \\( x = 0 \\) to get \\( y = 5.5 \\), and put \\( y = 0 \\) to get \\( x = 11 \\). Join \\( (0,\\ 5.5) \\) and \\( (11,\\ 0) \\) with a ruler.</p>
+            <p><strong>Worked example.</strong> Boundary of \\( 24x + 28y \\le 400 \\): the sign is \\( \\le \\), so the line \\( 24x + 28y = 400 \\) is <strong>solid</strong>. Intercepts: \\( x = 0 \\Rightarrow y = \\frac{400}{28} \\approx 14.3 \\); \\( y = 0 \\Rightarrow x = \\frac{400}{24} \\approx 16.7 \\).</p>`,
+            readCheck: { q: "How should the boundary of \\( y > 2x \\) be drawn?", opts: ["Dashed, because the inequality is strict", "Solid, because it is a straight line", "Dashed, because it passes through the origin", "Solid, because \\( > \\) includes equality"], ans: 0, explain: "\\( > \\) is strict, so points on the line are excluded — the boundary is dashed. Only \\( \\le \\) and \\( \\ge \\) give a solid line." }
+        },
+        {
+            title: "Which side of the line do you shade? Test a point.",
+            tag: "Exam skill",
+            content: `<p>Once the boundary is drawn, one side satisfies the inequality and the other does not. The fastest way to tell them apart is to <strong>test a point</strong> that is clearly on one side.</p>
+            <table class="worked">
+              <tr><td>1. Pick an easy test point not on the line — the <strong>origin \\( (0,\\ 0) \\)</strong> is ideal.</td></tr>
+              <tr><td>2. Substitute it into the inequality.</td></tr>
+              <tr><td>3. If the statement is <strong>true</strong>, the origin's side is the side that satisfies the inequality. If it is <strong>false</strong>, the other side does.</td></tr>
+            </table>
+            <p><strong>Worked example — \\( x + y \\le 4 \\).</strong> Test \\( (0, 0) \\): \\( 0 + 0 = 0 \\le 4 \\) is <strong>true</strong>, so the region satisfying the inequality is the side <em>containing</em> the origin (below-left of the line).</p>
+            <p><strong>Warning:</strong> if the boundary passes through the origin (for example \\( y \\ge 2x \\)), \\( (0,0) \\) sits <em>on</em> the line and tells you nothing — choose a different test point such as \\( (1, 0) \\).</p>`,
+            readCheck: { q: "You test \\( (0,0) \\) in \\( 3x + y \\le 6 \\) and get \\( 0 \\le 6 \\). What does this tell you?", opts: ["The origin's side satisfies the inequality", "The origin's side fails the inequality", "The boundary must be dashed", "Nothing — the origin is on the line"], ans: 0, explain: "\\( 0 \\le 6 \\) is true, so the half-plane containing the origin is the one that satisfies \\( 3x + y \\le 6 \\)." }
+        },
+        {
+            title: "The OCR exam convention: shade the region you do NOT want",
+            tag: "Common error",
+            content: `<p>This is the single most important habit for the 6993 exam. When you must show a region defined by several inequalities, OCR asks you to <strong>shade the region that is NOT required</strong> — you shade everything that fails. The <strong>feasible region</strong> (the part satisfying every inequality) is then left <strong>clear and unshaded</strong>.</p>
+            <ul>
+              <li>Why? With three or four overlapping inequalities, shading each <em>wanted</em> side would cover the answer in a mess of overlapping shading. Shading the <em>unwanted</em> sides instead leaves a single clean white region — easy to read and to work with.</li>
+              <li>So for each inequality: draw the boundary, work out the wanted side, then <strong>shade the other side</strong>.</li>
+              <li>Always <strong>label the clear region</strong> (e.g. write "R") so the examiner knows which region is your answer.</li>
+            </ul>
+            <p>Below, \\( x + y \\le 4 \\) is shown the exam way: the unwanted half-plane (where \\( x + y > 4 \\)) is shaded, leaving the wanted region clear.</p>
+            <svg viewBox="0 0 300 240" width="100%" style="max-width:340px;height:auto;display:block;margin:12px auto" role="img" aria-label="Grid showing the line x plus y equals 4 as a solid line, with the region above the line shaded as not wanted and the region below left clear">
+              <rect x="40" y="20" width="220" height="180" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
+              <g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.2">
+                <line x1="84" y1="20" x2="84" y2="200"/><line x1="128" y1="20" x2="128" y2="200"/><line x1="172" y1="20" x2="172" y2="200"/><line x1="216" y1="20" x2="216" y2="200"/>
+                <line x1="40" y1="164" x2="260" y2="164"/><line x1="40" y1="128" x2="260" y2="128"/><line x1="40" y1="92" x2="260" y2="92"/><line x1="40" y1="56" x2="260" y2="56"/>
+              </g>
+              <polygon points="40,56 216,200 260,200 260,20 40,20" fill="currentColor" fill-opacity="0.13"/>
+              <line x1="40" y1="200" x2="260" y2="200" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="40" y1="20" x2="40" y2="200" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="40" y1="56" x2="216" y2="200" stroke="currentColor" stroke-width="2"/>
+              <g font-size="10" fill="currentColor" text-anchor="middle">
+                <text x="40" y="214">0</text><text x="128" y="214">2</text><text x="216" y="214">4</text>
+                <text x="150" y="50">not wanted (shaded)</text><text x="95" y="175">R (clear)</text>
+                <text x="180" y="120">x + y = 4</text>
+              </g>
+            </svg>`,
+            readCheck: { q: "Under the OCR convention, which part of the diagram is your final answer?", opts: ["The clear (unshaded) region", "The shaded region", "The boundary line only", "Both regions together"], ans: 0, explain: "You shade what is NOT required; the feasible region is the clear, unshaded part — label it R so it is obvious." }
+        },
+        {
+            title: "How do you combine inequalities to leave a feasible region?",
+            tag: "Worked example",
+            content: `<p>With several inequalities you draw <em>every</em> boundary on the same grid and shade each unwanted side. The region left clear after all the shading is the <strong>feasible region</strong> — it satisfies them all at once.</p>
+            <p><strong>Worked example.</strong> Show the region satisfying \\( x \\ge 1 \\), \\( y \\ge 1 \\) and \\( x + y \\le 5 \\).</p>
+            <table class="worked">
+              <tr><td>1. \\( x \\ge 1 \\): solid vertical line \\( x = 1 \\); wanted side is to the right, so shade to the <em>left</em>.</td></tr>
+              <tr><td>2. \\( y \\ge 1 \\): solid horizontal line \\( y = 1 \\); wanted side is above, so shade <em>below</em>.</td></tr>
+              <tr><td>3. \\( x + y \\le 5 \\): solid line through \\( (5,0) \\) and \\( (0,5) \\); test \\( (0,0) \\Rightarrow 0 \\le 5 \\) true, so shade <em>above</em> the line.</td></tr>
+            </table>
+            <p>What is left clear is the triangle with vertices \\( (1,1),\\ (1,4),\\ (4,1) \\) — the feasible region \\( R \\).</p>
+            <svg viewBox="0 0 320 250" width="100%" style="max-width:360px;height:auto;display:block;margin:12px auto" role="img" aria-label="Grid with lines x equals 1, y equals 1 and x plus y equals 5; the three unwanted half-planes are shaded, leaving a clear triangle with vertices 1,1 and 1,4 and 4,1">
+              <rect x="40" y="18" width="240" height="192" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/>
+              <g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.2">
+                <line x1="80" y1="18" x2="80" y2="210"/><line x1="120" y1="18" x2="120" y2="210"/><line x1="160" y1="18" x2="160" y2="210"/><line x1="200" y1="18" x2="200" y2="210"/><line x1="240" y1="18" x2="240" y2="210"/>
+                <line x1="40" y1="178" x2="280" y2="178"/><line x1="40" y1="146" x2="280" y2="146"/><line x1="40" y1="114" x2="280" y2="114"/><line x1="40" y1="82" x2="280" y2="82"/><line x1="40" y1="50" x2="280" y2="50"/>
+              </g>
+              <polygon points="40,210 80,210 80,18 40,18" fill="currentColor" fill-opacity="0.12"/>
+              <polygon points="40,210 280,210 280,178 40,178" fill="currentColor" fill-opacity="0.12"/>
+              <polygon points="40,50 240,210 280,210 280,18 40,18" fill="currentColor" fill-opacity="0.12"/>
+              <line x1="40" y1="210" x2="280" y2="210" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="40" y1="18" x2="40" y2="210" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="80" y1="210" x2="80" y2="18" stroke="currentColor" stroke-width="2"/>
+              <line x1="40" y1="178" x2="280" y2="178" stroke="currentColor" stroke-width="2"/>
+              <line x1="40" y1="50" x2="240" y2="210" stroke="currentColor" stroke-width="2"/>
+              <polygon points="80,178 80,82 200,178" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <g font-size="10" fill="currentColor" text-anchor="middle">
+                <text x="40" y="224">0</text><text x="80" y="224">1</text><text x="160" y="224">3</text><text x="240" y="224">5</text>
+                <text x="120" y="165">R</text>
+              </g>
+            </svg>`,
+            readCheck: { q: "In the combined region above, which point lies inside the feasible region \\( R \\)?", opts: ["\\( (2,\\ 2) \\)", "\\( (0,\\ 0) \\)", "\\( (4,\\ 4) \\)", "\\( (1,\\ 0) \\)"], ans: 0, explain: "\\( (2,2) \\): \\( x \\ge 1 \\) ✓, \\( y \\ge 1 \\) ✓, \\( x + y = 4 \\le 5 \\) ✓. \\( (0,0) \\) fails \\( x \\ge 1 \\); \\( (4,4) \\) fails \\( x+y \\le 5 \\)." }
+        },
+        {
+            title: "How do you turn a real situation into inequalities? (CG6)",
+            tag: "Real world",
+            content: `<p>Exam questions usually describe a real situation in words and expect you to <strong>formulate</strong> the constraints as inequalities. Watch the language carefully — the wrong sign loses the mark.</p>
+            <ul>
+              <li>"<strong>at least</strong> 5", "a minimum of 5", "5 or more" \\( \\Rightarrow \\ge 5 \\).</li>
+              <li>"<strong>no more than</strong> 400", "at most 400", "cannot exceed 400" \\( \\Rightarrow \\le 400 \\).</li>
+              <li>"<strong>more than</strong> 5" \\( \\Rightarrow > 5 \\); "<strong>fewer than</strong> 5" \\( \\Rightarrow < 5 \\) (strict — dashed boundary).</li>
+              <li><strong>Non-negativity:</strong> you cannot make a negative number of chairs or spend negative hours, so almost every real problem also needs \\( x \\ge 0 \\) and \\( y \\ge 0 \\). These keep the region in the first quadrant.</li>
+            </ul>
+            <p><strong>Worked example.</strong> A workshop makes \\( x \\) tables and \\( y \\) chairs. A table needs 24 minutes and a chair 28 minutes of machine time, and there are at most 400 minutes available. As machine time is limited: \\[ 24x + 28y \\le 400. \\] With non-negativity, the full model is \\( 24x + 28y \\le 400,\\ x \\ge 0,\\ y \\ge 0 \\).</p>`,
+            readCheck: { q: "A shop must stock 'at least 30' of an item, \\( n \\). Which inequality is correct?", opts: ["\\( n \\ge 30 \\)", "\\( n \\le 30 \\)", "\\( n < 30 \\)", "\\( n > 30 \\)"], ans: 0, explain: "'At least 30' means 30 or more, so \\( n \\ge 30 \\). A common error is to write \\( < \\) or \\( \\le \\)." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "How should the boundary of \\( y \\ge 2x \\) be drawn?", opts: ["A solid line, because the sign is \\( \\ge \\)", "A dashed line, because the sign is \\( \\ge \\)", "A dashed line, because it passes through the origin", "A curved line"], ans: 0, explain: "\\( \\ge \\) includes equality, so points on the boundary count — draw it solid. Only strict \\( < \\) / \\( > \\) give a dashed line." },
+        { q: "The phrase 'at least 12' translates to which inequality?", opts: ["\\( \\ge 12 \\)", "\\( \\le 12 \\)", "\\( < 12 \\)", "\\( > 12 \\)"], ans: 0, explain: "'At least' means 12 or more, i.e. \\( \\ge 12 \\)." },
+        { q: "The phrase 'no more than 400' translates to which inequality?", opts: ["\\( \\le 400 \\)", "\\( \\ge 400 \\)", "\\( > 400 \\)", "\\( = 400 \\)"], ans: 0, explain: "'No more than' means at most 400, i.e. \\( \\le 400 \\)." },
+        { q: "The boundary of \\( y > x + 1 \\) should be drawn:", opts: ["Dashed, because the inequality is strict", "Solid, because it is a straight line", "Dashed, because the gradient is 1", "Solid, because \\( > \\) means 'greater'"], ans: 0, explain: "\\( > \\) is strict, so the line is excluded from the region and is drawn dashed." },
+        { q: "You test \\( (0,0) \\) in \\( x + y \\le 4 \\) and obtain \\( 0 \\le 4 \\). Which side satisfies the inequality?", opts: ["The side containing the origin", "The side not containing the origin", "Neither side", "You cannot tell without another point"], ans: 0, explain: "\\( 0 \\le 4 \\) is true, so the origin's half-plane is the one that satisfies \\( x + y \\le 4 \\)." },
+        { q: "Under the OCR exam convention, which region do you shade?", opts: ["The region that is NOT required", "The feasible region itself", "Both regions", "Only the boundary lines"], ans: 0, explain: "You shade the unwanted region, leaving the feasible region clear and easy to read." },
+        { q: "Which pair of conditions expresses non-negativity for a real quantity of items?", opts: ["\\( x \\ge 0 \\) and \\( y \\ge 0 \\)", "\\( x > 0 \\) and \\( y > 0 \\)", "\\( x \\le 0 \\) and \\( y \\le 0 \\)", "\\( x = 0 \\) and \\( y = 0 \\)"], ans: 0, explain: "You cannot make a negative number of items, so \\( x \\ge 0 \\) and \\( y \\ge 0 \\) — zero is allowed." },
+        { q: "What is the boundary line of the inequality \\( x + 2y \\le 11 \\)?", opts: ["\\( x + 2y = 11 \\)", "\\( x + 2y < 11 \\)", "\\( x + 2y = 0 \\)", "\\( 2x + y = 11 \\)"], ans: 0, explain: "Replace the inequality sign with equals: the boundary is \\( x + 2y = 11 \\)." },
+        { q: "The boundary \\( 2x + y = 6 \\) crosses the axes at which two points?", opts: ["\\( (3,\\ 0) \\) and \\( (0,\\ 6) \\)", "\\( (6,\\ 0) \\) and \\( (0,\\ 3) \\)", "\\( (2,\\ 0) \\) and \\( (0,\\ 1) \\)", "\\( (6,\\ 0) \\) and \\( (0,\\ 6) \\)"], ans: 0, explain: "Put \\( y = 0 \\Rightarrow 2x = 6 \\Rightarrow x = 3 \\); put \\( x = 0 \\Rightarrow y = 6 \\). Intercepts \\( (3,0) \\) and \\( (0,6) \\)." },
+        { q: "The feasible region for a set of inequalities is:", opts: ["The region satisfying every inequality at once (left clear)", "The largest shaded region", "The area under the topmost line", "The region satisfying at least one inequality"], ans: 0, explain: "The feasible region satisfies ALL the constraints simultaneously; on the exam it is the clear, unshaded region." },
+        { q: "For \\( y \\ge 2x \\) the boundary passes through the origin. Which is a sensible test point?", opts: ["\\( (1,\\ 0) \\)", "\\( (0,\\ 0) \\)", "\\( (0.5,\\ 1) \\) on the line", "The origin is always best"], ans: 0, explain: "\\( (0,0) \\) lies ON the line, so it cannot decide a side. Use an off-line point such as \\( (1,0) \\): \\( 0 \\ge 2 \\) is false, so \\( (1,0) \\) is on the unwanted side." },
+        { q: "A half-plane is best described as:", opts: ["All the points on one side of a boundary line (with the line if the sign is \\( \\le / \\ge \\))", "A line segment", "The area of a triangle", "Half of the coordinate grid, split by the y-axis"], ans: 0, explain: "An inequality in two variables defines a half-plane: everything on one side of its boundary line." }
+    ];
+
+    const matchData = [
+        { term: "\\( y > 3 \\)", def: "Dashed horizontal line \\( y = 3 \\)" },
+        { term: "\\( y \\le 3 \\)", def: "Solid horizontal line \\( y = 3 \\)" },
+        { term: "\\( x \\ge 2 \\)", def: "Solid vertical line \\( x = 2 \\)" },
+        { term: "Sign is \\( < \\) or \\( > \\)", def: "Draw the boundary dashed" },
+        { term: "Sign is \\( \\le \\) or \\( \\ge \\)", def: "Draw the boundary solid" },
+        { term: "'at least 5'", def: "\\( \\ge 5 \\)" },
+        { term: "'no more than 5'", def: "\\( \\le 5 \\)" },
+        { term: "'fewer than 5'", def: "\\( < 5 \\)" },
+        { term: "Non-negativity", def: "\\( x \\ge 0 \\) and \\( y \\ge 0 \\)" },
+        { term: "Feasible region", def: "The clear region satisfying every inequality" },
+        { term: "Test \\( (0,0) \\) gives a true statement", def: "The origin's side is wanted — shade the other side" },
+        { term: "OCR shading convention", def: "Shade the region that is NOT required" },
+        { term: "Boundary of \\( x + 2y \\le 11 \\)", def: "The line \\( x + 2y = 11 \\)" },
+        { term: "Intercepts of \\( 2x + y = 6 \\)", def: "\\( (3,\\ 0) \\) and \\( (0,\\ 6) \\)" }
+    ];
+
+    // NOTE: FIB blanks sit in PLAIN TEXT, never inside a \( \) region (ADDMATHS §8.4 Rule 3b).
+    const fibData = [
+        { display: "For a strict inequality you draw the boundary as a ___B1___ line; for \\( \\le \\) or \\( \\ge \\) you draw a ___B2___ line.", blanks: { B1: "dashed", B2: "solid" } },
+        { display: "To decide which side of the line to shade, you substitute a test ___B1___ such as the origin into the inequality.", blanks: { B1: "point" } },
+        { display: "In the OCR exam you shade the region that is ___B1___ required, leaving the feasible region ___B2___.", blanks: { B1: "not", B2: "clear" } },
+        { display: "You cannot make a negative number of items, so a real-world model also needs \\( x \\) and \\( y \\) each to be at least ___B1___.", blanks: { B1: "0" } },
+        { display: "You find the boundary line of an inequality by replacing the inequality sign with an ___B1___ sign.", blanks: { B1: "equals" } },
+        { display: "The single region that satisfies every inequality at once is called the ___B1___ region.", blanks: { B1: "feasible" } },
+        { display: "If substituting the origin makes the inequality true, the origin lies in the region you ___B1___ (so you do NOT shade it).", blanks: { B1: "want" } },
+        { display: "The boundary drawn for \\( y > 2x \\) should be ___B1___ because the inequality is strict.", blanks: { B1: "dashed" } }
+    ];
+
+    const fibWords = ["dashed", "solid", "point", "not", "clear", "0", "equals", "feasible", "want", "line", "region", "shade", "curve", "origin", "wanted"];
+
+    const tfData = [
+        { statement: "The boundary line for \\( y \\le 2x + 3 \\) should be drawn solid.", answer: true, explanation: "\\( \\le \\) includes equality, so points on the line are part of the region — the boundary is solid." },
+        { statement: "For the strict inequality \\( y > x \\), the boundary line is drawn dashed.", answer: true, explanation: "Strict signs \\( < \\) and \\( > \\) exclude the line, so it is dashed." },
+        { statement: "Under the OCR convention you shade the feasible region itself.", answer: false, explanation: "You shade the region that is NOT required; the feasible region is left clear and unshaded." },
+        { statement: "Testing the point \\( (0,0) \\) is a quick way to decide which side of a line to shade.", answer: true, explanation: "Provided the line does not pass through the origin, substituting \\( (0,0) \\) instantly tells you which side satisfies the inequality." },
+        { statement: "'At least 30' is written as \\( \\le 30 \\).", answer: false, explanation: "'At least 30' means 30 or more, i.e. \\( \\ge 30 \\)." },
+        { statement: "If the boundary line passes through the origin, you should not use \\( (0,0) \\) as your test point.", answer: true, explanation: "A point on the line cannot decide a side — pick an off-line point such as \\( (1,0) \\)." },
+        { statement: "The conditions \\( x \\ge 0 \\) and \\( y \\ge 0 \\) restrict a real-world region to the first quadrant.", answer: true, explanation: "Both coordinates non-negative means the region lies in the first quadrant (including the axes)." },
+        { statement: "The point \\( (0,0) \\) satisfies \\( 24x + 28y \\le 400 \\).", answer: true, explanation: "\\( 24(0) + 28(0) = 0 \\le 400 \\) is true, so the origin lies in the wanted half-plane." }
+    ];
+
+    const miscData = [
+        { wrong: "'The factory must make at least 5 chairs' \\( \\Rightarrow x < 5 \\).", correct: "'At least 5' means 5 or more, so \\( x \\ge 5 \\). A weak answer uses \\( < \\) (the opposite direction, and strict); a strong answer writes \\( x \\ge 5 \\) — greater than <em>or equal to</em>.", readCheck: { q: "'At least 5 chairs' becomes:", opts: ["\\( x \\ge 5 \\)", "\\( x < 5 \\)", "\\( x \\le 5 \\)", "\\( x > 5 \\)"], ans: 0, explain: "'At least' = 'or more' = \\( \\ge \\)." } },
+        { wrong: "Shading the feasible region so the answer is covered in pencil.", correct: "OCR asks you to shade the region that is NOT required. A weak answer shades the wanted region (and hides it under overlapping shading); a strong answer shades every unwanted side and labels the clear region R.", readCheck: { q: "Which region should be left clear (unshaded)?", opts: ["The feasible region", "The unwanted region", "The boundary lines", "The first quadrant"], ans: 0, explain: "Shade the unwanted region; the feasible region stays clear." } },
+        { wrong: "Drawing a solid line for \\( y < 2x + 1 \\).", correct: "\\( < \\) is strict, so the boundary is excluded and must be dashed. A weak answer always draws solid lines; a strong answer matches the line style to the sign — solid only for \\( \\le \\) / \\( \\ge \\).", readCheck: { q: "The boundary of \\( y < 2x + 1 \\) is drawn:", opts: ["Dashed", "Solid", "As a curve", "Not at all"], ans: 0, explain: "Strict \\( < \\) means the line is not included — draw it dashed." } },
+        { wrong: "Deciding the shaded side by guessing, without testing a point.", correct: "A weak answer shades whichever side 'looks right'; a strong answer substitutes a test point such as \\( (0,0) \\) and lets the true/false result decide the side every time.", readCheck: { q: "The reliable way to choose the correct side is to:", opts: ["Test a point in the inequality", "Always shade above the line", "Always shade to the right", "Shade the smaller region"], ans: 0, explain: "Substituting a test point removes all guesswork." } },
+        { wrong: "Forgetting the non-negativity constraints in a real-world problem.", correct: "A weak answer gives only the resource constraints; a strong answer remembers that a real quantity cannot be negative and adds \\( x \\ge 0,\\ y \\ge 0 \\), keeping the region in the first quadrant.", readCheck: { q: "A real 'number of items' problem almost always also needs:", opts: ["\\( x \\ge 0 \\) and \\( y \\ge 0 \\)", "\\( x \\le 0 \\) and \\( y \\le 0 \\)", "no extra conditions", "\\( x = y \\)"], ans: 0, explain: "Quantities cannot be negative, so non-negativity is added." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Draw + shade: the 4-mark feature checklist", pills: ["draw", "shade NOT-wanted", "ft"], content: `<p>The "shade the region" question is worth about 4 marks — one for <strong>each boundary line drawn correctly by its intercepts</strong>, plus a mark for the <strong>shading</strong> (which follows-through from your lines).</p>
+          <p><strong>0 marks:</strong> lines drawn roughly, no clear region, or the wanted region shaded over.</p>
+          <p><strong>Partial:</strong> the three lines drawn correctly by their intercepts (a mark each) but the shading left out or on the wrong sides.</p>
+          <p><strong>Full marks:</strong> each boundary line accurate through its intercept points, every unwanted half-plane shaded, and the feasible region left clear and labelled R. The shading mark is awarded 'follow-through' on <em>your</em> lines, so correct shading of slightly wrong lines still scores.</p>`, readCheck: { q: "In a 4-mark 'draw and shade' question, the shading mark is awarded:", opts: ["Follow-through on your own lines, for shading the unwanted region", "Only if every line is perfect", "For shading the feasible region", "For drawing dashed lines"], ans: 0, explain: "Shading is marked ft on your lines, and it is the NOT-required region that must be shaded." } },
+        { type: "explain", title: "'At least' / 'no more than' — get the symbol right", pills: ["at least", "no more than", "formulate"], content: `<p>Formulating a constraint is a 1-mark step where the wrong sign scores nothing.</p>
+          <p><strong>0 marks:</strong> "at least 2000 units of the drug" written as \\( 2000x + 1000y \\le 5000 \\) (wrong direction).</p>
+          <p><strong>Full marks:</strong> "at least" \\( \\Rightarrow \\ge \\), so \\( 2000x + 1000y \\ge 5000 \\); "no more than" \\( \\Rightarrow \\le \\). Any equivalent form (e.g. dividing through) scores 'oe'.</p>`, readCheck: { q: "'The mixture must contain no more than 19 units' becomes:", opts: ["\\( \\ldots \\le 19 \\)", "\\( \\ldots \\ge 19 \\)", "\\( \\ldots > 19 \\)", "\\( \\ldots = 19 \\)"], ans: 0, explain: "'No more than' means at most, i.e. \\( \\le 19 \\)." } },
+        { type: "tip", title: "Leave the answer clear — label R", pills: ["convention", "label", "clear"], content: `<p>The examiner must be able to see which region is your answer.</p>
+          <p><strong>0 marks lost habits:</strong> shading the wanted region, or leaving no label so it is unclear which clear patch is meant.</p>
+          <p><strong>Full marks habit:</strong> shade every unwanted half-plane, leave the feasible region white, and write <strong>R</strong> inside it. If you make a mistake, use the spare grid provided at the back of the booklet and cross out the first attempt.</p>`, readCheck: { q: "Why write 'R' inside the clear region?", opts: ["So the examiner knows which region is your answer", "It earns a bonus mark", "It is required to shade", "To mark the origin"], ans: 0, explain: "Labelling the feasible region makes your answer unambiguous." } }
+    ];
+
+    const flashcards = [
+        { term: "Linear inequality in two variables", def: "A condition such as \\( y \\ge x + 1 \\) defining a region (half-plane) of the grid." },
+        { term: "Boundary line", def: "The line found by replacing the inequality sign with \\( = \\)." },
+        { term: "Half-plane", def: "All the points on one side of a boundary line." },
+        { term: "Solid boundary", def: "Used for \\( \\le \\) or \\( \\ge \\) — the line is part of the region." },
+        { term: "Dashed boundary", def: "Used for strict \\( < \\) or \\( > \\) — the line is excluded." },
+        { term: "Test point", def: "A point (often the origin) substituted in to decide which side to shade." },
+        { term: "Origin test", def: "If \\( (0,0) \\) makes the inequality true, the origin's side is the wanted side." },
+        { term: "Feasible region", def: "The region satisfying every inequality at once; left clear on the exam." },
+        { term: "OCR shading convention", def: "Shade the region that is NOT required; leave the feasible region clear." },
+        { term: "'At least'", def: "Translates to \\( \\ge \\) (this value or more)." },
+        { term: "'No more than'", def: "Translates to \\( \\le \\) (this value or fewer)." },
+        { term: "'More than' / 'fewer than'", def: "Strict \\( > \\) / \\( < \\) — a dashed boundary." },
+        { term: "Non-negativity", def: "\\( x \\ge 0 \\) and \\( y \\ge 0 \\); a real quantity cannot be negative." },
+        { term: "Intercept method", def: "Plot a boundary quickly using where it crosses the axes (\\( x = 0 \\) and \\( y = 0 \\))." },
+        { term: "Formulate", def: "Turn a worded situation into inequalities (the CG6 skill)." },
+        { term: "Label R", def: "Mark the clear feasible region so the examiner sees your answer." }
+    ];
+
+    // Exam question routed to this lesson: OCR June 2023 Q10 (LP draw+shade + optimise),
+    // total 6 marks. Verbatim question/scheme/comments from 2023 QP/MS/ER; the correctly
+    // shaded overlay is a SINGLE-LINE inline SVG in modelAnswer (markScheme passes through
+    // a sanitiser that strips SVG). Recomputed feasible region: y=x+1 ∩ x=1 → (1,2);
+    // x=1 ∩ x+2y=11 → (1,5); y=x+1 ∩ x+2y=11 → (3,4). x+y at vertices = 3, 6, 7 → max 7 at (3,4).
+    const examQuestions = [
+        {
+            num: "10 (a)",
+            marks: 4,
+            year: "2023",
+            type: "written",
+            caseId: "q10-2023",
+            question: `<p>On the grid, indicate the region for which the following inequalities hold. You should shade the region that is <strong>not</strong> satisfied by the inequalities.</p>
+            <p>\\[ y \\ge x + 1 \\qquad x \\ge 1 \\qquad x + 2y \\le 11 \\]</p>`,
+            hint: "Draw each boundary line by its intercepts (all three are solid, since every sign is \\( \\ge \\) or \\( \\le \\)), decide the wanted side of each by testing a point, then shade the UNwanted side of each — the clear triangle left is your region.",
+            starter: "Draw the three solid boundary lines, shade the region that does NOT satisfy the inequalities, and label the clear feasible region R.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1/AO3)</h5><ul>
+              <li><strong>B1</strong> — line \\( y = x + 1 \\) drawn (through \\( (1,2) \\) and \\( (3,4) \\)).</li>
+              <li><strong>B1</strong> — line \\( x = 1 \\) drawn (through \\( (1,2) \\) and \\( (1,5) \\)).</li>
+              <li><strong>B1</strong> — line \\( x + 2y = 11 \\) drawn (through \\( (1,5) \\) and \\( (3,4) \\)).</li>
+              <li><strong>B1</strong> — shading correct (the unwanted region shaded; lines must be correct). The clear region is the triangle with vertices \\( (1,2),\\ (1,5),\\ (3,4) \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Three independent B marks, one for each correct boundary line by its intercept points, and a fourth for shading the region that is NOT required (awarded follow-through on the candidate's lines). Accept solid or dotted lines.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>There were few problems with this question. The vast majority of candidates understood what was required, drew the 3 lines and found the correct region.</li>
+            </ul></div>`,
+            modelAnswer: `Draw the three solid lines \\( y = x + 1 \\), \\( x = 1 \\) and \\( x + 2y = 11 \\). Testing the origin shows the wanted sides, so shade the three UNwanted half-planes; the clear triangle with vertices \\( (1,2),\\ (1,5),\\ (3,4) \\) is the feasible region R.
+<svg viewBox="0 0 470 320" width="100%" style="max-width:520px;height:auto;display:block;margin:10px auto" role="img" aria-label="The three boundary lines y = x + 1, x = 1 and x + 2y = 11 drawn on the grid, with the three unwanted half-planes shaded, leaving a clear triangle with vertices 1,2 and 1,5 and 3,4 labelled R"><rect x="40" y="30" width="400" height="260" fill="none" stroke="currentColor" stroke-width="1" stroke-opacity="0.5"/><g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.18"><line x1="76" y1="30" x2="76" y2="290"/><line x1="113" y1="30" x2="113" y2="290"/><line x1="149" y1="30" x2="149" y2="290"/><line x1="185" y1="30" x2="185" y2="290"/><line x1="222" y1="30" x2="222" y2="290"/><line x1="258" y1="30" x2="258" y2="290"/><line x1="295" y1="30" x2="295" y2="290"/><line x1="331" y1="30" x2="331" y2="290"/><line x1="367" y1="30" x2="367" y2="290"/><line x1="404" y1="30" x2="404" y2="290"/><line x1="40" y1="264" x2="440" y2="264"/><line x1="40" y1="238" x2="440" y2="238"/><line x1="40" y1="212" x2="440" y2="212"/><line x1="40" y1="186" x2="440" y2="186"/><line x1="40" y1="160" x2="440" y2="160"/><line x1="40" y1="134" x2="440" y2="134"/><line x1="40" y1="108" x2="440" y2="108"/><line x1="40" y1="82" x2="440" y2="82"/><line x1="40" y1="56" x2="440" y2="56"/></g><polygon points="40,264 40,290 440,290 440,30 367,30" fill="currentColor" fill-opacity="0.10"/><polygon points="40,290 76,290 76,30 40,30" fill="currentColor" fill-opacity="0.10"/><polygon points="40,147 440,290 440,30 40,30" fill="currentColor" fill-opacity="0.10"/><line x1="40" y1="290" x2="440" y2="290" stroke="currentColor" stroke-width="1.5"/><line x1="40" y1="30" x2="40" y2="290" stroke="currentColor" stroke-width="1.5"/><line x1="40" y1="264" x2="367" y2="30" stroke="currentColor" stroke-width="2"/><line x1="76" y1="290" x2="76" y2="30" stroke="currentColor" stroke-width="2"/><line x1="40" y1="147" x2="440" y2="290" stroke="currentColor" stroke-width="2"/><polygon points="76,238 76,160 149,186" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="76" cy="238" r="3" fill="currentColor"/><circle cx="76" cy="160" r="3" fill="currentColor"/><circle cx="149" cy="186" r="3" fill="currentColor"/><g font-size="10" fill="currentColor" text-anchor="middle"><text x="40" y="304">0</text><text x="76" y="304">1</text><text x="149" y="304">3</text><text x="222" y="304">5</text><text x="295" y="304">7</text><text x="404" y="304">10</text><text x="32" y="242" text-anchor="end">2</text><text x="32" y="164" text-anchor="end">5</text><text x="100" y="200">R</text><text x="360" y="60">y = x+1</text><text x="90" y="45" text-anchor="start">x = 1</text><text x="410" y="250">x+2y=11</text></g></svg>`,
+            markPoints: { note: "Tick each feature you got right on your own paper plot (the checklist is the OCR mark scheme).", groups: [
+                { label: "B1 — line y = x + 1", max: 1, points: ["Drew \\( y = x + 1 \\) through \\( (1,2) \\) and \\( (3,4) \\)"] },
+                { label: "B1 — line x = 1", max: 1, points: ["Drew \\( x = 1 \\) through \\( (1,2) \\) and \\( (1,5) \\)"] },
+                { label: "B1 — line x + 2y = 11", max: 1, points: ["Drew \\( x + 2y = 11 \\) through \\( (1,5) \\) and \\( (3,4) \\)"] },
+                { label: "B1 — shading", max: 1, points: ["Shaded the NOT-required region (ft your lines), leaving the triangle \\( (1,2),(1,5),(3,4) \\) clear"] }
+            ] }
+        },
+        {
+            num: "10 (b)",
+            marks: 2,
+            year: "2023",
+            type: "written",
+            caseId: "q10-2023",
+            question: `<p>Find the maximum value of \\( x + y \\) subject to these conditions.</p>`,
+            hint: "The maximum of \\( x + y \\) occurs at a corner (vertex) of the feasible region — test each of the three vertices \\( (1,2),\\ (1,5),\\ (3,4) \\).",
+            starter: "State the maximum value of \\( x + y \\), and the vertex where it occurs.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO3)</h5><ul>
+              <li><strong>M1</strong> — any line of the form \\( x + y = a \\) seen, or a check of the region's vertices (seen or implied).</li>
+              <li><strong>A1</strong> — maximum \\( x + y = 7 \\) (at \\( (3, 4) \\)). Correct answer is full marks.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>M1 for the objective method (an \\( x + y = a \\) line, or evaluating \\( x + y \\) at the vertices); A1 for the correct maximum. Alternative method: sight of a check at at least two of the candidate's vertices (ft their region), then \\( x + y = 7 \\) at \\( (3,4) \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most candidates were able to pick the correct point in the region to give the maximum value of \\( x + y \\). A number checked the other two vertices of the triangular region.</li>
+            </ul></div>`,
+            modelAnswer: `The maximum of a linear objective on a feasible region is at a vertex. Evaluating \\( x + y \\) at the three vertices: \\( (1,2) \\to 3 \\), \\( (1,5) \\to 6 \\), \\( (3,4) \\to 7 \\). So the maximum value of \\( x + y \\) is \\( 7 \\), at \\( (3, 4) \\). (Note: an LP optimum need not be a whole number in general — here it happens to be, but always test the exact vertex rather than assuming integers.)`,
+            markPoints: { note: "Both marks require the correct maximum found from the vertices.", groups: [
+                { label: "M1 — objective method", max: 1, points: ["Drew a line \\( x + y = a \\), or evaluated \\( x + y \\) at the vertices (soi)"] },
+                { label: "A1 — maximum value", max: 1, points: ["\\( x + y = 7 \\) at \\( (3, 4) \\)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

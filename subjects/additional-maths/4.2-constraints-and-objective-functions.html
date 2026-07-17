@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 4. Linear Programming</div>
             <h1>4.2 Constraints and Objective Functions</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,13 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 4.2 Constraints and Objective Functions — placeholder, content not yet written
+    //  DATA: 4.2 Constraints and Objective Functions (CG6 formulate constraints; CG8 objective function)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). This lesson is the
+    //  MODELLING/formulation step only — graphical solving is 4.3.
+    //  No standalone current-spec exam question for CG6/CG8 formulation — it is only
+    //  ever examined as the first parts of a WHOLE LP question (authored on 4.3), so
+    //  examQuestions = [] here (see plan §6 routing + taxonomy §2.7).
     // ══════════════════════════════════════
     const pageMeta = {
             id: '4-2-constraints-and-objective-functions',
@@ -268,20 +274,194 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>4.2 Constraints and Objective Functions</strong> will appear here soon.</p>`
+            title: "What is linear programming, and what does 'modelling' mean here?",
+            tag: "Key concept",
+            content: `<p>Many real decisions are about finding the <strong>best</strong> choice — the most profit, the lowest cost, the largest number produced — while working inside real <strong>limits</strong> on time, materials or money. <strong>Linear programming (LP)</strong> is the mathematical method for exactly this kind of problem.</p>
+            <p>Every LP problem is solved in two stages:</p>
+            <ul>
+              <li><strong>Stage 1 — model it (this lesson).</strong> Turn the words into maths: choose <strong>decision variables</strong>, write the <strong>constraints</strong> as linear inequalities, and write the <strong>objective function</strong> — the quantity to be maximised or minimised.</li>
+              <li><strong>Stage 2 — solve it (lesson 4.3).</strong> Draw the inequalities, find the <strong>feasible region</strong>, and read off the best vertex.</li>
+            </ul>
+            <p>This page is <strong>Stage 1 only</strong>. You are learning to <em>formulate</em> the problem — not yet to solve it with a graph. Getting the model right is worth easy marks and is the foundation everything else stands on: a wrong inequality here makes the whole graph wrong later.</p>`,
+            readCheck: { q: "What does the modelling stage of an LP problem produce?", opts: ["Decision variables, constraints, and an objective function", "A shaded graph with the answer read off", "A single numerical answer only", "The area of the feasible region"], ans: 0, explain: "Modelling (Stage 1) turns the words into variables, constraints (inequalities) and an objective function. Drawing the graph and reading the optimum is Stage 2 (lesson 4.3)." }
+        },
+        {
+            title: "How do you define your variables?",
+            tag: "Method",
+            content: `<p><strong>Always start by defining your variables.</strong> Every constraint and the objective are written in terms of them, so if they are not defined, nothing else can be read.</p>
+            <p>Write a clear sentence for each, for example:</p>
+            <ul>
+              <li>Let \\( x = \\) the number of sponge cakes made.</li>
+              <li>Let \\( y = \\) the number of fruit cakes made.</li>
+            </ul>
+            <p>Good habits:</p>
+            <ul>
+              <li>State the <strong>units / what each variable counts</strong> ("number of chairs", not just "chairs").</li>
+              <li>Use the <strong>same letters</strong> throughout the rest of the question.</li>
+              <li>Do this <strong>first</strong>, before you write a single inequality — examiners cannot award marks for an inequality whose letters are undefined.</li>
+            </ul>
+            <p>These are your <strong>decision variables</strong>: the quantities you are free to choose, and whose best values you are ultimately trying to find.</p>`,
+            readCheck: { q: "What should be the very first step when modelling an LP problem?", opts: ["Define the variables (e.g. let x = number of ...)", "Draw the axes", "Write the objective function", "Divide every inequality through"], ans: 0, explain: "Define your variables first. Every constraint and the objective are written in terms of them, so they must be stated clearly before anything else." }
+        },
+        {
+            title: "How do you turn a worded limit into a constraint?",
+            tag: "Worked example",
+            content: `<p>A <strong>constraint</strong> is a limit in the problem, written as a <strong>linear inequality</strong>. The wording tells you which way the inequality sign points. Learn this phrase-to-symbol dictionary:</p>
+            <table class="worked">
+              <tr><td><strong>"at most", "no more than", "cannot exceed", "up to", "available", "maximum of"</strong></td><td>use \\( \\le \\)</td></tr>
+              <tr><td><strong>"at least", "minimum of", "no fewer than", "must have at least"</strong></td><td>use \\( \\ge \\)</td></tr>
+              <tr><td><strong>"exactly", "equal to"</strong></td><td>use \\( = \\)</td></tr>
+            </table>
+            <p><strong>Worked example.</strong> A workshop makes bikes and scooters. Each bike needs 6 hours of labour and each scooter needs 4 hours. There are at most 240 labour hours each week. Let \\( x = \\) number of bikes and \\( y = \\) number of scooters.</p>
+            <table class="worked">
+              <tr><td>1. Total labour used is \\( 6x + 4y \\) hours.</td></tr>
+              <tr><td>2. "At most 240" means it cannot exceed 240, so use \\( \\le \\): \\[ 6x + 4y \\le 240. \\]</td></tr>
+              <tr><td>3. <strong>Simplify</strong> by dividing through by the common factor 2: \\[ 3x + 2y \\le 120. \\]</td></tr>
+            </table>
+            <p>Dividing (or multiplying) an inequality by a <strong>positive</strong> number keeps the sign the same, and smaller numbers make the line easier to draw later. Always convert <strong>units</strong> first (e.g. 4.2 kg = 4200 g) so both sides match.</p>`,
+            readCheck: { q: "Which inequality is the simplified form of \\( 6x + 4y \\le 240 \\)?", opts: ["\\( 3x + 2y \\le 120 \\)", "\\( 3x + 2y \\ge 120 \\)", "\\( 6x + 4y \\ge 240 \\)", "\\( 2x + 3y \\le 120 \\)"], ans: 0, explain: "Divide every term by the common factor 2: \\( 3x + 2y \\le 120 \\). Dividing by a positive number leaves the \\( \\le \\) unchanged." }
+        },
+        {
+            title: "Why do you always need non-negativity constraints?",
+            tag: "Key concept",
+            content: `<p>You cannot make a negative number of cakes, chairs or minutes. So almost every LP model includes the <strong>non-negativity constraints</strong>:</p>
+            <p>\\[ x \\ge 0, \\qquad y \\ge 0. \\]</p>
+            <ul>
+              <li>They are <strong>easy marks that are constantly forgotten</strong> — write them every time.</li>
+              <li>They matter for the graph later: they restrict the feasible region to the first quadrant.</li>
+              <li>If a stronger limit already forces a variable positive (say "at least 3 fruit cakes" gives \\( y \\ge 3 \\)), that stronger constraint replaces the plain \\( y \\ge 0 \\) for that variable.</li>
+            </ul>
+            <p>Whether the answer must be a <strong>whole number</strong> (you cannot make half a chair) is a separate issue handled when you read the optimum in lesson 4.3 — in LP the lines themselves are allowed to cross at non-integer points.</p>`,
+            readCheck: { q: "Why include \\( x \\ge 0 \\) and \\( y \\ge 0 \\) in an LP model?", opts: ["You cannot produce a negative quantity of something", "They are the objective function", "They make the profit larger", "They replace the need to define variables"], ans: 0, explain: "Non-negativity says a real quantity can never be negative. They are easy marks and keep the feasible region in the first quadrant — but they are often forgotten." }
+        },
+        {
+            title: "What is the objective function?",
+            tag: "Key concept",
+            content: `<p>The <strong>objective function</strong> is the single quantity you are trying to make as large or as small as possible, written as an <strong>expression in your variables</strong>. It is the "goal" of the whole problem (spec statement CG8).</p>
+            <ul>
+              <li><strong>Profit</strong> to maximise: e.g. £8 per sponge cake and £12 per fruit cake gives \\( P = 8x + 12y \\).</li>
+              <li><strong>Cost</strong> to minimise: e.g. \\( C = 5x + 3y \\).</li>
+              <li><strong>Total number</strong> to maximise: e.g. \\( N = x + y \\).</li>
+            </ul>
+            <p>Two things to get right:</p>
+            <ul>
+              <li>An objective function is an <strong>expression with an equals sign</strong> — it is <strong>never an inequality</strong>. It has no \\( \\le \\) or \\( \\ge \\). That is what separates it from a constraint.</li>
+              <li>Always state whether you are going to <strong>maximise</strong> or <strong>minimise</strong> it — the wording ("greatest profit", "least cost") tells you which.</li>
+            </ul>
+            <p>For instance, a toymaker earning £28 per train and £60 per aeroplane has objective \\( P = 28x + 60y \\), to be <strong>maximised</strong>.</p>`,
+            readCheck: { q: "Which of these is an objective function, not a constraint?", opts: ["\\( P = 28x + 60y \\)", "\\( 2x + 3y \\le 42 \\)", "\\( y \\ge 3 \\)", "\\( x \\ge 0 \\)"], ans: 0, explain: "An objective function is an expression to be maximised or minimised, with an equals sign and no inequality. \\( P = 28x + 60y \\) qualifies; the others are constraints (they contain \\( \\le \\) or \\( \\ge \\))." }
+        },
+        {
+            title: "Worked example: modelling a whole scenario",
+            tag: "Worked example",
+            content: `<p><strong>Scenario.</strong> A baker makes sponge cakes and fruit cakes. Each sponge cake uses 200 g of flour and 4 eggs; each fruit cake uses 300 g of flour and 2 eggs. The baker has 4.2 kg of flour and 48 eggs, and wants to make at least 3 fruit cakes. Sponge cakes make £8 profit each and fruit cakes £12 each. Formulate this as a linear programming problem.</p>
+            <table class="worked">
+              <tr><td><strong>1. Define variables.</strong> Let \\( x = \\) number of sponge cakes, \\( y = \\) number of fruit cakes.</td></tr>
+              <tr><td><strong>2. Flour constraint.</strong> Convert units: 4.2 kg \\( = 4200 \\) g. Flour used \\( = 200x + 300y \\le 4200 \\). Divide by 100: \\[ 2x + 3y \\le 42. \\]</td></tr>
+              <tr><td><strong>3. Egg constraint.</strong> Eggs used \\( = 4x + 2y \\le 48 \\). Divide by 2: \\[ 2x + y \\le 24. \\]</td></tr>
+              <tr><td><strong>4. "At least 3 fruit cakes".</strong> \\( \\ge \\) for "at least": \\[ y \\ge 3. \\]</td></tr>
+              <tr><td><strong>5. Non-negativity.</strong> \\( x \\ge 0 \\) (and \\( y \\ge 0 \\), already guaranteed by \\( y \\ge 3 \\)).</td></tr>
+              <tr><td><strong>6. Objective.</strong> Maximise profit \\[ P = 8x + 12y. \\]</td></tr>
+            </table>
+            <p>That is the complete model: four constraints \\( (2x+3y\\le 42,\\ 2x+y\\le 24,\\ y\\ge 3,\\ x\\ge 0) \\) plus the objective \\( P = 8x + 12y \\) to maximise. Solving it graphically is the next lesson.</p>`,
+            readCheck: { q: "In the baker example, why does the flour constraint become \\( 2x + 3y \\le 42 \\)?", opts: ["4.2 kg = 4200 g, and \\( 200x + 300y \\le 4200 \\) divides by 100", "The eggs were converted to grams", "Profit is £8 and £12 per cake", "4.2 kg = 42 g, divided by 1"], ans: 0, explain: "First convert 4.2 kg to 4200 g, giving \\( 200x + 300y \\le 4200 \\); dividing every term by 100 simplifies it to \\( 2x + 3y \\le 42 \\)." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
+    const mcqData = [
+        { q: "A rule says 'you must make at least 5 tables'. If \\( y \\) is the number of tables, which inequality is correct?", opts: ["\\( y \\ge 5 \\)", "\\( y \\le 5 \\)", "\\( y > 5 \\)", "\\( y = 5 \\)"], ans: 0, explain: "'At least 5' means 5 or more, so \\( y \\ge 5 \\). Writing \\( y \\le 5 \\) reverses the meaning — the classic 'at least' error." },
+        { q: "A machine is available for 'no more than 30 hours'. Total hours used is \\( 3x + 2y \\). The constraint is:", opts: ["\\( 3x + 2y \\le 30 \\)", "\\( 3x + 2y \\ge 30 \\)", "\\( 3x + 2y = 30 \\)", "\\( 3x + 2y > 30 \\)"], ans: 0, explain: "'No more than 30' is an upper limit, so use \\( \\le \\): \\( 3x + 2y \\le 30 \\)." },
+        { q: "A company earns £15 profit per desk (\\( x \\)) and £25 per cabinet (\\( y \\)). Which is the objective function?", opts: ["\\( P = 15x + 25y \\)", "\\( 15x + 25y \\le 100 \\)", "\\( x + y \\ge 15 \\)", "\\( P \\le 15x + 25y \\)"], ans: 0, explain: "The objective is the profit expression to maximise, \\( P = 15x + 25y \\). It has an equals sign and no inequality symbol." },
+        { q: "Which of the following is a constraint rather than an objective function?", opts: ["\\( 4x + 5y \\le 200 \\)", "\\( C = 4x + 5y \\)", "\\( P = 2x + 7y \\)", "\\( N = x + y \\)"], ans: 0, explain: "A constraint is a limit written as an inequality — \\( 4x + 5y \\le 200 \\). The others are objective functions (expressions with '=', to be maximised or minimised)." },
+        { q: "Why should \\( x \\ge 0 \\) and \\( y \\ge 0 \\) be written in almost every LP model?", opts: ["You cannot produce a negative amount of something", "They increase the profit", "They are the objective function", "They tell you which vertex is optimal"], ans: 0, explain: "Real quantities cannot be negative, so non-negativity constraints are needed. They are easy marks that are frequently forgotten." },
+        { q: "The constraint \\( 10x + 15y \\le 60 \\) can be simplified to:", opts: ["\\( 2x + 3y \\le 12 \\)", "\\( 2x + 3y \\ge 12 \\)", "\\( 5x + 10y \\le 60 \\)", "\\( 10x + 15y \\le 6 \\)"], ans: 0, explain: "Divide every term by the common factor 5: \\( 2x + 3y \\le 12 \\). Dividing by a positive number keeps the \\( \\le \\) unchanged." },
+        { q: "What is the correct first step when setting up any LP problem from words?", opts: ["Define the decision variables clearly", "Draw the feasible region", "Read off the optimum vertex", "Guess an answer and check it"], ans: 0, explain: "Define your variables first; every constraint and the objective are written in terms of them." },
+        { q: "Each toy car uses 20 g of plastic and each toy van uses 50 g. There is 1 kg of plastic. With \\( x \\) cars and \\( y \\) vans, the plastic constraint is:", opts: ["\\( 20x + 50y \\le 1000 \\)", "\\( 20x + 50y \\le 1 \\)", "\\( 20x + 50y \\ge 1000 \\)", "\\( 50x + 20y \\le 1000 \\)"], ans: 0, explain: "Convert 1 kg to 1000 g so units match, then use \\( \\le \\) for a resource limit: \\( 20x + 50y \\le 1000 \\)." },
+        { q: "A florist must use 'at least twice as many roses (\\( x \\)) as lilies (\\( y \\))'. Which inequality models this?", opts: ["\\( x \\ge 2y \\)", "\\( 2x \\ge y \\)", "\\( x \\le 2y \\)", "\\( x = 2y \\)"], ans: 0, explain: "'At least twice as many roses as lilies' means roses \\( \\ge 2 \\times \\) lilies, i.e. \\( x \\ge 2y \\). Writing \\( 2x \\ge y \\) is the common reversed-relationship error." },
+        { q: "Which statement about an objective function is TRUE?", opts: ["It is an expression to be maximised or minimised, with no inequality sign", "It must contain a \\( \\le \\) or \\( \\ge \\) sign", "It restricts the feasible region", "There can be several objective functions in one problem"], ans: 0, explain: "The objective function is the single quantity being optimised, written as an expression (e.g. \\( P = 8x + 12y \\)) with no inequality — that is what distinguishes it from a constraint." },
+        { q: "A minibus firm wants the 'greatest number of passengers', where \\( x \\) is small buses (8 seats) and \\( y \\) is large buses (16 seats). The objective is to maximise:", opts: ["\\( N = 8x + 16y \\)", "\\( N = x + y \\)", "\\( 8x + 16y \\le N \\)", "\\( N = 16x + 8y \\)"], ans: 0, explain: "Total passenger capacity is \\( 8x + 16y \\); maximise \\( N = 8x + 16y \\). \\( x + y \\) would only count the number of buses, not passengers." },
+        { q: "A student writes the profit £8 per sponge and £12 per fruit cake as \\( 8x + 12y \\le 100 \\). What is wrong?", opts: ["The objective function should have no inequality: it is \\( P = 8x + 12y \\)", "The coefficients should be swapped", "It should be \\( \\ge 100 \\)", "Nothing is wrong"], ans: 0, explain: "Profit is the objective to maximise, so it is written as \\( P = 8x + 12y \\), not as an inequality. Treating the objective as a constraint is a common modelling error." }
+    ];
+
+    const matchData = [
+        { term: "\"at least\" / \"minimum\" / \"no fewer than\"", def: "\\( \\ge \\)" },
+        { term: "\"at most\" / \"no more than\" / \"cannot exceed\"", def: "\\( \\le \\)" },
+        { term: "Each cake uses flour; 4200 g available", def: "\\( 200x + 300y \\le 4200 \\)" },
+        { term: "Maximise profit £8 per sponge, £12 per fruit", def: "\\( P = 8x + 12y \\)" },
+        { term: "Make at least 3 fruit cakes", def: "\\( y \\ge 3 \\)" },
+        { term: "You cannot make a negative number", def: "\\( x \\ge 0,\\ y \\ge 0 \\)" },
+        { term: "Objective function", def: "The quantity to be maximised or minimised" },
+        { term: "Constraint", def: "A limit written as a linear inequality" },
+        { term: "Total number of items produced", def: "\\( x + y \\)" },
+        { term: "Define the variables (first step)", def: "\"Let \\( x = \\) number of ...\"" },
+        { term: "At least twice as many roses \\( x \\) as lilies \\( y \\)", def: "\\( x \\ge 2y \\)" },
+        { term: "Toymaker: £28 per train, £60 per plane, maximise", def: "\\( P = 28x + 60y \\)" },
+        { term: "Simplify \\( 6x + 4y \\le 240 \\)", def: "\\( 3x + 2y \\le 120 \\)" },
+        { term: "1 kg of plastic available (grams used)", def: "right-hand side is \\( 1000 \\)" }
+    ];
+
+    // FIB: named ___B1___ blanks sit in PLAIN TEXT only (never inside \( \)); answer
+    // VALUES are plain words/numbers so server string-equality holds (§8.4 Rule 3).
+    const fibData = [
+        { display: "When modelling an LP problem you should always ___B1___ your variables first, for example 'let x = number of chairs'.", blanks: { B1: "define" } },
+        { display: "A constraint is a limit in the problem written as a linear ___B1___.", blanks: { B1: "inequality" } },
+        { display: "The phrase 'at least' translates to the ___B1___ sign, while 'no more than' translates to the ___B2___ sign.", blanks: { B1: "greater than or equal to", B2: "less than or equal to" } },
+        { display: "Because you cannot make a negative quantity, an LP model includes the ___B1___ constraints x is greater than or equal to 0 and y is greater than or equal to 0.", blanks: { B1: "non-negativity" } },
+        { display: "The ___B1___ function is the quantity, such as profit or cost, that you want to maximise or minimise.", blanks: { B1: "objective" } },
+        { display: "You can ___B1___ a constraint such as 6x + 4y is at most 240 by dividing every term by 2, giving 3x + 2y at most 120.", blanks: { B1: "simplify" } },
+        { display: "Profit of £28 per train and £60 per aeroplane gives the objective P = 28x + ___B1___ y, which is to be ___B2___.", blanks: { B1: "60", B2: "maximised" } },
+        { display: "Unlike a constraint, an objective function contains no ___B1___ sign.", blanks: { B1: "inequality" } }
+    ];
+
+    const fibWords = ["define", "inequality", "greater than or equal to", "less than or equal to", "non-negativity", "objective", "simplify", "60", "maximised", "constraint", "minimised", "equals", "draw", "8", "feasible"];
+
+    const tfData = [
+        { statement: "The phrase 'at least 10' is modelled by the inequality \\( x \\ge 10 \\).", answer: true, explanation: "'At least 10' means 10 or more, which is \\( x \\ge 10 \\)." },
+        { statement: "A resource limit such as 'no more than 500 g of material' uses a \\( \\ge \\) sign.", answer: false, explanation: "An upper limit uses \\( \\le \\): 'no more than 500 g' means the amount used is \\( \\le 500 \\)." },
+        { statement: "Non-negativity constraints \\( x \\ge 0,\\ y \\ge 0 \\) can safely be left out of a model.", answer: false, explanation: "They are needed because a real quantity cannot be negative — and they are easy marks that are commonly forgotten." },
+        { statement: "The objective function is the quantity that is to be maximised or minimised.", answer: true, explanation: "That is its definition (CG8): the goal expression, such as profit \\( P = 8x + 12y \\)." },
+        { statement: "An objective function must contain a \\( \\le \\) or \\( \\ge \\) sign.", answer: false, explanation: "An objective function is an expression with an equals sign and no inequality. Constraints carry the inequality signs." },
+        { statement: "Dividing the constraint \\( 4x + 6y \\le 24 \\) through by 2 gives \\( 2x + 3y \\le 12 \\).", answer: true, explanation: "Dividing every term by the positive number 2 keeps the \\( \\le \\) unchanged: \\( 2x + 3y \\le 12 \\)." },
+        { statement: "You should define your variables before writing any constraints.", answer: true, explanation: "Constraints and the objective are written in terms of the variables, so define them first or the inequalities cannot be read." },
+        { statement: "In a model, the profit expression \\( P = 8x + 12y \\) is a constraint.", answer: false, explanation: "That expression is the objective function (to be maximised), not a constraint. Constraints are the inequalities that limit the choice." }
+    ];
+
+    const miscData = [
+        { wrong: "Modelling 'you must produce at least 20 units' as \\( x \\le 20 \\).", correct: "'At least' means 20 or more, so it is \\( x \\ge 20 \\). A weak answer copies the number and guesses the sign; a strong answer reads the phrase — 'at least' \\( \\Rightarrow \\ge \\), 'at most' \\( \\Rightarrow \\le \\).", readCheck: { q: "'At least 20 units' becomes:", opts: ["\\( x \\ge 20 \\)", "\\( x \\le 20 \\)", "\\( x = 20 \\)", "\\( x < 20 \\)"], ans: 0, explain: "'At least 20' means 20 or more, so \\( x \\ge 20 \\)." } },
+        { wrong: "Writing the constraints but forgetting \\( x \\ge 0 \\) and \\( y \\ge 0 \\).", correct: "Non-negativity is part of the model — real quantities cannot be negative. A weak answer stops at the resource limits; a strong answer always adds \\( x \\ge 0,\\ y \\ge 0 \\) (they keep the feasible region in the first quadrant later).", readCheck: { q: "Which constraints are most often forgotten?", opts: ["The non-negativity constraints \\( x \\ge 0,\\ y \\ge 0 \\)", "The objective function", "The resource limits", "The units"], ans: 0, explain: "Non-negativity constraints are easy marks that students routinely leave out." } },
+        { wrong: "Writing the profit £5 per item A and £9 per item B as the constraint \\( 5x + 9y \\le 200 \\).", correct: "Profit is the objective to be maximised, so it is \\( P = 5x + 9y \\) with an equals sign — not an inequality. A weak answer confuses the goal with a limit; a strong answer keeps the objective separate from the constraints.", readCheck: { q: "The profit £5 per A, £9 per B should be written as:", opts: ["\\( P = 5x + 9y \\) (objective)", "\\( 5x + 9y \\le 200 \\)", "\\( 5x + 9y \\ge 0 \\)", "\\( x + y = 5 \\)"], ans: 0, explain: "Profit is the objective function \\( P = 5x + 9y \\), to be maximised — not a constraint." } },
+        { wrong: "Modelling 'at least twice as many chairs (\\( x \\)) as tables (\\( y \\))' as \\( 2x \\ge y \\).", correct: "Chairs are the bigger quantity: chairs \\( \\ge 2 \\times \\) tables, so \\( x \\ge 2y \\). A weak answer multiplies the wrong variable; a strong answer checks with numbers (4 chairs, 2 tables: \\( 4 \\ge 2\\times 2 \\) ✓).", readCheck: { q: "'At least twice as many chairs \\( x \\) as tables \\( y \\)' is:", opts: ["\\( x \\ge 2y \\)", "\\( 2x \\ge y \\)", "\\( x \\le 2y \\)", "\\( x = 2y \\)"], ans: 0, explain: "Chairs must be at least double the tables: \\( x \\ge 2y \\)." } },
+        { wrong: "Writing \\( 200x + 300y \\le 4.2 \\) when the flour available is 4.2 kg and each cake is measured in grams.", correct: "Convert units first: 4.2 kg \\( = 4200 \\) g, so \\( 200x + 300y \\le 4200 \\) (then simplify to \\( 2x + 3y \\le 42 \\)). A weak answer mixes grams and kilograms; a strong answer makes both sides the same unit before writing the inequality.", readCheck: { q: "Each cake uses grams of flour; 4.2 kg is available. The right-hand side should be:", opts: ["4200", "4.2", "42", "420"], ans: 0, explain: "4.2 kg = 4200 g, so both sides are in grams: \\( 200x + 300y \\le 4200 \\)." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "The modelling ladder: variables → constraints → objective", pills: ["define first", "then limits", "then goal"], content: `<p>Work a formulation question in this fixed order, and write each part down:</p><p><strong>1. Define variables</strong> — "let \\( x = \\) ..., \\( y = \\) ...". <strong>2. Constraints</strong> — one inequality per limit (resource \\( \\le \\), minimum \\( \\ge \\)), then the non-negativity pair \\( x \\ge 0,\\ y \\ge 0 \\). <strong>3. Objective</strong> — the profit/cost/total expression with '=', and state maximise or minimise.</p><p>Following the ladder every time stops you skipping the variable definitions or the non-negativity constraints — the two most common lost marks.</p>`, readCheck: { q: "What is the correct order of the modelling ladder?", opts: ["Define variables → constraints → objective", "Objective → variables → constraints", "Constraints → objective → variables", "Draw graph → define variables → objective"], ans: 0, explain: "Always: define the variables, then write the constraints (including non-negativity), then the objective function." } },
+        { type: "tip", title: "Read the phrase, then choose the sign", pills: ["at least = ≥", "at most = ≤"], content: `<p>The single most common formulation error is the wrong inequality direction. Anchor two phrases: <strong>"at least" / "minimum" / "no fewer than" \\( \\Rightarrow \\ge \\)</strong>, and <strong>"at most" / "no more than" / "cannot exceed" / "available" \\( \\Rightarrow \\le \\)</strong>.</p><p>If unsure, test with a number: does producing a large amount satisfy the sentence? "At least 5" is satisfied by 100, so large values are allowed \\( \\Rightarrow \\ge \\).</p>`, readCheck: { q: "'The kiln can be used for up to 8 hours' uses which sign?", opts: ["\\( \\le \\)", "\\( \\ge \\)", "\\( = \\)", "\\( > \\)"], ans: 0, explain: "'Up to 8 hours' is an upper limit, so \\( \\le 8 \\)." } },
+        { type: "tip", title: "Convert units and simplify before you draw", pills: ["match units", "divide through"], content: `<p>Two quick wins that make the graph in 4.3 far easier and protect accuracy marks:</p><p><strong>Match units first:</strong> if a resource is given in kg but items are in grams, convert (4.2 kg \\( = 4200 \\) g) so both sides agree. <strong>Then simplify:</strong> divide the inequality by any common factor (\\( 200x + 300y \\le 4200 \\to 2x + 3y \\le 42 \\)). Dividing by a positive number never changes the direction of the sign.</p>`, readCheck: { q: "Dividing \\( 200x + 300y \\le 4200 \\) by 100 gives:", opts: ["\\( 2x + 3y \\le 42 \\)", "\\( 2x + 3y \\ge 42 \\)", "\\( 200x + 300y \\le 42 \\)", "\\( 2x + 3y \\le 4200 \\)"], ans: 0, explain: "Divide every term by 100: \\( 2x + 3y \\le 42 \\); the \\( \\le \\) is unchanged because 100 is positive." } }
+    ];
+
+    const flashcards = [
+        { term: "Linear programming (LP)", def: "Finding the best (max/min) outcome subject to linear constraints." },
+        { term: "Decision variables", def: "The quantities you choose, e.g. \\( x = \\) chairs, \\( y = \\) tables." },
+        { term: "Constraint", def: "A limit in the problem written as a linear inequality." },
+        { term: "Objective function", def: "The quantity to be maximised or minimised, e.g. \\( P = 8x + 12y \\)." },
+        { term: "Non-negativity constraints", def: "\\( x \\ge 0,\\ y \\ge 0 \\): quantities cannot be negative." },
+        { term: "Feasible region", def: "All points satisfying every constraint (found in lesson 4.3)." },
+        { term: "\"at least\" / \"minimum\"", def: "Translates to \\( \\ge \\)." },
+        { term: "\"at most\" / \"no more than\"", def: "Translates to \\( \\le \\)." },
+        { term: "\"cannot exceed\" / \"up to\"", def: "Translates to \\( \\le \\)." },
+        { term: "\"no fewer than\"", def: "Translates to \\( \\ge \\)." },
+        { term: "Simplifying a constraint", def: "Divide through by a common factor; a positive divisor keeps the sign." },
+        { term: "Maximise vs minimise", def: "Wording ('greatest profit' vs 'least cost') tells you which to do." },
+        { term: "First modelling step", def: "Define your variables clearly before writing anything else." },
+        { term: "Objective vs constraint", def: "Objective has '='; a constraint has \\( \\le \\) or \\( \\ge \\)." },
+        { term: "Matching units", def: "Convert (e.g. kg to g) so both sides of an inequality agree." },
+        { term: "Total-count objective", def: "To maximise the number made: \\( N = x + y \\)." }
+    ];
+
+    // No standalone current-spec exam question for CG6/CG8 formulation — it is examined
+    // only as the opening parts of a WHOLE LP question, authored on lesson 4.3 to keep
+    // each real question on one page (plan §6 routing; taxonomy §2.7).
     const examQuestions = [];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />

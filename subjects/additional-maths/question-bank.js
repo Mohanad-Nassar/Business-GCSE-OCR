@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-17T21:19:22Z · 622 questions
+// Generated: 2026-07-17T21:38:28Z · 803 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -684,16 +684,16 @@ window.QUESTION_BANK = [
   "question": "To simplify \\( a^m \\times a^n \\) you ___B1___ the indices, and to simplify \\( a^m \\div a^n \\) you ___B2___ them.",
   "blankOptions": {
    "B1": [
-    "all",
-    "reciprocal",
-    "1",
-    "add"
+    "power",
+    "coefficient",
+    "add",
+    "index"
    ],
    "B2": [
-    "unknown",
-    "power",
-    "subtract",
-    "identity"
+    "all",
+    "multiply",
+    "divide",
+    "subtract"
    ]
   },
   "key": {
@@ -713,9 +713,9 @@ window.QUESTION_BANK = [
   "question": "The rule \\( (a^m)^n \\) tells you to ___B1___ the two indices together.",
   "blankOptions": {
    "B1": [
-    "all",
-    "add",
-    "unknown",
+    "power",
+    "nth",
+    "identity",
     "multiply"
    ]
   },
@@ -735,10 +735,10 @@ window.QUESTION_BANK = [
   "question": "For any non-zero base, \\( a^0 \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "unknown",
     "1",
-    "variable",
-    "all"
+    "solve",
+    "reciprocal",
+    "add"
    ]
   },
   "key": {
@@ -757,10 +757,10 @@ window.QUESTION_BANK = [
   "question": "A negative index means take the ___B1___, so \\( a^{-n} \\) becomes a fraction.",
   "blankOptions": {
    "B1": [
+    "1",
+    "subtract",
     "reciprocal",
-    "variable",
-    "all",
-    "1"
+    "variable"
    ]
   },
   "key": {
@@ -779,16 +779,16 @@ window.QUESTION_BANK = [
   "question": "In the term \\( 4x^3 \\), the number \\( 4 \\) is the ___B1___ and the number \\( 3 \\) is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "unknown",
-    "1",
-    "power",
+    "0",
+    "term",
+    "add",
     "coefficient"
    ],
    "B2": [
     "index",
-    "identity",
-    "term",
-    "subtract"
+    "1",
+    "unknown",
+    "reciprocal"
    ]
   },
   "key": {
@@ -808,16 +808,16 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) means the statement is an ___B1___, which is true for ___B2___ values of the variable.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
-    "index",
     "identity",
-    "term"
+    "add",
+    "reciprocal",
+    "multiply"
    ],
    "B2": [
-    "multiply",
-    "term",
-    "1",
-    "all"
+    "variable",
+    "all",
+    "coefficient",
+    "divide"
    ]
   },
   "key": {
@@ -837,10 +837,10 @@ window.QUESTION_BANK = [
   "question": "In \\( a^{1/n} \\) the fraction \\( \\frac{1}{n} \\) tells you to take the ___B1___ root of \\( a \\).",
   "blankOptions": {
    "B1": [
-    "unknown",
-    "solve",
     "nth",
-    "reciprocal"
+    "1",
+    "0",
+    "unknown"
    ]
   },
   "key": {
@@ -859,16 +859,16 @@ window.QUESTION_BANK = [
   "question": "In an equation you solve to find the value of the ___B1___, whereas in an expression there is no equals sign to ___B2___.",
   "blankOptions": {
    "B1": [
-    "nth",
-    "divide",
+    "index",
     "unknown",
-    "term"
+    "term",
+    "constant"
    ],
    "B2": [
-    "nth",
-    "coefficient",
-    "variable",
-    "solve"
+    "solve",
+    "all",
+    "power",
+    "variable"
    ]
   },
   "key": {
@@ -1835,10 +1835,10 @@ window.QUESTION_BANK = [
   "question": "To simplify a surd, take out the largest perfect ___B1___ factor.",
   "blankOptions": {
    "B1": [
-    "cube",
+    "(x-1)(x+1)",
     "square",
-    "conjugate",
-    "reciprocal"
+    "cube",
+    "expand"
    ]
   },
   "key": {
@@ -1857,10 +1857,10 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sqrt{12} = 2\\sqrt{3} \\) we used the fact that \\( 12 = 4 \\times 3 \\) and \\( \\sqrt{4} = \\) ___B1___.",
   "blankOptions": {
    "B1": [
-    "3",
-    "unlike",
+    "square",
+    "conjugate",
     "2",
-    "cube"
+    "1"
    ]
   },
   "key": {
@@ -1879,10 +1879,10 @@ window.QUESTION_BANK = [
   "question": "You can only add or subtract surds when they are ___B1___ surds (the same number under the root).",
   "blankOptions": {
    "B1": [
-    "reciprocal",
+    "cube",
     "conjugate",
-    "unlike",
-    "like"
+    "like",
+    "factorise"
    ]
   },
   "key": {
@@ -1901,10 +1901,10 @@ window.QUESTION_BANK = [
   "question": "To rationalise \\( \\frac{1}{2+\\sqrt{3}} \\) you multiply by its ___B1___, which is \\( 2-\\sqrt{3} \\).",
   "blankOptions": {
    "B1": [
-    "cube",
     "conjugate",
     "3",
-    "exact"
+    "cube",
+    "square"
    ]
   },
   "key": {
@@ -1923,9 +1923,9 @@ window.QUESTION_BANK = [
   "question": "Multiplying \\( (2+\\sqrt{3})(2-\\sqrt{3}) \\) gives the whole number ___B1___.",
   "blankOptions": {
    "B1": [
+    "reciprocal",
+    "unlike",
     "1",
-    "expand",
-    "2",
     "3"
    ]
   },
@@ -1945,9 +1945,9 @@ window.QUESTION_BANK = [
   "question": "To simplify an algebraic fraction you first ___B1___ the top and bottom, then cancel common factors.",
   "blankOptions": {
    "B1": [
-    "2",
-    "(x-1)(x+1)",
+    "3",
     "expand",
+    "conjugate",
     "factorise"
    ]
   },
@@ -1967,10 +1967,10 @@ window.QUESTION_BANK = [
   "question": "To add \\( \\frac{1}{x-1} \\) and \\( \\frac{2}{x+1} \\) you write them over the common denominator ___B1___.",
   "blankOptions": {
    "B1": [
-    "calculator",
+    "like",
+    "unlike",
     "(x-1)(x+1)",
-    "2",
-    "3"
+    "1"
    ]
   },
   "key": {
@@ -1989,10 +1989,10 @@ window.QUESTION_BANK = [
   "question": "The instruction 'show detailed reasoning' means a ___B1___ answer with no working scores zero.",
   "blankOptions": {
    "B1": [
-    "conjugate",
-    "cube",
-    "calculator",
-    "(x-1)(x+1)"
+    "unlike",
+    "2",
+    "like",
+    "calculator"
    ]
   },
   "key": {
@@ -2878,16 +2878,16 @@ window.QUESTION_BANK = [
   "question": "In the quadratic formula \\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\), the term before the \\( \\pm \\) sign is ___B1___ and the denominator is ___B2___.",
   "blankOptions": {
    "B1": [
-    "square",
-    "-b",
+    "discriminant",
+    "4ac",
     "negative",
-    "double"
+    "-b"
    ],
    "B2": [
-    "add",
     "square",
-    "both",
-    "2a"
+    "2a",
+    "half",
+    "20"
    ]
   },
   "key": {
@@ -2907,16 +2907,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + bx \\), take ___B1___ the coefficient of \\( x \\) and then ___B2___ it.",
   "blankOptions": {
    "B1": [
-    "double",
-    "discriminant",
+    "add",
+    "4ac",
     "half",
-    "3"
+    "-b"
    ],
    "B2": [
-    "square",
-    "4ac",
     "negative",
-    "-p"
+    "square",
+    "-b",
+    "3"
    ]
   },
   "key": {
@@ -2936,15 +2936,15 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + 6x - 11 \\), the number inside the bracket \\( (x + a)^2 \\) is ___B1___ and the number subtracted at the end is ___B2___.",
   "blankOptions": {
    "B1": [
-    "exact",
+    "both",
+    "-b",
     "3",
-    "half",
-    "q"
+    "add"
    ],
    "B2": [
-    "square",
-    "half",
-    "q",
+    "discriminant",
+    "add",
+    "both",
     "20"
    ]
   },
@@ -2965,10 +2965,10 @@ window.QUESTION_BANK = [
   "question": "The expression \\( b^2 - 4ac \\) is called the ___B1___.",
   "blankOptions": {
    "B1": [
-    "q",
-    "double",
     "discriminant",
-    "both"
+    "2a",
+    "exact",
+    "-b"
    ]
   },
   "key": {
@@ -2987,10 +2987,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, a quadratic has no real roots.",
   "blankOptions": {
    "B1": [
-    "-b",
-    "2a",
     "negative",
-    "double"
+    "3",
+    "exact",
+    "discriminant"
    ]
   },
   "key": {
@@ -3009,14 +3009,14 @@ window.QUESTION_BANK = [
   "question": "For \\( a(x+p)^2 + q \\) with \\( a > 0 \\), the minimum value is ___B1___ and it occurs when \\( x \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "q",
-    "half",
-    "negative",
-    "20"
+    "3",
+    "-b",
+    "20",
+    "q"
    ],
    "B2": [
-    "half",
-    "exact",
+    "3",
+    "20",
     "double",
     "-p"
    ]
@@ -3039,9 +3039,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "exact",
-    "negative",
-    "both",
-    "-b"
+    "square",
+    "2a",
+    "both"
    ]
   },
   "key": {
@@ -3060,10 +3060,10 @@ window.QUESTION_BANK = [
   "question": "A command word telling you to leave surds rather than round is ___B1___.",
   "blankOptions": {
    "B1": [
-    "discriminant",
+    "add",
+    "half",
     "exact",
-    "-p",
-    "3"
+    "q"
    ]
   },
   "key": {
@@ -4021,10 +4021,10 @@ window.QUESTION_BANK = [
   "question": "When you multiply or divide an inequality by a negative number you must ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "add",
-    "keeps",
-    "or",
-    "reverse"
+    "between",
+    "reverse",
+    "flip",
+    "add"
    ]
   },
   "key": {
@@ -4044,9 +4044,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "keeps",
-    "between",
-    "3",
-    "zero"
+    "and",
+    "closed",
+    "reverse"
    ]
   },
   "key": {
@@ -4065,10 +4065,10 @@ window.QUESTION_BANK = [
   "question": "To solve a quadratic inequality, first rearrange it so that one side equals ___B1___, then factorise.",
   "blankOptions": {
    "B1": [
-    "inside",
-    "3",
     "zero",
-    "outside"
+    "or",
+    "outside",
+    "inside"
    ]
   },
   "key": {
@@ -4087,10 +4087,10 @@ window.QUESTION_BANK = [
   "question": "The quadratic \\( x^2 - x - 6 \\) factorises to \\( (x-3)(x+2) \\), so its critical values are \\( 3 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "between",
-    "reverse",
+    "add",
+    "closed",
     "-2",
-    "flip"
+    "and"
    ]
   },
   "key": {
@@ -4109,10 +4109,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c < 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
-    "between",
-    "zero",
     "or",
-    "3"
+    "add",
+    "between",
+    "outside"
    ]
   },
   "key": {
@@ -4131,10 +4131,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c > 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
+    "inside",
     "outside",
-    "or",
-    "add",
-    "inside"
+    "flip",
+    "zero"
    ]
   },
   "key": {
@@ -4154,9 +4154,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "open",
-    "keeps",
-    "flip",
-    "inside"
+    "inside",
+    "closed",
+    "keeps"
    ]
   },
   "key": {
@@ -4176,9 +4176,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "reverse",
-    "3",
-    "or",
-    "and"
+    "zero",
+    "closed",
+    "or"
    ]
   },
   "key": {
@@ -5048,10 +5048,10 @@ window.QUESTION_BANK = [
   "question": "A polynomial written with its powers going from highest to lowest is in ___B1___ order.",
   "blankOptions": {
    "B1": [
-    "constant",
+    "14",
     "descending",
-    "coefficient",
-    "remainder"
+    "dividend",
+    "degree"
    ]
   },
   "key": {
@@ -5071,15 +5071,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "degree",
+    "factor",
     "ascending",
-    "placeholder",
-    "constant"
+    "descending"
    ],
    "B2": [
     "coefficient",
-    "constant",
-    "term",
-    "zero"
+    "descending",
+    "dividend",
+    "ascending"
    ]
   },
   "key": {
@@ -5099,10 +5099,10 @@ window.QUESTION_BANK = [
   "question": "To subtract one polynomial from another you must change the ___B1___ of every term in the second bracket.",
   "blankOptions": {
    "B1": [
-    "sign",
-    "term",
-    "degree",
-    "coefficient"
+    "quotient",
+    "placeholder",
+    "factor",
+    "sign"
    ]
   },
   "key": {
@@ -5122,15 +5122,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "quotient",
-    "degree",
-    "descending",
-    "ascending"
+    "term",
+    "zero",
+    "constant"
    ],
    "B2": [
-    "zero",
-    "14",
+    "coefficient",
+    "placeholder",
     "remainder",
-    "placeholder"
+    "constant"
    ]
   },
   "key": {
@@ -5151,9 +5151,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "14",
-    "factor",
-    "degree",
-    "coefficient"
+    "dividend",
+    "descending",
+    "factor"
    ]
   },
   "key": {
@@ -5172,10 +5172,10 @@ window.QUESTION_BANK = [
   "question": "When a polynomial is divided by \\( x - a \\) and the remainder is ___B1___, then \\( x - a \\) is a factor.",
   "blankOptions": {
    "B1": [
-    "constant",
+    "sign",
     "quotient",
     "zero",
-    "remainder"
+    "term"
    ]
   },
   "key": {
@@ -5194,10 +5194,10 @@ window.QUESTION_BANK = [
   "question": "When dividing, insert a ___B1___ (a term with coefficient 0) for any missing power so the columns stay lined up.",
   "blankOptions": {
    "B1": [
-    "placeholder",
     "sign",
-    "ascending",
-    "term"
+    "placeholder",
+    "factor",
+    "ascending"
    ]
   },
   "key": {
@@ -6101,10 +6101,10 @@ window.QUESTION_BANK = [
   "question": "The factor theorem states that if \\( \\text{f}(a) \\) equals ___B1___, then \\( (x - a) \\) is a factor of \\( \\text{f}(x) \\).",
   "blankOptions": {
    "B1": [
-    "1",
-    "is",
+    "factor",
+    "a",
     "0",
-    "a"
+    "2"
    ]
   },
   "key": {
@@ -6124,9 +6124,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "0",
-    "is",
-    "2",
-    "a"
+    "3/2",
+    "multiples",
+    "linear"
    ]
   },
   "key": {
@@ -6145,10 +6145,10 @@ window.QUESTION_BANK = [
   "question": "To find a whole-number factor of a cubic, test the ___B1___ of the constant term.",
   "blankOptions": {
    "B1": [
-    "3/2",
     "1/2",
     "factors",
-    "factor"
+    "a",
+    "quadratic"
    ]
   },
   "key": {
@@ -6167,10 +6167,10 @@ window.QUESTION_BANK = [
   "question": "To test whether \\( (2x - 1) \\) is a factor of \\( \\text{f}(x) \\), work out f of ___B1___.",
   "blankOptions": {
    "B1": [
-    "1/2",
-    "3/2",
+    "not",
     "0",
-    "factor"
+    "multiples",
+    "1/2"
    ]
   },
   "key": {
@@ -6189,16 +6189,16 @@ window.QUESTION_BANK = [
   "question": "The factor theorem finds ___B1___ factors of a polynomial; the remainder theorem is ___B2___ on this specification.",
   "blankOptions": {
    "B1": [
-    "a",
-    "factors",
-    "linear",
-    "factor"
+    "multiples",
+    "root",
+    "1/2",
+    "linear"
    ],
    "B2": [
-    "not",
-    "a",
+    "2",
     "root",
-    "multiples"
+    "1",
+    "not"
    ]
   },
   "key": {
@@ -6218,10 +6218,10 @@ window.QUESTION_BANK = [
   "question": "After factorising, you solve \\( \\text{f}(x) = 0 \\) by setting each ___B1___ equal to zero.",
   "blankOptions": {
    "B1": [
-    "is",
-    "a",
-    "factor",
-    "root"
+    "1",
+    "2",
+    "3/2",
+    "factor"
    ]
   },
   "key": {
@@ -6240,10 +6240,10 @@ window.QUESTION_BANK = [
   "question": "For \\( 2x^3 - x^2 - 7x + 6 \\), testing gives \\( \\text{f}(1) = 0 \\), so (x − ___B1___) is a factor.",
   "blankOptions": {
    "B1": [
-    "2",
+    "3/2",
+    "linear",
     "1",
-    "0",
-    "root"
+    "factors"
    ]
   },
   "key": {
@@ -7165,10 +7165,10 @@ window.QUESTION_BANK = [
   "question": "The first step in modelling a worded problem is to define the ___B1___ and state what it represents.",
   "blankOptions": {
    "B1": [
+    "units",
+    "minus",
     "unknown",
-    "16",
-    "variable",
-    "units"
+    "reject"
    ]
   },
   "key": {
@@ -7187,10 +7187,10 @@ window.QUESTION_BANK = [
   "question": "When a quadratic equation for a length gives a negative root, you must ___B1___ it, because a length cannot be negative.",
   "blankOptions": {
    "B1": [
-    "unknown",
-    "1",
-    "units",
-    "reject"
+    "reject",
+    "n+3",
+    "minus",
+    "plus"
    ]
   },
   "key": {
@@ -7209,10 +7209,10 @@ window.QUESTION_BANK = [
   "question": "To solve one linear and one quadratic equation together, use the method of ___B1___.",
   "blankOptions": {
    "B1": [
-    "variable",
+    "2n",
     "n+3",
     "substitution",
-    "units"
+    "unknown"
    ]
   },
   "key": {
@@ -7231,10 +7231,10 @@ window.QUESTION_BANK = [
   "question": "In the boat problem the two roots were 1 and \\( -16 \\); the current speed must be positive, so the answer is ___B1___ km/h.",
   "blankOptions": {
    "B1": [
-    "n+3",
-    "1",
+    "16",
+    "units",
     "elimination",
-    "units"
+    "1"
    ]
   },
   "key": {
@@ -7253,10 +7253,10 @@ window.QUESTION_BANK = [
   "question": "A final answer in a real context should always be stated with its ___B1___.",
   "blankOptions": {
    "B1": [
-    "elimination",
-    "accept",
-    "minus",
-    "units"
+    "1",
+    "units",
+    "unknown",
+    "variable"
    ]
   },
   "key": {
@@ -7275,10 +7275,10 @@ window.QUESTION_BANK = [
   "question": "The phrase \"5 more than a number \\( x \\)\" translates to \\( x \\) ___B1___ 5.",
   "blankOptions": {
    "B1": [
-    "unknown",
-    "reject",
     "units",
-    "plus"
+    "plus",
+    "n+2",
+    "16"
    ]
   },
   "key": {
@@ -7297,10 +7297,10 @@ window.QUESTION_BANK = [
   "question": "Three consecutive integers can be written as \\( n \\), \\( n+1 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "variable",
-    "units",
     "n+2",
-    "minus"
+    "n+3",
+    "elimination",
+    "reject"
    ]
   },
   "key": {
@@ -8151,10 +8151,10 @@ window.QUESTION_BANK = [
   "question": "A rule that gives each term of a sequence from earlier terms is called a ___B1___ relationship.",
   "blankOptions": {
    "B1": [
+    "recurrence",
+    "added",
     "7",
-    "multiplied",
-    "subtracted",
-    "recurrence"
+    "geometric"
    ]
   },
   "key": {
@@ -8173,10 +8173,10 @@ window.QUESTION_BANK = [
   "question": "As well as the rule, you need a ___B1___ value before you can generate the sequence.",
   "blankOptions": {
    "B1": [
-    "two",
+    "one",
     "starting",
-    "0.85",
-    "geometric"
+    "multiplied",
+    "0.85"
    ]
   },
   "key": {
@@ -8195,10 +8195,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = x_n + a \\) the fixed number \\( a \\) is ___B1___ to each term, giving an arithmetic sequence.",
   "blankOptions": {
    "B1": [
-    "starting",
-    "1.3",
     "0.15",
-    "added"
+    "multiplied",
+    "added",
+    "geometric"
    ]
   },
   "key": {
@@ -8217,10 +8217,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = a x_n \\) each term is ___B1___ by \\( a \\), giving a geometric sequence.",
   "blankOptions": {
    "B1": [
-    "7",
-    "1.3",
+    "added",
     "multiplied",
-    "11"
+    "1.03",
+    "1.3"
    ]
   },
   "key": {
@@ -8239,10 +8239,10 @@ window.QUESTION_BANK = [
   "question": "A second-order rule such as \\( x_{n+2} = x_{n+1} + x_n \\) needs ___B1___ starting values.",
   "blankOptions": {
    "B1": [
-    "11",
-    "subtracted",
     "two",
-    "0.15"
+    "one",
+    "0.85",
+    "starting"
    ]
   },
   "key": {
@@ -8261,9 +8261,9 @@ window.QUESTION_BANK = [
   "question": "Compound interest of 3% per year gives \\( x_{n+1} = k x_n \\) where the multiplier \\( k \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "one",
-    "starting",
-    "divided",
+    "subtracted",
+    "0.15",
+    "two",
     "1.03"
    ]
   },
@@ -8284,8 +8284,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "0.85",
-    "geometric",
-    "one",
+    "1.3",
+    "starting",
     "1.03"
    ]
   },
@@ -8305,16 +8305,16 @@ window.QUESTION_BANK = [
   "question": "For \\( x_{n+1} = x_n + 4 \\) with \\( x_1 = 3 \\), the second term is ___B1___ and the third term is ___B2___.",
   "blankOptions": {
    "B1": [
-    "0.85",
+    "one",
     "7",
-    "multiplied",
-    "added"
+    "0.15",
+    "1.3"
    ],
    "B2": [
     "1.03",
-    "subtracted",
     "geometric",
-    "11"
+    "11",
+    "0.15"
    ]
   },
   "key": {
@@ -9204,9 +9204,9 @@ window.QUESTION_BANK = [
   "question": "The distance between two points comes from ___B1___ theorem, taking the square root of the sum of the squared gaps.",
   "blankOptions": {
    "B1": [
-    "y",
+    "intercept",
+    "gradient",
     "-1",
-    "reciprocal",
     "Pythagoras"
    ]
   },
@@ -9226,10 +9226,10 @@ window.QUESTION_BANK = [
   "question": "To find the midpoint you ___B1___ the two \\( x \\)-coordinates and do the same to the \\( y \\)-coordinates.",
   "blankOptions": {
    "B1": [
-    "average",
-    "x",
-    "1",
-    "-1"
+    "parallel",
+    "subtracting",
+    "point-gradient",
+    "average"
    ]
   },
   "key": {
@@ -9249,9 +9249,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "y",
+    "reciprocal",
     "equal",
-    "intercept",
-    "Pythagoras"
+    "gradient"
    ]
   },
   "key": {
@@ -9270,9 +9270,9 @@ window.QUESTION_BANK = [
   "question": "For two perpendicular lines the product of their gradients is ___B1___.",
   "blankOptions": {
    "B1": [
-    "-1",
-    "parallel",
     "gradient",
+    "y",
+    "-1",
     "1"
    ]
   },
@@ -9292,15 +9292,15 @@ window.QUESTION_BANK = [
   "question": "The perpendicular bisector of a segment passes through its ___B1___ and has a gradient equal to the ___B2___ of the segment's gradient.",
   "blankOptions": {
    "B1": [
-    "average",
+    "point-gradient",
+    "equal",
     "midpoint",
-    "-1",
-    "intercept"
+    "reciprocal"
    ],
    "B2": [
     "reciprocal",
-    "slope",
-    "point-gradient",
+    "x",
+    "parallel",
     "negative reciprocal"
    ]
   },
@@ -9321,16 +9321,16 @@ window.QUESTION_BANK = [
   "question": "In the equation \\( y = mx + c \\), the letter \\( m \\) is the ___B1___ and \\( c \\) is the \\( y \\)-___B2___.",
   "blankOptions": {
    "B1": [
-    "parallel",
+    "reciprocal",
+    "subtracting",
     "gradient",
-    "y",
-    "x"
+    "Pythagoras"
    ],
    "B2": [
-    "midpoint",
-    "y",
+    "intercept",
+    "Pythagoras",
     "equal",
-    "intercept"
+    "y"
    ]
   },
   "key": {
@@ -9350,10 +9350,10 @@ window.QUESTION_BANK = [
   "question": "The gradient of a line is the change in \\( y \\) divided by the change in ___B1___.",
   "blankOptions": {
    "B1": [
-    "-1",
+    "intercept",
+    "gradient",
     "x",
-    "equal",
-    "point-gradient"
+    "midpoint"
    ]
   },
   "key": {
@@ -9372,10 +9372,10 @@ window.QUESTION_BANK = [
   "question": "The form \\( y - y_1 = m(x - x_1) \\) is called the ___B1___ form of a line.",
   "blankOptions": {
    "B1": [
-    "point-gradient",
     "gradient",
+    "1",
     "midpoint",
-    "slope"
+    "point-gradient"
    ]
   },
   "key": {
@@ -10409,16 +10409,16 @@ window.QUESTION_BANK = [
   "question": "The general equation of a circle with centre \\( (a,\\ b) \\) and radius \\( r \\) is \\( (x-a)^2 + (y-b)^2 = r^2 \\). For \\( (x-3)^2 + (y+2)^2 = 25 \\), the centre is ___B1___ and the radius is ___B2___.",
   "blankOptions": {
    "B1": [
+    "negative",
+    "factorise",
     "(3, -2)",
-    "midpoint",
-    "quadratic",
-    "25"
+    "reciprocal"
    ],
    "B2": [
-    "5",
-    "factorise",
+    "parallel",
+    "quadratic",
     "double",
-    "quadratic"
+    "5"
    ]
   },
   "key": {
@@ -10438,10 +10438,10 @@ window.QUESTION_BANK = [
   "question": "To find the centre and radius from the expanded form \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\), you complete the ___B1___ in \\( x \\) and in \\( y \\) separately.",
   "blankOptions": {
    "B1": [
-    "square",
-    "double",
+    "perpendicular",
     "zero",
-    "normal"
+    "gradient",
+    "square"
    ]
   },
   "key": {
@@ -10460,16 +10460,16 @@ window.QUESTION_BANK = [
   "question": "At the point of contact, the radius is ___B1___ to the tangent, so the tangent gradient is the ___B2___ of the radius gradient.",
   "blankOptions": {
    "B1": [
-    "25",
-    "(-3, 2)",
     "zero",
-    "perpendicular"
+    "factorise",
+    "perpendicular",
+    "linear"
    ],
    "B2": [
-    "square",
-    "normal",
-    "negative reciprocal",
-    "zero"
+    "linear",
+    "quadratic",
+    "factorise",
+    "negative reciprocal"
    ]
   },
   "key": {
@@ -10489,10 +10489,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ to a circle at a point always passes through the centre of the circle.",
   "blankOptions": {
    "B1": [
-    "5",
-    "zero",
-    "gradient",
-    "normal"
+    "perpendicular",
+    "square",
+    "normal",
+    "(3, -2)"
    ]
   },
   "key": {
@@ -10511,16 +10511,16 @@ window.QUESTION_BANK = [
   "question": "To test where a line meets a circle, ___B1___ the line into the circle equation to obtain a ___B2___ equation.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
-    "negative reciprocal",
-    "substitute",
-    "half"
+    "tangent",
+    "negative",
+    "midpoint",
+    "substitute"
    ],
    "B2": [
-    "parallel",
-    "factorise",
-    "linear",
-    "quadratic"
+    "negative",
+    "reciprocal",
+    "quadratic",
+    "25"
    ]
   },
   "key": {
@@ -10540,10 +10540,10 @@ window.QUESTION_BANK = [
   "question": "A line is a tangent to a circle exactly when the discriminant of that quadratic equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "zero",
     "perpendicular",
-    "reciprocal",
-    "positive"
+    "(3, -2)",
+    "square",
+    "zero"
    ]
   },
   "key": {
@@ -10562,10 +10562,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, the line misses the circle completely.",
   "blankOptions": {
    "B1": [
+    "reciprocal",
+    "5",
     "negative",
-    "quadratic",
-    "gradient",
-    "negative reciprocal"
+    "parallel"
    ]
   },
   "key": {
@@ -10584,16 +10584,16 @@ window.QUESTION_BANK = [
   "question": "Given the two ends of a diameter, the centre is the ___B1___ of the endpoints and the radius is ___B2___ the diameter.",
   "blankOptions": {
    "B1": [
+    "linear",
     "double",
     "midpoint",
-    "negative",
-    "substitute"
+    "gradient"
    ],
    "B2": [
+    "normal",
+    "(3, -2)",
     "half",
-    "negative reciprocal",
-    "quadratic",
-    "parallel"
+    "substitute"
    ]
   },
   "key": {
@@ -11522,16 +11522,16 @@ window.QUESTION_BANK = [
   "question": "A graph drawn with only its main features, not to scale, is called a ___B1___; an accurate one worked out on a grid is a ___B2___.",
   "blankOptions": {
    "B1": [
+    "upwards",
+    "roots",
     "sketch",
-    "k",
-    "0",
-    "cross"
+    "1"
    ],
    "B2": [
-    "roots",
+    "180",
     "plot",
-    "draw",
-    "downwards"
+    "2",
+    "0"
    ]
   },
   "key": {
@@ -11552,15 +11552,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "touch",
-    "3",
     "0",
-    "180"
+    "draw",
+    "cross"
    ],
    "B2": [
-    "3",
-    "cross",
-    "2",
-    "k"
+    "k",
+    "parabola",
+    "downwards",
+    "cross"
    ]
   },
   "key": {
@@ -11580,16 +11580,16 @@ window.QUESTION_BANK = [
   "question": "A quadratic graph has the shape called a ___B1___; when the \\( x^2 \\) coefficient is positive it opens ___B2___.",
   "blankOptions": {
    "B1": [
-    "draw",
+    "sketch",
     "360",
     "parabola",
-    "1"
+    "3"
    ],
    "B2": [
     "plot",
-    "roots",
-    "upwards",
-    "k"
+    "360",
+    "180",
+    "upwards"
    ]
   },
   "key": {
@@ -11609,16 +11609,16 @@ window.QUESTION_BANK = [
   "question": "The graphs of \\( y = \\sin x \\) and \\( y = \\cos x \\) both repeat every ___B1___ degrees and have amplitude ___B2___.",
   "blankOptions": {
    "B1": [
+    "2",
     "360",
-    "touch",
-    "plot",
-    "sketch"
+    "roots",
+    "0"
    ],
    "B2": [
-    "roots",
+    "downwards",
+    "upwards",
     "1",
-    "k",
-    "touch"
+    "draw"
    ]
   },
   "key": {
@@ -11640,13 +11640,13 @@ window.QUESTION_BANK = [
    "B1": [
     "cross",
     "0",
-    "180",
-    "plot"
+    "downwards",
+    "upwards"
    ],
    "B2": [
     "cross",
     "360",
-    "2",
+    "3",
     "roots"
    ]
   },
@@ -11667,16 +11667,16 @@ window.QUESTION_BANK = [
   "question": "The cubic \\( y = (x-1)(x+2)(x-4) \\) has ___B1___ real roots; a repeated factor makes the curve ___B2___ the \\( x \\)-axis instead of crossing it.",
   "blankOptions": {
    "B1": [
-    "cross",
     "3",
-    "plot",
-    "draw"
+    "k",
+    "2",
+    "180"
    ],
    "B2": [
+    "180",
+    "roots",
     "touch",
-    "upwards",
-    "downwards",
-    "1"
+    "parabola"
    ]
   },
   "key": {
@@ -11698,8 +11698,8 @@ window.QUESTION_BANK = [
    "B1": [
     "360",
     "180",
-    "0",
-    "3"
+    "1",
+    "draw"
    ]
   },
   "key": {
@@ -11972,6 +11972,3480 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 1,
    "explain": "“Command word 'plot'” means: Accurate points on a grid, joined smoothly"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:exam:83bc2000",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "10 (a)",
+  "question": "<p>On the grid, indicate the region for which the following inequalities hold. You should shade the region that is <strong>not</strong> satisfied by the inequalities.</p>\n            <p>\\[ y \\ge x + 1 \\qquad x \\ge 1 \\qquad x + 2y \\le 11 \\]</p>",
+  "caseStudy": "<p><strong>OCR June 2023, Question 10.</strong> Work on the grid below, which has \\( x \\) from \\( 0 \\) to \\( 11 \\) and \\( y \\) from \\( 0 \\) to \\( 10 \\). Shade the region that is <strong>not</strong> satisfied by the inequalities, so that the required (feasible) region is left clear.</p>\n        <svg viewBox=\"0 0 470 320\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x-axis from 0 to 11 and y-axis from 0 to 10\">\n          <rect x=\"40\" y=\"30\" width=\"400\" height=\"260\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.5\"/>\n          <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.2\">\n            <line x1=\"76\" y1=\"30\" x2=\"76\" y2=\"290\"/><line x1=\"113\" y1=\"30\" x2=\"113\" y2=\"290\"/><line x1=\"149\" y1=\"30\" x2=\"149\" y2=\"290\"/><line x1=\"185\" y1=\"30\" x2=\"185\" y2=\"290\"/><line x1=\"222\" y1=\"30\" x2=\"222\" y2=\"290\"/><line x1=\"258\" y1=\"30\" x2=\"258\" y2=\"290\"/><line x1=\"295\" y1=\"30\" x2=\"295\" y2=\"290\"/><line x1=\"331\" y1=\"30\" x2=\"331\" y2=\"290\"/><line x1=\"367\" y1=\"30\" x2=\"367\" y2=\"290\"/><line x1=\"404\" y1=\"30\" x2=\"404\" y2=\"290\"/>\n            <line x1=\"40\" y1=\"264\" x2=\"440\" y2=\"264\"/><line x1=\"40\" y1=\"238\" x2=\"440\" y2=\"238\"/><line x1=\"40\" y1=\"212\" x2=\"440\" y2=\"212\"/><line x1=\"40\" y1=\"186\" x2=\"440\" y2=\"186\"/><line x1=\"40\" y1=\"160\" x2=\"440\" y2=\"160\"/><line x1=\"40\" y1=\"134\" x2=\"440\" y2=\"134\"/><line x1=\"40\" y1=\"108\" x2=\"440\" y2=\"108\"/><line x1=\"40\" y1=\"82\" x2=\"440\" y2=\"82\"/><line x1=\"40\" y1=\"56\" x2=\"440\" y2=\"56\"/>\n          </g>\n          <line x1=\"40\" y1=\"290\" x2=\"440\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <polygon points=\"440,290 431,286 431,294\" fill=\"currentColor\"/>\n          <polygon points=\"40,30 36,39 44,39\" fill=\"currentColor\"/>\n          <g font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"40\" y=\"304\">0</text><text x=\"76\" y=\"304\">1</text><text x=\"113\" y=\"304\">2</text><text x=\"149\" y=\"304\">3</text><text x=\"185\" y=\"304\">4</text><text x=\"222\" y=\"304\">5</text><text x=\"258\" y=\"304\">6</text><text x=\"295\" y=\"304\">7</text><text x=\"331\" y=\"304\">8</text><text x=\"367\" y=\"304\">9</text><text x=\"404\" y=\"304\">10</text><text x=\"440\" y=\"304\">11</text>\n            <text x=\"32\" y=\"268\" text-anchor=\"end\">1</text><text x=\"32\" y=\"242\" text-anchor=\"end\">2</text><text x=\"32\" y=\"216\" text-anchor=\"end\">3</text><text x=\"32\" y=\"190\" text-anchor=\"end\">4</text><text x=\"32\" y=\"164\" text-anchor=\"end\">5</text><text x=\"32\" y=\"138\" text-anchor=\"end\">6</text><text x=\"32\" y=\"112\" text-anchor=\"end\">7</text><text x=\"32\" y=\"86\" text-anchor=\"end\">8</text><text x=\"32\" y=\"60\" text-anchor=\"end\">9</text><text x=\"32\" y=\"34\" text-anchor=\"end\">10</text>\n            <text x=\"446\" y=\"294\" text-anchor=\"start\">x</text><text x=\"34\" y=\"26\">y</text>\n          </g>\n        </svg>",
+  "hint": "Draw each boundary line by its intercepts (all three are solid, since every sign is \\( \\ge \\) or \\( \\le \\)), decide the wanted side of each by testing a point, then shade the UNwanted side of each — the clear triangle left is your region.",
+  "starter": "Draw the three solid boundary lines, shade the region that does NOT satisfy the inequalities, and label the clear feasible region R.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1/AO3)</h5><ul>\n              <li><strong>B1</strong> — line \\( y = x + 1 \\) drawn (through \\( (1,2) \\) and \\( (3,4) \\)).</li>\n              <li><strong>B1</strong> — line \\( x = 1 \\) drawn (through \\( (1,2) \\) and \\( (1,5) \\)).</li>\n              <li><strong>B1</strong> — line \\( x + 2y = 11 \\) drawn (through \\( (1,5) \\) and \\( (3,4) \\)).</li>\n              <li><strong>B1</strong> — shading correct (the unwanted region shaded; lines must be correct). The clear region is the triangle with vertices \\( (1,2),\\ (1,5),\\ (3,4) \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Three independent B marks, one for each correct boundary line by its intercept points, and a fourth for shading the region that is NOT required (awarded follow-through on the candidate's lines). Accept solid or dotted lines.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>There were few problems with this question. The vast majority of candidates understood what was required, drew the 3 lines and found the correct region.</li>\n            </ul></div>",
+   "modelAnswer": "Draw the three solid lines \\( y = x + 1 \\), \\( x = 1 \\) and \\( x + 2y = 11 \\). Testing the origin shows the wanted sides, so shade the three UNwanted half-planes; the clear triangle with vertices \\( (1,2),\\ (1,5),\\ (3,4) \\) is the feasible region R.\n<svg viewBox=\"0 0 470 320\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"The three boundary lines y = x + 1, x = 1 and x + 2y = 11 drawn on the grid, with the three unwanted half-planes shaded, leaving a clear triangle with vertices 1,2 and 1,5 and 3,4 labelled R\"><rect x=\"40\" y=\"30\" width=\"400\" height=\"260\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.5\"/><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"76\" y1=\"30\" x2=\"76\" y2=\"290\"/><line x1=\"113\" y1=\"30\" x2=\"113\" y2=\"290\"/><line x1=\"149\" y1=\"30\" x2=\"149\" y2=\"290\"/><line x1=\"185\" y1=\"30\" x2=\"185\" y2=\"290\"/><line x1=\"222\" y1=\"30\" x2=\"222\" y2=\"290\"/><line x1=\"258\" y1=\"30\" x2=\"258\" y2=\"290\"/><line x1=\"295\" y1=\"30\" x2=\"295\" y2=\"290\"/><line x1=\"331\" y1=\"30\" x2=\"331\" y2=\"290\"/><line x1=\"367\" y1=\"30\" x2=\"367\" y2=\"290\"/><line x1=\"404\" y1=\"30\" x2=\"404\" y2=\"290\"/><line x1=\"40\" y1=\"264\" x2=\"440\" y2=\"264\"/><line x1=\"40\" y1=\"238\" x2=\"440\" y2=\"238\"/><line x1=\"40\" y1=\"212\" x2=\"440\" y2=\"212\"/><line x1=\"40\" y1=\"186\" x2=\"440\" y2=\"186\"/><line x1=\"40\" y1=\"160\" x2=\"440\" y2=\"160\"/><line x1=\"40\" y1=\"134\" x2=\"440\" y2=\"134\"/><line x1=\"40\" y1=\"108\" x2=\"440\" y2=\"108\"/><line x1=\"40\" y1=\"82\" x2=\"440\" y2=\"82\"/><line x1=\"40\" y1=\"56\" x2=\"440\" y2=\"56\"/></g><polygon points=\"40,264 40,290 440,290 440,30 367,30\" fill=\"currentColor\" fill-opacity=\"0.10\"/><polygon points=\"40,290 76,290 76,30 40,30\" fill=\"currentColor\" fill-opacity=\"0.10\"/><polygon points=\"40,147 440,290 440,30 40,30\" fill=\"currentColor\" fill-opacity=\"0.10\"/><line x1=\"40\" y1=\"290\" x2=\"440\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"264\" x2=\"367\" y2=\"30\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"76\" y1=\"290\" x2=\"76\" y2=\"30\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"40\" y1=\"147\" x2=\"440\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"76,238 76,160 149,186\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"/><circle cx=\"76\" cy=\"238\" r=\"3\" fill=\"currentColor\"/><circle cx=\"76\" cy=\"160\" r=\"3\" fill=\"currentColor\"/><circle cx=\"149\" cy=\"186\" r=\"3\" fill=\"currentColor\"/><g font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"40\" y=\"304\">0</text><text x=\"76\" y=\"304\">1</text><text x=\"149\" y=\"304\">3</text><text x=\"222\" y=\"304\">5</text><text x=\"295\" y=\"304\">7</text><text x=\"404\" y=\"304\">10</text><text x=\"32\" y=\"242\" text-anchor=\"end\">2</text><text x=\"32\" y=\"164\" text-anchor=\"end\">5</text><text x=\"100\" y=\"200\">R</text><text x=\"360\" y=\"60\">y = x+1</text><text x=\"90\" y=\"45\" text-anchor=\"start\">x = 1</text><text x=\"410\" y=\"250\">x+2y=11</text></g></svg>"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:exam:a6cf1d73",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "10 (b)",
+  "question": "<p>Find the maximum value of \\( x + y \\) subject to these conditions.</p>",
+  "caseStudy": "<p><strong>OCR June 2023, Question 10.</strong> Work on the grid below, which has \\( x \\) from \\( 0 \\) to \\( 11 \\) and \\( y \\) from \\( 0 \\) to \\( 10 \\). Shade the region that is <strong>not</strong> satisfied by the inequalities, so that the required (feasible) region is left clear.</p>\n        <svg viewBox=\"0 0 470 320\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x-axis from 0 to 11 and y-axis from 0 to 10\">\n          <rect x=\"40\" y=\"30\" width=\"400\" height=\"260\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.5\"/>\n          <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.2\">\n            <line x1=\"76\" y1=\"30\" x2=\"76\" y2=\"290\"/><line x1=\"113\" y1=\"30\" x2=\"113\" y2=\"290\"/><line x1=\"149\" y1=\"30\" x2=\"149\" y2=\"290\"/><line x1=\"185\" y1=\"30\" x2=\"185\" y2=\"290\"/><line x1=\"222\" y1=\"30\" x2=\"222\" y2=\"290\"/><line x1=\"258\" y1=\"30\" x2=\"258\" y2=\"290\"/><line x1=\"295\" y1=\"30\" x2=\"295\" y2=\"290\"/><line x1=\"331\" y1=\"30\" x2=\"331\" y2=\"290\"/><line x1=\"367\" y1=\"30\" x2=\"367\" y2=\"290\"/><line x1=\"404\" y1=\"30\" x2=\"404\" y2=\"290\"/>\n            <line x1=\"40\" y1=\"264\" x2=\"440\" y2=\"264\"/><line x1=\"40\" y1=\"238\" x2=\"440\" y2=\"238\"/><line x1=\"40\" y1=\"212\" x2=\"440\" y2=\"212\"/><line x1=\"40\" y1=\"186\" x2=\"440\" y2=\"186\"/><line x1=\"40\" y1=\"160\" x2=\"440\" y2=\"160\"/><line x1=\"40\" y1=\"134\" x2=\"440\" y2=\"134\"/><line x1=\"40\" y1=\"108\" x2=\"440\" y2=\"108\"/><line x1=\"40\" y1=\"82\" x2=\"440\" y2=\"82\"/><line x1=\"40\" y1=\"56\" x2=\"440\" y2=\"56\"/>\n          </g>\n          <line x1=\"40\" y1=\"290\" x2=\"440\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <polygon points=\"440,290 431,286 431,294\" fill=\"currentColor\"/>\n          <polygon points=\"40,30 36,39 44,39\" fill=\"currentColor\"/>\n          <g font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"40\" y=\"304\">0</text><text x=\"76\" y=\"304\">1</text><text x=\"113\" y=\"304\">2</text><text x=\"149\" y=\"304\">3</text><text x=\"185\" y=\"304\">4</text><text x=\"222\" y=\"304\">5</text><text x=\"258\" y=\"304\">6</text><text x=\"295\" y=\"304\">7</text><text x=\"331\" y=\"304\">8</text><text x=\"367\" y=\"304\">9</text><text x=\"404\" y=\"304\">10</text><text x=\"440\" y=\"304\">11</text>\n            <text x=\"32\" y=\"268\" text-anchor=\"end\">1</text><text x=\"32\" y=\"242\" text-anchor=\"end\">2</text><text x=\"32\" y=\"216\" text-anchor=\"end\">3</text><text x=\"32\" y=\"190\" text-anchor=\"end\">4</text><text x=\"32\" y=\"164\" text-anchor=\"end\">5</text><text x=\"32\" y=\"138\" text-anchor=\"end\">6</text><text x=\"32\" y=\"112\" text-anchor=\"end\">7</text><text x=\"32\" y=\"86\" text-anchor=\"end\">8</text><text x=\"32\" y=\"60\" text-anchor=\"end\">9</text><text x=\"32\" y=\"34\" text-anchor=\"end\">10</text>\n            <text x=\"446\" y=\"294\" text-anchor=\"start\">x</text><text x=\"34\" y=\"26\">y</text>\n          </g>\n        </svg>",
+  "hint": "The maximum of \\( x + y \\) occurs at a corner (vertex) of the feasible region — test each of the three vertices \\( (1,2),\\ (1,5),\\ (3,4) \\).",
+  "starter": "State the maximum value of \\( x + y \\), and the vertex where it occurs.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO3)</h5><ul>\n              <li><strong>M1</strong> — any line of the form \\( x + y = a \\) seen, or a check of the region's vertices (seen or implied).</li>\n              <li><strong>A1</strong> — maximum \\( x + y = 7 \\) (at \\( (3, 4) \\)). Correct answer is full marks.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>M1 for the objective method (an \\( x + y = a \\) line, or evaluating \\( x + y \\) at the vertices); A1 for the correct maximum. Alternative method: sight of a check at at least two of the candidate's vertices (ft their region), then \\( x + y = 7 \\) at \\( (3,4) \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most candidates were able to pick the correct point in the region to give the maximum value of \\( x + y \\). A number checked the other two vertices of the triangular region.</li>\n            </ul></div>",
+   "modelAnswer": "The maximum of a linear objective on a feasible region is at a vertex. Evaluating \\( x + y \\) at the three vertices: \\( (1,2) \\to 3 \\), \\( (1,5) \\to 6 \\), \\( (3,4) \\to 7 \\). So the maximum value of \\( x + y \\) is \\( 7 \\), at \\( (3, 4) \\). (Note: an LP optimum need not be a whole number in general — here it happens to be, but always test the exact vertex rather than assuming integers.)"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:mcq:2d2d4f12",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How should the boundary of \\( y \\ge 2x \\) be drawn?",
+  "options": [
+   "A solid line, because the sign is \\( \\ge \\)",
+   "A dashed line, because the sign is \\( \\ge \\)",
+   "A dashed line, because it passes through the origin",
+   "A curved line"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\ge \\) includes equality, so points on the boundary count — draw it solid. Only strict \\( < \\) / \\( > \\) give a dashed line."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:mcq:27a935a3",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The phrase 'at least 12' translates to which inequality?",
+  "options": [
+   "\\( \\ge 12 \\)",
+   "\\( \\le 12 \\)",
+   "\\( < 12 \\)",
+   "\\( > 12 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'At least' means 12 or more, i.e. \\( \\ge 12 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:mcq:52cdb221",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The phrase 'no more than 400' translates to which inequality?",
+  "options": [
+   "\\( \\le 400 \\)",
+   "\\( \\ge 400 \\)",
+   "\\( > 400 \\)",
+   "\\( = 400 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'No more than' means at most 400, i.e. \\( \\le 400 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:mcq:87bd487f",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The boundary of \\( y > x + 1 \\) should be drawn:",
+  "options": [
+   "Dashed, because the inequality is strict",
+   "Solid, because it is a straight line",
+   "Dashed, because the gradient is 1",
+   "Solid, because \\( > \\) means 'greater'"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( > \\) is strict, so the line is excluded from the region and is drawn dashed."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:mcq:8ad648c5",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "You test \\( (0,0) \\) in \\( x + y \\le 4 \\) and obtain \\( 0 \\le 4 \\). Which side satisfies the inequality?",
+  "options": [
+   "The side containing the origin",
+   "The side not containing the origin",
+   "Neither side",
+   "You cannot tell without another point"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 0 \\le 4 \\) is true, so the origin's half-plane is the one that satisfies \\( x + y \\le 4 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:mcq:a6290d8d",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Under the OCR exam convention, which region do you shade?",
+  "options": [
+   "The region that is NOT required",
+   "The feasible region itself",
+   "Both regions",
+   "Only the boundary lines"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "You shade the unwanted region, leaving the feasible region clear and easy to read."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:mcq:7afbca12",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which pair of conditions expresses non-negativity for a real quantity of items?",
+  "options": [
+   "\\( x \\ge 0 \\) and \\( y \\ge 0 \\)",
+   "\\( x > 0 \\) and \\( y > 0 \\)",
+   "\\( x \\le 0 \\) and \\( y \\le 0 \\)",
+   "\\( x = 0 \\) and \\( y = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "You cannot make a negative number of items, so \\( x \\ge 0 \\) and \\( y \\ge 0 \\) — zero is allowed."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:mcq:93155e82",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the boundary line of the inequality \\( x + 2y \\le 11 \\)?",
+  "options": [
+   "\\( x + 2y = 11 \\)",
+   "\\( x + 2y < 11 \\)",
+   "\\( x + 2y = 0 \\)",
+   "\\( 2x + y = 11 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Replace the inequality sign with equals: the boundary is \\( x + 2y = 11 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:mcq:04a32126",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The boundary \\( 2x + y = 6 \\) crosses the axes at which two points?",
+  "options": [
+   "\\( (3,\\ 0) \\) and \\( (0,\\ 6) \\)",
+   "\\( (6,\\ 0) \\) and \\( (0,\\ 3) \\)",
+   "\\( (2,\\ 0) \\) and \\( (0,\\ 1) \\)",
+   "\\( (6,\\ 0) \\) and \\( (0,\\ 6) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Put \\( y = 0 \\Rightarrow 2x = 6 \\Rightarrow x = 3 \\); put \\( x = 0 \\Rightarrow y = 6 \\). Intercepts \\( (3,0) \\) and \\( (0,6) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:mcq:50a8f231",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The feasible region for a set of inequalities is:",
+  "options": [
+   "The region satisfying every inequality at once (left clear)",
+   "The largest shaded region",
+   "The area under the topmost line",
+   "The region satisfying at least one inequality"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The feasible region satisfies ALL the constraints simultaneously; on the exam it is the clear, unshaded region."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:mcq:996ad97a",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( y \\ge 2x \\) the boundary passes through the origin. Which is a sensible test point?",
+  "options": [
+   "\\( (1,\\ 0) \\)",
+   "\\( (0,\\ 0) \\)",
+   "\\( (0.5,\\ 1) \\) on the line",
+   "The origin is always best"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (0,0) \\) lies ON the line, so it cannot decide a side. Use an off-line point such as \\( (1,0) \\): \\( 0 \\ge 2 \\) is false, so \\( (1,0) \\) is on the unwanted side."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:mcq:f7acef9b",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A half-plane is best described as:",
+  "options": [
+   "All the points on one side of a boundary line (with the line if the sign is \\( \\le / \\ge \\))",
+   "A line segment",
+   "The area of a triangle",
+   "Half of the coordinate grid, split by the y-axis"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "An inequality in two variables defines a half-plane: everything on one side of its boundary line."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:tf:6fcccf4b",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The boundary line for \\( y \\le 2x + 3 \\) should be drawn solid.",
+  "key": {
+   "answer": true,
+   "explain": "\\( \\le \\) includes equality, so points on the line are part of the region — the boundary is solid."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:tf:5bf3558b",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For the strict inequality \\( y > x \\), the boundary line is drawn dashed.",
+  "key": {
+   "answer": true,
+   "explain": "Strict signs \\( < \\) and \\( > \\) exclude the line, so it is dashed."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:tf:fa8a2702",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Under the OCR convention you shade the feasible region itself.",
+  "key": {
+   "answer": false,
+   "explain": "You shade the region that is NOT required; the feasible region is left clear and unshaded."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:tf:139ef9cc",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Testing the point \\( (0,0) \\) is a quick way to decide which side of a line to shade.",
+  "key": {
+   "answer": true,
+   "explain": "Provided the line does not pass through the origin, substituting \\( (0,0) \\) instantly tells you which side satisfies the inequality."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:tf:754c8448",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "'At least 30' is written as \\( \\le 30 \\).",
+  "key": {
+   "answer": false,
+   "explain": "'At least 30' means 30 or more, i.e. \\( \\ge 30 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:tf:aaccfdb1",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If the boundary line passes through the origin, you should not use \\( (0,0) \\) as your test point.",
+  "key": {
+   "answer": true,
+   "explain": "A point on the line cannot decide a side — pick an off-line point such as \\( (1,0) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:tf:3e5e8dce",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The conditions \\( x \\ge 0 \\) and \\( y \\ge 0 \\) restrict a real-world region to the first quadrant.",
+  "key": {
+   "answer": true,
+   "explain": "Both coordinates non-negative means the region lies in the first quadrant (including the axes)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:tf:a6f33725",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The point \\( (0,0) \\) satisfies \\( 24x + 28y \\le 400 \\).",
+  "key": {
+   "answer": true,
+   "explain": "\\( 24(0) + 28(0) = 0 \\le 400 \\) is true, so the origin lies in the wanted half-plane."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:learn:b198882a",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What does a linear inequality in two variables look like on a grid?",
+  "reading": "<p>An equation such as \\( y = x + 1 \\) is a single <strong>line</strong>. An <strong>inequality</strong> such as \\( y \\ge x + 1 \\) is a whole <strong>region</strong> — a <strong>half-plane</strong>: every point on one side of the line, together with the line itself.</p>\n            <ul>\n              <li>The line itself is called the <strong>boundary</strong>. You find it by replacing the inequality sign with an equals sign (here \\( y = x + 1 \\)).</li>\n              <li>The boundary splits the grid into two halves. One half satisfies the inequality; the other does not.</li>\n              <li>A point either <strong>satisfies</strong> the inequality (its coordinates make the statement true) or it does not. For \\( y \\ge x + 1 \\), the point \\( (0, 4) \\) works because \\( 4 \\ge 1 \\), but \\( (4, 0) \\) fails because \\( 0 \\ge 5 \\) is false.</li>\n            </ul>\n            <p>The whole of Linear Programming (Group 4) is built on this idea: describe a situation with several inequalities, then find the region where they are all true at once.</p>",
+  "question": "Which point satisfies \\( y \\ge x + 1 \\)?",
+  "options": [
+   "\\( (1,\\ 5) \\)",
+   "\\( (5,\\ 1) \\)",
+   "\\( (3,\\ 0) \\)",
+   "\\( (4,\\ 2) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (1,5) \\): \\( 5 \\ge 1 + 1 = 2 \\) is true. \\( (5,1) \\) gives \\( 1 \\ge 6 \\), false; \\( (4,2) \\) gives \\( 2 \\ge 5 \\), false."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:learn:8c9e4408",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you draw the boundary line — solid or dashed?",
+  "reading": "<p>Draw the boundary as an ordinary straight line, then decide its <strong>style</strong> from the inequality sign:</p>\n            <table class=\"worked\">\n              <tr><td>1. \\( \\le \\) or \\( \\ge \\): the line <strong>is</strong> part of the region, so draw it <strong>solid</strong>.</td></tr>\n              <tr><td>2. \\( < \\) or \\( > \\) (strict): the line is <strong>not</strong> part of the region, so draw it <strong>dashed</strong>.</td></tr>\n            </table>\n            <p>To plot the boundary quickly, use its intercepts. For \\( x + 2y = 11 \\): put \\( x = 0 \\) to get \\( y = 5.5 \\), and put \\( y = 0 \\) to get \\( x = 11 \\). Join \\( (0,\\ 5.5) \\) and \\( (11,\\ 0) \\) with a ruler.</p>\n            <p><strong>Worked example.</strong> Boundary of \\( 24x + 28y \\le 400 \\): the sign is \\( \\le \\), so the line \\( 24x + 28y = 400 \\) is <strong>solid</strong>. Intercepts: \\( x = 0 \\Rightarrow y = \\frac{400}{28} \\approx 14.3 \\); \\( y = 0 \\Rightarrow x = \\frac{400}{24} \\approx 16.7 \\).</p>",
+  "question": "How should the boundary of \\( y > 2x \\) be drawn?",
+  "options": [
+   "Dashed, because the inequality is strict",
+   "Solid, because it is a straight line",
+   "Dashed, because it passes through the origin",
+   "Solid, because \\( > \\) includes equality"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( > \\) is strict, so points on the line are excluded — the boundary is dashed. Only \\( \\le \\) and \\( \\ge \\) give a solid line."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:learn:6620665b",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Which side of the line do you shade? Test a point.",
+  "reading": "<p>Once the boundary is drawn, one side satisfies the inequality and the other does not. The fastest way to tell them apart is to <strong>test a point</strong> that is clearly on one side.</p>\n            <table class=\"worked\">\n              <tr><td>1. Pick an easy test point not on the line — the <strong>origin \\( (0,\\ 0) \\)</strong> is ideal.</td></tr>\n              <tr><td>2. Substitute it into the inequality.</td></tr>\n              <tr><td>3. If the statement is <strong>true</strong>, the origin's side is the side that satisfies the inequality. If it is <strong>false</strong>, the other side does.</td></tr>\n            </table>\n            <p><strong>Worked example — \\( x + y \\le 4 \\).</strong> Test \\( (0, 0) \\): \\( 0 + 0 = 0 \\le 4 \\) is <strong>true</strong>, so the region satisfying the inequality is the side <em>containing</em> the origin (below-left of the line).</p>\n            <p><strong>Warning:</strong> if the boundary passes through the origin (for example \\( y \\ge 2x \\)), \\( (0,0) \\) sits <em>on</em> the line and tells you nothing — choose a different test point such as \\( (1, 0) \\).</p>",
+  "question": "You test \\( (0,0) \\) in \\( 3x + y \\le 6 \\) and get \\( 0 \\le 6 \\). What does this tell you?",
+  "options": [
+   "The origin's side satisfies the inequality",
+   "The origin's side fails the inequality",
+   "The boundary must be dashed",
+   "Nothing — the origin is on the line"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 0 \\le 6 \\) is true, so the half-plane containing the origin is the one that satisfies \\( 3x + y \\le 6 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:learn:98678430",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "The OCR exam convention: shade the region you do NOT want",
+  "reading": "<p>This is the single most important habit for the 6993 exam. When you must show a region defined by several inequalities, OCR asks you to <strong>shade the region that is NOT required</strong> — you shade everything that fails. The <strong>feasible region</strong> (the part satisfying every inequality) is then left <strong>clear and unshaded</strong>.</p>\n            <ul>\n              <li>Why? With three or four overlapping inequalities, shading each <em>wanted</em> side would cover the answer in a mess of overlapping shading. Shading the <em>unwanted</em> sides instead leaves a single clean white region — easy to read and to work with.</li>\n              <li>So for each inequality: draw the boundary, work out the wanted side, then <strong>shade the other side</strong>.</li>\n              <li>Always <strong>label the clear region</strong> (e.g. write \"R\") so the examiner knows which region is your answer.</li>\n            </ul>\n            <p>Below, \\( x + y \\le 4 \\) is shown the exam way: the unwanted half-plane (where \\( x + y > 4 \\)) is shaded, leaving the wanted region clear.</p>\n            <svg viewBox=\"0 0 300 240\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Grid showing the line x plus y equals 4 as a solid line, with the region above the line shaded as not wanted and the region below left clear\">\n              <rect x=\"40\" y=\"20\" width=\"220\" height=\"180\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.5\"/>\n              <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.2\">\n                <line x1=\"84\" y1=\"20\" x2=\"84\" y2=\"200\"/><line x1=\"128\" y1=\"20\" x2=\"128\" y2=\"200\"/><line x1=\"172\" y1=\"20\" x2=\"172\" y2=\"200\"/><line x1=\"216\" y1=\"20\" x2=\"216\" y2=\"200\"/>\n                <line x1=\"40\" y1=\"164\" x2=\"260\" y2=\"164\"/><line x1=\"40\" y1=\"128\" x2=\"260\" y2=\"128\"/><line x1=\"40\" y1=\"92\" x2=\"260\" y2=\"92\"/><line x1=\"40\" y1=\"56\" x2=\"260\" y2=\"56\"/>\n              </g>\n              <polygon points=\"40,56 216,200 260,200 260,20 40,20\" fill=\"currentColor\" fill-opacity=\"0.13\"/>\n              <line x1=\"40\" y1=\"200\" x2=\"260\" y2=\"200\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"200\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <line x1=\"40\" y1=\"56\" x2=\"216\" y2=\"200\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <g font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\">\n                <text x=\"40\" y=\"214\">0</text><text x=\"128\" y=\"214\">2</text><text x=\"216\" y=\"214\">4</text>\n                <text x=\"150\" y=\"50\">not wanted (shaded)</text><text x=\"95\" y=\"175\">R (clear)</text>\n                <text x=\"180\" y=\"120\">x + y = 4</text>\n              </g>\n            </svg>",
+  "question": "Under the OCR convention, which part of the diagram is your final answer?",
+  "options": [
+   "The clear (unshaded) region",
+   "The shaded region",
+   "The boundary line only",
+   "Both regions together"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "You shade what is NOT required; the feasible region is the clear, unshaded part — label it R so it is obvious."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:learn:78cbb7bb",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you combine inequalities to leave a feasible region?",
+  "reading": "<p>With several inequalities you draw <em>every</em> boundary on the same grid and shade each unwanted side. The region left clear after all the shading is the <strong>feasible region</strong> — it satisfies them all at once.</p>\n            <p><strong>Worked example.</strong> Show the region satisfying \\( x \\ge 1 \\), \\( y \\ge 1 \\) and \\( x + y \\le 5 \\).</p>\n            <table class=\"worked\">\n              <tr><td>1. \\( x \\ge 1 \\): solid vertical line \\( x = 1 \\); wanted side is to the right, so shade to the <em>left</em>.</td></tr>\n              <tr><td>2. \\( y \\ge 1 \\): solid horizontal line \\( y = 1 \\); wanted side is above, so shade <em>below</em>.</td></tr>\n              <tr><td>3. \\( x + y \\le 5 \\): solid line through \\( (5,0) \\) and \\( (0,5) \\); test \\( (0,0) \\Rightarrow 0 \\le 5 \\) true, so shade <em>above</em> the line.</td></tr>\n            </table>\n            <p>What is left clear is the triangle with vertices \\( (1,1),\\ (1,4),\\ (4,1) \\) — the feasible region \\( R \\).</p>\n            <svg viewBox=\"0 0 320 250\" width=\"100%\" style=\"max-width:360px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Grid with lines x equals 1, y equals 1 and x plus y equals 5; the three unwanted half-planes are shaded, leaving a clear triangle with vertices 1,1 and 1,4 and 4,1\">\n              <rect x=\"40\" y=\"18\" width=\"240\" height=\"192\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.5\"/>\n              <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.2\">\n                <line x1=\"80\" y1=\"18\" x2=\"80\" y2=\"210\"/><line x1=\"120\" y1=\"18\" x2=\"120\" y2=\"210\"/><line x1=\"160\" y1=\"18\" x2=\"160\" y2=\"210\"/><line x1=\"200\" y1=\"18\" x2=\"200\" y2=\"210\"/><line x1=\"240\" y1=\"18\" x2=\"240\" y2=\"210\"/>\n                <line x1=\"40\" y1=\"178\" x2=\"280\" y2=\"178\"/><line x1=\"40\" y1=\"146\" x2=\"280\" y2=\"146\"/><line x1=\"40\" y1=\"114\" x2=\"280\" y2=\"114\"/><line x1=\"40\" y1=\"82\" x2=\"280\" y2=\"82\"/><line x1=\"40\" y1=\"50\" x2=\"280\" y2=\"50\"/>\n              </g>\n              <polygon points=\"40,210 80,210 80,18 40,18\" fill=\"currentColor\" fill-opacity=\"0.12\"/>\n              <polygon points=\"40,210 280,210 280,178 40,178\" fill=\"currentColor\" fill-opacity=\"0.12\"/>\n              <polygon points=\"40,50 240,210 280,210 280,18 40,18\" fill=\"currentColor\" fill-opacity=\"0.12\"/>\n              <line x1=\"40\" y1=\"210\" x2=\"280\" y2=\"210\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <line x1=\"40\" y1=\"18\" x2=\"40\" y2=\"210\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <line x1=\"80\" y1=\"210\" x2=\"80\" y2=\"18\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <line x1=\"40\" y1=\"178\" x2=\"280\" y2=\"178\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <line x1=\"40\" y1=\"50\" x2=\"240\" y2=\"210\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <polygon points=\"80,178 80,82 200,178\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <g font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\">\n                <text x=\"40\" y=\"224\">0</text><text x=\"80\" y=\"224\">1</text><text x=\"160\" y=\"224\">3</text><text x=\"240\" y=\"224\">5</text>\n                <text x=\"120\" y=\"165\">R</text>\n              </g>\n            </svg>",
+  "question": "In the combined region above, which point lies inside the feasible region \\( R \\)?",
+  "options": [
+   "\\( (2,\\ 2) \\)",
+   "\\( (0,\\ 0) \\)",
+   "\\( (4,\\ 4) \\)",
+   "\\( (1,\\ 0) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (2,2) \\): \\( x \\ge 1 \\) ✓, \\( y \\ge 1 \\) ✓, \\( x + y = 4 \\le 5 \\) ✓. \\( (0,0) \\) fails \\( x \\ge 1 \\); \\( (4,4) \\) fails \\( x+y \\le 5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:learn:afde5a15",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you turn a real situation into inequalities? (CG6)",
+  "reading": "<p>Exam questions usually describe a real situation in words and expect you to <strong>formulate</strong> the constraints as inequalities. Watch the language carefully — the wrong sign loses the mark.</p>\n            <ul>\n              <li>\"<strong>at least</strong> 5\", \"a minimum of 5\", \"5 or more\" \\( \\Rightarrow \\ge 5 \\).</li>\n              <li>\"<strong>no more than</strong> 400\", \"at most 400\", \"cannot exceed 400\" \\( \\Rightarrow \\le 400 \\).</li>\n              <li>\"<strong>more than</strong> 5\" \\( \\Rightarrow > 5 \\); \"<strong>fewer than</strong> 5\" \\( \\Rightarrow < 5 \\) (strict — dashed boundary).</li>\n              <li><strong>Non-negativity:</strong> you cannot make a negative number of chairs or spend negative hours, so almost every real problem also needs \\( x \\ge 0 \\) and \\( y \\ge 0 \\). These keep the region in the first quadrant.</li>\n            </ul>\n            <p><strong>Worked example.</strong> A workshop makes \\( x \\) tables and \\( y \\) chairs. A table needs 24 minutes and a chair 28 minutes of machine time, and there are at most 400 minutes available. As machine time is limited: \\[ 24x + 28y \\le 400. \\] With non-negativity, the full model is \\( 24x + 28y \\le 400,\\ x \\ge 0,\\ y \\ge 0 \\).</p>",
+  "question": "A shop must stock 'at least 30' of an item, \\( n \\). Which inequality is correct?",
+  "options": [
+   "\\( n \\ge 30 \\)",
+   "\\( n \\le 30 \\)",
+   "\\( n < 30 \\)",
+   "\\( n > 30 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'At least 30' means 30 or more, so \\( n \\ge 30 \\). A common error is to write \\( < \\) or \\( \\le \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:misc:45c9c248",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> 'The factory must make at least 5 chairs' \\( \\Rightarrow x < 5 \\).</p><p><strong>✅ The correct idea:</strong> 'At least 5' means 5 or more, so \\( x \\ge 5 \\). A weak answer uses \\( < \\) (the opposite direction, and strict); a strong answer writes \\( x \\ge 5 \\) — greater than <em>or equal to</em>.</p>",
+  "question": "'At least 5 chairs' becomes:",
+  "options": [
+   "\\( x \\ge 5 \\)",
+   "\\( x < 5 \\)",
+   "\\( x \\le 5 \\)",
+   "\\( x > 5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'At least' = 'or more' = \\( \\ge \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:misc:ff987dc0",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Shading the feasible region so the answer is covered in pencil.</p><p><strong>✅ The correct idea:</strong> OCR asks you to shade the region that is NOT required. A weak answer shades the wanted region (and hides it under overlapping shading); a strong answer shades every unwanted side and labels the clear region R.</p>",
+  "question": "Which region should be left clear (unshaded)?",
+  "options": [
+   "The feasible region",
+   "The unwanted region",
+   "The boundary lines",
+   "The first quadrant"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Shade the unwanted region; the feasible region stays clear."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:misc:7007c475",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Drawing a solid line for \\( y < 2x + 1 \\).</p><p><strong>✅ The correct idea:</strong> \\( < \\) is strict, so the boundary is excluded and must be dashed. A weak answer always draws solid lines; a strong answer matches the line style to the sign — solid only for \\( \\le \\) / \\( \\ge \\).</p>",
+  "question": "The boundary of \\( y < 2x + 1 \\) is drawn:",
+  "options": [
+   "Dashed",
+   "Solid",
+   "As a curve",
+   "Not at all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Strict \\( < \\) means the line is not included — draw it dashed."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:misc:a42499ac",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Deciding the shaded side by guessing, without testing a point.</p><p><strong>✅ The correct idea:</strong> A weak answer shades whichever side 'looks right'; a strong answer substitutes a test point such as \\( (0,0) \\) and lets the true/false result decide the side every time.</p>",
+  "question": "The reliable way to choose the correct side is to:",
+  "options": [
+   "Test a point in the inequality",
+   "Always shade above the line",
+   "Always shade to the right",
+   "Shade the smaller region"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Substituting a test point removes all guesswork."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:misc:73a96242",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Forgetting the non-negativity constraints in a real-world problem.</p><p><strong>✅ The correct idea:</strong> A weak answer gives only the resource constraints; a strong answer remembers that a real quantity cannot be negative and adds \\( x \\ge 0,\\ y \\ge 0 \\), keeping the region in the first quadrant.</p>",
+  "question": "A real 'number of items' problem almost always also needs:",
+  "options": [
+   "\\( x \\ge 0 \\) and \\( y \\ge 0 \\)",
+   "\\( x \\le 0 \\) and \\( y \\le 0 \\)",
+   "no extra conditions",
+   "\\( x = y \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Quantities cannot be negative, so non-negativity is added."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:tips:f1048ab9",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Draw + shade: the 4-mark feature checklist",
+  "reading": "<p>The \"shade the region\" question is worth about 4 marks — one for <strong>each boundary line drawn correctly by its intercepts</strong>, plus a mark for the <strong>shading</strong> (which follows-through from your lines).</p>\n          <p><strong>0 marks:</strong> lines drawn roughly, no clear region, or the wanted region shaded over.</p>\n          <p><strong>Partial:</strong> the three lines drawn correctly by their intercepts (a mark each) but the shading left out or on the wrong sides.</p>\n          <p><strong>Full marks:</strong> each boundary line accurate through its intercept points, every unwanted half-plane shaded, and the feasible region left clear and labelled R. The shading mark is awarded 'follow-through' on <em>your</em> lines, so correct shading of slightly wrong lines still scores.</p>",
+  "question": "In a 4-mark 'draw and shade' question, the shading mark is awarded:",
+  "options": [
+   "Follow-through on your own lines, for shading the unwanted region",
+   "Only if every line is perfect",
+   "For shading the feasible region",
+   "For drawing dashed lines"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Shading is marked ft on your lines, and it is the NOT-required region that must be shaded."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:tips:ccc244c7",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — 'At least' / 'no more than' — get the symbol right",
+  "reading": "<p>Formulating a constraint is a 1-mark step where the wrong sign scores nothing.</p>\n          <p><strong>0 marks:</strong> \"at least 2000 units of the drug\" written as \\( 2000x + 1000y \\le 5000 \\) (wrong direction).</p>\n          <p><strong>Full marks:</strong> \"at least\" \\( \\Rightarrow \\ge \\), so \\( 2000x + 1000y \\ge 5000 \\); \"no more than\" \\( \\Rightarrow \\le \\). Any equivalent form (e.g. dividing through) scores 'oe'.</p>",
+  "question": "'The mixture must contain no more than 19 units' becomes:",
+  "options": [
+   "\\( \\ldots \\le 19 \\)",
+   "\\( \\ldots \\ge 19 \\)",
+   "\\( \\ldots > 19 \\)",
+   "\\( \\ldots = 19 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'No more than' means at most, i.e. \\( \\le 19 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:tips:f1a0bd4f",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Leave the answer clear — label R",
+  "reading": "<p>The examiner must be able to see which region is your answer.</p>\n          <p><strong>0 marks lost habits:</strong> shading the wanted region, or leaving no label so it is unclear which clear patch is meant.</p>\n          <p><strong>Full marks habit:</strong> shade every unwanted half-plane, leave the feasible region white, and write <strong>R</strong> inside it. If you make a mistake, use the spare grid provided at the back of the booklet and cross out the first attempt.</p>",
+  "question": "Why write 'R' inside the clear region?",
+  "options": [
+   "So the examiner knows which region is your answer",
+   "It earns a bonus mark",
+   "It is required to shade",
+   "To mark the origin"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Labelling the feasible region makes your answer unambiguous."
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:fib:a4e8bf7f",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "For a strict inequality you draw the boundary as a ___B1___ line; for \\( \\le \\) or \\( \\ge \\) you draw a ___B2___ line.",
+  "blankOptions": {
+   "B1": [
+    "shade",
+    "curve",
+    "0",
+    "dashed"
+   ],
+   "B2": [
+    "solid",
+    "shade",
+    "curve",
+    "want"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "dashed",
+    "B2": "solid"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:fib:c4fe1bd5",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "To decide which side of the line to shade, you substitute a test ___B1___ such as the origin into the inequality.",
+  "blankOptions": {
+   "B1": [
+    "0",
+    "feasible",
+    "shade",
+    "point"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "point"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:fib:18a0475c",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "In the OCR exam you shade the region that is ___B1___ required, leaving the feasible region ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "not",
+    "equals",
+    "region",
+    "line"
+   ],
+   "B2": [
+    "region",
+    "curve",
+    "equals",
+    "clear"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "not",
+    "B2": "clear"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:fib:59f06668",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "You cannot make a negative number of items, so a real-world model also needs \\( x \\) and \\( y \\) each to be at least ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "solid",
+    "point",
+    "line",
+    "0"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "0"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:fib:4aeb5037",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "You find the boundary line of an inequality by replacing the inequality sign with an ___B1___ sign.",
+  "blankOptions": {
+   "B1": [
+    "equals",
+    "wanted",
+    "dashed",
+    "line"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "equals"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:fib:0ebcfbb3",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The single region that satisfies every inequality at once is called the ___B1___ region.",
+  "blankOptions": {
+   "B1": [
+    "want",
+    "region",
+    "0",
+    "feasible"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "feasible"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:fib:d747f7b5",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "If substituting the origin makes the inequality true, the origin lies in the region you ___B1___ (so you do NOT shade it).",
+  "blankOptions": {
+   "B1": [
+    "region",
+    "want",
+    "shade",
+    "dashed"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "want"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:fib:76d6ef9b",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The boundary drawn for \\( y > 2x \\) should be ___B1___ because the inequality is strict.",
+  "blankOptions": {
+   "B1": [
+    "dashed",
+    "feasible",
+    "line",
+    "origin"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "dashed"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:22458699",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y > 3 \\)”?",
+  "options": [
+   "\\( (3,\\ 0) \\) and \\( (0,\\ 6) \\)",
+   "Solid horizontal line \\( y = 3 \\)",
+   "Dashed horizontal line \\( y = 3 \\)",
+   "\\( x \\ge 0 \\) and \\( y \\ge 0 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( y > 3 \\)” means: Dashed horizontal line \\( y = 3 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:2dbfb33a",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y \\le 3 \\)”?",
+  "options": [
+   "\\( (3,\\ 0) \\) and \\( (0,\\ 6) \\)",
+   "\\( \\le 5 \\)",
+   "Solid horizontal line \\( y = 3 \\)",
+   "The origin's side is wanted — shade the other side"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( y \\le 3 \\)” means: Solid horizontal line \\( y = 3 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:5dcdfb41",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( x \\ge 2 \\)”?",
+  "options": [
+   "Shade the region that is NOT required",
+   "\\( \\le 5 \\)",
+   "Dashed horizontal line \\( y = 3 \\)",
+   "Solid vertical line \\( x = 2 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( x \\ge 2 \\)” means: Solid vertical line \\( x = 2 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:945f232f",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Sign is \\( < \\) or \\( > \\)”?",
+  "options": [
+   "\\( x \\ge 0 \\) and \\( y \\ge 0 \\)",
+   "Draw the boundary dashed",
+   "Dashed horizontal line \\( y = 3 \\)",
+   "Solid vertical line \\( x = 2 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Sign is \\( < \\) or \\( > \\)” means: Draw the boundary dashed"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:b11bf17c",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Sign is \\( \\le \\) or \\( \\ge \\)”?",
+  "options": [
+   "\\( \\le 5 \\)",
+   "Draw the boundary solid",
+   "Shade the region that is NOT required",
+   "The line \\( x + 2y = 11 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Sign is \\( \\le \\) or \\( \\ge \\)” means: Draw the boundary solid"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:0973ca10",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'at least 5'”?",
+  "options": [
+   "\\( \\ge 5 \\)",
+   "\\( (3,\\ 0) \\) and \\( (0,\\ 6) \\)",
+   "Solid horizontal line \\( y = 3 \\)",
+   "Dashed horizontal line \\( y = 3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“'at least 5'” means: \\( \\ge 5 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:b2cb5f42",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'no more than 5'”?",
+  "options": [
+   "\\( \\le 5 \\)",
+   "\\( \\ge 5 \\)",
+   "\\( (3,\\ 0) \\) and \\( (0,\\ 6) \\)",
+   "The line \\( x + 2y = 11 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“'no more than 5'” means: \\( \\le 5 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:6c62a2ba",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'fewer than 5'”?",
+  "options": [
+   "The origin's side is wanted — shade the other side",
+   "Draw the boundary solid",
+   "\\( < 5 \\)",
+   "\\( x \\ge 0 \\) and \\( y \\ge 0 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“'fewer than 5'” means: \\( < 5 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:021fe09b",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Non-negativity”?",
+  "options": [
+   "\\( x \\ge 0 \\) and \\( y \\ge 0 \\)",
+   "Solid vertical line \\( x = 2 \\)",
+   "\\( < 5 \\)",
+   "The origin's side is wanted — shade the other side"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Non-negativity” means: \\( x \\ge 0 \\) and \\( y \\ge 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:2a813095",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Feasible region”?",
+  "options": [
+   "\\( \\ge 5 \\)",
+   "The clear region satisfying every inequality",
+   "Dashed horizontal line \\( y = 3 \\)",
+   "\\( \\le 5 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Feasible region” means: The clear region satisfying every inequality"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:f61b13db",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Test \\( (0,0) \\) gives a true statement”?",
+  "options": [
+   "The origin's side is wanted — shade the other side",
+   "Draw the boundary dashed",
+   "\\( \\le 5 \\)",
+   "The line \\( x + 2y = 11 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Test \\( (0,0) \\) gives a true statement” means: The origin's side is wanted — shade the other side"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:42301fe7",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “OCR shading convention”?",
+  "options": [
+   "Draw the boundary dashed",
+   "Shade the region that is NOT required",
+   "The origin's side is wanted — shade the other side",
+   "\\( x \\ge 0 \\) and \\( y \\ge 0 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“OCR shading convention” means: Shade the region that is NOT required"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:88c01b37",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Boundary of \\( x + 2y \\le 11 \\)”?",
+  "options": [
+   "Shade the region that is NOT required",
+   "Solid horizontal line \\( y = 3 \\)",
+   "The line \\( x + 2y = 11 \\)",
+   "\\( < 5 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Boundary of \\( x + 2y \\le 11 \\)” means: The line \\( x + 2y = 11 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-1-inequalities-in-two-variables:match:5d40ec79",
+  "pageId": "additional-maths:4-1-inequalities-in-two-variables",
+  "pageName": "4.1 Inequalities in Two Variables",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Intercepts of \\( 2x + y = 6 \\)”?",
+  "options": [
+   "Draw the boundary solid",
+   "Draw the boundary dashed",
+   "Dashed horizontal line \\( y = 3 \\)",
+   "\\( (3,\\ 0) \\) and \\( (0,\\ 6) \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Intercepts of \\( 2x + y = 6 \\)” means: \\( (3,\\ 0) \\) and \\( (0,\\ 6) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:mcq:963cf6f4",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A rule says 'you must make at least 5 tables'. If \\( y \\) is the number of tables, which inequality is correct?",
+  "options": [
+   "\\( y \\ge 5 \\)",
+   "\\( y \\le 5 \\)",
+   "\\( y > 5 \\)",
+   "\\( y = 5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'At least 5' means 5 or more, so \\( y \\ge 5 \\). Writing \\( y \\le 5 \\) reverses the meaning — the classic 'at least' error."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:mcq:73b12ee0",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A machine is available for 'no more than 30 hours'. Total hours used is \\( 3x + 2y \\). The constraint is:",
+  "options": [
+   "\\( 3x + 2y \\le 30 \\)",
+   "\\( 3x + 2y \\ge 30 \\)",
+   "\\( 3x + 2y = 30 \\)",
+   "\\( 3x + 2y > 30 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'No more than 30' is an upper limit, so use \\( \\le \\): \\( 3x + 2y \\le 30 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:mcq:69d37b9e",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A company earns £15 profit per desk (\\( x \\)) and £25 per cabinet (\\( y \\)). Which is the objective function?",
+  "options": [
+   "\\( P = 15x + 25y \\)",
+   "\\( 15x + 25y \\le 100 \\)",
+   "\\( x + y \\ge 15 \\)",
+   "\\( P \\le 15x + 25y \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The objective is the profit expression to maximise, \\( P = 15x + 25y \\). It has an equals sign and no inequality symbol."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:mcq:89568aa1",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of the following is a constraint rather than an objective function?",
+  "options": [
+   "\\( 4x + 5y \\le 200 \\)",
+   "\\( C = 4x + 5y \\)",
+   "\\( P = 2x + 7y \\)",
+   "\\( N = x + y \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A constraint is a limit written as an inequality — \\( 4x + 5y \\le 200 \\). The others are objective functions (expressions with '=', to be maximised or minimised)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:mcq:8710da64",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Why should \\( x \\ge 0 \\) and \\( y \\ge 0 \\) be written in almost every LP model?",
+  "options": [
+   "You cannot produce a negative amount of something",
+   "They increase the profit",
+   "They are the objective function",
+   "They tell you which vertex is optimal"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Real quantities cannot be negative, so non-negativity constraints are needed. They are easy marks that are frequently forgotten."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:mcq:a2275a86",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The constraint \\( 10x + 15y \\le 60 \\) can be simplified to:",
+  "options": [
+   "\\( 2x + 3y \\le 12 \\)",
+   "\\( 2x + 3y \\ge 12 \\)",
+   "\\( 5x + 10y \\le 60 \\)",
+   "\\( 10x + 15y \\le 6 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Divide every term by the common factor 5: \\( 2x + 3y \\le 12 \\). Dividing by a positive number keeps the \\( \\le \\) unchanged."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:mcq:5738a858",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the correct first step when setting up any LP problem from words?",
+  "options": [
+   "Define the decision variables clearly",
+   "Draw the feasible region",
+   "Read off the optimum vertex",
+   "Guess an answer and check it"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Define your variables first; every constraint and the objective are written in terms of them."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:mcq:8d763f2a",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Each toy car uses 20 g of plastic and each toy van uses 50 g. There is 1 kg of plastic. With \\( x \\) cars and \\( y \\) vans, the plastic constraint is:",
+  "options": [
+   "\\( 20x + 50y \\le 1000 \\)",
+   "\\( 20x + 50y \\le 1 \\)",
+   "\\( 20x + 50y \\ge 1000 \\)",
+   "\\( 50x + 20y \\le 1000 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Convert 1 kg to 1000 g so units match, then use \\( \\le \\) for a resource limit: \\( 20x + 50y \\le 1000 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:mcq:460ef148",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A florist must use 'at least twice as many roses (\\( x \\)) as lilies (\\( y \\))'. Which inequality models this?",
+  "options": [
+   "\\( x \\ge 2y \\)",
+   "\\( 2x \\ge y \\)",
+   "\\( x \\le 2y \\)",
+   "\\( x = 2y \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'At least twice as many roses as lilies' means roses \\( \\ge 2 \\times \\) lilies, i.e. \\( x \\ge 2y \\). Writing \\( 2x \\ge y \\) is the common reversed-relationship error."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:mcq:dee17bf3",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which statement about an objective function is TRUE?",
+  "options": [
+   "It is an expression to be maximised or minimised, with no inequality sign",
+   "It must contain a \\( \\le \\) or \\( \\ge \\) sign",
+   "It restricts the feasible region",
+   "There can be several objective functions in one problem"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The objective function is the single quantity being optimised, written as an expression (e.g. \\( P = 8x + 12y \\)) with no inequality — that is what distinguishes it from a constraint."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:mcq:0a262e9d",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A minibus firm wants the 'greatest number of passengers', where \\( x \\) is small buses (8 seats) and \\( y \\) is large buses (16 seats). The objective is to maximise:",
+  "options": [
+   "\\( N = 8x + 16y \\)",
+   "\\( N = x + y \\)",
+   "\\( 8x + 16y \\le N \\)",
+   "\\( N = 16x + 8y \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Total passenger capacity is \\( 8x + 16y \\); maximise \\( N = 8x + 16y \\). \\( x + y \\) would only count the number of buses, not passengers."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:mcq:54536e08",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student writes the profit £8 per sponge and £12 per fruit cake as \\( 8x + 12y \\le 100 \\). What is wrong?",
+  "options": [
+   "The objective function should have no inequality: it is \\( P = 8x + 12y \\)",
+   "The coefficients should be swapped",
+   "It should be \\( \\ge 100 \\)",
+   "Nothing is wrong"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Profit is the objective to maximise, so it is written as \\( P = 8x + 12y \\), not as an inequality. Treating the objective as a constraint is a common modelling error."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:tf:88fe3a81",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The phrase 'at least 10' is modelled by the inequality \\( x \\ge 10 \\).",
+  "key": {
+   "answer": true,
+   "explain": "'At least 10' means 10 or more, which is \\( x \\ge 10 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:tf:d174a50e",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A resource limit such as 'no more than 500 g of material' uses a \\( \\ge \\) sign.",
+  "key": {
+   "answer": false,
+   "explain": "An upper limit uses \\( \\le \\): 'no more than 500 g' means the amount used is \\( \\le 500 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:tf:e0991360",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Non-negativity constraints \\( x \\ge 0,\\ y \\ge 0 \\) can safely be left out of a model.",
+  "key": {
+   "answer": false,
+   "explain": "They are needed because a real quantity cannot be negative — and they are easy marks that are commonly forgotten."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:tf:96213c09",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The objective function is the quantity that is to be maximised or minimised.",
+  "key": {
+   "answer": true,
+   "explain": "That is its definition (CG8): the goal expression, such as profit \\( P = 8x + 12y \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:tf:b7487632",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "An objective function must contain a \\( \\le \\) or \\( \\ge \\) sign.",
+  "key": {
+   "answer": false,
+   "explain": "An objective function is an expression with an equals sign and no inequality. Constraints carry the inequality signs."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:tf:f5e8d08f",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Dividing the constraint \\( 4x + 6y \\le 24 \\) through by 2 gives \\( 2x + 3y \\le 12 \\).",
+  "key": {
+   "answer": true,
+   "explain": "Dividing every term by the positive number 2 keeps the \\( \\le \\) unchanged: \\( 2x + 3y \\le 12 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:tf:663db329",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "You should define your variables before writing any constraints.",
+  "key": {
+   "answer": true,
+   "explain": "Constraints and the objective are written in terms of the variables, so define them first or the inequalities cannot be read."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:tf:ca7fc9bc",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In a model, the profit expression \\( P = 8x + 12y \\) is a constraint.",
+  "key": {
+   "answer": false,
+   "explain": "That expression is the objective function (to be maximised), not a constraint. Constraints are the inequalities that limit the choice."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:learn:b8202af6",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is linear programming, and what does 'modelling' mean here?",
+  "reading": "<p>Many real decisions are about finding the <strong>best</strong> choice — the most profit, the lowest cost, the largest number produced — while working inside real <strong>limits</strong> on time, materials or money. <strong>Linear programming (LP)</strong> is the mathematical method for exactly this kind of problem.</p>\n            <p>Every LP problem is solved in two stages:</p>\n            <ul>\n              <li><strong>Stage 1 — model it (this lesson).</strong> Turn the words into maths: choose <strong>decision variables</strong>, write the <strong>constraints</strong> as linear inequalities, and write the <strong>objective function</strong> — the quantity to be maximised or minimised.</li>\n              <li><strong>Stage 2 — solve it (lesson 4.3).</strong> Draw the inequalities, find the <strong>feasible region</strong>, and read off the best vertex.</li>\n            </ul>\n            <p>This page is <strong>Stage 1 only</strong>. You are learning to <em>formulate</em> the problem — not yet to solve it with a graph. Getting the model right is worth easy marks and is the foundation everything else stands on: a wrong inequality here makes the whole graph wrong later.</p>",
+  "question": "What does the modelling stage of an LP problem produce?",
+  "options": [
+   "Decision variables, constraints, and an objective function",
+   "A shaded graph with the answer read off",
+   "A single numerical answer only",
+   "The area of the feasible region"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Modelling (Stage 1) turns the words into variables, constraints (inequalities) and an objective function. Drawing the graph and reading the optimum is Stage 2 (lesson 4.3)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:learn:fe43eea2",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you define your variables?",
+  "reading": "<p><strong>Always start by defining your variables.</strong> Every constraint and the objective are written in terms of them, so if they are not defined, nothing else can be read.</p>\n            <p>Write a clear sentence for each, for example:</p>\n            <ul>\n              <li>Let \\( x = \\) the number of sponge cakes made.</li>\n              <li>Let \\( y = \\) the number of fruit cakes made.</li>\n            </ul>\n            <p>Good habits:</p>\n            <ul>\n              <li>State the <strong>units / what each variable counts</strong> (\"number of chairs\", not just \"chairs\").</li>\n              <li>Use the <strong>same letters</strong> throughout the rest of the question.</li>\n              <li>Do this <strong>first</strong>, before you write a single inequality — examiners cannot award marks for an inequality whose letters are undefined.</li>\n            </ul>\n            <p>These are your <strong>decision variables</strong>: the quantities you are free to choose, and whose best values you are ultimately trying to find.</p>",
+  "question": "What should be the very first step when modelling an LP problem?",
+  "options": [
+   "Define the variables (e.g. let x = number of ...)",
+   "Draw the axes",
+   "Write the objective function",
+   "Divide every inequality through"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Define your variables first. Every constraint and the objective are written in terms of them, so they must be stated clearly before anything else."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:learn:e1e89c7a",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you turn a worded limit into a constraint?",
+  "reading": "<p>A <strong>constraint</strong> is a limit in the problem, written as a <strong>linear inequality</strong>. The wording tells you which way the inequality sign points. Learn this phrase-to-symbol dictionary:</p>\n            <table class=\"worked\">\n              <tr><td><strong>\"at most\", \"no more than\", \"cannot exceed\", \"up to\", \"available\", \"maximum of\"</strong></td><td>use \\( \\le \\)</td></tr>\n              <tr><td><strong>\"at least\", \"minimum of\", \"no fewer than\", \"must have at least\"</strong></td><td>use \\( \\ge \\)</td></tr>\n              <tr><td><strong>\"exactly\", \"equal to\"</strong></td><td>use \\( = \\)</td></tr>\n            </table>\n            <p><strong>Worked example.</strong> A workshop makes bikes and scooters. Each bike needs 6 hours of labour and each scooter needs 4 hours. There are at most 240 labour hours each week. Let \\( x = \\) number of bikes and \\( y = \\) number of scooters.</p>\n            <table class=\"worked\">\n              <tr><td>1. Total labour used is \\( 6x + 4y \\) hours.</td></tr>\n              <tr><td>2. \"At most 240\" means it cannot exceed 240, so use \\( \\le \\): \\[ 6x + 4y \\le 240. \\]</td></tr>\n              <tr><td>3. <strong>Simplify</strong> by dividing through by the common factor 2: \\[ 3x + 2y \\le 120. \\]</td></tr>\n            </table>\n            <p>Dividing (or multiplying) an inequality by a <strong>positive</strong> number keeps the sign the same, and smaller numbers make the line easier to draw later. Always convert <strong>units</strong> first (e.g. 4.2 kg = 4200 g) so both sides match.</p>",
+  "question": "Which inequality is the simplified form of \\( 6x + 4y \\le 240 \\)?",
+  "options": [
+   "\\( 3x + 2y \\le 120 \\)",
+   "\\( 3x + 2y \\ge 120 \\)",
+   "\\( 6x + 4y \\ge 240 \\)",
+   "\\( 2x + 3y \\le 120 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Divide every term by the common factor 2: \\( 3x + 2y \\le 120 \\). Dividing by a positive number leaves the \\( \\le \\) unchanged."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:learn:b6e51a19",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Why do you always need non-negativity constraints?",
+  "reading": "<p>You cannot make a negative number of cakes, chairs or minutes. So almost every LP model includes the <strong>non-negativity constraints</strong>:</p>\n            <p>\\[ x \\ge 0, \\qquad y \\ge 0. \\]</p>\n            <ul>\n              <li>They are <strong>easy marks that are constantly forgotten</strong> — write them every time.</li>\n              <li>They matter for the graph later: they restrict the feasible region to the first quadrant.</li>\n              <li>If a stronger limit already forces a variable positive (say \"at least 3 fruit cakes\" gives \\( y \\ge 3 \\)), that stronger constraint replaces the plain \\( y \\ge 0 \\) for that variable.</li>\n            </ul>\n            <p>Whether the answer must be a <strong>whole number</strong> (you cannot make half a chair) is a separate issue handled when you read the optimum in lesson 4.3 — in LP the lines themselves are allowed to cross at non-integer points.</p>",
+  "question": "Why include \\( x \\ge 0 \\) and \\( y \\ge 0 \\) in an LP model?",
+  "options": [
+   "You cannot produce a negative quantity of something",
+   "They are the objective function",
+   "They make the profit larger",
+   "They replace the need to define variables"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Non-negativity says a real quantity can never be negative. They are easy marks and keep the feasible region in the first quadrant — but they are often forgotten."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:learn:5b4590b4",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is the objective function?",
+  "reading": "<p>The <strong>objective function</strong> is the single quantity you are trying to make as large or as small as possible, written as an <strong>expression in your variables</strong>. It is the \"goal\" of the whole problem (spec statement CG8).</p>\n            <ul>\n              <li><strong>Profit</strong> to maximise: e.g. £8 per sponge cake and £12 per fruit cake gives \\( P = 8x + 12y \\).</li>\n              <li><strong>Cost</strong> to minimise: e.g. \\( C = 5x + 3y \\).</li>\n              <li><strong>Total number</strong> to maximise: e.g. \\( N = x + y \\).</li>\n            </ul>\n            <p>Two things to get right:</p>\n            <ul>\n              <li>An objective function is an <strong>expression with an equals sign</strong> — it is <strong>never an inequality</strong>. It has no \\( \\le \\) or \\( \\ge \\). That is what separates it from a constraint.</li>\n              <li>Always state whether you are going to <strong>maximise</strong> or <strong>minimise</strong> it — the wording (\"greatest profit\", \"least cost\") tells you which.</li>\n            </ul>\n            <p>For instance, a toymaker earning £28 per train and £60 per aeroplane has objective \\( P = 28x + 60y \\), to be <strong>maximised</strong>.</p>",
+  "question": "Which of these is an objective function, not a constraint?",
+  "options": [
+   "\\( P = 28x + 60y \\)",
+   "\\( 2x + 3y \\le 42 \\)",
+   "\\( y \\ge 3 \\)",
+   "\\( x \\ge 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "An objective function is an expression to be maximised or minimised, with an equals sign and no inequality. \\( P = 28x + 60y \\) qualifies; the others are constraints (they contain \\( \\le \\) or \\( \\ge \\))."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:learn:066a05d2",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Worked example: modelling a whole scenario",
+  "reading": "<p><strong>Scenario.</strong> A baker makes sponge cakes and fruit cakes. Each sponge cake uses 200 g of flour and 4 eggs; each fruit cake uses 300 g of flour and 2 eggs. The baker has 4.2 kg of flour and 48 eggs, and wants to make at least 3 fruit cakes. Sponge cakes make £8 profit each and fruit cakes £12 each. Formulate this as a linear programming problem.</p>\n            <table class=\"worked\">\n              <tr><td><strong>1. Define variables.</strong> Let \\( x = \\) number of sponge cakes, \\( y = \\) number of fruit cakes.</td></tr>\n              <tr><td><strong>2. Flour constraint.</strong> Convert units: 4.2 kg \\( = 4200 \\) g. Flour used \\( = 200x + 300y \\le 4200 \\). Divide by 100: \\[ 2x + 3y \\le 42. \\]</td></tr>\n              <tr><td><strong>3. Egg constraint.</strong> Eggs used \\( = 4x + 2y \\le 48 \\). Divide by 2: \\[ 2x + y \\le 24. \\]</td></tr>\n              <tr><td><strong>4. \"At least 3 fruit cakes\".</strong> \\( \\ge \\) for \"at least\": \\[ y \\ge 3. \\]</td></tr>\n              <tr><td><strong>5. Non-negativity.</strong> \\( x \\ge 0 \\) (and \\( y \\ge 0 \\), already guaranteed by \\( y \\ge 3 \\)).</td></tr>\n              <tr><td><strong>6. Objective.</strong> Maximise profit \\[ P = 8x + 12y. \\]</td></tr>\n            </table>\n            <p>That is the complete model: four constraints \\( (2x+3y\\le 42,\\ 2x+y\\le 24,\\ y\\ge 3,\\ x\\ge 0) \\) plus the objective \\( P = 8x + 12y \\) to maximise. Solving it graphically is the next lesson.</p>",
+  "question": "In the baker example, why does the flour constraint become \\( 2x + 3y \\le 42 \\)?",
+  "options": [
+   "4.2 kg = 4200 g, and \\( 200x + 300y \\le 4200 \\) divides by 100",
+   "The eggs were converted to grams",
+   "Profit is £8 and £12 per cake",
+   "4.2 kg = 42 g, divided by 1"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "First convert 4.2 kg to 4200 g, giving \\( 200x + 300y \\le 4200 \\); dividing every term by 100 simplifies it to \\( 2x + 3y \\le 42 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:misc:2606ccce",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Modelling 'you must produce at least 20 units' as \\( x \\le 20 \\).</p><p><strong>✅ The correct idea:</strong> 'At least' means 20 or more, so it is \\( x \\ge 20 \\). A weak answer copies the number and guesses the sign; a strong answer reads the phrase — 'at least' \\( \\Rightarrow \\ge \\), 'at most' \\( \\Rightarrow \\le \\).</p>",
+  "question": "'At least 20 units' becomes:",
+  "options": [
+   "\\( x \\ge 20 \\)",
+   "\\( x \\le 20 \\)",
+   "\\( x = 20 \\)",
+   "\\( x < 20 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'At least 20' means 20 or more, so \\( x \\ge 20 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:misc:2f95fd7e",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Writing the constraints but forgetting \\( x \\ge 0 \\) and \\( y \\ge 0 \\).</p><p><strong>✅ The correct idea:</strong> Non-negativity is part of the model — real quantities cannot be negative. A weak answer stops at the resource limits; a strong answer always adds \\( x \\ge 0,\\ y \\ge 0 \\) (they keep the feasible region in the first quadrant later).</p>",
+  "question": "Which constraints are most often forgotten?",
+  "options": [
+   "The non-negativity constraints \\( x \\ge 0,\\ y \\ge 0 \\)",
+   "The objective function",
+   "The resource limits",
+   "The units"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Non-negativity constraints are easy marks that students routinely leave out."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:misc:27eda33c",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Writing the profit £5 per item A and £9 per item B as the constraint \\( 5x + 9y \\le 200 \\).</p><p><strong>✅ The correct idea:</strong> Profit is the objective to be maximised, so it is \\( P = 5x + 9y \\) with an equals sign — not an inequality. A weak answer confuses the goal with a limit; a strong answer keeps the objective separate from the constraints.</p>",
+  "question": "The profit £5 per A, £9 per B should be written as:",
+  "options": [
+   "\\( P = 5x + 9y \\) (objective)",
+   "\\( 5x + 9y \\le 200 \\)",
+   "\\( 5x + 9y \\ge 0 \\)",
+   "\\( x + y = 5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Profit is the objective function \\( P = 5x + 9y \\), to be maximised — not a constraint."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:misc:d9089168",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Modelling 'at least twice as many chairs (\\( x \\)) as tables (\\( y \\))' as \\( 2x \\ge y \\).</p><p><strong>✅ The correct idea:</strong> Chairs are the bigger quantity: chairs \\( \\ge 2 \\times \\) tables, so \\( x \\ge 2y \\). A weak answer multiplies the wrong variable; a strong answer checks with numbers (4 chairs, 2 tables: \\( 4 \\ge 2\\times 2 \\) ✓).</p>",
+  "question": "'At least twice as many chairs \\( x \\) as tables \\( y \\)' is:",
+  "options": [
+   "\\( x \\ge 2y \\)",
+   "\\( 2x \\ge y \\)",
+   "\\( x \\le 2y \\)",
+   "\\( x = 2y \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Chairs must be at least double the tables: \\( x \\ge 2y \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:misc:55d07b09",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Writing \\( 200x + 300y \\le 4.2 \\) when the flour available is 4.2 kg and each cake is measured in grams.</p><p><strong>✅ The correct idea:</strong> Convert units first: 4.2 kg \\( = 4200 \\) g, so \\( 200x + 300y \\le 4200 \\) (then simplify to \\( 2x + 3y \\le 42 \\)). A weak answer mixes grams and kilograms; a strong answer makes both sides the same unit before writing the inequality.</p>",
+  "question": "Each cake uses grams of flour; 4.2 kg is available. The right-hand side should be:",
+  "options": [
+   "4200",
+   "4.2",
+   "42",
+   "420"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "4.2 kg = 4200 g, so both sides are in grams: \\( 200x + 300y \\le 4200 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:tips:b7b2cf20",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — The modelling ladder: variables → constraints → objective",
+  "reading": "<p>Work a formulation question in this fixed order, and write each part down:</p><p><strong>1. Define variables</strong> — \"let \\( x = \\) ..., \\( y = \\) ...\". <strong>2. Constraints</strong> — one inequality per limit (resource \\( \\le \\), minimum \\( \\ge \\)), then the non-negativity pair \\( x \\ge 0,\\ y \\ge 0 \\). <strong>3. Objective</strong> — the profit/cost/total expression with '=', and state maximise or minimise.</p><p>Following the ladder every time stops you skipping the variable definitions or the non-negativity constraints — the two most common lost marks.</p>",
+  "question": "What is the correct order of the modelling ladder?",
+  "options": [
+   "Define variables → constraints → objective",
+   "Objective → variables → constraints",
+   "Constraints → objective → variables",
+   "Draw graph → define variables → objective"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Always: define the variables, then write the constraints (including non-negativity), then the objective function."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:tips:40367f07",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Read the phrase, then choose the sign",
+  "reading": "<p>The single most common formulation error is the wrong inequality direction. Anchor two phrases: <strong>\"at least\" / \"minimum\" / \"no fewer than\" \\( \\Rightarrow \\ge \\)</strong>, and <strong>\"at most\" / \"no more than\" / \"cannot exceed\" / \"available\" \\( \\Rightarrow \\le \\)</strong>.</p><p>If unsure, test with a number: does producing a large amount satisfy the sentence? \"At least 5\" is satisfied by 100, so large values are allowed \\( \\Rightarrow \\ge \\).</p>",
+  "question": "'The kiln can be used for up to 8 hours' uses which sign?",
+  "options": [
+   "\\( \\le \\)",
+   "\\( \\ge \\)",
+   "\\( = \\)",
+   "\\( > \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Up to 8 hours' is an upper limit, so \\( \\le 8 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:tips:4aeb7494",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Convert units and simplify before you draw",
+  "reading": "<p>Two quick wins that make the graph in 4.3 far easier and protect accuracy marks:</p><p><strong>Match units first:</strong> if a resource is given in kg but items are in grams, convert (4.2 kg \\( = 4200 \\) g) so both sides agree. <strong>Then simplify:</strong> divide the inequality by any common factor (\\( 200x + 300y \\le 4200 \\to 2x + 3y \\le 42 \\)). Dividing by a positive number never changes the direction of the sign.</p>",
+  "question": "Dividing \\( 200x + 300y \\le 4200 \\) by 100 gives:",
+  "options": [
+   "\\( 2x + 3y \\le 42 \\)",
+   "\\( 2x + 3y \\ge 42 \\)",
+   "\\( 200x + 300y \\le 42 \\)",
+   "\\( 2x + 3y \\le 4200 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Divide every term by 100: \\( 2x + 3y \\le 42 \\); the \\( \\le \\) is unchanged because 100 is positive."
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:fib:9118be55",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "When modelling an LP problem you should always ___B1___ your variables first, for example 'let x = number of chairs'.",
+  "blankOptions": {
+   "B1": [
+    "draw",
+    "simplify",
+    "objective",
+    "define"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "define"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:fib:c1ee10a8",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A constraint is a limit in the problem written as a linear ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "feasible",
+    "objective",
+    "simplify",
+    "inequality"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "inequality"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:fib:7b4df068",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The phrase 'at least' translates to the ___B1___ sign, while 'no more than' translates to the ___B2___ sign.",
+  "blankOptions": {
+   "B1": [
+    "minimised",
+    "objective",
+    "feasible",
+    "greater than or equal to"
+   ],
+   "B2": [
+    "less than or equal to",
+    "non-negativity",
+    "minimised",
+    "feasible"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "greater than or equal to",
+    "B2": "less than or equal to"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:fib:a1391edf",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Because you cannot make a negative quantity, an LP model includes the ___B1___ constraints x is greater than or equal to 0 and y is greater than or equal to 0.",
+  "blankOptions": {
+   "B1": [
+    "60",
+    "non-negativity",
+    "minimised",
+    "simplify"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "non-negativity"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:fib:6337e874",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The ___B1___ function is the quantity, such as profit or cost, that you want to maximise or minimise.",
+  "blankOptions": {
+   "B1": [
+    "feasible",
+    "objective",
+    "draw",
+    "minimised"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "objective"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:fib:daebc5a1",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "You can ___B1___ a constraint such as 6x + 4y is at most 240 by dividing every term by 2, giving 3x + 2y at most 120.",
+  "blankOptions": {
+   "B1": [
+    "simplify",
+    "8",
+    "non-negativity",
+    "inequality"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "simplify"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:fib:55931a95",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Profit of £28 per train and £60 per aeroplane gives the objective P = 28x + ___B1___ y, which is to be ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "feasible",
+    "objective",
+    "non-negativity",
+    "60"
+   ],
+   "B2": [
+    "objective",
+    "greater than or equal to",
+    "8",
+    "maximised"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "60",
+    "B2": "maximised"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:fib:f75d5db7",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Unlike a constraint, an objective function contains no ___B1___ sign.",
+  "blankOptions": {
+   "B1": [
+    "inequality",
+    "equals",
+    "minimised",
+    "simplify"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "inequality"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:4056839f",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\"at least\" / \"minimum\" / \"no fewer than\"”?",
+  "options": [
+   "\\( 3x + 2y \\le 120 \\)",
+   "\"Let \\( x = \\) number of ...\"",
+   "\\( \\ge \\)",
+   "\\( x + y \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\"at least\" / \"minimum\" / \"no fewer than\"” means: \\( \\ge \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:f8b19add",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\"at most\" / \"no more than\" / \"cannot exceed\"”?",
+  "options": [
+   "\\( P = 8x + 12y \\)",
+   "\\( y \\ge 3 \\)",
+   "\\( \\le \\)",
+   "\\( 3x + 2y \\le 120 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\"at most\" / \"no more than\" / \"cannot exceed\"” means: \\( \\le \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:4292d1ac",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Each cake uses flour; 4200 g available”?",
+  "options": [
+   "\\( 3x + 2y \\le 120 \\)",
+   "\"Let \\( x = \\) number of ...\"",
+   "\\( 200x + 300y \\le 4200 \\)",
+   "\\( x \\ge 2y \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Each cake uses flour; 4200 g available” means: \\( 200x + 300y \\le 4200 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:30199608",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Maximise profit £8 per sponge, £12 per fruit”?",
+  "options": [
+   "\\( P = 8x + 12y \\)",
+   "\\( 3x + 2y \\le 120 \\)",
+   "\\( \\ge \\)",
+   "\\( y \\ge 3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Maximise profit £8 per sponge, £12 per fruit” means: \\( P = 8x + 12y \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:dcfdf7e6",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Make at least 3 fruit cakes”?",
+  "options": [
+   "\\( 200x + 300y \\le 4200 \\)",
+   "right-hand side is \\( 1000 \\)",
+   "\\( x + y \\)",
+   "\\( y \\ge 3 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Make at least 3 fruit cakes” means: \\( y \\ge 3 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:ca74a1c6",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “You cannot make a negative number”?",
+  "options": [
+   "\\( \\ge \\)",
+   "\\( x \\ge 0,\\ y \\ge 0 \\)",
+   "A limit written as a linear inequality",
+   "The quantity to be maximised or minimised"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“You cannot make a negative number” means: \\( x \\ge 0,\\ y \\ge 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:4a8987e5",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Objective function”?",
+  "options": [
+   "\\( x + y \\)",
+   "\\( x \\ge 2y \\)",
+   "\"Let \\( x = \\) number of ...\"",
+   "The quantity to be maximised or minimised"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Objective function” means: The quantity to be maximised or minimised"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:c94d2740",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Constraint”?",
+  "options": [
+   "\\( x \\ge 0,\\ y \\ge 0 \\)",
+   "A limit written as a linear inequality",
+   "right-hand side is \\( 1000 \\)",
+   "\\( x \\ge 2y \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Constraint” means: A limit written as a linear inequality"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:4c9f9958",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Total number of items produced”?",
+  "options": [
+   "\\( y \\ge 3 \\)",
+   "\\( 200x + 300y \\le 4200 \\)",
+   "\\( x + y \\)",
+   "\\( \\ge \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Total number of items produced” means: \\( x + y \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:a90cc7c2",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Define the variables (first step)”?",
+  "options": [
+   "\\( P = 8x + 12y \\)",
+   "\\( \\ge \\)",
+   "\"Let \\( x = \\) number of ...\"",
+   "The quantity to be maximised or minimised"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Define the variables (first step)” means: \"Let \\( x = \\) number of ...\""
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:c9158965",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “At least twice as many roses \\( x \\) as lilies \\( y \\)”?",
+  "options": [
+   "The quantity to be maximised or minimised",
+   "\\( x \\ge 2y \\)",
+   "\\( 200x + 300y \\le 4200 \\)",
+   "\\( x \\ge 0,\\ y \\ge 0 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“At least twice as many roses \\( x \\) as lilies \\( y \\)” means: \\( x \\ge 2y \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:f46f8468",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Toymaker: £28 per train, £60 per plane, maximise”?",
+  "options": [
+   "\\( P = 28x + 60y \\)",
+   "\\( x \\ge 2y \\)",
+   "A limit written as a linear inequality",
+   "\\( P = 8x + 12y \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Toymaker: £28 per train, £60 per plane, maximise” means: \\( P = 28x + 60y \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:3dd9c0c2",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Simplify \\( 6x + 4y \\le 240 \\)”?",
+  "options": [
+   "\\( x + y \\)",
+   "\\( 3x + 2y \\le 120 \\)",
+   "\\( x \\ge 0,\\ y \\ge 0 \\)",
+   "\"Let \\( x = \\) number of ...\""
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Simplify \\( 6x + 4y \\le 240 \\)” means: \\( 3x + 2y \\le 120 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-2-constraints-and-objective-functions:match:7458610f",
+  "pageId": "additional-maths:4-2-constraints-and-objective-functions",
+  "pageName": "4.2 Constraints and Objective Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “1 kg of plastic available (grams used)”?",
+  "options": [
+   "\\( y \\ge 3 \\)",
+   "right-hand side is \\( 1000 \\)",
+   "\\( \\ge \\)",
+   "\\( P = 8x + 12y \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“1 kg of plastic available (grams used)” means: right-hand side is \\( 1000 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:exam:999bee36",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "16 (a)(i)",
+  "question": "<p>The dog needs at least 5000 curative units. Write this condition as an inequality in \\( x \\) and \\( y \\).</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 16.</strong> Two drugs, X and Y, are used together to treat dogs with a dietary condition. Each drug has a positive (\"curative\") and a negative (\"toxic\") effect, measured in units per mg.</p>\n        <table class=\"worked\"><tr><td><strong>Drug</strong></td><td><strong>Curative units per mg</strong></td><td><strong>Toxic units per mg</strong></td></tr>\n        <tr><td>X</td><td>2000</td><td>40</td></tr><tr><td>Y</td><td>1000</td><td>50</td></tr></table>\n        <p>A dog is given \\( x \\) mg of drug X and \\( y \\) mg of drug Y. The blank grid for part (b) has \\( x \\) and \\( y \\) both running from 0 to 8.</p>\n        <svg viewBox=\"0 0 480 330\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x and y axes both from 0 to 8\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.25\"><line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"290\"/><line x1=\"150\" y1=\"30\" x2=\"150\" y2=\"290\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"300\" y1=\"30\" x2=\"300\" y2=\"290\"/><line x1=\"350\" y1=\"30\" x2=\"350\" y2=\"290\"/><line x1=\"400\" y1=\"30\" x2=\"400\" y2=\"290\"/><line x1=\"450\" y1=\"30\" x2=\"450\" y2=\"290\"/><line x1=\"50\" y1=\"257.5\" x2=\"450\" y2=\"257.5\"/><line x1=\"50\" y1=\"225\" x2=\"450\" y2=\"225\"/><line x1=\"50\" y1=\"192.5\" x2=\"450\" y2=\"192.5\"/><line x1=\"50\" y1=\"160\" x2=\"450\" y2=\"160\"/><line x1=\"50\" y1=\"127.5\" x2=\"450\" y2=\"127.5\"/><line x1=\"50\" y1=\"95\" x2=\"450\" y2=\"95\"/><line x1=\"50\" y1=\"62.5\" x2=\"450\" y2=\"62.5\"/><line x1=\"50\" y1=\"30\" x2=\"450\" y2=\"30\"/></g><line x1=\"50\" y1=\"290\" x2=\"466\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"50\" y1=\"290\" x2=\"50\" y2=\"24\" stroke=\"currentColor\" stroke-width=\"1.4\"/><polygon points=\"466,290 457,286 457,294\" fill=\"currentColor\"/><polygon points=\"50,24 46,33 54,33\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"305\">0</text><text x=\"100\" y=\"305\">1</text><text x=\"150\" y=\"305\">2</text><text x=\"200\" y=\"305\">3</text><text x=\"250\" y=\"305\">4</text><text x=\"300\" y=\"305\">5</text><text x=\"350\" y=\"305\">6</text><text x=\"400\" y=\"305\">7</text><text x=\"450\" y=\"305\">8</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"294\">0</text><text x=\"42\" y=\"229\">2</text><text x=\"42\" y=\"164\">4</text><text x=\"42\" y=\"99\">6</text><text x=\"42\" y=\"34\">8</text></g><text x=\"470\" y=\"286\" font-size=\"12\" fill=\"currentColor\">x</text><text x=\"34\" y=\"30\" font-size=\"12\" fill=\"currentColor\">y</text></svg>",
+  "hint": "'At least' means \\( \\ge \\). Use the curative units per mg: 2000 from X, 1000 from Y.",
+  "starter": "Give an inequality using \\( \\ge \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>\n              <li><strong>B1</strong> — \\( 2000x + 1000y \\ge 5000 \\) oe. The \"greater than or equal to\" symbol must be seen.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Any equivalent form scores (e.g. before simplifying); the correct symbol is essential.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Answered well; the few who failed used the wrong symbol or tried to find particular values of \\( x \\) and \\( y \\).</li>\n            </ul></div>",
+   "modelAnswer": "\\( 2000x + 1000y \\ge 5000 \\) (curative units: 2000 per mg of X and 1000 per mg of Y, at least 5000)."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:exam:093beac8",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "16 (a)(ii)",
+  "question": "<p>The dog must not receive more than 190 toxic units. Use this to write down a second inequality in \\( x \\) and \\( y \\).</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 16.</strong> Two drugs, X and Y, are used together to treat dogs with a dietary condition. Each drug has a positive (\"curative\") and a negative (\"toxic\") effect, measured in units per mg.</p>\n        <table class=\"worked\"><tr><td><strong>Drug</strong></td><td><strong>Curative units per mg</strong></td><td><strong>Toxic units per mg</strong></td></tr>\n        <tr><td>X</td><td>2000</td><td>40</td></tr><tr><td>Y</td><td>1000</td><td>50</td></tr></table>\n        <p>A dog is given \\( x \\) mg of drug X and \\( y \\) mg of drug Y. The blank grid for part (b) has \\( x \\) and \\( y \\) both running from 0 to 8.</p>\n        <svg viewBox=\"0 0 480 330\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x and y axes both from 0 to 8\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.25\"><line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"290\"/><line x1=\"150\" y1=\"30\" x2=\"150\" y2=\"290\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"300\" y1=\"30\" x2=\"300\" y2=\"290\"/><line x1=\"350\" y1=\"30\" x2=\"350\" y2=\"290\"/><line x1=\"400\" y1=\"30\" x2=\"400\" y2=\"290\"/><line x1=\"450\" y1=\"30\" x2=\"450\" y2=\"290\"/><line x1=\"50\" y1=\"257.5\" x2=\"450\" y2=\"257.5\"/><line x1=\"50\" y1=\"225\" x2=\"450\" y2=\"225\"/><line x1=\"50\" y1=\"192.5\" x2=\"450\" y2=\"192.5\"/><line x1=\"50\" y1=\"160\" x2=\"450\" y2=\"160\"/><line x1=\"50\" y1=\"127.5\" x2=\"450\" y2=\"127.5\"/><line x1=\"50\" y1=\"95\" x2=\"450\" y2=\"95\"/><line x1=\"50\" y1=\"62.5\" x2=\"450\" y2=\"62.5\"/><line x1=\"50\" y1=\"30\" x2=\"450\" y2=\"30\"/></g><line x1=\"50\" y1=\"290\" x2=\"466\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"50\" y1=\"290\" x2=\"50\" y2=\"24\" stroke=\"currentColor\" stroke-width=\"1.4\"/><polygon points=\"466,290 457,286 457,294\" fill=\"currentColor\"/><polygon points=\"50,24 46,33 54,33\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"305\">0</text><text x=\"100\" y=\"305\">1</text><text x=\"150\" y=\"305\">2</text><text x=\"200\" y=\"305\">3</text><text x=\"250\" y=\"305\">4</text><text x=\"300\" y=\"305\">5</text><text x=\"350\" y=\"305\">6</text><text x=\"400\" y=\"305\">7</text><text x=\"450\" y=\"305\">8</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"294\">0</text><text x=\"42\" y=\"229\">2</text><text x=\"42\" y=\"164\">4</text><text x=\"42\" y=\"99\">6</text><text x=\"42\" y=\"34\">8</text></g><text x=\"470\" y=\"286\" font-size=\"12\" fill=\"currentColor\">x</text><text x=\"34\" y=\"30\" font-size=\"12\" fill=\"currentColor\">y</text></svg>",
+  "hint": "'No more than' means \\( \\le \\). Toxic units per mg: 40 from X, 50 from Y.",
+  "starter": "Give an inequality using \\( \\le \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>\n              <li><strong>B1</strong> — \\( 40x + 50y \\le 190 \\) oe. The \"less than or equal to\" symbol must be seen.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Any equivalent form scores; the correct symbol is essential.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Answered well; \"no more than\" implies \\( \\le \\).</li>\n            </ul></div>",
+   "modelAnswer": "\\( 40x + 50y \\le 190 \\) (toxic units: 40 per mg of X and 50 per mg of Y, no more than 190)."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:exam:fd57a789",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "16 (a)(iii)",
+  "question": "<p>Write each of the inequalities from (a)(i) and (a)(ii) in its simplest form.</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 16.</strong> Two drugs, X and Y, are used together to treat dogs with a dietary condition. Each drug has a positive (\"curative\") and a negative (\"toxic\") effect, measured in units per mg.</p>\n        <table class=\"worked\"><tr><td><strong>Drug</strong></td><td><strong>Curative units per mg</strong></td><td><strong>Toxic units per mg</strong></td></tr>\n        <tr><td>X</td><td>2000</td><td>40</td></tr><tr><td>Y</td><td>1000</td><td>50</td></tr></table>\n        <p>A dog is given \\( x \\) mg of drug X and \\( y \\) mg of drug Y. The blank grid for part (b) has \\( x \\) and \\( y \\) both running from 0 to 8.</p>\n        <svg viewBox=\"0 0 480 330\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x and y axes both from 0 to 8\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.25\"><line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"290\"/><line x1=\"150\" y1=\"30\" x2=\"150\" y2=\"290\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"300\" y1=\"30\" x2=\"300\" y2=\"290\"/><line x1=\"350\" y1=\"30\" x2=\"350\" y2=\"290\"/><line x1=\"400\" y1=\"30\" x2=\"400\" y2=\"290\"/><line x1=\"450\" y1=\"30\" x2=\"450\" y2=\"290\"/><line x1=\"50\" y1=\"257.5\" x2=\"450\" y2=\"257.5\"/><line x1=\"50\" y1=\"225\" x2=\"450\" y2=\"225\"/><line x1=\"50\" y1=\"192.5\" x2=\"450\" y2=\"192.5\"/><line x1=\"50\" y1=\"160\" x2=\"450\" y2=\"160\"/><line x1=\"50\" y1=\"127.5\" x2=\"450\" y2=\"127.5\"/><line x1=\"50\" y1=\"95\" x2=\"450\" y2=\"95\"/><line x1=\"50\" y1=\"62.5\" x2=\"450\" y2=\"62.5\"/><line x1=\"50\" y1=\"30\" x2=\"450\" y2=\"30\"/></g><line x1=\"50\" y1=\"290\" x2=\"466\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"50\" y1=\"290\" x2=\"50\" y2=\"24\" stroke=\"currentColor\" stroke-width=\"1.4\"/><polygon points=\"466,290 457,286 457,294\" fill=\"currentColor\"/><polygon points=\"50,24 46,33 54,33\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"305\">0</text><text x=\"100\" y=\"305\">1</text><text x=\"150\" y=\"305\">2</text><text x=\"200\" y=\"305\">3</text><text x=\"250\" y=\"305\">4</text><text x=\"300\" y=\"305\">5</text><text x=\"350\" y=\"305\">6</text><text x=\"400\" y=\"305\">7</text><text x=\"450\" y=\"305\">8</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"294\">0</text><text x=\"42\" y=\"229\">2</text><text x=\"42\" y=\"164\">4</text><text x=\"42\" y=\"99\">6</text><text x=\"42\" y=\"34\">8</text></g><text x=\"470\" y=\"286\" font-size=\"12\" fill=\"currentColor\">x</text><text x=\"34\" y=\"30\" font-size=\"12\" fill=\"currentColor\">y</text></svg>",
+  "hint": "Divide the first by 1000 and the second by 10.",
+  "starter": "Give two simplified inequalities.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>\n              <li><strong>B1</strong> — \\( 2x + y \\ge 5 \\) and \\( 4x + 5y \\le 19 \\). Follow through for their symbols.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Both simplified inequalities are needed for the mark; ft their (a)(i)/(a)(ii) symbols.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most simplified their inequalities successfully.</li>\n            </ul></div>",
+   "modelAnswer": "Dividing by 1000: \\( 2x + y \\ge 5 \\). Dividing by 10: \\( 4x + 5y \\le 19 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:exam:ec5931a7",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "16 (b)",
+  "question": "<p>On the grid above, illustrate the two inequalities \\( 2x + y \\ge 5 \\) and \\( 4x + 5y \\le 19 \\). You should <strong>shade the region that does not satisfy</strong> the inequalities. Then tick the feature checklist against your own plot.</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 16.</strong> Two drugs, X and Y, are used together to treat dogs with a dietary condition. Each drug has a positive (\"curative\") and a negative (\"toxic\") effect, measured in units per mg.</p>\n        <table class=\"worked\"><tr><td><strong>Drug</strong></td><td><strong>Curative units per mg</strong></td><td><strong>Toxic units per mg</strong></td></tr>\n        <tr><td>X</td><td>2000</td><td>40</td></tr><tr><td>Y</td><td>1000</td><td>50</td></tr></table>\n        <p>A dog is given \\( x \\) mg of drug X and \\( y \\) mg of drug Y. The blank grid for part (b) has \\( x \\) and \\( y \\) both running from 0 to 8.</p>\n        <svg viewBox=\"0 0 480 330\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x and y axes both from 0 to 8\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.25\"><line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"290\"/><line x1=\"150\" y1=\"30\" x2=\"150\" y2=\"290\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"300\" y1=\"30\" x2=\"300\" y2=\"290\"/><line x1=\"350\" y1=\"30\" x2=\"350\" y2=\"290\"/><line x1=\"400\" y1=\"30\" x2=\"400\" y2=\"290\"/><line x1=\"450\" y1=\"30\" x2=\"450\" y2=\"290\"/><line x1=\"50\" y1=\"257.5\" x2=\"450\" y2=\"257.5\"/><line x1=\"50\" y1=\"225\" x2=\"450\" y2=\"225\"/><line x1=\"50\" y1=\"192.5\" x2=\"450\" y2=\"192.5\"/><line x1=\"50\" y1=\"160\" x2=\"450\" y2=\"160\"/><line x1=\"50\" y1=\"127.5\" x2=\"450\" y2=\"127.5\"/><line x1=\"50\" y1=\"95\" x2=\"450\" y2=\"95\"/><line x1=\"50\" y1=\"62.5\" x2=\"450\" y2=\"62.5\"/><line x1=\"50\" y1=\"30\" x2=\"450\" y2=\"30\"/></g><line x1=\"50\" y1=\"290\" x2=\"466\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"50\" y1=\"290\" x2=\"50\" y2=\"24\" stroke=\"currentColor\" stroke-width=\"1.4\"/><polygon points=\"466,290 457,286 457,294\" fill=\"currentColor\"/><polygon points=\"50,24 46,33 54,33\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"305\">0</text><text x=\"100\" y=\"305\">1</text><text x=\"150\" y=\"305\">2</text><text x=\"200\" y=\"305\">3</text><text x=\"250\" y=\"305\">4</text><text x=\"300\" y=\"305\">5</text><text x=\"350\" y=\"305\">6</text><text x=\"400\" y=\"305\">7</text><text x=\"450\" y=\"305\">8</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"294\">0</text><text x=\"42\" y=\"229\">2</text><text x=\"42\" y=\"164\">4</text><text x=\"42\" y=\"99\">6</text><text x=\"42\" y=\"34\">8</text></g><text x=\"470\" y=\"286\" font-size=\"12\" fill=\"currentColor\">x</text><text x=\"34\" y=\"30\" font-size=\"12\" fill=\"currentColor\">y</text></svg>",
+  "hint": "Draw each line by its two intercepts, then shade the unwanted side of each (test the origin). The feasible region is left clear.",
+  "starter": "Draw two boundary lines and shade the NOT-required region.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1/AO2)</h5><ul>\n              <li><strong>B1</strong> — first line \\( 2x + y = 5 \\), from \\( (0,\\ 5) \\) to \\( (2.5,\\ 0) \\).</li>\n              <li><strong>B1</strong> — second line \\( 4x + 5y = 19 \\), from \\( (0,\\ 3.8) \\) to \\( (4.75,\\ 0) \\).</li>\n              <li><strong>B1</strong> — shading below \\( 2x + y = 5 \\) (the unwanted side, containing the origin), ft their line.</li>\n              <li><strong>B1</strong> — shading above \\( 4x + 5y = 19 \\) (its unwanted side), ft their line. The two shadings leave the region between the lines clear.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One mark per correctly drawn line (identified by its intercepts) and one per correct shading, follow-through on the candidate's own lines. Accept solid or dotted lines.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most candidates had suitable inequalities and could draw the lines and shade appropriately.</li>\n            </ul></div>",
+   "modelAnswer": "The feasible region (left clear) is the triangle with vertices \\( (2.5,\\ 0),\\ (1,\\ 3) \\) and \\( (4.75,\\ 0) \\): above \\( 2x+y=5 \\), below \\( 4x+5y=19 \\), in the first quadrant. Shade everything else.\n<svg viewBox=\"0 0 480 330\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"The lines 2x + y = 5 and 4x + 5y = 19 drawn on the grid; the feasible region is the clear triangle with vertices (2.5,0), (1,3) and (4.75,0)\"><rect x=\"50\" y=\"30\" width=\"400\" height=\"260\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.4\"/><g stroke=\"currentColor\" stroke-width=\"0.5\" stroke-opacity=\"0.18\"><line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"290\"/><line x1=\"150\" y1=\"30\" x2=\"150\" y2=\"290\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"300\" y1=\"30\" x2=\"300\" y2=\"290\"/><line x1=\"350\" y1=\"30\" x2=\"350\" y2=\"290\"/><line x1=\"400\" y1=\"30\" x2=\"400\" y2=\"290\"/><line x1=\"50\" y1=\"257.5\" x2=\"450\" y2=\"257.5\"/><line x1=\"50\" y1=\"225\" x2=\"450\" y2=\"225\"/><line x1=\"50\" y1=\"192.5\" x2=\"450\" y2=\"192.5\"/><line x1=\"50\" y1=\"160\" x2=\"450\" y2=\"160\"/><line x1=\"50\" y1=\"127.5\" x2=\"450\" y2=\"127.5\"/><line x1=\"50\" y1=\"95\" x2=\"450\" y2=\"95\"/><line x1=\"50\" y1=\"62.5\" x2=\"450\" y2=\"62.5\"/></g><line x1=\"50\" y1=\"290\" x2=\"466\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"50\" y1=\"290\" x2=\"50\" y2=\"24\" stroke=\"currentColor\" stroke-width=\"1.3\"/><polygon points=\"466,290 457,286 457,294\" fill=\"currentColor\"/><polygon points=\"50,24 46,33 54,33\" fill=\"currentColor\"/><polygon points=\"175,290 100,192.5 287.5,290\" fill=\"currentColor\" fill-opacity=\"0.13\" stroke=\"none\"/><line x1=\"50\" y1=\"127.5\" x2=\"175\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"2.3\"/><line x1=\"50\" y1=\"166.5\" x2=\"287.5\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"2.3\" stroke-dasharray=\"6 4\"/><circle cx=\"175\" cy=\"290\" r=\"4\" fill=\"currentColor\"/><circle cx=\"100\" cy=\"192.5\" r=\"4\" fill=\"currentColor\"/><circle cx=\"287.5\" cy=\"290\" r=\"4\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\"><text x=\"176\" y=\"284\">(2.5,0)</text><text x=\"58\" y=\"190\">(1,3)</text><text x=\"262\" y=\"284\">(4.75,0)</text><text x=\"120\" y=\"120\">2x+y=5</text><text x=\"300\" y=\"250\">4x+5y=19</text><text x=\"150\" y=\"270\">R</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"305\">0</text><text x=\"150\" y=\"305\">2</text><text x=\"250\" y=\"305\">4</text><text x=\"350\" y=\"305\">6</text><text x=\"450\" y=\"305\">8</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"229\">2</text><text x=\"42\" y=\"164\">4</text><text x=\"42\" y=\"99\">6</text></g></svg>"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:exam:9848916b",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "16 (c)(i)",
+  "question": "<p>Find the combination of X and Y that will <strong>minimise</strong> the total intake of the two drugs in mg (i.e. minimise \\( x + y \\)) subject to the restrictions above.</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 16.</strong> Two drugs, X and Y, are used together to treat dogs with a dietary condition. Each drug has a positive (\"curative\") and a negative (\"toxic\") effect, measured in units per mg.</p>\n        <table class=\"worked\"><tr><td><strong>Drug</strong></td><td><strong>Curative units per mg</strong></td><td><strong>Toxic units per mg</strong></td></tr>\n        <tr><td>X</td><td>2000</td><td>40</td></tr><tr><td>Y</td><td>1000</td><td>50</td></tr></table>\n        <p>A dog is given \\( x \\) mg of drug X and \\( y \\) mg of drug Y. The blank grid for part (b) has \\( x \\) and \\( y \\) both running from 0 to 8.</p>\n        <svg viewBox=\"0 0 480 330\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x and y axes both from 0 to 8\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.25\"><line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"290\"/><line x1=\"150\" y1=\"30\" x2=\"150\" y2=\"290\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"300\" y1=\"30\" x2=\"300\" y2=\"290\"/><line x1=\"350\" y1=\"30\" x2=\"350\" y2=\"290\"/><line x1=\"400\" y1=\"30\" x2=\"400\" y2=\"290\"/><line x1=\"450\" y1=\"30\" x2=\"450\" y2=\"290\"/><line x1=\"50\" y1=\"257.5\" x2=\"450\" y2=\"257.5\"/><line x1=\"50\" y1=\"225\" x2=\"450\" y2=\"225\"/><line x1=\"50\" y1=\"192.5\" x2=\"450\" y2=\"192.5\"/><line x1=\"50\" y1=\"160\" x2=\"450\" y2=\"160\"/><line x1=\"50\" y1=\"127.5\" x2=\"450\" y2=\"127.5\"/><line x1=\"50\" y1=\"95\" x2=\"450\" y2=\"95\"/><line x1=\"50\" y1=\"62.5\" x2=\"450\" y2=\"62.5\"/><line x1=\"50\" y1=\"30\" x2=\"450\" y2=\"30\"/></g><line x1=\"50\" y1=\"290\" x2=\"466\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"50\" y1=\"290\" x2=\"50\" y2=\"24\" stroke=\"currentColor\" stroke-width=\"1.4\"/><polygon points=\"466,290 457,286 457,294\" fill=\"currentColor\"/><polygon points=\"50,24 46,33 54,33\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"305\">0</text><text x=\"100\" y=\"305\">1</text><text x=\"150\" y=\"305\">2</text><text x=\"200\" y=\"305\">3</text><text x=\"250\" y=\"305\">4</text><text x=\"300\" y=\"305\">5</text><text x=\"350\" y=\"305\">6</text><text x=\"400\" y=\"305\">7</text><text x=\"450\" y=\"305\">8</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"294\">0</text><text x=\"42\" y=\"229\">2</text><text x=\"42\" y=\"164\">4</text><text x=\"42\" y=\"99\">6</text><text x=\"42\" y=\"34\">8</text></g><text x=\"470\" y=\"286\" font-size=\"12\" fill=\"currentColor\">x</text><text x=\"34\" y=\"30\" font-size=\"12\" fill=\"currentColor\">y</text></svg>",
+  "hint": "Minimise \\( x + y \\) over the feasible region — test its vertices \\( (2.5,0),\\ (1,3),\\ (4.75,0) \\). Do not assume whole numbers.",
+  "starter": "Give the amounts of X and Y (mg), which may be non-integer.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO2/AO3)</h5><ul>\n              <li><strong>M1</strong> — sight of \\( x + y = \\ldots \\) tested at the vertices (soi by the answer).</li>\n              <li><strong>A1</strong> — 2.5 mg of X and 0 mg of Y, i.e. \\( (2.5,\\ 0) \\). (N.B. if 0 is deemed unacceptable, accept \\( (x,y) \\) with \\( x \\) in \\( [2,\\ 2.5] \\) and \\( y = 5 - 2x \\), e.g. \\( (2,\\ 1) \\).)</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The minimum of \\( x+y \\) over the region is at the vertex \\( (2.5,\\ 0) \\), where \\( x+y = 2.5 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The minimum is at \\( (2.5,\\ 0) \\). A common wrong answer was \\( (3,\\ 0) \\), presumably because candidates assumed the quantities had to be integers.</li>\n            </ul></div>",
+   "modelAnswer": "Testing \\( x+y \\) at the vertices: \\( (2.5,0)\\to 2.5 \\); \\( (1,3)\\to 4 \\); \\( (4.75,0)\\to 4.75 \\). The minimum is \\( 2.5 \\) at \\( (2.5,\\ 0) \\): 2.5 mg of X and 0 mg of Y. (Not \\( (3,0) \\) — optima need not be whole numbers.)"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:exam:e0f7c82a",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "16 (c)(ii)",
+  "question": "<p>The vet decides the dog should receive <strong>equal</strong> quantities of X and Y. With this extra restriction \\( x = y \\), what combination minimises the total intake in mg?</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 16.</strong> Two drugs, X and Y, are used together to treat dogs with a dietary condition. Each drug has a positive (\"curative\") and a negative (\"toxic\") effect, measured in units per mg.</p>\n        <table class=\"worked\"><tr><td><strong>Drug</strong></td><td><strong>Curative units per mg</strong></td><td><strong>Toxic units per mg</strong></td></tr>\n        <tr><td>X</td><td>2000</td><td>40</td></tr><tr><td>Y</td><td>1000</td><td>50</td></tr></table>\n        <p>A dog is given \\( x \\) mg of drug X and \\( y \\) mg of drug Y. The blank grid for part (b) has \\( x \\) and \\( y \\) both running from 0 to 8.</p>\n        <svg viewBox=\"0 0 480 330\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x and y axes both from 0 to 8\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.25\"><line x1=\"100\" y1=\"30\" x2=\"100\" y2=\"290\"/><line x1=\"150\" y1=\"30\" x2=\"150\" y2=\"290\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"300\" y1=\"30\" x2=\"300\" y2=\"290\"/><line x1=\"350\" y1=\"30\" x2=\"350\" y2=\"290\"/><line x1=\"400\" y1=\"30\" x2=\"400\" y2=\"290\"/><line x1=\"450\" y1=\"30\" x2=\"450\" y2=\"290\"/><line x1=\"50\" y1=\"257.5\" x2=\"450\" y2=\"257.5\"/><line x1=\"50\" y1=\"225\" x2=\"450\" y2=\"225\"/><line x1=\"50\" y1=\"192.5\" x2=\"450\" y2=\"192.5\"/><line x1=\"50\" y1=\"160\" x2=\"450\" y2=\"160\"/><line x1=\"50\" y1=\"127.5\" x2=\"450\" y2=\"127.5\"/><line x1=\"50\" y1=\"95\" x2=\"450\" y2=\"95\"/><line x1=\"50\" y1=\"62.5\" x2=\"450\" y2=\"62.5\"/><line x1=\"50\" y1=\"30\" x2=\"450\" y2=\"30\"/></g><line x1=\"50\" y1=\"290\" x2=\"466\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"50\" y1=\"290\" x2=\"50\" y2=\"24\" stroke=\"currentColor\" stroke-width=\"1.4\"/><polygon points=\"466,290 457,286 457,294\" fill=\"currentColor\"/><polygon points=\"50,24 46,33 54,33\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"305\">0</text><text x=\"100\" y=\"305\">1</text><text x=\"150\" y=\"305\">2</text><text x=\"200\" y=\"305\">3</text><text x=\"250\" y=\"305\">4</text><text x=\"300\" y=\"305\">5</text><text x=\"350\" y=\"305\">6</text><text x=\"400\" y=\"305\">7</text><text x=\"450\" y=\"305\">8</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"294\">0</text><text x=\"42\" y=\"229\">2</text><text x=\"42\" y=\"164\">4</text><text x=\"42\" y=\"99\">6</text><text x=\"42\" y=\"34\">8</text></g><text x=\"470\" y=\"286\" font-size=\"12\" fill=\"currentColor\">x</text><text x=\"34\" y=\"30\" font-size=\"12\" fill=\"currentColor\">y</text></svg>",
+  "hint": "Put \\( x = y \\) into the constraints. \\( 2x + y \\ge 5 \\) becomes \\( 3x \\ge 5 \\); minimise \\( x + y = 2x \\).",
+  "starter": "Give equal amounts of X and Y (mg), which may be non-integer.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO2/AO3)</h5><ul>\n              <li><strong>M1</strong> — set \\( x = y \\) (soi by using equal quantities of X and Y).</li>\n              <li><strong>A1</strong> — \\( x = y = \\dfrac{5}{3} \\); accept awrt 1.6 or 1.7 (but not 2).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>With \\( x=y \\), the binding constraint is \\( 2x+y \\ge 5 \\Rightarrow 3x \\ge 5 \\Rightarrow x \\ge \\tfrac{5}{3} \\); the smallest total \\( 2x \\) is at \\( x = \\tfrac{5}{3} \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Few found the correct amount, though many gained credit for using equal amounts of X and Y.</li>\n            </ul></div>",
+   "modelAnswer": "With \\( x=y \\): \\( 2x + y = 3x \\ge 5 \\Rightarrow x \\ge \\tfrac{5}{3} \\); and \\( 4x+5y = 9x \\le 19 \\Rightarrow x \\le \\tfrac{19}{9} \\). Minimising \\( x+y = 2x \\) gives \\( x = y = \\tfrac{5}{3} \\approx 1.67 \\) mg each."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:exam:f13a1b66",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "11 (a)",
+  "question": "<p>Write down an inequality giving the time constraint.</p>",
+  "caseStudy": "<p><strong>OCR June 2019, Question 11.</strong> John makes wooden toys at home. He classifies them as <em>small</em> or <em>large</em>. A small toy takes 5 hours to make and a large toy takes 8 hours; he works a maximum of 60 hours each week. Let \\( x \\) be the number of small toys and \\( y \\) the number of large toys he makes each week.</p>\n        <p>He also knows that he needs to make <strong>at least 3</strong> large toys, and that the number of large toys should be <strong>no more than double</strong> the number of small toys. He never leaves a toy unfinished. The blank grid for part (c) has \\( x \\) from 0 to 12 and \\( y \\) from 0 to 10.</p>\n        <svg viewBox=\"0 0 540 360\" width=\"100%\" style=\"max-width:560px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x-axis from 0 to 12 and y-axis from 0 to 10\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.22\"><line x1=\"85\" y1=\"40\" x2=\"85\" y2=\"310\"/><line x1=\"120\" y1=\"40\" x2=\"120\" y2=\"310\"/><line x1=\"155\" y1=\"40\" x2=\"155\" y2=\"310\"/><line x1=\"190\" y1=\"40\" x2=\"190\" y2=\"310\"/><line x1=\"225\" y1=\"40\" x2=\"225\" y2=\"310\"/><line x1=\"260\" y1=\"40\" x2=\"260\" y2=\"310\"/><line x1=\"295\" y1=\"40\" x2=\"295\" y2=\"310\"/><line x1=\"330\" y1=\"40\" x2=\"330\" y2=\"310\"/><line x1=\"365\" y1=\"40\" x2=\"365\" y2=\"310\"/><line x1=\"400\" y1=\"40\" x2=\"400\" y2=\"310\"/><line x1=\"435\" y1=\"40\" x2=\"435\" y2=\"310\"/><line x1=\"470\" y1=\"40\" x2=\"470\" y2=\"310\"/><line x1=\"50\" y1=\"283\" x2=\"470\" y2=\"283\"/><line x1=\"50\" y1=\"256\" x2=\"470\" y2=\"256\"/><line x1=\"50\" y1=\"229\" x2=\"470\" y2=\"229\"/><line x1=\"50\" y1=\"202\" x2=\"470\" y2=\"202\"/><line x1=\"50\" y1=\"175\" x2=\"470\" y2=\"175\"/><line x1=\"50\" y1=\"148\" x2=\"470\" y2=\"148\"/><line x1=\"50\" y1=\"121\" x2=\"470\" y2=\"121\"/><line x1=\"50\" y1=\"94\" x2=\"470\" y2=\"94\"/><line x1=\"50\" y1=\"67\" x2=\"470\" y2=\"67\"/><line x1=\"50\" y1=\"40\" x2=\"470\" y2=\"40\"/></g><line x1=\"50\" y1=\"310\" x2=\"490\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"50\" y1=\"310\" x2=\"50\" y2=\"34\" stroke=\"currentColor\" stroke-width=\"1.4\"/><polygon points=\"490,310 481,306 481,314\" fill=\"currentColor\"/><polygon points=\"50,34 46,43 54,43\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"325\">0</text><text x=\"120\" y=\"325\">2</text><text x=\"190\" y=\"325\">4</text><text x=\"260\" y=\"325\">6</text><text x=\"330\" y=\"325\">8</text><text x=\"400\" y=\"325\">10</text><text x=\"470\" y=\"325\">12</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"314\">0</text><text x=\"42\" y=\"256\">2</text><text x=\"42\" y=\"202\">4</text><text x=\"42\" y=\"148\">6</text><text x=\"42\" y=\"94\">8</text><text x=\"42\" y=\"40\">10</text></g><text x=\"494\" y=\"306\" font-size=\"12\" fill=\"currentColor\">x</text><text x=\"34\" y=\"40\" font-size=\"12\" fill=\"currentColor\">y</text></svg>",
+  "hint": "A small toy takes 5 hours, a large toy 8 hours, and he works at most 60 hours.",
+  "starter": "Give an inequality in \\( x \\) and \\( y \\) using \\( \\le \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>\n              <li><strong>B1</strong> — \\( 5x + 8y \\le 60 \\) oe.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Any equivalent form scores; \"maximum of 60 hours\" gives \\( \\le \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Done well by almost all candidates.</li>\n            </ul></div>",
+   "modelAnswer": "\\( 5x + 8y \\le 60 \\) (5 hours per small toy, 8 per large toy, at most 60 hours)."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:exam:a6238f6e",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "11 (b)",
+  "question": "<p>He needs to make at least 3 large toys each week, and the number of large toys should be no more than double the number of small toys. Write down two more inequalities in \\( x \\) and \\( y \\).</p>",
+  "caseStudy": "<p><strong>OCR June 2019, Question 11.</strong> John makes wooden toys at home. He classifies them as <em>small</em> or <em>large</em>. A small toy takes 5 hours to make and a large toy takes 8 hours; he works a maximum of 60 hours each week. Let \\( x \\) be the number of small toys and \\( y \\) the number of large toys he makes each week.</p>\n        <p>He also knows that he needs to make <strong>at least 3</strong> large toys, and that the number of large toys should be <strong>no more than double</strong> the number of small toys. He never leaves a toy unfinished. The blank grid for part (c) has \\( x \\) from 0 to 12 and \\( y \\) from 0 to 10.</p>\n        <svg viewBox=\"0 0 540 360\" width=\"100%\" style=\"max-width:560px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x-axis from 0 to 12 and y-axis from 0 to 10\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.22\"><line x1=\"85\" y1=\"40\" x2=\"85\" y2=\"310\"/><line x1=\"120\" y1=\"40\" x2=\"120\" y2=\"310\"/><line x1=\"155\" y1=\"40\" x2=\"155\" y2=\"310\"/><line x1=\"190\" y1=\"40\" x2=\"190\" y2=\"310\"/><line x1=\"225\" y1=\"40\" x2=\"225\" y2=\"310\"/><line x1=\"260\" y1=\"40\" x2=\"260\" y2=\"310\"/><line x1=\"295\" y1=\"40\" x2=\"295\" y2=\"310\"/><line x1=\"330\" y1=\"40\" x2=\"330\" y2=\"310\"/><line x1=\"365\" y1=\"40\" x2=\"365\" y2=\"310\"/><line x1=\"400\" y1=\"40\" x2=\"400\" y2=\"310\"/><line x1=\"435\" y1=\"40\" x2=\"435\" y2=\"310\"/><line x1=\"470\" y1=\"40\" x2=\"470\" y2=\"310\"/><line x1=\"50\" y1=\"283\" x2=\"470\" y2=\"283\"/><line x1=\"50\" y1=\"256\" x2=\"470\" y2=\"256\"/><line x1=\"50\" y1=\"229\" x2=\"470\" y2=\"229\"/><line x1=\"50\" y1=\"202\" x2=\"470\" y2=\"202\"/><line x1=\"50\" y1=\"175\" x2=\"470\" y2=\"175\"/><line x1=\"50\" y1=\"148\" x2=\"470\" y2=\"148\"/><line x1=\"50\" y1=\"121\" x2=\"470\" y2=\"121\"/><line x1=\"50\" y1=\"94\" x2=\"470\" y2=\"94\"/><line x1=\"50\" y1=\"67\" x2=\"470\" y2=\"67\"/><line x1=\"50\" y1=\"40\" x2=\"470\" y2=\"40\"/></g><line x1=\"50\" y1=\"310\" x2=\"490\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"50\" y1=\"310\" x2=\"50\" y2=\"34\" stroke=\"currentColor\" stroke-width=\"1.4\"/><polygon points=\"490,310 481,306 481,314\" fill=\"currentColor\"/><polygon points=\"50,34 46,43 54,43\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"325\">0</text><text x=\"120\" y=\"325\">2</text><text x=\"190\" y=\"325\">4</text><text x=\"260\" y=\"325\">6</text><text x=\"330\" y=\"325\">8</text><text x=\"400\" y=\"325\">10</text><text x=\"470\" y=\"325\">12</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"314\">0</text><text x=\"42\" y=\"256\">2</text><text x=\"42\" y=\"202\">4</text><text x=\"42\" y=\"148\">6</text><text x=\"42\" y=\"94\">8</text><text x=\"42\" y=\"40\">10</text></g><text x=\"494\" y=\"306\" font-size=\"12\" fill=\"currentColor\">x</text><text x=\"34\" y=\"40\" font-size=\"12\" fill=\"currentColor\">y</text></svg>",
+  "hint": "'At least 3 large' fixes \\( y \\); 'no more than double' compares \\( y \\) with \\( 2x \\).",
+  "starter": "Give two inequalities.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>B1</strong> — \\( y \\ge 3 \\).</li>\n              <li><strong>B1</strong> — \\( y \\le 2x \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One mark per correct inequality.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Done well; rare errors were \\( x \\ge 3 \\) or \\( y \\le 3 \\) instead of \\( y \\ge 3 \\), and \\( x \\ge 2y \\) instead of \\( y \\le 2x \\).</li>\n            </ul></div>",
+   "modelAnswer": "\\( y \\ge 3 \\) (at least 3 large) and \\( y \\le 2x \\) (large no more than double small)."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:exam:4fe8ce68",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "11 (c)",
+  "question": "<p>On the grid above, illustrate the three inequalities \\( 5x + 8y \\le 60 \\), \\( y \\ge 3 \\) and \\( y \\le 2x \\). <strong>Shade the region that is not required.</strong> Then tick the feature checklist against your own plot.</p>",
+  "caseStudy": "<p><strong>OCR June 2019, Question 11.</strong> John makes wooden toys at home. He classifies them as <em>small</em> or <em>large</em>. A small toy takes 5 hours to make and a large toy takes 8 hours; he works a maximum of 60 hours each week. Let \\( x \\) be the number of small toys and \\( y \\) the number of large toys he makes each week.</p>\n        <p>He also knows that he needs to make <strong>at least 3</strong> large toys, and that the number of large toys should be <strong>no more than double</strong> the number of small toys. He never leaves a toy unfinished. The blank grid for part (c) has \\( x \\) from 0 to 12 and \\( y \\) from 0 to 10.</p>\n        <svg viewBox=\"0 0 540 360\" width=\"100%\" style=\"max-width:560px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x-axis from 0 to 12 and y-axis from 0 to 10\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.22\"><line x1=\"85\" y1=\"40\" x2=\"85\" y2=\"310\"/><line x1=\"120\" y1=\"40\" x2=\"120\" y2=\"310\"/><line x1=\"155\" y1=\"40\" x2=\"155\" y2=\"310\"/><line x1=\"190\" y1=\"40\" x2=\"190\" y2=\"310\"/><line x1=\"225\" y1=\"40\" x2=\"225\" y2=\"310\"/><line x1=\"260\" y1=\"40\" x2=\"260\" y2=\"310\"/><line x1=\"295\" y1=\"40\" x2=\"295\" y2=\"310\"/><line x1=\"330\" y1=\"40\" x2=\"330\" y2=\"310\"/><line x1=\"365\" y1=\"40\" x2=\"365\" y2=\"310\"/><line x1=\"400\" y1=\"40\" x2=\"400\" y2=\"310\"/><line x1=\"435\" y1=\"40\" x2=\"435\" y2=\"310\"/><line x1=\"470\" y1=\"40\" x2=\"470\" y2=\"310\"/><line x1=\"50\" y1=\"283\" x2=\"470\" y2=\"283\"/><line x1=\"50\" y1=\"256\" x2=\"470\" y2=\"256\"/><line x1=\"50\" y1=\"229\" x2=\"470\" y2=\"229\"/><line x1=\"50\" y1=\"202\" x2=\"470\" y2=\"202\"/><line x1=\"50\" y1=\"175\" x2=\"470\" y2=\"175\"/><line x1=\"50\" y1=\"148\" x2=\"470\" y2=\"148\"/><line x1=\"50\" y1=\"121\" x2=\"470\" y2=\"121\"/><line x1=\"50\" y1=\"94\" x2=\"470\" y2=\"94\"/><line x1=\"50\" y1=\"67\" x2=\"470\" y2=\"67\"/><line x1=\"50\" y1=\"40\" x2=\"470\" y2=\"40\"/></g><line x1=\"50\" y1=\"310\" x2=\"490\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"50\" y1=\"310\" x2=\"50\" y2=\"34\" stroke=\"currentColor\" stroke-width=\"1.4\"/><polygon points=\"490,310 481,306 481,314\" fill=\"currentColor\"/><polygon points=\"50,34 46,43 54,43\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"325\">0</text><text x=\"120\" y=\"325\">2</text><text x=\"190\" y=\"325\">4</text><text x=\"260\" y=\"325\">6</text><text x=\"330\" y=\"325\">8</text><text x=\"400\" y=\"325\">10</text><text x=\"470\" y=\"325\">12</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"314\">0</text><text x=\"42\" y=\"256\">2</text><text x=\"42\" y=\"202\">4</text><text x=\"42\" y=\"148\">6</text><text x=\"42\" y=\"94\">8</text><text x=\"42\" y=\"40\">10</text></g><text x=\"494\" y=\"306\" font-size=\"12\" fill=\"currentColor\">x</text><text x=\"34\" y=\"40\" font-size=\"12\" fill=\"currentColor\">y</text></svg>",
+  "hint": "Draw the time line by its intercepts, the horizontal \\( y=3 \\), and \\( y=2x \\) through the origin; shade the unwanted side of each.",
+  "starter": "Draw three boundary lines and shade the NOT-required region.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1/AO2)</h5><ul>\n              <li><strong>B1</strong> — line \\( 5x + 8y = 60 \\), from \\( (0,\\ 7.5) \\) to \\( (12,\\ 0) \\) (check it passes through \\( (4,\\ 5) \\)).</li>\n              <li><strong>B1</strong> — line \\( y = 3 \\).</li>\n              <li><strong>B1</strong> — line \\( y = 2x \\).</li>\n              <li><strong>B1</strong> — correct shading of the region not required (do NOT accept the feasible region itself being shaded).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One mark per line (ignore errors carried from (a)/(b)) and one for shading the unwanted region, leaving the feasible triangle clear.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Usually answered well; even those who quoted the inequalities incorrectly in (b) drew the correct lines here. The question specifically asked for the region not wanted to be shaded, and almost all did so.</li>\n            </ul></div>",
+   "modelAnswer": "The feasible region (left clear) is the triangle with vertices \\( (1.5,\\ 3) \\), \\( (7.2,\\ 3) \\) and \\( (\\tfrac{20}{7},\\ \\tfrac{40}{7}) \\approx (2.86,\\ 5.71) \\): below the time line, above \\( y=3 \\), and below \\( y=2x \\). Shade everything else.\n<svg viewBox=\"0 0 540 360\" width=\"100%\" style=\"max-width:560px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"The lines 5x + 8y = 60, y = 3 and y = 2x drawn on the grid; the feasible region is the clear triangle with vertices (1.5,3), (7.2,3) and about (2.86,5.71), with the maximum-toys point (7,3) and maximum-profit point (4,5) marked\"><rect x=\"50\" y=\"40\" width=\"420\" height=\"270\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.35\"/><g stroke=\"currentColor\" stroke-width=\"0.5\" stroke-opacity=\"0.16\"><line x1=\"120\" y1=\"40\" x2=\"120\" y2=\"310\"/><line x1=\"190\" y1=\"40\" x2=\"190\" y2=\"310\"/><line x1=\"260\" y1=\"40\" x2=\"260\" y2=\"310\"/><line x1=\"330\" y1=\"40\" x2=\"330\" y2=\"310\"/><line x1=\"400\" y1=\"40\" x2=\"400\" y2=\"310\"/><line x1=\"50\" y1=\"256\" x2=\"470\" y2=\"256\"/><line x1=\"50\" y1=\"202\" x2=\"470\" y2=\"202\"/><line x1=\"50\" y1=\"148\" x2=\"470\" y2=\"148\"/><line x1=\"50\" y1=\"94\" x2=\"470\" y2=\"94\"/></g><line x1=\"50\" y1=\"310\" x2=\"490\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"50\" y1=\"310\" x2=\"50\" y2=\"34\" stroke=\"currentColor\" stroke-width=\"1.3\"/><polygon points=\"490,310 481,306 481,314\" fill=\"currentColor\"/><polygon points=\"50,34 46,43 54,43\" fill=\"currentColor\"/><polygon points=\"102.5,229 302,229 150,155.7\" fill=\"currentColor\" fill-opacity=\"0.13\" stroke=\"none\"/><line x1=\"50\" y1=\"107.5\" x2=\"470\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"2.2\"/><line x1=\"50\" y1=\"229\" x2=\"470\" y2=\"229\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-dasharray=\"7 4\"/><line x1=\"50\" y1=\"310\" x2=\"225\" y2=\"40\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-dasharray=\"2 4\"/><circle cx=\"102.5\" cy=\"229\" r=\"4\" fill=\"currentColor\"/><circle cx=\"302\" cy=\"229\" r=\"4\" fill=\"currentColor\"/><circle cx=\"150\" cy=\"155.7\" r=\"4\" fill=\"currentColor\"/><circle cx=\"295\" cy=\"229\" r=\"4.5\" fill=\"currentColor\"/><circle cx=\"190\" cy=\"175\" r=\"4.5\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\"><text x=\"72\" y=\"245\">(1.5,3)</text><text x=\"300\" y=\"245\">(7.2,3)</text><text x=\"120\" y=\"150\">(2.86,5.71)</text><text x=\"300\" y=\"222\">(7,3) max toys</text><text x=\"196\" y=\"172\">(4,5) max profit</text><text x=\"360\" y=\"285\">5x+8y=60</text><text x=\"410\" y=\"224\">y=3</text><text x=\"210\" y=\"60\">y=2x</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"325\">0</text><text x=\"120\" y=\"325\">2</text><text x=\"190\" y=\"325\">4</text><text x=\"260\" y=\"325\">6</text><text x=\"330\" y=\"325\">8</text><text x=\"400\" y=\"325\">10</text><text x=\"470\" y=\"325\">12</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"233\">3</text><text x=\"42\" y=\"152\">6</text></g></svg>"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:exam:6f112e01",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "11 (d)",
+  "question": "<p>Find the maximum number of toys John can make in a week, and the number of hours he would take to make them.</p>",
+  "caseStudy": "<p><strong>OCR June 2019, Question 11.</strong> John makes wooden toys at home. He classifies them as <em>small</em> or <em>large</em>. A small toy takes 5 hours to make and a large toy takes 8 hours; he works a maximum of 60 hours each week. Let \\( x \\) be the number of small toys and \\( y \\) the number of large toys he makes each week.</p>\n        <p>He also knows that he needs to make <strong>at least 3</strong> large toys, and that the number of large toys should be <strong>no more than double</strong> the number of small toys. He never leaves a toy unfinished. The blank grid for part (c) has \\( x \\) from 0 to 12 and \\( y \\) from 0 to 10.</p>\n        <svg viewBox=\"0 0 540 360\" width=\"100%\" style=\"max-width:560px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x-axis from 0 to 12 and y-axis from 0 to 10\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.22\"><line x1=\"85\" y1=\"40\" x2=\"85\" y2=\"310\"/><line x1=\"120\" y1=\"40\" x2=\"120\" y2=\"310\"/><line x1=\"155\" y1=\"40\" x2=\"155\" y2=\"310\"/><line x1=\"190\" y1=\"40\" x2=\"190\" y2=\"310\"/><line x1=\"225\" y1=\"40\" x2=\"225\" y2=\"310\"/><line x1=\"260\" y1=\"40\" x2=\"260\" y2=\"310\"/><line x1=\"295\" y1=\"40\" x2=\"295\" y2=\"310\"/><line x1=\"330\" y1=\"40\" x2=\"330\" y2=\"310\"/><line x1=\"365\" y1=\"40\" x2=\"365\" y2=\"310\"/><line x1=\"400\" y1=\"40\" x2=\"400\" y2=\"310\"/><line x1=\"435\" y1=\"40\" x2=\"435\" y2=\"310\"/><line x1=\"470\" y1=\"40\" x2=\"470\" y2=\"310\"/><line x1=\"50\" y1=\"283\" x2=\"470\" y2=\"283\"/><line x1=\"50\" y1=\"256\" x2=\"470\" y2=\"256\"/><line x1=\"50\" y1=\"229\" x2=\"470\" y2=\"229\"/><line x1=\"50\" y1=\"202\" x2=\"470\" y2=\"202\"/><line x1=\"50\" y1=\"175\" x2=\"470\" y2=\"175\"/><line x1=\"50\" y1=\"148\" x2=\"470\" y2=\"148\"/><line x1=\"50\" y1=\"121\" x2=\"470\" y2=\"121\"/><line x1=\"50\" y1=\"94\" x2=\"470\" y2=\"94\"/><line x1=\"50\" y1=\"67\" x2=\"470\" y2=\"67\"/><line x1=\"50\" y1=\"40\" x2=\"470\" y2=\"40\"/></g><line x1=\"50\" y1=\"310\" x2=\"490\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"50\" y1=\"310\" x2=\"50\" y2=\"34\" stroke=\"currentColor\" stroke-width=\"1.4\"/><polygon points=\"490,310 481,306 481,314\" fill=\"currentColor\"/><polygon points=\"50,34 46,43 54,43\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"325\">0</text><text x=\"120\" y=\"325\">2</text><text x=\"190\" y=\"325\">4</text><text x=\"260\" y=\"325\">6</text><text x=\"330\" y=\"325\">8</text><text x=\"400\" y=\"325\">10</text><text x=\"470\" y=\"325\">12</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"314\">0</text><text x=\"42\" y=\"256\">2</text><text x=\"42\" y=\"202\">4</text><text x=\"42\" y=\"148\">6</text><text x=\"42\" y=\"94\">8</text><text x=\"42\" y=\"40\">10</text></g><text x=\"494\" y=\"306\" font-size=\"12\" fill=\"currentColor\">x</text><text x=\"34\" y=\"40\" font-size=\"12\" fill=\"currentColor\">y</text></svg>",
+  "hint": "Maximise \\( x + y \\) over whole-number points of the feasible region — the toys must be whole. Check integer points near the top-right of the region.",
+  "starter": "State the total number of toys AND the hours taken.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO2/AO3)</h5><ul>\n              <li><strong>B1</strong> — \\( x + y = 10 \\) (the maximum number of toys). Stating \\( x=7,\\ y=3 \\) only, without the total, is B0.</li>\n              <li><strong>B1</strong> — Time \\( = 59 \\) hours.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The maximum whole-number point is \\( (7,\\ 3) \\): \\( x+y = 10 \\) toys, time \\( = 5(7)+8(3) = 59 \\) hours. Full marks are possible even from a wrong region (ft).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Done well by those with the correct region. Some gave \\( x=7,\\ y=3 \\) without stating the total number was 10, and lost a mark.</li>\n            </ul></div>",
+   "modelAnswer": "The most toys is at the integer point \\( (7,\\ 3) \\): \\( x + y = 10 \\) toys, taking \\( 5(7) + 8(3) = 59 \\) hours."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:exam:ff4b027f",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "11 (e)",
+  "question": "<p>The profit is \\( £28 \\) for each small toy and \\( £60 \\) for each large toy. Assuming he sells all the toys, find the number of each type he should make to maximise his profit, and calculate that profit.</p>",
+  "caseStudy": "<p><strong>OCR June 2019, Question 11.</strong> John makes wooden toys at home. He classifies them as <em>small</em> or <em>large</em>. A small toy takes 5 hours to make and a large toy takes 8 hours; he works a maximum of 60 hours each week. Let \\( x \\) be the number of small toys and \\( y \\) the number of large toys he makes each week.</p>\n        <p>He also knows that he needs to make <strong>at least 3</strong> large toys, and that the number of large toys should be <strong>no more than double</strong> the number of small toys. He never leaves a toy unfinished. The blank grid for part (c) has \\( x \\) from 0 to 12 and \\( y \\) from 0 to 10.</p>\n        <svg viewBox=\"0 0 540 360\" width=\"100%\" style=\"max-width:560px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x-axis from 0 to 12 and y-axis from 0 to 10\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.22\"><line x1=\"85\" y1=\"40\" x2=\"85\" y2=\"310\"/><line x1=\"120\" y1=\"40\" x2=\"120\" y2=\"310\"/><line x1=\"155\" y1=\"40\" x2=\"155\" y2=\"310\"/><line x1=\"190\" y1=\"40\" x2=\"190\" y2=\"310\"/><line x1=\"225\" y1=\"40\" x2=\"225\" y2=\"310\"/><line x1=\"260\" y1=\"40\" x2=\"260\" y2=\"310\"/><line x1=\"295\" y1=\"40\" x2=\"295\" y2=\"310\"/><line x1=\"330\" y1=\"40\" x2=\"330\" y2=\"310\"/><line x1=\"365\" y1=\"40\" x2=\"365\" y2=\"310\"/><line x1=\"400\" y1=\"40\" x2=\"400\" y2=\"310\"/><line x1=\"435\" y1=\"40\" x2=\"435\" y2=\"310\"/><line x1=\"470\" y1=\"40\" x2=\"470\" y2=\"310\"/><line x1=\"50\" y1=\"283\" x2=\"470\" y2=\"283\"/><line x1=\"50\" y1=\"256\" x2=\"470\" y2=\"256\"/><line x1=\"50\" y1=\"229\" x2=\"470\" y2=\"229\"/><line x1=\"50\" y1=\"202\" x2=\"470\" y2=\"202\"/><line x1=\"50\" y1=\"175\" x2=\"470\" y2=\"175\"/><line x1=\"50\" y1=\"148\" x2=\"470\" y2=\"148\"/><line x1=\"50\" y1=\"121\" x2=\"470\" y2=\"121\"/><line x1=\"50\" y1=\"94\" x2=\"470\" y2=\"94\"/><line x1=\"50\" y1=\"67\" x2=\"470\" y2=\"67\"/><line x1=\"50\" y1=\"40\" x2=\"470\" y2=\"40\"/></g><line x1=\"50\" y1=\"310\" x2=\"490\" y2=\"310\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"50\" y1=\"310\" x2=\"50\" y2=\"34\" stroke=\"currentColor\" stroke-width=\"1.4\"/><polygon points=\"490,310 481,306 481,314\" fill=\"currentColor\"/><polygon points=\"50,34 46,43 54,43\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"50\" y=\"325\">0</text><text x=\"120\" y=\"325\">2</text><text x=\"190\" y=\"325\">4</text><text x=\"260\" y=\"325\">6</text><text x=\"330\" y=\"325\">8</text><text x=\"400\" y=\"325\">10</text><text x=\"470\" y=\"325\">12</text></g><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\"><text x=\"42\" y=\"314\">0</text><text x=\"42\" y=\"256\">2</text><text x=\"42\" y=\"202\">4</text><text x=\"42\" y=\"148\">6</text><text x=\"42\" y=\"94\">8</text><text x=\"42\" y=\"40\">10</text></g><text x=\"494\" y=\"306\" font-size=\"12\" fill=\"currentColor\">x</text><text x=\"34\" y=\"40\" font-size=\"12\" fill=\"currentColor\">y</text></svg>",
+  "hint": "Maximise \\( P = 28x + 60y \\) over whole-number feasible points — either draw the profit line or list feasible points with their profit.",
+  "starter": "State the numbers of small and large toys AND the profit in £.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO2/AO3)</h5><ul>\n              <li><strong>M1</strong> — sight of \\( P = 28x + 60y \\) on the grid, OR listing at least two correct feasible points and calculating \\( P \\) for each.</li>\n              <li><strong>A1</strong> — 4 small and 5 large, i.e. \\( (4,\\ 5) \\) (soi by £412).</li>\n              <li><strong>A1</strong> — Profit \\( = £412 \\).</li>\n              <li>SC: no working but answer given, B1 B1; allow B2 by implication from £412.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>\\( P = 28(4) + 60(5) = 112 + 300 = £412 \\) at the integer point \\( (4,\\ 5) \\). A list of points with their profit is essential if done that way — do not cross out rejected points.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>This needed a little work to justify the maximum. A list of points with their profit is essential if using the tabulation method. This practical context involves integer points only; a few worked in decimals.</li>\n            </ul></div>",
+   "modelAnswer": "Maximise \\( P = 28x + 60y \\). Testing feasible integer points near the top of the region: \\( (4,\\ 5)\\to 28(4)+60(5) = 412 \\); \\( (3,\\ 5)\\to 384 \\); \\( (5,\\ 4)\\to 380 \\). The maximum is \\( £412 \\) at \\( (4,\\ 5) \\): 4 small and 5 large toys."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:mcq:8eabb91c",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The optimum of a linear objective over a feasible region is always found:",
+  "options": [
+   "At a vertex (corner) of the region",
+   "At an interior point of the region",
+   "At the centre of the region",
+   "Halfway along one edge"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A linear objective reaches its extreme value at a corner of the feasible region, so only the vertices need testing."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:mcq:5bab11fa",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A feasible region has vertices \\( (0,0),\\ (8,0),\\ (4,4),\\ (0,6) \\). Which maximises \\( P = 3x + 4y \\)?",
+  "options": [
+   "\\( (4,4) \\)",
+   "\\( (8,0) \\)",
+   "\\( (0,6) \\)",
+   "\\( (0,0) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( P \\) is 0, 24, 28, 24 at the four vertices; the maximum 28 is at \\( (4,4) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:mcq:2c5a090c",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Using OCR's shading convention, the feasible region is:",
+  "options": [
+   "The region left unshaded",
+   "The region you shade",
+   "The whole grid",
+   "Always the smallest triangle"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "OCR asks you to shade the region that does NOT satisfy the constraints; the feasible region is left clear."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:mcq:3649bbb4",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Minimise \\( C = x + y \\) over a region with vertices \\( (2.5,0),\\ (1,3),\\ (4.75,0) \\). The minimum is at:",
+  "options": [
+   "\\( (2.5,\\ 0) \\), \\( C = 2.5 \\)",
+   "\\( (3,\\ 0) \\), \\( C = 3 \\)",
+   "\\( (1,\\ 3) \\), \\( C = 4 \\)",
+   "an interior point \\( (2,\\ 1.5) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( C \\) is 2.5, 4 and 4.75 at the three vertices; the minimum 2.5 is at \\( (2.5,0) \\). Choosing \\( (3,0) \\) is the integer-assumption error."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:mcq:364f4000",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "To maximise using the objective-line method, you slide the line of constant objective until:",
+  "options": [
+   "It last touches the feasible region at a vertex",
+   "It first enters the region",
+   "It passes through the origin",
+   "It is vertical"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "For a maximum, slide in the direction of increase; the last vertex it touches is the optimum."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:mcq:9d3e7e41",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student gives the optimum as a point in the middle of the feasible region. The error is:",
+  "options": [
+   "The optimum lies at a vertex, not inside the region",
+   "The point should be on the y-axis",
+   "There is nothing wrong",
+   "The objective must be non-linear"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A linear objective is optimised at a corner; an interior point is never optimal."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:mcq:279e6df5",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The true minimum of \\( x + y \\) is at \\( (2.5,\\ 0) \\), but a student writes \\( (3,\\ 0) \\). Why is that wrong?",
+  "options": [
+   "They assumed the answer had to be a whole number",
+   "\\( (3,0) \\) is outside the feasible region",
+   "\\( (2.5,0) \\) is not a vertex",
+   "\\( x + y \\) is not linear"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Optima need not be integers; assuming they must be gives \\( (3,0) \\) with the larger total 3, not the minimum 2.5."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:mcq:91582dbb",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The boundary line \\( 2x + y = 5 \\) cuts the axes at:",
+  "options": [
+   "\\( (0,\\ 5) \\) and \\( (2.5,\\ 0) \\)",
+   "\\( (0,\\ 2.5) \\) and \\( (5,\\ 0) \\)",
+   "\\( (0,\\ 5) \\) and \\( (5,\\ 0) \\)",
+   "\\( (0,\\ 2) \\) and \\( (5,\\ 0) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Put \\( x=0 \\Rightarrow y=5 \\); put \\( y=0 \\Rightarrow x=2.5 \\). So the intercepts are \\( (0,5) \\) and \\( (2.5,0) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:mcq:4e896bf8",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( x + y \\ge 10 \\), using shade-the-NOT convention, which side do you shade?",
+  "options": [
+   "The side where \\( x + y < 10 \\) (below the line)",
+   "The side where \\( x + y > 10 \\) (above the line)",
+   "The boundary line only",
+   "Neither side"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The unwanted side is where the inequality fails, i.e. \\( x + y < 10 \\), so you shade below the line."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:mcq:eac62b26",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The context needs whole units and the optimum vertex is \\( (2.5,\\ 3.5) \\). You should:",
+  "options": [
+   "Test feasible integer points near \\( (2.5,3.5) \\) and pick the best",
+   "Give \\( (2.5,\\ 3.5) \\) as the answer",
+   "Always round both up to \\( (3,\\ 4) \\)",
+   "Give the origin instead"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Rounding can leave the region, so check the nearest feasible integer points and choose the one with the best objective."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:mcq:95c492d4",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of these is NOT a step in solving an LP problem graphically?",
+  "options": [
+   "Differentiate the objective function",
+   "Formulate the constraints as inequalities",
+   "Shade the unwanted region",
+   "Test the vertices in the objective"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "LP is solved graphically by formulating, shading and testing vertices; differentiation belongs to calculus, not LP."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:mcq:ec2e0aad",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Maximising \\( P = 5x + 2y \\), a student picks \\( (0,10) \\) (where \\( P = 20 \\)) over \\( (6,3) \\) (where \\( P = 36 \\)) because \\( y \\) is larger there. The error is:",
+  "options": [
+   "They compared \\( y \\) instead of the objective value \\( P \\)",
+   "\\( (6,3) \\) is not a vertex",
+   "\\( (0,10) \\) is infeasible",
+   "\\( P \\) is not linear"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "You must evaluate the objective \\( P \\) at each vertex; \\( (6,3) \\) gives \\( P = 36 > 20 \\), so it wins."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:tf:e1a2aa1d",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The optimum of a linear objective is always found at a vertex of the feasible region.",
+  "key": {
+   "answer": true,
+   "explain": "A linear objective is optimised at a corner of the region, so testing the vertices is enough."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:tf:ebb2a43b",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Using OCR's convention, you shade the region that satisfies all the constraints.",
+  "key": {
+   "answer": false,
+   "explain": "OCR asks you to shade the region that does NOT satisfy the constraints; the feasible region is left clear."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:tf:86d67a14",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The optimal solution to an LP problem must always have whole-number coordinates.",
+  "key": {
+   "answer": false,
+   "explain": "Nothing forces integer optima — a real 2024 answer was \\( (2.5,\\ 0) \\). Only a whole-unit context requires integers."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:tf:62a06278",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "To maximise by the objective-line method, slide the line as far as possible in the direction of increase until it last touches the feasible region.",
+  "key": {
+   "answer": true,
+   "explain": "The last vertex the objective line touches before leaving the region is the maximum."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:tf:4b2423bd",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If the feasible region is empty, the LP problem has no solution.",
+  "key": {
+   "answer": true,
+   "explain": "With no point satisfying every constraint, there is nothing to optimise — the problem is infeasible."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:tf:af654c43",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The boundary line \\( 4x + 5y = 19 \\) passes through \\( (0,\\ 3.8) \\) and \\( (4.75,\\ 0) \\).",
+  "key": {
+   "answer": true,
+   "explain": "\\( x=0 \\Rightarrow y = 19/5 = 3.8 \\); \\( y=0 \\Rightarrow x = 19/4 = 4.75 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:tf:811cfcb3",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "When a problem's context requires whole items, you should check feasible integer points near the optimum vertex.",
+  "key": {
+   "answer": true,
+   "explain": "The rounded vertex can fall outside the region, so test the nearest feasible lattice points and pick the best."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:tf:c4a8640a",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A point inside the feasible region can give a better objective value than every vertex.",
+  "key": {
+   "answer": false,
+   "explain": "For a linear objective, an interior point never beats the best corner — the optimum is always at a vertex."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:learn:50d4ea39",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you solve a linear programming problem graphically?",
+  "reading": "<p><strong>Linear programming (LP)</strong> is about squeezing the best possible value out of a situation that is boxed in by rules. Every graphical LP question follows the same three-step shape:</p>\n            <ul>\n              <li><strong>Formulate</strong> — turn the words into <strong>constraints</strong> (linear inequalities) and an <strong>objective function</strong> (the quantity you must maximise or minimise, e.g. \\( P = 3x + 4y \\)). This is lessons 4.1 and 4.2; here you use the result.</li>\n              <li><strong>Shade</strong> — draw each boundary line and shade to leave the <strong>feasible region</strong>: the set of points satisfying <em>every</em> constraint at once.</li>\n              <li><strong>Optimise</strong> — find the point of the feasible region that gives the best objective value, either by <strong>testing every vertex</strong> or by <strong>sliding the objective line</strong>, then read off the optimum and evaluate the objective.</li>\n            </ul>\n            <p>The single most important fact in all of LP: the optimum of a linear objective is <strong>always at a vertex (corner)</strong> of the feasible region — never in the middle. That is what makes the graph so powerful; you only ever have to check the corners.</p>",
+  "question": "In graphical LP, where does the optimum of a linear objective always occur?",
+  "options": [
+   "At a vertex (corner) of the feasible region",
+   "At the centre of the feasible region",
+   "At the origin",
+   "At any point inside the region"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A linear objective is optimised at a corner of the feasible region — so you only need to test the vertices."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:learn:5c6980ca",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you shade the feasible region the OCR way?",
+  "reading": "<p>OCR uses one house convention every year, and it catches students out: you <strong>shade the region that does NOT satisfy</strong> the constraints, so the <strong>feasible region is the part left CLEAR (unshaded)</strong>. (This is the opposite of what many textbooks do.)</p>\n            <ul>\n              <li>Draw each boundary line by its <strong>two intercepts</strong> — e.g. \\( 2x + y = 5 \\) runs from \\( (0,\\ 5) \\) to \\( (2.5,\\ 0) \\). A line drawn accurately through its intercepts earns its mark.</li>\n              <li>Solid or dotted lines are both accepted in this qualification, so do not lose sleep over strict/non-strict inequalities on the graph.</li>\n              <li>For each inequality, shade the side the points do <strong>not</strong> want. For \\( 2x + y \\ge 5 \\) (an \"at least\" rule) the unwanted side is where \\( 2x + y < 5 \\) — below the line — so you shade there.</li>\n              <li>Test a point (the origin \\( (0,0) \\) is easiest, if it is not on a line) to decide which side is which: substitute it into the inequality and see whether it is satisfied.</li>\n            </ul>\n            <p>When all the shading is done, the one clear polygon that remains is your feasible region — every candidate optimum is one of its corners.</p>",
+  "question": "Using OCR's convention, after shading, the feasible region is:",
+  "options": [
+   "The region left unshaded (clear)",
+   "The region you shaded",
+   "Always a triangle",
+   "The largest shaded region"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "OCR asks you to shade the region that does NOT satisfy the constraints, so the feasible region is left clear."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:learn:134afac3",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the optimum by testing the vertices?",
+  "reading": "<p>Because the optimum sits at a corner, the <strong>vertex method</strong> is simple: find the coordinates of every vertex of the feasible region, substitute each into the objective, and pick the best value.</p>\n            <p><strong>Worked example.</strong> A baker makes \\( x \\) fruit loaves and \\( y \\) plain loaves. Oven time gives \\( x + y \\le 8 \\); flour gives \\( x + 2y \\le 12 \\); and \\( x,\\ y \\ge 0 \\). Profit is \\( P = 3x + 4y \\). Maximise \\( P \\).</p>\n            <p>The feasible region has four vertices. To find where the two sloping lines meet, solve \\( x + y = 8 \\) and \\( x + 2y = 12 \\) simultaneously: subtracting gives \\( y = 4 \\), so \\( x = 4 \\) — the vertex \\( (4,\\ 4) \\).</p>\n            <table class=\"worked\">\n              <tr><td><strong>Vertex</strong></td><td><strong>\\( P = 3x + 4y \\)</strong></td></tr>\n              <tr><td>\\( (0,\\ 0) \\)</td><td>\\( 0 \\)</td></tr>\n              <tr><td>\\( (8,\\ 0) \\)</td><td>\\( 24 \\)</td></tr>\n              <tr><td>\\( (4,\\ 4) \\)</td><td>\\( 28 \\) ← maximum</td></tr>\n              <tr><td>\\( (0,\\ 6) \\)</td><td>\\( 24 \\)</td></tr>\n            </table>\n            <svg viewBox=\"0 0 360 280\" width=\"100%\" style=\"max-width:380px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Feasible region with vertices (0,0), (8,0), (4,4) and (0,6); the objective P = 3x + 4y takes its largest value 28 at the vertex (4,4)\"><line x1=\"45\" y1=\"235\" x2=\"340\" y2=\"235\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"45\" y1=\"235\" x2=\"45\" y2=\"25\" stroke=\"currentColor\" stroke-width=\"1.3\"/><polygon points=\"340,235 331,231 331,239\" fill=\"currentColor\"/><polygon points=\"45,25 41,34 49,34\" fill=\"currentColor\"/><polygon points=\"45,235 298.3,235 171.7,117.9 45,59.3\" fill=\"currentColor\" fill-opacity=\"0.12\" stroke=\"currentColor\" stroke-width=\"1.6\"/><circle cx=\"45\" cy=\"235\" r=\"3.5\" fill=\"currentColor\"/><circle cx=\"298.3\" cy=\"235\" r=\"3.5\" fill=\"currentColor\"/><circle cx=\"171.7\" cy=\"117.9\" r=\"4.8\" fill=\"currentColor\"/><circle cx=\"45\" cy=\"59.3\" r=\"3.5\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\"><text x=\"52\" y=\"250\">(0,0)</text><text x=\"255\" y=\"250\">(8,0)</text><text x=\"176\" y=\"112\">(4,4) max</text><text x=\"8\" y=\"55\">(0,6)</text><text x=\"200\" y=\"205\">feasible region</text><text x=\"332\" y=\"251\">x</text><text x=\"30\" y=\"30\">y</text></g></svg>\n            <p>The maximum profit is \\( £28 \\), made at \\( (4,\\ 4) \\): 4 fruit loaves and 4 plain loaves.</p>",
+  "question": "For the region above, which vertex maximises \\( P = 3x + 4y \\)?",
+  "options": [
+   "\\( (4,\\ 4) \\), giving \\( P = 28 \\)",
+   "\\( (8,\\ 0) \\), giving \\( P = 24 \\)",
+   "\\( (0,\\ 6) \\), giving \\( P = 24 \\)",
+   "The centre of the region"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Testing each vertex, \\( (4,4) \\) gives \\( P = 28 \\), which beats the 24 at \\( (8,0) \\) and \\( (0,6) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:learn:eff11b90",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the optimum by sliding the objective line?",
+  "reading": "<p>The second method draws a <strong>line of constant objective</strong> — the \"objective line\". For \\( P = 3x + 4y \\), the line \\( 3x + 4y = k \\) is a family of parallel lines, one for each value of \\( k \\). Bigger \\( k \\) means a line further out.</p>\n            <ul>\n              <li>Draw one objective line for a convenient value (say \\( k = 12 \\)), then imagine sliding it <strong>parallel</strong> to itself.</li>\n              <li>To <strong>maximise</strong>, slide it in the direction of increase until it is about to leave the region — the <strong>last point of contact</strong> is the optimum vertex.</li>\n              <li>To <strong>minimise</strong>, slide it the opposite way until the <strong>first point of contact</strong>.</li>\n            </ul>\n            <p>For the baker, sliding \\( 3x + 4y = k \\) up and to the right, the last corner it touches is \\( (4,\\ 4) \\) — the same answer the vertex method gave. The objective-line method is quickest when a region has many vertices, because you do not have to evaluate them all.</p>\n            <svg viewBox=\"0 0 360 280\" width=\"100%\" style=\"max-width:380px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"The objective line 3x + 4y = k slides up and to the right; its last contact with the feasible region is the vertex (4,4), where the maximum is 28\"><line x1=\"45\" y1=\"235\" x2=\"340\" y2=\"235\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"45\" y1=\"235\" x2=\"45\" y2=\"25\" stroke=\"currentColor\" stroke-width=\"1.3\"/><polygon points=\"340,235 331,231 331,239\" fill=\"currentColor\"/><polygon points=\"45,25 41,34 49,34\" fill=\"currentColor\"/><polygon points=\"45,235 298.3,235 171.7,117.9 45,59.3\" fill=\"currentColor\" fill-opacity=\"0.12\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"45\" y1=\"176.4\" x2=\"129.5\" y2=\"235\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"5 4\" stroke-opacity=\"0.5\"/><line x1=\"45\" y1=\"117.9\" x2=\"213.9\" y2=\"235\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"5 4\" stroke-opacity=\"0.7\"/><line x1=\"45\" y1=\"30\" x2=\"298.3\" y2=\"205.7\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-dasharray=\"6 4\"/><line x1=\"150\" y1=\"184\" x2=\"169\" y2=\"124\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"171.7,117.9 164,127 175,130\" fill=\"currentColor\"/><circle cx=\"171.7\" cy=\"117.9\" r=\"4.8\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\"><text x=\"177\" y=\"114\">(4,4) max</text><text x=\"243\" y=\"196\">3x+4y=k</text><text x=\"112\" y=\"180\">slide</text><text x=\"332\" y=\"251\">x</text><text x=\"30\" y=\"30\">y</text></g></svg>",
+  "question": "To MAXIMISE with the objective-line method you slide the line until:",
+  "options": [
+   "Its last point of contact with the feasible region",
+   "It reaches the origin",
+   "It becomes vertical",
+   "It leaves the grid entirely"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Slide the objective line in the direction of increase; the last vertex it touches before leaving the region is the maximum."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:learn:a2d3779c",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Why can the optimum be a decimal — and when must it be a whole number?",
+  "reading": "<p>This is where the marks are won and lost. Nothing in linear programming forces the optimum to have whole-number coordinates. The corner where the objective is best might sit at \\( x = 2.5 \\), and if it does, \\( 2.5 \\) <strong>is</strong> the answer.</p>\n            <ul>\n              <li>In a real 2024 exam, the minimum of \\( x + y \\) was at \\( (2.5,\\ 0) \\). A very common wrong answer was \\( (3,\\ 0) \\) — candidates <strong>assumed</strong> the answer had to be an integer, and lost the marks.</li>\n              <li>So: find the vertex first, exactly. Do <strong>not</strong> round on the way.</li>\n              <li><strong>But</strong> if the context can only take whole units (whole toys, whole tins), the true answer must be a lattice point. Then find the optimum vertex, and test the <strong>integer points nearest to it that are still feasible</strong>, choosing the best. Never just round the vertex — the rounded point can fall outside the region.</li>\n            </ul>\n            <p>Read the context: quantities of a liquid drug in mg can be \\( 2.5 \\); numbers of toys cannot be \\( 4.3 \\). Match the answer to what the situation allows.</p>",
+  "question": "A drug problem's optimum vertex is at \\( x = 2.5 \\) mg. What should you write?",
+  "options": [
+   "\\( x = 2.5 \\) — it need not be a whole number",
+   "\\( x = 3 \\), rounding up",
+   "\\( x = 2 \\), rounding down",
+   "There is no valid answer"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Mass in mg can be non-integer, so \\( 2.5 \\) is the correct optimum; rounding to 3 was the common exam error."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:learn:4664db1c",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Can you run a whole LP problem from start to finish?",
+  "reading": "<p>Here is the full <strong>formulate → shade → optimise</strong> ladder on one small problem.</p>\n            <p><strong>Problem.</strong> A café makes \\( x \\) fruit smoothies and \\( y \\) protein shakes. Fruit is limited: \\( 2x + y \\le 10 \\). Cups are limited: \\( x + y \\le 7 \\). Also \\( x,\\ y \\ge 0 \\). Each smoothie earns \\( £2 \\) and each shake \\( £3 \\); maximise \\( P = 2x + 3y \\).</p>\n            <table class=\"worked\">\n              <tr><td>1. <strong>Formulate:</strong> constraints \\( 2x + y \\le 10 \\), \\( x + y \\le 7 \\), \\( x,y \\ge 0 \\); objective \\( P = 2x + 3y \\).</td></tr>\n              <tr><td>2. <strong>Boundary lines:</strong> \\( 2x + y = 10 \\) from \\( (0,10) \\) to \\( (5,0) \\); \\( x + y = 7 \\) from \\( (0,7) \\) to \\( (7,0) \\).</td></tr>\n              <tr><td>3. <strong>Shade</strong> the unwanted side of each (the far side from the origin, since \\( (0,0) \\) satisfies both), leaving the feasible region clear.</td></tr>\n              <tr><td>4. <strong>Vertices:</strong> \\( (0,0),\\ (5,0),\\ (0,7) \\), and where the lines cross: solve \\( 2x + y = 10 \\), \\( x + y = 7 \\) → subtract → \\( x = 3 \\), \\( y = 4 \\), i.e. \\( (3,\\ 4) \\).</td></tr>\n              <tr><td>5. <strong>Optimise:</strong> \\( P \\) at \\( (0,0)=0 \\), \\( (5,0)=10 \\), \\( (3,4)=18 \\), \\( (0,7)=21 \\).</td></tr>\n            </table>\n            <p>The maximum is \\( P = £21 \\) at \\( (0,\\ 7) \\): make 0 smoothies and 7 shakes. Whole cups are fine here, and the optimum already lands on integers — but you still checked every corner rather than guessing.</p>",
+  "question": "In the café problem, which corner gives the maximum \\( P = 2x + 3y \\)?",
+  "options": [
+   "\\( (0,\\ 7) \\), giving \\( P = 21 \\)",
+   "\\( (3,\\ 4) \\), giving \\( P = 18 \\)",
+   "\\( (5,\\ 0) \\), giving \\( P = 10 \\)",
+   "\\( (0,\\ 0) \\), giving \\( P = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Testing the four vertices, \\( (0,7) \\) gives the largest \\( P = 21 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:misc:dccaafcc",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The optimum must be a whole number, so \\( (3,\\ 0) \\) is the answer.</p><p><strong>✅ The correct idea:</strong> Optima need not be integers. A weak answer assumes whole numbers and gives \\( (3,0) \\); a strong answer finds the vertex exactly — here the minimum of \\( x+y \\) is at \\( (2.5,\\ 0) \\), value \\( 2.5 \\) — and only rounds if the CONTEXT demands whole units.</p>",
+  "question": "The minimum of \\( x+y \\) is at \\( (2.5,0) \\). The correct value is:",
+  "options": [
+   "\\( 2.5 \\)",
+   "\\( 3 \\)",
+   "\\( 2 \\)",
+   "no minimum exists"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The vertex is \\( (2.5,0) \\), so the minimum total is \\( 2.5 \\); assuming an integer gives the wrong 3."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:misc:acfb27b3",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Look inside the feasible region for the best point.</p><p><strong>✅ The correct idea:</strong> A weak answer hunts for a point in the middle of the region; a strong answer knows a linear objective is optimised at a VERTEX and tests only the corners.</p>",
+  "question": "Where should you look for the optimum?",
+  "options": [
+   "At the vertices of the region",
+   "In the middle of the region",
+   "Outside the region",
+   "On the y-axis only"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The optimum of a linear objective is always at a corner, so test the vertices, not interior points."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:misc:229674c0",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Shade the feasible region so it stands out.</p><p><strong>✅ The correct idea:</strong> OCR's convention is the OPPOSITE: shade the region that does NOT satisfy the constraints. A weak answer shades the wanted region and loses the shading marks; a strong answer leaves the feasible region clear.</p>",
+  "question": "Under OCR's convention you shade:",
+  "options": [
+   "The unwanted region (not satisfying the constraints)",
+   "The feasible region",
+   "The whole grid",
+   "Nothing at all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Shade the NOT-required region; the feasible region is left unshaded."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:misc:21d5ebf1",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Pick the vertex where \\( y \\) (or \\( x \\)) is biggest.</p><p><strong>✅ The correct idea:</strong> A weak answer compares a single variable; a strong answer substitutes each vertex into the OBJECTIVE and compares the objective values. \\( (6,3) \\) can beat \\( (0,10) \\) even though \\( y \\) is smaller, if \\( P \\) is larger there.</p>",
+  "question": "To choose the optimum vertex you compare:",
+  "options": [
+   "The objective value at each vertex",
+   "The \\( y \\)-coordinate of each vertex",
+   "The \\( x \\)-coordinate of each vertex",
+   "The distance from the origin"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Only the objective value decides the optimum; a single coordinate can mislead."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:misc:a83cce43",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Draw \\( 2x + y = 5 \\) from \\( (0,\\ 2.5) \\) to \\( (5,\\ 0) \\).</p><p><strong>✅ The correct idea:</strong> The intercepts are swapped. A strong answer sets \\( x=0 \\Rightarrow y=5 \\) and \\( y=0 \\Rightarrow x=2.5 \\), so the line runs from \\( (0,\\ 5) \\) to \\( (2.5,\\ 0) \\) — each correct line earns a mark.</p>",
+  "question": "The line \\( 2x + y = 5 \\) runs between:",
+  "options": [
+   "\\( (0,5) \\) and \\( (2.5,0) \\)",
+   "\\( (0,2.5) \\) and \\( (5,0) \\)",
+   "\\( (0,5) \\) and \\( (5,0) \\)",
+   "\\( (2,0) \\) and \\( (0,5) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Setting each variable to 0 gives \\( y=5 \\) and \\( x=2.5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:tips:1ed73db1",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — The formulate → shade → optimise ladder",
+  "reading": "<p><strong>0 marks:</strong> jumping straight to an answer with no lines drawn and no vertices tested.</p><p><strong>Partial:</strong> constraints formulated and lines drawn correctly by their intercepts, but the wrong region shaded or only one vertex checked.</p><p><strong>Full marks:</strong> (1) write each constraint as an inequality; (2) draw every boundary line by its two intercepts and shade the NOT-required side; (3) identify every vertex of the clear region, substitute each into the objective, and state the optimum point AND the objective value.</p>",
+  "question": "The three stages of a graphical LP solution are:",
+  "options": [
+   "Formulate, shade, optimise",
+   "Differentiate, integrate, evaluate",
+   "Guess, check, round",
+   "Plot, reflect, rotate"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Every LP question follows formulate → shade → optimise."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:tips:3952fa09",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Optima need not be whole numbers",
+  "reading": "<p>The biggest examiner-reported LP error: assuming the optimum must be an integer. In 2024 the minimum of \\( x+y \\) was at \\( (2.5,\\ 0) \\); the common wrong answer \\( (3,\\ 0) \\) came from students who thought the answer had to be whole.</p><p><strong>Do this:</strong> find the optimum vertex EXACTLY (solve the boundary lines simultaneously); give its coordinates as they are. Only if the context is discrete (whole toys, tins, people) do you then test the nearest FEASIBLE integer points — never blindly round.</p>",
+  "question": "The optimum vertex is \\( (2.5,\\ 0) \\) for a mass in mg. You write:",
+  "options": [
+   "\\( (2.5,\\ 0) \\) — a mass may be a decimal",
+   "\\( (3,\\ 0) \\), rounding up",
+   "\\( (2,\\ 0) \\), rounding down",
+   "no answer, since it is not whole"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Mass in mg can be 2.5, so the exact vertex is the answer; rounding to 3 loses the marks."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:tips:55bc0f65",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Two routes to the optimum — pick one and show it",
+  "reading": "<p>The mark scheme rewards visible method. Either <strong>list the vertices with their objective values</strong> (and do not cross out the ones you reject — a crossed-out line is treated as withdrawn), or <strong>draw the objective line</strong> on the grid and show it sliding to the optimum corner (\"sight of \\( P = kx + \\dots \\) soi\" earns the method mark). A bare answer with no working can score zero on these.</p>",
+  "question": "Which earns the method mark on an LP optimisation?",
+  "options": [
+   "A list of vertices with their objective values, or the objective line drawn",
+   "The final answer only, with no working",
+   "A decimal to 5 d.p.",
+   "The feasible region shaded twice"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Show either the vertex-value list or the objective line; the method must be visible."
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:fib:cd91fc7b",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "In OCR linear programming you shade the region that does ___B1___ satisfy the constraints, so the feasible region is left ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "edge",
+    "not",
+    "shaded",
+    "constraint"
+   ],
+   "B2": [
+    "decreases",
+    "unshaded",
+    "does",
+    "greater"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "not",
+    "B2": "unshaded"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:fib:6febcbe3",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The optimum value of a linear objective always lies at a ___B1___ of the feasible region, never inside it.",
+  "blankOptions": {
+   "B1": [
+    "whole",
+    "objective",
+    "vertex",
+    "2.5"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "vertex"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:fib:40a1d55a",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "To find the optimum you can test each ___B1___ in the objective, or slide the ___B2___ line to its extreme position.",
+  "blankOptions": {
+   "B1": [
+    "integers",
+    "3.8",
+    "vertex",
+    "decreases"
+   ],
+   "B2": [
+    "objective",
+    "not",
+    "integers",
+    "3"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "vertex",
+    "B2": "objective"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:fib:7dd73b2c",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The boundary line \\( 2x + y = 5 \\) has \\( y \\)-intercept ___B1___ and \\( x \\)-intercept ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "vertex",
+    "5",
+    "3.8",
+    "integer"
+   ],
+   "B2": [
+    "greater",
+    "not",
+    "whole",
+    "2.5"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "5",
+    "B2": "2.5"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:fib:95f963c4",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Optima in LP need not be whole numbers; assuming that they must be ___B1___ is a common examiner-reported error.",
+  "blankOptions": {
+   "B1": [
+    "2.5",
+    "not",
+    "increases",
+    "integers"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "integers"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:fib:b0e4ec2e",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "If the context can only take whole items, check the feasible ___B1___ points nearest the optimum vertex.",
+  "blankOptions": {
+   "B1": [
+    "vertex",
+    "3",
+    "3.8",
+    "integer"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "integer"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:fib:31100c56",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The words 'no more than' mean the total must be ___B1___ than or equal to the limit.",
+  "blankOptions": {
+   "B1": [
+    "shaded",
+    "integer",
+    "less",
+    "unshaded"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "less"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:fib:a0c92d5d",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "To maximise an objective, slide the objective line in the direction that ___B1___ its value; to minimise, slide the opposite way.",
+  "blankOptions": {
+   "B1": [
+    "unshaded",
+    "5",
+    "centre",
+    "increases"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "increases"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:8da01603",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Objective function”?",
+  "options": [
+   "Test each corner of the feasible region in the objective",
+   "Slide a line of constant objective to its extreme position",
+   "The quantity to maximise or minimise, e.g. \\( P = 3x + 4y \\)",
+   "Maximum \\( = 28 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Objective function” means: The quantity to maximise or minimise, e.g. \\( P = 3x + 4y \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:0bd60822",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Feasible region”?",
+  "options": [
+   "Check feasible integer points near the optimum vertex",
+   "Uses the \\( \\ge \\) symbol",
+   "The set of points satisfying every constraint at once",
+   "Slide a line of constant objective to its extreme position"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Feasible region” means: The set of points satisfying every constraint at once"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:850e8116",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Constraint”?",
+  "options": [
+   "A linear inequality limiting the variables",
+   "The set of points satisfying every constraint at once",
+   "Check feasible integer points near the optimum vertex",
+   "Shade the region that does NOT satisfy the constraints"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Constraint” means: A linear inequality limiting the variables"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:839000ba",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Vertex method”?",
+  "options": [
+   "Uses the \\( \\ge \\) symbol",
+   "Test each corner of the feasible region in the objective",
+   "Maximum \\( = 28 \\)",
+   "A linear inequality limiting the variables"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Vertex method” means: Test each corner of the feasible region in the objective"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:f80a0860",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Objective-line method”?",
+  "options": [
+   "A valid answer such as \\( x = 2.5 \\)",
+   "Maximum \\( = 28 \\)",
+   "Slide a line of constant objective to its extreme position",
+   "Check feasible integer points near the optimum vertex"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Objective-line method” means: Slide a line of constant objective to its extreme position"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:31fc2ad1",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “OCR shading convention”?",
+  "options": [
+   "Maximum \\( = 28 \\)",
+   "Shade the region that does NOT satisfy the constraints",
+   "The set of points satisfying every constraint at once",
+   "Check feasible integer points near the optimum vertex"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“OCR shading convention” means: Shade the region that does NOT satisfy the constraints"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:ced94ad8",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Boundary line \\( 2x + y = 5 \\)”?",
+  "options": [
+   "Check feasible integer points near the optimum vertex",
+   "A linear inequality limiting the variables",
+   "Uses the \\( \\ge \\) symbol",
+   "Runs through \\( (0,\\ 5) \\) and \\( (2.5,\\ 0) \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Boundary line \\( 2x + y = 5 \\)” means: Runs through \\( (0,\\ 5) \\) and \\( (2.5,\\ 0) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:efed97a5",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Non-integer optimum”?",
+  "options": [
+   "Minimum total \\( = 2.5 \\)",
+   "Uses the \\( \\ge \\) symbol",
+   "A linear inequality limiting the variables",
+   "A valid answer such as \\( x = 2.5 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Non-integer optimum” means: A valid answer such as \\( x = 2.5 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:824bc2fe",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Whole-unit context”?",
+  "options": [
+   "Test each corner of the feasible region in the objective",
+   "Check feasible integer points near the optimum vertex",
+   "The set of points satisfying every constraint at once",
+   "Shade the region that does NOT satisfy the constraints"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Whole-unit context” means: Check feasible integer points near the optimum vertex"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:27ad3702",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'At least' constraint”?",
+  "options": [
+   "Shade the region that does NOT satisfy the constraints",
+   "A linear inequality limiting the variables",
+   "The set of points satisfying every constraint at once",
+   "Uses the \\( \\ge \\) symbol"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“'At least' constraint” means: Uses the \\( \\ge \\) symbol"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:6d115cb4",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'No more than' constraint”?",
+  "options": [
+   "The quantity to maximise or minimise, e.g. \\( P = 3x + 4y \\)",
+   "The set of points satisfying every constraint at once",
+   "A valid answer such as \\( x = 2.5 \\)",
+   "Uses the \\( \\le \\) symbol"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“'No more than' constraint” means: Uses the \\( \\le \\) symbol"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:aea097d0",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Minimise \\( x + y \\) at \\( (2.5,\\ 0) \\)”?",
+  "options": [
+   "Minimum total \\( = 2.5 \\)",
+   "The set of points satisfying every constraint at once",
+   "Check feasible integer points near the optimum vertex",
+   "Uses the \\( \\ge \\) symbol"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Minimise \\( x + y \\) at \\( (2.5,\\ 0) \\)” means: Minimum total \\( = 2.5 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:1cc1292f",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Maximise \\( 3x + 4y \\) at \\( (4,\\ 4) \\)”?",
+  "options": [
+   "Uses the \\( \\ge \\) symbol",
+   "Maximum \\( = 28 \\)",
+   "Uses the \\( \\le \\) symbol",
+   "A valid answer such as \\( x = 2.5 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Maximise \\( 3x + 4y \\) at \\( (4,\\ 4) \\)” means: Maximum \\( = 28 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:4-3-solving-lp-problems-graphically:match:41c818bc",
+  "pageId": "additional-maths:4-3-solving-lp-problems-graphically",
+  "pageName": "4.3 Solving LP Problems Graphically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Empty feasible region”?",
+  "options": [
+   "Check feasible integer points near the optimum vertex",
+   "Uses the \\( \\le \\) symbol",
+   "No feasible solution exists",
+   "Maximum \\( = 28 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Empty feasible region” means: No feasible solution exists"
   }
  }
 ];

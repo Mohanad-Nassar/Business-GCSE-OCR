@@ -2,7 +2,7 @@
 // ALL SECTION TOTALS — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py: every subject's section
 // totals merged into one map keyed by subject-prefixed page id.
-// Generated: 2026-07-17T21:19:22Z
+// Generated: 2026-07-17T21:38:28Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS_ALL = {
  "additional-maths:1-1-notation-functions-and-indices": {
@@ -125,6 +125,39 @@ window.SECTION_TOTALS_ALL = {
   "fib": 7,
   "match": 14,
   "flashcards": 16
+ },
+ "additional-maths:4-1-inequalities-in-two-variables": {
+  "exam": 2,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 16
+ },
+ "additional-maths:4-2-constraints-and-objective-functions": {
+  "exam": 0,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 16
+ },
+ "additional-maths:4-3-solving-lp-problems-graphically": {
+  "exam": 11,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 15
  },
  "business:1-1-role-of-business-enterprise": {
   "exam": 19,
