@@ -434,6 +434,9 @@ function switchTab(id, btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     panel.classList.add('active');
     if (tabBtn) tabBtn.classList.add('active');
+    // In the icon tier only the active tab shows a label, so the row's width
+    // changes with the selection — re-measure.
+    if (typeof scheduleTabFit === 'function') scheduleTabFit();
     if (id === 'learn' || id === 'examtips') showDoubleClickHint();
     // Hide all floating progress bars; the IntersectionObserver on the new
     // tab will re-show the right one if the user has scrolled past it
@@ -572,6 +575,9 @@ function updateTabIndicator(section, done, total) {
         void el.offsetWidth;
         el.classList.add('pop');
     }
+    // Showing/hiding a ring changes the row's width but NOT the bar's, so the
+    // fit ResizeObserver never sees it — re-measure here instead.
+    if (state !== prev && typeof scheduleTabFit === 'function') scheduleTabFit();
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -842,16 +848,19 @@ function gcseIsStudent() {
     } catch (e) { return false; }
 }
 
+// `short` is the label the tab bar falls back to when the full one won't
+// fit (see RESPONSIVE TAB BAR below). Keep every short label ≤ 6 characters
+// — the whole row has to survive a 360px phone.
 const ACTIVITY_ORDER = [
-    { section: 'learn',      tabId: 'learn',        icon: '📚', label: 'Key Learning' },
-    { section: 'mcq',        tabId: 'mcq',          icon: '❓', label: 'MCQ Quiz' },
-    { section: 'match',      tabId: 'matching',     icon: '🔗', label: 'Matching' },
-    { section: 'fib',        tabId: 'fib',          icon: '✏️', label: 'Fill the Blanks' },
-    { section: 'misc',       tabId: 'misconceptions', icon: '⚠️', label: 'Misconceptions' },
-    { section: 'tips',       tabId: 'examtips',     icon: '🎯', label: 'Exam Tips' },
-    { section: 'flashcards', tabId: 'flashcards',   icon: '🃏', label: 'Flashcards', optional: true },
-    { section: 'tf',         tabId: 'truefalse',    icon: '✅', label: 'True / False' },
-    { section: 'exam',       tabId: 'exampractice', icon: '📝', label: 'Exam Practice' },
+    { section: 'learn',      tabId: 'learn',        icon: '📚', label: 'Key Learning',   short: 'Learn' },
+    { section: 'mcq',        tabId: 'mcq',          icon: '❓', label: 'MCQ Quiz',       short: 'MCQ' },
+    { section: 'match',      tabId: 'matching',     icon: '🔗', label: 'Matching',       short: 'Match' },
+    { section: 'fib',        tabId: 'fib',          icon: '✏️', label: 'Fill the Blanks', short: 'Blanks' },
+    { section: 'misc',       tabId: 'misconceptions', icon: '⚠️', label: 'Misconceptions', short: 'Myths' },
+    { section: 'tips',       tabId: 'examtips',     icon: '🎯', label: 'Exam Tips',      short: 'Tips' },
+    { section: 'flashcards', tabId: 'flashcards',   icon: '🃏', label: 'Flashcards',     short: 'Cards', optional: true },
+    { section: 'tf',         tabId: 'truefalse',    icon: '✅', label: 'True / False',   short: 'T/F' },
+    { section: 'exam',       tabId: 'exampractice', icon: '📝', label: 'Exam Practice',  short: 'Exam' },
 ];
 
 function _activityTotal(section) {
@@ -882,6 +891,161 @@ function goToActivity(tabId) {
         btn.click();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RESPONSIVE TAB BAR
+// The 9 activity tabs are hardcoded text inside the <button> on all 88
+// topic pages ("📚 Key Learning"), so the labels are restructured HERE at
+// runtime instead of by editing every page.
+//
+// The bar NEVER wraps and NEVER scrolls (if it can help it):
+//   · wrapping — the old behaviour — stacked 3-4 rows on a phone, and the
+//     bar is sticky, so it ate that space permanently;
+//   · horizontal scrolling is painful on a desktop mouse with no touchpad
+//     (no sideways wheel), which leaves the last tabs unreachable.
+// Instead the bar is MEASURED and the labels step down a tier until the
+// single row fits:
+//     full   📚 Key Learning   ~1510px of row
+//     short  📚 Learn           ~980px
+//     mini   📚 Learn           ~610px  (tighter, ring moves to the corner)
+//     icon   📚                 ~375px  — the ACTIVE tab keeps its short
+//                                        label, so you always know where you
+//                                        are; every tab keeps a title +
+//                                        aria-label so the icons stay
+//                                        decodable.
+// Measured, not a media query: ≥900px the bar is a grid item beside the
+// course sidebar, so its width is NOT the viewport width — a 1280px laptop
+// with the sidebar open only has ~990px of room for the bar.
+// ═══════════════════════════════════════════════════════════════
+
+const _TAB_FIT_TIERS = ['full', 'short', 'mini', 'icon'];
+
+function _tabActivityFor(btn) {
+    // Tolerates both spellings in the wild: switchTab('learn', this) and
+    // switchTab('learn',this).
+    const m = (btn.getAttribute('onclick') || '').match(/switchTab\(\s*['"]([^'"]+)['"]/);
+    return m ? ACTIVITY_ORDER.find(a => a.tabId === m[1]) : null;
+}
+
+function upgradeTabBar() {
+    const bar = document.querySelector('.tab-bar');
+    if (!bar) return;
+    bar.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.dataset.tabUpgraded) return;
+        const act = _tabActivityFor(btn);
+        const textNodes = Array.from(btn.childNodes).filter(n => n.nodeType === Node.TEXT_NODE);
+        const raw = textNodes.map(n => n.textContent).join(' ').replace(/\s+/g, ' ').trim();
+        if (!raw && !act) return;
+        // Unknown tab (a subject-specific extra): derive it from the text.
+        const icon  = act ? act.icon  : raw.split(' ')[0];
+        const full  = act ? act.label : raw.slice(raw.indexOf(' ') + 1).trim() || raw;
+        const short = act ? act.short : full.split(' ')[0];
+
+        // Replace ONLY the bare text nodes — the progress ring (.tab-prog)
+        // and lock (.tab-lock) are injected by other code, and this must not
+        // care whether it runs before or after them.
+        textNodes.forEach(n => n.remove());
+
+        const mk = (cls, text) => {
+            const s = document.createElement('span');
+            s.className = cls;
+            s.textContent = text;
+            s.setAttribute('aria-hidden', 'true'); // the button's aria-label is the name
+            return s;
+        };
+        const frag = document.createDocumentFragment();
+        frag.appendChild(mk('tab-ico', icon));
+        frag.appendChild(mk('tab-full', full));
+        frag.appendChild(mk('tab-short', short));
+        btn.insertBefore(frag, btn.firstChild);
+
+        btn.title = full;
+        btn.setAttribute('aria-label', full);
+        btn.dataset.tabUpgraded = '1';
+    });
+}
+
+// Width of the tab row vs the room available for it. Measured by summing the
+// children rather than reading scrollWidth: the bar is deliberately NOT an
+// overflow container in the normal case (see .tab-bar-scroll in style.css),
+// and scrollWidth on an overflow:visible box can't be relied on to report
+// content that spills past it.
+function _tabRowFits(bar) {
+    const bs = getComputedStyle(bar);
+    const room = bar.clientWidth - parseFloat(bs.paddingLeft || 0) - parseFloat(bs.paddingRight || 0);
+    if (room <= 0) return true; // not laid out yet — don't thrash tiers
+    const gap = parseFloat(bs.columnGap) || 0;
+    let used = 0, n = 0;
+    Array.from(bar.children).forEach(c => {
+        const cs = getComputedStyle(c);
+        if (cs.display === 'none' || cs.position === 'absolute' || cs.position === 'fixed') return;
+        used += c.getBoundingClientRect().width +
+            parseFloat(cs.marginLeft || 0) + parseFloat(cs.marginRight || 0);
+        n++;
+    });
+    used += gap * Math.max(0, n - 1);
+    return used <= room + 1; // +1px: sub-pixel layout rounds against us
+}
+
+function fitTabBar() {
+    const bar = document.querySelector('.tab-bar');
+    if (!bar || !bar.isConnected || !bar.clientWidth) return;
+    let fits = false;
+    for (const tier of _TAB_FIT_TIERS) {
+        bar.dataset.fit = tier;
+        fits = _tabRowFits(bar);
+        if (fits) break;
+    }
+    // Even icons can overflow on an absurdly narrow phone. Scrolling is the
+    // last resort — better than silently clipping a tab away — and we keep the
+    // active tab in view so the student never loses their place.
+    bar.classList.toggle('tab-bar-scroll', !fits);
+    if (!fits) {
+        const active = bar.querySelector('.tab-btn.active');
+        if (active) {
+            bar.scrollLeft = Math.max(0, active.offsetLeft - (bar.clientWidth - active.offsetWidth) / 2);
+        }
+    } else {
+        bar.scrollLeft = 0;
+    }
+}
+
+let _tabFitPending = false;
+function scheduleTabFit() {
+    if (_tabFitPending) return;
+    _tabFitPending = true;
+    requestAnimationFrame(() => { _tabFitPending = false; fitTabBar(); });
+}
+
+// ← / → step between activities, Home/End jump to the ends. These stay plain
+// <button>s in a <nav> rather than an ARIA tablist: the panels aren't wired
+// up as tabpanels, and claiming the role without the wiring would mislead a
+// screen reader more than the missing role does.
+function _tabBarKeys(e) {
+    if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].indexOf(e.key) === -1) return;
+    const btns = Array.from(e.currentTarget.querySelectorAll('.tab-btn'));
+    const i = btns.indexOf(document.activeElement);
+    if (i === -1) return;
+    let j;
+    if (e.key === 'Home') j = 0;
+    else if (e.key === 'End') j = btns.length - 1;
+    else j = (i + (e.key === 'ArrowRight' ? 1 : -1) + btns.length) % btns.length;
+    e.preventDefault();
+    btns[j].focus();
+    btns[j].click(); // a locked tab bounces with its own hint, same as a click
+}
+
+function initResponsiveTabBar() {
+    const bar = document.querySelector('.tab-bar');
+    if (!bar) return;
+    upgradeTabBar();
+    fitTabBar();
+    if (typeof ResizeObserver === 'function') new ResizeObserver(scheduleTabFit).observe(bar);
+    else window.addEventListener('resize', scheduleTabFit);
+    // Webfonts land after first paint and change every label's width.
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleTabFit).catch(() => {});
+    bar.addEventListener('keydown', _tabBarKeys);
 }
 
 function injectFlowStyles() {
@@ -3882,8 +4046,22 @@ ${q.modelAnswer ? `<div class="marks-section"><h5>✓ Model Answer</h5><div clas
 // question with that id shows the one shared extract, so an edit updates them
 // all. Questions with their own unique scenario keep using inline `caseStudy`.
 function _epExamCaseStudies() {
-    if (typeof EXAM_CASE_STUDIES !== 'undefined' && EXAM_CASE_STUDIES) return EXAM_CASE_STUDIES;
+    // window first: this form can never throw. `typeof` is normally safe on an
+    // undeclared name, but NOT on a `const` in its temporal dead zone — a page
+    // declaring `const EXAM_CASE_STUDIES` puts it in the global script scope
+    // shared by every classic <script>, so reading it before that inline script
+    // has run throws ReferenceError instead of returning "undefined", taking
+    // the whole exam renderer down. The bare-identifier check below is still
+    // needed (top-level const/let create no window property), so it is guarded
+    // rather than removed.
+    //
+    // Latent today: this only runs at render time, after the page's inline
+    // script. It would fire the moment script.js moved to <head> or rendering
+    // started earlier.
     if (typeof window !== 'undefined' && window.EXAM_CASE_STUDIES) return window.EXAM_CASE_STUDIES;
+    try {
+        if (typeof EXAM_CASE_STUDIES !== 'undefined' && EXAM_CASE_STUDIES) return EXAM_CASE_STUDIES;
+    } catch (_e) { /* TDZ — declared further down but not yet initialised */ }
     return null;
 }
 function _epResolveCase(q) {
@@ -4476,6 +4654,9 @@ document.addEventListener('DOMContentLoaded', () => {
     injectExampleReadChecks();
     buildLessonBar();
     initTabProgress();
+    // After initCourseSidebar (adds the ☰ button to the bar) and
+    // initTabProgress (adds the rings) — both take width the fit must see.
+    initResponsiveTabBar();
     buildLearn();
     buildMCQ();
     buildMatch();
