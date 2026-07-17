@@ -311,8 +311,11 @@
             }
 
             const qp = new URLSearchParams(location.search);
-            const sSlug = qp.get('s'), tSlug = qp.get('t');
-            if (!sSlug || !tSlug) { location.replace('/hub.html'); return; }
+            const sSlug = qp.get('s'), tSlug = qp.get('t'), ovSlug = qp.get('ov');
+            // ?ov=<underscored file tail> = a school's PLATFORM override render
+            // (the edge redirect, Subjects V2 S5). ?t=<slug> = a teacher-authored
+            // (custom_topics) topic. One topic key is required with the subject.
+            if (!sSlug || (!tSlug && !ovSlug)) { location.replace('/hub.html'); return; }
 
             // ── Session (mirrors tasksAuthInit, without role routing) ──
             let cached = null;
@@ -347,26 +350,72 @@
             }
             const isOwner = !!(subj.created_by && subj.created_by === uid);
 
-            const { data: topicRows, error: listErr } = await client.from('custom_topics')
-                .select('id, slug, section, title, sort_order, status')
-                .eq('subject_id', subj.id).order('sort_order');
-            if (listErr) {
-                showMessage('Could not load this subject', listErr.message || 'Unknown error.', '/hub.html', 'Back to My Subjects →');
-                return;
-            }
-            const currentRow = (topicRows || []).find(r => r.slug === tSlug);
-            if (!currentRow) {
-                showMessage('Topic not available', isOwner
-                    ? 'This topic doesn’t exist in this subject.'
-                    : 'This topic doesn’t exist, or your teacher hasn’t published it yet.',
-                    '/subject-view.html?id=' + encodeURIComponent(subj.id), 'All topics in this subject →');
-                return;
-            }
-            const { data: full, error: contentErr } = await client.from('custom_topics')
-                .select('sections, status').eq('id', currentRow.id).single();
-            if (contentErr || !full) {
-                showMessage('Could not load this topic', (contentErr && contentErr.message) || 'Unknown error.', '/subject-view.html?id=' + encodeURIComponent(subj.id), 'All topics in this subject →');
-                return;
+            // topicRows (sidebar), currentRow (this topic's meta), full (sections
+            // + status) come from ONE of two sources: a PLATFORM override row, or
+            // the teacher-authored custom_topics rows. The adapter below is shared.
+            let topicRows, currentRow, full;
+            if (ovSlug) {
+                // ── PLATFORM OVERRIDE render (Subjects V2 S5) ─────────────────
+                // subj is a PLATFORM subject (created_by null → isOwner already
+                // false → student view: no draft banner, no edit affordances).
+                // RLS (subject_overrides_student_read) restricts this select to
+                // the caller's OWN school's PUBLISHED row, so we pass NO school
+                // filter — a client-supplied school param would be a cross-school
+                // hole. ov=<file_slug> is the UNDERSCORED file tail the edge sent.
+                const { data: override, error: ovErr } = await client.from('subject_overrides')
+                    .select('*').eq('subject_id', subj.id).eq('file_slug', ovSlug).eq('status', 'published').maybeSingle();
+                if (ovErr && ovErr.code === '42P01') {
+                    showMessage('Setup needed', 'Platform overrides aren’t switched on yet — the site owner needs to run supabase/subjects-v2-s5-overrides.sql once.', '/hub.html', 'Back to My Subjects →');
+                    return;
+                }
+                if (ovErr || !override) {
+                    // No published override visible to this student (RLS filtered it,
+                    // or it was unpublished after the edge cached the redirect).
+                    // Not an error — fall back to the master topic list, don't crash.
+                    showMessage('Topic not available', 'This topic isn’t available for your school right now.', '/subjects/' + encodeURIComponent(subj.slug) + '/index.html', 'All topics →');
+                    return;
+                }
+                // page_id MUST be the HYPHENATED topic_slug (spec §10c A1), NEVER
+                // file_slug — so progress merges with any master progress and the
+                // school-scoped bank lookups hit <subject>:<topic_slug>.
+                const ovSections = override.sections || {};
+                currentRow = {
+                    slug: override.topic_slug, section: '', id: null, status: 'published',
+                    title: ovSections.title || override.topic_slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+                    href: '/topic.html?s=' + encodeURIComponent(subj.slug) + '&ov=' + encodeURIComponent(ovSlug),
+                };
+                full = { sections: override.sections, status: 'published' };
+                topicRows = [currentRow];   // single-topic sidebar for this override
+                // Override MCQ/TF answers live ONLY in the school-scoped bank, so
+                // grade them server-side (get_topic_questions/grade_topic_answer by
+                // page_id), never from inline data. Non-graded sections (reading,
+                // notes, tips, …) render from override.sections via the adapter.
+                window.SERVER_GRADED = true;
+            } else {
+                // ── TEACHER-AUTHORED subject (custom_topics) — unchanged ──────
+                const listRes = await client.from('custom_topics')
+                    .select('id, slug, section, title, sort_order, status')
+                    .eq('subject_id', subj.id).order('sort_order');
+                if (listRes.error) {
+                    showMessage('Could not load this subject', listRes.error.message || 'Unknown error.', '/hub.html', 'Back to My Subjects →');
+                    return;
+                }
+                topicRows = listRes.data || [];
+                currentRow = topicRows.find(r => r.slug === tSlug);
+                if (!currentRow) {
+                    showMessage('Topic not available', isOwner
+                        ? 'This topic doesn’t exist in this subject.'
+                        : 'This topic doesn’t exist, or your teacher hasn’t published it yet.',
+                        '/subject-view.html?id=' + encodeURIComponent(subj.id), 'All topics in this subject →');
+                    return;
+                }
+                const contentRes = await client.from('custom_topics')
+                    .select('sections, status').eq('id', currentRow.id).single();
+                if (contentRes.error || !contentRes.data) {
+                    showMessage('Could not load this topic', (contentRes.error && contentRes.error.message) || 'Unknown error.', '/subject-view.html?id=' + encodeURIComponent(subj.id), 'All topics in this subject →');
+                    return;
+                }
+                full = contentRes.data;
             }
 
             // ════════════════════════════════════════════════════════
@@ -404,7 +453,7 @@
                     id: subj.slug + ':' + r.slug,
                     name: r.title + (isOwner && r.status !== 'published' ? ' (draft)' : ''),
                     sub: key,
-                    href: '/topic.html?s=' + encodeURIComponent(subj.slug) + '&t=' + encodeURIComponent(r.slug),
+                    href: r.href || ('/topic.html?s=' + encodeURIComponent(subj.slug) + '&t=' + encodeURIComponent(r.slug)),
                 });
             });
             window.PAGE_GROUPS = groups;
@@ -574,12 +623,16 @@
             // ── Post-boot patches ──
             // 1. Custom subjects have no static /subjects/<slug>/index.html —
             //    point "All Topics"/home links at the subject's topic list page.
-            const indexHref = '/subjects/' + subj.slug + '/index.html';
-            const customIndex = '/subject-view.html?id=' + encodeURIComponent(subj.id);
-            document.querySelectorAll('a').forEach(a => {
-                const href = a.getAttribute('href') || '';
-                if (href === indexHref || href === encodeURI(indexHref)) a.setAttribute('href', customIndex);
-            });
+            //    A PLATFORM override (ovSlug) DOES have a real static index, so
+            //    leave those links pointing at the master topic list.
+            if (!ovSlug) {
+                const indexHref = '/subjects/' + subj.slug + '/index.html';
+                const customIndex = '/subject-view.html?id=' + encodeURIComponent(subj.id);
+                document.querySelectorAll('a').forEach(a => {
+                    const href = a.getAttribute('href') || '';
+                    if (href === indexHref || href === encodeURI(indexHref)) a.setAttribute('href', customIndex);
+                });
+            }
             // 2. Owner affordances: edit link + draft banner (students never see
             //    drafts — RLS filters them before this page renders).
             if (isOwner) {

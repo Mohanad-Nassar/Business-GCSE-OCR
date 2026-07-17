@@ -254,10 +254,29 @@
     return gradable.concat(extractExam(subject, topicRows));
   }
 
-  // bank_questions rows for sync_teacher_subject_bank() (snapshot/answer_key split).
-  function buildBankRows(subject, topicRows) {
+  // Insert the school-override namespace segment before a question id's trailing
+  // hash: `<slug>:<topic>:<source>:<hash>` → `<slug>:<topic>:<source>:ovr:<uuid>:<hash>`.
+  // The id's parts never contain ':', so replacing only the final ':<segment>' is
+  // exact. This is the ':ovr:<uuid>:' key namespace sync_school_override_bank_srv
+  // (subjects-v2-s5-override-sync.sql) requires — the full school uuid with hyphens
+  // stripped — so a school's forked questions can never collide with, or overwrite,
+  // the platform master rows.
+  function namespaceOverrideKey(id, schoolId) {
+    const ns = ':ovr:' + String(schoolId).replace(/-/g, '') + ':';
+    return id.replace(/:([^:]+)$/, ns + '$1');
+  }
+
+  // bank_questions rows for the bank-sync RPCs (snapshot/answer_key split).
+  // Default (no options) → teacher-subject rows for sync_teacher_subject_bank,
+  // byte-for-byte unchanged. With options.overrideSchoolId set → PLATFORM-OVERRIDE
+  // rows for sync_school_override_bank_srv: page_id stays <subject>:<topic_slug>
+  // (so progress / mastery merge under the same key), but every question_key is
+  // override-namespaced so master and per-school rows never clash.
+  function buildBankRows(subject, topicRows, options) {
+    const overrideSchoolId = options && options.overrideSchoolId;
     return extractQuestions(subject, topicRows).map(q => ({
-      question_key: q.id, subject_slug: subject.slug,
+      question_key: overrideSchoolId ? namespaceOverrideKey(q.id, overrideSchoolId) : q.id,
+      subject_slug: subject.slug,
       page_id: q.pageId, page_name: q.pageName,
       source: q.source, qtype: q.qtype, marks: q.marks,
       snapshot: q.snapshot, answer_key: q.key,

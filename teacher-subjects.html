@@ -460,11 +460,28 @@
   </div>
 </div>
 
+<!-- OVERRIDE TOPIC PICKER (Subjects V2 · S5) — pick a platform topic to fork for
+     your school. Only shown to a teacher granted edit access to the subject. -->
+<div class="modal-overlay hidden" id="overrideModal">
+  <div class="modal-box">
+    <h3>✏️ Edit for my school</h3>
+    <p class="muted" id="overrideSubjName" style="margin-bottom:6px;"></p>
+    <p class="muted" style="margin-bottom:14px; font-size:12.5px;">Pick a topic to make your school's own copy. Only your school's students see your version — every other school keeps the original, and untouched topics stay in sync with the master.</p>
+    <div id="overrideTopicList"><div class="empty">Loading…</div></div>
+    <div class="modal-close-row">
+      <button type="button" class="btn secondary small" id="overrideCloseBtn">Close</button>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="/tasks-shared.js"></script>
 <script src="/rich-editor.js"></script>
 <script src="/subject-template.js"></script>
 <script src="/custom-bank.js"></script>
+<!-- Platform topic tree (window.PAGE_GROUPS_ALL) — the override editor's topic
+     picker source for platform subjects (Subjects V2 · S5). Generated file. -->
+<script src="/page-groups-all.js"></script>
 <script>
 'use strict';
 const esc = RichText.escapeHtml;
@@ -501,6 +518,16 @@ let incomingEditRequests = [];// get_incoming_edit_requests() — awaiting the c
 let platformEditStatus = {}; // subject_id -> {school_granted, teacher_granted, can_edit} (S4)
 let shareModalSubjectId = null;
 let schoolTeachersCache = null;
+let mySchoolId;              // cached my_school() uuid (undefined = not yet fetched, null = none)
+
+// ── override-editor state (Subjects V2 · S5) ──
+// The override editor REUSES the step-3 activity editor (which operates purely on
+// `ws`) via a single synthetic topic. `overrideMode` branches only save/publish
+// away from the custom_topics path — the wizard's own flow is untouched.
+let overrideMode = false;
+let overrideCtx = null;     // { subjectId, subjectSlug, topicSlug, fileSlug, subjectRow, status }
+let overrideModalSubjectId = null;
+const OVERRIDE_TOPIC_ID = '__override__'; // sentinel currentTopicId (never a real UUID)
 
 // ── wizard state ──
 let wizardSubject = null;    // current subjects row, or null before step 1 is saved
@@ -722,16 +749,16 @@ function renderAll() {
 
 function platformCardHtml(s) {
   const metaLine = [s.level, s.exam_board].filter(Boolean).join(' · ') || 'Platform subject';
-  // Edit affordance (S4): if already granted → editable badge + disabled "coming
-  // soon" (the editor is S5). Else if the school may fork it → request-to-edit
-  // (or "requested" if pending). If the school isn't granted at all → nothing.
+  // Edit affordance (S4/S5): if already granted → editable badge + the override
+  // editor (S5). Else if the school may fork it → request-to-edit (or "requested"
+  // if pending). If the school isn't granted at all → nothing (deny by default).
   const st = platformEditStatus[s.id] || {};
   const hasPending = myEditRequests.some(r => r.subject_id === s.id && r.status === 'pending');
   let editBadge = '';
   let editBtn = '';
   if (st.can_edit) {
     editBadge = ' <span class="chip published">✏️ Editable · school copy</span>';
-    editBtn = '<button type="button" class="cl-btn" disabled>Editor coming soon</button>';
+    editBtn = `<button type="button" class="cl-btn primary" data-edit-override="${esc(s.id)}">✏️ Edit for my school</button>`;
   } else if (st.school_granted) {
     editBtn = hasPending
       ? '<button type="button" class="cl-btn" disabled>⏳ Edit requested</button>'
@@ -850,6 +877,8 @@ async function handleDeleteSubject(id) {
 
 async function enterWizard(subjectId, step, topicId) {
   destroyEditor();
+  overrideMode = false; overrideCtx = null; // leaving any override session → normal custom_topics wizard
+  syncOverrideChrome();                      // restore the wizard's own steps/toolbar/footer
   currentTopicId = null;
   wzRemovedTopicIds = new Set();
   wzStructureDirty = false;
@@ -944,6 +973,8 @@ function goToStep(n, topicId) {
 
 async function backToManager() {
   destroyEditor();
+  overrideMode = false; overrideCtx = null;
+  syncOverrideChrome();
   wizardSubject = null;
   await loadManager();
 }
@@ -1520,6 +1551,7 @@ async function openTopicInEditor(topicId) {
 function topicTitleFor(id) { const t = findTopicById(id); return t ? t.title : 'This topic'; }
 
 async function saveCurrentTopic(andAdvance) {
+  if (overrideMode) { await saveOverride('keep'); return; } // S5 override path — never touches custom_topics
   if (!ws || !currentTopicId) return;
   if (editor) ws.reading.html = editor.getHTML(); // sync the mounted editor back into working state
   syncLiveEditorsToWs(); // …and every other live editor in the open panel (learn/tips/exam)
@@ -2455,6 +2487,256 @@ async function revokeShareRow(shareId) {
   await loadShareList();
 }
 
+// ══════════════════════════════════════════════════════════════
+// OVERRIDE EDITOR (Subjects V2 · S5) — fork a PLATFORM topic for one school.
+// Reuses the step-3 activity editor (which operates purely on `ws`); only
+// save/publish branch away from custom_topics. Sections are persisted ONLY via
+// the sanitising /save-override function — never written to subject_overrides
+// straight from the client. Published questions sync school-scoped, override-
+// namespaced bank rows via /sync-override-bank.
+// ══════════════════════════════════════════════════════════════
+
+// The caller's own school uuid (cached). Used to scope override bank rows and as
+// a friendly guard before hitting the server (which re-derives it authoritatively).
+async function ensureMySchool() {
+  if (mySchoolId !== undefined) return mySchoolId;
+  const { data, error } = await auth.client.rpc('my_school');
+  mySchoolId = (error || !data) ? null : data;
+  return mySchoolId;
+}
+
+// The platform subject's topic tree, flattened to a list of {id, name, href}.
+function platformTopicPages(slug) {
+  const groups = (window.PAGE_GROUPS_ALL || {})[slug] || [];
+  const out = [];
+  groups.forEach(g => (g.pages || []).forEach(p => out.push(p)));
+  return out;
+}
+// topic_slug = page-id tail (hyphen); file_slug = href basename minus .html (underscore).
+function topicSlugFromPage(slug, page) { return String(page.id).slice((slug + ':').length); }
+function fileSlugFromPage(page) { return String(page.href).split('/').pop().replace(/\.html$/i, ''); }
+// A published override's page_name for the bank — looked up from the master tree.
+function topicNameForSlug(slug, topicSlug) {
+  const hit = platformTopicPages(slug).find(p => topicSlugFromPage(slug, p) === topicSlug);
+  return hit ? hit.name : topicSlug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+async function openOverridePicker(subjectId) {
+  const subject = platformSubjects.find(s => s.id === subjectId);
+  if (!subject) return;
+  // Guard (cosmetic — RLS + save-override are the real gate): only a granted teacher.
+  if (!(platformEditStatus[subjectId] || {}).can_edit) return;
+  overrideModalSubjectId = subjectId;
+  $('overrideSubjName').textContent = '“' + subject.name + '”';
+  $('overrideTopicList').innerHTML = '<div class="empty">Loading…</div>';
+  $('overrideModal').classList.remove('hidden');
+
+  const pages = platformTopicPages(subject.slug);
+  if (!pages.length) {
+    $('overrideTopicList').innerHTML = '<div class="empty">This subject’s topic list isn’t available here yet.</div>';
+    return;
+  }
+  // Existing overrides for THIS subject — RLS (subject_overrides_editor_all)
+  // scopes the result to the caller's own school, so no school filter is needed.
+  const { data, error } = await auth.client.from('subject_overrides')
+    .select('file_slug, status').eq('subject_id', subject.id);
+  const byFileSlug = {};
+  if (!error) (data || []).forEach(r => { byFileSlug[r.file_slug] = r.status; });
+  else if (isMissingTable(error)) {
+    $('overrideTopicList').innerHTML = '<div class="empty">Overrides aren’t switched on yet — the site owner needs to run supabase/subjects-v2-s5-overrides.sql.</div>';
+    return;
+  }
+  renderOverrideTopicList(subject, pages, byFileSlug);
+}
+
+function renderOverrideTopicList(subject, pages, byFileSlug) {
+  const statusChip = (st) => st === 'published'
+    ? '<span class="chip published">✅ published copy</span>'
+    : st === 'draft' ? '<span class="chip draft">📝 draft copy</span>'
+    : '<span class="chip empty">master</span>';
+  $('overrideTopicList').innerHTML = pages.map(p => {
+    const fileSlug = fileSlugFromPage(p);
+    const st = byFileSlug[fileSlug];
+    return `<div class="publish-row">
+      <span>${esc(p.name)} ${statusChip(st)}</span>
+      <button type="button" class="btn small" data-pick-override-topic="${esc(fileSlug)}">${st ? '✏️ Edit copy' : '✏️ Make a copy'}</button>
+    </div>`;
+  }).join('');
+}
+
+function closeOverrideModal() { $('overrideModal').classList.add('hidden'); overrideModalSubjectId = null; }
+
+async function openOverrideEditorFromPicker(fileSlug) {
+  const subject = platformSubjects.find(s => s.id === overrideModalSubjectId);
+  if (!subject) return;
+  const page = platformTopicPages(subject.slug).find(p => fileSlugFromPage(p) === fileSlug);
+  if (!page) return;
+  // Load the school's existing fork (full sections) if there is one. RLS scopes
+  // this to the caller's own school; no school filter, so no cross-school read.
+  const { data: existingRow, error } = await auth.client.from('subject_overrides')
+    .select('id, topic_slug, file_slug, sections, status')
+    .eq('subject_id', subject.id).eq('file_slug', fileSlug).maybeSingle();
+  if (error && !isMissingTable(error)) { alert('Could not open this topic: ' + error.message); return; }
+  closeOverrideModal();
+  enterOverrideEditor(subject, page, existingRow || null);
+}
+
+// Drive the step-3 activity editor in override mode via a single synthetic topic.
+function enterOverrideEditor(subjectRow, page, existingRow) {
+  destroyEditor();
+  overrideMode = true;
+  const topicSlug = topicSlugFromPage(subjectRow.slug, page);
+  const fileSlug = fileSlugFromPage(page);
+  const status = existingRow ? existingRow.status : 'draft';
+  overrideCtx = {
+    subjectId: subjectRow.id, subjectSlug: subjectRow.slug,
+    topicSlug, fileSlug, subjectRow, status,
+  };
+  wizardSubject = subjectRow;   // for the title only — save/publish never touch custom_topics
+  currentTopicId = OVERRIDE_TOPIC_ID;
+  wzRemovedTopicIds = new Set(); wzStructureDirty = false; wzBasicsDirty = false; importParsed = null;
+
+  const sections = existingRow ? (existingRow.sections || {}) : {};
+  const hasContent = sectionsHaveContent(sections);
+  const synthetic = { id: OVERRIDE_TOPIC_ID, slug: topicSlug, title: page.name, status, hasContent };
+  existingTopics = [Object.assign({ section: '', sections }, synthetic)];
+  wzSections = [{ name: subjectRow.name + ' · school copy', topics: [synthetic] }];
+
+  showView('wizard');
+  $('wizardTitle').textContent = subjectRow.name + ' · school copy';
+  goToStep(3, OVERRIDE_TOPIC_ID);
+  syncOverrideChrome();         // AFTER goToStep so override chrome wins over step chrome
+}
+
+// Show/hide the override-specific chrome. Idempotent; safe to call in either mode
+// (off restores the wizard's own steps/toolbar/footer for the custom_topics path).
+function syncOverrideChrome() {
+  const on = overrideMode;
+  $('wizardSteps').classList.toggle('hidden', on);
+  $('wizBackBtn').classList.toggle('hidden', on);
+  $('wizContinueBtn').classList.toggle('hidden', on);
+  $('saveNextTopicBtn').classList.toggle('hidden', on);
+  if (on) $('tplToolbar').classList.add('hidden');
+  $('saveTopicBtn').textContent = on ? '💾 Save' : '💾 Save topic';
+  $('wizManagerBtn').textContent = on ? '← Back to Subjects' : '← Back to My Content';
+
+  let pubBtn = $('overridePublishBtn');
+  if (on && !pubBtn) {
+    pubBtn = document.createElement('button');
+    pubBtn.type = 'button'; pubBtn.className = 'btn accent'; pubBtn.id = 'overridePublishBtn';
+    pubBtn.addEventListener('click', () => saveOverride('publish'));
+    $('saveTopicBtn').insertAdjacentElement('afterend', pubBtn);
+  }
+  if (pubBtn) {
+    pubBtn.classList.toggle('hidden', !on);
+    if (on) pubBtn.textContent = overrideCtx && overrideCtx.status === 'published'
+      ? '🔄 Update published copy' : '🚀 Publish for my school';
+  }
+}
+
+// Pull every mounted editor's HTML back into `ws`, then reuse the wizard's own
+// buildSectionsForSave() so the override sections are shaped identically to a
+// custom_topics save (same 9-activity jsonb).
+function collectOverrideSections() {
+  if (editor) ws.reading.html = editor.getHTML();
+  syncLiveEditorsToWs();
+  return buildSectionsForSave();
+}
+
+// Save the override. mode 'keep' preserves the current publish state (re-syncing
+// the bank if already published); mode 'publish' sets status=published + syncs.
+// Sections go ONLY through /save-override (the server sanitising boundary).
+async function saveOverride(mode) {
+  if (!overrideMode || !ws || !overrideCtx) return;
+  const targetStatus = mode === 'publish' ? 'published' : overrideCtx.status;
+  const sections = collectOverrideSections();
+  if (JSON.stringify(sections).length > MAX_SECTIONS_CHARS) {
+    setMsg($('step3Msg'), 'This topic is too long to save (over 600,000 characters). Use smaller images or split it.', false);
+    return;
+  }
+  const schoolId = await ensureMySchool();
+  if (!schoolId) { setMsg($('step3Msg'), 'Your account isn’t linked to a school yet — ask your school admin.', false); return; }
+  const token = auth && auth.session && auth.session.access_token;
+  if (!token) { setMsg($('step3Msg'), 'Your session expired — reload and sign in again.', false); return; }
+
+  const busyIds = ['saveTopicBtn', 'overridePublishBtn'];
+  setBusy(busyIds, true);
+  let res, payload;
+  try {
+    res = await fetch('/.netlify/functions/save-override', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+      body: JSON.stringify({
+        subject_id: overrideCtx.subjectId, school_id: schoolId,
+        topic_slug: overrideCtx.topicSlug, file_slug: overrideCtx.fileSlug,
+        sections, status: targetStatus,
+      }),
+    });
+    payload = await res.json().catch(() => ({}));
+  } catch (err) {
+    setBusy(busyIds, false);
+    setMsg($('step3Msg'), 'Could not reach the server — check your connection and try again.', false);
+    return;
+  }
+  setBusy(busyIds, false);
+  if (!res.ok) { setMsg($('step3Msg'), payload.error || ('Could not save (HTTP ' + res.status + ')'), false); return; }
+
+  // Persisted — mirror the change into local state so the sidebar/labels update.
+  overrideCtx.status = targetStatus;
+  const rec = existingTopics.find(x => x.id === OVERRIDE_TOPIC_ID);
+  const nowHasContent = sectionsHaveContent(sections);
+  if (rec) { rec.sections = sections; rec.status = targetStatus; rec.hasContent = nowHasContent; }
+  const t = findTopicById(OVERRIDE_TOPIC_ID);
+  if (t) { t.status = targetStatus; t.hasContent = nowHasContent; }
+  topicDirty = false;
+  if (editor) editor.markClean();
+  liveEditors.forEach(ed => ed.markClean());
+  renderTopicSidebar();
+  syncOverrideChrome();
+  setMsg($('step3Msg'), targetStatus === 'published' ? 'Published for your school ✓' : 'Saved ✓', true);
+  fadeMsgLater($('step3Msg'), targetStatus === 'published' ? 3500 : 2200);
+
+  // A published override's questions must reach this school's Daily Revise / Tasks.
+  if (targetStatus === 'published') syncOverrideBank();
+}
+
+// Rebuild THIS school's override bank rows for the subject and POST them to
+// /sync-override-bank. We send rows for ALL of the school's published override
+// topics (not just the one edited) because sync_school_override_bank_srv deletes
+// this school's rows that aren't in the payload — sending one topic would wipe
+// the school's other overridden topics. Fire-and-forget, like the custom path.
+async function syncOverrideBank() {
+  if (!window.CustomBank || !overrideCtx) return;
+  const schoolId = await ensureMySchool();
+  if (!schoolId) return;
+  const token = auth && auth.session && auth.session.access_token;
+  if (!token) return;
+  // RLS scopes this to the caller's own school's published overrides.
+  const { data, error } = await auth.client.from('subject_overrides')
+    .select('topic_slug, sections').eq('subject_id', overrideCtx.subjectId).eq('status', 'published');
+  if (error) { console.error('override bank: load published', error.message); return; }
+  const subjectForBank = { slug: overrideCtx.subjectSlug, colour: overrideCtx.subjectRow.colour };
+  const topicRows = (data || []).map(o => ({
+    slug: o.topic_slug, title: topicNameForSlug(overrideCtx.subjectSlug, o.topic_slug),
+    section: '', sections: o.sections || {}, status: 'published',
+  }));
+  const rows = CustomBank.buildBankRows(subjectForBank, topicRows, { overrideSchoolId: schoolId });
+  try {
+    const res = await fetch('/.netlify/functions/sync-override-bank', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+      body: JSON.stringify({ subject_id: overrideCtx.subjectId, school_id: schoolId, rows }),
+    });
+    const payload = await res.json().catch(() => ({}));
+    if (!res.ok) { console.error('sync-override-bank', payload.error || res.status); return; }
+    const n = (payload && payload.synced) || 0;
+    const el = $('step3Msg');
+    if (el && el.classList.contains('ok')) {
+      el.textContent = 'Published for your school ✓ · ' + n + ' question' + (n === 1 ? '' : 's') + ' synced to Daily Revise & Tasks';
+    }
+  } catch (err) { console.error('sync-override-bank', err); }
+}
+
 function wireStaticListeners() {
   // ── subjects tabs ──
   document.querySelectorAll('[data-subjtab]').forEach(b =>
@@ -2464,16 +2746,28 @@ function wireStaticListeners() {
   ['sharedGrid', 'allGrid'].forEach(gid => $(gid).addEventListener('click', async (e) => {
     const editShared = e.target.closest('[data-edit-shared]');
     if (editShared) { await enterWizard(editShared.dataset.editShared, 2); return; }
+    const editOverride = e.target.closest('[data-edit-override]');
+    if (editOverride) { await openOverridePicker(editOverride.dataset.editOverride); return; }
     const reqEdit = e.target.closest('[data-request-edit]');
     if (reqEdit) { await handleRequestEdit(reqEdit.dataset.requestEdit); return; }
     const shareBtn = e.target.closest('[data-share-subject]');
     if (shareBtn) { await openShareModal(shareBtn.dataset.shareSubject); }
   }));
 
-  // ── platform grid: request edit access to a platform subject (S4) ──
+  // ── platform grid: request edit access (S4) / open the override editor (S5) ──
   $('platformGrid').addEventListener('click', async (e) => {
+    const editOverride = e.target.closest('[data-edit-override]');
+    if (editOverride) { await openOverridePicker(editOverride.dataset.editOverride); return; }
     const reqEdit = e.target.closest('[data-request-edit]');
     if (reqEdit) { await handleRequestEdit(reqEdit.dataset.requestEdit); }
+  });
+
+  // ── override picker modal ──
+  $('overrideCloseBtn').addEventListener('click', closeOverrideModal);
+  $('overrideModal').addEventListener('click', (e) => { if (e.target === $('overrideModal')) closeOverrideModal(); });
+  $('overrideTopicList').addEventListener('click', async (e) => {
+    const pick = e.target.closest('[data-pick-override-topic]');
+    if (pick) { await openOverrideEditorFromPicker(pick.dataset.pickOverrideTopic); }
   });
 
   // ── incoming edit requests (owner approves/denies) ──
@@ -2586,6 +2880,7 @@ function wireStaticListeners() {
     if (e.key !== 'Escape') return;
     if (!$('aiModal').classList.contains('hidden')) closeAiModal();
     if (!$('importModal').classList.contains('hidden')) closeImportModal();
+    if (!$('overrideModal').classList.contains('hidden')) closeOverrideModal();
   });
 
   // ── step 1 ──
