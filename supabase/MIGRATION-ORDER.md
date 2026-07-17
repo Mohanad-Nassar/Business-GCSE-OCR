@@ -44,6 +44,7 @@ them per their own headers.)
 15a. `subjects-v2-s5-bank-scope.sql`       ← S5 step 2: bank_questions.school_id + _overridden_page_ids + REDEFINES get_daily_revise_queue / get_topic_questions / grade_topic_answer with the school-scope filter. **Re-run whenever daily-revise-functions.sql OR topic-grading.sql is re-run** (they revert these three functions to the unscoped versions).
 15b. `subjects-v2-s5-override-sync.sql`    ← S5 step 3: sync_school_override_bank_srv (service-role-only forked bank sync; school-pinned upsert + delete). Needs 15a (school_id) + s4 grant tables.
 15c. `subjects-v2-s5-edge.sql`             ← S5 step 4: subject_overrides.file_slug + REDEFINES edge_gate_check to also return override_slugs (the edge 302s a school's published overrides to topic.html). Needs 15 (subject_overrides + _student_school_for_subject). **Re-run whenever entitlements.sql is re-run** — entitlements.sql reverts edge_gate_check to the plain (no override_slugs) body.
+15d. `subjects-v2-s5-master-content.sql`   ← S5 step 5: platform_topic_master (RLS on, NO client policy — holds answers) + get_platform_topic_sections (granted-editor-gated read) so "Make a copy" pre-fills a fork with the master content. Needs s4's can_edit_platform_subject. Populate the table with `python tools/build_question_bank.py --upload` (or run supabase/platform-topic-master-seed/). Additive — doesn't redefine anything, so nothing reverts it.
 16. `security-hardening-2026-07.sql`       ← **LAST.** is_school_admin/has_subject_access/draft-policy/self-approval/atomic-consume
 
 ---

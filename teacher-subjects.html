@@ -2577,12 +2577,46 @@ async function openOverrideEditorFromPicker(fileSlug) {
     .select('id, topic_slug, file_slug, sections, status')
     .eq('subject_id', subject.id).eq('file_slug', fileSlug).maybeSingle();
   if (error && !isMissingTable(error)) { alert('Could not open this topic: ' + error.message); return; }
+
+  // NEW copy (no existing fork) → pre-fill the editor with the FULL master topic
+  // (Subjects V2 S5, Option B) so the teacher edits from the real lesson, not a
+  // blank page. The master `sections` carry answers, so they're read via the
+  // gated get_platform_topic_sections RPC (granted-editor only, same population
+  // that can already fork). A null/empty result — RPC or table not yet set up,
+  // not a platform subject, or a topic with no master row (e.g. an overview page,
+  // or a server-graded page's stripped activities) — falls back to a blank copy.
+  let seedSections = null, seedNote = '';
+  if (!existingRow) {
+    const topicSlug = topicSlugFromPage(subject.slug, page);
+    const { data: master, error: mErr } = await auth.client
+      .rpc('get_platform_topic_sections', { p_subject_id: subject.id, p_topic_slug: topicSlug });
+    if (mErr) {
+      console.warn('get_platform_topic_sections:', mErr.message);
+      seedNote = 'blank';
+    } else if (master && typeof master === 'object' && !Array.isArray(master) && Object.keys(master).length) {
+      seedSections = master; seedNote = 'seeded';
+    } else {
+      seedNote = 'blank';
+    }
+  }
+
   closeOverrideModal();
-  enterOverrideEditor(subject, page, existingRow || null);
+  enterOverrideEditor(subject, page, existingRow || null, seedSections);
+
+  // Note AFTER enterOverrideEditor (its openTopicInEditor clears step3Msg first).
+  if (seedNote === 'seeded') {
+    setMsg($('step3Msg'), 'Pre-filled from the master topic — edit it, then publish for your school.', true);
+    fadeMsgLater($('step3Msg'), 4500);
+  } else if (seedNote === 'blank') {
+    setMsg($('step3Msg'), 'Master content isn’t available to copy — starting from a blank topic.', true);
+    fadeMsgLater($('step3Msg'), 4500);
+  }
 }
 
 // Drive the step-3 activity editor in override mode via a single synthetic topic.
-function enterOverrideEditor(subjectRow, page, existingRow) {
+// seedSections (S5 Option B): master content to pre-fill a NEW copy with — used
+// ONLY when there's no existingRow; the first save still inserts via save-override.
+function enterOverrideEditor(subjectRow, page, existingRow, seedSections) {
   destroyEditor();
   overrideMode = true;
   const topicSlug = topicSlugFromPage(subjectRow.slug, page);
@@ -2596,7 +2630,9 @@ function enterOverrideEditor(subjectRow, page, existingRow) {
   currentTopicId = OVERRIDE_TOPIC_ID;
   wzRemovedTopicIds = new Set(); wzStructureDirty = false; wzBasicsDirty = false; importParsed = null;
 
-  const sections = existingRow ? (existingRow.sections || {}) : {};
+  // Editing an existing fork loads THAT fork; a new copy loads the seeded master
+  // sections (or {} when master content isn't available → blank editor).
+  const sections = existingRow ? (existingRow.sections || {}) : (seedSections || {});
   const hasContent = sectionsHaveContent(sections);
   const synthetic = { id: OVERRIDE_TOPIC_ID, slug: topicSlug, title: page.name, status, hasContent };
   existingTopics = [Object.assign({ section: '', sections }, synthetic)];

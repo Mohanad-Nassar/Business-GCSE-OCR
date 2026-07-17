@@ -715,6 +715,231 @@ def compute_section_totals(pages, by_page, flash_counts):
 
 
 # ──────────────────────────────────────────────────────────────────
+# MASTER TOPIC SECTIONS (Subjects V2 · S5 · Option B — "Make a copy" seed)
+#
+# The INVERSE of topic.html's adapter (sections jsonb → the platform page's
+# mcqData / tfData / examQuestions / topics / miscData / fibData / examTips /
+# matchData|flashcards arrays). Here we go the OTHER way — reassemble the SAME
+# 9-activity `sections` jsonb the editor consumes (custom_topics.sections shape,
+# see teacher-subjects.html normalizeForEdit / buildSectionsForSave) from those
+# parsed arrays, so an override "Make a copy" can be pre-filled with the full
+# master content instead of a blank page.
+#
+# Field map (kept in lock-step with topic.html ~L484-532 and custom-bank.js's
+# buildBankEntries so the round-trip is exact):
+#   topics[]      {title, tag, content, readCheck} → learn.items {title, html, check}
+#   mcqData[]     {q, opts, ans, explain}          → mcq.questions {question, options, answer, explain}
+#   tfData[]      {statement, answer, explanation}  → tf.questions  {statement, answer, explain}
+#   miscData[]    {wrong, correct, readCheck}       → misc.items    {myth, truth, check}
+#   examTips[]    {type, title, content, readCheck} → tips.items    {title, html, check}
+#   examQuestions[] {question, marks, hint, markScheme, …} → exam.questions {question, marks, hint, markScheme}
+#   flashcards[]  {term, def}  (falls back to matchData) → terms.pairs {term, definition}
+#   fibData[]     {display, blanks} → fib.questions {text}  ([answer]-bracket form)
+#   readCheck     {q, opts, ans, explain} → check {question, options, answer, explain}
+#
+# NOTES / KNOWN LIMITATIONS (round-trip is faithful at the sections-field level,
+# but the following are inherent, NOT bugs):
+#   · Platform pages have no separate "reading" prose variable — the lesson notes
+#     ARE the `topics` cards, which the adapter renders identically to reading.
+#     So `reading` is left empty and all `topics` become `learn.items` (the
+#     adapter re-emits them as the same cards; the leading "📖 Topic notes" card
+#     only ever came from a teacher-authored reading block).
+#   · The editor's exam block supports only question/marks/hint/markScheme, so a
+#     master exam question's caseStudy / options / modelAnswer are dropped (the
+#     adapter already blanks them for overrides too).
+#   · `topics` cards' `tag` and exam-tips' `type` are not editor fields (dropped).
+#   · matchData and flashcards can differ on a page; we prefer flashcards (the
+#     fuller key-terms deck) — both regenerate from terms.pairs on re-publish.
+#   · A server-graded page (window.SERVER_GRADED) has its gradable arrays STRIPPED
+#     from the HTML (they live only in bank_questions), so those activities come
+#     out EMPTY here — flagged in the build output.
+# ──────────────────────────────────────────────────────────────────
+
+# The nine 9-activity keys whose editor field names we invert to (reading is
+# always empty for platform pages — see the note above).
+def _invert_check(rc):
+    """readCheck {q, opts, ans, explain} → editor check {question, options,
+    answer, explain}. None unless it has a question and an options list (the
+    same guard add_read_check / adaptCheck use)."""
+    if not isinstance(rc, dict) or not rc.get("q") or not isinstance(rc.get("opts"), list):
+        return None
+    return {"question": rc.get("q") or "", "options": list(rc.get("opts") or []),
+            "answer": rc.get("ans") or 0, "explain": rc.get("explain") or ""}
+
+
+def _fib_text_from_display(display, blanks):
+    """Reconstruct the editor's [answer]-bracket sentence from a page's fibData
+    {display, blanks}. Inverse of topic.html's fib adapter, which replaces each
+    `[word]` with a blank marker and records blanks B1, B2, … in order.
+
+    Two marker conventions exist (see MEMORY fib-blank-markers):
+      · positional runs of underscores (Business / CS) — filled in order, and
+      · named `___B1___` markers embedding the blank KEY (Economics seeded rows).
+    Handle both; return None if we can't place any bracket (so a malformed row is
+    skipped rather than emitting a blank-less sentence)."""
+    if not display or not isinstance(blanks, dict) or not blanks:
+        return None
+
+    def order_key(k):
+        m = re.match(r"^B(\d+)$", k)
+        return (0, int(m.group(1))) if m else (1, 0)
+    ordered = sorted(blanks.keys(), key=order_key)
+
+    # Convention B — named markers: underscores wrapping a blank key (e.g. ___B1___)
+    key_alt = "|".join(re.escape(k) for k in blanks)
+    named_re = re.compile(r"_+(" + key_alt + r")_+")
+    if named_re.search(display):
+        text = named_re.sub(lambda m: "[" + str(blanks.get(m.group(1), "")).strip() + "]", display)
+        return text if "[" in text else None
+
+    # Convention A — positional underscore runs, consumed in blank order.
+    it = iter(ordered)
+
+    def repl(_m):
+        try:
+            k = next(it)
+        except StopIteration:
+            return _m.group(0)
+        return "[" + str(blanks.get(k, "")).strip() + "]"
+
+    text = re.sub(r"_{3,}", repl, display)
+    return text if "[" in text else None
+
+
+def assemble_master_sections(src, file):
+    """Parse one topic page's question arrays into the editor's `sections` jsonb.
+    Only non-empty blocks are emitted, each enabled:true — matching
+    buildSectionsForSave (omit empty blocks; a present block is enabled)."""
+    sections = {}
+
+    # learn ← topics (reading stays empty: platform pages carry no separate
+    # reading prose; their notes are the topics cards, which the adapter renders
+    # the same way as reading).
+    learn_items = []
+    for t in extract_array(src, "topics", file) or []:
+        if not isinstance(t, dict):
+            continue
+        item = {"title": t.get("title") or "", "html": t.get("content") or ""}
+        chk = _invert_check(t.get("readCheck"))
+        if chk:
+            item["check"] = chk
+        learn_items.append(item)
+    if learn_items:
+        sections["learn"] = {"enabled": True, "items": learn_items}
+
+    # terms ← flashcards (fuller deck), else matchData. Both are {term, def}.
+    pair_src = (extract_array(src, "flashcards", file) or []) or \
+               (extract_array(src, "matchData", file) or [])
+    pairs = [{"term": p.get("term") or "", "definition": p.get("def") or ""}
+             for p in pair_src if isinstance(p, dict) and p.get("term")]
+    if pairs:
+        sections["terms"] = {"enabled": True, "pairs": pairs}
+
+    # mcq ← mcqData
+    mcq_qs = []
+    for q in extract_array(src, "mcqData", file) or []:
+        if not isinstance(q, dict) or not q.get("q"):
+            continue
+        mcq_qs.append({"question": q.get("q") or "", "options": list(q.get("opts") or []),
+                       "answer": q.get("ans") or 0, "explain": q.get("explain") or ""})
+    if mcq_qs:
+        sections["mcq"] = {"enabled": True, "questions": mcq_qs}
+
+    # fib ← fibData (reconstruct the [bracket] sentence)
+    fib_qs = []
+    for q in extract_array(src, "fibData", file) or []:
+        if not isinstance(q, dict):
+            continue
+        text = _fib_text_from_display(q.get("display"), q.get("blanks"))
+        if text:
+            fib_qs.append({"text": text})
+    if fib_qs:
+        sections["fib"] = {"enabled": True, "questions": fib_qs}
+
+    # tf ← tfData
+    tf_qs = []
+    for q in extract_array(src, "tfData", file) or []:
+        if not isinstance(q, dict) or not q.get("statement"):
+            continue
+        tf_qs.append({"statement": q.get("statement") or "",
+                      "answer": q.get("answer") is True,
+                      "explain": q.get("explanation") or ""})
+    if tf_qs:
+        sections["tf"] = {"enabled": True, "questions": tf_qs}
+
+    # misc ← miscData
+    misc_items = []
+    for m in extract_array(src, "miscData", file) or []:
+        if not isinstance(m, dict) or not m.get("wrong"):
+            continue
+        item = {"myth": m.get("wrong") or "", "truth": m.get("correct") or ""}
+        chk = _invert_check(m.get("readCheck"))
+        if chk:
+            item["check"] = chk
+        misc_items.append(item)
+    if misc_items:
+        sections["misc"] = {"enabled": True, "items": misc_items}
+
+    # tips ← examTips (editor tips has only title + html + optional check)
+    tips_items = []
+    for t in extract_array(src, "examTips", file) or []:
+        if not isinstance(t, dict):
+            continue
+        title = t.get("title") or "Exam tip"
+        html = t.get("content") or ""
+        if not (str(title).strip() or str(html).strip()):
+            continue
+        item = {"title": title, "html": html}
+        chk = _invert_check(t.get("readCheck"))
+        if chk:
+            item["check"] = chk
+        tips_items.append(item)
+    if tips_items:
+        sections["tips"] = {"enabled": True, "items": tips_items}
+
+    # exam ← examQuestions (editor supports question/marks/hint/markScheme only)
+    exam_qs = []
+    for q in extract_array(src, "examQuestions", file) or []:
+        if not isinstance(q, dict) or not q.get("question"):
+            continue
+        exam_qs.append({"question": q.get("question") or "",
+                        "marks": q.get("marks") or 4,
+                        "hint": q.get("hint") or "",
+                        "markScheme": q.get("markScheme") or ""})
+    if exam_qs:
+        sections["exam"] = {"enabled": True, "questions": exam_qs}
+
+    return sections
+
+
+def build_master_topics(slug, manifest):
+    """(subject_slug, topic_slug, page_name, sections) rows for EVERY topic page
+    in the subject tree with non-empty master sections, plus a list of
+    server-graded topics (stripped arrays → some activities empty) to flag.
+    topic_slug is the hyphenated page-id tail — the exact key an override / the
+    seed RPC uses (subject_overrides.topic_slug / platform_topic_master)."""
+    rows = []
+    stripped = []
+    for p in walk_pages(manifest["groups"]):
+        page_id = p["id"]
+        page_name = p.get("bankName") or p["name"]
+        full = resolve_page_file(slug, p["file"])
+        if not full.exists():
+            continue
+        src = full.read_text(encoding="utf-8")
+        sections = assemble_master_sections(src, p["file"])
+        if re.search(r"window\.SERVER_GRADED\s*=\s*true", src):
+            # Gradable arrays are stripped from server-graded pages, so mcq/tf/fib
+            # come out empty here (they live only in bank_questions).
+            missing = [k for k in ("mcq", "tf", "fib") if k not in sections]
+            stripped.append((page_id, missing))
+        if not sections:
+            continue   # nothing to seed (e.g. an overview page with no arrays)
+        rows.append((slug, page_id, page_name, sections))
+    return rows, stripped
+
+
+# ──────────────────────────────────────────────────────────────────
 # JS emitters (the two legacy headers are byte-identical to the pre-v2
 # builder's output — --legacy relies on that)
 # ──────────────────────────────────────────────────────────────────
@@ -1060,6 +1285,109 @@ def upload_bank_questions(rows, manifest, server_graded_pids=frozenset()):
 
 
 # ──────────────────────────────────────────────────────────────────
+# platform_topic_master seed + upload (Subjects V2 · S5 — "Make a copy" seed)
+# ──────────────────────────────────────────────────────────────────
+
+# Seed SQL for supabase/platform-topic-master-seed/<slug>/ — the manual fallback
+# for populating platform_topic_master when --upload isn't used, mirroring
+# write_bank_questions_seed's per-subject numbered-chunk layout. Upserts on the
+# (subject_slug, topic_slug) primary key, so it's safe to re-run.
+def write_master_seed(master_rows, slug, stamp):
+    chunk_size = 25   # sections jsonb is large; keep each pasted statement modest
+    chunks = [master_rows[i:i + chunk_size] for i in range(0, len(master_rows), chunk_size)]
+
+    seed_dir = ROOT / "supabase" / "platform-topic-master-seed" / slug
+    seed_dir.mkdir(parents=True, exist_ok=True)
+    for old in seed_dir.glob("*.sql"):
+        old.unlink()
+
+    for n, chunk in enumerate(chunks, start=1):
+        values = []
+        for (subject_slug, topic_slug, page_name, sections) in chunk:
+            values.append("(" + ", ".join([
+                sql_string(subject_slug), sql_string(topic_slug),
+                sql_string(page_name or ""), sql_jsonb(sections),
+            ]) + ")")
+        text = (
+            SQL_BANNER +
+            f"-- PLATFORM TOPIC MASTER SEED ({slug}) — GENERATED FILE, DO NOT EDIT BY HAND\n"
+            f"-- Part {n} of {len(chunks)}. Built by tools/build_question_bank.py.\n"
+            "-- Run every part, in order, AFTER supabase/subjects-v2-s5-master-content.sql.\n"
+            "-- Seeds the master `sections` that 'Make a copy' pre-fills a fork with.\n"
+            "-- Safe to re-run (upserts by (subject_slug, topic_slug)).\n"
+            f"-- Generated: {stamp}\n"
+            + SQL_BANNER +
+            "insert into platform_topic_master "
+            "(subject_slug, topic_slug, page_name, sections)\n"
+            "values\n" + ",\n".join(values) + "\n"
+            "on conflict (subject_slug, topic_slug) do update set\n"
+            "  page_name = excluded.page_name,\n"
+            "  sections = excluded.sections,\n"
+            "  updated_at = now();\n"
+        )
+        (seed_dir / f"{n:03d}.sql").write_text(text, encoding="utf-8")
+
+    print(f"platform-topic-master-seed/{slug}/: {len(chunks)} files written, "
+          f"{len(master_rows)} topic(s)")
+
+
+# Pushes platform_topic_master rows straight to Supabase via PostgREST with the
+# service role (bypasses RLS — the table has no client policy). ONLY runs when
+# --upload is passed; mirrors upload_bank_questions' POST pattern. This table is
+# additive: rows are only ever upserted, never deleted (a retired topic page is a
+# manual-cleanup concern, and a stale master row is only ever read by a granted
+# editor forking that exact topic).
+def upload_master_topics(master_rows, slug):
+    _load_dotenv()
+    url = os.environ.get("SUPABASE_URL")
+    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+    if not url or not key:
+        print("SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY not set (.env) — skipping live "
+              "platform_topic_master upload; run supabase/platform-topic-master-seed/ manually.",
+              file=sys.stderr)
+        return
+
+    headers = {
+        "apikey": key,
+        "Authorization": f"Bearer {key}",
+        "Content-Type": "application/json",
+        "Prefer": "resolution=merge-duplicates,return=minimal",
+    }
+    endpoint = url.rstrip("/") + "/rest/v1/platform_topic_master?on_conflict=subject_slug,topic_slug"
+
+    batch_size = 50
+    uploaded = 0
+    for i in range(0, len(master_rows), batch_size):
+        batch = master_rows[i:i + batch_size]
+        payload = [
+            {"subject_slug": subject_slug, "topic_slug": topic_slug,
+             "page_name": page_name or "", "sections": sections}
+            for (subject_slug, topic_slug, page_name, sections) in batch
+        ]
+        body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        req = urllib.request.Request(endpoint, data=body, headers=headers, method="POST")
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                resp.read()
+            uploaded += len(batch)
+        except urllib.error.HTTPError as e:
+            body_text = e.read().decode("utf-8", errors="replace")
+            if e.code == 404 or "platform_topic_master" in body_text:
+                print(f"platform_topic_master upload FAILED: HTTP {e.code} {body_text}\n"
+                      "  Run supabase/subjects-v2-s5-master-content.sql first (table missing).",
+                      file=sys.stderr)
+            else:
+                print(f"platform_topic_master upload FAILED: HTTP {e.code} {body_text}", file=sys.stderr)
+            print(f"  {uploaded} of {len(master_rows)} topic(s) uploaded before the failure.", file=sys.stderr)
+            return
+        except urllib.error.URLError as e:
+            print(f"platform_topic_master upload FAILED: {e}", file=sys.stderr)
+            return
+
+    print(f"platform_topic_master: {uploaded} topic(s) uploaded live to Supabase ({url}).")
+
+
+# ──────────────────────────────────────────────────────────────────
 # Main
 # ──────────────────────────────────────────────────────────────────
 
@@ -1096,6 +1424,18 @@ def build_subject(manifest, stamp, args):
         if sg_pids:
             print(f"  server-graded pages (bank rows preserved on --upload): {', '.join(sorted(sg_pids))}")
         upload_bank_questions(rows, manifest, sg_pids)
+
+    # ── platform_topic_master (Subjects V2 S5 — "Make a copy" seed). Additive:
+    # a separate table/seed dir/upload; never touches the bank/totals/groups above.
+    master_rows, stripped = build_master_topics(slug, manifest)
+    write_master_seed(master_rows, slug, stamp)
+    if stripped:
+        for topic_slug, missing in stripped:
+            miss = ", ".join(missing) if missing else "none"
+            print(f"  NOTE: {slug}:{topic_slug} is server-graded — master sections "
+                  f"omit stripped activities ({miss}); they live only in bank_questions.")
+    if args.upload:
+        upload_master_topics(master_rows, slug)
 
     if args.legacy:
         if slug == "business":
