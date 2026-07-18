@@ -584,6 +584,106 @@
     };
   }
 
+  // ── 'mathParts' — multi-part question (ADM-B B2) ──────────────────
+  // q.parts = [ { label:'(a)', marks, prompt?, markScheme?, ...one of:
+  //               numeric:{…}  → that part AUTO-marks (reuses the numeric
+  //                              comparator), or
+  //               markPoints/markScheme → that part SELF-marks via the tick
+  //               panel } ]
+  // Each part marks independently; the widget aggregates the part marks into
+  // ONE opts.save({mark, max}) once every part is marked. No script.js change —
+  // _epUseWidget keys on q.format.
+  function mountMathParts(elc, q, qi, opts) {
+    injectStyleOnce('csew-mathparts-style', [
+      '.csew-part { border-left: 3px solid var(--border); padding: 4px 0 10px 14px; margin: 0 0 14px; }',
+      '.csew-part-head { font-size: 14.5px; margin-bottom: 8px; line-height: 1.5; }',
+      '.csew-part-marks { color: var(--mid); font-family: "DM Mono","Consolas",monospace; font-size: 12px; }',
+      '.csew-part-scheme { margin-top: 10px; }',
+    ].join('\n'));
+
+    var parts = q.parts || [];
+    if (!parts.length) return factories['lines'](elc, q, qi, opts); // malformed → self-mark fallback
+    var totalMax = q.marks || parts.reduce(function (s, p) { return s + (p.marks || 0); }, 0);
+    var awarded = {};   // part index → awarded mark
+    var pctl = [];      // per-part controller: { getState, restore }
+
+    function tally() { var t = 0; for (var i = 0; i < parts.length; i++) t += awarded[i] || 0; return Math.min(t, totalMax); }
+    function maybeSave() {
+      if (Object.keys(awarded).length < parts.length) return;
+      opts.save({ mark: tally(), max: totalMax, state: { parts: pctl.map(function (c) { return c.getState(); }), _mark: tally() } });
+    }
+
+    parts.forEach(function (part, i) {
+      var pmax = part.marks || 0;
+      var wrap = el('div', 'csew-part'); elc.appendChild(wrap);
+      var head = el('div', 'csew-part-head');
+      head.innerHTML = (part.label ? '<strong>' + part.label + '</strong> ' : '') + (part.prompt || '') +
+        ' <span class="csew-part-marks">[' + pmax + ']</span>';
+      wrap.appendChild(head);
+      var body = el('div'); wrap.appendChild(body);
+      var scheme = el('div', 'csew-part-scheme'); scheme.style.display = 'none'; scheme.innerHTML = part.markScheme || '';
+      wrap.appendChild(scheme);
+      function revealScheme() { if (part.markScheme) scheme.style.display = ''; if (typeof renderMathIn === 'function') renderMathIn(wrap); }
+
+      if (part.numeric && Object.keys(part.numeric).length) {
+        // AUTO-marked numeric part
+        var keys = Object.keys(part.numeric), inputs = {};
+        keys.forEach(function (id) {
+          var k = part.numeric[id];
+          if (k.label || keys.length > 1) body.appendChild(el('div', 'csew-lines-label', k.label || ('Answer ' + id)));
+          var inp = document.createElement('input');
+          inp.type = 'text'; inp.className = 'csew-numeric'; inp.autocomplete = 'off'; inp.spellcheck = false;
+          inputs[id] = inp; body.appendChild(inp);
+        });
+        var chk = btn('✓ Check'); body.appendChild(chk);
+        var fb = el('div', 'csew-numeric-fb'); body.appendChild(fb);
+        var done = false;
+        function grade() {
+          if (done) return; done = true;
+          var c = 0;
+          keys.forEach(function (id) {
+            var okv = numericKeyCorrect(inputs[id].value, part.numeric[id]);
+            inputs[id].classList.toggle('csew-correct', okv);
+            inputs[id].classList.toggle('csew-incorrect', !okv);
+            inputs[id].disabled = true; if (okv) c++;
+          });
+          var m = Math.round(pmax * c / keys.length); awarded[i] = m; chk.disabled = true;
+          fb.className = 'csew-numeric-fb ' + (c === keys.length ? 'ok' : 'no');
+          fb.textContent = (c === keys.length ? 'Correct' : (c ? 'Partly right' : 'Not correct')) + ' — ' + m + ' / ' + pmax;
+          revealScheme(); maybeSave();
+        }
+        chk.addEventListener('click', grade);
+        keys.forEach(function (id) { inputs[id].addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); grade(); } }); });
+        pctl.push({
+          getState: function () { var v = {}; keys.forEach(function (id) { v[id] = inputs[id].value; }); return { kind: 'numeric', values: v, _mark: awarded[i] }; },
+          restore: function (st, locked) { if (st && st.values) keys.forEach(function (id) { if (st.values[id] != null) inputs[id].value = st.values[id]; }); if (locked) grade(); },
+        });
+      } else {
+        // SELF-marked written part (method / working marks)
+        var ta = makeLineBox(clampLines(part.lines || Math.ceil(pmax || 1))); body.appendChild(ta);
+        var submit = btn('📋 Submit part'); body.appendChild(submit);
+        var panelHandle = null, savedState = null;
+        function answerState() { return { text: ta.value }; }
+        function openPanel(restoreState, lockedMark) {
+          submit.disabled = true; ta.disabled = true; revealScheme();
+          panelHandle = buildSelfMarkPanel(body, { marks: pmax, markScheme: part.markScheme, markPoints: part.markPoints },
+            { reveal: function () {}, save: function (pl) { awarded[i] = pl.mark; savedState = pl.state; maybeSave(); } }, answerState);
+          if (restoreState) panelHandle.restore(restoreState, lockedMark);
+        }
+        submit.addEventListener('click', function () { openPanel(); });
+        pctl.push({
+          getState: function () { return Object.assign({ kind: 'written' }, savedState || answerState(), awarded[i] != null ? { _mark: awarded[i] } : {}); },
+          restore: function (st, locked) { if (st && st.text != null) { ta.value = st.text; autoGrow(ta); } if (locked) openPanel(st, st && st._mark != null ? st._mark : undefined); },
+        });
+      }
+    });
+
+    return {
+      getState: function () { return { parts: pctl.map(function (c) { return c.getState(); }) }; },
+      setState: function (s, locked) { if (s && s.parts) pctl.forEach(function (c, i) { c.restore(s.parts[i], locked); }); },
+    };
+  }
+
   window.CsExamWidgets = {
     register: function (format, factory) { factories[format] = factory; },
     supports: function (format) { return !!factories[format]; },
@@ -610,4 +710,5 @@
   window.CsExamWidgets.register('lines', mountLines);
   window.CsExamWidgets.register('banded', mountBanded);
   window.CsExamWidgets.register('numeric', mountNumeric);
+  window.CsExamWidgets.register('mathParts', mountMathParts);
 })();
