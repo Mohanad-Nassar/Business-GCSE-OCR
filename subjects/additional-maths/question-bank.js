@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-18T05:18:10Z · 1551 questions
+// Generated: 2026-07-18T05:31:30Z · 1725 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -684,16 +684,16 @@ window.QUESTION_BANK = [
   "question": "To simplify \\( a^m \\times a^n \\) you ___B1___ the indices, and to simplify \\( a^m \\div a^n \\) you ___B2___ them.",
   "blankOptions": {
    "B1": [
-    "coefficient",
-    "index",
     "add",
-    "multiply"
+    "multiply",
+    "0",
+    "solve"
    ],
    "B2": [
     "subtract",
-    "divide",
-    "all",
-    "1"
+    "variable",
+    "1",
+    "divide"
    ]
   },
   "key": {
@@ -713,10 +713,10 @@ window.QUESTION_BANK = [
   "question": "The rule \\( (a^m)^n \\) tells you to ___B1___ the two indices together.",
   "blankOptions": {
    "B1": [
+    "subtract",
     "multiply",
-    "variable",
-    "add",
-    "term"
+    "solve",
+    "unknown"
    ]
   },
   "key": {
@@ -735,10 +735,10 @@ window.QUESTION_BANK = [
   "question": "For any non-zero base, \\( a^0 \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
+    "solve",
+    "divide",
     "1",
-    "unknown",
-    "all"
+    "variable"
    ]
   },
   "key": {
@@ -757,10 +757,10 @@ window.QUESTION_BANK = [
   "question": "A negative index means take the ___B1___, so \\( a^{-n} \\) becomes a fraction.",
   "blankOptions": {
    "B1": [
-    "unknown",
-    "nth",
-    "reciprocal",
-    "add"
+    "solve",
+    "index",
+    "all",
+    "reciprocal"
    ]
   },
   "key": {
@@ -779,16 +779,16 @@ window.QUESTION_BANK = [
   "question": "In the term \\( 4x^3 \\), the number \\( 4 \\) is the ___B1___ and the number \\( 3 \\) is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "nth",
-    "term",
+    "solve",
+    "constant",
     "coefficient",
-    "constant"
+    "term"
    ],
    "B2": [
-    "0",
+    "identity",
+    "term",
     "index",
-    "1",
-    "subtract"
+    "reciprocal"
    ]
   },
   "key": {
@@ -808,15 +808,15 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) means the statement is an ___B1___, which is true for ___B2___ values of the variable.",
   "blankOptions": {
    "B1": [
-    "subtract",
-    "reciprocal",
     "power",
+    "subtract",
+    "unknown",
     "identity"
    ],
    "B2": [
-    "term",
-    "variable",
     "index",
+    "coefficient",
+    "unknown",
     "all"
    ]
   },
@@ -837,10 +837,10 @@ window.QUESTION_BANK = [
   "question": "In \\( a^{1/n} \\) the fraction \\( \\frac{1}{n} \\) tells you to take the ___B1___ root of \\( a \\).",
   "blankOptions": {
    "B1": [
+    "power",
+    "constant",
     "nth",
-    "solve",
-    "subtract",
-    "identity"
+    "1"
    ]
   },
   "key": {
@@ -859,16 +859,16 @@ window.QUESTION_BANK = [
   "question": "In an equation you solve to find the value of the ___B1___, whereas in an expression there is no equals sign to ___B2___.",
   "blankOptions": {
    "B1": [
-    "index",
+    "1",
     "unknown",
-    "0",
-    "reciprocal"
+    "all",
+    "index"
    ],
    "B2": [
-    "term",
+    "reciprocal",
+    "identity",
     "solve",
-    "0",
-    "identity"
+    "coefficient"
    ]
   },
   "key": {
@@ -1835,10 +1835,10 @@ window.QUESTION_BANK = [
   "question": "To simplify a surd, take out the largest perfect ___B1___ factor.",
   "blankOptions": {
    "B1": [
-    "square",
-    "1",
-    "factorise",
-    "expand"
+    "like",
+    "expand",
+    "3",
+    "square"
    ]
   },
   "key": {
@@ -1857,10 +1857,10 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sqrt{12} = 2\\sqrt{3} \\) we used the fact that \\( 12 = 4 \\times 3 \\) and \\( \\sqrt{4} = \\) ___B1___.",
   "blankOptions": {
    "B1": [
-    "3",
     "2",
-    "calculator",
-    "cube"
+    "factorise",
+    "square",
+    "(x-1)(x+1)"
    ]
   },
   "key": {
@@ -1879,9 +1879,9 @@ window.QUESTION_BANK = [
   "question": "You can only add or subtract surds when they are ___B1___ surds (the same number under the root).",
   "blankOptions": {
    "B1": [
-    "conjugate",
-    "2",
-    "3",
+    "reciprocal",
+    "factorise",
+    "calculator",
     "like"
    ]
   },
@@ -1901,10 +1901,10 @@ window.QUESTION_BANK = [
   "question": "To rationalise \\( \\frac{1}{2+\\sqrt{3}} \\) you multiply by its ___B1___, which is \\( 2-\\sqrt{3} \\).",
   "blankOptions": {
    "B1": [
-    "1",
-    "like",
-    "3",
-    "conjugate"
+    "factorise",
+    "conjugate",
+    "(x-1)(x+1)",
+    "calculator"
    ]
   },
   "key": {
@@ -1923,10 +1923,10 @@ window.QUESTION_BANK = [
   "question": "Multiplying \\( (2+\\sqrt{3})(2-\\sqrt{3}) \\) gives the whole number ___B1___.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
-    "square",
     "1",
-    "cube"
+    "conjugate",
+    "factorise",
+    "2"
    ]
   },
   "key": {
@@ -1945,10 +1945,10 @@ window.QUESTION_BANK = [
   "question": "To simplify an algebraic fraction you first ___B1___ the top and bottom, then cancel common factors.",
   "blankOptions": {
    "B1": [
-    "factorise",
-    "unlike",
-    "square",
-    "3"
+    "like",
+    "cube",
+    "calculator",
+    "factorise"
    ]
   },
   "key": {
@@ -1967,10 +1967,10 @@ window.QUESTION_BANK = [
   "question": "To add \\( \\frac{1}{x-1} \\) and \\( \\frac{2}{x+1} \\) you write them over the common denominator ___B1___.",
   "blankOptions": {
    "B1": [
-    "(x-1)(x+1)",
-    "expand",
-    "2",
-    "3"
+    "factorise",
+    "reciprocal",
+    "unlike",
+    "(x-1)(x+1)"
    ]
   },
   "key": {
@@ -1990,9 +1990,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "exact",
-    "square",
-    "cube",
-    "calculator"
+    "calculator",
+    "unlike",
+    "conjugate"
    ]
   },
   "key": {
@@ -2878,16 +2878,16 @@ window.QUESTION_BANK = [
   "question": "In the quadratic formula \\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\), the term before the \\( \\pm \\) sign is ___B1___ and the denominator is ___B2___.",
   "blankOptions": {
    "B1": [
-    "both",
-    "20",
-    "negative",
-    "-b"
+    "discriminant",
+    "4ac",
+    "-b",
+    "exact"
    ],
    "B2": [
-    "20",
-    "4ac",
+    "negative",
+    "square",
     "2a",
-    "negative"
+    "4ac"
    ]
   },
   "key": {
@@ -2907,16 +2907,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + bx \\), take ___B1___ the coefficient of \\( x \\) and then ___B2___ it.",
   "blankOptions": {
    "B1": [
-    "half",
-    "negative",
     "2a",
-    "both"
+    "negative",
+    "half",
+    "double"
    ],
    "B2": [
-    "2a",
-    "-b",
     "square",
-    "3"
+    "add",
+    "q",
+    "negative"
    ]
   },
   "key": {
@@ -2936,16 +2936,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + 6x - 11 \\), the number inside the bracket \\( (x + a)^2 \\) is ___B1___ and the number subtracted at the end is ___B2___.",
   "blankOptions": {
    "B1": [
-    "both",
-    "3",
     "4ac",
-    "-p"
+    "3",
+    "exact",
+    "-b"
    ],
    "B2": [
-    "square",
+    "double",
+    "both",
     "20",
-    "2a",
-    "both"
+    "-b"
    ]
   },
   "key": {
@@ -2965,10 +2965,10 @@ window.QUESTION_BANK = [
   "question": "The expression \\( b^2 - 4ac \\) is called the ___B1___.",
   "blankOptions": {
    "B1": [
-    "exact",
-    "2a",
     "both",
-    "discriminant"
+    "discriminant",
+    "exact",
+    "-p"
    ]
   },
   "key": {
@@ -2987,10 +2987,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, a quadratic has no real roots.",
   "blankOptions": {
    "B1": [
-    "exact",
-    "both",
     "negative",
-    "3"
+    "both",
+    "discriminant",
+    "4ac"
    ]
   },
   "key": {
@@ -3009,16 +3009,16 @@ window.QUESTION_BANK = [
   "question": "For \\( a(x+p)^2 + q \\) with \\( a > 0 \\), the minimum value is ___B1___ and it occurs when \\( x \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "negative",
+    "square",
     "q",
-    "double",
-    "3"
+    "half",
+    "discriminant"
    ],
    "B2": [
-    "2a",
-    "20",
     "-p",
-    "half"
+    "3",
+    "negative",
+    "20"
    ]
   },
   "key": {
@@ -3038,10 +3038,10 @@ window.QUESTION_BANK = [
   "question": "When you take the square root of both sides you must write \\( \\pm \\) to get ___B1___ roots.",
   "blankOptions": {
    "B1": [
-    "2a",
-    "add",
+    "both",
     "3",
-    "both"
+    "-b",
+    "-p"
    ]
   },
   "key": {
@@ -3060,10 +3060,10 @@ window.QUESTION_BANK = [
   "question": "A command word telling you to leave surds rather than round is ___B1___.",
   "blankOptions": {
    "B1": [
-    "discriminant",
     "both",
-    "exact",
-    "20"
+    "q",
+    "double",
+    "exact"
    ]
   },
   "key": {
@@ -4021,10 +4021,10 @@ window.QUESTION_BANK = [
   "question": "When you multiply or divide an inequality by a negative number you must ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "-2",
     "reverse",
+    "-2",
     "open",
-    "or"
+    "and"
    ]
   },
   "key": {
@@ -4043,10 +4043,10 @@ window.QUESTION_BANK = [
   "question": "Adding or subtracting the same quantity from both sides ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "and",
-    "inside",
-    "-2",
-    "keeps"
+    "add",
+    "keeps",
+    "outside",
+    "flip"
    ]
   },
   "key": {
@@ -4065,10 +4065,10 @@ window.QUESTION_BANK = [
   "question": "To solve a quadratic inequality, first rearrange it so that one side equals ___B1___, then factorise.",
   "blankOptions": {
    "B1": [
-    "between",
-    "or",
-    "and",
-    "zero"
+    "-2",
+    "zero",
+    "3",
+    "or"
    ]
   },
   "key": {
@@ -4088,9 +4088,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "flip",
-    "open",
+    "outside",
     "-2",
-    "add"
+    "between"
    ]
   },
   "key": {
@@ -4109,10 +4109,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c < 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
-    "zero",
     "between",
-    "add",
-    "3"
+    "or",
+    "closed",
+    "zero"
    ]
   },
   "key": {
@@ -4131,9 +4131,9 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c > 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
-    "between",
-    "closed",
     "outside",
+    "reverse",
+    "zero",
     "and"
    ]
   },
@@ -4153,10 +4153,10 @@ window.QUESTION_BANK = [
   "question": "A strict inequality such as \\( < \\) or \\( > \\) is shown on a number line with an ___B1___ circle.",
   "blankOptions": {
    "B1": [
+    "outside",
     "open",
-    "between",
-    "closed",
-    "-2"
+    "reverse",
+    "add"
    ]
   },
   "key": {
@@ -4175,9 +4175,9 @@ window.QUESTION_BANK = [
   "question": "The solution to \\( x^2 > 9 \\) is \\( x < -3 \\) ___B1___ \\( x > 3 \\).",
   "blankOptions": {
    "B1": [
-    "3",
-    "-2",
+    "keeps",
     "or",
+    "open",
     "closed"
    ]
   },
@@ -5048,10 +5048,10 @@ window.QUESTION_BANK = [
   "question": "A polynomial written with its powers going from highest to lowest is in ___B1___ order.",
   "blankOptions": {
    "B1": [
-    "quotient",
-    "remainder",
-    "descending",
-    "placeholder"
+    "zero",
+    "sign",
+    "degree",
+    "descending"
    ]
   },
   "key": {
@@ -5070,16 +5070,16 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ of a polynomial is the highest power of the variable, and the number multiplying a power of \\( x \\) is its ___B2___.",
   "blankOptions": {
    "B1": [
+    "term",
+    "sign",
     "degree",
-    "descending",
-    "14",
-    "ascending"
+    "quotient"
    ],
    "B2": [
+    "sign",
     "coefficient",
-    "remainder",
-    "descending",
-    "zero"
+    "factor",
+    "term"
    ]
   },
   "key": {
@@ -5099,10 +5099,10 @@ window.QUESTION_BANK = [
   "question": "To subtract one polynomial from another you must change the ___B1___ of every term in the second bracket.",
   "blankOptions": {
    "B1": [
-    "descending",
-    "placeholder",
+    "ascending",
     "sign",
-    "14"
+    "term",
+    "dividend"
    ]
   },
   "key": {
@@ -5122,15 +5122,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "descending",
-    "placeholder",
-    "coefficient",
-    "quotient"
+    "ascending",
+    "quotient",
+    "factor"
    ],
    "B2": [
+    "coefficient",
+    "constant",
     "remainder",
-    "placeholder",
-    "dividend",
-    "descending"
+    "ascending"
    ]
   },
   "key": {
@@ -5150,10 +5150,10 @@ window.QUESTION_BANK = [
   "question": "When \\( x^3 + 2x^2 - 5x + 8 \\) is divided by \\( x + 3 \\), the quotient is \\( x^2 - x - 2 \\) and the remainder is ___B1___.",
   "blankOptions": {
    "B1": [
-    "constant",
-    "degree",
+    "coefficient",
+    "placeholder",
     "14",
-    "quotient"
+    "term"
    ]
   },
   "key": {
@@ -5172,10 +5172,10 @@ window.QUESTION_BANK = [
   "question": "When a polynomial is divided by \\( x - a \\) and the remainder is ___B1___, then \\( x - a \\) is a factor.",
   "blankOptions": {
    "B1": [
+    "factor",
+    "dividend",
     "sign",
-    "term",
-    "zero",
-    "constant"
+    "zero"
    ]
   },
   "key": {
@@ -5194,10 +5194,10 @@ window.QUESTION_BANK = [
   "question": "When dividing, insert a ___B1___ (a term with coefficient 0) for any missing power so the columns stay lined up.",
   "blankOptions": {
    "B1": [
-    "zero",
     "placeholder",
-    "factor",
-    "term"
+    "zero",
+    "coefficient",
+    "14"
    ]
   },
   "key": {
@@ -6101,9 +6101,9 @@ window.QUESTION_BANK = [
   "question": "The factor theorem states that if \\( \\text{f}(a) \\) equals ___B1___, then \\( (x - a) \\) is a factor of \\( \\text{f}(x) \\).",
   "blankOptions": {
    "B1": [
-    "2",
-    "not",
     "0",
+    "multiples",
+    "is",
     "quadratic"
    ]
   },
@@ -6123,10 +6123,10 @@ window.QUESTION_BANK = [
   "question": "If \\( (x - 4) \\) is a factor of \\( \\text{f}(x) \\), then \\( \\text{f}(4) \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "quadratic",
-    "linear",
-    "a",
-    "0"
+    "factors",
+    "0",
+    "is",
+    "root"
    ]
   },
   "key": {
@@ -6145,10 +6145,10 @@ window.QUESTION_BANK = [
   "question": "To find a whole-number factor of a cubic, test the ___B1___ of the constant term.",
   "blankOptions": {
    "B1": [
-    "not",
+    "factor",
+    "1/2",
     "factors",
-    "linear",
-    "2"
+    "linear"
    ]
   },
   "key": {
@@ -6167,10 +6167,10 @@ window.QUESTION_BANK = [
   "question": "To test whether \\( (2x - 1) \\) is a factor of \\( \\text{f}(x) \\), work out f of ___B1___.",
   "blankOptions": {
    "B1": [
-    "root",
-    "not",
-    "1/2",
-    "quadratic"
+    "linear",
+    "0",
+    "a",
+    "1/2"
    ]
   },
   "key": {
@@ -6189,16 +6189,16 @@ window.QUESTION_BANK = [
   "question": "The factor theorem finds ___B1___ factors of a polynomial; the remainder theorem is ___B2___ on this specification.",
   "blankOptions": {
    "B1": [
+    "1",
     "2",
     "linear",
-    "0",
-    "multiples"
+    "root"
    ],
    "B2": [
-    "is",
+    "not",
     "0",
-    "factors",
-    "not"
+    "2",
+    "root"
    ]
   },
   "key": {
@@ -6218,10 +6218,10 @@ window.QUESTION_BANK = [
   "question": "After factorising, you solve \\( \\text{f}(x) = 0 \\) by setting each ___B1___ equal to zero.",
   "blankOptions": {
    "B1": [
-    "2",
-    "linear",
     "not",
-    "factor"
+    "is",
+    "factor",
+    "root"
    ]
   },
   "key": {
@@ -6240,10 +6240,10 @@ window.QUESTION_BANK = [
   "question": "For \\( 2x^3 - x^2 - 7x + 6 \\), testing gives \\( \\text{f}(1) = 0 \\), so (x − ___B1___) is a factor.",
   "blankOptions": {
    "B1": [
-    "2",
-    "factor",
     "linear",
-    "1"
+    "1/2",
+    "1",
+    "is"
    ]
   },
   "key": {
@@ -7165,10 +7165,10 @@ window.QUESTION_BANK = [
   "question": "The first step in modelling a worded problem is to define the ___B1___ and state what it represents.",
   "blankOptions": {
    "B1": [
-    "1",
+    "variable",
+    "16",
     "substitution",
-    "unknown",
-    "reject"
+    "unknown"
    ]
   },
   "key": {
@@ -7187,10 +7187,10 @@ window.QUESTION_BANK = [
   "question": "When a quadratic equation for a length gives a negative root, you must ___B1___ it, because a length cannot be negative.",
   "blankOptions": {
    "B1": [
-    "accept",
-    "units",
+    "reject",
+    "1",
     "n+2",
-    "reject"
+    "n+3"
    ]
   },
   "key": {
@@ -7209,10 +7209,10 @@ window.QUESTION_BANK = [
   "question": "To solve one linear and one quadratic equation together, use the method of ___B1___.",
   "blankOptions": {
    "B1": [
-    "units",
     "substitution",
-    "elimination",
-    "reject"
+    "accept",
+    "variable",
+    "unknown"
    ]
   },
   "key": {
@@ -7231,10 +7231,10 @@ window.QUESTION_BANK = [
   "question": "In the boat problem the two roots were 1 and \\( -16 \\); the current speed must be positive, so the answer is ___B1___ km/h.",
   "blankOptions": {
    "B1": [
-    "plus",
-    "2n",
     "reject",
-    "1"
+    "1",
+    "accept",
+    "n+3"
    ]
   },
   "key": {
@@ -7253,10 +7253,10 @@ window.QUESTION_BANK = [
   "question": "A final answer in a real context should always be stated with its ___B1___.",
   "blankOptions": {
    "B1": [
-    "n+3",
-    "minus",
-    "units",
-    "plus"
+    "1",
+    "plus",
+    "elimination",
+    "units"
    ]
   },
   "key": {
@@ -7275,10 +7275,10 @@ window.QUESTION_BANK = [
   "question": "The phrase \"5 more than a number \\( x \\)\" translates to \\( x \\) ___B1___ 5.",
   "blankOptions": {
    "B1": [
-    "plus",
-    "n+3",
-    "1",
-    "accept"
+    "n+2",
+    "variable",
+    "units",
+    "plus"
    ]
   },
   "key": {
@@ -7297,10 +7297,10 @@ window.QUESTION_BANK = [
   "question": "Three consecutive integers can be written as \\( n \\), \\( n+1 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "accept",
+    "16",
+    "plus",
     "n+2",
-    "elimination",
-    "units"
+    "substitution"
    ]
   },
   "key": {
@@ -8151,10 +8151,10 @@ window.QUESTION_BANK = [
   "question": "A rule that gives each term of a sequence from earlier terms is called a ___B1___ relationship.",
   "blankOptions": {
    "B1": [
-    "11",
+    "one",
     "recurrence",
-    "7",
-    "multiplied"
+    "geometric",
+    "added"
    ]
   },
   "key": {
@@ -8173,10 +8173,10 @@ window.QUESTION_BANK = [
   "question": "As well as the rule, you need a ___B1___ value before you can generate the sequence.",
   "blankOptions": {
    "B1": [
-    "two",
     "0.15",
-    "starting",
-    "one"
+    "0.85",
+    "divided",
+    "starting"
    ]
   },
   "key": {
@@ -8195,10 +8195,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = x_n + a \\) the fixed number \\( a \\) is ___B1___ to each term, giving an arithmetic sequence.",
   "blankOptions": {
    "B1": [
+    "two",
     "added",
-    "geometric",
-    "one",
-    "two"
+    "starting",
+    "recurrence"
    ]
   },
   "key": {
@@ -8217,10 +8217,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = a x_n \\) each term is ___B1___ by \\( a \\), giving a geometric sequence.",
   "blankOptions": {
    "B1": [
-    "starting",
-    "multiplied",
     "two",
-    "divided"
+    "added",
+    "1.03",
+    "multiplied"
    ]
   },
   "key": {
@@ -8239,10 +8239,10 @@ window.QUESTION_BANK = [
   "question": "A second-order rule such as \\( x_{n+2} = x_{n+1} + x_n \\) needs ___B1___ starting values.",
   "blankOptions": {
    "B1": [
-    "geometric",
     "recurrence",
+    "geometric",
     "two",
-    "divided"
+    "0.15"
    ]
   },
   "key": {
@@ -8261,9 +8261,9 @@ window.QUESTION_BANK = [
   "question": "Compound interest of 3% per year gives \\( x_{n+1} = k x_n \\) where the multiplier \\( k \\) is ___B1___.",
   "blankOptions": {
    "B1": [
+    "1.3",
     "0.85",
-    "7",
-    "11",
+    "multiplied",
     "1.03"
    ]
   },
@@ -8283,10 +8283,10 @@ window.QUESTION_BANK = [
   "question": "An asset that loses 15% of its value each year has multiplier ___B1___.",
   "blankOptions": {
    "B1": [
-    "multiplied",
+    "11",
     "0.85",
     "subtracted",
-    "added"
+    "recurrence"
    ]
   },
   "key": {
@@ -8305,16 +8305,16 @@ window.QUESTION_BANK = [
   "question": "For \\( x_{n+1} = x_n + 4 \\) with \\( x_1 = 3 \\), the second term is ___B1___ and the third term is ___B2___.",
   "blankOptions": {
    "B1": [
-    "multiplied",
-    "recurrence",
     "7",
-    "one"
+    "one",
+    "two",
+    "subtracted"
    ],
    "B2": [
-    "one",
-    "11",
-    "1.3",
-    "subtracted"
+    "0.15",
+    "subtracted",
+    "0.85",
+    "11"
    ]
   },
   "key": {
@@ -9204,9 +9204,9 @@ window.QUESTION_BANK = [
   "question": "The distance between two points comes from ___B1___ theorem, taking the square root of the sum of the squared gaps.",
   "blankOptions": {
    "B1": [
-    "1",
-    "-1",
     "average",
+    "slope",
+    "y",
     "Pythagoras"
    ]
   },
@@ -9226,10 +9226,10 @@ window.QUESTION_BANK = [
   "question": "To find the midpoint you ___B1___ the two \\( x \\)-coordinates and do the same to the \\( y \\)-coordinates.",
   "blankOptions": {
    "B1": [
-    "average",
-    "point-gradient",
+    "gradient",
+    "Pythagoras",
     "subtracting",
-    "x"
+    "average"
    ]
   },
   "key": {
@@ -9248,9 +9248,9 @@ window.QUESTION_BANK = [
   "question": "Parallel lines always have ___B1___ gradients.",
   "blankOptions": {
    "B1": [
-    "Pythagoras",
-    "subtracting",
     "equal",
+    "parallel",
+    "slope",
     "1"
    ]
   },
@@ -9270,9 +9270,9 @@ window.QUESTION_BANK = [
   "question": "For two perpendicular lines the product of their gradients is ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
-    "reciprocal",
     "Pythagoras",
+    "gradient",
+    "subtracting",
     "-1"
    ]
   },
@@ -9292,16 +9292,16 @@ window.QUESTION_BANK = [
   "question": "The perpendicular bisector of a segment passes through its ___B1___ and has a gradient equal to the ___B2___ of the segment's gradient.",
   "blankOptions": {
    "B1": [
-    "Pythagoras",
     "midpoint",
-    "equal",
-    "x"
+    "x",
+    "average",
+    "intercept"
    ],
    "B2": [
+    "Pythagoras",
+    "parallel",
     "negative reciprocal",
-    "slope",
-    "reciprocal",
-    "-1"
+    "slope"
    ]
   },
   "key": {
@@ -9322,15 +9322,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "gradient",
-    "average",
-    "point-gradient",
-    "subtracting"
+    "1",
+    "x",
+    "parallel"
    ],
    "B2": [
-    "intercept",
-    "midpoint",
+    "equal",
     "average",
-    "-1"
+    "reciprocal",
+    "intercept"
    ]
   },
   "key": {
@@ -9350,10 +9350,10 @@ window.QUESTION_BANK = [
   "question": "The gradient of a line is the change in \\( y \\) divided by the change in ___B1___.",
   "blankOptions": {
    "B1": [
-    "subtracting",
-    "1",
+    "intercept",
+    "parallel",
     "x",
-    "y"
+    "-1"
    ]
   },
   "key": {
@@ -9372,10 +9372,10 @@ window.QUESTION_BANK = [
   "question": "The form \\( y - y_1 = m(x - x_1) \\) is called the ___B1___ form of a line.",
   "blankOptions": {
    "B1": [
-    "average",
-    "negative reciprocal",
     "point-gradient",
-    "parallel"
+    "reciprocal",
+    "y",
+    "midpoint"
    ]
   },
   "key": {
@@ -10409,16 +10409,16 @@ window.QUESTION_BANK = [
   "question": "The general equation of a circle with centre \\( (a,\\ b) \\) and radius \\( r \\) is \\( (x-a)^2 + (y-b)^2 = r^2 \\). For \\( (x-3)^2 + (y+2)^2 = 25 \\), the centre is ___B1___ and the radius is ___B2___.",
   "blankOptions": {
    "B1": [
-    "zero",
     "half",
     "(3, -2)",
-    "(-3, 2)"
+    "normal",
+    "linear"
    ],
    "B2": [
-    "negative reciprocal",
-    "normal",
+    "quadratic",
+    "25",
     "5",
-    "zero"
+    "positive"
    ]
   },
   "key": {
@@ -10438,10 +10438,10 @@ window.QUESTION_BANK = [
   "question": "To find the centre and radius from the expanded form \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\), you complete the ___B1___ in \\( x \\) and in \\( y \\) separately.",
   "blankOptions": {
    "B1": [
-    "zero",
-    "negative",
+    "double",
     "square",
-    "(-3, 2)"
+    "midpoint",
+    "zero"
    ]
   },
   "key": {
@@ -10460,16 +10460,16 @@ window.QUESTION_BANK = [
   "question": "At the point of contact, the radius is ___B1___ to the tangent, so the tangent gradient is the ___B2___ of the radius gradient.",
   "blankOptions": {
    "B1": [
-    "midpoint",
-    "25",
-    "double",
-    "perpendicular"
+    "(-3, 2)",
+    "factorise",
+    "perpendicular",
+    "half"
    ],
    "B2": [
+    "(3, -2)",
+    "normal",
     "factorise",
-    "negative reciprocal",
-    "half",
-    "quadratic"
+    "negative reciprocal"
    ]
   },
   "key": {
@@ -10489,10 +10489,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ to a circle at a point always passes through the centre of the circle.",
   "blankOptions": {
    "B1": [
-    "negative",
+    "reciprocal",
     "normal",
-    "25",
-    "positive"
+    "positive",
+    "quadratic"
    ]
   },
   "key": {
@@ -10511,16 +10511,16 @@ window.QUESTION_BANK = [
   "question": "To test where a line meets a circle, ___B1___ the line into the circle equation to obtain a ___B2___ equation.",
   "blankOptions": {
    "B1": [
-    "parallel",
-    "double",
-    "perpendicular",
-    "substitute"
+    "negative",
+    "(3, -2)",
+    "substitute",
+    "linear"
    ],
    "B2": [
-    "5",
-    "quadratic",
     "tangent",
-    "square"
+    "negative reciprocal",
+    "square",
+    "quadratic"
    ]
   },
   "key": {
@@ -10540,10 +10540,10 @@ window.QUESTION_BANK = [
   "question": "A line is a tangent to a circle exactly when the discriminant of that quadratic equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "negative reciprocal",
+    "perpendicular",
     "zero",
-    "reciprocal",
-    "half"
+    "factorise",
+    "negative reciprocal"
    ]
   },
   "key": {
@@ -10562,10 +10562,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, the line misses the circle completely.",
   "blankOptions": {
    "B1": [
-    "(-3, 2)",
     "negative",
-    "half",
-    "linear"
+    "tangent",
+    "double",
+    "perpendicular"
    ]
   },
   "key": {
@@ -10584,16 +10584,16 @@ window.QUESTION_BANK = [
   "question": "Given the two ends of a diameter, the centre is the ___B1___ of the endpoints and the radius is ___B2___ the diameter.",
   "blankOptions": {
    "B1": [
+    "reciprocal",
+    "substitute",
     "midpoint",
-    "quadratic",
-    "double",
-    "positive"
+    "factorise"
    ],
    "B2": [
+    "gradient",
     "half",
     "perpendicular",
-    "(-3, 2)",
-    "double"
+    "square"
    ]
   },
   "key": {
@@ -11522,16 +11522,16 @@ window.QUESTION_BANK = [
   "question": "A graph drawn with only its main features, not to scale, is called a ___B1___; an accurate one worked out on a grid is a ___B2___.",
   "blankOptions": {
    "B1": [
-    "1",
+    "parabola",
     "cross",
-    "k",
-    "sketch"
+    "sketch",
+    "roots"
    ],
    "B2": [
-    "upwards",
-    "downwards",
-    "cross",
-    "plot"
+    "plot",
+    "180",
+    "parabola",
+    "roots"
    ]
   },
   "key": {
@@ -11551,16 +11551,16 @@ window.QUESTION_BANK = [
   "question": "For the exponential graph \\( y = k a^x \\) with \\( a > 0 \\), the horizontal asymptote is the line \\( y = \\) ___B1___ and the curve crosses the \\( y \\)-axis at the value ___B2___.",
   "blankOptions": {
    "B1": [
-    "cross",
     "0",
-    "2",
-    "downwards"
+    "upwards",
+    "touch",
+    "2"
    ],
    "B2": [
-    "1",
-    "2",
-    "180",
-    "k"
+    "k",
+    "roots",
+    "touch",
+    "180"
    ]
   },
   "key": {
@@ -11580,16 +11580,16 @@ window.QUESTION_BANK = [
   "question": "A quadratic graph has the shape called a ___B1___; when the \\( x^2 \\) coefficient is positive it opens ___B2___.",
   "blankOptions": {
    "B1": [
-    "cross",
-    "1",
+    "parabola",
     "k",
-    "parabola"
+    "3",
+    "2"
    ],
    "B2": [
+    "cross",
     "upwards",
-    "sketch",
-    "2",
-    "plot"
+    "0",
+    "180"
    ]
   },
   "key": {
@@ -11609,16 +11609,16 @@ window.QUESTION_BANK = [
   "question": "The graphs of \\( y = \\sin x \\) and \\( y = \\cos x \\) both repeat every ___B1___ degrees and have amplitude ___B2___.",
   "blankOptions": {
    "B1": [
-    "k",
-    "roots",
     "360",
-    "parabola"
+    "upwards",
+    "parabola",
+    "plot"
    ],
    "B2": [
-    "parabola",
+    "2",
     "1",
-    "upwards",
-    "downwards"
+    "roots",
+    "plot"
    ]
   },
   "key": {
@@ -11638,16 +11638,16 @@ window.QUESTION_BANK = [
   "question": "To find where a curve meets the \\( x \\)-axis you set \\( y = \\) ___B1___ and solve; these values are the ___B2___ of the function.",
   "blankOptions": {
    "B1": [
-    "180",
-    "0",
     "upwards",
-    "3"
+    "2",
+    "downwards",
+    "0"
    ],
    "B2": [
-    "touch",
-    "roots",
-    "draw",
-    "3"
+    "plot",
+    "k",
+    "sketch",
+    "roots"
    ]
   },
   "key": {
@@ -11667,16 +11667,16 @@ window.QUESTION_BANK = [
   "question": "The cubic \\( y = (x-1)(x+2)(x-4) \\) has ___B1___ real roots; a repeated factor makes the curve ___B2___ the \\( x \\)-axis instead of crossing it.",
   "blankOptions": {
    "B1": [
+    "360",
     "3",
-    "180",
-    "downwards",
-    "1"
+    "k",
+    "cross"
    ],
    "B2": [
-    "draw",
     "touch",
-    "360",
-    "1"
+    "0",
+    "downwards",
+    "sketch"
    ]
   },
   "key": {
@@ -11697,9 +11697,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "180",
-    "upwards",
-    "touch",
-    "3"
+    "2",
+    "1",
+    "sketch"
    ]
   },
   "key": {
@@ -12644,16 +12644,16 @@ window.QUESTION_BANK = [
   "question": "For a strict inequality you draw the boundary as a ___B1___ line; for \\( \\le \\) or \\( \\ge \\) you draw a ___B2___ line.",
   "blankOptions": {
    "B1": [
-    "region",
     "dashed",
-    "wanted",
-    "equals"
+    "point",
+    "want",
+    "0"
    ],
    "B2": [
-    "shade",
     "solid",
-    "region",
-    "equals"
+    "clear",
+    "wanted",
+    "point"
    ]
   },
   "key": {
@@ -12673,10 +12673,10 @@ window.QUESTION_BANK = [
   "question": "To decide which side of the line to shade, you substitute a test ___B1___ such as the origin into the inequality.",
   "blankOptions": {
    "B1": [
-    "equals",
-    "point",
-    "line",
-    "shade"
+    "wanted",
+    "feasible",
+    "not",
+    "point"
    ]
   },
   "key": {
@@ -12695,15 +12695,15 @@ window.QUESTION_BANK = [
   "question": "In the OCR exam you shade the region that is ___B1___ required, leaving the feasible region ___B2___.",
   "blankOptions": {
    "B1": [
-    "not",
     "curve",
     "solid",
-    "region"
+    "feasible",
+    "not"
    ],
    "B2": [
-    "want",
+    "solid",
+    "wanted",
     "line",
-    "origin",
     "clear"
    ]
   },
@@ -12724,10 +12724,10 @@ window.QUESTION_BANK = [
   "question": "You cannot make a negative number of items, so a real-world model also needs \\( x \\) and \\( y \\) each to be at least ___B1___.",
   "blankOptions": {
    "B1": [
+    "point",
+    "wanted",
     "0",
-    "region",
-    "line",
-    "wanted"
+    "origin"
    ]
   },
   "key": {
@@ -12746,10 +12746,10 @@ window.QUESTION_BANK = [
   "question": "You find the boundary line of an inequality by replacing the inequality sign with an ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "line",
-    "curve",
     "equals",
-    "shade"
+    "solid",
+    "wanted",
+    "clear"
    ]
   },
   "key": {
@@ -12768,10 +12768,10 @@ window.QUESTION_BANK = [
   "question": "The single region that satisfies every inequality at once is called the ___B1___ region.",
   "blankOptions": {
    "B1": [
-    "region",
-    "solid",
-    "0",
-    "feasible"
+    "want",
+    "feasible",
+    "clear",
+    "0"
    ]
   },
   "key": {
@@ -12790,10 +12790,10 @@ window.QUESTION_BANK = [
   "question": "If substituting the origin makes the inequality true, the origin lies in the region you ___B1___ (so you do NOT shade it).",
   "blankOptions": {
    "B1": [
-    "0",
-    "not",
+    "solid",
+    "curve",
     "want",
-    "equals"
+    "line"
    ]
   },
   "key": {
@@ -12812,10 +12812,10 @@ window.QUESTION_BANK = [
   "question": "The boundary drawn for \\( y > 2x \\) should be ___B1___ because the inequality is strict.",
   "blankOptions": {
    "B1": [
-    "solid",
-    "curve",
+    "want",
     "dashed",
-    "clear"
+    "0",
+    "equals"
    ]
   },
   "key": {
@@ -13727,9 +13727,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "define",
-    "constraint",
+    "inequality",
     "8",
-    "equals"
+    "minimised"
    ]
   },
   "key": {
@@ -13748,10 +13748,10 @@ window.QUESTION_BANK = [
   "question": "A constraint is a limit in the problem written as a linear ___B1___.",
   "blankOptions": {
    "B1": [
-    "inequality",
+    "define",
     "8",
-    "feasible",
-    "maximised"
+    "inequality",
+    "greater than or equal to"
    ]
   },
   "key": {
@@ -13770,15 +13770,15 @@ window.QUESTION_BANK = [
   "question": "The phrase 'at least' translates to the ___B1___ sign, while 'no more than' translates to the ___B2___ sign.",
   "blankOptions": {
    "B1": [
+    "feasible",
+    "non-negativity",
     "greater than or equal to",
-    "minimised",
-    "maximised",
-    "non-negativity"
+    "8"
    ],
    "B2": [
-    "constraint",
-    "minimised",
     "less than or equal to",
+    "non-negativity",
+    "draw",
     "60"
    ]
   },
@@ -13799,10 +13799,10 @@ window.QUESTION_BANK = [
   "question": "Because you cannot make a negative quantity, an LP model includes the ___B1___ constraints x is greater than or equal to 0 and y is greater than or equal to 0.",
   "blankOptions": {
    "B1": [
-    "maximised",
-    "simplify",
+    "constraint",
+    "inequality",
     "non-negativity",
-    "equals"
+    "maximised"
    ]
   },
   "key": {
@@ -13821,10 +13821,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ function is the quantity, such as profit or cost, that you want to maximise or minimise.",
   "blankOptions": {
    "B1": [
-    "objective",
-    "equals",
+    "constraint",
     "simplify",
-    "less than or equal to"
+    "greater than or equal to",
+    "objective"
    ]
   },
   "key": {
@@ -13843,10 +13843,10 @@ window.QUESTION_BANK = [
   "question": "You can ___B1___ a constraint such as 6x + 4y is at most 240 by dividing every term by 2, giving 3x + 2y at most 120.",
   "blankOptions": {
    "B1": [
-    "maximised",
-    "8",
-    "non-negativity",
-    "simplify"
+    "simplify",
+    "constraint",
+    "feasible",
+    "less than or equal to"
    ]
   },
   "key": {
@@ -13865,16 +13865,16 @@ window.QUESTION_BANK = [
   "question": "Profit of £28 per train and £60 per aeroplane gives the objective P = 28x + ___B1___ y, which is to be ___B2___.",
   "blankOptions": {
    "B1": [
-    "non-negativity",
-    "60",
+    "feasible",
     "minimised",
-    "objective"
+    "60",
+    "constraint"
    ],
    "B2": [
-    "greater than or equal to",
-    "objective",
-    "minimised",
-    "maximised"
+    "feasible",
+    "non-negativity",
+    "maximised",
+    "objective"
    ]
   },
   "key": {
@@ -13894,9 +13894,9 @@ window.QUESTION_BANK = [
   "question": "Unlike a constraint, an objective function contains no ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "objective",
-    "less than or equal to",
-    "draw",
+    "equals",
+    "greater than or equal to",
+    "non-negativity",
     "inequality"
    ]
   },
@@ -14995,16 +14995,16 @@ window.QUESTION_BANK = [
   "question": "In OCR linear programming you shade the region that does ___B1___ satisfy the constraints, so the feasible region is left ___B2___.",
   "blankOptions": {
    "B1": [
-    "increases",
-    "integer",
-    "not",
-    "3"
+    "constraint",
+    "whole",
+    "3.8",
+    "not"
    ],
    "B2": [
+    "centre",
+    "integers",
     "unshaded",
-    "3.8",
-    "vertex",
-    "less"
+    "5"
    ]
   },
   "key": {
@@ -15024,9 +15024,9 @@ window.QUESTION_BANK = [
   "question": "The optimum value of a linear objective always lies at a ___B1___ of the feasible region, never inside it.",
   "blankOptions": {
    "B1": [
-    "increases",
-    "vertex",
     "edge",
+    "vertex",
+    "whole",
     "does"
    ]
   },
@@ -15046,16 +15046,16 @@ window.QUESTION_BANK = [
   "question": "To find the optimum you can test each ___B1___ in the objective, or slide the ___B2___ line to its extreme position.",
   "blankOptions": {
    "B1": [
-    "not",
-    "2.5",
-    "vertex",
-    "whole"
+    "integer",
+    "less",
+    "does",
+    "vertex"
    ],
    "B2": [
-    "decreases",
-    "objective",
-    "greater",
-    "unshaded"
+    "increases",
+    "not",
+    "edge",
+    "objective"
    ]
   },
   "key": {
@@ -15075,16 +15075,16 @@ window.QUESTION_BANK = [
   "question": "The boundary line \\( 2x + y = 5 \\) has \\( y \\)-intercept ___B1___ and \\( x \\)-intercept ___B2___.",
   "blankOptions": {
    "B1": [
-    "3",
-    "increases",
-    "vertex",
-    "5"
+    "greater",
+    "3.8",
+    "5",
+    "constraint"
    ],
    "B2": [
-    "greater",
-    "vertex",
-    "shaded",
-    "2.5"
+    "objective",
+    "not",
+    "2.5",
+    "3.8"
    ]
   },
   "key": {
@@ -15104,10 +15104,10 @@ window.QUESTION_BANK = [
   "question": "Optima in LP need not be whole numbers; assuming that they must be ___B1___ is a common examiner-reported error.",
   "blankOptions": {
    "B1": [
-    "shaded",
+    "integers",
     "3.8",
-    "whole",
-    "integers"
+    "edge",
+    "whole"
    ]
   },
   "key": {
@@ -15126,10 +15126,10 @@ window.QUESTION_BANK = [
   "question": "If the context can only take whole items, check the feasible ___B1___ points nearest the optimum vertex.",
   "blankOptions": {
    "B1": [
-    "does",
     "integer",
-    "less",
-    "increases"
+    "greater",
+    "integers",
+    "decreases"
    ]
   },
   "key": {
@@ -15148,10 +15148,10 @@ window.QUESTION_BANK = [
   "question": "The words 'no more than' mean the total must be ___B1___ than or equal to the limit.",
   "blankOptions": {
    "B1": [
+    "greater",
+    "decreases",
     "less",
-    "whole",
-    "2.5",
-    "shaded"
+    "whole"
    ]
   },
   "key": {
@@ -15170,9 +15170,9 @@ window.QUESTION_BANK = [
   "question": "To maximise an objective, slide the objective line in the direction that ___B1___ its value; to minimise, slide the opposite way.",
   "blankOptions": {
    "B1": [
-    "shaded",
-    "unshaded",
-    "vertex",
+    "decreases",
+    "does",
+    "integers",
     "increases"
    ]
   },
@@ -16084,15 +16084,15 @@ window.QUESTION_BANK = [
   "question": "On the unit circle the point at angle \\( \\theta \\) is \\( (\\cos\\theta,\\ \\sin\\theta) \\), so \\( \\cos\\theta \\) is the ___B1___ coordinate and \\( \\sin\\theta \\) is the ___B2___ coordinate.",
   "blankOptions": {
    "B1": [
+    "x",
+    "first",
     "-1",
-    "intercepts",
-    "third",
-    "x"
+    "360"
    ],
    "B2": [
-    "intercepts",
+    "45",
+    "90",
     "y",
-    "first",
     "2"
    ]
   },
@@ -16114,15 +16114,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "fourth",
-    "360",
-    "second",
-    "x"
+    "y",
+    "30",
+    "360"
    ],
    "B2": [
     "0",
-    "first",
-    "-1",
-    "180"
+    "180",
+    "y",
+    "second"
    ]
   },
   "key": {
@@ -16142,16 +16142,16 @@ window.QUESTION_BANK = [
   "question": "The maximum value of \\( \\sin\\theta \\) is ___B1___ and its minimum value is ___B2___.",
   "blankOptions": {
    "B1": [
-    "third",
     "30",
-    "second",
-    "1"
+    "third",
+    "1",
+    "second"
    ],
    "B2": [
+    "x",
     "0",
-    "360",
     "-1",
-    "asymptotes"
+    "third"
    ]
   },
   "key": {
@@ -16171,16 +16171,16 @@ window.QUESTION_BANK = [
   "question": "Using the CAST rule, sine is positive in the ___B1___ quadrant and tangent is positive in the ___B2___ quadrant.",
   "blankOptions": {
    "B1": [
-    "90",
+    "180",
+    "first",
     "second",
-    "30",
-    "-1"
+    "x"
    ],
    "B2": [
-    "0",
     "third",
-    "fourth",
-    "90"
+    "1/2",
+    "x",
+    "180"
    ]
   },
   "key": {
@@ -16201,15 +16201,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "1/2",
-    "third",
-    "30",
-    "180"
+    "2",
+    "intercepts",
+    "-1"
    ],
    "B2": [
-    "1",
-    "360",
-    "y",
-    "1/2"
+    "x",
+    "1/2",
+    "30",
+    "90"
    ]
   },
   "key": {
@@ -16229,10 +16229,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( \\tan\\theta \\) has vertical ___B1___ at \\( 90^\\circ \\) and \\( 270^\\circ \\).",
   "blankOptions": {
    "B1": [
-    "fourth",
-    "90",
+    "0",
+    "30",
     "asymptotes",
-    "x"
+    "360"
    ]
   },
   "key": {
@@ -16251,10 +16251,10 @@ window.QUESTION_BANK = [
   "question": "Because \\( \\sin(180^\\circ - \\theta) = \\sin\\theta \\), the angle \\( 150^\\circ \\) has the same sine as ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "2",
     "30",
-    "0",
-    "y"
+    "180",
+    "intercepts",
+    "asymptotes"
    ]
   },
   "key": {
@@ -16274,9 +16274,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "third",
-    "asymptotes",
+    "intercepts",
     "1",
-    "2"
+    "45"
    ]
   },
   "key": {
@@ -17202,10 +17202,10 @@ window.QUESTION_BANK = [
   "question": "In the sine rule \\( \\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\), each side sits over the sine of the angle ___B1___ to it.",
   "blankOptions": {
    "B1": [
-    "2ab",
     "opposite",
-    "SAS",
-    "excluded"
+    "SSS",
+    "non-included",
+    "2bc"
    ]
   },
   "key": {
@@ -17224,16 +17224,16 @@ window.QUESTION_BANK = [
   "question": "You use the ___B1___ rule when you know two sides and the angle between them (SAS), and the ___B2___ rule when you know two angles and a side.",
   "blankOptions": {
    "B1": [
-    "cosine",
     "non-included",
-    "provided",
-    "opposite"
+    "cosine",
+    "2ab",
+    "SSS"
    ],
    "B2": [
-    "sine",
-    "non-included",
-    "SAS",
-    "SSS"
+    "2ab",
+    "2bc",
+    "246.8",
+    "sine"
    ]
   },
   "key": {
@@ -17253,9 +17253,9 @@ window.QUESTION_BANK = [
   "question": "In the rearranged cosine rule \\( \\cos A = \\frac{b^2 + c^2 - a^2}{2bc} \\), the denominator is ___B1___.",
   "blankOptions": {
    "B1": [
-    "cosine",
     "excluded",
     "2bc",
+    "memorised",
     "SAS"
    ]
   },
@@ -17277,8 +17277,8 @@ window.QUESTION_BANK = [
    "B1": [
     "included",
     "cosine",
-    "SAS",
-    "sine"
+    "SSS",
+    "adjacent"
    ]
   },
   "key": {
@@ -17297,10 +17297,10 @@ window.QUESTION_BANK = [
   "question": "If the acute angle from the sine rule is 66.8°, the second possible (obtuse) angle is 180° minus 66.8°, which is ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "provided",
-    "113.2",
+    "SAS",
     "included",
-    "SSS"
+    "memorised",
+    "113.2"
    ]
   },
   "key": {
@@ -17321,8 +17321,8 @@ window.QUESTION_BANK = [
    "B1": [
     "non-included",
     "SAS",
-    "2ab",
-    "cosine"
+    "adjacent",
+    "246.8"
    ]
   },
   "key": {
@@ -17341,10 +17341,10 @@ window.QUESTION_BANK = [
   "question": "The sine rule, cosine rule and area rule must all be ___B1___ because they are not on the formula sheet.",
   "blankOptions": {
    "B1": [
-    "cosine",
-    "SSS",
+    "excluded",
+    "non-included",
     "memorised",
-    "2bc"
+    "113.2"
    ]
   },
   "key": {
@@ -17363,10 +17363,10 @@ window.QUESTION_BANK = [
   "question": "A triangle in which all three sides are known is an ___B1___ situation, so you use the cosine rule.",
   "blankOptions": {
    "B1": [
-    "adjacent",
+    "opposite",
+    "memorised",
     "SSS",
-    "2bc",
-    "memorised"
+    "adjacent"
    ]
   },
   "key": {
@@ -18273,10 +18273,10 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) marks an identity, which is true for ___B1___ value of \\( \\theta \\).",
   "blankOptions": {
    "B1": [
+    "one",
+    "two",
     "every",
-    "angle",
-    "some",
-    "one"
+    "exact"
    ]
   },
   "key": {
@@ -18295,9 +18295,9 @@ window.QUESTION_BANK = [
   "question": "Both trig identities must be ___B1___, because they are not printed on the exam formula sheet.",
   "blankOptions": {
    "B1": [
-    "negative",
-    "some",
-    "±",
+    "one",
+    "ratio",
+    "two",
     "memorised"
    ]
   },
@@ -18317,10 +18317,10 @@ window.QUESTION_BANK = [
   "question": "Finding another ratio needs a square root, which introduces a ___B1___ sign; the quadrant then decides which one to keep.",
   "blankOptions": {
    "B1": [
-    "positive",
+    "some",
     "±",
-    "exact",
-    "some"
+    "one",
+    "exact"
    ]
   },
   "key": {
@@ -18339,9 +18339,9 @@ window.QUESTION_BANK = [
   "question": "In the third quadrant, only \\( \\tan\\theta \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "two",
-    "one",
+    "angle",
     "ratio",
+    "±",
     "positive"
    ]
   },
@@ -18361,10 +18361,10 @@ window.QUESTION_BANK = [
   "question": "When a question says 'exact', leave your answer as a surd or fraction, never a ___B1___.",
   "blankOptions": {
    "B1": [
-    "positive",
-    "exact",
+    "two",
     "decimal",
-    "some"
+    "memorised",
+    "ratio"
    ]
   },
   "key": {
@@ -18383,10 +18383,10 @@ window.QUESTION_BANK = [
   "question": "To prove an identity you work on ___B1___ side at a time and finish with a concluding statement.",
   "blankOptions": {
    "B1": [
-    "exact",
+    "±",
     "one",
-    "memorised",
-    "angle"
+    "every",
+    "two"
    ]
   },
   "key": {
@@ -18405,9 +18405,9 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sin^2\\theta \\) you square the ___B1___, not the angle.",
   "blankOptions": {
    "B1": [
-    "one",
-    "exact",
+    "decimal",
     "some",
+    "two",
     "ratio"
    ]
   },
@@ -19349,10 +19349,10 @@ window.QUESTION_BANK = [
   "question": "The angle the calculator returns from \\( \\sin^{-1} \\), \\( \\cos^{-1} \\) or \\( \\tan^{-1} \\) is called the ___B1___ value.",
   "blankOptions": {
    "B1": [
-    "exact",
-    "detailed",
+    "principal",
     "90",
-    "principal"
+    "exact",
+    "decimal"
    ]
   },
   "key": {
@@ -19371,10 +19371,10 @@ window.QUESTION_BANK = [
   "question": "For \\( \\sin\\theta = k \\), if the first solution is \\( \\alpha \\) the second is 180 minus ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "detailed",
-    "90",
+    "180",
     "alpha",
-    "sin^2"
+    "720",
+    "90"
    ]
   },
   "key": {
@@ -19393,10 +19393,10 @@ window.QUESTION_BANK = [
   "question": "For \\( \\cos\\theta = k \\), the second solution in \\( 0^\\circ \\)–\\( 360^\\circ \\) is ___B1___ minus \\( \\alpha \\).",
   "blankOptions": {
    "B1": [
-    "principal",
+    "sin^2",
     "360",
-    "exact",
-    "720"
+    "detailed",
+    "principal"
    ]
   },
   "key": {
@@ -19415,10 +19415,10 @@ window.QUESTION_BANK = [
   "question": "The tangent graph repeats every ___B1___ degrees, so its second solution is \\( \\alpha \\) plus that many degrees.",
   "blankOptions": {
    "B1": [
-    "decimal",
-    "90",
     "180",
-    "cos^2"
+    "pairs",
+    "alpha",
+    "decimal"
    ]
   },
   "key": {
@@ -19437,10 +19437,10 @@ window.QUESTION_BANK = [
   "question": "To solve an equation in \\( 2\\theta \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), first solve for \\( 2\\theta \\) over the interval 0 to ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "sin^2",
+    "360",
     "720",
-    "decimal",
-    "exact"
+    "pairs",
+    "principal"
    ]
   },
   "key": {
@@ -19459,10 +19459,10 @@ window.QUESTION_BANK = [
   "question": "To turn \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) into a quadratic, replace \\( \\cos^2\\theta \\) with 1 minus ___B1___.",
   "blankOptions": {
    "B1": [
-    "sin^2",
     "decimal",
-    "90",
-    "720"
+    "pairs",
+    "sin^2",
+    "detailed"
    ]
   },
   "key": {
@@ -19481,10 +19481,10 @@ window.QUESTION_BANK = [
   "question": "A command word that means \"leave surds, not decimals\" is ___B1___; a decimal answer then scores zero.",
   "blankOptions": {
    "B1": [
+    "360",
     "exact",
-    "alpha",
-    "90",
-    "detailed"
+    "principal",
+    "180"
    ]
   },
   "key": {
@@ -19503,10 +19503,10 @@ window.QUESTION_BANK = [
   "question": "Solutions of \\( \\sin\\theta = k \\) and \\( \\cos\\theta = k \\) come in ___B1___ across a full \\( 360^\\circ \\), so an odd count usually signals a slip.",
   "blankOptions": {
    "B1": [
-    "cos^2",
+    "90",
     "pairs",
-    "decimal",
-    "720"
+    "180",
+    "cos^2"
    ]
   },
   "key": {
@@ -20445,16 +20445,16 @@ window.QUESTION_BANK = [
   "question": "In a 3D problem the first step is to identify the correct right-angled ___B1___ lying in one flat ___B2___ (surface).",
   "blankOptions": {
    "B1": [
+    "sine",
     "triangle",
-    "clockwise",
-    "cosine",
-    "240"
+    "adjacent",
+    "cosine"
    ],
    "B2": [
-    "adjacent",
-    "plane",
-    "three",
-    "opposite"
+    "clockwise",
+    "cosine",
+    "vertical",
+    "plane"
    ]
   },
   "key": {
@@ -20475,15 +20475,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "opposite",
-    "slope",
-    "three",
-    "perpendicular"
+    "vertical",
+    "perpendicular",
+    "adjacent"
    ],
    "B2": [
-    "clockwise",
     "foot",
-    "slope",
-    "plane"
+    "hypotenuse",
+    "240",
+    "clockwise"
    ]
   },
   "key": {
@@ -20503,16 +20503,16 @@ window.QUESTION_BANK = [
   "question": "For a path going up a slope, the angle with the horizontal has the vertical height as the ___B1___ side and the horizontal distance as the ___B2___ side.",
   "blankOptions": {
    "B1": [
-    "three",
+    "perpendicular",
     "opposite",
-    "plane",
-    "240"
+    "cosine",
+    "foot"
    ],
    "B2": [
-    "foot",
-    "adjacent",
-    "three",
-    "slope"
+    "hypotenuse",
+    "perpendicular",
+    "240",
+    "adjacent"
    ]
   },
   "key": {
@@ -20532,10 +20532,10 @@ window.QUESTION_BANK = [
   "question": "The steepest line that can be drawn on a sloping face is called the line of greatest ___B1___.",
   "blankOptions": {
    "B1": [
-    "240",
+    "clockwise",
     "sine",
-    "slope",
-    "cosine"
+    "plane",
+    "slope"
    ]
   },
   "key": {
@@ -20554,16 +20554,16 @@ window.QUESTION_BANK = [
   "question": "A bearing is measured ___B1___ from north and is always written with ___B2___ figures.",
   "blankOptions": {
    "B1": [
-    "hypotenuse",
-    "slope",
     "clockwise",
-    "240"
+    "slope",
+    "adjacent",
+    "cosine"
    ],
    "B2": [
+    "triangle",
     "three",
-    "plane",
-    "foot",
-    "triangle"
+    "slope",
+    "plane"
    ]
   },
   "key": {
@@ -20583,10 +20583,10 @@ window.QUESTION_BANK = [
   "question": "If the bearing of B from A is 060 degrees, then the bearing of A from B is ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "cosine",
-    "240",
-    "adjacent",
-    "opposite"
+    "sine",
+    "hypotenuse",
+    "slope",
+    "240"
    ]
   },
   "key": {
@@ -20605,10 +20605,10 @@ window.QUESTION_BANK = [
   "question": "When a right-angled triangle can be solved with SOH-CAH-TOA, you should not overcomplicate it with the ___B1___ rule.",
   "blankOptions": {
    "B1": [
-    "sine",
-    "opposite",
-    "foot",
-    "triangle"
+    "vertical",
+    "three",
+    "adjacent",
+    "sine"
    ]
   },
   "key": {
@@ -21555,10 +21555,10 @@ window.QUESTION_BANK = [
   "question": "When you make a sequence of independent choices, the total number of outcomes is found by ___B1___ the number of options at each stage.",
   "blankOptions": {
    "B1": [
-    "order",
+    "always",
     "multiplying",
-    "permutation",
-    "n-r"
+    "not",
+    "r!"
    ]
   },
   "key": {
@@ -21577,16 +21577,16 @@ window.QUESTION_BANK = [
   "question": "The product \\( n \\times (n-1) \\times \\dots \\times 2 \\times 1 \\) is called n ___B1___, and by definition \\( 0! \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
+    "n-r",
+    "multiplying",
     "factorial",
-    "n+1",
-    "0",
-    "n-r"
+    "order"
    ],
    "B2": [
     "dividing",
-    "1",
-    "n-r",
-    "permutation"
+    "n!",
+    "order",
+    "1"
    ]
   },
   "key": {
@@ -21606,16 +21606,16 @@ window.QUESTION_BANK = [
   "question": "In a permutation the ___B1___ of the objects matters, but in a combination it does ___B2___.",
   "blankOptions": {
    "B1": [
-    "1",
+    "0",
     "order",
-    "dividing",
-    "permutation"
+    "1",
+    "n!"
    ],
    "B2": [
-    "not",
+    "r!",
+    "0",
     "factorial",
-    "1",
-    "combination"
+    "not"
    ]
   },
   "key": {
@@ -21635,10 +21635,10 @@ window.QUESTION_BANK = [
   "question": "In the permutation formula \\( {}^nP_r = \\frac{n!}{(n-r)!} \\), the denominator is the factorial of ___B1___.",
   "blankOptions": {
    "B1": [
-    "order",
-    "always",
+    "r!",
     "n-r",
-    "dividing"
+    "adding",
+    "multiplying"
    ]
   },
   "key": {
@@ -21657,10 +21657,10 @@ window.QUESTION_BANK = [
   "question": "Compared with \\( {}^nP_r \\), the combination \\( {}^nC_r \\) divides by an extra ___B1___ to cancel the repeated orderings.",
   "blankOptions": {
    "B1": [
-    "combination",
+    "0",
+    "multiplying",
     "r!",
-    "n-1",
-    "dividing"
+    "combination"
    ]
   },
   "key": {
@@ -21679,10 +21679,10 @@ window.QUESTION_BANK = [
   "question": "The number of distinct ways to seat n people around a circular table is ( ___B1___ )! because rotations are the same arrangement.",
   "blankOptions": {
    "B1": [
+    "dividing",
+    "n+1",
     "n-1",
-    "not",
-    "n!",
-    "adding"
+    "always"
    ]
   },
   "key": {
@@ -21701,10 +21701,10 @@ window.QUESTION_BANK = [
   "question": "Selecting a team of 4 from a squad of 11, where order does not matter, is counted with a ___B1___.",
   "blankOptions": {
    "B1": [
-    "r!",
-    "order",
-    "n-r",
-    "combination"
+    "1",
+    "0",
+    "combination",
+    "n!"
    ]
   },
   "key": {
@@ -21724,9 +21724,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "permutation",
-    "1",
-    "dividing",
-    "order"
+    "multiplying",
+    "n-r",
+    "0"
    ]
   },
   "key": {
@@ -22653,10 +22653,10 @@ window.QUESTION_BANK = [
   "question": "The expansion of \\( (a+b)^n \\) for a positive integer \\( n \\) has ___B1___ terms.",
   "blankOptions": {
    "B1": [
-    "n-1",
-    "4",
+    "n-r",
+    "2n",
     "n+1",
-    "memorised"
+    "4"
    ]
   },
   "key": {
@@ -22675,16 +22675,16 @@ window.QUESTION_BANK = [
   "question": "In the general term \\( {}^nC_r\\, a^{n-r} b^r \\), the power of \\( a \\) is ___B1___ and the power of \\( b \\) is ___B2___.",
   "blankOptions": {
    "B1": [
-    "0",
-    "given",
+    "n+1",
+    "3",
     "n-r",
-    "n-1"
+    "n"
    ],
    "B2": [
     "r",
-    "memorised",
     "n",
-    "3"
+    "Pascal's",
+    "2n"
    ]
   },
   "key": {
@@ -22704,10 +22704,10 @@ window.QUESTION_BANK = [
   "question": "The numbers in ___B1___ triangle give the binomial coefficients.",
   "blankOptions": {
    "B1": [
-    "provided",
     "Pascal's",
-    "3",
-    "given"
+    "0",
+    "given",
+    "n"
    ]
   },
   "key": {
@@ -22726,10 +22726,10 @@ window.QUESTION_BANK = [
   "question": "The binomial coefficient \\( {}^nC_r \\) and the binomial series are ___B1___ on the exam formula sheet, so you need not memorise them.",
   "blankOptions": {
    "B1": [
+    "n-r",
     "provided",
-    "1",
-    "0",
-    "n+1"
+    "4",
+    "given"
    ]
   },
   "key": {
@@ -22748,9 +22748,9 @@ window.QUESTION_BANK = [
   "question": "A term that is independent of \\( x \\) has \\( x \\) raised to the power ___B1___.",
   "blankOptions": {
    "B1": [
-    "2n",
+    "r",
+    "given",
     "0",
-    "memorised",
     "3"
    ]
   },
@@ -22770,10 +22770,10 @@ window.QUESTION_BANK = [
   "question": "In the expansion of \\( \\left(x + \\frac{1}{x}\\right)^8 \\) the constant term occurs when \\( r \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "n",
-    "4",
     "0",
-    "n-r"
+    "2n",
+    "Pascal's",
+    "4"
    ]
   },
   "key": {
@@ -22792,10 +22792,10 @@ window.QUESTION_BANK = [
   "question": "When expanding \\( (2+3x)^5 \\) the general term \\( {}^5C_r\\, 2^{5-r}(3x)^r \\) means the \\( 3 \\) must be raised to the power ___B1___.",
   "blankOptions": {
    "B1": [
-    "provided",
-    "n-1",
+    "Pascal's",
     "r",
-    "n-r"
+    "n+1",
+    "provided"
    ]
   },
   "key": {
@@ -22814,10 +22814,10 @@ window.QUESTION_BANK = [
   "question": "In every term of \\( (a+b)^n \\) the powers of \\( a \\) and \\( b \\) add up to ___B1___.",
   "blankOptions": {
    "B1": [
-    "n-r",
-    "n+1",
+    "n",
     "4",
-    "n"
+    "given",
+    "0"
    ]
   },
   "key": {
@@ -23778,16 +23778,16 @@ window.QUESTION_BANK = [
   "question": "A binomial distribution is written \\( X \\sim B(n,\\ p) \\), where \\( n \\) is the number of ___B1___ and \\( p \\) is the probability of ___B2___ on each one.",
   "blankOptions": {
    "B1": [
-    "trials",
-    "0.5",
     "1/6",
-    "625/1296"
+    "625/1296",
+    "trials",
+    "successes"
    ],
    "B2": [
+    "failure",
     "success",
-    "625/1296",
-    "n-x",
-    "constant"
+    "independent",
+    "671/1296"
    ]
   },
   "key": {
@@ -23807,16 +23807,16 @@ window.QUESTION_BANK = [
   "question": "For a binomial model the trials must be ___B1___ of each other and the probability \\( p \\) must stay ___B2___ throughout.",
   "blankOptions": {
    "B1": [
+    "625/1296",
     "independent",
-    "provided",
-    "x",
-    "failure"
+    "failure",
+    "memorised"
    ],
    "B2": [
-    "1/6",
     "constant",
-    "0.5",
-    "memorised"
+    "complement",
+    "failure",
+    "1/6"
    ]
   },
   "key": {
@@ -23836,10 +23836,10 @@ window.QUESTION_BANK = [
   "question": "The formula \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\) is ___B1___ on the exam formula sheet, so you do not have to memorise it.",
   "blankOptions": {
    "B1": [
-    "constant",
-    "independent",
-    "671/1296",
-    "provided"
+    "dependent",
+    "complement",
+    "provided",
+    "success"
    ]
   },
   "key": {
@@ -23859,8 +23859,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "failure",
-    "671/1296",
-    "x",
+    "independent",
+    "625/1296",
     "n-x"
    ]
   },
@@ -23880,10 +23880,10 @@ window.QUESTION_BANK = [
   "question": "To find the probability of at least one success you use \\( 1 - P(X=0) \\); this is called using the ___B1___.",
   "blankOptions": {
    "B1": [
-    "671/1296",
-    "dependent",
-    "complement",
-    "x"
+    "memorised",
+    "provided",
+    "625/1296",
+    "complement"
    ]
   },
   "key": {
@@ -23902,10 +23902,10 @@ window.QUESTION_BANK = [
   "question": "For four dice, \\( P(\\text{at least one 3}) = 1 - (5/6)^4 \\), which as an exact fraction is ___B1___.",
   "blankOptions": {
    "B1": [
-    "successes",
-    "671/1296",
-    "x",
-    "memorised"
+    "625/1296",
+    "dependent",
+    "memorised",
+    "671/1296"
    ]
   },
   "key": {
@@ -23924,10 +23924,10 @@ window.QUESTION_BANK = [
   "question": "For a fair coin the probability of a head on a single toss is \\( p \\) = ___B1___.",
   "blankOptions": {
    "B1": [
-    "provided",
     "0.5",
-    "constant",
-    "successes"
+    "complement",
+    "memorised",
+    "1/6"
    ]
   },
   "key": {
@@ -23946,10 +23946,10 @@ window.QUESTION_BANK = [
   "question": "Selecting items without replacement is not binomial because the trials are not ___B1___.",
   "blankOptions": {
    "B1": [
-    "625/1296",
+    "n-x",
+    "complement",
     "independent",
-    "dependent",
-    "x"
+    "trials"
    ]
   },
   "key": {
@@ -24909,15 +24909,15 @@ window.QUESTION_BANK = [
   "question": "Moving along the branches of a tree diagram you ___B1___ the probabilities; to combine several separate paths you ___B2___ them.",
   "blankOptions": {
    "B1": [
-    "outside",
+    "rectangle",
     "centre",
-    "circle",
-    "multiply"
+    "multiply",
+    "union"
    ],
    "B2": [
-    "change",
-    "circle",
-    "centre",
+    "probabilities",
+    "outside",
+    "counts",
     "add"
    ]
   },
@@ -24938,16 +24938,16 @@ window.QUESTION_BANK = [
   "question": "The people who are in neither set are written ___B1___ the circles but inside the ___B2___.",
   "blankOptions": {
    "B1": [
-    "counts",
-    "union",
-    "outside",
-    "change"
+    "outward",
+    "same",
+    "multiply",
+    "outside"
    ],
    "B2": [
+    "total",
     "rectangle",
-    "add",
     "change",
-    "counts"
+    "add"
    ]
   },
   "key": {
@@ -24968,14 +24968,14 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "probabilities",
-    "multiply",
-    "change",
-    "intersection"
+    "intersection",
+    "circle",
+    "same"
    ],
    "B2": [
-    "outside",
-    "inside",
-    "same",
+    "rectangle",
+    "counts",
+    "circle",
     "union"
    ]
   },
@@ -24996,16 +24996,16 @@ window.QUESTION_BANK = [
   "question": "When filling a three-set Venn diagram, start from the ___B1___ where all three sets overlap and work ___B2___.",
   "blankOptions": {
    "B1": [
+    "change",
+    "multiply",
     "centre",
-    "subtract",
-    "outside",
-    "union"
+    "inside"
    ],
    "B2": [
-    "subtract",
-    "union",
+    "intersection",
     "outward",
-    "probabilities"
+    "add",
+    "same"
    ]
   },
   "key": {
@@ -25025,16 +25025,16 @@ window.QUESTION_BANK = [
   "question": "With replacement the probabilities on the second set of branches are the ___B1___ as the first; without replacement they ___B2___.",
   "blankOptions": {
    "B1": [
-    "rectangle",
+    "circle",
     "inside",
-    "centre",
+    "union",
     "same"
    ],
    "B2": [
-    "total",
-    "outward",
-    "circle",
-    "change"
+    "centre",
+    "change",
+    "multiply",
+    "rectangle"
    ]
   },
   "key": {
@@ -25054,10 +25054,10 @@ window.QUESTION_BANK = [
   "question": "In a two-way table, each row and each column must add up to its ___B1___.",
   "blankOptions": {
    "B1": [
-    "multiply",
-    "change",
     "total",
-    "same"
+    "change",
+    "probabilities",
+    "subtract"
    ]
   },
   "key": {
@@ -25076,10 +25076,10 @@ window.QUESTION_BANK = [
   "question": "When a Venn question asks 'how many', put ___B1___ (not probabilities) in each region.",
   "blankOptions": {
    "B1": [
-    "centre",
     "counts",
-    "rectangle",
-    "change"
+    "centre",
+    "circle",
+    "same"
    ]
   },
   "key": {
@@ -25952,16 +25952,16 @@ window.QUESTION_BANK = [
   "question": "In the exponential function \\( y = k a^x \\), the number \\( a \\) is called the ___B1___, and the value of \\( y \\) when \\( x = 0 \\) is the ___B2___.",
   "blankOptions": {
    "B1": [
+    "decay",
     "base",
-    "gradient",
-    "0.96",
-    "negative"
+    "touches",
+    "linear"
    ],
    "B2": [
-    "constant",
-    "touches",
+    "linear",
     "y-intercept",
-    "positive"
+    "constant",
+    "a"
    ]
   },
   "key": {
@@ -25981,16 +25981,16 @@ window.QUESTION_BANK = [
   "question": "When \\( a > 1 \\) the graph shows exponential ___B1___; when \\( 0 < a < 1 \\) it shows exponential ___B2___.",
   "blankOptions": {
    "B1": [
+    "rate",
+    "1.04",
     "growth",
-    "touches",
-    "below",
-    "1.04"
+    "negative"
    ],
    "B2": [
-    "a",
-    "0",
-    "y-intercept",
-    "decay"
+    "decay",
+    "linear",
+    "positive",
+    "above"
    ]
   },
   "key": {
@@ -26010,16 +26010,16 @@ window.QUESTION_BANK = [
   "question": "The horizontal asymptote of \\( y = k a^x \\) is the line where \\( y \\) equals ___B1___, which the curve approaches but never ___B2___.",
   "blankOptions": {
    "B1": [
-    "crosses",
-    "a",
-    "decay",
-    "0"
+    "negative",
+    "below",
+    "0",
+    "linear"
    ],
    "B2": [
-    "rate",
-    "positive",
+    "base",
+    "negative",
     "touches",
-    "constant"
+    "0.96"
    ]
   },
   "key": {
@@ -26039,16 +26039,16 @@ window.QUESTION_BANK = [
   "question": "Since \\( a^x \\) is always positive and \\( k > 0 \\), the value of \\( y \\) is always ___B1___, so the curve stays ___B2___ the \\( x \\)-axis.",
   "blankOptions": {
    "B1": [
-    "a",
-    "positive",
-    "base",
-    "1.04"
+    "gradient",
+    "touches",
+    "linear",
+    "positive"
    ],
    "B2": [
-    "a",
-    "linear",
+    "touches",
+    "decay",
     "above",
-    "below"
+    "growth"
    ]
   },
   "key": {
@@ -26068,10 +26068,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( y = k a^x \\) always crosses the \\( y \\)-axis at the point whose \\( y \\)-coordinate equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "k",
     "0.96",
-    "a",
-    "positive"
+    "constant",
+    "k",
+    "touches"
    ]
   },
   "key": {
@@ -26090,10 +26090,10 @@ window.QUESTION_BANK = [
   "question": "A savings account of £500 growing at 4% each year is modelled by \\( y = 500 \\times a^x \\), where \\( a \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
+    "growth",
     "1.04",
-    "positive",
-    "gradient",
-    "linear"
+    "constant",
+    "crosses"
    ]
   },
   "key": {
@@ -26112,10 +26112,10 @@ window.QUESTION_BANK = [
   "question": "If \\( a = 1 \\) then \\( a^x = 1 \\) for every \\( x \\), so the graph is a ___B1___ horizontal line.",
   "blankOptions": {
    "B1": [
-    "decay",
+    "negative",
+    "positive",
     "constant",
-    "touches",
-    "linear"
+    "crosses"
    ]
   },
   "key": {
@@ -27074,10 +27074,10 @@ window.QUESTION_BANK = [
   "question": "A logarithm is the inverse of ___B1___: the statement \\( \\log_a x = y \\) means exactly the same as \\( a^y = x \\).",
   "blankOptions": {
    "B1": [
-    "logs",
     "10",
-    "multiplication",
-    "exponentiation"
+    "not",
+    "exponentiation",
+    "1"
    ]
   },
   "key": {
@@ -27097,15 +27097,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "0",
-    "separate",
     "subtraction",
-    "exponentiation"
+    "separate",
+    "power"
    ],
    "B2": [
-    "addition",
-    "multiplication",
+    "logs",
     "power",
-    "1"
+    "1",
+    "addition"
    ]
   },
   "key": {
@@ -27125,16 +27125,16 @@ window.QUESTION_BANK = [
   "question": "The product law turns a multiplication inside a log into an ___B1___ of two logs; the quotient law turns a division into a ___B2___.",
   "blankOptions": {
    "B1": [
-    "same",
+    "separate",
+    "power",
     "addition",
-    "multiplication",
-    "logs"
+    "exponentiation"
    ],
    "B2": [
-    "2",
+    "multiplication",
     "subtraction",
-    "exponentiation",
-    "index"
+    "logs",
+    "10"
    ]
   },
   "key": {
@@ -27155,9 +27155,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "power",
-    "logs",
-    "0",
-    "subtraction"
+    "index",
+    "10",
+    "logs"
    ]
   },
   "key": {
@@ -27176,10 +27176,10 @@ window.QUESTION_BANK = [
   "question": "Writing \\( \\log 4 + \\log 25 \\) as a single number gives \\( \\log 100 \\), which equals ___B1___.",
   "blankOptions": {
    "B1": [
+    "not",
     "2",
-    "10",
-    "addition",
-    "0"
+    "index",
+    "1"
    ]
   },
   "key": {
@@ -27198,10 +27198,10 @@ window.QUESTION_BANK = [
   "question": "To make \\( x \\) the subject of \\( 3^x = 10 \\), take ___B1___ of both sides.",
   "blankOptions": {
    "B1": [
-    "0",
-    "1",
-    "multiplication",
-    "logs"
+    "logs",
+    "separate",
+    "exponentiation",
+    "index"
    ]
   },
   "key": {
@@ -27221,9 +27221,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "not",
-    "addition",
-    "power",
-    "10"
+    "2",
+    "subtraction",
+    "power"
    ]
   },
   "key": {
@@ -27242,10 +27242,10 @@ window.QUESTION_BANK = [
   "question": "In the exam, write each log-law step on a ___B1___ line so that partial credit survives an error.",
   "blankOptions": {
    "B1": [
-    "power",
-    "separate",
     "1",
-    "2"
+    "separate",
+    "subtraction",
+    "multiplication"
    ]
   },
   "key": {
@@ -28152,22 +28152,22 @@ window.QUESTION_BANK = [
   "question": "To solve \\( a^x = b \\) you take the ___B1___ of both sides. Using the power law this gives \\( x\\log a = \\log b \\), so \\( x \\) equals log ___B2___ divided by log ___B3___.",
   "blankOptions": {
    "B1": [
+    "isolate",
     "logarithm",
-    "decimal",
-    "less",
-    "5"
+    "first",
+    "exact"
    ],
    "B2": [
-    "doubling",
-    "greater",
     "b",
-    "decimal"
+    "first",
+    "subtract",
+    "5"
    ],
    "B3": [
     "half-life",
-    "last",
+    "3.91",
     "a",
-    "isolate"
+    "subtract"
    ]
   },
   "key": {
@@ -28188,16 +28188,16 @@ window.QUESTION_BANK = [
   "question": "Before solving \\( 5\\times 2^x = 3 \\) it is cleanest to ___B1___ the power by dividing both sides by ___B2___.",
   "blankOptions": {
    "B1": [
-    "half-life",
     "isolate",
-    "less",
-    "first"
+    "half-life",
+    "last",
+    "less"
    ],
    "B2": [
-    "less",
-    "last",
-    "subtract",
-    "5"
+    "first",
+    "greater",
+    "5",
+    "last"
    ]
   },
   "key": {
@@ -28217,16 +28217,16 @@ window.QUESTION_BANK = [
   "question": "In the model \\( A = A_0 a^t \\), there is growth when \\( a \\) is ___B1___ than 1 and decay when \\( a \\) lies between 0 and ___B2___.",
   "blankOptions": {
    "B1": [
-    "isolate",
-    "decimal",
+    "b",
+    "doubling",
     "greater",
-    "round"
+    "half-life"
    ],
    "B2": [
-    "1",
-    "last",
-    "a",
-    "less"
+    "3.91",
+    "5",
+    "subtract",
+    "1"
    ]
   },
   "key": {
@@ -28246,10 +28246,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ of a decaying quantity is the time it takes to fall to half its value.",
   "blankOptions": {
    "B1": [
+    "a",
     "half-life",
-    "logarithm",
-    "b",
-    "greater"
+    "round",
+    "exact"
    ]
   },
   "key": {
@@ -28268,10 +28268,10 @@ window.QUESTION_BANK = [
   "question": "For a growing quantity, the ___B1___ time is how long it takes to become twice as large.",
   "blankOptions": {
    "B1": [
-    "5",
-    "greater",
     "doubling",
-    "a"
+    "round",
+    "b",
+    "3.91"
    ]
   },
   "key": {
@@ -28290,16 +28290,16 @@ window.QUESTION_BANK = [
   "question": "Keep full calculator accuracy and only ___B1___ your answer at the very ___B2___ step.",
   "blankOptions": {
    "B1": [
-    "isolate",
+    "a",
+    "first",
     "round",
-    "1",
-    "logarithm"
+    "b"
    ],
    "B2": [
+    "3.91",
     "last",
-    "5",
-    "exact",
-    "greater"
+    "doubling",
+    "logarithm"
    ]
   },
   "key": {
@@ -28319,10 +28319,10 @@ window.QUESTION_BANK = [
   "question": "Solving \\( 2^x = 15 \\) gives \\( x = \\frac{\\log 15}{\\log 2} \\), which is ___B1___ to 3 significant figures.",
   "blankOptions": {
    "B1": [
-    "subtract",
-    "a",
-    "3.91",
-    "exact"
+    "exact",
+    "1",
+    "5",
+    "3.91"
    ]
   },
   "key": {
@@ -28341,10 +28341,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ tells you to leave the answer as a log or surd rather than a decimal.",
   "blankOptions": {
    "B1": [
+    "last",
+    "1",
     "exact",
-    "doubling",
-    "3.91",
-    "less"
+    "b"
    ]
   },
   "key": {
@@ -29425,16 +29425,16 @@ window.QUESTION_BANK = [
   "question": "Taking logs of \\( y = ka^x \\) gives \\( \\log y = x\\log a + \\log k \\). Plotting \\( \\log y \\) against \\( x \\), the gradient equals ___B1___ and the intercept equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "intercept",
     "log a",
-    "10",
-    "m"
+    "anti-log",
+    "log x",
+    "intercept"
    ],
    "B2": [
-    "intercept",
-    "n",
+    "linear",
     "log k",
-    "antilog"
+    "anti-log",
+    "n"
    ]
   },
   "key": {
@@ -29454,10 +29454,10 @@ window.QUESTION_BANK = [
   "question": "For the power law \\( y = kx^n \\) you take logs of both sides and plot \\( \\log y \\) against ___B1___.",
   "blankOptions": {
    "B1": [
-    "non-linear",
-    "log x",
-    "hence",
-    "log a"
+    "m",
+    "gradient",
+    "antilog",
+    "log x"
    ]
   },
   "key": {
@@ -29476,10 +29476,10 @@ window.QUESTION_BANK = [
   "question": "The gradient you read off is really \\( \\log a \\), so to recover \\( a \\) you must ___B1___ it, giving \\( a = 10 \\) to that power.",
   "blankOptions": {
    "B1": [
-    "10",
-    "n",
-    "anti-log",
-    "intercept"
+    "intercept",
+    "antilog",
+    "gradient",
+    "anti-log"
    ]
   },
   "key": {
@@ -29499,15 +29499,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "m",
-    "hence",
-    "anti-log",
-    "log a"
-   ],
-   "B2": [
     "intercept",
     "log k",
-    "antilog",
-    "c"
+    "hence"
+   ],
+   "B2": [
+    "linear",
+    "log k",
+    "c",
+    "anti-log"
    ]
   },
   "key": {
@@ -29527,10 +29527,10 @@ window.QUESTION_BANK = [
   "question": "A log-transformed plot only earns the accuracy marks if the axis scale is ___B1___.",
   "blankOptions": {
    "B1": [
-    "m",
-    "gradient",
+    "linear",
+    "hence",
     "10",
-    "linear"
+    "c"
    ]
   },
   "key": {
@@ -29549,10 +29549,10 @@ window.QUESTION_BANK = [
   "question": "For \\( x = ka^n \\) you plot \\( \\log x \\) against \\( n \\); to find \\( a \\) you raise 10 to the power of the ___B1___.",
   "blankOptions": {
    "B1": [
-    "10",
+    "n",
+    "anti-log",
     "gradient",
-    "m",
-    "log k"
+    "antilog"
    ]
   },
   "key": {
@@ -29571,10 +29571,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ tells you to use your graph, not the calculator's equation solver.",
   "blankOptions": {
    "B1": [
-    "antilog",
-    "gradient",
-    "10",
-    "hence"
+    "m",
+    "non-linear",
+    "hence",
+    "antilog"
    ]
   },
   "key": {
@@ -29593,9 +29593,9 @@ window.QUESTION_BANK = [
   "question": "Expanding correctly, \\( \\log(ka^n) = \\log k + n\\log a \\); the power ___B1___ multiplies only the log of \\( a \\).",
   "blankOptions": {
    "B1": [
-    "10",
-    "intercept",
     "hence",
+    "log k",
+    "10",
     "n"
    ]
   },
@@ -29850,6 +29850,3338 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 3,
    "explain": "“Linearised \\( T - 20 = A\\times 2^{-t/b} \\)” means: \\( \\log(T-20) = \\log A - \\frac{\\log 2}{b}t \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:exam:a3560c91",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "14 (a)(i)",
+  "question": "<p>Explain why he should not use the coordinates at \\( x = 1.2 \\) and \\( x = 1.8 \\) to obtain a reasonable estimate for the gradient of the curve at \\( x = 1.4 \\).</p>",
+  "caseStudy": "<p>Ben wishes to estimate the gradient of a curve at the point where \\( x = 1.4 \\). He calculates the following points on the curve.</p>\n          <table class=\"worked\"><tr><td>\\( x \\)</td><td>1.2</td><td>1.4</td><td>1.8</td></tr>\n          <tr><td>\\( y \\)</td><td>1.0732</td><td>1.5358</td><td>3.1447</td></tr></table>",
+  "hint": "Is \\( 1.4 \\) the midpoint of \\( 1.2 \\) and \\( 1.8 \\)?",
+  "starter": "The intervals either side of \\( x = 1.4 \\) are…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>\n              <li><strong>B1</strong> — because the intervals are unequal, e.g. \\( 1.4 \\) is not the midpoint of \\( 1.2 \\) and \\( 1.8 \\), so this would estimate the gradient at \\( 1.5 \\). (Anything implying lack of symmetry.)</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Any comment implying the points are not symmetric about \\( x = 1.4 \\) earns the mark.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>A majority of candidates knew that the points either side of the middle point had to be an equal distance.</li>\n            </ul></div>",
+   "modelAnswer": "The point \\( x = 1.4 \\) is not the midpoint of \\( 1.2 \\) and \\( 1.8 \\) (the midpoint is \\( 1.5 \\)), so the chord across those points is not symmetric about \\( 1.4 \\) and would estimate the gradient at the wrong place."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:exam:f17753d1",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "14 (a)(ii)",
+  "question": "<p>Calculate an estimate for the gradient of the curve at \\( x = 1.4 \\) by using the coordinates at \\( x = 1.4 \\) and \\( x = 1.8 \\).</p>",
+  "caseStudy": "<p>Ben wishes to estimate the gradient of a curve at the point where \\( x = 1.4 \\). He calculates the following points on the curve.</p>\n          <table class=\"worked\"><tr><td>\\( x \\)</td><td>1.2</td><td>1.4</td><td>1.8</td></tr>\n          <tr><td>\\( y \\)</td><td>1.0732</td><td>1.5358</td><td>3.1447</td></tr></table>",
+  "hint": "Use \\( \\dfrac{y_2 - y_1}{x_2 - x_1} \\) with the two given points.",
+  "starter": "Gradient \\( \\approx \\dfrac{3.1447 - 1.5358}{1.8 - 1.4} = \\ldots \\)",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — \\( \\dfrac{3.1447 - 1.5358}{1.8 - 1.4} \\) (difference quotient with the correct values).</li>\n              <li><strong>A1</strong> — \\( 4.02 \\) (awrt).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The M mark is for a correct difference quotient; the A mark for the value \\( 4.02 \\) to a sensible accuracy.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>This calculation was usually done well.</li>\n            </ul></div>",
+   "modelAnswer": "Gradient \\( \\approx \\dfrac{3.1447 - 1.5358}{1.8 - 1.4} = \\dfrac{1.6089}{0.4} = 4.02 \\) (to 2 d.p.)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:exam:f893614b",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "14 (a)(iii)",
+  "question": "<p>Calculate an estimate for the gradient of the curve at \\( x = 1.4 \\) by using the coordinates at \\( x = 1.2 \\) and \\( x = 1.4 \\).</p>",
+  "caseStudy": "<p>Ben wishes to estimate the gradient of a curve at the point where \\( x = 1.4 \\). He calculates the following points on the curve.</p>\n          <table class=\"worked\"><tr><td>\\( x \\)</td><td>1.2</td><td>1.4</td><td>1.8</td></tr>\n          <tr><td>\\( y \\)</td><td>1.0732</td><td>1.5358</td><td>3.1447</td></tr></table>",
+  "hint": "Same difference quotient, now with the points behind \\( x = 1.4 \\).",
+  "starter": "Gradient \\( \\approx \\dfrac{1.5358 - 1.0732}{1.4 - 1.2} = \\ldots \\)",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>\n              <li><strong>B1</strong> — \\( 2.31 \\) (awrt), from \\( \\dfrac{1.5358 - 1.0732}{1.4 - 1.2} \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The single mark is for the correct value to a sensible accuracy.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The correct value was also usually seen.</li>\n            </ul></div>",
+   "modelAnswer": "Gradient \\( \\approx \\dfrac{1.5358 - 1.0732}{1.4 - 1.2} = \\dfrac{0.4626}{0.2} = 2.31 \\) (to 2 d.p.)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:exam:cf7c4216",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "14 (b)",
+  "question": "<p>Calculate a reasonable estimate of the gradient of this curve when \\( x = 1.4 \\).</p>",
+  "caseStudy": "<p>Mia wishes to estimate the gradient of another curve at the point where \\( x = 1.4 \\). She calculates the following points on this curve.</p>\n          <table class=\"worked\"><tr><td>\\( x \\)</td><td>1.2</td><td>1.4</td><td>1.6</td></tr>\n          <tr><td>\\( y \\)</td><td>0.6899</td><td>0.9518</td><td>1.3132</td></tr></table>",
+  "hint": "Mia's data is symmetric about \\( x = 1.4 \\) — use the central (outside) values.",
+  "starter": "Using the central difference: \\( \\dfrac{1.3132 - 0.6899}{1.6 - 1.2} = \\ldots \\)",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO3, AO1, AO1)</h5><ul>\n              <li><strong>M1</strong> — using the central difference method: \\( \\dfrac{1.3132 - 0.6899}{1.6 - 1.2} \\).</li>\n              <li><strong>A1</strong> — correct values substituted (\\( 0.6233 / 0.4 \\)).</li>\n              <li><strong>A1</strong> — \\( 1.56 \\) (awrt).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The central (symmetric) difference is expected because \\( x = 1.4 \\) is the midpoint of \\( 1.2 \\) and \\( 1.6 \\).</li>\n              <li><strong>Alternative method:</strong> take the backward difference \\( \\dfrac{0.9518 - 0.6899}{0.2} = 1.31 \\) and the forward difference \\( \\dfrac{1.3132 - 0.9518}{0.2} = 1.81 \\), then average them (\\( \\approx 1.56 \\)) — M1 for either one-sided difference, A1 for a correct value, A1 for the averaged answer. If the central method is present, mark whichever route earns the most.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most candidates knew that this was a situation where the outside values could be used and did so effectively; others averaged the upper and lower differences, and a few averaged all three.</li>\n            </ul></div>",
+   "modelAnswer": "Since \\( x = 1.4 \\) is the midpoint of \\( 1.2 \\) and \\( 1.6 \\), use the central difference: \\( \\dfrac{1.3132 - 0.6899}{1.6 - 1.2} = \\dfrac{0.6233}{0.4} = 1.56 \\) (to 2 d.p.)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:mcq:fb0e52b6",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Differentiate \\( y = x^4 \\).",
+  "options": [
+   "\\( 4x^3 \\)",
+   "\\( 4x^4 \\)",
+   "\\( x^3 \\)",
+   "\\( 4x^5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Multiply by the power (4) and reduce the power by 1: \\( 4x^{4-1} = 4x^3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:mcq:a868484a",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Differentiate \\( y = 6x^2 \\).",
+  "options": [
+   "\\( 12x \\)",
+   "\\( 6x \\)",
+   "\\( 12x^2 \\)",
+   "\\( 3x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Constant-multiple rule: \\( 6 \\times 2x = 12x \\). A common slip is \\( 6x \\) (forgetting to multiply by the power 2)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:mcq:2bf74edb",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Differentiate \\( y = 7x \\).",
+  "options": [
+   "\\( 7 \\)",
+   "\\( 7x \\)",
+   "\\( 0 \\)",
+   "\\( 1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 7x = 7x^1 \\to 7 \\times 1 \\times x^0 = 7 \\). The gradient of the straight line \\( y = 7x \\) is 7 everywhere."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:mcq:e70fdf50",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Differentiate the constant \\( y = 9 \\).",
+  "options": [
+   "\\( 0 \\)",
+   "\\( 9 \\)",
+   "\\( 9x \\)",
+   "\\( 1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A constant is a horizontal line with gradient 0, so its derivative is 0 — not the constant itself."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:mcq:c2bfb37e",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Differentiate \\( y = x^3 - 4x^2 \\).",
+  "options": [
+   "\\( 3x^2 - 8x \\)",
+   "\\( 3x^2 - 4x \\)",
+   "\\( x^2 - 8x \\)",
+   "\\( 3x^3 - 8x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x^3 \\to 3x^2 \\) and \\( -4x^2 \\to -8x \\), so \\( 3x^2 - 8x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:mcq:e8dca320",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find \\( \\frac{dy}{dx} \\) for \\( y = 2x^4 \\).",
+  "options": [
+   "\\( 8x^3 \\)",
+   "\\( 8x^4 \\)",
+   "\\( 2x^3 \\)",
+   "\\( 6x^3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 2 \\times 4x^3 = 8x^3 \\); reduce the power by 1 and multiply by it."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:mcq:b81a3b9a",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find \\( \\frac{dy}{dx} \\) for \\( y = x^5 - 3x^2 + 8 \\).",
+  "options": [
+   "\\( 5x^4 - 6x \\)",
+   "\\( 5x^4 - 6x + 8 \\)",
+   "\\( 5x^4 - 3x \\)",
+   "\\( 5x^4 - 6x + 1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x^5 \\to 5x^4 \\), \\( -3x^2 \\to -6x \\), and the constant \\( +8 \\to 0 \\), so \\( 5x^4 - 6x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:mcq:c35eceec",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the gradient of \\( y = x^2 \\) at the point where \\( x = 4 \\)?",
+  "options": [
+   "\\( 8 \\)",
+   "\\( 16 \\)",
+   "\\( 4 \\)",
+   "\\( 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} = 2x \\); substitute \\( x = 4 \\) to get \\( 8 \\). \\( 16 \\) is the y-value, not the gradient."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:mcq:46e87268",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( y = x^3 - 3x \\), where is the gradient equal to 0?",
+  "options": [
+   "At \\( x = 1 \\) and \\( x = -1 \\)",
+   "At \\( x = 0 \\) only",
+   "At \\( x = 3 \\)",
+   "Nowhere"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} = 3x^2 - 3 = 0 \\Rightarrow x^2 = 1 \\Rightarrow x = \\pm 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:mcq:9efa2885",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does \\( \\frac{dy}{dx} \\) represent?",
+  "options": [
+   "The gradient of the curve (and of its tangent) at a point",
+   "The \\( y \\)-value of the curve",
+   "The area under the curve",
+   "The \\( x \\)-intercept of the curve"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The derivative is the gradient function: the gradient of the curve, equal to the gradient of the tangent and the rate of change of \\( y \\) with \\( x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:mcq:4982ca40",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student estimates a gradient from a table using points on both sides of \\( x = 2 \\). This is called a…",
+  "options": [
+   "central difference",
+   "forward difference",
+   "backward difference",
+   "tangent difference"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Using symmetric points either side of the target is the central difference — usually the most accurate."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:mcq:6564d2e8",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "You have \\( y \\)-values at \\( x = 5, 6, 7 \\). Which gives the best estimate of the gradient at \\( x = 6 \\)?",
+  "options": [
+   "Central: \\( \\frac{y(7) - y(5)}{7 - 5} \\)",
+   "Forward: \\( \\frac{y(7) - y(6)}{7 - 6} \\)",
+   "Backward: \\( \\frac{y(6) - y(5)}{6 - 5} \\)",
+   "Any of them are equally accurate"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x = 6 \\) is the midpoint of 5 and 7, so the central difference is normally the most accurate."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:tf:16ba7703",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The rule for differentiating a power is \\( \\frac{d}{dx}(x^n) = n\\,x^{n-1} \\).",
+  "key": {
+   "answer": true,
+   "explain": "Multiply by the power \\( n \\) and reduce the power by 1 — the rule every part of this topic rests on."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:tf:99b0f815",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The derivative of a constant is the constant itself.",
+  "key": {
+   "answer": false,
+   "explain": "A constant is a horizontal line with gradient 0, so its derivative is 0 — it disappears."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:tf:31b57eba",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\frac{dy}{dx} \\) gives the gradient of the tangent to the curve at a point.",
+  "key": {
+   "answer": true,
+   "explain": "The derivative is the gradient function: the curve's gradient there, equal to the tangent's gradient and the rate of change."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:tf:b352a1a2",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Differentiating \\( 5x^3 \\) gives \\( 15x^2 \\).",
+  "key": {
+   "answer": true,
+   "explain": "Constant-multiple rule: \\( 5 \\times 3x^2 = 15x^2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:tf:10d71ffb",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The gradient of a chord equals the gradient of the tangent for any value of \\( h \\).",
+  "key": {
+   "answer": false,
+   "explain": "They are only equal in the limit as \\( h \\to 0 \\); for a finite \\( h \\) the chord gradient is just an estimate."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:tf:317210c2",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A central difference is usually more accurate than a forward difference over the same interval.",
+  "key": {
+   "answer": true,
+   "explain": "Symmetric points either side of the target let the errors above and below partly cancel."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:tf:e17e711e",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Differentiating \\( 8x \\) gives \\( 8 \\).",
+  "key": {
+   "answer": true,
+   "explain": "\\( 8x = 8x^1 \\to 8 \\times 1 \\times x^0 = 8 \\): the gradient of the line \\( y = 8x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:tf:a0561177",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The gradient function of \\( y = x^2 + 7 \\) is \\( 2x + 7 \\).",
+  "key": {
+   "answer": false,
+   "explain": "The constant \\( +7 \\) differentiates to 0, so \\( \\frac{dy}{dx} = 2x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:learn:3f27e329",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is the gradient function?",
+  "reading": "<p>The gradient of a straight line is fixed, but the gradient of a <strong>curve</strong> keeps changing as you move along it. The <strong>gradient function</strong> is a new function that gives the gradient of the curve at <em>any</em> point.</p>\n            <ul>\n              <li>If \\( y \\) is a function of \\( x \\), its gradient function is written \\( \\frac{dy}{dx} \\) (say \"dee y by dee x\") or, in function notation, \\( \\text{f}'(x) \\) (say \"f dashed of x\").</li>\n              <li>The process of finding it is called <strong>differentiation</strong>.</li>\n              <li>The value of \\( \\frac{dy}{dx} \\) at a point is <strong>all four of the same thing</strong>: the gradient of the curve there, the gradient of the <strong>tangent</strong> at that point, the <strong>rate of change</strong> of \\( y \\) with respect to \\( x \\), and the number you would get from a perfect chord estimate.</li>\n              <li>A <strong>positive</strong> \\( \\frac{dy}{dx} \\) means the curve is going up; <strong>negative</strong> means going down; <strong>zero</strong> means momentarily flat.</li>\n            </ul>\n            <p>So \"find the gradient of the curve at \\( x = 2 \\)\" always means: differentiate, then substitute \\( x = 2 \\).</p>",
+  "question": "The value of \\( \\frac{dy}{dx} \\) at a point is the gradient of the…",
+  "options": [
+   "tangent to the curve at that point",
+   "y-axis",
+   "chord across the whole curve",
+   "x-axis"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} \\) gives the gradient of the curve — equivalently the gradient of the tangent line that just touches the curve at that point."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:learn:fafc3a35",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you differentiate a power of x?",
+  "reading": "<p>The single rule the whole topic rests on — and one you <strong>MUST MEMORISE</strong> (it is <em>not</em> on the formula sheet):</p>\n            <p>\\[ \\frac{d}{dx}\\left(x^n\\right) = n\\,x^{n-1}. \\]</p>\n            <p>In words: <strong>multiply by the power, then reduce the power by 1</strong>.</p>\n            <p><strong>Worked example — differentiate \\( y = x^5 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. The power is \\( n = 5 \\). Multiply by 5: \\( 5x^5 \\).</td></tr>\n              <tr><td>2. Reduce the power by 1: \\( 5 \\to 5x^{5-1} \\).</td></tr>\n              <tr><td>3. So \\[ \\frac{dy}{dx} = 5x^4. \\]</td></tr>\n            </table>\n            <p><strong>Guardrail:</strong> in this qualification \\( n \\) is always a <em>non-negative whole number</em> — you never differentiate a fraction, a surd, a trig function, or \\( a^x \\). Those are A-level.</p>",
+  "question": "Differentiate \\( y = x^3 \\).",
+  "options": [
+   "\\( 3x^2 \\)",
+   "\\( 3x^3 \\)",
+   "\\( x^2 \\)",
+   "\\( 3x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Multiply by the power (3) and reduce the power by 1: \\( 3x^{3-1} = 3x^2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:learn:641633a2",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you differentiate a whole polynomial?",
+  "reading": "<p>Two extra rules let you differentiate any polynomial term by term.</p>\n            <ul>\n              <li><strong>Constant-multiple rule:</strong> a number multiplying \\( x^n \\) stays as a factor — e.g. \\( \\frac{d}{dx}(6x^2) = 6 \\times 2x = 12x \\).</li>\n              <li><strong>Sum rule:</strong> differentiate each term separately and add the results.</li>\n              <li><strong>The derivative of a constant is 0.</strong> A constant term (like \\( -2 \\)) is a horizontal line — its gradient is zero — so it simply disappears.</li>\n            </ul>\n            <p><strong>Worked example — differentiate \\( y = 3x^4 - 5x^2 + 7x - 2 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( 3x^4 \\to 3 \\times 4x^3 = 12x^3 \\).</td></tr>\n              <tr><td>2. \\( -5x^2 \\to -5 \\times 2x = -10x \\).</td></tr>\n              <tr><td>3. \\( 7x \\to 7 \\) (since \\( 7x = 7x^1 \\to 7x^0 = 7 \\)).</td></tr>\n              <tr><td>4. \\( -2 \\to 0 \\) (constant).</td></tr>\n              <tr><td>5. So \\[ \\frac{dy}{dx} = 12x^3 - 10x + 7. \\]</td></tr>\n            </table>",
+  "question": "Differentiate \\( y = 5x^3 + 2x - 6 \\).",
+  "options": [
+   "\\( 15x^2 + 2 \\)",
+   "\\( 15x^2 + 2 - 6 \\)",
+   "\\( 15x^2 + 2x \\)",
+   "\\( 5x^2 + 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 5x^3 \\to 15x^2 \\), \\( 2x \\to 2 \\), and the constant \\( -6 \\to 0 \\), so \\( 15x^2 + 2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:learn:458b61a4",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the gradient at a particular point?",
+  "reading": "<p>The gradient function tells you the gradient <em>everywhere</em>. To get the gradient at one specific point, <strong>substitute that \\( x \\)-value into \\( \\frac{dy}{dx} \\)</strong>.</p>\n            <p><strong>Worked example — find the gradient of \\( y = x^3 - 2x \\) at the point where \\( x = 2 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Differentiate: \\( \\frac{dy}{dx} = 3x^2 - 2 \\).</td></tr>\n              <tr><td>2. Substitute \\( x = 2 \\): \\( 3(2)^2 - 2 = 3 \\times 4 - 2 = 10 \\).</td></tr>\n              <tr><td>3. So the gradient of the curve at \\( x = 2 \\) is \\( 10 \\).</td></tr>\n            </table>\n            <p>This is exactly the gradient of the tangent to the curve at that point — the idea you build on in 8.2 to find the equation of a tangent.</p>",
+  "question": "For \\( y = x^2 \\), what is the gradient at \\( x = 4 \\)?",
+  "options": [
+   "\\( 8 \\)",
+   "\\( 16 \\)",
+   "\\( 4 \\)",
+   "\\( 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} = 2x \\); at \\( x = 4 \\) this is \\( 2 \\times 4 = 8 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:learn:794fbfb1",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How can a chord estimate the gradient of a tangent?",
+  "reading": "<p>Before differentiation, you can estimate a gradient numerically. A <strong>chord</strong> joins two points on the curve; a <strong>tangent</strong> just touches it at one point. As the second point slides towards the first — the gap \\( h \\to 0 \\) — <strong>the gradient of the chord approaches the gradient of the tangent</strong>.</p>\n            <svg viewBox=\"0 0 360 260\" width=\"100%\" style=\"max-width:420px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"A curve with a tangent at point P and a chord from P to a nearby point Q; as the horizontal gap h shrinks, the chord approaches the tangent\">\n              <line x1=\"50\" y1=\"30\" x2=\"50\" y2=\"228\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"40\" y1=\"220\" x2=\"340\" y2=\"220\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"50,30 46,39 54,39\" fill=\"currentColor\"/>\n              <polygon points=\"340,220 331,216 331,224\" fill=\"currentColor\"/>\n              <polyline points=\"60,205 80,204.1 100,201.3 120,196.7 140,190.3 160,182.1 180,172 200,160.1 220,146.3 240,130.7 260,113.3 280,94 300,72.9 320,50\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <line x1=\"130\" y1=\"199.5\" x2=\"245\" y2=\"136.2\" stroke=\"currentColor\" stroke-width=\"1.6\"/>\n              <line x1=\"180\" y1=\"172\" x2=\"260\" y2=\"113.3\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-dasharray=\"5 4\"/>\n              <line x1=\"180\" y1=\"172\" x2=\"180\" y2=\"216\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-dasharray=\"2 3\" stroke-opacity=\"0.7\"/>\n              <line x1=\"260\" y1=\"113.3\" x2=\"260\" y2=\"216\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-dasharray=\"2 3\" stroke-opacity=\"0.7\"/>\n              <line x1=\"180\" y1=\"212\" x2=\"260\" y2=\"212\" stroke=\"currentColor\" stroke-width=\"1\"/>\n              <circle cx=\"180\" cy=\"172\" r=\"3.6\" fill=\"currentColor\"/>\n              <circle cx=\"260\" cy=\"113.3\" r=\"3.6\" fill=\"currentColor\"/>\n              <g font-size=\"12\" fill=\"currentColor\">\n                <text x=\"168\" y=\"169\">P</text>\n                <text x=\"266\" y=\"112\">Q</text>\n                <text x=\"214\" y=\"209\" text-anchor=\"middle\">h</text>\n                <text x=\"250\" y=\"150\">chord</text>\n                <text x=\"120\" y=\"196\">tangent</text>\n                <text x=\"330\" y=\"216\" text-anchor=\"end\">x</text>\n                <text x=\"56\" y=\"40\">y</text>\n              </g>\n            </svg>\n            <p><strong>Worked example — estimate the gradient of \\( y = x^2 \\) at \\( x = 3 \\)</strong> (the true value is \\( 6 \\), since \\( \\frac{dy}{dx} = 2x \\)):</p>\n            <table class=\"worked\">\n              <tr><td>Chord gradient \\( = \\dfrac{(3+h)^2 - 3^2}{h} \\).</td></tr>\n              <tr><td>\\( h = 1 \\): \\( \\dfrac{16 - 9}{1} = 7 \\).</td></tr>\n              <tr><td>\\( h = 0.5 \\): \\( \\dfrac{12.25 - 9}{0.5} = 6.5 \\).</td></tr>\n              <tr><td>\\( h = 0.1 \\): \\( \\dfrac{9.61 - 9}{0.1} = 6.1 \\).</td></tr>\n              <tr><td>\\( h = 0.01 \\): \\( \\dfrac{9.0601 - 9}{0.01} = 6.01 \\).</td></tr>\n            </table>\n            <p>The estimates close in on \\( 6 \\) — the tangent gradient — as \\( h \\) shrinks.</p>",
+  "question": "As the interval \\( h \\to 0 \\), the gradient of the chord approaches the gradient of the…",
+  "options": [
+   "tangent at the point",
+   "y-axis",
+   "x-axis",
+   "whole curve on average"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Shrinking the gap makes the two points almost coincide, so the chord lines up with the tangent — that is the gradient at the point."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:learn:f94a48df",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you get a better numerical estimate? (forward, backward, central)",
+  "reading": "<p>When you only have a table of values, you estimate a gradient with a <strong>finite difference</strong> \\( \\dfrac{y_2 - y_1}{x_2 - x_1} \\). There are three ways to pick the two points:</p>\n            <ul>\n              <li><strong>Forward difference</strong> — use the point and the next one <em>ahead</em>.</li>\n              <li><strong>Backward difference</strong> — use the point and the one <em>behind</em>.</li>\n              <li><strong>Central difference</strong> — use the points <em>on either side</em>, so your point is the <strong>midpoint</strong>. This is normally the <strong>most accurate</strong> because the errors above and below tend to cancel.</li>\n            </ul>\n            <p><strong>Worked example — estimate the gradient of \\( y = x^2 \\) at \\( x = 3 \\) using values at \\( x = 2.9,\\ 3,\\ 3.1 \\)</strong> (so \\( y = 8.41,\\ 9,\\ 9.61 \\)):</p>\n            <table class=\"worked\">\n              <tr><td>Forward: \\( \\dfrac{9.61 - 9}{3.1 - 3} = \\dfrac{0.61}{0.1} = 6.1 \\).</td></tr>\n              <tr><td>Backward: \\( \\dfrac{9 - 8.41}{3 - 2.9} = \\dfrac{0.59}{0.1} = 5.9 \\).</td></tr>\n              <tr><td>Central: \\( \\dfrac{9.61 - 8.41}{3.1 - 2.9} = \\dfrac{1.2}{0.2} = 6.0 \\).</td></tr>\n            </table>\n            <p>The central estimate lands exactly on the true value \\( 6 \\). <strong>Two ways to improve any estimate (NM5):</strong> use a <strong>smaller interval</strong>, and use a <strong>symmetric (central)</strong> pair of points. Warning: if your point is <em>not</em> the midpoint of the two \\( x \\)-values, a \"central-looking\" calculation actually estimates the gradient somewhere else.</p>",
+  "question": "You have values at \\( x = 1, 2, 3 \\) and want the gradient at \\( x = 2 \\). Which is most accurate?",
+  "options": [
+   "Central: use \\( x = 1 \\) and \\( x = 3 \\)",
+   "Forward: use \\( x = 2 \\) and \\( x = 3 \\)",
+   "Backward: use \\( x = 1 \\) and \\( x = 2 \\)",
+   "Use only \\( x = 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x = 2 \\) is the midpoint of \\( 1 \\) and \\( 3 \\), so the central (symmetric) difference is normally the most accurate."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:misc:ca6b2881",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\frac{d}{dx}(x^5) = x^4 \\)</p><p><strong>✅ The correct idea:</strong> You must multiply by the power. A weak answer only reduces the power; a strong answer writes \\( \\frac{d}{dx}(x^5) = 5x^4 \\).</p>",
+  "question": "Differentiate \\( x^5 \\).",
+  "options": [
+   "\\( 5x^4 \\)",
+   "\\( x^4 \\)",
+   "\\( 5x^5 \\)",
+   "\\( 4x^5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Multiply by 5 and reduce the power by 1: \\( 5x^4 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:misc:9c453031",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\frac{d}{dx}(3x^2) = 3x \\)</p><p><strong>✅ The correct idea:</strong> The power 2 must multiply the whole term as well. A weak answer only reduces the power; a strong answer writes \\( 3 \\times 2x = 6x \\).</p>",
+  "question": "Differentiate \\( 3x^2 \\).",
+  "options": [
+   "\\( 6x \\)",
+   "\\( 3x \\)",
+   "\\( 6x^2 \\)",
+   "\\( 5x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Constant-multiple rule: \\( 3 \\times 2x = 6x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:misc:207355a5",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The derivative of \\( -7 \\) is \\( -7 \\)</p><p><strong>✅ The correct idea:</strong> A constant has gradient 0. A weak answer copies the constant down; a strong answer writes 0 — the term disappears.</p>",
+  "question": "Differentiate the constant \\( -7 \\).",
+  "options": [
+   "\\( 0 \\)",
+   "\\( -7 \\)",
+   "\\( -7x \\)",
+   "\\( 7 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Any constant differentiates to 0."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:misc:f1799194",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( y = x^2 + 5 \\) differentiates to \\( 2x + 5 \\)</p><p><strong>✅ The correct idea:</strong> The constant \\( +5 \\) goes to 0. A weak answer keeps it; a strong answer writes \\( \\frac{dy}{dx} = 2x \\).</p>",
+  "question": "Differentiate \\( y = x^2 + 5 \\).",
+  "options": [
+   "\\( 2x \\)",
+   "\\( 2x + 5 \\)",
+   "\\( 2x + 1 \\)",
+   "\\( x + 5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The constant \\( +5 \\) differentiates to 0, leaving \\( 2x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:misc:a950e08b",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For a table with points either side of \\( x \\), a forward difference is the best gradient estimate</p><p><strong>✅ The correct idea:</strong> When symmetric data is available the central difference is more accurate. A weak answer grabs one side; a strong answer uses both sides so the point is the midpoint.</p>",
+  "question": "Values at \\( x = 3, 4, 5 \\); best estimate of the gradient at \\( x = 4 \\)?",
+  "options": [
+   "Central, using \\( x = 3 \\) and \\( x = 5 \\)",
+   "Forward, using \\( x = 4 \\) and \\( x = 5 \\)",
+   "Backward, using \\( x = 3 \\) and \\( x = 4 \\)",
+   "Use \\( x = 4 \\) only"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x = 4 \\) is the midpoint of 3 and 5, so the central difference is most accurate."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:misc:fbb42837",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The chord gradient IS the gradient of the curve at the point</p><p><strong>✅ The correct idea:</strong> A finite chord only estimates it. A weak answer treats them as equal; a strong answer notes the chord gradient approaches the tangent gradient as \\( h \\to 0 \\), and shrinking \\( h \\) improves the estimate.</p>",
+  "question": "How do you make a chord gradient a better estimate of the tangent gradient?",
+  "options": [
+   "Use a smaller interval \\( h \\)",
+   "Use a larger interval \\( h \\)",
+   "Give more significant figures",
+   "Use only one point"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A smaller (and symmetric) interval brings the chord closer to the tangent."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:tips:9c5b9cc7",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Show the working for a numerical gradient",
+  "reading": "<p>For a numerical-gradient part, the method mark is earned by writing the <strong>difference quotient</strong> in full before evaluating: \\( \\dfrac{y_2 - y_1}{x_2 - x_1} \\). Substitute the actual table values, e.g. \\( \\dfrac{3.1447 - 1.5358}{1.8 - 1.4} \\), then give the answer. A bare number with no visible calculation risks the method mark.</p>",
+  "question": "How do you secure the method mark on a numerical-gradient question?",
+  "options": [
+   "Write the difference quotient with the table values before evaluating",
+   "Write only the final number",
+   "Round to 1 significant figure",
+   "Differentiate the curve instead"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The M mark is for the visible \\( \\frac{y_2 - y_1}{x_2 - x_1} \\) calculation using the given values."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:tips:3c1bc0be",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Which difference should you use?",
+  "reading": "<p>Choose by looking at the data. If the target \\( x \\) is the <strong>midpoint</strong> of two values, use the <strong>central</strong> difference — it is the most accurate. If the values are <strong>not symmetric</strong> about the target (as with Ben's \\( x = 1.2 \\) and \\( 1.8 \\) about \\( 1.4 \\)), a \"central\" calculation actually estimates the gradient at the wrong point, so you must use a one-sided (forward or backward) estimate instead.</p>",
+  "question": "Why can't Ben use \\( x = 1.2 \\) and \\( x = 1.8 \\) for the gradient at \\( x = 1.4 \\)?",
+  "options": [
+   "The intervals are unequal, so 1.4 is not the midpoint",
+   "The values are too large",
+   "1.8 is not on the curve",
+   "You cannot subtract y-values"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 1.4 \\) is not halfway between \\( 1.2 \\) and \\( 1.8 \\) (that midpoint is \\( 1.5 \\)), so the estimate would be the gradient at the wrong place."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:tips:9964dc64",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Differentiate cleanly, term by term",
+  "reading": "<p>Work down the polynomial one term at a time: <strong>multiply by the power, reduce the power by 1</strong>, carry any coefficient through, and send every constant to 0. Writing each term's result keeps errors to one mark. Remember the guardrail: only whole-number powers — no fractions, surds, trig or \\( a^x \\).</p>",
+  "question": "Differentiate \\( y = 4x^3 - 2x + 9 \\).",
+  "options": [
+   "\\( 12x^2 - 2 \\)",
+   "\\( 12x^2 - 2 + 9 \\)",
+   "\\( 12x^2 - 2x \\)",
+   "\\( 4x^2 - 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 4x^3 \\to 12x^2 \\), \\( -2x \\to -2 \\), constant \\( +9 \\to 0 \\): \\( 12x^2 - 2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:fib:8e306580",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "To differentiate a power of \\( x \\), ___B1___ by the power and then ___B2___ the power by 1.",
+  "blankOptions": {
+   "B1": [
+    "divide",
+    "multiply",
+    "central",
+    "tangent"
+   ],
+   "B2": [
+    "reduce",
+    "forward",
+    "rate",
+    "0"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "multiply",
+    "B2": "reduce"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:fib:a7ff9057",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The derivative of any constant is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "divide",
+    "forward",
+    "multiply",
+    "0"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "0"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:fib:3d9940e3",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The gradient function measures the ___B1___ of change of \\( y \\) with respect to \\( x \\).",
+  "blankOptions": {
+   "B1": [
+    "12x",
+    "add",
+    "rate",
+    "area"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "rate"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:fib:a7ba9c4e",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The value of \\( \\frac{dy}{dx} \\) at a point equals the gradient of the ___B1___ to the curve there.",
+  "blankOptions": {
+   "B1": [
+    "backward",
+    "central",
+    "chord",
+    "tangent"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "tangent"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:fib:6770c7b8",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Differentiating \\( 6x^2 \\) gives ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "0",
+    "rate",
+    "area",
+    "12x"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "12x"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:fib:b48f131a",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A ___B1___ difference uses points on both sides of \\( x \\) and is usually more accurate than a one-sided estimate.",
+  "blankOptions": {
+   "B1": [
+    "increase",
+    "backward",
+    "central",
+    "divide"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "central"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:fib:02ecab7b",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "As the interval \\( h \\) gets smaller, the gradient of the ___B1___ approaches the gradient of the tangent.",
+  "blankOptions": {
+   "B1": [
+    "central",
+    "add",
+    "backward",
+    "chord"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "chord"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:match:fb68015d",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( x^2 \\)”?",
+  "options": [
+   "\\( 15x^2 \\)",
+   "\\( 6x^2 + 1 \\)",
+   "\\( 5x^4 \\)",
+   "\\( 2x \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( x^2 \\)” means: \\( 2x \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:match:d2e7fc4f",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( x^3 \\)”?",
+  "options": [
+   "\\( 3x^2 \\)",
+   "\\( 6x^2 + 1 \\)",
+   "\\( -6x \\)",
+   "The gradient of the curve at a point"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( x^3 \\)” means: \\( 3x^2 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:match:8547da55",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( x^5 \\)”?",
+  "options": [
+   "Uses points on both sides of \\( x \\); most accurate",
+   "\\( 6x^2 + 1 \\)",
+   "\\( 5x^4 \\)",
+   "\\( 2x \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( x^5 \\)” means: \\( 5x^4 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:match:e81cadb7",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 4x^2 \\)”?",
+  "options": [
+   "\\( 8x \\)",
+   "\\( 3x^2 \\)",
+   "\\( 2x \\)",
+   "\\( 7 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( 4x^2 \\)” means: \\( 8x \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:match:3303e9f7",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 5x^3 \\)”?",
+  "options": [
+   "\\( 4x^3 - 1 \\)",
+   "\\( 3x^2 \\)",
+   "\\( 5x^4 \\)",
+   "\\( 15x^2 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( 5x^3 \\)” means: \\( 15x^2 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:match:2444eff1",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 7x \\)”?",
+  "options": [
+   "\\( 3x^2 \\)",
+   "\\( 6x^2 + 1 \\)",
+   "\\( 5x^4 \\)",
+   "\\( 7 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( 7x \\)” means: \\( 7 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:match:28336dae",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( -3x^2 \\)”?",
+  "options": [
+   "\\( 3x^2 \\)",
+   "\\( 5x^4 \\)",
+   "\\( -6x \\)",
+   "\\( 8x \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( -3x^2 \\)” means: \\( -6x \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:match:51969a75",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( x^4 - x \\)”?",
+  "options": [
+   "\\( 5x^4 \\)",
+   "Uses points on both sides of \\( x \\); most accurate",
+   "\\( 7 \\)",
+   "\\( 4x^3 - 1 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( x^4 - x \\)” means: \\( 4x^3 - 1 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:match:c81b48da",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 12 \\) (a constant)”?",
+  "options": [
+   "\\( 4x^3 - 1 \\)",
+   "\\( 6x^2 + 1 \\)",
+   "\\( 7 \\)",
+   "\\( 0 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( 12 \\) (a constant)” means: \\( 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:match:46967683",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 2x^3 + x \\)”?",
+  "options": [
+   "Uses points on both sides of \\( x \\); most accurate",
+   "\\( 6x^2 + 1 \\)",
+   "\\( 4x^3 - 1 \\)",
+   "\\( 8x \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( 2x^3 + x \\)” means: \\( 6x^2 + 1 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:match:3d8fc62d",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\frac{dy}{dx} \\)”?",
+  "options": [
+   "The gradient of the curve at a point",
+   "\\( 0 \\)",
+   "\\( 6x^2 + 1 \\)",
+   "\\( 5x^4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\frac{dy}{dx} \\)” means: The gradient of the curve at a point"
+  }
+ },
+ {
+  "id": "additional-maths:8-1-the-gradient-function:match:5c1231a8",
+  "pageId": "additional-maths:8-1-the-gradient-function",
+  "pageName": "8.1 The Gradient Function",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Central difference”?",
+  "options": [
+   "\\( 6x^2 + 1 \\)",
+   "\\( -6x \\)",
+   "Uses points on both sides of \\( x \\); most accurate",
+   "\\( 7 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Central difference” means: Uses points on both sides of \\( x \\); most accurate"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:exam:f8ba72b5",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "3 (June 2019)",
+  "question": "<p>Find the equation of the normal to the curve \\( y = x^3 - 2x^2 + 2x + 4 \\) at the point \\( (2,\\ 8) \\).</p>",
+  "hint": "Differentiate, substitute \\( x = 2 \\) for the tangent gradient, then take the NEGATIVE RECIPROCAL for the normal — do not stop at the tangent.",
+  "starter": "Give the normal's equation as a tidy 3-term equation (e.g. of the form \\( 6y = 50 - x \\)).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 6 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — differentiate (at least two powers reduced by 1).</li>\n              <li><strong>A1</strong> — \\( \\dfrac{dy}{dx} = 3x^2 - 4x + 2 \\).</li>\n              <li><strong>A1</strong> — at \\( (2,\\ 8) \\), \\( \\dfrac{dy}{dx} = 6 \\).</li>\n              <li><strong>M1</strong> — use of \\( m_1 m_2 = -1 \\) on their stated (tangent) gradient: gradient of normal \\( = -\\dfrac{1}{6} \\).</li>\n              <li><strong>M1*</strong> — (dep) using their normal gradient and the correct point: \\( y - 8 = -\\dfrac{1}{6}(x - 2) \\).</li>\n              <li><strong>A1</strong> — \\( 6y = 50 - x \\) oe (www; 3 terms only).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The final M1 is dependent on the previous M1 (you must have a normal gradient to use). Beware dividing by \\( x \\) when differentiating. Any equivalent correct 3-term form of the final line scores.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Well known; most reached the equation of the normal. Common errors: taking the gradient as the coefficient of \\( x \\) in the gradient function (which happened to be \\( 6 \\)), taking it as the value of the second derivative (also \\( 6 \\) here), or writing the gradient as \\( 6x \\). Many felt they had to find the tangent's equation first, or misread and found the tangent; a significant number never got past the tangent. Candidates using \\( y = mx + c \\) made more slips than those using \\( y - y_1 = m(x - x_1) \\).</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\frac{dy}{dx} = 3x^2 - 4x + 2 \\). At \\( x = 2 \\): \\( 3(4) - 4(2) + 2 = 6 \\), so the tangent gradient is \\( 6 \\). The normal gradient is \\( -\\frac{1}{6} \\). Through \\( (2,\\ 8) \\): \\( y - 8 = -\\frac{1}{6}(x - 2) \\Rightarrow 6y - 48 = -(x - 2) \\Rightarrow 6y = 50 - x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:exam:0a987b92",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "12 (a) (June 2022)",
+  "question": "<p>Determine the equation of the line \\( OB \\).</p>",
+  "caseStudy": "<p>In the diagram the curve with equation \\( y = \\tfrac{1}{2}x^2 - 2x \\) crosses the \\( x \\)-axis at the origin, \\( O \\), and the point \\( A \\). The tangent to this curve at \\( O \\) and the normal to this curve at \\( A \\) intersect at the point \\( B \\).</p>\n        <svg viewBox=\"0 0 320 250\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"A parabola crossing the x-axis at the origin O and at the point A. The tangent to the curve at O and the normal to the curve at A cross to the left of the y-axis at the point B.\">\n          <line x1=\"20\" y1=\"170\" x2=\"300\" y2=\"170\" stroke=\"currentColor\" stroke-width=\"1\" opacity=\"0.5\"/>\n          <line x1=\"113\" y1=\"20\" x2=\"113\" y2=\"230\" stroke=\"currentColor\" stroke-width=\"1\" opacity=\"0.5\"/>\n          <text x=\"292\" y=\"185\" font-size=\"12\" fill=\"currentColor\">x</text>\n          <text x=\"118\" y=\"30\" font-size=\"12\" fill=\"currentColor\">y</text>\n          <polyline points=\"94.7,132.5 113.3,170 132,192.5 150.7,200 169.3,192.5 188,170 206.7,132.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n          <line x1=\"88.5\" y1=\"130\" x2=\"150.7\" y2=\"230\" stroke=\"currentColor\" stroke-width=\"1.6\"/>\n          <line x1=\"88.5\" y1=\"130\" x2=\"225\" y2=\"185\" stroke=\"currentColor\" stroke-width=\"1.6\"/>\n          <circle cx=\"113.3\" cy=\"170\" r=\"3.2\" fill=\"currentColor\"/>\n          <circle cx=\"188\" cy=\"170\" r=\"3.2\" fill=\"currentColor\"/>\n          <circle cx=\"88.5\" cy=\"130\" r=\"3.2\" fill=\"currentColor\"/>\n          <text x=\"116\" y=\"184\" font-size=\"13\" fill=\"currentColor\">O</text>\n          <text x=\"189\" y=\"185\" font-size=\"13\" fill=\"currentColor\">A</text>\n          <text x=\"72\" y=\"127\" font-size=\"13\" fill=\"currentColor\">B</text>\n        </svg>",
+  "hint": "\\( OB \\) is the tangent at \\( O \\). Differentiate and substitute \\( x = 0 \\); the line passes through the origin.",
+  "starter": "Give the equation of the tangent at \\( O \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — differentiate (powers reduced by 1): \\( \\dfrac{dy}{dx} = x - 2 \\).</li>\n              <li><strong>A1</strong> — when \\( x = 0 \\), \\( \\dfrac{dy}{dx} = -2 \\).</li>\n              <li><strong>A1</strong> — tangent has equation \\( y = -2x \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>An incorrect differentiation could still give a correct-looking tangent, which is why the command is \"determine\": the method must be shown. The tangent passes through the origin, so there is no constant.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The gradient function was needed, by differentiation and substituting \\( x = 0 \\). Because an incorrect differentiation could still give the correct tangent equation, the command \"determine\" required the working to be shown.</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\frac{dy}{dx} = x - 2 \\). At \\( O \\) (\\( x = 0 \\)) the gradient is \\( -2 \\). Since the tangent passes through the origin, \\( OB \\) is \\( y = -2x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:exam:d2048bc4",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "12 (b) (June 2022)",
+  "question": "<p>Determine the equation of the line \\( AB \\).</p>",
+  "caseStudy": "<p>In the diagram the curve with equation \\( y = \\tfrac{1}{2}x^2 - 2x \\) crosses the \\( x \\)-axis at the origin, \\( O \\), and the point \\( A \\). The tangent to this curve at \\( O \\) and the normal to this curve at \\( A \\) intersect at the point \\( B \\).</p>\n        <svg viewBox=\"0 0 320 250\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"A parabola crossing the x-axis at the origin O and at the point A. The tangent to the curve at O and the normal to the curve at A cross to the left of the y-axis at the point B.\">\n          <line x1=\"20\" y1=\"170\" x2=\"300\" y2=\"170\" stroke=\"currentColor\" stroke-width=\"1\" opacity=\"0.5\"/>\n          <line x1=\"113\" y1=\"20\" x2=\"113\" y2=\"230\" stroke=\"currentColor\" stroke-width=\"1\" opacity=\"0.5\"/>\n          <text x=\"292\" y=\"185\" font-size=\"12\" fill=\"currentColor\">x</text>\n          <text x=\"118\" y=\"30\" font-size=\"12\" fill=\"currentColor\">y</text>\n          <polyline points=\"94.7,132.5 113.3,170 132,192.5 150.7,200 169.3,192.5 188,170 206.7,132.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n          <line x1=\"88.5\" y1=\"130\" x2=\"150.7\" y2=\"230\" stroke=\"currentColor\" stroke-width=\"1.6\"/>\n          <line x1=\"88.5\" y1=\"130\" x2=\"225\" y2=\"185\" stroke=\"currentColor\" stroke-width=\"1.6\"/>\n          <circle cx=\"113.3\" cy=\"170\" r=\"3.2\" fill=\"currentColor\"/>\n          <circle cx=\"188\" cy=\"170\" r=\"3.2\" fill=\"currentColor\"/>\n          <circle cx=\"88.5\" cy=\"130\" r=\"3.2\" fill=\"currentColor\"/>\n          <text x=\"116\" y=\"184\" font-size=\"13\" fill=\"currentColor\">O</text>\n          <text x=\"189\" y=\"185\" font-size=\"13\" fill=\"currentColor\">A</text>\n          <text x=\"72\" y=\"127\" font-size=\"13\" fill=\"currentColor\">B</text>\n        </svg>",
+  "hint": "First find \\( A \\) (where the curve meets the \\( x \\)-axis, other than \\( O \\)). \\( AB \\) is the NORMAL at \\( A \\): find the tangent gradient there, then its negative reciprocal.",
+  "starter": "Give the equation of the normal at \\( A \\) as a tidy 3-term equation.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 6 marks (AO2)</h5><ul>\n              <li><strong>B1</strong> — \\( A \\) has coordinates \\( (4,\\ 0) \\).</li>\n              <li><strong>B1</strong> — when \\( x = 4 \\), \\( \\dfrac{dy}{dx} = 2 \\) (gradient of the tangent at \\( A \\); may be embedded in the equation).</li>\n              <li><strong>M1*</strong> — negative reciprocal of their gradient for the tangent at \\( A \\) (which must be seen): gradient of normal \\( = -\\dfrac{1}{2} \\).</li>\n              <li><strong>A1</strong> — gradient of normal \\( = -\\dfrac{1}{2} \\).</li>\n              <li><strong>M1 (dep)</strong> — use of the line \\( y - y_1 = m(x - x_1) \\) with their \\( m \\), \\( x_1 \\) and \\( y_1 \\).</li>\n              <li><strong>A1</strong> — \\( y = -\\dfrac{1}{2}x + 2 \\) (3 terms only).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Find \\( A \\) by solving \\( \\tfrac{1}{2}x^2 - 2x = 0 \\). The perpendicular-gradient step must be visible, and the final method mark depends on it.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The coordinates of \\( A \\) were required, which most candidates achieved. Finding the gradient of the normal then followed for most candidates.</li>\n            </ul></div>",
+   "modelAnswer": "The curve meets the \\( x \\)-axis where \\( \\frac{1}{2}x^2 - 2x = 0 \\Rightarrow x(\\frac{1}{2}x - 2) = 0 \\Rightarrow x = 0 \\) or \\( x = 4 \\), so \\( A = (4,\\ 0) \\). At \\( x = 4 \\), \\( \\frac{dy}{dx} = 4 - 2 = 2 \\); the normal gradient is \\( -\\frac{1}{2} \\). Through \\( (4,\\ 0) \\): \\( y - 0 = -\\frac{1}{2}(x - 4) \\Rightarrow y = -\\frac{1}{2}x + 2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:exam:47dc095d",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "12 (c) (June 2022)",
+  "question": "<p>Hence determine the coordinates of the point \\( B \\).</p>",
+  "caseStudy": "<p>In the diagram the curve with equation \\( y = \\tfrac{1}{2}x^2 - 2x \\) crosses the \\( x \\)-axis at the origin, \\( O \\), and the point \\( A \\). The tangent to this curve at \\( O \\) and the normal to this curve at \\( A \\) intersect at the point \\( B \\).</p>\n        <svg viewBox=\"0 0 320 250\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"A parabola crossing the x-axis at the origin O and at the point A. The tangent to the curve at O and the normal to the curve at A cross to the left of the y-axis at the point B.\">\n          <line x1=\"20\" y1=\"170\" x2=\"300\" y2=\"170\" stroke=\"currentColor\" stroke-width=\"1\" opacity=\"0.5\"/>\n          <line x1=\"113\" y1=\"20\" x2=\"113\" y2=\"230\" stroke=\"currentColor\" stroke-width=\"1\" opacity=\"0.5\"/>\n          <text x=\"292\" y=\"185\" font-size=\"12\" fill=\"currentColor\">x</text>\n          <text x=\"118\" y=\"30\" font-size=\"12\" fill=\"currentColor\">y</text>\n          <polyline points=\"94.7,132.5 113.3,170 132,192.5 150.7,200 169.3,192.5 188,170 206.7,132.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n          <line x1=\"88.5\" y1=\"130\" x2=\"150.7\" y2=\"230\" stroke=\"currentColor\" stroke-width=\"1.6\"/>\n          <line x1=\"88.5\" y1=\"130\" x2=\"225\" y2=\"185\" stroke=\"currentColor\" stroke-width=\"1.6\"/>\n          <circle cx=\"113.3\" cy=\"170\" r=\"3.2\" fill=\"currentColor\"/>\n          <circle cx=\"188\" cy=\"170\" r=\"3.2\" fill=\"currentColor\"/>\n          <circle cx=\"88.5\" cy=\"130\" r=\"3.2\" fill=\"currentColor\"/>\n          <text x=\"116\" y=\"184\" font-size=\"13\" fill=\"currentColor\">O</text>\n          <text x=\"189\" y=\"185\" font-size=\"13\" fill=\"currentColor\">A</text>\n          <text x=\"72\" y=\"127\" font-size=\"13\" fill=\"currentColor\">B</text>\n        </svg>",
+  "hint": "\\( B \\) is where \\( OB \\) and \\( AB \\) meet — solve your two line equations simultaneously.",
+  "starter": "Give \\( B \\) as coordinates \\( (x,\\ y) \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — solve their two linear equations simultaneously: \\( -\\dfrac{1}{2}x + 2 = -2x \\).</li>\n              <li><strong>A1</strong> — \\( x = -\\dfrac{4}{3} \\).</li>\n              <li><strong>A1</strong> — \\( y = \\dfrac{8}{3} \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>\"Hence\" directs you to use the two lines from parts (a) and (b). Marks are available even if one of those equations was wrong (follow-through). Give both coordinates.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Marks were available even if one of the equations was wrong, but for most the solution of the simultaneous equations was straightforward.</li>\n            </ul></div>",
+   "modelAnswer": "Setting the lines equal: \\( -\\frac{1}{2}x + 2 = -2x \\Rightarrow \\frac{3}{2}x = -2 \\Rightarrow x = -\\frac{4}{3} \\). Then \\( y = -2\\left(-\\frac{4}{3}\\right) = \\frac{8}{3} \\). So \\( B = \\left( -\\frac{4}{3},\\ \\frac{8}{3} \\right) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:mcq:1f6723fa",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Differentiating \\( y = x^3 - 2x + 3 \\) gives \\( \\frac{dy}{dx} = \\)",
+  "options": [
+   "\\( 3x^2 - 2 \\)",
+   "\\( 3x^2 - 2x \\)",
+   "\\( x^2 - 2 \\)",
+   "\\( 3x^3 - 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{d}{dx}(x^3) = 3x^2 \\), \\( \\frac{d}{dx}(-2x) = -2 \\), and the constant \\( 3 \\) differentiates to \\( 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:mcq:74ea788e",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( y = x^2 - 3x + 4 \\), the gradient of the tangent at the point where \\( x = 3 \\) is:",
+  "options": [
+   "\\( 3 \\)",
+   "\\( 2x - 3 \\)",
+   "\\( 4 \\)",
+   "\\( 9 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} = 2x - 3 \\); at \\( x = 3 \\) this is \\( 2(3) - 3 = 3 \\). The gradient is a number, not the function \\( 2x - 3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:mcq:eba32c71",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The tangent to a curve at a point has gradient \\( 4 \\). The gradient of the normal there is:",
+  "options": [
+   "\\( -\\tfrac{1}{4} \\)",
+   "\\( 4 \\)",
+   "\\( \\tfrac{1}{4} \\)",
+   "\\( -4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Normal gradient \\( = -\\frac{1}{m} = -\\frac{1}{4} \\); it is the negative reciprocal, not the same as \\( m \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:mcq:f5540b14",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The tangent to \\( y = x^2 \\) at \\( (2,\\ 4) \\) is:",
+  "options": [
+   "\\( y = 4x - 4 \\)",
+   "\\( y = 2x \\)",
+   "\\( y = 4x \\)",
+   "\\( y = 2x - 4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} = 2x = 4 \\) at \\( x = 2 \\); then \\( y - 4 = 4(x - 2) \\Rightarrow y = 4x - 4 \\). Writing \\( y = 2x \\) mistakes the gradient function for the equation."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:mcq:1f9c7fdb",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student finds \\( \\frac{dy}{dx} = 2x \\) for \\( y = x^2 + 1 \\) and writes the tangent at \\( (2,\\ 5) \\) as \\( y = 2x \\). This is wrong because:",
+  "options": [
+   "\\( \\frac{dy}{dx} \\) is the gradient function, not the tangent's equation",
+   "the curve is not \\( x^2 + 1 \\)",
+   "the point is not on the curve",
+   "the gradient should be negative"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "You must evaluate \\( \\frac{dy}{dx} \\) at \\( x = 2 \\) (giving \\( 4 \\)) and then use \\( y - 5 = 4(x - 2) \\Rightarrow y = 4x - 3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:mcq:7d35c33f",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The normal to \\( y = x^3 - 2x + 3 \\) at \\( (1,\\ 2) \\) is:",
+  "options": [
+   "\\( y = -x + 3 \\)",
+   "\\( y = x + 1 \\)",
+   "\\( y = -x + 2 \\)",
+   "\\( y = 3x^2 - 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} = 3x^2 - 2 = 1 \\) at \\( x = 1 \\); normal gradient \\( = -1 \\); \\( y - 2 = -1(x - 1) \\Rightarrow y = -x + 3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:mcq:6862e21d",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which line form is best for writing a tangent or normal through a known point?",
+  "options": [
+   "\\( y - y_1 = m(x - x_1) \\)",
+   "\\( y = mx + c \\)",
+   "\\( ax + by + c = 0 \\)",
+   "\\( \\frac{dy}{dx} = m \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( y - y_1 = m(x - x_1) \\) substitutes the point directly and avoids a separate step to find \\( c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:mcq:2c229950",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A tangent has gradient \\( 5 \\) and passes through \\( (2,\\ 3) \\). Using \\( y = mx + c \\), the value of \\( c \\) is:",
+  "options": [
+   "\\( -7 \\)",
+   "\\( 3 \\)",
+   "\\( 13 \\)",
+   "\\( 5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 3 = 5(2) + c \\Rightarrow c = 3 - 10 = -7 \\). Leaving \\( c = 3 \\) forgets to substitute the point."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:mcq:09b9448b",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( y = \\tfrac{1}{2}x^2 - 2x \\), the tangent gradient at the origin \\( (0,\\ 0) \\) is:",
+  "options": [
+   "\\( -2 \\)",
+   "\\( 0 \\)",
+   "\\( 2 \\)",
+   "\\( \\tfrac{1}{2} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} = x - 2 \\); at \\( x = 0 \\) this is \\( -2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:mcq:fca42ca3",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The curve \\( y = \\tfrac{1}{2}x^2 - 2x \\) crosses the \\( x \\)-axis (apart from the origin) at:",
+  "options": [
+   "\\( (4,\\ 0) \\)",
+   "\\( (2,\\ 0) \\)",
+   "\\( (-4,\\ 0) \\)",
+   "\\( (1,\\ 0) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tfrac{1}{2}x^2 - 2x = 0 \\Rightarrow x(\\tfrac{1}{2}x - 2) = 0 \\Rightarrow x = 0 \\) or \\( x = 4 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:mcq:235d1dd6",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Where does the tangent \\( y = 3x - 5 \\) cross the \\( x \\)-axis?",
+  "options": [
+   "\\( \\left( \\tfrac{5}{3},\\ 0 \\right) \\)",
+   "\\( (0,\\ -5) \\)",
+   "\\( (5,\\ 0) \\)",
+   "\\( (3,\\ 0) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Set \\( y = 0 \\): \\( 0 = 3x - 5 \\Rightarrow x = \\tfrac{5}{3} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:mcq:f7b58104",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( y = x^2 - 4x \\), the gradient of the normal at \\( (1,\\ -3) \\) is:",
+  "options": [
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( -2 \\)",
+   "\\( 2 \\)",
+   "\\( -\\tfrac{1}{2} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} = 2x - 4 = -2 \\) at \\( x = 1 \\); normal gradient \\( = -\\frac{1}{-2} = \\frac{1}{2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:tf:610c7e52",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The gradient of the tangent to a curve at a point equals \\( \\frac{dy}{dx} \\) evaluated at that point.",
+  "key": {
+   "answer": true,
+   "explain": "The gradient of the curve, of the tangent, and the value of \\( \\frac{dy}{dx} \\) at the point are all the same number. ✓"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:tf:694724f6",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\frac{dy}{dx} \\) is itself the equation of the tangent line.",
+  "key": {
+   "answer": false,
+   "explain": "\\( \\frac{dy}{dx} \\) is the gradient function; substitute the point's \\( x \\)-value to get the gradient, then build the line with \\( y - y_1 = m(x - x_1) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:tf:5e9ae332",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If the tangent has gradient \\( 4 \\), the normal has gradient \\( -\\tfrac{1}{4} \\).",
+  "key": {
+   "answer": true,
+   "explain": "The normal is the negative reciprocal: \\( -\\frac{1}{4} \\). ✓"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:tf:ff0ef453",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The normal at a point is parallel to the tangent there.",
+  "key": {
+   "answer": false,
+   "explain": "The normal is perpendicular to the tangent, so their gradients multiply to \\( -1 \\), not equal each other."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:tf:4719206a",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The normal's gradient equals the tangent's gradient.",
+  "key": {
+   "answer": false,
+   "explain": "The normal's gradient is the negative reciprocal \\( -\\frac{1}{m} \\), not \\( m \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:tf:a7fb5f8c",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "You can write a tangent's equation by putting the gradient and the point into \\( y - y_1 = m(x - x_1) \\).",
+  "key": {
+   "answer": true,
+   "explain": "This is the standard method and avoids a separate step to find \\( c \\). ✓"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:tf:dfefc3fc",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If a tangent has gradient \\( 0 \\), the normal at that point is a vertical line.",
+  "key": {
+   "answer": true,
+   "explain": "The normal gradient would be \\( -\\frac{1}{0} \\), which is undefined — a vertical line \\( x = x_1 \\). ✓"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:tf:6bb25fc6",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For \\( y = x^2 - 3x + 4 \\), the gradient function is \\( \\frac{dy}{dx} = 2x - 3 \\).",
+  "key": {
+   "answer": true,
+   "explain": "\\( \\frac{d}{dx}(x^2) = 2x \\), \\( \\frac{d}{dx}(-3x) = -3 \\), and the constant differentiates to \\( 0 \\). ✓"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:learn:f73ff629",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is the tangent and what is the normal to a curve at a point?",
+  "reading": "<p>At a point on a curve, the <strong>tangent</strong> is the straight line that just touches the curve there, running in the same direction as the curve. Its gradient is the <strong>gradient of the curve</strong> at that point — the value of \\( \\frac{dy}{dx} \\).</p>\n            <p>The <strong>normal</strong> at the same point is the straight line <strong>perpendicular</strong> to the tangent there. Because perpendicular gradients multiply to \\( -1 \\), if the tangent has gradient \\( m \\) then the normal has gradient \\( -\\frac{1}{m} \\) (the <strong>negative reciprocal</strong>).</p>\n            <svg viewBox=\"0 0 260 220\" width=\"100%\" style=\"max-width:290px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"A curve with a point P on it, the tangent line touching the curve at P, and the normal line crossing the tangent at right angles through P.\">\n              <path d=\"M 60,180 Q 110,150 150,106 Q 190,62 235,45\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <line x1=\"95\" y1=\"167\" x2=\"205\" y2=\"46\" stroke=\"currentColor\" stroke-width=\"1.6\"/>\n              <line x1=\"106\" y1=\"66\" x2=\"194\" y2=\"146\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-dasharray=\"5 4\"/>\n              <circle cx=\"150\" cy=\"106\" r=\"3.5\" fill=\"currentColor\"/>\n              <text x=\"156\" y=\"104\" font-size=\"13\" fill=\"currentColor\">P</text>\n              <text x=\"196\" y=\"42\" font-size=\"12\" fill=\"currentColor\">tangent</text>\n              <text x=\"196\" y=\"150\" font-size=\"12\" fill=\"currentColor\">normal</text>\n            </svg>\n            <ul>\n              <li>The tangent and the normal <strong>both pass through the same point</strong> on the curve — the point of contact.</li>\n              <li>They meet <strong>at right angles</strong>: tangent gradient \\( \\times \\) normal gradient \\( = -1 \\).</li>\n              <li><strong>New at this level:</strong> at GCSE you estimated a gradient by drawing a tangent. Here you get it <em>exactly</em> by differentiating, then build both lines.</li>\n            </ul>",
+  "question": "The tangent to a curve at a point has gradient \\( 3 \\). What is the gradient of the normal there?",
+  "options": [
+   "\\( -\\tfrac{1}{3} \\)",
+   "\\( 3 \\)",
+   "\\( \\tfrac{1}{3} \\)",
+   "\\( -3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The normal is perpendicular to the tangent, so its gradient is the negative reciprocal of \\( 3 \\), which is \\( -\\tfrac{1}{3} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:learn:f1ef1d4d",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What are the steps for finding a tangent or a normal?",
+  "reading": "<p>Every tangent/normal question follows the same short recipe. The only difference between the two is which gradient you use in the last step.</p>\n            <table class=\"worked\">\n              <tr><td><strong>1.</strong> <strong>Differentiate</strong> to get the gradient function \\( \\frac{dy}{dx} \\).</td></tr>\n              <tr><td><strong>2.</strong> <strong>Substitute</strong> the \\( x \\)-coordinate of the point into \\( \\frac{dy}{dx} \\) to get the <strong>tangent gradient</strong> \\( m \\).</td></tr>\n              <tr><td><strong>3a. Tangent:</strong> use gradient \\( m \\).</td></tr>\n              <tr><td><strong>3b. Normal:</strong> use gradient \\( -\\dfrac{1}{m} \\) (negative reciprocal).</td></tr>\n              <tr><td><strong>4.</strong> Put the gradient and the point \\( (x_1,\\ y_1) \\) into \\[ y - y_1 = m(x - x_1). \\]</td></tr>\n            </table>\n            <ul>\n              <li>\\( \\frac{dy}{dx} \\) is the gradient <em>function</em> — a formula in \\( x \\). It is <strong>not</strong> the equation of the tangent; you must substitute the point's \\( x \\)-value to turn it into a single number.</li>\n              <li>Use \\( y - y_1 = m(x - x_1) \\), not \\( y = mx + c \\): it puts the point straight in and avoids a separate (error-prone) step to find \\( c \\).</li>\n              <li>The point's \\( y \\)-coordinate is usually given; if not, get it by substituting \\( x \\) into the <strong>curve</strong> (not the derivative).</li>\n            </ul>",
+  "question": "In the recipe, what do you substitute the point's \\( x \\)-value into to get the tangent gradient?",
+  "options": [
+   "The gradient function \\( \\frac{dy}{dx} \\)",
+   "The original curve \\( y \\)",
+   "The line \\( y = mx + c \\)",
+   "The normal's equation"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Differentiate first, then substitute the \\( x \\)-coordinate into \\( \\frac{dy}{dx} \\) to get the numerical gradient at that point."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:learn:c5486279",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the equation of the tangent at a point?",
+  "reading": "<p>Follow the recipe, using the tangent gradient \\( m \\) directly.</p>\n            <table class=\"worked\">\n              <tr><td>Find the tangent to \\( y = x^2 - 3x + 4 \\) at the point \\( (3,\\ 4) \\).</td></tr>\n              <tr><td>1. Differentiate: \\( \\dfrac{dy}{dx} = 2x - 3 \\).</td></tr>\n              <tr><td>2. At \\( x = 3 \\): \\( \\dfrac{dy}{dx} = 2(3) - 3 = 3 \\). So the tangent gradient is \\( m = 3 \\).</td></tr>\n              <tr><td>3. Through \\( (3,\\ 4) \\): \\( y - 4 = 3(x - 3) \\).</td></tr>\n              <tr><td>4. Tidy: \\( y = 3x - 9 + 4 = 3x - 5 \\).</td></tr>\n            </table>\n            <p>Quick check: at \\( x = 3 \\), \\( 3(3) - 5 = 4 \\) ✓ — the line passes through the point of contact.</p>\n            <p>Notice the gradient <em>function</em> \\( 2x - 3 \\) is not the answer; substituting \\( x = 3 \\) turned it into the single number \\( 3 \\), which is the tangent's gradient.</p>",
+  "question": "For \\( y = x^2 \\), what is the equation of the tangent at \\( (2,\\ 4) \\)?",
+  "options": [
+   "\\( y = 4x - 4 \\)",
+   "\\( y = 2x \\)",
+   "\\( y = 4x \\)",
+   "\\( y = 2x - 4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} = 2x = 4 \\) at \\( x = 2 \\); then \\( y - 4 = 4(x - 2) \\Rightarrow y = 4x - 4 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:learn:a4c47548",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the equation of the normal at a point?",
+  "reading": "<p>Identical to the tangent, except step 3 takes the <strong>negative reciprocal</strong> of the tangent gradient.</p>\n            <table class=\"worked\">\n              <tr><td>Find the normal to \\( y = x^3 - 2x + 3 \\) at the point \\( (1,\\ 2) \\).</td></tr>\n              <tr><td>1. Differentiate: \\( \\dfrac{dy}{dx} = 3x^2 - 2 \\).</td></tr>\n              <tr><td>2. At \\( x = 1 \\): \\( \\dfrac{dy}{dx} = 3(1)^2 - 2 = 1 \\). Tangent gradient \\( m = 1 \\).</td></tr>\n              <tr><td>3. Normal gradient \\( = -\\dfrac{1}{m} = -\\dfrac{1}{1} = -1 \\).</td></tr>\n              <tr><td>4. Through \\( (1,\\ 2) \\): \\( y - 2 = -1(x - 1) \\Rightarrow y = -x + 3 \\), i.e. \\( x + y = 3 \\).</td></tr>\n            </table>\n            <p>Quick check: at \\( x = 1 \\), \\( -1 + 3 = 2 \\) ✓. The commonest slip is to reuse \\( m = 1 \\) for the normal — the normal needs \\( -\\frac{1}{m} \\), so its gradient is \\( -1 \\), not \\( 1 \\).</p>\n            <p>If the tangent gradient happens to be \\( 0 \\) (a flat tangent), the normal is <strong>vertical</strong> — its equation is simply \\( x = x_1 \\), because \\( -\\frac{1}{0} \\) is undefined.</p>",
+  "question": "A curve has \\( \\frac{dy}{dx} = 2x - 4 \\). What is the gradient of the normal at \\( x = 1 \\)?",
+  "options": [
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( -2 \\)",
+   "\\( 2 \\)",
+   "\\( -\\tfrac{1}{2} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "At \\( x = 1 \\), \\( \\frac{dy}{dx} = -2 \\) (tangent gradient); the normal is the negative reciprocal, \\( -\\frac{1}{-2} = \\frac{1}{2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:learn:4361d98d",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find where a tangent or normal meets an axis or another line?",
+  "reading": "<p>Once you have the equation of the line, treat it as ordinary coordinate geometry.</p>\n            <ul>\n              <li><strong>Meets the \\( x \\)-axis:</strong> set \\( y = 0 \\) and solve for \\( x \\).</li>\n              <li><strong>Meets the \\( y \\)-axis:</strong> set \\( x = 0 \\) and read off \\( y \\).</li>\n              <li><strong>Meets another line:</strong> solve the two equations <strong>simultaneously</strong> (set them equal, or substitute one into the other).</li>\n            </ul>\n            <table class=\"worked\">\n              <tr><td>The tangent to \\( y = x^2 - 3x + 4 \\) at \\( (3,\\ 4) \\) is \\( y = 3x - 5 \\) (from earlier). Where does it cross the \\( x \\)-axis?</td></tr>\n              <tr><td>1. Set \\( y = 0 \\): \\( 0 = 3x - 5 \\).</td></tr>\n              <tr><td>2. Solve: \\( x = \\dfrac{5}{3} \\). It crosses at \\( \\left( \\tfrac{5}{3},\\ 0 \\right) \\).</td></tr>\n            </table>\n            <table class=\"worked\">\n              <tr><td>Where do \\( y = -2x \\) and \\( y = -\\tfrac{1}{2}x + 2 \\) intersect?</td></tr>\n              <tr><td>1. Set equal: \\( -2x = -\\tfrac{1}{2}x + 2 \\).</td></tr>\n              <tr><td>2. Rearrange: \\( -2x + \\tfrac{1}{2}x = 2 \\Rightarrow -\\tfrac{3}{2}x = 2 \\Rightarrow x = -\\tfrac{4}{3} \\).</td></tr>\n              <tr><td>3. Back-substitute: \\( y = -2\\left(-\\tfrac{4}{3}\\right) = \\tfrac{8}{3} \\). They meet at \\( \\left( -\\tfrac{4}{3},\\ \\tfrac{8}{3} \\right) \\).</td></tr>\n            </table>",
+  "question": "Where does the line \\( y = 2x - 6 \\) cross the \\( x \\)-axis?",
+  "options": [
+   "\\( (3,\\ 0) \\)",
+   "\\( (0,\\ -6) \\)",
+   "\\( (6,\\ 0) \\)",
+   "\\( (-3,\\ 0) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Set \\( y = 0 \\): \\( 0 = 2x - 6 \\Rightarrow x = 3 \\), so it crosses at \\( (3,\\ 0) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:learn:9b3de99a",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What must you just know, and where do students slip?",
+  "reading": "<p>This topic reuses differentiation (8.1) and straight-line geometry (3.1); the marks are lost on a small number of predictable slips.</p>\n            <ul>\n              <li><strong>MEMORISE (not on the formula sheet):</strong> \\( \\dfrac{d}{dx}(x^n) = n x^{n-1} \\); tangent gradient \\( = \\frac{dy}{dx} \\) at the point; normal gradient \\( = -\\frac{1}{m} \\); the line form \\( y - y_1 = m(x - x_1) \\).</li>\n              <li><strong>\\( \\frac{dy}{dx} \\) is not the tangent's equation.</strong> It is the gradient function; substitute the point's \\( x \\)-value to get a number, then build the line.</li>\n              <li><strong>Normal uses \\( -\\frac{1}{m} \\), not \\( m \\).</strong> Read the command word: \"tangent\" keeps \\( m \\); \"normal\" flips and negates it. A significant number of candidates find the tangent when the normal was asked.</li>\n              <li><strong>Give coordinates in full.</strong> A point of intersection is \\( (x,\\ y) \\) — an \\( x \\)-value alone is incomplete.</li>\n              <li><strong>Guardrail:</strong> at this level you only differentiate <strong>polynomials</strong> — no chain, product or quotient rule, and no trig/exponential/log calculus.</li>\n            </ul>",
+  "question": "You are asked for the NORMAL and you have found the tangent gradient \\( m = 5 \\). What do you use for the normal?",
+  "options": [
+   "Gradient \\( -\\tfrac{1}{5} \\)",
+   "Gradient \\( 5 \\)",
+   "Gradient \\( \\tfrac{1}{5} \\)",
+   "The gradient function \\( \\frac{dy}{dx} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The normal is perpendicular to the tangent, so use the negative reciprocal of \\( 5 \\), which is \\( -\\tfrac{1}{5} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:misc:b34f49f9",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The tangent to \\( y = x^2 + 1 \\) at \\( (2,\\ 5) \\) is \\( y = 2x \\), because \\( \\frac{dy}{dx} = 2x \\).</p><p><strong>✅ The correct idea:</strong> \\( \\frac{dy}{dx} = 2x \\) is the gradient FUNCTION, not the tangent. Evaluate it at \\( x = 2 \\) to get the gradient \\( 4 \\), then use \\( y - 5 = 4(x - 2) \\Rightarrow y = 4x - 3 \\). A weak answer leaves the derivative as the equation; a strong answer substitutes the point's \\( x \\)-value first.</p>",
+  "question": "Tangent to \\( y = x^2 + 1 \\) at \\( (2,\\ 5) \\)?",
+  "options": [
+   "\\( y = 4x - 3 \\)",
+   "\\( y = 2x \\)",
+   "\\( y = 4x \\)",
+   "\\( y = 2x + 1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Gradient \\( = 2(2) = 4 \\); \\( y - 5 = 4(x - 2) \\Rightarrow y = 4x - 3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:misc:258f8b9f",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The normal where the tangent gradient is \\( 2 \\) also has gradient \\( 2 \\).</p><p><strong>✅ The correct idea:</strong> The normal is perpendicular to the tangent, so its gradient is the negative reciprocal \\( -\\tfrac{1}{2} \\), not \\( 2 \\). A weak answer reuses \\( m \\); a strong answer flips and negates it.</p>",
+  "question": "Tangent gradient is \\( 2 \\). Normal gradient?",
+  "options": [
+   "\\( -\\tfrac{1}{2} \\)",
+   "\\( 2 \\)",
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( -2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Negative reciprocal of \\( 2 \\) is \\( -\\tfrac{1}{2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:misc:17188164",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> A tangent has gradient \\( 5 \\) through \\( (2,\\ 3) \\), so it is \\( y = 5x + 3 \\).</p><p><strong>✅ The correct idea:</strong> Using \\( y = mx + c \\) you must substitute the point to find \\( c \\): \\( 3 = 5(2) + c \\Rightarrow c = -7 \\), so \\( y = 5x - 7 \\). A weak answer copies the \\( y \\)-value \\( 3 \\) as the intercept; a strong answer solves for \\( c \\) (or avoids the trap with \\( y - y_1 = m(x - x_1) \\)).</p>",
+  "question": "Tangent gradient \\( 5 \\) through \\( (2,\\ 3) \\). What is \\( c \\) in \\( y = 5x + c \\)?",
+  "options": [
+   "\\( -7 \\)",
+   "\\( 3 \\)",
+   "\\( 13 \\)",
+   "\\( 10 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 3 = 10 + c \\Rightarrow c = -7 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:misc:8c99e74f",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For \\( y = x^3 - 2x^2 + 2x + 4 \\), the gradient at a point is just the coefficient of \\( x \\), namely \\( 2 \\).</p><p><strong>✅ The correct idea:</strong> You must differentiate to \\( \\frac{dy}{dx} = 3x^2 - 4x + 2 \\) and then substitute the point's \\( x \\)-value — the gradient is not read off as a coefficient, nor is it the second derivative. A weak answer guesses a coefficient; a strong answer differentiates and evaluates.</p>",
+  "question": "Gradient of \\( y = x^3 - 2x^2 + 2x + 4 \\) at \\( x = 2 \\)?",
+  "options": [
+   "\\( 6 \\)",
+   "\\( 2 \\)",
+   "\\( 8 \\)",
+   "\\( 4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} = 3x^2 - 4x + 2 = 12 - 8 + 2 = 6 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:misc:b86607d7",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Asked for the NORMAL, the student stops after writing the equation of the tangent.</p><p><strong>✅ The correct idea:</strong> The tangent gradient is only the first stage. Take its negative reciprocal for the normal gradient, then write the NORMAL's equation through the same point. A weak answer answers a different question (the tangent); a strong answer reads the command word and finishes with the normal.</p>",
+  "question": "You found the tangent gradient \\( m = 6 \\). For the normal you next use gradient:",
+  "options": [
+   "\\( -\\tfrac{1}{6} \\)",
+   "\\( 6 \\)",
+   "\\( \\tfrac{1}{6} \\)",
+   "\\( -6 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Normal gradient \\( = -\\frac{1}{m} = -\\frac{1}{6} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:tips:65703cdb",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — 'Determine the equation of the tangent/normal' — the mark ladder",
+  "reading": "<p><strong>0 marks:</strong> quoting \\( \\frac{dy}{dx} \\) as the answer, or giving the normal when the tangent was asked (or vice versa).</p><p><strong>Partial:</strong> correct differentiation and gradient at the point, but no line equation, or the wrong gradient used (\\( m \\) instead of \\( -\\frac{1}{m} \\) for a normal).</p><p><strong>Full marks:</strong> differentiate, substitute the \\( x \\)-value for the gradient, take the negative reciprocal if it is a normal, then write the line via \\( y - y_1 = m(x - x_1) \\) and tidy to a clean 3-term equation. \"Determine\" means the justification (the working) must be visible.</p>",
+  "question": "Why does 'determine' mean you must show working?",
+  "options": [
+   "The justification is required, not just the final line",
+   "You may use a calculator only",
+   "A diagram is compulsory",
+   "You must give a decimal answer"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Determine' requires the reasoning/method to be shown, not only the answer."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:tips:94fc92ed",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Show your working — where the M and A marks sit",
+  "reading": "<p>Examiners award <strong>M1</strong> for differentiating (powers reduced by 1), <strong>A1</strong> for the correct gradient function, and <strong>A1</strong> for the numerical gradient at the point. For a normal there is an extra <strong>M1</strong> for using \\( m_1 m_2 = -1 \\) to get \\( -\\frac{1}{m} \\), then a dependent <strong>M1</strong> for using the point in \\( y - y_1 = m(x - x_1) \\) and <strong>A1</strong> for the final equation. Writing each step means one slip costs one mark, not all of them.</p>",
+  "question": "In a normal question, what earns the extra method mark a tangent question does not?",
+  "options": [
+   "Using \\( m_1 m_2 = -1 \\) to get the negative reciprocal",
+   "Substituting the point",
+   "Differentiating the curve",
+   "Drawing a diagram"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The normal needs the perpendicular-gradient step \\( -\\frac{1}{m} \\), which is its own method mark."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:tips:126fb363",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Read the command word: tangent vs normal",
+  "reading": "<p>The single biggest lost mark on this topic is answering the wrong line. Examiners noted many candidates either felt they had to find the tangent before the normal, or found the tangent and stopped. <strong>Tangent:</strong> gradient \\( = m \\) (the value of \\( \\frac{dy}{dx} \\)). <strong>Normal:</strong> gradient \\( = -\\frac{1}{m} \\). You do not need the tangent's equation to get the normal — only its gradient. Underline \"tangent\" or \"normal\" in the question before you start.</p>",
+  "question": "To find a normal, what do you actually need from the tangent?",
+  "options": [
+   "Only its gradient (to take the negative reciprocal)",
+   "Its full equation",
+   "Where it meets the axes",
+   "Nothing at all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "You need the tangent gradient \\( m \\) to form \\( -\\frac{1}{m} \\); the tangent's equation itself is not required."
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:fib:f1487762",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "To find a tangent's gradient you first ___B1___ the curve, then substitute the point's ___B2___ into the gradient function.",
+  "blankOptions": {
+   "B1": [
+    "not",
+    "3x^2",
+    "differentiate",
+    "is"
+   ],
+   "B2": [
+    "x-coordinate",
+    "point",
+    "-1/m",
+    "parallel"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "differentiate",
+    "B2": "x-coordinate"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:fib:e21ac321",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "If the tangent has gradient \\( m \\), the normal has gradient ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "-1/m",
+    "point",
+    "y-coordinate",
+    "gradient"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "-1/m"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:fib:e3b7bbea",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The normal to a curve is ___B1___ to the tangent at the same point.",
+  "blankOptions": {
+   "B1": [
+    "y",
+    "perpendicular",
+    "integrate",
+    "tangent"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "perpendicular"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:fib:0ed1dd7f",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "To write the equation you use \\( y - y_1 = m(x - x_1) \\) with the gradient and the ___B1___ of contact.",
+  "blankOptions": {
+   "B1": [
+    "y-coordinate",
+    "point",
+    "x-coordinate",
+    "not"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "point"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:fib:74c226fe",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Differentiating \\( y = x^3 - 2x + 3 \\) term by term, the derivative of \\( x^3 \\) is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "m",
+    "tangent",
+    "3x^2",
+    "integrate"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "3x^2"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:fib:66db3d06",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "To find where a tangent crosses the \\( x \\)-axis, set ___B1___ equal to zero and solve.",
+  "blankOptions": {
+   "B1": [
+    "3x^2",
+    "y",
+    "reciprocal",
+    "differentiate"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "y"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:fib:ba98ea32",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The gradient function \\( \\frac{dy}{dx} \\) is ___B1___ the equation of the tangent — you must still substitute a point.",
+  "blankOptions": {
+   "B1": [
+    "differentiate",
+    "gradient",
+    "perpendicular",
+    "not"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "not"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:match:b4c65ed5",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = x^2 \\)”?",
+  "options": [
+   "Negative reciprocal of the tangent gradient",
+   "Set \\( x = 0 \\) and read off \\( y \\)",
+   "The value of \\( \\dfrac{dy}{dx} \\) at the point",
+   "\\( \\dfrac{dy}{dx} = 2x \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( y = x^2 \\)” means: \\( \\dfrac{dy}{dx} = 2x \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:match:625635e7",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = x^3 \\)”?",
+  "options": [
+   "Set \\( y = 0 \\) and solve for \\( x \\)",
+   "\\( \\dfrac{dy}{dx} = 3x^2 \\)",
+   "Negative reciprocal of the tangent gradient",
+   "Perpendicular to the tangent at that point"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( y = x^3 \\)” means: \\( \\dfrac{dy}{dx} = 3x^2 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:match:7593c245",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = 5x \\)”?",
+  "options": [
+   "Set \\( x = 0 \\) and read off \\( y \\)",
+   "Normal gradient \\( 3 \\)",
+   "\\( \\dfrac{dy}{dx} = 3x^2 \\)",
+   "\\( \\dfrac{dy}{dx} = 5 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( y = 5x \\)” means: \\( \\dfrac{dy}{dx} = 5 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:match:eb72f5aa",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = 7 \\)”?",
+  "options": [
+   "\\( \\dfrac{dy}{dx} = 0 \\)",
+   "\\( \\dfrac{dy}{dx} = 5 \\)",
+   "Perpendicular to the tangent at that point",
+   "Negative reciprocal of the tangent gradient"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( y = 7 \\)” means: \\( \\dfrac{dy}{dx} = 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:match:5dcb2299",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Tangent gradient”?",
+  "options": [
+   "Set \\( x = 0 \\) and read off \\( y \\)",
+   "Negative reciprocal of the tangent gradient",
+   "The value of \\( \\dfrac{dy}{dx} \\) at the point",
+   "\\( \\dfrac{dy}{dx} = 5 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Tangent gradient” means: The value of \\( \\dfrac{dy}{dx} \\) at the point"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:match:15ecc81c",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Normal gradient”?",
+  "options": [
+   "Negative reciprocal of the tangent gradient",
+   "Set \\( y = 0 \\) and solve for \\( x \\)",
+   "Set \\( x = 0 \\) and read off \\( y \\)",
+   "\\( \\dfrac{dy}{dx} = 5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Normal gradient” means: Negative reciprocal of the tangent gradient"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:match:bb928149",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Tangent gradient \\( m = 2 \\)”?",
+  "options": [
+   "Normal gradient \\( 3 \\)",
+   "Perpendicular to the tangent at that point",
+   "Negative reciprocal of the tangent gradient",
+   "Normal gradient \\( -\\tfrac{1}{2} \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Tangent gradient \\( m = 2 \\)” means: Normal gradient \\( -\\tfrac{1}{2} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:match:9866618b",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Tangent gradient \\( m = -\\tfrac{1}{3} \\)”?",
+  "options": [
+   "Set \\( y = 0 \\) and solve for \\( x \\)",
+   "Normal gradient \\( -\\tfrac{1}{2} \\)",
+   "Normal gradient \\( 3 \\)",
+   "The value of \\( \\dfrac{dy}{dx} \\) at the point"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Tangent gradient \\( m = -\\tfrac{1}{3} \\)” means: Normal gradient \\( 3 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:match:d882a175",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Line through \\( (x_1,\\ y_1) \\) with gradient \\( m \\)”?",
+  "options": [
+   "\\( \\dfrac{dy}{dx} = 3x^2 \\)",
+   "Normal gradient \\( 3 \\)",
+   "Normal gradient \\( -\\tfrac{1}{2} \\)",
+   "\\( y - y_1 = m(x - x_1) \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Line through \\( (x_1,\\ y_1) \\) with gradient \\( m \\)” means: \\( y - y_1 = m(x - x_1) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:match:2d3544df",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “The normal to a curve at a point”?",
+  "options": [
+   "\\( \\dfrac{dy}{dx} = 2x \\)",
+   "The value of \\( \\dfrac{dy}{dx} \\) at the point",
+   "Set \\( y = 0 \\) and solve for \\( x \\)",
+   "Perpendicular to the tangent at that point"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“The normal to a curve at a point” means: Perpendicular to the tangent at that point"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:match:6fa5f0fe",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Where a line meets the \\( x \\)-axis”?",
+  "options": [
+   "Normal gradient \\( 3 \\)",
+   "\\( \\dfrac{dy}{dx} = 5 \\)",
+   "Set \\( x = 0 \\) and read off \\( y \\)",
+   "Set \\( y = 0 \\) and solve for \\( x \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Where a line meets the \\( x \\)-axis” means: Set \\( y = 0 \\) and solve for \\( x \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-2-tangents-and-normals:match:d4508e46",
+  "pageId": "additional-maths:8-2-tangents-and-normals",
+  "pageName": "8.2 Tangents and Normals",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Where a line meets the \\( y \\)-axis”?",
+  "options": [
+   "Set \\( x = 0 \\) and read off \\( y \\)",
+   "Set \\( y = 0 \\) and solve for \\( x \\)",
+   "\\( \\dfrac{dy}{dx} = 0 \\)",
+   "\\( \\dfrac{dy}{dx} = 2x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Where a line meets the \\( y \\)-axis” means: Set \\( x = 0 \\) and read off \\( y \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:exam:926c542b",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": "10",
+  "question": "<p>Determine the coordinates of the stationary points on the curve \\( y = x^3 - 6x^2 + 9x + 4 \\). <strong>[5]</strong></p>",
+  "hint": "Differentiate, set \\( \\frac{dy}{dx} = 0 \\) and solve the quadratic; then substitute each \\( x \\) back to find \\( y \\) — the final mark is for coordinate pairs.",
+  "starter": "Give both stationary points as coordinates \\( (x,\\ y) \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — differentiate: powers reduced by 1 in at least one term and coefficients adjusted.</li>\n              <li><strong>A1</strong> — \\( \\frac{dy}{dx} = 3x^2 - 12x + 9 \\).</li>\n              <li><strong>M1</strong> — set \\( \\frac{dy}{dx} = 0 \\) and attempt to solve the quadratic (\\( x^2 - 4x + 3 = 0 \\), soi).</li>\n              <li><strong>A1</strong> — \\( x = 1 \\) and \\( x = 3 \\).</li>\n              <li><strong>A1</strong> — \\( (1,\\ 8) \\) and \\( (3,\\ 4) \\); must be given as coordinate pairs.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The two M marks are for the process (differentiating, then solving); the three A marks are for the correct derivative, the correct \\( x \\)-values, and the final coordinate pairs.</li>\n              <li>Finding \\( x = 1,\\ 3 \\) but not the \\( y \\)-values scores 4/5 — the last A mark needs the pairs.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The vast majority scored full marks or missed the final mark for not finding \\( y \\) to give the coordinates.</li>\n              <li>A few did not realise differentiation was needed and tried to read values from a calculator; the command word \"Determine\" indicates that working/justification should be shown, though a full analytical method is not required.</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\frac{dy}{dx} = 3x^2 - 12x + 9 \\). Setting \\( = 0 \\): \\( 3(x^2 - 4x + 3) = 0 \\Rightarrow (x-1)(x-3) = 0 \\Rightarrow x = 1 \\) or \\( x = 3 \\). Substituting back: \\( x=1 \\Rightarrow y = 1 - 6 + 9 + 4 = 8 \\); \\( x=3 \\Rightarrow y = 27 - 54 + 27 + 4 = 4 \\). Stationary points: \\( (1,\\ 8) \\) and \\( (3,\\ 4) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:exam:41e3a92f",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "15 (a)(i)",
+  "question": "<p>Show that one of the stationary points has coordinates \\( (1,\\ 1) \\). <strong>[4]</strong></p>",
+  "caseStudy": "<p><strong>In this question you must show detailed reasoning.</strong></p>\n        <p>You are given that the curve \\( y = 2x^3 + 3x^2 - 12x + 8 \\) has two stationary points.</p>",
+  "hint": "This is a detailed-reasoning question: differentiate, show \\( \\frac{dy}{dx} = 0 \\) when \\( x = 1 \\), and show \\( y = 1 \\) there. All values must be seen.",
+  "starter": "Differentiate, then verify both \\( \\frac{dy}{dx} = 0 \\) and \\( y = 1 \\) at \\( x = 1 \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1) · detailed reasoning</h5><ul>\n              <li><strong>M1</strong> — differentiate (at least one power reduced by 1; beware division by \\( x \\)).</li>\n              <li><strong>A1</strong> — \\( \\frac{dy}{dx} = 6x^2 + 6x - 12 \\).</li>\n              <li><strong>M1</strong> — set \\( \\frac{dy}{dx} = 0 \\) and attempt to solve (or substitute \\( x = 1 \\) to obtain derivative \\( = 6 + 6 - 12 = 0 \\)).</li>\n              <li><strong>A1</strong> — AG: show \\( x = 1 \\) gives a stationary point and \\( y = 2 + 3 - 12 + 8 = 1 \\); values must be seen.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Since \\( (1,\\ 1) \\) is given (answer given, AG), the marks are for the visible reasoning: correct derivative, showing the gradient is zero at \\( x = 1 \\), and showing \\( y = 1 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>A large majority were successful. A significant number gained 3 marks but neglected to show \\( y = 1 \\), losing the last A mark.</li>\n              <li>Showing that \\( (1,\\ 1) \\) lies on the curve earns nothing on its own — some calculus is needed to show it is stationary. As \\( x = 1 \\) was given, it was enough to verify the gradient was 0 there.</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\frac{dy}{dx} = 6x^2 + 6x - 12 \\). At \\( x = 1 \\): \\( \\frac{dy}{dx} = 6 + 6 - 12 = 0 \\), so \\( x = 1 \\) is a stationary point. Then \\( y = 2(1)^3 + 3(1)^2 - 12(1) + 8 = 2 + 3 - 12 + 8 = 1 \\). Hence the stationary point is \\( (1,\\ 1) \\), as required."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:exam:b1f8c92f",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "15 (a)(ii)",
+  "question": "<p>Determine the nature of this stationary point. <strong>[2]</strong></p>",
+  "caseStudy": "<p><strong>In this question you must show detailed reasoning.</strong></p>\n        <p>You are given that the curve \\( y = 2x^3 + 3x^2 - 12x + 8 \\) has two stationary points.</p>",
+  "hint": "Find \\( \\frac{d^2y}{dx^2} \\), give its value AND sign at \\( x = 1 \\), and state the conclusion — or use the gradient sign either side over a suitable range.",
+  "starter": "State the sign of \\( \\frac{d^2y}{dx^2} \\) at \\( x = 1 \\) and conclude max or min.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>\n              <li><strong>M1</strong> — a valid method: \\( \\frac{d^2y}{dx^2} = 12x + 6 \\) evaluated at \\( x = 1 \\), OR the sign of \\( \\frac{dy}{dx} \\) either side of \\( x = 1 \\) over a suitable range.</li>\n              <li><strong>A1</strong> — values seen AND conclusion: \\( \\frac{d^2y}{dx^2} = 18 > 0 \\) so minimum.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Sample either-side table: at \\( x = 0.9,\\ \\frac{dy}{dx} = -1.74 \\); at \\( x = 1.1,\\ \\frac{dy}{dx} = +1.86 \\) — negative then positive, so minimum.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The usual method was to show the second derivative was positive, the criterion for a minimum. Just finding the value of \\( \\frac{d^2y}{dx^2} \\), or just stating \\( \\frac{d^2y}{dx^2} > 0 \\), was not sufficient — the significance of both was needed since this was a \"determine\" question.</li>\n              <li>Those who used the sign of \\( y \\) or \\( \\frac{dy}{dx} \\) either side often explained it poorly.</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\frac{d^2y}{dx^2} = 12x + 6 \\). At \\( x = 1 \\): \\( \\frac{d^2y}{dx^2} = 12 + 6 = 18 > 0 \\). Since the second derivative is positive, the stationary point \\( (1,\\ 1) \\) is a minimum."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:mcq:69b3d5d9",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What condition defines a stationary point on a curve?",
+  "options": [
+   "\\( \\frac{dy}{dx} = 0 \\)",
+   "\\( \\frac{d^2y}{dx^2} = 0 \\)",
+   "\\( y = 0 \\)",
+   "\\( x = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A stationary point is where the gradient is zero, i.e. \\( \\frac{dy}{dx} = 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:mcq:4a064da2",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find the \\( x \\)-coordinates of the stationary points of \\( y = x^3 - 3x^2 - 9x + 5 \\).",
+  "options": [
+   "\\( x = 3 \\) and \\( x = -1 \\)",
+   "\\( x = -3 \\) and \\( x = 1 \\)",
+   "\\( x = 0 \\) and \\( x = 3 \\)",
+   "\\( x = 9 \\) and \\( x = -5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} = 3x^2 - 6x - 9 = 3(x-3)(x+1) = 0 \\Rightarrow x = 3 \\) or \\( x = -1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:mcq:522a3a9c",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Give the stationary points of \\( y = x^3 - 3x^2 - 9x + 5 \\) as coordinates.",
+  "options": [
+   "\\( (3,\\ -22) \\) and \\( (-1,\\ 10) \\)",
+   "\\( x = 3 \\) and \\( x = -1 \\)",
+   "\\( (3,\\ 10) \\) and \\( (-1,\\ -22) \\)",
+   "\\( (-22,\\ 3) \\) and \\( (10,\\ -1) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Substitute back: \\( x=3 \\Rightarrow y=-22 \\); \\( x=-1 \\Rightarrow y=10 \\). Answers must be coordinate PAIRS, not just \\( x \\)-values."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:mcq:9771f70e",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "At a stationary point \\( \\frac{d^2y}{dx^2} = 8 \\). What is its nature?",
+  "options": [
+   "Minimum",
+   "Maximum",
+   "Point of inflection",
+   "Cannot be decided"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{d^2y}{dx^2} > 0 \\) means concave up, so the point is a minimum."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:mcq:3d91ca77",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "At a stationary point \\( \\frac{d^2y}{dx^2} = -4 \\). What is its nature?",
+  "options": [
+   "Maximum",
+   "Minimum",
+   "Point of inflection",
+   "Cannot be decided"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{d^2y}{dx^2} < 0 \\) means concave down, so the point is a maximum."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:mcq:9b63b567",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Once you have solved \\( \\frac{dy}{dx} = 0 \\) for \\( x \\), how do you find the \\( y \\)-coordinate of the stationary point?",
+  "options": [
+   "Substitute \\( x \\) into the original equation of the curve",
+   "Substitute \\( x \\) into \\( \\frac{dy}{dx} \\)",
+   "Substitute \\( x \\) into \\( \\frac{d^2y}{dx^2} \\)",
+   "Set \\( y = 0 \\) and solve"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The stationary point lies on the curve, so substitute \\( x \\) into the original \\( y = \\ldots \\) to get \\( y \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:mcq:b7dfaa78",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A question asks you to 'determine the nature' of a stationary point. A complete answer must include:",
+  "options": [
+   "The sign of \\( \\frac{d^2y}{dx^2} \\) AND the conclusion (max or min)",
+   "Only the value of \\( \\frac{d^2y}{dx^2} \\)",
+   "Only the \\( x \\)-coordinate",
+   "Only the word 'minimum'"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Determine' needs justification: state the sign of \\( \\frac{d^2y}{dx^2} \\) and the resulting conclusion. A bare value is not enough."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:mcq:43714827",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is a valid alternative to the second-derivative test for finding the nature of a stationary point?",
+  "options": [
+   "Check the sign of \\( \\frac{dy}{dx} \\) just either side of the point",
+   "Set \\( y = 0 \\)",
+   "Read the value off a calculator",
+   "Check the sign of the constant term"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The gradient-sign method (sign of \\( \\frac{dy}{dx} \\) on both sides) always works and is the fallback when \\( \\frac{d^2y}{dx^2} = 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:mcq:c5e82c5f",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For the curve \\( y = x^3 - 3x^2 - 9x + 5 \\), setting \\( y = 0 \\) would find:",
+  "options": [
+   "Where the curve crosses the \\( x \\)-axis, NOT its stationary points",
+   "The stationary points",
+   "The second derivative",
+   "The maximum value only"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( y = 0 \\) gives the \\( x \\)-axis intercepts. Stationary points come from \\( \\frac{dy}{dx} = 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:mcq:6cfac764",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "At a stationary point \\( \\frac{d^2y}{dx^2} = 0 \\). What should you conclude?",
+  "options": [
+   "The test is inconclusive — check the gradient either side",
+   "It is definitely a point of inflection",
+   "It is definitely a minimum",
+   "There is no stationary point there"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{d^2y}{dx^2} = 0 \\) is inconclusive; use the gradient-sign method to decide the nature."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:mcq:b42d26e9",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A cubic curve with a positive \\( x^3 \\) term has stationary points \\( (-1,\\ 10) \\) and \\( (3,\\ -22) \\). Which one is the maximum?",
+  "options": [
+   "\\( (-1,\\ 10) \\)",
+   "\\( (3,\\ -22) \\)",
+   "Both are maxima",
+   "Neither is a maximum"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A positive cubic rises to a local maximum first, then falls to a local minimum. The maximum is \\( (-1,\\ 10) \\); \\( (3,\\ -22) \\) is the minimum."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:mcq:642b087a",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The command word 'sketch' (rather than 'plot') means you should:",
+  "options": [
+   "Show the main features in the right places, not necessarily to scale",
+   "Plot every point exactly on a grid",
+   "Give a table of values only",
+   "Not draw anything, just describe it"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Sketch' asks for the shape and key features (turning points, intercepts, end behaviour); 'plot' asks for accuracy on a grid."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:tf:0da7f647",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "At a stationary point the gradient of the curve is zero.",
+  "key": {
+   "answer": true,
+   "explain": "By definition a stationary point is where \\( \\frac{dy}{dx} = 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:tf:0305753a",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If \\( \\frac{d^2y}{dx^2} > 0 \\) at a stationary point, the point is a maximum.",
+  "key": {
+   "answer": false,
+   "explain": "\\( \\frac{d^2y}{dx^2} > 0 \\) (concave up) gives a minimum; \\( < 0 \\) gives a maximum."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:tf:af3e2b2e",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The coordinates of a stationary point should be given as an \\( (x,\\ y) \\) pair.",
+  "key": {
+   "answer": true,
+   "explain": "A stationary point is a point on the curve, so both \\( x \\) and \\( y \\) are needed — an \\( x \\)-value alone loses the final mark."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:tf:11d40d6a",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "To find where a curve crosses the \\( x \\)-axis, you set \\( \\frac{dy}{dx} = 0 \\).",
+  "key": {
+   "answer": false,
+   "explain": "Setting \\( y = 0 \\) gives the \\( x \\)-axis intercepts; \\( \\frac{dy}{dx} = 0 \\) gives stationary points."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:tf:a8aac4cb",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If \\( \\frac{d^2y}{dx^2} = 0 \\) at a stationary point, it must be a point of inflection.",
+  "key": {
+   "answer": false,
+   "explain": "\\( \\frac{d^2y}{dx^2} = 0 \\) is inconclusive; you must check the gradient sign either side to decide the nature."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:tf:396c0e41",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Writing '\\( \\frac{d^2y}{dx^2} > 0 \\)' on its own fully answers a 'determine the nature' question.",
+  "key": {
+   "answer": false,
+   "explain": "You must also state the conclusion ('so it is a minimum'); the sign without a conclusion loses the 'determine' mark."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:tf:9c435412",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A cubic curve can have at most two stationary points.",
+  "key": {
+   "answer": true,
+   "explain": "Differentiating a cubic gives a quadratic \\( \\frac{dy}{dx} \\), which has at most two roots, so at most two stationary points."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:tf:0378c60d",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The \\( y \\)-coordinate of a stationary point is found by substituting its \\( x \\)-value into the original equation of the curve.",
+  "key": {
+   "answer": true,
+   "explain": "The point lies on the curve, so substitute \\( x \\) into \\( y = \\ldots \\), not into \\( \\frac{dy}{dx} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:learn:97dfc16b",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is a stationary point, and how do you find one?",
+  "reading": "<p>A <strong>stationary point</strong> is a point on a curve where the gradient is momentarily zero — the curve has flattened out. Because the gradient function is \\( \\frac{dy}{dx} \\), a stationary point occurs exactly where \\[ \\frac{dy}{dx} = 0. \\]</p>\n            <p>The method is always the same:</p>\n            <ul>\n              <li><strong>Differentiate</strong> to get \\( \\frac{dy}{dx} \\).</li>\n              <li><strong>Set \\( \\frac{dy}{dx} = 0 \\)</strong> and solve for \\( x \\).</li>\n              <li><strong>Substitute each \\( x \\) back into the original curve</strong> \\( y = \\ldots \\) to get the matching \\( y \\).</li>\n              <li><strong>Give the answer as coordinate pairs</strong> \\( (x,\\ y) \\) — an \\( x \\)-value on its own is an incomplete answer and loses the final mark.</li>\n            </ul>\n            <p><strong>Worked example — find the stationary points of \\( y = x^3 - 3x^2 - 9x + 5 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Differentiate: \\( \\frac{dy}{dx} = 3x^2 - 6x - 9 \\).</td></tr>\n              <tr><td>2. Set to zero: \\( 3x^2 - 6x - 9 = 0 \\Rightarrow 3(x^2 - 2x - 3) = 0 \\Rightarrow 3(x-3)(x+1) = 0 \\).</td></tr>\n              <tr><td>3. Solve: \\( x = 3 \\) or \\( x = -1 \\).</td></tr>\n              <tr><td>4. Substitute back: \\( x=3:\\ y = 27 - 27 - 27 + 5 = -22 \\); \\( x=-1:\\ y = -1 - 3 + 9 + 5 = 10 \\).</td></tr>\n              <tr><td>5. Stationary points: \\[ (3,\\ -22) \\quad\\text{and}\\quad (-1,\\ 10). \\]</td></tr>\n            </table>",
+  "question": "The curve \\( y = x^2 - 6x + 5 \\) has a stationary point. At what value of \\( x \\)?",
+  "options": [
+   "\\( x = 3 \\)",
+   "\\( x = -3 \\)",
+   "\\( x = 6 \\)",
+   "\\( x = 5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{dy}{dx} = 2x - 6 = 0 \\Rightarrow x = 3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:learn:e9aa1d78",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you determine the nature using the second derivative?",
+  "reading": "<p>Once you have a stationary point, you must say whether it is a <strong>maximum</strong>, a <strong>minimum</strong> or a <strong>point of inflection</strong>. The quickest test is the <strong>second derivative</strong> \\( \\frac{d^2y}{dx^2} \\) — differentiate a second time and check its value at the stationary point:</p>\n            <ul>\n              <li>\\( \\frac{d^2y}{dx^2} > 0 \\) \\( \\Rightarrow \\) the curve is concave up (a valley) \\( \\Rightarrow \\) <strong>minimum</strong>.</li>\n              <li>\\( \\frac{d^2y}{dx^2} < 0 \\) \\( \\Rightarrow \\) the curve is concave down (a hill) \\( \\Rightarrow \\) <strong>maximum</strong>.</li>\n              <li>\\( \\frac{d^2y}{dx^2} = 0 \\) \\( \\Rightarrow \\) the test is <strong>inconclusive</strong> — use the gradient-sign method instead.</li>\n            </ul>\n            <p><strong>Worked example (continuing \\( y = x^3 - 3x^2 - 9x + 5 \\)):</strong> \\( \\frac{d^2y}{dx^2} = 6x - 6 \\).</p>\n            <table class=\"worked\">\n              <tr><td>At \\( x = 3 \\): \\( \\frac{d^2y}{dx^2} = 18 - 6 = 12 > 0 \\), so \\( (3,\\ -22) \\) is a <strong>minimum</strong>.</td></tr>\n              <tr><td>At \\( x = -1 \\): \\( \\frac{d^2y}{dx^2} = -6 - 6 = -12 < 0 \\), so \\( (-1,\\ 10) \\) is a <strong>maximum</strong>.</td></tr>\n            </table>\n            <p><strong>Watch the command word.</strong> A \"determine the nature\" question needs the <em>sign</em> of \\( \\frac{d^2y}{dx^2} \\) <strong>and</strong> the conclusion (\"so it is a minimum\"). A bare value like \"\\( \\frac{d^2y}{dx^2} = 12 \\)\" — or even \"\\( > 0 \\)\" — with no conclusion does not earn the \"determine\" mark.</p>",
+  "question": "At a stationary point \\( \\frac{d^2y}{dx^2} = -5 \\). What is its nature?",
+  "options": [
+   "Maximum",
+   "Minimum",
+   "Point of inflection",
+   "Cannot be decided"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{d^2y}{dx^2} < 0 \\) means the curve is concave down, so the stationary point is a maximum."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:learn:4cbb591b",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What if the second derivative is zero? The gradient-sign method",
+  "reading": "<p>If \\( \\frac{d^2y}{dx^2} = 0 \\) at a stationary point, the second-derivative test tells you nothing. Instead, check the <strong>sign of the gradient \\( \\frac{dy}{dx} \\) just to the left and just to the right</strong> of the point. This method always works, so you can use it in place of the second derivative if you prefer.</p>\n            <table class=\"worked\">\n              <tr><td><strong>Minimum:</strong> gradient goes \\( - \\) then \\( 0 \\) then \\( + \\) (falls, flattens, rises).</td></tr>\n              <tr><td><strong>Maximum:</strong> gradient goes \\( + \\) then \\( 0 \\) then \\( - \\) (rises, flattens, falls).</td></tr>\n              <tr><td><strong>Stationary point of inflection:</strong> the gradient has the <em>same</em> sign on both sides — it does not change.</td></tr>\n            </table>\n            <p><strong>Worked example — classify the stationary point of \\( y = x^3 - 3x + 2 \\) at \\( x = 1 \\):</strong> \\( \\frac{dy}{dx} = 3x^2 - 3 \\), which is \\( 0 \\) at \\( x = 1 \\). Just left, at \\( x = 0.9 \\): \\( 3(0.81) - 3 = -0.57 \\) (negative). Just right, at \\( x = 1.1 \\): \\( 3(1.21) - 3 = 0.63 \\) (positive). The gradient goes \\( - \\) to \\( + \\), so \\( x = 1 \\) is a <strong>minimum</strong>.</p>",
+  "question": "The gradient of a curve is positive just before a stationary point and negative just after it. The point is a:",
+  "options": [
+   "Maximum",
+   "Minimum",
+   "Point of inflection",
+   "There is no stationary point"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Gradient \\( + \\) then \\( - \\) (rises, flattens, falls) is a maximum."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:learn:fd9396c0",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is a point of inflection?",
+  "reading": "<p>A <strong>point of inflection</strong> is where a curve changes the way it bends — from concave up to concave down, or vice versa. A <strong>stationary point of inflection</strong> is a special case where the gradient is also zero.</p>\n            <ul>\n              <li>At a stationary point of inflection \\( \\frac{dy}{dx} = 0 \\) <em>and</em> \\( \\frac{d^2y}{dx^2} = 0 \\), but the gradient does <strong>not</strong> change sign.</li>\n              <li>The classic example is \\( y = x^3 \\) at the origin: \\( \\frac{dy}{dx} = 3x^2 \\) is zero at \\( x = 0 \\), yet \\( 3x^2 \\) is positive on both sides, so the curve keeps rising through \\( (0,\\ 0) \\).</li>\n              <li>Because \\( \\frac{d^2y}{dx^2} = 0 \\) is inconclusive, you must confirm an inflection with the gradient-sign method.</li>\n            </ul>\n            <p>In this qualification you only differentiate polynomials, so the second derivative is always easy to find — never reach for the chain, product or quotient rule.</p>",
+  "question": "For \\( y = x^3 \\), at \\( x = 0 \\) the gradient is zero and is positive on both sides. The origin is a:",
+  "options": [
+   "Stationary point of inflection",
+   "Minimum",
+   "Maximum",
+   "Not a stationary point"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Gradient zero but the same sign either side means it is a stationary point of inflection, not a max or min."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:learn:b246d3db",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you sketch a curve using its stationary points?",
+  "reading": "<p>A good sketch is built from three pieces of information — <strong>stationary points</strong>, <strong>axis intercepts</strong> and <strong>long-run behaviour</strong>:</p>\n            <ul>\n              <li><strong>Stationary points:</strong> plot each turning point and label it as a maximum or minimum.</li>\n              <li><strong>Intercepts:</strong> the \\( y \\)-intercept is the constant term (set \\( x = 0 \\)); the \\( x \\)-intercepts come from factorising \\( y = 0 \\) where possible.</li>\n              <li><strong>Long-run behaviour:</strong> the leading term decides the ends. For a <strong>positive cubic</strong> \\( (a > 0) \\), as \\( x \\to +\\infty,\\ y \\to +\\infty \\) and as \\( x \\to -\\infty,\\ y \\to -\\infty \\).</li>\n            </ul>\n            <p>\"Sketch\" means show the main features in the right places — it does not have to be to scale. The curve below is a positive cubic with a local maximum on the left and a local minimum on the right, the standard shape when a cubic has two stationary points.</p>\n            <svg viewBox=\"0 0 340 260\" width=\"100%\" style=\"max-width:380px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"A positive cubic curve with a local maximum on the left and a local minimum on the right\">\n              <line x1=\"20\" y1=\"150\" x2=\"320\" y2=\"150\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"150\" y1=\"20\" x2=\"150\" y2=\"245\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"320,150 311,146 311,154\" fill=\"currentColor\"/>\n              <polygon points=\"150,20 146,29 154,29\" fill=\"currentColor\"/>\n              <polyline points=\"30,235 55,150 80,92 110,62 140,72 170,110 200,155 230,188 255,165 285,105 310,35\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <circle cx=\"110\" cy=\"62\" r=\"3.6\" fill=\"currentColor\"/>\n              <circle cx=\"230\" cy=\"188\" r=\"3.6\" fill=\"currentColor\"/>\n              <g font-size=\"11\" fill=\"currentColor\">\n                <text x=\"115\" y=\"54\">Maximum</text>\n                <text x=\"182\" y=\"205\">Minimum</text>\n                <text x=\"138\" y=\"165\" text-anchor=\"end\">O</text>\n                <text x=\"315\" y=\"144\">x</text>\n                <text x=\"156\" y=\"30\">y</text>\n              </g>\n            </svg>",
+  "question": "For a positive cubic, what happens as \\( x \\to -\\infty \\)?",
+  "options": [
+   "\\( y \\to -\\infty \\)",
+   "\\( y \\to +\\infty \\)",
+   "\\( y \\to 0 \\)",
+   "\\( y \\) stays constant"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A positive cubic falls to the bottom-left: as \\( x \\to -\\infty,\\ y \\to -\\infty \\) (and rises to the top-right)."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:learn:9755601a",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Command words: 'determine' and giving coordinates",
+  "reading": "<p>Stationary-point questions live or die on two exam-technique points that examiners repeat every year:</p>\n            <ul>\n              <li><strong>\"Determine\" means justify.</strong> You must show the working that leads to your result — differentiating, setting \\( \\frac{dy}{dx} = 0 \\), and (for nature) the sign of \\( \\frac{d^2y}{dx^2} \\) with a stated conclusion. An answer read off a calculator with no working risks the marks.</li>\n              <li><strong>Coordinates come in pairs.</strong> A stationary point is a place on the curve, so it needs both \\( x \\) and \\( y \\). Solving \\( \\frac{dy}{dx} = 0 \\) only gives you \\( x \\); you must substitute back to find \\( y \\) and write \\( (x,\\ y) \\).</li>\n              <li><strong>Do not confuse the two \"= 0\" equations.</strong> Setting \\( \\frac{dy}{dx} = 0 \\) finds stationary points; setting \\( y = 0 \\) finds where the curve crosses the \\( x \\)-axis. They answer different questions.</li>\n            </ul>\n            <p>Remember the guardrails for 6993: you only ever differentiate polynomials, so every derivative here is another polynomial — no chain, product or quotient rule is needed.</p>",
+  "question": "What does the command word 'determine' require you to do?",
+  "options": [
+   "Justify the result with working, not just state it",
+   "Give only the final answer",
+   "Draw an accurate graph",
+   "Round the answer to 3 s.f."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Determine' is a justify command: show the reasoning/working that supports your answer."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:misc:0f03880e",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The stationary points are at \\( x = 3 \\) and \\( x = -1 \\). (final answer)</p><p><strong>✅ The correct idea:</strong> That gives only the \\( x \\)-values. A stationary point needs both coordinates: substitute back to get \\( (3,\\ -22) \\) and \\( (-1,\\ 10) \\). Giving \\( x \\)-values without the \\( y \\)-coordinate loses the final A mark.</p>",
+  "question": "Why is 'the stationary points are at \\( x = 3 \\) and \\( x = -1 \\)' an incomplete answer?",
+  "options": [
+   "It gives no \\( y \\)-coordinates — points need \\( (x,\\ y) \\) pairs",
+   "The \\( x \\)-values are wrong",
+   "It should be a decimal",
+   "Stationary points have no \\( x \\)-value"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A stationary point is a coordinate pair; the \\( y \\)-values must be found and stated."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:misc:28ed7376",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For the nature: \\( \\frac{d^2y}{dx^2} = 18 > 0 \\). (and stops)</p><p><strong>✅ The correct idea:</strong> Stating \\( \\frac{d^2y}{dx^2} > 0 \\) without a conclusion does not answer a 'determine' question. You must add the significance: 'so the point is a minimum'. The examiners rejected the bare sign as insufficient.</p>",
+  "question": "What must you add after '\\( \\frac{d^2y}{dx^2} = 18 > 0 \\)' on a 'determine the nature' question?",
+  "options": [
+   "A conclusion such as 'so it is a minimum'",
+   "Nothing more is needed",
+   "The value of \\( y \\) only",
+   "The equation \\( y = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Determine' requires the sign AND the stated conclusion; the value alone loses the mark."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:misc:44881cb4",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> To find the stationary points, set \\( y = 0 \\) and solve.</p><p><strong>✅ The correct idea:</strong> Setting \\( y = 0 \\) finds the \\( x \\)-axis intercepts, not the stationary points. Stationary points come from setting the derivative \\( \\frac{dy}{dx} = 0 \\).</p>",
+  "question": "Which equation locates the stationary points?",
+  "options": [
+   "\\( \\frac{dy}{dx} = 0 \\)",
+   "\\( y = 0 \\)",
+   "\\( x = 0 \\)",
+   "\\( \\frac{d^2y}{dx^2} = 1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Stationary points are where the gradient \\( \\frac{dy}{dx} \\) is zero."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:misc:f2fa7f13",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\frac{d^2y}{dx^2} > 0 \\), so the stationary point is a maximum.</p><p><strong>✅ The correct idea:</strong> That has the test the wrong way round. \\( \\frac{d^2y}{dx^2} > 0 \\) is a curve bending upwards — a minimum. A maximum has \\( \\frac{d^2y}{dx^2} < 0 \\).</p>",
+  "question": "\\( \\frac{d^2y}{dx^2} > 0 \\) at a stationary point means it is a:",
+  "options": [
+   "Minimum",
+   "Maximum",
+   "Point of inflection",
+   "Root"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Positive second derivative = concave up = minimum."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:misc:3d32af05",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\frac{d^2y}{dx^2} = 0 \\) at the point, so it is a point of inflection.</p><p><strong>✅ The correct idea:</strong> \\( \\frac{d^2y}{dx^2} = 0 \\) is inconclusive — it does NOT guarantee an inflection. Confirm by checking the sign of \\( \\frac{dy}{dx} \\) either side: only if the gradient keeps the same sign is it a stationary point of inflection.</p>",
+  "question": "\\( \\frac{d^2y}{dx^2} = 0 \\) at a stationary point tells you:",
+  "options": [
+   "The test is inconclusive — check the gradient either side",
+   "It is certainly an inflection",
+   "It is certainly a minimum",
+   "There is no stationary point"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Zero second derivative is inconclusive; the gradient-sign method decides."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:tips:cb731d6e",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — 'Determine' means justify — the ladder",
+  "reading": "<p><strong>0 marks:</strong> \"The stationary point is a minimum.\" (asserted, no working — could be read off a calculator.)</p><p><strong>Partial:</strong> \"\\( \\frac{d^2y}{dx^2} = 12 \\).\" (a value, but no conclusion — insufficient for 'determine'.)</p><p><strong>Full marks:</strong> \"\\( \\frac{d^2y}{dx^2} = 6x - 6 \\); at \\( x = 3,\\ \\frac{d^2y}{dx^2} = 12 > 0 \\), so the point is a minimum.\" (sign AND conclusion, with working.)</p>",
+  "question": "On a 'determine the nature' question, the top of the ladder is:",
+  "options": [
+   "The sign of \\( \\frac{d^2y}{dx^2} \\) with a stated conclusion",
+   "Just the word 'minimum'",
+   "Just the value of \\( \\frac{d^2y}{dx^2} \\)",
+   "The \\( x \\)-coordinate only"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Determine' needs the justification (sign) and the conclusion together."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:tips:f26730fd",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Coordinates as pairs — the working ladder",
+  "reading": "<p><strong>0 marks (for the final mark):</strong> \"\\( x = 1 \\) and \\( x = 3 \\).\" (\\( x \\)-values only.)</p><p><strong>Full marks:</strong> substitute each \\( x \\) back into \\( y = \\ldots \\): \"\\( (1,\\ 8) \\) and \\( (3,\\ 4) \\).\" The final A mark is specifically for giving the answer as coordinate pairs — the examiners note this is the most common lost mark on the topic.</p>",
+  "question": "Why substitute the \\( x \\)-values back into the original curve?",
+  "options": [
+   "To find the \\( y \\)-coordinates and give full coordinate pairs",
+   "To check the differentiation",
+   "To find the second derivative",
+   "To find the intercepts"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Stationary points are coordinate pairs; the \\( x \\)-values alone are incomplete."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:tips:4e0c08c4",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Sketching a cubic — the feature ladder",
+  "reading": "<p><strong>Weak:</strong> a wobble with no labels.</p><p><strong>Better:</strong> the right shape with the turning points marked.</p><p><strong>Full marks:</strong> both turning points labelled max/min in the right positions, the \\( y \\)-intercept marked, and the ends correct — for a positive cubic, down to the bottom-left and up to the top-right. \"Sketch\" rewards correct features, not scale.</p>",
+  "question": "Which feature is NOT needed for a good sketch of a cubic?",
+  "options": [
+   "An exact scale on both axes",
+   "The turning points labelled max/min",
+   "The \\( y \\)-intercept",
+   "Correct end behaviour"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A sketch shows features in the right places; it need not be to scale (that is 'plot')."
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:fib:bace086b",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A stationary point occurs where the ___B1___ is zero, that is where \\( \\frac{dy}{dx} = 0 \\).",
+  "blankOptions": {
+   "B1": [
+    "gradient",
+    "not",
+    "intercepts",
+    "pair"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "gradient"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:fib:c9218c4b",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Using the second derivative: if \\( \\frac{d^2y}{dx^2} > 0 \\) the point is a ___B1___, and if \\( \\frac{d^2y}{dx^2} < 0 \\) it is a ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "minimum",
+    "positive",
+    "gradient",
+    "inconclusive"
+   ],
+   "B2": [
+    "maximum",
+    "not",
+    "zero",
+    "determine"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "minimum",
+    "B2": "maximum"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:fib:0bec38cb",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "After solving \\( \\frac{dy}{dx} = 0 \\) for \\( x \\), substitute back to find the ___B1___ and give the answer as a coordinate ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "behaviour",
+    "y-coordinate",
+    "positive",
+    "determine"
+   ],
+   "B2": [
+    "pair",
+    "positive",
+    "gradient",
+    "maximum"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "y-coordinate",
+    "B2": "pair"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:fib:089bc844",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The command word ___B1___ means you must justify your answer, not just state it.",
+  "blankOptions": {
+   "B1": [
+    "pair",
+    "behaviour",
+    "negative",
+    "determine"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "determine"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:fib:90f94306",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "If \\( \\frac{d^2y}{dx^2} = 0 \\) at a stationary point, the second-derivative test is ___B1___, so check the sign of the gradient on ___B2___ of the point.",
+  "blankOptions": {
+   "B1": [
+    "determine",
+    "inconclusive",
+    "positive",
+    "maximum"
+   ],
+   "B2": [
+    "pair",
+    "determine",
+    "y-coordinate",
+    "either side"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "inconclusive",
+    "B2": "either side"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:fib:c4211bcf",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "At a stationary point of inflection the gradient is zero but does ___B1___ change sign as you pass through.",
+  "blankOptions": {
+   "B1": [
+    "maximum",
+    "determine",
+    "positive",
+    "not"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "not"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:fib:c103769e",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "To sketch a cubic you use its stationary points, its ___B1___ with the axes and its long-run ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "not",
+    "either side",
+    "intercepts",
+    "gradient"
+   ],
+   "B2": [
+    "behaviour",
+    "inconclusive",
+    "negative",
+    "determine"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "intercepts",
+    "B2": "behaviour"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:fib:d123fe87",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "For a positive cubic, as \\( x \\) becomes very large and positive, \\( y \\) becomes very large and ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "intercepts",
+    "gradient",
+    "positive",
+    "zero"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "positive"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:8f7151f7",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\frac{dy}{dx} = 0 \\)”?",
+  "options": [
+   "Given as an \\( (x,\\ y) \\) pair",
+   "Local maximum",
+   "Condition for a stationary point",
+   "Local minimum"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\frac{dy}{dx} = 0 \\)” means: Condition for a stationary point"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:0a181db7",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\frac{d^2y}{dx^2} > 0 \\)”?",
+  "options": [
+   "Show main features, not to scale",
+   "Gradient zero but does not change sign",
+   "Minimum point",
+   "Local maximum"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\frac{d^2y}{dx^2} > 0 \\)” means: Minimum point"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:16025237",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\frac{d^2y}{dx^2} < 0 \\)”?",
+  "options": [
+   "Maximum point",
+   "Find the \\( y \\)-coordinate",
+   "Minimum point",
+   "Test inconclusive — check the gradient either side"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\frac{d^2y}{dx^2} < 0 \\)” means: Maximum point"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:b508e649",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\frac{d^2y}{dx^2} = 0 \\)”?",
+  "options": [
+   "Find the \\( x \\)-axis intercepts",
+   "Test inconclusive — check the gradient either side",
+   "Show main features, not to scale",
+   "Find the \\( y \\)-coordinate"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( \\frac{d^2y}{dx^2} = 0 \\)” means: Test inconclusive — check the gradient either side"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:fe171402",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'Determine'”?",
+  "options": [
+   "\\( y \\to +\\infty \\)",
+   "Find the \\( x \\)-axis intercepts",
+   "Maximum point",
+   "Justification required, not just a value"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“'Determine'” means: Justification required, not just a value"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:49024c9d",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Stationary point of inflection”?",
+  "options": [
+   "Gradient zero but does not change sign",
+   "Test inconclusive — check the gradient either side",
+   "Local minimum",
+   "Given as an \\( (x,\\ y) \\) pair"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Stationary point of inflection” means: Gradient zero but does not change sign"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:ba25e37d",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Coordinates of a stationary point”?",
+  "options": [
+   "Local maximum",
+   "Given as an \\( (x,\\ y) \\) pair",
+   "Justification required, not just a value",
+   "Local minimum"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Coordinates of a stationary point” means: Given as an \\( (x,\\ y) \\) pair"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:86de1c3a",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Set \\( y = 0 \\)”?",
+  "options": [
+   "Find the \\( y \\)-coordinate",
+   "Test inconclusive — check the gradient either side",
+   "Maximum point",
+   "Find the \\( x \\)-axis intercepts"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Set \\( y = 0 \\)” means: Find the \\( x \\)-axis intercepts"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:b2a0f7a4",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Substitute \\( x \\) into the original curve”?",
+  "options": [
+   "Show main features, not to scale",
+   "Find the \\( x \\)-axis intercepts",
+   "Minimum point",
+   "Find the \\( y \\)-coordinate"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Substitute \\( x \\) into the original curve” means: Find the \\( y \\)-coordinate"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:55f02081",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Positive cubic, \\( x \\to +\\infty \\)”?",
+  "options": [
+   "Find the \\( y \\)-coordinate",
+   "\\( y \\to +\\infty \\)",
+   "Show main features, not to scale",
+   "Local maximum"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Positive cubic, \\( x \\to +\\infty \\)” means: \\( y \\to +\\infty \\)"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:71c816a2",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Gradient changes \\( + \\) to \\( - \\) through a point”?",
+  "options": [
+   "Condition for a stationary point",
+   "Maximum point",
+   "Show main features, not to scale",
+   "Local maximum"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Gradient changes \\( + \\) to \\( - \\) through a point” means: Local maximum"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:fb37d160",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Gradient changes \\( - \\) to \\( + \\) through a point”?",
+  "options": [
+   "Condition for a stationary point",
+   "Local minimum",
+   "Find the \\( x \\)-axis intercepts",
+   "Find the \\( y \\)-coordinate"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Gradient changes \\( - \\) to \\( + \\) through a point” means: Local minimum"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:1d9955b7",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Greatest number of stationary points of a cubic”?",
+  "options": [
+   "Two",
+   "Maximum point",
+   "Find the \\( y \\)-coordinate",
+   "Justification required, not just a value"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Greatest number of stationary points of a cubic” means: Two"
+  }
+ },
+ {
+  "id": "additional-maths:8-3-stationary-points-and-curve-sketching:match:719d1f76",
+  "pageId": "additional-maths:8-3-stationary-points-and-curve-sketching",
+  "pageName": "8.3 Stationary Points and Curve Sketching",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'Sketch'”?",
+  "options": [
+   "Local maximum",
+   "Find the \\( y \\)-coordinate",
+   "Maximum point",
+   "Show main features, not to scale"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“'Sketch'” means: Show main features, not to scale"
   }
  }
 ];

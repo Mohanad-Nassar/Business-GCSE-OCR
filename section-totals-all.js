@@ -2,7 +2,7 @@
 // ALL SECTION TOTALS — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py: every subject's section
 // totals merged into one map keyed by subject-prefixed page id.
-// Generated: 2026-07-18T05:18:10Z
+// Generated: 2026-07-18T05:31:30Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS_ALL = {
  "additional-maths:1-1-notation-functions-and-indices": {
@@ -300,6 +300,39 @@ window.SECTION_TOTALS_ALL = {
   "tips": 3,
   "fib": 8,
   "match": 13,
+  "flashcards": 15
+ },
+ "additional-maths:8-1-the-gradient-function": {
+  "exam": 4,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 6,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 15
+ },
+ "additional-maths:8-2-tangents-and-normals": {
+  "exam": 4,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 15
+ },
+ "additional-maths:8-3-stationary-points-and-curve-sketching": {
+  "exam": 3,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
   "flashcards": 15
  },
  "business:1-1-role-of-business-enterprise": {

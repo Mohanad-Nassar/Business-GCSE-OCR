@@ -237,22 +237,19 @@
           "id": "8-1-the-gradient-function",
           "name": "8.1 The Gradient Function",
           "sub": "Differentiation",
-          "file": "8.1-the-gradient-function.html",
-          "noQuestions": true
+          "file": "8.1-the-gradient-function.html"
         },
         {
           "id": "8-2-tangents-and-normals",
           "name": "8.2 Tangents and Normals",
           "sub": "Differentiation",
-          "file": "8.2-tangents-and-normals.html",
-          "noQuestions": true
+          "file": "8.2-tangents-and-normals.html"
         },
         {
           "id": "8-3-stationary-points-and-curve-sketching",
           "name": "8.3 Stationary Points and Curve Sketching",
           "sub": "Differentiation",
-          "file": "8.3-stationary-points-and-curve-sketching.html",
-          "noQuestions": true
+          "file": "8.3-stationary-points-and-curve-sketching.html"
         }
       ]
     },

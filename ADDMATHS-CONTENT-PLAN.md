@@ -590,7 +590,8 @@ page is legible without KaTeX. So ADM-0 is heavier than CS-0 and must land first
 | **ADM-A-W4** | Group 4 (4.1-4.3) - Linear Programming | ADM-0 | 🔄 3 pages BUILT+verified 2026-07-17 (coordinator recomputed 2023 Q10, 2024 Q16 non-integer optimum 2.5, 2019 Q11 profit £412 vs papers). NOT uploaded |
 
 | **ADM-A-W5** | Group 6 (6.1-6.4) + Group 7 (7.1-7.4) - Enumeration + Exp/Logs | ADM-0 | ⬜ |
-| **ADM-A-W6** | Group 8 (8.1-8.3) + Group 9 (9.1-9.3) - Calculus | W1-W2 (algebra secure) | ⬜ |
+| **ADM-A-W8** | Group 8 (8.1-8.3) - Differentiation | W1-W2 | 🔄 3 pages BUILT+verified 2026-07-17 (recomputed 2022 Q14 gradients 4.02/2.31/1.56, 2019 Q3 normal 6y=50-x, 2022 Q12 B=(-4/3,8/3), 2024 Q10 SPs (1,8)max/(3,4)min, 2023 Q15 vs papers). NOT uploaded |
+| **ADM-A-W9** | Group 9 (9.1-9.3) - Integration | W8 | ⬜ |
 | **ADM-A-W7** | Group 10 (10.1-10.2) + Group 11 (11.1-11.2) - Kinematics/NM + Exam Prep | W4, W6 | ⬜ |
 | **ADM-C-1** | Maths Lab framework `/maths-lab/maths-lab.js` + `.css` (tab, PAGE_TOOLS, lazy loader, local+cloud store), include on all 37 pages + scaffolder template, `supabase/maths-lab-saves.sql` | ADM-0 | ⬜ |
 | **ADM-C-2** | Tool modules T1-T9 (drills/examiner-trainer/command-words port; parsons/test-data/sort-visualiser/slider/storage-chooser adapt; lpBuilder new), per-page content inside modules, node unit tests per tool | ADM-C-1 | ⬜ |
@@ -752,7 +753,7 @@ delegation produces confidently wrong maths.
 | 7.2 | Logarithms & the log laws | ✅ 2026-07-17 | ✅ coord | ✅ 2024 Q2 + 2022 Q9, 9 marks | 🔄 built, NOT uploaded |
 | 7.3 | Solving exponential equations | ✅ 2026-07-17 | ✅ coord | ✅ 2019 Q4, 5 marks | 🔄 built, NOT uploaded |
 | 7.4 | Reduction to linear form | ✅ 2026-07-17 | ✅ coord | ✅ 2024 Q14 + 2023 Q14, 22 marks | 🔄 built, NOT uploaded |
-| 8.1 | The gradient function | ⬜ | ⬜ | ⬜ | ⬜ |
+| 8.1 | The gradient function | ✅ 2026-07-17 | ✅ coord | ✅ 2022 Q14, 7 marks | 🔄 built, NOT uploaded |
 | 8.2 | Tangents & normals | ⬜ | ⬜ | ⬜ | ⬜ |
 | 8.3 | Stationary points & curve sketching | ⬜ | ⬜ | ⬜ | ⬜ |
 | 9.1 | Indefinite integration | ⬜ | ⬜ | ⬜ | ⬜ |

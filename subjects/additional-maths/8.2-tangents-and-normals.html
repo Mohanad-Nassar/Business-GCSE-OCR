@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 8. Differentiation</div>
             <h1>8.2 Tangents and Normals</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,10 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 8.2 Tangents and Normals — placeholder, content not yet written
+    //  DATA: 8.2 Tangents and Normals (CA4 — equation of the tangent and normal to a curve at a point)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes DOUBLED in this
+    //  JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Guardrails: polynomials only; no chain/product/
+    //  quotient rule. Exam Qs = 2019 Q3 (normal, 6 marks); 2022 Q12 (a-c) (tangent+normal+intersection, 12 marks).
     // ══════════════════════════════════════
     const pageMeta = {
             id: '8-2-tangents-and-normals',
@@ -266,23 +269,339 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimulus for the exam parts (see examQuestions). Verbatim question text lives
+    // ONLY inside these and the examQuestions fields (ADDMATHS-CONTENT-PLAN.md §6.2).
+    // 2019 Q3 is standalone (no case study); 2022 Q12 (a-c) share the caseId below.
+    const EXAM_CASE_STUDIES = {
+        "q12-2022": `<p>In the diagram the curve with equation \\( y = \\tfrac{1}{2}x^2 - 2x \\) crosses the \\( x \\)-axis at the origin, \\( O \\), and the point \\( A \\). The tangent to this curve at \\( O \\) and the normal to this curve at \\( A \\) intersect at the point \\( B \\).</p>
+        <svg viewBox="0 0 320 250" width="100%" style="max-width:340px;height:auto;display:block;margin:14px auto" role="img" aria-label="A parabola crossing the x-axis at the origin O and at the point A. The tangent to the curve at O and the normal to the curve at A cross to the left of the y-axis at the point B.">
+          <line x1="20" y1="170" x2="300" y2="170" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+          <line x1="113" y1="20" x2="113" y2="230" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+          <text x="292" y="185" font-size="12" fill="currentColor">x</text>
+          <text x="118" y="30" font-size="12" fill="currentColor">y</text>
+          <polyline points="94.7,132.5 113.3,170 132,192.5 150.7,200 169.3,192.5 188,170 206.7,132.5" fill="none" stroke="currentColor" stroke-width="2"/>
+          <line x1="88.5" y1="130" x2="150.7" y2="230" stroke="currentColor" stroke-width="1.6"/>
+          <line x1="88.5" y1="130" x2="225" y2="185" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="113.3" cy="170" r="3.2" fill="currentColor"/>
+          <circle cx="188" cy="170" r="3.2" fill="currentColor"/>
+          <circle cx="88.5" cy="130" r="3.2" fill="currentColor"/>
+          <text x="116" y="184" font-size="13" fill="currentColor">O</text>
+          <text x="189" y="185" font-size="13" fill="currentColor">A</text>
+          <text x="72" y="127" font-size="13" fill="currentColor">B</text>
+        </svg>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>8.2 Tangents and Normals</strong> will appear here soon.</p>`
+            title: "What is the tangent and what is the normal to a curve at a point?",
+            tag: "Key concept",
+            content: `<p>At a point on a curve, the <strong>tangent</strong> is the straight line that just touches the curve there, running in the same direction as the curve. Its gradient is the <strong>gradient of the curve</strong> at that point — the value of \\( \\frac{dy}{dx} \\).</p>
+            <p>The <strong>normal</strong> at the same point is the straight line <strong>perpendicular</strong> to the tangent there. Because perpendicular gradients multiply to \\( -1 \\), if the tangent has gradient \\( m \\) then the normal has gradient \\( -\\frac{1}{m} \\) (the <strong>negative reciprocal</strong>).</p>
+            <svg viewBox="0 0 260 220" width="100%" style="max-width:290px;height:auto;display:block;margin:14px auto" role="img" aria-label="A curve with a point P on it, the tangent line touching the curve at P, and the normal line crossing the tangent at right angles through P.">
+              <path d="M 60,180 Q 110,150 150,106 Q 190,62 235,45" fill="none" stroke="currentColor" stroke-width="2"/>
+              <line x1="95" y1="167" x2="205" y2="46" stroke="currentColor" stroke-width="1.6"/>
+              <line x1="106" y1="66" x2="194" y2="146" stroke="currentColor" stroke-width="1.6" stroke-dasharray="5 4"/>
+              <circle cx="150" cy="106" r="3.5" fill="currentColor"/>
+              <text x="156" y="104" font-size="13" fill="currentColor">P</text>
+              <text x="196" y="42" font-size="12" fill="currentColor">tangent</text>
+              <text x="196" y="150" font-size="12" fill="currentColor">normal</text>
+            </svg>
+            <ul>
+              <li>The tangent and the normal <strong>both pass through the same point</strong> on the curve — the point of contact.</li>
+              <li>They meet <strong>at right angles</strong>: tangent gradient \\( \\times \\) normal gradient \\( = -1 \\).</li>
+              <li><strong>New at this level:</strong> at GCSE you estimated a gradient by drawing a tangent. Here you get it <em>exactly</em> by differentiating, then build both lines.</li>
+            </ul>`,
+            readCheck: { q: "The tangent to a curve at a point has gradient \\( 3 \\). What is the gradient of the normal there?", opts: ["\\( -\\tfrac{1}{3} \\)", "\\( 3 \\)", "\\( \\tfrac{1}{3} \\)", "\\( -3 \\)"], ans: 0, explain: "The normal is perpendicular to the tangent, so its gradient is the negative reciprocal of \\( 3 \\), which is \\( -\\tfrac{1}{3} \\)." }
+        },
+        {
+            title: "What are the steps for finding a tangent or a normal?",
+            tag: "Method",
+            content: `<p>Every tangent/normal question follows the same short recipe. The only difference between the two is which gradient you use in the last step.</p>
+            <table class="worked">
+              <tr><td><strong>1.</strong> <strong>Differentiate</strong> to get the gradient function \\( \\frac{dy}{dx} \\).</td></tr>
+              <tr><td><strong>2.</strong> <strong>Substitute</strong> the \\( x \\)-coordinate of the point into \\( \\frac{dy}{dx} \\) to get the <strong>tangent gradient</strong> \\( m \\).</td></tr>
+              <tr><td><strong>3a. Tangent:</strong> use gradient \\( m \\).</td></tr>
+              <tr><td><strong>3b. Normal:</strong> use gradient \\( -\\dfrac{1}{m} \\) (negative reciprocal).</td></tr>
+              <tr><td><strong>4.</strong> Put the gradient and the point \\( (x_1,\\ y_1) \\) into \\[ y - y_1 = m(x - x_1). \\]</td></tr>
+            </table>
+            <ul>
+              <li>\\( \\frac{dy}{dx} \\) is the gradient <em>function</em> — a formula in \\( x \\). It is <strong>not</strong> the equation of the tangent; you must substitute the point's \\( x \\)-value to turn it into a single number.</li>
+              <li>Use \\( y - y_1 = m(x - x_1) \\), not \\( y = mx + c \\): it puts the point straight in and avoids a separate (error-prone) step to find \\( c \\).</li>
+              <li>The point's \\( y \\)-coordinate is usually given; if not, get it by substituting \\( x \\) into the <strong>curve</strong> (not the derivative).</li>
+            </ul>`,
+            readCheck: { q: "In the recipe, what do you substitute the point's \\( x \\)-value into to get the tangent gradient?", opts: ["The gradient function \\( \\frac{dy}{dx} \\)", "The original curve \\( y \\)", "The line \\( y = mx + c \\)", "The normal's equation"], ans: 0, explain: "Differentiate first, then substitute the \\( x \\)-coordinate into \\( \\frac{dy}{dx} \\) to get the numerical gradient at that point." }
+        },
+        {
+            title: "How do you find the equation of the tangent at a point?",
+            tag: "Worked example",
+            content: `<p>Follow the recipe, using the tangent gradient \\( m \\) directly.</p>
+            <table class="worked">
+              <tr><td>Find the tangent to \\( y = x^2 - 3x + 4 \\) at the point \\( (3,\\ 4) \\).</td></tr>
+              <tr><td>1. Differentiate: \\( \\dfrac{dy}{dx} = 2x - 3 \\).</td></tr>
+              <tr><td>2. At \\( x = 3 \\): \\( \\dfrac{dy}{dx} = 2(3) - 3 = 3 \\). So the tangent gradient is \\( m = 3 \\).</td></tr>
+              <tr><td>3. Through \\( (3,\\ 4) \\): \\( y - 4 = 3(x - 3) \\).</td></tr>
+              <tr><td>4. Tidy: \\( y = 3x - 9 + 4 = 3x - 5 \\).</td></tr>
+            </table>
+            <p>Quick check: at \\( x = 3 \\), \\( 3(3) - 5 = 4 \\) ✓ — the line passes through the point of contact.</p>
+            <p>Notice the gradient <em>function</em> \\( 2x - 3 \\) is not the answer; substituting \\( x = 3 \\) turned it into the single number \\( 3 \\), which is the tangent's gradient.</p>`,
+            readCheck: { q: "For \\( y = x^2 \\), what is the equation of the tangent at \\( (2,\\ 4) \\)?", opts: ["\\( y = 4x - 4 \\)", "\\( y = 2x \\)", "\\( y = 4x \\)", "\\( y = 2x - 4 \\)"], ans: 0, explain: "\\( \\frac{dy}{dx} = 2x = 4 \\) at \\( x = 2 \\); then \\( y - 4 = 4(x - 2) \\Rightarrow y = 4x - 4 \\)." }
+        },
+        {
+            title: "How do you find the equation of the normal at a point?",
+            tag: "Worked example",
+            content: `<p>Identical to the tangent, except step 3 takes the <strong>negative reciprocal</strong> of the tangent gradient.</p>
+            <table class="worked">
+              <tr><td>Find the normal to \\( y = x^3 - 2x + 3 \\) at the point \\( (1,\\ 2) \\).</td></tr>
+              <tr><td>1. Differentiate: \\( \\dfrac{dy}{dx} = 3x^2 - 2 \\).</td></tr>
+              <tr><td>2. At \\( x = 1 \\): \\( \\dfrac{dy}{dx} = 3(1)^2 - 2 = 1 \\). Tangent gradient \\( m = 1 \\).</td></tr>
+              <tr><td>3. Normal gradient \\( = -\\dfrac{1}{m} = -\\dfrac{1}{1} = -1 \\).</td></tr>
+              <tr><td>4. Through \\( (1,\\ 2) \\): \\( y - 2 = -1(x - 1) \\Rightarrow y = -x + 3 \\), i.e. \\( x + y = 3 \\).</td></tr>
+            </table>
+            <p>Quick check: at \\( x = 1 \\), \\( -1 + 3 = 2 \\) ✓. The commonest slip is to reuse \\( m = 1 \\) for the normal — the normal needs \\( -\\frac{1}{m} \\), so its gradient is \\( -1 \\), not \\( 1 \\).</p>
+            <p>If the tangent gradient happens to be \\( 0 \\) (a flat tangent), the normal is <strong>vertical</strong> — its equation is simply \\( x = x_1 \\), because \\( -\\frac{1}{0} \\) is undefined.</p>`,
+            readCheck: { q: "A curve has \\( \\frac{dy}{dx} = 2x - 4 \\). What is the gradient of the normal at \\( x = 1 \\)?", opts: ["\\( \\tfrac{1}{2} \\)", "\\( -2 \\)", "\\( 2 \\)", "\\( -\\tfrac{1}{2} \\)"], ans: 0, explain: "At \\( x = 1 \\), \\( \\frac{dy}{dx} = -2 \\) (tangent gradient); the normal is the negative reciprocal, \\( -\\frac{1}{-2} = \\frac{1}{2} \\)." }
+        },
+        {
+            title: "How do you find where a tangent or normal meets an axis or another line?",
+            tag: "Method",
+            content: `<p>Once you have the equation of the line, treat it as ordinary coordinate geometry.</p>
+            <ul>
+              <li><strong>Meets the \\( x \\)-axis:</strong> set \\( y = 0 \\) and solve for \\( x \\).</li>
+              <li><strong>Meets the \\( y \\)-axis:</strong> set \\( x = 0 \\) and read off \\( y \\).</li>
+              <li><strong>Meets another line:</strong> solve the two equations <strong>simultaneously</strong> (set them equal, or substitute one into the other).</li>
+            </ul>
+            <table class="worked">
+              <tr><td>The tangent to \\( y = x^2 - 3x + 4 \\) at \\( (3,\\ 4) \\) is \\( y = 3x - 5 \\) (from earlier). Where does it cross the \\( x \\)-axis?</td></tr>
+              <tr><td>1. Set \\( y = 0 \\): \\( 0 = 3x - 5 \\).</td></tr>
+              <tr><td>2. Solve: \\( x = \\dfrac{5}{3} \\). It crosses at \\( \\left( \\tfrac{5}{3},\\ 0 \\right) \\).</td></tr>
+            </table>
+            <table class="worked">
+              <tr><td>Where do \\( y = -2x \\) and \\( y = -\\tfrac{1}{2}x + 2 \\) intersect?</td></tr>
+              <tr><td>1. Set equal: \\( -2x = -\\tfrac{1}{2}x + 2 \\).</td></tr>
+              <tr><td>2. Rearrange: \\( -2x + \\tfrac{1}{2}x = 2 \\Rightarrow -\\tfrac{3}{2}x = 2 \\Rightarrow x = -\\tfrac{4}{3} \\).</td></tr>
+              <tr><td>3. Back-substitute: \\( y = -2\\left(-\\tfrac{4}{3}\\right) = \\tfrac{8}{3} \\). They meet at \\( \\left( -\\tfrac{4}{3},\\ \\tfrac{8}{3} \\right) \\).</td></tr>
+            </table>`,
+            readCheck: { q: "Where does the line \\( y = 2x - 6 \\) cross the \\( x \\)-axis?", opts: ["\\( (3,\\ 0) \\)", "\\( (0,\\ -6) \\)", "\\( (6,\\ 0) \\)", "\\( (-3,\\ 0) \\)"], ans: 0, explain: "Set \\( y = 0 \\): \\( 0 = 2x - 6 \\Rightarrow x = 3 \\), so it crosses at \\( (3,\\ 0) \\)." }
+        },
+        {
+            title: "What must you just know, and where do students slip?",
+            tag: "Common error",
+            content: `<p>This topic reuses differentiation (8.1) and straight-line geometry (3.1); the marks are lost on a small number of predictable slips.</p>
+            <ul>
+              <li><strong>MEMORISE (not on the formula sheet):</strong> \\( \\dfrac{d}{dx}(x^n) = n x^{n-1} \\); tangent gradient \\( = \\frac{dy}{dx} \\) at the point; normal gradient \\( = -\\frac{1}{m} \\); the line form \\( y - y_1 = m(x - x_1) \\).</li>
+              <li><strong>\\( \\frac{dy}{dx} \\) is not the tangent's equation.</strong> It is the gradient function; substitute the point's \\( x \\)-value to get a number, then build the line.</li>
+              <li><strong>Normal uses \\( -\\frac{1}{m} \\), not \\( m \\).</strong> Read the command word: "tangent" keeps \\( m \\); "normal" flips and negates it. A significant number of candidates find the tangent when the normal was asked.</li>
+              <li><strong>Give coordinates in full.</strong> A point of intersection is \\( (x,\\ y) \\) — an \\( x \\)-value alone is incomplete.</li>
+              <li><strong>Guardrail:</strong> at this level you only differentiate <strong>polynomials</strong> — no chain, product or quotient rule, and no trig/exponential/log calculus.</li>
+            </ul>`,
+            readCheck: { q: "You are asked for the NORMAL and you have found the tangent gradient \\( m = 5 \\). What do you use for the normal?", opts: ["Gradient \\( -\\tfrac{1}{5} \\)", "Gradient \\( 5 \\)", "Gradient \\( \\tfrac{1}{5} \\)", "The gradient function \\( \\frac{dy}{dx} \\)"], ans: 0, explain: "The normal is perpendicular to the tangent, so use the negative reciprocal of \\( 5 \\), which is \\( -\\tfrac{1}{5} \\)." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "Differentiating \\( y = x^3 - 2x + 3 \\) gives \\( \\frac{dy}{dx} = \\)", opts: ["\\( 3x^2 - 2 \\)", "\\( 3x^2 - 2x \\)", "\\( x^2 - 2 \\)", "\\( 3x^3 - 2 \\)"], ans: 0, explain: "\\( \\frac{d}{dx}(x^3) = 3x^2 \\), \\( \\frac{d}{dx}(-2x) = -2 \\), and the constant \\( 3 \\) differentiates to \\( 0 \\)." },
+        { q: "For \\( y = x^2 - 3x + 4 \\), the gradient of the tangent at the point where \\( x = 3 \\) is:", opts: ["\\( 3 \\)", "\\( 2x - 3 \\)", "\\( 4 \\)", "\\( 9 \\)"], ans: 0, explain: "\\( \\frac{dy}{dx} = 2x - 3 \\); at \\( x = 3 \\) this is \\( 2(3) - 3 = 3 \\). The gradient is a number, not the function \\( 2x - 3 \\)." },
+        { q: "The tangent to a curve at a point has gradient \\( 4 \\). The gradient of the normal there is:", opts: ["\\( -\\tfrac{1}{4} \\)", "\\( 4 \\)", "\\( \\tfrac{1}{4} \\)", "\\( -4 \\)"], ans: 0, explain: "Normal gradient \\( = -\\frac{1}{m} = -\\frac{1}{4} \\); it is the negative reciprocal, not the same as \\( m \\)." },
+        { q: "The tangent to \\( y = x^2 \\) at \\( (2,\\ 4) \\) is:", opts: ["\\( y = 4x - 4 \\)", "\\( y = 2x \\)", "\\( y = 4x \\)", "\\( y = 2x - 4 \\)"], ans: 0, explain: "\\( \\frac{dy}{dx} = 2x = 4 \\) at \\( x = 2 \\); then \\( y - 4 = 4(x - 2) \\Rightarrow y = 4x - 4 \\). Writing \\( y = 2x \\) mistakes the gradient function for the equation." },
+        { q: "A student finds \\( \\frac{dy}{dx} = 2x \\) for \\( y = x^2 + 1 \\) and writes the tangent at \\( (2,\\ 5) \\) as \\( y = 2x \\). This is wrong because:", opts: ["\\( \\frac{dy}{dx} \\) is the gradient function, not the tangent's equation", "the curve is not \\( x^2 + 1 \\)", "the point is not on the curve", "the gradient should be negative"], ans: 0, explain: "You must evaluate \\( \\frac{dy}{dx} \\) at \\( x = 2 \\) (giving \\( 4 \\)) and then use \\( y - 5 = 4(x - 2) \\Rightarrow y = 4x - 3 \\)." },
+        { q: "The normal to \\( y = x^3 - 2x + 3 \\) at \\( (1,\\ 2) \\) is:", opts: ["\\( y = -x + 3 \\)", "\\( y = x + 1 \\)", "\\( y = -x + 2 \\)", "\\( y = 3x^2 - 2 \\)"], ans: 0, explain: "\\( \\frac{dy}{dx} = 3x^2 - 2 = 1 \\) at \\( x = 1 \\); normal gradient \\( = -1 \\); \\( y - 2 = -1(x - 1) \\Rightarrow y = -x + 3 \\)." },
+        { q: "Which line form is best for writing a tangent or normal through a known point?", opts: ["\\( y - y_1 = m(x - x_1) \\)", "\\( y = mx + c \\)", "\\( ax + by + c = 0 \\)", "\\( \\frac{dy}{dx} = m \\)"], ans: 0, explain: "\\( y - y_1 = m(x - x_1) \\) substitutes the point directly and avoids a separate step to find \\( c \\)." },
+        { q: "A tangent has gradient \\( 5 \\) and passes through \\( (2,\\ 3) \\). Using \\( y = mx + c \\), the value of \\( c \\) is:", opts: ["\\( -7 \\)", "\\( 3 \\)", "\\( 13 \\)", "\\( 5 \\)"], ans: 0, explain: "\\( 3 = 5(2) + c \\Rightarrow c = 3 - 10 = -7 \\). Leaving \\( c = 3 \\) forgets to substitute the point." },
+        { q: "For \\( y = \\tfrac{1}{2}x^2 - 2x \\), the tangent gradient at the origin \\( (0,\\ 0) \\) is:", opts: ["\\( -2 \\)", "\\( 0 \\)", "\\( 2 \\)", "\\( \\tfrac{1}{2} \\)"], ans: 0, explain: "\\( \\frac{dy}{dx} = x - 2 \\); at \\( x = 0 \\) this is \\( -2 \\)." },
+        { q: "The curve \\( y = \\tfrac{1}{2}x^2 - 2x \\) crosses the \\( x \\)-axis (apart from the origin) at:", opts: ["\\( (4,\\ 0) \\)", "\\( (2,\\ 0) \\)", "\\( (-4,\\ 0) \\)", "\\( (1,\\ 0) \\)"], ans: 0, explain: "\\( \\tfrac{1}{2}x^2 - 2x = 0 \\Rightarrow x(\\tfrac{1}{2}x - 2) = 0 \\Rightarrow x = 0 \\) or \\( x = 4 \\)." },
+        { q: "Where does the tangent \\( y = 3x - 5 \\) cross the \\( x \\)-axis?", opts: ["\\( \\left( \\tfrac{5}{3},\\ 0 \\right) \\)", "\\( (0,\\ -5) \\)", "\\( (5,\\ 0) \\)", "\\( (3,\\ 0) \\)"], ans: 0, explain: "Set \\( y = 0 \\): \\( 0 = 3x - 5 \\Rightarrow x = \\tfrac{5}{3} \\)." },
+        { q: "For \\( y = x^2 - 4x \\), the gradient of the normal at \\( (1,\\ -3) \\) is:", opts: ["\\( \\tfrac{1}{2} \\)", "\\( -2 \\)", "\\( 2 \\)", "\\( -\\tfrac{1}{2} \\)"], ans: 0, explain: "\\( \\frac{dy}{dx} = 2x - 4 = -2 \\) at \\( x = 1 \\); normal gradient \\( = -\\frac{1}{-2} = \\frac{1}{2} \\)." }
+    ];
+
+    const matchData = [
+        { term: "\\( y = x^2 \\)", def: "\\( \\dfrac{dy}{dx} = 2x \\)" },
+        { term: "\\( y = x^3 \\)", def: "\\( \\dfrac{dy}{dx} = 3x^2 \\)" },
+        { term: "\\( y = 5x \\)", def: "\\( \\dfrac{dy}{dx} = 5 \\)" },
+        { term: "\\( y = 7 \\)", def: "\\( \\dfrac{dy}{dx} = 0 \\)" },
+        { term: "Tangent gradient", def: "The value of \\( \\dfrac{dy}{dx} \\) at the point" },
+        { term: "Normal gradient", def: "Negative reciprocal of the tangent gradient" },
+        { term: "Tangent gradient \\( m = 2 \\)", def: "Normal gradient \\( -\\tfrac{1}{2} \\)" },
+        { term: "Tangent gradient \\( m = -\\tfrac{1}{3} \\)", def: "Normal gradient \\( 3 \\)" },
+        { term: "Line through \\( (x_1,\\ y_1) \\) with gradient \\( m \\)", def: "\\( y - y_1 = m(x - x_1) \\)" },
+        { term: "The normal to a curve at a point", def: "Perpendicular to the tangent at that point" },
+        { term: "Where a line meets the \\( x \\)-axis", def: "Set \\( y = 0 \\) and solve for \\( x \\)" },
+        { term: "Where a line meets the \\( y \\)-axis", def: "Set \\( x = 0 \\) and read off \\( y \\)" }
+    ];
+
+    // FIB blanks sit in PLAIN TEXT, never inside a \( \) region (ADDMATHS-CONTENT-PLAN §8.4 Rule 3b);
+    // blank VALUES are plain text/number so server string-equality still marks them.
+    const fibData = [
+        { display: "To find a tangent's gradient you first ___B1___ the curve, then substitute the point's ___B2___ into the gradient function.", blanks: { B1: "differentiate", B2: "x-coordinate" } },
+        { display: "If the tangent has gradient \\( m \\), the normal has gradient ___B1___.", blanks: { B1: "-1/m" } },
+        { display: "The normal to a curve is ___B1___ to the tangent at the same point.", blanks: { B1: "perpendicular" } },
+        { display: "To write the equation you use \\( y - y_1 = m(x - x_1) \\) with the gradient and the ___B1___ of contact.", blanks: { B1: "point" } },
+        { display: "Differentiating \\( y = x^3 - 2x + 3 \\) term by term, the derivative of \\( x^3 \\) is ___B1___.", blanks: { B1: "3x^2" } },
+        { display: "To find where a tangent crosses the \\( x \\)-axis, set ___B1___ equal to zero and solve.", blanks: { B1: "y" } },
+        { display: "The gradient function \\( \\frac{dy}{dx} \\) is ___B1___ the equation of the tangent — you must still substitute a point.", blanks: { B1: "not" } }
+    ];
+
+    const fibWords = ["differentiate", "x-coordinate", "-1/m", "perpendicular", "point", "3x^2", "y", "not", "integrate", "y-coordinate", "m", "parallel", "gradient", "2x", "x", "is", "reciprocal", "tangent"];
+
+    const tfData = [
+        { statement: "The gradient of the tangent to a curve at a point equals \\( \\frac{dy}{dx} \\) evaluated at that point.", answer: true, explanation: "The gradient of the curve, of the tangent, and the value of \\( \\frac{dy}{dx} \\) at the point are all the same number. ✓" },
+        { statement: "\\( \\frac{dy}{dx} \\) is itself the equation of the tangent line.", answer: false, explanation: "\\( \\frac{dy}{dx} \\) is the gradient function; substitute the point's \\( x \\)-value to get the gradient, then build the line with \\( y - y_1 = m(x - x_1) \\)." },
+        { statement: "If the tangent has gradient \\( 4 \\), the normal has gradient \\( -\\tfrac{1}{4} \\).", answer: true, explanation: "The normal is the negative reciprocal: \\( -\\frac{1}{4} \\). ✓" },
+        { statement: "The normal at a point is parallel to the tangent there.", answer: false, explanation: "The normal is perpendicular to the tangent, so their gradients multiply to \\( -1 \\), not equal each other." },
+        { statement: "The normal's gradient equals the tangent's gradient.", answer: false, explanation: "The normal's gradient is the negative reciprocal \\( -\\frac{1}{m} \\), not \\( m \\)." },
+        { statement: "You can write a tangent's equation by putting the gradient and the point into \\( y - y_1 = m(x - x_1) \\).", answer: true, explanation: "This is the standard method and avoids a separate step to find \\( c \\). ✓" },
+        { statement: "If a tangent has gradient \\( 0 \\), the normal at that point is a vertical line.", answer: true, explanation: "The normal gradient would be \\( -\\frac{1}{0} \\), which is undefined — a vertical line \\( x = x_1 \\). ✓" },
+        { statement: "For \\( y = x^2 - 3x + 4 \\), the gradient function is \\( \\frac{dy}{dx} = 2x - 3 \\).", answer: true, explanation: "\\( \\frac{d}{dx}(x^2) = 2x \\), \\( \\frac{d}{dx}(-3x) = -3 \\), and the constant differentiates to \\( 0 \\). ✓" }
+    ];
+
+    const miscData = [
+        { wrong: "The tangent to \\( y = x^2 + 1 \\) at \\( (2,\\ 5) \\) is \\( y = 2x \\), because \\( \\frac{dy}{dx} = 2x \\).", correct: "\\( \\frac{dy}{dx} = 2x \\) is the gradient FUNCTION, not the tangent. Evaluate it at \\( x = 2 \\) to get the gradient \\( 4 \\), then use \\( y - 5 = 4(x - 2) \\Rightarrow y = 4x - 3 \\). A weak answer leaves the derivative as the equation; a strong answer substitutes the point's \\( x \\)-value first.", readCheck: { q: "Tangent to \\( y = x^2 + 1 \\) at \\( (2,\\ 5) \\)?", opts: ["\\( y = 4x - 3 \\)", "\\( y = 2x \\)", "\\( y = 4x \\)", "\\( y = 2x + 1 \\)"], ans: 0, explain: "Gradient \\( = 2(2) = 4 \\); \\( y - 5 = 4(x - 2) \\Rightarrow y = 4x - 3 \\)." } },
+        { wrong: "The normal where the tangent gradient is \\( 2 \\) also has gradient \\( 2 \\).", correct: "The normal is perpendicular to the tangent, so its gradient is the negative reciprocal \\( -\\tfrac{1}{2} \\), not \\( 2 \\). A weak answer reuses \\( m \\); a strong answer flips and negates it.", readCheck: { q: "Tangent gradient is \\( 2 \\). Normal gradient?", opts: ["\\( -\\tfrac{1}{2} \\)", "\\( 2 \\)", "\\( \\tfrac{1}{2} \\)", "\\( -2 \\)"], ans: 0, explain: "Negative reciprocal of \\( 2 \\) is \\( -\\tfrac{1}{2} \\)." } },
+        { wrong: "A tangent has gradient \\( 5 \\) through \\( (2,\\ 3) \\), so it is \\( y = 5x + 3 \\).", correct: "Using \\( y = mx + c \\) you must substitute the point to find \\( c \\): \\( 3 = 5(2) + c \\Rightarrow c = -7 \\), so \\( y = 5x - 7 \\). A weak answer copies the \\( y \\)-value \\( 3 \\) as the intercept; a strong answer solves for \\( c \\) (or avoids the trap with \\( y - y_1 = m(x - x_1) \\)).", readCheck: { q: "Tangent gradient \\( 5 \\) through \\( (2,\\ 3) \\). What is \\( c \\) in \\( y = 5x + c \\)?", opts: ["\\( -7 \\)", "\\( 3 \\)", "\\( 13 \\)", "\\( 10 \\)"], ans: 0, explain: "\\( 3 = 10 + c \\Rightarrow c = -7 \\)." } },
+        { wrong: "For \\( y = x^3 - 2x^2 + 2x + 4 \\), the gradient at a point is just the coefficient of \\( x \\), namely \\( 2 \\).", correct: "You must differentiate to \\( \\frac{dy}{dx} = 3x^2 - 4x + 2 \\) and then substitute the point's \\( x \\)-value — the gradient is not read off as a coefficient, nor is it the second derivative. A weak answer guesses a coefficient; a strong answer differentiates and evaluates.", readCheck: { q: "Gradient of \\( y = x^3 - 2x^2 + 2x + 4 \\) at \\( x = 2 \\)?", opts: ["\\( 6 \\)", "\\( 2 \\)", "\\( 8 \\)", "\\( 4 \\)"], ans: 0, explain: "\\( \\frac{dy}{dx} = 3x^2 - 4x + 2 = 12 - 8 + 2 = 6 \\)." } },
+        { wrong: "Asked for the NORMAL, the student stops after writing the equation of the tangent.", correct: "The tangent gradient is only the first stage. Take its negative reciprocal for the normal gradient, then write the NORMAL's equation through the same point. A weak answer answers a different question (the tangent); a strong answer reads the command word and finishes with the normal.", readCheck: { q: "You found the tangent gradient \\( m = 6 \\). For the normal you next use gradient:", opts: ["\\( -\\tfrac{1}{6} \\)", "\\( 6 \\)", "\\( \\tfrac{1}{6} \\)", "\\( -6 \\)"], ans: 0, explain: "Normal gradient \\( = -\\frac{1}{m} = -\\frac{1}{6} \\)." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "'Determine the equation of the tangent/normal' — the mark ladder", pills: ["determine", "tangent", "normal"], content: `<p><strong>0 marks:</strong> quoting \\( \\frac{dy}{dx} \\) as the answer, or giving the normal when the tangent was asked (or vice versa).</p><p><strong>Partial:</strong> correct differentiation and gradient at the point, but no line equation, or the wrong gradient used (\\( m \\) instead of \\( -\\frac{1}{m} \\) for a normal).</p><p><strong>Full marks:</strong> differentiate, substitute the \\( x \\)-value for the gradient, take the negative reciprocal if it is a normal, then write the line via \\( y - y_1 = m(x - x_1) \\) and tidy to a clean 3-term equation. "Determine" means the justification (the working) must be visible.</p>`, readCheck: { q: "Why does 'determine' mean you must show working?", opts: ["The justification is required, not just the final line", "You may use a calculator only", "A diagram is compulsory", "You must give a decimal answer"], ans: 0, explain: "'Determine' requires the reasoning/method to be shown, not only the answer." } },
+        { type: "tip", title: "Show your working — where the M and A marks sit", pills: ["method", "M marks", "y - y1 = m(x - x1)"], content: `<p>Examiners award <strong>M1</strong> for differentiating (powers reduced by 1), <strong>A1</strong> for the correct gradient function, and <strong>A1</strong> for the numerical gradient at the point. For a normal there is an extra <strong>M1</strong> for using \\( m_1 m_2 = -1 \\) to get \\( -\\frac{1}{m} \\), then a dependent <strong>M1</strong> for using the point in \\( y - y_1 = m(x - x_1) \\) and <strong>A1</strong> for the final equation. Writing each step means one slip costs one mark, not all of them.</p>`, readCheck: { q: "In a normal question, what earns the extra method mark a tangent question does not?", opts: ["Using \\( m_1 m_2 = -1 \\) to get the negative reciprocal", "Substituting the point", "Differentiating the curve", "Drawing a diagram"], ans: 0, explain: "The normal needs the perpendicular-gradient step \\( -\\frac{1}{m} \\), which is its own method mark." } },
+        { type: "explain", title: "Read the command word: tangent vs normal", pills: ["tangent", "normal", "-1/m"], content: `<p>The single biggest lost mark on this topic is answering the wrong line. Examiners noted many candidates either felt they had to find the tangent before the normal, or found the tangent and stopped. <strong>Tangent:</strong> gradient \\( = m \\) (the value of \\( \\frac{dy}{dx} \\)). <strong>Normal:</strong> gradient \\( = -\\frac{1}{m} \\). You do not need the tangent's equation to get the normal — only its gradient. Underline "tangent" or "normal" in the question before you start.</p>`, readCheck: { q: "To find a normal, what do you actually need from the tangent?", opts: ["Only its gradient (to take the negative reciprocal)", "Its full equation", "Where it meets the axes", "Nothing at all"], ans: 0, explain: "You need the tangent gradient \\( m \\) to form \\( -\\frac{1}{m} \\); the tangent's equation itself is not required." } }
+    ];
+
+    const flashcards = [
+        { term: "Tangent to a curve", def: "The straight line touching the curve at a point, with gradient equal to \\( \\frac{dy}{dx} \\) there." },
+        { term: "Normal to a curve", def: "The line through the point perpendicular to the tangent." },
+        { term: "Tangent gradient", def: "The value of \\( \\frac{dy}{dx} \\) at the point of contact." },
+        { term: "Normal gradient", def: "\\( -\\frac{1}{m} \\), the negative reciprocal of the tangent gradient \\( m \\)." },
+        { term: "Perpendicular-gradients rule", def: "Tangent gradient \\( \\times \\) normal gradient \\( = -1 \\)." },
+        { term: "Equation of a line (point form)", def: "\\( y - y_1 = m(x - x_1) \\) — gradient \\( m \\) through \\( (x_1,\\ y_1) \\)." },
+        { term: "Differentiate \\( x^n \\)", def: "\\( \\frac{d}{dx}(x^n) = n x^{n-1} \\)." },
+        { term: "Step 1 of tangent/normal", def: "Differentiate the curve to get the gradient function \\( \\frac{dy}{dx} \\)." },
+        { term: "Step 2 of tangent/normal", def: "Substitute the point's \\( x \\)-coordinate into \\( \\frac{dy}{dx} \\) to get the gradient \\( m \\)." },
+        { term: "\\( \\frac{dy}{dx} \\) is…", def: "the gradient FUNCTION — not the tangent's equation; evaluate it at a point first." },
+        { term: "Flat tangent (\\( m = 0 \\))", def: "The normal is vertical: \\( x = x_1 \\), because \\( -\\frac{1}{0} \\) is undefined." },
+        { term: "Line meets the \\( x \\)-axis", def: "Set \\( y = 0 \\) and solve for \\( x \\)." },
+        { term: "Line meets the \\( y \\)-axis", def: "Set \\( x = 0 \\) and read off \\( y \\)." },
+        { term: "Two lines intersect", def: "Solve their equations simultaneously; give the answer as \\( (x,\\ y) \\)." },
+        { term: "Calculus guardrail (6993)", def: "Differentiate polynomials only — no chain/product/quotient rule, no trig/exp/log calculus." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "3 (June 2019)",
+            marks: 6,
+            type: "written",
+            question: `<p>Find the equation of the normal to the curve \\( y = x^3 - 2x^2 + 2x + 4 \\) at the point \\( (2,\\ 8) \\).</p>`,
+            hint: "Differentiate, substitute \\( x = 2 \\) for the tangent gradient, then take the NEGATIVE RECIPROCAL for the normal — do not stop at the tangent.",
+            starter: "Give the normal's equation as a tidy 3-term equation (e.g. of the form \\( 6y = 50 - x \\)).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — differentiate (at least two powers reduced by 1).</li>
+              <li><strong>A1</strong> — \\( \\dfrac{dy}{dx} = 3x^2 - 4x + 2 \\).</li>
+              <li><strong>A1</strong> — at \\( (2,\\ 8) \\), \\( \\dfrac{dy}{dx} = 6 \\).</li>
+              <li><strong>M1</strong> — use of \\( m_1 m_2 = -1 \\) on their stated (tangent) gradient: gradient of normal \\( = -\\dfrac{1}{6} \\).</li>
+              <li><strong>M1*</strong> — (dep) using their normal gradient and the correct point: \\( y - 8 = -\\dfrac{1}{6}(x - 2) \\).</li>
+              <li><strong>A1</strong> — \\( 6y = 50 - x \\) oe (www; 3 terms only).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The final M1 is dependent on the previous M1 (you must have a normal gradient to use). Beware dividing by \\( x \\) when differentiating. Any equivalent correct 3-term form of the final line scores.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Well known; most reached the equation of the normal. Common errors: taking the gradient as the coefficient of \\( x \\) in the gradient function (which happened to be \\( 6 \\)), taking it as the value of the second derivative (also \\( 6 \\) here), or writing the gradient as \\( 6x \\). Many felt they had to find the tangent's equation first, or misread and found the tangent; a significant number never got past the tangent. Candidates using \\( y = mx + c \\) made more slips than those using \\( y - y_1 = m(x - x_1) \\).</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\frac{dy}{dx} = 3x^2 - 4x + 2 \\). At \\( x = 2 \\): \\( 3(4) - 4(2) + 2 = 6 \\), so the tangent gradient is \\( 6 \\). The normal gradient is \\( -\\frac{1}{6} \\). Through \\( (2,\\ 8) \\): \\( y - 8 = -\\frac{1}{6}(x - 2) \\Rightarrow 6y - 48 = -(x - 2) \\Rightarrow 6y = 50 - x \\).",
+            markPoints: { note: "Award each mark for the step shown; the final M1 is dependent on obtaining a normal gradient.", groups: [
+                { label: "M1 — differentiate", max: 1, points: ["Differentiated the curve (at least two powers reduced by 1)"] },
+                { label: "A1 — gradient function", max: 1, points: ["\\( \\frac{dy}{dx} = 3x^2 - 4x + 2 \\)"] },
+                { label: "A1 — tangent gradient at the point", max: 1, points: ["At \\( (2, 8) \\), \\( \\frac{dy}{dx} = 6 \\)"] },
+                { label: "M1 — normal gradient", max: 1, points: ["Used \\( m_1 m_2 = -1 \\): gradient of normal \\( = -\\frac{1}{6} \\)"] },
+                { label: "M1* — use point in line form (dep)", max: 1, points: ["\\( y - 8 = -\\frac{1}{6}(x - 2) \\) with their normal gradient and the correct point"] },
+                { label: "A1 — final equation", max: 1, points: ["\\( 6y = 50 - x \\) oe (3 terms only)"] }
+            ] }
+        },
+        {
+            num: "12 (a) (June 2022)",
+            marks: 3,
+            type: "written",
+            caseId: "q12-2022",
+            question: `<p>Determine the equation of the line \\( OB \\).</p>`,
+            hint: "\\( OB \\) is the tangent at \\( O \\). Differentiate and substitute \\( x = 0 \\); the line passes through the origin.",
+            starter: "Give the equation of the tangent at \\( O \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — differentiate (powers reduced by 1): \\( \\dfrac{dy}{dx} = x - 2 \\).</li>
+              <li><strong>A1</strong> — when \\( x = 0 \\), \\( \\dfrac{dy}{dx} = -2 \\).</li>
+              <li><strong>A1</strong> — tangent has equation \\( y = -2x \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>An incorrect differentiation could still give a correct-looking tangent, which is why the command is "determine": the method must be shown. The tangent passes through the origin, so there is no constant.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The gradient function was needed, by differentiation and substituting \\( x = 0 \\). Because an incorrect differentiation could still give the correct tangent equation, the command "determine" required the working to be shown.</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\frac{dy}{dx} = x - 2 \\). At \\( O \\) (\\( x = 0 \\)) the gradient is \\( -2 \\). Since the tangent passes through the origin, \\( OB \\) is \\( y = -2x \\).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — differentiate", max: 1, points: ["\\( \\frac{dy}{dx} = x - 2 \\) (powers reduced by 1)"] },
+                { label: "A1 — gradient at O", max: 1, points: ["At \\( x = 0 \\), \\( \\frac{dy}{dx} = -2 \\)"] },
+                { label: "A1 — equation of OB", max: 1, points: ["\\( y = -2x \\)"] }
+            ] }
+        },
+        {
+            num: "12 (b) (June 2022)",
+            marks: 6,
+            type: "written",
+            caseId: "q12-2022",
+            question: `<p>Determine the equation of the line \\( AB \\).</p>`,
+            hint: "First find \\( A \\) (where the curve meets the \\( x \\)-axis, other than \\( O \\)). \\( AB \\) is the NORMAL at \\( A \\): find the tangent gradient there, then its negative reciprocal.",
+            starter: "Give the equation of the normal at \\( A \\) as a tidy 3-term equation.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks (AO2)</h5><ul>
+              <li><strong>B1</strong> — \\( A \\) has coordinates \\( (4,\\ 0) \\).</li>
+              <li><strong>B1</strong> — when \\( x = 4 \\), \\( \\dfrac{dy}{dx} = 2 \\) (gradient of the tangent at \\( A \\); may be embedded in the equation).</li>
+              <li><strong>M1*</strong> — negative reciprocal of their gradient for the tangent at \\( A \\) (which must be seen): gradient of normal \\( = -\\dfrac{1}{2} \\).</li>
+              <li><strong>A1</strong> — gradient of normal \\( = -\\dfrac{1}{2} \\).</li>
+              <li><strong>M1 (dep)</strong> — use of the line \\( y - y_1 = m(x - x_1) \\) with their \\( m \\), \\( x_1 \\) and \\( y_1 \\).</li>
+              <li><strong>A1</strong> — \\( y = -\\dfrac{1}{2}x + 2 \\) (3 terms only).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Find \\( A \\) by solving \\( \\tfrac{1}{2}x^2 - 2x = 0 \\). The perpendicular-gradient step must be visible, and the final method mark depends on it.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The coordinates of \\( A \\) were required, which most candidates achieved. Finding the gradient of the normal then followed for most candidates.</li>
+            </ul></div>`,
+            modelAnswer: "The curve meets the \\( x \\)-axis where \\( \\frac{1}{2}x^2 - 2x = 0 \\Rightarrow x(\\frac{1}{2}x - 2) = 0 \\Rightarrow x = 0 \\) or \\( x = 4 \\), so \\( A = (4,\\ 0) \\). At \\( x = 4 \\), \\( \\frac{dy}{dx} = 4 - 2 = 2 \\); the normal gradient is \\( -\\frac{1}{2} \\). Through \\( (4,\\ 0) \\): \\( y - 0 = -\\frac{1}{2}(x - 4) \\Rightarrow y = -\\frac{1}{2}x + 2 \\).",
+            markPoints: { note: "Award each mark for the step shown; the final M is dependent on the perpendicular-gradient step.", groups: [
+                { label: "B1 — coordinates of A", max: 1, points: ["\\( A = (4, 0) \\)"] },
+                { label: "B1 — tangent gradient at A", max: 1, points: ["At \\( x = 4 \\), \\( \\frac{dy}{dx} = 2 \\)"] },
+                { label: "M1* — negative reciprocal", max: 1, points: ["Took the negative reciprocal of their tangent gradient (shown)"] },
+                { label: "A1 — normal gradient", max: 1, points: ["Gradient of normal \\( = -\\frac{1}{2} \\)"] },
+                { label: "M1 — use line form (dep)", max: 1, points: ["\\( y - y_1 = m(x - x_1) \\) with their \\( m, x_1, y_1 \\)"] },
+                { label: "A1 — equation of AB", max: 1, points: ["\\( y = -\\frac{1}{2}x + 2 \\) (3 terms only)"] }
+            ] }
+        },
+        {
+            num: "12 (c) (June 2022)",
+            marks: 3,
+            type: "written",
+            caseId: "q12-2022",
+            question: `<p>Hence determine the coordinates of the point \\( B \\).</p>`,
+            hint: "\\( B \\) is where \\( OB \\) and \\( AB \\) meet — solve your two line equations simultaneously.",
+            starter: "Give \\( B \\) as coordinates \\( (x,\\ y) \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — solve their two linear equations simultaneously: \\( -\\dfrac{1}{2}x + 2 = -2x \\).</li>
+              <li><strong>A1</strong> — \\( x = -\\dfrac{4}{3} \\).</li>
+              <li><strong>A1</strong> — \\( y = \\dfrac{8}{3} \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>"Hence" directs you to use the two lines from parts (a) and (b). Marks are available even if one of those equations was wrong (follow-through). Give both coordinates.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Marks were available even if one of the equations was wrong, but for most the solution of the simultaneous equations was straightforward.</li>
+            </ul></div>`,
+            modelAnswer: "Setting the lines equal: \\( -\\frac{1}{2}x + 2 = -2x \\Rightarrow \\frac{3}{2}x = -2 \\Rightarrow x = -\\frac{4}{3} \\). Then \\( y = -2\\left(-\\frac{4}{3}\\right) = \\frac{8}{3} \\). So \\( B = \\left( -\\frac{4}{3},\\ \\frac{8}{3} \\right) \\).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — solve simultaneously", max: 1, points: ["Set their two lines equal: \\( -\\frac{1}{2}x + 2 = -2x \\)"] },
+                { label: "A1 — x-coordinate", max: 1, points: ["\\( x = -\\frac{4}{3} \\)"] },
+                { label: "A1 — y-coordinate", max: 1, points: ["\\( y = \\frac{8}{3} \\), so \\( B = \\left( -\\frac{4}{3}, \\frac{8}{3} \\right) \\)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

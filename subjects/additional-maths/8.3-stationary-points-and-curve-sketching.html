@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 8. Differentiation</div>
             <h1>8.3 Stationary Points and Curve Sketching</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,11 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 8.3 Stationary Points and Curve Sketching — placeholder, content not yet written
+    //  DATA: 8.3 Stationary Points and Curve Sketching (CA5–CA7)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  DOUBLED in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Guardrails:
+    //  polynomials only; no chain/product/quotient rule.
+    //  Exam Qs: 2024 Q10 [5]; 2023 Q15(a)(i) [4, DR] + (a)(ii) [2]. Total 11 marks.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '8-3-stationary-points-and-curve-sketching',
@@ -266,23 +270,293 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimulus for the 2023 Q15 parts (a)(i) and (a)(ii) — they share one stem.
+    const EXAM_CASE_STUDIES = {
+        "q15-2023": `<p><strong>In this question you must show detailed reasoning.</strong></p>
+        <p>You are given that the curve \\( y = 2x^3 + 3x^2 - 12x + 8 \\) has two stationary points.</p>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>8.3 Stationary Points and Curve Sketching</strong> will appear here soon.</p>`
+            title: "What is a stationary point, and how do you find one?",
+            tag: "Key concept",
+            content: `<p>A <strong>stationary point</strong> is a point on a curve where the gradient is momentarily zero — the curve has flattened out. Because the gradient function is \\( \\frac{dy}{dx} \\), a stationary point occurs exactly where \\[ \\frac{dy}{dx} = 0. \\]</p>
+            <p>The method is always the same:</p>
+            <ul>
+              <li><strong>Differentiate</strong> to get \\( \\frac{dy}{dx} \\).</li>
+              <li><strong>Set \\( \\frac{dy}{dx} = 0 \\)</strong> and solve for \\( x \\).</li>
+              <li><strong>Substitute each \\( x \\) back into the original curve</strong> \\( y = \\ldots \\) to get the matching \\( y \\).</li>
+              <li><strong>Give the answer as coordinate pairs</strong> \\( (x,\\ y) \\) — an \\( x \\)-value on its own is an incomplete answer and loses the final mark.</li>
+            </ul>
+            <p><strong>Worked example — find the stationary points of \\( y = x^3 - 3x^2 - 9x + 5 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Differentiate: \\( \\frac{dy}{dx} = 3x^2 - 6x - 9 \\).</td></tr>
+              <tr><td>2. Set to zero: \\( 3x^2 - 6x - 9 = 0 \\Rightarrow 3(x^2 - 2x - 3) = 0 \\Rightarrow 3(x-3)(x+1) = 0 \\).</td></tr>
+              <tr><td>3. Solve: \\( x = 3 \\) or \\( x = -1 \\).</td></tr>
+              <tr><td>4. Substitute back: \\( x=3:\\ y = 27 - 27 - 27 + 5 = -22 \\); \\( x=-1:\\ y = -1 - 3 + 9 + 5 = 10 \\).</td></tr>
+              <tr><td>5. Stationary points: \\[ (3,\\ -22) \\quad\\text{and}\\quad (-1,\\ 10). \\]</td></tr>
+            </table>`,
+            readCheck: { q: "The curve \\( y = x^2 - 6x + 5 \\) has a stationary point. At what value of \\( x \\)?", opts: ["\\( x = 3 \\)", "\\( x = -3 \\)", "\\( x = 6 \\)", "\\( x = 5 \\)"], ans: 0, explain: "\\( \\frac{dy}{dx} = 2x - 6 = 0 \\Rightarrow x = 3 \\)." }
+        },
+        {
+            title: "How do you determine the nature using the second derivative?",
+            tag: "Method",
+            content: `<p>Once you have a stationary point, you must say whether it is a <strong>maximum</strong>, a <strong>minimum</strong> or a <strong>point of inflection</strong>. The quickest test is the <strong>second derivative</strong> \\( \\frac{d^2y}{dx^2} \\) — differentiate a second time and check its value at the stationary point:</p>
+            <ul>
+              <li>\\( \\frac{d^2y}{dx^2} > 0 \\) \\( \\Rightarrow \\) the curve is concave up (a valley) \\( \\Rightarrow \\) <strong>minimum</strong>.</li>
+              <li>\\( \\frac{d^2y}{dx^2} < 0 \\) \\( \\Rightarrow \\) the curve is concave down (a hill) \\( \\Rightarrow \\) <strong>maximum</strong>.</li>
+              <li>\\( \\frac{d^2y}{dx^2} = 0 \\) \\( \\Rightarrow \\) the test is <strong>inconclusive</strong> — use the gradient-sign method instead.</li>
+            </ul>
+            <p><strong>Worked example (continuing \\( y = x^3 - 3x^2 - 9x + 5 \\)):</strong> \\( \\frac{d^2y}{dx^2} = 6x - 6 \\).</p>
+            <table class="worked">
+              <tr><td>At \\( x = 3 \\): \\( \\frac{d^2y}{dx^2} = 18 - 6 = 12 > 0 \\), so \\( (3,\\ -22) \\) is a <strong>minimum</strong>.</td></tr>
+              <tr><td>At \\( x = -1 \\): \\( \\frac{d^2y}{dx^2} = -6 - 6 = -12 < 0 \\), so \\( (-1,\\ 10) \\) is a <strong>maximum</strong>.</td></tr>
+            </table>
+            <p><strong>Watch the command word.</strong> A "determine the nature" question needs the <em>sign</em> of \\( \\frac{d^2y}{dx^2} \\) <strong>and</strong> the conclusion ("so it is a minimum"). A bare value like "\\( \\frac{d^2y}{dx^2} = 12 \\)" — or even "\\( > 0 \\)" — with no conclusion does not earn the "determine" mark.</p>`,
+            readCheck: { q: "At a stationary point \\( \\frac{d^2y}{dx^2} = -5 \\). What is its nature?", opts: ["Maximum", "Minimum", "Point of inflection", "Cannot be decided"], ans: 0, explain: "\\( \\frac{d^2y}{dx^2} < 0 \\) means the curve is concave down, so the stationary point is a maximum." }
+        },
+        {
+            title: "What if the second derivative is zero? The gradient-sign method",
+            tag: "Method",
+            content: `<p>If \\( \\frac{d^2y}{dx^2} = 0 \\) at a stationary point, the second-derivative test tells you nothing. Instead, check the <strong>sign of the gradient \\( \\frac{dy}{dx} \\) just to the left and just to the right</strong> of the point. This method always works, so you can use it in place of the second derivative if you prefer.</p>
+            <table class="worked">
+              <tr><td><strong>Minimum:</strong> gradient goes \\( - \\) then \\( 0 \\) then \\( + \\) (falls, flattens, rises).</td></tr>
+              <tr><td><strong>Maximum:</strong> gradient goes \\( + \\) then \\( 0 \\) then \\( - \\) (rises, flattens, falls).</td></tr>
+              <tr><td><strong>Stationary point of inflection:</strong> the gradient has the <em>same</em> sign on both sides — it does not change.</td></tr>
+            </table>
+            <p><strong>Worked example — classify the stationary point of \\( y = x^3 - 3x + 2 \\) at \\( x = 1 \\):</strong> \\( \\frac{dy}{dx} = 3x^2 - 3 \\), which is \\( 0 \\) at \\( x = 1 \\). Just left, at \\( x = 0.9 \\): \\( 3(0.81) - 3 = -0.57 \\) (negative). Just right, at \\( x = 1.1 \\): \\( 3(1.21) - 3 = 0.63 \\) (positive). The gradient goes \\( - \\) to \\( + \\), so \\( x = 1 \\) is a <strong>minimum</strong>.</p>`,
+            readCheck: { q: "The gradient of a curve is positive just before a stationary point and negative just after it. The point is a:", opts: ["Maximum", "Minimum", "Point of inflection", "There is no stationary point"], ans: 0, explain: "Gradient \\( + \\) then \\( - \\) (rises, flattens, falls) is a maximum." }
+        },
+        {
+            title: "What is a point of inflection?",
+            tag: "Key concept",
+            content: `<p>A <strong>point of inflection</strong> is where a curve changes the way it bends — from concave up to concave down, or vice versa. A <strong>stationary point of inflection</strong> is a special case where the gradient is also zero.</p>
+            <ul>
+              <li>At a stationary point of inflection \\( \\frac{dy}{dx} = 0 \\) <em>and</em> \\( \\frac{d^2y}{dx^2} = 0 \\), but the gradient does <strong>not</strong> change sign.</li>
+              <li>The classic example is \\( y = x^3 \\) at the origin: \\( \\frac{dy}{dx} = 3x^2 \\) is zero at \\( x = 0 \\), yet \\( 3x^2 \\) is positive on both sides, so the curve keeps rising through \\( (0,\\ 0) \\).</li>
+              <li>Because \\( \\frac{d^2y}{dx^2} = 0 \\) is inconclusive, you must confirm an inflection with the gradient-sign method.</li>
+            </ul>
+            <p>In this qualification you only differentiate polynomials, so the second derivative is always easy to find — never reach for the chain, product or quotient rule.</p>`,
+            readCheck: { q: "For \\( y = x^3 \\), at \\( x = 0 \\) the gradient is zero and is positive on both sides. The origin is a:", opts: ["Stationary point of inflection", "Minimum", "Maximum", "Not a stationary point"], ans: 0, explain: "Gradient zero but the same sign either side means it is a stationary point of inflection, not a max or min." }
+        },
+        {
+            title: "How do you sketch a curve using its stationary points?",
+            tag: "Exam skill",
+            content: `<p>A good sketch is built from three pieces of information — <strong>stationary points</strong>, <strong>axis intercepts</strong> and <strong>long-run behaviour</strong>:</p>
+            <ul>
+              <li><strong>Stationary points:</strong> plot each turning point and label it as a maximum or minimum.</li>
+              <li><strong>Intercepts:</strong> the \\( y \\)-intercept is the constant term (set \\( x = 0 \\)); the \\( x \\)-intercepts come from factorising \\( y = 0 \\) where possible.</li>
+              <li><strong>Long-run behaviour:</strong> the leading term decides the ends. For a <strong>positive cubic</strong> \\( (a > 0) \\), as \\( x \\to +\\infty,\\ y \\to +\\infty \\) and as \\( x \\to -\\infty,\\ y \\to -\\infty \\).</li>
+            </ul>
+            <p>"Sketch" means show the main features in the right places — it does not have to be to scale. The curve below is a positive cubic with a local maximum on the left and a local minimum on the right, the standard shape when a cubic has two stationary points.</p>
+            <svg viewBox="0 0 340 260" width="100%" style="max-width:380px;height:auto;display:block;margin:14px auto" role="img" aria-label="A positive cubic curve with a local maximum on the left and a local minimum on the right">
+              <line x1="20" y1="150" x2="320" y2="150" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="150" y1="20" x2="150" y2="245" stroke="currentColor" stroke-width="1.4"/>
+              <polygon points="320,150 311,146 311,154" fill="currentColor"/>
+              <polygon points="150,20 146,29 154,29" fill="currentColor"/>
+              <polyline points="30,235 55,150 80,92 110,62 140,72 170,110 200,155 230,188 255,165 285,105 310,35" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="110" cy="62" r="3.6" fill="currentColor"/>
+              <circle cx="230" cy="188" r="3.6" fill="currentColor"/>
+              <g font-size="11" fill="currentColor">
+                <text x="115" y="54">Maximum</text>
+                <text x="182" y="205">Minimum</text>
+                <text x="138" y="165" text-anchor="end">O</text>
+                <text x="315" y="144">x</text>
+                <text x="156" y="30">y</text>
+              </g>
+            </svg>`,
+            readCheck: { q: "For a positive cubic, what happens as \\( x \\to -\\infty \\)?", opts: ["\\( y \\to -\\infty \\)", "\\( y \\to +\\infty \\)", "\\( y \\to 0 \\)", "\\( y \\) stays constant"], ans: 0, explain: "A positive cubic falls to the bottom-left: as \\( x \\to -\\infty,\\ y \\to -\\infty \\) (and rises to the top-right)." }
+        },
+        {
+            title: "Command words: 'determine' and giving coordinates",
+            tag: "Exam skill",
+            content: `<p>Stationary-point questions live or die on two exam-technique points that examiners repeat every year:</p>
+            <ul>
+              <li><strong>"Determine" means justify.</strong> You must show the working that leads to your result — differentiating, setting \\( \\frac{dy}{dx} = 0 \\), and (for nature) the sign of \\( \\frac{d^2y}{dx^2} \\) with a stated conclusion. An answer read off a calculator with no working risks the marks.</li>
+              <li><strong>Coordinates come in pairs.</strong> A stationary point is a place on the curve, so it needs both \\( x \\) and \\( y \\). Solving \\( \\frac{dy}{dx} = 0 \\) only gives you \\( x \\); you must substitute back to find \\( y \\) and write \\( (x,\\ y) \\).</li>
+              <li><strong>Do not confuse the two "= 0" equations.</strong> Setting \\( \\frac{dy}{dx} = 0 \\) finds stationary points; setting \\( y = 0 \\) finds where the curve crosses the \\( x \\)-axis. They answer different questions.</li>
+            </ul>
+            <p>Remember the guardrails for 6993: you only ever differentiate polynomials, so every derivative here is another polynomial — no chain, product or quotient rule is needed.</p>`,
+            readCheck: { q: "What does the command word 'determine' require you to do?", opts: ["Justify the result with working, not just state it", "Give only the final answer", "Draw an accurate graph", "Round the answer to 3 s.f."], ans: 0, explain: "'Determine' is a justify command: show the reasoning/working that supports your answer." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "What condition defines a stationary point on a curve?", opts: ["\\( \\frac{dy}{dx} = 0 \\)", "\\( \\frac{d^2y}{dx^2} = 0 \\)", "\\( y = 0 \\)", "\\( x = 0 \\)"], ans: 0, explain: "A stationary point is where the gradient is zero, i.e. \\( \\frac{dy}{dx} = 0 \\)." },
+        { q: "Find the \\( x \\)-coordinates of the stationary points of \\( y = x^3 - 3x^2 - 9x + 5 \\).", opts: ["\\( x = 3 \\) and \\( x = -1 \\)", "\\( x = -3 \\) and \\( x = 1 \\)", "\\( x = 0 \\) and \\( x = 3 \\)", "\\( x = 9 \\) and \\( x = -5 \\)"], ans: 0, explain: "\\( \\frac{dy}{dx} = 3x^2 - 6x - 9 = 3(x-3)(x+1) = 0 \\Rightarrow x = 3 \\) or \\( x = -1 \\)." },
+        { q: "Give the stationary points of \\( y = x^3 - 3x^2 - 9x + 5 \\) as coordinates.", opts: ["\\( (3,\\ -22) \\) and \\( (-1,\\ 10) \\)", "\\( x = 3 \\) and \\( x = -1 \\)", "\\( (3,\\ 10) \\) and \\( (-1,\\ -22) \\)", "\\( (-22,\\ 3) \\) and \\( (10,\\ -1) \\)"], ans: 0, explain: "Substitute back: \\( x=3 \\Rightarrow y=-22 \\); \\( x=-1 \\Rightarrow y=10 \\). Answers must be coordinate PAIRS, not just \\( x \\)-values." },
+        { q: "At a stationary point \\( \\frac{d^2y}{dx^2} = 8 \\). What is its nature?", opts: ["Minimum", "Maximum", "Point of inflection", "Cannot be decided"], ans: 0, explain: "\\( \\frac{d^2y}{dx^2} > 0 \\) means concave up, so the point is a minimum." },
+        { q: "At a stationary point \\( \\frac{d^2y}{dx^2} = -4 \\). What is its nature?", opts: ["Maximum", "Minimum", "Point of inflection", "Cannot be decided"], ans: 0, explain: "\\( \\frac{d^2y}{dx^2} < 0 \\) means concave down, so the point is a maximum." },
+        { q: "Once you have solved \\( \\frac{dy}{dx} = 0 \\) for \\( x \\), how do you find the \\( y \\)-coordinate of the stationary point?", opts: ["Substitute \\( x \\) into the original equation of the curve", "Substitute \\( x \\) into \\( \\frac{dy}{dx} \\)", "Substitute \\( x \\) into \\( \\frac{d^2y}{dx^2} \\)", "Set \\( y = 0 \\) and solve"], ans: 0, explain: "The stationary point lies on the curve, so substitute \\( x \\) into the original \\( y = \\ldots \\) to get \\( y \\)." },
+        { q: "A question asks you to 'determine the nature' of a stationary point. A complete answer must include:", opts: ["The sign of \\( \\frac{d^2y}{dx^2} \\) AND the conclusion (max or min)", "Only the value of \\( \\frac{d^2y}{dx^2} \\)", "Only the \\( x \\)-coordinate", "Only the word 'minimum'"], ans: 0, explain: "'Determine' needs justification: state the sign of \\( \\frac{d^2y}{dx^2} \\) and the resulting conclusion. A bare value is not enough." },
+        { q: "Which is a valid alternative to the second-derivative test for finding the nature of a stationary point?", opts: ["Check the sign of \\( \\frac{dy}{dx} \\) just either side of the point", "Set \\( y = 0 \\)", "Read the value off a calculator", "Check the sign of the constant term"], ans: 0, explain: "The gradient-sign method (sign of \\( \\frac{dy}{dx} \\) on both sides) always works and is the fallback when \\( \\frac{d^2y}{dx^2} = 0 \\)." },
+        { q: "For the curve \\( y = x^3 - 3x^2 - 9x + 5 \\), setting \\( y = 0 \\) would find:", opts: ["Where the curve crosses the \\( x \\)-axis, NOT its stationary points", "The stationary points", "The second derivative", "The maximum value only"], ans: 0, explain: "\\( y = 0 \\) gives the \\( x \\)-axis intercepts. Stationary points come from \\( \\frac{dy}{dx} = 0 \\)." },
+        { q: "At a stationary point \\( \\frac{d^2y}{dx^2} = 0 \\). What should you conclude?", opts: ["The test is inconclusive — check the gradient either side", "It is definitely a point of inflection", "It is definitely a minimum", "There is no stationary point there"], ans: 0, explain: "\\( \\frac{d^2y}{dx^2} = 0 \\) is inconclusive; use the gradient-sign method to decide the nature." },
+        { q: "A cubic curve with a positive \\( x^3 \\) term has stationary points \\( (-1,\\ 10) \\) and \\( (3,\\ -22) \\). Which one is the maximum?", opts: ["\\( (-1,\\ 10) \\)", "\\( (3,\\ -22) \\)", "Both are maxima", "Neither is a maximum"], ans: 0, explain: "A positive cubic rises to a local maximum first, then falls to a local minimum. The maximum is \\( (-1,\\ 10) \\); \\( (3,\\ -22) \\) is the minimum." },
+        { q: "The command word 'sketch' (rather than 'plot') means you should:", opts: ["Show the main features in the right places, not necessarily to scale", "Plot every point exactly on a grid", "Give a table of values only", "Not draw anything, just describe it"], ans: 0, explain: "'Sketch' asks for the shape and key features (turning points, intercepts, end behaviour); 'plot' asks for accuracy on a grid." }
+    ];
+
+    const matchData = [
+        { term: "\\( \\frac{dy}{dx} = 0 \\)", def: "Condition for a stationary point" },
+        { term: "\\( \\frac{d^2y}{dx^2} > 0 \\)", def: "Minimum point" },
+        { term: "\\( \\frac{d^2y}{dx^2} < 0 \\)", def: "Maximum point" },
+        { term: "\\( \\frac{d^2y}{dx^2} = 0 \\)", def: "Test inconclusive — check the gradient either side" },
+        { term: "'Determine'", def: "Justification required, not just a value" },
+        { term: "Stationary point of inflection", def: "Gradient zero but does not change sign" },
+        { term: "Coordinates of a stationary point", def: "Given as an \\( (x,\\ y) \\) pair" },
+        { term: "Set \\( y = 0 \\)", def: "Find the \\( x \\)-axis intercepts" },
+        { term: "Substitute \\( x \\) into the original curve", def: "Find the \\( y \\)-coordinate" },
+        { term: "Positive cubic, \\( x \\to +\\infty \\)", def: "\\( y \\to +\\infty \\)" },
+        { term: "Gradient changes \\( + \\) to \\( - \\) through a point", def: "Local maximum" },
+        { term: "Gradient changes \\( - \\) to \\( + \\) through a point", def: "Local minimum" },
+        { term: "Greatest number of stationary points of a cubic", def: "Two" },
+        { term: "'Sketch'", def: "Show main features, not to scale" }
+    ];
+
+    // FIB blanks sit in PLAIN TEXT, never inside \( \) (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b).
+    const fibData = [
+        { display: "A stationary point occurs where the ___B1___ is zero, that is where \\( \\frac{dy}{dx} = 0 \\).", blanks: { B1: "gradient" } },
+        { display: "Using the second derivative: if \\( \\frac{d^2y}{dx^2} > 0 \\) the point is a ___B1___, and if \\( \\frac{d^2y}{dx^2} < 0 \\) it is a ___B2___.", blanks: { B1: "minimum", B2: "maximum" } },
+        { display: "After solving \\( \\frac{dy}{dx} = 0 \\) for \\( x \\), substitute back to find the ___B1___ and give the answer as a coordinate ___B2___.", blanks: { B1: "y-coordinate", B2: "pair" } },
+        { display: "The command word ___B1___ means you must justify your answer, not just state it.", blanks: { B1: "determine" } },
+        { display: "If \\( \\frac{d^2y}{dx^2} = 0 \\) at a stationary point, the second-derivative test is ___B1___, so check the sign of the gradient on ___B2___ of the point.", blanks: { B1: "inconclusive", B2: "either side" } },
+        { display: "At a stationary point of inflection the gradient is zero but does ___B1___ change sign as you pass through.", blanks: { B1: "not" } },
+        { display: "To sketch a cubic you use its stationary points, its ___B1___ with the axes and its long-run ___B2___.", blanks: { B1: "intercepts", B2: "behaviour" } },
+        { display: "For a positive cubic, as \\( x \\) becomes very large and positive, \\( y \\) becomes very large and ___B1___.", blanks: { B1: "positive" } }
+    ];
+
+    const fibWords = ["gradient", "minimum", "maximum", "y-coordinate", "pair", "determine", "inconclusive", "either side", "not", "intercepts", "behaviour", "positive", "negative", "zero"];
+
+    const tfData = [
+        { statement: "At a stationary point the gradient of the curve is zero.", answer: true, explanation: "By definition a stationary point is where \\( \\frac{dy}{dx} = 0 \\)." },
+        { statement: "If \\( \\frac{d^2y}{dx^2} > 0 \\) at a stationary point, the point is a maximum.", answer: false, explanation: "\\( \\frac{d^2y}{dx^2} > 0 \\) (concave up) gives a minimum; \\( < 0 \\) gives a maximum." },
+        { statement: "The coordinates of a stationary point should be given as an \\( (x,\\ y) \\) pair.", answer: true, explanation: "A stationary point is a point on the curve, so both \\( x \\) and \\( y \\) are needed — an \\( x \\)-value alone loses the final mark." },
+        { statement: "To find where a curve crosses the \\( x \\)-axis, you set \\( \\frac{dy}{dx} = 0 \\).", answer: false, explanation: "Setting \\( y = 0 \\) gives the \\( x \\)-axis intercepts; \\( \\frac{dy}{dx} = 0 \\) gives stationary points." },
+        { statement: "If \\( \\frac{d^2y}{dx^2} = 0 \\) at a stationary point, it must be a point of inflection.", answer: false, explanation: "\\( \\frac{d^2y}{dx^2} = 0 \\) is inconclusive; you must check the gradient sign either side to decide the nature." },
+        { statement: "Writing '\\( \\frac{d^2y}{dx^2} > 0 \\)' on its own fully answers a 'determine the nature' question.", answer: false, explanation: "You must also state the conclusion ('so it is a minimum'); the sign without a conclusion loses the 'determine' mark." },
+        { statement: "A cubic curve can have at most two stationary points.", answer: true, explanation: "Differentiating a cubic gives a quadratic \\( \\frac{dy}{dx} \\), which has at most two roots, so at most two stationary points." },
+        { statement: "The \\( y \\)-coordinate of a stationary point is found by substituting its \\( x \\)-value into the original equation of the curve.", answer: true, explanation: "The point lies on the curve, so substitute \\( x \\) into \\( y = \\ldots \\), not into \\( \\frac{dy}{dx} \\)." }
+    ];
+
+    const miscData = [
+        { wrong: "The stationary points are at \\( x = 3 \\) and \\( x = -1 \\). (final answer)", correct: "That gives only the \\( x \\)-values. A stationary point needs both coordinates: substitute back to get \\( (3,\\ -22) \\) and \\( (-1,\\ 10) \\). Giving \\( x \\)-values without the \\( y \\)-coordinate loses the final A mark.", readCheck: { q: "Why is 'the stationary points are at \\( x = 3 \\) and \\( x = -1 \\)' an incomplete answer?", opts: ["It gives no \\( y \\)-coordinates — points need \\( (x,\\ y) \\) pairs", "The \\( x \\)-values are wrong", "It should be a decimal", "Stationary points have no \\( x \\)-value"], ans: 0, explain: "A stationary point is a coordinate pair; the \\( y \\)-values must be found and stated." } },
+        { wrong: "For the nature: \\( \\frac{d^2y}{dx^2} = 18 > 0 \\). (and stops)", correct: "Stating \\( \\frac{d^2y}{dx^2} > 0 \\) without a conclusion does not answer a 'determine' question. You must add the significance: 'so the point is a minimum'. The examiners rejected the bare sign as insufficient.", readCheck: { q: "What must you add after '\\( \\frac{d^2y}{dx^2} = 18 > 0 \\)' on a 'determine the nature' question?", opts: ["A conclusion such as 'so it is a minimum'", "Nothing more is needed", "The value of \\( y \\) only", "The equation \\( y = 0 \\)"], ans: 0, explain: "'Determine' requires the sign AND the stated conclusion; the value alone loses the mark." } },
+        { wrong: "To find the stationary points, set \\( y = 0 \\) and solve.", correct: "Setting \\( y = 0 \\) finds the \\( x \\)-axis intercepts, not the stationary points. Stationary points come from setting the derivative \\( \\frac{dy}{dx} = 0 \\).", readCheck: { q: "Which equation locates the stationary points?", opts: ["\\( \\frac{dy}{dx} = 0 \\)", "\\( y = 0 \\)", "\\( x = 0 \\)", "\\( \\frac{d^2y}{dx^2} = 1 \\)"], ans: 0, explain: "Stationary points are where the gradient \\( \\frac{dy}{dx} \\) is zero." } },
+        { wrong: "\\( \\frac{d^2y}{dx^2} > 0 \\), so the stationary point is a maximum.", correct: "That has the test the wrong way round. \\( \\frac{d^2y}{dx^2} > 0 \\) is a curve bending upwards — a minimum. A maximum has \\( \\frac{d^2y}{dx^2} < 0 \\).", readCheck: { q: "\\( \\frac{d^2y}{dx^2} > 0 \\) at a stationary point means it is a:", opts: ["Minimum", "Maximum", "Point of inflection", "Root"], ans: 0, explain: "Positive second derivative = concave up = minimum." } },
+        { wrong: "\\( \\frac{d^2y}{dx^2} = 0 \\) at the point, so it is a point of inflection.", correct: "\\( \\frac{d^2y}{dx^2} = 0 \\) is inconclusive — it does NOT guarantee an inflection. Confirm by checking the sign of \\( \\frac{dy}{dx} \\) either side: only if the gradient keeps the same sign is it a stationary point of inflection.", readCheck: { q: "\\( \\frac{d^2y}{dx^2} = 0 \\) at a stationary point tells you:", opts: ["The test is inconclusive — check the gradient either side", "It is certainly an inflection", "It is certainly a minimum", "There is no stationary point"], ans: 0, explain: "Zero second derivative is inconclusive; the gradient-sign method decides." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "'Determine' means justify — the ladder", pills: ["determine", "justify", "working"], content: `<p><strong>0 marks:</strong> "The stationary point is a minimum." (asserted, no working — could be read off a calculator.)</p><p><strong>Partial:</strong> "\\( \\frac{d^2y}{dx^2} = 12 \\)." (a value, but no conclusion — insufficient for 'determine'.)</p><p><strong>Full marks:</strong> "\\( \\frac{d^2y}{dx^2} = 6x - 6 \\); at \\( x = 3,\\ \\frac{d^2y}{dx^2} = 12 > 0 \\), so the point is a minimum." (sign AND conclusion, with working.)</p>`, readCheck: { q: "On a 'determine the nature' question, the top of the ladder is:", opts: ["The sign of \\( \\frac{d^2y}{dx^2} \\) with a stated conclusion", "Just the word 'minimum'", "Just the value of \\( \\frac{d^2y}{dx^2} \\)", "The \\( x \\)-coordinate only"], ans: 0, explain: "'Determine' needs the justification (sign) and the conclusion together." } },
+        { type: "tip", title: "Coordinates as pairs — the working ladder", pills: ["coordinates", "A marks", "substitute back"], content: `<p><strong>0 marks (for the final mark):</strong> "\\( x = 1 \\) and \\( x = 3 \\)." (\\( x \\)-values only.)</p><p><strong>Full marks:</strong> substitute each \\( x \\) back into \\( y = \\ldots \\): "\\( (1,\\ 8) \\) and \\( (3,\\ 4) \\)." The final A mark is specifically for giving the answer as coordinate pairs — the examiners note this is the most common lost mark on the topic.</p>`, readCheck: { q: "Why substitute the \\( x \\)-values back into the original curve?", opts: ["To find the \\( y \\)-coordinates and give full coordinate pairs", "To check the differentiation", "To find the second derivative", "To find the intercepts"], ans: 0, explain: "Stationary points are coordinate pairs; the \\( x \\)-values alone are incomplete." } },
+        { type: "explain", title: "Sketching a cubic — the feature ladder", pills: ["sketch", "features", "end behaviour"], content: `<p><strong>Weak:</strong> a wobble with no labels.</p><p><strong>Better:</strong> the right shape with the turning points marked.</p><p><strong>Full marks:</strong> both turning points labelled max/min in the right positions, the \\( y \\)-intercept marked, and the ends correct — for a positive cubic, down to the bottom-left and up to the top-right. "Sketch" rewards correct features, not scale.</p>`, readCheck: { q: "Which feature is NOT needed for a good sketch of a cubic?", opts: ["An exact scale on both axes", "The turning points labelled max/min", "The \\( y \\)-intercept", "Correct end behaviour"], ans: 0, explain: "A sketch shows features in the right places; it need not be to scale (that is 'plot')." } }
+    ];
+
+    const flashcards = [
+        { term: "Stationary point", def: "A point on a curve where \\( \\frac{dy}{dx} = 0 \\) (the gradient is zero)." },
+        { term: "How to find stationary points", def: "Differentiate, set \\( \\frac{dy}{dx} = 0 \\), solve for \\( x \\), substitute back for \\( y \\)." },
+        { term: "Answer form for a stationary point", def: "A coordinate pair \\( (x,\\ y) \\) — never just an \\( x \\)-value." },
+        { term: "Second-derivative test", def: "\\( \\frac{d^2y}{dx^2} > 0 \\Rightarrow \\) minimum; \\( < 0 \\Rightarrow \\) maximum." },
+        { term: "\\( \\frac{d^2y}{dx^2} = 0 \\)", def: "Second-derivative test is inconclusive — use the gradient-sign method." },
+        { term: "Gradient-sign method (minimum)", def: "Gradient goes \\( - \\), \\( 0 \\), \\( + \\) (falls, flattens, rises)." },
+        { term: "Gradient-sign method (maximum)", def: "Gradient goes \\( + \\), \\( 0 \\), \\( - \\) (rises, flattens, falls)." },
+        { term: "Point of inflection", def: "Where the curve changes concavity; a stationary one has zero gradient but no sign change." },
+        { term: "'Determine'", def: "Command word: justify the result with working, do not just state it." },
+        { term: "'Sketch' vs 'plot'", def: "Sketch = main features, not to scale; plot = accurate on a grid." },
+        { term: "Sketching ingredients", def: "Stationary points, axis intercepts, and long-run (end) behaviour." },
+        { term: "Positive cubic end behaviour", def: "\\( x \\to +\\infty,\\ y \\to +\\infty \\); \\( x \\to -\\infty,\\ y \\to -\\infty \\)." },
+        { term: "Max stationary points of a cubic", def: "Two — its derivative is a quadratic with at most two roots." },
+        { term: "\\( \\frac{dy}{dx} = 0 \\) vs \\( y = 0 \\)", def: "First finds stationary points; second finds \\( x \\)-axis intercepts." },
+        { term: "6993 calculus guardrail", def: "Differentiate polynomials only — no chain, product or quotient rule." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "10",
+            marks: 5,
+            type: "written",
+            question: `<p>Determine the coordinates of the stationary points on the curve \\( y = x^3 - 6x^2 + 9x + 4 \\). <strong>[5]</strong></p>`,
+            hint: "Differentiate, set \\( \\frac{dy}{dx} = 0 \\) and solve the quadratic; then substitute each \\( x \\) back to find \\( y \\) — the final mark is for coordinate pairs.",
+            starter: "Give both stationary points as coordinates \\( (x,\\ y) \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — differentiate: powers reduced by 1 in at least one term and coefficients adjusted.</li>
+              <li><strong>A1</strong> — \\( \\frac{dy}{dx} = 3x^2 - 12x + 9 \\).</li>
+              <li><strong>M1</strong> — set \\( \\frac{dy}{dx} = 0 \\) and attempt to solve the quadratic (\\( x^2 - 4x + 3 = 0 \\), soi).</li>
+              <li><strong>A1</strong> — \\( x = 1 \\) and \\( x = 3 \\).</li>
+              <li><strong>A1</strong> — \\( (1,\\ 8) \\) and \\( (3,\\ 4) \\); must be given as coordinate pairs.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The two M marks are for the process (differentiating, then solving); the three A marks are for the correct derivative, the correct \\( x \\)-values, and the final coordinate pairs.</li>
+              <li>Finding \\( x = 1,\\ 3 \\) but not the \\( y \\)-values scores 4/5 — the last A mark needs the pairs.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The vast majority scored full marks or missed the final mark for not finding \\( y \\) to give the coordinates.</li>
+              <li>A few did not realise differentiation was needed and tried to read values from a calculator; the command word "Determine" indicates that working/justification should be shown, though a full analytical method is not required.</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\frac{dy}{dx} = 3x^2 - 12x + 9 \\). Setting \\( = 0 \\): \\( 3(x^2 - 4x + 3) = 0 \\Rightarrow (x-1)(x-3) = 0 \\Rightarrow x = 1 \\) or \\( x = 3 \\). Substituting back: \\( x=1 \\Rightarrow y = 1 - 6 + 9 + 4 = 8 \\); \\( x=3 \\Rightarrow y = 27 - 54 + 27 + 4 = 4 \\). Stationary points: \\( (1,\\ 8) \\) and \\( (3,\\ 4) \\).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — differentiate", max: 1, points: ["Differentiated: every power dropped by 1 and coefficients adjusted"] },
+                { label: "A1 — correct derivative", max: 1, points: ["\\( \\frac{dy}{dx} = 3x^2 - 12x + 9 \\)"] },
+                { label: "M1 — set = 0 and solve", max: 1, points: ["Set \\( \\frac{dy}{dx} = 0 \\) and attempted to solve the quadratic"] },
+                { label: "A1 — x-values", max: 1, points: ["\\( x = 1 \\) and \\( x = 3 \\)"] },
+                { label: "A1 — coordinate pairs", max: 1, points: ["Gave the answer as coordinate pairs \\( (1,\\ 8) \\) and \\( (3,\\ 4) \\)"] }
+            ] }
+        },
+        {
+            num: "15 (a)(i)",
+            marks: 4,
+            type: "written",
+            caseId: "q15-2023",
+            question: `<p>Show that one of the stationary points has coordinates \\( (1,\\ 1) \\). <strong>[4]</strong></p>`,
+            hint: "This is a detailed-reasoning question: differentiate, show \\( \\frac{dy}{dx} = 0 \\) when \\( x = 1 \\), and show \\( y = 1 \\) there. All values must be seen.",
+            starter: "Differentiate, then verify both \\( \\frac{dy}{dx} = 0 \\) and \\( y = 1 \\) at \\( x = 1 \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1) · detailed reasoning</h5><ul>
+              <li><strong>M1</strong> — differentiate (at least one power reduced by 1; beware division by \\( x \\)).</li>
+              <li><strong>A1</strong> — \\( \\frac{dy}{dx} = 6x^2 + 6x - 12 \\).</li>
+              <li><strong>M1</strong> — set \\( \\frac{dy}{dx} = 0 \\) and attempt to solve (or substitute \\( x = 1 \\) to obtain derivative \\( = 6 + 6 - 12 = 0 \\)).</li>
+              <li><strong>A1</strong> — AG: show \\( x = 1 \\) gives a stationary point and \\( y = 2 + 3 - 12 + 8 = 1 \\); values must be seen.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Since \\( (1,\\ 1) \\) is given (answer given, AG), the marks are for the visible reasoning: correct derivative, showing the gradient is zero at \\( x = 1 \\), and showing \\( y = 1 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>A large majority were successful. A significant number gained 3 marks but neglected to show \\( y = 1 \\), losing the last A mark.</li>
+              <li>Showing that \\( (1,\\ 1) \\) lies on the curve earns nothing on its own — some calculus is needed to show it is stationary. As \\( x = 1 \\) was given, it was enough to verify the gradient was 0 there.</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\frac{dy}{dx} = 6x^2 + 6x - 12 \\). At \\( x = 1 \\): \\( \\frac{dy}{dx} = 6 + 6 - 12 = 0 \\), so \\( x = 1 \\) is a stationary point. Then \\( y = 2(1)^3 + 3(1)^2 - 12(1) + 8 = 2 + 3 - 12 + 8 = 1 \\). Hence the stationary point is \\( (1,\\ 1) \\), as required.",
+            markPoints: { note: "Detailed reasoning: every step must be visible.", groups: [
+                { label: "M1 — differentiate", max: 1, points: ["Differentiated (at least one power reduced by 1)"] },
+                { label: "A1 — correct derivative", max: 1, points: ["\\( \\frac{dy}{dx} = 6x^2 + 6x - 12 \\)"] },
+                { label: "M1 — show gradient zero at x = 1", max: 1, points: ["Set \\( \\frac{dy}{dx} = 0 \\) / substituted \\( x = 1 \\) to get \\( 6 + 6 - 12 = 0 \\)"] },
+                { label: "A1 — show y = 1 (AG)", max: 1, points: ["Showed \\( y = 2 + 3 - 12 + 8 = 1 \\); values seen"] }
+            ] }
+        },
+        {
+            num: "15 (a)(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "q15-2023",
+            question: `<p>Determine the nature of this stationary point. <strong>[2]</strong></p>`,
+            hint: "Find \\( \\frac{d^2y}{dx^2} \\), give its value AND sign at \\( x = 1 \\), and state the conclusion — or use the gradient sign either side over a suitable range.",
+            starter: "State the sign of \\( \\frac{d^2y}{dx^2} \\) at \\( x = 1 \\) and conclude max or min.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>
+              <li><strong>M1</strong> — a valid method: \\( \\frac{d^2y}{dx^2} = 12x + 6 \\) evaluated at \\( x = 1 \\), OR the sign of \\( \\frac{dy}{dx} \\) either side of \\( x = 1 \\) over a suitable range.</li>
+              <li><strong>A1</strong> — values seen AND conclusion: \\( \\frac{d^2y}{dx^2} = 18 > 0 \\) so minimum.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Sample either-side table: at \\( x = 0.9,\\ \\frac{dy}{dx} = -1.74 \\); at \\( x = 1.1,\\ \\frac{dy}{dx} = +1.86 \\) — negative then positive, so minimum.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The usual method was to show the second derivative was positive, the criterion for a minimum. Just finding the value of \\( \\frac{d^2y}{dx^2} \\), or just stating \\( \\frac{d^2y}{dx^2} > 0 \\), was not sufficient — the significance of both was needed since this was a "determine" question.</li>
+              <li>Those who used the sign of \\( y \\) or \\( \\frac{dy}{dx} \\) either side often explained it poorly.</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\frac{d^2y}{dx^2} = 12x + 6 \\). At \\( x = 1 \\): \\( \\frac{d^2y}{dx^2} = 12 + 6 = 18 > 0 \\). Since the second derivative is positive, the stationary point \\( (1,\\ 1) \\) is a minimum.",
+            markPoints: { note: "The conclusion is required, not just the value/sign.", groups: [
+                { label: "M1 — valid method", max: 1, points: ["Found \\( \\frac{d^2y}{dx^2} = 12x + 6 \\) at \\( x = 1 \\) (or gradient either side over a suitable range)"] },
+                { label: "A1 — value/sign AND conclusion", max: 1, points: ["\\( \\frac{d^2y}{dx^2} = 18 > 0 \\) so minimum (significance stated)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>
