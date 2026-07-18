@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-17T21:38:28Z · 803 questions
+// Generated: 2026-07-18T04:46:50Z · 1084 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -684,16 +684,16 @@ window.QUESTION_BANK = [
   "question": "To simplify \\( a^m \\times a^n \\) you ___B1___ the indices, and to simplify \\( a^m \\div a^n \\) you ___B2___ them.",
   "blankOptions": {
    "B1": [
+    "index",
+    "reciprocal",
     "power",
-    "coefficient",
-    "add",
-    "index"
+    "add"
    ],
    "B2": [
-    "all",
-    "multiply",
-    "divide",
-    "subtract"
+    "subtract",
+    "term",
+    "identity",
+    "index"
    ]
   },
   "key": {
@@ -713,10 +713,10 @@ window.QUESTION_BANK = [
   "question": "The rule \\( (a^m)^n \\) tells you to ___B1___ the two indices together.",
   "blankOptions": {
    "B1": [
-    "power",
-    "nth",
-    "identity",
-    "multiply"
+    "term",
+    "divide",
+    "multiply",
+    "coefficient"
    ]
   },
   "key": {
@@ -735,10 +735,10 @@ window.QUESTION_BANK = [
   "question": "For any non-zero base, \\( a^0 \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
-    "solve",
-    "reciprocal",
-    "add"
+    "divide",
+    "multiply",
+    "coefficient",
+    "1"
    ]
   },
   "key": {
@@ -757,10 +757,10 @@ window.QUESTION_BANK = [
   "question": "A negative index means take the ___B1___, so \\( a^{-n} \\) becomes a fraction.",
   "blankOptions": {
    "B1": [
-    "1",
-    "subtract",
+    "identity",
+    "divide",
     "reciprocal",
-    "variable"
+    "subtract"
    ]
   },
   "key": {
@@ -779,16 +779,16 @@ window.QUESTION_BANK = [
   "question": "In the term \\( 4x^3 \\), the number \\( 4 \\) is the ___B1___ and the number \\( 3 \\) is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "0",
-    "term",
-    "add",
-    "coefficient"
+    "coefficient",
+    "divide",
+    "solve",
+    "constant"
    ],
    "B2": [
     "index",
-    "1",
-    "unknown",
-    "reciprocal"
+    "power",
+    "constant",
+    "0"
    ]
   },
   "key": {
@@ -808,16 +808,16 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) means the statement is an ___B1___, which is true for ___B2___ values of the variable.",
   "blankOptions": {
    "B1": [
-    "identity",
+    "0",
     "add",
-    "reciprocal",
-    "multiply"
+    "term",
+    "identity"
    ],
    "B2": [
-    "variable",
-    "all",
-    "coefficient",
-    "divide"
+    "nth",
+    "term",
+    "reciprocal",
+    "all"
    ]
   },
   "key": {
@@ -837,10 +837,10 @@ window.QUESTION_BANK = [
   "question": "In \\( a^{1/n} \\) the fraction \\( \\frac{1}{n} \\) tells you to take the ___B1___ root of \\( a \\).",
   "blankOptions": {
    "B1": [
-    "nth",
-    "1",
+    "subtract",
     "0",
-    "unknown"
+    "1",
+    "nth"
    ]
   },
   "key": {
@@ -859,16 +859,16 @@ window.QUESTION_BANK = [
   "question": "In an equation you solve to find the value of the ___B1___, whereas in an expression there is no equals sign to ___B2___.",
   "blankOptions": {
    "B1": [
-    "index",
     "unknown",
-    "term",
-    "constant"
+    "divide",
+    "variable",
+    "subtract"
    ],
    "B2": [
-    "solve",
-    "all",
     "power",
-    "variable"
+    "variable",
+    "solve",
+    "divide"
    ]
   },
   "key": {
@@ -1835,10 +1835,10 @@ window.QUESTION_BANK = [
   "question": "To simplify a surd, take out the largest perfect ___B1___ factor.",
   "blankOptions": {
    "B1": [
-    "(x-1)(x+1)",
-    "square",
+    "exact",
     "cube",
-    "expand"
+    "square",
+    "like"
    ]
   },
   "key": {
@@ -1857,10 +1857,10 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sqrt{12} = 2\\sqrt{3} \\) we used the fact that \\( 12 = 4 \\times 3 \\) and \\( \\sqrt{4} = \\) ___B1___.",
   "blankOptions": {
    "B1": [
-    "square",
-    "conjugate",
     "2",
-    "1"
+    "1",
+    "conjugate",
+    "exact"
    ]
   },
   "key": {
@@ -1879,9 +1879,9 @@ window.QUESTION_BANK = [
   "question": "You can only add or subtract surds when they are ___B1___ surds (the same number under the root).",
   "blankOptions": {
    "B1": [
-    "cube",
-    "conjugate",
     "like",
+    "(x-1)(x+1)",
+    "exact",
     "factorise"
    ]
   },
@@ -1901,10 +1901,10 @@ window.QUESTION_BANK = [
   "question": "To rationalise \\( \\frac{1}{2+\\sqrt{3}} \\) you multiply by its ___B1___, which is \\( 2-\\sqrt{3} \\).",
   "blankOptions": {
    "B1": [
+    "like",
     "conjugate",
-    "3",
-    "cube",
-    "square"
+    "square",
+    "(x-1)(x+1)"
    ]
   },
   "key": {
@@ -1923,10 +1923,10 @@ window.QUESTION_BANK = [
   "question": "Multiplying \\( (2+\\sqrt{3})(2-\\sqrt{3}) \\) gives the whole number ___B1___.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
-    "unlike",
+    "square",
+    "2",
     "1",
-    "3"
+    "unlike"
    ]
   },
   "key": {
@@ -1945,10 +1945,10 @@ window.QUESTION_BANK = [
   "question": "To simplify an algebraic fraction you first ___B1___ the top and bottom, then cancel common factors.",
   "blankOptions": {
    "B1": [
-    "3",
-    "expand",
-    "conjugate",
-    "factorise"
+    "1",
+    "factorise",
+    "2",
+    "like"
    ]
   },
   "key": {
@@ -1967,10 +1967,10 @@ window.QUESTION_BANK = [
   "question": "To add \\( \\frac{1}{x-1} \\) and \\( \\frac{2}{x+1} \\) you write them over the common denominator ___B1___.",
   "blankOptions": {
    "B1": [
-    "like",
-    "unlike",
+    "reciprocal",
     "(x-1)(x+1)",
-    "1"
+    "unlike",
+    "3"
    ]
   },
   "key": {
@@ -1989,10 +1989,10 @@ window.QUESTION_BANK = [
   "question": "The instruction 'show detailed reasoning' means a ___B1___ answer with no working scores zero.",
   "blankOptions": {
    "B1": [
-    "unlike",
     "2",
-    "like",
-    "calculator"
+    "square",
+    "calculator",
+    "(x-1)(x+1)"
    ]
   },
   "key": {
@@ -2878,15 +2878,15 @@ window.QUESTION_BANK = [
   "question": "In the quadratic formula \\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\), the term before the \\( \\pm \\) sign is ___B1___ and the denominator is ___B2___.",
   "blankOptions": {
    "B1": [
-    "discriminant",
-    "4ac",
-    "negative",
-    "-b"
+    "-b",
+    "add",
+    "both",
+    "double"
    ],
    "B2": [
-    "square",
-    "2a",
     "half",
+    "both",
+    "2a",
     "20"
    ]
   },
@@ -2907,16 +2907,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + bx \\), take ___B1___ the coefficient of \\( x \\) and then ___B2___ it.",
   "blankOptions": {
    "B1": [
-    "add",
-    "4ac",
+    "q",
+    "-p",
     "half",
-    "-b"
+    "both"
    ],
    "B2": [
+    "q",
     "negative",
-    "square",
-    "-b",
-    "3"
+    "20",
+    "square"
    ]
   },
   "key": {
@@ -2936,16 +2936,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + 6x - 11 \\), the number inside the bracket \\( (x + a)^2 \\) is ___B1___ and the number subtracted at the end is ___B2___.",
   "blankOptions": {
    "B1": [
-    "both",
-    "-b",
+    "discriminant",
     "3",
-    "add"
+    "-b",
+    "exact"
    ],
    "B2": [
-    "discriminant",
-    "add",
-    "both",
-    "20"
+    "negative",
+    "double",
+    "20",
+    "add"
    ]
   },
   "key": {
@@ -2965,10 +2965,10 @@ window.QUESTION_BANK = [
   "question": "The expression \\( b^2 - 4ac \\) is called the ___B1___.",
   "blankOptions": {
    "B1": [
+    "3",
     "discriminant",
     "2a",
-    "exact",
-    "-b"
+    "double"
    ]
   },
   "key": {
@@ -2987,10 +2987,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, a quadratic has no real roots.",
   "blankOptions": {
    "B1": [
-    "negative",
-    "3",
-    "exact",
-    "discriminant"
+    "square",
+    "-b",
+    "double",
+    "negative"
    ]
   },
   "key": {
@@ -3009,16 +3009,16 @@ window.QUESTION_BANK = [
   "question": "For \\( a(x+p)^2 + q \\) with \\( a > 0 \\), the minimum value is ___B1___ and it occurs when \\( x \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "3",
-    "-b",
     "20",
-    "q"
+    "square",
+    "q",
+    "discriminant"
    ],
    "B2": [
-    "3",
-    "20",
-    "double",
-    "-p"
+    "-p",
+    "discriminant",
+    "2a",
+    "both"
    ]
   },
   "key": {
@@ -3038,10 +3038,10 @@ window.QUESTION_BANK = [
   "question": "When you take the square root of both sides you must write \\( \\pm \\) to get ___B1___ roots.",
   "blankOptions": {
    "B1": [
-    "exact",
-    "square",
-    "2a",
-    "both"
+    "discriminant",
+    "negative",
+    "both",
+    "3"
    ]
   },
   "key": {
@@ -3061,9 +3061,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "add",
-    "half",
+    "2a",
     "exact",
-    "q"
+    "square"
    ]
   },
   "key": {
@@ -4021,10 +4021,10 @@ window.QUESTION_BANK = [
   "question": "When you multiply or divide an inequality by a negative number you must ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "between",
+    "add",
     "reverse",
     "flip",
-    "add"
+    "zero"
    ]
   },
   "key": {
@@ -4044,9 +4044,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "keeps",
+    "add",
     "and",
-    "closed",
-    "reverse"
+    "open"
    ]
   },
   "key": {
@@ -4065,10 +4065,10 @@ window.QUESTION_BANK = [
   "question": "To solve a quadratic inequality, first rearrange it so that one side equals ___B1___, then factorise.",
   "blankOptions": {
    "B1": [
+    "3",
     "zero",
-    "or",
-    "outside",
-    "inside"
+    "closed",
+    "open"
    ]
   },
   "key": {
@@ -4087,10 +4087,10 @@ window.QUESTION_BANK = [
   "question": "The quadratic \\( x^2 - x - 6 \\) factorises to \\( (x-3)(x+2) \\), so its critical values are \\( 3 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "add",
-    "closed",
     "-2",
-    "and"
+    "add",
+    "or",
+    "between"
    ]
   },
   "key": {
@@ -4109,10 +4109,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c < 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
-    "or",
-    "add",
+    "3",
     "between",
-    "outside"
+    "keeps",
+    "closed"
    ]
   },
   "key": {
@@ -4131,10 +4131,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c > 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
-    "inside",
     "outside",
-    "flip",
-    "zero"
+    "open",
+    "between",
+    "or"
    ]
   },
   "key": {
@@ -4153,10 +4153,10 @@ window.QUESTION_BANK = [
   "question": "A strict inequality such as \\( < \\) or \\( > \\) is shown on a number line with an ___B1___ circle.",
   "blankOptions": {
    "B1": [
+    "3",
+    "add",
     "open",
-    "inside",
-    "closed",
-    "keeps"
+    "inside"
    ]
   },
   "key": {
@@ -4175,10 +4175,10 @@ window.QUESTION_BANK = [
   "question": "The solution to \\( x^2 > 9 \\) is \\( x < -3 \\) ___B1___ \\( x > 3 \\).",
   "blankOptions": {
    "B1": [
-    "reverse",
-    "zero",
-    "closed",
-    "or"
+    "3",
+    "or",
+    "flip",
+    "zero"
    ]
   },
   "key": {
@@ -5048,10 +5048,10 @@ window.QUESTION_BANK = [
   "question": "A polynomial written with its powers going from highest to lowest is in ___B1___ order.",
   "blankOptions": {
    "B1": [
-    "14",
-    "descending",
+    "placeholder",
+    "term",
     "dividend",
-    "degree"
+    "descending"
    ]
   },
   "key": {
@@ -5070,16 +5070,16 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ of a polynomial is the highest power of the variable, and the number multiplying a power of \\( x \\) is its ___B2___.",
   "blankOptions": {
    "B1": [
+    "zero",
+    "14",
     "degree",
-    "factor",
-    "ascending",
-    "descending"
+    "dividend"
    ],
    "B2": [
     "coefficient",
-    "descending",
-    "dividend",
-    "ascending"
+    "placeholder",
+    "zero",
+    "quotient"
    ]
   },
   "key": {
@@ -5099,10 +5099,10 @@ window.QUESTION_BANK = [
   "question": "To subtract one polynomial from another you must change the ___B1___ of every term in the second bracket.",
   "blankOptions": {
    "B1": [
-    "quotient",
-    "placeholder",
-    "factor",
-    "sign"
+    "sign",
+    "ascending",
+    "descending",
+    "remainder"
    ]
   },
   "key": {
@@ -5121,16 +5121,16 @@ window.QUESTION_BANK = [
   "question": "In long division the expression built up on top is the ___B1___ and the value left over at the end is the ___B2___.",
   "blankOptions": {
    "B1": [
+    "dividend",
+    "coefficient",
     "quotient",
-    "term",
-    "zero",
-    "constant"
+    "zero"
    ],
    "B2": [
-    "coefficient",
-    "placeholder",
+    "ascending",
     "remainder",
-    "constant"
+    "coefficient",
+    "14"
    ]
   },
   "key": {
@@ -5152,8 +5152,8 @@ window.QUESTION_BANK = [
    "B1": [
     "14",
     "dividend",
-    "descending",
-    "factor"
+    "ascending",
+    "degree"
    ]
   },
   "key": {
@@ -5172,10 +5172,10 @@ window.QUESTION_BANK = [
   "question": "When a polynomial is divided by \\( x - a \\) and the remainder is ___B1___, then \\( x - a \\) is a factor.",
   "blankOptions": {
    "B1": [
-    "sign",
-    "quotient",
-    "zero",
-    "term"
+    "remainder",
+    "placeholder",
+    "degree",
+    "zero"
    ]
   },
   "key": {
@@ -5194,10 +5194,10 @@ window.QUESTION_BANK = [
   "question": "When dividing, insert a ___B1___ (a term with coefficient 0) for any missing power so the columns stay lined up.",
   "blankOptions": {
    "B1": [
-    "sign",
-    "placeholder",
     "factor",
-    "ascending"
+    "placeholder",
+    "dividend",
+    "14"
    ]
   },
   "key": {
@@ -6101,10 +6101,10 @@ window.QUESTION_BANK = [
   "question": "The factor theorem states that if \\( \\text{f}(a) \\) equals ___B1___, then \\( (x - a) \\) is a factor of \\( \\text{f}(x) \\).",
   "blankOptions": {
    "B1": [
-    "factor",
-    "a",
+    "3/2",
+    "1/2",
     "0",
-    "2"
+    "factors"
    ]
   },
   "key": {
@@ -6123,10 +6123,10 @@ window.QUESTION_BANK = [
   "question": "If \\( (x - 4) \\) is a factor of \\( \\text{f}(x) \\), then \\( \\text{f}(4) \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "0",
-    "3/2",
+    "factors",
+    "not",
     "multiples",
-    "linear"
+    "0"
    ]
   },
   "key": {
@@ -6145,10 +6145,10 @@ window.QUESTION_BANK = [
   "question": "To find a whole-number factor of a cubic, test the ___B1___ of the constant term.",
   "blankOptions": {
    "B1": [
-    "1/2",
+    "factor",
+    "is",
     "factors",
-    "a",
-    "quadratic"
+    "root"
    ]
   },
   "key": {
@@ -6167,9 +6167,9 @@ window.QUESTION_BANK = [
   "question": "To test whether \\( (2x - 1) \\) is a factor of \\( \\text{f}(x) \\), work out f of ___B1___.",
   "blankOptions": {
    "B1": [
-    "not",
-    "0",
-    "multiples",
+    "1",
+    "factor",
+    "a",
     "1/2"
    ]
   },
@@ -6189,16 +6189,16 @@ window.QUESTION_BANK = [
   "question": "The factor theorem finds ___B1___ factors of a polynomial; the remainder theorem is ___B2___ on this specification.",
   "blankOptions": {
    "B1": [
-    "multiples",
-    "root",
+    "0",
     "1/2",
-    "linear"
+    "linear",
+    "quadratic"
    ],
    "B2": [
-    "2",
     "root",
-    "1",
-    "not"
+    "not",
+    "is",
+    "factor"
    ]
   },
   "key": {
@@ -6218,10 +6218,10 @@ window.QUESTION_BANK = [
   "question": "After factorising, you solve \\( \\text{f}(x) = 0 \\) by setting each ___B1___ equal to zero.",
   "blankOptions": {
    "B1": [
-    "1",
-    "2",
+    "quadratic",
     "3/2",
-    "factor"
+    "factor",
+    "multiples"
    ]
   },
   "key": {
@@ -6240,10 +6240,10 @@ window.QUESTION_BANK = [
   "question": "For \\( 2x^3 - x^2 - 7x + 6 \\), testing gives \\( \\text{f}(1) = 0 \\), so (x − ___B1___) is a factor.",
   "blankOptions": {
    "B1": [
+    "factors",
     "3/2",
-    "linear",
-    "1",
-    "factors"
+    "is",
+    "1"
    ]
   },
   "key": {
@@ -7165,10 +7165,10 @@ window.QUESTION_BANK = [
   "question": "The first step in modelling a worded problem is to define the ___B1___ and state what it represents.",
   "blankOptions": {
    "B1": [
-    "units",
-    "minus",
+    "variable",
+    "reject",
     "unknown",
-    "reject"
+    "n+2"
    ]
   },
   "key": {
@@ -7187,10 +7187,10 @@ window.QUESTION_BANK = [
   "question": "When a quadratic equation for a length gives a negative root, you must ___B1___ it, because a length cannot be negative.",
   "blankOptions": {
    "B1": [
-    "reject",
+    "units",
+    "plus",
     "n+3",
-    "minus",
-    "plus"
+    "reject"
    ]
   },
   "key": {
@@ -7209,10 +7209,10 @@ window.QUESTION_BANK = [
   "question": "To solve one linear and one quadratic equation together, use the method of ___B1___.",
   "blankOptions": {
    "B1": [
-    "2n",
-    "n+3",
+    "accept",
     "substitution",
-    "unknown"
+    "elimination",
+    "minus"
    ]
   },
   "key": {
@@ -7231,10 +7231,10 @@ window.QUESTION_BANK = [
   "question": "In the boat problem the two roots were 1 and \\( -16 \\); the current speed must be positive, so the answer is ___B1___ km/h.",
   "blankOptions": {
    "B1": [
-    "16",
-    "units",
-    "elimination",
-    "1"
+    "1",
+    "minus",
+    "plus",
+    "variable"
    ]
   },
   "key": {
@@ -7253,10 +7253,10 @@ window.QUESTION_BANK = [
   "question": "A final answer in a real context should always be stated with its ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
     "units",
+    "1",
     "unknown",
-    "variable"
+    "elimination"
    ]
   },
   "key": {
@@ -7275,10 +7275,10 @@ window.QUESTION_BANK = [
   "question": "The phrase \"5 more than a number \\( x \\)\" translates to \\( x \\) ___B1___ 5.",
   "blankOptions": {
    "B1": [
-    "units",
+    "variable",
     "plus",
-    "n+2",
-    "16"
+    "accept",
+    "n+2"
    ]
   },
   "key": {
@@ -7298,9 +7298,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "n+2",
-    "n+3",
-    "elimination",
-    "reject"
+    "2n",
+    "reject",
+    "plus"
    ]
   },
   "key": {
@@ -8151,10 +8151,10 @@ window.QUESTION_BANK = [
   "question": "A rule that gives each term of a sequence from earlier terms is called a ___B1___ relationship.",
   "blankOptions": {
    "B1": [
+    "two",
     "recurrence",
-    "added",
     "7",
-    "geometric"
+    "multiplied"
    ]
   },
   "key": {
@@ -8173,10 +8173,10 @@ window.QUESTION_BANK = [
   "question": "As well as the rule, you need a ___B1___ value before you can generate the sequence.",
   "blankOptions": {
    "B1": [
+    "added",
     "one",
-    "starting",
-    "multiplied",
-    "0.85"
+    "two",
+    "starting"
    ]
   },
   "key": {
@@ -8195,10 +8195,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = x_n + a \\) the fixed number \\( a \\) is ___B1___ to each term, giving an arithmetic sequence.",
   "blankOptions": {
    "B1": [
-    "0.15",
-    "multiplied",
     "added",
-    "geometric"
+    "one",
+    "1.3",
+    "11"
    ]
   },
   "key": {
@@ -8217,10 +8217,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = a x_n \\) each term is ___B1___ by \\( a \\), giving a geometric sequence.",
   "blankOptions": {
    "B1": [
+    "7",
     "added",
     "multiplied",
-    "1.03",
-    "1.3"
+    "two"
    ]
   },
   "key": {
@@ -8239,10 +8239,10 @@ window.QUESTION_BANK = [
   "question": "A second-order rule such as \\( x_{n+2} = x_{n+1} + x_n \\) needs ___B1___ starting values.",
   "blankOptions": {
    "B1": [
-    "two",
-    "one",
+    "1.3",
     "0.85",
-    "starting"
+    "recurrence",
+    "two"
    ]
   },
   "key": {
@@ -8261,10 +8261,10 @@ window.QUESTION_BANK = [
   "question": "Compound interest of 3% per year gives \\( x_{n+1} = k x_n \\) where the multiplier \\( k \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "subtracted",
+    "1.03",
     "0.15",
-    "two",
-    "1.03"
+    "starting",
+    "two"
    ]
   },
   "key": {
@@ -8284,9 +8284,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "0.85",
-    "1.3",
-    "starting",
-    "1.03"
+    "1.03",
+    "one",
+    "subtracted"
    ]
   },
   "key": {
@@ -8305,16 +8305,16 @@ window.QUESTION_BANK = [
   "question": "For \\( x_{n+1} = x_n + 4 \\) with \\( x_1 = 3 \\), the second term is ___B1___ and the third term is ___B2___.",
   "blankOptions": {
    "B1": [
-    "one",
+    "0.85",
     "7",
-    "0.15",
-    "1.3"
+    "added",
+    "geometric"
    ],
    "B2": [
-    "1.03",
-    "geometric",
     "11",
-    "0.15"
+    "1.03",
+    "added",
+    "starting"
    ]
   },
   "key": {
@@ -9204,9 +9204,9 @@ window.QUESTION_BANK = [
   "question": "The distance between two points comes from ___B1___ theorem, taking the square root of the sum of the squared gaps.",
   "blankOptions": {
    "B1": [
-    "intercept",
     "gradient",
-    "-1",
+    "1",
+    "equal",
     "Pythagoras"
    ]
   },
@@ -9226,10 +9226,10 @@ window.QUESTION_BANK = [
   "question": "To find the midpoint you ___B1___ the two \\( x \\)-coordinates and do the same to the \\( y \\)-coordinates.",
   "blankOptions": {
    "B1": [
+    "average",
+    "negative reciprocal",
     "parallel",
-    "subtracting",
-    "point-gradient",
-    "average"
+    "gradient"
    ]
   },
   "key": {
@@ -9248,10 +9248,10 @@ window.QUESTION_BANK = [
   "question": "Parallel lines always have ___B1___ gradients.",
   "blankOptions": {
    "B1": [
-    "y",
-    "reciprocal",
     "equal",
-    "gradient"
+    "gradient",
+    "x",
+    "subtracting"
    ]
   },
   "key": {
@@ -9270,10 +9270,10 @@ window.QUESTION_BANK = [
   "question": "For two perpendicular lines the product of their gradients is ___B1___.",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "y",
     "-1",
-    "1"
+    "intercept",
+    "parallel",
+    "average"
    ]
   },
   "key": {
@@ -9292,16 +9292,16 @@ window.QUESTION_BANK = [
   "question": "The perpendicular bisector of a segment passes through its ___B1___ and has a gradient equal to the ___B2___ of the segment's gradient.",
   "blankOptions": {
    "B1": [
-    "point-gradient",
-    "equal",
     "midpoint",
-    "reciprocal"
+    "reciprocal",
+    "y",
+    "Pythagoras"
    ],
    "B2": [
-    "reciprocal",
-    "x",
-    "parallel",
-    "negative reciprocal"
+    "subtracting",
+    "negative reciprocal",
+    "Pythagoras",
+    "equal"
    ]
   },
   "key": {
@@ -9322,15 +9322,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "reciprocal",
-    "subtracting",
     "gradient",
-    "Pythagoras"
+    "average",
+    "-1"
    ],
    "B2": [
     "intercept",
-    "Pythagoras",
-    "equal",
-    "y"
+    "1",
+    "slope",
+    "parallel"
    ]
   },
   "key": {
@@ -9350,10 +9350,10 @@ window.QUESTION_BANK = [
   "question": "The gradient of a line is the change in \\( y \\) divided by the change in ___B1___.",
   "blankOptions": {
    "B1": [
-    "intercept",
-    "gradient",
+    "point-gradient",
     "x",
-    "midpoint"
+    "midpoint",
+    "negative reciprocal"
    ]
   },
   "key": {
@@ -9372,10 +9372,10 @@ window.QUESTION_BANK = [
   "question": "The form \\( y - y_1 = m(x - x_1) \\) is called the ___B1___ form of a line.",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "1",
-    "midpoint",
-    "point-gradient"
+    "Pythagoras",
+    "reciprocal",
+    "point-gradient",
+    "midpoint"
    ]
   },
   "key": {
@@ -10409,16 +10409,16 @@ window.QUESTION_BANK = [
   "question": "The general equation of a circle with centre \\( (a,\\ b) \\) and radius \\( r \\) is \\( (x-a)^2 + (y-b)^2 = r^2 \\). For \\( (x-3)^2 + (y+2)^2 = 25 \\), the centre is ___B1___ and the radius is ___B2___.",
   "blankOptions": {
    "B1": [
-    "negative",
-    "factorise",
+    "perpendicular",
     "(3, -2)",
-    "reciprocal"
+    "quadratic",
+    "positive"
    ],
    "B2": [
-    "parallel",
-    "quadratic",
-    "double",
-    "5"
+    "5",
+    "substitute",
+    "25",
+    "gradient"
    ]
   },
   "key": {
@@ -10438,9 +10438,9 @@ window.QUESTION_BANK = [
   "question": "To find the centre and radius from the expanded form \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\), you complete the ___B1___ in \\( x \\) and in \\( y \\) separately.",
   "blankOptions": {
    "B1": [
+    "positive",
     "perpendicular",
     "zero",
-    "gradient",
     "square"
    ]
   },
@@ -10460,15 +10460,15 @@ window.QUESTION_BANK = [
   "question": "At the point of contact, the radius is ___B1___ to the tangent, so the tangent gradient is the ___B2___ of the radius gradient.",
   "blankOptions": {
    "B1": [
-    "zero",
-    "factorise",
-    "perpendicular",
-    "linear"
+    "linear",
+    "substitute",
+    "positive",
+    "perpendicular"
    ],
    "B2": [
-    "linear",
     "quadratic",
-    "factorise",
+    "negative",
+    "square",
     "negative reciprocal"
    ]
   },
@@ -10489,10 +10489,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ to a circle at a point always passes through the centre of the circle.",
   "blankOptions": {
    "B1": [
-    "perpendicular",
-    "square",
+    "negative",
     "normal",
-    "(3, -2)"
+    "linear",
+    "midpoint"
    ]
   },
   "key": {
@@ -10511,16 +10511,16 @@ window.QUESTION_BANK = [
   "question": "To test where a line meets a circle, ___B1___ the line into the circle equation to obtain a ___B2___ equation.",
   "blankOptions": {
    "B1": [
-    "tangent",
-    "negative",
-    "midpoint",
+    "(-3, 2)",
+    "half",
+    "(3, -2)",
     "substitute"
    ],
    "B2": [
+    "linear",
+    "positive",
     "negative",
-    "reciprocal",
-    "quadratic",
-    "25"
+    "quadratic"
    ]
   },
   "key": {
@@ -10540,10 +10540,10 @@ window.QUESTION_BANK = [
   "question": "A line is a tangent to a circle exactly when the discriminant of that quadratic equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "perpendicular",
-    "(3, -2)",
-    "square",
-    "zero"
+    "zero",
+    "5",
+    "substitute",
+    "perpendicular"
    ]
   },
   "key": {
@@ -10563,9 +10563,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "reciprocal",
-    "5",
     "negative",
-    "parallel"
+    "5",
+    "factorise"
    ]
   },
   "key": {
@@ -10584,16 +10584,16 @@ window.QUESTION_BANK = [
   "question": "Given the two ends of a diameter, the centre is the ___B1___ of the endpoints and the radius is ___B2___ the diameter.",
   "blankOptions": {
    "B1": [
-    "linear",
-    "double",
+    "positive",
+    "substitute",
     "midpoint",
-    "gradient"
+    "factorise"
    ],
    "B2": [
-    "normal",
-    "(3, -2)",
     "half",
-    "substitute"
+    "quadratic",
+    "double",
+    "linear"
    ]
   },
   "key": {
@@ -11522,16 +11522,16 @@ window.QUESTION_BANK = [
   "question": "A graph drawn with only its main features, not to scale, is called a ___B1___; an accurate one worked out on a grid is a ___B2___.",
   "blankOptions": {
    "B1": [
-    "upwards",
+    "parabola",
+    "1",
     "roots",
-    "sketch",
-    "1"
+    "sketch"
    ],
    "B2": [
-    "180",
     "plot",
-    "2",
-    "0"
+    "roots",
+    "parabola",
+    "360"
    ]
   },
   "key": {
@@ -11551,16 +11551,16 @@ window.QUESTION_BANK = [
   "question": "For the exponential graph \\( y = k a^x \\) with \\( a > 0 \\), the horizontal asymptote is the line \\( y = \\) ___B1___ and the curve crosses the \\( y \\)-axis at the value ___B2___.",
   "blankOptions": {
    "B1": [
+    "2",
+    "cross",
     "touch",
-    "0",
-    "draw",
-    "cross"
+    "0"
    ],
    "B2": [
-    "k",
-    "parabola",
-    "downwards",
-    "cross"
+    "2",
+    "touch",
+    "180",
+    "k"
    ]
   },
   "key": {
@@ -11580,16 +11580,16 @@ window.QUESTION_BANK = [
   "question": "A quadratic graph has the shape called a ___B1___; when the \\( x^2 \\) coefficient is positive it opens ___B2___.",
   "blankOptions": {
    "B1": [
-    "sketch",
-    "360",
-    "parabola",
-    "3"
+    "plot",
+    "downwards",
+    "2",
+    "parabola"
    ],
    "B2": [
+    "upwards",
+    "0",
     "plot",
-    "360",
-    "180",
-    "upwards"
+    "1"
    ]
   },
   "key": {
@@ -11609,16 +11609,16 @@ window.QUESTION_BANK = [
   "question": "The graphs of \\( y = \\sin x \\) and \\( y = \\cos x \\) both repeat every ___B1___ degrees and have amplitude ___B2___.",
   "blankOptions": {
    "B1": [
-    "2",
-    "360",
-    "roots",
-    "0"
+    "180",
+    "k",
+    "downwards",
+    "360"
    ],
    "B2": [
-    "downwards",
-    "upwards",
+    "3",
+    "plot",
     "1",
-    "draw"
+    "sketch"
    ]
   },
   "key": {
@@ -11638,16 +11638,16 @@ window.QUESTION_BANK = [
   "question": "To find where a curve meets the \\( x \\)-axis you set \\( y = \\) ___B1___ and solve; these values are the ___B2___ of the function.",
   "blankOptions": {
    "B1": [
-    "cross",
+    "plot",
+    "1",
     "0",
-    "downwards",
-    "upwards"
+    "k"
    ],
    "B2": [
-    "cross",
+    "roots",
+    "2",
     "360",
-    "3",
-    "roots"
+    "parabola"
    ]
   },
   "key": {
@@ -11667,16 +11667,16 @@ window.QUESTION_BANK = [
   "question": "The cubic \\( y = (x-1)(x+2)(x-4) \\) has ___B1___ real roots; a repeated factor makes the curve ___B2___ the \\( x \\)-axis instead of crossing it.",
   "blankOptions": {
    "B1": [
-    "3",
     "k",
-    "2",
+    "3",
+    "upwards",
     "180"
    ],
    "B2": [
-    "180",
-    "roots",
     "touch",
-    "parabola"
+    "1",
+    "2",
+    "plot"
    ]
   },
   "key": {
@@ -11696,10 +11696,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( y = \\tan x \\) has vertical asymptotes and repeats every ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "360",
+    "roots",
     "180",
-    "1",
-    "draw"
+    "3",
+    "touch"
    ]
   },
   "key": {
@@ -12644,16 +12644,16 @@ window.QUESTION_BANK = [
   "question": "For a strict inequality you draw the boundary as a ___B1___ line; for \\( \\le \\) or \\( \\ge \\) you draw a ___B2___ line.",
   "blankOptions": {
    "B1": [
-    "shade",
-    "curve",
-    "0",
-    "dashed"
+    "line",
+    "dashed",
+    "not",
+    "curve"
    ],
    "B2": [
-    "solid",
-    "shade",
-    "curve",
-    "want"
+    "0",
+    "feasible",
+    "want",
+    "solid"
    ]
   },
   "key": {
@@ -12673,10 +12673,10 @@ window.QUESTION_BANK = [
   "question": "To decide which side of the line to shade, you substitute a test ___B1___ such as the origin into the inequality.",
   "blankOptions": {
    "B1": [
-    "0",
-    "feasible",
-    "shade",
-    "point"
+    "solid",
+    "point",
+    "not",
+    "region"
    ]
   },
   "key": {
@@ -12696,15 +12696,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "not",
-    "equals",
-    "region",
-    "line"
+    "curve",
+    "shade",
+    "origin"
    ],
    "B2": [
-    "region",
-    "curve",
-    "equals",
-    "clear"
+    "clear",
+    "line",
+    "wanted",
+    "feasible"
    ]
   },
   "key": {
@@ -12725,9 +12725,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "solid",
-    "point",
-    "line",
-    "0"
+    "dashed",
+    "0",
+    "equals"
    ]
   },
   "key": {
@@ -12746,10 +12746,10 @@ window.QUESTION_BANK = [
   "question": "You find the boundary line of an inequality by replacing the inequality sign with an ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "equals",
-    "wanted",
+    "0",
+    "not",
     "dashed",
-    "line"
+    "equals"
    ]
   },
   "key": {
@@ -12768,10 +12768,10 @@ window.QUESTION_BANK = [
   "question": "The single region that satisfies every inequality at once is called the ___B1___ region.",
   "blankOptions": {
    "B1": [
-    "want",
-    "region",
-    "0",
-    "feasible"
+    "feasible",
+    "dashed",
+    "equals",
+    "solid"
    ]
   },
   "key": {
@@ -12790,10 +12790,10 @@ window.QUESTION_BANK = [
   "question": "If substituting the origin makes the inequality true, the origin lies in the region you ___B1___ (so you do NOT shade it).",
   "blankOptions": {
    "B1": [
-    "region",
-    "want",
-    "shade",
-    "dashed"
+    "wanted",
+    "not",
+    "solid",
+    "want"
    ]
   },
   "key": {
@@ -12812,10 +12812,10 @@ window.QUESTION_BANK = [
   "question": "The boundary drawn for \\( y > 2x \\) should be ___B1___ because the inequality is strict.",
   "blankOptions": {
    "B1": [
-    "dashed",
+    "curve",
     "feasible",
-    "line",
-    "origin"
+    "dashed",
+    "not"
    ]
   },
   "key": {
@@ -13726,9 +13726,9 @@ window.QUESTION_BANK = [
   "question": "When modelling an LP problem you should always ___B1___ your variables first, for example 'let x = number of chairs'.",
   "blankOptions": {
    "B1": [
+    "constraint",
     "draw",
-    "simplify",
-    "objective",
+    "minimised",
     "define"
    ]
   },
@@ -13748,10 +13748,10 @@ window.QUESTION_BANK = [
   "question": "A constraint is a limit in the problem written as a linear ___B1___.",
   "blankOptions": {
    "B1": [
-    "feasible",
     "objective",
     "simplify",
-    "inequality"
+    "inequality",
+    "non-negativity"
    ]
   },
   "key": {
@@ -13770,16 +13770,16 @@ window.QUESTION_BANK = [
   "question": "The phrase 'at least' translates to the ___B1___ sign, while 'no more than' translates to the ___B2___ sign.",
   "blankOptions": {
    "B1": [
-    "minimised",
-    "objective",
-    "feasible",
-    "greater than or equal to"
+    "greater than or equal to",
+    "draw",
+    "inequality",
+    "equals"
    ],
    "B2": [
-    "less than or equal to",
+    "equals",
     "non-negativity",
-    "minimised",
-    "feasible"
+    "8",
+    "less than or equal to"
    ]
   },
   "key": {
@@ -13799,10 +13799,10 @@ window.QUESTION_BANK = [
   "question": "Because you cannot make a negative quantity, an LP model includes the ___B1___ constraints x is greater than or equal to 0 and y is greater than or equal to 0.",
   "blankOptions": {
    "B1": [
-    "60",
+    "less than or equal to",
+    "constraint",
     "non-negativity",
-    "minimised",
-    "simplify"
+    "8"
    ]
   },
   "key": {
@@ -13821,10 +13821,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ function is the quantity, such as profit or cost, that you want to maximise or minimise.",
   "blankOptions": {
    "B1": [
-    "feasible",
-    "objective",
-    "draw",
-    "minimised"
+    "inequality",
+    "less than or equal to",
+    "minimised",
+    "objective"
    ]
   },
   "key": {
@@ -13843,10 +13843,10 @@ window.QUESTION_BANK = [
   "question": "You can ___B1___ a constraint such as 6x + 4y is at most 240 by dividing every term by 2, giving 3x + 2y at most 120.",
   "blankOptions": {
    "B1": [
+    "greater than or equal to",
     "simplify",
-    "8",
-    "non-negativity",
-    "inequality"
+    "define",
+    "draw"
    ]
   },
   "key": {
@@ -13865,16 +13865,16 @@ window.QUESTION_BANK = [
   "question": "Profit of £28 per train and £60 per aeroplane gives the objective P = 28x + ___B1___ y, which is to be ___B2___.",
   "blankOptions": {
    "B1": [
-    "feasible",
-    "objective",
-    "non-negativity",
-    "60"
-   ],
-   "B2": [
-    "objective",
+    "60",
     "greater than or equal to",
     "8",
-    "maximised"
+    "inequality"
+   ],
+   "B2": [
+    "greater than or equal to",
+    "less than or equal to",
+    "maximised",
+    "objective"
    ]
   },
   "key": {
@@ -13894,10 +13894,10 @@ window.QUESTION_BANK = [
   "question": "Unlike a constraint, an objective function contains no ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "inequality",
+    "non-negativity",
+    "greater than or equal to",
     "equals",
-    "minimised",
-    "simplify"
+    "inequality"
    ]
   },
   "key": {
@@ -14995,16 +14995,16 @@ window.QUESTION_BANK = [
   "question": "In OCR linear programming you shade the region that does ___B1___ satisfy the constraints, so the feasible region is left ___B2___.",
   "blankOptions": {
    "B1": [
-    "edge",
     "not",
-    "shaded",
-    "constraint"
+    "decreases",
+    "centre",
+    "whole"
    ],
    "B2": [
     "decreases",
+    "constraint",
     "unshaded",
-    "does",
-    "greater"
+    "5"
    ]
   },
   "key": {
@@ -15024,10 +15024,10 @@ window.QUESTION_BANK = [
   "question": "The optimum value of a linear objective always lies at a ___B1___ of the feasible region, never inside it.",
   "blankOptions": {
    "B1": [
-    "whole",
-    "objective",
-    "vertex",
-    "2.5"
+    "5",
+    "not",
+    "2.5",
+    "vertex"
    ]
   },
   "key": {
@@ -15046,16 +15046,16 @@ window.QUESTION_BANK = [
   "question": "To find the optimum you can test each ___B1___ in the objective, or slide the ___B2___ line to its extreme position.",
   "blankOptions": {
    "B1": [
-    "integers",
-    "3.8",
-    "vertex",
-    "decreases"
+    "unshaded",
+    "greater",
+    "constraint",
+    "vertex"
    ],
    "B2": [
     "objective",
+    "increases",
     "not",
-    "integers",
-    "3"
+    "constraint"
    ]
   },
   "key": {
@@ -15075,16 +15075,16 @@ window.QUESTION_BANK = [
   "question": "The boundary line \\( 2x + y = 5 \\) has \\( y \\)-intercept ___B1___ and \\( x \\)-intercept ___B2___.",
   "blankOptions": {
    "B1": [
-    "vertex",
+    "decreases",
+    "integers",
     "5",
-    "3.8",
-    "integer"
+    "constraint"
    ],
    "B2": [
-    "greater",
-    "not",
-    "whole",
-    "2.5"
+    "does",
+    "unshaded",
+    "2.5",
+    "decreases"
    ]
   },
   "key": {
@@ -15104,9 +15104,9 @@ window.QUESTION_BANK = [
   "question": "Optima in LP need not be whole numbers; assuming that they must be ___B1___ is a common examiner-reported error.",
   "blankOptions": {
    "B1": [
-    "2.5",
-    "not",
-    "increases",
+    "integer",
+    "unshaded",
+    "whole",
     "integers"
    ]
   },
@@ -15126,10 +15126,10 @@ window.QUESTION_BANK = [
   "question": "If the context can only take whole items, check the feasible ___B1___ points nearest the optimum vertex.",
   "blankOptions": {
    "B1": [
-    "vertex",
-    "3",
-    "3.8",
-    "integer"
+    "integer",
+    "greater",
+    "2.5",
+    "objective"
    ]
   },
   "key": {
@@ -15148,10 +15148,10 @@ window.QUESTION_BANK = [
   "question": "The words 'no more than' mean the total must be ___B1___ than or equal to the limit.",
   "blankOptions": {
    "B1": [
-    "shaded",
-    "integer",
+    "integers",
+    "3",
     "less",
-    "unshaded"
+    "decreases"
    ]
   },
   "key": {
@@ -15170,10 +15170,10 @@ window.QUESTION_BANK = [
   "question": "To maximise an objective, slide the objective line in the direction that ___B1___ its value; to minimise, slide the opposite way.",
   "blankOptions": {
    "B1": [
-    "unshaded",
-    "5",
+    "increases",
     "centre",
-    "increases"
+    "shaded",
+    "integer"
    ]
   },
   "key": {
@@ -15446,6 +15446,5403 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 2,
    "explain": "“Empty feasible region” means: No feasible solution exists"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:mcq:c299660e",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For any angle \\( \\theta \\), the point on the unit circle has coordinates:",
+  "options": [
+   "\\( (\\cos\\theta,\\ \\sin\\theta) \\)",
+   "\\( (\\sin\\theta,\\ \\cos\\theta) \\)",
+   "\\( (\\tan\\theta,\\ 1) \\)",
+   "\\( (\\theta,\\ \\theta) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\cos\\theta \\) is the \\( x \\)-coordinate and \\( \\sin\\theta \\) the \\( y \\)-coordinate, so \\( (\\cos\\theta,\\ \\sin\\theta) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:mcq:f46a0a1f",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the period of \\( y = \\cos\\theta \\)?",
+  "options": [
+   "\\( 360^\\circ \\)",
+   "\\( 180^\\circ \\)",
+   "\\( 90^\\circ \\)",
+   "\\( 270^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Cosine (like sine) repeats every \\( 360^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:mcq:f19b061d",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the period of \\( y = \\tan\\theta \\)?",
+  "options": [
+   "\\( 180^\\circ \\)",
+   "\\( 360^\\circ \\)",
+   "\\( 90^\\circ \\)",
+   "\\( 270^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Tangent repeats every \\( 180^\\circ \\) — half the period of sin and cos."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:mcq:5a31dafe",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Using symmetry, \\( \\sin 150^\\circ = \\)",
+  "options": [
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( -\\tfrac{1}{2} \\)",
+   "\\( \\tfrac{\\sqrt{3}}{2} \\)",
+   "\\( -\\tfrac{\\sqrt{3}}{2} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sin 150^\\circ = \\sin(180^\\circ-30^\\circ) = \\sin 30^\\circ = \\tfrac{1}{2} \\); \\( 150^\\circ \\) is in Q2 where sin is positive."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:mcq:7b7257da",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "\\( \\cos 120^\\circ = \\)",
+  "options": [
+   "\\( -\\tfrac{1}{2} \\)",
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( \\tfrac{\\sqrt{3}}{2} \\)",
+   "\\( -\\tfrac{\\sqrt{3}}{2} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 120^\\circ \\) is in Q2 where cos is negative; \\( \\cos 120^\\circ = -\\cos 60^\\circ = -\\tfrac{1}{2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:mcq:89e15218",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In which quadrant are all of sin, cos and tan positive?",
+  "options": [
+   "First (\\( 0^\\circ \\)–\\( 90^\\circ \\))",
+   "Second (\\( 90^\\circ \\)–\\( 180^\\circ \\))",
+   "Third (\\( 180^\\circ \\)–\\( 270^\\circ \\))",
+   "Fourth (\\( 270^\\circ \\)–\\( 360^\\circ \\))"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The 'A' (All) quadrant is the first, \\( 0^\\circ \\)–\\( 90^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:mcq:e5df2fe8",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the exact value of \\( \\tan 45^\\circ \\)?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( \\sqrt{3} \\)",
+   "\\( \\tfrac{1}{\\sqrt{3}} \\)",
+   "\\( 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tan 45^\\circ = \\dfrac{\\sin 45^\\circ}{\\cos 45^\\circ} = 1 \\) (equal sine and cosine)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:mcq:aaa47c21",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the amplitude of \\( y = \\cos\\theta \\)?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( 2 \\)",
+   "\\( 360^\\circ \\)",
+   "\\( 180^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The wave reaches up to \\( 1 \\) and down to \\( -1 \\), so the amplitude (peak height above the middle) is \\( 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:mcq:9a90a09f",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "\\( \\sin 210^\\circ = \\)",
+  "options": [
+   "\\( -\\tfrac{1}{2} \\)",
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( -\\tfrac{\\sqrt{3}}{2} \\)",
+   "\\( \\tfrac{\\sqrt{3}}{2} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 210^\\circ \\) is in Q3 where sin is negative; \\( \\sin 210^\\circ = -\\sin 30^\\circ = -\\tfrac{1}{2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:mcq:23571b80",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For angles in the fourth quadrant (\\( 270^\\circ \\)–\\( 360^\\circ \\)), which ratio is positive?",
+  "options": [
+   "\\( \\cos\\theta \\) only",
+   "\\( \\sin\\theta \\) only",
+   "\\( \\tan\\theta \\) only",
+   "all three"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The 'C' in CAST — only cosine is positive in the fourth quadrant."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:mcq:abddef5f",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student writes \\( \\cos 60^\\circ = \\tfrac{\\sqrt{3}}{2} \\). What is the correct value?",
+  "options": [
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( \\tfrac{\\sqrt{3}}{2} \\)",
+   "\\( \\tfrac{\\sqrt{2}}{2} \\)",
+   "\\( 1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "They swapped sin and cos: \\( \\cos 60^\\circ = \\tfrac{1}{2} \\), while \\( \\sin 60^\\circ = \\tfrac{\\sqrt{3}}{2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:mcq:c52ae2b6",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Why is \\( \\tan 90^\\circ \\) undefined?",
+  "options": [
+   "\\( \\cos 90^\\circ = 0 \\), so \\( \\tfrac{\\sin\\theta}{\\cos\\theta} \\) divides by zero",
+   "\\( \\sin 90^\\circ = 0 \\)",
+   "\\( \\tan\\theta \\) only exists for acute angles",
+   "\\( 90^\\circ \\) is not on the graph"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta} \\) and \\( \\cos 90^\\circ = 0 \\); dividing by zero is undefined — the graph has an asymptote there."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:tf:573e3200",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( y = \\sin\\theta \\) and \\( y = \\cos\\theta \\) both have period \\( 360^\\circ \\).",
+  "key": {
+   "answer": true,
+   "explain": "Both waves repeat their full shape every \\( 360^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:tf:0f432b3f",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( y = \\tan\\theta \\) has period \\( 360^\\circ \\).",
+  "key": {
+   "answer": false,
+   "explain": "Tangent has period \\( 180^\\circ \\) — it repeats twice as often as sin and cos."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:tf:cf59bb36",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The maximum value of \\( \\cos\\theta \\) is \\( 1 \\).",
+  "key": {
+   "answer": true,
+   "explain": "Cosine ranges between \\( -1 \\) and \\( 1 \\), so its maximum is \\( 1 \\) (at \\( 0^\\circ \\) and \\( 360^\\circ \\))."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:tf:af036762",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\sin 240^\\circ \\) is positive.",
+  "key": {
+   "answer": false,
+   "explain": "\\( 240^\\circ \\) is in the third quadrant, where sine is negative; \\( \\sin 240^\\circ = -\\tfrac{\\sqrt{3}}{2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:tf:062a0351",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\cos(360^\\circ - \\theta) = \\cos\\theta \\).",
+  "key": {
+   "answer": true,
+   "explain": "Cosine is symmetric about \\( 360^\\circ \\) (it is an even function), so \\( \\cos(360^\\circ-\\theta)=\\cos\\theta \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:tf:b9f0ec6d",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\tan\\theta \\) is undefined at \\( 90^\\circ \\) and \\( 270^\\circ \\).",
+  "key": {
+   "answer": true,
+   "explain": "There \\( \\cos\\theta = 0 \\), so \\( \\tfrac{\\sin\\theta}{\\cos\\theta} \\) divides by zero — the graph has asymptotes."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:tf:467c964c",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In the second quadrant (\\( 90^\\circ \\)–\\( 180^\\circ \\)), \\( \\cos\\theta \\) is positive.",
+  "key": {
+   "answer": false,
+   "explain": "In Q2 only sine is positive; cosine (and tangent) are negative there."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:tf:72b19488",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\sin 45^\\circ = \\cos 45^\\circ \\).",
+  "key": {
+   "answer": true,
+   "explain": "Both equal \\( \\tfrac{\\sqrt{2}}{2} \\), so they are equal at \\( 45^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:learn:c5319108",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How are sin, cos and tan defined for ANY angle?",
+  "reading": "<p>At GCSE, \\( \\sin \\), \\( \\cos \\) and \\( \\tan \\) come from a right-angled triangle (SOH CAH TOA), so they only make sense for angles between \\( 0^\\circ \\) and \\( 90^\\circ \\). For this qualification we need them for <strong>any</strong> angle, so we use a <strong>rotating radius</strong> on the <strong>unit circle</strong> (a circle of radius \\( 1 \\)).</p>\n            <ul>\n              <li>Start on the positive \\( x \\)-axis and rotate <strong>anticlockwise</strong> through an angle \\( \\theta \\). The tip of the radius lands on a point \\( P \\).</li>\n              <li><strong>\\( \\cos\\theta \\) is the \\( x \\)-coordinate of \\( P \\)</strong>, and <strong>\\( \\sin\\theta \\) is the \\( y \\)-coordinate</strong>. So \\( P = (\\cos\\theta,\\ \\sin\\theta) \\).</li>\n              <li><strong>\\( \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta} \\)</strong> — the gradient of the radius.</li>\n              <li>For an acute angle this agrees exactly with SOH CAH TOA; the unit circle just <em>extends</em> the definitions past \\( 90^\\circ \\) and to negative angles.</li>\n            </ul>\n            <svg viewBox=\"0 0 240 230\" width=\"100%\" style=\"max-width:280px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Unit circle with a radius rotated to 120 degrees into the second quadrant, its tip labelled P equals cos theta sin theta\">\n              <circle cx=\"110\" cy=\"115\" r=\"80\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-opacity=\"0.7\"/>\n              <line x1=\"15\" y1=\"115\" x2=\"205\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n              <line x1=\"110\" y1=\"25\" x2=\"110\" y2=\"205\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n              <polygon points=\"205,115 196,111 196,119\" fill=\"currentColor\"/>\n              <polygon points=\"110,25 106,34 114,34\" fill=\"currentColor\"/>\n              <line x1=\"110\" y1=\"115\" x2=\"70\" y2=\"46\" stroke=\"currentColor\" stroke-width=\"2.4\"/>\n              <line x1=\"70\" y1=\"46\" x2=\"70\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"0.8\" stroke-dasharray=\"3 3\" stroke-opacity=\"0.7\"/>\n              <line x1=\"70\" y1=\"46\" x2=\"110\" y2=\"46\" stroke=\"currentColor\" stroke-width=\"0.8\" stroke-dasharray=\"3 3\" stroke-opacity=\"0.7\"/>\n              <circle cx=\"70\" cy=\"46\" r=\"3.5\" fill=\"currentColor\"/>\n              <path d=\"M 140 115 A 30 30 0 0 0 122 88\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n              <g font-size=\"11\" fill=\"currentColor\">\n                <text x=\"128\" y=\"108\">θ</text>\n                <text x=\"40\" y=\"42\">P (cosθ, sinθ)</text>\n                <text x=\"205\" y=\"128\" text-anchor=\"end\">x</text>\n                <text x=\"116\" y=\"33\">y</text>\n              </g>\n            </svg>\n            <p><strong>Worked example — the ratios of \\( 120^\\circ \\):</strong> the point at \\( 120^\\circ \\) is \\( (\\cos 120^\\circ,\\ \\sin 120^\\circ) = \\left(-\\tfrac{1}{2},\\ \\tfrac{\\sqrt{3}}{2}\\right) \\). So \\( \\sin 120^\\circ = \\tfrac{\\sqrt{3}}{2} \\), \\( \\cos 120^\\circ = -\\tfrac{1}{2} \\), and \\( \\tan 120^\\circ = \\dfrac{\\sqrt{3}/2}{-1/2} = -\\sqrt{3} \\).</p>",
+  "question": "On the unit circle, the point reached by rotating through \\( \\theta \\) has coordinates:",
+  "options": [
+   "\\( (\\cos\\theta,\\ \\sin\\theta) \\)",
+   "\\( (\\sin\\theta,\\ \\cos\\theta) \\)",
+   "\\( (\\tan\\theta,\\ 1) \\)",
+   "\\( (\\theta,\\ \\sin\\theta) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "By definition \\( \\cos\\theta \\) is the \\( x \\)-coordinate and \\( \\sin\\theta \\) the \\( y \\)-coordinate, so \\( P = (\\cos\\theta,\\ \\sin\\theta) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:learn:29d6e7a4",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What do the graphs of sin and cos look like?",
+  "reading": "<p>As the radius rotates from \\( 0^\\circ \\) to \\( 360^\\circ \\), plotting the height (\\( \\sin \\)) or the horizontal position (\\( \\cos \\)) against the angle gives two identical <strong>waves</strong>, just shifted along.</p>\n            <ul>\n              <li>\\( y = \\sin\\theta \\) starts at \\( 0 \\), rises to a maximum \\( 1 \\) at \\( 90^\\circ \\), back to \\( 0 \\) at \\( 180^\\circ \\), down to a minimum \\( -1 \\) at \\( 270^\\circ \\), and back to \\( 0 \\) at \\( 360^\\circ \\).</li>\n              <li>\\( y = \\cos\\theta \\) is the same wave shifted \\( 90^\\circ \\) left: it starts at a maximum \\( 1 \\) at \\( 0^\\circ \\), is \\( 0 \\) at \\( 90^\\circ \\), \\( -1 \\) at \\( 180^\\circ \\), \\( 0 \\) at \\( 270^\\circ \\), and \\( 1 \\) again at \\( 360^\\circ \\).</li>\n              <li>Both have <strong>amplitude</strong> \\( 1 \\) (they reach up to \\( 1 \\) and down to \\( -1 \\)) and <strong>period</strong> \\( 360^\\circ \\) — the pattern repeats every \\( 360^\\circ \\), for ever, in both directions.</li>\n              <li>This repetition is exactly why a trig equation can have <strong>many</strong> solutions (lesson 5.4): the same height occurs again and again.</li>\n            </ul>\n            <svg viewBox=\"0 0 440 210\" width=\"100%\" style=\"max-width:500px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Graphs of y equals sin theta drawn solid and y equals cos theta drawn dashed from 0 to 360 degrees, both amplitude 1 and period 360\">\n              <line x1=\"30\" y1=\"40\" x2=\"415\" y2=\"40\" stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.35\" stroke-dasharray=\"3 3\"/>\n              <line x1=\"30\" y1=\"160\" x2=\"415\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.35\" stroke-dasharray=\"3 3\"/>\n              <line x1=\"30\" y1=\"100\" x2=\"415\" y2=\"100\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"185\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"415,100 406,96 406,104\" fill=\"currentColor\"/>\n              <polygon points=\"40,20 36,29 44,29\" fill=\"currentColor\"/>\n              <polyline points=\"40,100 70,70 100,48 130,40 160,48 190,70 220,100 250,130 280,152 310,160 340,152 370,130 400,100\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/>\n              <polyline points=\"40,40 70,48 100,70 130,100 160,130 190,152 220,160 250,152 280,130 310,100 340,70 370,48 400,40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"6 4\"/>\n              <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n                <text x=\"130\" y=\"176\">90</text><text x=\"220\" y=\"176\">180</text><text x=\"310\" y=\"176\">270</text><text x=\"400\" y=\"176\">360</text>\n                <text x=\"30\" y=\"44\" text-anchor=\"end\">1</text><text x=\"30\" y=\"164\" text-anchor=\"end\">-1</text>\n                <text x=\"410\" y=\"94\" text-anchor=\"start\">θ</text>\n              </g>\n              <g font-size=\"11\" fill=\"currentColor\">\n                <text x=\"72\" y=\"64\">sin θ</text><text x=\"300\" y=\"88\">cos θ (dashed)</text>\n              </g>\n            </svg>",
+  "question": "What is the period of \\( y = \\sin\\theta \\)?",
+  "options": [
+   "\\( 360^\\circ \\)",
+   "\\( 180^\\circ \\)",
+   "\\( 90^\\circ \\)",
+   "\\( 270^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The sine wave repeats its full pattern every \\( 360^\\circ \\); so does cosine."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:learn:812e3468",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Why is the graph of tan different?",
+  "reading": "<p>Because \\( \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta} \\), the tangent graph behaves very differently from the two smooth waves.</p>\n            <ul>\n              <li>Its <strong>period is \\( 180^\\circ \\)</strong> — half that of sin and cos — so it repeats twice as often.</li>\n              <li>Wherever \\( \\cos\\theta = 0 \\) we are dividing by zero, so \\( \\tan\\theta \\) is <strong>undefined</strong>. In \\( 0^\\circ \\) to \\( 360^\\circ \\) this happens at \\( 90^\\circ \\) and \\( 270^\\circ \\).</li>\n              <li>At those angles the graph has <strong>vertical asymptotes</strong>: the curve shoots up towards \\( +\\infty \\) on one side and comes up from \\( -\\infty \\) on the other.</li>\n              <li>\\( \\tan\\theta \\) has <strong>no maximum or minimum</strong> — it takes every value. It passes through \\( 0 \\) at \\( 0^\\circ \\), \\( 180^\\circ \\) and \\( 360^\\circ \\), and equals \\( 1 \\) at \\( 45^\\circ \\).</li>\n            </ul>\n            <svg viewBox=\"0 0 440 200\" width=\"100%\" style=\"max-width:500px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Graph of y equals tan theta from 0 to 360 degrees with vertical asymptotes at 90 and 270 degrees\">\n              <line x1=\"30\" y1=\"100\" x2=\"415\" y2=\"100\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"180\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"415,100 406,96 406,104\" fill=\"currentColor\"/>\n              <line x1=\"130\" y1=\"24\" x2=\"130\" y2=\"176\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"5 4\" stroke-opacity=\"0.55\"/>\n              <line x1=\"310\" y1=\"24\" x2=\"310\" y2=\"176\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"5 4\" stroke-opacity=\"0.55\"/>\n              <polyline points=\"40,100 70,83 85,70 100,48 108,35\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.3\"/>\n              <polyline points=\"152,165 160,152 175,130 190,117 220,100 250,83 265,70 280,48 288,35\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.3\"/>\n              <polyline points=\"332,165 340,152 355,130 370,117 400,100\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.3\"/>\n              <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n                <text x=\"130\" y=\"192\">90</text><text x=\"220\" y=\"116\">180</text><text x=\"310\" y=\"192\">270</text><text x=\"400\" y=\"116\">360</text>\n                <text x=\"410\" y=\"94\" text-anchor=\"start\">θ</text>\n              </g>\n            </svg>",
+  "question": "In \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), where does \\( y = \\tan\\theta \\) have vertical asymptotes?",
+  "options": [
+   "\\( 90^\\circ \\) and \\( 270^\\circ \\)",
+   "\\( 0^\\circ \\) and \\( 180^\\circ \\)",
+   "\\( 180^\\circ \\) and \\( 360^\\circ \\)",
+   "\\( 45^\\circ \\) and \\( 135^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tan\\theta \\) is undefined where \\( \\cos\\theta = 0 \\), i.e. at \\( 90^\\circ \\) and \\( 270^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:learn:7e447470",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Which ratios are positive in each quadrant (CAST)?",
+  "reading": "<p>The axes split the circle into four <strong>quadrants</strong>. The sign of each ratio depends only on which quadrant \\( P \\) is in (remember \\( \\cos\\theta \\) is the \\( x \\)-coordinate, \\( \\sin\\theta \\) the \\( y \\)-coordinate). The <strong>CAST</strong> rule records which ratios are <em>positive</em>:</p>\n            <svg viewBox=\"0 0 220 220\" width=\"100%\" style=\"max-width:250px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"CAST diagram: A for all positive in the first quadrant, S for sine positive in the second, T for tan positive in the third, C for cosine positive in the fourth\">\n              <circle cx=\"110\" cy=\"110\" r=\"82\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-opacity=\"0.6\"/>\n              <line x1=\"18\" y1=\"110\" x2=\"202\" y2=\"110\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n              <line x1=\"110\" y1=\"18\" x2=\"110\" y2=\"202\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n              <g font-size=\"22\" font-weight=\"700\" fill=\"currentColor\" text-anchor=\"middle\">\n                <text x=\"158\" y=\"72\">A</text><text x=\"62\" y=\"72\">S</text><text x=\"62\" y=\"164\">T</text><text x=\"158\" y=\"164\">C</text>\n              </g>\n              <g font-size=\"10\" fill=\"currentColor\" text-anchor=\"middle\">\n                <text x=\"158\" y=\"88\">all +</text><text x=\"62\" y=\"88\">sin +</text><text x=\"62\" y=\"180\">tan +</text><text x=\"158\" y=\"180\">cos +</text>\n              </g>\n            </svg>\n            <ul>\n              <li><strong>Q1 (\\( 0^\\circ \\)–\\( 90^\\circ \\)) — A:</strong> <em>all</em> of sin, cos, tan are positive.</li>\n              <li><strong>Q2 (\\( 90^\\circ \\)–\\( 180^\\circ \\)) — S:</strong> only <em>sin</em> is positive (cos and tan negative).</li>\n              <li><strong>Q3 (\\( 180^\\circ \\)–\\( 270^\\circ \\)) — T:</strong> only <em>tan</em> is positive (sin and cos negative).</li>\n              <li><strong>Q4 (\\( 270^\\circ \\)–\\( 360^\\circ \\)) — C:</strong> only <em>cos</em> is positive (sin and tan negative).</li>\n            </ul>\n            <p><strong>Worked example — the signs for \\( 200^\\circ \\):</strong> \\( 200^\\circ \\) is in Q3 (between \\( 180^\\circ \\) and \\( 270^\\circ \\)), so only \\( \\tan \\) is positive. Hence \\( \\sin 200^\\circ < 0 \\), \\( \\cos 200^\\circ < 0 \\), \\( \\tan 200^\\circ > 0 \\).</p>",
+  "question": "In which quadrant are all three of sin, cos and tan positive?",
+  "options": [
+   "First (\\( 0^\\circ \\)–\\( 90^\\circ \\))",
+   "Second (\\( 90^\\circ \\)–\\( 180^\\circ \\))",
+   "Third (\\( 180^\\circ \\)–\\( 270^\\circ \\))",
+   "Fourth (\\( 270^\\circ \\)–\\( 360^\\circ \\))"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The 'A' in CAST is the first quadrant, where all three ratios are positive."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:learn:f397fd27",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What are the exact values for 30°, 45° and 60°?",
+  "reading": "<p>These <strong>exact values</strong> come up constantly and must be known — a calculator gives a decimal, but an \"exact\" answer needs the surd or fraction. Learn this table:</p>\n            <table class=\"worked\">\n              <tr><td>\\( \\theta \\)</td><td>\\( 0^\\circ \\)</td><td>\\( 30^\\circ \\)</td><td>\\( 45^\\circ \\)</td><td>\\( 60^\\circ \\)</td><td>\\( 90^\\circ \\)</td></tr>\n              <tr><td>\\( \\sin\\theta \\)</td><td>\\( 0 \\)</td><td>\\( \\tfrac{1}{2} \\)</td><td>\\( \\tfrac{\\sqrt{2}}{2} \\)</td><td>\\( \\tfrac{\\sqrt{3}}{2} \\)</td><td>\\( 1 \\)</td></tr>\n              <tr><td>\\( \\cos\\theta \\)</td><td>\\( 1 \\)</td><td>\\( \\tfrac{\\sqrt{3}}{2} \\)</td><td>\\( \\tfrac{\\sqrt{2}}{2} \\)</td><td>\\( \\tfrac{1}{2} \\)</td><td>\\( 0 \\)</td></tr>\n              <tr><td>\\( \\tan\\theta \\)</td><td>\\( 0 \\)</td><td>\\( \\tfrac{1}{\\sqrt{3}} \\)</td><td>\\( 1 \\)</td><td>\\( \\sqrt{3} \\)</td><td>undefined</td></tr>\n            </table>\n            <ul>\n              <li>Notice \\( \\cos\\theta \\) is the \\( \\sin \\) row <em>reversed</em> — \\( \\cos 30^\\circ = \\sin 60^\\circ \\), etc. That is a quick memory check.</li>\n              <li>\\( \\sin 45^\\circ = \\cos 45^\\circ = \\tfrac{\\sqrt{2}}{2} \\) (often also written \\( \\tfrac{1}{\\sqrt{2}} \\)).</li>\n              <li>\\( \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta} \\): e.g. \\( \\tan 60^\\circ = \\dfrac{\\sqrt{3}/2}{1/2} = \\sqrt{3} \\).</li>\n            </ul>\n            <p><strong>Worked example — \\( \\tan 30^\\circ \\):</strong> \\( \\tan 30^\\circ = \\dfrac{\\sin 30^\\circ}{\\cos 30^\\circ} = \\dfrac{1/2}{\\sqrt{3}/2} = \\dfrac{1}{\\sqrt{3}} = \\dfrac{\\sqrt{3}}{3} \\) after rationalising.</p>",
+  "question": "What is the exact value of \\( \\cos 60^\\circ \\)?",
+  "options": [
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( \\tfrac{\\sqrt{3}}{2} \\)",
+   "\\( \\tfrac{\\sqrt{2}}{2} \\)",
+   "\\( 1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\cos 60^\\circ = \\tfrac{1}{2} \\) (do not swap it with \\( \\sin 60^\\circ = \\tfrac{\\sqrt{3}}{2} \\))."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:learn:591b7566",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do symmetry facts give extra solutions?",
+  "reading": "<p>Because the graphs are symmetric and repeating, one known value gives you several related ones. These <strong>symmetry facts</strong> (all in degrees) are the machinery behind solving trig equations in lesson 5.4:</p>\n            <ul>\n              <li><strong>\\( \\sin(180^\\circ - \\theta) = \\sin\\theta \\)</strong> — the sine graph is symmetric about \\( 90^\\circ \\).</li>\n              <li><strong>\\( \\cos(360^\\circ - \\theta) = \\cos\\theta \\)</strong> — cosine is symmetric about \\( 0^\\circ \\)/\\( 360^\\circ \\); equivalently \\( \\cos(-\\theta) = \\cos\\theta \\) (cosine is <em>even</em>).</li>\n              <li><strong>\\( \\tan(180^\\circ + \\theta) = \\tan\\theta \\)</strong> — tangent repeats every \\( 180^\\circ \\).</li>\n              <li>\\( \\sin(-\\theta) = -\\sin\\theta \\) and \\( \\tan(-\\theta) = -\\tan\\theta \\): sine and tangent are <em>odd</em>.</li>\n            </ul>\n            <p><strong>Worked example — using symmetry:</strong> given \\( \\sin 30^\\circ = \\tfrac{1}{2} \\), then \\( \\sin 150^\\circ = \\sin(180^\\circ - 30^\\circ) = \\sin 30^\\circ = \\tfrac{1}{2} \\). And \\( \\cos 330^\\circ = \\cos(360^\\circ - 30^\\circ) = \\cos 30^\\circ = \\tfrac{\\sqrt{3}}{2} \\). The CAST rule confirms the signs: \\( 150^\\circ \\) is in Q2 (sin \\( + \\)) and \\( 330^\\circ \\) is in Q4 (cos \\( + \\)).</p>",
+  "question": "Using \\( \\sin(180^\\circ - \\theta) = \\sin\\theta \\), which angle has the same sine as \\( 40^\\circ \\)?",
+  "options": [
+   "\\( 140^\\circ \\)",
+   "\\( 220^\\circ \\)",
+   "\\( 320^\\circ \\)",
+   "\\( 50^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 180^\\circ - 40^\\circ = 140^\\circ \\), and \\( \\sin 140^\\circ = \\sin 40^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:misc:9ccc8d02",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\sin 150^\\circ \\) must be negative because \\( 150^\\circ > 90^\\circ \\).</p><p><strong>✅ The correct idea:</strong> Size does not fix the sign — the quadrant does. \\( 150^\\circ \\) is in Q2, where sine is positive: \\( \\sin 150^\\circ = \\sin 30^\\circ = \\tfrac{1}{2} \\).</p>",
+  "question": "\\( \\sin 150^\\circ = \\)",
+  "options": [
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( -\\tfrac{1}{2} \\)",
+   "\\( \\tfrac{\\sqrt{3}}{2} \\)",
+   "\\( -\\tfrac{\\sqrt{3}}{2} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Q2 sine is positive; \\( \\sin 150^\\circ = \\sin 30^\\circ = \\tfrac{1}{2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:misc:84fbc00e",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\tan\\theta \\) has the same period as \\( \\sin\\theta \\), namely \\( 360^\\circ \\).</p><p><strong>✅ The correct idea:</strong> Tangent repeats every \\( 180^\\circ \\), not \\( 360^\\circ \\). A strong answer states the period as \\( 180^\\circ \\) and notes the asymptotes at \\( 90^\\circ \\) and \\( 270^\\circ \\).</p>",
+  "question": "The period of \\( \\tan\\theta \\) is:",
+  "options": [
+   "\\( 180^\\circ \\)",
+   "\\( 360^\\circ \\)",
+   "\\( 90^\\circ \\)",
+   "\\( 45^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Tangent repeats every \\( 180^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:misc:7785d365",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\cos(-\\theta) = -\\cos\\theta \\).</p><p><strong>✅ The correct idea:</strong> Cosine is an EVEN function: \\( \\cos(-\\theta) = \\cos\\theta \\). It is sine and tangent that are odd (\\( \\sin(-\\theta) = -\\sin\\theta \\), \\( \\tan(-\\theta) = -\\tan\\theta \\)).</p>",
+  "question": "Which is correct?",
+  "options": [
+   "\\( \\cos(-\\theta) = \\cos\\theta \\)",
+   "\\( \\cos(-\\theta) = -\\cos\\theta \\)",
+   "\\( \\sin(-\\theta) = \\sin\\theta \\)",
+   "\\( \\tan(-\\theta) = \\tan\\theta \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Cosine is even; sine and tangent are odd."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:misc:ad099c67",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\tan 90^\\circ = 0 \\).</p><p><strong>✅ The correct idea:</strong> \\( \\tan 90^\\circ \\) is UNDEFINED, not \\( 0 \\): \\( \\cos 90^\\circ = 0 \\) so the ratio \\( \\tfrac{\\sin\\theta}{\\cos\\theta} \\) has no value — the graph has a vertical asymptote at \\( 90^\\circ \\).</p>",
+  "question": "\\( \\tan 90^\\circ \\) is:",
+  "options": [
+   "undefined",
+   "\\( 0 \\)",
+   "\\( 1 \\)",
+   "\\( 90 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\cos 90^\\circ = 0 \\), so \\( \\tan 90^\\circ \\) is undefined (an asymptote)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:misc:753c4c4a",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\cos 30^\\circ = \\tfrac{1}{2} \\) and \\( \\sin 30^\\circ = \\tfrac{\\sqrt{3}}{2} \\).</p><p><strong>✅ The correct idea:</strong> The values are swapped: \\( \\sin 30^\\circ = \\tfrac{1}{2} \\) and \\( \\cos 30^\\circ = \\tfrac{\\sqrt{3}}{2} \\). Checking the graph (cos starts high at \\( 0^\\circ \\)) or the CAST unit circle prevents the mix-up.</p>",
+  "question": "\\( \\cos 30^\\circ = \\)",
+  "options": [
+   "\\( \\tfrac{\\sqrt{3}}{2} \\)",
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( \\tfrac{\\sqrt{2}}{2} \\)",
+   "\\( \\sqrt{3} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\cos 30^\\circ = \\tfrac{\\sqrt{3}}{2} \\); \\( \\sin 30^\\circ = \\tfrac{1}{2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:tips:56a98a09",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Use CAST to fix the sign",
+  "reading": "<p>Work out the sign <em>before</em> the value. Sketch the axes, mark the quadrant your angle sits in, and read off which ratios are positive: <strong>A</strong>ll (Q1), <strong>S</strong>in (Q2), <strong>T</strong>an (Q3), <strong>C</strong>os (Q4).</p><p><strong>Example:</strong> \\( \\cos 200^\\circ \\) — \\( 200^\\circ \\) is in Q3, so cos is negative; only then attach the value \\( \\cos 20^\\circ \\).</p>",
+  "question": "For \\( \\sin 300^\\circ \\), CAST tells you the sign is:",
+  "options": [
+   "Negative (Q4, only cos is positive)",
+   "Positive (Q4 is the 'A' quadrant)",
+   "Zero",
+   "Undefined"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 300^\\circ \\) is in Q4 where only cosine is positive, so \\( \\sin 300^\\circ \\) is negative."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:tips:bb4d03ad",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Know the exact values by heart",
+  "reading": "<p>When a question says <strong>exact</strong>, a calculator decimal scores \\( 0 \\). Memorise the \\( 30^\\circ/45^\\circ/60^\\circ \\) table so you can write \\( \\sin 60^\\circ = \\tfrac{\\sqrt{3}}{2} \\), not \\( 0.866 \\). A quick check: the \\( \\cos \\) row is the \\( \\sin \\) row reversed.</p>",
+  "question": "An 'exact' answer for \\( \\tan 60^\\circ \\) is:",
+  "options": [
+   "\\( \\sqrt{3} \\)",
+   "\\( 1.73 \\)",
+   "\\( 1.7 \\)",
+   "about \\( 1.73 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tan 60^\\circ = \\sqrt{3} \\); a rounded decimal is not exact."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:tips:4c7094c0",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Symmetry gives the SECOND solution",
+  "reading": "<p>A calculator's \\( \\sin^{-1} \\) gives only one angle, but the graph's symmetry means an equation usually has more. \\( \\sin(180^\\circ-\\theta)=\\sin\\theta \\) and \\( \\cos(360^\\circ-\\theta)=\\cos\\theta \\) generate the extra solutions you will need when solving trig equations in lesson 5.4 — losing the second solution is the classic dropped mark.</p>",
+  "question": "If \\( \\sin\\theta = \\tfrac{1}{2} \\) and one solution is \\( 30^\\circ \\), a second in \\( 0^\\circ \\)–\\( 360^\\circ \\) is:",
+  "options": [
+   "\\( 150^\\circ \\)",
+   "\\( 210^\\circ \\)",
+   "\\( 330^\\circ \\)",
+   "\\( 60^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sin(180^\\circ-30^\\circ) = \\sin 30^\\circ \\), so \\( 150^\\circ \\) also works."
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:fib:986d02d1",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "On the unit circle the point at angle \\( \\theta \\) is \\( (\\cos\\theta,\\ \\sin\\theta) \\), so \\( \\cos\\theta \\) is the ___B1___ coordinate and \\( \\sin\\theta \\) is the ___B2___ coordinate.",
+  "blankOptions": {
+   "B1": [
+    "x",
+    "1/2",
+    "-1",
+    "intercepts"
+   ],
+   "B2": [
+    "y",
+    "0",
+    "180",
+    "fourth"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "x",
+    "B2": "y"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:fib:b03071d2",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The period of both \\( \\sin\\theta \\) and \\( \\cos\\theta \\) is ___B1___ degrees, while the period of \\( \\tan\\theta \\) is ___B2___ degrees.",
+  "blankOptions": {
+   "B1": [
+    "-1",
+    "second",
+    "360",
+    "1"
+   ],
+   "B2": [
+    "asymptotes",
+    "180",
+    "first",
+    "90"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "360",
+    "B2": "180"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:fib:51a7fdf4",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The maximum value of \\( \\sin\\theta \\) is ___B1___ and its minimum value is ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "2",
+    "45",
+    "1",
+    "1/2"
+   ],
+   "B2": [
+    "1/2",
+    "30",
+    "-1",
+    "y"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "1",
+    "B2": "-1"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:fib:b8099f25",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Using the CAST rule, sine is positive in the ___B1___ quadrant and tangent is positive in the ___B2___ quadrant.",
+  "blankOptions": {
+   "B1": [
+    "-1",
+    "asymptotes",
+    "second",
+    "first"
+   ],
+   "B2": [
+    "1",
+    "90",
+    "third",
+    "360"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "second",
+    "B2": "third"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:fib:1486e5c1",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The exact value of \\( \\sin 30^\\circ \\) is ___B1___ and the exact value of \\( \\cos 60^\\circ \\) is ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "0",
+    "30",
+    "1/2",
+    "1"
+   ],
+   "B2": [
+    "360",
+    "1/2",
+    "90",
+    "asymptotes"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "1/2",
+    "B2": "1/2"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:fib:35a4a0ea",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The graph of \\( \\tan\\theta \\) has vertical ___B1___ at \\( 90^\\circ \\) and \\( 270^\\circ \\).",
+  "blankOptions": {
+   "B1": [
+    "third",
+    "fourth",
+    "30",
+    "asymptotes"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "asymptotes"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:fib:2030fa73",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Because \\( \\sin(180^\\circ - \\theta) = \\sin\\theta \\), the angle \\( 150^\\circ \\) has the same sine as ___B1___ degrees.",
+  "blankOptions": {
+   "B1": [
+    "1/2",
+    "asymptotes",
+    "fourth",
+    "30"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "30"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:fib:c249fc70",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The exact value of \\( \\tan 45^\\circ \\) is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "1",
+    "45",
+    "y",
+    "180"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "1"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:38d598ce",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\sin 30^\\circ \\)”?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( \\tfrac{1}{\\sqrt{3}} \\)",
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( 360^\\circ \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\sin 30^\\circ \\)” means: \\( \\tfrac{1}{2} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:f2928629",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\cos 30^\\circ \\)”?",
+  "options": [
+   "\\( \\sqrt{3} \\)",
+   "\\( \\tfrac{\\sqrt{3}}{2} \\)",
+   "\\( 1 \\)",
+   "\\( 180^\\circ \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( \\cos 30^\\circ \\)” means: \\( \\tfrac{\\sqrt{3}}{2} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:ba8b67f3",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\sin 45^\\circ \\)”?",
+  "options": [
+   "\\( \\tfrac{\\sqrt{2}}{2} \\)",
+   "First (\\( 0^\\circ \\)–\\( 90^\\circ \\))",
+   "\\( \\tfrac{1}{\\sqrt{3}} \\)",
+   "Undefined — vertical asymptote"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\sin 45^\\circ \\)” means: \\( \\tfrac{\\sqrt{2}}{2} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:fde2bffc",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\tan 60^\\circ \\)”?",
+  "options": [
+   "Second (\\( 90^\\circ \\)–\\( 180^\\circ \\))",
+   "First (\\( 0^\\circ \\)–\\( 90^\\circ \\))",
+   "\\( \\sqrt{3} \\)",
+   "Fourth (\\( 270^\\circ \\)–\\( 360^\\circ \\))"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\tan 60^\\circ \\)” means: \\( \\sqrt{3} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:3affae46",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\tan 30^\\circ \\)”?",
+  "options": [
+   "\\( \\tfrac{\\sqrt{3}}{2} \\)",
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( \\tfrac{1}{\\sqrt{3}} \\)",
+   "First (\\( 0^\\circ \\)–\\( 90^\\circ \\))"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\tan 30^\\circ \\)” means: \\( \\tfrac{1}{\\sqrt{3}} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:e4ecbe20",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\cos 90^\\circ \\)”?",
+  "options": [
+   "\\( 0 \\)",
+   "\\( \\sqrt{3} \\)",
+   "First (\\( 0^\\circ \\)–\\( 90^\\circ \\))",
+   "Fourth (\\( 270^\\circ \\)–\\( 360^\\circ \\))"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\cos 90^\\circ \\)” means: \\( 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:e9a2231f",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\tan 45^\\circ \\)”?",
+  "options": [
+   "\\( 360^\\circ \\)",
+   "\\( 1 \\)",
+   "\\( \\tfrac{1}{\\sqrt{3}} \\)",
+   "\\( \\tfrac{\\sqrt{3}}{2} \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( \\tan 45^\\circ \\)” means: \\( 1 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:8e9df17e",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Period of \\( \\sin\\theta \\) and \\( \\cos\\theta \\)”?",
+  "options": [
+   "\\( \\sqrt{3} \\)",
+   "\\( \\tfrac{1}{\\sqrt{3}} \\)",
+   "\\( 360^\\circ \\)",
+   "Second (\\( 90^\\circ \\)–\\( 180^\\circ \\))"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Period of \\( \\sin\\theta \\) and \\( \\cos\\theta \\)” means: \\( 360^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:fb41a8a8",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Period of \\( \\tan\\theta \\)”?",
+  "options": [
+   "\\( 1 \\)",
+   "Fourth (\\( 270^\\circ \\)–\\( 360^\\circ \\))",
+   "\\( 180^\\circ \\)",
+   "\\( \\tfrac{1}{\\sqrt{3}} \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Period of \\( \\tan\\theta \\)” means: \\( 180^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:23627997",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Quadrant where all ratios are positive”?",
+  "options": [
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( 1 \\)",
+   "\\( 0 \\)",
+   "First (\\( 0^\\circ \\)–\\( 90^\\circ \\))"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Quadrant where all ratios are positive” means: First (\\( 0^\\circ \\)–\\( 90^\\circ \\))"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:38ed07fe",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Quadrant where only sine is positive”?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( \\tfrac{\\sqrt{2}}{2} \\)",
+   "\\( 180^\\circ \\)",
+   "Second (\\( 90^\\circ \\)–\\( 180^\\circ \\))"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Quadrant where only sine is positive” means: Second (\\( 90^\\circ \\)–\\( 180^\\circ \\))"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:1892c89c",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Quadrant where only cosine is positive”?",
+  "options": [
+   "\\( \\tfrac{1}{2} \\)",
+   "\\( \\tfrac{\\sqrt{2}}{2} \\)",
+   "\\( 1 \\)",
+   "Fourth (\\( 270^\\circ \\)–\\( 360^\\circ \\))"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Quadrant where only cosine is positive” means: Fourth (\\( 270^\\circ \\)–\\( 360^\\circ \\))"
+  }
+ },
+ {
+  "id": "additional-maths:5-1-trig-ratios-for-any-angle:match:db480e8b",
+  "pageId": "additional-maths:5-1-trig-ratios-for-any-angle",
+  "pageName": "5.1 Trig Ratios for Any Angle",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\tan\\theta \\) at \\( 90^\\circ \\) and \\( 270^\\circ \\)”?",
+  "options": [
+   "\\( 0 \\)",
+   "Undefined — vertical asymptote",
+   "\\( \\tfrac{1}{\\sqrt{3}} \\)",
+   "\\( \\sqrt{3} \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( \\tan\\theta \\) at \\( 90^\\circ \\) and \\( 270^\\circ \\)” means: Undefined — vertical asymptote"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:exam:45bf5199",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "8 (a)",
+  "question": "<p>Given that \\( BC = 10 \\) cm, determine the two possible values of angle \\( C \\).</p>",
+  "caseStudy": "<p>The triangle \\( ABC \\) is such that \\( AB = 12 \\) cm and angle \\( A = 50^\\circ \\).</p>",
+  "hint": "Pair \\( BC \\) with its opposite angle \\( A \\), and \\( AB \\) with its opposite angle \\( C \\). After finding \\( \\sin C \\), remember the obtuse partner \\( 180^\\circ - \\) the acute value.",
+  "starter": "Give both values of angle \\( C \\), to 1 decimal place.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — correct use of the sine rule: \\( \\dfrac{\\sin C}{12} = \\dfrac{\\sin 50^\\circ}{10} \\).</li>\n              <li><strong>M1</strong> — correct rearrangement of their equation to obtain \\( \\sin C = \\dfrac{12\\sin 50^\\circ}{10} = 0.919\\ldots \\).</li>\n              <li><strong>A1</strong> — principal angle, \\( C \\) awrt \\( 66.8^\\circ \\).</li>\n              <li><strong>A1</strong> — second (2nd-quadrant) angle, \\( C \\) awrt \\( 113^\\circ \\) (\\( 113.2^\\circ \\)).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The two M marks are for setting up the sine rule and rearranging to \\( \\sin C \\); the two A marks are for the acute value and its obtuse partner respectively.</li>\n              <li>Only the principal (acute) value scores M1 M1 A1 A0 — the second value is a separate mark.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Correct use of the sine rule to find the principal angle was managed by the majority. Many ignored the instruction to give the second value; others found an angle by subtracting from \\( 360^\\circ \\), giving a result greater than \\( 180^\\circ \\) with no concern. A clear diagram helped obtain the correct second value. A few used the cosine rule, which led to more working than the question was worth.</li>\n            </ul></div>",
+   "modelAnswer": "By the sine rule, \\( \\dfrac{\\sin C}{AB} = \\dfrac{\\sin A}{BC} \\), so \\( \\dfrac{\\sin C}{12} = \\dfrac{\\sin 50^\\circ}{10} \\). Then \\( \\sin C = \\dfrac{12\\sin 50^\\circ}{10} = 0.9193 \\). The acute value is \\( C = 66.8^\\circ \\), and its obtuse partner is \\( C = 180^\\circ - 66.8^\\circ = 113.2^\\circ \\). Both give a valid triangle, so \\( C = 66.8^\\circ \\) or \\( 113.2^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:exam:43662efa",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "8 (b)",
+  "question": "<p>State two conditions for \\( BC \\) such that, if either of them is satisfied, there will be only one value for the angle \\( C \\).</p>",
+  "caseStudy": "<p>The triangle \\( ABC \\) is such that \\( AB = 12 \\) cm and angle \\( A = 50^\\circ \\).</p>",
+  "hint": "Think about when the swinging side reaches the base line just once. One condition makes \\( BC \\) long enough; the other makes the triangle right-angled at \\( C \\).",
+  "starter": "State each condition as a statement about the length \\( BC \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>\n              <li><strong>B1</strong> — \\( BC > 12 \\) cm, or \\( BC > AB \\), or \\( BC \\) is the second-longest side.</li>\n              <li><strong>B1</strong> — \\( BC = 12\\sin 50^\\circ\\ (= 9.19 \\) cm\\( ) \\), or \\( BC \\) is perpendicular to \\( AC \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Each correct condition on the length \\( BC \\) earns one B mark; the two are independent.</li>\n              <li>Do not allow: \"the angle at \\( C \\) = \\( 90^\\circ \\)\", or vague \"should be smaller/larger than one side\".</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Generally poorly done and often not attempted. Many ignored the instruction to give conditions for the side \\( BC \\) and instead discussed angles \\( B \\) and \\( C \\); many hedged that it must be longer than and shorter than \\( AB \\) or \\( AC \\). There were many mentions of isosceles, right-angled and equilateral triangles. Not having given the second angle in part (a) added to the insecurity here.</li>\n            </ul></div>",
+   "modelAnswer": "There is only one value of \\( C \\) if either: (1) \\( BC > 12 \\) cm (i.e. \\( BC > AB \\), so \\( BC \\) is the second-longest side and the obtuse solution is impossible); or (2) \\( BC = 12\\sin 50^\\circ = 9.19 \\) cm (the perpendicular distance from \\( B \\) to \\( AC \\), giving a right angle at \\( C \\) and exactly one triangle)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:mcq:fa0b93e9",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "You are given two sides of a triangle and the angle between them (SAS). Which rule finds the third side?",
+  "options": [
+   "The cosine rule",
+   "The sine rule",
+   "The area formula",
+   "Pythagoras' theorem"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "SAS has no side paired with its opposite angle, so the sine rule cannot start. Use \\( a^2 = b^2 + c^2 - 2bc\\cos A \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:mcq:3fbc4638",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "You know all three sides of a triangle (SSS) and want an angle. Which rule do you use?",
+  "options": [
+   "The cosine rule, rearranged for the angle",
+   "The sine rule",
+   "The area formula",
+   "You cannot find an angle from three sides"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Use \\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\); the sine rule needs an angle to start, which SSS does not give."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:mcq:eeca7231",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete the sine rule: \\( \\dfrac{a}{\\sin A} = \\ \\square \\).",
+  "options": [
+   "\\( \\dfrac{b}{\\sin B} \\)",
+   "\\( \\dfrac{\\sin B}{b} \\)",
+   "\\( \\dfrac{b}{\\cos B} \\)",
+   "\\( b\\sin B \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\); each side sits over the sine of its opposite angle."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:mcq:d52af41d",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find side \\( a \\) when \\( b = 5,\\ c = 8 \\) and the included angle \\( A = 60^\\circ \\).",
+  "options": [
+   "\\( 7 \\)",
+   "\\( 11.4 \\)",
+   "\\( 3 \\)",
+   "\\( 9.4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( a^2 = 25 + 64 - 2(5)(8)\\cos 60^\\circ = 89 - 40 = 49 \\), so \\( a = 7 \\). (Using \\( +40 \\) gives the wrong \\( \\sqrt{129} = 11.4 \\).)"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:mcq:1157244e",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student writes the cosine rule as \\( a^2 = b^2 + c^2 + 2bc\\cos A \\). What is wrong?",
+  "options": [
+   "The last term should be subtracted: \\( -2bc\\cos A \\)",
+   "Nothing — it is correct",
+   "It should be \\( +2bc\\sin A \\)",
+   "\\( a^2 \\) should be \\( 2a^2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The cosine rule subtracts: \\( a^2 = b^2 + c^2 - 2bc\\cos A \\). The wrong sign is the most common slip."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:mcq:8423c7dd",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find angle \\( A \\) (opposite the side of length 7) in a triangle with sides \\( a = 7,\\ b = 8,\\ c = 9 \\).",
+  "options": [
+   "\\( 48.2^\\circ \\)",
+   "\\( 58.4^\\circ \\)",
+   "\\( 73.4^\\circ \\)",
+   "\\( 41.8^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\cos A = \\dfrac{8^2 + 9^2 - 7^2}{2(8)(9)} = \\dfrac{96}{144} = 0.6667 \\), so \\( A = 48.2^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:mcq:71b5b9d6",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The sine rule gives \\( \\sin C = 0.8 \\). What are the two possible values of \\( C \\)?",
+  "options": [
+   "\\( 53.1^\\circ \\) and \\( 126.9^\\circ \\)",
+   "\\( 53.1^\\circ \\) only",
+   "\\( 53.1^\\circ \\) and \\( 306.9^\\circ \\)",
+   "\\( 36.9^\\circ \\) and \\( 143.1^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sin^{-1}(0.8) = 53.1^\\circ \\); the obtuse partner is \\( 180^\\circ - 53.1^\\circ = 126.9^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:mcq:13fe7899",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In a triangle \\( A = 35^\\circ,\\ a = 8,\\ b = 11 \\). Find the OBTUSE possible value of angle \\( B \\).",
+  "options": [
+   "\\( 127.9^\\circ \\)",
+   "\\( 52.1^\\circ \\)",
+   "\\( 55^\\circ \\)",
+   "\\( 145^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sin B = \\dfrac{11\\sin 35^\\circ}{8} = 0.7887 \\); acute \\( 52.1^\\circ \\), obtuse \\( 180^\\circ - 52.1^\\circ = 127.9^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:mcq:6aac9446",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find the area of a triangle with sides \\( 10 \\) cm and \\( 14 \\) cm and an included angle of \\( 30^\\circ \\).",
+  "options": [
+   "\\( 35 \\) cm\\( ^2 \\)",
+   "\\( 70 \\) cm\\( ^2 \\)",
+   "\\( 60.6 \\) cm\\( ^2 \\)",
+   "\\( 17.5 \\) cm\\( ^2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tfrac{1}{2} \\times 10 \\times 14 \\times \\sin 30^\\circ = 70 \\times 0.5 = 35 \\) cm\\( ^2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:mcq:1a77d90f",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In the SSA setup with known angle \\( A \\) and sides \\( a \\) (opposite \\( A \\)) and \\( b \\), two different triangles exist when:",
+  "options": [
+   "\\( b\\sin A < a < b \\)",
+   "\\( a > b \\) always",
+   "\\( a = b \\)",
+   "\\( A > 90^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "If \\( a \\) is longer than the height \\( b\\sin A \\) but shorter than \\( b \\), the side reaches the base line in two places — two triangles."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:mcq:973c8c12",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is the correct rearrangement of the cosine rule for \\( \\cos A \\)?",
+  "options": [
+   "\\( \\dfrac{b^2 + c^2 - a^2}{2bc} \\)",
+   "\\( \\dfrac{a^2 + b^2 - c^2}{2bc} \\)",
+   "\\( \\dfrac{b^2 + c^2 - a^2}{2ab} \\)",
+   "\\( \\dfrac{a^2 - b^2 - c^2}{2bc} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Rearranging \\( a^2 = b^2 + c^2 - 2bc\\cos A \\) gives \\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\) — the \\( a^2 \\) (opposite \\( A \\)) is the one subtracted."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:mcq:f325cc74",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Given two sides and the angle between them, a student tries the sine rule to find the third side. Why does it fail?",
+  "options": [
+   "No side is paired with its opposite angle, so no sine-rule ratio can be formed",
+   "The sine rule only works in right-angled triangles",
+   "The sine rule cannot find sides, only angles",
+   "It does not fail — it works fine"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The only known angle sits between the two known sides (not opposite a known side), so the sine rule has no complete ratio. SAS needs the cosine rule."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:tf:bf6343b4",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The sine rule states \\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\).",
+  "key": {
+   "answer": true,
+   "explain": "Correct — each side is divided by the sine of its opposite angle, and the three ratios are equal."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:tf:44867082",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "You use the cosine rule when you know two sides and the angle between them (SAS).",
+  "key": {
+   "answer": true,
+   "explain": "Right — SAS has no side-opposite-angle pair, so the cosine rule \\( a^2 = b^2 + c^2 - 2bc\\cos A \\) is needed."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:tf:52286e2b",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The formula \\( \\dfrac{1}{2}ab\\sin C \\) works for any angle C in the triangle.",
+  "key": {
+   "answer": false,
+   "explain": "C must be the INCLUDED angle — the angle between the two sides \\( a \\) and \\( b \\) you multiply."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:tf:ba610fa2",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In the cosine rule \\( a^2 = b^2 + c^2 - 2bc\\cos A \\), angle A is the angle opposite side a.",
+  "key": {
+   "answer": true,
+   "explain": "Yes — the subtracted side, \\( a \\), is always opposite the angle used, \\( A \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:tf:ce50cd68",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The sine and cosine rules are printed on the exam formula sheet.",
+  "key": {
+   "answer": false,
+   "explain": "Both are MEMORISE formulae; the sheet only provides binomial, binomial-distribution, trapezium and kinematics results."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:tf:f30e0516",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If \\( \\sin C = 0.5 \\) then C could be \\( 30^\\circ \\) or \\( 150^\\circ \\).",
+  "key": {
+   "answer": true,
+   "explain": "\\( \\sin \\) gives the same value for an angle and its obtuse partner: \\( \\sin 30^\\circ = \\sin 150^\\circ = 0.5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:tf:551ade93",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The ambiguous case of the sine rule arises when you are given two angles and a side (AAS).",
+  "key": {
+   "answer": false,
+   "explain": "It arises in the SSA case — two sides and a NON-included angle. AAS gives a unique triangle."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:tf:0f7191bf",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In the ambiguous case, the obtuse second solution is always a valid triangle.",
+  "key": {
+   "answer": false,
+   "explain": "It is only valid if the known angle plus the obtuse angle stays below \\( 180^\\circ \\); otherwise only the acute triangle exists."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:learn:a8a0619f",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Which rule do you use — sine or cosine?",
+  "reading": "<p>In <strong>any</strong> triangle (not just right-angled ones) the <strong>sine rule</strong> and <strong>cosine rule</strong> connect the sides and angles. We label a triangle so that side \\( a \\) is <strong>opposite</strong> angle \\( A \\), side \\( b \\) opposite \\( B \\), and side \\( c \\) opposite \\( C \\).</p>\n            <svg viewBox=\"0 0 300 210\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Triangle ABC with vertex A bottom-left, B at the top, C bottom-right; side a opposite A, side b opposite B, side c opposite C\">\n              <polygon points=\"40,170 155,40 265,170\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <text x=\"30\" y=\"182\" font-size=\"14\" fill=\"currentColor\">A</text>\n              <text x=\"152\" y=\"32\" font-size=\"14\" fill=\"currentColor\">B</text>\n              <text x=\"272\" y=\"182\" font-size=\"14\" fill=\"currentColor\">C</text>\n              <text x=\"88\" y=\"100\" font-size=\"14\" fill=\"currentColor\" font-style=\"italic\">c</text>\n              <text x=\"220\" y=\"100\" font-size=\"14\" fill=\"currentColor\" font-style=\"italic\">a</text>\n              <text x=\"150\" y=\"188\" font-size=\"14\" fill=\"currentColor\" font-style=\"italic\">b</text>\n            </svg>\n            <p>Choose the rule from what you are <strong>given</strong>:</p>\n            <ul>\n              <li><strong>Two sides and the angle between them (SAS)</strong> → <strong>cosine rule</strong> to find the third side.</li>\n              <li><strong>All three sides (SSS)</strong> → <strong>cosine rule</strong>, rearranged to find an angle.</li>\n              <li><strong>Two angles and a side (ASA / AAS)</strong> → <strong>sine rule</strong>.</li>\n              <li><strong>Two sides and a non-included angle (SSA)</strong> → <strong>sine rule</strong> — but beware the <strong>ambiguous case</strong> (last card).</li>\n            </ul>\n            <p>A quick test for the sine rule: it needs a <em>matching pair</em> — a side and its opposite angle both known. If you have no such pair, reach for the cosine rule.</p>",
+  "question": "You know two sides of a triangle and the angle between them. Which rule finds the third side?",
+  "options": [
+   "The cosine rule",
+   "The sine rule",
+   "Pythagoras' theorem",
+   "The area formula"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Two sides and the included angle (SAS) gives no side-and-opposite-angle pair, so the sine rule cannot start — use the cosine rule."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:learn:7ddee120",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you use the sine rule to find a side?",
+  "reading": "<p>The <strong>sine rule</strong> is \\[ \\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C}. \\] To find a <strong>side</strong>, keep the sides on top. (To find an <strong>angle</strong> it is easier to flip it: \\( \\frac{\\sin A}{a} = \\frac{\\sin B}{b} = \\frac{\\sin C}{c} \\).)</p>\n            <p><strong>Worked example — find \\( b \\) when \\( A = 40^\\circ,\\ B = 75^\\circ,\\ a = 8 \\) cm:</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Pick the two ratios you can use: \\( \\dfrac{b}{\\sin B} = \\dfrac{a}{\\sin A} \\).</td></tr>\n              <tr><td>2. Substitute: \\( \\dfrac{b}{\\sin 75^\\circ} = \\dfrac{8}{\\sin 40^\\circ} \\).</td></tr>\n              <tr><td>3. Multiply up: \\( b = \\dfrac{8\\sin 75^\\circ}{\\sin 40^\\circ} \\).</td></tr>\n              <tr><td>4. Evaluate: \\( b = \\dfrac{8 \\times 0.9659}{0.6428} = 12.0 \\) cm (3 s.f.).</td></tr>\n            </table>\n            <p>Always pair a side with the angle <em>opposite</em> it. Keep the calculator in <strong>degrees</strong> — the whole of this qualification is in degrees.</p>",
+  "question": "In a triangle \\( A = 30^\\circ,\\ B = 45^\\circ \\) and side \\( a = 10 \\) cm. Find side \\( b \\).",
+  "options": [
+   "\\( 14.1 \\) cm",
+   "\\( 7.07 \\) cm",
+   "\\( 20 \\) cm",
+   "\\( 5 \\) cm"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( b = \\dfrac{10\\sin 45^\\circ}{\\sin 30^\\circ} = \\dfrac{10 \\times 0.7071}{0.5} = 14.1 \\) cm."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:learn:2e6885e7",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you use the cosine rule?",
+  "reading": "<p>The <strong>cosine rule</strong> for a side is \\[ a^2 = b^2 + c^2 - 2bc\\cos A, \\] where \\( A \\) is the angle <strong>between</strong> sides \\( b \\) and \\( c \\). Rearranged to find an angle: \\[ \\cos A = \\frac{b^2 + c^2 - a^2}{2bc}. \\]</p>\n            <p><strong>Worked example (find a side, SAS) — \\( b = 7,\\ c = 9,\\ A = 40^\\circ \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( a^2 = 7^2 + 9^2 - 2 \\times 7 \\times 9 \\times \\cos 40^\\circ \\).</td></tr>\n              <tr><td>2. \\( a^2 = 49 + 81 - 126 \\times 0.7660 = 130 - 96.52 = 33.48 \\).</td></tr>\n              <tr><td>3. \\( a = \\sqrt{33.48} = 5.79 \\) cm (3 s.f.).</td></tr>\n            </table>\n            <p><strong>Worked example (find an angle, SSS) — \\( a = 8,\\ b = 5,\\ c = 7 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( \\cos A = \\dfrac{5^2 + 7^2 - 8^2}{2 \\times 5 \\times 7} = \\dfrac{25 + 49 - 64}{70} = \\dfrac{10}{70} \\).</td></tr>\n              <tr><td>2. \\( \\cos A = 0.1429 \\), so \\( A = \\cos^{-1}(0.1429) = 81.8^\\circ \\).</td></tr>\n            </table>\n            <p>Watch the sign: the term is <strong>minus</strong> \\( 2bc\\cos A \\). Writing \\( +2bc\\cos A \\) is the most common cosine-rule slip.</p>",
+  "question": "Find side \\( a \\) when \\( b = 6,\\ c = 10 \\) and the included angle \\( A = 60^\\circ \\).",
+  "options": [
+   "\\( 8.72 \\) cm",
+   "\\( 11.7 \\) cm",
+   "\\( 12.3 \\) cm",
+   "\\( 4 \\) cm"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( a^2 = 36 + 100 - 120\\cos 60^\\circ = 136 - 60 = 76 \\), so \\( a = \\sqrt{76} = 8.72 \\) cm. (Using \\( +60 \\) gives the wrong \\( 11.7 \\).)"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:learn:a81d5c11",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the area of a triangle?",
+  "reading": "<p>When you know <strong>two sides and the angle between them</strong>, the area is \\[ \\text{Area} = \\frac{1}{2}ab\\sin C, \\] where \\( C \\) is the <strong>included</strong> angle (the angle <em>between</em> sides \\( a \\) and \\( b \\)). This is a <strong>memorise</strong> formula.</p>\n            <p><strong>Worked example — \\( a = 8 \\) cm, \\( b = 11 \\) cm, included angle \\( C = 35^\\circ \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( \\text{Area} = \\dfrac{1}{2} \\times 8 \\times 11 \\times \\sin 35^\\circ \\).</td></tr>\n              <tr><td>2. \\( \\text{Area} = 44 \\times 0.5736 = 25.2 \\) cm\\( ^2 \\) (3 s.f.).</td></tr>\n            </table>\n            <p>The angle must be the one <em>between</em> the two sides you use. If you are given the wrong angle, find another (often via the sine or cosine rule) before using the area formula.</p>",
+  "question": "Find the area of a triangle with sides \\( 6 \\) cm and \\( 9 \\) cm and an included angle of \\( 50^\\circ \\).",
+  "options": [
+   "\\( 20.7 \\) cm\\( ^2 \\)",
+   "\\( 27 \\) cm\\( ^2 \\)",
+   "\\( 41.4 \\) cm\\( ^2 \\)",
+   "\\( 24.9 \\) cm\\( ^2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tfrac{1}{2} \\times 6 \\times 9 \\times \\sin 50^\\circ = 27 \\times 0.7660 = 20.7 \\) cm\\( ^2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:learn:3fed61d3",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "When does the ambiguous case of the sine rule arise?",
+  "reading": "<p>When you use the sine rule to find an <strong>angle</strong> from two sides and a <strong>non-included</strong> angle (the <strong>SSA</strong> setup), there can be <strong>two</strong> different triangles that fit the information. This is the <strong>ambiguous case</strong>.</p>\n            <p>The reason: \\( \\sin\\theta \\) takes the <em>same</em> value for an acute angle and its obtuse partner. If \\( \\sin C = k \\), then both \\( C = \\sin^{-1} k \\) and \\( C = 180^\\circ - \\sin^{-1} k \\) satisfy it. Your calculator only gives the acute (principal) value — you must consider the obtuse one too.</p>\n            <svg viewBox=\"0 0 320 190\" width=\"100%\" style=\"max-width:360px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Vertex A on the left with side AB of length 12 going up to B; side BC of a fixed length swings down to meet the base line at two points, giving an obtuse triangle and an acute triangle\">\n              <line x1=\"30\" y1=\"160\" x2=\"300\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <line x1=\"30\" y1=\"160\" x2=\"150\" y2=\"55\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <line x1=\"150\" y1=\"55\" x2=\"110\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <line x1=\"150\" y1=\"55\" x2=\"240\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <path d=\"M 110 160 A 105 105 0 0 1 240 160\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/>\n              <circle cx=\"30\" cy=\"160\" r=\"3.5\" fill=\"currentColor\"/>\n              <circle cx=\"150\" cy=\"55\" r=\"3.5\" fill=\"currentColor\"/>\n              <circle cx=\"110\" cy=\"160\" r=\"3.5\" fill=\"currentColor\"/>\n              <circle cx=\"240\" cy=\"160\" r=\"3.5\" fill=\"currentColor\"/>\n              <text x=\"20\" y=\"176\" font-size=\"13\" fill=\"currentColor\">A</text>\n              <text x=\"150\" y=\"48\" font-size=\"13\" fill=\"currentColor\">B</text>\n              <text x=\"96\" y=\"176\" font-size=\"12\" fill=\"currentColor\">C₁</text>\n              <text x=\"236\" y=\"176\" font-size=\"12\" fill=\"currentColor\">C₂</text>\n              <text x=\"70\" y=\"100\" font-size=\"12\" fill=\"currentColor\" font-style=\"italic\">12</text>\n            </svg>\n            <p>The same side \\( BC \\) reaches the base line at \\( C_1 \\) (giving an <strong>obtuse</strong> angle \\( C \\)) and at \\( C_2 \\) (giving an <strong>acute</strong> angle \\( C \\)) — two valid triangles.</p>\n            <p><strong>Worked example — \\( A = 40^\\circ,\\ a = 6,\\ b = 8 \\), find angle \\( B \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( \\dfrac{\\sin B}{b} = \\dfrac{\\sin A}{a} \\Rightarrow \\sin B = \\dfrac{8\\sin 40^\\circ}{6} = 0.8571 \\).</td></tr>\n              <tr><td>2. Acute value: \\( B = \\sin^{-1}(0.8571) = 59.0^\\circ \\).</td></tr>\n              <tr><td>3. Obtuse partner: \\( B = 180^\\circ - 59.0^\\circ = 121.0^\\circ \\).</td></tr>\n              <tr><td>4. Check both: with \\( A = 40^\\circ \\), each leaves a positive third angle (\\( 81^\\circ \\) or \\( 19^\\circ \\)), so <strong>both</strong> triangles are valid.</td></tr>\n            </table>\n            <p>The second solution is only valid if the known angle plus the obtuse angle stays <strong>below</strong> \\( 180^\\circ \\). It is <em>not</em> valid when the side opposite the known angle is long enough (\\( a \\ge b \\)) — then only one triangle exists.</p>",
+  "question": "The sine rule gives \\( \\sin C = 0.6 \\), and the triangle is known to be obtuse at \\( C \\). What is \\( C \\)?",
+  "options": [
+   "\\( 143.1^\\circ \\)",
+   "\\( 36.9^\\circ \\)",
+   "\\( 53.1^\\circ \\)",
+   "\\( 216.9^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The acute value is \\( \\sin^{-1}(0.6) = 36.9^\\circ \\); the obtuse partner is \\( 180^\\circ - 36.9^\\circ = 143.1^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:learn:23025a3a",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Which trig formulae must you memorise?",
+  "reading": "<p>None of this page's formulae are printed on the exam formula sheet — you must <strong>memorise all three</strong>:</p>\n            <ul>\n              <li><strong>Sine rule:</strong> \\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\).</li>\n              <li><strong>Cosine rule:</strong> \\( a^2 = b^2 + c^2 - 2bc\\cos A \\) (and \\( \\cos A = \\dfrac{b^2+c^2-a^2}{2bc} \\)).</li>\n              <li><strong>Area:</strong> \\( \\dfrac{1}{2}ab\\sin C \\).</li>\n            </ul>\n            <p>The formula sheet only provides the binomial series, the binomial distribution, the trapezium rule and the kinematics relations — the trigonometry rules are your responsibility.</p>\n            <p>Two habits protect marks: keep your calculator in <strong>degrees</strong>, and label the triangle so that each side sits opposite its matching capital-letter angle before you substitute.</p>",
+  "question": "Which of these formulae is printed on the 6993 formula sheet?",
+  "options": [
+   "None — the sine, cosine and area rules must all be memorised",
+   "The sine rule only",
+   "The cosine rule only",
+   "All three are provided"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The sine rule, cosine rule and area \\( = \\tfrac{1}{2}ab\\sin C \\) are all MEMORISE formulae; the sheet provides binomial, distribution, trapezium and kinematics results only."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:misc:d6c6149b",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Solving \\( \\sin C = 0.919 \\) and giving only \\( C = 66.8^\\circ \\)</p><p><strong>✅ The correct idea:</strong> The ambiguous case has TWO answers. A weak answer stops at the acute value; a strong answer also gives \\( 180^\\circ - 66.8^\\circ = 113.2^\\circ \\) and checks both fit. This is the single most common lost mark on ambiguous-case questions.</p>",
+  "question": "\\( \\sin C = 0.919 \\). What are the two possible values of \\( C \\)?",
+  "options": [
+   "\\( 66.8^\\circ \\) and \\( 113.2^\\circ \\)",
+   "\\( 66.8^\\circ \\) only",
+   "\\( 66.8^\\circ \\) and \\( 293.2^\\circ \\)",
+   "\\( 23.2^\\circ \\) and \\( 156.8^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Acute \\( 66.8^\\circ \\); obtuse partner \\( 180^\\circ - 66.8^\\circ = 113.2^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:misc:91eee07c",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Using the sine rule to find the third side when given two sides and the angle between them (SAS)</p><p><strong>✅ The correct idea:</strong> SAS gives no side paired with its opposite angle, so no sine-rule ratio can be formed. A strong answer recognises SAS and uses the cosine rule \\( a^2 = b^2 + c^2 - 2bc\\cos A \\).</p>",
+  "question": "Two sides and the angle between them are known. Which rule finds the third side?",
+  "options": [
+   "The cosine rule",
+   "The sine rule",
+   "The area formula",
+   "Pythagoras"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "SAS → cosine rule; the sine rule needs a known side opposite a known angle."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:misc:cd7048df",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Writing the cosine rule as \\( a^2 = b^2 + c^2 + 2bc\\cos A \\)</p><p><strong>✅ The correct idea:</strong> The final term is SUBTRACTED. A weak answer adds; a strong answer writes \\( a^2 = b^2 + c^2 - 2bc\\cos A \\), which for an obtuse angle (negative cosine) correctly makes \\( a \\) longer.</p>",
+  "question": "Which cosine-rule form is correct?",
+  "options": [
+   "\\( a^2 = b^2 + c^2 - 2bc\\cos A \\)",
+   "\\( a^2 = b^2 + c^2 + 2bc\\cos A \\)",
+   "\\( a^2 = b^2 - c^2 - 2bc\\cos A \\)",
+   "\\( a^2 = b^2 + c^2 - 2bc\\sin A \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The cosine rule subtracts \\( 2bc\\cos A \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:misc:e2a1c184",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Using \\( \\dfrac{1}{2}ab\\sin C \\) with an angle that is NOT between sides a and b</p><p><strong>✅ The correct idea:</strong> The area formula needs the INCLUDED angle. A weak answer plugs in any angle; a strong answer first checks C is the angle between the two sides used, or finds the correct angle before substituting.</p>",
+  "question": "In \\( \\dfrac{1}{2}ab\\sin C \\), which angle is C?",
+  "options": [
+   "The angle between sides a and b",
+   "Any angle of the triangle",
+   "The largest angle",
+   "The angle opposite the longest side"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "C is the included angle — the one between the two sides you multiply."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:misc:44c299a4",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Finding the second ambiguous angle as \\( 360^\\circ - 66.8^\\circ = 293.2^\\circ \\)</p><p><strong>✅ The correct idea:</strong> The obtuse partner is \\( 180^\\circ - \\) the acute value, not \\( 360^\\circ - \\). A weak answer gives \\( 293.2^\\circ \\) (impossible in a triangle); a strong answer gives \\( 113.2^\\circ \\). Examiners noted candidates who subtracted from \\( 360^\\circ \\) produced angles over \\( 180^\\circ \\) without concern.</p>",
+  "question": "The acute angle is \\( 66.8^\\circ \\). The obtuse partner is:",
+  "options": [
+   "\\( 180^\\circ - 66.8^\\circ = 113.2^\\circ \\)",
+   "\\( 360^\\circ - 66.8^\\circ = 293.2^\\circ \\)",
+   "\\( 90^\\circ - 66.8^\\circ = 23.2^\\circ \\)",
+   "\\( 66.8^\\circ \\) doubled"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Supplementary angles share a sine, so the partner is \\( 180^\\circ - 66.8^\\circ = 113.2^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:tips:f39bd4af",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Never lose the second angle (ambiguous case)",
+  "reading": "<p><strong>0 marks (for the second value):</strong> stop at \\( C = 66.8^\\circ \\) when the question asks for two values.</p><p><strong>Partial:</strong> correct method and the acute value, but no obtuse partner.</p><p><strong>Full marks:</strong> \\( C = 66.8^\\circ \\) <em>and</em> \\( C = 180^\\circ - 66.8^\\circ = 113.2^\\circ \\). If the question says \"two possible values\", the calculator's single answer is only half the work.</p>",
+  "question": "A question asks for the two possible angles. You find \\( 66.8^\\circ \\). What next?",
+  "options": [
+   "Give \\( 180^\\circ - 66.8^\\circ = 113.2^\\circ \\) as the second value",
+   "State \\( 66.8^\\circ \\) is the only answer",
+   "Give \\( 360^\\circ - 66.8^\\circ \\)",
+   "Double it to \\( 133.6^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The obtuse partner is the supplement, \\( 113.2^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:tips:985195d7",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Pick the rule before you calculate",
+  "reading": "<p>Before touching the calculator, name what you are given. <strong>SAS</strong> or <strong>SSS</strong> → cosine rule. <strong>ASA/AAS/SSA</strong> → sine rule. Using the sine rule on an SAS problem wastes time and scores nothing because no ratio can be completed. Examiners noted a few candidates who used the cosine rule where the sine rule was intended did far more work than the question was worth.</p>",
+  "question": "You are given all three sides and want an angle. Which rule?",
+  "options": [
+   "Cosine rule, rearranged for the angle",
+   "Sine rule",
+   "Area formula",
+   "Pythagoras"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "SSS → cosine rule rearranged: \\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:tips:0d1df7d4",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Show the substitution (method marks)",
+  "reading": "<p>For a sine-rule angle [typically 2 marks], examiners award an <strong>M</strong> for correct use of the rule and an <strong>M</strong> for rearranging to \\( \\sin C = \\dots \\), before the <strong>A</strong> marks for the values. Write \\( \\dfrac{\\sin C}{12} = \\dfrac{\\sin 50^\\circ}{10} \\) then \\( \\sin C = \\dfrac{12\\sin 50^\\circ}{10} \\) so a slip in the arithmetic costs one mark, not all of them.</p>",
+  "question": "Why write the substituted sine rule before the final angle?",
+  "options": [
+   "To earn the method marks even if the final value slips",
+   "To use more space",
+   "It is not necessary",
+   "To avoid using a calculator"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "M marks reward the visible correct method (rule + rearrangement)."
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:fib:1380cff5",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "In the sine rule \\( \\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\), each side sits over the sine of the angle ___B1___ to it.",
+  "blankOptions": {
+   "B1": [
+    "opposite",
+    "246.8",
+    "cosine",
+    "non-included"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "opposite"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:fib:36a2d6af",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "You use the ___B1___ rule when you know two sides and the angle between them (SAS), and the ___B2___ rule when you know two angles and a side.",
+  "blankOptions": {
+   "B1": [
+    "113.2",
+    "adjacent",
+    "cosine",
+    "excluded"
+   ],
+   "B2": [
+    "excluded",
+    "opposite",
+    "sine",
+    "113.2"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "cosine",
+    "B2": "sine"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:fib:5364b66a",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "In the rearranged cosine rule \\( \\cos A = \\frac{b^2 + c^2 - a^2}{2bc} \\), the denominator is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "2bc",
+    "provided",
+    "cosine",
+    "SAS"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "2bc"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:fib:972fb097",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The area of a triangle equals \\( \\frac{1}{2}ab\\sin C \\), where C is the ___B1___ angle between sides a and b.",
+  "blankOptions": {
+   "B1": [
+    "cosine",
+    "246.8",
+    "provided",
+    "included"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "included"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:fib:9a045284",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "If the acute angle from the sine rule is 66.8°, the second possible (obtuse) angle is 180° minus 66.8°, which is ___B1___ degrees.",
+  "blankOptions": {
+   "B1": [
+    "memorised",
+    "included",
+    "246.8",
+    "113.2"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "113.2"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:fib:3fdfe63d",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The ambiguous case can occur when you are given two sides and a ___B1___ angle (the SSA situation).",
+  "blankOptions": {
+   "B1": [
+    "non-included",
+    "SSS",
+    "cosine",
+    "113.2"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "non-included"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:fib:c11216e2",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The sine rule, cosine rule and area rule must all be ___B1___ because they are not on the formula sheet.",
+  "blankOptions": {
+   "B1": [
+    "2bc",
+    "memorised",
+    "sine",
+    "excluded"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "memorised"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:fib:4558c22c",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A triangle in which all three sides are known is an ___B1___ situation, so you use the cosine rule.",
+  "blankOptions": {
+   "B1": [
+    "memorised",
+    "included",
+    "SSS",
+    "excluded"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "SSS"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:bc1a7707",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “SAS — two sides and the included angle”?",
+  "options": [
+   "\\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\)",
+   "Cosine rule to find the third side",
+   "\\( 180^\\circ - \\) the acute value",
+   "\\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“SAS — two sides and the included angle” means: Cosine rule to find the third side"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:7449ecca",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “SSS — all three sides known”?",
+  "options": [
+   "Two possible triangles from an SSA setup",
+   "The angle between the two given sides",
+   "Sine rule to find another side",
+   "Cosine rule rearranged to find an angle"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“SSS — all three sides known” means: Cosine rule rearranged to find an angle"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:1a778cf0",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “AAS — two angles and a side”?",
+  "options": [
+   "\\( \\dfrac{1}{2}ab\\sin C \\)",
+   "Sine rule to find another side",
+   "The angle between the two given sides",
+   "Only one triangle is possible"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“AAS — two angles and a side” means: Sine rule to find another side"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:7ac397b9",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “SSA — two sides and a non-included angle”?",
+  "options": [
+   "The angle between the two given sides",
+   "Cosine rule to find the third side",
+   "\\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\)",
+   "Sine rule, watching for the ambiguous case"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“SSA — two sides and a non-included angle” means: Sine rule, watching for the ambiguous case"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:93728045",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Sine rule”?",
+  "options": [
+   "\\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\)",
+   "Two possible triangles from an SSA setup",
+   "Cosine rule to find the third side",
+   "\\( 180^\\circ - \\) the acute value"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Sine rule” means: \\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:955eeb5d",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Cosine rule (for a side)”?",
+  "options": [
+   "\\( a^2 = b^2 + c^2 - 2bc\\cos A \\)",
+   "\\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\)",
+   "\\( 150^\\circ \\)",
+   "Cosine rule to find the third side"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Cosine rule (for a side)” means: \\( a^2 = b^2 + c^2 - 2bc\\cos A \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:cd40e579",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Cosine rule (for an angle)”?",
+  "options": [
+   "\\( 150^\\circ \\)",
+   "\\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\)",
+   "Cosine rule to find the third side",
+   "The angle between the two given sides"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Cosine rule (for an angle)” means: \\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:f174c6e2",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Area of a triangle”?",
+  "options": [
+   "Two possible triangles from an SSA setup",
+   "Sine rule, watching for the ambiguous case",
+   "\\( \\dfrac{1}{2}ab\\sin C \\)",
+   "The angle between the two given sides"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Area of a triangle” means: \\( \\dfrac{1}{2}ab\\sin C \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:51d8b40f",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Obtuse angle when \\( \\sin\\theta = 0.5 \\)”?",
+  "options": [
+   "\\( a^2 = b^2 + c^2 - 2bc\\cos A \\)",
+   "Sine rule, watching for the ambiguous case",
+   "\\( 150^\\circ \\)",
+   "\\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Obtuse angle when \\( \\sin\\theta = 0.5 \\)” means: \\( 150^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:7cb138c7",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “The included angle”?",
+  "options": [
+   "The angle between the two given sides",
+   "Sine rule, watching for the ambiguous case",
+   "\\( \\dfrac{1}{2}ab\\sin C \\)",
+   "\\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“The included angle” means: The angle between the two given sides"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:62e45301",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “The ambiguous case”?",
+  "options": [
+   "Only one triangle is possible",
+   "\\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\)",
+   "Two possible triangles from an SSA setup",
+   "Sine rule, watching for the ambiguous case"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“The ambiguous case” means: Two possible triangles from an SSA setup"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:f554512f",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Second (obtuse) solution”?",
+  "options": [
+   "Sine rule, watching for the ambiguous case",
+   "Cosine rule rearranged to find an angle",
+   "\\( 180^\\circ - \\) the acute value",
+   "\\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Second (obtuse) solution” means: \\( 180^\\circ - \\) the acute value"
+  }
+ },
+ {
+  "id": "additional-maths:5-2-sine-and-cosine-rules:match:dcf88454",
+  "pageId": "additional-maths:5-2-sine-and-cosine-rules",
+  "pageName": "5.2 Sine and Cosine Rules",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “When \\( a \\ge b \\) in an SSA setup”?",
+  "options": [
+   "Only one triangle is possible",
+   "\\( a^2 = b^2 + c^2 - 2bc\\cos A \\)",
+   "The angle between the two given sides",
+   "Sine rule to find another side"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“When \\( a \\ge b \\) in an SSA setup” means: Only one triangle is possible"
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:exam:adee7904",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "17 (a)",
+  "question": "<p><em>In this question you must show detailed reasoning.</em></p>\n            <p>Determine the ranges of possible values of \\( \\theta \\), given that \\( \\theta \\) can only take values between \\( 0^\\circ \\) and \\( 360^\\circ \\).</p>",
+  "caseStudy": "<p><em>In this question you must show detailed reasoning.</em></p>\n        <p>You are given that \\( \\tan\\theta = \\dfrac{n+1}{n-1} \\), where \\( n \\) is a number greater than 1.</p>",
+  "hint": "First decide what values \\( \\dfrac{n+1}{n-1} \\) can take when \\( n > 1 \\) — is \\( \\tan\\theta \\) bigger or smaller than 1? Then find every \\( \\theta \\) in range with that property.",
+  "starter": "State two ranges as inequalities in \\( \\theta \\), e.g. \\( a^\\circ < \\theta < b^\\circ \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO3)</h5><ul>\n              <li><strong>M1</strong> — \\( \\tan\\theta > 1 \\) soi (for all \\( n > 1 \\), \\( \\frac{n+1}{n-1} > 1 \\); soi by identifying \\( 45^\\circ \\)).</li>\n              <li><strong>A1</strong> — first range \\( 45^\\circ < \\theta < 90^\\circ \\).</li>\n              <li><strong>M1</strong> — the third-quadrant range considered.</li>\n              <li><strong>A1</strong> — second range \\( 225^\\circ < \\theta < 270^\\circ \\) (ft the first range).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>SC: if either \\( < \\) is given as \\( \\le \\), then M1 A0 for that range (the endpoints are excluded because \\( n > 1 \\) strictly and \\( n \\) is finite).</li>\n              <li>Assuming \\( n \\) is an integer can earn M1 A0 M1 A1ft only.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>This proved the most challenging question on the paper, even for strong candidates. M1 was earned for considering large \\( n \\) and finding \\( \\tan\\theta > 1 \\).</li>\n              <li>Many assumed \\( n \\) was an integer, using \\( \\tan\\theta = \\frac{2+1}{2-1} \\) to get \\( 71.6^\\circ \\) as a wrong bound. Answers were rarely given as a proper inequality range — \"\\( 71.6 < \\theta < 45 \\)\" was often seen. Some sketched a tan graph; many only considered where \\( \\tan\\theta > 0 \\).</li>\n            </ul></div>",
+   "modelAnswer": "Since \\( n > 1 \\), both \\( n+1 \\) and \\( n-1 \\) are positive and \\( n+1 > n-1 \\), so \\( \\tan\\theta = \\frac{n+1}{n-1} > 1 \\). As \\( n \\to \\infty \\), \\( \\tan\\theta \\to 1 \\); as \\( n \\to 1 \\), \\( \\tan\\theta \\to \\infty \\); so \\( \\tan\\theta \\) can be any value greater than 1. In \\( 0^\\circ \\)–\\( 360^\\circ \\), \\( \\tan\\theta > 1 \\) in the first quadrant for \\( 45^\\circ < \\theta < 90^\\circ \\) and in the third quadrant for \\( 225^\\circ < \\theta < 270^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:exam:e4e7f3d3",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "17 (b)",
+  "question": "<p><em>In this question you must show detailed reasoning.</em></p>\n            <p>Given that \\( \\theta \\) is acute, find an expression for \\( \\sin\\theta \\) in the form \\( \\dfrac{an+b}{\\sqrt{cn^2+d}} \\), where \\( a \\), \\( b \\), \\( c \\) and \\( d \\) are integers.</p>",
+  "caseStudy": "<p><em>In this question you must show detailed reasoning.</em></p>\n        <p>You are given that \\( \\tan\\theta = \\dfrac{n+1}{n-1} \\), where \\( n \\) is a number greater than 1.</p>",
+  "hint": "Draw a right-angled triangle with opposite \\( n+1 \\) and adjacent \\( n-1 \\) so that \\( \\tan\\theta = \\frac{n+1}{n-1} \\); find the hypotenuse with Pythagoras, then read off \\( \\sin\\theta \\).",
+  "starter": "Give a single exact expression \\( \\dfrac{an+b}{\\sqrt{cn^2+d}} \\); take the positive root as \\( \\theta \\) is acute.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO3)</h5><ul>\n              <li><strong>M1</strong> — form \\( \\sin\\theta \\) from Pythagoras or a right-angled triangle: with opposite \\( n+1 \\), adjacent \\( n-1 \\), hypotenuse \\( \\sqrt{(n+1)^2 + (n-1)^2} \\).</li>\n              <li><strong>A1</strong> — \\( \\sin\\theta = \\dfrac{n+1}{\\sqrt{(n+1)^2 + (n-1)^2}} \\).</li>\n              <li><strong>M1</strong> — attempt to simplify the surd, expanding \\( (n+1)^2 + (n-1)^2 \\).</li>\n              <li><strong>A1</strong> — \\( \\sin\\theta = \\dfrac{n+1}{\\sqrt{2n^2 + 2}} \\) (cao).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Ignore \\( \\pm \\) throughout (\\( \\theta \\) is acute). \\( a = 1,\\ b = 1,\\ c = 2,\\ d = 2 \\).</li>\n              <li>Alternative method via \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\): substitute \\( \\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta} \\), square both sides and solve — but candidates rarely simplified this correctly.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>More fully-correct solutions than part (a). Full marks usually came from Pythagoras after drawing a right-angled triangle; the common error was subtracting rather than adding the squares.</li>\n              <li>Those using the identity route often scored at most 2: they did not square both sides, instead using \\( \\sqrt{1 - \\sin^2\\theta} \\) and assuming \\( \\sin\\theta = n+1 \\); manipulation afterwards rarely scored.</li>\n            </ul></div>",
+   "modelAnswer": "Draw a right-angled triangle with the acute angle \\( \\theta \\): opposite \\( = n+1 \\), adjacent \\( = n-1 \\), so \\( \\tan\\theta = \\frac{n+1}{n-1} \\). Hypotenuse \\( = \\sqrt{(n+1)^2 + (n-1)^2} = \\sqrt{(n^2+2n+1) + (n^2-2n+1)} = \\sqrt{2n^2 + 2} \\). Therefore \\( \\sin\\theta = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{n+1}{\\sqrt{2n^2 + 2}} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:mcq:9536e5c0",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Simplify \\( \\dfrac{\\sin\\theta}{\\cos\\theta} \\).",
+  "options": [
+   "\\( \\cos\\theta \\)",
+   "\\( \\tan\\theta \\)",
+   "\\( 1 \\)",
+   "\\( \\sin\\theta\\cos\\theta \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "By PT3, \\( \\frac{\\sin\\theta}{\\cos\\theta} = \\tan\\theta \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:mcq:ddc240ea",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Simplify \\( 1 - \\cos^2\\theta \\).",
+  "options": [
+   "\\( \\sin\\theta \\)",
+   "\\( \\cos^2\\theta \\)",
+   "\\( \\sin^2\\theta \\)",
+   "\\( \\tan^2\\theta \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "Rearranging \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) gives \\( 1 - \\cos^2\\theta = \\sin^2\\theta \\) — the square of the sine, not \\( \\sin\\theta \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:mcq:98a34649",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "\\( \\sin^2\\theta + \\cos^2\\theta \\) equals:",
+  "options": [
+   "\\( 1 \\)",
+   "\\( 2 \\)",
+   "\\( \\tan\\theta \\)",
+   "\\( \\sin2\\theta \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "This is PT4: \\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\) for every angle."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:mcq:aa7299ad",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Simplify \\( \\tan\\theta\\cos\\theta \\).",
+  "options": [
+   "\\( 1 \\)",
+   "\\( \\cos\\theta \\)",
+   "\\( \\sin\\theta \\)",
+   "\\( \\tan\\theta \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "\\( \\tan\\theta\\cos\\theta = \\frac{\\sin\\theta}{\\cos\\theta}\\cdot\\cos\\theta = \\sin\\theta \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:mcq:1da11935",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does \\( \\sin^2\\theta \\) mean?",
+  "options": [
+   "\\( \\sin(\\theta^2) \\)",
+   "\\( (\\sin\\theta)^2 \\)",
+   "\\( 2\\sin\\theta \\)",
+   "\\( \\sin\\theta + 2 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "\\( \\sin^2\\theta \\) is \\( (\\sin\\theta)^2 \\): square the ratio, not the angle."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:mcq:fcaf67ae",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Given \\( \\cos\\theta = \\tfrac{3}{5} \\) with \\( \\theta \\) acute, \\( \\sin\\theta = \\)",
+  "options": [
+   "\\( \\tfrac{4}{5} \\)",
+   "\\( -\\tfrac{4}{5} \\)",
+   "\\( \\tfrac{16}{25} \\)",
+   "\\( \\tfrac{2}{5} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sin^2\\theta = 1 - \\tfrac{9}{25} = \\tfrac{16}{25} \\), so \\( \\sin\\theta = \\tfrac{4}{5} \\) (positive, as \\( \\theta \\) is acute). \\( \\tfrac{16}{25} \\) forgets the square root; \\( -\\tfrac{4}{5} \\) ignores the acute quadrant."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:mcq:e57fd5b2",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Given \\( \\sin\\theta = \\tfrac{2}{3} \\) with \\( \\theta \\) acute, the exact value of \\( \\cos\\theta \\) is",
+  "options": [
+   "\\( \\tfrac{5}{9} \\)",
+   "\\( \\dfrac{\\sqrt{5}}{9} \\)",
+   "\\( \\dfrac{\\sqrt{5}}{3} \\)",
+   "\\( 0.75 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "\\( \\cos^2\\theta = 1 - \\tfrac{4}{9} = \\tfrac{5}{9} \\), so \\( \\cos\\theta = \\frac{\\sqrt{5}}{3} \\). \\( \\tfrac{5}{9} \\) forgets the root; \\( 0.75 \\) is not exact."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:mcq:350e2455",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "\\( \\tan\\theta = \\tfrac{3}{4} \\) with \\( \\theta \\) in the third quadrant. The sign of \\( \\sin\\theta \\) is:",
+  "options": [
+   "Positive",
+   "Negative",
+   "Zero",
+   "Cannot be determined"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "In the third quadrant only \\( \\tan\\theta \\) is positive, so \\( \\sin\\theta \\) is negative (here \\( \\sin\\theta = -\\tfrac{3}{5} \\))."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:mcq:be11df5f",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which statement is an identity (true for every \\( \\theta \\))?",
+  "options": [
+   "\\( \\tan\\theta = 1 \\)",
+   "\\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\)",
+   "\\( \\sin\\theta = 0.5 \\)",
+   "\\( \\cos\\theta = 1 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "Only \\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\) holds for all \\( \\theta \\); the others are equations true only for special angles."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:mcq:62ab92f3",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "To prove \\( \\dfrac{1 - \\cos^2\\theta}{\\sin\\theta} \\equiv \\sin\\theta \\), a good first step is to:",
+  "options": [
+   "Replace \\( 1 - \\cos^2\\theta \\) with \\( \\sin^2\\theta \\)",
+   "Cross-multiply across the \\( \\equiv \\)",
+   "Replace \\( 1 - \\cos^2\\theta \\) with \\( \\tan^2\\theta \\)",
+   "Use the sine rule"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 1 - \\cos^2\\theta = \\sin^2\\theta \\), so the LHS becomes \\( \\frac{\\sin^2\\theta}{\\sin\\theta} = \\sin\\theta \\). Never cross-multiply across \\( \\equiv \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:mcq:e114913c",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "You know \\( \\cos\\theta \\) and want \\( \\sin\\theta \\), with no triangle given. Which do you use?",
+  "options": [
+   "The sine rule \\( \\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\)",
+   "The cosine rule",
+   "The identity \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\)",
+   "Nothing can be found"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "The identity \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) links the two ratios directly; the sine and cosine rules are for triangles with sides, not for this."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:tf:ff029eae",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) holds for every angle \\( \\theta \\).",
+  "key": {
+   "answer": true,
+   "explain": "This is the Pythagorean identity (PT4) — an identity, true for all \\( \\theta \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:tf:0292e641",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\tan\\theta = \\dfrac{\\cos\\theta}{\\sin\\theta} \\).",
+  "key": {
+   "answer": false,
+   "explain": "It is the other way up: \\( \\tan\\theta \\equiv \\frac{\\sin\\theta}{\\cos\\theta} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:tf:844480fa",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\sin^2\\theta \\) means \\( \\sin(\\theta^2) \\).",
+  "key": {
+   "answer": false,
+   "explain": "\\( \\sin^2\\theta = (\\sin\\theta)^2 \\); you square the ratio, not the angle."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:tf:6337d522",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( 1 - \\sin^2\\theta = \\cos^2\\theta \\).",
+  "key": {
+   "answer": true,
+   "explain": "Rearranging \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) gives \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:tf:8e8c6dfe",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If \\( \\cos\\theta = \\tfrac{1}{2} \\) and \\( \\theta \\) is acute, then \\( \\sin\\theta = \\dfrac{\\sqrt{3}}{2} \\).",
+  "key": {
+   "answer": true,
+   "explain": "\\( \\sin^2\\theta = 1 - \\tfrac{1}{4} = \\tfrac{3}{4} \\), so \\( \\sin\\theta = \\frac{\\sqrt{3}}{2} \\) (positive, acute)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:tf:f61ffa9b",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "When you square-root to find \\( \\cos\\theta \\), you always take the positive root.",
+  "key": {
+   "answer": false,
+   "explain": "The root is \\( \\pm \\); the quadrant decides the sign — in Quadrants 2 and 3, \\( \\cos\\theta \\) is negative."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:tf:94885c5f",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "On an 'exact' question, giving \\( \\sin\\theta = 0.87 \\) earns full marks.",
+  "key": {
+   "answer": false,
+   "explain": "'Exact' requires a surd or fraction, e.g. \\( \\frac{\\sqrt{3}}{2} \\); a decimal alone scores no marks."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:tf:2743d6fc",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The two trig identities are printed on the exam formula sheet.",
+  "key": {
+   "answer": false,
+   "explain": "Both must be memorised; only the binomial series/distribution, trapezium rule and kinematics relations are provided."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:learn:ffaa47e0",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What are the two identities you must memorise?",
+  "reading": "<p>Two trigonometric <strong>identities</strong> appear again and again, and in this qualification you must <strong>memorise both</strong> — neither is printed on the exam formula sheet.</p>\n            <ul>\n              <li><strong>The quotient identity (PT3):</strong> \\[ \\tan\\theta \\equiv \\frac{\\sin\\theta}{\\cos\\theta}. \\]</li>\n              <li><strong>The Pythagorean identity (PT4):</strong> \\[ \\sin^2\\theta + \\cos^2\\theta \\equiv 1. \\]</li>\n            </ul>\n            <p>The symbol \\( \\equiv \\) means <strong>identically equal</strong>: the two sides are equal for <em>every</em> value of \\( \\theta \\), not just for one special angle. That is what separates an <strong>identity</strong> from an <strong>equation</strong> (which is true only for particular values).</p>\n            <p>Read \\( \\sin^2\\theta \\) as \\( (\\sin\\theta)^2 \\) — you square the <em>ratio</em>, not the angle. \\( \\sin^2\\theta \\) is never \\( \\sin(\\theta^2) \\).</p>",
+  "question": "What does \\( \\equiv \\) mean in \\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\)?",
+  "options": [
+   "The two sides are equal for every value of \\( \\theta \\)",
+   "It only holds when \\( \\theta = 90^\\circ \\)",
+   "The two sides are approximately equal",
+   "\\( \\theta \\) must be acute"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\equiv \\) marks an identity — equal for all \\( \\theta \\), unlike an equation that holds only for special values."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:learn:aa7299ad",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you simplify a trig expression?",
+  "reading": "<p>Replace parts of the expression with something equal using the two identities. Two rearrangements of the Pythagorean identity are especially useful:</p>\n            <ul>\n              <li>\\( \\sin^2\\theta = 1 - \\cos^2\\theta \\)</li>\n              <li>\\( \\cos^2\\theta = 1 - \\sin^2\\theta \\)</li>\n            </ul>\n            <p><strong>Worked example — simplify \\( \\dfrac{\\sin^2\\theta}{\\cos\\theta} + \\cos\\theta \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Put both terms over the common denominator \\( \\cos\\theta \\): \\( \\dfrac{\\sin^2\\theta + \\cos^2\\theta}{\\cos\\theta} \\).</td></tr>\n              <tr><td>2. The numerator is \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) (PT4).</td></tr>\n              <tr><td>3. So the expression simplifies to \\( \\dfrac{1}{\\cos\\theta} \\).</td></tr>\n            </table>\n            <p>Always hunt for a hidden \\( \\sin^2\\theta + \\cos^2\\theta \\) you can swap for \\( 1 \\), or a \\( \\dfrac{\\sin\\theta}{\\cos\\theta} \\) you can swap for \\( \\tan\\theta \\).</p>",
+  "question": "Simplify \\( \\tan\\theta\\cos\\theta \\).",
+  "options": [
+   "\\( \\sin\\theta \\)",
+   "\\( \\cos\\theta \\)",
+   "\\( 1 \\)",
+   "\\( \\tan\\theta \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tan\\theta\\cos\\theta = \\frac{\\sin\\theta}{\\cos\\theta}\\cdot\\cos\\theta = \\sin\\theta \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:learn:43b85a86",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you prove an identity (LHS → RHS)?",
+  "reading": "<p>To <strong>prove</strong> (or \"show that\") an identity, start with <strong>one side</strong> — usually the more complicated <strong>left-hand side (LHS)</strong> — and manipulate it with the two identities until it becomes the <strong>right-hand side (RHS)</strong>.</p>\n            <ul>\n              <li><strong>Never</strong> move terms across the \\( \\equiv \\) sign as if it were an equation — that assumes the very thing you are trying to prove.</li>\n              <li>Standard moves: replace \\( \\tan\\theta \\) with \\( \\frac{\\sin\\theta}{\\cos\\theta} \\); replace \\( \\sin^2\\theta + \\cos^2\\theta \\) with \\( 1 \\); combine fractions over a common denominator.</li>\n              <li>Finish with a short <strong>concluding statement</strong> such as \"\\( = \\) RHS, as required\" — a \"show that\" mark is regularly lost by leaving it out.</li>\n            </ul>\n            <p><strong>Worked example — prove \\( \\dfrac{\\sin\\theta}{\\cos\\theta} + \\dfrac{\\cos\\theta}{\\sin\\theta} \\equiv \\dfrac{1}{\\sin\\theta\\cos\\theta} \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Work on the LHS. Common denominator \\( \\sin\\theta\\cos\\theta \\): \\( \\dfrac{\\sin^2\\theta + \\cos^2\\theta}{\\sin\\theta\\cos\\theta} \\).</td></tr>\n              <tr><td>2. Replace the numerator using PT4: \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\).</td></tr>\n              <tr><td>3. LHS \\( = \\dfrac{1}{\\sin\\theta\\cos\\theta} = \\) RHS, as required. ✓</td></tr>\n            </table>",
+  "question": "When proving an identity, why work on only ONE side at a time?",
+  "options": [
+   "Moving terms across \\( \\equiv \\) assumes the result you are proving",
+   "It uses fewer lines of working",
+   "The identity is only true on one side",
+   "It is quicker to read"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "You may not treat \\( \\equiv \\) like an equation and rearrange across it — that would assume the conclusion. Transform one side into the other."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:learn:9bbebeb7",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find an exact value of another ratio?",
+  "reading": "<p>If you know one ratio you can find the others <strong>exactly</strong> (as a surd or fraction) using the two identities — no rounded decimals.</p>\n            <p><strong>Worked example — given \\( \\cos\\theta = \\tfrac{1}{3} \\) with \\( \\theta \\) acute, find \\( \\sin\\theta \\) and \\( \\tan\\theta \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. From \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\): \\( \\sin^2\\theta = 1 - \\left(\\tfrac{1}{3}\\right)^2 = 1 - \\tfrac{1}{9} = \\tfrac{8}{9} \\).</td></tr>\n              <tr><td>2. \\( \\sin\\theta = \\pm\\sqrt{\\tfrac{8}{9}} = \\pm\\dfrac{2\\sqrt{2}}{3} \\). As \\( \\theta \\) is acute, \\( \\sin\\theta > 0 \\), so \\( \\sin\\theta = \\dfrac{2\\sqrt{2}}{3} \\).</td></tr>\n              <tr><td>3. \\( \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta} = \\dfrac{2\\sqrt{2}/3}{1/3} = 2\\sqrt{2} \\).</td></tr>\n            </table>\n            <p>A right-angled triangle shows the same thing: with adjacent \\( 1 \\) and hypotenuse \\( 3 \\), the opposite side is \\( \\sqrt{3^2 - 1^2} = \\sqrt{8} = 2\\sqrt{2} \\).</p>\n            <svg viewBox=\"0 0 250 175\" role=\"img\" aria-label=\"Right-angled triangle with adjacent 1, opposite 2 root 2 and hypotenuse 3\" style=\"max-width:260px;width:100%;height:auto;display:block;margin:14px auto;\">\n              <polygon points=\"75,140 75,45 200,140\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <path d=\"M75,125 L90,125 L90,140\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <path d=\"M180,140 A20,20 0 0,1 187,126\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <text x=\"10\" y=\"98\" fill=\"currentColor\" font-size=\"13\">opp = 2√2</text>\n              <text x=\"118\" y=\"158\" fill=\"currentColor\" font-size=\"13\">adj = 1</text>\n              <text x=\"140\" y=\"86\" fill=\"currentColor\" font-size=\"13\">hyp = 3</text>\n              <text x=\"168\" y=\"133\" fill=\"currentColor\" font-size=\"15\">θ</text>\n            </svg>\n            <p style=\"text-align:center;font-size:12px;color:var(--mid)\">Right-angled triangle for \\( \\cos\\theta = \\tfrac{1}{3} \\) (not to scale).</p>\n            <p>Leave the answer as a <strong>surd</strong> — \\( 2\\sqrt{2} \\), not \\( 2.83 \\). On an \"exact\" question a decimal scores no marks.</p>",
+  "question": "Given \\( \\sin\\theta = \\tfrac{1}{4} \\) with \\( \\theta \\) acute, find \\( \\cos\\theta \\) exactly.",
+  "options": [
+   "\\( \\dfrac{\\sqrt{15}}{4} \\)",
+   "\\( \\dfrac{15}{16} \\)",
+   "\\( \\dfrac{\\sqrt{15}}{16} \\)",
+   "\\( 0.97 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\cos^2\\theta = 1 - \\tfrac{1}{16} = \\tfrac{15}{16} \\), so \\( \\cos\\theta = \\frac{\\sqrt{15}}{4} \\) (positive, as \\( \\theta \\) is acute). \\( \\tfrac{15}{16} \\) forgets the square root; \\( 0.97 \\) is not exact."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:learn:30cfce5f",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How does the quadrant decide the sign?",
+  "reading": "<p>Taking a square root gives \\( \\pm \\). The <strong>quadrant</strong> the angle lies in tells you which sign to keep. Across \\( 0^\\circ \\) to \\( 360^\\circ \\):</p>\n            <ul>\n              <li><strong>Quadrant 1 (\\( 0^\\circ \\)–\\( 90^\\circ \\)):</strong> \\( \\sin\\theta \\), \\( \\cos\\theta \\), \\( \\tan\\theta \\) are all positive.</li>\n              <li><strong>Quadrant 2 (\\( 90^\\circ \\)–\\( 180^\\circ \\)):</strong> only \\( \\sin\\theta \\) is positive.</li>\n              <li><strong>Quadrant 3 (\\( 180^\\circ \\)–\\( 270^\\circ \\)):</strong> only \\( \\tan\\theta \\) is positive.</li>\n              <li><strong>Quadrant 4 (\\( 270^\\circ \\)–\\( 360^\\circ \\)):</strong> only \\( \\cos\\theta \\) is positive.</li>\n            </ul>\n            <p><strong>Worked example — \\( \\sin\\theta = -0.6 \\) with \\( \\theta \\) in the third quadrant; find \\( \\cos\\theta \\) and \\( \\tan\\theta \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( \\sin\\theta = -0.6 = -\\tfrac{3}{5} \\), so \\( \\cos^2\\theta = 1 - \\tfrac{9}{25} = \\tfrac{16}{25} \\).</td></tr>\n              <tr><td>2. \\( \\cos\\theta = \\pm\\tfrac{4}{5} \\). In the third quadrant \\( \\cos\\theta \\) is <strong>negative</strong>, so \\( \\cos\\theta = -\\tfrac{4}{5} \\).</td></tr>\n              <tr><td>3. \\( \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta} = \\dfrac{-3/5}{-4/5} = \\tfrac{3}{4} \\) — positive, exactly as expected in the third quadrant.</td></tr>\n            </table>",
+  "question": "\\( \\cos\\theta = \\tfrac{5}{13} \\) with \\( \\theta \\) in the fourth quadrant. What is the sign of \\( \\sin\\theta \\)?",
+  "options": [
+   "Negative",
+   "Positive",
+   "Zero",
+   "Cannot be determined"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "In the fourth quadrant only \\( \\cos\\theta \\) is positive, so \\( \\sin\\theta \\) is negative: \\( \\sin\\theta = -\\tfrac{12}{13} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:learn:9602d636",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Which formulae must you memorise, and in what form?",
+  "reading": "<p>Both identities are <strong>MEMORISE</strong> formulae — they are <em>not</em> printed on the exam formula sheet, unlike the binomial series, the binomial distribution, the trapezium rule and the kinematics relations.</p>\n            <ul>\n              <li>\\( \\tan\\theta \\equiv \\dfrac{\\sin\\theta}{\\cos\\theta} \\) (PT3).</li>\n              <li>\\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\) (PT4), plus its rearrangements \\( \\sin^2\\theta = 1 - \\cos^2\\theta \\) and \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\).</li>\n            </ul>\n            <p>Everything on this page is in <strong>degrees</strong> — this qualification never uses radians. Keep answers <strong>exact</strong> (surds or fractions) whenever a question says \"exact\", and let the stated <strong>quadrant</strong> fix every \\( \\pm \\) sign.</p>",
+  "question": "Which of these is provided on the exam formula sheet?",
+  "options": [
+   "Neither — both trig identities must be memorised",
+   "\\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\)",
+   "\\( \\tan\\theta \\equiv \\frac{\\sin\\theta}{\\cos\\theta} \\)",
+   "Both identities"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Both trig identities are must-memorise; the sheet gives only the binomial series/distribution, trapezium rule and kinematics relations."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:misc:a124f647",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\sin^2\\theta \\) means \\( \\sin(\\theta^2) \\)</p><p><strong>✅ The correct idea:</strong> \\( \\sin^2\\theta = (\\sin\\theta)^2 \\) — you square the ratio, not the angle. A weak answer squares \\( \\theta \\); a strong answer computes \\( \\sin\\theta \\) first, then squares it.</p>",
+  "question": "\\( \\sin^2\\theta \\) is the same as:",
+  "options": [
+   "\\( (\\sin\\theta)^2 \\)",
+   "\\( \\sin(\\theta^2) \\)",
+   "\\( 2\\sin\\theta \\)",
+   "\\( \\sin\\theta \\times 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Square the value of \\( \\sin\\theta \\); the notation never means \\( \\sin \\) of \\( \\theta^2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:misc:8fc322e9",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\tan\\theta = \\dfrac{\\cos\\theta}{\\sin\\theta} \\)</p><p><strong>✅ The correct idea:</strong> The quotient identity is \\( \\tan\\theta \\equiv \\frac{\\sin\\theta}{\\cos\\theta} \\) — sine over cosine. A weak answer flips it; a strong answer checks with \\( \\tan45^\\circ = 1 = \\frac{\\sin45^\\circ}{\\cos45^\\circ} \\).</p>",
+  "question": "Which is the correct quotient identity?",
+  "options": [
+   "\\( \\tan\\theta \\equiv \\frac{\\sin\\theta}{\\cos\\theta} \\)",
+   "\\( \\tan\\theta \\equiv \\frac{\\cos\\theta}{\\sin\\theta} \\)",
+   "\\( \\tan\\theta \\equiv \\sin\\theta\\cos\\theta \\)",
+   "\\( \\tan\\theta \\equiv \\sin\\theta + \\cos\\theta \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tan\\theta \\) is sine over cosine."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:misc:1a1678a9",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Given \\( \\cos\\theta = \\tfrac{1}{3} \\) with \\( \\theta \\) acute, \\( \\sin\\theta \\approx 0.94 \\)</p><p><strong>✅ The correct idea:</strong> The question wants an EXACT value: \\( \\sin\\theta = \\frac{2\\sqrt{2}}{3} \\). A weak answer rounds to a decimal (0 marks on an 'exact' question); a strong answer leaves the surd (and may add the decimal only as a check).</p>",
+  "question": "Given \\( \\cos\\theta = \\tfrac{1}{3} \\), \\( \\theta \\) acute, the exact \\( \\sin\\theta \\) is:",
+  "options": [
+   "\\( \\dfrac{2\\sqrt{2}}{3} \\)",
+   "\\( 0.94 \\)",
+   "\\( \\dfrac{8}{9} \\)",
+   "\\( 0.9 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sin^2\\theta = 1 - \\tfrac{1}{9} = \\tfrac{8}{9} \\Rightarrow \\sin\\theta = \\frac{2\\sqrt{2}}{3} \\); a decimal is not exact."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:misc:2dcbd025",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Given \\( \\sin\\theta = -0.6 \\) with \\( \\theta \\) in the third quadrant, \\( \\cos\\theta = +0.8 \\)</p><p><strong>✅ The correct idea:</strong> In the third quadrant \\( \\cos\\theta \\) is NEGATIVE, so \\( \\cos\\theta = -0.8 \\). A weak answer ignores the quadrant and takes the positive root; a strong answer states the quadrant and picks the sign to match.</p>",
+  "question": "\\( \\sin\\theta = -0.6 \\), \\( \\theta \\) in the third quadrant. \\( \\cos\\theta = \\)",
+  "options": [
+   "\\( -0.8 \\)",
+   "\\( +0.8 \\)",
+   "\\( -0.6 \\)",
+   "\\( 0.36 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\cos^2\\theta = 1 - 0.36 = 0.64 \\Rightarrow \\cos\\theta = \\pm0.8 \\); the third quadrant makes it \\( -0.8 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:misc:182f60aa",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> From \\( \\cos^2\\theta = \\tfrac{16}{25} \\), conclude \\( \\cos\\theta = \\tfrac{16}{25} \\)</p><p><strong>✅ The correct idea:</strong> You still have to take the square root: \\( \\cos\\theta = \\pm\\frac{4}{5} \\), then choose the sign for the quadrant. A weak answer stops at \\( \\cos^2\\theta \\); a strong answer roots it and resolves the \\( \\pm \\).</p>",
+  "question": "\\( \\cos^2\\theta = \\tfrac{16}{25} \\). Before choosing a sign, \\( \\cos\\theta = \\)",
+  "options": [
+   "\\( \\pm\\tfrac{4}{5} \\)",
+   "\\( \\tfrac{16}{25} \\)",
+   "\\( \\tfrac{8}{25} \\)",
+   "\\( \\tfrac{4}{25} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sqrt{\\tfrac{16}{25}} = \\tfrac{4}{5} \\), and the root is \\( \\pm \\) until the quadrant decides."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:tips:03dda54c",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — The 'exact' command word",
+  "reading": "<p><strong>0 marks:</strong> \\( \\sin\\theta = 0.94 \\) on an \"exact\" question — a decimal only.</p><p><strong>Full marks:</strong> \\( \\sin\\theta = \\dfrac{2\\sqrt{2}}{3} \\). If unsure, write the exact surd <em>and</em> the decimal — the surd earns the marks and the decimal never loses them.</p>",
+  "question": "On an 'exact' question, which is safest?",
+  "options": [
+   "Give the surd form (optionally with the decimal)",
+   "Give only the decimal",
+   "Round to 2 d.p.",
+   "Give only the decimal to 3 s.f."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The exact surd/fraction form is required; adding a decimal alongside is harmless."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:tips:86d3d3de",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Proving an identity — the show-that ladder",
+  "reading": "<p><strong>0 marks:</strong> writing the identity and \"cross-multiplying\" across the \\( \\equiv \\) — that assumes the result.</p><p><strong>Partial:</strong> reaching LHS \\( = \\dfrac{\\sin^2\\theta + \\cos^2\\theta}{\\sin\\theta\\cos\\theta} \\) but stopping there.</p><p><strong>Full marks:</strong> continue \\( = \\dfrac{1}{\\sin\\theta\\cos\\theta} = \\) RHS, <strong>and write \"as required\"</strong>. The concluding line is a real mark.</p>",
+  "question": "In a 'show that' proof, the final concluding line is:",
+  "options": [
+   "A genuine mark that is often forgotten",
+   "Optional decoration",
+   "Only needed for long proofs",
+   "Never credited"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Examiners award a mark for reaching the printed result and stating it is proved."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:tips:7da48e50",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Let the quadrant choose the sign",
+  "reading": "<p><strong>0 marks (or lost accuracy):</strong> giving both signs, or the wrong sign, after a square root.</p><p><strong>Full marks:</strong> state the quadrant, recall which ratios are positive there (Q1 all, Q2 sin, Q3 tan, Q4 cos), and pick the matching sign — e.g. \\( \\theta \\) in Q3 with \\( \\sin\\theta = -\\tfrac{3}{5} \\) gives \\( \\cos\\theta = -\\tfrac{4}{5} \\).</p>",
+  "question": "After \\( \\cos\\theta = \\pm\\tfrac{4}{5} \\), how do you fix the sign?",
+  "options": [
+   "Use the quadrant \\( \\theta \\) lies in",
+   "Always choose positive",
+   "Always choose negative",
+   "Leave it as \\( \\pm \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The quadrant determines whether \\( \\cos\\theta \\) is positive or negative."
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:fib:ab5ca5ec",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The symbol \\( \\equiv \\) marks an identity, which is true for ___B1___ value of \\( \\theta \\).",
+  "blankOptions": {
+   "B1": [
+    "ratio",
+    "decimal",
+    "every",
+    "negative"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "every"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:fib:1b52f37a",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Both trig identities must be ___B1___, because they are not printed on the exam formula sheet.",
+  "blankOptions": {
+   "B1": [
+    "ratio",
+    "two",
+    "memorised",
+    "one"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "memorised"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:fib:c2c8a3de",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Finding another ratio needs a square root, which introduces a ___B1___ sign; the quadrant then decides which one to keep.",
+  "blankOptions": {
+   "B1": [
+    "two",
+    "memorised",
+    "±",
+    "some"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "±"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:fib:3888ffd7",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "In the third quadrant, only \\( \\tan\\theta \\) is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "decimal",
+    "positive",
+    "memorised",
+    "±"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "positive"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:fib:c4251cbd",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "When a question says 'exact', leave your answer as a surd or fraction, never a ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "decimal",
+    "angle",
+    "one",
+    "memorised"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "decimal"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:fib:45e6887b",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "To prove an identity you work on ___B1___ side at a time and finish with a concluding statement.",
+  "blankOptions": {
+   "B1": [
+    "decimal",
+    "one",
+    "ratio",
+    "some"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "one"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:fib:27f5049c",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "In \\( \\sin^2\\theta \\) you square the ___B1___, not the angle.",
+  "blankOptions": {
+   "B1": [
+    "±",
+    "ratio",
+    "angle",
+    "some"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "ratio"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:match:168018f3",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\dfrac{\\sin\\theta}{\\cos\\theta} \\)”?",
+  "options": [
+   "\\( \\sin^2\\theta \\)",
+   "\\( \\dfrac{1}{\\cos\\theta} \\)",
+   "\\( \\tan\\theta \\)",
+   "\\( \\sin\\theta \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\dfrac{\\sin\\theta}{\\cos\\theta} \\)” means: \\( \\tan\\theta \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:match:c9c2a3d2",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\sin^2\\theta + \\cos^2\\theta \\)”?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( \\dfrac{1}{\\sin\\theta} \\)",
+   "\\( -\\sin^2\\theta \\)",
+   "\\( \\dfrac{1}{\\tan\\theta} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\sin^2\\theta + \\cos^2\\theta \\)” means: \\( 1 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:match:514e4a54",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 1 - \\cos^2\\theta \\)”?",
+  "options": [
+   "\\( -\\sin^2\\theta \\)",
+   "\\( 5 \\)",
+   "\\( \\sin^2\\theta \\)",
+   "\\( \\dfrac{1}{\\sin\\theta} \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( 1 - \\cos^2\\theta \\)” means: \\( \\sin^2\\theta \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:match:8f217ed4",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 1 - \\sin^2\\theta \\)”?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( \\cos^2\\theta \\)",
+   "\\( -\\sin^2\\theta \\)",
+   "\\( \\dfrac{1}{\\cos\\theta} \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( 1 - \\sin^2\\theta \\)” means: \\( \\cos^2\\theta \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:match:89a72d67",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\tan\\theta\\cos\\theta \\)”?",
+  "options": [
+   "\\( -\\sin^2\\theta \\)",
+   "\\( \\sin^2\\theta \\)",
+   "\\( \\sin\\theta \\)",
+   "\\( \\dfrac{1}{\\tan\\theta} \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\tan\\theta\\cos\\theta \\)” means: \\( \\sin\\theta \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:match:15cb1d30",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\dfrac{\\cos\\theta}{\\sin\\theta} \\)”?",
+  "options": [
+   "\\( \\cos\\theta \\)",
+   "\\( \\cos^2\\theta \\)",
+   "\\( -\\sin^2\\theta \\)",
+   "\\( \\dfrac{1}{\\tan\\theta} \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\dfrac{\\cos\\theta}{\\sin\\theta} \\)” means: \\( \\dfrac{1}{\\tan\\theta} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:match:0c632a68",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\sin^2\\theta\\cos\\theta + \\cos^3\\theta \\)”?",
+  "options": [
+   "\\( \\cos\\theta \\)",
+   "\\( \\tan^2\\theta \\)",
+   "\\( \\sin^2\\theta \\)",
+   "\\( \\dfrac{1}{\\sin\\theta} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\sin^2\\theta\\cos\\theta + \\cos^3\\theta \\)” means: \\( \\cos\\theta \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:match:9118f2f0",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\dfrac{\\tan\\theta}{\\sin\\theta} \\)”?",
+  "options": [
+   "\\( \\dfrac{1}{\\sin\\theta} \\)",
+   "\\( \\tan\\theta \\)",
+   "\\( 1 \\)",
+   "\\( \\dfrac{1}{\\cos\\theta} \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\dfrac{\\tan\\theta}{\\sin\\theta} \\)” means: \\( \\dfrac{1}{\\cos\\theta} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:match:b523d660",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 5\\sin^2\\theta + 5\\cos^2\\theta \\)”?",
+  "options": [
+   "\\( 5 \\)",
+   "\\( \\cos^2\\theta \\)",
+   "\\( \\tan^2\\theta \\)",
+   "\\( -\\sin^2\\theta \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( 5\\sin^2\\theta + 5\\cos^2\\theta \\)” means: \\( 5 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:match:6e8f2781",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\cos^2\\theta - 1 \\)”?",
+  "options": [
+   "\\( \\sin\\theta \\)",
+   "\\( \\dfrac{1}{\\tan\\theta} \\)",
+   "\\( -\\sin^2\\theta \\)",
+   "\\( \\sin^2\\theta \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\cos^2\\theta - 1 \\)” means: \\( -\\sin^2\\theta \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:match:2d8244a3",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\dfrac{\\sin^2\\theta}{\\cos^2\\theta} \\)”?",
+  "options": [
+   "\\( \\dfrac{1}{\\tan\\theta} \\)",
+   "\\( \\tan^2\\theta \\)",
+   "\\( 5 \\)",
+   "\\( \\cos\\theta \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( \\dfrac{\\sin^2\\theta}{\\cos^2\\theta} \\)” means: \\( \\tan^2\\theta \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-3-trigonometric-identities:match:e0d3f7a1",
+  "pageId": "additional-maths:5-3-trigonometric-identities",
+  "pageName": "5.3 Trigonometric Identities",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\dfrac{1}{\\tan\\theta\\cos\\theta} \\)”?",
+  "options": [
+   "\\( \\tan\\theta \\)",
+   "\\( -\\sin^2\\theta \\)",
+   "\\( \\dfrac{1}{\\sin\\theta} \\)",
+   "\\( 1 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\dfrac{1}{\\tan\\theta\\cos\\theta} \\)” means: \\( \\dfrac{1}{\\sin\\theta} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:exam:77cc6d07",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "5 (a)",
+  "question": "<p>\\( \\cos 2\\theta = 0.6 \\)</p>",
+  "caseStudy": "<p><strong>In this question you must show detailed reasoning.</strong></p><p>Find all the values of \\( \\theta \\) in the range \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) that satisfy the following equations, giving your answers correct to 1 decimal place.</p>",
+  "hint": "This is a multiple angle: solve for \\( 2\\theta \\) over \\( 0^\\circ \\le 2\\theta \\le 720^\\circ \\), then halve — expect four values.",
+  "starter": "State all solutions in \\( 0^\\circ \\)–\\( 360^\\circ \\), to 1 dp.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1, AO2)</h5><ul>\n              <li><strong>B1</strong> — \\( 2\\theta = 53.1^\\circ \\) leading to \\( \\theta = 26.6^\\circ \\) (awrt 26.6).</li>\n              <li><strong>B1</strong> — one further correct value (FT to 1 d.p.).</li>\n              <li><strong>B1</strong> — all four correct to 1 d.p.: \\( \\theta = 26.6^\\circ,\\ 153.4^\\circ,\\ 206.6^\\circ,\\ 333.4^\\circ \\) (but not if there are extra values).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>\\( 2\\theta = 53.13^\\circ,\\ 306.87^\\circ,\\ 413.13^\\circ,\\ 666.87^\\circ \\); halving gives the four \\( \\theta \\) values.</li>\n              <li>The final mark needs all four correct with no extra values in range.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>A number of candidates made an incorrect first step by asserting that \\( \\cos 2\\theta = 0.6 \\) led to \\( \\cos\\theta = 0.3 \\). Others lost marks by failing to realise that there were four roots to the equation.</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\cos 2\\theta = 0.6 \\Rightarrow 2\\theta = 53.13^\\circ,\\ 306.87^\\circ,\\ 413.13^\\circ,\\ 666.87^\\circ \\) (over \\( 0^\\circ \\)–\\( 720^\\circ \\)). Dividing by 2: \\( \\theta = 26.6^\\circ,\\ 153.4^\\circ,\\ 206.6^\\circ,\\ 333.4^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:exam:acd43e79",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": "5 (b)",
+  "question": "<p>\\( 12\\cos^2\\theta + \\sin\\theta = 11 \\)</p>",
+  "caseStudy": "<p><strong>In this question you must show detailed reasoning.</strong></p><p>Find all the values of \\( \\theta \\) in the range \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) that satisfy the following equations, giving your answers correct to 1 decimal place.</p>",
+  "hint": "Replace \\( \\cos^2\\theta \\) with \\( 1 - \\sin^2\\theta \\) to get a quadratic in \\( \\sin\\theta \\); solve each value in range. Show every step (DR).",
+  "starter": "State all solutions in \\( 0^\\circ \\)–\\( 360^\\circ \\), to 1 dp, with full reasoning.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO1, AO2)</h5><ul>\n              <li><strong>M1</strong> — use of \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\): \\( 12(1 - \\sin^2\\theta) + \\sin\\theta = 11 \\).</li>\n              <li><strong>A1</strong> — correct quadratic \\( 12\\sin^2\\theta - \\sin\\theta - 1 = 0 \\).</li>\n              <li><strong>M1</strong> — factorising \\( (4\\sin\\theta + 1)(3\\sin\\theta - 1) = 0 \\) (coeffs of \\( s \\) multiply to 12, constants to \\( -1 \\)) or use of the formula, giving \\( \\sin\\theta = \\tfrac{1}{3} \\) and \\( \\sin\\theta = -\\tfrac{1}{4} \\).</li>\n              <li><strong>A1</strong> — awrt \\( 19.5^\\circ \\) and one other correct to 1 d.p.</li>\n              <li><strong>A1</strong> — the other two correct to 1 d.p.: \\( \\theta = 19.5^\\circ,\\ 160.5^\\circ,\\ 194.5^\\circ,\\ 345.5^\\circ \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>\\( \\sin\\theta = \\tfrac{1}{3} \\Rightarrow \\theta = 19.5^\\circ,\\ 160.5^\\circ \\); \\( \\sin\\theta = -\\tfrac{1}{4} \\Rightarrow \\theta = 194.5^\\circ,\\ 345.5^\\circ \\).</li>\n              <li>Roots to trig equations come in pairs in the range — three roots are not possible here.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most candidates used Pythagoras to obtain a quadratic in \\( \\sin\\theta \\). Errors were made by not showing the factorising and not realising roots come in pairs, and some gave answers to more than 1 decimal place.</li>\n            </ul></div>",
+   "modelAnswer": "Using \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\): \\( 12 - 12\\sin^2\\theta + \\sin\\theta = 11 \\Rightarrow 12\\sin^2\\theta - \\sin\\theta - 1 = 0 \\). Factorising: \\( (4\\sin\\theta + 1)(3\\sin\\theta - 1) = 0 \\), so \\( \\sin\\theta = -\\tfrac{1}{4} \\) or \\( \\sin\\theta = \\tfrac{1}{3} \\). Then \\( \\theta = 19.5^\\circ,\\ 160.5^\\circ \\) (from \\( \\tfrac{1}{3} \\)) and \\( \\theta = 194.5^\\circ,\\ 345.5^\\circ \\) (from \\( -\\tfrac{1}{4} \\))."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:exam:c2304bab",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "6 (a)",
+  "question": "<p>Find the two values of \\( \\theta \\) in the range \\( 0^\\circ \\le \\theta \\le 360^\\circ \\).</p>",
+  "caseStudy": "<p>Angle \\( \\theta \\) is such that \\( \\tan\\theta = 1.5 \\).</p>",
+  "hint": "\\( \\tan \\) is positive in the 1st and 3rd quadrants; the second value is the principal value plus \\( 180^\\circ \\).",
+  "starter": "State both solutions in \\( 0^\\circ \\)–\\( 360^\\circ \\), to 1 dp.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>B1</strong> — \\( \\theta = 56.3^\\circ \\) (accept \\( 56^\\circ \\)).</li>\n              <li><strong>B1</strong> — \\( \\theta = 236.3^\\circ \\) (FT first angle \\( + 180^\\circ \\); accept \\( 236^\\circ \\)). Withhold this mark if there are other angles within the range; ignore any outside the range.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>\\( \\tan^{-1}(1.5) = 56.31^\\circ \\); the tangent period gives the second value \\( 56.31^\\circ + 180^\\circ = 236.31^\\circ \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Candidates had no difficulty using their calculator to find the principal angle, but many did not obtain the second value correctly.</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\tan^{-1}(1.5) = 56.3^\\circ \\); adding the \\( 180^\\circ \\) period gives \\( 236.3^\\circ \\). So \\( \\theta = 56.3^\\circ,\\ 236.3^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:exam:2da1bf51",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "6 (b)",
+  "question": "<p><strong>In this question you must show detailed reasoning.</strong></p><p>Find the exact values of \\( \\sin\\theta \\).</p>",
+  "caseStudy": "<p>Angle \\( \\theta \\) is such that \\( \\tan\\theta = 1.5 \\).</p>",
+  "hint": "Build a right-angled triangle with \\( \\tan\\theta = \\tfrac{3}{2} \\) (or use \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\)); there are two values, one for each quadrant.",
+  "starter": "Give both exact values of \\( \\sin\\theta \\) in surd form.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — use of Pythagoras (or the identity): with \\( \\tan\\theta = \\tfrac{3}{2} \\), hypotenuse \\( = \\sqrt{3^2 + 2^2} = \\sqrt{13} \\).</li>\n              <li><strong>A1</strong> — first value \\( \\sin\\theta = \\dfrac{3}{\\sqrt{13}} = \\dfrac{3\\sqrt{13}}{13} \\).</li>\n              <li><strong>A1</strong> — second value \\( \\sin\\theta = -\\dfrac{3\\sqrt{13}}{13} \\) (negative of the first; FT).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Alternative: \\( \\sin^2\\theta = \\tan^2\\theta\\cos^2\\theta \\) with \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\) gives \\( 3.25\\sin^2\\theta = 2.25 \\), so \\( \\sin^2\\theta = \\tfrac{9}{13} \\) and \\( \\sin\\theta = \\pm\\tfrac{3}{\\sqrt{13}} \\).</li>\n              <li>\"Exact\" and \"detailed reasoning\" both signal a surd answer with two values; a decimal scores 0.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Poorly answered. Many missed that there is more than one answer, and that an exact irrational value must be written in surd form, not as a decimal. Using a triangle can hide the negative value; the identity method reveals \\( \\sin^2\\theta \\), showing two possible answers.</li>\n            </ul></div>",
+   "modelAnswer": "With \\( \\tan\\theta = \\tfrac{3}{2} \\), a right-angled triangle has opposite 3, adjacent 2, hypotenuse \\( \\sqrt{13} \\). So \\( \\sin\\theta = \\dfrac{3}{\\sqrt{13}} = \\dfrac{3\\sqrt{13}}{13} \\) at \\( 56.3^\\circ \\), and \\( \\sin\\theta = -\\dfrac{3\\sqrt{13}}{13} \\) at \\( 236.3^\\circ \\). Hence \\( \\sin\\theta = \\pm\\dfrac{3\\sqrt{13}}{13} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:mcq:34d92e5f",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Solve \\( \\sin\\theta = 0.6 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) (1 dp).",
+  "options": [
+   "\\( 36.9^\\circ,\\ 143.1^\\circ \\)",
+   "\\( 36.9^\\circ \\) only",
+   "\\( 36.9^\\circ,\\ 216.9^\\circ \\)",
+   "\\( 36.9^\\circ,\\ 323.1^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sin^{-1}(0.6) = 36.9^\\circ \\); sine partner is \\( 180^\\circ - 36.9^\\circ = 143.1^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:mcq:e8aa235c",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Solve \\( \\cos\\theta = 0.8 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) (1 dp).",
+  "options": [
+   "\\( 36.9^\\circ,\\ 323.1^\\circ \\)",
+   "\\( 36.9^\\circ,\\ 143.1^\\circ \\)",
+   "\\( 36.9^\\circ \\) only",
+   "\\( 36.9^\\circ,\\ 216.9^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "For \\( \\cos \\) the partner is \\( 360^\\circ - \\alpha = 360^\\circ - 36.9^\\circ = 323.1^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:mcq:1b2dcdbf",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Solve \\( \\tan\\theta = 1 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\).",
+  "options": [
+   "\\( 45^\\circ,\\ 225^\\circ \\)",
+   "\\( 45^\\circ,\\ 135^\\circ \\)",
+   "\\( 45^\\circ \\) only",
+   "\\( 45^\\circ,\\ 315^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tan^{-1}(1) = 45^\\circ \\); \\( \\tan \\) repeats every \\( 180^\\circ \\), so \\( 45^\\circ + 180^\\circ = 225^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:mcq:88db0c69",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The calculator gives \\( \\cos^{-1}(0.3) = 72.5^\\circ \\). What is the other solution of \\( \\cos\\theta = 0.3 \\) in \\( 0^\\circ \\)–\\( 360^\\circ \\)?",
+  "options": [
+   "\\( 287.5^\\circ \\)",
+   "\\( 107.5^\\circ \\)",
+   "\\( 252.5^\\circ \\)",
+   "\\( 252.5^\\circ \\) and \\( 107.5^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Cosine partner is \\( 360^\\circ - 72.5^\\circ = 287.5^\\circ \\); there are exactly two solutions."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:mcq:01d07b8a",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is the correct set of solutions of \\( \\sin 2\\theta = 0.5 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\)?",
+  "options": [
+   "\\( 15^\\circ,\\ 75^\\circ,\\ 195^\\circ,\\ 255^\\circ \\)",
+   "\\( 15^\\circ,\\ 165^\\circ \\)",
+   "\\( 30^\\circ,\\ 150^\\circ \\)",
+   "\\( 15^\\circ,\\ 75^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Solve for \\( 2\\theta \\) over \\( 0^\\circ \\)–\\( 720^\\circ \\): \\( 2\\theta = 30^\\circ, 150^\\circ, 390^\\circ, 510^\\circ \\); halving gives four values."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:mcq:4f29b8b4",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student solves \\( \\sin 2\\theta = 0.5 \\) and gives only \\( 15^\\circ,\\ 165^\\circ \\). What did they do wrong?",
+  "options": [
+   "They forgot to expand the interval, so they lost the \\( 2\\theta \\) solutions beyond \\( 360^\\circ \\)",
+   "Nothing — that is correct",
+   "They should have written \\( \\sin\\theta = 0.25 \\)",
+   "They used degrees instead of radians"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 2\\theta \\) must be solved over \\( 0^\\circ \\)–\\( 720^\\circ \\); stopping at \\( 360^\\circ \\) drops half the answers (\\( 195^\\circ,\\ 255^\\circ \\))."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:mcq:2d029320",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How many solutions does \\( \\cos 2\\theta = 0.6 \\) have for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\)?",
+  "options": [
+   "Four",
+   "Two",
+   "One",
+   "Three"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\cos u = 0.6 \\) has two solutions per \\( 360^\\circ \\); over the doubled range \\( 0^\\circ \\)–\\( 720^\\circ \\) there are four, so four values of \\( \\theta \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:mcq:afab5981",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "To solve \\( 2\\cos^2\\theta + 3\\cos\\theta + 1 = 0 \\), the best first step is to:",
+  "options": [
+   "Factorise it as a quadratic in \\( \\cos\\theta \\)",
+   "Replace \\( \\cos^2\\theta \\) with \\( 1 + \\sin^2\\theta \\)",
+   "Take \\( \\cos^{-1} \\) of every term",
+   "Divide through by \\( \\cos\\theta \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "It is already a quadratic in \\( \\cos\\theta \\): \\( (2\\cos\\theta+1)(\\cos\\theta+1)=0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:mcq:7480d5e8",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Solving \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) leads to \\( 12\\sin^2\\theta - \\sin\\theta - 1 = 0 \\). What are the values of \\( \\sin\\theta \\)?",
+  "options": [
+   "\\( \\sin\\theta = \\tfrac{1}{3} \\) or \\( -\\tfrac{1}{4} \\)",
+   "\\( \\sin\\theta = \\tfrac{1}{4} \\) or \\( -\\tfrac{1}{3} \\)",
+   "\\( \\sin\\theta = \\tfrac{1}{2} \\) or \\( -1 \\)",
+   "\\( \\sin\\theta = 1 \\) or \\( -1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (3\\sin\\theta - 1)(4\\sin\\theta + 1) = 0 \\), so \\( \\sin\\theta = \\tfrac{1}{3} \\) or \\( \\sin\\theta = -\\tfrac{1}{4} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:mcq:a5ef240b",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "\\( \\sin\\theta = -0.5 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\). The calculator gives \\( -30^\\circ \\). The in-range solutions are:",
+  "options": [
+   "\\( 210^\\circ,\\ 330^\\circ \\)",
+   "\\( 30^\\circ,\\ 150^\\circ \\)",
+   "\\( 210^\\circ \\) only",
+   "\\( 30^\\circ,\\ 330^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sin \\) is negative in the 3rd and 4th quadrants: \\( 180^\\circ + 30^\\circ = 210^\\circ \\) and \\( 360^\\circ - 30^\\circ = 330^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:mcq:f1c13ed1",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Why is it wrong to solve \\( \\tan 2x = 0.5 \\) by writing \\( \\tan x = 0.25 \\)?",
+  "options": [
+   "You cannot halve the angle inside a trig ratio — \\( \\tan 2x \\ne 2\\tan x \\)",
+   "0.25 is not in range",
+   "\\( \\tan \\) has no inverse",
+   "You must use \\( \\cos \\) instead"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The angle multiple stays inside the ratio; you solve for \\( 2x \\) over an expanded interval, then divide the results by 2."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:mcq:3764f7f5",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), how many solutions does \\( \\sin\\theta = k \\) have when \\( 0 < k < 1 \\)?",
+  "options": [
+   "Two",
+   "One",
+   "Three",
+   "Four"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The line \\( y = k \\) cuts one full sine wave twice, giving the pair \\( \\alpha \\) and \\( 180^\\circ - \\alpha \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:tf:36b557c5",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The calculator's \\( \\sin^{-1} \\) key gives every solution of \\( \\sin\\theta = k \\) in the interval.",
+  "key": {
+   "answer": false,
+   "explain": "It gives only the principal value; you use the graph's symmetry (\\( 180^\\circ - \\alpha \\)) for the rest."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:tf:69ec4c52",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For \\( \\cos\\theta = k \\), the two solutions in \\( 0^\\circ \\)–\\( 360^\\circ \\) are \\( \\alpha \\) and \\( 360^\\circ - \\alpha \\).",
+  "key": {
+   "answer": true,
+   "explain": "The cosine graph is symmetric about \\( 0^\\circ \\)/\\( 360^\\circ \\), giving the partner \\( 360^\\circ - \\alpha \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:tf:28f47c2b",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\tan\\theta = k \\) has solutions \\( \\alpha \\) and \\( 180^\\circ - \\alpha \\).",
+  "key": {
+   "answer": false,
+   "explain": "That is the sine rule. For \\( \\tan \\) the partner is \\( \\alpha + 180^\\circ \\), because \\( \\tan \\) has period \\( 180^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:tf:2a7b8c59",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Solving \\( \\cos 2\\theta = 0.6 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) gives four solutions.",
+  "key": {
+   "answer": true,
+   "explain": "Over the doubled interval \\( 0^\\circ \\)–\\( 720^\\circ \\), \\( \\cos 2\\theta = 0.6 \\) has four solutions, so four values of \\( \\theta \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:tf:490b1936",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "You can solve \\( \\tan 2x = 0.5 \\) by first writing \\( \\tan x = 0.25 \\).",
+  "key": {
+   "answer": false,
+   "explain": "You cannot halve the angle inside a ratio; solve for \\( 2x \\) over \\( 0^\\circ \\)–\\( 720^\\circ \\), then divide the answers by 2."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:tf:c676ae78",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) becomes a quadratic once \\( \\cos^2\\theta \\) is replaced by \\( 1 - \\sin^2\\theta \\).",
+  "key": {
+   "answer": true,
+   "explain": "It gives \\( 12\\sin^2\\theta - \\sin\\theta - 1 = 0 \\), a quadratic in \\( \\sin\\theta \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:tf:4241de0f",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "On a 'detailed reasoning' question, writing the correct final angles straight from the calculator earns full marks.",
+  "key": {
+   "answer": false,
+   "explain": "DR requires the analytical working to be shown; an unsupported calculator answer scores 0 even if correct."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:tf:1ea5a480",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), a single \\( \\sin\\theta = k \\) with \\( 0 < k < 1 \\) always has exactly two solutions.",
+  "key": {
+   "answer": true,
+   "explain": "The line \\( y = k \\) crosses one full sine wave twice, giving the pair \\( \\alpha \\) and \\( 180^\\circ - \\alpha \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:learn:cb5639a4",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you solve a trig equation in a given interval?",
+  "reading": "<p>A <strong>trigonometric equation</strong> such as \\( \\sin\\theta = 0.4 \\) has infinitely many solutions, because the graphs of \\( \\sin \\), \\( \\cos \\) and \\( \\tan \\) repeat. The exam always fixes an <strong>interval</strong> (e.g. \\( 0^\\circ \\le \\theta \\le 360^\\circ \\)) and asks for <strong>all</strong> the solutions inside it.</p>\n            <ul>\n              <li><strong>Step 1 — principal value.</strong> Put the equation in the form \\( \\sin\\theta = k \\) (or \\( \\cos\\theta = k \\), \\( \\tan\\theta = k \\)) and use \\( \\sin^{-1} \\), \\( \\cos^{-1} \\) or \\( \\tan^{-1} \\) on the calculator. This gives one angle, the <strong>principal value</strong>.</li>\n              <li><strong>Step 2 — use the symmetry.</strong> The calculator only ever gives you one answer; you must use the shape of the graph (or the <strong>CAST</strong> diagram) to find every other solution in the interval.</li>\n              <li><strong>Step 3 — keep only those in range.</strong> Add or subtract full turns (\\( 360^\\circ \\) for \\( \\sin \\)/\\( \\cos \\), \\( 180^\\circ \\) for \\( \\tan \\)) to sweep the whole interval, then discard any angle outside it.</li>\n            </ul>\n            <p>Because sine and cosine graphs are symmetric, solutions come in <strong>pairs</strong> across a full \\( 360^\\circ \\) — three solutions to a single \\( \\sin\\theta = k \\) or \\( \\cos\\theta = k \\) in \\( 0^\\circ \\)–\\( 360^\\circ \\) is a sign you have made a slip.</p>",
+  "question": "Why is the calculator value alone not a full answer?",
+  "options": [
+   "It gives only one angle; the graph's symmetry has other solutions in the interval",
+   "It is always wrong",
+   "It gives every solution automatically",
+   "It works only for \\( \\tan \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sin^{-1} \\), \\( \\cos^{-1} \\), \\( \\tan^{-1} \\) each return a single principal value — you use the graph/CAST to find the rest in range."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:learn:a3462f58",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Which symmetry rule gives the other solutions?",
+  "reading": "<p>Learn one rule for each ratio. Take the calculator's principal value \\( \\alpha \\), then generate the partner and repeat every full period until you leave the interval.</p>\n            <table class=\"worked\">\n              <tr><td><strong>\\( \\sin\\theta = k \\):</strong> solutions are \\( \\theta = \\alpha \\) and \\( \\theta = 180^\\circ - \\alpha \\), then add \\( 360^\\circ \\) as needed.</td></tr>\n              <tr><td><strong>\\( \\cos\\theta = k \\):</strong> solutions are \\( \\theta = \\alpha \\) and \\( \\theta = 360^\\circ - \\alpha \\), then add \\( 360^\\circ \\) as needed.</td></tr>\n              <tr><td><strong>\\( \\tan\\theta = k \\):</strong> solutions are \\( \\theta = \\alpha \\) and \\( \\theta = \\alpha + 180^\\circ \\) (tan repeats every \\( 180^\\circ \\)).</td></tr>\n            </table>\n            <p>The sine graph below shows why \\( \\sin\\theta = 0.4 \\) has two solutions in \\( 0^\\circ \\)–\\( 360^\\circ \\): the horizontal line \\( y = 0.4 \\) cuts the curve twice, at \\( \\theta \\approx 23.6^\\circ \\) and its mirror image \\( 180^\\circ - 23.6^\\circ = 156.4^\\circ \\).</p>\n            <svg viewBox=\"0 0 430 210\" role=\"img\" aria-label=\"Graph of y = sin theta from 0 to 360 degrees with the line y = 0.4 crossing it twice\" style=\"width:100%;max-width:430px;height:auto;color:var(--ink,#333)\">\n              <line x1=\"40\" y1=\"100\" x2=\"410\" y2=\"100\" stroke=\"currentColor\" stroke-width=\"1\" opacity=\"0.5\"/>\n              <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"180\" stroke=\"currentColor\" stroke-width=\"1\" opacity=\"0.5\"/>\n              <polyline points=\"40,100 70,65 100,39 130,30 160,39 190,65 220,100 250,135 280,161 310,170 340,161 370,135 400,100\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <line x1=\"40\" y1=\"72\" x2=\"400\" y2=\"72\" stroke=\"#4c9aff\" stroke-width=\"1.5\" stroke-dasharray=\"5 4\"/>\n              <line x1=\"63.6\" y1=\"72\" x2=\"63.6\" y2=\"100\" stroke=\"#4c9aff\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/>\n              <line x1=\"196.4\" y1=\"72\" x2=\"196.4\" y2=\"100\" stroke=\"#4c9aff\" stroke-width=\"1\" stroke-dasharray=\"3 3\"/>\n              <circle cx=\"63.6\" cy=\"72\" r=\"3.5\" fill=\"#4c9aff\"/>\n              <circle cx=\"196.4\" cy=\"72\" r=\"3.5\" fill=\"#4c9aff\"/>\n              <text x=\"405\" y=\"68\" font-size=\"11\" fill=\"#4c9aff\">y = 0.4</text>\n              <text x=\"46\" y=\"112\" font-size=\"10\" fill=\"currentColor\">23.6°</text>\n              <text x=\"176\" y=\"112\" font-size=\"10\" fill=\"currentColor\">156.4°</text>\n              <text x=\"214\" y=\"97\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\">180°</text>\n              <text x=\"392\" y=\"97\" font-size=\"10\" fill=\"currentColor\" opacity=\"0.7\">360°</text>\n            </svg>",
+  "question": "You solve \\( \\cos\\theta = 0.7 \\) and the calculator gives \\( 45.6^\\circ \\). What is the second solution in \\( 0^\\circ \\)–\\( 360^\\circ \\)?",
+  "options": [
+   "\\( 314.4^\\circ \\)",
+   "\\( 134.4^\\circ \\)",
+   "\\( 225.6^\\circ \\)",
+   "\\( 225.0^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "For \\( \\cos \\) the partner is \\( 360^\\circ - \\alpha = 360^\\circ - 45.6^\\circ = 314.4^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:learn:8b767b2e",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Worked example — solving sin, cos and tan equations",
+  "reading": "<p><strong>(A) Solve \\( \\sin\\theta = 0.4 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) (1 dp).</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Principal value: \\( \\theta = \\sin^{-1}(0.4) = 23.578\\ldots = 23.6^\\circ \\).</td></tr>\n              <tr><td>2. Sine partner: \\( 180^\\circ - 23.578^\\circ = 156.4^\\circ \\).</td></tr>\n              <tr><td>3. Both lie in range, so \\[ \\theta = 23.6^\\circ,\\ 156.4^\\circ. \\]</td></tr>\n            </table>\n            <p><strong>(B) Solve \\( \\cos\\theta = 0.5 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\).</strong> Principal value \\( \\cos^{-1}(0.5) = 60^\\circ \\); cosine partner \\( 360^\\circ - 60^\\circ = 300^\\circ \\). So \\( \\theta = 60^\\circ,\\ 300^\\circ \\).</p>\n            <p><strong>(C) Solve \\( \\tan\\theta = 2 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) (1 dp).</strong> Principal value \\( \\tan^{-1}(2) = 63.4^\\circ \\); add \\( 180^\\circ \\) to get \\( 243.4^\\circ \\). So \\( \\theta = 63.4^\\circ,\\ 243.4^\\circ \\).</p>\n            <p>If \\( k \\) is <strong>negative</strong> the calculator returns a negative principal value — add \\( 360^\\circ \\) (or \\( 180^\\circ \\) for \\( \\tan \\)) to bring it into range before finding the partner.</p>",
+  "question": "Solve \\( \\tan\\theta = 0.75 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) (1 dp).",
+  "options": [
+   "\\( 36.9^\\circ,\\ 216.9^\\circ \\)",
+   "\\( 36.9^\\circ \\) only",
+   "\\( 36.9^\\circ,\\ 143.1^\\circ \\)",
+   "\\( 36.9^\\circ,\\ 323.1^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tan^{-1}(0.75) = 36.9^\\circ \\); \\( \\tan \\) repeats every \\( 180^\\circ \\), so the partner is \\( 36.9^\\circ + 180^\\circ = 216.9^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:learn:60e70825",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you solve a multiple-angle equation like tan 2x = 0.5?",
+  "reading": "<p>When the angle inside the ratio is a <strong>multiple</strong> (\\( 2\\theta \\), \\( 3x \\), …), solve for that whole multiple angle first — over an <strong>expanded interval</strong> — and divide only at the end.</p>\n            <ul>\n              <li>If \\( 0^\\circ \\le x \\le 360^\\circ \\), then \\( 2x \\) runs over \\( 0^\\circ \\le 2x \\le 720^\\circ \\). You must find every solution across that <strong>doubled</strong> interval.</li>\n              <li>This is the classic trap: doubling the interval <strong>doubles the number of solutions</strong>. A \\( \\sin\\theta = k \\) has two solutions in \\( 360^\\circ \\), so \\( \\sin 2\\theta = k \\) has <strong>four</strong> in \\( 360^\\circ \\).</li>\n            </ul>\n            <p><strong>Worked example — solve \\( \\tan 2x = 0.5 \\) for \\( 0^\\circ \\le x \\le 360^\\circ \\) (1 dp).</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Let \\( u = 2x \\), so \\( 0^\\circ \\le u \\le 720^\\circ \\).</td></tr>\n              <tr><td>2. Principal value: \\( u = \\tan^{-1}(0.5) = 26.565^\\circ \\).</td></tr>\n              <tr><td>3. Add \\( 180^\\circ \\) repeatedly while \\( u \\le 720^\\circ \\): \\( u = 26.565^\\circ,\\ 206.565^\\circ,\\ 386.565^\\circ,\\ 566.565^\\circ \\).</td></tr>\n              <tr><td>4. Divide every value by 2: \\[ x = 13.3^\\circ,\\ 103.3^\\circ,\\ 193.3^\\circ,\\ 283.3^\\circ. \\]</td></tr>\n            </table>\n            <p><strong>Never</strong> solve \\( \\tan 2x = 0.5 \\) by writing \\( \\tan x = 0.25 \\) — you cannot halve inside a trig ratio. Expand the interval instead.</p>",
+  "question": "For \\( \\cos 2\\theta = 0.5 \\) with \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), over what interval must you first solve for \\( 2\\theta \\)?",
+  "options": [
+   "\\( 0^\\circ \\le 2\\theta \\le 720^\\circ \\)",
+   "\\( 0^\\circ \\le 2\\theta \\le 360^\\circ \\)",
+   "\\( 0^\\circ \\le 2\\theta \\le 180^\\circ \\)",
+   "\\( 0^\\circ \\le 2\\theta \\le 90^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Doubling the angle doubles the interval: \\( \\theta \\le 360^\\circ \\) means \\( 2\\theta \\le 720^\\circ \\), so you must sweep the full \\( 720^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:learn:af920407",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you solve an equation that hides a quadratic?",
+  "reading": "<p>Some equations mix \\( \\sin^2\\theta \\) or \\( \\cos^2\\theta \\) with the first-power ratio. Use the identity \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) to write everything in <strong>one</strong> ratio, then it becomes a <strong>quadratic</strong>.</p>\n            <ul>\n              <li>If the odd term is \\( \\cos\\theta \\), replace \\( \\sin^2\\theta \\) with \\( 1 - \\cos^2\\theta \\).</li>\n              <li>If the odd term is \\( \\sin\\theta \\), replace \\( \\cos^2\\theta \\) with \\( 1 - \\sin^2\\theta \\).</li>\n              <li>Let \\( s = \\sin\\theta \\) (or \\( c = \\cos\\theta \\)), factorise or use the formula, then solve each resulting simple equation in range.</li>\n            </ul>\n            <p><strong>Worked example — solve \\( 2\\sin^2\\theta - 3\\cos\\theta - 3 = 0 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\).</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Replace \\( \\sin^2\\theta \\): \\( 2(1 - \\cos^2\\theta) - 3\\cos\\theta - 3 = 0 \\).</td></tr>\n              <tr><td>2. Tidy: \\( -2\\cos^2\\theta - 3\\cos\\theta - 1 = 0 \\Rightarrow 2\\cos^2\\theta + 3\\cos\\theta + 1 = 0 \\).</td></tr>\n              <tr><td>3. Factorise: \\( (2\\cos\\theta + 1)(\\cos\\theta + 1) = 0 \\).</td></tr>\n              <tr><td>4. So \\( \\cos\\theta = -\\tfrac{1}{2} \\) or \\( \\cos\\theta = -1 \\).</td></tr>\n              <tr><td>5. \\( \\cos\\theta = -\\tfrac{1}{2} \\Rightarrow \\theta = 120^\\circ,\\ 240^\\circ \\); \\( \\cos\\theta = -1 \\Rightarrow \\theta = 180^\\circ \\).</td></tr>\n              <tr><td>6. All solutions: \\[ \\theta = 120^\\circ,\\ 180^\\circ,\\ 240^\\circ. \\]</td></tr>\n            </table>\n            <p>Always solve <strong>each</strong> value of the ratio for its own angles in range — one quadratic can produce three or four final answers.</p>",
+  "question": "To solve \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\), which substitution turns it into a quadratic in \\( \\sin\\theta \\)?",
+  "options": [
+   "\\( \\cos^2\\theta = 1 - \\sin^2\\theta \\)",
+   "\\( \\cos^2\\theta = 1 + \\sin^2\\theta \\)",
+   "\\( \\cos\\theta = 1 - \\sin\\theta \\)",
+   "\\( \\sin^2\\theta = 1 + \\cos^2\\theta \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "From \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\), \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\); substituting leaves only \\( \\sin\\theta \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:learn:b6a2574b",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How precisely must you give trig answers?",
+  "reading": "<p>Read the command carefully — the required form changes the whole answer.</p>\n            <ul>\n              <li><strong>\"correct to 1 decimal place\"</strong> — give each angle as a rounded decimal, e.g. \\( 26.6^\\circ \\). Do not leave extra decimals; do not give exact surds.</li>\n              <li><strong>\"exact value\"</strong> — leave surds/fractions, e.g. \\( \\sin\\theta = \\tfrac{3\\sqrt{13}}{13} \\). A rounded decimal scores <strong>0</strong> here.</li>\n              <li><strong>\"you must show detailed reasoning\" (DR)</strong> — write every analytical step: identity used, quadratic formed, factors, each angle. A bare calculator solution scores <strong>0</strong> even if the numbers are right.</li>\n              <li>Give <strong>all</strong> solutions in the stated interval — a common lost mark is stopping after the first one. And give <strong>no</strong> extras outside the interval, or a \"list all\" mark can be withheld.</li>\n            </ul>\n            <p>A safe habit on a 1 dp question: carry the unrounded principal value in the calculator's memory, generate every partner from it, and round only at the very end.</p>",
+  "question": "A question says \"show detailed reasoning\" and \"1 decimal place\". A student writes just the four final angles from the calculator. What happens?",
+  "options": [
+   "They score 0 — DR requires the analytical working to be shown",
+   "Full marks, the answers are right",
+   "They lose one mark only",
+   "It depends on rounding"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Under detailed reasoning, an unsupported calculator answer earns no marks even when correct — the method must be visible."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:misc:c92f0c71",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Giving \\( \\sin\\theta = 0.4 \\Rightarrow \\theta = 23.6^\\circ \\) as the only answer</p><p><strong>✅ The correct idea:</strong> The calculator gives one value; you must add all in-range solutions. A weak answer stops at \\( 23.6^\\circ \\); a strong answer also writes the partner \\( 180^\\circ - 23.6^\\circ = 156.4^\\circ \\).</p>",
+  "question": "How many solutions does \\( \\sin\\theta = 0.4 \\) have in \\( 0^\\circ \\)–\\( 360^\\circ \\)?",
+  "options": [
+   "Two",
+   "One",
+   "Three",
+   "Four"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\theta = 23.6^\\circ \\) and \\( 156.4^\\circ \\) — sine solutions come in a pair."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:misc:796fa4af",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Solving \\( \\sin 2\\theta = 0.5 \\) as if \\( 2\\theta \\) only runs up to \\( 360^\\circ \\)</p><p><strong>✅ The correct idea:</strong> You must double the interval. A weak answer solves \\( 2\\theta \\) over \\( 0^\\circ \\)–\\( 360^\\circ \\) and gives two answers; a strong answer uses \\( 0^\\circ \\)–\\( 720^\\circ \\) and finds all four.</p>",
+  "question": "For \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), \\( 2\\theta \\) ranges over:",
+  "options": [
+   "\\( 0^\\circ \\) to \\( 720^\\circ \\)",
+   "\\( 0^\\circ \\) to \\( 360^\\circ \\)",
+   "\\( 0^\\circ \\) to \\( 180^\\circ \\)",
+   "\\( 0^\\circ \\) to \\( 1080^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Doubling the angle doubles the interval, so you must sweep to \\( 720^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:misc:b7603f3b",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Writing \\( \\tan 2x = 0.5 \\Rightarrow \\tan x = 0.25 \\)</p><p><strong>✅ The correct idea:</strong> The angle multiple cannot be halved inside the ratio. A weak answer 'simplifies' to \\( \\tan x = 0.25 \\); a strong answer solves \\( \\tan u = 0.5 \\) for \\( u = 2x \\) over \\( 0^\\circ \\)–\\( 720^\\circ \\), then divides by 2.</p>",
+  "question": "The correct method for \\( \\tan 2x = 0.5 \\) is to:",
+  "options": [
+   "Solve for \\( 2x \\) over the doubled interval, then halve each answer",
+   "Write \\( \\tan x = 0.25 \\)",
+   "Take the square root",
+   "Use \\( \\sin \\) instead"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Solve for the whole multiple angle first, then divide the results by 2."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:misc:a9eed218",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Answering an 'exact value' trig question with \\( \\sin\\theta = 0.832 \\)</p><p><strong>✅ The correct idea:</strong> 'Exact' forbids a rounded decimal. A weak answer rounds; a strong answer gives the surd form, e.g. \\( \\sin\\theta = \\tfrac{3\\sqrt{13}}{13} \\).</p>",
+  "question": "Which is an 'exact' value of \\( \\sin\\theta \\)?",
+  "options": [
+   "\\( \\tfrac{3\\sqrt{13}}{13} \\)",
+   "\\( 0.832 \\)",
+   "\\( 0.83 \\)",
+   "about \\( 0.8 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Only the surd form \\( \\tfrac{3\\sqrt{13}}{13} \\) is exact; the decimals are approximations."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:misc:e0631fdb",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Rounding the principal value early, then building the other solutions from the rounded number</p><p><strong>✅ The correct idea:</strong> Early rounding drifts the later angles. A weak answer rounds \\( 26.565^\\circ \\) to \\( 26.6^\\circ \\) first; a strong answer keeps the full value in the calculator, generates every partner, and rounds only at the end.</p>",
+  "question": "When should you round on a 1 dp trig question?",
+  "options": [
+   "At the very end, after finding all solutions",
+   "Immediately after the first calculator step",
+   "Never round",
+   "After every line"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Carry the unrounded value through and round only the final angles to avoid accumulated error."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:tips:068c7c7b",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — The 'all solutions in range' ladder",
+  "reading": "<p><strong>0 marks:</strong> \\( \\sin\\theta = 0.6 \\Rightarrow \\theta = 36.9^\\circ \\) and stop.</p><p><strong>Partial:</strong> \\( 36.9^\\circ \\) plus a wrong partner (e.g. \\( 216.9^\\circ \\), using the tan rule by mistake).</p><p><strong>Full marks:</strong> \\( \\theta = 36.9^\\circ \\) and \\( 180^\\circ - 36.9^\\circ = 143.1^\\circ \\) — the correct sine pair, both in range, nothing extra.</p>",
+  "question": "For \\( \\sin\\theta = 0.6 \\), the full set in \\( 0^\\circ \\)–\\( 360^\\circ \\) is:",
+  "options": [
+   "\\( 36.9^\\circ,\\ 143.1^\\circ \\)",
+   "\\( 36.9^\\circ \\)",
+   "\\( 36.9^\\circ,\\ 216.9^\\circ \\)",
+   "\\( 36.9^\\circ,\\ 323.1^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Sine partner is \\( 180^\\circ - \\alpha \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:tips:08d6a11a",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Don't forget to double the interval",
+  "reading": "<p>For \\( \\cos 2\\theta = 0.6 \\) [3]: examiners award marks for finding the first \\( \\theta \\), for a second value, and for <strong>all four</strong> correct (no extras). The single biggest error is expanding \\( 2\\theta \\) to only \\( 360^\\circ \\) and returning two answers. Write the \\( 2\\theta \\) range as \\( 0^\\circ \\)–\\( 720^\\circ \\) on the page before you start.</p>",
+  "question": "Why write the \\( 2\\theta \\) interval down first?",
+  "options": [
+   "To remind yourself to find all four solutions, not two",
+   "To use more space",
+   "It earns a mark by itself",
+   "It is not needed"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Seeing \\( 0^\\circ \\)–\\( 720^\\circ \\) prompts you to collect every solution before halving."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:tips:0e74584d",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — The 'detailed reasoning' ladder",
+  "reading": "<p>For \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) [5, DR]: <strong>0 marks</strong> for the four angles alone. <strong>Full marks</strong> shows: the identity \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\) used; the quadratic \\( 12\\sin^2\\theta - \\sin\\theta - 1 = 0 \\); the factors \\( (3\\sin\\theta - 1)(4\\sin\\theta + 1) \\); \\( \\sin\\theta = \\tfrac{1}{3} \\) or \\( -\\tfrac{1}{4} \\); then each angle in range to 1 dp. A calculator solve of the original equation scores nothing.</p>",
+  "question": "Under 'detailed reasoning', the quadratic and factors must be:",
+  "options": [
+   "Written out fully on the page",
+   "Kept in the calculator only",
+   "Given as decimals",
+   "Skipped if the answer is right"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "DR credits only visible analytical steps; the working itself carries the marks."
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:fib:ebab46c3",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The angle the calculator returns from \\( \\sin^{-1} \\), \\( \\cos^{-1} \\) or \\( \\tan^{-1} \\) is called the ___B1___ value.",
+  "blankOptions": {
+   "B1": [
+    "detailed",
+    "pairs",
+    "principal",
+    "180"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "principal"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:fib:a298e9d5",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "For \\( \\sin\\theta = k \\), if the first solution is \\( \\alpha \\) the second is 180 minus ___B1___ degrees.",
+  "blankOptions": {
+   "B1": [
+    "720",
+    "alpha",
+    "pairs",
+    "exact"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "alpha"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:fib:a1413a3f",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "For \\( \\cos\\theta = k \\), the second solution in \\( 0^\\circ \\)–\\( 360^\\circ \\) is ___B1___ minus \\( \\alpha \\).",
+  "blankOptions": {
+   "B1": [
+    "cos^2",
+    "360",
+    "principal",
+    "pairs"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "360"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:fib:f17ad8a9",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The tangent graph repeats every ___B1___ degrees, so its second solution is \\( \\alpha \\) plus that many degrees.",
+  "blankOptions": {
+   "B1": [
+    "alpha",
+    "720",
+    "180",
+    "principal"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "180"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:fib:5f7b2725",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "To solve an equation in \\( 2\\theta \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), first solve for \\( 2\\theta \\) over the interval 0 to ___B1___ degrees.",
+  "blankOptions": {
+   "B1": [
+    "720",
+    "180",
+    "360",
+    "detailed"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "720"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:fib:fe5b50c3",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "To turn \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) into a quadratic, replace \\( \\cos^2\\theta \\) with 1 minus ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "sin^2",
+    "360",
+    "detailed",
+    "90"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "sin^2"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:fib:3cbb5e97",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A command word that means \"leave surds, not decimals\" is ___B1___; a decimal answer then scores zero.",
+  "blankOptions": {
+   "B1": [
+    "720",
+    "90",
+    "sin^2",
+    "exact"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "exact"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:fib:f95371d2",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Solutions of \\( \\sin\\theta = k \\) and \\( \\cos\\theta = k \\) come in ___B1___ across a full \\( 360^\\circ \\), so an odd count usually signals a slip.",
+  "blankOptions": {
+   "B1": [
+    "pairs",
+    "360",
+    "cos^2",
+    "detailed"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "pairs"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:match:0fe19fe2",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\sin\\theta = k \\): the second solution”?",
+  "options": [
+   "Work over \\( 0^\\circ \\le 2\\theta \\le 720^\\circ \\)",
+   "\\( 180^\\circ - \\alpha \\)",
+   "Replace with \\( 1 - \\cos^2\\theta \\)",
+   "Round each angle, e.g. \\( 26.6^\\circ \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( \\sin\\theta = k \\): the second solution” means: \\( 180^\\circ - \\alpha \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:match:5faa275d",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\cos\\theta = k \\): the second solution”?",
+  "options": [
+   "Round each angle, e.g. \\( 26.6^\\circ \\)",
+   "\\( 180^\\circ - \\alpha \\)",
+   "\\( 360^\\circ - \\alpha \\)",
+   "Replace with \\( 1 - \\cos^2\\theta \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\cos\\theta = k \\): the second solution” means: \\( 360^\\circ - \\alpha \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:match:257534b9",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\tan\\theta = k \\): the second solution”?",
+  "options": [
+   "A sign of an error — they come in pairs",
+   "Show every step; calculator-only scores 0",
+   "\\( 45^\\circ,\\ 225^\\circ \\)",
+   "\\( \\alpha + 180^\\circ \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\tan\\theta = k \\): the second solution” means: \\( \\alpha + 180^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:match:cd26c62f",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Solve \\( 2\\theta \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\)”?",
+  "options": [
+   "Work over \\( 0^\\circ \\le 2\\theta \\le 720^\\circ \\)",
+   "Replace with \\( 1 - \\cos^2\\theta \\)",
+   "\\( 180^\\circ - \\alpha \\)",
+   "Round each angle, e.g. \\( 26.6^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Solve \\( 2\\theta \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\)” means: Work over \\( 0^\\circ \\le 2\\theta \\le 720^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:match:384367d5",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\sin^2\\theta \\) in a quadratic in \\( \\cos\\theta \\)”?",
+  "options": [
+   "Work over \\( 0^\\circ \\le 2\\theta \\le 720^\\circ \\)",
+   "Show every step; calculator-only scores 0",
+   "\\( \\theta = 180^\\circ \\)",
+   "Replace with \\( 1 - \\cos^2\\theta \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\sin^2\\theta \\) in a quadratic in \\( \\cos\\theta \\)” means: Replace with \\( 1 - \\cos^2\\theta \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:match:f77105e0",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Principal value”?",
+  "options": [
+   "The single angle the calculator returns",
+   "\\( 360^\\circ - \\alpha \\)",
+   "Leave surds/fractions, never a decimal",
+   "\\( 180^\\circ - \\alpha \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Principal value” means: The single angle the calculator returns"
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:match:93be9aca",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'Exact value' command”?",
+  "options": [
+   "Leave surds/fractions, never a decimal",
+   "\\( \\alpha + 180^\\circ \\)",
+   "\\( 45^\\circ,\\ 225^\\circ \\)",
+   "\\( 180^\\circ - \\alpha \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“'Exact value' command” means: Leave surds/fractions, never a decimal"
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:match:aaeb2a6f",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'1 decimal place' command”?",
+  "options": [
+   "Round each angle, e.g. \\( 26.6^\\circ \\)",
+   "The single angle the calculator returns",
+   "\\( \\theta = 180^\\circ \\)",
+   "\\( 360^\\circ - \\alpha \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“'1 decimal place' command” means: Round each angle, e.g. \\( 26.6^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:match:3e1fa184",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'Detailed reasoning'”?",
+  "options": [
+   "Show every step; calculator-only scores 0",
+   "Work over \\( 0^\\circ \\le 2\\theta \\le 720^\\circ \\)",
+   "Leave surds/fractions, never a decimal",
+   "A sign of an error — they come in pairs"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“'Detailed reasoning'” means: Show every step; calculator-only scores 0"
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:match:54eed997",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\cos\\theta = -1 \\) in \\( 0^\\circ \\)–\\( 360^\\circ \\)”?",
+  "options": [
+   "\\( 45^\\circ,\\ 225^\\circ \\)",
+   "Show every step; calculator-only scores 0",
+   "Leave surds/fractions, never a decimal",
+   "\\( \\theta = 180^\\circ \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\cos\\theta = -1 \\) in \\( 0^\\circ \\)–\\( 360^\\circ \\)” means: \\( \\theta = 180^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:match:e04212e5",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\tan\\theta = 1 \\) in \\( 0^\\circ \\)–\\( 360^\\circ \\)”?",
+  "options": [
+   "\\( \\theta = 180^\\circ \\)",
+   "Leave surds/fractions, never a decimal",
+   "\\( 180^\\circ - \\alpha \\)",
+   "\\( 45^\\circ,\\ 225^\\circ \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\tan\\theta = 1 \\) in \\( 0^\\circ \\)–\\( 360^\\circ \\)” means: \\( 45^\\circ,\\ 225^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-4-trigonometric-equations:match:01c1206c",
+  "pageId": "additional-maths:5-4-trigonometric-equations",
+  "pageName": "5.4 Trigonometric Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Three solutions to a single \\( \\sin\\theta = k \\) in \\( 360^\\circ \\)”?",
+  "options": [
+   "The single angle the calculator returns",
+   "A sign of an error — they come in pairs",
+   "\\( 360^\\circ - \\alpha \\)",
+   "Work over \\( 0^\\circ \\le 2\\theta \\le 720^\\circ \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Three solutions to a single \\( \\sin\\theta = k \\) in \\( 360^\\circ \\)” means: A sign of an error — they come in pairs"
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:exam:f4fbcb64",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "7 (a)",
+  "question": "<p>Calculate the angle that the path MN makes with the horizontal, giving your answer correct to <strong>1</strong> decimal place.</p>",
+  "caseStudy": "<p>A hillside can be modelled by a wedge as shown in the diagram.</p>\n        <div style=\"text-align:center;margin:12px 0;\">\n        <svg viewBox=\"0 0 340 215\" style=\"max-width:360px;width:100%;height:auto;\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\" aria-label=\"A wedge: horizontal base ABCD with a vertical back rectangle CDFE; M on AB, N on FE, with diagonals MN and ME drawn.\">\n          <path d=\"M30 185 L215 185 L290 120 L290 55 L105 55 Z\" />\n          <path d=\"M215 185 L290 55\" />\n          <path d=\"M120 185 L195 55\" stroke-width=\"2.1\" />\n          <path d=\"M120 185 L290 55\" stroke-width=\"2.1\" />\n          <path d=\"M30 185 L105 120 M105 120 L290 120 M105 120 L105 55\" stroke-dasharray=\"4 4\" opacity=\"0.7\" />\n          <g fill=\"currentColor\" stroke=\"none\" font-size=\"13\" font-family=\"DM Sans, sans-serif\">\n            <text x=\"18\" y=\"192\">A</text><text x=\"212\" y=\"201\">B</text><text x=\"296\" y=\"124\">C</text>\n            <text x=\"90\" y=\"118\">D</text><text x=\"296\" y=\"56\">E</text><text x=\"96\" y=\"52\">F</text>\n            <text x=\"114\" y=\"201\">M</text><text x=\"190\" y=\"49\">N</text>\n          </g>\n          <g fill=\"currentColor\" stroke=\"none\" font-size=\"12\" font-family=\"DM Sans, sans-serif\" opacity=\"0.85\">\n            <text x=\"298\" y=\"92\">20 m</text><text x=\"248\" y=\"160\">80 m</text><text x=\"150\" y=\"201\">60 m</text>\n          </g>\n        </svg></div>\n        <p>The base ABCD is a horizontal rectangle with \\( BC = AD = 80 \\) metres. The back of the wedge is a vertical rectangle CDFE with \\( DF = CE = 20 \\) metres. M is a point on the line AB where \\( BM = 60 \\) metres. A straight path goes up the hill from M to N, where N is a point on FE such that MN is a line of greatest slope.</p>",
+  "hint": "MN is a line of greatest slope: its vertical rise is \\( CE = 20 \\) and its horizontal run is \\( BC = 80 \\).",
+  "starter": "Give the angle to 1 decimal place.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — \\( \\tan^{-1}\\!\\left(\\dfrac{20}{80}\\right) \\) oe (correct right-angled triangle; same angle as between BE and BC).</li>\n              <li><strong>A1</strong> — \\( 14.0^\\circ \\) (accept \\( 14 \\)).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>MN rises \\( 20 \\) m over a horizontal run of \\( 80 \\) m; the sine rule on the right-angled triangle also scores if used correctly.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Many recognised the angle equals that between BE and BC and used the given lengths. Some found the angle to the vertical instead; some used the sine rule (successfully); a few found the hypotenuse first and used the sine ratio.</li>\n            </ul></div>",
+   "modelAnswer": "MN is a line of greatest slope, rising \\( 20 \\) m vertically over a horizontal distance \\( BC = 80 \\) m. So \\( \\tan\\theta = \\dfrac{20}{80} \\), giving \\( \\theta = \\tan^{-1}(0.25) = 14.0^\\circ \\) (1 d.p.)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:exam:91599ec4",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "7 (b)",
+  "question": "<p>A second straight path goes up the hill from M to E. Calculate the angle that this path makes with the horizontal, giving your answer correct to <strong>1</strong> decimal place.</p>",
+  "caseStudy": "<p>A hillside can be modelled by a wedge as shown in the diagram.</p>\n        <div style=\"text-align:center;margin:12px 0;\">\n        <svg viewBox=\"0 0 340 215\" style=\"max-width:360px;width:100%;height:auto;\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\" aria-label=\"A wedge: horizontal base ABCD with a vertical back rectangle CDFE; M on AB, N on FE, with diagonals MN and ME drawn.\">\n          <path d=\"M30 185 L215 185 L290 120 L290 55 L105 55 Z\" />\n          <path d=\"M215 185 L290 55\" />\n          <path d=\"M120 185 L195 55\" stroke-width=\"2.1\" />\n          <path d=\"M120 185 L290 55\" stroke-width=\"2.1\" />\n          <path d=\"M30 185 L105 120 M105 120 L290 120 M105 120 L105 55\" stroke-dasharray=\"4 4\" opacity=\"0.7\" />\n          <g fill=\"currentColor\" stroke=\"none\" font-size=\"13\" font-family=\"DM Sans, sans-serif\">\n            <text x=\"18\" y=\"192\">A</text><text x=\"212\" y=\"201\">B</text><text x=\"296\" y=\"124\">C</text>\n            <text x=\"90\" y=\"118\">D</text><text x=\"296\" y=\"56\">E</text><text x=\"96\" y=\"52\">F</text>\n            <text x=\"114\" y=\"201\">M</text><text x=\"190\" y=\"49\">N</text>\n          </g>\n          <g fill=\"currentColor\" stroke=\"none\" font-size=\"12\" font-family=\"DM Sans, sans-serif\" opacity=\"0.85\">\n            <text x=\"298\" y=\"92\">20 m</text><text x=\"248\" y=\"160\">80 m</text><text x=\"150\" y=\"201\">60 m</text>\n          </g>\n        </svg></div>\n        <p>The base ABCD is a horizontal rectangle with \\( BC = AD = 80 \\) metres. The back of the wedge is a vertical rectangle CDFE with \\( DF = CE = 20 \\) metres. M is a point on the line AB where \\( BM = 60 \\) metres. A straight path goes up the hill from M to N, where N is a point on FE such that MN is a line of greatest slope.</p>",
+  "hint": "First find the horizontal distance MC by Pythagoras (\\( MB = 60 \\), \\( BC = 80 \\)); E is directly above C, height \\( 20 \\).",
+  "starter": "Find MC first, then the angle to 1 decimal place.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — Pythagoras for the horizontal distance: \\( MC = \\sqrt{80^2 + 60^2} \\) (or a Pythagorean triple).</li>\n              <li><strong>A1</strong> — \\( MC = 100 \\).</li>\n              <li><strong>M1</strong> — \\( \\tan^{-1}\\!\\left(\\dfrac{20}{100}\\right) \\) (E is above C, height \\( 20 \\)).</li>\n              <li><strong>A1</strong> — \\( 11.3^\\circ \\) (must be 1 d.p.).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Alternative: find \\( BE = \\sqrt{80^2 + 20^2} \\) and \\( ME = \\sqrt{60^2 + BE^2} = \\sqrt{10400} \\approx 101.98 \\) (awrt \\( 102 \\)), then \\( \\sin^{-1}\\!\\left(\\dfrac{20}{ME}\\right) = 11.3^\\circ \\) — full marks by an equivalent route.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most saw the need for MC but many overcomplicated by also finding ME and using the sine rule. Again some found the angle to the vertical; some lost the final mark by giving more than 1 decimal place; others tried incorrect triangles such as MBE.</li>\n            </ul></div>",
+   "modelAnswer": "E lies directly above C, so the horizontal distance is \\( MC = \\sqrt{BC^2 + MB^2} = \\sqrt{80^2 + 60^2} = \\sqrt{10000} = 100 \\) m. The height is \\( CE = 20 \\) m, so \\( \\tan\\theta = \\dfrac{20}{100} = 0.2 \\), giving \\( \\theta = \\tan^{-1}(0.2) = 11.3^\\circ \\) (1 d.p.)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:exam:17d0c6fc",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "13 (a)",
+  "question": "<p>Find the height of the mast.</p>",
+  "caseStudy": "<p>A straight road runs on a bearing of \\( 060^\\circ \\) from a point A to a point B, \\( 400 \\) m from A. A vertical mast, CT, stands at a point C, \\( 300 \\) m due north of A. From the point A the angle of elevation of the top of the mast, T, is \\( 7^\\circ \\). The triangle ABC is on horizontal ground.</p>\n        <div style=\"text-align:center;margin:12px 0;\">\n        <svg viewBox=\"0 0 330 240\" style=\"max-width:340px;width:100%;height:auto;\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\" aria-label=\"Horizontal triangle ABC with a vertical mast CT at C, the angle at A is 60 degrees, AC is 300 m, AB is 400 m, and a north arrow.\">\n          <path d=\"M60 205 L295 185 L180 95 Z\" />\n          <path d=\"M180 95 L180 35\" stroke-width=\"2.2\" />\n          <path d=\"M172 205 L188 205\" stroke-width=\"1\" opacity=\"0.7\" />\n          <path d=\"M60 205 L180 35 M295 185 L180 35\" stroke-dasharray=\"4 4\" opacity=\"0.7\" />\n          <path d=\"M97 202 A 40 40 0 0 1 88 178\" />\n          <path d=\"M250 152 L272 104\" />\n          <polygon points=\"267,116 273,102 277,115\" fill=\"currentColor\" stroke=\"none\" />\n          <g fill=\"currentColor\" stroke=\"none\" font-size=\"13\" font-family=\"DM Sans, sans-serif\">\n            <text x=\"48\" y=\"214\">A</text><text x=\"300\" y=\"184\">B</text><text x=\"188\" y=\"94\">C</text><text x=\"176\" y=\"28\">T</text><text x=\"279\" y=\"100\">N</text>\n          </g>\n          <g fill=\"currentColor\" stroke=\"none\" font-size=\"12\" font-family=\"DM Sans, sans-serif\" opacity=\"0.85\">\n            <text x=\"118\" y=\"150\">300 m</text><text x=\"176\" y=\"207\">400 m</text><text x=\"76\" y=\"196\">60°</text>\n          </g>\n        </svg></div>",
+  "hint": "The mast CT is vertical at C; the elevation from A is \\( 7^\\circ \\) and \\( AC = 300 \\). Use \\( \\tan \\).",
+  "starter": "Give the height in metres.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — \\( \\tan 7^\\circ = \\dfrac{h}{300} \\) (use of the tangent ratio; the sine rule may be used).</li>\n              <li><strong>A1</strong> — \\( h = 36.8 \\) m (\\( 300\\tan 7^\\circ = 36.84\\ldots \\)).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>CT is vertical and AC is horizontal, so the elevation triangle ACT is right-angled at C.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The vast majority used the tangent ratio successfully; some used the sine rule and were also successful. A well-answered opener.</li>\n            </ul></div>",
+   "modelAnswer": "Triangle ACT is right-angled at C, with \\( AC = 300 \\) and elevation \\( 7^\\circ \\). So \\( \\tan 7^\\circ = \\dfrac{h}{300} \\), giving \\( h = 300\\tan 7^\\circ = 36.8 \\) m (3 s.f.)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:exam:6a3f130f",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": "13 (b)",
+  "question": "<p>Find the angle of elevation of the top of the mast from point B.</p>",
+  "caseStudy": "<p>A straight road runs on a bearing of \\( 060^\\circ \\) from a point A to a point B, \\( 400 \\) m from A. A vertical mast, CT, stands at a point C, \\( 300 \\) m due north of A. From the point A the angle of elevation of the top of the mast, T, is \\( 7^\\circ \\). The triangle ABC is on horizontal ground.</p>\n        <div style=\"text-align:center;margin:12px 0;\">\n        <svg viewBox=\"0 0 330 240\" style=\"max-width:340px;width:100%;height:auto;\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\" aria-label=\"Horizontal triangle ABC with a vertical mast CT at C, the angle at A is 60 degrees, AC is 300 m, AB is 400 m, and a north arrow.\">\n          <path d=\"M60 205 L295 185 L180 95 Z\" />\n          <path d=\"M180 95 L180 35\" stroke-width=\"2.2\" />\n          <path d=\"M172 205 L188 205\" stroke-width=\"1\" opacity=\"0.7\" />\n          <path d=\"M60 205 L180 35 M295 185 L180 35\" stroke-dasharray=\"4 4\" opacity=\"0.7\" />\n          <path d=\"M97 202 A 40 40 0 0 1 88 178\" />\n          <path d=\"M250 152 L272 104\" />\n          <polygon points=\"267,116 273,102 277,115\" fill=\"currentColor\" stroke=\"none\" />\n          <g fill=\"currentColor\" stroke=\"none\" font-size=\"13\" font-family=\"DM Sans, sans-serif\">\n            <text x=\"48\" y=\"214\">A</text><text x=\"300\" y=\"184\">B</text><text x=\"188\" y=\"94\">C</text><text x=\"176\" y=\"28\">T</text><text x=\"279\" y=\"100\">N</text>\n          </g>\n          <g fill=\"currentColor\" stroke=\"none\" font-size=\"12\" font-family=\"DM Sans, sans-serif\" opacity=\"0.85\">\n            <text x=\"118\" y=\"150\">300 m</text><text x=\"176\" y=\"207\">400 m</text><text x=\"76\" y=\"196\">60°</text>\n          </g>\n        </svg></div>",
+  "hint": "Angle \\( BAC = 60^\\circ \\) (bearing \\( 060^\\circ \\) vs due north). Find CB by the cosine rule, then use \\( \\tan \\) with the height from (a).",
+  "starter": "Give the angle of elevation to 3 significant figures.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO1/AO2)</h5><ul>\n              <li><strong>M1</strong> — cosine rule to find CB.</li>\n              <li><strong>A1</strong> — correct substitution: \\( CB^2 = 400^2 + 300^2 - 2(400)(300)\\cos 60^\\circ \\).</li>\n              <li><strong>A1</strong> — \\( CB^2 = 130000 \\), \\( CB = 360.6 \\) m (ignore rounding).</li>\n              <li><strong>M1</strong> — \\( \\tan(\\text{elevation}) = \\dfrac{\\text{their } h}{\\text{their } CB} \\).</li>\n              <li><strong>A1</strong> — \\( 5.83^\\circ \\) (correct to 3 s.f.).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Angle \\( BAC = 60^\\circ \\) because AB is on bearing \\( 060^\\circ \\) and AC is due north. Keep full accuracy: \\( CB = \\sqrt{130000} = 360.55\\ldots \\)</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most gained the first 3 marks finding CB by the cosine rule (a formula not given on the paper, so it must be learnt), then used the tangent correctly. Some did extra work finding TB by Pythagoras; those who did not round early were rewarded.</li>\n            </ul></div>",
+   "modelAnswer": "Angle \\( BAC = 60^\\circ \\). Cosine rule: \\( CB^2 = 400^2 + 300^2 - 2(400)(300)\\cos 60^\\circ = 130000 \\), so \\( CB = 360.6 \\) m. The mast height is \\( h = 36.84 \\) m, so the elevation from B is \\( \\tan^{-1}\\!\\left(\\dfrac{36.84}{360.55}\\right) = 5.83^\\circ \\) (3 s.f.)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:exam:4b2ab42c",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": "13 (c)",
+  "question": "<p>Find the bearing of the base of the mast from point B.</p>",
+  "caseStudy": "<p>A straight road runs on a bearing of \\( 060^\\circ \\) from a point A to a point B, \\( 400 \\) m from A. A vertical mast, CT, stands at a point C, \\( 300 \\) m due north of A. From the point A the angle of elevation of the top of the mast, T, is \\( 7^\\circ \\). The triangle ABC is on horizontal ground.</p>\n        <div style=\"text-align:center;margin:12px 0;\">\n        <svg viewBox=\"0 0 330 240\" style=\"max-width:340px;width:100%;height:auto;\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\" aria-label=\"Horizontal triangle ABC with a vertical mast CT at C, the angle at A is 60 degrees, AC is 300 m, AB is 400 m, and a north arrow.\">\n          <path d=\"M60 205 L295 185 L180 95 Z\" />\n          <path d=\"M180 95 L180 35\" stroke-width=\"2.2\" />\n          <path d=\"M172 205 L188 205\" stroke-width=\"1\" opacity=\"0.7\" />\n          <path d=\"M60 205 L180 35 M295 185 L180 35\" stroke-dasharray=\"4 4\" opacity=\"0.7\" />\n          <path d=\"M97 202 A 40 40 0 0 1 88 178\" />\n          <path d=\"M250 152 L272 104\" />\n          <polygon points=\"267,116 273,102 277,115\" fill=\"currentColor\" stroke=\"none\" />\n          <g fill=\"currentColor\" stroke=\"none\" font-size=\"13\" font-family=\"DM Sans, sans-serif\">\n            <text x=\"48\" y=\"214\">A</text><text x=\"300\" y=\"184\">B</text><text x=\"188\" y=\"94\">C</text><text x=\"176\" y=\"28\">T</text><text x=\"279\" y=\"100\">N</text>\n          </g>\n          <g fill=\"currentColor\" stroke=\"none\" font-size=\"12\" font-family=\"DM Sans, sans-serif\" opacity=\"0.85\">\n            <text x=\"118\" y=\"150\">300 m</text><text x=\"176\" y=\"207\">400 m</text><text x=\"76\" y=\"196\">60°</text>\n          </g>\n        </svg></div>",
+  "hint": "Use the sine rule in triangle ABC to find angle ABC, then combine it with the reverse bearing of A from B (\\( 240^\\circ \\)).",
+  "starter": "Give the bearing as a three-figure bearing.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO2/AO3)</h5><ul>\n              <li><strong>M1</strong> — sine (or cosine) rule to find angle B (or angle C).</li>\n              <li><strong>A1</strong> — correct values inserted: \\( \\dfrac{\\sin B}{300} = \\dfrac{\\sin 60^\\circ}{360.6} \\).</li>\n              <li><strong>A1</strong> — angle \\( ABC = 46.1^\\circ \\) (awrt \\( 46 \\); or angle \\( C = 73.9^\\circ \\)).</li>\n              <li><strong>M1</strong> — correct attempt to combine with a known direction to find the bearing.</li>\n              <li><strong>A1</strong> — bearing \\( = 286^\\circ \\) (awrt \\( 286 \\)).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>A is on bearing \\( 240^\\circ \\) from B (reverse of \\( 060^\\circ \\)); adding angle \\( ABC \\): \\( 240 + 46.1 = 286.1^\\circ \\). Rearranging the sine rule correctly is required.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most found angle B or C by the sine or cosine rule, but turning that into the correct bearing exposed a lack of understanding in a significant proportion, who gave a wrong answer or did not attempt this part.</li>\n            </ul></div>",
+   "modelAnswer": "By the sine rule, \\( \\dfrac{\\sin(\\angle ABC)}{300} = \\dfrac{\\sin 60^\\circ}{360.6} \\), so \\( \\sin(\\angle ABC) = 0.7206 \\) and \\( \\angle ABC = 46.1^\\circ \\). The bearing of A from B is \\( 060 + 180 = 240^\\circ \\), and C lies a further \\( 46.1^\\circ \\) clockwise, so the bearing of the base of the mast from B is \\( 240 + 46.1 = 286^\\circ \\) (to the nearest degree)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:mcq:30bcb081",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the sensible first step in a 3D trigonometry problem?",
+  "options": [
+   "Identify the right-angled triangle in the correct plane and redraw it in 2D",
+   "Apply the sine rule to the whole solid at once",
+   "Measure every angle with a protractor",
+   "Assume the answer is \\( 45^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "3D problems are solved by isolating one right-angled triangle in a plane and treating it as a flat 2D triangle."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:mcq:6d41cf84",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The base of a cuboid measures \\( 8 \\) by \\( 6 \\). The length of the base diagonal is:",
+  "options": [
+   "\\( 10 \\)",
+   "\\( 14 \\)",
+   "\\( \\sqrt{28} \\)",
+   "\\( 48 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Pythagoras across the base: \\( \\sqrt{8^2 + 6^2} = \\sqrt{100} = 10 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:mcq:535f3f17",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A cuboid is \\( 8 \\times 6 \\times 5 \\). The length of its space (corner-to-corner) diagonal is:",
+  "options": [
+   "\\( \\sqrt{125} \\approx 11.2 \\)",
+   "\\( 10 \\) (the base diagonal)",
+   "\\( 19 \\)",
+   "\\( \\sqrt{61} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\sqrt{8^2 + 6^2 + 5^2} = \\sqrt{125} \\approx 11.2 \\). Stopping at \\( 10 \\) uses only the 2D base diagonal."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:mcq:d9a934c9",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For that \\( 8 \\times 6 \\times 5 \\) cuboid, the angle its space diagonal makes with the base is:",
+  "options": [
+   "\\( \\tan^{-1}(5/10) = 26.6^\\circ \\)",
+   "\\( \\tan^{-1}(10/5) = 63.4^\\circ \\)",
+   "\\( \\tan^{-1}(5/8) = 32.0^\\circ \\)",
+   "\\( 45^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Opposite = height 5, adjacent = base diagonal 10, so \\( \\tan\\theta = 5/10 \\), \\( \\theta = 26.6^\\circ \\). Using \\( 10/5 \\) gives the angle to the vertical."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:mcq:7c74914b",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The angle between a line and a plane is defined as the angle between the line and:",
+  "options": [
+   "Its projection (shadow) on the plane",
+   "The nearest vertical edge",
+   "Any line in the plane",
+   "The perpendicular to the plane"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "It is the angle between the line and its projection onto the plane — found by dropping a perpendicular to the plane and joining the foot."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:mcq:307300cd",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "On a sloping roof, the line of greatest slope is the line that is:",
+  "options": [
+   "Perpendicular to the horizontal edges of the sloping face (straight up the slope)",
+   "Parallel to the horizontal edges",
+   "The longest diagonal across the face",
+   "Along the bottom edge"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The steepest line runs straight up the slope, at right angles to the horizontal edges of the face."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:mcq:4cf0c9be",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A wedge rises \\( 20 \\) m vertically over a horizontal distance of \\( 80 \\) m. The angle of greatest slope with the horizontal is:",
+  "options": [
+   "\\( \\tan^{-1}(20/80) = 14.0^\\circ \\)",
+   "\\( \\tan^{-1}(80/20) = 76.0^\\circ \\)",
+   "\\( \\sin^{-1}(20/80) = 14.5^\\circ \\) using the slant",
+   "\\( 20/80 = 0.25^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Height is opposite, horizontal run is adjacent: \\( \\tan\\theta = 20/80 \\), \\( \\theta = 14.0^\\circ \\). \\( 76.0^\\circ \\) is the angle to the vertical."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:mcq:3b029a95",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A bearing must be written:",
+  "options": [
+   "Clockwise from north, with three figures (e.g. \\( 072^\\circ \\))",
+   "Anticlockwise from north, with two figures",
+   "Clockwise from east, with three figures",
+   "As the acute angle to the nearest axis"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Bearings are measured clockwise from north and always given as three figures."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:mcq:b1f275a9",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The bearing of B from A is \\( 060^\\circ \\). The bearing of A from B is:",
+  "options": [
+   "\\( 240^\\circ \\)",
+   "\\( 120^\\circ \\)",
+   "\\( 300^\\circ \\)",
+   "\\( 060^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The reverse bearing differs by \\( 180^\\circ \\): \\( 060 + 180 = 240^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:mcq:fc7a7999",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "From a point \\( 100 \\) m horizontally from the foot of a \\( 20 \\) m mast, the angle of elevation of the top is:",
+  "options": [
+   "\\( \\tan^{-1}(20/100) = 11.3^\\circ \\)",
+   "\\( \\tan^{-1}(100/20) = 78.7^\\circ \\)",
+   "\\( \\sin^{-1}(20/100) = 11.5^\\circ \\)",
+   "\\( \\cos^{-1}(20/100) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Elevation is measured from the horizontal: opposite = 20, adjacent = 100, \\( \\tan\\theta = 20/100 \\), \\( \\theta = 11.3^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:mcq:4bc270ce",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A ground triangle of bearings has no right angle. To find a missing side you should use:",
+  "options": [
+   "The sine or cosine rule",
+   "Pythagoras' theorem",
+   "SOH-CAH-TOA directly",
+   "The angle of elevation formula"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Pythagoras and SOH-CAH-TOA need a right angle; a general triangle needs the sine or cosine rule from 5.2."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:tf:8418cbf3",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The space diagonal of an \\( a\\times b\\times c \\) cuboid is \\( \\sqrt{a^2 + b^2 + c^2} \\).",
+  "key": {
+   "answer": true,
+   "explain": "Pythagoras in 3D: the base diagonal is \\( \\sqrt{a^2+b^2} \\), then combine with the height \\( c \\) to get \\( \\sqrt{a^2+b^2+c^2} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:tf:347364aa",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In a 3D problem you should do trigonometry in three dimensions at once, without drawing a triangle.",
+  "key": {
+   "answer": false,
+   "explain": "You always isolate a single right-angled triangle in one plane and redraw it flat before using trig."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:tf:6f29cfbd",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The angle a line makes with the horizontal uses the vertical height as the opposite side.",
+  "key": {
+   "answer": true,
+   "explain": "Height is opposite, horizontal distance is adjacent, so \\( \\tan\\theta = \\text{height}/\\text{horizontal distance} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:tf:d6ebe37f",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The line of greatest slope runs parallel to the horizontal edges of the sloping face.",
+  "key": {
+   "answer": false,
+   "explain": "It runs perpendicular to them — straight up the slope, which is the steepest direction."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:tf:d6d8accb",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\tan^{-1}(20/80) \\) and \\( \\tan^{-1}(80/20) \\) give the same angle.",
+  "key": {
+   "answer": false,
+   "explain": "They are complementary: \\( 14.0^\\circ \\) (to the horizontal) and \\( 76.0^\\circ \\) (to the vertical), adding to \\( 90^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:tf:775cab33",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A bearing of \\( 060^\\circ \\) reversed becomes \\( 240^\\circ \\).",
+  "key": {
+   "answer": true,
+   "explain": "Reverse bearings differ by \\( 180^\\circ \\): \\( 060 + 180 = 240^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:tf:bd8b2c95",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If a ground triangle has no right angle, Pythagoras will still find a missing side directly.",
+  "key": {
+   "answer": false,
+   "explain": "Pythagoras needs a right angle; a general triangle needs the sine or cosine rule."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:tf:f0346f7f",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The horizontal distance to a point, not the slant distance, is the adjacent side when finding the angle of elevation.",
+  "key": {
+   "answer": true,
+   "explain": "Elevation is measured from the horizontal, so the adjacent side must be the horizontal distance to the foot of the object."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:learn:8d0ab8b4",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you attack a 3D trigonometry problem?",
+  "reading": "<p>Every 3D problem is really a <strong>2D problem in disguise</strong>. You never do trig in three dimensions at once — you find the correct <strong>right-angled triangle</strong> lying in one flat <strong>plane</strong>, draw it on its own, and solve it with Pythagoras and SOH-CAH-TOA.</p>\n            <ul>\n              <li><strong>Step 1 — find the triangle.</strong> Identify the two points you care about and the right angle that joins them (usually a vertical edge meeting a horizontal base).</li>\n              <li><strong>Step 2 — get a base length first.</strong> The side you need is often a <strong>diagonal across a horizontal base</strong>; find it with Pythagoras before you can find any angle.</li>\n              <li><strong>Step 3 — solve the 2D triangle.</strong> Redraw it flat, label opposite / adjacent / hypotenuse, then apply \\( \\sin,\\ \\cos \\) or \\( \\tan \\) (or the sine / cosine rules from 5.2 if the triangle is not right-angled).</li>\n            </ul>\n            <p>Work <strong>step by step</strong> and keep full accuracy in your calculator — round only the final answer. Everything on this page is in <strong>degrees</strong>.</p>",
+  "question": "What is the sensible first move in most 3D trig problems?",
+  "options": [
+   "Find a right-angled triangle in one plane and redraw it in 2D",
+   "Use the sine rule on the whole solid",
+   "Round every length to the nearest whole number first",
+   "Guess which angle looks about right"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "3D problems are solved by isolating the correct right-angled triangle in one plane and treating it as an ordinary 2D triangle."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:learn:57831848",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the angle between a line and a plane?",
+  "reading": "<p>The <strong>angle between a line and a plane</strong> is the angle between the line and its <strong>projection</strong> (its “shadow”) on that plane. To find it: drop a <strong>perpendicular</strong> from the far end of the line down to the plane, join the <strong>foot</strong> of that perpendicular back to the line's start, and the angle sits at the foot.</p>\n            <p>Consider a cuboid \\( 8 \\times 6 \\times 5 \\). Find the angle the space diagonal AG makes with the horizontal base ABCD.</p>\n            <div style=\"text-align:center;margin:10px 0;\">\n            <svg viewBox=\"0 0 300 210\" style=\"max-width:320px;width:100%;height:auto;\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\" aria-label=\"A cuboid ABCDEFGH; the space diagonal from A to G and the base diagonal AC are shown, with the right-angled triangle ACG.\">\n              <path d=\"M40 180 L190 180 L190 90 L40 90 Z\" />\n              <path d=\"M190 90 L250 50 L100 50 L40 90\" />\n              <path d=\"M190 180 L250 140 L250 50\" />\n              <path d=\"M40 180 L250 50\" stroke-width=\"2.2\" />\n              <path d=\"M40 180 L250 140\" stroke-dasharray=\"4 4\" opacity=\"0.75\" />\n              <path d=\"M40 180 L100 140 M100 140 L250 140 M100 140 L100 50\" stroke-dasharray=\"4 4\" opacity=\"0.6\" />\n              <path d=\"M242 140 L242 131 L251 131\" stroke-width=\"1.1\" />\n              <g fill=\"currentColor\" stroke=\"none\" font-size=\"12\" font-family=\"DM Sans, sans-serif\">\n                <text x=\"28\" y=\"188\">A</text><text x=\"188\" y=\"194\">B</text><text x=\"255\" y=\"150\">C</text><text x=\"84\" y=\"152\">D</text>\n                <text x=\"28\" y=\"90\">E</text><text x=\"193\" y=\"84\">F</text><text x=\"255\" y=\"50\">G</text><text x=\"88\" y=\"47\">H</text>\n              </g>\n              <g fill=\"currentColor\" stroke=\"none\" font-size=\"11\" font-family=\"DM Sans, sans-serif\" opacity=\"0.85\">\n                <text x=\"108\" y=\"194\">8</text><text x=\"223\" y=\"152\">6</text><text x=\"256\" y=\"98\">5</text>\n              </g>\n            </svg></div>\n            <table class=\"worked\">\n              <tr><td>1. <strong>Base diagonal first</strong> (Pythagoras in the base): \\( AC = \\sqrt{8^2 + 6^2} = \\sqrt{100} = 10 \\).</td></tr>\n              <tr><td>2. The right-angled triangle is ACG, with the right angle at C (the vertical edge \\( CG = 5 \\) meets the base).</td></tr>\n              <tr><td>3. The angle at A is between AG and its projection AC on the base, so \\[ \\tan(\\angle GAC) = \\frac{CG}{AC} = \\frac{5}{10}. \\]</td></tr>\n              <tr><td>4. \\( \\angle GAC = \\tan^{-1}(0.5) = 26.6^\\circ \\) (1 d.p.).</td></tr>\n            </table>\n            <p>The diagonal itself is \\( AG = \\sqrt{10^2 + 5^2} = \\sqrt{125} = 5\\sqrt{5} \\approx 11.2 \\). The height is the <strong>opposite</strong> side and the base diagonal is the <strong>adjacent</strong> side — so the angle is measured to the <strong>horizontal</strong>.</p>",
+  "question": "The angle between the line AG and the base is measured between AG and:",
+  "options": [
+   "Its projection AC on the base",
+   "The vertical edge CG",
+   "The nearest side of the base",
+   "The top face of the cuboid"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The angle between a line and a plane is the angle between the line and its shadow (projection) on that plane — here AC."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:learn:842fbbf3",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is the angle of greatest slope?",
+  "reading": "<p>On a tilted surface (a wedge, roof or hillside) the <strong>line of greatest slope</strong> is the <strong>steepest</strong> line you can draw on that surface. It runs <strong>perpendicular to the horizontal edges</strong> of the sloping face — straight up the hill, not diagonally across it. Any other line on the face is gentler.</p>\n            <div style=\"text-align:center;margin:10px 0;\">\n            <svg viewBox=\"0 0 320 200\" style=\"max-width:340px;width:100%;height:auto;\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\" aria-label=\"A wedge with its sloping face; a line of greatest slope P to Q makes an angle theta with the horizontal.\">\n              <path d=\"M30 175 L210 175 L280 120 L280 60 L100 60 Z\" />\n              <path d=\"M210 175 L280 60\" />\n              <path d=\"M120 175 L190 60\" stroke-width=\"2.2\" />\n              <path d=\"M30 175 L100 120 M100 120 L280 120 M100 120 L100 60\" stroke-dasharray=\"4 4\" opacity=\"0.6\" />\n              <path d=\"M147 175 A 30 30 0 0 0 138 152\" />\n              <g fill=\"currentColor\" stroke=\"none\" font-size=\"12\" font-family=\"DM Sans, sans-serif\">\n                <text x=\"112\" y=\"188\">P</text><text x=\"188\" y=\"55\">Q</text><text x=\"155\" y=\"170\">θ</text>\n                <text x=\"284\" y=\"94\">h</text><text x=\"228\" y=\"150\">base</text>\n              </g>\n            </svg></div>\n            <p>The angle of greatest slope, \\( \\theta \\), is the angle this line makes with the <strong>horizontal</strong>. In the right-angled triangle beneath the line, the vertical rise \\( h \\) is the opposite side and the horizontal run is the adjacent side:</p>\n            \\[ \\tan\\theta = \\frac{\\text{vertical rise}}{\\text{horizontal run}}. \\]\n            <p><strong>Example:</strong> a ramp rises \\( 5 \\) m over a horizontal distance of \\( 12 \\) m. Then \\( \\tan\\theta = \\dfrac{5}{12} \\), so \\( \\theta = \\tan^{-1}\\!\\left(\\dfrac{5}{12}\\right) = 22.6^\\circ \\) (1 d.p.).</p>",
+  "question": "A slope rises 3 m over a horizontal run of 4 m. Its angle of greatest slope is:",
+  "options": [
+   "\\( \\tan^{-1}(3/4) = 36.9^\\circ \\)",
+   "\\( \\tan^{-1}(4/3) = 53.1^\\circ \\)",
+   "\\( \\sin^{-1}(3/4) = 48.6^\\circ \\)",
+   "\\( 3/4 = 0.75^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Angle to the horizontal: opposite = rise (3), adjacent = run (4), so \\( \\tan\\theta = 3/4 \\), \\( \\theta = 36.9^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:learn:5908fd6c",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do Pythagoras and SOH-CAH-TOA work together in 3D?",
+  "reading": "<p>The classic 3D routine is <strong>Pythagoras once (or twice) to build a length, then trig for the angle</strong>. You almost always need a horizontal base length before you can reach the point directly above it.</p>\n            <ul>\n              <li><strong>Find the shadow.</strong> Drop the point you are aiming for straight down to the base; the horizontal distance to that foot is what you need.</li>\n              <li><strong>Pythagoras.</strong> Build that horizontal distance from the base edges — e.g. \\( \\sqrt{60^2 + 80^2} = 100 \\).</li>\n              <li><strong>Trig.</strong> Now the height (opposite) over the horizontal distance (adjacent) gives the angle: \\( \\tan\\theta = \\dfrac{\\text{height}}{\\text{horizontal distance}} \\).</li>\n            </ul>\n            <p><strong>Watch out:</strong> the straight-line (slant) distance is <em>not</em> the adjacent side. Using the slant length as \\( \\text{adjacent} \\) is a common error — the adjacent side must be <strong>horizontal</strong>.</p>\n            <p>If a triangle in the problem is <strong>not</strong> right-angled (for example a triangle of bearings on the ground), reach instead for the <strong>sine or cosine rule</strong> from 5.2 — but only then.</p>",
+  "question": "To find the angle a mast-top makes at a point 100 m away horizontally, with mast height 20 m, you use:",
+  "options": [
+   "\\( \\tan\\theta = 20/100 \\)",
+   "\\( \\sin\\theta = 20/100 \\) using the slant length",
+   "the cosine rule",
+   "\\( \\tan\\theta = 100/20 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Height is opposite, horizontal distance is adjacent, so \\( \\tan\\theta = 20/100 \\). No slant length or cosine rule is needed."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:learn:26a31229",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do bearings and angles of elevation combine?",
+  "reading": "<p>Many 3D questions mix a <strong>plan view on the ground</strong> (bearings) with a <strong>vertical slice</strong> (angles of elevation).</p>\n            <ul>\n              <li>A <strong>bearing</strong> is measured <strong>clockwise from north</strong> and always written with <strong>three figures</strong> — e.g. \\( 060^\\circ \\), \\( 286^\\circ \\), due east is \\( 090^\\circ \\), due west is \\( 270^\\circ \\).</li>\n              <li>The <strong>reverse bearing</strong> (there-and-back) differs by \\( 180^\\circ \\): if B is on bearing \\( 060^\\circ \\) from A, then A is on bearing \\( 240^\\circ \\) from B.</li>\n              <li>An <strong>angle of elevation</strong> is measured <strong>upward from the horizontal</strong> to a line of sight.</li>\n            </ul>\n            <p><strong>Typical plan:</strong> use the <strong>cosine rule</strong> on the ground triangle to find a horizontal distance, then \\( \\tan(\\text{elevation}) = \\dfrac{\\text{height}}{\\text{horizontal distance}} \\) for the vertical part, and the <strong>sine rule</strong> plus a reverse bearing for a required bearing. Keep full accuracy between steps.</p>",
+  "question": "The bearing of Q from P is \\( 145^\\circ \\). The bearing of P from Q is:",
+  "options": [
+   "\\( 325^\\circ \\)",
+   "\\( 215^\\circ \\)",
+   "\\( 035^\\circ \\)",
+   "\\( 055^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Reverse bearing adds \\( 180^\\circ \\): \\( 145 + 180 = 325^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:learn:7fab510c",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Which triangle — and is the angle to the horizontal or the vertical?",
+  "reading": "<p>The 2024 examiners flagged two errors again and again on 3D trig, and both cost easy marks.</p>\n            <ul>\n              <li><strong>The wrong right-angled triangle.</strong> Not every triangle in the picture contains the angle you want. Trace the actual path and the point directly below its top — that fixes the correct triangle.</li>\n              <li><strong>Angle to the vertical instead of the horizontal.</strong> “The angle with the horizontal” has the <strong>height as opposite</strong> and the <strong>horizontal distance as adjacent</strong>. If you accidentally swap them you find the angle to the vertical, and \\( \\tan^{-1}(80/20) = 76^\\circ \\) instead of the correct \\( \\tan^{-1}(20/80) = 14^\\circ \\) (the two add to \\( 90^\\circ \\)).</li>\n              <li><strong>Don't overcomplicate.</strong> If a right-angled triangle solves it with SOH-CAH-TOA, do not bring in the sine rule — it is slower and invites slips.</li>\n            </ul>\n            <p><strong>Sanity check:</strong> a shallow slope gives a <em>small</em> angle to the horizontal. If your answer is close to \\( 90^\\circ \\) for a gentle hill, you have measured to the wrong reference.</p>",
+  "question": "A path rises 20 m over 80 m horizontally. A student gets \\( 76.0^\\circ \\). What went wrong?",
+  "options": [
+   "They used \\( \\tan^{-1}(80/20) \\) — the angle to the vertical, not the horizontal",
+   "Nothing — \\( 76^\\circ \\) is correct",
+   "They should have used the sine rule",
+   "They rounded too early"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The angle to the horizontal is \\( \\tan^{-1}(20/80) = 14.0^\\circ \\); \\( 76.0^\\circ \\) is its complement, the angle to the vertical."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:misc:c355b865",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Any right-angled triangle in the 3D diagram will give the angle I want.</p><p><strong>✅ The correct idea:</strong> You must chose the RIGHT right-angled triangle. A weak answer grabs the first triangle it sees; a strong answer traces the actual line and the point directly beneath its top, then draws that specific triangle flat before using trig (2024 examiners: some worked in triangle MBE instead of the correct one).</p>",
+  "question": "How do you fix on the correct right-angled triangle?",
+  "options": [
+   "Trace the line and the point directly below its top; use that triangle",
+   "Use whichever triangle is largest",
+   "Always use the front face",
+   "Use the triangle with the biggest angle"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The correct triangle contains the line, its vertical rise, and the horizontal projection to the foot beneath the top."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:misc:c12e456f",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The path rises 20 m over 80 m, so the angle with the horizontal is \\( \\tan^{-1}(80/20) = 76.0^\\circ \\).</p><p><strong>✅ The correct idea:</strong> That is the angle to the VERTICAL. A weak answer swaps opposite and adjacent; a strong answer keeps the height as opposite and the horizontal run as adjacent: \\( \\tan^{-1}(20/80) = 14.0^\\circ \\) (2024 ER: many measured the angle to the vertical instead of the horizontal).</p>",
+  "question": "Angle to the horizontal for a 20 m rise over 80 m:",
+  "options": [
+   "\\( \\tan^{-1}(20/80) = 14.0^\\circ \\)",
+   "\\( \\tan^{-1}(80/20) = 76.0^\\circ \\)",
+   "\\( \\sin^{-1}(80/20) \\)",
+   "\\( 90^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Height (20) is opposite, horizontal run (80) is adjacent, so the angle is \\( 14.0^\\circ \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:misc:c3bdeb0e",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> I'll use the sine rule to get this angle in the right-angled triangle.</p><p><strong>✅ The correct idea:</strong> Don't overcomplicate. A weak answer reaches for the sine rule; a strong answer notices the triangle is right-angled and uses SOH-CAH-TOA directly — faster and less error-prone (2024 ER warned against overcomplicating with the sine rule).</p>",
+  "question": "When a right-angled triangle already fits, you should:",
+  "options": [
+   "Use SOH-CAH-TOA directly",
+   "Use the sine rule for safety",
+   "Use the cosine rule twice",
+   "Estimate the angle"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "SOH-CAH-TOA solves a right-angled triangle in one step; the sine rule is unnecessary here."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:misc:3e0e588c",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The distance from one far corner of a cuboid to the opposite corner is just the base diagonal.</p><p><strong>✅ The correct idea:</strong> That ignores the height. A weak answer gives the 2D base diagonal \\( \\sqrt{8^2+6^2}=10 \\); a strong answer includes the vertical: \\( \\sqrt{8^2+6^2+5^2} = \\sqrt{125} \\approx 11.2 \\).</p>",
+  "question": "Space diagonal of an \\( 8\\times 6\\times 5 \\) cuboid:",
+  "options": [
+   "\\( \\sqrt{125} \\approx 11.2 \\)",
+   "\\( 10 \\)",
+   "\\( 19 \\)",
+   "\\( \\sqrt{61} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Include all three dimensions: \\( \\sqrt{8^2+6^2+5^2} = \\sqrt{125} \\approx 11.2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:misc:158bf5cc",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The bearing of C from B works out to \\( 46^\\circ \\), so that's the answer.</p><p><strong>✅ The correct idea:</strong> An angle inside the triangle is not the bearing. A weak answer quotes the interior angle; a strong answer combines it with a known direction (e.g. the reverse bearing of A from B) and writes the result as three figures, e.g. \\( 286^\\circ \\).</p>",
+  "question": "An interior triangle angle of \\( 46^\\circ \\) becomes a bearing by:",
+  "options": [
+   "Combining it with a known direction and writing three figures",
+   "Just adding a zero to make \\( 046^\\circ \\)",
+   "Doubling it",
+   "Using it unchanged"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A bearing is measured clockwise from north; the interior angle must be referenced to a known direction and given as three figures."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:tips:5860b0b3",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Sketch the 2D triangle inside the 3D shape",
+  "reading": "<p><strong>0 marks:</strong> staring at the 3D picture and guessing a ratio.</p><p><strong>Partial:</strong> spotting that a triangle is needed but keeping it embedded in the solid, so opposite and adjacent get muddled.</p><p><strong>Full marks:</strong> redraw the relevant right-angled triangle <em>on its own, flat</em>, label the sides you know, mark the right angle, then apply Pythagoras and SOH-CAH-TOA. A clear separate sketch was singled out for credit in the 2024 report.</p>",
+  "question": "Why redraw the triangle flat and on its own?",
+  "options": [
+   "So opposite/adjacent/hypotenuse are clear and errors are avoided",
+   "To use more paper",
+   "Because 3D pictures are banned",
+   "To make it look neater only"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A separate 2D sketch makes the sides unambiguous and is the method examiners reward."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:tips:3695f2b4",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Measure to the horizontal, not the vertical",
+  "reading": "<p>“The angle with the horizontal” means the <strong>height is opposite</strong> and the <strong>horizontal distance is adjacent</strong>.</p><p><strong>0 marks:</strong> \\( \\tan^{-1}(80/20) = 76.0^\\circ \\) (angle to the vertical). <strong>Full marks:</strong> \\( \\tan^{-1}(20/80) = 14.0^\\circ \\). If your gentle slope comes out near \\( 90^\\circ \\), you have measured to the wrong reference.</p>",
+  "question": "A gentle slope gives an angle to the horizontal of about:",
+  "options": [
+   "A small angle (e.g. \\( 14^\\circ \\))",
+   "Close to \\( 90^\\circ \\)",
+   "Exactly \\( 45^\\circ \\)",
+   "More than \\( 90^\\circ \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Shallow slope means a small angle to the horizontal; near \\( 90^\\circ \\) signals the angle was taken to the vertical."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:tips:7034e01b",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Keep it simple, and give bearings and precision correctly",
+  "reading": "<p><strong>Don't overcomplicate:</strong> if a right-angled triangle fits, use SOH-CAH-TOA — not the sine rule. Only use the sine/cosine rules when the triangle has no right angle.</p><p><strong>Answer form:</strong> bearings as <strong>three figures</strong> (\\( 286^\\circ \\), not \\( 46^\\circ \\)); angles to the demanded precision (2024 Q7 required <strong>1 decimal place</strong> — extra digits lost the final mark). Carry full accuracy in the calculator and round only at the end.</p>",
+  "question": "A question asks for the angle to 1 decimal place. You should:",
+  "options": [
+   "Round only the final answer to 1 d.p. and keep full accuracy before that",
+   "Round every intermediate step to 1 d.p.",
+   "Give the answer to 4 d.p. to be safe",
+   "Give it as a whole number"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Keep full accuracy throughout; round only the final answer to the demanded precision, or the last mark is lost."
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:fib:c54b3134",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "In a 3D problem the first step is to identify the correct right-angled ___B1___ lying in one flat ___B2___ (surface).",
+  "blankOptions": {
+   "B1": [
+    "clockwise",
+    "cosine",
+    "triangle",
+    "vertical"
+   ],
+   "B2": [
+    "plane",
+    "vertical",
+    "opposite",
+    "hypotenuse"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "triangle",
+    "B2": "plane"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:fib:eb3ef63b",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The angle between a line and a plane is found by dropping a ___B1___ from the line down to the plane; the angle is then measured at the ___B2___ of that perpendicular.",
+  "blankOptions": {
+   "B1": [
+    "perpendicular",
+    "adjacent",
+    "plane",
+    "triangle"
+   ],
+   "B2": [
+    "three",
+    "sine",
+    "hypotenuse",
+    "foot"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "perpendicular",
+    "B2": "foot"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:fib:15781a48",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "For a path going up a slope, the angle with the horizontal has the vertical height as the ___B1___ side and the horizontal distance as the ___B2___ side.",
+  "blankOptions": {
+   "B1": [
+    "opposite",
+    "triangle",
+    "three",
+    "clockwise"
+   ],
+   "B2": [
+    "adjacent",
+    "foot",
+    "vertical",
+    "sine"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "opposite",
+    "B2": "adjacent"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:fib:e1b3cea3",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The steepest line that can be drawn on a sloping face is called the line of greatest ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "slope",
+    "cosine",
+    "perpendicular",
+    "opposite"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "slope"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:fib:af571576",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A bearing is measured ___B1___ from north and is always written with ___B2___ figures.",
+  "blankOptions": {
+   "B1": [
+    "cosine",
+    "adjacent",
+    "clockwise",
+    "240"
+   ],
+   "B2": [
+    "three",
+    "hypotenuse",
+    "plane",
+    "perpendicular"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "clockwise",
+    "B2": "three"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:fib:b55c6820",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "If the bearing of B from A is 060 degrees, then the bearing of A from B is ___B1___ degrees.",
+  "blankOptions": {
+   "B1": [
+    "perpendicular",
+    "plane",
+    "240",
+    "three"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "240"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:fib:87b6a96d",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "When a right-angled triangle can be solved with SOH-CAH-TOA, you should not overcomplicate it with the ___B1___ rule.",
+  "blankOptions": {
+   "B1": [
+    "sine",
+    "plane",
+    "slope",
+    "perpendicular"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "sine"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:match:12e4936c",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Line of greatest slope”?",
+  "options": [
+   "\\( 270^\\circ \\)",
+   "Steepest line on a sloping face; runs perpendicular to its horizontal edges",
+   "\\( 240^\\circ \\)",
+   "Angle measured clockwise from north, written with three figures"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Line of greatest slope” means: Steepest line on a sloping face; runs perpendicular to its horizontal edges"
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:match:a9efae76",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Angle between a line and a plane”?",
+  "options": [
+   "\\( \\tan^{-1}\\!\\left(\\dfrac{\\text{height}}{\\text{horizontal distance}}\\right) \\)",
+   "Ratio for an angle in a right-angled triangle",
+   "Angle between the line and its projection (shadow) on the plane",
+   "Finds a side or angle in a triangle with no right angle"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Angle between a line and a plane” means: Angle between the line and its projection (shadow) on the plane"
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:match:5cab8eb3",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Bearing”?",
+  "options": [
+   "Angle between the line and its projection (shadow) on the plane",
+   "\\( \\tan^{-1}\\!\\left(\\dfrac{\\text{height}}{\\text{horizontal distance}}\\right) \\)",
+   "Steepest line on a sloping face; runs perpendicular to its horizontal edges",
+   "Angle measured clockwise from north, written with three figures"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Bearing” means: Angle measured clockwise from north, written with three figures"
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:match:1392920b",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Angle of elevation”?",
+  "options": [
+   "Steepest line on a sloping face; runs perpendicular to its horizontal edges",
+   "Angle measured upward from the horizontal to a line of sight",
+   "Find the right-angled triangle in the correct plane",
+   "\\( \\sqrt{a^2 + b^2} \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Angle of elevation” means: Angle measured upward from the horizontal to a line of sight"
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:match:17a123ee",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Space diagonal of a cuboid \\( a\\times b\\times c \\)”?",
+  "options": [
+   "Finds a side or angle in a triangle with no right angle",
+   "Find the right-angled triangle in the correct plane",
+   "\\( 240^\\circ \\)",
+   "\\( \\sqrt{a^2 + b^2 + c^2} \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Space diagonal of a cuboid \\( a\\times b\\times c \\)” means: \\( \\sqrt{a^2 + b^2 + c^2} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:match:3141de3d",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Base diagonal of a rectangle \\( a\\times b \\)”?",
+  "options": [
+   "\\( \\sqrt{a^2 + b^2 + c^2} \\)",
+   "Angle measured clockwise from north, written with three figures",
+   "\\( \\sqrt{a^2 + b^2} \\)",
+   "\\( 240^\\circ \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Base diagonal of a rectangle \\( a\\times b \\)” means: \\( \\sqrt{a^2 + b^2} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:match:a7d18f45",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “First step in a 3D problem”?",
+  "options": [
+   "\\( 240^\\circ \\)",
+   "Find the right-angled triangle in the correct plane",
+   "Angle measured upward from the horizontal to a line of sight",
+   "\\( \\tan^{-1}\\!\\left(\\dfrac{\\text{height}}{\\text{horizontal distance}}\\right) \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“First step in a 3D problem” means: Find the right-angled triangle in the correct plane"
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:match:6ea06eb6",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Reverse of bearing \\( 060^\\circ \\)”?",
+  "options": [
+   "Finds a side or angle in a triangle with no right angle",
+   "Find the right-angled triangle in the correct plane",
+   "Angle between the line and its projection (shadow) on the plane",
+   "\\( 240^\\circ \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Reverse of bearing \\( 060^\\circ \\)” means: \\( 240^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:match:7f55319d",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Angle a path makes with the horizontal”?",
+  "options": [
+   "Angle between the line and its projection (shadow) on the plane",
+   "\\( \\tan^{-1}\\!\\left(\\dfrac{\\text{height}}{\\text{horizontal distance}}\\right) \\)",
+   "\\( \\sqrt{a^2 + b^2} \\)",
+   "\\( \\sqrt{a^2 + b^2 + c^2} \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Angle a path makes with the horizontal” means: \\( \\tan^{-1}\\!\\left(\\dfrac{\\text{height}}{\\text{horizontal distance}}\\right) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:match:92920540",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Cosine rule”?",
+  "options": [
+   "Angle between the line and its projection (shadow) on the plane",
+   "Find the right-angled triangle in the correct plane",
+   "Finds a side or angle in a triangle with no right angle",
+   "Ratio for an angle in a right-angled triangle"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Cosine rule” means: Finds a side or angle in a triangle with no right angle"
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:match:ad4c6c1b",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\tan\\theta = \\dfrac{\\text{opposite}}{\\text{adjacent}} \\)”?",
+  "options": [
+   "Ratio for an angle in a right-angled triangle",
+   "Steepest line on a sloping face; runs perpendicular to its horizontal edges",
+   "\\( 240^\\circ \\)",
+   "Find the right-angled triangle in the correct plane"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\tan\\theta = \\dfrac{\\text{opposite}}{\\text{adjacent}} \\)” means: Ratio for an angle in a right-angled triangle"
+  }
+ },
+ {
+  "id": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d:match:5d9d9f24",
+  "pageId": "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d",
+  "pageName": "5.5 Pythagoras and Trig in 2D and 3D",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Due west as a bearing”?",
+  "options": [
+   "Angle measured upward from the horizontal to a line of sight",
+   "\\( 270^\\circ \\)",
+   "Angle measured clockwise from north, written with three figures",
+   "\\( \\sqrt{a^2 + b^2} \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Due west as a bearing” means: \\( 270^\\circ \\)"
   }
  }
 ];

@@ -586,7 +586,7 @@ page is legible without KaTeX. So ADM-0 is heavier than CS-0 and must land first
 | **ADM-A-W2** | Group 2 (2.1-2.4) - Polynomials & Equations | W1 conventions | 🔄 all 4 pages BUILT + verified 2026-07-17 (4 parallel builders; coordinator re-verified each + recomputed every cubic/division/recurrence vs real papers; bank rebuilt = 429 Qs / 8 pages, NOT uploaded). AWAITING owner review + go-live |
 | **ADM-A-W3** | Group 3 (3.1-3.3) - Coordinate Geometry | ADM-0 | 🔄 3 pages BUILT+verified 2026-07-17 (coordinator recomputed 2023 Q9/Q12, 2019 Q10, 2024 Q6 vs papers; builder caught a wrong root hint from coordinator — recomputed to 0.5; bank=596 Qs/11 pages, NOT uploaded) |
 | **ADM-A-W4** | Group 4 (4.1-4.3) - Linear Programming | ADM-0 | 🔄 3 pages BUILT+verified 2026-07-17 (coordinator recomputed 2023 Q10, 2024 Q16 non-integer optimum 2.5, 2019 Q11 profit £412 vs papers). NOT uploaded |
-| **ADM-A-W4** | Group 5 (5.1-5.5) - Trigonometry | ADM-0 | ⬜ |
+
 | **ADM-A-W5** | Group 6 (6.1-6.4) + Group 7 (7.1-7.4) - Enumeration + Exp/Logs | ADM-0 | ⬜ |
 | **ADM-A-W6** | Group 8 (8.1-8.3) + Group 9 (9.1-9.3) - Calculus | W1-W2 (algebra secure) | ⬜ |
 | **ADM-A-W7** | Group 10 (10.1-10.2) + Group 11 (11.1-11.2) - Kinematics/NM + Exam Prep | W4, W6 | ⬜ |
@@ -737,11 +737,11 @@ delegation produces confidently wrong maths.
 | 4.1 | Inequalities in two variables | ✅ 2026-07-17 (6·12·8·8·14·5·3·16) | ✅ coord | ✅ 2023 Q10, 6 marks | 🔄 bank built, NOT uploaded |
 | 4.2 | Constraints & objective functions | ✅ 2026-07-17 (6·12·8·8·14·5·3·16) | ✅ coord | — none standalone (on 4.3) | 🔄 bank built, NOT uploaded |
 | 4.3 | Solving LP problems graphically | ✅ 2026-07-17 (6·12·8·8·14·5·3·15) | ✅ coord | ✅ 2024 Q16 + 2019 Q11, 23 marks | 🔄 bank built, NOT uploaded |
-| 5.1 | Trig ratios for any angle | ⬜ | ⬜ | ⬜ | ⬜ |
+| 5.1 | Trig ratios for any angle | ✅ 2026-07-17 | ✅ coord | — none standalone (PT1) | 🔄 bank built, NOT uploaded |
 | 5.2 | Sine & cosine rules | ⬜ | ⬜ | ⬜ | ⬜ |
-| 5.3 | Trigonometric identities | ⬜ | ⬜ | ⬜ | ⬜ |
-| 5.4 | Trigonometric equations | ⬜ | ⬜ | ⬜ | ⬜ |
-| 5.5 | Pythagoras & trig in 2D and 3D | ⬜ | ⬜ | ⬜ | ⬜ |
+| 5.3 | Trigonometric identities | ✅ 2026-07-17 | 🔶 coord (no builder report; maths re-derived) | ✅ 2024 Q17, 8 marks | 🔄 bank built, NOT uploaded |
+| 5.4 | Trigonometric equations | ✅ 2026-07-17 | ✅ coord | ✅ 2022 Q5 + 2019 Q6, 13 marks | 🔄 bank built, NOT uploaded |
+| 5.5 | Pythagoras & trig in 2D and 3D | ✅ 2026-07-17 | 🔶 coord (no builder report; maths+figures re-checked vs MS) | ✅ 2024 Q7 + 2019 Q13, 18 marks | 🔄 bank built, NOT uploaded |
 | 6.1 | Counting, permutations & combinations | ⬜ | ⬜ | ⬜ | ⬜ |
 | 6.2 | The binomial expansion | ⬜ | ⬜ | ⬜ | ⬜ |
 | 6.3 | The binomial distribution | ⬜ | ⬜ | ⬜ | ⬜ |

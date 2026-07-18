@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 5. Trigonometry</div>
             <h1>5.2 Sine and Cosine Rules</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,11 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 5.2 Sine and Cosine Rules — placeholder, content not yet written
+    //  DATA: 5.2 Sine and Cosine Rules (PT2 — incl. the ambiguous case)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Exam Q = 2023 Q8.
+    //  Degrees only throughout. Sine & cosine rules and area = ½ab sinC are all
+    //  MEMORISE formulae (not on the exam formula sheet).
     // ══════════════════════════════════════
     const pageMeta = {
             id: '5-2-sine-and-cosine-rules',
@@ -266,23 +270,271 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimulus for the 2023 Q8 exam parts (see examQuestions).
+    const EXAM_CASE_STUDIES = {
+        "q8-2023": `<p>The triangle \\( ABC \\) is such that \\( AB = 12 \\) cm and angle \\( A = 50^\\circ \\).</p>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>5.2 Sine and Cosine Rules</strong> will appear here soon.</p>`
+            title: "Which rule do you use — sine or cosine?",
+            tag: "Key concept",
+            content: `<p>In <strong>any</strong> triangle (not just right-angled ones) the <strong>sine rule</strong> and <strong>cosine rule</strong> connect the sides and angles. We label a triangle so that side \\( a \\) is <strong>opposite</strong> angle \\( A \\), side \\( b \\) opposite \\( B \\), and side \\( c \\) opposite \\( C \\).</p>
+            <svg viewBox="0 0 300 210" width="100%" style="max-width:340px;height:auto;display:block;margin:14px auto" role="img" aria-label="Triangle ABC with vertex A bottom-left, B at the top, C bottom-right; side a opposite A, side b opposite B, side c opposite C">
+              <polygon points="40,170 155,40 265,170" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <text x="30" y="182" font-size="14" fill="currentColor">A</text>
+              <text x="152" y="32" font-size="14" fill="currentColor">B</text>
+              <text x="272" y="182" font-size="14" fill="currentColor">C</text>
+              <text x="88" y="100" font-size="14" fill="currentColor" font-style="italic">c</text>
+              <text x="220" y="100" font-size="14" fill="currentColor" font-style="italic">a</text>
+              <text x="150" y="188" font-size="14" fill="currentColor" font-style="italic">b</text>
+            </svg>
+            <p>Choose the rule from what you are <strong>given</strong>:</p>
+            <ul>
+              <li><strong>Two sides and the angle between them (SAS)</strong> → <strong>cosine rule</strong> to find the third side.</li>
+              <li><strong>All three sides (SSS)</strong> → <strong>cosine rule</strong>, rearranged to find an angle.</li>
+              <li><strong>Two angles and a side (ASA / AAS)</strong> → <strong>sine rule</strong>.</li>
+              <li><strong>Two sides and a non-included angle (SSA)</strong> → <strong>sine rule</strong> — but beware the <strong>ambiguous case</strong> (last card).</li>
+            </ul>
+            <p>A quick test for the sine rule: it needs a <em>matching pair</em> — a side and its opposite angle both known. If you have no such pair, reach for the cosine rule.</p>`,
+            readCheck: { q: "You know two sides of a triangle and the angle between them. Which rule finds the third side?", opts: ["The cosine rule", "The sine rule", "Pythagoras' theorem", "The area formula"], ans: 0, explain: "Two sides and the included angle (SAS) gives no side-and-opposite-angle pair, so the sine rule cannot start — use the cosine rule." }
+        },
+        {
+            title: "How do you use the sine rule to find a side?",
+            tag: "Worked example",
+            content: `<p>The <strong>sine rule</strong> is \\[ \\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C}. \\] To find a <strong>side</strong>, keep the sides on top. (To find an <strong>angle</strong> it is easier to flip it: \\( \\frac{\\sin A}{a} = \\frac{\\sin B}{b} = \\frac{\\sin C}{c} \\).)</p>
+            <p><strong>Worked example — find \\( b \\) when \\( A = 40^\\circ,\\ B = 75^\\circ,\\ a = 8 \\) cm:</strong></p>
+            <table class="worked">
+              <tr><td>1. Pick the two ratios you can use: \\( \\dfrac{b}{\\sin B} = \\dfrac{a}{\\sin A} \\).</td></tr>
+              <tr><td>2. Substitute: \\( \\dfrac{b}{\\sin 75^\\circ} = \\dfrac{8}{\\sin 40^\\circ} \\).</td></tr>
+              <tr><td>3. Multiply up: \\( b = \\dfrac{8\\sin 75^\\circ}{\\sin 40^\\circ} \\).</td></tr>
+              <tr><td>4. Evaluate: \\( b = \\dfrac{8 \\times 0.9659}{0.6428} = 12.0 \\) cm (3 s.f.).</td></tr>
+            </table>
+            <p>Always pair a side with the angle <em>opposite</em> it. Keep the calculator in <strong>degrees</strong> — the whole of this qualification is in degrees.</p>`,
+            readCheck: { q: "In a triangle \\( A = 30^\\circ,\\ B = 45^\\circ \\) and side \\( a = 10 \\) cm. Find side \\( b \\).", opts: ["\\( 14.1 \\) cm", "\\( 7.07 \\) cm", "\\( 20 \\) cm", "\\( 5 \\) cm"], ans: 0, explain: "\\( b = \\dfrac{10\\sin 45^\\circ}{\\sin 30^\\circ} = \\dfrac{10 \\times 0.7071}{0.5} = 14.1 \\) cm." }
+        },
+        {
+            title: "How do you use the cosine rule?",
+            tag: "Worked example",
+            content: `<p>The <strong>cosine rule</strong> for a side is \\[ a^2 = b^2 + c^2 - 2bc\\cos A, \\] where \\( A \\) is the angle <strong>between</strong> sides \\( b \\) and \\( c \\). Rearranged to find an angle: \\[ \\cos A = \\frac{b^2 + c^2 - a^2}{2bc}. \\]</p>
+            <p><strong>Worked example (find a side, SAS) — \\( b = 7,\\ c = 9,\\ A = 40^\\circ \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( a^2 = 7^2 + 9^2 - 2 \\times 7 \\times 9 \\times \\cos 40^\\circ \\).</td></tr>
+              <tr><td>2. \\( a^2 = 49 + 81 - 126 \\times 0.7660 = 130 - 96.52 = 33.48 \\).</td></tr>
+              <tr><td>3. \\( a = \\sqrt{33.48} = 5.79 \\) cm (3 s.f.).</td></tr>
+            </table>
+            <p><strong>Worked example (find an angle, SSS) — \\( a = 8,\\ b = 5,\\ c = 7 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( \\cos A = \\dfrac{5^2 + 7^2 - 8^2}{2 \\times 5 \\times 7} = \\dfrac{25 + 49 - 64}{70} = \\dfrac{10}{70} \\).</td></tr>
+              <tr><td>2. \\( \\cos A = 0.1429 \\), so \\( A = \\cos^{-1}(0.1429) = 81.8^\\circ \\).</td></tr>
+            </table>
+            <p>Watch the sign: the term is <strong>minus</strong> \\( 2bc\\cos A \\). Writing \\( +2bc\\cos A \\) is the most common cosine-rule slip.</p>`,
+            readCheck: { q: "Find side \\( a \\) when \\( b = 6,\\ c = 10 \\) and the included angle \\( A = 60^\\circ \\).", opts: ["\\( 8.72 \\) cm", "\\( 11.7 \\) cm", "\\( 12.3 \\) cm", "\\( 4 \\) cm"], ans: 0, explain: "\\( a^2 = 36 + 100 - 120\\cos 60^\\circ = 136 - 60 = 76 \\), so \\( a = \\sqrt{76} = 8.72 \\) cm. (Using \\( +60 \\) gives the wrong \\( 11.7 \\).)" }
+        },
+        {
+            title: "How do you find the area of a triangle?",
+            tag: "Method",
+            content: `<p>When you know <strong>two sides and the angle between them</strong>, the area is \\[ \\text{Area} = \\frac{1}{2}ab\\sin C, \\] where \\( C \\) is the <strong>included</strong> angle (the angle <em>between</em> sides \\( a \\) and \\( b \\)). This is a <strong>memorise</strong> formula.</p>
+            <p><strong>Worked example — \\( a = 8 \\) cm, \\( b = 11 \\) cm, included angle \\( C = 35^\\circ \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( \\text{Area} = \\dfrac{1}{2} \\times 8 \\times 11 \\times \\sin 35^\\circ \\).</td></tr>
+              <tr><td>2. \\( \\text{Area} = 44 \\times 0.5736 = 25.2 \\) cm\\( ^2 \\) (3 s.f.).</td></tr>
+            </table>
+            <p>The angle must be the one <em>between</em> the two sides you use. If you are given the wrong angle, find another (often via the sine or cosine rule) before using the area formula.</p>`,
+            readCheck: { q: "Find the area of a triangle with sides \\( 6 \\) cm and \\( 9 \\) cm and an included angle of \\( 50^\\circ \\).", opts: ["\\( 20.7 \\) cm\\( ^2 \\)", "\\( 27 \\) cm\\( ^2 \\)", "\\( 41.4 \\) cm\\( ^2 \\)", "\\( 24.9 \\) cm\\( ^2 \\)"], ans: 0, explain: "\\( \\tfrac{1}{2} \\times 6 \\times 9 \\times \\sin 50^\\circ = 27 \\times 0.7660 = 20.7 \\) cm\\( ^2 \\)." }
+        },
+        {
+            title: "When does the ambiguous case of the sine rule arise?",
+            tag: "Common error",
+            content: `<p>When you use the sine rule to find an <strong>angle</strong> from two sides and a <strong>non-included</strong> angle (the <strong>SSA</strong> setup), there can be <strong>two</strong> different triangles that fit the information. This is the <strong>ambiguous case</strong>.</p>
+            <p>The reason: \\( \\sin\\theta \\) takes the <em>same</em> value for an acute angle and its obtuse partner. If \\( \\sin C = k \\), then both \\( C = \\sin^{-1} k \\) and \\( C = 180^\\circ - \\sin^{-1} k \\) satisfy it. Your calculator only gives the acute (principal) value — you must consider the obtuse one too.</p>
+            <svg viewBox="0 0 320 190" width="100%" style="max-width:360px;height:auto;display:block;margin:14px auto" role="img" aria-label="Vertex A on the left with side AB of length 12 going up to B; side BC of a fixed length swings down to meet the base line at two points, giving an obtuse triangle and an acute triangle">
+              <line x1="30" y1="160" x2="300" y2="160" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="30" y1="160" x2="150" y2="55" stroke="currentColor" stroke-width="2.5"/>
+              <line x1="150" y1="55" x2="110" y2="160" stroke="currentColor" stroke-width="2.5"/>
+              <line x1="150" y1="55" x2="240" y2="160" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M 110 160 A 105 105 0 0 1 240 160" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
+              <circle cx="30" cy="160" r="3.5" fill="currentColor"/>
+              <circle cx="150" cy="55" r="3.5" fill="currentColor"/>
+              <circle cx="110" cy="160" r="3.5" fill="currentColor"/>
+              <circle cx="240" cy="160" r="3.5" fill="currentColor"/>
+              <text x="20" y="176" font-size="13" fill="currentColor">A</text>
+              <text x="150" y="48" font-size="13" fill="currentColor">B</text>
+              <text x="96" y="176" font-size="12" fill="currentColor">C₁</text>
+              <text x="236" y="176" font-size="12" fill="currentColor">C₂</text>
+              <text x="70" y="100" font-size="12" fill="currentColor" font-style="italic">12</text>
+            </svg>
+            <p>The same side \\( BC \\) reaches the base line at \\( C_1 \\) (giving an <strong>obtuse</strong> angle \\( C \\)) and at \\( C_2 \\) (giving an <strong>acute</strong> angle \\( C \\)) — two valid triangles.</p>
+            <p><strong>Worked example — \\( A = 40^\\circ,\\ a = 6,\\ b = 8 \\), find angle \\( B \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( \\dfrac{\\sin B}{b} = \\dfrac{\\sin A}{a} \\Rightarrow \\sin B = \\dfrac{8\\sin 40^\\circ}{6} = 0.8571 \\).</td></tr>
+              <tr><td>2. Acute value: \\( B = \\sin^{-1}(0.8571) = 59.0^\\circ \\).</td></tr>
+              <tr><td>3. Obtuse partner: \\( B = 180^\\circ - 59.0^\\circ = 121.0^\\circ \\).</td></tr>
+              <tr><td>4. Check both: with \\( A = 40^\\circ \\), each leaves a positive third angle (\\( 81^\\circ \\) or \\( 19^\\circ \\)), so <strong>both</strong> triangles are valid.</td></tr>
+            </table>
+            <p>The second solution is only valid if the known angle plus the obtuse angle stays <strong>below</strong> \\( 180^\\circ \\). It is <em>not</em> valid when the side opposite the known angle is long enough (\\( a \\ge b \\)) — then only one triangle exists.</p>`,
+            readCheck: { q: "The sine rule gives \\( \\sin C = 0.6 \\), and the triangle is known to be obtuse at \\( C \\). What is \\( C \\)?", opts: ["\\( 143.1^\\circ \\)", "\\( 36.9^\\circ \\)", "\\( 53.1^\\circ \\)", "\\( 216.9^\\circ \\)"], ans: 0, explain: "The acute value is \\( \\sin^{-1}(0.6) = 36.9^\\circ \\); the obtuse partner is \\( 180^\\circ - 36.9^\\circ = 143.1^\\circ \\)." }
+        },
+        {
+            title: "Which trig formulae must you memorise?",
+            tag: "Exam skill",
+            content: `<p>None of this page's formulae are printed on the exam formula sheet — you must <strong>memorise all three</strong>:</p>
+            <ul>
+              <li><strong>Sine rule:</strong> \\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\).</li>
+              <li><strong>Cosine rule:</strong> \\( a^2 = b^2 + c^2 - 2bc\\cos A \\) (and \\( \\cos A = \\dfrac{b^2+c^2-a^2}{2bc} \\)).</li>
+              <li><strong>Area:</strong> \\( \\dfrac{1}{2}ab\\sin C \\).</li>
+            </ul>
+            <p>The formula sheet only provides the binomial series, the binomial distribution, the trapezium rule and the kinematics relations — the trigonometry rules are your responsibility.</p>
+            <p>Two habits protect marks: keep your calculator in <strong>degrees</strong>, and label the triangle so that each side sits opposite its matching capital-letter angle before you substitute.</p>`,
+            readCheck: { q: "Which of these formulae is printed on the 6993 formula sheet?", opts: ["None — the sine, cosine and area rules must all be memorised", "The sine rule only", "The cosine rule only", "All three are provided"], ans: 0, explain: "The sine rule, cosine rule and area \\( = \\tfrac{1}{2}ab\\sin C \\) are all MEMORISE formulae; the sheet provides binomial, distribution, trapezium and kinematics results only." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "You are given two sides of a triangle and the angle between them (SAS). Which rule finds the third side?", opts: ["The cosine rule", "The sine rule", "The area formula", "Pythagoras' theorem"], ans: 0, explain: "SAS has no side paired with its opposite angle, so the sine rule cannot start. Use \\( a^2 = b^2 + c^2 - 2bc\\cos A \\)." },
+        { q: "You know all three sides of a triangle (SSS) and want an angle. Which rule do you use?", opts: ["The cosine rule, rearranged for the angle", "The sine rule", "The area formula", "You cannot find an angle from three sides"], ans: 0, explain: "Use \\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\); the sine rule needs an angle to start, which SSS does not give." },
+        { q: "Complete the sine rule: \\( \\dfrac{a}{\\sin A} = \\ \\square \\).", opts: ["\\( \\dfrac{b}{\\sin B} \\)", "\\( \\dfrac{\\sin B}{b} \\)", "\\( \\dfrac{b}{\\cos B} \\)", "\\( b\\sin B \\)"], ans: 0, explain: "\\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\); each side sits over the sine of its opposite angle." },
+        { q: "Find side \\( a \\) when \\( b = 5,\\ c = 8 \\) and the included angle \\( A = 60^\\circ \\).", opts: ["\\( 7 \\)", "\\( 11.4 \\)", "\\( 3 \\)", "\\( 9.4 \\)"], ans: 0, explain: "\\( a^2 = 25 + 64 - 2(5)(8)\\cos 60^\\circ = 89 - 40 = 49 \\), so \\( a = 7 \\). (Using \\( +40 \\) gives the wrong \\( \\sqrt{129} = 11.4 \\).)" },
+        { q: "A student writes the cosine rule as \\( a^2 = b^2 + c^2 + 2bc\\cos A \\). What is wrong?", opts: ["The last term should be subtracted: \\( -2bc\\cos A \\)", "Nothing — it is correct", "It should be \\( +2bc\\sin A \\)", "\\( a^2 \\) should be \\( 2a^2 \\)"], ans: 0, explain: "The cosine rule subtracts: \\( a^2 = b^2 + c^2 - 2bc\\cos A \\). The wrong sign is the most common slip." },
+        { q: "Find angle \\( A \\) (opposite the side of length 7) in a triangle with sides \\( a = 7,\\ b = 8,\\ c = 9 \\).", opts: ["\\( 48.2^\\circ \\)", "\\( 58.4^\\circ \\)", "\\( 73.4^\\circ \\)", "\\( 41.8^\\circ \\)"], ans: 0, explain: "\\( \\cos A = \\dfrac{8^2 + 9^2 - 7^2}{2(8)(9)} = \\dfrac{96}{144} = 0.6667 \\), so \\( A = 48.2^\\circ \\)." },
+        { q: "The sine rule gives \\( \\sin C = 0.8 \\). What are the two possible values of \\( C \\)?", opts: ["\\( 53.1^\\circ \\) and \\( 126.9^\\circ \\)", "\\( 53.1^\\circ \\) only", "\\( 53.1^\\circ \\) and \\( 306.9^\\circ \\)", "\\( 36.9^\\circ \\) and \\( 143.1^\\circ \\)"], ans: 0, explain: "\\( \\sin^{-1}(0.8) = 53.1^\\circ \\); the obtuse partner is \\( 180^\\circ - 53.1^\\circ = 126.9^\\circ \\)." },
+        { q: "In a triangle \\( A = 35^\\circ,\\ a = 8,\\ b = 11 \\). Find the OBTUSE possible value of angle \\( B \\).", opts: ["\\( 127.9^\\circ \\)", "\\( 52.1^\\circ \\)", "\\( 55^\\circ \\)", "\\( 145^\\circ \\)"], ans: 0, explain: "\\( \\sin B = \\dfrac{11\\sin 35^\\circ}{8} = 0.7887 \\); acute \\( 52.1^\\circ \\), obtuse \\( 180^\\circ - 52.1^\\circ = 127.9^\\circ \\)." },
+        { q: "Find the area of a triangle with sides \\( 10 \\) cm and \\( 14 \\) cm and an included angle of \\( 30^\\circ \\).", opts: ["\\( 35 \\) cm\\( ^2 \\)", "\\( 70 \\) cm\\( ^2 \\)", "\\( 60.6 \\) cm\\( ^2 \\)", "\\( 17.5 \\) cm\\( ^2 \\)"], ans: 0, explain: "\\( \\tfrac{1}{2} \\times 10 \\times 14 \\times \\sin 30^\\circ = 70 \\times 0.5 = 35 \\) cm\\( ^2 \\)." },
+        { q: "In the SSA setup with known angle \\( A \\) and sides \\( a \\) (opposite \\( A \\)) and \\( b \\), two different triangles exist when:", opts: ["\\( b\\sin A < a < b \\)", "\\( a > b \\) always", "\\( a = b \\)", "\\( A > 90^\\circ \\)"], ans: 0, explain: "If \\( a \\) is longer than the height \\( b\\sin A \\) but shorter than \\( b \\), the side reaches the base line in two places — two triangles." },
+        { q: "Which is the correct rearrangement of the cosine rule for \\( \\cos A \\)?", opts: ["\\( \\dfrac{b^2 + c^2 - a^2}{2bc} \\)", "\\( \\dfrac{a^2 + b^2 - c^2}{2bc} \\)", "\\( \\dfrac{b^2 + c^2 - a^2}{2ab} \\)", "\\( \\dfrac{a^2 - b^2 - c^2}{2bc} \\)"], ans: 0, explain: "Rearranging \\( a^2 = b^2 + c^2 - 2bc\\cos A \\) gives \\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\) — the \\( a^2 \\) (opposite \\( A \\)) is the one subtracted." },
+        { q: "Given two sides and the angle between them, a student tries the sine rule to find the third side. Why does it fail?", opts: ["No side is paired with its opposite angle, so no sine-rule ratio can be formed", "The sine rule only works in right-angled triangles", "The sine rule cannot find sides, only angles", "It does not fail — it works fine"], ans: 0, explain: "The only known angle sits between the two known sides (not opposite a known side), so the sine rule has no complete ratio. SAS needs the cosine rule." }
+    ];
+
+    const matchData = [
+        { term: "SAS — two sides and the included angle", def: "Cosine rule to find the third side" },
+        { term: "SSS — all three sides known", def: "Cosine rule rearranged to find an angle" },
+        { term: "AAS — two angles and a side", def: "Sine rule to find another side" },
+        { term: "SSA — two sides and a non-included angle", def: "Sine rule, watching for the ambiguous case" },
+        { term: "Sine rule", def: "\\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\)" },
+        { term: "Cosine rule (for a side)", def: "\\( a^2 = b^2 + c^2 - 2bc\\cos A \\)" },
+        { term: "Cosine rule (for an angle)", def: "\\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\)" },
+        { term: "Area of a triangle", def: "\\( \\dfrac{1}{2}ab\\sin C \\)" },
+        { term: "Obtuse angle when \\( \\sin\\theta = 0.5 \\)", def: "\\( 150^\\circ \\)" },
+        { term: "The included angle", def: "The angle between the two given sides" },
+        { term: "The ambiguous case", def: "Two possible triangles from an SSA setup" },
+        { term: "Second (obtuse) solution", def: "\\( 180^\\circ - \\) the acute value" },
+        { term: "When \\( a \\ge b \\) in an SSA setup", def: "Only one triangle is possible" }
+    ];
+
+    // NOTE: FIB blanks must sit in PLAIN TEXT, never inside a \( \) region
+    // (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b). Answer VALUES stay plain text.
+    const fibData = [
+        { display: "In the sine rule \\( \\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\), each side sits over the sine of the angle ___B1___ to it.", blanks: { B1: "opposite" } },
+        { display: "You use the ___B1___ rule when you know two sides and the angle between them (SAS), and the ___B2___ rule when you know two angles and a side.", blanks: { B1: "cosine", B2: "sine" } },
+        { display: "In the rearranged cosine rule \\( \\cos A = \\frac{b^2 + c^2 - a^2}{2bc} \\), the denominator is ___B1___.", blanks: { B1: "2bc" } },
+        { display: "The area of a triangle equals \\( \\frac{1}{2}ab\\sin C \\), where C is the ___B1___ angle between sides a and b.", blanks: { B1: "included" } },
+        { display: "If the acute angle from the sine rule is 66.8°, the second possible (obtuse) angle is 180° minus 66.8°, which is ___B1___ degrees.", blanks: { B1: "113.2" } },
+        { display: "The ambiguous case can occur when you are given two sides and a ___B1___ angle (the SSA situation).", blanks: { B1: "non-included" } },
+        { display: "The sine rule, cosine rule and area rule must all be ___B1___ because they are not on the formula sheet.", blanks: { B1: "memorised" } },
+        { display: "A triangle in which all three sides are known is an ___B1___ situation, so you use the cosine rule.", blanks: { B1: "SSS" } }
+    ];
+
+    const fibWords = ["opposite", "cosine", "sine", "2bc", "included", "113.2", "non-included", "memorised", "SSS", "adjacent", "2ab", "excluded", "246.8", "SAS", "provided"];
+
+    const tfData = [
+        { statement: "The sine rule states \\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\).", answer: true, explanation: "Correct — each side is divided by the sine of its opposite angle, and the three ratios are equal." },
+        { statement: "You use the cosine rule when you know two sides and the angle between them (SAS).", answer: true, explanation: "Right — SAS has no side-opposite-angle pair, so the cosine rule \\( a^2 = b^2 + c^2 - 2bc\\cos A \\) is needed." },
+        { statement: "The formula \\( \\dfrac{1}{2}ab\\sin C \\) works for any angle C in the triangle.", answer: false, explanation: "C must be the INCLUDED angle — the angle between the two sides \\( a \\) and \\( b \\) you multiply." },
+        { statement: "In the cosine rule \\( a^2 = b^2 + c^2 - 2bc\\cos A \\), angle A is the angle opposite side a.", answer: true, explanation: "Yes — the subtracted side, \\( a \\), is always opposite the angle used, \\( A \\)." },
+        { statement: "The sine and cosine rules are printed on the exam formula sheet.", answer: false, explanation: "Both are MEMORISE formulae; the sheet only provides binomial, binomial-distribution, trapezium and kinematics results." },
+        { statement: "If \\( \\sin C = 0.5 \\) then C could be \\( 30^\\circ \\) or \\( 150^\\circ \\).", answer: true, explanation: "\\( \\sin \\) gives the same value for an angle and its obtuse partner: \\( \\sin 30^\\circ = \\sin 150^\\circ = 0.5 \\)." },
+        { statement: "The ambiguous case of the sine rule arises when you are given two angles and a side (AAS).", answer: false, explanation: "It arises in the SSA case — two sides and a NON-included angle. AAS gives a unique triangle." },
+        { statement: "In the ambiguous case, the obtuse second solution is always a valid triangle.", answer: false, explanation: "It is only valid if the known angle plus the obtuse angle stays below \\( 180^\\circ \\); otherwise only the acute triangle exists." }
+    ];
+
+    const miscData = [
+        { wrong: "Solving \\( \\sin C = 0.919 \\) and giving only \\( C = 66.8^\\circ \\)", correct: "The ambiguous case has TWO answers. A weak answer stops at the acute value; a strong answer also gives \\( 180^\\circ - 66.8^\\circ = 113.2^\\circ \\) and checks both fit. This is the single most common lost mark on ambiguous-case questions.", readCheck: { q: "\\( \\sin C = 0.919 \\). What are the two possible values of \\( C \\)?", opts: ["\\( 66.8^\\circ \\) and \\( 113.2^\\circ \\)", "\\( 66.8^\\circ \\) only", "\\( 66.8^\\circ \\) and \\( 293.2^\\circ \\)", "\\( 23.2^\\circ \\) and \\( 156.8^\\circ \\)"], ans: 0, explain: "Acute \\( 66.8^\\circ \\); obtuse partner \\( 180^\\circ - 66.8^\\circ = 113.2^\\circ \\)." } },
+        { wrong: "Using the sine rule to find the third side when given two sides and the angle between them (SAS)", correct: "SAS gives no side paired with its opposite angle, so no sine-rule ratio can be formed. A strong answer recognises SAS and uses the cosine rule \\( a^2 = b^2 + c^2 - 2bc\\cos A \\).", readCheck: { q: "Two sides and the angle between them are known. Which rule finds the third side?", opts: ["The cosine rule", "The sine rule", "The area formula", "Pythagoras"], ans: 0, explain: "SAS → cosine rule; the sine rule needs a known side opposite a known angle." } },
+        { wrong: "Writing the cosine rule as \\( a^2 = b^2 + c^2 + 2bc\\cos A \\)", correct: "The final term is SUBTRACTED. A weak answer adds; a strong answer writes \\( a^2 = b^2 + c^2 - 2bc\\cos A \\), which for an obtuse angle (negative cosine) correctly makes \\( a \\) longer.", readCheck: { q: "Which cosine-rule form is correct?", opts: ["\\( a^2 = b^2 + c^2 - 2bc\\cos A \\)", "\\( a^2 = b^2 + c^2 + 2bc\\cos A \\)", "\\( a^2 = b^2 - c^2 - 2bc\\cos A \\)", "\\( a^2 = b^2 + c^2 - 2bc\\sin A \\)"], ans: 0, explain: "The cosine rule subtracts \\( 2bc\\cos A \\)." } },
+        { wrong: "Using \\( \\dfrac{1}{2}ab\\sin C \\) with an angle that is NOT between sides a and b", correct: "The area formula needs the INCLUDED angle. A weak answer plugs in any angle; a strong answer first checks C is the angle between the two sides used, or finds the correct angle before substituting.", readCheck: { q: "In \\( \\dfrac{1}{2}ab\\sin C \\), which angle is C?", opts: ["The angle between sides a and b", "Any angle of the triangle", "The largest angle", "The angle opposite the longest side"], ans: 0, explain: "C is the included angle — the one between the two sides you multiply." } },
+        { wrong: "Finding the second ambiguous angle as \\( 360^\\circ - 66.8^\\circ = 293.2^\\circ \\)", correct: "The obtuse partner is \\( 180^\\circ - \\) the acute value, not \\( 360^\\circ - \\). A weak answer gives \\( 293.2^\\circ \\) (impossible in a triangle); a strong answer gives \\( 113.2^\\circ \\). Examiners noted candidates who subtracted from \\( 360^\\circ \\) produced angles over \\( 180^\\circ \\) without concern.", readCheck: { q: "The acute angle is \\( 66.8^\\circ \\). The obtuse partner is:", opts: ["\\( 180^\\circ - 66.8^\\circ = 113.2^\\circ \\)", "\\( 360^\\circ - 66.8^\\circ = 293.2^\\circ \\)", "\\( 90^\\circ - 66.8^\\circ = 23.2^\\circ \\)", "\\( 66.8^\\circ \\) doubled"], ans: 0, explain: "Supplementary angles share a sine, so the partner is \\( 180^\\circ - 66.8^\\circ = 113.2^\\circ \\)." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "Never lose the second angle (ambiguous case)", pills: ["ambiguous case", "two answers", "180° −"], content: `<p><strong>0 marks (for the second value):</strong> stop at \\( C = 66.8^\\circ \\) when the question asks for two values.</p><p><strong>Partial:</strong> correct method and the acute value, but no obtuse partner.</p><p><strong>Full marks:</strong> \\( C = 66.8^\\circ \\) <em>and</em> \\( C = 180^\\circ - 66.8^\\circ = 113.2^\\circ \\). If the question says "two possible values", the calculator's single answer is only half the work.</p>`, readCheck: { q: "A question asks for the two possible angles. You find \\( 66.8^\\circ \\). What next?", opts: ["Give \\( 180^\\circ - 66.8^\\circ = 113.2^\\circ \\) as the second value", "State \\( 66.8^\\circ \\) is the only answer", "Give \\( 360^\\circ - 66.8^\\circ \\)", "Double it to \\( 133.6^\\circ \\)"], ans: 0, explain: "The obtuse partner is the supplement, \\( 113.2^\\circ \\)." } },
+        { type: "tip", title: "Pick the rule before you calculate", pills: ["SAS → cosine", "SSA → sine"], content: `<p>Before touching the calculator, name what you are given. <strong>SAS</strong> or <strong>SSS</strong> → cosine rule. <strong>ASA/AAS/SSA</strong> → sine rule. Using the sine rule on an SAS problem wastes time and scores nothing because no ratio can be completed. Examiners noted a few candidates who used the cosine rule where the sine rule was intended did far more work than the question was worth.</p>`, readCheck: { q: "You are given all three sides and want an angle. Which rule?", opts: ["Cosine rule, rearranged for the angle", "Sine rule", "Area formula", "Pythagoras"], ans: 0, explain: "SSS → cosine rule rearranged: \\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\)." } },
+        { type: "tip", title: "Show the substitution (method marks)", pills: ["working", "M marks"], content: `<p>For a sine-rule angle [typically 2 marks], examiners award an <strong>M</strong> for correct use of the rule and an <strong>M</strong> for rearranging to \\( \\sin C = \\dots \\), before the <strong>A</strong> marks for the values. Write \\( \\dfrac{\\sin C}{12} = \\dfrac{\\sin 50^\\circ}{10} \\) then \\( \\sin C = \\dfrac{12\\sin 50^\\circ}{10} \\) so a slip in the arithmetic costs one mark, not all of them.</p>`, readCheck: { q: "Why write the substituted sine rule before the final angle?", opts: ["To earn the method marks even if the final value slips", "To use more space", "It is not necessary", "To avoid using a calculator"], ans: 0, explain: "M marks reward the visible correct method (rule + rearrangement)." } }
+    ];
+
+    const flashcards = [
+        { term: "Sine rule", def: "\\( \\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C} \\) — must be memorised." },
+        { term: "Cosine rule (side)", def: "\\( a^2 = b^2 + c^2 - 2bc\\cos A \\), with A between b and c." },
+        { term: "Cosine rule (angle)", def: "\\( \\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc} \\)." },
+        { term: "Area of a triangle", def: "\\( \\dfrac{1}{2}ab\\sin C \\), where C is the included angle." },
+        { term: "Included angle", def: "The angle between the two sides you are using." },
+        { term: "When to use the cosine rule", def: "Given SAS (find a side) or SSS (find an angle)." },
+        { term: "When to use the sine rule", def: "Given a side and its opposite angle plus one more piece (ASA/AAS/SSA)." },
+        { term: "Ambiguous case", def: "SSA can give two triangles — an acute and an obtuse angle." },
+        { term: "SSA", def: "Two sides and a non-included angle — the setup for the ambiguous case." },
+        { term: "Second (obtuse) angle", def: "\\( 180^\\circ - \\) the acute value, since \\( \\sin\\theta = \\sin(180^\\circ - \\theta) \\)." },
+        { term: "Principal value", def: "The single (acute) angle your calculator returns from \\( \\sin^{-1} \\)." },
+        { term: "Two triangles exist when", def: "\\( b\\sin A < a < b \\) in an SSA setup." },
+        { term: "Only one triangle when", def: "\\( a \\ge b \\), or \\( a = b\\sin A \\) (right angle at C)." },
+        { term: "Degrees only", def: "The 6993 paper uses degrees throughout — no radians." },
+        { term: "Memorise list (this page)", def: "Sine rule, cosine rule, and area \\( = \\tfrac{1}{2}ab\\sin C \\) — none are on the formula sheet." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "8 (a)",
+            marks: 4,
+            type: "written",
+            caseId: "q8-2023",
+            question: `<p>Given that \\( BC = 10 \\) cm, determine the two possible values of angle \\( C \\).</p>`,
+            hint: "Pair \\( BC \\) with its opposite angle \\( A \\), and \\( AB \\) with its opposite angle \\( C \\). After finding \\( \\sin C \\), remember the obtuse partner \\( 180^\\circ - \\) the acute value.",
+            starter: "Give both values of angle \\( C \\), to 1 decimal place.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — correct use of the sine rule: \\( \\dfrac{\\sin C}{12} = \\dfrac{\\sin 50^\\circ}{10} \\).</li>
+              <li><strong>M1</strong> — correct rearrangement of their equation to obtain \\( \\sin C = \\dfrac{12\\sin 50^\\circ}{10} = 0.919\\ldots \\).</li>
+              <li><strong>A1</strong> — principal angle, \\( C \\) awrt \\( 66.8^\\circ \\).</li>
+              <li><strong>A1</strong> — second (2nd-quadrant) angle, \\( C \\) awrt \\( 113^\\circ \\) (\\( 113.2^\\circ \\)).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The two M marks are for setting up the sine rule and rearranging to \\( \\sin C \\); the two A marks are for the acute value and its obtuse partner respectively.</li>
+              <li>Only the principal (acute) value scores M1 M1 A1 A0 — the second value is a separate mark.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Correct use of the sine rule to find the principal angle was managed by the majority. Many ignored the instruction to give the second value; others found an angle by subtracting from \\( 360^\\circ \\), giving a result greater than \\( 180^\\circ \\) with no concern. A clear diagram helped obtain the correct second value. A few used the cosine rule, which led to more working than the question was worth.</li>
+            </ul></div>`,
+            modelAnswer: "By the sine rule, \\( \\dfrac{\\sin C}{AB} = \\dfrac{\\sin A}{BC} \\), so \\( \\dfrac{\\sin C}{12} = \\dfrac{\\sin 50^\\circ}{10} \\). Then \\( \\sin C = \\dfrac{12\\sin 50^\\circ}{10} = 0.9193 \\). The acute value is \\( C = 66.8^\\circ \\), and its obtuse partner is \\( C = 180^\\circ - 66.8^\\circ = 113.2^\\circ \\). Both give a valid triangle, so \\( C = 66.8^\\circ \\) or \\( 113.2^\\circ \\).",
+            markPoints: { note: "Award each mark for the step shown; the two A marks require both angle values.", groups: [
+                { label: "M1 — set up the sine rule", max: 1, points: ["Wrote \\( \\dfrac{\\sin C}{12} = \\dfrac{\\sin 50^\\circ}{10} \\) (side paired with its opposite angle)"] },
+                { label: "M1 — rearrange to sin C", max: 1, points: ["Reached \\( \\sin C = \\dfrac{12\\sin 50^\\circ}{10} = 0.919\\ldots \\)"] },
+                { label: "A1 — acute value", max: 1, points: ["\\( C = 66.8^\\circ \\) (awrt)"] },
+                { label: "A1 — obtuse value", max: 1, points: ["\\( C = 113.2^\\circ \\) (awrt 113°, the \\( 180^\\circ - \\) partner)"] }
+            ] }
+        },
+        {
+            num: "8 (b)",
+            marks: 2,
+            type: "written",
+            caseId: "q8-2023",
+            question: `<p>State two conditions for \\( BC \\) such that, if either of them is satisfied, there will be only one value for the angle \\( C \\).</p>`,
+            hint: "Think about when the swinging side reaches the base line just once. One condition makes \\( BC \\) long enough; the other makes the triangle right-angled at \\( C \\).",
+            starter: "State each condition as a statement about the length \\( BC \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>
+              <li><strong>B1</strong> — \\( BC > 12 \\) cm, or \\( BC > AB \\), or \\( BC \\) is the second-longest side.</li>
+              <li><strong>B1</strong> — \\( BC = 12\\sin 50^\\circ\\ (= 9.19 \\) cm\\( ) \\), or \\( BC \\) is perpendicular to \\( AC \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Each correct condition on the length \\( BC \\) earns one B mark; the two are independent.</li>
+              <li>Do not allow: "the angle at \\( C \\) = \\( 90^\\circ \\)", or vague "should be smaller/larger than one side".</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Generally poorly done and often not attempted. Many ignored the instruction to give conditions for the side \\( BC \\) and instead discussed angles \\( B \\) and \\( C \\); many hedged that it must be longer than and shorter than \\( AB \\) or \\( AC \\). There were many mentions of isosceles, right-angled and equilateral triangles. Not having given the second angle in part (a) added to the insecurity here.</li>
+            </ul></div>`,
+            modelAnswer: "There is only one value of \\( C \\) if either: (1) \\( BC > 12 \\) cm (i.e. \\( BC > AB \\), so \\( BC \\) is the second-longest side and the obtuse solution is impossible); or (2) \\( BC = 12\\sin 50^\\circ = 9.19 \\) cm (the perpendicular distance from \\( B \\) to \\( AC \\), giving a right angle at \\( C \\) and exactly one triangle).",
+            markPoints: { note: "Each condition on the length BC earns one B mark; both must be about BC, not the angles.", groups: [
+                { label: "B1 — first condition", max: 1, points: ["\\( BC > 12 \\) cm / \\( BC > AB \\) / \\( BC \\) is the second-longest side"] },
+                { label: "B1 — second condition", max: 1, points: ["\\( BC = 12\\sin 50^\\circ = 9.19 \\) cm / \\( BC \\) perpendicular to \\( AC \\)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

@@ -135,36 +135,31 @@
           "id": "5-1-trig-ratios-for-any-angle",
           "name": "5.1 Trig Ratios for Any Angle",
           "sub": "Trigonometry",
-          "file": "5.1-trig-ratios-for-any-angle.html",
-          "noQuestions": true
+          "file": "5.1-trig-ratios-for-any-angle.html"
         },
         {
           "id": "5-2-sine-and-cosine-rules",
           "name": "5.2 Sine and Cosine Rules",
           "sub": "Trigonometry",
-          "file": "5.2-sine-and-cosine-rules.html",
-          "noQuestions": true
+          "file": "5.2-sine-and-cosine-rules.html"
         },
         {
           "id": "5-3-trigonometric-identities",
           "name": "5.3 Trigonometric Identities",
           "sub": "Trigonometry",
-          "file": "5.3-trigonometric-identities.html",
-          "noQuestions": true
+          "file": "5.3-trigonometric-identities.html"
         },
         {
           "id": "5-4-trigonometric-equations",
           "name": "5.4 Trigonometric Equations",
           "sub": "Trigonometry",
-          "file": "5.4-trigonometric-equations.html",
-          "noQuestions": true
+          "file": "5.4-trigonometric-equations.html"
         },
         {
           "id": "5-5-pythagoras-and-trig-in-2d-and-3d",
           "name": "5.5 Pythagoras and Trig in 2D and 3D",
           "sub": "Trigonometry",
-          "file": "5.5-pythagoras-and-trig-in-2d-and-3d.html",
-          "noQuestions": true
+          "file": "5.5-pythagoras-and-trig-in-2d-and-3d.html"
         }
       ]
     },

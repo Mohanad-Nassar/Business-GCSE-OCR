@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 5. Trigonometry</div>
             <h1>5.3 Trigonometric Identities</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,12 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 5.3 Trigonometric Identities — placeholder, content not yet written
+    //  DATA: 5.3 Trigonometric Identities (PT3 tan≡sin/cos; PT4 sin²+cos²≡1)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  DOUBLED in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Degrees only.
+    //  Exam Q = 2024 Q17 (a)+(b) — the hardest, unstructured DR question on the
+    //  2024 paper. Dominant skill = trig identities / exact value, so it lives here;
+    //  secondary skills (algebra + surds) noted in the mark scheme. No duplicate rows.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '5-3-trigonometric-identities',
@@ -266,23 +271,265 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimulus for the 2024 Q17 exam parts (see examQuestions).
+    const EXAM_CASE_STUDIES = {
+        "q17-2024": `<p><em>In this question you must show detailed reasoning.</em></p>
+        <p>You are given that \\( \\tan\\theta = \\dfrac{n+1}{n-1} \\), where \\( n \\) is a number greater than 1.</p>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>5.3 Trigonometric Identities</strong> will appear here soon.</p>`
+            title: "What are the two identities you must memorise?",
+            tag: "Key concept",
+            content: `<p>Two trigonometric <strong>identities</strong> appear again and again, and in this qualification you must <strong>memorise both</strong> — neither is printed on the exam formula sheet.</p>
+            <ul>
+              <li><strong>The quotient identity (PT3):</strong> \\[ \\tan\\theta \\equiv \\frac{\\sin\\theta}{\\cos\\theta}. \\]</li>
+              <li><strong>The Pythagorean identity (PT4):</strong> \\[ \\sin^2\\theta + \\cos^2\\theta \\equiv 1. \\]</li>
+            </ul>
+            <p>The symbol \\( \\equiv \\) means <strong>identically equal</strong>: the two sides are equal for <em>every</em> value of \\( \\theta \\), not just for one special angle. That is what separates an <strong>identity</strong> from an <strong>equation</strong> (which is true only for particular values).</p>
+            <p>Read \\( \\sin^2\\theta \\) as \\( (\\sin\\theta)^2 \\) — you square the <em>ratio</em>, not the angle. \\( \\sin^2\\theta \\) is never \\( \\sin(\\theta^2) \\).</p>`,
+            readCheck: { q: "What does \\( \\equiv \\) mean in \\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\)?", opts: ["The two sides are equal for every value of \\( \\theta \\)", "It only holds when \\( \\theta = 90^\\circ \\)", "The two sides are approximately equal", "\\( \\theta \\) must be acute"], ans: 0, explain: "\\( \\equiv \\) marks an identity — equal for all \\( \\theta \\), unlike an equation that holds only for special values." }
+        },
+        {
+            title: "How do you simplify a trig expression?",
+            tag: "Worked example",
+            content: `<p>Replace parts of the expression with something equal using the two identities. Two rearrangements of the Pythagorean identity are especially useful:</p>
+            <ul>
+              <li>\\( \\sin^2\\theta = 1 - \\cos^2\\theta \\)</li>
+              <li>\\( \\cos^2\\theta = 1 - \\sin^2\\theta \\)</li>
+            </ul>
+            <p><strong>Worked example — simplify \\( \\dfrac{\\sin^2\\theta}{\\cos\\theta} + \\cos\\theta \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Put both terms over the common denominator \\( \\cos\\theta \\): \\( \\dfrac{\\sin^2\\theta + \\cos^2\\theta}{\\cos\\theta} \\).</td></tr>
+              <tr><td>2. The numerator is \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) (PT4).</td></tr>
+              <tr><td>3. So the expression simplifies to \\( \\dfrac{1}{\\cos\\theta} \\).</td></tr>
+            </table>
+            <p>Always hunt for a hidden \\( \\sin^2\\theta + \\cos^2\\theta \\) you can swap for \\( 1 \\), or a \\( \\dfrac{\\sin\\theta}{\\cos\\theta} \\) you can swap for \\( \\tan\\theta \\).</p>`,
+            readCheck: { q: "Simplify \\( \\tan\\theta\\cos\\theta \\).", opts: ["\\( \\sin\\theta \\)", "\\( \\cos\\theta \\)", "\\( 1 \\)", "\\( \\tan\\theta \\)"], ans: 0, explain: "\\( \\tan\\theta\\cos\\theta = \\frac{\\sin\\theta}{\\cos\\theta}\\cdot\\cos\\theta = \\sin\\theta \\)." }
+        },
+        {
+            title: "How do you prove an identity (LHS → RHS)?",
+            tag: "Exam skill",
+            content: `<p>To <strong>prove</strong> (or "show that") an identity, start with <strong>one side</strong> — usually the more complicated <strong>left-hand side (LHS)</strong> — and manipulate it with the two identities until it becomes the <strong>right-hand side (RHS)</strong>.</p>
+            <ul>
+              <li><strong>Never</strong> move terms across the \\( \\equiv \\) sign as if it were an equation — that assumes the very thing you are trying to prove.</li>
+              <li>Standard moves: replace \\( \\tan\\theta \\) with \\( \\frac{\\sin\\theta}{\\cos\\theta} \\); replace \\( \\sin^2\\theta + \\cos^2\\theta \\) with \\( 1 \\); combine fractions over a common denominator.</li>
+              <li>Finish with a short <strong>concluding statement</strong> such as "\\( = \\) RHS, as required" — a "show that" mark is regularly lost by leaving it out.</li>
+            </ul>
+            <p><strong>Worked example — prove \\( \\dfrac{\\sin\\theta}{\\cos\\theta} + \\dfrac{\\cos\\theta}{\\sin\\theta} \\equiv \\dfrac{1}{\\sin\\theta\\cos\\theta} \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Work on the LHS. Common denominator \\( \\sin\\theta\\cos\\theta \\): \\( \\dfrac{\\sin^2\\theta + \\cos^2\\theta}{\\sin\\theta\\cos\\theta} \\).</td></tr>
+              <tr><td>2. Replace the numerator using PT4: \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\).</td></tr>
+              <tr><td>3. LHS \\( = \\dfrac{1}{\\sin\\theta\\cos\\theta} = \\) RHS, as required. ✓</td></tr>
+            </table>`,
+            readCheck: { q: "When proving an identity, why work on only ONE side at a time?", opts: ["Moving terms across \\( \\equiv \\) assumes the result you are proving", "It uses fewer lines of working", "The identity is only true on one side", "It is quicker to read"], ans: 0, explain: "You may not treat \\( \\equiv \\) like an equation and rearrange across it — that would assume the conclusion. Transform one side into the other." }
+        },
+        {
+            title: "How do you find an exact value of another ratio?",
+            tag: "Worked example",
+            content: `<p>If you know one ratio you can find the others <strong>exactly</strong> (as a surd or fraction) using the two identities — no rounded decimals.</p>
+            <p><strong>Worked example — given \\( \\cos\\theta = \\tfrac{1}{3} \\) with \\( \\theta \\) acute, find \\( \\sin\\theta \\) and \\( \\tan\\theta \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. From \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\): \\( \\sin^2\\theta = 1 - \\left(\\tfrac{1}{3}\\right)^2 = 1 - \\tfrac{1}{9} = \\tfrac{8}{9} \\).</td></tr>
+              <tr><td>2. \\( \\sin\\theta = \\pm\\sqrt{\\tfrac{8}{9}} = \\pm\\dfrac{2\\sqrt{2}}{3} \\). As \\( \\theta \\) is acute, \\( \\sin\\theta > 0 \\), so \\( \\sin\\theta = \\dfrac{2\\sqrt{2}}{3} \\).</td></tr>
+              <tr><td>3. \\( \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta} = \\dfrac{2\\sqrt{2}/3}{1/3} = 2\\sqrt{2} \\).</td></tr>
+            </table>
+            <p>A right-angled triangle shows the same thing: with adjacent \\( 1 \\) and hypotenuse \\( 3 \\), the opposite side is \\( \\sqrt{3^2 - 1^2} = \\sqrt{8} = 2\\sqrt{2} \\).</p>
+            <svg viewBox="0 0 250 175" role="img" aria-label="Right-angled triangle with adjacent 1, opposite 2 root 2 and hypotenuse 3" style="max-width:260px;width:100%;height:auto;display:block;margin:14px auto;">
+              <polygon points="75,140 75,45 200,140" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M75,125 L90,125 L90,140" fill="none" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M180,140 A20,20 0 0,1 187,126" fill="none" stroke="currentColor" stroke-width="1.4"/>
+              <text x="10" y="98" fill="currentColor" font-size="13">opp = 2√2</text>
+              <text x="118" y="158" fill="currentColor" font-size="13">adj = 1</text>
+              <text x="140" y="86" fill="currentColor" font-size="13">hyp = 3</text>
+              <text x="168" y="133" fill="currentColor" font-size="15">θ</text>
+            </svg>
+            <p style="text-align:center;font-size:12px;color:var(--mid)">Right-angled triangle for \\( \\cos\\theta = \\tfrac{1}{3} \\) (not to scale).</p>
+            <p>Leave the answer as a <strong>surd</strong> — \\( 2\\sqrt{2} \\), not \\( 2.83 \\). On an "exact" question a decimal scores no marks.</p>`,
+            readCheck: { q: "Given \\( \\sin\\theta = \\tfrac{1}{4} \\) with \\( \\theta \\) acute, find \\( \\cos\\theta \\) exactly.", opts: ["\\( \\dfrac{\\sqrt{15}}{4} \\)", "\\( \\dfrac{15}{16} \\)", "\\( \\dfrac{\\sqrt{15}}{16} \\)", "\\( 0.97 \\)"], ans: 0, explain: "\\( \\cos^2\\theta = 1 - \\tfrac{1}{16} = \\tfrac{15}{16} \\), so \\( \\cos\\theta = \\frac{\\sqrt{15}}{4} \\) (positive, as \\( \\theta \\) is acute). \\( \\tfrac{15}{16} \\) forgets the square root; \\( 0.97 \\) is not exact." }
+        },
+        {
+            title: "How does the quadrant decide the sign?",
+            tag: "Common error",
+            content: `<p>Taking a square root gives \\( \\pm \\). The <strong>quadrant</strong> the angle lies in tells you which sign to keep. Across \\( 0^\\circ \\) to \\( 360^\\circ \\):</p>
+            <ul>
+              <li><strong>Quadrant 1 (\\( 0^\\circ \\)–\\( 90^\\circ \\)):</strong> \\( \\sin\\theta \\), \\( \\cos\\theta \\), \\( \\tan\\theta \\) are all positive.</li>
+              <li><strong>Quadrant 2 (\\( 90^\\circ \\)–\\( 180^\\circ \\)):</strong> only \\( \\sin\\theta \\) is positive.</li>
+              <li><strong>Quadrant 3 (\\( 180^\\circ \\)–\\( 270^\\circ \\)):</strong> only \\( \\tan\\theta \\) is positive.</li>
+              <li><strong>Quadrant 4 (\\( 270^\\circ \\)–\\( 360^\\circ \\)):</strong> only \\( \\cos\\theta \\) is positive.</li>
+            </ul>
+            <p><strong>Worked example — \\( \\sin\\theta = -0.6 \\) with \\( \\theta \\) in the third quadrant; find \\( \\cos\\theta \\) and \\( \\tan\\theta \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( \\sin\\theta = -0.6 = -\\tfrac{3}{5} \\), so \\( \\cos^2\\theta = 1 - \\tfrac{9}{25} = \\tfrac{16}{25} \\).</td></tr>
+              <tr><td>2. \\( \\cos\\theta = \\pm\\tfrac{4}{5} \\). In the third quadrant \\( \\cos\\theta \\) is <strong>negative</strong>, so \\( \\cos\\theta = -\\tfrac{4}{5} \\).</td></tr>
+              <tr><td>3. \\( \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta} = \\dfrac{-3/5}{-4/5} = \\tfrac{3}{4} \\) — positive, exactly as expected in the third quadrant.</td></tr>
+            </table>`,
+            readCheck: { q: "\\( \\cos\\theta = \\tfrac{5}{13} \\) with \\( \\theta \\) in the fourth quadrant. What is the sign of \\( \\sin\\theta \\)?", opts: ["Negative", "Positive", "Zero", "Cannot be determined"], ans: 0, explain: "In the fourth quadrant only \\( \\cos\\theta \\) is positive, so \\( \\sin\\theta \\) is negative: \\( \\sin\\theta = -\\tfrac{12}{13} \\)." }
+        },
+        {
+            title: "Which formulae must you memorise, and in what form?",
+            tag: "Exam skill",
+            content: `<p>Both identities are <strong>MEMORISE</strong> formulae — they are <em>not</em> printed on the exam formula sheet, unlike the binomial series, the binomial distribution, the trapezium rule and the kinematics relations.</p>
+            <ul>
+              <li>\\( \\tan\\theta \\equiv \\dfrac{\\sin\\theta}{\\cos\\theta} \\) (PT3).</li>
+              <li>\\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\) (PT4), plus its rearrangements \\( \\sin^2\\theta = 1 - \\cos^2\\theta \\) and \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\).</li>
+            </ul>
+            <p>Everything on this page is in <strong>degrees</strong> — this qualification never uses radians. Keep answers <strong>exact</strong> (surds or fractions) whenever a question says "exact", and let the stated <strong>quadrant</strong> fix every \\( \\pm \\) sign.</p>`,
+            readCheck: { q: "Which of these is provided on the exam formula sheet?", opts: ["Neither — both trig identities must be memorised", "\\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\)", "\\( \\tan\\theta \\equiv \\frac{\\sin\\theta}{\\cos\\theta} \\)", "Both identities"], ans: 0, explain: "Both trig identities are must-memorise; the sheet gives only the binomial series/distribution, trapezium rule and kinematics relations." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "Simplify \\( \\dfrac{\\sin\\theta}{\\cos\\theta} \\).", opts: ["\\( \\cos\\theta \\)", "\\( \\tan\\theta \\)", "\\( 1 \\)", "\\( \\sin\\theta\\cos\\theta \\)"], ans: 1, explain: "By PT3, \\( \\frac{\\sin\\theta}{\\cos\\theta} = \\tan\\theta \\)." },
+        { q: "Simplify \\( 1 - \\cos^2\\theta \\).", opts: ["\\( \\sin\\theta \\)", "\\( \\cos^2\\theta \\)", "\\( \\sin^2\\theta \\)", "\\( \\tan^2\\theta \\)"], ans: 2, explain: "Rearranging \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) gives \\( 1 - \\cos^2\\theta = \\sin^2\\theta \\) — the square of the sine, not \\( \\sin\\theta \\)." },
+        { q: "\\( \\sin^2\\theta + \\cos^2\\theta \\) equals:", opts: ["\\( 1 \\)", "\\( 2 \\)", "\\( \\tan\\theta \\)", "\\( \\sin2\\theta \\)"], ans: 0, explain: "This is PT4: \\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\) for every angle." },
+        { q: "Simplify \\( \\tan\\theta\\cos\\theta \\).", opts: ["\\( 1 \\)", "\\( \\cos\\theta \\)", "\\( \\sin\\theta \\)", "\\( \\tan\\theta \\)"], ans: 2, explain: "\\( \\tan\\theta\\cos\\theta = \\frac{\\sin\\theta}{\\cos\\theta}\\cdot\\cos\\theta = \\sin\\theta \\)." },
+        { q: "What does \\( \\sin^2\\theta \\) mean?", opts: ["\\( \\sin(\\theta^2) \\)", "\\( (\\sin\\theta)^2 \\)", "\\( 2\\sin\\theta \\)", "\\( \\sin\\theta + 2 \\)"], ans: 1, explain: "\\( \\sin^2\\theta \\) is \\( (\\sin\\theta)^2 \\): square the ratio, not the angle." },
+        { q: "Given \\( \\cos\\theta = \\tfrac{3}{5} \\) with \\( \\theta \\) acute, \\( \\sin\\theta = \\)", opts: ["\\( \\tfrac{4}{5} \\)", "\\( -\\tfrac{4}{5} \\)", "\\( \\tfrac{16}{25} \\)", "\\( \\tfrac{2}{5} \\)"], ans: 0, explain: "\\( \\sin^2\\theta = 1 - \\tfrac{9}{25} = \\tfrac{16}{25} \\), so \\( \\sin\\theta = \\tfrac{4}{5} \\) (positive, as \\( \\theta \\) is acute). \\( \\tfrac{16}{25} \\) forgets the square root; \\( -\\tfrac{4}{5} \\) ignores the acute quadrant." },
+        { q: "Given \\( \\sin\\theta = \\tfrac{2}{3} \\) with \\( \\theta \\) acute, the exact value of \\( \\cos\\theta \\) is", opts: ["\\( \\tfrac{5}{9} \\)", "\\( \\dfrac{\\sqrt{5}}{9} \\)", "\\( \\dfrac{\\sqrt{5}}{3} \\)", "\\( 0.75 \\)"], ans: 2, explain: "\\( \\cos^2\\theta = 1 - \\tfrac{4}{9} = \\tfrac{5}{9} \\), so \\( \\cos\\theta = \\frac{\\sqrt{5}}{3} \\). \\( \\tfrac{5}{9} \\) forgets the root; \\( 0.75 \\) is not exact." },
+        { q: "\\( \\tan\\theta = \\tfrac{3}{4} \\) with \\( \\theta \\) in the third quadrant. The sign of \\( \\sin\\theta \\) is:", opts: ["Positive", "Negative", "Zero", "Cannot be determined"], ans: 1, explain: "In the third quadrant only \\( \\tan\\theta \\) is positive, so \\( \\sin\\theta \\) is negative (here \\( \\sin\\theta = -\\tfrac{3}{5} \\))." },
+        { q: "Which statement is an identity (true for every \\( \\theta \\))?", opts: ["\\( \\tan\\theta = 1 \\)", "\\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\)", "\\( \\sin\\theta = 0.5 \\)", "\\( \\cos\\theta = 1 \\)"], ans: 1, explain: "Only \\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\) holds for all \\( \\theta \\); the others are equations true only for special angles." },
+        { q: "To prove \\( \\dfrac{1 - \\cos^2\\theta}{\\sin\\theta} \\equiv \\sin\\theta \\), a good first step is to:", opts: ["Replace \\( 1 - \\cos^2\\theta \\) with \\( \\sin^2\\theta \\)", "Cross-multiply across the \\( \\equiv \\)", "Replace \\( 1 - \\cos^2\\theta \\) with \\( \\tan^2\\theta \\)", "Use the sine rule"], ans: 0, explain: "\\( 1 - \\cos^2\\theta = \\sin^2\\theta \\), so the LHS becomes \\( \\frac{\\sin^2\\theta}{\\sin\\theta} = \\sin\\theta \\). Never cross-multiply across \\( \\equiv \\)." },
+        { q: "You know \\( \\cos\\theta \\) and want \\( \\sin\\theta \\), with no triangle given. Which do you use?", opts: ["The sine rule \\( \\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\)", "The cosine rule", "The identity \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\)", "Nothing can be found"], ans: 2, explain: "The identity \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) links the two ratios directly; the sine and cosine rules are for triangles with sides, not for this." }
+    ];
+
+    const matchData = [
+        { term: "\\( \\dfrac{\\sin\\theta}{\\cos\\theta} \\)", def: "\\( \\tan\\theta \\)" },
+        { term: "\\( \\sin^2\\theta + \\cos^2\\theta \\)", def: "\\( 1 \\)" },
+        { term: "\\( 1 - \\cos^2\\theta \\)", def: "\\( \\sin^2\\theta \\)" },
+        { term: "\\( 1 - \\sin^2\\theta \\)", def: "\\( \\cos^2\\theta \\)" },
+        { term: "\\( \\tan\\theta\\cos\\theta \\)", def: "\\( \\sin\\theta \\)" },
+        { term: "\\( \\dfrac{\\cos\\theta}{\\sin\\theta} \\)", def: "\\( \\dfrac{1}{\\tan\\theta} \\)" },
+        { term: "\\( \\sin^2\\theta\\cos\\theta + \\cos^3\\theta \\)", def: "\\( \\cos\\theta \\)" },
+        { term: "\\( \\dfrac{\\tan\\theta}{\\sin\\theta} \\)", def: "\\( \\dfrac{1}{\\cos\\theta} \\)" },
+        { term: "\\( 5\\sin^2\\theta + 5\\cos^2\\theta \\)", def: "\\( 5 \\)" },
+        { term: "\\( \\cos^2\\theta - 1 \\)", def: "\\( -\\sin^2\\theta \\)" },
+        { term: "\\( \\dfrac{\\sin^2\\theta}{\\cos^2\\theta} \\)", def: "\\( \\tan^2\\theta \\)" },
+        { term: "\\( \\dfrac{1}{\\tan\\theta\\cos\\theta} \\)", def: "\\( \\dfrac{1}{\\sin\\theta} \\)" }
+    ];
+
+    // NOTE: FIB blanks must sit in PLAIN TEXT, never inside a \( \) region — a blank
+    // becomes a <select>/<input> that splits the LaTeX run so KaTeX shows raw source
+    // (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b). Every \( \) below is a complete expression.
+    const fibData = [
+        { display: "The symbol \\( \\equiv \\) marks an identity, which is true for ___B1___ value of \\( \\theta \\).", blanks: { B1: "every" } },
+        { display: "Both trig identities must be ___B1___, because they are not printed on the exam formula sheet.", blanks: { B1: "memorised" } },
+        { display: "Finding another ratio needs a square root, which introduces a ___B1___ sign; the quadrant then decides which one to keep.", blanks: { B1: "±" } },
+        { display: "In the third quadrant, only \\( \\tan\\theta \\) is ___B1___.", blanks: { B1: "positive" } },
+        { display: "When a question says 'exact', leave your answer as a surd or fraction, never a ___B1___.", blanks: { B1: "decimal" } },
+        { display: "To prove an identity you work on ___B1___ side at a time and finish with a concluding statement.", blanks: { B1: "one" } },
+        { display: "In \\( \\sin^2\\theta \\) you square the ___B1___, not the angle.", blanks: { B1: "ratio" } }
+    ];
+
+    const fibWords = ["every", "memorised", "±", "positive", "negative", "decimal", "exact", "one", "two", "ratio", "angle", "some"];
+
+    const tfData = [
+        { statement: "\\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) holds for every angle \\( \\theta \\).", answer: true, explanation: "This is the Pythagorean identity (PT4) — an identity, true for all \\( \\theta \\)." },
+        { statement: "\\( \\tan\\theta = \\dfrac{\\cos\\theta}{\\sin\\theta} \\).", answer: false, explanation: "It is the other way up: \\( \\tan\\theta \\equiv \\frac{\\sin\\theta}{\\cos\\theta} \\)." },
+        { statement: "\\( \\sin^2\\theta \\) means \\( \\sin(\\theta^2) \\).", answer: false, explanation: "\\( \\sin^2\\theta = (\\sin\\theta)^2 \\); you square the ratio, not the angle." },
+        { statement: "\\( 1 - \\sin^2\\theta = \\cos^2\\theta \\).", answer: true, explanation: "Rearranging \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) gives \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\)." },
+        { statement: "If \\( \\cos\\theta = \\tfrac{1}{2} \\) and \\( \\theta \\) is acute, then \\( \\sin\\theta = \\dfrac{\\sqrt{3}}{2} \\).", answer: true, explanation: "\\( \\sin^2\\theta = 1 - \\tfrac{1}{4} = \\tfrac{3}{4} \\), so \\( \\sin\\theta = \\frac{\\sqrt{3}}{2} \\) (positive, acute)." },
+        { statement: "When you square-root to find \\( \\cos\\theta \\), you always take the positive root.", answer: false, explanation: "The root is \\( \\pm \\); the quadrant decides the sign — in Quadrants 2 and 3, \\( \\cos\\theta \\) is negative." },
+        { statement: "On an 'exact' question, giving \\( \\sin\\theta = 0.87 \\) earns full marks.", answer: false, explanation: "'Exact' requires a surd or fraction, e.g. \\( \\frac{\\sqrt{3}}{2} \\); a decimal alone scores no marks." },
+        { statement: "The two trig identities are printed on the exam formula sheet.", answer: false, explanation: "Both must be memorised; only the binomial series/distribution, trapezium rule and kinematics relations are provided." }
+    ];
+
+    const miscData = [
+        { wrong: "\\( \\sin^2\\theta \\) means \\( \\sin(\\theta^2) \\)", correct: "\\( \\sin^2\\theta = (\\sin\\theta)^2 \\) — you square the ratio, not the angle. A weak answer squares \\( \\theta \\); a strong answer computes \\( \\sin\\theta \\) first, then squares it.", readCheck: { q: "\\( \\sin^2\\theta \\) is the same as:", opts: ["\\( (\\sin\\theta)^2 \\)", "\\( \\sin(\\theta^2) \\)", "\\( 2\\sin\\theta \\)", "\\( \\sin\\theta \\times 2 \\)"], ans: 0, explain: "Square the value of \\( \\sin\\theta \\); the notation never means \\( \\sin \\) of \\( \\theta^2 \\)." } },
+        { wrong: "\\( \\tan\\theta = \\dfrac{\\cos\\theta}{\\sin\\theta} \\)", correct: "The quotient identity is \\( \\tan\\theta \\equiv \\frac{\\sin\\theta}{\\cos\\theta} \\) — sine over cosine. A weak answer flips it; a strong answer checks with \\( \\tan45^\\circ = 1 = \\frac{\\sin45^\\circ}{\\cos45^\\circ} \\).", readCheck: { q: "Which is the correct quotient identity?", opts: ["\\( \\tan\\theta \\equiv \\frac{\\sin\\theta}{\\cos\\theta} \\)", "\\( \\tan\\theta \\equiv \\frac{\\cos\\theta}{\\sin\\theta} \\)", "\\( \\tan\\theta \\equiv \\sin\\theta\\cos\\theta \\)", "\\( \\tan\\theta \\equiv \\sin\\theta + \\cos\\theta \\)"], ans: 0, explain: "\\( \\tan\\theta \\) is sine over cosine." } },
+        { wrong: "Given \\( \\cos\\theta = \\tfrac{1}{3} \\) with \\( \\theta \\) acute, \\( \\sin\\theta \\approx 0.94 \\)", correct: "The question wants an EXACT value: \\( \\sin\\theta = \\frac{2\\sqrt{2}}{3} \\). A weak answer rounds to a decimal (0 marks on an 'exact' question); a strong answer leaves the surd (and may add the decimal only as a check).", readCheck: { q: "Given \\( \\cos\\theta = \\tfrac{1}{3} \\), \\( \\theta \\) acute, the exact \\( \\sin\\theta \\) is:", opts: ["\\( \\dfrac{2\\sqrt{2}}{3} \\)", "\\( 0.94 \\)", "\\( \\dfrac{8}{9} \\)", "\\( 0.9 \\)"], ans: 0, explain: "\\( \\sin^2\\theta = 1 - \\tfrac{1}{9} = \\tfrac{8}{9} \\Rightarrow \\sin\\theta = \\frac{2\\sqrt{2}}{3} \\); a decimal is not exact." } },
+        { wrong: "Given \\( \\sin\\theta = -0.6 \\) with \\( \\theta \\) in the third quadrant, \\( \\cos\\theta = +0.8 \\)", correct: "In the third quadrant \\( \\cos\\theta \\) is NEGATIVE, so \\( \\cos\\theta = -0.8 \\). A weak answer ignores the quadrant and takes the positive root; a strong answer states the quadrant and picks the sign to match.", readCheck: { q: "\\( \\sin\\theta = -0.6 \\), \\( \\theta \\) in the third quadrant. \\( \\cos\\theta = \\)", opts: ["\\( -0.8 \\)", "\\( +0.8 \\)", "\\( -0.6 \\)", "\\( 0.36 \\)"], ans: 0, explain: "\\( \\cos^2\\theta = 1 - 0.36 = 0.64 \\Rightarrow \\cos\\theta = \\pm0.8 \\); the third quadrant makes it \\( -0.8 \\)." } },
+        { wrong: "From \\( \\cos^2\\theta = \\tfrac{16}{25} \\), conclude \\( \\cos\\theta = \\tfrac{16}{25} \\)", correct: "You still have to take the square root: \\( \\cos\\theta = \\pm\\frac{4}{5} \\), then choose the sign for the quadrant. A weak answer stops at \\( \\cos^2\\theta \\); a strong answer roots it and resolves the \\( \\pm \\).", readCheck: { q: "\\( \\cos^2\\theta = \\tfrac{16}{25} \\). Before choosing a sign, \\( \\cos\\theta = \\)", opts: ["\\( \\pm\\tfrac{4}{5} \\)", "\\( \\tfrac{16}{25} \\)", "\\( \\tfrac{8}{25} \\)", "\\( \\tfrac{4}{25} \\)"], ans: 0, explain: "\\( \\sqrt{\\tfrac{16}{25}} = \\tfrac{4}{5} \\), and the root is \\( \\pm \\) until the quadrant decides." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "The 'exact' command word", pills: ["exact", "surds", "no rounding"], content: `<p><strong>0 marks:</strong> \\( \\sin\\theta = 0.94 \\) on an "exact" question — a decimal only.</p><p><strong>Full marks:</strong> \\( \\sin\\theta = \\dfrac{2\\sqrt{2}}{3} \\). If unsure, write the exact surd <em>and</em> the decimal — the surd earns the marks and the decimal never loses them.</p>`, readCheck: { q: "On an 'exact' question, which is safest?", opts: ["Give the surd form (optionally with the decimal)", "Give only the decimal", "Round to 2 d.p.", "Give only the decimal to 3 s.f."], ans: 0, explain: "The exact surd/fraction form is required; adding a decimal alongside is harmless." } },
+        { type: "tip", title: "Proving an identity — the show-that ladder", pills: ["show that", "LHS → RHS", "conclude"], content: `<p><strong>0 marks:</strong> writing the identity and "cross-multiplying" across the \\( \\equiv \\) — that assumes the result.</p><p><strong>Partial:</strong> reaching LHS \\( = \\dfrac{\\sin^2\\theta + \\cos^2\\theta}{\\sin\\theta\\cos\\theta} \\) but stopping there.</p><p><strong>Full marks:</strong> continue \\( = \\dfrac{1}{\\sin\\theta\\cos\\theta} = \\) RHS, <strong>and write "as required"</strong>. The concluding line is a real mark.</p>`, readCheck: { q: "In a 'show that' proof, the final concluding line is:", opts: ["A genuine mark that is often forgotten", "Optional decoration", "Only needed for long proofs", "Never credited"], ans: 0, explain: "Examiners award a mark for reaching the printed result and stating it is proved." } },
+        { type: "tip", title: "Let the quadrant choose the sign", pills: ["±", "quadrant", "CAST"], content: `<p><strong>0 marks (or lost accuracy):</strong> giving both signs, or the wrong sign, after a square root.</p><p><strong>Full marks:</strong> state the quadrant, recall which ratios are positive there (Q1 all, Q2 sin, Q3 tan, Q4 cos), and pick the matching sign — e.g. \\( \\theta \\) in Q3 with \\( \\sin\\theta = -\\tfrac{3}{5} \\) gives \\( \\cos\\theta = -\\tfrac{4}{5} \\).</p>`, readCheck: { q: "After \\( \\cos\\theta = \\pm\\tfrac{4}{5} \\), how do you fix the sign?", opts: ["Use the quadrant \\( \\theta \\) lies in", "Always choose positive", "Always choose negative", "Leave it as \\( \\pm \\)"], ans: 0, explain: "The quadrant determines whether \\( \\cos\\theta \\) is positive or negative." } }
+    ];
+
+    const flashcards = [
+        { term: "Quotient identity (PT3)", def: "\\( \\tan\\theta \\equiv \\dfrac{\\sin\\theta}{\\cos\\theta} \\)." },
+        { term: "Pythagorean identity (PT4)", def: "\\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\)." },
+        { term: "The symbol \\( \\equiv \\)", def: "Identically equal — true for every value of \\( \\theta \\)." },
+        { term: "\\( \\sin^2\\theta \\)", def: "\\( (\\sin\\theta)^2 \\) — square the ratio, not \\( \\sin(\\theta^2) \\)." },
+        { term: "\\( 1 - \\cos^2\\theta \\)", def: "\\( \\sin^2\\theta \\)." },
+        { term: "\\( 1 - \\sin^2\\theta \\)", def: "\\( \\cos^2\\theta \\)." },
+        { term: "Find another ratio", def: "Use \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\), then \\( \\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta} \\)." },
+        { term: "Quadrant signs (CAST)", def: "Q1 all +, Q2 sin +, Q3 tan +, Q4 cos +." },
+        { term: "Sign after a square root", def: "The \\( \\pm \\) is resolved by the quadrant of \\( \\theta \\)." },
+        { term: "Proving an identity", def: "Transform one side (usually LHS) into the other; never cross \\( \\equiv \\)." },
+        { term: "'Exact' answer", def: "A surd or fraction kept whole, never a decimal." },
+        { term: "Memorise or provided?", def: "Both trig identities must be memorised — not on the formula sheet." },
+        { term: "Degrees only", def: "6993 trigonometry uses degrees, never radians." },
+        { term: "\\( \\tan\\theta\\cos\\theta \\)", def: "\\( \\sin\\theta \\)." },
+        { term: "Third-quadrant example", def: "\\( \\sin\\theta = -\\tfrac{3}{5} \\Rightarrow \\cos\\theta = -\\tfrac{4}{5},\\ \\tan\\theta = \\tfrac{3}{4} \\)." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "17 (a)",
+            marks: 4,
+            type: "written",
+            caseId: "q17-2024",
+            question: `<p><em>In this question you must show detailed reasoning.</em></p>
+            <p>Determine the ranges of possible values of \\( \\theta \\), given that \\( \\theta \\) can only take values between \\( 0^\\circ \\) and \\( 360^\\circ \\).</p>`,
+            hint: "First decide what values \\( \\dfrac{n+1}{n-1} \\) can take when \\( n > 1 \\) — is \\( \\tan\\theta \\) bigger or smaller than 1? Then find every \\( \\theta \\) in range with that property.",
+            starter: "State two ranges as inequalities in \\( \\theta \\), e.g. \\( a^\\circ < \\theta < b^\\circ \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3)</h5><ul>
+              <li><strong>M1</strong> — \\( \\tan\\theta > 1 \\) soi (for all \\( n > 1 \\), \\( \\frac{n+1}{n-1} > 1 \\); soi by identifying \\( 45^\\circ \\)).</li>
+              <li><strong>A1</strong> — first range \\( 45^\\circ < \\theta < 90^\\circ \\).</li>
+              <li><strong>M1</strong> — the third-quadrant range considered.</li>
+              <li><strong>A1</strong> — second range \\( 225^\\circ < \\theta < 270^\\circ \\) (ft the first range).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>SC: if either \\( < \\) is given as \\( \\le \\), then M1 A0 for that range (the endpoints are excluded because \\( n > 1 \\) strictly and \\( n \\) is finite).</li>
+              <li>Assuming \\( n \\) is an integer can earn M1 A0 M1 A1ft only.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>This proved the most challenging question on the paper, even for strong candidates. M1 was earned for considering large \\( n \\) and finding \\( \\tan\\theta > 1 \\).</li>
+              <li>Many assumed \\( n \\) was an integer, using \\( \\tan\\theta = \\frac{2+1}{2-1} \\) to get \\( 71.6^\\circ \\) as a wrong bound. Answers were rarely given as a proper inequality range — "\\( 71.6 < \\theta < 45 \\)" was often seen. Some sketched a tan graph; many only considered where \\( \\tan\\theta > 0 \\).</li>
+            </ul></div>`,
+            modelAnswer: "Since \\( n > 1 \\), both \\( n+1 \\) and \\( n-1 \\) are positive and \\( n+1 > n-1 \\), so \\( \\tan\\theta = \\frac{n+1}{n-1} > 1 \\). As \\( n \\to \\infty \\), \\( \\tan\\theta \\to 1 \\); as \\( n \\to 1 \\), \\( \\tan\\theta \\to \\infty \\); so \\( \\tan\\theta \\) can be any value greater than 1. In \\( 0^\\circ \\)–\\( 360^\\circ \\), \\( \\tan\\theta > 1 \\) in the first quadrant for \\( 45^\\circ < \\theta < 90^\\circ \\) and in the third quadrant for \\( 225^\\circ < \\theta < 270^\\circ \\).",
+            markPoints: { note: "Award each mark for the step shown; the endpoints are excluded (strict inequalities).", groups: [
+                { label: "M1 — establish \\( \\tan\\theta > 1 \\)", max: 1, points: ["Showed \\( \\frac{n+1}{n-1} > 1 \\) for all \\( n > 1 \\), so \\( \\tan\\theta > 1 \\) (soi by \\( 45^\\circ \\))"] },
+                { label: "A1 — first range", max: 1, points: ["\\( 45^\\circ < \\theta < 90^\\circ \\) (strict)"] },
+                { label: "M1 — third quadrant", max: 1, points: ["Considered the third-quadrant solutions of \\( \\tan\\theta > 1 \\)"] },
+                { label: "A1 — second range", max: 1, points: ["\\( 225^\\circ < \\theta < 270^\\circ \\) (ft the first range)"] }
+            ] }
+        },
+        {
+            num: "17 (b)",
+            marks: 4,
+            type: "written",
+            caseId: "q17-2024",
+            question: `<p><em>In this question you must show detailed reasoning.</em></p>
+            <p>Given that \\( \\theta \\) is acute, find an expression for \\( \\sin\\theta \\) in the form \\( \\dfrac{an+b}{\\sqrt{cn^2+d}} \\), where \\( a \\), \\( b \\), \\( c \\) and \\( d \\) are integers.</p>`,
+            hint: "Draw a right-angled triangle with opposite \\( n+1 \\) and adjacent \\( n-1 \\) so that \\( \\tan\\theta = \\frac{n+1}{n-1} \\); find the hypotenuse with Pythagoras, then read off \\( \\sin\\theta \\).",
+            starter: "Give a single exact expression \\( \\dfrac{an+b}{\\sqrt{cn^2+d}} \\); take the positive root as \\( \\theta \\) is acute.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3)</h5><ul>
+              <li><strong>M1</strong> — form \\( \\sin\\theta \\) from Pythagoras or a right-angled triangle: with opposite \\( n+1 \\), adjacent \\( n-1 \\), hypotenuse \\( \\sqrt{(n+1)^2 + (n-1)^2} \\).</li>
+              <li><strong>A1</strong> — \\( \\sin\\theta = \\dfrac{n+1}{\\sqrt{(n+1)^2 + (n-1)^2}} \\).</li>
+              <li><strong>M1</strong> — attempt to simplify the surd, expanding \\( (n+1)^2 + (n-1)^2 \\).</li>
+              <li><strong>A1</strong> — \\( \\sin\\theta = \\dfrac{n+1}{\\sqrt{2n^2 + 2}} \\) (cao).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Ignore \\( \\pm \\) throughout (\\( \\theta \\) is acute). \\( a = 1,\\ b = 1,\\ c = 2,\\ d = 2 \\).</li>
+              <li>Alternative method via \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\): substitute \\( \\tan\\theta = \\frac{\\sin\\theta}{\\cos\\theta} \\), square both sides and solve — but candidates rarely simplified this correctly.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>More fully-correct solutions than part (a). Full marks usually came from Pythagoras after drawing a right-angled triangle; the common error was subtracting rather than adding the squares.</li>
+              <li>Those using the identity route often scored at most 2: they did not square both sides, instead using \\( \\sqrt{1 - \\sin^2\\theta} \\) and assuming \\( \\sin\\theta = n+1 \\); manipulation afterwards rarely scored.</li>
+            </ul></div>`,
+            modelAnswer: "Draw a right-angled triangle with the acute angle \\( \\theta \\): opposite \\( = n+1 \\), adjacent \\( = n-1 \\), so \\( \\tan\\theta = \\frac{n+1}{n-1} \\). Hypotenuse \\( = \\sqrt{(n+1)^2 + (n-1)^2} = \\sqrt{(n^2+2n+1) + (n^2-2n+1)} = \\sqrt{2n^2 + 2} \\). Therefore \\( \\sin\\theta = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{n+1}{\\sqrt{2n^2 + 2}} \\).",
+            markPoints: { note: "Ignore \\( \\pm \\) throughout (acute). Final form must have integer \\( a,b,c,d \\).", groups: [
+                { label: "M1 — set up sin from a triangle/Pythagoras", max: 1, points: ["Opposite \\( n+1 \\), adjacent \\( n-1 \\), hypotenuse \\( \\sqrt{(n+1)^2 + (n-1)^2} \\)"] },
+                { label: "A1 — unsimplified sin", max: 1, points: ["\\( \\sin\\theta = \\frac{n+1}{\\sqrt{(n+1)^2 + (n-1)^2}} \\)"] },
+                { label: "M1 — simplify the surd", max: 1, points: ["Expanded \\( (n+1)^2 + (n-1)^2 = 2n^2 + 2 \\)"] },
+                { label: "A1 — final expression", max: 1, points: ["\\( \\sin\\theta = \\frac{n+1}{\\sqrt{2n^2 + 2}} \\) (cao)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

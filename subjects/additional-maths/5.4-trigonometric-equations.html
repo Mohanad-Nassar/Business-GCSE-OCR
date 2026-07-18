@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 5. Trigonometry</div>
             <h1>5.4 Trigonometric Equations</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,10 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 5.4 Trigonometric Equations — placeholder, content not yet written
+    //  DATA: 5.4 Trigonometric Equations (PT5 — solve in a given interval; multiple
+    //  angles; quadratic-in-a-trig-ratio; degrees only). Maths renders via KaTeX — all
+    //  LaTeX uses \( \) / \[ \] with backslashes DOUBLED in this JS source
+    //  (ADDMATHS-CONTENT-PLAN.md §8.4). Exam Qs = 2022 Q5 (a)+(b) and 2019 Q6 (a)+(b).
     // ══════════════════════════════════════
     const pageMeta = {
             id: '5-4-trigonometric-equations',
@@ -266,23 +269,317 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimulus for the routed exam parts (see examQuestions).
+    const EXAM_CASE_STUDIES = {
+        "q5-2022": `<p><strong>In this question you must show detailed reasoning.</strong></p><p>Find all the values of \\( \\theta \\) in the range \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) that satisfy the following equations, giving your answers correct to 1 decimal place.</p>`,
+        "q6-2019": `<p>Angle \\( \\theta \\) is such that \\( \\tan\\theta = 1.5 \\).</p>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>5.4 Trigonometric Equations</strong> will appear here soon.</p>`
+            title: "How do you solve a trig equation in a given interval?",
+            tag: "Key concept",
+            content: `<p>A <strong>trigonometric equation</strong> such as \\( \\sin\\theta = 0.4 \\) has infinitely many solutions, because the graphs of \\( \\sin \\), \\( \\cos \\) and \\( \\tan \\) repeat. The exam always fixes an <strong>interval</strong> (e.g. \\( 0^\\circ \\le \\theta \\le 360^\\circ \\)) and asks for <strong>all</strong> the solutions inside it.</p>
+            <ul>
+              <li><strong>Step 1 — principal value.</strong> Put the equation in the form \\( \\sin\\theta = k \\) (or \\( \\cos\\theta = k \\), \\( \\tan\\theta = k \\)) and use \\( \\sin^{-1} \\), \\( \\cos^{-1} \\) or \\( \\tan^{-1} \\) on the calculator. This gives one angle, the <strong>principal value</strong>.</li>
+              <li><strong>Step 2 — use the symmetry.</strong> The calculator only ever gives you one answer; you must use the shape of the graph (or the <strong>CAST</strong> diagram) to find every other solution in the interval.</li>
+              <li><strong>Step 3 — keep only those in range.</strong> Add or subtract full turns (\\( 360^\\circ \\) for \\( \\sin \\)/\\( \\cos \\), \\( 180^\\circ \\) for \\( \\tan \\)) to sweep the whole interval, then discard any angle outside it.</li>
+            </ul>
+            <p>Because sine and cosine graphs are symmetric, solutions come in <strong>pairs</strong> across a full \\( 360^\\circ \\) — three solutions to a single \\( \\sin\\theta = k \\) or \\( \\cos\\theta = k \\) in \\( 0^\\circ \\)–\\( 360^\\circ \\) is a sign you have made a slip.</p>`,
+            readCheck: { q: "Why is the calculator value alone not a full answer?", opts: ["It gives only one angle; the graph's symmetry has other solutions in the interval", "It is always wrong", "It gives every solution automatically", "It works only for \\( \\tan \\)"], ans: 0, explain: "\\( \\sin^{-1} \\), \\( \\cos^{-1} \\), \\( \\tan^{-1} \\) each return a single principal value — you use the graph/CAST to find the rest in range." }
+        },
+        {
+            title: "Which symmetry rule gives the other solutions?",
+            tag: "Method",
+            content: `<p>Learn one rule for each ratio. Take the calculator's principal value \\( \\alpha \\), then generate the partner and repeat every full period until you leave the interval.</p>
+            <table class="worked">
+              <tr><td><strong>\\( \\sin\\theta = k \\):</strong> solutions are \\( \\theta = \\alpha \\) and \\( \\theta = 180^\\circ - \\alpha \\), then add \\( 360^\\circ \\) as needed.</td></tr>
+              <tr><td><strong>\\( \\cos\\theta = k \\):</strong> solutions are \\( \\theta = \\alpha \\) and \\( \\theta = 360^\\circ - \\alpha \\), then add \\( 360^\\circ \\) as needed.</td></tr>
+              <tr><td><strong>\\( \\tan\\theta = k \\):</strong> solutions are \\( \\theta = \\alpha \\) and \\( \\theta = \\alpha + 180^\\circ \\) (tan repeats every \\( 180^\\circ \\)).</td></tr>
+            </table>
+            <p>The sine graph below shows why \\( \\sin\\theta = 0.4 \\) has two solutions in \\( 0^\\circ \\)–\\( 360^\\circ \\): the horizontal line \\( y = 0.4 \\) cuts the curve twice, at \\( \\theta \\approx 23.6^\\circ \\) and its mirror image \\( 180^\\circ - 23.6^\\circ = 156.4^\\circ \\).</p>
+            <svg viewBox="0 0 430 210" role="img" aria-label="Graph of y = sin theta from 0 to 360 degrees with the line y = 0.4 crossing it twice" style="width:100%;max-width:430px;height:auto;color:var(--ink,#333)">
+              <line x1="40" y1="100" x2="410" y2="100" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+              <line x1="40" y1="30" x2="40" y2="180" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+              <polyline points="40,100 70,65 100,39 130,30 160,39 190,65 220,100 250,135 280,161 310,170 340,161 370,135 400,100" fill="none" stroke="currentColor" stroke-width="2"/>
+              <line x1="40" y1="72" x2="400" y2="72" stroke="#4c9aff" stroke-width="1.5" stroke-dasharray="5 4"/>
+              <line x1="63.6" y1="72" x2="63.6" y2="100" stroke="#4c9aff" stroke-width="1" stroke-dasharray="3 3"/>
+              <line x1="196.4" y1="72" x2="196.4" y2="100" stroke="#4c9aff" stroke-width="1" stroke-dasharray="3 3"/>
+              <circle cx="63.6" cy="72" r="3.5" fill="#4c9aff"/>
+              <circle cx="196.4" cy="72" r="3.5" fill="#4c9aff"/>
+              <text x="405" y="68" font-size="11" fill="#4c9aff">y = 0.4</text>
+              <text x="46" y="112" font-size="10" fill="currentColor">23.6°</text>
+              <text x="176" y="112" font-size="10" fill="currentColor">156.4°</text>
+              <text x="214" y="97" font-size="10" fill="currentColor" opacity="0.7">180°</text>
+              <text x="392" y="97" font-size="10" fill="currentColor" opacity="0.7">360°</text>
+            </svg>`,
+            readCheck: { q: "You solve \\( \\cos\\theta = 0.7 \\) and the calculator gives \\( 45.6^\\circ \\). What is the second solution in \\( 0^\\circ \\)–\\( 360^\\circ \\)?", opts: ["\\( 314.4^\\circ \\)", "\\( 134.4^\\circ \\)", "\\( 225.6^\\circ \\)", "\\( 225.0^\\circ \\)"], ans: 0, explain: "For \\( \\cos \\) the partner is \\( 360^\\circ - \\alpha = 360^\\circ - 45.6^\\circ = 314.4^\\circ \\)." }
+        },
+        {
+            title: "Worked example — solving sin, cos and tan equations",
+            tag: "Worked example",
+            content: `<p><strong>(A) Solve \\( \\sin\\theta = 0.4 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) (1 dp).</strong></p>
+            <table class="worked">
+              <tr><td>1. Principal value: \\( \\theta = \\sin^{-1}(0.4) = 23.578\\ldots = 23.6^\\circ \\).</td></tr>
+              <tr><td>2. Sine partner: \\( 180^\\circ - 23.578^\\circ = 156.4^\\circ \\).</td></tr>
+              <tr><td>3. Both lie in range, so \\[ \\theta = 23.6^\\circ,\\ 156.4^\\circ. \\]</td></tr>
+            </table>
+            <p><strong>(B) Solve \\( \\cos\\theta = 0.5 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\).</strong> Principal value \\( \\cos^{-1}(0.5) = 60^\\circ \\); cosine partner \\( 360^\\circ - 60^\\circ = 300^\\circ \\). So \\( \\theta = 60^\\circ,\\ 300^\\circ \\).</p>
+            <p><strong>(C) Solve \\( \\tan\\theta = 2 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) (1 dp).</strong> Principal value \\( \\tan^{-1}(2) = 63.4^\\circ \\); add \\( 180^\\circ \\) to get \\( 243.4^\\circ \\). So \\( \\theta = 63.4^\\circ,\\ 243.4^\\circ \\).</p>
+            <p>If \\( k \\) is <strong>negative</strong> the calculator returns a negative principal value — add \\( 360^\\circ \\) (or \\( 180^\\circ \\) for \\( \\tan \\)) to bring it into range before finding the partner.</p>`,
+            readCheck: { q: "Solve \\( \\tan\\theta = 0.75 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) (1 dp).", opts: ["\\( 36.9^\\circ,\\ 216.9^\\circ \\)", "\\( 36.9^\\circ \\) only", "\\( 36.9^\\circ,\\ 143.1^\\circ \\)", "\\( 36.9^\\circ,\\ 323.1^\\circ \\)"], ans: 0, explain: "\\( \\tan^{-1}(0.75) = 36.9^\\circ \\); \\( \\tan \\) repeats every \\( 180^\\circ \\), so the partner is \\( 36.9^\\circ + 180^\\circ = 216.9^\\circ \\)." }
+        },
+        {
+            title: "How do you solve a multiple-angle equation like tan 2x = 0.5?",
+            tag: "Exam skill",
+            content: `<p>When the angle inside the ratio is a <strong>multiple</strong> (\\( 2\\theta \\), \\( 3x \\), …), solve for that whole multiple angle first — over an <strong>expanded interval</strong> — and divide only at the end.</p>
+            <ul>
+              <li>If \\( 0^\\circ \\le x \\le 360^\\circ \\), then \\( 2x \\) runs over \\( 0^\\circ \\le 2x \\le 720^\\circ \\). You must find every solution across that <strong>doubled</strong> interval.</li>
+              <li>This is the classic trap: doubling the interval <strong>doubles the number of solutions</strong>. A \\( \\sin\\theta = k \\) has two solutions in \\( 360^\\circ \\), so \\( \\sin 2\\theta = k \\) has <strong>four</strong> in \\( 360^\\circ \\).</li>
+            </ul>
+            <p><strong>Worked example — solve \\( \\tan 2x = 0.5 \\) for \\( 0^\\circ \\le x \\le 360^\\circ \\) (1 dp).</strong></p>
+            <table class="worked">
+              <tr><td>1. Let \\( u = 2x \\), so \\( 0^\\circ \\le u \\le 720^\\circ \\).</td></tr>
+              <tr><td>2. Principal value: \\( u = \\tan^{-1}(0.5) = 26.565^\\circ \\).</td></tr>
+              <tr><td>3. Add \\( 180^\\circ \\) repeatedly while \\( u \\le 720^\\circ \\): \\( u = 26.565^\\circ,\\ 206.565^\\circ,\\ 386.565^\\circ,\\ 566.565^\\circ \\).</td></tr>
+              <tr><td>4. Divide every value by 2: \\[ x = 13.3^\\circ,\\ 103.3^\\circ,\\ 193.3^\\circ,\\ 283.3^\\circ. \\]</td></tr>
+            </table>
+            <p><strong>Never</strong> solve \\( \\tan 2x = 0.5 \\) by writing \\( \\tan x = 0.25 \\) — you cannot halve inside a trig ratio. Expand the interval instead.</p>`,
+            readCheck: { q: "For \\( \\cos 2\\theta = 0.5 \\) with \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), over what interval must you first solve for \\( 2\\theta \\)?", opts: ["\\( 0^\\circ \\le 2\\theta \\le 720^\\circ \\)", "\\( 0^\\circ \\le 2\\theta \\le 360^\\circ \\)", "\\( 0^\\circ \\le 2\\theta \\le 180^\\circ \\)", "\\( 0^\\circ \\le 2\\theta \\le 90^\\circ \\)"], ans: 0, explain: "Doubling the angle doubles the interval: \\( \\theta \\le 360^\\circ \\) means \\( 2\\theta \\le 720^\\circ \\), so you must sweep the full \\( 720^\\circ \\)." }
+        },
+        {
+            title: "How do you solve an equation that hides a quadratic?",
+            tag: "Worked example",
+            content: `<p>Some equations mix \\( \\sin^2\\theta \\) or \\( \\cos^2\\theta \\) with the first-power ratio. Use the identity \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) to write everything in <strong>one</strong> ratio, then it becomes a <strong>quadratic</strong>.</p>
+            <ul>
+              <li>If the odd term is \\( \\cos\\theta \\), replace \\( \\sin^2\\theta \\) with \\( 1 - \\cos^2\\theta \\).</li>
+              <li>If the odd term is \\( \\sin\\theta \\), replace \\( \\cos^2\\theta \\) with \\( 1 - \\sin^2\\theta \\).</li>
+              <li>Let \\( s = \\sin\\theta \\) (or \\( c = \\cos\\theta \\)), factorise or use the formula, then solve each resulting simple equation in range.</li>
+            </ul>
+            <p><strong>Worked example — solve \\( 2\\sin^2\\theta - 3\\cos\\theta - 3 = 0 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\).</strong></p>
+            <table class="worked">
+              <tr><td>1. Replace \\( \\sin^2\\theta \\): \\( 2(1 - \\cos^2\\theta) - 3\\cos\\theta - 3 = 0 \\).</td></tr>
+              <tr><td>2. Tidy: \\( -2\\cos^2\\theta - 3\\cos\\theta - 1 = 0 \\Rightarrow 2\\cos^2\\theta + 3\\cos\\theta + 1 = 0 \\).</td></tr>
+              <tr><td>3. Factorise: \\( (2\\cos\\theta + 1)(\\cos\\theta + 1) = 0 \\).</td></tr>
+              <tr><td>4. So \\( \\cos\\theta = -\\tfrac{1}{2} \\) or \\( \\cos\\theta = -1 \\).</td></tr>
+              <tr><td>5. \\( \\cos\\theta = -\\tfrac{1}{2} \\Rightarrow \\theta = 120^\\circ,\\ 240^\\circ \\); \\( \\cos\\theta = -1 \\Rightarrow \\theta = 180^\\circ \\).</td></tr>
+              <tr><td>6. All solutions: \\[ \\theta = 120^\\circ,\\ 180^\\circ,\\ 240^\\circ. \\]</td></tr>
+            </table>
+            <p>Always solve <strong>each</strong> value of the ratio for its own angles in range — one quadratic can produce three or four final answers.</p>`,
+            readCheck: { q: "To solve \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\), which substitution turns it into a quadratic in \\( \\sin\\theta \\)?", opts: ["\\( \\cos^2\\theta = 1 - \\sin^2\\theta \\)", "\\( \\cos^2\\theta = 1 + \\sin^2\\theta \\)", "\\( \\cos\\theta = 1 - \\sin\\theta \\)", "\\( \\sin^2\\theta = 1 + \\cos^2\\theta \\)"], ans: 0, explain: "From \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\), \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\); substituting leaves only \\( \\sin\\theta \\)." }
+        },
+        {
+            title: "How precisely must you give trig answers?",
+            tag: "Common error",
+            content: `<p>Read the command carefully — the required form changes the whole answer.</p>
+            <ul>
+              <li><strong>"correct to 1 decimal place"</strong> — give each angle as a rounded decimal, e.g. \\( 26.6^\\circ \\). Do not leave extra decimals; do not give exact surds.</li>
+              <li><strong>"exact value"</strong> — leave surds/fractions, e.g. \\( \\sin\\theta = \\tfrac{3\\sqrt{13}}{13} \\). A rounded decimal scores <strong>0</strong> here.</li>
+              <li><strong>"you must show detailed reasoning" (DR)</strong> — write every analytical step: identity used, quadratic formed, factors, each angle. A bare calculator solution scores <strong>0</strong> even if the numbers are right.</li>
+              <li>Give <strong>all</strong> solutions in the stated interval — a common lost mark is stopping after the first one. And give <strong>no</strong> extras outside the interval, or a "list all" mark can be withheld.</li>
+            </ul>
+            <p>A safe habit on a 1 dp question: carry the unrounded principal value in the calculator's memory, generate every partner from it, and round only at the very end.</p>`,
+            readCheck: { q: "A question says \"show detailed reasoning\" and \"1 decimal place\". A student writes just the four final angles from the calculator. What happens?", opts: ["They score 0 — DR requires the analytical working to be shown", "Full marks, the answers are right", "They lose one mark only", "It depends on rounding"], ans: 0, explain: "Under detailed reasoning, an unsupported calculator answer earns no marks even when correct — the method must be visible." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "Solve \\( \\sin\\theta = 0.6 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) (1 dp).", opts: ["\\( 36.9^\\circ,\\ 143.1^\\circ \\)", "\\( 36.9^\\circ \\) only", "\\( 36.9^\\circ,\\ 216.9^\\circ \\)", "\\( 36.9^\\circ,\\ 323.1^\\circ \\)"], ans: 0, explain: "\\( \\sin^{-1}(0.6) = 36.9^\\circ \\); sine partner is \\( 180^\\circ - 36.9^\\circ = 143.1^\\circ \\)." },
+        { q: "Solve \\( \\cos\\theta = 0.8 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) (1 dp).", opts: ["\\( 36.9^\\circ,\\ 323.1^\\circ \\)", "\\( 36.9^\\circ,\\ 143.1^\\circ \\)", "\\( 36.9^\\circ \\) only", "\\( 36.9^\\circ,\\ 216.9^\\circ \\)"], ans: 0, explain: "For \\( \\cos \\) the partner is \\( 360^\\circ - \\alpha = 360^\\circ - 36.9^\\circ = 323.1^\\circ \\)." },
+        { q: "Solve \\( \\tan\\theta = 1 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\).", opts: ["\\( 45^\\circ,\\ 225^\\circ \\)", "\\( 45^\\circ,\\ 135^\\circ \\)", "\\( 45^\\circ \\) only", "\\( 45^\\circ,\\ 315^\\circ \\)"], ans: 0, explain: "\\( \\tan^{-1}(1) = 45^\\circ \\); \\( \\tan \\) repeats every \\( 180^\\circ \\), so \\( 45^\\circ + 180^\\circ = 225^\\circ \\)." },
+        { q: "The calculator gives \\( \\cos^{-1}(0.3) = 72.5^\\circ \\). What is the other solution of \\( \\cos\\theta = 0.3 \\) in \\( 0^\\circ \\)–\\( 360^\\circ \\)?", opts: ["\\( 287.5^\\circ \\)", "\\( 107.5^\\circ \\)", "\\( 252.5^\\circ \\)", "\\( 252.5^\\circ \\) and \\( 107.5^\\circ \\)"], ans: 0, explain: "Cosine partner is \\( 360^\\circ - 72.5^\\circ = 287.5^\\circ \\); there are exactly two solutions." },
+        { q: "Which is the correct set of solutions of \\( \\sin 2\\theta = 0.5 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\)?", opts: ["\\( 15^\\circ,\\ 75^\\circ,\\ 195^\\circ,\\ 255^\\circ \\)", "\\( 15^\\circ,\\ 165^\\circ \\)", "\\( 30^\\circ,\\ 150^\\circ \\)", "\\( 15^\\circ,\\ 75^\\circ \\)"], ans: 0, explain: "Solve for \\( 2\\theta \\) over \\( 0^\\circ \\)–\\( 720^\\circ \\): \\( 2\\theta = 30^\\circ, 150^\\circ, 390^\\circ, 510^\\circ \\); halving gives four values." },
+        { q: "A student solves \\( \\sin 2\\theta = 0.5 \\) and gives only \\( 15^\\circ,\\ 165^\\circ \\). What did they do wrong?", opts: ["They forgot to expand the interval, so they lost the \\( 2\\theta \\) solutions beyond \\( 360^\\circ \\)", "Nothing — that is correct", "They should have written \\( \\sin\\theta = 0.25 \\)", "They used degrees instead of radians"], ans: 0, explain: "\\( 2\\theta \\) must be solved over \\( 0^\\circ \\)–\\( 720^\\circ \\); stopping at \\( 360^\\circ \\) drops half the answers (\\( 195^\\circ,\\ 255^\\circ \\))." },
+        { q: "How many solutions does \\( \\cos 2\\theta = 0.6 \\) have for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\)?", opts: ["Four", "Two", "One", "Three"], ans: 0, explain: "\\( \\cos u = 0.6 \\) has two solutions per \\( 360^\\circ \\); over the doubled range \\( 0^\\circ \\)–\\( 720^\\circ \\) there are four, so four values of \\( \\theta \\)." },
+        { q: "To solve \\( 2\\cos^2\\theta + 3\\cos\\theta + 1 = 0 \\), the best first step is to:", opts: ["Factorise it as a quadratic in \\( \\cos\\theta \\)", "Replace \\( \\cos^2\\theta \\) with \\( 1 + \\sin^2\\theta \\)", "Take \\( \\cos^{-1} \\) of every term", "Divide through by \\( \\cos\\theta \\)"], ans: 0, explain: "It is already a quadratic in \\( \\cos\\theta \\): \\( (2\\cos\\theta+1)(\\cos\\theta+1)=0 \\)." },
+        { q: "Solving \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) leads to \\( 12\\sin^2\\theta - \\sin\\theta - 1 = 0 \\). What are the values of \\( \\sin\\theta \\)?", opts: ["\\( \\sin\\theta = \\tfrac{1}{3} \\) or \\( -\\tfrac{1}{4} \\)", "\\( \\sin\\theta = \\tfrac{1}{4} \\) or \\( -\\tfrac{1}{3} \\)", "\\( \\sin\\theta = \\tfrac{1}{2} \\) or \\( -1 \\)", "\\( \\sin\\theta = 1 \\) or \\( -1 \\)"], ans: 0, explain: "\\( (3\\sin\\theta - 1)(4\\sin\\theta + 1) = 0 \\), so \\( \\sin\\theta = \\tfrac{1}{3} \\) or \\( \\sin\\theta = -\\tfrac{1}{4} \\)." },
+        { q: "\\( \\sin\\theta = -0.5 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\). The calculator gives \\( -30^\\circ \\). The in-range solutions are:", opts: ["\\( 210^\\circ,\\ 330^\\circ \\)", "\\( 30^\\circ,\\ 150^\\circ \\)", "\\( 210^\\circ \\) only", "\\( 30^\\circ,\\ 330^\\circ \\)"], ans: 0, explain: "\\( \\sin \\) is negative in the 3rd and 4th quadrants: \\( 180^\\circ + 30^\\circ = 210^\\circ \\) and \\( 360^\\circ - 30^\\circ = 330^\\circ \\)." },
+        { q: "Why is it wrong to solve \\( \\tan 2x = 0.5 \\) by writing \\( \\tan x = 0.25 \\)?", opts: ["You cannot halve the angle inside a trig ratio — \\( \\tan 2x \\ne 2\\tan x \\)", "0.25 is not in range", "\\( \\tan \\) has no inverse", "You must use \\( \\cos \\) instead"], ans: 0, explain: "The angle multiple stays inside the ratio; you solve for \\( 2x \\) over an expanded interval, then divide the results by 2." },
+        { q: "For \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), how many solutions does \\( \\sin\\theta = k \\) have when \\( 0 < k < 1 \\)?", opts: ["Two", "One", "Three", "Four"], ans: 0, explain: "The line \\( y = k \\) cuts one full sine wave twice, giving the pair \\( \\alpha \\) and \\( 180^\\circ - \\alpha \\)." }
+    ];
+
+    const matchData = [
+        { term: "\\( \\sin\\theta = k \\): the second solution", def: "\\( 180^\\circ - \\alpha \\)" },
+        { term: "\\( \\cos\\theta = k \\): the second solution", def: "\\( 360^\\circ - \\alpha \\)" },
+        { term: "\\( \\tan\\theta = k \\): the second solution", def: "\\( \\alpha + 180^\\circ \\)" },
+        { term: "Solve \\( 2\\theta \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\)", def: "Work over \\( 0^\\circ \\le 2\\theta \\le 720^\\circ \\)" },
+        { term: "\\( \\sin^2\\theta \\) in a quadratic in \\( \\cos\\theta \\)", def: "Replace with \\( 1 - \\cos^2\\theta \\)" },
+        { term: "Principal value", def: "The single angle the calculator returns" },
+        { term: "'Exact value' command", def: "Leave surds/fractions, never a decimal" },
+        { term: "'1 decimal place' command", def: "Round each angle, e.g. \\( 26.6^\\circ \\)" },
+        { term: "'Detailed reasoning'", def: "Show every step; calculator-only scores 0" },
+        { term: "\\( \\cos\\theta = -1 \\) in \\( 0^\\circ \\)–\\( 360^\\circ \\)", def: "\\( \\theta = 180^\\circ \\)" },
+        { term: "\\( \\tan\\theta = 1 \\) in \\( 0^\\circ \\)–\\( 360^\\circ \\)", def: "\\( 45^\\circ,\\ 225^\\circ \\)" },
+        { term: "Three solutions to a single \\( \\sin\\theta = k \\) in \\( 360^\\circ \\)", def: "A sign of an error — they come in pairs" }
+    ];
+
+    // FIB blanks sit in PLAIN TEXT only, never inside \( \) (ADDMATHS-CONTENT-PLAN §8.4 Rule 3b).
+    const fibData = [
+        { display: "The angle the calculator returns from \\( \\sin^{-1} \\), \\( \\cos^{-1} \\) or \\( \\tan^{-1} \\) is called the ___B1___ value.", blanks: { B1: "principal" } },
+        { display: "For \\( \\sin\\theta = k \\), if the first solution is \\( \\alpha \\) the second is 180 minus ___B1___ degrees.", blanks: { B1: "alpha" } },
+        { display: "For \\( \\cos\\theta = k \\), the second solution in \\( 0^\\circ \\)–\\( 360^\\circ \\) is ___B1___ minus \\( \\alpha \\).", blanks: { B1: "360" } },
+        { display: "The tangent graph repeats every ___B1___ degrees, so its second solution is \\( \\alpha \\) plus that many degrees.", blanks: { B1: "180" } },
+        { display: "To solve an equation in \\( 2\\theta \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), first solve for \\( 2\\theta \\) over the interval 0 to ___B1___ degrees.", blanks: { B1: "720" } },
+        { display: "To turn \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) into a quadratic, replace \\( \\cos^2\\theta \\) with 1 minus ___B1___.", blanks: { B1: "sin^2" } },
+        { display: "A command word that means \"leave surds, not decimals\" is ___B1___; a decimal answer then scores zero.", blanks: { B1: "exact" } },
+        { display: "Solutions of \\( \\sin\\theta = k \\) and \\( \\cos\\theta = k \\) come in ___B1___ across a full \\( 360^\\circ \\), so an odd count usually signals a slip.", blanks: { B1: "pairs" } }
+    ];
+
+    const fibWords = ["principal", "alpha", "360", "180", "720", "sin^2", "exact", "pairs", "90", "cos^2", "decimal", "detailed"];
+
+    const tfData = [
+        { statement: "The calculator's \\( \\sin^{-1} \\) key gives every solution of \\( \\sin\\theta = k \\) in the interval.", answer: false, explanation: "It gives only the principal value; you use the graph's symmetry (\\( 180^\\circ - \\alpha \\)) for the rest." },
+        { statement: "For \\( \\cos\\theta = k \\), the two solutions in \\( 0^\\circ \\)–\\( 360^\\circ \\) are \\( \\alpha \\) and \\( 360^\\circ - \\alpha \\).", answer: true, explanation: "The cosine graph is symmetric about \\( 0^\\circ \\)/\\( 360^\\circ \\), giving the partner \\( 360^\\circ - \\alpha \\)." },
+        { statement: "\\( \\tan\\theta = k \\) has solutions \\( \\alpha \\) and \\( 180^\\circ - \\alpha \\).", answer: false, explanation: "That is the sine rule. For \\( \\tan \\) the partner is \\( \\alpha + 180^\\circ \\), because \\( \\tan \\) has period \\( 180^\\circ \\)." },
+        { statement: "Solving \\( \\cos 2\\theta = 0.6 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\) gives four solutions.", answer: true, explanation: "Over the doubled interval \\( 0^\\circ \\)–\\( 720^\\circ \\), \\( \\cos 2\\theta = 0.6 \\) has four solutions, so four values of \\( \\theta \\)." },
+        { statement: "You can solve \\( \\tan 2x = 0.5 \\) by first writing \\( \\tan x = 0.25 \\).", answer: false, explanation: "You cannot halve the angle inside a ratio; solve for \\( 2x \\) over \\( 0^\\circ \\)–\\( 720^\\circ \\), then divide the answers by 2." },
+        { statement: "\\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) becomes a quadratic once \\( \\cos^2\\theta \\) is replaced by \\( 1 - \\sin^2\\theta \\).", answer: true, explanation: "It gives \\( 12\\sin^2\\theta - \\sin\\theta - 1 = 0 \\), a quadratic in \\( \\sin\\theta \\)." },
+        { statement: "On a 'detailed reasoning' question, writing the correct final angles straight from the calculator earns full marks.", answer: false, explanation: "DR requires the analytical working to be shown; an unsupported calculator answer scores 0 even if correct." },
+        { statement: "For \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), a single \\( \\sin\\theta = k \\) with \\( 0 < k < 1 \\) always has exactly two solutions.", answer: true, explanation: "The line \\( y = k \\) crosses one full sine wave twice, giving the pair \\( \\alpha \\) and \\( 180^\\circ - \\alpha \\)." }
+    ];
+
+    const miscData = [
+        { wrong: "Giving \\( \\sin\\theta = 0.4 \\Rightarrow \\theta = 23.6^\\circ \\) as the only answer", correct: "The calculator gives one value; you must add all in-range solutions. A weak answer stops at \\( 23.6^\\circ \\); a strong answer also writes the partner \\( 180^\\circ - 23.6^\\circ = 156.4^\\circ \\).", readCheck: { q: "How many solutions does \\( \\sin\\theta = 0.4 \\) have in \\( 0^\\circ \\)–\\( 360^\\circ \\)?", opts: ["Two", "One", "Three", "Four"], ans: 0, explain: "\\( \\theta = 23.6^\\circ \\) and \\( 156.4^\\circ \\) — sine solutions come in a pair." } },
+        { wrong: "Solving \\( \\sin 2\\theta = 0.5 \\) as if \\( 2\\theta \\) only runs up to \\( 360^\\circ \\)", correct: "You must double the interval. A weak answer solves \\( 2\\theta \\) over \\( 0^\\circ \\)–\\( 360^\\circ \\) and gives two answers; a strong answer uses \\( 0^\\circ \\)–\\( 720^\\circ \\) and finds all four.", readCheck: { q: "For \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), \\( 2\\theta \\) ranges over:", opts: ["\\( 0^\\circ \\) to \\( 720^\\circ \\)", "\\( 0^\\circ \\) to \\( 360^\\circ \\)", "\\( 0^\\circ \\) to \\( 180^\\circ \\)", "\\( 0^\\circ \\) to \\( 1080^\\circ \\)"], ans: 0, explain: "Doubling the angle doubles the interval, so you must sweep to \\( 720^\\circ \\)." } },
+        { wrong: "Writing \\( \\tan 2x = 0.5 \\Rightarrow \\tan x = 0.25 \\)", correct: "The angle multiple cannot be halved inside the ratio. A weak answer 'simplifies' to \\( \\tan x = 0.25 \\); a strong answer solves \\( \\tan u = 0.5 \\) for \\( u = 2x \\) over \\( 0^\\circ \\)–\\( 720^\\circ \\), then divides by 2.", readCheck: { q: "The correct method for \\( \\tan 2x = 0.5 \\) is to:", opts: ["Solve for \\( 2x \\) over the doubled interval, then halve each answer", "Write \\( \\tan x = 0.25 \\)", "Take the square root", "Use \\( \\sin \\) instead"], ans: 0, explain: "Solve for the whole multiple angle first, then divide the results by 2." } },
+        { wrong: "Answering an 'exact value' trig question with \\( \\sin\\theta = 0.832 \\)", correct: "'Exact' forbids a rounded decimal. A weak answer rounds; a strong answer gives the surd form, e.g. \\( \\sin\\theta = \\tfrac{3\\sqrt{13}}{13} \\).", readCheck: { q: "Which is an 'exact' value of \\( \\sin\\theta \\)?", opts: ["\\( \\tfrac{3\\sqrt{13}}{13} \\)", "\\( 0.832 \\)", "\\( 0.83 \\)", "about \\( 0.8 \\)"], ans: 0, explain: "Only the surd form \\( \\tfrac{3\\sqrt{13}}{13} \\) is exact; the decimals are approximations." } },
+        { wrong: "Rounding the principal value early, then building the other solutions from the rounded number", correct: "Early rounding drifts the later angles. A weak answer rounds \\( 26.565^\\circ \\) to \\( 26.6^\\circ \\) first; a strong answer keeps the full value in the calculator, generates every partner, and rounds only at the end.", readCheck: { q: "When should you round on a 1 dp trig question?", opts: ["At the very end, after finding all solutions", "Immediately after the first calculator step", "Never round", "After every line"], ans: 0, explain: "Carry the unrounded value through and round only the final angles to avoid accumulated error." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "The 'all solutions in range' ladder", pills: ["all solutions", "symmetry", "in range"], content: `<p><strong>0 marks:</strong> \\( \\sin\\theta = 0.6 \\Rightarrow \\theta = 36.9^\\circ \\) and stop.</p><p><strong>Partial:</strong> \\( 36.9^\\circ \\) plus a wrong partner (e.g. \\( 216.9^\\circ \\), using the tan rule by mistake).</p><p><strong>Full marks:</strong> \\( \\theta = 36.9^\\circ \\) and \\( 180^\\circ - 36.9^\\circ = 143.1^\\circ \\) — the correct sine pair, both in range, nothing extra.</p>`, readCheck: { q: "For \\( \\sin\\theta = 0.6 \\), the full set in \\( 0^\\circ \\)–\\( 360^\\circ \\) is:", opts: ["\\( 36.9^\\circ,\\ 143.1^\\circ \\)", "\\( 36.9^\\circ \\)", "\\( 36.9^\\circ,\\ 216.9^\\circ \\)", "\\( 36.9^\\circ,\\ 323.1^\\circ \\)"], ans: 0, explain: "Sine partner is \\( 180^\\circ - \\alpha \\)." } },
+        { type: "tip", title: "Don't forget to double the interval", pills: ["multiple angle", "expand", "divide"], content: `<p>For \\( \\cos 2\\theta = 0.6 \\) [3]: examiners award marks for finding the first \\( \\theta \\), for a second value, and for <strong>all four</strong> correct (no extras). The single biggest error is expanding \\( 2\\theta \\) to only \\( 360^\\circ \\) and returning two answers. Write the \\( 2\\theta \\) range as \\( 0^\\circ \\)–\\( 720^\\circ \\) on the page before you start.</p>`, readCheck: { q: "Why write the \\( 2\\theta \\) interval down first?", opts: ["To remind yourself to find all four solutions, not two", "To use more space", "It earns a mark by itself", "It is not needed"], ans: 0, explain: "Seeing \\( 0^\\circ \\)–\\( 720^\\circ \\) prompts you to collect every solution before halving." } },
+        { type: "explain", title: "The 'detailed reasoning' ladder", pills: ["detailed reasoning", "show working", "quadratic"], content: `<p>For \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) [5, DR]: <strong>0 marks</strong> for the four angles alone. <strong>Full marks</strong> shows: the identity \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\) used; the quadratic \\( 12\\sin^2\\theta - \\sin\\theta - 1 = 0 \\); the factors \\( (3\\sin\\theta - 1)(4\\sin\\theta + 1) \\); \\( \\sin\\theta = \\tfrac{1}{3} \\) or \\( -\\tfrac{1}{4} \\); then each angle in range to 1 dp. A calculator solve of the original equation scores nothing.</p>`, readCheck: { q: "Under 'detailed reasoning', the quadratic and factors must be:", opts: ["Written out fully on the page", "Kept in the calculator only", "Given as decimals", "Skipped if the answer is right"], ans: 0, explain: "DR credits only visible analytical steps; the working itself carries the marks." } }
+    ];
+
+    const flashcards = [
+        { term: "Trigonometric equation", def: "An equation like \\( \\sin\\theta = k \\); solve for all angles in a given interval." },
+        { term: "Principal value", def: "The single angle returned by \\( \\sin^{-1} \\), \\( \\cos^{-1} \\) or \\( \\tan^{-1} \\)." },
+        { term: "\\( \\sin\\theta = k \\) solutions", def: "\\( \\alpha \\) and \\( 180^\\circ - \\alpha \\), then add \\( 360^\\circ \\)." },
+        { term: "\\( \\cos\\theta = k \\) solutions", def: "\\( \\alpha \\) and \\( 360^\\circ - \\alpha \\), then add \\( 360^\\circ \\)." },
+        { term: "\\( \\tan\\theta = k \\) solutions", def: "\\( \\alpha \\) and \\( \\alpha + 180^\\circ \\) (period \\( 180^\\circ \\))." },
+        { term: "CAST diagram", def: "Shows which quadrants make \\( \\sin \\), \\( \\cos \\), \\( \\tan \\) positive." },
+        { term: "Multiple-angle method", def: "Solve for \\( 2\\theta \\) over the expanded interval, then divide by 2." },
+        { term: "Interval doubling", def: "\\( 0^\\circ \\le \\theta \\le 360^\\circ \\) means \\( 0^\\circ \\le 2\\theta \\le 720^\\circ \\)." },
+        { term: "Quadratic-in-a-ratio", def: "Use \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\) to leave one ratio, then factorise." },
+        { term: "Solutions come in pairs", def: "\\( \\sin\\theta = k \\), \\( \\cos\\theta = k \\) each give two per \\( 360^\\circ \\)." },
+        { term: "'Exact value'", def: "Leave surds/fractions; a decimal scores 0." },
+        { term: "'1 decimal place'", def: "Round each final angle, e.g. \\( 26.6^\\circ \\)." },
+        { term: "'Detailed reasoning' (DR)", def: "Show every step; a calculator-only answer scores 0." },
+        { term: "Negative \\( k \\)", def: "Calculator gives a negative angle; add \\( 360^\\circ \\) (or \\( 180^\\circ \\)) into range." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "5 (a)",
+            marks: 3,
+            type: "written",
+            caseId: "q5-2022",
+            question: `<p>\\( \\cos 2\\theta = 0.6 \\)</p>`,
+            hint: "This is a multiple angle: solve for \\( 2\\theta \\) over \\( 0^\\circ \\le 2\\theta \\le 720^\\circ \\), then halve — expect four values.",
+            starter: "State all solutions in \\( 0^\\circ \\)–\\( 360^\\circ \\), to 1 dp.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1, AO2)</h5><ul>
+              <li><strong>B1</strong> — \\( 2\\theta = 53.1^\\circ \\) leading to \\( \\theta = 26.6^\\circ \\) (awrt 26.6).</li>
+              <li><strong>B1</strong> — one further correct value (FT to 1 d.p.).</li>
+              <li><strong>B1</strong> — all four correct to 1 d.p.: \\( \\theta = 26.6^\\circ,\\ 153.4^\\circ,\\ 206.6^\\circ,\\ 333.4^\\circ \\) (but not if there are extra values).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>\\( 2\\theta = 53.13^\\circ,\\ 306.87^\\circ,\\ 413.13^\\circ,\\ 666.87^\\circ \\); halving gives the four \\( \\theta \\) values.</li>
+              <li>The final mark needs all four correct with no extra values in range.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>A number of candidates made an incorrect first step by asserting that \\( \\cos 2\\theta = 0.6 \\) led to \\( \\cos\\theta = 0.3 \\). Others lost marks by failing to realise that there were four roots to the equation.</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\cos 2\\theta = 0.6 \\Rightarrow 2\\theta = 53.13^\\circ,\\ 306.87^\\circ,\\ 413.13^\\circ,\\ 666.87^\\circ \\) (over \\( 0^\\circ \\)–\\( 720^\\circ \\)). Dividing by 2: \\( \\theta = 26.6^\\circ,\\ 153.4^\\circ,\\ 206.6^\\circ,\\ 333.4^\\circ \\).",
+            markPoints: { note: "Award each mark for the step shown; the final mark needs all four with no extras.", groups: [
+                { label: "B1 — first value", max: 1, points: ["\\( \\theta = 26.6^\\circ \\) (awrt, from \\( 2\\theta = 53.1^\\circ \\))"] },
+                { label: "B1 — one further value", max: 1, points: ["A second correct \\( \\theta \\) to 1 d.p. (FT)"] },
+                { label: "B1 — all four", max: 1, points: ["\\( \\theta = 26.6^\\circ,\\ 153.4^\\circ,\\ 206.6^\\circ,\\ 333.4^\\circ \\), no extra values"] }
+            ] }
+        },
+        {
+            num: "5 (b)",
+            marks: 5,
+            type: "written",
+            caseId: "q5-2022",
+            question: `<p>\\( 12\\cos^2\\theta + \\sin\\theta = 11 \\)</p>`,
+            hint: "Replace \\( \\cos^2\\theta \\) with \\( 1 - \\sin^2\\theta \\) to get a quadratic in \\( \\sin\\theta \\); solve each value in range. Show every step (DR).",
+            starter: "State all solutions in \\( 0^\\circ \\)–\\( 360^\\circ \\), to 1 dp, with full reasoning.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO1, AO2)</h5><ul>
+              <li><strong>M1</strong> — use of \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\): \\( 12(1 - \\sin^2\\theta) + \\sin\\theta = 11 \\).</li>
+              <li><strong>A1</strong> — correct quadratic \\( 12\\sin^2\\theta - \\sin\\theta - 1 = 0 \\).</li>
+              <li><strong>M1</strong> — factorising \\( (4\\sin\\theta + 1)(3\\sin\\theta - 1) = 0 \\) (coeffs of \\( s \\) multiply to 12, constants to \\( -1 \\)) or use of the formula, giving \\( \\sin\\theta = \\tfrac{1}{3} \\) and \\( \\sin\\theta = -\\tfrac{1}{4} \\).</li>
+              <li><strong>A1</strong> — awrt \\( 19.5^\\circ \\) and one other correct to 1 d.p.</li>
+              <li><strong>A1</strong> — the other two correct to 1 d.p.: \\( \\theta = 19.5^\\circ,\\ 160.5^\\circ,\\ 194.5^\\circ,\\ 345.5^\\circ \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>\\( \\sin\\theta = \\tfrac{1}{3} \\Rightarrow \\theta = 19.5^\\circ,\\ 160.5^\\circ \\); \\( \\sin\\theta = -\\tfrac{1}{4} \\Rightarrow \\theta = 194.5^\\circ,\\ 345.5^\\circ \\).</li>
+              <li>Roots to trig equations come in pairs in the range — three roots are not possible here.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most candidates used Pythagoras to obtain a quadratic in \\( \\sin\\theta \\). Errors were made by not showing the factorising and not realising roots come in pairs, and some gave answers to more than 1 decimal place.</li>
+            </ul></div>`,
+            modelAnswer: "Using \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\): \\( 12 - 12\\sin^2\\theta + \\sin\\theta = 11 \\Rightarrow 12\\sin^2\\theta - \\sin\\theta - 1 = 0 \\). Factorising: \\( (4\\sin\\theta + 1)(3\\sin\\theta - 1) = 0 \\), so \\( \\sin\\theta = -\\tfrac{1}{4} \\) or \\( \\sin\\theta = \\tfrac{1}{3} \\). Then \\( \\theta = 19.5^\\circ,\\ 160.5^\\circ \\) (from \\( \\tfrac{1}{3} \\)) and \\( \\theta = 194.5^\\circ,\\ 345.5^\\circ \\) (from \\( -\\tfrac{1}{4} \\)).",
+            markPoints: { note: "Detailed reasoning: every analytical step must be visible; a calculator-only solution scores 0.", groups: [
+                { label: "M1 — use the identity", max: 1, points: ["Replaced \\( \\cos^2\\theta \\) with \\( 1 - \\sin^2\\theta \\)"] },
+                { label: "A1 — correct quadratic", max: 1, points: ["\\( 12\\sin^2\\theta - \\sin\\theta - 1 = 0 \\)"] },
+                { label: "M1 — solve the quadratic", max: 1, points: ["Factorised (or used formula): \\( \\sin\\theta = \\tfrac{1}{3} \\) or \\( -\\tfrac{1}{4} \\)"] },
+                { label: "A1 — first two angles", max: 1, points: ["\\( 19.5^\\circ \\) and one other correct to 1 d.p."] },
+                { label: "A1 — remaining angles", max: 1, points: ["\\( \\theta = 19.5^\\circ,\\ 160.5^\\circ,\\ 194.5^\\circ,\\ 345.5^\\circ \\)"] }
+            ] }
+        },
+        {
+            num: "6 (a)",
+            marks: 2,
+            type: "written",
+            caseId: "q6-2019",
+            question: `<p>Find the two values of \\( \\theta \\) in the range \\( 0^\\circ \\le \\theta \\le 360^\\circ \\).</p>`,
+            hint: "\\( \\tan \\) is positive in the 1st and 3rd quadrants; the second value is the principal value plus \\( 180^\\circ \\).",
+            starter: "State both solutions in \\( 0^\\circ \\)–\\( 360^\\circ \\), to 1 dp.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>B1</strong> — \\( \\theta = 56.3^\\circ \\) (accept \\( 56^\\circ \\)).</li>
+              <li><strong>B1</strong> — \\( \\theta = 236.3^\\circ \\) (FT first angle \\( + 180^\\circ \\); accept \\( 236^\\circ \\)). Withhold this mark if there are other angles within the range; ignore any outside the range.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>\\( \\tan^{-1}(1.5) = 56.31^\\circ \\); the tangent period gives the second value \\( 56.31^\\circ + 180^\\circ = 236.31^\\circ \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Candidates had no difficulty using their calculator to find the principal angle, but many did not obtain the second value correctly.</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\tan^{-1}(1.5) = 56.3^\\circ \\); adding the \\( 180^\\circ \\) period gives \\( 236.3^\\circ \\). So \\( \\theta = 56.3^\\circ,\\ 236.3^\\circ \\).",
+            markPoints: { note: "Award each mark for the value shown.", groups: [
+                { label: "B1 — first value", max: 1, points: ["\\( \\theta = 56.3^\\circ \\) (accept \\( 56^\\circ \\))"] },
+                { label: "B1 — second value", max: 1, points: ["\\( \\theta = 236.3^\\circ \\) (first \\( + 180^\\circ \\); no extra in-range angles)"] }
+            ] }
+        },
+        {
+            num: "6 (b)",
+            marks: 3,
+            type: "written",
+            caseId: "q6-2019",
+            question: `<p><strong>In this question you must show detailed reasoning.</strong></p><p>Find the exact values of \\( \\sin\\theta \\).</p>`,
+            hint: "Build a right-angled triangle with \\( \\tan\\theta = \\tfrac{3}{2} \\) (or use \\( \\sin^2\\theta + \\cos^2\\theta = 1 \\)); there are two values, one for each quadrant.",
+            starter: "Give both exact values of \\( \\sin\\theta \\) in surd form.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — use of Pythagoras (or the identity): with \\( \\tan\\theta = \\tfrac{3}{2} \\), hypotenuse \\( = \\sqrt{3^2 + 2^2} = \\sqrt{13} \\).</li>
+              <li><strong>A1</strong> — first value \\( \\sin\\theta = \\dfrac{3}{\\sqrt{13}} = \\dfrac{3\\sqrt{13}}{13} \\).</li>
+              <li><strong>A1</strong> — second value \\( \\sin\\theta = -\\dfrac{3\\sqrt{13}}{13} \\) (negative of the first; FT).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Alternative: \\( \\sin^2\\theta = \\tan^2\\theta\\cos^2\\theta \\) with \\( \\cos^2\\theta = 1 - \\sin^2\\theta \\) gives \\( 3.25\\sin^2\\theta = 2.25 \\), so \\( \\sin^2\\theta = \\tfrac{9}{13} \\) and \\( \\sin\\theta = \\pm\\tfrac{3}{\\sqrt{13}} \\).</li>
+              <li>"Exact" and "detailed reasoning" both signal a surd answer with two values; a decimal scores 0.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Poorly answered. Many missed that there is more than one answer, and that an exact irrational value must be written in surd form, not as a decimal. Using a triangle can hide the negative value; the identity method reveals \\( \\sin^2\\theta \\), showing two possible answers.</li>
+            </ul></div>`,
+            modelAnswer: "With \\( \\tan\\theta = \\tfrac{3}{2} \\), a right-angled triangle has opposite 3, adjacent 2, hypotenuse \\( \\sqrt{13} \\). So \\( \\sin\\theta = \\dfrac{3}{\\sqrt{13}} = \\dfrac{3\\sqrt{13}}{13} \\) at \\( 56.3^\\circ \\), and \\( \\sin\\theta = -\\dfrac{3\\sqrt{13}}{13} \\) at \\( 236.3^\\circ \\). Hence \\( \\sin\\theta = \\pm\\dfrac{3\\sqrt{13}}{13} \\).",
+            markPoints: { note: "Detailed reasoning: the Pythagoras/identity working must be shown; both exact values required.", groups: [
+                { label: "M1 — Pythagoras/identity", max: 1, points: ["Found hypotenuse \\( \\sqrt{13} \\) (or \\( \\sin^2\\theta = \\tfrac{9}{13} \\))"] },
+                { label: "A1 — first exact value", max: 1, points: ["\\( \\sin\\theta = \\dfrac{3\\sqrt{13}}{13} \\)"] },
+                { label: "A1 — second exact value", max: 1, points: ["\\( \\sin\\theta = -\\dfrac{3\\sqrt{13}}{13} \\)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

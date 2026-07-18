@@ -2,7 +2,7 @@
 // ALL SECTION TOTALS — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py: every subject's section
 // totals merged into one map keyed by subject-prefixed page id.
-// Generated: 2026-07-17T21:38:28Z
+// Generated: 2026-07-18T04:46:50Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS_ALL = {
  "additional-maths:1-1-notation-functions-and-indices": {
@@ -158,6 +158,61 @@ window.SECTION_TOTALS_ALL = {
   "fib": 8,
   "match": 14,
   "flashcards": 15
+ },
+ "additional-maths:5-1-trig-ratios-for-any-angle": {
+  "exam": 0,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 13,
+  "flashcards": 18
+ },
+ "additional-maths:5-2-sine-and-cosine-rules": {
+  "exam": 2,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 13,
+  "flashcards": 15
+ },
+ "additional-maths:5-3-trigonometric-identities": {
+  "exam": 2,
+  "mcq": 11,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 15
+ },
+ "additional-maths:5-4-trigonometric-equations": {
+  "exam": 4,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 12,
+  "flashcards": 14
+ },
+ "additional-maths:5-5-pythagoras-and-trig-in-2d-and-3d": {
+  "exam": 5,
+  "mcq": 11,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 14
  },
  "business:1-1-role-of-business-enterprise": {
   "exam": 19,

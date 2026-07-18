@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 5. Trigonometry</div>
             <h1>5.1 Trig Ratios for Any Angle</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,12 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 5.1 Trig Ratios for Any Angle — placeholder, content not yet written
+    //  DATA: 5.1 Trig Ratios for Any Angle (PT1 — sin/cos/tan for ANY angle, DEGREES ONLY)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes doubled
+    //  in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). SVGs are hand-authored,
+    //  theme-safe (currentColor, no fixed fills). No standalone PT1 exam question in the
+    //  current-spec papers — PT1 is assessed within trig-equation questions on 5.4, so
+    //  examQuestions = [] (see note there). Radians are NOT part of 6993 — degrees only.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '5-1-trig-ratios-for-any-angle',
@@ -268,20 +273,245 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>5.1 Trig Ratios for Any Angle</strong> will appear here soon.</p>`
+            title: "How are sin, cos and tan defined for ANY angle?",
+            tag: "Key concept",
+            content: `<p>At GCSE, \\( \\sin \\), \\( \\cos \\) and \\( \\tan \\) come from a right-angled triangle (SOH CAH TOA), so they only make sense for angles between \\( 0^\\circ \\) and \\( 90^\\circ \\). For this qualification we need them for <strong>any</strong> angle, so we use a <strong>rotating radius</strong> on the <strong>unit circle</strong> (a circle of radius \\( 1 \\)).</p>
+            <ul>
+              <li>Start on the positive \\( x \\)-axis and rotate <strong>anticlockwise</strong> through an angle \\( \\theta \\). The tip of the radius lands on a point \\( P \\).</li>
+              <li><strong>\\( \\cos\\theta \\) is the \\( x \\)-coordinate of \\( P \\)</strong>, and <strong>\\( \\sin\\theta \\) is the \\( y \\)-coordinate</strong>. So \\( P = (\\cos\\theta,\\ \\sin\\theta) \\).</li>
+              <li><strong>\\( \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta} \\)</strong> — the gradient of the radius.</li>
+              <li>For an acute angle this agrees exactly with SOH CAH TOA; the unit circle just <em>extends</em> the definitions past \\( 90^\\circ \\) and to negative angles.</li>
+            </ul>
+            <svg viewBox="0 0 240 230" width="100%" style="max-width:280px;height:auto;display:block;margin:12px auto" role="img" aria-label="Unit circle with a radius rotated to 120 degrees into the second quadrant, its tip labelled P equals cos theta sin theta">
+              <circle cx="110" cy="115" r="80" fill="none" stroke="currentColor" stroke-width="1.4" stroke-opacity="0.7"/>
+              <line x1="15" y1="115" x2="205" y2="115" stroke="currentColor" stroke-width="1.2"/>
+              <line x1="110" y1="25" x2="110" y2="205" stroke="currentColor" stroke-width="1.2"/>
+              <polygon points="205,115 196,111 196,119" fill="currentColor"/>
+              <polygon points="110,25 106,34 114,34" fill="currentColor"/>
+              <line x1="110" y1="115" x2="70" y2="46" stroke="currentColor" stroke-width="2.4"/>
+              <line x1="70" y1="46" x2="70" y2="115" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 3" stroke-opacity="0.7"/>
+              <line x1="70" y1="46" x2="110" y2="46" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 3" stroke-opacity="0.7"/>
+              <circle cx="70" cy="46" r="3.5" fill="currentColor"/>
+              <path d="M 140 115 A 30 30 0 0 0 122 88" fill="none" stroke="currentColor" stroke-width="1.2"/>
+              <g font-size="11" fill="currentColor">
+                <text x="128" y="108">θ</text>
+                <text x="40" y="42">P (cosθ, sinθ)</text>
+                <text x="205" y="128" text-anchor="end">x</text>
+                <text x="116" y="33">y</text>
+              </g>
+            </svg>
+            <p><strong>Worked example — the ratios of \\( 120^\\circ \\):</strong> the point at \\( 120^\\circ \\) is \\( (\\cos 120^\\circ,\\ \\sin 120^\\circ) = \\left(-\\tfrac{1}{2},\\ \\tfrac{\\sqrt{3}}{2}\\right) \\). So \\( \\sin 120^\\circ = \\tfrac{\\sqrt{3}}{2} \\), \\( \\cos 120^\\circ = -\\tfrac{1}{2} \\), and \\( \\tan 120^\\circ = \\dfrac{\\sqrt{3}/2}{-1/2} = -\\sqrt{3} \\).</p>`,
+            readCheck: { q: "On the unit circle, the point reached by rotating through \\( \\theta \\) has coordinates:", opts: ["\\( (\\cos\\theta,\\ \\sin\\theta) \\)", "\\( (\\sin\\theta,\\ \\cos\\theta) \\)", "\\( (\\tan\\theta,\\ 1) \\)", "\\( (\\theta,\\ \\sin\\theta) \\)"], ans: 0, explain: "By definition \\( \\cos\\theta \\) is the \\( x \\)-coordinate and \\( \\sin\\theta \\) the \\( y \\)-coordinate, so \\( P = (\\cos\\theta,\\ \\sin\\theta) \\)." }
+        },
+        {
+            title: "What do the graphs of sin and cos look like?",
+            tag: "Key concept",
+            content: `<p>As the radius rotates from \\( 0^\\circ \\) to \\( 360^\\circ \\), plotting the height (\\( \\sin \\)) or the horizontal position (\\( \\cos \\)) against the angle gives two identical <strong>waves</strong>, just shifted along.</p>
+            <ul>
+              <li>\\( y = \\sin\\theta \\) starts at \\( 0 \\), rises to a maximum \\( 1 \\) at \\( 90^\\circ \\), back to \\( 0 \\) at \\( 180^\\circ \\), down to a minimum \\( -1 \\) at \\( 270^\\circ \\), and back to \\( 0 \\) at \\( 360^\\circ \\).</li>
+              <li>\\( y = \\cos\\theta \\) is the same wave shifted \\( 90^\\circ \\) left: it starts at a maximum \\( 1 \\) at \\( 0^\\circ \\), is \\( 0 \\) at \\( 90^\\circ \\), \\( -1 \\) at \\( 180^\\circ \\), \\( 0 \\) at \\( 270^\\circ \\), and \\( 1 \\) again at \\( 360^\\circ \\).</li>
+              <li>Both have <strong>amplitude</strong> \\( 1 \\) (they reach up to \\( 1 \\) and down to \\( -1 \\)) and <strong>period</strong> \\( 360^\\circ \\) — the pattern repeats every \\( 360^\\circ \\), for ever, in both directions.</li>
+              <li>This repetition is exactly why a trig equation can have <strong>many</strong> solutions (lesson 5.4): the same height occurs again and again.</li>
+            </ul>
+            <svg viewBox="0 0 440 210" width="100%" style="max-width:500px;height:auto;display:block;margin:14px auto" role="img" aria-label="Graphs of y equals sin theta drawn solid and y equals cos theta drawn dashed from 0 to 360 degrees, both amplitude 1 and period 360">
+              <line x1="30" y1="40" x2="415" y2="40" stroke="currentColor" stroke-width="0.6" stroke-opacity="0.35" stroke-dasharray="3 3"/>
+              <line x1="30" y1="160" x2="415" y2="160" stroke="currentColor" stroke-width="0.6" stroke-opacity="0.35" stroke-dasharray="3 3"/>
+              <line x1="30" y1="100" x2="415" y2="100" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="40" y1="20" x2="40" y2="185" stroke="currentColor" stroke-width="1.4"/>
+              <polygon points="415,100 406,96 406,104" fill="currentColor"/>
+              <polygon points="40,20 36,29 44,29" fill="currentColor"/>
+              <polyline points="40,100 70,70 100,48 130,40 160,48 190,70 220,100 250,130 280,152 310,160 340,152 370,130 400,100" fill="none" stroke="currentColor" stroke-width="2.4"/>
+              <polyline points="40,40 70,48 100,70 130,100 160,130 190,152 220,160 250,152 280,130 310,100 340,70 370,48 400,40" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4"/>
+              <g font-size="11" fill="currentColor" text-anchor="middle">
+                <text x="130" y="176">90</text><text x="220" y="176">180</text><text x="310" y="176">270</text><text x="400" y="176">360</text>
+                <text x="30" y="44" text-anchor="end">1</text><text x="30" y="164" text-anchor="end">-1</text>
+                <text x="410" y="94" text-anchor="start">θ</text>
+              </g>
+              <g font-size="11" fill="currentColor">
+                <text x="72" y="64">sin θ</text><text x="300" y="88">cos θ (dashed)</text>
+              </g>
+            </svg>`,
+            readCheck: { q: "What is the period of \\( y = \\sin\\theta \\)?", opts: ["\\( 360^\\circ \\)", "\\( 180^\\circ \\)", "\\( 90^\\circ \\)", "\\( 270^\\circ \\)"], ans: 0, explain: "The sine wave repeats its full pattern every \\( 360^\\circ \\); so does cosine." }
+        },
+        {
+            title: "Why is the graph of tan different?",
+            tag: "Key concept",
+            content: `<p>Because \\( \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta} \\), the tangent graph behaves very differently from the two smooth waves.</p>
+            <ul>
+              <li>Its <strong>period is \\( 180^\\circ \\)</strong> — half that of sin and cos — so it repeats twice as often.</li>
+              <li>Wherever \\( \\cos\\theta = 0 \\) we are dividing by zero, so \\( \\tan\\theta \\) is <strong>undefined</strong>. In \\( 0^\\circ \\) to \\( 360^\\circ \\) this happens at \\( 90^\\circ \\) and \\( 270^\\circ \\).</li>
+              <li>At those angles the graph has <strong>vertical asymptotes</strong>: the curve shoots up towards \\( +\\infty \\) on one side and comes up from \\( -\\infty \\) on the other.</li>
+              <li>\\( \\tan\\theta \\) has <strong>no maximum or minimum</strong> — it takes every value. It passes through \\( 0 \\) at \\( 0^\\circ \\), \\( 180^\\circ \\) and \\( 360^\\circ \\), and equals \\( 1 \\) at \\( 45^\\circ \\).</li>
+            </ul>
+            <svg viewBox="0 0 440 200" width="100%" style="max-width:500px;height:auto;display:block;margin:14px auto" role="img" aria-label="Graph of y equals tan theta from 0 to 360 degrees with vertical asymptotes at 90 and 270 degrees">
+              <line x1="30" y1="100" x2="415" y2="100" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="40" y1="20" x2="40" y2="180" stroke="currentColor" stroke-width="1.4"/>
+              <polygon points="415,100 406,96 406,104" fill="currentColor"/>
+              <line x1="130" y1="24" x2="130" y2="176" stroke="currentColor" stroke-width="1" stroke-dasharray="5 4" stroke-opacity="0.55"/>
+              <line x1="310" y1="24" x2="310" y2="176" stroke="currentColor" stroke-width="1" stroke-dasharray="5 4" stroke-opacity="0.55"/>
+              <polyline points="40,100 70,83 85,70 100,48 108,35" fill="none" stroke="currentColor" stroke-width="2.3"/>
+              <polyline points="152,165 160,152 175,130 190,117 220,100 250,83 265,70 280,48 288,35" fill="none" stroke="currentColor" stroke-width="2.3"/>
+              <polyline points="332,165 340,152 355,130 370,117 400,100" fill="none" stroke="currentColor" stroke-width="2.3"/>
+              <g font-size="11" fill="currentColor" text-anchor="middle">
+                <text x="130" y="192">90</text><text x="220" y="116">180</text><text x="310" y="192">270</text><text x="400" y="116">360</text>
+                <text x="410" y="94" text-anchor="start">θ</text>
+              </g>
+            </svg>`,
+            readCheck: { q: "In \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), where does \\( y = \\tan\\theta \\) have vertical asymptotes?", opts: ["\\( 90^\\circ \\) and \\( 270^\\circ \\)", "\\( 0^\\circ \\) and \\( 180^\\circ \\)", "\\( 180^\\circ \\) and \\( 360^\\circ \\)", "\\( 45^\\circ \\) and \\( 135^\\circ \\)"], ans: 0, explain: "\\( \\tan\\theta \\) is undefined where \\( \\cos\\theta = 0 \\), i.e. at \\( 90^\\circ \\) and \\( 270^\\circ \\)." }
+        },
+        {
+            title: "Which ratios are positive in each quadrant (CAST)?",
+            tag: "Method",
+            content: `<p>The axes split the circle into four <strong>quadrants</strong>. The sign of each ratio depends only on which quadrant \\( P \\) is in (remember \\( \\cos\\theta \\) is the \\( x \\)-coordinate, \\( \\sin\\theta \\) the \\( y \\)-coordinate). The <strong>CAST</strong> rule records which ratios are <em>positive</em>:</p>
+            <svg viewBox="0 0 220 220" width="100%" style="max-width:250px;height:auto;display:block;margin:12px auto" role="img" aria-label="CAST diagram: A for all positive in the first quadrant, S for sine positive in the second, T for tan positive in the third, C for cosine positive in the fourth">
+              <circle cx="110" cy="110" r="82" fill="none" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.6"/>
+              <line x1="18" y1="110" x2="202" y2="110" stroke="currentColor" stroke-width="1.2"/>
+              <line x1="110" y1="18" x2="110" y2="202" stroke="currentColor" stroke-width="1.2"/>
+              <g font-size="22" font-weight="700" fill="currentColor" text-anchor="middle">
+                <text x="158" y="72">A</text><text x="62" y="72">S</text><text x="62" y="164">T</text><text x="158" y="164">C</text>
+              </g>
+              <g font-size="10" fill="currentColor" text-anchor="middle">
+                <text x="158" y="88">all +</text><text x="62" y="88">sin +</text><text x="62" y="180">tan +</text><text x="158" y="180">cos +</text>
+              </g>
+            </svg>
+            <ul>
+              <li><strong>Q1 (\\( 0^\\circ \\)–\\( 90^\\circ \\)) — A:</strong> <em>all</em> of sin, cos, tan are positive.</li>
+              <li><strong>Q2 (\\( 90^\\circ \\)–\\( 180^\\circ \\)) — S:</strong> only <em>sin</em> is positive (cos and tan negative).</li>
+              <li><strong>Q3 (\\( 180^\\circ \\)–\\( 270^\\circ \\)) — T:</strong> only <em>tan</em> is positive (sin and cos negative).</li>
+              <li><strong>Q4 (\\( 270^\\circ \\)–\\( 360^\\circ \\)) — C:</strong> only <em>cos</em> is positive (sin and tan negative).</li>
+            </ul>
+            <p><strong>Worked example — the signs for \\( 200^\\circ \\):</strong> \\( 200^\\circ \\) is in Q3 (between \\( 180^\\circ \\) and \\( 270^\\circ \\)), so only \\( \\tan \\) is positive. Hence \\( \\sin 200^\\circ < 0 \\), \\( \\cos 200^\\circ < 0 \\), \\( \\tan 200^\\circ > 0 \\).</p>`,
+            readCheck: { q: "In which quadrant are all three of sin, cos and tan positive?", opts: ["First (\\( 0^\\circ \\)–\\( 90^\\circ \\))", "Second (\\( 90^\\circ \\)–\\( 180^\\circ \\))", "Third (\\( 180^\\circ \\)–\\( 270^\\circ \\))", "Fourth (\\( 270^\\circ \\)–\\( 360^\\circ \\))"], ans: 0, explain: "The 'A' in CAST is the first quadrant, where all three ratios are positive." }
+        },
+        {
+            title: "What are the exact values for 30°, 45° and 60°?",
+            tag: "Worked example",
+            content: `<p>These <strong>exact values</strong> come up constantly and must be known — a calculator gives a decimal, but an "exact" answer needs the surd or fraction. Learn this table:</p>
+            <table class="worked">
+              <tr><td>\\( \\theta \\)</td><td>\\( 0^\\circ \\)</td><td>\\( 30^\\circ \\)</td><td>\\( 45^\\circ \\)</td><td>\\( 60^\\circ \\)</td><td>\\( 90^\\circ \\)</td></tr>
+              <tr><td>\\( \\sin\\theta \\)</td><td>\\( 0 \\)</td><td>\\( \\tfrac{1}{2} \\)</td><td>\\( \\tfrac{\\sqrt{2}}{2} \\)</td><td>\\( \\tfrac{\\sqrt{3}}{2} \\)</td><td>\\( 1 \\)</td></tr>
+              <tr><td>\\( \\cos\\theta \\)</td><td>\\( 1 \\)</td><td>\\( \\tfrac{\\sqrt{3}}{2} \\)</td><td>\\( \\tfrac{\\sqrt{2}}{2} \\)</td><td>\\( \\tfrac{1}{2} \\)</td><td>\\( 0 \\)</td></tr>
+              <tr><td>\\( \\tan\\theta \\)</td><td>\\( 0 \\)</td><td>\\( \\tfrac{1}{\\sqrt{3}} \\)</td><td>\\( 1 \\)</td><td>\\( \\sqrt{3} \\)</td><td>undefined</td></tr>
+            </table>
+            <ul>
+              <li>Notice \\( \\cos\\theta \\) is the \\( \\sin \\) row <em>reversed</em> — \\( \\cos 30^\\circ = \\sin 60^\\circ \\), etc. That is a quick memory check.</li>
+              <li>\\( \\sin 45^\\circ = \\cos 45^\\circ = \\tfrac{\\sqrt{2}}{2} \\) (often also written \\( \\tfrac{1}{\\sqrt{2}} \\)).</li>
+              <li>\\( \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta} \\): e.g. \\( \\tan 60^\\circ = \\dfrac{\\sqrt{3}/2}{1/2} = \\sqrt{3} \\).</li>
+            </ul>
+            <p><strong>Worked example — \\( \\tan 30^\\circ \\):</strong> \\( \\tan 30^\\circ = \\dfrac{\\sin 30^\\circ}{\\cos 30^\\circ} = \\dfrac{1/2}{\\sqrt{3}/2} = \\dfrac{1}{\\sqrt{3}} = \\dfrac{\\sqrt{3}}{3} \\) after rationalising.</p>`,
+            readCheck: { q: "What is the exact value of \\( \\cos 60^\\circ \\)?", opts: ["\\( \\tfrac{1}{2} \\)", "\\( \\tfrac{\\sqrt{3}}{2} \\)", "\\( \\tfrac{\\sqrt{2}}{2} \\)", "\\( 1 \\)"], ans: 0, explain: "\\( \\cos 60^\\circ = \\tfrac{1}{2} \\) (do not swap it with \\( \\sin 60^\\circ = \\tfrac{\\sqrt{3}}{2} \\))." }
+        },
+        {
+            title: "How do symmetry facts give extra solutions?",
+            tag: "Exam skill",
+            content: `<p>Because the graphs are symmetric and repeating, one known value gives you several related ones. These <strong>symmetry facts</strong> (all in degrees) are the machinery behind solving trig equations in lesson 5.4:</p>
+            <ul>
+              <li><strong>\\( \\sin(180^\\circ - \\theta) = \\sin\\theta \\)</strong> — the sine graph is symmetric about \\( 90^\\circ \\).</li>
+              <li><strong>\\( \\cos(360^\\circ - \\theta) = \\cos\\theta \\)</strong> — cosine is symmetric about \\( 0^\\circ \\)/\\( 360^\\circ \\); equivalently \\( \\cos(-\\theta) = \\cos\\theta \\) (cosine is <em>even</em>).</li>
+              <li><strong>\\( \\tan(180^\\circ + \\theta) = \\tan\\theta \\)</strong> — tangent repeats every \\( 180^\\circ \\).</li>
+              <li>\\( \\sin(-\\theta) = -\\sin\\theta \\) and \\( \\tan(-\\theta) = -\\tan\\theta \\): sine and tangent are <em>odd</em>.</li>
+            </ul>
+            <p><strong>Worked example — using symmetry:</strong> given \\( \\sin 30^\\circ = \\tfrac{1}{2} \\), then \\( \\sin 150^\\circ = \\sin(180^\\circ - 30^\\circ) = \\sin 30^\\circ = \\tfrac{1}{2} \\). And \\( \\cos 330^\\circ = \\cos(360^\\circ - 30^\\circ) = \\cos 30^\\circ = \\tfrac{\\sqrt{3}}{2} \\). The CAST rule confirms the signs: \\( 150^\\circ \\) is in Q2 (sin \\( + \\)) and \\( 330^\\circ \\) is in Q4 (cos \\( + \\)).</p>`,
+            readCheck: { q: "Using \\( \\sin(180^\\circ - \\theta) = \\sin\\theta \\), which angle has the same sine as \\( 40^\\circ \\)?", opts: ["\\( 140^\\circ \\)", "\\( 220^\\circ \\)", "\\( 320^\\circ \\)", "\\( 50^\\circ \\)"], ans: 0, explain: "\\( 180^\\circ - 40^\\circ = 140^\\circ \\), and \\( \\sin 140^\\circ = \\sin 40^\\circ \\)." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
+    const mcqData = [
+        { q: "For any angle \\( \\theta \\), the point on the unit circle has coordinates:", opts: ["\\( (\\cos\\theta,\\ \\sin\\theta) \\)", "\\( (\\sin\\theta,\\ \\cos\\theta) \\)", "\\( (\\tan\\theta,\\ 1) \\)", "\\( (\\theta,\\ \\theta) \\)"], ans: 0, explain: "\\( \\cos\\theta \\) is the \\( x \\)-coordinate and \\( \\sin\\theta \\) the \\( y \\)-coordinate, so \\( (\\cos\\theta,\\ \\sin\\theta) \\)." },
+        { q: "What is the period of \\( y = \\cos\\theta \\)?", opts: ["\\( 360^\\circ \\)", "\\( 180^\\circ \\)", "\\( 90^\\circ \\)", "\\( 270^\\circ \\)"], ans: 0, explain: "Cosine (like sine) repeats every \\( 360^\\circ \\)." },
+        { q: "What is the period of \\( y = \\tan\\theta \\)?", opts: ["\\( 180^\\circ \\)", "\\( 360^\\circ \\)", "\\( 90^\\circ \\)", "\\( 270^\\circ \\)"], ans: 0, explain: "Tangent repeats every \\( 180^\\circ \\) — half the period of sin and cos." },
+        { q: "Using symmetry, \\( \\sin 150^\\circ = \\)", opts: ["\\( \\tfrac{1}{2} \\)", "\\( -\\tfrac{1}{2} \\)", "\\( \\tfrac{\\sqrt{3}}{2} \\)", "\\( -\\tfrac{\\sqrt{3}}{2} \\)"], ans: 0, explain: "\\( \\sin 150^\\circ = \\sin(180^\\circ-30^\\circ) = \\sin 30^\\circ = \\tfrac{1}{2} \\); \\( 150^\\circ \\) is in Q2 where sin is positive." },
+        { q: "\\( \\cos 120^\\circ = \\)", opts: ["\\( -\\tfrac{1}{2} \\)", "\\( \\tfrac{1}{2} \\)", "\\( \\tfrac{\\sqrt{3}}{2} \\)", "\\( -\\tfrac{\\sqrt{3}}{2} \\)"], ans: 0, explain: "\\( 120^\\circ \\) is in Q2 where cos is negative; \\( \\cos 120^\\circ = -\\cos 60^\\circ = -\\tfrac{1}{2} \\)." },
+        { q: "In which quadrant are all of sin, cos and tan positive?", opts: ["First (\\( 0^\\circ \\)–\\( 90^\\circ \\))", "Second (\\( 90^\\circ \\)–\\( 180^\\circ \\))", "Third (\\( 180^\\circ \\)–\\( 270^\\circ \\))", "Fourth (\\( 270^\\circ \\)–\\( 360^\\circ \\))"], ans: 0, explain: "The 'A' (All) quadrant is the first, \\( 0^\\circ \\)–\\( 90^\\circ \\)." },
+        { q: "What is the exact value of \\( \\tan 45^\\circ \\)?", opts: ["\\( 1 \\)", "\\( \\sqrt{3} \\)", "\\( \\tfrac{1}{\\sqrt{3}} \\)", "\\( 0 \\)"], ans: 0, explain: "\\( \\tan 45^\\circ = \\dfrac{\\sin 45^\\circ}{\\cos 45^\\circ} = 1 \\) (equal sine and cosine)." },
+        { q: "What is the amplitude of \\( y = \\cos\\theta \\)?", opts: ["\\( 1 \\)", "\\( 2 \\)", "\\( 360^\\circ \\)", "\\( 180^\\circ \\)"], ans: 0, explain: "The wave reaches up to \\( 1 \\) and down to \\( -1 \\), so the amplitude (peak height above the middle) is \\( 1 \\)." },
+        { q: "\\( \\sin 210^\\circ = \\)", opts: ["\\( -\\tfrac{1}{2} \\)", "\\( \\tfrac{1}{2} \\)", "\\( -\\tfrac{\\sqrt{3}}{2} \\)", "\\( \\tfrac{\\sqrt{3}}{2} \\)"], ans: 0, explain: "\\( 210^\\circ \\) is in Q3 where sin is negative; \\( \\sin 210^\\circ = -\\sin 30^\\circ = -\\tfrac{1}{2} \\)." },
+        { q: "For angles in the fourth quadrant (\\( 270^\\circ \\)–\\( 360^\\circ \\)), which ratio is positive?", opts: ["\\( \\cos\\theta \\) only", "\\( \\sin\\theta \\) only", "\\( \\tan\\theta \\) only", "all three"], ans: 0, explain: "The 'C' in CAST — only cosine is positive in the fourth quadrant." },
+        { q: "A student writes \\( \\cos 60^\\circ = \\tfrac{\\sqrt{3}}{2} \\). What is the correct value?", opts: ["\\( \\tfrac{1}{2} \\)", "\\( \\tfrac{\\sqrt{3}}{2} \\)", "\\( \\tfrac{\\sqrt{2}}{2} \\)", "\\( 1 \\)"], ans: 0, explain: "They swapped sin and cos: \\( \\cos 60^\\circ = \\tfrac{1}{2} \\), while \\( \\sin 60^\\circ = \\tfrac{\\sqrt{3}}{2} \\)." },
+        { q: "Why is \\( \\tan 90^\\circ \\) undefined?", opts: ["\\( \\cos 90^\\circ = 0 \\), so \\( \\tfrac{\\sin\\theta}{\\cos\\theta} \\) divides by zero", "\\( \\sin 90^\\circ = 0 \\)", "\\( \\tan\\theta \\) only exists for acute angles", "\\( 90^\\circ \\) is not on the graph"], ans: 0, explain: "\\( \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta} \\) and \\( \\cos 90^\\circ = 0 \\); dividing by zero is undefined — the graph has an asymptote there." }
+    ];
+
+    const matchData = [
+        { term: "\\( \\sin 30^\\circ \\)", def: "\\( \\tfrac{1}{2} \\)" },
+        { term: "\\( \\cos 30^\\circ \\)", def: "\\( \\tfrac{\\sqrt{3}}{2} \\)" },
+        { term: "\\( \\sin 45^\\circ \\)", def: "\\( \\tfrac{\\sqrt{2}}{2} \\)" },
+        { term: "\\( \\tan 60^\\circ \\)", def: "\\( \\sqrt{3} \\)" },
+        { term: "\\( \\tan 30^\\circ \\)", def: "\\( \\tfrac{1}{\\sqrt{3}} \\)" },
+        { term: "\\( \\cos 90^\\circ \\)", def: "\\( 0 \\)" },
+        { term: "\\( \\tan 45^\\circ \\)", def: "\\( 1 \\)" },
+        { term: "Period of \\( \\sin\\theta \\) and \\( \\cos\\theta \\)", def: "\\( 360^\\circ \\)" },
+        { term: "Period of \\( \\tan\\theta \\)", def: "\\( 180^\\circ \\)" },
+        { term: "Quadrant where all ratios are positive", def: "First (\\( 0^\\circ \\)–\\( 90^\\circ \\))" },
+        { term: "Quadrant where only sine is positive", def: "Second (\\( 90^\\circ \\)–\\( 180^\\circ \\))" },
+        { term: "Quadrant where only cosine is positive", def: "Fourth (\\( 270^\\circ \\)–\\( 360^\\circ \\))" },
+        { term: "\\( \\tan\\theta \\) at \\( 90^\\circ \\) and \\( 270^\\circ \\)", def: "Undefined — vertical asymptote" }
+    ];
+
+    // FIB: blank markers sit in PLAIN TEXT only (never inside \( \)); answer VALUES are
+    // plain text/number so server string-equality still works (ADDMATHS §8.4 Rule 3/3b).
+    const fibData = [
+        { display: "On the unit circle the point at angle \\( \\theta \\) is \\( (\\cos\\theta,\\ \\sin\\theta) \\), so \\( \\cos\\theta \\) is the ___B1___ coordinate and \\( \\sin\\theta \\) is the ___B2___ coordinate.", blanks: { B1: "x", B2: "y" } },
+        { display: "The period of both \\( \\sin\\theta \\) and \\( \\cos\\theta \\) is ___B1___ degrees, while the period of \\( \\tan\\theta \\) is ___B2___ degrees.", blanks: { B1: "360", B2: "180" } },
+        { display: "The maximum value of \\( \\sin\\theta \\) is ___B1___ and its minimum value is ___B2___.", blanks: { B1: "1", B2: "-1" } },
+        { display: "Using the CAST rule, sine is positive in the ___B1___ quadrant and tangent is positive in the ___B2___ quadrant.", blanks: { B1: "second", B2: "third" } },
+        { display: "The exact value of \\( \\sin 30^\\circ \\) is ___B1___ and the exact value of \\( \\cos 60^\\circ \\) is ___B2___.", blanks: { B1: "1/2", B2: "1/2" } },
+        { display: "The graph of \\( \\tan\\theta \\) has vertical ___B1___ at \\( 90^\\circ \\) and \\( 270^\\circ \\).", blanks: { B1: "asymptotes" } },
+        { display: "Because \\( \\sin(180^\\circ - \\theta) = \\sin\\theta \\), the angle \\( 150^\\circ \\) has the same sine as ___B1___ degrees.", blanks: { B1: "30" } },
+        { display: "The exact value of \\( \\tan 45^\\circ \\) is ___B1___.", blanks: { B1: "1" } }
+    ];
+
+    const fibWords = ["x", "y", "360", "180", "1", "-1", "second", "third", "1/2", "asymptotes", "30", "first", "fourth", "0", "90", "intercepts", "45", "2"];
+
+    const tfData = [
+        { statement: "\\( y = \\sin\\theta \\) and \\( y = \\cos\\theta \\) both have period \\( 360^\\circ \\).", answer: true, explanation: "Both waves repeat their full shape every \\( 360^\\circ \\)." },
+        { statement: "\\( y = \\tan\\theta \\) has period \\( 360^\\circ \\).", answer: false, explanation: "Tangent has period \\( 180^\\circ \\) — it repeats twice as often as sin and cos." },
+        { statement: "The maximum value of \\( \\cos\\theta \\) is \\( 1 \\).", answer: true, explanation: "Cosine ranges between \\( -1 \\) and \\( 1 \\), so its maximum is \\( 1 \\) (at \\( 0^\\circ \\) and \\( 360^\\circ \\))." },
+        { statement: "\\( \\sin 240^\\circ \\) is positive.", answer: false, explanation: "\\( 240^\\circ \\) is in the third quadrant, where sine is negative; \\( \\sin 240^\\circ = -\\tfrac{\\sqrt{3}}{2} \\)." },
+        { statement: "\\( \\cos(360^\\circ - \\theta) = \\cos\\theta \\).", answer: true, explanation: "Cosine is symmetric about \\( 360^\\circ \\) (it is an even function), so \\( \\cos(360^\\circ-\\theta)=\\cos\\theta \\)." },
+        { statement: "\\( \\tan\\theta \\) is undefined at \\( 90^\\circ \\) and \\( 270^\\circ \\).", answer: true, explanation: "There \\( \\cos\\theta = 0 \\), so \\( \\tfrac{\\sin\\theta}{\\cos\\theta} \\) divides by zero — the graph has asymptotes." },
+        { statement: "In the second quadrant (\\( 90^\\circ \\)–\\( 180^\\circ \\)), \\( \\cos\\theta \\) is positive.", answer: false, explanation: "In Q2 only sine is positive; cosine (and tangent) are negative there." },
+        { statement: "\\( \\sin 45^\\circ = \\cos 45^\\circ \\).", answer: true, explanation: "Both equal \\( \\tfrac{\\sqrt{2}}{2} \\), so they are equal at \\( 45^\\circ \\)." }
+    ];
+
+    const miscData = [
+        { wrong: "\\( \\sin 150^\\circ \\) must be negative because \\( 150^\\circ > 90^\\circ \\).", correct: "Size does not fix the sign — the quadrant does. \\( 150^\\circ \\) is in Q2, where sine is positive: \\( \\sin 150^\\circ = \\sin 30^\\circ = \\tfrac{1}{2} \\).", readCheck: { q: "\\( \\sin 150^\\circ = \\)", opts: ["\\( \\tfrac{1}{2} \\)", "\\( -\\tfrac{1}{2} \\)", "\\( \\tfrac{\\sqrt{3}}{2} \\)", "\\( -\\tfrac{\\sqrt{3}}{2} \\)"], ans: 0, explain: "Q2 sine is positive; \\( \\sin 150^\\circ = \\sin 30^\\circ = \\tfrac{1}{2} \\)." } },
+        { wrong: "\\( \\tan\\theta \\) has the same period as \\( \\sin\\theta \\), namely \\( 360^\\circ \\).", correct: "Tangent repeats every \\( 180^\\circ \\), not \\( 360^\\circ \\). A strong answer states the period as \\( 180^\\circ \\) and notes the asymptotes at \\( 90^\\circ \\) and \\( 270^\\circ \\).", readCheck: { q: "The period of \\( \\tan\\theta \\) is:", opts: ["\\( 180^\\circ \\)", "\\( 360^\\circ \\)", "\\( 90^\\circ \\)", "\\( 45^\\circ \\)"], ans: 0, explain: "Tangent repeats every \\( 180^\\circ \\)." } },
+        { wrong: "\\( \\cos(-\\theta) = -\\cos\\theta \\).", correct: "Cosine is an EVEN function: \\( \\cos(-\\theta) = \\cos\\theta \\). It is sine and tangent that are odd (\\( \\sin(-\\theta) = -\\sin\\theta \\), \\( \\tan(-\\theta) = -\\tan\\theta \\)).", readCheck: { q: "Which is correct?", opts: ["\\( \\cos(-\\theta) = \\cos\\theta \\)", "\\( \\cos(-\\theta) = -\\cos\\theta \\)", "\\( \\sin(-\\theta) = \\sin\\theta \\)", "\\( \\tan(-\\theta) = \\tan\\theta \\)"], ans: 0, explain: "Cosine is even; sine and tangent are odd." } },
+        { wrong: "\\( \\tan 90^\\circ = 0 \\).", correct: "\\( \\tan 90^\\circ \\) is UNDEFINED, not \\( 0 \\): \\( \\cos 90^\\circ = 0 \\) so the ratio \\( \\tfrac{\\sin\\theta}{\\cos\\theta} \\) has no value — the graph has a vertical asymptote at \\( 90^\\circ \\).", readCheck: { q: "\\( \\tan 90^\\circ \\) is:", opts: ["undefined", "\\( 0 \\)", "\\( 1 \\)", "\\( 90 \\)"], ans: 0, explain: "\\( \\cos 90^\\circ = 0 \\), so \\( \\tan 90^\\circ \\) is undefined (an asymptote)." } },
+        { wrong: "\\( \\cos 30^\\circ = \\tfrac{1}{2} \\) and \\( \\sin 30^\\circ = \\tfrac{\\sqrt{3}}{2} \\).", correct: "The values are swapped: \\( \\sin 30^\\circ = \\tfrac{1}{2} \\) and \\( \\cos 30^\\circ = \\tfrac{\\sqrt{3}}{2} \\). Checking the graph (cos starts high at \\( 0^\\circ \\)) or the CAST unit circle prevents the mix-up.", readCheck: { q: "\\( \\cos 30^\\circ = \\)", opts: ["\\( \\tfrac{\\sqrt{3}}{2} \\)", "\\( \\tfrac{1}{2} \\)", "\\( \\tfrac{\\sqrt{2}}{2} \\)", "\\( \\sqrt{3} \\)"], ans: 0, explain: "\\( \\cos 30^\\circ = \\tfrac{\\sqrt{3}}{2} \\); \\( \\sin 30^\\circ = \\tfrac{1}{2} \\)." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "Use CAST to fix the sign", pills: ["CAST", "quadrants", "signs"], content: `<p>Work out the sign <em>before</em> the value. Sketch the axes, mark the quadrant your angle sits in, and read off which ratios are positive: <strong>A</strong>ll (Q1), <strong>S</strong>in (Q2), <strong>T</strong>an (Q3), <strong>C</strong>os (Q4).</p><p><strong>Example:</strong> \\( \\cos 200^\\circ \\) — \\( 200^\\circ \\) is in Q3, so cos is negative; only then attach the value \\( \\cos 20^\\circ \\).</p>`, readCheck: { q: "For \\( \\sin 300^\\circ \\), CAST tells you the sign is:", opts: ["Negative (Q4, only cos is positive)", "Positive (Q4 is the 'A' quadrant)", "Zero", "Undefined"], ans: 0, explain: "\\( 300^\\circ \\) is in Q4 where only cosine is positive, so \\( \\sin 300^\\circ \\) is negative." } },
+        { type: "tip", title: "Know the exact values by heart", pills: ["exact", "surds", "30/45/60"], content: `<p>When a question says <strong>exact</strong>, a calculator decimal scores \\( 0 \\). Memorise the \\( 30^\\circ/45^\\circ/60^\\circ \\) table so you can write \\( \\sin 60^\\circ = \\tfrac{\\sqrt{3}}{2} \\), not \\( 0.866 \\). A quick check: the \\( \\cos \\) row is the \\( \\sin \\) row reversed.</p>`, readCheck: { q: "An 'exact' answer for \\( \\tan 60^\\circ \\) is:", opts: ["\\( \\sqrt{3} \\)", "\\( 1.73 \\)", "\\( 1.7 \\)", "about \\( 1.73 \\)"], ans: 0, explain: "\\( \\tan 60^\\circ = \\sqrt{3} \\); a rounded decimal is not exact." } },
+        { type: "explain", title: "Symmetry gives the SECOND solution", pills: ["symmetry", "extra solutions", "→ 5.4"], content: `<p>A calculator's \\( \\sin^{-1} \\) gives only one angle, but the graph's symmetry means an equation usually has more. \\( \\sin(180^\\circ-\\theta)=\\sin\\theta \\) and \\( \\cos(360^\\circ-\\theta)=\\cos\\theta \\) generate the extra solutions you will need when solving trig equations in lesson 5.4 — losing the second solution is the classic dropped mark.</p>`, readCheck: { q: "If \\( \\sin\\theta = \\tfrac{1}{2} \\) and one solution is \\( 30^\\circ \\), a second in \\( 0^\\circ \\)–\\( 360^\\circ \\) is:", opts: ["\\( 150^\\circ \\)", "\\( 210^\\circ \\)", "\\( 330^\\circ \\)", "\\( 60^\\circ \\)"], ans: 0, explain: "\\( \\sin(180^\\circ-30^\\circ) = \\sin 30^\\circ \\), so \\( 150^\\circ \\) also works." } }
+    ];
+
+    const flashcards = [
+        { term: "\\( \\sin 0^\\circ \\)", def: "\\( 0 \\)" },
+        { term: "\\( \\sin 30^\\circ \\)", def: "\\( \\tfrac{1}{2} \\)" },
+        { term: "\\( \\sin 45^\\circ \\)", def: "\\( \\tfrac{\\sqrt{2}}{2} \\) (also \\( \\tfrac{1}{\\sqrt{2}} \\))" },
+        { term: "\\( \\sin 60^\\circ \\)", def: "\\( \\tfrac{\\sqrt{3}}{2} \\)" },
+        { term: "\\( \\sin 90^\\circ \\)", def: "\\( 1 \\)" },
+        { term: "\\( \\cos 30^\\circ \\)", def: "\\( \\tfrac{\\sqrt{3}}{2} \\)" },
+        { term: "\\( \\cos 45^\\circ \\)", def: "\\( \\tfrac{\\sqrt{2}}{2} \\)" },
+        { term: "\\( \\cos 60^\\circ \\)", def: "\\( \\tfrac{1}{2} \\)" },
+        { term: "\\( \\tan 30^\\circ \\)", def: "\\( \\tfrac{1}{\\sqrt{3}} = \\tfrac{\\sqrt{3}}{3} \\)" },
+        { term: "\\( \\tan 45^\\circ \\)", def: "\\( 1 \\)" },
+        { term: "\\( \\tan 60^\\circ \\)", def: "\\( \\sqrt{3} \\)" },
+        { term: "Period of \\( \\sin\\theta \\) and \\( \\cos\\theta \\)", def: "\\( 360^\\circ \\)." },
+        { term: "Period of \\( \\tan\\theta \\)", def: "\\( 180^\\circ \\)." },
+        { term: "Amplitude of \\( \\sin\\theta \\) and \\( \\cos\\theta \\)", def: "\\( 1 \\) (ranges from \\( -1 \\) to \\( 1 \\))." },
+        { term: "CAST rule", def: "Positive ratios by quadrant: All, Sin, Tan, Cos (Q1→Q4)." },
+        { term: "Asymptotes of \\( \\tan\\theta \\)", def: "At \\( 90^\\circ \\) and \\( 270^\\circ \\), where \\( \\cos\\theta = 0 \\)." },
+        { term: "Point on the unit circle at \\( \\theta \\)", def: "\\( (\\cos\\theta,\\ \\sin\\theta) \\)." },
+        { term: "\\( \\sin(180^\\circ - \\theta) \\)", def: "\\( = \\sin\\theta \\) (sine's symmetry about \\( 90^\\circ \\))." }
+    ];
+
+    // No standalone PT1 exam question in the current-spec (2019/2022/2023/2024 + specimen)
+    // papers — "trig ratios & graphs for any angle" is assessed WITHIN trig-equation
+    // questions, which are routed to lesson 5.4. Per the E1 rule, examQuestions = [] and
+    // no past-paper material is invented here.
     const examQuestions = [];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />

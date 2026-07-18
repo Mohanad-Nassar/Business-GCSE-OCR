@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 5. Trigonometry</div>
             <h1>5.5 Pythagoras and Trig in 2D and 3D</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,10 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 5.5 Pythagoras and Trig in 2D and 3D — placeholder, content not yet written
+    //  DATA: 5.5 Pythagoras and Trig in 2D and 3D (PT6 — degrees only)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). SVGs are hand-drawn
+    //  (currentColor, theme-safe) — NEVER extracted from a PDF. Exam Qs: 2024 Q7, 2019 Q13.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '5-5-pythagoras-and-trig-in-2d-and-3d',
@@ -266,23 +269,376 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimuli for the exam questions. Figures re-authored as theme-safe SVG
+    // (the printed figures cannot be copied from the PDF). markScheme strips SVG, so
+    // the diagrams live here in the caseStudy stimulus.
+    const EXAM_CASE_STUDIES = {
+        "q7-2024": `<p>A hillside can be modelled by a wedge as shown in the diagram.</p>
+        <div style="text-align:center;margin:12px 0;">
+        <svg viewBox="0 0 340 215" style="max-width:360px;width:100%;height:auto;" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-label="A wedge: horizontal base ABCD with a vertical back rectangle CDFE; M on AB, N on FE, with diagonals MN and ME drawn.">
+          <path d="M30 185 L215 185 L290 120 L290 55 L105 55 Z" />
+          <path d="M215 185 L290 55" />
+          <path d="M120 185 L195 55" stroke-width="2.1" />
+          <path d="M120 185 L290 55" stroke-width="2.1" />
+          <path d="M30 185 L105 120 M105 120 L290 120 M105 120 L105 55" stroke-dasharray="4 4" opacity="0.7" />
+          <g fill="currentColor" stroke="none" font-size="13" font-family="DM Sans, sans-serif">
+            <text x="18" y="192">A</text><text x="212" y="201">B</text><text x="296" y="124">C</text>
+            <text x="90" y="118">D</text><text x="296" y="56">E</text><text x="96" y="52">F</text>
+            <text x="114" y="201">M</text><text x="190" y="49">N</text>
+          </g>
+          <g fill="currentColor" stroke="none" font-size="12" font-family="DM Sans, sans-serif" opacity="0.85">
+            <text x="298" y="92">20 m</text><text x="248" y="160">80 m</text><text x="150" y="201">60 m</text>
+          </g>
+        </svg></div>
+        <p>The base ABCD is a horizontal rectangle with \\( BC = AD = 80 \\) metres. The back of the wedge is a vertical rectangle CDFE with \\( DF = CE = 20 \\) metres. M is a point on the line AB where \\( BM = 60 \\) metres. A straight path goes up the hill from M to N, where N is a point on FE such that MN is a line of greatest slope.</p>`,
+        "q13-2019": `<p>A straight road runs on a bearing of \\( 060^\\circ \\) from a point A to a point B, \\( 400 \\) m from A. A vertical mast, CT, stands at a point C, \\( 300 \\) m due north of A. From the point A the angle of elevation of the top of the mast, T, is \\( 7^\\circ \\). The triangle ABC is on horizontal ground.</p>
+        <div style="text-align:center;margin:12px 0;">
+        <svg viewBox="0 0 330 240" style="max-width:340px;width:100%;height:auto;" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-label="Horizontal triangle ABC with a vertical mast CT at C, the angle at A is 60 degrees, AC is 300 m, AB is 400 m, and a north arrow.">
+          <path d="M60 205 L295 185 L180 95 Z" />
+          <path d="M180 95 L180 35" stroke-width="2.2" />
+          <path d="M172 205 L188 205" stroke-width="1" opacity="0.7" />
+          <path d="M60 205 L180 35 M295 185 L180 35" stroke-dasharray="4 4" opacity="0.7" />
+          <path d="M97 202 A 40 40 0 0 1 88 178" />
+          <path d="M250 152 L272 104" />
+          <polygon points="267,116 273,102 277,115" fill="currentColor" stroke="none" />
+          <g fill="currentColor" stroke="none" font-size="13" font-family="DM Sans, sans-serif">
+            <text x="48" y="214">A</text><text x="300" y="184">B</text><text x="188" y="94">C</text><text x="176" y="28">T</text><text x="279" y="100">N</text>
+          </g>
+          <g fill="currentColor" stroke="none" font-size="12" font-family="DM Sans, sans-serif" opacity="0.85">
+            <text x="118" y="150">300 m</text><text x="176" y="207">400 m</text><text x="76" y="196">60°</text>
+          </g>
+        </svg></div>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>5.5 Pythagoras and Trig in 2D and 3D</strong> will appear here soon.</p>`
+            title: "How do you attack a 3D trigonometry problem?",
+            tag: "Method",
+            content: `<p>Every 3D problem is really a <strong>2D problem in disguise</strong>. You never do trig in three dimensions at once — you find the correct <strong>right-angled triangle</strong> lying in one flat <strong>plane</strong>, draw it on its own, and solve it with Pythagoras and SOH-CAH-TOA.</p>
+            <ul>
+              <li><strong>Step 1 — find the triangle.</strong> Identify the two points you care about and the right angle that joins them (usually a vertical edge meeting a horizontal base).</li>
+              <li><strong>Step 2 — get a base length first.</strong> The side you need is often a <strong>diagonal across a horizontal base</strong>; find it with Pythagoras before you can find any angle.</li>
+              <li><strong>Step 3 — solve the 2D triangle.</strong> Redraw it flat, label opposite / adjacent / hypotenuse, then apply \\( \\sin,\\ \\cos \\) or \\( \\tan \\) (or the sine / cosine rules from 5.2 if the triangle is not right-angled).</li>
+            </ul>
+            <p>Work <strong>step by step</strong> and keep full accuracy in your calculator — round only the final answer. Everything on this page is in <strong>degrees</strong>.</p>`,
+            readCheck: { q: "What is the sensible first move in most 3D trig problems?", opts: ["Find a right-angled triangle in one plane and redraw it in 2D", "Use the sine rule on the whole solid", "Round every length to the nearest whole number first", "Guess which angle looks about right"], ans: 0, explain: "3D problems are solved by isolating the correct right-angled triangle in one plane and treating it as an ordinary 2D triangle." }
+        },
+        {
+            title: "How do you find the angle between a line and a plane?",
+            tag: "Worked example",
+            content: `<p>The <strong>angle between a line and a plane</strong> is the angle between the line and its <strong>projection</strong> (its “shadow”) on that plane. To find it: drop a <strong>perpendicular</strong> from the far end of the line down to the plane, join the <strong>foot</strong> of that perpendicular back to the line's start, and the angle sits at the foot.</p>
+            <p>Consider a cuboid \\( 8 \\times 6 \\times 5 \\). Find the angle the space diagonal AG makes with the horizontal base ABCD.</p>
+            <div style="text-align:center;margin:10px 0;">
+            <svg viewBox="0 0 300 210" style="max-width:320px;width:100%;height:auto;" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-label="A cuboid ABCDEFGH; the space diagonal from A to G and the base diagonal AC are shown, with the right-angled triangle ACG.">
+              <path d="M40 180 L190 180 L190 90 L40 90 Z" />
+              <path d="M190 90 L250 50 L100 50 L40 90" />
+              <path d="M190 180 L250 140 L250 50" />
+              <path d="M40 180 L250 50" stroke-width="2.2" />
+              <path d="M40 180 L250 140" stroke-dasharray="4 4" opacity="0.75" />
+              <path d="M40 180 L100 140 M100 140 L250 140 M100 140 L100 50" stroke-dasharray="4 4" opacity="0.6" />
+              <path d="M242 140 L242 131 L251 131" stroke-width="1.1" />
+              <g fill="currentColor" stroke="none" font-size="12" font-family="DM Sans, sans-serif">
+                <text x="28" y="188">A</text><text x="188" y="194">B</text><text x="255" y="150">C</text><text x="84" y="152">D</text>
+                <text x="28" y="90">E</text><text x="193" y="84">F</text><text x="255" y="50">G</text><text x="88" y="47">H</text>
+              </g>
+              <g fill="currentColor" stroke="none" font-size="11" font-family="DM Sans, sans-serif" opacity="0.85">
+                <text x="108" y="194">8</text><text x="223" y="152">6</text><text x="256" y="98">5</text>
+              </g>
+            </svg></div>
+            <table class="worked">
+              <tr><td>1. <strong>Base diagonal first</strong> (Pythagoras in the base): \\( AC = \\sqrt{8^2 + 6^2} = \\sqrt{100} = 10 \\).</td></tr>
+              <tr><td>2. The right-angled triangle is ACG, with the right angle at C (the vertical edge \\( CG = 5 \\) meets the base).</td></tr>
+              <tr><td>3. The angle at A is between AG and its projection AC on the base, so \\[ \\tan(\\angle GAC) = \\frac{CG}{AC} = \\frac{5}{10}. \\]</td></tr>
+              <tr><td>4. \\( \\angle GAC = \\tan^{-1}(0.5) = 26.6^\\circ \\) (1 d.p.).</td></tr>
+            </table>
+            <p>The diagonal itself is \\( AG = \\sqrt{10^2 + 5^2} = \\sqrt{125} = 5\\sqrt{5} \\approx 11.2 \\). The height is the <strong>opposite</strong> side and the base diagonal is the <strong>adjacent</strong> side — so the angle is measured to the <strong>horizontal</strong>.</p>`,
+            readCheck: { q: "The angle between the line AG and the base is measured between AG and:", opts: ["Its projection AC on the base", "The vertical edge CG", "The nearest side of the base", "The top face of the cuboid"], ans: 0, explain: "The angle between a line and a plane is the angle between the line and its shadow (projection) on that plane — here AC." }
+        },
+        {
+            title: "What is the angle of greatest slope?",
+            tag: "Key concept",
+            content: `<p>On a tilted surface (a wedge, roof or hillside) the <strong>line of greatest slope</strong> is the <strong>steepest</strong> line you can draw on that surface. It runs <strong>perpendicular to the horizontal edges</strong> of the sloping face — straight up the hill, not diagonally across it. Any other line on the face is gentler.</p>
+            <div style="text-align:center;margin:10px 0;">
+            <svg viewBox="0 0 320 200" style="max-width:340px;width:100%;height:auto;" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-label="A wedge with its sloping face; a line of greatest slope P to Q makes an angle theta with the horizontal.">
+              <path d="M30 175 L210 175 L280 120 L280 60 L100 60 Z" />
+              <path d="M210 175 L280 60" />
+              <path d="M120 175 L190 60" stroke-width="2.2" />
+              <path d="M30 175 L100 120 M100 120 L280 120 M100 120 L100 60" stroke-dasharray="4 4" opacity="0.6" />
+              <path d="M147 175 A 30 30 0 0 0 138 152" />
+              <g fill="currentColor" stroke="none" font-size="12" font-family="DM Sans, sans-serif">
+                <text x="112" y="188">P</text><text x="188" y="55">Q</text><text x="155" y="170">θ</text>
+                <text x="284" y="94">h</text><text x="228" y="150">base</text>
+              </g>
+            </svg></div>
+            <p>The angle of greatest slope, \\( \\theta \\), is the angle this line makes with the <strong>horizontal</strong>. In the right-angled triangle beneath the line, the vertical rise \\( h \\) is the opposite side and the horizontal run is the adjacent side:</p>
+            \\[ \\tan\\theta = \\frac{\\text{vertical rise}}{\\text{horizontal run}}. \\]
+            <p><strong>Example:</strong> a ramp rises \\( 5 \\) m over a horizontal distance of \\( 12 \\) m. Then \\( \\tan\\theta = \\dfrac{5}{12} \\), so \\( \\theta = \\tan^{-1}\\!\\left(\\dfrac{5}{12}\\right) = 22.6^\\circ \\) (1 d.p.).</p>`,
+            readCheck: { q: "A slope rises 3 m over a horizontal run of 4 m. Its angle of greatest slope is:", opts: ["\\( \\tan^{-1}(3/4) = 36.9^\\circ \\)", "\\( \\tan^{-1}(4/3) = 53.1^\\circ \\)", "\\( \\sin^{-1}(3/4) = 48.6^\\circ \\)", "\\( 3/4 = 0.75^\\circ \\)"], ans: 0, explain: "Angle to the horizontal: opposite = rise (3), adjacent = run (4), so \\( \\tan\\theta = 3/4 \\), \\( \\theta = 36.9^\\circ \\)." }
+        },
+        {
+            title: "How do Pythagoras and SOH-CAH-TOA work together in 3D?",
+            tag: "Exam skill",
+            content: `<p>The classic 3D routine is <strong>Pythagoras once (or twice) to build a length, then trig for the angle</strong>. You almost always need a horizontal base length before you can reach the point directly above it.</p>
+            <ul>
+              <li><strong>Find the shadow.</strong> Drop the point you are aiming for straight down to the base; the horizontal distance to that foot is what you need.</li>
+              <li><strong>Pythagoras.</strong> Build that horizontal distance from the base edges — e.g. \\( \\sqrt{60^2 + 80^2} = 100 \\).</li>
+              <li><strong>Trig.</strong> Now the height (opposite) over the horizontal distance (adjacent) gives the angle: \\( \\tan\\theta = \\dfrac{\\text{height}}{\\text{horizontal distance}} \\).</li>
+            </ul>
+            <p><strong>Watch out:</strong> the straight-line (slant) distance is <em>not</em> the adjacent side. Using the slant length as \\( \\text{adjacent} \\) is a common error — the adjacent side must be <strong>horizontal</strong>.</p>
+            <p>If a triangle in the problem is <strong>not</strong> right-angled (for example a triangle of bearings on the ground), reach instead for the <strong>sine or cosine rule</strong> from 5.2 — but only then.</p>`,
+            readCheck: { q: "To find the angle a mast-top makes at a point 100 m away horizontally, with mast height 20 m, you use:", opts: ["\\( \\tan\\theta = 20/100 \\)", "\\( \\sin\\theta = 20/100 \\) using the slant length", "the cosine rule", "\\( \\tan\\theta = 100/20 \\)"], ans: 0, explain: "Height is opposite, horizontal distance is adjacent, so \\( \\tan\\theta = 20/100 \\). No slant length or cosine rule is needed." }
+        },
+        {
+            title: "How do bearings and angles of elevation combine?",
+            tag: "Real world",
+            content: `<p>Many 3D questions mix a <strong>plan view on the ground</strong> (bearings) with a <strong>vertical slice</strong> (angles of elevation).</p>
+            <ul>
+              <li>A <strong>bearing</strong> is measured <strong>clockwise from north</strong> and always written with <strong>three figures</strong> — e.g. \\( 060^\\circ \\), \\( 286^\\circ \\), due east is \\( 090^\\circ \\), due west is \\( 270^\\circ \\).</li>
+              <li>The <strong>reverse bearing</strong> (there-and-back) differs by \\( 180^\\circ \\): if B is on bearing \\( 060^\\circ \\) from A, then A is on bearing \\( 240^\\circ \\) from B.</li>
+              <li>An <strong>angle of elevation</strong> is measured <strong>upward from the horizontal</strong> to a line of sight.</li>
+            </ul>
+            <p><strong>Typical plan:</strong> use the <strong>cosine rule</strong> on the ground triangle to find a horizontal distance, then \\( \\tan(\\text{elevation}) = \\dfrac{\\text{height}}{\\text{horizontal distance}} \\) for the vertical part, and the <strong>sine rule</strong> plus a reverse bearing for a required bearing. Keep full accuracy between steps.</p>`,
+            readCheck: { q: "The bearing of Q from P is \\( 145^\\circ \\). The bearing of P from Q is:", opts: ["\\( 325^\\circ \\)", "\\( 215^\\circ \\)", "\\( 035^\\circ \\)", "\\( 055^\\circ \\)"], ans: 0, explain: "Reverse bearing adds \\( 180^\\circ \\): \\( 145 + 180 = 325^\\circ \\)." }
+        },
+        {
+            title: "Which triangle — and is the angle to the horizontal or the vertical?",
+            tag: "Common error",
+            content: `<p>The 2024 examiners flagged two errors again and again on 3D trig, and both cost easy marks.</p>
+            <ul>
+              <li><strong>The wrong right-angled triangle.</strong> Not every triangle in the picture contains the angle you want. Trace the actual path and the point directly below its top — that fixes the correct triangle.</li>
+              <li><strong>Angle to the vertical instead of the horizontal.</strong> “The angle with the horizontal” has the <strong>height as opposite</strong> and the <strong>horizontal distance as adjacent</strong>. If you accidentally swap them you find the angle to the vertical, and \\( \\tan^{-1}(80/20) = 76^\\circ \\) instead of the correct \\( \\tan^{-1}(20/80) = 14^\\circ \\) (the two add to \\( 90^\\circ \\)).</li>
+              <li><strong>Don't overcomplicate.</strong> If a right-angled triangle solves it with SOH-CAH-TOA, do not bring in the sine rule — it is slower and invites slips.</li>
+            </ul>
+            <p><strong>Sanity check:</strong> a shallow slope gives a <em>small</em> angle to the horizontal. If your answer is close to \\( 90^\\circ \\) for a gentle hill, you have measured to the wrong reference.</p>`,
+            readCheck: { q: "A path rises 20 m over 80 m horizontally. A student gets \\( 76.0^\\circ \\). What went wrong?", opts: ["They used \\( \\tan^{-1}(80/20) \\) — the angle to the vertical, not the horizontal", "Nothing — \\( 76^\\circ \\) is correct", "They should have used the sine rule", "They rounded too early"], ans: 0, explain: "The angle to the horizontal is \\( \\tan^{-1}(20/80) = 14.0^\\circ \\); \\( 76.0^\\circ \\) is its complement, the angle to the vertical." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "What is the sensible first step in a 3D trigonometry problem?", opts: ["Identify the right-angled triangle in the correct plane and redraw it in 2D", "Apply the sine rule to the whole solid at once", "Measure every angle with a protractor", "Assume the answer is \\( 45^\\circ \\)"], ans: 0, explain: "3D problems are solved by isolating one right-angled triangle in a plane and treating it as a flat 2D triangle." },
+        { q: "The base of a cuboid measures \\( 8 \\) by \\( 6 \\). The length of the base diagonal is:", opts: ["\\( 10 \\)", "\\( 14 \\)", "\\( \\sqrt{28} \\)", "\\( 48 \\)"], ans: 0, explain: "Pythagoras across the base: \\( \\sqrt{8^2 + 6^2} = \\sqrt{100} = 10 \\)." },
+        { q: "A cuboid is \\( 8 \\times 6 \\times 5 \\). The length of its space (corner-to-corner) diagonal is:", opts: ["\\( \\sqrt{125} \\approx 11.2 \\)", "\\( 10 \\) (the base diagonal)", "\\( 19 \\)", "\\( \\sqrt{61} \\)"], ans: 0, explain: "\\( \\sqrt{8^2 + 6^2 + 5^2} = \\sqrt{125} \\approx 11.2 \\). Stopping at \\( 10 \\) uses only the 2D base diagonal." },
+        { q: "For that \\( 8 \\times 6 \\times 5 \\) cuboid, the angle its space diagonal makes with the base is:", opts: ["\\( \\tan^{-1}(5/10) = 26.6^\\circ \\)", "\\( \\tan^{-1}(10/5) = 63.4^\\circ \\)", "\\( \\tan^{-1}(5/8) = 32.0^\\circ \\)", "\\( 45^\\circ \\)"], ans: 0, explain: "Opposite = height 5, adjacent = base diagonal 10, so \\( \\tan\\theta = 5/10 \\), \\( \\theta = 26.6^\\circ \\). Using \\( 10/5 \\) gives the angle to the vertical." },
+        { q: "The angle between a line and a plane is defined as the angle between the line and:", opts: ["Its projection (shadow) on the plane", "The nearest vertical edge", "Any line in the plane", "The perpendicular to the plane"], ans: 0, explain: "It is the angle between the line and its projection onto the plane — found by dropping a perpendicular to the plane and joining the foot." },
+        { q: "On a sloping roof, the line of greatest slope is the line that is:", opts: ["Perpendicular to the horizontal edges of the sloping face (straight up the slope)", "Parallel to the horizontal edges", "The longest diagonal across the face", "Along the bottom edge"], ans: 0, explain: "The steepest line runs straight up the slope, at right angles to the horizontal edges of the face." },
+        { q: "A wedge rises \\( 20 \\) m vertically over a horizontal distance of \\( 80 \\) m. The angle of greatest slope with the horizontal is:", opts: ["\\( \\tan^{-1}(20/80) = 14.0^\\circ \\)", "\\( \\tan^{-1}(80/20) = 76.0^\\circ \\)", "\\( \\sin^{-1}(20/80) = 14.5^\\circ \\) using the slant", "\\( 20/80 = 0.25^\\circ \\)"], ans: 0, explain: "Height is opposite, horizontal run is adjacent: \\( \\tan\\theta = 20/80 \\), \\( \\theta = 14.0^\\circ \\). \\( 76.0^\\circ \\) is the angle to the vertical." },
+        { q: "A bearing must be written:", opts: ["Clockwise from north, with three figures (e.g. \\( 072^\\circ \\))", "Anticlockwise from north, with two figures", "Clockwise from east, with three figures", "As the acute angle to the nearest axis"], ans: 0, explain: "Bearings are measured clockwise from north and always given as three figures." },
+        { q: "The bearing of B from A is \\( 060^\\circ \\). The bearing of A from B is:", opts: ["\\( 240^\\circ \\)", "\\( 120^\\circ \\)", "\\( 300^\\circ \\)", "\\( 060^\\circ \\)"], ans: 0, explain: "The reverse bearing differs by \\( 180^\\circ \\): \\( 060 + 180 = 240^\\circ \\)." },
+        { q: "From a point \\( 100 \\) m horizontally from the foot of a \\( 20 \\) m mast, the angle of elevation of the top is:", opts: ["\\( \\tan^{-1}(20/100) = 11.3^\\circ \\)", "\\( \\tan^{-1}(100/20) = 78.7^\\circ \\)", "\\( \\sin^{-1}(20/100) = 11.5^\\circ \\)", "\\( \\cos^{-1}(20/100) \\)"], ans: 0, explain: "Elevation is measured from the horizontal: opposite = 20, adjacent = 100, \\( \\tan\\theta = 20/100 \\), \\( \\theta = 11.3^\\circ \\)." },
+        { q: "A ground triangle of bearings has no right angle. To find a missing side you should use:", opts: ["The sine or cosine rule", "Pythagoras' theorem", "SOH-CAH-TOA directly", "The angle of elevation formula"], ans: 0, explain: "Pythagoras and SOH-CAH-TOA need a right angle; a general triangle needs the sine or cosine rule from 5.2." }
+    ];
+
+    const matchData = [
+        { term: "Line of greatest slope", def: "Steepest line on a sloping face; runs perpendicular to its horizontal edges" },
+        { term: "Angle between a line and a plane", def: "Angle between the line and its projection (shadow) on the plane" },
+        { term: "Bearing", def: "Angle measured clockwise from north, written with three figures" },
+        { term: "Angle of elevation", def: "Angle measured upward from the horizontal to a line of sight" },
+        { term: "Space diagonal of a cuboid \\( a\\times b\\times c \\)", def: "\\( \\sqrt{a^2 + b^2 + c^2} \\)" },
+        { term: "Base diagonal of a rectangle \\( a\\times b \\)", def: "\\( \\sqrt{a^2 + b^2} \\)" },
+        { term: "First step in a 3D problem", def: "Find the right-angled triangle in the correct plane" },
+        { term: "Reverse of bearing \\( 060^\\circ \\)", def: "\\( 240^\\circ \\)" },
+        { term: "Angle a path makes with the horizontal", def: "\\( \\tan^{-1}\\!\\left(\\dfrac{\\text{height}}{\\text{horizontal distance}}\\right) \\)" },
+        { term: "Cosine rule", def: "Finds a side or angle in a triangle with no right angle" },
+        { term: "\\( \\tan\\theta = \\dfrac{\\text{opposite}}{\\text{adjacent}} \\)", def: "Ratio for an angle in a right-angled triangle" },
+        { term: "Due west as a bearing", def: "\\( 270^\\circ \\)" }
+    ];
+
+    // FIB: markers ___B1___ sit in PLAIN TEXT only, never inside \( \) (§8.4 Rule 3b);
+    // answer VALUES are plain text so server string-equality works.
+    const fibData = [
+        { display: "In a 3D problem the first step is to identify the correct right-angled ___B1___ lying in one flat ___B2___ (surface).", blanks: { B1: "triangle", B2: "plane" } },
+        { display: "The angle between a line and a plane is found by dropping a ___B1___ from the line down to the plane; the angle is then measured at the ___B2___ of that perpendicular.", blanks: { B1: "perpendicular", B2: "foot" } },
+        { display: "For a path going up a slope, the angle with the horizontal has the vertical height as the ___B1___ side and the horizontal distance as the ___B2___ side.", blanks: { B1: "opposite", B2: "adjacent" } },
+        { display: "The steepest line that can be drawn on a sloping face is called the line of greatest ___B1___.", blanks: { B1: "slope" } },
+        { display: "A bearing is measured ___B1___ from north and is always written with ___B2___ figures.", blanks: { B1: "clockwise", B2: "three" } },
+        { display: "If the bearing of B from A is 060 degrees, then the bearing of A from B is ___B1___ degrees.", blanks: { B1: "240" } },
+        { display: "When a right-angled triangle can be solved with SOH-CAH-TOA, you should not overcomplicate it with the ___B1___ rule.", blanks: { B1: "sine" } }
+    ];
+
+    const fibWords = ["triangle", "plane", "perpendicular", "foot", "opposite", "adjacent", "slope", "clockwise", "three", "240", "sine", "hypotenuse", "cosine", "vertical"];
+
+    const tfData = [
+        { statement: "The space diagonal of an \\( a\\times b\\times c \\) cuboid is \\( \\sqrt{a^2 + b^2 + c^2} \\).", answer: true, explanation: "Pythagoras in 3D: the base diagonal is \\( \\sqrt{a^2+b^2} \\), then combine with the height \\( c \\) to get \\( \\sqrt{a^2+b^2+c^2} \\)." },
+        { statement: "In a 3D problem you should do trigonometry in three dimensions at once, without drawing a triangle.", answer: false, explanation: "You always isolate a single right-angled triangle in one plane and redraw it flat before using trig." },
+        { statement: "The angle a line makes with the horizontal uses the vertical height as the opposite side.", answer: true, explanation: "Height is opposite, horizontal distance is adjacent, so \\( \\tan\\theta = \\text{height}/\\text{horizontal distance} \\)." },
+        { statement: "The line of greatest slope runs parallel to the horizontal edges of the sloping face.", answer: false, explanation: "It runs perpendicular to them — straight up the slope, which is the steepest direction." },
+        { statement: "\\( \\tan^{-1}(20/80) \\) and \\( \\tan^{-1}(80/20) \\) give the same angle.", answer: false, explanation: "They are complementary: \\( 14.0^\\circ \\) (to the horizontal) and \\( 76.0^\\circ \\) (to the vertical), adding to \\( 90^\\circ \\)." },
+        { statement: "A bearing of \\( 060^\\circ \\) reversed becomes \\( 240^\\circ \\).", answer: true, explanation: "Reverse bearings differ by \\( 180^\\circ \\): \\( 060 + 180 = 240^\\circ \\)." },
+        { statement: "If a ground triangle has no right angle, Pythagoras will still find a missing side directly.", answer: false, explanation: "Pythagoras needs a right angle; a general triangle needs the sine or cosine rule." },
+        { statement: "The horizontal distance to a point, not the slant distance, is the adjacent side when finding the angle of elevation.", answer: true, explanation: "Elevation is measured from the horizontal, so the adjacent side must be the horizontal distance to the foot of the object." }
+    ];
+
+    const miscData = [
+        { wrong: "Any right-angled triangle in the 3D diagram will give the angle I want.", correct: "You must chose the RIGHT right-angled triangle. A weak answer grabs the first triangle it sees; a strong answer traces the actual line and the point directly beneath its top, then draws that specific triangle flat before using trig (2024 examiners: some worked in triangle MBE instead of the correct one).", readCheck: { q: "How do you fix on the correct right-angled triangle?", opts: ["Trace the line and the point directly below its top; use that triangle", "Use whichever triangle is largest", "Always use the front face", "Use the triangle with the biggest angle"], ans: 0, explain: "The correct triangle contains the line, its vertical rise, and the horizontal projection to the foot beneath the top." } },
+        { wrong: "The path rises 20 m over 80 m, so the angle with the horizontal is \\( \\tan^{-1}(80/20) = 76.0^\\circ \\).", correct: "That is the angle to the VERTICAL. A weak answer swaps opposite and adjacent; a strong answer keeps the height as opposite and the horizontal run as adjacent: \\( \\tan^{-1}(20/80) = 14.0^\\circ \\) (2024 ER: many measured the angle to the vertical instead of the horizontal).", readCheck: { q: "Angle to the horizontal for a 20 m rise over 80 m:", opts: ["\\( \\tan^{-1}(20/80) = 14.0^\\circ \\)", "\\( \\tan^{-1}(80/20) = 76.0^\\circ \\)", "\\( \\sin^{-1}(80/20) \\)", "\\( 90^\\circ \\)"], ans: 0, explain: "Height (20) is opposite, horizontal run (80) is adjacent, so the angle is \\( 14.0^\\circ \\)." } },
+        { wrong: "I'll use the sine rule to get this angle in the right-angled triangle.", correct: "Don't overcomplicate. A weak answer reaches for the sine rule; a strong answer notices the triangle is right-angled and uses SOH-CAH-TOA directly — faster and less error-prone (2024 ER warned against overcomplicating with the sine rule).", readCheck: { q: "When a right-angled triangle already fits, you should:", opts: ["Use SOH-CAH-TOA directly", "Use the sine rule for safety", "Use the cosine rule twice", "Estimate the angle"], ans: 0, explain: "SOH-CAH-TOA solves a right-angled triangle in one step; the sine rule is unnecessary here." } },
+        { wrong: "The distance from one far corner of a cuboid to the opposite corner is just the base diagonal.", correct: "That ignores the height. A weak answer gives the 2D base diagonal \\( \\sqrt{8^2+6^2}=10 \\); a strong answer includes the vertical: \\( \\sqrt{8^2+6^2+5^2} = \\sqrt{125} \\approx 11.2 \\).", readCheck: { q: "Space diagonal of an \\( 8\\times 6\\times 5 \\) cuboid:", opts: ["\\( \\sqrt{125} \\approx 11.2 \\)", "\\( 10 \\)", "\\( 19 \\)", "\\( \\sqrt{61} \\)"], ans: 0, explain: "Include all three dimensions: \\( \\sqrt{8^2+6^2+5^2} = \\sqrt{125} \\approx 11.2 \\)." } },
+        { wrong: "The bearing of C from B works out to \\( 46^\\circ \\), so that's the answer.", correct: "An angle inside the triangle is not the bearing. A weak answer quotes the interior angle; a strong answer combines it with a known direction (e.g. the reverse bearing of A from B) and writes the result as three figures, e.g. \\( 286^\\circ \\).", readCheck: { q: "An interior triangle angle of \\( 46^\\circ \\) becomes a bearing by:", opts: ["Combining it with a known direction and writing three figures", "Just adding a zero to make \\( 046^\\circ \\)", "Doubling it", "Using it unchanged"], ans: 0, explain: "A bearing is measured clockwise from north; the interior angle must be referenced to a known direction and given as three figures." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Sketch the 2D triangle inside the 3D shape", pills: ["sketch", "2D triangle", "label sides"], content: `<p><strong>0 marks:</strong> staring at the 3D picture and guessing a ratio.</p><p><strong>Partial:</strong> spotting that a triangle is needed but keeping it embedded in the solid, so opposite and adjacent get muddled.</p><p><strong>Full marks:</strong> redraw the relevant right-angled triangle <em>on its own, flat</em>, label the sides you know, mark the right angle, then apply Pythagoras and SOH-CAH-TOA. A clear separate sketch was singled out for credit in the 2024 report.</p>`, readCheck: { q: "Why redraw the triangle flat and on its own?", opts: ["So opposite/adjacent/hypotenuse are clear and errors are avoided", "To use more paper", "Because 3D pictures are banned", "To make it look neater only"], ans: 0, explain: "A separate 2D sketch makes the sides unambiguous and is the method examiners reward." } },
+        { type: "explain", title: "Measure to the horizontal, not the vertical", pills: ["horizontal", "opposite / adjacent"], content: `<p>“The angle with the horizontal” means the <strong>height is opposite</strong> and the <strong>horizontal distance is adjacent</strong>.</p><p><strong>0 marks:</strong> \\( \\tan^{-1}(80/20) = 76.0^\\circ \\) (angle to the vertical). <strong>Full marks:</strong> \\( \\tan^{-1}(20/80) = 14.0^\\circ \\). If your gentle slope comes out near \\( 90^\\circ \\), you have measured to the wrong reference.</p>`, readCheck: { q: "A gentle slope gives an angle to the horizontal of about:", opts: ["A small angle (e.g. \\( 14^\\circ \\))", "Close to \\( 90^\\circ \\)", "Exactly \\( 45^\\circ \\)", "More than \\( 90^\\circ \\)"], ans: 0, explain: "Shallow slope means a small angle to the horizontal; near \\( 90^\\circ \\) signals the angle was taken to the vertical." } },
+        { type: "tip", title: "Keep it simple, and give bearings and precision correctly", pills: ["SOH-CAH-TOA first", "3-figure bearing", "1 d.p."], content: `<p><strong>Don't overcomplicate:</strong> if a right-angled triangle fits, use SOH-CAH-TOA — not the sine rule. Only use the sine/cosine rules when the triangle has no right angle.</p><p><strong>Answer form:</strong> bearings as <strong>three figures</strong> (\\( 286^\\circ \\), not \\( 46^\\circ \\)); angles to the demanded precision (2024 Q7 required <strong>1 decimal place</strong> — extra digits lost the final mark). Carry full accuracy in the calculator and round only at the end.</p>`, readCheck: { q: "A question asks for the angle to 1 decimal place. You should:", opts: ["Round only the final answer to 1 d.p. and keep full accuracy before that", "Round every intermediate step to 1 d.p.", "Give the answer to 4 d.p. to be safe", "Give it as a whole number"], ans: 0, explain: "Keep full accuracy throughout; round only the final answer to the demanded precision, or the last mark is lost." } }
+    ];
+
+    const flashcards = [
+        { term: "3D trig — the golden rule", def: "Find the right-angled triangle in one plane and redraw it flat, then use trig." },
+        { term: "Angle between a line and a plane", def: "Angle between the line and its projection (shadow) on the plane." },
+        { term: "How to find that angle", def: "Drop a perpendicular to the plane; the angle sits at its foot." },
+        { term: "Line of greatest slope", def: "Steepest line on a sloping face; perpendicular to its horizontal edges." },
+        { term: "Angle of greatest slope", def: "\\( \\tan\\theta = \\dfrac{\\text{vertical rise}}{\\text{horizontal run}} \\)." },
+        { term: "Base diagonal of \\( a\\times b \\) rectangle", def: "\\( \\sqrt{a^2 + b^2} \\)." },
+        { term: "Space diagonal of \\( a\\times b\\times c \\) cuboid", def: "\\( \\sqrt{a^2 + b^2 + c^2} \\)." },
+        { term: "Angle to the horizontal", def: "Height = opposite, horizontal distance = adjacent." },
+        { term: "Bearing", def: "Measured clockwise from north; always three figures." },
+        { term: "Reverse bearing", def: "Differs by \\( 180^\\circ \\) (e.g. \\( 060^\\circ \\to 240^\\circ \\))." },
+        { term: "Angle of elevation", def: "Angle upward from the horizontal to a line of sight." },
+        { term: "When to use the sine/cosine rule", def: "When the triangle has no right angle (see 5.2)." },
+        { term: "Don't overcomplicate", def: "If a right-angled triangle fits, use SOH-CAH-TOA, not the sine rule." },
+        { term: "Precision & accuracy", def: "Keep full accuracy; round only the final answer to the demanded precision." }
+    ];
+
+    // Exam questions (verbatim per §6). Q7 (2024, 6 marks) + Q13 (2019, 12 marks) = 18 marks.
+    // Both reference printed figures re-authored as SVG in EXAM_CASE_STUDIES.
+    const examQuestions = [
+        {
+            num: "7 (a)",
+            marks: 2,
+            type: "written",
+            caseId: "q7-2024",
+            question: `<p>Calculate the angle that the path MN makes with the horizontal, giving your answer correct to <strong>1</strong> decimal place.</p>`,
+            hint: "MN is a line of greatest slope: its vertical rise is \\( CE = 20 \\) and its horizontal run is \\( BC = 80 \\).",
+            starter: "Give the angle to 1 decimal place.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — \\( \\tan^{-1}\\!\\left(\\dfrac{20}{80}\\right) \\) oe (correct right-angled triangle; same angle as between BE and BC).</li>
+              <li><strong>A1</strong> — \\( 14.0^\\circ \\) (accept \\( 14 \\)).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>MN rises \\( 20 \\) m over a horizontal run of \\( 80 \\) m; the sine rule on the right-angled triangle also scores if used correctly.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Many recognised the angle equals that between BE and BC and used the given lengths. Some found the angle to the vertical instead; some used the sine rule (successfully); a few found the hypotenuse first and used the sine ratio.</li>
+            </ul></div>`,
+            modelAnswer: "MN is a line of greatest slope, rising \\( 20 \\) m vertically over a horizontal distance \\( BC = 80 \\) m. So \\( \\tan\\theta = \\dfrac{20}{80} \\), giving \\( \\theta = \\tan^{-1}(0.25) = 14.0^\\circ \\) (1 d.p.).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — correct triangle / ratio", max: 1, points: ["Formed \\( \\tan\\theta = 20/80 \\) (rise over horizontal run), i.e. the correct right-angled triangle"] },
+                { label: "A1 — answer to 1 d.p.", max: 1, points: ["\\( 14.0^\\circ \\) (accept \\( 14 \\))"] }
+            ] }
+        },
+        {
+            num: "7 (b)",
+            marks: 4,
+            type: "written",
+            caseId: "q7-2024",
+            question: `<p>A second straight path goes up the hill from M to E. Calculate the angle that this path makes with the horizontal, giving your answer correct to <strong>1</strong> decimal place.</p>`,
+            hint: "First find the horizontal distance MC by Pythagoras (\\( MB = 60 \\), \\( BC = 80 \\)); E is directly above C, height \\( 20 \\).",
+            starter: "Find MC first, then the angle to 1 decimal place.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — Pythagoras for the horizontal distance: \\( MC = \\sqrt{80^2 + 60^2} \\) (or a Pythagorean triple).</li>
+              <li><strong>A1</strong> — \\( MC = 100 \\).</li>
+              <li><strong>M1</strong> — \\( \\tan^{-1}\\!\\left(\\dfrac{20}{100}\\right) \\) (E is above C, height \\( 20 \\)).</li>
+              <li><strong>A1</strong> — \\( 11.3^\\circ \\) (must be 1 d.p.).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Alternative: find \\( BE = \\sqrt{80^2 + 20^2} \\) and \\( ME = \\sqrt{60^2 + BE^2} = \\sqrt{10400} \\approx 101.98 \\) (awrt \\( 102 \\)), then \\( \\sin^{-1}\\!\\left(\\dfrac{20}{ME}\\right) = 11.3^\\circ \\) — full marks by an equivalent route.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most saw the need for MC but many overcomplicated by also finding ME and using the sine rule. Again some found the angle to the vertical; some lost the final mark by giving more than 1 decimal place; others tried incorrect triangles such as MBE.</li>
+            </ul></div>`,
+            modelAnswer: "E lies directly above C, so the horizontal distance is \\( MC = \\sqrt{BC^2 + MB^2} = \\sqrt{80^2 + 60^2} = \\sqrt{10000} = 100 \\) m. The height is \\( CE = 20 \\) m, so \\( \\tan\\theta = \\dfrac{20}{100} = 0.2 \\), giving \\( \\theta = \\tan^{-1}(0.2) = 11.3^\\circ \\) (1 d.p.).",
+            markPoints: { note: "Award each mark for the step shown; the ME/sine-rule route earns the same marks.", groups: [
+                { label: "M1 — Pythagoras for MC", max: 1, points: ["Used \\( MC = \\sqrt{80^2 + 60^2} \\) (or a Pythagorean triple)"] },
+                { label: "A1 — MC value", max: 1, points: ["\\( MC = 100 \\)"] },
+                { label: "M1 — trig for the angle", max: 1, points: ["Formed \\( \\tan^{-1}(20/\\text{their }MC) \\) with E above C"] },
+                { label: "A1 — answer to 1 d.p.", max: 1, points: ["\\( 11.3^\\circ \\) (must be 1 d.p.)"] }
+            ] }
+        },
+        {
+            num: "13 (a)",
+            marks: 2,
+            type: "written",
+            caseId: "q13-2019",
+            question: `<p>Find the height of the mast.</p>`,
+            hint: "The mast CT is vertical at C; the elevation from A is \\( 7^\\circ \\) and \\( AC = 300 \\). Use \\( \\tan \\).",
+            starter: "Give the height in metres.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — \\( \\tan 7^\\circ = \\dfrac{h}{300} \\) (use of the tangent ratio; the sine rule may be used).</li>
+              <li><strong>A1</strong> — \\( h = 36.8 \\) m (\\( 300\\tan 7^\\circ = 36.84\\ldots \\)).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>CT is vertical and AC is horizontal, so the elevation triangle ACT is right-angled at C.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The vast majority used the tangent ratio successfully; some used the sine rule and were also successful. A well-answered opener.</li>
+            </ul></div>`,
+            modelAnswer: "Triangle ACT is right-angled at C, with \\( AC = 300 \\) and elevation \\( 7^\\circ \\). So \\( \\tan 7^\\circ = \\dfrac{h}{300} \\), giving \\( h = 300\\tan 7^\\circ = 36.8 \\) m (3 s.f.).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — tangent ratio", max: 1, points: ["Used \\( \\tan 7^\\circ = h/300 \\) (or an equivalent sine-rule set-up)"] },
+                { label: "A1 — height", max: 1, points: ["\\( h = 36.8 \\) m"] }
+            ] }
+        },
+        {
+            num: "13 (b)",
+            marks: 5,
+            type: "written",
+            caseId: "q13-2019",
+            question: `<p>Find the angle of elevation of the top of the mast from point B.</p>`,
+            hint: "Angle \\( BAC = 60^\\circ \\) (bearing \\( 060^\\circ \\) vs due north). Find CB by the cosine rule, then use \\( \\tan \\) with the height from (a).",
+            starter: "Give the angle of elevation to 3 significant figures.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO1/AO2)</h5><ul>
+              <li><strong>M1</strong> — cosine rule to find CB.</li>
+              <li><strong>A1</strong> — correct substitution: \\( CB^2 = 400^2 + 300^2 - 2(400)(300)\\cos 60^\\circ \\).</li>
+              <li><strong>A1</strong> — \\( CB^2 = 130000 \\), \\( CB = 360.6 \\) m (ignore rounding).</li>
+              <li><strong>M1</strong> — \\( \\tan(\\text{elevation}) = \\dfrac{\\text{their } h}{\\text{their } CB} \\).</li>
+              <li><strong>A1</strong> — \\( 5.83^\\circ \\) (correct to 3 s.f.).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Angle \\( BAC = 60^\\circ \\) because AB is on bearing \\( 060^\\circ \\) and AC is due north. Keep full accuracy: \\( CB = \\sqrt{130000} = 360.55\\ldots \\)</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most gained the first 3 marks finding CB by the cosine rule (a formula not given on the paper, so it must be learnt), then used the tangent correctly. Some did extra work finding TB by Pythagoras; those who did not round early were rewarded.</li>
+            </ul></div>`,
+            modelAnswer: "Angle \\( BAC = 60^\\circ \\). Cosine rule: \\( CB^2 = 400^2 + 300^2 - 2(400)(300)\\cos 60^\\circ = 130000 \\), so \\( CB = 360.6 \\) m. The mast height is \\( h = 36.84 \\) m, so the elevation from B is \\( \\tan^{-1}\\!\\left(\\dfrac{36.84}{360.55}\\right) = 5.83^\\circ \\) (3 s.f.).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — cosine rule set up", max: 1, points: ["Chose the cosine rule to find CB"] },
+                { label: "A1 — correct substitution", max: 1, points: ["\\( 400^2 + 300^2 - 2(400)(300)\\cos 60^\\circ \\)"] },
+                { label: "A1 — CB found", max: 1, points: ["\\( CB^2 = 130000 \\), \\( CB = 360.6 \\) m"] },
+                { label: "M1 — tangent for elevation", max: 1, points: ["\\( \\tan^{-1}(\\text{their } h/\\text{their } CB) \\)"] },
+                { label: "A1 — elevation (3 s.f.)", max: 1, points: ["\\( 5.83^\\circ \\)"] }
+            ] }
+        },
+        {
+            num: "13 (c)",
+            marks: 5,
+            type: "written",
+            caseId: "q13-2019",
+            question: `<p>Find the bearing of the base of the mast from point B.</p>`,
+            hint: "Use the sine rule in triangle ABC to find angle ABC, then combine it with the reverse bearing of A from B (\\( 240^\\circ \\)).",
+            starter: "Give the bearing as a three-figure bearing.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO2/AO3)</h5><ul>
+              <li><strong>M1</strong> — sine (or cosine) rule to find angle B (or angle C).</li>
+              <li><strong>A1</strong> — correct values inserted: \\( \\dfrac{\\sin B}{300} = \\dfrac{\\sin 60^\\circ}{360.6} \\).</li>
+              <li><strong>A1</strong> — angle \\( ABC = 46.1^\\circ \\) (awrt \\( 46 \\); or angle \\( C = 73.9^\\circ \\)).</li>
+              <li><strong>M1</strong> — correct attempt to combine with a known direction to find the bearing.</li>
+              <li><strong>A1</strong> — bearing \\( = 286^\\circ \\) (awrt \\( 286 \\)).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>A is on bearing \\( 240^\\circ \\) from B (reverse of \\( 060^\\circ \\)); adding angle \\( ABC \\): \\( 240 + 46.1 = 286.1^\\circ \\). Rearranging the sine rule correctly is required.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most found angle B or C by the sine or cosine rule, but turning that into the correct bearing exposed a lack of understanding in a significant proportion, who gave a wrong answer or did not attempt this part.</li>
+            </ul></div>`,
+            modelAnswer: "By the sine rule, \\( \\dfrac{\\sin(\\angle ABC)}{300} = \\dfrac{\\sin 60^\\circ}{360.6} \\), so \\( \\sin(\\angle ABC) = 0.7206 \\) and \\( \\angle ABC = 46.1^\\circ \\). The bearing of A from B is \\( 060 + 180 = 240^\\circ \\), and C lies a further \\( 46.1^\\circ \\) clockwise, so the bearing of the base of the mast from B is \\( 240 + 46.1 = 286^\\circ \\) (to the nearest degree).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — sine/cosine rule for an angle", max: 1, points: ["Set up the sine (or cosine) rule for angle B or angle C"] },
+                { label: "A1 — correct substitution", max: 1, points: ["\\( \\sin B/300 = \\sin 60^\\circ/360.6 \\) (or the cosine-rule equivalent)"] },
+                { label: "A1 — angle found", max: 1, points: ["\\( \\angle ABC = 46.1^\\circ \\) (or \\( \\angle C = 73.9^\\circ \\))"] },
+                { label: "M1 — combine to a bearing", max: 1, points: ["Combined with the \\( 240^\\circ \\) reverse bearing (or equivalent) to reach a bearing"] },
+                { label: "A1 — three-figure bearing", max: 1, points: ["\\( 286^\\circ \\) (awrt)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>
