@@ -1,0 +1,129 @@
+/* ══════════════════════════════════════════════════════════════
+   MATHS PRACTICE LAB — shared styles (injected by maths-lab.js)
+   Site CSS variables only, so all 7 themes (incl. both darks) work.
+   Tool-specific styles live in each tool module's own <style>,
+   prefixed .mathslab-<tool>.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Page width note: topic pages give `main` one constant wide width shared by
+   every tab, Practice Lab included — do NOT set a per-tab width (it makes the
+   page visibly resize when switching tabs). */
+
+.mathslab-launcher {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+}
+
+.mathslab-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    text-align: left;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 16px 16px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--ink);
+    min-height: 44px;
+    transition: transform .12s, box-shadow .12s, border-color .12s;
+}
+
+.mathslab-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+}
+
+.mathslab-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.mathslab-card-icon { font-size: 26px; line-height: 1; }
+.mathslab-card-title { font-weight: 600; font-size: 15px; }
+.mathslab-card-blurb { font-size: 13px; color: var(--mid); line-height: 1.4; }
+
+.mathslab-card-done {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--success);
+}
+
+.mathslab-card.done .mathslab-card-done { display: block; }
+.mathslab-card.done { border-color: var(--success); }
+
+.mathslab-toolhead {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.mathslab-toolhead h3 { margin: 0; font-size: 19px; }
+
+.mathslab-back {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--mid);
+    padding: 8px 12px;
+    min-height: 44px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.mathslab-back:hover { color: var(--ink); border-color: var(--accent); }
+.mathslab-back:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.mathslab-btn {
+    background: var(--accent);
+    color: var(--paper);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    min-height: 44px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.mathslab-btn:hover { filter: brightness(1.1); }
+.mathslab-btn:disabled { opacity: .5; cursor: not-allowed; }
+.mathslab-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.mathslab-btn.secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--border);
+    font-weight: 500;
+}
+
+.mathslab-feedback { font-size: 14px; font-weight: 600; margin: 8px 0; }
+.mathslab-feedback.ok { color: var(--success); }
+.mathslab-feedback.no { color: #c0392b; }
+
+.mathslab-loading { color: var(--mid); font-style: italic; }
+
+.mathslab-error {
+    color: #c0392b;
+    background: color-mix(in srgb, #c0392b 8%, var(--card-bg));
+    border: 1px solid color-mix(in srgb, #c0392b 30%, var(--border));
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+
+@media (max-width: 700px) {
+    .mathslab-launcher { grid-template-columns: 1fr; }
+}

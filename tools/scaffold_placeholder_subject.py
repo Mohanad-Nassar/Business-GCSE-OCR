@@ -974,7 +974,12 @@ def scaffold_subject(slug, force_pages=False):
                      '\n    <script src="/vendor/katex/katex.min.js"></script>'
                      '\n    <script src="/vendor/katex/contrib/auto-render.min.js"></script>'
                      '\n    <script src="/math-render.js"></script>'
-                     '\n    <script src="/cs-lab/exam-widgets.js"></script>')
+                     '\n    <script src="/cs-lab/exam-widgets.js"></script>'
+                     # Maths Practice Lab (ADM-C): injects the 10th "Practice
+                     # Lab" tab where PAGE_TOOLS maps tools; deferred so it runs
+                     # after script.js has built #tabBar / switchTab. Self-noops
+                     # on pages with no mapped tools. Injects its own CSS link.
+                     '\n    <script src="/maths-lab/maths-lab.js" defer></script>')
                     if slug == "additional-maths" else
                     # Spanish pages get output-voice TTS (/speech.js, self-installs the
                     # 🔊 buttons + speed/voice panel + tab observer, SPANISH-CONTENT-PLAN
