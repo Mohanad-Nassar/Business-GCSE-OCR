@@ -48,12 +48,13 @@
 
     .hero {
       background: var(--ink); color: var(--paper);
-      padding: 48px 48px 40px; position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; top: -80px; right: -80px;
-      width: 340px; height: 340px; border-radius: 50%;
-      background: var(--accent); opacity: .12;
+      /* Decorative circle painted as a background so the hero needs no
+         overflow:hidden — which would clip the account dropdown / bell panel. */
+      background-image: radial-gradient(circle 170px at calc(100% - 90px) 90px,
+        color-mix(in srgb, var(--accent) 12%, transparent) 0,
+        color-mix(in srgb, var(--accent) 12%, transparent) 169px, transparent 170px);
+      background-repeat: no-repeat;
+      padding: 48px 48px 40px; position: relative;
     }
     .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
     .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
@@ -75,6 +76,9 @@
       display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end;
       margin-bottom: 22px;
     }
+    /* Header is deliberately just the 🔔 bell + account menu. The sound toggle
+       lives inside that menu, and the tour-replay button isn't surfaced here. */
+    .hero-nav > .gam-sound-btn, .hero-nav > .gcse-tour-replay { display: none !important; }
     .hero-nav a, .hero-nav button {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.25);
@@ -152,9 +156,6 @@
   <header class="hero">
     <div class="hero-inner">
       <nav class="hero-nav" aria-label="Site">
-        <a href="/index.html">🏠 <span>All Subjects</span></a>
-        <a href="/dashboard.html?subject=additional-maths">📊 <span>My Progress</span></a>
-        <a href="mock-exam.html">📝 <span>Mock Exams</span></a>
         <span id="accountBar" style="display:inline-flex;align-items:center;gap:10px;"></span>
       </nav>
       <div class="hero-eyebrow">
@@ -225,6 +226,8 @@
       // (account-cluster.js); minimal escaped bar as a fallback.
       if (typeof _gcseInjectAccountBar === 'function') {
         window._gcseProfile = window._gcseProfile || { username: cached.username, role: cached.role };
+        // Mock Exams moved out of the header into the account menu.
+        window._gcseExtraMenuItems = [{ href: 'mock-exam.html', icon: '📝', label: 'Mock Exams' }];
         _gcseInjectAccountBar();
       } else {
         const escName = String(cached.username || 'you').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
