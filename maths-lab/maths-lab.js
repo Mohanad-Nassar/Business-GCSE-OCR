@@ -65,16 +65,22 @@
     '1-1-notation-functions-and-indices': [{ tool: 'maths-drills', config: { modes: ['index-laws', 'expand-double', 'factorise-quad'] } }],
     '1-2-surds-and-algebraic-fractions': [{ tool: 'maths-drills', config: { modes: ['surds-simplify'] } }],
     '1-3-quadratics-and-completing-the-square': [{ tool: 'maths-drills', config: { modes: ['complete-square', 'quad-formula', 'factorise-quad'] } }],
+    '3-3-sketching-and-plotting-graphs': [{ tool: 'graph-explorer', config: { modes: ['quadratic', 'sine'] } }],
+    '7-1-exponential-functions': [{ tool: 'graph-explorer', config: { modes: ['exponential'] } }],
+    '8-1-the-gradient-function': [{ tool: 'graph-explorer', config: { modes: ['chord-tangent'] } }],
+    '9-2-definite-integrals-and-areas': [{ tool: 'graph-explorer', config: { modes: ['integral-area'] } }],
   };
 
   // module file per tool id (several ids may share one file)
   const TOOL_FILES = {
     'maths-drills': 'tools/maths-drills.js',
+    'graph-explorer': 'tools/graph-explorer.js',
   };
 
   // Launcher card copy (shown before the module is loaded).
   const CARD_META = {
     'maths-drills': { icon: '🔢', title: 'Maths Drills', blurb: 'Infinite practice: expand, factorise, complete the square, surds and index laws — with worked solutions.' },
+    'graph-explorer': { icon: '📈', title: 'Graph Explorer', blurb: 'Drag the sliders and watch the graph move — see how each coefficient changes the curve.' },
   };
 
   // `pageMeta` is declared `const` in each topic page's inline <script>, so it's
