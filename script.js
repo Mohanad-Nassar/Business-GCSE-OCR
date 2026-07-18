@@ -1591,6 +1591,8 @@ function renderReadCheck(card, checkData, onComplete, restoreData) {
             fb.className = 'read-check-feedback rc-fb-no';
             fb.textContent = '✗ ' + (checkData.explain || 'See the correct answer highlighted above.');
         }
+        // Render any LaTeX in the explanation (inserted on click, after boot).
+        if (typeof renderMathIn === 'function') renderMathIn(fb);
         // Show "already answered" label
         const lbl = wrap.querySelector('.read-check-label');
         if (lbl) lbl.textContent = '🧠 Quick Check — completed';
@@ -1851,6 +1853,7 @@ function _applyMCQServerAnswered(block, chosenOi, correct, correctOi, explain) {
         if (correctOi != null && btns[correctOi]) btns[correctOi].classList.add('correct');
         if (fb) { fb.textContent = '✗ ' + (explain || ''); fb.className = 'q-feedback show no'; }
     }
+    if (fb && typeof renderMathIn === 'function') renderMathIn(fb);
 }
 
 function _renderMCQServer(wrap, rows, retryOnly) {
@@ -1896,6 +1899,7 @@ function _renderMCQServer(wrap, rows, retryOnly) {
     injectMCQProgressBar();
     updateProgressBar('mcq', mcqScore, rows.length);
     ProgressStore.saveTotal(pageId, 'mcq', rows.length);
+    if (typeof renderMathIn === 'function') renderMathIn(wrap); // server-mode Qs/options built async after boot
 }
 
 function _onMCQServerClick(e) {
@@ -3653,7 +3657,7 @@ function _applyTFServerAnswered(card, chosenVal, correct, correctVal, explain) {
         if (!correct && bVal === correctBool) b.classList.add('correct');
     });
     const exp = document.getElementById(card.dataset.expId);
-    if (exp) { exp.textContent = explain || ''; exp.classList.add('show'); }
+    if (exp) { exp.textContent = explain || ''; exp.classList.add('show'); if (typeof renderMathIn === 'function') renderMathIn(exp); }
 }
 
 function _renderTFServer(wrap, rows, retryOnly) {
@@ -3695,6 +3699,7 @@ function _renderTFServer(wrap, rows, retryOnly) {
     injectTFProgressBar();
     updateProgressBar('tf', tfScore, rows.length);
     ProgressStore.saveTotal(pageId, 'tf', rows.length);
+    if (typeof renderMathIn === 'function') renderMathIn(wrap); // server-mode statements built async after boot
 }
 
 function _onTFServerClick(e) {

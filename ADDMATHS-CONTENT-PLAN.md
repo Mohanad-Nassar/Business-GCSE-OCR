@@ -301,7 +301,7 @@ first use, one concrete worked example per skill.
 - Tag values - use exactly one of: `Key concept`, `Exam skill`, `Worked example`,
   `Method`, `Common error`, `Real world`.
 
-**MCQs** - cover every spec bullet at least once across mcq+tf; include "evaluate/
+**MCQs** — GUESSABILITY RULE (owner, enforced by the verifier): the correct option must NOT be the strictly longest — at least one DISTRACTOR must be the same length or longer and be a genuinely tempting misconception; never make the correct option the shortest either; vary the correct position across the page. Then: cover every spec bullet at least once across mcq+tf; include "evaluate/
 predict" stems (compute f(3), state the gradient, give the discriminant's sign);
 distractors = **real errors from the examiner reports** (sign not flipped on divide by a
 negative, `(x+6)^2` from halving 12 wrong in completing the square, log(ka^n) ->
