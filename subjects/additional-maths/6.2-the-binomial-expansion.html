@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 6. Enumeration and Probability</div>
             <h1>6.2 The Binomial Expansion</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,9 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 6.2 The Binomial Expansion — placeholder, content not yet written
+    //  DATA: 6.2 The Binomial Expansion (EN1 — expand (a+b)^n, positive integer n)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Exam Q = 2023 Q1.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '6-2-the-binomial-expansion',
@@ -268,21 +270,221 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>6.2 The Binomial Expansion</strong> will appear here soon.</p>`
+            title: "What is the binomial expansion?",
+            tag: "Key concept",
+            content: `<p>A <strong>binomial</strong> is an expression with two terms, such as \\( a + b \\). The <strong>binomial expansion</strong> multiplies out \\( (a+b)^n \\) for a positive integer \\( n \\) without doing all the bracket multiplication by hand.</p>
+            <ul>
+              <li>\\( (a+b)^n \\) expands into \\( n+1 \\) terms.</li>
+              <li>The <strong>powers of \\( a \\) go down</strong> from \\( n \\) to \\( 0 \\); the <strong>powers of \\( b \\) go up</strong> from \\( 0 \\) to \\( n \\). In <em>every</em> term the two powers add up to \\( n \\).</li>
+              <li>Each term carries a <strong>binomial coefficient</strong>. For example \\[ (a+b)^4 = a^4 + 4a^3 b + 6a^2 b^2 + 4a b^3 + b^4. \\]</li>
+            </ul>
+            <p>Notice the coefficients \\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\) read the same forwards and backwards — they are symmetric.</p>`,
+            readCheck: { q: "How many terms are in the expansion of \\( (a+b)^7 \\)?", opts: ["\\( 8 \\)", "\\( 7 \\)", "\\( 6 \\)", "\\( 14 \\)"], ans: 0, explain: "\\( (a+b)^n \\) has \\( n+1 \\) terms, so \\( (a+b)^7 \\) has \\( 8 \\)." }
+        },
+        {
+            title: "Where do the coefficients come from — Pascal's triangle?",
+            tag: "Key concept",
+            content: `<p><strong>Pascal's triangle</strong> is a quick way to write down the coefficients. Each number is the sum of the two numbers above it; row \\( n \\) gives the coefficients of \\( (a+b)^n \\).</p>
+            <table class="worked">
+              <tr><td>\\( n=0 \\)</td><td>1</td></tr>
+              <tr><td>\\( n=1 \\)</td><td>1&nbsp;&nbsp;1</td></tr>
+              <tr><td>\\( n=2 \\)</td><td>1&nbsp;&nbsp;2&nbsp;&nbsp;1</td></tr>
+              <tr><td>\\( n=3 \\)</td><td>1&nbsp;&nbsp;3&nbsp;&nbsp;3&nbsp;&nbsp;1</td></tr>
+              <tr><td>\\( n=4 \\)</td><td>1&nbsp;&nbsp;4&nbsp;&nbsp;6&nbsp;&nbsp;4&nbsp;&nbsp;1</td></tr>
+              <tr><td>\\( n=5 \\)</td><td>1&nbsp;&nbsp;5&nbsp;&nbsp;10&nbsp;&nbsp;10&nbsp;&nbsp;5&nbsp;&nbsp;1</td></tr>
+            </table>
+            <p>The triangle is fine for small \\( n \\), but drawing it out to (say) row 12 is slow and error-prone — that is where \\( {}^nC_r \\) is faster.</p>`,
+            readCheck: { q: "Which row of Pascal's triangle gives the coefficients of \\( (a+b)^5 \\)?", opts: ["\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)", "\\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\)", "\\( 1,\\ 5,\\ 5,\\ 1 \\)", "\\( 1,\\ 6,\\ 15,\\ 20,\\ 15,\\ 6,\\ 1 \\)"], ans: 0, explain: "Row \\( n=5 \\) is \\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)." }
+        },
+        {
+            title: "How do you use \\( {}^nC_r \\) for the coefficients?",
+            tag: "Method",
+            content: `<p>The binomial coefficients are the numbers \\( {}^nC_r \\) (say "n choose r"), given by \\[ {}^nC_r = \\frac{n!}{r!\\,(n-r)!}. \\] Your calculator has an \\( {}^nC_r \\) button, so you never need to expand the factorials by hand.</p>
+            <ul>
+              <li>Both the <strong>binomial series</strong> and \\( {}^nC_r \\) are <strong>PROVIDED on the exam formula sheet</strong> — you do not have to memorise them, but you <em>must</em> apply them correctly.</li>
+              <li>\\( {}^nC_0 = 1 \\) and \\( {}^nC_n = 1 \\) always (the first and last coefficients).</li>
+              <li>Example: \\( {}^6C_2 = \\dfrac{6!}{2!\\,4!} = 15 \\), which matches row 6 of Pascal's triangle.</li>
+            </ul>
+            <p>For contrast, the quadratic formula, the log laws and the sine/cosine rules are <strong>NOT</strong> on the sheet — those you must memorise.</p>`,
+            readCheck: { q: "Which formulae are PROVIDED on the 6993 formula sheet?", opts: ["The binomial series and \\( {}^nC_r \\)", "The quadratic formula", "The log laws", "The sine and cosine rules"], ans: 0, explain: "The binomial series and \\( {}^nC_r \\) are printed on the sheet; the others must be memorised." }
+        },
+        {
+            title: "What is the general term of \\( (a+b)^n \\)?",
+            tag: "Exam skill",
+            content: `<p>Rather than write out the whole expansion, you can jump straight to any term using the <strong>general term</strong>: \\[ {}^nC_r\\, a^{\\,n-r}\\, b^{\\,r}, \\qquad r = 0,\\ 1,\\ 2,\\ \\dots,\\ n. \\]</p>
+            <ul>
+              <li>The power of \\( a \\) is \\( n-r \\); the power of \\( b \\) is \\( r \\); together they add to \\( n \\).</li>
+              <li>\\( r = 0 \\) gives the first term, \\( r = 1 \\) the second, and so on — so the term with \\( b^r \\) is the \\( (r+1)\\text{th} \\) term. Mind that off-by-one.</li>
+            </ul>
+            <p><strong>Worked example — the term in \\( a^4 b^2 \\) of \\( (a+b)^6 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. The power of \\( b \\) is \\( 2 \\), so \\( r = 2 \\).</td></tr>
+              <tr><td>2. Coefficient: \\( {}^6C_2 = 15 \\).</td></tr>
+              <tr><td>3. Term: \\( {}^6C_2\\, a^{6-2} b^2 = 15\\,a^4 b^2 \\).</td></tr>
+            </table>`,
+            readCheck: { q: "In the general term \\( {}^nC_r\\, a^{n-r} b^r \\), what is the power of \\( b \\)?", opts: ["\\( r \\)", "\\( n-r \\)", "\\( n \\)", "\\( r-1 \\)"], ans: 0, explain: "The power of \\( b \\) is \\( r \\); the power of \\( a \\) is \\( n-r \\)." }
+        },
+        {
+            title: "How do you expand something like \\( (2+3x)^5 \\)?",
+            tag: "Worked example",
+            content: `<p>When a term is a number times a variable, such as \\( 3x \\), the power applies to the <strong>whole</strong> part — you must raise the number too, e.g. \\( (3x)^2 = 9x^2 \\), not \\( 3x^2 \\).</p>
+            <p><strong>Worked example — expand \\( (2+3x)^5 \\):</strong> here \\( a = 2 \\), \\( b = 3x \\), \\( n = 5 \\), so the general term is \\( {}^5C_r\\, 2^{\\,5-r}(3x)^r \\).</p>
+            <table class="worked">
+              <tr><td>\\( r=0 \\): \\( {}^5C_0\\, 2^5 = 32 \\)</td></tr>
+              <tr><td>\\( r=1 \\): \\( {}^5C_1\\, 2^4 (3x) = 5\\times 16\\times 3\\,x = 240x \\)</td></tr>
+              <tr><td>\\( r=2 \\): \\( {}^5C_2\\, 2^3 (3x)^2 = 10\\times 8\\times 9\\,x^2 = 720x^2 \\)</td></tr>
+              <tr><td>\\( r=3 \\): \\( {}^5C_3\\, 2^2 (3x)^3 = 10\\times 4\\times 27\\,x^3 = 1080x^3 \\)</td></tr>
+              <tr><td>\\( r=4 \\): \\( {}^5C_4\\, 2^1 (3x)^4 = 5\\times 2\\times 81\\,x^4 = 810x^4 \\)</td></tr>
+              <tr><td>\\( r=5 \\): \\( {}^5C_5\\, (3x)^5 = 243x^5 \\)</td></tr>
+            </table>
+            <p>So \\[ (2+3x)^5 = 32 + 240x + 720x^2 + 1080x^3 + 810x^4 + 243x^5. \\]</p>`,
+            readCheck: { q: "In the \\( x^2 \\) term of \\( (2+3x)^5 \\), which factor is easy to forget?", opts: ["\\( 3^2 = 9 \\) (raising the 3 to the power)", "The \\( {}^5C_2 \\) coefficient only", "The \\( x^2 \\)", "Nothing — you just add the terms"], ans: 0, explain: "The \\( 3 \\) must be squared: \\( 10\\times 2^3\\times 3^2 = 720 \\), not \\( 10\\times 2^3 = 80 \\)." }
+        },
+        {
+            title: "How do you find a specific term, coefficient, or the term independent of \\( x \\)?",
+            tag: "Exam skill",
+            content: `<p>You rarely need the whole expansion — pick out the one term you want with the general term.</p>
+            <p><strong>To find the coefficient of a power of \\( x \\):</strong> write the general term, collect the power of \\( x \\), set it equal to the power you want, solve for \\( r \\), then evaluate.</p>
+            <table class="worked">
+              <tr><td>Coefficient of \\( x^3 \\) in \\( (2+3x)^5 \\): general term \\( {}^5C_r\\, 2^{5-r}(3x)^r \\) has \\( x^r \\), so \\( r=3 \\).</td></tr>
+              <tr><td>Value: \\( {}^5C_3\\, 2^2\\, 3^3 = 10\\times 4\\times 27 = 1080 \\).</td></tr>
+            </table>
+            <p><strong>The term "independent of \\( x \\)"</strong> is the <strong>constant term</strong> — the one where the power of \\( x \\) is \\( 0 \\). This appears when the bracket has both a positive and a negative power of \\( x \\).</p>
+            <table class="worked">
+              <tr><td>Term independent of \\( x \\) in \\( \\left(x - \\dfrac{3}{x^2}\\right)^6 \\): general term \\( {}^6C_r\\, x^{6-r}\\left(-\\dfrac{3}{x^2}\\right)^r = {}^6C_r\\,(-3)^r\\, x^{\\,6-3r} \\).</td></tr>
+              <tr><td>Independent of \\( x \\) when \\( 6-3r = 0 \\), i.e. \\( r=2 \\).</td></tr>
+              <tr><td>Value: \\( {}^6C_2\\,(-3)^2 = 15\\times 9 = 135 \\).</td></tr>
+            </table>
+            <p><strong>Always state the term clearly at the end</strong> — an answer left buried inside a long expansion loses the final mark.</p>`,
+            readCheck: { q: "\"The term independent of \\( x \\)\" means the term in which the power of \\( x \\) is:", opts: ["\\( 0 \\) (the constant term)", "\\( 1 \\)", "the highest power", "the lowest positive power"], ans: 0, explain: "Independent of \\( x \\) means \\( x^0 \\) — a constant with no \\( x \\) in it." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "How many terms are in the expansion of \\( (a+b)^7 \\)?", opts: ["\\( 8 \\)", "\\( 7 \\)", "\\( 9 \\)", "\\( 14 \\)"], ans: 0, explain: "\\( (a+b)^n \\) has \\( n+1 \\) terms, so \\( 8 \\)." },
+        { q: "What are the coefficients in \\( (a+b)^4 \\)?", opts: ["\\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\)", "\\( 1,\\ 3,\\ 3,\\ 1 \\)", "\\( 1,\\ 4,\\ 4,\\ 1 \\)", "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)"], ans: 0, explain: "Row 4 of Pascal's triangle is \\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\)." },
+        { q: "Which row of Pascal's triangle gives the coefficients of \\( (a+b)^6 \\)?", opts: ["\\( 1,\\ 6,\\ 15,\\ 20,\\ 15,\\ 6,\\ 1 \\)", "\\( 1,\\ 6,\\ 15,\\ 15,\\ 6,\\ 1 \\)", "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)", "\\( 1,\\ 6,\\ 20,\\ 15,\\ 6,\\ 1 \\)"], ans: 0, explain: "Row 6 is \\( 1,\\ 6,\\ 15,\\ 20,\\ 15,\\ 6,\\ 1 \\)." },
+        { q: "What does \\( {}^nC_r \\) equal?", opts: ["\\( \\frac{n!}{r!\\,(n-r)!} \\)", "\\( \\frac{n!}{(n-r)!} \\)", "\\( \\frac{n!}{r!} \\)", "\\( \\frac{r!\\,(n-r)!}{n!} \\)"], ans: 0, explain: "\\( {}^nC_r = \\dfrac{n!}{r!\\,(n-r)!} \\); it is provided on the formula sheet." },
+        { q: "In the general term \\( {}^nC_r\\, a^{n-r} b^r \\), the power of \\( a \\) is:", opts: ["\\( n-r \\)", "\\( r \\)", "\\( n \\)", "\\( n+r \\)"], ans: 0, explain: "The power of \\( a \\) is \\( n-r \\) and the power of \\( b \\) is \\( r \\)." },
+        { q: "What is the term in \\( a^4 b^2 \\) in the expansion of \\( (a+b)^6 \\)?", opts: ["\\( 15\\,a^4 b^2 \\)", "\\( 20\\,a^3 b^3 \\)", "\\( 15\\,a^2 b^4 \\)", "\\( 6\\,a^5 b \\)"], ans: 0, explain: "Here \\( r=2 \\): \\( {}^6C_2\\, a^4 b^2 = 15\\,a^4 b^2 \\)." },
+        { q: "What is the coefficient of \\( x^3 \\) in \\( (2+3x)^5 \\)?", opts: ["\\( 1080 \\)", "\\( 40 \\)", "\\( 270 \\)", "\\( 120 \\)"], ans: 0, explain: "\\( r=3 \\): \\( {}^5C_3\\, 2^2\\, 3^3 = 10\\times 4\\times 27 = 1080 \\)." },
+        { q: "What is the coefficient of \\( x^2 \\) in \\( (1+2x)^6 \\)?", opts: ["\\( 60 \\)", "\\( 15 \\)", "\\( 30 \\)", "\\( 240 \\)"], ans: 0, explain: "\\( r=2 \\): \\( {}^6C_2\\, 2^2 = 15\\times 4 = 60 \\)." },
+        { q: "The \"term independent of \\( x \\)\" is:", opts: ["The constant term (power of \\( x \\) is \\( 0 \\))", "The term in \\( x^1 \\)", "The first term", "The last term"], ans: 0, explain: "Independent of \\( x \\) means \\( x^0 \\) — a constant." },
+        { q: "In the expansion of \\( \\left(x + \\dfrac{1}{x}\\right)^8 \\), which value of \\( r \\) gives the constant term?", opts: ["\\( r = 4 \\)", "\\( r = 2 \\)", "\\( r = 3 \\)", "\\( r = 8 \\)"], ans: 0, explain: "General term \\( {}^8C_r\\, x^{8-r} x^{-r} = {}^8C_r\\, x^{8-2r} \\); \\( 8-2r=0 \\Rightarrow r=4 \\)." },
+        { q: "A student writes the \\( x^2 \\) term of \\( (2+3x)^5 \\) as \\( 90x^2 \\). What did they do wrong?", opts: ["They forgot to raise the \\( 2 \\): it is \\( 10\\times 2^3\\times 3^2 = 720x^2 \\)", "Nothing — it is correct", "They should have used \\( {}^5C_3 \\)", "They forgot the \\( x^2 \\)"], ans: 0, explain: "\\( 90 = 10\\times 9 \\) misses \\( 2^3 = 8 \\); the correct coefficient is \\( 10\\times 8\\times 9 = 720 \\)." },
+        { q: "What is the coefficient of \\( x^3 \\) in \\( (1-2x)^4 \\)?", opts: ["\\( -32 \\)", "\\( 32 \\)", "\\( -8 \\)", "\\( -24 \\)"], ans: 0, explain: "\\( r=3 \\): \\( {}^4C_3\\,(-2)^3 = 4\\times(-8) = -32 \\). The odd power of \\( -2 \\) makes it negative." }
+    ];
+
+    const matchData = [
+        { term: "Number of terms in \\( (a+b)^n \\)", def: "\\( n+1 \\)" },
+        { term: "Coefficients of \\( (a+b)^4 \\)", def: "\\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\)" },
+        { term: "Coefficients of \\( (a+b)^5 \\)", def: "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)" },
+        { term: "General term of \\( (a+b)^n \\)", def: "\\( {}^nC_r\\, a^{n-r} b^r \\)" },
+        { term: "\\( {}^6C_2 \\)", def: "\\( 15 \\)" },
+        { term: "\\( {}^5C_3 \\)", def: "\\( 10 \\)" },
+        { term: "\\( {}^7C_2 \\)", def: "\\( 21 \\)" },
+        { term: "Term independent of \\( x \\)", def: "The constant term (power of \\( x \\) is \\( 0 \\))" },
+        { term: "\\( {}^nC_r \\)", def: "\\( \\frac{n!}{r!\\,(n-r)!} \\), provided on the formula sheet" },
+        { term: "Coefficient of \\( x^3 \\) in \\( (2+3x)^5 \\)", def: "\\( 1080 \\)" },
+        { term: "Coefficient of \\( x^2 \\) in \\( (1+2x)^6 \\)", def: "\\( 60 \\)" },
+        { term: "Constant term of \\( \\left(x+\\frac{1}{x}\\right)^8 \\) occurs at", def: "\\( r = 4 \\)" },
+        { term: "Sum of the powers of \\( a \\) and \\( b \\) in each term", def: "\\( n \\)" },
+        { term: "Pascal's triangle", def: "A number triangle giving the binomial coefficients" }
+    ];
+
+    // NOTE: FIB blanks must sit in PLAIN TEXT, never inside a \( \) region — a blank
+    // becomes a <select>/<input> that splits the LaTeX run so KaTeX shows raw source
+    // (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b). Answer VALUES are plain text/number.
+    const fibData = [
+        { display: "The expansion of \\( (a+b)^n \\) for a positive integer \\( n \\) has ___B1___ terms.", blanks: { B1: "n+1" } },
+        { display: "In the general term \\( {}^nC_r\\, a^{n-r} b^r \\), the power of \\( a \\) is ___B1___ and the power of \\( b \\) is ___B2___.", blanks: { B1: "n-r", B2: "r" } },
+        { display: "The numbers in ___B1___ triangle give the binomial coefficients.", blanks: { B1: "Pascal's" } },
+        { display: "The binomial coefficient \\( {}^nC_r \\) and the binomial series are ___B1___ on the exam formula sheet, so you need not memorise them.", blanks: { B1: "provided" } },
+        { display: "A term that is independent of \\( x \\) has \\( x \\) raised to the power ___B1___.", blanks: { B1: "0" } },
+        { display: "In the expansion of \\( \\left(x + \\frac{1}{x}\\right)^8 \\) the constant term occurs when \\( r \\) equals ___B1___.", blanks: { B1: "4" } },
+        { display: "When expanding \\( (2+3x)^5 \\) the general term \\( {}^5C_r\\, 2^{5-r}(3x)^r \\) means the \\( 3 \\) must be raised to the power ___B1___.", blanks: { B1: "r" } },
+        { display: "In every term of \\( (a+b)^n \\) the powers of \\( a \\) and \\( b \\) add up to ___B1___.", blanks: { B1: "n" } }
+    ];
+
+    const fibWords = ["n+1", "n-r", "r", "Pascal's", "provided", "0", "4", "n", "n-1", "2n", "given", "memorised", "1", "3"];
+
+    const tfData = [
+        { statement: "The expansion of \\( (a+b)^n \\) has \\( n \\) terms.", answer: false, explanation: "It has \\( n+1 \\) terms — one more than the power." },
+        { statement: "In \\( (a+b)^n \\) the powers of \\( a \\) decrease while the powers of \\( b \\) increase, and each term's powers add to \\( n \\).", answer: true, explanation: "The powers of \\( a \\) run \\( n, n-1, \\dots, 0 \\) and of \\( b \\) run \\( 0, 1, \\dots, n \\); they always sum to \\( n \\)." },
+        { statement: "The row of Pascal's triangle for \\( (a+b)^3 \\) is \\( 1,\\ 3,\\ 3,\\ 1 \\).", answer: true, explanation: "Row 3 is \\( 1,\\ 3,\\ 3,\\ 1 \\)." },
+        { statement: "\\( {}^nC_r \\) is printed on the 6993 formula sheet, so you do not have to memorise it.", answer: true, explanation: "The binomial series and \\( {}^nC_r \\) are provided; only formulae like the quadratic formula and log laws must be memorised." },
+        { statement: "The general term of \\( (a+b)^n \\) is \\( {}^nC_r\\, a^r b^{n-r} \\).", answer: false, explanation: "The powers are the other way round: \\( {}^nC_r\\, a^{n-r} b^r \\)." },
+        { statement: "To expand \\( (2+3x)^4 \\), the coefficient of the \\( x^2 \\) term must include \\( 3^2 \\).", answer: true, explanation: "The whole \\( 3x \\) is raised to the power, so \\( (3x)^2 = 9x^2 \\) — the 3 is squared." },
+        { statement: "\"The term independent of \\( x \\)\" is always the first term of the expansion.", answer: false, explanation: "It is the constant term — the one where the power of \\( x \\) is \\( 0 \\), which need not be first." },
+        { statement: "In \\( (1-2x)^5 \\) the terms alternate in sign.", answer: true, explanation: "Each term has \\( (-2x)^r \\), and \\( (-1)^r \\) alternates \\( +,-,+,-,\\dots \\)" }
+    ];
+
+    const miscData = [
+        { wrong: "Coefficient of \\( x^2 \\) in \\( (2+3x)^5 \\) is \\( {}^5C_2\\times 2^3 = 80 \\)", correct: "The \\( 3 \\) must also be raised to the power: \\( (3x)^2 = 9x^2 \\). A weak answer uses only \\( 2^3 \\); a strong answer writes \\( {}^5C_2\\times 2^3\\times 3^2 = 10\\times 8\\times 9 = 720 \\).", readCheck: { q: "Coefficient of \\( x^2 \\) in \\( (2+3x)^5 \\)?", opts: ["\\( 720 \\)", "\\( 80 \\)", "\\( 90 \\)", "\\( 10 \\)"], ans: 0, explain: "\\( {}^5C_2\\times 2^3\\times 3^2 = 720 \\)." } },
+        { wrong: "The third term of \\( (a+b)^6 \\) is \\( a^4 b^2 \\)", correct: "You must include the binomial coefficient. A weak answer drops the \\( {}^nC_r \\); a strong answer writes \\( {}^6C_2\\, a^4 b^2 = 15\\,a^4 b^2 \\).", readCheck: { q: "The third term of \\( (a+b)^6 \\) is:", opts: ["\\( 15\\,a^4 b^2 \\)", "\\( a^4 b^2 \\)", "\\( 6\\,a^4 b^2 \\)", "\\( 20\\,a^4 b^2 \\)"], ans: 0, explain: "\\( r=2 \\): \\( {}^6C_2 = 15 \\), so \\( 15\\,a^4 b^2 \\)." } },
+        { wrong: "The 4th term of \\( (a+b)^6 \\) uses \\( r = 4 \\), giving \\( 15\\,a^2 b^4 \\)", correct: "The term with \\( b^r \\) is the \\( (r+1)\\text{th} \\) term, so the 4th term has \\( r=3 \\). A strong answer gives \\( {}^6C_3\\, a^3 b^3 = 20\\,a^3 b^3 \\).", readCheck: { q: "Which \\( r \\) gives the 4th term of \\( (a+b)^6 \\)?", opts: ["\\( r = 3 \\)", "\\( r = 4 \\)", "\\( r = 5 \\)", "\\( r = 2 \\)"], ans: 0, explain: "The \\( (r+1)\\text{th} \\) term uses \\( r \\), so the 4th term is \\( r=3 \\)." } },
+        { wrong: "For \\( \\left(x+\\frac{2}{x}\\right)^6 \\), the term independent of \\( x \\) is the first term", correct: "Independent of \\( x \\) means the power of \\( x \\) is \\( 0 \\). A weak answer guesses a position; a strong answer sets the power to \\( 0 \\), solves for \\( r \\), and evaluates that one term.", readCheck: { q: "How do you find the term independent of \\( x \\)?", opts: ["Set the power of \\( x \\) to \\( 0 \\) and solve for \\( r \\)", "Take the first term", "Take the middle term always", "Take the last term"], ans: 0, explain: "Set the collected power of \\( x \\) equal to \\( 0 \\), find \\( r \\), then evaluate." } },
+        { wrong: "Coefficient of \\( x^3 \\) in \\( (1-2x)^4 \\) is \\( +32 \\)", correct: "The sign matters: \\( (-2)^3 = -8 \\). A weak answer ignores the minus; a strong answer writes \\( {}^4C_3(-2)^3 = 4\\times(-8) = -32 \\).", readCheck: { q: "Coefficient of \\( x^3 \\) in \\( (1-2x)^4 \\)?", opts: ["\\( -32 \\)", "\\( 32 \\)", "\\( -8 \\)", "\\( 8 \\)"], ans: 0, explain: "\\( {}^4C_3(-2)^3 = -32 \\); an odd power of a negative is negative." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Use the formula you are given", pills: ["provided", "formula sheet"], content: `<p>The binomial series and \\( {}^nC_r \\) are printed on the formula sheet, yet the 2023 examiners noted that weaker candidates did not use them — some drew Pascal's triangle but got stuck, and others tried to multiply out six brackets.</p><p><strong>Full marks path for a "term" question:</strong> write the general term \\( {}^nC_r\\, a^{n-r} b^r \\) (M1), get the correct powers/numbers for the term asked for (DM1), then state the single value clearly (A1).</p>`, readCheck: { q: "Why quote the general term from the formula sheet?", opts: ["It gives a reliable method that earns the method marks", "It is banned in the exam", "It only works for \\( n<4 \\)", "It avoids using a calculator"], ans: 0, explain: "Applying the provided formula is the method the mark scheme rewards." } },
+        { type: "explain", title: "State the term clearly — do not bury it", pills: ["identify", "A1"], content: `<p>The 2023 mark scheme awarded the final A1 only if the requested term was <strong>clearly identified and not just embedded in the expansion</strong>. A candidate who correctly wrote out every term but never picked out the \\( 160 \\) could not score full marks.</p><p><strong>Habit:</strong> finish with a sentence like "The term independent of \\( x \\) is \\( 160 \\)."</p>`, readCheck: { q: "You have written the full correct expansion. What must you still do?", opts: ["Clearly state the specific term the question asked for", "Nothing — it is automatic", "Round to 3 s.f.", "Draw Pascal's triangle"], ans: 0, explain: "The A1 needs the requested term identified explicitly." } },
+        { type: "tip", title: "Raise the WHOLE bracket part to the power", pills: ["(3x)^r", "coefficient"], content: `<p>In \\( (2+3x)^5 \\) the term is \\( {}^5C_r\\, 2^{5-r}(3x)^r \\) — the \\( (3x)^r \\) means \\( 3^r x^r \\), so the number is raised too. Forgetting \\( 3^r \\) (or the sign of a negative term) is the single most common slip on these questions.</p>`, readCheck: { q: "In \\( (2+3x)^5 \\), what is \\( (3x)^2 \\)?", opts: ["\\( 9x^2 \\)", "\\( 3x^2 \\)", "\\( 6x^2 \\)", "\\( 9x \\)"], ans: 0, explain: "\\( (3x)^2 = 3^2 x^2 = 9x^2 \\); the coefficient is squared as well." } }
+    ];
+
+    const flashcards = [
+        { term: "Binomial expansion", def: "Multiplying out \\( (a+b)^n \\) for a positive integer \\( n \\)." },
+        { term: "Number of terms in \\( (a+b)^n \\)", def: "\\( n+1 \\)." },
+        { term: "Sum of powers in each term", def: "The powers of \\( a \\) and \\( b \\) always add to \\( n \\)." },
+        { term: "Binomial coefficient \\( {}^nC_r \\)", def: "\\( \\frac{n!}{r!\\,(n-r)!} \\); provided on the formula sheet." },
+        { term: "General term of \\( (a+b)^n \\)", def: "\\( {}^nC_r\\, a^{n-r} b^r \\), for \\( r = 0,1,\\dots,n \\)." },
+        { term: "Pascal's triangle", def: "A number triangle where each entry is the sum of the two above; row \\( n \\) gives the coefficients of \\( (a+b)^n \\)." },
+        { term: "Term independent of \\( x \\)", def: "The constant term — the power of \\( x \\) is \\( 0 \\)." },
+        { term: "Finding a coefficient", def: "Set the power of \\( x \\) in the general term equal to the one wanted, solve for \\( r \\), evaluate." },
+        { term: "\\( (r+1)\\text{th} \\) term", def: "The term containing \\( b^r \\); mind the off-by-one." },
+        { term: "\\( {}^6C_2 \\)", def: "\\( 15 \\)." },
+        { term: "\\( {}^5C_3 \\)", def: "\\( 10 \\)." },
+        { term: "Coefficients of \\( (a+b)^4 \\)", def: "\\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\)." },
+        { term: "Coefficients of \\( (a+b)^5 \\)", def: "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)." },
+        { term: "Provided vs memorise (binomial)", def: "Binomial series and \\( {}^nC_r \\) are PROVIDED; quadratic formula, log laws and sine/cosine rules are not." },
+        { term: "Expanding \\( (a+bx)^n \\) pitfall", def: "Raise the coefficient too: \\( (3x)^2 = 9x^2 \\), not \\( 3x^2 \\)." },
+        { term: "Sign of a term", def: "A negative inner term, e.g. \\( (-2x)^r \\), gives alternating signs \\( (-1)^r \\)." }
+    ];
+
+    // Exam question routed to 6.2 (EN1): OCR June 2023 Q1 [3] — term independent of x.
+    // Verbatim question + mark scheme + examiner report transcribed from the 2023 papers.
+    // Recomputed by hand: general term {}^6C_r 2^r x^{6-2r}; independent when r=3; 20×8 = 160.
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 3,
+            type: "written",
+            question: `<p>Find the term independent of \\( x \\) in the expansion of \\( \\left( x + \\dfrac{2}{x} \\right)^{6} \\).</p>`,
+            hint: "Write the general term \\( {}^6C_r\\, x^{6-r}\\left(\\frac{2}{x}\\right)^r \\), simplify the power of \\( x \\), then set it to \\( 0 \\).",
+            starter: "The term independent of \\( x \\) is the constant term — give a single number.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>M1*</strong> — sight of the expansion with at least two terms with correct (possibly unsimplified) powers of \\( x \\) and a binomial coefficient \\( \\ne 1 \\) in one term (soi); or sight of the correct term. Accept \\( {}^nC_r \\) for coefficients. E.g. \\( x^6 + 6\\times 2x^4 + 15\\times 4x^2 + 20\\times 8 + \\dots \\)</li>
+              <li><strong>DM1</strong> — correct powers of \\( 2 \\) in the independent term (soi): \\( \\Rightarrow 20\\times 2^3 \\).</li>
+              <li><strong>A1</strong> — \\( 160 \\), which must be clearly identified and not just embedded in the expansion.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The DM1 is <strong>dependent</strong> on the M1: the "correct powers of 2" mark can only be earned once a valid expansion or the correct term has been seen.</li>
+              <li>A correct answer of \\( 160 \\) scores full marks.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Successful responses were split between those finding the full expansion first, and those who recognised that they only needed to find the middle term.</li>
+              <li>Common mistakes were putting a plus between the two parts of a term and not including powers of 2 in the second term. A number of candidates only gave the first and last term of the expansion.</li>
+              <li>It was also clear that a number of candidates did not understand the word 'independent'. Candidates who obtained a fully correct expansion, including the 160 term, could only score full marks if they clearly identified the term requested in the question.</li>
+            </ul></div>`,
+            modelAnswer: "The general term is \\( {}^6C_r\\, x^{6-r}\\left(\\dfrac{2}{x}\\right)^r = {}^6C_r\\, 2^r\\, x^{6-2r} \\). This is independent of \\( x \\) when \\( 6-2r = 0 \\), i.e. \\( r = 3 \\). So the term is \\( {}^6C_3\\times 2^3 = 20\\times 8 = 160 \\).",
+            markPoints: { note: "Award each mark for the step shown; the DM1 needs the M1 first.", groups: [
+                { label: "M1* — the expansion / general term", max: 1, points: ["Wrote the expansion with at least two terms having correct powers of \\( x \\) and a binomial coefficient \\( \\ne 1 \\), or wrote the correct term directly (accept \\( {}^nC_r \\) form)"] },
+                { label: "DM1 — powers of 2 (dependent on M1)", max: 1, points: ["Reached \\( {}^6C_3\\times 2^3 = 20\\times 2^3 \\), the correct powers of 2 in the independent term"] },
+                { label: "A1 — the answer", max: 1, points: ["Stated the term independent of \\( x \\) is \\( 160 \\), clearly identified (not just left inside the full expansion)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

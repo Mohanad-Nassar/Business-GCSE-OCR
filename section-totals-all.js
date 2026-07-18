@@ -2,7 +2,7 @@
 // ALL SECTION TOTALS — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py: every subject's section
 // totals merged into one map keyed by subject-prefixed page id.
-// Generated: 2026-07-18T04:46:50Z
+// Generated: 2026-07-18T05:02:48Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS_ALL = {
  "additional-maths:1-1-notation-functions-and-indices": {
@@ -213,6 +213,50 @@ window.SECTION_TOTALS_ALL = {
   "fib": 7,
   "match": 12,
   "flashcards": 14
+ },
+ "additional-maths:6-1-counting-permutations-and-combinations": {
+  "exam": 2,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 7,
+  "misc": 6,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 15
+ },
+ "additional-maths:6-2-the-binomial-expansion": {
+  "exam": 1,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 16
+ },
+ "additional-maths:6-3-the-binomial-distribution": {
+  "exam": 3,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 13,
+  "flashcards": 15
+ },
+ "additional-maths:6-4-tree-two-way-and-venn-diagrams": {
+  "exam": 4,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 16
  },
  "business:1-1-role-of-business-enterprise": {
   "exam": 19,

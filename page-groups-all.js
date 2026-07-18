@@ -2,7 +2,7 @@
 // ALL PAGE GROUPS — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py: every subject's topic tree
 // keyed by subject slug, for cross-subject pages (hub, profile).
-// Generated: 2026-07-18T04:46:50Z
+// Generated: 2026-07-18T05:02:48Z
 // ══════════════════════════════════════════════════════════════
 window.PAGE_GROUPS_ALL = {
  "additional-maths": [

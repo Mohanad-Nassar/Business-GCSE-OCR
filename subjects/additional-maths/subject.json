@@ -173,29 +173,25 @@
           "id": "6-1-counting-permutations-and-combinations",
           "name": "6.1 Counting, Permutations and Combinations",
           "sub": "Enumeration and Probability",
-          "file": "6.1-counting-permutations-and-combinations.html",
-          "noQuestions": true
+          "file": "6.1-counting-permutations-and-combinations.html"
         },
         {
           "id": "6-2-the-binomial-expansion",
           "name": "6.2 The Binomial Expansion",
           "sub": "Enumeration and Probability",
-          "file": "6.2-the-binomial-expansion.html",
-          "noQuestions": true
+          "file": "6.2-the-binomial-expansion.html"
         },
         {
           "id": "6-3-the-binomial-distribution",
           "name": "6.3 The Binomial Distribution",
           "sub": "Enumeration and Probability",
-          "file": "6.3-the-binomial-distribution.html",
-          "noQuestions": true
+          "file": "6.3-the-binomial-distribution.html"
         },
         {
           "id": "6-4-tree-two-way-and-venn-diagrams",
           "name": "6.4 Tree, Two-Way and Venn Diagrams",
           "sub": "Enumeration and Probability",
-          "file": "6.4-tree-two-way-and-venn-diagrams.html",
-          "noQuestions": true
+          "file": "6.4-tree-two-way-and-venn-diagrams.html"
         }
       ]
     },

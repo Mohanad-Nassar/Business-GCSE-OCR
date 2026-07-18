@@ -742,10 +742,10 @@ delegation produces confidently wrong maths.
 | 5.3 | Trigonometric identities | ✅ 2026-07-17 | 🔶 coord (no builder report; maths re-derived) | ✅ 2024 Q17, 8 marks | 🔄 bank built, NOT uploaded |
 | 5.4 | Trigonometric equations | ✅ 2026-07-17 | ✅ coord | ✅ 2022 Q5 + 2019 Q6, 13 marks | 🔄 bank built, NOT uploaded |
 | 5.5 | Pythagoras & trig in 2D and 3D | ✅ 2026-07-17 | 🔶 coord (no builder report; maths+figures re-checked vs MS) | ✅ 2024 Q7 + 2019 Q13, 18 marks | 🔄 bank built, NOT uploaded |
-| 6.1 | Counting, permutations & combinations | ⬜ | ⬜ | ⬜ | ⬜ |
-| 6.2 | The binomial expansion | ⬜ | ⬜ | ⬜ | ⬜ |
-| 6.3 | The binomial distribution | ⬜ | ⬜ | ⬜ | ⬜ |
-| 6.4 | Tree, two-way & Venn diagrams | ⬜ | ⬜ | ⬜ | ⬜ |
+| 6.1 | Counting, permutations & combinations | ✅ 2026-07-17 | ✅ coord | ✅ 2019 Q1 + 2022 Q3, 5 marks | 🔄 built, NOT uploaded |
+| 6.2 | The binomial expansion | ✅ 2026-07-17 | ✅ coord | ✅ 2023 Q1, 3 marks | 🔄 built, NOT uploaded |
+| 6.3 | The binomial distribution | ✅ 2026-07-17 | ✅ coord | ✅ 2023 Q2 + 2019 Q8, 9 marks | 🔄 built, NOT uploaded |
+| 6.4 | Tree, two-way & Venn diagrams | ✅ 2026-07-17 | ✅ coord | ✅ 2024 Q4 + 2022 Q6, 10 marks | 🔄 built, NOT uploaded |
 | 7.1 | Exponential functions | ⬜ | ⬜ | ⬜ | ⬜ |
 | 7.2 | Logarithms & the log laws | ⬜ | ⬜ | ⬜ | ⬜ |
 | 7.3 | Solving exponential equations | ⬜ | ⬜ | ⬜ | ⬜ |

@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-18T04:46:50Z · 1084 questions
+// Generated: 2026-07-18T05:02:48Z · 1316 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -684,16 +684,16 @@ window.QUESTION_BANK = [
   "question": "To simplify \\( a^m \\times a^n \\) you ___B1___ the indices, and to simplify \\( a^m \\div a^n \\) you ___B2___ them.",
   "blankOptions": {
    "B1": [
-    "index",
-    "reciprocal",
+    "solve",
+    "add",
     "power",
-    "add"
+    "reciprocal"
    ],
    "B2": [
+    "multiply",
+    "power",
     "subtract",
-    "term",
-    "identity",
-    "index"
+    "reciprocal"
    ]
   },
   "key": {
@@ -713,10 +713,10 @@ window.QUESTION_BANK = [
   "question": "The rule \\( (a^m)^n \\) tells you to ___B1___ the two indices together.",
   "blankOptions": {
    "B1": [
-    "term",
-    "divide",
+    "solve",
+    "0",
     "multiply",
-    "coefficient"
+    "unknown"
    ]
   },
   "key": {
@@ -735,10 +735,10 @@ window.QUESTION_BANK = [
   "question": "For any non-zero base, \\( a^0 \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "divide",
-    "multiply",
-    "coefficient",
-    "1"
+    "1",
+    "reciprocal",
+    "index",
+    "constant"
    ]
   },
   "key": {
@@ -757,10 +757,10 @@ window.QUESTION_BANK = [
   "question": "A negative index means take the ___B1___, so \\( a^{-n} \\) becomes a fraction.",
   "blankOptions": {
    "B1": [
-    "identity",
-    "divide",
+    "subtract",
     "reciprocal",
-    "subtract"
+    "add",
+    "unknown"
    ]
   },
   "key": {
@@ -779,16 +779,16 @@ window.QUESTION_BANK = [
   "question": "In the term \\( 4x^3 \\), the number \\( 4 \\) is the ___B1___ and the number \\( 3 \\) is the ___B2___.",
   "blankOptions": {
    "B1": [
+    "reciprocal",
+    "constant",
     "coefficient",
-    "divide",
-    "solve",
-    "constant"
+    "1"
    ],
    "B2": [
     "index",
-    "power",
+    "all",
     "constant",
-    "0"
+    "term"
    ]
   },
   "key": {
@@ -808,16 +808,16 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) means the statement is an ___B1___, which is true for ___B2___ values of the variable.",
   "blankOptions": {
    "B1": [
-    "0",
-    "add",
-    "term",
-    "identity"
+    "reciprocal",
+    "identity",
+    "solve",
+    "term"
    ],
    "B2": [
-    "nth",
-    "term",
-    "reciprocal",
-    "all"
+    "constant",
+    "add",
+    "all",
+    "variable"
    ]
   },
   "key": {
@@ -837,10 +837,10 @@ window.QUESTION_BANK = [
   "question": "In \\( a^{1/n} \\) the fraction \\( \\frac{1}{n} \\) tells you to take the ___B1___ root of \\( a \\).",
   "blankOptions": {
    "B1": [
-    "subtract",
-    "0",
-    "1",
-    "nth"
+    "power",
+    "nth",
+    "coefficient",
+    "multiply"
    ]
   },
   "key": {
@@ -859,16 +859,16 @@ window.QUESTION_BANK = [
   "question": "In an equation you solve to find the value of the ___B1___, whereas in an expression there is no equals sign to ___B2___.",
   "blankOptions": {
    "B1": [
+    "multiply",
+    "1",
     "unknown",
-    "divide",
-    "variable",
-    "subtract"
+    "all"
    ],
    "B2": [
-    "power",
-    "variable",
+    "coefficient",
+    "multiply",
     "solve",
-    "divide"
+    "constant"
    ]
   },
   "key": {
@@ -1835,9 +1835,9 @@ window.QUESTION_BANK = [
   "question": "To simplify a surd, take out the largest perfect ___B1___ factor.",
   "blankOptions": {
    "B1": [
-    "exact",
-    "cube",
+    "expand",
     "square",
+    "1",
     "like"
    ]
   },
@@ -1857,10 +1857,10 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sqrt{12} = 2\\sqrt{3} \\) we used the fact that \\( 12 = 4 \\times 3 \\) and \\( \\sqrt{4} = \\) ___B1___.",
   "blankOptions": {
    "B1": [
-    "2",
-    "1",
-    "conjugate",
-    "exact"
+    "exact",
+    "reciprocal",
+    "(x-1)(x+1)",
+    "2"
    ]
   },
   "key": {
@@ -1879,10 +1879,10 @@ window.QUESTION_BANK = [
   "question": "You can only add or subtract surds when they are ___B1___ surds (the same number under the root).",
   "blankOptions": {
    "B1": [
-    "like",
     "(x-1)(x+1)",
-    "exact",
-    "factorise"
+    "1",
+    "square",
+    "like"
    ]
   },
   "key": {
@@ -1901,10 +1901,10 @@ window.QUESTION_BANK = [
   "question": "To rationalise \\( \\frac{1}{2+\\sqrt{3}} \\) you multiply by its ___B1___, which is \\( 2-\\sqrt{3} \\).",
   "blankOptions": {
    "B1": [
-    "like",
-    "conjugate",
-    "square",
-    "(x-1)(x+1)"
+    "exact",
+    "reciprocal",
+    "calculator",
+    "conjugate"
    ]
   },
   "key": {
@@ -1923,10 +1923,10 @@ window.QUESTION_BANK = [
   "question": "Multiplying \\( (2+\\sqrt{3})(2-\\sqrt{3}) \\) gives the whole number ___B1___.",
   "blankOptions": {
    "B1": [
-    "square",
-    "2",
     "1",
-    "unlike"
+    "like",
+    "reciprocal",
+    "expand"
    ]
   },
   "key": {
@@ -1945,10 +1945,10 @@ window.QUESTION_BANK = [
   "question": "To simplify an algebraic fraction you first ___B1___ the top and bottom, then cancel common factors.",
   "blankOptions": {
    "B1": [
-    "1",
+    "expand",
     "factorise",
     "2",
-    "like"
+    "exact"
    ]
   },
   "key": {
@@ -1967,10 +1967,10 @@ window.QUESTION_BANK = [
   "question": "To add \\( \\frac{1}{x-1} \\) and \\( \\frac{2}{x+1} \\) you write them over the common denominator ___B1___.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
+    "calculator",
     "(x-1)(x+1)",
-    "unlike",
-    "3"
+    "expand",
+    "unlike"
    ]
   },
   "key": {
@@ -1989,10 +1989,10 @@ window.QUESTION_BANK = [
   "question": "The instruction 'show detailed reasoning' means a ___B1___ answer with no working scores zero.",
   "blankOptions": {
    "B1": [
-    "2",
-    "square",
-    "calculator",
-    "(x-1)(x+1)"
+    "factorise",
+    "(x-1)(x+1)",
+    "unlike",
+    "calculator"
    ]
   },
   "key": {
@@ -2878,16 +2878,16 @@ window.QUESTION_BANK = [
   "question": "In the quadratic formula \\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\), the term before the \\( \\pm \\) sign is ___B1___ and the denominator is ___B2___.",
   "blankOptions": {
    "B1": [
+    "exact",
     "-b",
     "add",
-    "both",
-    "double"
+    "3"
    ],
    "B2": [
-    "half",
-    "both",
     "2a",
-    "20"
+    "-p",
+    "add",
+    "square"
    ]
   },
   "key": {
@@ -2907,15 +2907,15 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + bx \\), take ___B1___ the coefficient of \\( x \\) and then ___B2___ it.",
   "blankOptions": {
    "B1": [
-    "q",
-    "-p",
+    "negative",
     "half",
-    "both"
+    "4ac",
+    "add"
    ],
    "B2": [
-    "q",
-    "negative",
-    "20",
+    "2a",
+    "discriminant",
+    "exact",
     "square"
    ]
   },
@@ -2936,16 +2936,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + 6x - 11 \\), the number inside the bracket \\( (x + a)^2 \\) is ___B1___ and the number subtracted at the end is ___B2___.",
   "blankOptions": {
    "B1": [
-    "discriminant",
+    "square",
     "3",
-    "-b",
-    "exact"
+    "negative",
+    "-b"
    ],
    "B2": [
-    "negative",
+    "-b",
     "double",
     "20",
-    "add"
+    "exact"
    ]
   },
   "key": {
@@ -2965,10 +2965,10 @@ window.QUESTION_BANK = [
   "question": "The expression \\( b^2 - 4ac \\) is called the ___B1___.",
   "blankOptions": {
    "B1": [
-    "3",
     "discriminant",
-    "2a",
-    "double"
+    "exact",
+    "-b",
+    "4ac"
    ]
   },
   "key": {
@@ -2987,10 +2987,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, a quadratic has no real roots.",
   "blankOptions": {
    "B1": [
-    "square",
-    "-b",
-    "double",
-    "negative"
+    "both",
+    "discriminant",
+    "negative",
+    "q"
    ]
   },
   "key": {
@@ -3009,16 +3009,16 @@ window.QUESTION_BANK = [
   "question": "For \\( a(x+p)^2 + q \\) with \\( a > 0 \\), the minimum value is ___B1___ and it occurs when \\( x \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "20",
-    "square",
-    "q",
-    "discriminant"
+    "both",
+    "3",
+    "2a",
+    "q"
    ],
    "B2": [
-    "-p",
-    "discriminant",
+    "exact",
     "2a",
-    "both"
+    "-b",
+    "-p"
    ]
   },
   "key": {
@@ -3038,10 +3038,10 @@ window.QUESTION_BANK = [
   "question": "When you take the square root of both sides you must write \\( \\pm \\) to get ___B1___ roots.",
   "blankOptions": {
    "B1": [
-    "discriminant",
-    "negative",
+    "half",
     "both",
-    "3"
+    "4ac",
+    "discriminant"
    ]
   },
   "key": {
@@ -3060,10 +3060,10 @@ window.QUESTION_BANK = [
   "question": "A command word telling you to leave surds rather than round is ___B1___.",
   "blankOptions": {
    "B1": [
-    "add",
-    "2a",
+    "20",
+    "-p",
     "exact",
-    "square"
+    "-b"
    ]
   },
   "key": {
@@ -4021,10 +4021,10 @@ window.QUESTION_BANK = [
   "question": "When you multiply or divide an inequality by a negative number you must ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "add",
-    "reverse",
     "flip",
-    "zero"
+    "reverse",
+    "open",
+    "-2"
    ]
   },
   "key": {
@@ -4043,10 +4043,10 @@ window.QUESTION_BANK = [
   "question": "Adding or subtracting the same quantity from both sides ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
+    "open",
     "keeps",
-    "add",
-    "and",
-    "open"
+    "between",
+    "closed"
    ]
   },
   "key": {
@@ -4065,10 +4065,10 @@ window.QUESTION_BANK = [
   "question": "To solve a quadratic inequality, first rearrange it so that one side equals ___B1___, then factorise.",
   "blankOptions": {
    "B1": [
-    "3",
-    "zero",
     "closed",
-    "open"
+    "zero",
+    "and",
+    "reverse"
    ]
   },
   "key": {
@@ -4087,10 +4087,10 @@ window.QUESTION_BANK = [
   "question": "The quadratic \\( x^2 - x - 6 \\) factorises to \\( (x-3)(x+2) \\), so its critical values are \\( 3 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "-2",
     "add",
-    "or",
-    "between"
+    "-2",
+    "flip",
+    "or"
    ]
   },
   "key": {
@@ -4109,10 +4109,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c < 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
-    "3",
     "between",
-    "keeps",
-    "closed"
+    "add",
+    "open",
+    "zero"
    ]
   },
   "key": {
@@ -4131,10 +4131,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c > 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
-    "outside",
-    "open",
+    "keeps",
+    "add",
     "between",
-    "or"
+    "outside"
    ]
   },
   "key": {
@@ -4153,10 +4153,10 @@ window.QUESTION_BANK = [
   "question": "A strict inequality such as \\( < \\) or \\( > \\) is shown on a number line with an ___B1___ circle.",
   "blankOptions": {
    "B1": [
-    "3",
-    "add",
+    "or",
     "open",
-    "inside"
+    "zero",
+    "outside"
    ]
   },
   "key": {
@@ -4175,9 +4175,9 @@ window.QUESTION_BANK = [
   "question": "The solution to \\( x^2 > 9 \\) is \\( x < -3 \\) ___B1___ \\( x > 3 \\).",
   "blankOptions": {
    "B1": [
-    "3",
+    "outside",
     "or",
-    "flip",
+    "between",
     "zero"
    ]
   },
@@ -5048,10 +5048,10 @@ window.QUESTION_BANK = [
   "question": "A polynomial written with its powers going from highest to lowest is in ___B1___ order.",
   "blankOptions": {
    "B1": [
-    "placeholder",
-    "term",
-    "dividend",
-    "descending"
+    "factor",
+    "descending",
+    "zero",
+    "dividend"
    ]
   },
   "key": {
@@ -5070,16 +5070,16 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ of a polynomial is the highest power of the variable, and the number multiplying a power of \\( x \\) is its ___B2___.",
   "blankOptions": {
    "B1": [
-    "zero",
-    "14",
+    "factor",
+    "term",
     "degree",
-    "dividend"
+    "zero"
    ],
    "B2": [
-    "coefficient",
-    "placeholder",
     "zero",
-    "quotient"
+    "sign",
+    "remainder",
+    "coefficient"
    ]
   },
   "key": {
@@ -5099,10 +5099,10 @@ window.QUESTION_BANK = [
   "question": "To subtract one polynomial from another you must change the ___B1___ of every term in the second bracket.",
   "blankOptions": {
    "B1": [
-    "sign",
+    "degree",
     "ascending",
     "descending",
-    "remainder"
+    "sign"
    ]
   },
   "key": {
@@ -5121,16 +5121,16 @@ window.QUESTION_BANK = [
   "question": "In long division the expression built up on top is the ___B1___ and the value left over at the end is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "dividend",
     "coefficient",
+    "ascending",
     "quotient",
-    "zero"
+    "term"
    ],
    "B2": [
-    "ascending",
-    "remainder",
-    "coefficient",
-    "14"
+    "degree",
+    "placeholder",
+    "descending",
+    "remainder"
    ]
   },
   "key": {
@@ -5150,10 +5150,10 @@ window.QUESTION_BANK = [
   "question": "When \\( x^3 + 2x^2 - 5x + 8 \\) is divided by \\( x + 3 \\), the quotient is \\( x^2 - x - 2 \\) and the remainder is ___B1___.",
   "blankOptions": {
    "B1": [
+    "sign",
     "14",
-    "dividend",
-    "ascending",
-    "degree"
+    "placeholder",
+    "factor"
    ]
   },
   "key": {
@@ -5172,9 +5172,9 @@ window.QUESTION_BANK = [
   "question": "When a polynomial is divided by \\( x - a \\) and the remainder is ___B1___, then \\( x - a \\) is a factor.",
   "blankOptions": {
    "B1": [
-    "remainder",
-    "placeholder",
-    "degree",
+    "14",
+    "quotient",
+    "sign",
     "zero"
    ]
   },
@@ -5194,10 +5194,10 @@ window.QUESTION_BANK = [
   "question": "When dividing, insert a ___B1___ (a term with coefficient 0) for any missing power so the columns stay lined up.",
   "blankOptions": {
    "B1": [
-    "factor",
-    "placeholder",
     "dividend",
-    "14"
+    "sign",
+    "ascending",
+    "placeholder"
    ]
   },
   "key": {
@@ -6101,8 +6101,8 @@ window.QUESTION_BANK = [
   "question": "The factor theorem states that if \\( \\text{f}(a) \\) equals ___B1___, then \\( (x - a) \\) is a factor of \\( \\text{f}(x) \\).",
   "blankOptions": {
    "B1": [
-    "3/2",
-    "1/2",
+    "2",
+    "1",
     "0",
     "factors"
    ]
@@ -6123,10 +6123,10 @@ window.QUESTION_BANK = [
   "question": "If \\( (x - 4) \\) is a factor of \\( \\text{f}(x) \\), then \\( \\text{f}(4) \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
+    "is",
+    "0",
     "factors",
-    "not",
-    "multiples",
-    "0"
+    "factor"
    ]
   },
   "key": {
@@ -6145,10 +6145,10 @@ window.QUESTION_BANK = [
   "question": "To find a whole-number factor of a cubic, test the ___B1___ of the constant term.",
   "blankOptions": {
    "B1": [
-    "factor",
-    "is",
+    "root",
     "factors",
-    "root"
+    "3/2",
+    "a"
    ]
   },
   "key": {
@@ -6167,10 +6167,10 @@ window.QUESTION_BANK = [
   "question": "To test whether \\( (2x - 1) \\) is a factor of \\( \\text{f}(x) \\), work out f of ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
-    "factor",
-    "a",
-    "1/2"
+    "1/2",
+    "2",
+    "is",
+    "root"
    ]
   },
   "key": {
@@ -6189,16 +6189,16 @@ window.QUESTION_BANK = [
   "question": "The factor theorem finds ___B1___ factors of a polynomial; the remainder theorem is ___B2___ on this specification.",
   "blankOptions": {
    "B1": [
-    "0",
-    "1/2",
+    "root",
+    "is",
     "linear",
-    "quadratic"
+    "2"
    ],
    "B2": [
-    "root",
+    "2",
     "not",
-    "is",
-    "factor"
+    "root",
+    "multiples"
    ]
   },
   "key": {
@@ -6218,8 +6218,8 @@ window.QUESTION_BANK = [
   "question": "After factorising, you solve \\( \\text{f}(x) = 0 \\) by setting each ___B1___ equal to zero.",
   "blankOptions": {
    "B1": [
-    "quadratic",
-    "3/2",
+    "1/2",
+    "not",
     "factor",
     "multiples"
    ]
@@ -6240,10 +6240,10 @@ window.QUESTION_BANK = [
   "question": "For \\( 2x^3 - x^2 - 7x + 6 \\), testing gives \\( \\text{f}(1) = 0 \\), so (x − ___B1___) is a factor.",
   "blankOptions": {
    "B1": [
-    "factors",
-    "3/2",
-    "is",
-    "1"
+    "1",
+    "quadratic",
+    "multiples",
+    "linear"
    ]
   },
   "key": {
@@ -7165,10 +7165,10 @@ window.QUESTION_BANK = [
   "question": "The first step in modelling a worded problem is to define the ___B1___ and state what it represents.",
   "blankOptions": {
    "B1": [
-    "variable",
-    "reject",
+    "1",
+    "2n",
     "unknown",
-    "n+2"
+    "accept"
    ]
   },
   "key": {
@@ -7187,9 +7187,9 @@ window.QUESTION_BANK = [
   "question": "When a quadratic equation for a length gives a negative root, you must ___B1___ it, because a length cannot be negative.",
   "blankOptions": {
    "B1": [
-    "units",
-    "plus",
-    "n+3",
+    "variable",
+    "accept",
+    "substitution",
     "reject"
    ]
   },
@@ -7209,10 +7209,10 @@ window.QUESTION_BANK = [
   "question": "To solve one linear and one quadratic equation together, use the method of ___B1___.",
   "blankOptions": {
    "B1": [
-    "accept",
     "substitution",
-    "elimination",
-    "minus"
+    "units",
+    "n+2",
+    "unknown"
    ]
   },
   "key": {
@@ -7231,10 +7231,10 @@ window.QUESTION_BANK = [
   "question": "In the boat problem the two roots were 1 and \\( -16 \\); the current speed must be positive, so the answer is ___B1___ km/h.",
   "blankOptions": {
    "B1": [
+    "variable",
     "1",
-    "minus",
-    "plus",
-    "variable"
+    "accept",
+    "substitution"
    ]
   },
   "key": {
@@ -7253,10 +7253,10 @@ window.QUESTION_BANK = [
   "question": "A final answer in a real context should always be stated with its ___B1___.",
   "blankOptions": {
    "B1": [
-    "units",
-    "1",
     "unknown",
-    "elimination"
+    "units",
+    "accept",
+    "substitution"
    ]
   },
   "key": {
@@ -7275,10 +7275,10 @@ window.QUESTION_BANK = [
   "question": "The phrase \"5 more than a number \\( x \\)\" translates to \\( x \\) ___B1___ 5.",
   "blankOptions": {
    "B1": [
-    "variable",
+    "2n",
+    "reject",
     "plus",
-    "accept",
-    "n+2"
+    "elimination"
    ]
   },
   "key": {
@@ -7297,10 +7297,10 @@ window.QUESTION_BANK = [
   "question": "Three consecutive integers can be written as \\( n \\), \\( n+1 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "n+2",
-    "2n",
-    "reject",
-    "plus"
+    "minus",
+    "units",
+    "16",
+    "n+2"
    ]
   },
   "key": {
@@ -8151,10 +8151,10 @@ window.QUESTION_BANK = [
   "question": "A rule that gives each term of a sequence from earlier terms is called a ___B1___ relationship.",
   "blankOptions": {
    "B1": [
-    "two",
+    "multiplied",
+    "1.3",
     "recurrence",
-    "7",
-    "multiplied"
+    "starting"
    ]
   },
   "key": {
@@ -8173,10 +8173,10 @@ window.QUESTION_BANK = [
   "question": "As well as the rule, you need a ___B1___ value before you can generate the sequence.",
   "blankOptions": {
    "B1": [
-    "added",
-    "one",
-    "two",
-    "starting"
+    "starting",
+    "7",
+    "multiplied",
+    "two"
    ]
   },
   "key": {
@@ -8195,9 +8195,9 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = x_n + a \\) the fixed number \\( a \\) is ___B1___ to each term, giving an arithmetic sequence.",
   "blankOptions": {
    "B1": [
-    "added",
-    "one",
+    "recurrence",
     "1.3",
+    "added",
     "11"
    ]
   },
@@ -8217,10 +8217,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = a x_n \\) each term is ___B1___ by \\( a \\), giving a geometric sequence.",
   "blankOptions": {
    "B1": [
-    "7",
-    "added",
     "multiplied",
-    "two"
+    "7",
+    "11",
+    "geometric"
    ]
   },
   "key": {
@@ -8239,10 +8239,10 @@ window.QUESTION_BANK = [
   "question": "A second-order rule such as \\( x_{n+2} = x_{n+1} + x_n \\) needs ___B1___ starting values.",
   "blankOptions": {
    "B1": [
-    "1.3",
-    "0.85",
-    "recurrence",
-    "two"
+    "0.15",
+    "two",
+    "added",
+    "subtracted"
    ]
   },
   "key": {
@@ -8261,10 +8261,10 @@ window.QUESTION_BANK = [
   "question": "Compound interest of 3% per year gives \\( x_{n+1} = k x_n \\) where the multiplier \\( k \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "1.03",
-    "0.15",
+    "7",
     "starting",
-    "two"
+    "two",
+    "1.03"
    ]
   },
   "key": {
@@ -8284,9 +8284,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "0.85",
-    "1.03",
-    "one",
-    "subtracted"
+    "geometric",
+    "starting",
+    "two"
    ]
   },
   "key": {
@@ -8305,16 +8305,16 @@ window.QUESTION_BANK = [
   "question": "For \\( x_{n+1} = x_n + 4 \\) with \\( x_1 = 3 \\), the second term is ___B1___ and the third term is ___B2___.",
   "blankOptions": {
    "B1": [
-    "0.85",
+    "starting",
+    "divided",
     "7",
-    "added",
     "geometric"
    ],
    "B2": [
+    "subtracted",
     "11",
-    "1.03",
-    "added",
-    "starting"
+    "two",
+    "one"
    ]
   },
   "key": {
@@ -9204,10 +9204,10 @@ window.QUESTION_BANK = [
   "question": "The distance between two points comes from ___B1___ theorem, taking the square root of the sum of the squared gaps.",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "1",
-    "equal",
-    "Pythagoras"
+    "x",
+    "slope",
+    "Pythagoras",
+    "equal"
    ]
   },
   "key": {
@@ -9226,10 +9226,10 @@ window.QUESTION_BANK = [
   "question": "To find the midpoint you ___B1___ the two \\( x \\)-coordinates and do the same to the \\( y \\)-coordinates.",
   "blankOptions": {
    "B1": [
+    "intercept",
     "average",
-    "negative reciprocal",
-    "parallel",
-    "gradient"
+    "point-gradient",
+    "-1"
    ]
   },
   "key": {
@@ -9248,10 +9248,10 @@ window.QUESTION_BANK = [
   "question": "Parallel lines always have ___B1___ gradients.",
   "blankOptions": {
    "B1": [
+    "Pythagoras",
+    "slope",
     "equal",
-    "gradient",
-    "x",
-    "subtracting"
+    "y"
    ]
   },
   "key": {
@@ -9270,10 +9270,10 @@ window.QUESTION_BANK = [
   "question": "For two perpendicular lines the product of their gradients is ___B1___.",
   "blankOptions": {
    "B1": [
+    "negative reciprocal",
     "-1",
-    "intercept",
-    "parallel",
-    "average"
+    "reciprocal",
+    "parallel"
    ]
   },
   "key": {
@@ -9294,14 +9294,14 @@ window.QUESTION_BANK = [
    "B1": [
     "midpoint",
     "reciprocal",
-    "y",
-    "Pythagoras"
+    "equal",
+    "y"
    ],
    "B2": [
-    "subtracting",
+    "-1",
     "negative reciprocal",
-    "Pythagoras",
-    "equal"
+    "intercept",
+    "x"
    ]
   },
   "key": {
@@ -9321,16 +9321,16 @@ window.QUESTION_BANK = [
   "question": "In the equation \\( y = mx + c \\), the letter \\( m \\) is the ___B1___ and \\( c \\) is the \\( y \\)-___B2___.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
+    "-1",
     "gradient",
-    "average",
-    "-1"
+    "y",
+    "x"
    ],
    "B2": [
+    "reciprocal",
+    "parallel",
     "intercept",
-    "1",
-    "slope",
-    "parallel"
+    "equal"
    ]
   },
   "key": {
@@ -9350,10 +9350,10 @@ window.QUESTION_BANK = [
   "question": "The gradient of a line is the change in \\( y \\) divided by the change in ___B1___.",
   "blankOptions": {
    "B1": [
-    "point-gradient",
+    "reciprocal",
+    "parallel",
     "x",
-    "midpoint",
-    "negative reciprocal"
+    "slope"
    ]
   },
   "key": {
@@ -9372,10 +9372,10 @@ window.QUESTION_BANK = [
   "question": "The form \\( y - y_1 = m(x - x_1) \\) is called the ___B1___ form of a line.",
   "blankOptions": {
    "B1": [
-    "Pythagoras",
-    "reciprocal",
     "point-gradient",
-    "midpoint"
+    "slope",
+    "1",
+    "reciprocal"
    ]
   },
   "key": {
@@ -10409,16 +10409,16 @@ window.QUESTION_BANK = [
   "question": "The general equation of a circle with centre \\( (a,\\ b) \\) and radius \\( r \\) is \\( (x-a)^2 + (y-b)^2 = r^2 \\). For \\( (x-3)^2 + (y+2)^2 = 25 \\), the centre is ___B1___ and the radius is ___B2___.",
   "blankOptions": {
    "B1": [
-    "perpendicular",
+    "double",
+    "linear",
     "(3, -2)",
-    "quadratic",
-    "positive"
+    "factorise"
    ],
    "B2": [
+    "midpoint",
+    "negative reciprocal",
     "5",
-    "substitute",
-    "25",
-    "gradient"
+    "perpendicular"
    ]
   },
   "key": {
@@ -10438,9 +10438,9 @@ window.QUESTION_BANK = [
   "question": "To find the centre and radius from the expanded form \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\), you complete the ___B1___ in \\( x \\) and in \\( y \\) separately.",
   "blankOptions": {
    "B1": [
-    "positive",
-    "perpendicular",
-    "zero",
+    "gradient",
+    "reciprocal",
+    "(-3, 2)",
     "square"
    ]
   },
@@ -10460,15 +10460,15 @@ window.QUESTION_BANK = [
   "question": "At the point of contact, the radius is ___B1___ to the tangent, so the tangent gradient is the ___B2___ of the radius gradient.",
   "blankOptions": {
    "B1": [
-    "linear",
-    "substitute",
-    "positive",
+    "gradient",
+    "negative",
+    "25",
     "perpendicular"
    ],
    "B2": [
-    "quadratic",
-    "negative",
-    "square",
+    "linear",
+    "gradient",
+    "midpoint",
     "negative reciprocal"
    ]
   },
@@ -10489,10 +10489,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ to a circle at a point always passes through the centre of the circle.",
   "blankOptions": {
    "B1": [
-    "negative",
+    "quadratic",
     "normal",
-    "linear",
-    "midpoint"
+    "5",
+    "factorise"
    ]
   },
   "key": {
@@ -10511,16 +10511,16 @@ window.QUESTION_BANK = [
   "question": "To test where a line meets a circle, ___B1___ the line into the circle equation to obtain a ___B2___ equation.",
   "blankOptions": {
    "B1": [
-    "(-3, 2)",
-    "half",
-    "(3, -2)",
+    "zero",
+    "square",
+    "factorise",
     "substitute"
    ],
    "B2": [
-    "linear",
-    "positive",
-    "negative",
-    "quadratic"
+    "quadratic",
+    "half",
+    "square",
+    "5"
    ]
   },
   "key": {
@@ -10540,10 +10540,10 @@ window.QUESTION_BANK = [
   "question": "A line is a tangent to a circle exactly when the discriminant of that quadratic equals ___B1___.",
   "blankOptions": {
    "B1": [
+    "double",
+    "(3, -2)",
     "zero",
-    "5",
-    "substitute",
-    "perpendicular"
+    "5"
    ]
   },
   "key": {
@@ -10562,10 +10562,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, the line misses the circle completely.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
     "negative",
-    "5",
-    "factorise"
+    "normal",
+    "parallel",
+    "substitute"
    ]
   },
   "key": {
@@ -10584,16 +10584,16 @@ window.QUESTION_BANK = [
   "question": "Given the two ends of a diameter, the centre is the ___B1___ of the endpoints and the radius is ___B2___ the diameter.",
   "blankOptions": {
    "B1": [
-    "positive",
+    "negative reciprocal",
+    "factorise",
     "substitute",
-    "midpoint",
-    "factorise"
+    "midpoint"
    ],
    "B2": [
     "half",
-    "quadratic",
-    "double",
-    "linear"
+    "positive",
+    "normal",
+    "5"
    ]
   },
   "key": {
@@ -11522,16 +11522,16 @@ window.QUESTION_BANK = [
   "question": "A graph drawn with only its main features, not to scale, is called a ___B1___; an accurate one worked out on a grid is a ___B2___.",
   "blankOptions": {
    "B1": [
-    "parabola",
-    "1",
-    "roots",
-    "sketch"
+    "downwards",
+    "sketch",
+    "draw",
+    "360"
    ],
    "B2": [
-    "plot",
-    "roots",
-    "parabola",
-    "360"
+    "draw",
+    "downwards",
+    "touch",
+    "plot"
    ]
   },
   "key": {
@@ -11551,16 +11551,16 @@ window.QUESTION_BANK = [
   "question": "For the exponential graph \\( y = k a^x \\) with \\( a > 0 \\), the horizontal asymptote is the line \\( y = \\) ___B1___ and the curve crosses the \\( y \\)-axis at the value ___B2___.",
   "blankOptions": {
    "B1": [
-    "2",
-    "cross",
-    "touch",
-    "0"
+    "plot",
+    "3",
+    "0",
+    "cross"
    ],
    "B2": [
-    "2",
-    "touch",
+    "upwards",
+    "k",
     "180",
-    "k"
+    "1"
    ]
   },
   "key": {
@@ -11580,16 +11580,16 @@ window.QUESTION_BANK = [
   "question": "A quadratic graph has the shape called a ___B1___; when the \\( x^2 \\) coefficient is positive it opens ___B2___.",
   "blankOptions": {
    "B1": [
-    "plot",
-    "downwards",
-    "2",
-    "parabola"
+    "180",
+    "sketch",
+    "parabola",
+    "2"
    ],
    "B2": [
     "upwards",
-    "0",
-    "plot",
-    "1"
+    "360",
+    "3",
+    "0"
    ]
   },
   "key": {
@@ -11609,16 +11609,16 @@ window.QUESTION_BANK = [
   "question": "The graphs of \\( y = \\sin x \\) and \\( y = \\cos x \\) both repeat every ___B1___ degrees and have amplitude ___B2___.",
   "blankOptions": {
    "B1": [
-    "180",
-    "k",
+    "3",
     "downwards",
-    "360"
+    "360",
+    "cross"
    ],
    "B2": [
-    "3",
-    "plot",
+    "touch",
+    "k",
     "1",
-    "sketch"
+    "cross"
    ]
   },
   "key": {
@@ -11638,16 +11638,16 @@ window.QUESTION_BANK = [
   "question": "To find where a curve meets the \\( x \\)-axis you set \\( y = \\) ___B1___ and solve; these values are the ___B2___ of the function.",
   "blankOptions": {
    "B1": [
-    "plot",
+    "2",
+    "downwards",
     "1",
-    "0",
-    "k"
+    "0"
    ],
    "B2": [
+    "3",
+    "downwards",
     "roots",
-    "2",
-    "360",
-    "parabola"
+    "1"
    ]
   },
   "key": {
@@ -11667,16 +11667,16 @@ window.QUESTION_BANK = [
   "question": "The cubic \\( y = (x-1)(x+2)(x-4) \\) has ___B1___ real roots; a repeated factor makes the curve ___B2___ the \\( x \\)-axis instead of crossing it.",
   "blankOptions": {
    "B1": [
-    "k",
+    "0",
     "3",
-    "upwards",
-    "180"
+    "1",
+    "plot"
    ],
    "B2": [
-    "touch",
+    "sketch",
+    "downwards",
     "1",
-    "2",
-    "plot"
+    "touch"
    ]
   },
   "key": {
@@ -11696,10 +11696,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( y = \\tan x \\) has vertical asymptotes and repeats every ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "roots",
+    "sketch",
     "180",
     "3",
-    "touch"
+    "k"
    ]
   },
   "key": {
@@ -12644,16 +12644,16 @@ window.QUESTION_BANK = [
   "question": "For a strict inequality you draw the boundary as a ___B1___ line; for \\( \\le \\) or \\( \\ge \\) you draw a ___B2___ line.",
   "blankOptions": {
    "B1": [
+    "curve",
     "line",
     "dashed",
-    "not",
-    "curve"
+    "want"
    ],
    "B2": [
-    "0",
-    "feasible",
-    "want",
-    "solid"
+    "solid",
+    "shade",
+    "clear",
+    "0"
    ]
   },
   "key": {
@@ -12673,10 +12673,10 @@ window.QUESTION_BANK = [
   "question": "To decide which side of the line to shade, you substitute a test ___B1___ such as the origin into the inequality.",
   "blankOptions": {
    "B1": [
-    "solid",
+    "origin",
     "point",
-    "not",
-    "region"
+    "equals",
+    "line"
    ]
   },
   "key": {
@@ -12695,15 +12695,15 @@ window.QUESTION_BANK = [
   "question": "In the OCR exam you shade the region that is ___B1___ required, leaving the feasible region ___B2___.",
   "blankOptions": {
    "B1": [
+    "dashed",
+    "line",
     "not",
-    "curve",
-    "shade",
-    "origin"
+    "shade"
    ],
    "B2": [
     "clear",
-    "line",
-    "wanted",
+    "curve",
+    "region",
     "feasible"
    ]
   },
@@ -12724,10 +12724,10 @@ window.QUESTION_BANK = [
   "question": "You cannot make a negative number of items, so a real-world model also needs \\( x \\) and \\( y \\) each to be at least ___B1___.",
   "blankOptions": {
    "B1": [
-    "solid",
-    "dashed",
-    "0",
-    "equals"
+    "point",
+    "shade",
+    "not",
+    "0"
    ]
   },
   "key": {
@@ -12746,10 +12746,10 @@ window.QUESTION_BANK = [
   "question": "You find the boundary line of an inequality by replacing the inequality sign with an ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "0",
-    "not",
-    "dashed",
-    "equals"
+    "equals",
+    "shade",
+    "line",
+    "not"
    ]
   },
   "key": {
@@ -12768,10 +12768,10 @@ window.QUESTION_BANK = [
   "question": "The single region that satisfies every inequality at once is called the ___B1___ region.",
   "blankOptions": {
    "B1": [
-    "feasible",
-    "dashed",
-    "equals",
-    "solid"
+    "wanted",
+    "want",
+    "curve",
+    "feasible"
    ]
   },
   "key": {
@@ -12790,10 +12790,10 @@ window.QUESTION_BANK = [
   "question": "If substituting the origin makes the inequality true, the origin lies in the region you ___B1___ (so you do NOT shade it).",
   "blankOptions": {
    "B1": [
-    "wanted",
-    "not",
-    "solid",
-    "want"
+    "curve",
+    "shade",
+    "want",
+    "dashed"
    ]
   },
   "key": {
@@ -12812,9 +12812,9 @@ window.QUESTION_BANK = [
   "question": "The boundary drawn for \\( y > 2x \\) should be ___B1___ because the inequality is strict.",
   "blankOptions": {
    "B1": [
-    "curve",
-    "feasible",
     "dashed",
+    "clear",
+    "solid",
     "not"
    ]
   },
@@ -13727,9 +13727,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "constraint",
-    "draw",
-    "minimised",
-    "define"
+    "simplify",
+    "define",
+    "less than or equal to"
    ]
   },
   "key": {
@@ -13749,9 +13749,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "objective",
-    "simplify",
+    "minimised",
     "inequality",
-    "non-negativity"
+    "equals"
    ]
   },
   "key": {
@@ -13770,16 +13770,16 @@ window.QUESTION_BANK = [
   "question": "The phrase 'at least' translates to the ___B1___ sign, while 'no more than' translates to the ___B2___ sign.",
   "blankOptions": {
    "B1": [
+    "simplify",
+    "constraint",
     "greater than or equal to",
-    "draw",
-    "inequality",
-    "equals"
+    "minimised"
    ],
    "B2": [
-    "equals",
-    "non-negativity",
-    "8",
-    "less than or equal to"
+    "inequality",
+    "less than or equal to",
+    "minimised",
+    "define"
    ]
   },
   "key": {
@@ -13800,9 +13800,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "less than or equal to",
-    "constraint",
-    "non-negativity",
-    "8"
+    "define",
+    "draw",
+    "non-negativity"
    ]
   },
   "key": {
@@ -13821,9 +13821,9 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ function is the quantity, such as profit or cost, that you want to maximise or minimise.",
   "blankOptions": {
    "B1": [
-    "inequality",
-    "less than or equal to",
-    "minimised",
+    "draw",
+    "simplify",
+    "greater than or equal to",
     "objective"
    ]
   },
@@ -13843,10 +13843,10 @@ window.QUESTION_BANK = [
   "question": "You can ___B1___ a constraint such as 6x + 4y is at most 240 by dividing every term by 2, giving 3x + 2y at most 120.",
   "blankOptions": {
    "B1": [
-    "greater than or equal to",
+    "8",
     "simplify",
-    "define",
-    "draw"
+    "equals",
+    "minimised"
    ]
   },
   "key": {
@@ -13865,16 +13865,16 @@ window.QUESTION_BANK = [
   "question": "Profit of £28 per train and £60 per aeroplane gives the objective P = 28x + ___B1___ y, which is to be ___B2___.",
   "blankOptions": {
    "B1": [
-    "60",
-    "greater than or equal to",
-    "8",
-    "inequality"
+    "define",
+    "objective",
+    "less than or equal to",
+    "60"
    ],
    "B2": [
-    "greater than or equal to",
-    "less than or equal to",
     "maximised",
-    "objective"
+    "feasible",
+    "constraint",
+    "greater than or equal to"
    ]
   },
   "key": {
@@ -13894,10 +13894,10 @@ window.QUESTION_BANK = [
   "question": "Unlike a constraint, an objective function contains no ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "non-negativity",
-    "greater than or equal to",
-    "equals",
-    "inequality"
+    "simplify",
+    "inequality",
+    "60",
+    "maximised"
    ]
   },
   "key": {
@@ -14995,16 +14995,16 @@ window.QUESTION_BANK = [
   "question": "In OCR linear programming you shade the region that does ___B1___ satisfy the constraints, so the feasible region is left ___B2___.",
   "blankOptions": {
    "B1": [
-    "not",
-    "decreases",
+    "integer",
     "centre",
-    "whole"
+    "not",
+    "does"
    ],
    "B2": [
-    "decreases",
-    "constraint",
-    "unshaded",
-    "5"
+    "objective",
+    "does",
+    "increases",
+    "unshaded"
    ]
   },
   "key": {
@@ -15024,10 +15024,10 @@ window.QUESTION_BANK = [
   "question": "The optimum value of a linear objective always lies at a ___B1___ of the feasible region, never inside it.",
   "blankOptions": {
    "B1": [
-    "5",
-    "not",
-    "2.5",
-    "vertex"
+    "does",
+    "vertex",
+    "shaded",
+    "objective"
    ]
   },
   "key": {
@@ -15046,16 +15046,16 @@ window.QUESTION_BANK = [
   "question": "To find the optimum you can test each ___B1___ in the objective, or slide the ___B2___ line to its extreme position.",
   "blankOptions": {
    "B1": [
-    "unshaded",
-    "greater",
-    "constraint",
-    "vertex"
+    "edge",
+    "increases",
+    "vertex",
+    "does"
    ],
    "B2": [
     "objective",
-    "increases",
-    "not",
-    "constraint"
+    "whole",
+    "integer",
+    "shaded"
    ]
   },
   "key": {
@@ -15075,16 +15075,16 @@ window.QUESTION_BANK = [
   "question": "The boundary line \\( 2x + y = 5 \\) has \\( y \\)-intercept ___B1___ and \\( x \\)-intercept ___B2___.",
   "blankOptions": {
    "B1": [
-    "decreases",
-    "integers",
+    "does",
     "5",
-    "constraint"
+    "vertex",
+    "greater"
    ],
    "B2": [
-    "does",
-    "unshaded",
+    "objective",
     "2.5",
-    "decreases"
+    "not",
+    "vertex"
    ]
   },
   "key": {
@@ -15104,9 +15104,9 @@ window.QUESTION_BANK = [
   "question": "Optima in LP need not be whole numbers; assuming that they must be ___B1___ is a common examiner-reported error.",
   "blankOptions": {
    "B1": [
-    "integer",
-    "unshaded",
-    "whole",
+    "3.8",
+    "centre",
+    "objective",
     "integers"
    ]
   },
@@ -15126,10 +15126,10 @@ window.QUESTION_BANK = [
   "question": "If the context can only take whole items, check the feasible ___B1___ points nearest the optimum vertex.",
   "blankOptions": {
    "B1": [
+    "less",
+    "edge",
     "integer",
-    "greater",
-    "2.5",
-    "objective"
+    "constraint"
    ]
   },
   "key": {
@@ -15148,9 +15148,9 @@ window.QUESTION_BANK = [
   "question": "The words 'no more than' mean the total must be ___B1___ than or equal to the limit.",
   "blankOptions": {
    "B1": [
-    "integers",
-    "3",
+    "increases",
     "less",
+    "not",
     "decreases"
    ]
   },
@@ -15171,9 +15171,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "increases",
-    "centre",
-    "shaded",
-    "integer"
+    "edge",
+    "does",
+    "objective"
    ]
   },
   "key": {
@@ -16084,16 +16084,16 @@ window.QUESTION_BANK = [
   "question": "On the unit circle the point at angle \\( \\theta \\) is \\( (\\cos\\theta,\\ \\sin\\theta) \\), so \\( \\cos\\theta \\) is the ___B1___ coordinate and \\( \\sin\\theta \\) is the ___B2___ coordinate.",
   "blankOptions": {
    "B1": [
-    "x",
-    "1/2",
+    "360",
     "-1",
-    "intercepts"
+    "x",
+    "asymptotes"
    ],
    "B2": [
+    "fourth",
     "y",
-    "0",
-    "180",
-    "fourth"
+    "30",
+    "-1"
    ]
   },
   "key": {
@@ -16113,16 +16113,16 @@ window.QUESTION_BANK = [
   "question": "The period of both \\( \\sin\\theta \\) and \\( \\cos\\theta \\) is ___B1___ degrees, while the period of \\( \\tan\\theta \\) is ___B2___ degrees.",
   "blankOptions": {
    "B1": [
-    "-1",
-    "second",
+    "first",
+    "third",
     "360",
-    "1"
+    "0"
    ],
    "B2": [
-    "asymptotes",
     "180",
-    "first",
-    "90"
+    "fourth",
+    "1",
+    "second"
    ]
   },
   "key": {
@@ -16142,16 +16142,16 @@ window.QUESTION_BANK = [
   "question": "The maximum value of \\( \\sin\\theta \\) is ___B1___ and its minimum value is ___B2___.",
   "blankOptions": {
    "B1": [
-    "2",
-    "45",
+    "30",
+    "x",
     "1",
     "1/2"
    ],
    "B2": [
-    "1/2",
-    "30",
     "-1",
-    "y"
+    "intercepts",
+    "second",
+    "90"
    ]
   },
   "key": {
@@ -16171,16 +16171,16 @@ window.QUESTION_BANK = [
   "question": "Using the CAST rule, sine is positive in the ___B1___ quadrant and tangent is positive in the ___B2___ quadrant.",
   "blankOptions": {
    "B1": [
-    "-1",
-    "asymptotes",
+    "first",
     "second",
-    "first"
+    "intercepts",
+    "0"
    ],
    "B2": [
-    "1",
-    "90",
+    "180",
+    "0",
     "third",
-    "360"
+    "fourth"
    ]
   },
   "key": {
@@ -16200,16 +16200,16 @@ window.QUESTION_BANK = [
   "question": "The exact value of \\( \\sin 30^\\circ \\) is ___B1___ and the exact value of \\( \\cos 60^\\circ \\) is ___B2___.",
   "blankOptions": {
    "B1": [
+    "first",
     "0",
-    "30",
-    "1/2",
-    "1"
+    "1",
+    "1/2"
    ],
    "B2": [
-    "360",
-    "1/2",
+    "0",
     "90",
-    "asymptotes"
+    "intercepts",
+    "1/2"
    ]
   },
   "key": {
@@ -16229,10 +16229,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( \\tan\\theta \\) has vertical ___B1___ at \\( 90^\\circ \\) and \\( 270^\\circ \\).",
   "blankOptions": {
    "B1": [
+    "asymptotes",
+    "first",
     "third",
-    "fourth",
-    "30",
-    "asymptotes"
+    "90"
    ]
   },
   "key": {
@@ -16251,9 +16251,9 @@ window.QUESTION_BANK = [
   "question": "Because \\( \\sin(180^\\circ - \\theta) = \\sin\\theta \\), the angle \\( 150^\\circ \\) has the same sine as ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "1/2",
+    "0",
+    "third",
     "asymptotes",
-    "fourth",
     "30"
    ]
   },
@@ -16273,10 +16273,10 @@ window.QUESTION_BANK = [
   "question": "The exact value of \\( \\tan 45^\\circ \\) is ___B1___.",
   "blankOptions": {
    "B1": [
+    "x",
+    "0",
     "1",
-    "45",
-    "y",
-    "180"
+    "-1"
    ]
   },
   "key": {
@@ -17202,10 +17202,10 @@ window.QUESTION_BANK = [
   "question": "In the sine rule \\( \\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\), each side sits over the sine of the angle ___B1___ to it.",
   "blankOptions": {
    "B1": [
-    "opposite",
-    "246.8",
+    "sine",
+    "2ab",
     "cosine",
-    "non-included"
+    "opposite"
    ]
   },
   "key": {
@@ -17224,16 +17224,16 @@ window.QUESTION_BANK = [
   "question": "You use the ___B1___ rule when you know two sides and the angle between them (SAS), and the ___B2___ rule when you know two angles and a side.",
   "blankOptions": {
    "B1": [
-    "113.2",
+    "non-included",
     "adjacent",
     "cosine",
-    "excluded"
+    "opposite"
    ],
    "B2": [
-    "excluded",
-    "opposite",
+    "non-included",
+    "SAS",
     "sine",
-    "113.2"
+    "SSS"
    ]
   },
   "key": {
@@ -17253,10 +17253,10 @@ window.QUESTION_BANK = [
   "question": "In the rearranged cosine rule \\( \\cos A = \\frac{b^2 + c^2 - a^2}{2bc} \\), the denominator is ___B1___.",
   "blankOptions": {
    "B1": [
-    "2bc",
-    "provided",
-    "cosine",
-    "SAS"
+    "included",
+    "adjacent",
+    "113.2",
+    "2bc"
    ]
   },
   "key": {
@@ -17275,9 +17275,9 @@ window.QUESTION_BANK = [
   "question": "The area of a triangle equals \\( \\frac{1}{2}ab\\sin C \\), where C is the ___B1___ angle between sides a and b.",
   "blankOptions": {
    "B1": [
-    "cosine",
-    "246.8",
-    "provided",
+    "2bc",
+    "SAS",
+    "non-included",
     "included"
    ]
   },
@@ -17297,10 +17297,10 @@ window.QUESTION_BANK = [
   "question": "If the acute angle from the sine rule is 66.8°, the second possible (obtuse) angle is 180° minus 66.8°, which is ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "memorised",
-    "included",
     "246.8",
-    "113.2"
+    "113.2",
+    "opposite",
+    "provided"
    ]
   },
   "key": {
@@ -17319,10 +17319,10 @@ window.QUESTION_BANK = [
   "question": "The ambiguous case can occur when you are given two sides and a ___B1___ angle (the SSA situation).",
   "blankOptions": {
    "B1": [
-    "non-included",
-    "SSS",
-    "cosine",
-    "113.2"
+    "provided",
+    "adjacent",
+    "246.8",
+    "non-included"
    ]
   },
   "key": {
@@ -17341,10 +17341,10 @@ window.QUESTION_BANK = [
   "question": "The sine rule, cosine rule and area rule must all be ___B1___ because they are not on the formula sheet.",
   "blankOptions": {
    "B1": [
-    "2bc",
+    "113.2",
+    "excluded",
     "memorised",
-    "sine",
-    "excluded"
+    "246.8"
    ]
   },
   "key": {
@@ -17363,10 +17363,10 @@ window.QUESTION_BANK = [
   "question": "A triangle in which all three sides are known is an ___B1___ situation, so you use the cosine rule.",
   "blankOptions": {
    "B1": [
-    "memorised",
-    "included",
     "SSS",
-    "excluded"
+    "adjacent",
+    "113.2",
+    "246.8"
    ]
   },
   "key": {
@@ -18273,10 +18273,10 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) marks an identity, which is true for ___B1___ value of \\( \\theta \\).",
   "blankOptions": {
    "B1": [
-    "ratio",
-    "decimal",
-    "every",
-    "negative"
+    "angle",
+    "positive",
+    "±",
+    "every"
    ]
   },
   "key": {
@@ -18295,10 +18295,10 @@ window.QUESTION_BANK = [
   "question": "Both trig identities must be ___B1___, because they are not printed on the exam formula sheet.",
   "blankOptions": {
    "B1": [
-    "ratio",
-    "two",
+    "one",
     "memorised",
-    "one"
+    "negative",
+    "two"
    ]
   },
   "key": {
@@ -18317,10 +18317,10 @@ window.QUESTION_BANK = [
   "question": "Finding another ratio needs a square root, which introduces a ___B1___ sign; the quadrant then decides which one to keep.",
   "blankOptions": {
    "B1": [
-    "two",
-    "memorised",
     "±",
-    "some"
+    "angle",
+    "memorised",
+    "positive"
    ]
   },
   "key": {
@@ -18339,10 +18339,10 @@ window.QUESTION_BANK = [
   "question": "In the third quadrant, only \\( \\tan\\theta \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "decimal",
-    "positive",
     "memorised",
-    "±"
+    "angle",
+    "positive",
+    "one"
    ]
   },
   "key": {
@@ -18361,9 +18361,9 @@ window.QUESTION_BANK = [
   "question": "When a question says 'exact', leave your answer as a surd or fraction, never a ___B1___.",
   "blankOptions": {
    "B1": [
-    "decimal",
-    "angle",
+    "negative",
     "one",
+    "decimal",
     "memorised"
    ]
   },
@@ -18383,10 +18383,10 @@ window.QUESTION_BANK = [
   "question": "To prove an identity you work on ___B1___ side at a time and finish with a concluding statement.",
   "blankOptions": {
    "B1": [
-    "decimal",
+    "exact",
     "one",
     "ratio",
-    "some"
+    "memorised"
    ]
   },
   "key": {
@@ -18405,10 +18405,10 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sin^2\\theta \\) you square the ___B1___, not the angle.",
   "blankOptions": {
    "B1": [
-    "±",
     "ratio",
-    "angle",
-    "some"
+    "every",
+    "memorised",
+    "one"
    ]
   },
   "key": {
@@ -19349,10 +19349,10 @@ window.QUESTION_BANK = [
   "question": "The angle the calculator returns from \\( \\sin^{-1} \\), \\( \\cos^{-1} \\) or \\( \\tan^{-1} \\) is called the ___B1___ value.",
   "blankOptions": {
    "B1": [
-    "detailed",
+    "alpha",
     "pairs",
     "principal",
-    "180"
+    "cos^2"
    ]
   },
   "key": {
@@ -19371,10 +19371,10 @@ window.QUESTION_BANK = [
   "question": "For \\( \\sin\\theta = k \\), if the first solution is \\( \\alpha \\) the second is 180 minus ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "720",
     "alpha",
-    "pairs",
-    "exact"
+    "detailed",
+    "sin^2",
+    "decimal"
    ]
   },
   "key": {
@@ -19393,9 +19393,9 @@ window.QUESTION_BANK = [
   "question": "For \\( \\cos\\theta = k \\), the second solution in \\( 0^\\circ \\)–\\( 360^\\circ \\) is ___B1___ minus \\( \\alpha \\).",
   "blankOptions": {
    "B1": [
-    "cos^2",
+    "720",
+    "sin^2",
     "360",
-    "principal",
     "pairs"
    ]
   },
@@ -19415,10 +19415,10 @@ window.QUESTION_BANK = [
   "question": "The tangent graph repeats every ___B1___ degrees, so its second solution is \\( \\alpha \\) plus that many degrees.",
   "blankOptions": {
    "B1": [
-    "alpha",
-    "720",
-    "180",
-    "principal"
+    "360",
+    "pairs",
+    "detailed",
+    "180"
    ]
   },
   "key": {
@@ -19437,10 +19437,10 @@ window.QUESTION_BANK = [
   "question": "To solve an equation in \\( 2\\theta \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), first solve for \\( 2\\theta \\) over the interval 0 to ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "720",
-    "180",
-    "360",
-    "detailed"
+    "sin^2",
+    "pairs",
+    "cos^2",
+    "720"
    ]
   },
   "key": {
@@ -19459,10 +19459,10 @@ window.QUESTION_BANK = [
   "question": "To turn \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) into a quadratic, replace \\( \\cos^2\\theta \\) with 1 minus ___B1___.",
   "blankOptions": {
    "B1": [
-    "sin^2",
     "360",
-    "detailed",
-    "90"
+    "alpha",
+    "sin^2",
+    "720"
    ]
   },
   "key": {
@@ -19481,10 +19481,10 @@ window.QUESTION_BANK = [
   "question": "A command word that means \"leave surds, not decimals\" is ___B1___; a decimal answer then scores zero.",
   "blankOptions": {
    "B1": [
-    "720",
-    "90",
+    "exact",
     "sin^2",
-    "exact"
+    "principal",
+    "detailed"
    ]
   },
   "key": {
@@ -19504,9 +19504,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "pairs",
-    "360",
-    "cos^2",
-    "detailed"
+    "sin^2",
+    "90",
+    "720"
    ]
   },
   "key": {
@@ -20445,16 +20445,16 @@ window.QUESTION_BANK = [
   "question": "In a 3D problem the first step is to identify the correct right-angled ___B1___ lying in one flat ___B2___ (surface).",
   "blankOptions": {
    "B1": [
-    "clockwise",
     "cosine",
+    "240",
     "triangle",
-    "vertical"
+    "perpendicular"
    ],
    "B2": [
+    "clockwise",
+    "cosine",
     "plane",
-    "vertical",
-    "opposite",
-    "hypotenuse"
+    "vertical"
    ]
   },
   "key": {
@@ -20474,15 +20474,15 @@ window.QUESTION_BANK = [
   "question": "The angle between a line and a plane is found by dropping a ___B1___ from the line down to the plane; the angle is then measured at the ___B2___ of that perpendicular.",
   "blankOptions": {
    "B1": [
+    "three",
     "perpendicular",
-    "adjacent",
-    "plane",
-    "triangle"
+    "triangle",
+    "clockwise"
    ],
    "B2": [
     "three",
-    "sine",
-    "hypotenuse",
+    "triangle",
+    "vertical",
     "foot"
    ]
   },
@@ -20503,16 +20503,16 @@ window.QUESTION_BANK = [
   "question": "For a path going up a slope, the angle with the horizontal has the vertical height as the ___B1___ side and the horizontal distance as the ___B2___ side.",
   "blankOptions": {
    "B1": [
+    "vertical",
     "opposite",
-    "triangle",
-    "three",
-    "clockwise"
+    "clockwise",
+    "foot"
    ],
    "B2": [
-    "adjacent",
-    "foot",
     "vertical",
-    "sine"
+    "slope",
+    "plane",
+    "adjacent"
    ]
   },
   "key": {
@@ -20532,10 +20532,10 @@ window.QUESTION_BANK = [
   "question": "The steepest line that can be drawn on a sloping face is called the line of greatest ___B1___.",
   "blankOptions": {
    "B1": [
+    "triangle",
     "slope",
-    "cosine",
-    "perpendicular",
-    "opposite"
+    "opposite",
+    "foot"
    ]
   },
   "key": {
@@ -20554,16 +20554,16 @@ window.QUESTION_BANK = [
   "question": "A bearing is measured ___B1___ from north and is always written with ___B2___ figures.",
   "blankOptions": {
    "B1": [
-    "cosine",
-    "adjacent",
+    "slope",
     "clockwise",
+    "foot",
     "240"
    ],
    "B2": [
+    "perpendicular",
+    "vertical",
     "three",
-    "hypotenuse",
-    "plane",
-    "perpendicular"
+    "triangle"
    ]
   },
   "key": {
@@ -20583,10 +20583,10 @@ window.QUESTION_BANK = [
   "question": "If the bearing of B from A is 060 degrees, then the bearing of A from B is ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "perpendicular",
-    "plane",
-    "240",
-    "three"
+    "slope",
+    "triangle",
+    "vertical",
+    "240"
    ]
   },
   "key": {
@@ -20605,10 +20605,10 @@ window.QUESTION_BANK = [
   "question": "When a right-angled triangle can be solved with SOH-CAH-TOA, you should not overcomplicate it with the ___B1___ rule.",
   "blankOptions": {
    "B1": [
+    "adjacent",
     "sine",
-    "plane",
-    "slope",
-    "perpendicular"
+    "perpendicular",
+    "plane"
    ]
   },
   "key": {
@@ -20843,6 +20843,4477 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 1,
    "explain": "“Due west as a bearing” means: \\( 270^\\circ \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:exam:0e3dbe03",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "2019 Q1",
+  "question": "<p>A committee consists of five people. The roles of Chairman, Secretary and Treasurer are to be allocated at random from the committee with no one person taking more than one role.</p>\n            <p>In how many ways can this allocation of roles be made?</p>",
+  "hint": "Three different roles means the order of selection matters — this is a permutation, not a combination.",
+  "starter": "Show the calculation (e.g. \\( {}^5P_3 \\) or \\( 5 \\times 4 \\times 3 \\)) and give a single number.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — evidence of a permutation, soi: \\( {}^5P_3 \\) or \\( \\frac{5!}{2!} \\) or \\( 5 \\times 4 \\times 3 \\) oe.</li>\n              <li><strong>A1</strong> — \\( 60 \\) (mark final answer).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>M1 is for selecting a permutation method (order matters); A1 is for the correct value \\( 60 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>A large minority did not appreciate the difference between a permutation and a combination. A permutation of 3 from 5 was required; the response \\( 10 \\) (the combination \\( {}^5C_3 \\)) was seen rather too often.</li>\n            </ul></div>",
+   "modelAnswer": "The three roles are distinct, so order matters: \\( {}^5P_3 = 5 \\times 4 \\times 3 = 60 \\) ways."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:exam:0ee77085",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "2022 Q3",
+  "question": "<p>A photograph is to be taken of 9 students who have represented their college in sailing this year. The students are to be arranged in a line. The captain is to stand in the middle with the vice-captain standing beside the captain.</p>\n            <p>How many ways are there of arranging the students?</p>",
+  "hint": "Fix the captain in the middle. The vice-captain has only two possible places (either side of the captain); the other seven students fill the rest.",
+  "starter": "Show the \\( 7! \\) for the remaining students, the factor of 2 for the vice-captain, then the final number.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO3, AO1)</h5><ul>\n              <li><strong>B1</strong> — sight of \\( 7! \\) (soi by the correct answer; or \\( 5040 \\) or \\( {}^7P_7 \\)).</li>\n              <li><strong>B1</strong> — for multiplying their value by \\( 2 \\).</li>\n              <li><strong>B1</strong> — answer \\( 10080 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One mark for arranging the seven free students (\\( 7! \\)), one for doubling because the vice-captain can stand on either side of the captain, and one for the correct total.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>There were a number of correct answers but also a significant number who were unable to enumerate the number of ways. Although the vice-captain only has two positions (on the left or the right of the captain), candidates multiplied the arrangements of the other students by a variety of numbers.</li>\n            </ul></div>",
+   "modelAnswer": "The captain is fixed in the middle. The vice-captain stands on either side of the captain: 2 ways. The remaining 7 students fill the other 7 places: \\( 7! = 5040 \\). Total \\( = 2 \\times 7! = 2 \\times 5040 = 10080 \\) ways."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:mcq:e0caba92",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A menu has 4 starters, 5 mains and 3 desserts. How many different 3-course meals are possible?",
+  "options": [
+   "\\( 60 \\)",
+   "\\( 12 \\)",
+   "\\( 15 \\)",
+   "\\( 45 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Independent stages, so multiply: \\( 4 \\times 5 \\times 3 = 60 \\). Adding (\\( 4+5+3 = 12 \\)) is the classic slip."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:mcq:18838daa",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Evaluate \\( 6! \\).",
+  "options": [
+   "\\( 720 \\)",
+   "\\( 36 \\)",
+   "\\( 120 \\)",
+   "\\( 46656 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 6! = 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1 = 720 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:mcq:797680f7",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In how many orders can the 5 distinct letters of MATHS be arranged?",
+  "options": [
+   "\\( 120 \\)",
+   "\\( 25 \\)",
+   "\\( 60 \\)",
+   "\\( 3125 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Five distinct objects in a line: \\( 5! = 120 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:mcq:fcd346e2",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Evaluate \\( {}^7P_3 \\).",
+  "options": [
+   "\\( 210 \\)",
+   "\\( 35 \\)",
+   "\\( 5040 \\)",
+   "\\( 343 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( {}^7P_3 = 7 \\times 6 \\times 5 = 210 \\). Choosing \\( 35 = {}^7C_3 \\) forgets that order matters."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:mcq:004ded75",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Evaluate \\( {}^8C_2 \\).",
+  "options": [
+   "\\( 28 \\)",
+   "\\( 56 \\)",
+   "\\( 16 \\)",
+   "\\( 64 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( {}^8C_2 = \\frac{8 \\times 7}{2!} = 28 \\). \\( 56 = {}^8P_2 \\) keeps the ordering — divide by \\( 2! \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:mcq:ed8f54a3",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A club of 10 members elects a President, a Secretary and a Treasurer (one person per role). How many ways?",
+  "options": [
+   "\\( 720 \\)",
+   "\\( 120 \\)",
+   "\\( 30 \\)",
+   "\\( 1000 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Three distinct roles → order matters → \\( {}^{10}P_3 = 10 \\times 9 \\times 8 = 720 \\). \\( 120 = {}^{10}C_3 \\) would be for an equal-status committee."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:mcq:8771ca5e",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A club of 10 members forms a committee of 3 (all equal status). How many ways?",
+  "options": [
+   "\\( 120 \\)",
+   "\\( 720 \\)",
+   "\\( 30 \\)",
+   "\\( 1000 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Order does not matter → \\( {}^{10}C_3 = \\frac{10 \\times 9 \\times 8}{3!} = \\frac{720}{6} = 120 \\). Using \\( {}^{10}P_3 = 720 \\) treats the members as ordered."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:mcq:b274de1f",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of these requires a COMBINATION (order does not matter)?",
+  "options": [
+   "Choosing 3 pizza toppings from 8",
+   "Arranging 3 people in a queue",
+   "Awarding gold, silver and bronze",
+   "Setting a 4-digit passcode"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Only the toppings are an unordered selection; the others all depend on order."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:mcq:b6b5b9b5",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student calculates \\( {}^6C_2 \\) and gets \\( 30 \\). What went wrong?",
+  "options": [
+   "They forgot to divide by \\( 2! \\); the answer is \\( 15 \\)",
+   "Nothing — \\( 30 \\) is correct",
+   "They should have divided by \\( 6! \\)",
+   "They should have used \\( 6 + 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 30 = {}^6P_2 \\) (order kept). Dividing by \\( 2! \\) removes the orderings: \\( {}^6C_2 = 15 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:mcq:b3bf22c5",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In \\( {}^9P_4 = \\frac{9!}{(9-4)!} \\), the denominator is:",
+  "options": [
+   "\\( 5! \\)",
+   "\\( 4! \\)",
+   "\\( 6! \\)",
+   "\\( 13! \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 9 - 4 = 5 \\), so the denominator is \\( 5! \\). Writing \\( 4! \\) is a common off-by-one slip."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:mcq:9f1604d2",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In how many ways can 5 people be seated around a circular table?",
+  "options": [
+   "\\( 24 \\)",
+   "\\( 120 \\)",
+   "\\( 5 \\)",
+   "\\( 20 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Circular arrangements of \\( n \\) people \\( = (n-1)! = 4! = 24 \\); rotations count as the same."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:mcq:c79bdcc1",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In how many ways can 4 people stand in a row if two particular people must stand together?",
+  "options": [
+   "\\( 12 \\)",
+   "\\( 24 \\)",
+   "\\( 48 \\)",
+   "\\( 6 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Tie the pair into a block → 3 items: \\( 3! = 6 \\), times \\( 2! = 2 \\) inside the block \\( = 12 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:tf:69b23589",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In a permutation the order of the selected objects matters.",
+  "key": {
+   "answer": true,
+   "explain": "Yes — a permutation is an ordered selection; swapping two chosen objects gives a different permutation."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:tf:e10ac418",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( {}^5C_3 = {}^5C_2 \\).",
+  "key": {
+   "answer": true,
+   "explain": "Both equal \\( 10 \\): \\( {}^nC_r = {}^nC_{n-r} \\), since choosing who is in is the same as choosing who is out."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:tf:38bda17a",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( 0! = 0 \\).",
+  "key": {
+   "answer": false,
+   "explain": "By definition \\( 0! = 1 \\); this is what keeps the \\( {}^nP_r \\) and \\( {}^nC_r \\) formulas valid."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:tf:9526a0e7",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The number of ways to arrange n distinct objects in a line is \\( n! \\).",
+  "key": {
+   "answer": true,
+   "explain": "By the product rule: \\( n \\) choices for the first place, \\( n-1 \\) for the next, … which multiplies to \\( n! \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:tf:5a7d5e3e",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For a committee of 3 where every member has equal status, you should use a permutation.",
+  "key": {
+   "answer": false,
+   "explain": "Order does not matter for an equal-status committee, so use a combination \\( {}^nC_r \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:tf:f0005b72",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( {}^nC_r \\) is printed on the exam formula sheet, so you do not have to memorise it.",
+  "key": {
+   "answer": true,
+   "explain": "Correct — \\( {}^nC_r = \\frac{n!}{r!(n-r)!} \\) is provided; but you still must know when to use it. \\( {}^nP_r \\) and \\( n! \\) are NOT given."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:tf:41dbb56a",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( {}^8P_2 = {}^8C_2 \\).",
+  "key": {
+   "answer": false,
+   "explain": "\\( {}^8P_2 = 56 \\) but \\( {}^8C_2 = 28 \\); in general \\( {}^nP_r = r! \\times {}^nC_r \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:tf:c687645c",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Seating 6 people around a circular table gives \\( 6! \\) different arrangements.",
+  "key": {
+   "answer": false,
+   "explain": "Rotations count as the same, so it is \\( (6-1)! = 5! = 120 \\), not \\( 6! \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:learn:62f8307c",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How does the product (multiplication) rule count choices?",
+  "reading": "<p>The <strong>product rule</strong> (or multiplication rule) says: if one choice can be made in \\( m \\) ways and, independently, a second choice in \\( n \\) ways, then the two choices together can be made in \\[ m \\times n \\] ways. It extends to any number of independent stages — you <strong>multiply</strong> the options at each stage.</p>\n            <ul>\n              <li>The word to spot is a sequence of independent decisions (\"a starter <em>and</em> a main <em>and</em> a dessert\").</li>\n              <li><strong>Repeats allowed:</strong> if each of \\( n \\) stages has the same \\( k \\) options, the total is \\( k^n \\). Rolling an ordinary die \\( n \\) times gives \\( 6^n \\) equally likely outcomes.</li>\n              <li>Everything else on this page (factorials, \\( {}^nP_r \\), \\( {}^nC_r \\)) is really just the product rule applied carefully.</li>\n            </ul>\n            <p><strong>Worked example — a café meal deal:</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Bread: \\( 3 \\) choices. Filling: \\( 4 \\) choices. Drink: \\( 2 \\) choices.</td></tr>\n              <tr><td>2. The choices are independent, so multiply: \\( 3 \\times 4 \\times 2 \\).</td></tr>\n              <tr><td>3. Total \\( = 24 \\) different meal deals.</td></tr>\n            </table>",
+  "question": "A password uses 1 letter (26 options) then 2 digits (10 options each). How many are possible?",
+  "options": [
+   "\\( 2600 \\)",
+   "\\( 46 \\)",
+   "\\( 260 \\)",
+   "\\( 676000 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Independent stages, so multiply: \\( 26 \\times 10 \\times 10 = 2600 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:learn:55a58099",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What does n! (factorial) count?",
+  "reading": "<p><strong>\\( n \\) factorial</strong>, written \\( n! \\), is the product \\[ n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 2 \\times 1. \\] It counts the number of ways to <strong>arrange \\( n \\) distinct objects in a line</strong> (an ordered list with no repeats).</p>\n            <ul>\n              <li>Why? By the product rule: \\( n \\) choices for the first place, \\( n-1 \\) for the second, and so on down to \\( 1 \\) — that product is exactly \\( n! \\).</li>\n              <li>By definition \\( 0! = 1 \\) (there is exactly one way to arrange nothing). This keeps the \\( {}^nP_r \\) and \\( {}^nC_r \\) formulas working.</li>\n              <li>Factorials grow fast: \\( 5! = 120 \\), \\( 6! = 720 \\), \\( 10! = 3628800 \\). Use the \\( x! \\) button on your calculator.</li>\n            </ul>\n            <p><strong>Worked example — arranging 4 books on a shelf:</strong> \\( 4! = 4 \\times 3 \\times 2 \\times 1 = 24 \\) orders.</p>",
+  "question": "In how many orders can 6 different runners finish a race (no ties)?",
+  "options": [
+   "\\( 720 \\)",
+   "\\( 36 \\)",
+   "\\( 21 \\)",
+   "\\( 46656 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Arranging 6 distinct objects in a line: \\( 6! = 720 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:learn:fcd346e2",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you count permutations (order matters)?",
+  "reading": "<p>A <strong>permutation</strong> is an <strong>ordered</strong> selection: you choose \\( r \\) objects from \\( n \\) distinct objects <em>and</em> arrange them, so the order counts. The number of permutations is \\[ {}^nP_r = \\frac{n!}{(n-r)!}. \\]</p>\n            <ul>\n              <li>Reading the formula: you use the top \\( r \\) factors of \\( n! \\), i.e. \\( n \\times (n-1) \\times \\dots \\) for \\( r \\) terms; dividing by \\( (n-r)! \\) cancels the unused tail.</li>\n              <li>Swapping any two chosen objects gives a <strong>different</strong> permutation (gold–silver is not the same as silver–gold).</li>\n              <li>\\( {}^nP_r \\) is <strong>not</strong> on the formula sheet, so learn it. On a calculator it is the \\( \\text{nPr} \\) key.</li>\n            </ul>\n            <p><strong>Worked example — gold, silver and bronze for 3 of 5 athletes:</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Order matters (the medals are different), so use \\( {}^5P_3 \\).</td></tr>\n              <tr><td>2. \\( {}^5P_3 = \\frac{5!}{(5-3)!} = \\frac{5!}{2!} = \\frac{120}{2} = 60 \\).</td></tr>\n              <tr><td>3. Or directly by the product rule: \\( 5 \\times 4 \\times 3 = 60 \\).</td></tr>\n            </table>",
+  "question": "Evaluate \\( {}^7P_3 \\).",
+  "options": [
+   "\\( 210 \\)",
+   "\\( 35 \\)",
+   "\\( 5040 \\)",
+   "\\( 343 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( {}^7P_3 = 7 \\times 6 \\times 5 = 210 \\). (\\( 35 \\) is \\( {}^7C_3 \\); \\( 5040 = 7! \\).)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:learn:004ded75",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you count combinations (order does not matter)?",
+  "reading": "<p>A <strong>combination</strong> is an <strong>unordered</strong> selection: you choose \\( r \\) objects from \\( n \\) but do <em>not</em> arrange them, so different orders of the same objects count as one. The number of combinations is \\[ {}^nC_r = \\frac{n!}{r!\\,(n-r)!}. \\]</p>\n            <ul>\n              <li>The extra \\( r! \\) in the denominator (compared with \\( {}^nP_r \\)) divides out the \\( r! \\) orderings of each chosen group: \\( {}^nP_r = r! \\times {}^nC_r \\).</li>\n              <li><strong>\\( {}^nC_r \\) is PROVIDED on the exam formula sheet</strong> — \\( {}^nC_r = \\frac{n!}{r!(n-r)!} \\). You still must know <em>when</em> to use it. On a calculator it is the \\( \\text{nCr} \\) key.</li>\n              <li>Useful facts: \\( {}^nC_0 = {}^nC_n = 1 \\) and \\( {}^nC_r = {}^nC_{n-r} \\) (choosing who is in = choosing who is out).</li>\n            </ul>\n            <p><strong>Worked example — a team of 3 from 5 players:</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. A team has no internal order, so use \\( {}^5C_3 \\).</td></tr>\n              <tr><td>2. \\( {}^5C_3 = \\frac{5!}{3!\\,2!} = \\frac{120}{6 \\times 2} = \\frac{120}{12} = 10 \\).</td></tr>\n            </table>\n            <p>Notice \\( {}^5C_3 = 10 \\) is exactly \\( {}^5P_3 = 60 \\) divided by \\( 3! = 6 \\).</p>",
+  "question": "Evaluate \\( {}^8C_2 \\).",
+  "options": [
+   "\\( 28 \\)",
+   "\\( 56 \\)",
+   "\\( 16 \\)",
+   "\\( 64 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( {}^8C_2 = \\frac{8 \\times 7}{2!} = \\frac{56}{2} = 28 \\). (\\( 56 = {}^8P_2 \\), which keeps the ordering.)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:learn:00866b5a",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you decide: permutation or combination?",
+  "reading": "<p>This is the single most examined decision on this topic. Ask one question: <strong>if I swap two of the chosen objects, is it a different result?</strong></p>\n            <ul>\n              <li><strong>Yes → order matters → permutation \\( {}^nP_r \\).</strong> Signals: <em>arrange, order, rank, line up, 1st/2nd/3rd, distinct roles, code/PIN/password, seat in positions</em>.</li>\n              <li><strong>No → order does not matter → combination \\( {}^nC_r \\).</strong> Signals: <em>choose, select, pick a group, committee, team, sample, handshakes, \"how many groups\"</em>.</li>\n              <li>Distinct <strong>roles</strong> (Chairman, Secretary, Treasurer) make an ordered choice — a permutation — even though you are \"choosing\" people. Equal-status members make a combination.</li>\n            </ul>\n            <p><strong>Worked example — 5 people, a committee of 3 vs three named officers:</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. A committee of 3 (all equal): order irrelevant → \\( {}^5C_3 = 10 \\).</td></tr>\n              <tr><td>2. A Chair, Secretary and Treasurer from 5: the three jobs differ → \\( {}^5P_3 = 60 \\).</td></tr>\n            </table>",
+  "question": "Which situation needs a COMBINATION?",
+  "options": [
+   "Choosing 4 books from 9 to take on holiday",
+   "Setting a 4-digit PIN",
+   "Awarding 1st, 2nd, 3rd prizes",
+   "Seating 4 people in a row of chairs"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Only the books involve an unordered selection — the other three all depend on order."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:learn:7a7882fc",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you handle arrangements with constraints?",
+  "reading": "<p>Real questions add conditions. Handle them with three standard moves, then finish with the product rule.</p>\n            <ul>\n              <li><strong>A fixed position:</strong> place the fixed person first, then arrange everyone else. (5 people, one must sit at the end: fix them, arrange the other \\( 4 \\) → \\( 4! = 24 \\).)</li>\n              <li><strong>Two people must be together:</strong> tie them into a single <strong>block</strong>, arrange the blocks, then multiply by the arrangements <em>inside</em> the block.</li>\n              <li><strong>Two people must be apart:</strong> count all arrangements and <strong>subtract</strong> the \"together\" ones.</li>\n            </ul>\n            <p><strong>Worked example — 4 people in a row, two friends A and B must sit together:</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Treat A and B as one block: that leaves \\( 3 \\) items (the block, plus the other two people).</td></tr>\n              <tr><td>2. Arrange the \\( 3 \\) items: \\( 3! = 6 \\).</td></tr>\n              <tr><td>3. A and B can be in \\( 2! = 2 \\) orders inside the block.</td></tr>\n              <tr><td>4. Total \\( = 3! \\times 2! = 6 \\times 2 = 12 \\).</td></tr>\n            </table>\n            <p><strong>Apart check:</strong> all arrangements \\( 4! = 24 \\); together \\( = 12 \\); so apart \\( = 24 - 12 = 12 \\).</p>",
+  "question": "5 people sit in a row; two of them must sit next to each other. How many arrangements?",
+  "options": [
+   "\\( 48 \\)",
+   "\\( 120 \\)",
+   "\\( 24 \\)",
+   "\\( 240 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Block of 2 → 4 items: \\( 4! = 24 \\), times \\( 2! = 2 \\) inside the block \\( = 48 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:learn:612f7e13",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do circular arrangements differ, and which formulas must you learn?",
+  "reading": "<p><strong>Round a table</strong>, there is no fixed \"first seat\" — rotating everyone one place gives the <em>same</em> arrangement. So the number of distinct arrangements of \\( n \\) people around a circle is \\[ (n-1)! \\] not \\( n! \\). (Fix one person to remove the rotations, then arrange the other \\( n-1 \\).)</p>\n            <table class=\"worked\">\n              <tr><td>Example: 5 people around a table \\( = (5-1)! = 4! = 24 \\) arrangements.</td></tr>\n            </table>\n            <p><strong>Formula discipline for this topic:</strong></p>\n            <ul>\n              <li><strong>MEMORISE:</strong> the product rule; \\( n! \\); the permutation formula \\( {}^nP_r = \\frac{n!}{(n-r)!} \\); the circular result \\( (n-1)! \\).</li>\n              <li><strong>PROVIDED on the formula sheet:</strong> the combination formula \\( {}^nC_r = \\frac{n!}{r!(n-r)!} \\) (given alongside the binomial series). Knowing where it is on the sheet saves time, but you still must know when to use it.</li>\n            </ul>",
+  "question": "In how many ways can 6 people be seated around a circular table?",
+  "options": [
+   "\\( 120 \\)",
+   "\\( 720 \\)",
+   "\\( 6 \\)",
+   "\\( 36 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Circular arrangements of \\( n \\) people \\( = (n-1)! = 5! = 120 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:misc:e4dcbaf0",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> To pick a committee of 3 from 8 people I used \\( {}^8P_3 = 336 \\).</p><p><strong>✅ The correct idea:</strong> A committee has no internal order, so order must not be counted. A weak answer keeps the orderings; a strong answer divides by \\( 3! \\): \\( {}^8C_3 = \\frac{336}{6} = 56 \\).</p>",
+  "question": "How many committees of 3 can be formed from 8 people?",
+  "options": [
+   "\\( 56 \\)",
+   "\\( 336 \\)",
+   "\\( 24 \\)",
+   "\\( 512 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( {}^8C_3 = \\frac{8 \\times 7 \\times 6}{3!} = \\frac{336}{6} = 56 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:misc:84841667",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Choosing gold, silver and bronze for 3 of 5 athletes: \\( {}^5C_3 = 10 \\).</p><p><strong>✅ The correct idea:</strong> The three medals are different, so order matters — this is a permutation. A weak answer selects a group; a strong answer arranges it: \\( {}^5P_3 = 60 \\).</p>",
+  "question": "Gold, silver and bronze for 3 of 5 athletes — how many ways?",
+  "options": [
+   "\\( 60 \\)",
+   "\\( 10 \\)",
+   "\\( 15 \\)",
+   "\\( 125 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Order matters: \\( {}^5P_3 = 5 \\times 4 \\times 3 = 60 \\). \\( 10 = {}^5C_3 \\) ignores the different medals."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:misc:6356462d",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> A permutation and a combination of r from n always give the same number.</p><p><strong>✅ The correct idea:</strong> They are equal only when \\( r = 0 \\) or \\( r = 1 \\). In general the permutation is bigger: \\( {}^nP_r = r! \\times {}^nC_r \\), because each chosen group can be ordered in \\( r! \\) ways.</p>",
+  "question": "How are \\( {}^nP_r \\) and \\( {}^nC_r \\) related?",
+  "options": [
+   "\\( {}^nP_r = r! \\times {}^nC_r \\)",
+   "\\( {}^nP_r = {}^nC_r \\)",
+   "\\( {}^nC_r = r! \\times {}^nP_r \\)",
+   "\\( {}^nP_r = n! \\times {}^nC_r \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Each combination can be arranged in \\( r! \\) orders, so \\( {}^nP_r = r! \\times {}^nC_r \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:misc:cccdf881",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( 0! = 0 \\), so \\( {}^nP_n = \\frac{n!}{0!} \\) must be undefined.</p><p><strong>✅ The correct idea:</strong> By definition \\( 0! = 1 \\), so \\( {}^nP_n = \\frac{n!}{1} = n! \\) — the number of ways to arrange all n objects, which makes sense.</p>",
+  "question": "What is the value of \\( 0! \\)?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( 0 \\)",
+   "undefined",
+   "\\( \\infty \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 0! = 1 \\) by definition."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:misc:818eb0a6",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The number of arrangements of the letters of LEVEL is \\( 5! = 120 \\).</p><p><strong>✅ The correct idea:</strong> Identical letters must not be treated as distinct: L and E each appear twice. A strong answer divides by the repeats: \\( \\frac{5!}{2!\\,2!} = \\frac{120}{4} = 30 \\).</p>",
+  "question": "How many distinct arrangements of the letters of LEVEL are there?",
+  "options": [
+   "\\( 30 \\)",
+   "\\( 120 \\)",
+   "\\( 60 \\)",
+   "\\( 20 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\frac{5!}{2!\\,2!} = \\frac{120}{4} = 30 \\), because L and E each repeat twice."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:misc:7f4ab662",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Seating 6 people around a circular table gives \\( 6! = 720 \\) ways.</p><p><strong>✅ The correct idea:</strong> Rotating everyone one seat gives the same arrangement, so fix one person: \\( (6-1)! = 5! = 120 \\).</p>",
+  "question": "How many ways can 6 people sit around a round table?",
+  "options": [
+   "\\( 120 \\)",
+   "\\( 720 \\)",
+   "\\( 36 \\)",
+   "\\( 6 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Circular: \\( (n-1)! = 5! = 120 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:tips:94a9ae57",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Decide permutation or combination FIRST",
+  "reading": "<p>The most common lost mark on this topic is the wrong choice of method. Ask: <em>does swapping two chosen objects change the result?</em></p><p><strong>0 marks:</strong> gold/silver/bronze for 3 of 5 answered as \\( {}^5C_3 = 10 \\) — the medals are different, so order matters.</p><p><strong>Full marks:</strong> \\( {}^5P_3 = 60 \\). Write one line naming your method (\"order matters, so permutation\") before you calculate.</p>",
+  "question": "Before computing, what should you decide?",
+  "options": [
+   "Whether order matters (permutation) or not (combination)",
+   "Whether to add or subtract",
+   "Whether to round",
+   "Which calculator to use"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Choosing permutation vs combination is the decision that earns or loses the marks."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:tips:20f001f0",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Show the structure of the count",
+  "reading": "<p>Enumeration marks are awarded for the visible structure, not just the final number. For a constrained arrangement, examiners look for each factor: e.g. the \\( 7! \\) for the free objects and the \\( \\times 2 \\) for a two-position constraint, then the product.</p><p>Writing \\( 2 \\times 7! = 2 \\times 5040 = 10080 \\) banks each mark even if the arithmetic slips; a bare number risks the lot.</p>",
+  "question": "Why write each factor of the count separately?",
+  "options": [
+   "Each factor can earn its own method/B mark",
+   "It looks neater",
+   "It is required by law",
+   "To use more space"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Mark schemes award a mark per correct factor (e.g. \\( 7! \\) soi, then \\( \\times 2 \\))."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:tips:2dbcacab",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — nCr is given; nPr and n! are not",
+  "reading": "<p>The combination formula \\( {}^nC_r = \\frac{n!}{r!(n-r)!} \\) is <strong>printed on the exam formula sheet</strong> (next to the binomial series). The product rule, \\( n! \\), the permutation formula \\( {}^nP_r = \\frac{n!}{(n-r)!} \\) and the circular result \\( (n-1)! \\) are <strong>not</strong> — you must memorise those.</p>",
+  "question": "Which of these is PROVIDED on the formula sheet?",
+  "options": [
+   "\\( {}^nC_r = \\frac{n!}{r!(n-r)!} \\)",
+   "\\( {}^nP_r = \\frac{n!}{(n-r)!} \\)",
+   "\\( n! \\)",
+   "the circular result \\( (n-1)! \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Only \\( {}^nC_r \\) is on the sheet; the rest must be learned."
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:fib:87187bbe",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "When you make a sequence of independent choices, the total number of outcomes is found by ___B1___ the number of options at each stage.",
+  "blankOptions": {
+   "B1": [
+    "dividing",
+    "multiplying",
+    "combination",
+    "order"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "multiplying"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:fib:fb3547ac",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The product \\( n \\times (n-1) \\times \\dots \\times 2 \\times 1 \\) is called n ___B1___, and by definition \\( 0! \\) equals ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "permutation",
+    "factorial",
+    "n+1",
+    "combination"
+   ],
+   "B2": [
+    "dividing",
+    "not",
+    "1",
+    "multiplying"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "factorial",
+    "B2": "1"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:fib:889ae7e9",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "In a permutation the ___B1___ of the objects matters, but in a combination it does ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "n!",
+    "0",
+    "factorial",
+    "order"
+   ],
+   "B2": [
+    "multiplying",
+    "not",
+    "n-r",
+    "combination"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "order",
+    "B2": "not"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:fib:d6e9029b",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "In the permutation formula \\( {}^nP_r = \\frac{n!}{(n-r)!} \\), the denominator is the factorial of ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "factorial",
+    "n-r",
+    "r!",
+    "combination"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "n-r"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:fib:601109ed",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Compared with \\( {}^nP_r \\), the combination \\( {}^nC_r \\) divides by an extra ___B1___ to cancel the repeated orderings.",
+  "blankOptions": {
+   "B1": [
+    "r!",
+    "0",
+    "n-1",
+    "not"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "r!"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:fib:a729bacb",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The number of distinct ways to seat n people around a circular table is ( ___B1___ )! because rotations are the same arrangement.",
+  "blankOptions": {
+   "B1": [
+    "n-1",
+    "n!",
+    "combination",
+    "n-r"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "n-1"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:fib:7b5dd9dc",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Selecting a team of 4 from a squad of 11, where order does not matter, is counted with a ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "n-r",
+    "factorial",
+    "combination",
+    "adding"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "combination"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:fib:4b0dd041",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Awarding gold, silver and bronze to 3 of 8 runners, where order matters, is counted with a ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "n+1",
+    "order",
+    "permutation",
+    "not"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "permutation"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:ed57e4d6",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Arrange all 6 books on a shelf”?",
+  "options": [
+   "\\( {}^6P_3 \\)",
+   "\\( 6! \\)",
+   "\\( {}^6C_3 \\)",
+   "Permutation"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Arrange all 6 books on a shelf” means: \\( 6! \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:5f715d6b",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Choose 3 of 6 books to pack (order irrelevant)”?",
+  "options": [
+   "\\( {}^8C_3 \\)",
+   "\\( 10 \\)",
+   "\\( {}^6C_3 \\)",
+   "\\( \\frac{n!}{r!(n-r)!} \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Choose 3 of 6 books to pack (order irrelevant)” means: \\( {}^6C_3 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:59a55e6b",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Give 1st, 2nd, 3rd place to 3 of 6 runners”?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( {}^6P_3 \\)",
+   "Permutation",
+   "\\( \\frac{n!}{(n-r)!} \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Give 1st, 2nd, 3rd place to 3 of 6 runners” means: \\( {}^6P_3 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:fe04de53",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Fill 3 different offices from 8 people”?",
+  "options": [
+   "\\( {}^6C_3 \\)",
+   "\\( 6! \\)",
+   "\\( {}^8P_3 \\)",
+   "Combination"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Fill 3 different offices from 8 people” means: \\( {}^8P_3 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:de8b991c",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Pick a 3-person team from 8 people”?",
+  "options": [
+   "\\( 6! \\)",
+   "\\( {}^6C_3 \\)",
+   "\\( {}^8C_3 \\)",
+   "\\( \\frac{n!}{(n-r)!} \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Pick a 3-person team from 8 people” means: \\( {}^8C_3 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:6ba52db9",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Ordered selection, no repeats”?",
+  "options": [
+   "\\( {}^6P_3 \\)",
+   "Combination",
+   "\\( {}^8C_3 \\)",
+   "Permutation"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Ordered selection, no repeats” means: Permutation"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:94b2fd5a",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Unordered selection”?",
+  "options": [
+   "Combination",
+   "\\( 10 \\)",
+   "\\( 6! \\)",
+   "\\( {}^8P_3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Unordered selection” means: Combination"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:158fbc89",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Formula for \\( {}^nC_r \\)”?",
+  "options": [
+   "\\( \\frac{n!}{r!(n-r)!} \\)",
+   "Combination",
+   "\\( \\frac{n!}{(n-r)!} \\)",
+   "\\( 4! \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Formula for \\( {}^nC_r \\)” means: \\( \\frac{n!}{r!(n-r)!} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:0cd21583",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Formula for \\( {}^nP_r \\)”?",
+  "options": [
+   "\\( 4! \\)",
+   "\\( 20 \\)",
+   "\\( \\frac{n!}{(n-r)!} \\)",
+   "Permutation"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Formula for \\( {}^nP_r \\)” means: \\( \\frac{n!}{(n-r)!} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:e3724a98",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Seat 5 people around a round table”?",
+  "options": [
+   "\\( 10 \\)",
+   "\\( 4! \\)",
+   "\\( 6 \\)",
+   "\\( 6! \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Seat 5 people around a round table” means: \\( 4! \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:597c765f",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Value of \\( 0! \\)”?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( 20 \\)",
+   "\\( 4! \\)",
+   "\\( 6 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Value of \\( 0! \\)” means: \\( 1 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:15dcb55d",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Value of \\( {}^5C_2 \\)”?",
+  "options": [
+   "\\( 4! \\)",
+   "\\( 6! \\)",
+   "\\( 10 \\)",
+   "\\( {}^6P_3 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Value of \\( {}^5C_2 \\)” means: \\( 10 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:b4a1ba4b",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Value of \\( {}^5P_2 \\)”?",
+  "options": [
+   "Permutation",
+   "\\( 6! \\)",
+   "\\( {}^8P_3 \\)",
+   "\\( 20 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Value of \\( {}^5P_2 \\)” means: \\( 20 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-1-counting-permutations-and-combinations:match:94b1e8ff",
+  "pageId": "additional-maths:6-1-counting-permutations-and-combinations",
+  "pageName": "6.1 Counting, Permutations and Combinations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Meals from 2 breads and 3 fillings”?",
+  "options": [
+   "\\( 6 \\)",
+   "\\( {}^6C_3 \\)",
+   "\\( 20 \\)",
+   "Permutation"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Meals from 2 breads and 3 fillings” means: \\( 6 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:exam:d475d4b6",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "1",
+  "question": "<p>Find the term independent of \\( x \\) in the expansion of \\( \\left( x + \\dfrac{2}{x} \\right)^{6} \\).</p>",
+  "hint": "Write the general term \\( {}^6C_r\\, x^{6-r}\\left(\\frac{2}{x}\\right)^r \\), simplify the power of \\( x \\), then set it to \\( 0 \\).",
+  "starter": "The term independent of \\( x \\) is the constant term — give a single number.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>\n              <li><strong>M1*</strong> — sight of the expansion with at least two terms with correct (possibly unsimplified) powers of \\( x \\) and a binomial coefficient \\( \\ne 1 \\) in one term (soi); or sight of the correct term. Accept \\( {}^nC_r \\) for coefficients. E.g. \\( x^6 + 6\\times 2x^4 + 15\\times 4x^2 + 20\\times 8 + \\dots \\)</li>\n              <li><strong>DM1</strong> — correct powers of \\( 2 \\) in the independent term (soi): \\( \\Rightarrow 20\\times 2^3 \\).</li>\n              <li><strong>A1</strong> — \\( 160 \\), which must be clearly identified and not just embedded in the expansion.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The DM1 is <strong>dependent</strong> on the M1: the \"correct powers of 2\" mark can only be earned once a valid expansion or the correct term has been seen.</li>\n              <li>A correct answer of \\( 160 \\) scores full marks.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Successful responses were split between those finding the full expansion first, and those who recognised that they only needed to find the middle term.</li>\n              <li>Common mistakes were putting a plus between the two parts of a term and not including powers of 2 in the second term. A number of candidates only gave the first and last term of the expansion.</li>\n              <li>It was also clear that a number of candidates did not understand the word 'independent'. Candidates who obtained a fully correct expansion, including the 160 term, could only score full marks if they clearly identified the term requested in the question.</li>\n            </ul></div>",
+   "modelAnswer": "The general term is \\( {}^6C_r\\, x^{6-r}\\left(\\dfrac{2}{x}\\right)^r = {}^6C_r\\, 2^r\\, x^{6-2r} \\). This is independent of \\( x \\) when \\( 6-2r = 0 \\), i.e. \\( r = 3 \\). So the term is \\( {}^6C_3\\times 2^3 = 20\\times 8 = 160 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:mcq:ff3e3d89",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How many terms are in the expansion of \\( (a+b)^7 \\)?",
+  "options": [
+   "\\( 8 \\)",
+   "\\( 7 \\)",
+   "\\( 9 \\)",
+   "\\( 14 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (a+b)^n \\) has \\( n+1 \\) terms, so \\( 8 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:mcq:abf3b5d4",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What are the coefficients in \\( (a+b)^4 \\)?",
+  "options": [
+   "\\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\)",
+   "\\( 1,\\ 3,\\ 3,\\ 1 \\)",
+   "\\( 1,\\ 4,\\ 4,\\ 1 \\)",
+   "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Row 4 of Pascal's triangle is \\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:mcq:4ca7894a",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which row of Pascal's triangle gives the coefficients of \\( (a+b)^6 \\)?",
+  "options": [
+   "\\( 1,\\ 6,\\ 15,\\ 20,\\ 15,\\ 6,\\ 1 \\)",
+   "\\( 1,\\ 6,\\ 15,\\ 15,\\ 6,\\ 1 \\)",
+   "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)",
+   "\\( 1,\\ 6,\\ 20,\\ 15,\\ 6,\\ 1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Row 6 is \\( 1,\\ 6,\\ 15,\\ 20,\\ 15,\\ 6,\\ 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:mcq:e72cdb3c",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does \\( {}^nC_r \\) equal?",
+  "options": [
+   "\\( \\frac{n!}{r!\\,(n-r)!} \\)",
+   "\\( \\frac{n!}{(n-r)!} \\)",
+   "\\( \\frac{n!}{r!} \\)",
+   "\\( \\frac{r!\\,(n-r)!}{n!} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( {}^nC_r = \\dfrac{n!}{r!\\,(n-r)!} \\); it is provided on the formula sheet."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:mcq:16e28cc1",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In the general term \\( {}^nC_r\\, a^{n-r} b^r \\), the power of \\( a \\) is:",
+  "options": [
+   "\\( n-r \\)",
+   "\\( r \\)",
+   "\\( n \\)",
+   "\\( n+r \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The power of \\( a \\) is \\( n-r \\) and the power of \\( b \\) is \\( r \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:mcq:5a48cf50",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the term in \\( a^4 b^2 \\) in the expansion of \\( (a+b)^6 \\)?",
+  "options": [
+   "\\( 15\\,a^4 b^2 \\)",
+   "\\( 20\\,a^3 b^3 \\)",
+   "\\( 15\\,a^2 b^4 \\)",
+   "\\( 6\\,a^5 b \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Here \\( r=2 \\): \\( {}^6C_2\\, a^4 b^2 = 15\\,a^4 b^2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:mcq:a2c6c727",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the coefficient of \\( x^3 \\) in \\( (2+3x)^5 \\)?",
+  "options": [
+   "\\( 1080 \\)",
+   "\\( 40 \\)",
+   "\\( 270 \\)",
+   "\\( 120 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( r=3 \\): \\( {}^5C_3\\, 2^2\\, 3^3 = 10\\times 4\\times 27 = 1080 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:mcq:e0ca1aa5",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the coefficient of \\( x^2 \\) in \\( (1+2x)^6 \\)?",
+  "options": [
+   "\\( 60 \\)",
+   "\\( 15 \\)",
+   "\\( 30 \\)",
+   "\\( 240 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( r=2 \\): \\( {}^6C_2\\, 2^2 = 15\\times 4 = 60 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:mcq:142a581c",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The \"term independent of \\( x \\)\" is:",
+  "options": [
+   "The constant term (power of \\( x \\) is \\( 0 \\))",
+   "The term in \\( x^1 \\)",
+   "The first term",
+   "The last term"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Independent of \\( x \\) means \\( x^0 \\) — a constant."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:mcq:fea0b5dc",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In the expansion of \\( \\left(x + \\dfrac{1}{x}\\right)^8 \\), which value of \\( r \\) gives the constant term?",
+  "options": [
+   "\\( r = 4 \\)",
+   "\\( r = 2 \\)",
+   "\\( r = 3 \\)",
+   "\\( r = 8 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "General term \\( {}^8C_r\\, x^{8-r} x^{-r} = {}^8C_r\\, x^{8-2r} \\); \\( 8-2r=0 \\Rightarrow r=4 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:mcq:80da08b9",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student writes the \\( x^2 \\) term of \\( (2+3x)^5 \\) as \\( 90x^2 \\). What did they do wrong?",
+  "options": [
+   "They forgot to raise the \\( 2 \\): it is \\( 10\\times 2^3\\times 3^2 = 720x^2 \\)",
+   "Nothing — it is correct",
+   "They should have used \\( {}^5C_3 \\)",
+   "They forgot the \\( x^2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 90 = 10\\times 9 \\) misses \\( 2^3 = 8 \\); the correct coefficient is \\( 10\\times 8\\times 9 = 720 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:mcq:b0f0aaa6",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the coefficient of \\( x^3 \\) in \\( (1-2x)^4 \\)?",
+  "options": [
+   "\\( -32 \\)",
+   "\\( 32 \\)",
+   "\\( -8 \\)",
+   "\\( -24 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( r=3 \\): \\( {}^4C_3\\,(-2)^3 = 4\\times(-8) = -32 \\). The odd power of \\( -2 \\) makes it negative."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:tf:bcdd1250",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The expansion of \\( (a+b)^n \\) has \\( n \\) terms.",
+  "key": {
+   "answer": false,
+   "explain": "It has \\( n+1 \\) terms — one more than the power."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:tf:47066623",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In \\( (a+b)^n \\) the powers of \\( a \\) decrease while the powers of \\( b \\) increase, and each term's powers add to \\( n \\).",
+  "key": {
+   "answer": true,
+   "explain": "The powers of \\( a \\) run \\( n, n-1, \\dots, 0 \\) and of \\( b \\) run \\( 0, 1, \\dots, n \\); they always sum to \\( n \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:tf:233fb96a",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The row of Pascal's triangle for \\( (a+b)^3 \\) is \\( 1,\\ 3,\\ 3,\\ 1 \\).",
+  "key": {
+   "answer": true,
+   "explain": "Row 3 is \\( 1,\\ 3,\\ 3,\\ 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:tf:cfd1d842",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( {}^nC_r \\) is printed on the 6993 formula sheet, so you do not have to memorise it.",
+  "key": {
+   "answer": true,
+   "explain": "The binomial series and \\( {}^nC_r \\) are provided; only formulae like the quadratic formula and log laws must be memorised."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:tf:a0f74cee",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The general term of \\( (a+b)^n \\) is \\( {}^nC_r\\, a^r b^{n-r} \\).",
+  "key": {
+   "answer": false,
+   "explain": "The powers are the other way round: \\( {}^nC_r\\, a^{n-r} b^r \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:tf:2954dd4e",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "To expand \\( (2+3x)^4 \\), the coefficient of the \\( x^2 \\) term must include \\( 3^2 \\).",
+  "key": {
+   "answer": true,
+   "explain": "The whole \\( 3x \\) is raised to the power, so \\( (3x)^2 = 9x^2 \\) — the 3 is squared."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:tf:0fc348ed",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\"The term independent of \\( x \\)\" is always the first term of the expansion.",
+  "key": {
+   "answer": false,
+   "explain": "It is the constant term — the one where the power of \\( x \\) is \\( 0 \\), which need not be first."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:tf:f3885c13",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In \\( (1-2x)^5 \\) the terms alternate in sign.",
+  "key": {
+   "answer": true,
+   "explain": "Each term has \\( (-2x)^r \\), and \\( (-1)^r \\) alternates \\( +,-,+,-,\\dots \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:learn:ff3e3d89",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is the binomial expansion?",
+  "reading": "<p>A <strong>binomial</strong> is an expression with two terms, such as \\( a + b \\). The <strong>binomial expansion</strong> multiplies out \\( (a+b)^n \\) for a positive integer \\( n \\) without doing all the bracket multiplication by hand.</p>\n            <ul>\n              <li>\\( (a+b)^n \\) expands into \\( n+1 \\) terms.</li>\n              <li>The <strong>powers of \\( a \\) go down</strong> from \\( n \\) to \\( 0 \\); the <strong>powers of \\( b \\) go up</strong> from \\( 0 \\) to \\( n \\). In <em>every</em> term the two powers add up to \\( n \\).</li>\n              <li>Each term carries a <strong>binomial coefficient</strong>. For example \\[ (a+b)^4 = a^4 + 4a^3 b + 6a^2 b^2 + 4a b^3 + b^4. \\]</li>\n            </ul>\n            <p>Notice the coefficients \\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\) read the same forwards and backwards — they are symmetric.</p>",
+  "question": "How many terms are in the expansion of \\( (a+b)^7 \\)?",
+  "options": [
+   "\\( 8 \\)",
+   "\\( 7 \\)",
+   "\\( 6 \\)",
+   "\\( 14 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (a+b)^n \\) has \\( n+1 \\) terms, so \\( (a+b)^7 \\) has \\( 8 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:learn:4c9570c9",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Where do the coefficients come from — Pascal's triangle?",
+  "reading": "<p><strong>Pascal's triangle</strong> is a quick way to write down the coefficients. Each number is the sum of the two numbers above it; row \\( n \\) gives the coefficients of \\( (a+b)^n \\).</p>\n            <table class=\"worked\">\n              <tr><td>\\( n=0 \\)</td><td>1</td></tr>\n              <tr><td>\\( n=1 \\)</td><td>1&nbsp;&nbsp;1</td></tr>\n              <tr><td>\\( n=2 \\)</td><td>1&nbsp;&nbsp;2&nbsp;&nbsp;1</td></tr>\n              <tr><td>\\( n=3 \\)</td><td>1&nbsp;&nbsp;3&nbsp;&nbsp;3&nbsp;&nbsp;1</td></tr>\n              <tr><td>\\( n=4 \\)</td><td>1&nbsp;&nbsp;4&nbsp;&nbsp;6&nbsp;&nbsp;4&nbsp;&nbsp;1</td></tr>\n              <tr><td>\\( n=5 \\)</td><td>1&nbsp;&nbsp;5&nbsp;&nbsp;10&nbsp;&nbsp;10&nbsp;&nbsp;5&nbsp;&nbsp;1</td></tr>\n            </table>\n            <p>The triangle is fine for small \\( n \\), but drawing it out to (say) row 12 is slow and error-prone — that is where \\( {}^nC_r \\) is faster.</p>",
+  "question": "Which row of Pascal's triangle gives the coefficients of \\( (a+b)^5 \\)?",
+  "options": [
+   "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)",
+   "\\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\)",
+   "\\( 1,\\ 5,\\ 5,\\ 1 \\)",
+   "\\( 1,\\ 6,\\ 15,\\ 20,\\ 15,\\ 6,\\ 1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Row \\( n=5 \\) is \\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:learn:edcecccf",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you use \\( {}^nC_r \\) for the coefficients?",
+  "reading": "<p>The binomial coefficients are the numbers \\( {}^nC_r \\) (say \"n choose r\"), given by \\[ {}^nC_r = \\frac{n!}{r!\\,(n-r)!}. \\] Your calculator has an \\( {}^nC_r \\) button, so you never need to expand the factorials by hand.</p>\n            <ul>\n              <li>Both the <strong>binomial series</strong> and \\( {}^nC_r \\) are <strong>PROVIDED on the exam formula sheet</strong> — you do not have to memorise them, but you <em>must</em> apply them correctly.</li>\n              <li>\\( {}^nC_0 = 1 \\) and \\( {}^nC_n = 1 \\) always (the first and last coefficients).</li>\n              <li>Example: \\( {}^6C_2 = \\dfrac{6!}{2!\\,4!} = 15 \\), which matches row 6 of Pascal's triangle.</li>\n            </ul>\n            <p>For contrast, the quadratic formula, the log laws and the sine/cosine rules are <strong>NOT</strong> on the sheet — those you must memorise.</p>",
+  "question": "Which formulae are PROVIDED on the 6993 formula sheet?",
+  "options": [
+   "The binomial series and \\( {}^nC_r \\)",
+   "The quadratic formula",
+   "The log laws",
+   "The sine and cosine rules"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The binomial series and \\( {}^nC_r \\) are printed on the sheet; the others must be memorised."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:learn:9b5b73bb",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is the general term of \\( (a+b)^n \\)?",
+  "reading": "<p>Rather than write out the whole expansion, you can jump straight to any term using the <strong>general term</strong>: \\[ {}^nC_r\\, a^{\\,n-r}\\, b^{\\,r}, \\qquad r = 0,\\ 1,\\ 2,\\ \\dots,\\ n. \\]</p>\n            <ul>\n              <li>The power of \\( a \\) is \\( n-r \\); the power of \\( b \\) is \\( r \\); together they add to \\( n \\).</li>\n              <li>\\( r = 0 \\) gives the first term, \\( r = 1 \\) the second, and so on — so the term with \\( b^r \\) is the \\( (r+1)\\text{th} \\) term. Mind that off-by-one.</li>\n            </ul>\n            <p><strong>Worked example — the term in \\( a^4 b^2 \\) of \\( (a+b)^6 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. The power of \\( b \\) is \\( 2 \\), so \\( r = 2 \\).</td></tr>\n              <tr><td>2. Coefficient: \\( {}^6C_2 = 15 \\).</td></tr>\n              <tr><td>3. Term: \\( {}^6C_2\\, a^{6-2} b^2 = 15\\,a^4 b^2 \\).</td></tr>\n            </table>",
+  "question": "In the general term \\( {}^nC_r\\, a^{n-r} b^r \\), what is the power of \\( b \\)?",
+  "options": [
+   "\\( r \\)",
+   "\\( n-r \\)",
+   "\\( n \\)",
+   "\\( r-1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The power of \\( b \\) is \\( r \\); the power of \\( a \\) is \\( n-r \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:learn:65285105",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you expand something like \\( (2+3x)^5 \\)?",
+  "reading": "<p>When a term is a number times a variable, such as \\( 3x \\), the power applies to the <strong>whole</strong> part — you must raise the number too, e.g. \\( (3x)^2 = 9x^2 \\), not \\( 3x^2 \\).</p>\n            <p><strong>Worked example — expand \\( (2+3x)^5 \\):</strong> here \\( a = 2 \\), \\( b = 3x \\), \\( n = 5 \\), so the general term is \\( {}^5C_r\\, 2^{\\,5-r}(3x)^r \\).</p>\n            <table class=\"worked\">\n              <tr><td>\\( r=0 \\): \\( {}^5C_0\\, 2^5 = 32 \\)</td></tr>\n              <tr><td>\\( r=1 \\): \\( {}^5C_1\\, 2^4 (3x) = 5\\times 16\\times 3\\,x = 240x \\)</td></tr>\n              <tr><td>\\( r=2 \\): \\( {}^5C_2\\, 2^3 (3x)^2 = 10\\times 8\\times 9\\,x^2 = 720x^2 \\)</td></tr>\n              <tr><td>\\( r=3 \\): \\( {}^5C_3\\, 2^2 (3x)^3 = 10\\times 4\\times 27\\,x^3 = 1080x^3 \\)</td></tr>\n              <tr><td>\\( r=4 \\): \\( {}^5C_4\\, 2^1 (3x)^4 = 5\\times 2\\times 81\\,x^4 = 810x^4 \\)</td></tr>\n              <tr><td>\\( r=5 \\): \\( {}^5C_5\\, (3x)^5 = 243x^5 \\)</td></tr>\n            </table>\n            <p>So \\[ (2+3x)^5 = 32 + 240x + 720x^2 + 1080x^3 + 810x^4 + 243x^5. \\]</p>",
+  "question": "In the \\( x^2 \\) term of \\( (2+3x)^5 \\), which factor is easy to forget?",
+  "options": [
+   "\\( 3^2 = 9 \\) (raising the 3 to the power)",
+   "The \\( {}^5C_2 \\) coefficient only",
+   "The \\( x^2 \\)",
+   "Nothing — you just add the terms"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The \\( 3 \\) must be squared: \\( 10\\times 2^3\\times 3^2 = 720 \\), not \\( 10\\times 2^3 = 80 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:learn:27b793b7",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find a specific term, coefficient, or the term independent of \\( x \\)?",
+  "reading": "<p>You rarely need the whole expansion — pick out the one term you want with the general term.</p>\n            <p><strong>To find the coefficient of a power of \\( x \\):</strong> write the general term, collect the power of \\( x \\), set it equal to the power you want, solve for \\( r \\), then evaluate.</p>\n            <table class=\"worked\">\n              <tr><td>Coefficient of \\( x^3 \\) in \\( (2+3x)^5 \\): general term \\( {}^5C_r\\, 2^{5-r}(3x)^r \\) has \\( x^r \\), so \\( r=3 \\).</td></tr>\n              <tr><td>Value: \\( {}^5C_3\\, 2^2\\, 3^3 = 10\\times 4\\times 27 = 1080 \\).</td></tr>\n            </table>\n            <p><strong>The term \"independent of \\( x \\)\"</strong> is the <strong>constant term</strong> — the one where the power of \\( x \\) is \\( 0 \\). This appears when the bracket has both a positive and a negative power of \\( x \\).</p>\n            <table class=\"worked\">\n              <tr><td>Term independent of \\( x \\) in \\( \\left(x - \\dfrac{3}{x^2}\\right)^6 \\): general term \\( {}^6C_r\\, x^{6-r}\\left(-\\dfrac{3}{x^2}\\right)^r = {}^6C_r\\,(-3)^r\\, x^{\\,6-3r} \\).</td></tr>\n              <tr><td>Independent of \\( x \\) when \\( 6-3r = 0 \\), i.e. \\( r=2 \\).</td></tr>\n              <tr><td>Value: \\( {}^6C_2\\,(-3)^2 = 15\\times 9 = 135 \\).</td></tr>\n            </table>\n            <p><strong>Always state the term clearly at the end</strong> — an answer left buried inside a long expansion loses the final mark.</p>",
+  "question": "\"The term independent of \\( x \\)\" means the term in which the power of \\( x \\) is:",
+  "options": [
+   "\\( 0 \\) (the constant term)",
+   "\\( 1 \\)",
+   "the highest power",
+   "the lowest positive power"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Independent of \\( x \\) means \\( x^0 \\) — a constant with no \\( x \\) in it."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:misc:89fdadd5",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Coefficient of \\( x^2 \\) in \\( (2+3x)^5 \\) is \\( {}^5C_2\\times 2^3 = 80 \\)</p><p><strong>✅ The correct idea:</strong> The \\( 3 \\) must also be raised to the power: \\( (3x)^2 = 9x^2 \\). A weak answer uses only \\( 2^3 \\); a strong answer writes \\( {}^5C_2\\times 2^3\\times 3^2 = 10\\times 8\\times 9 = 720 \\).</p>",
+  "question": "Coefficient of \\( x^2 \\) in \\( (2+3x)^5 \\)?",
+  "options": [
+   "\\( 720 \\)",
+   "\\( 80 \\)",
+   "\\( 90 \\)",
+   "\\( 10 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( {}^5C_2\\times 2^3\\times 3^2 = 720 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:misc:15a8f100",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The third term of \\( (a+b)^6 \\) is \\( a^4 b^2 \\)</p><p><strong>✅ The correct idea:</strong> You must include the binomial coefficient. A weak answer drops the \\( {}^nC_r \\); a strong answer writes \\( {}^6C_2\\, a^4 b^2 = 15\\,a^4 b^2 \\).</p>",
+  "question": "The third term of \\( (a+b)^6 \\) is:",
+  "options": [
+   "\\( 15\\,a^4 b^2 \\)",
+   "\\( a^4 b^2 \\)",
+   "\\( 6\\,a^4 b^2 \\)",
+   "\\( 20\\,a^4 b^2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( r=2 \\): \\( {}^6C_2 = 15 \\), so \\( 15\\,a^4 b^2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:misc:704728aa",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The 4th term of \\( (a+b)^6 \\) uses \\( r = 4 \\), giving \\( 15\\,a^2 b^4 \\)</p><p><strong>✅ The correct idea:</strong> The term with \\( b^r \\) is the \\( (r+1)\\text{th} \\) term, so the 4th term has \\( r=3 \\). A strong answer gives \\( {}^6C_3\\, a^3 b^3 = 20\\,a^3 b^3 \\).</p>",
+  "question": "Which \\( r \\) gives the 4th term of \\( (a+b)^6 \\)?",
+  "options": [
+   "\\( r = 3 \\)",
+   "\\( r = 4 \\)",
+   "\\( r = 5 \\)",
+   "\\( r = 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The \\( (r+1)\\text{th} \\) term uses \\( r \\), so the 4th term is \\( r=3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:misc:bf5e5e40",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For \\( \\left(x+\\frac{2}{x}\\right)^6 \\), the term independent of \\( x \\) is the first term</p><p><strong>✅ The correct idea:</strong> Independent of \\( x \\) means the power of \\( x \\) is \\( 0 \\). A weak answer guesses a position; a strong answer sets the power to \\( 0 \\), solves for \\( r \\), and evaluates that one term.</p>",
+  "question": "How do you find the term independent of \\( x \\)?",
+  "options": [
+   "Set the power of \\( x \\) to \\( 0 \\) and solve for \\( r \\)",
+   "Take the first term",
+   "Take the middle term always",
+   "Take the last term"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Set the collected power of \\( x \\) equal to \\( 0 \\), find \\( r \\), then evaluate."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:misc:605d3015",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Coefficient of \\( x^3 \\) in \\( (1-2x)^4 \\) is \\( +32 \\)</p><p><strong>✅ The correct idea:</strong> The sign matters: \\( (-2)^3 = -8 \\). A weak answer ignores the minus; a strong answer writes \\( {}^4C_3(-2)^3 = 4\\times(-8) = -32 \\).</p>",
+  "question": "Coefficient of \\( x^3 \\) in \\( (1-2x)^4 \\)?",
+  "options": [
+   "\\( -32 \\)",
+   "\\( 32 \\)",
+   "\\( -8 \\)",
+   "\\( 8 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( {}^4C_3(-2)^3 = -32 \\); an odd power of a negative is negative."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:tips:c56ab465",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Use the formula you are given",
+  "reading": "<p>The binomial series and \\( {}^nC_r \\) are printed on the formula sheet, yet the 2023 examiners noted that weaker candidates did not use them — some drew Pascal's triangle but got stuck, and others tried to multiply out six brackets.</p><p><strong>Full marks path for a \"term\" question:</strong> write the general term \\( {}^nC_r\\, a^{n-r} b^r \\) (M1), get the correct powers/numbers for the term asked for (DM1), then state the single value clearly (A1).</p>",
+  "question": "Why quote the general term from the formula sheet?",
+  "options": [
+   "It gives a reliable method that earns the method marks",
+   "It is banned in the exam",
+   "It only works for \\( n<4 \\)",
+   "It avoids using a calculator"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Applying the provided formula is the method the mark scheme rewards."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:tips:7ceb58f0",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — State the term clearly — do not bury it",
+  "reading": "<p>The 2023 mark scheme awarded the final A1 only if the requested term was <strong>clearly identified and not just embedded in the expansion</strong>. A candidate who correctly wrote out every term but never picked out the \\( 160 \\) could not score full marks.</p><p><strong>Habit:</strong> finish with a sentence like \"The term independent of \\( x \\) is \\( 160 \\).\"</p>",
+  "question": "You have written the full correct expansion. What must you still do?",
+  "options": [
+   "Clearly state the specific term the question asked for",
+   "Nothing — it is automatic",
+   "Round to 3 s.f.",
+   "Draw Pascal's triangle"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The A1 needs the requested term identified explicitly."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:tips:6eb4ed61",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Raise the WHOLE bracket part to the power",
+  "reading": "<p>In \\( (2+3x)^5 \\) the term is \\( {}^5C_r\\, 2^{5-r}(3x)^r \\) — the \\( (3x)^r \\) means \\( 3^r x^r \\), so the number is raised too. Forgetting \\( 3^r \\) (or the sign of a negative term) is the single most common slip on these questions.</p>",
+  "question": "In \\( (2+3x)^5 \\), what is \\( (3x)^2 \\)?",
+  "options": [
+   "\\( 9x^2 \\)",
+   "\\( 3x^2 \\)",
+   "\\( 6x^2 \\)",
+   "\\( 9x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (3x)^2 = 3^2 x^2 = 9x^2 \\); the coefficient is squared as well."
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:fib:6e7d6b26",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The expansion of \\( (a+b)^n \\) for a positive integer \\( n \\) has ___B1___ terms.",
+  "blankOptions": {
+   "B1": [
+    "given",
+    "4",
+    "n+1",
+    "0"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "n+1"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:fib:9a82256d",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "In the general term \\( {}^nC_r\\, a^{n-r} b^r \\), the power of \\( a \\) is ___B1___ and the power of \\( b \\) is ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "n-r",
+    "Pascal's",
+    "3",
+    "n"
+   ],
+   "B2": [
+    "3",
+    "2n",
+    "r",
+    "Pascal's"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "n-r",
+    "B2": "r"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:fib:fcad6793",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The numbers in ___B1___ triangle give the binomial coefficients.",
+  "blankOptions": {
+   "B1": [
+    "Pascal's",
+    "provided",
+    "1",
+    "n"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "Pascal's"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:fib:8540910d",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The binomial coefficient \\( {}^nC_r \\) and the binomial series are ___B1___ on the exam formula sheet, so you need not memorise them.",
+  "blankOptions": {
+   "B1": [
+    "given",
+    "provided",
+    "1",
+    "3"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "provided"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:fib:491e09f0",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A term that is independent of \\( x \\) has \\( x \\) raised to the power ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "0",
+    "n-r",
+    "4",
+    "1"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "0"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:fib:31b543f1",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "In the expansion of \\( \\left(x + \\frac{1}{x}\\right)^8 \\) the constant term occurs when \\( r \\) equals ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "4",
+    "n-r",
+    "n+1",
+    "Pascal's"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "4"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:fib:8b8894de",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "When expanding \\( (2+3x)^5 \\) the general term \\( {}^5C_r\\, 2^{5-r}(3x)^r \\) means the \\( 3 \\) must be raised to the power ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "given",
+    "Pascal's",
+    "r",
+    "3"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "r"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:fib:cdfba092",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "In every term of \\( (a+b)^n \\) the powers of \\( a \\) and \\( b \\) add up to ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "4",
+    "given",
+    "n",
+    "provided"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "n"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:bb8453e0",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Number of terms in \\( (a+b)^n \\)”?",
+  "options": [
+   "A number triangle giving the binomial coefficients",
+   "\\( n+1 \\)",
+   "\\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\)",
+   "\\( 1080 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Number of terms in \\( (a+b)^n \\)” means: \\( n+1 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:939bcbe3",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Coefficients of \\( (a+b)^4 \\)”?",
+  "options": [
+   "\\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\)",
+   "\\( n \\)",
+   "A number triangle giving the binomial coefficients",
+   "\\( r = 4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Coefficients of \\( (a+b)^4 \\)” means: \\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:ce925ffa",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Coefficients of \\( (a+b)^5 \\)”?",
+  "options": [
+   "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)",
+   "\\( 1080 \\)",
+   "The constant term (power of \\( x \\) is \\( 0 \\))",
+   "\\( 21 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Coefficients of \\( (a+b)^5 \\)” means: \\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:439639b7",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “General term of \\( (a+b)^n \\)”?",
+  "options": [
+   "\\( n \\)",
+   "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)",
+   "\\( {}^nC_r\\, a^{n-r} b^r \\)",
+   "\\( 21 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“General term of \\( (a+b)^n \\)” means: \\( {}^nC_r\\, a^{n-r} b^r \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:cf64c8d1",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( {}^6C_2 \\)”?",
+  "options": [
+   "\\( 15 \\)",
+   "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)",
+   "\\( r = 4 \\)",
+   "A number triangle giving the binomial coefficients"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( {}^6C_2 \\)” means: \\( 15 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:77c8628c",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( {}^5C_3 \\)”?",
+  "options": [
+   "\\( 21 \\)",
+   "\\( 10 \\)",
+   "\\( 1080 \\)",
+   "\\( n \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( {}^5C_3 \\)” means: \\( 10 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:624e91cf",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( {}^7C_2 \\)”?",
+  "options": [
+   "A number triangle giving the binomial coefficients",
+   "\\( \\frac{n!}{r!\\,(n-r)!} \\), provided on the formula sheet",
+   "\\( n \\)",
+   "\\( 21 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( {}^7C_2 \\)” means: \\( 21 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:978fc061",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Term independent of \\( x \\)”?",
+  "options": [
+   "A number triangle giving the binomial coefficients",
+   "\\( n \\)",
+   "The constant term (power of \\( x \\) is \\( 0 \\))",
+   "\\( \\frac{n!}{r!\\,(n-r)!} \\), provided on the formula sheet"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Term independent of \\( x \\)” means: The constant term (power of \\( x \\) is \\( 0 \\))"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:b5e5230a",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( {}^nC_r \\)”?",
+  "options": [
+   "\\( n+1 \\)",
+   "\\( {}^nC_r\\, a^{n-r} b^r \\)",
+   "\\( \\frac{n!}{r!\\,(n-r)!} \\), provided on the formula sheet",
+   "\\( 1080 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( {}^nC_r \\)” means: \\( \\frac{n!}{r!\\,(n-r)!} \\), provided on the formula sheet"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:3c4aae7d",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Coefficient of \\( x^3 \\) in \\( (2+3x)^5 \\)”?",
+  "options": [
+   "\\( 1080 \\)",
+   "\\( n \\)",
+   "\\( 1,\\ 4,\\ 6,\\ 4,\\ 1 \\)",
+   "\\( r = 4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Coefficient of \\( x^3 \\) in \\( (2+3x)^5 \\)” means: \\( 1080 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:a5cddfd8",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Coefficient of \\( x^2 \\) in \\( (1+2x)^6 \\)”?",
+  "options": [
+   "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)",
+   "The constant term (power of \\( x \\) is \\( 0 \\))",
+   "\\( 60 \\)",
+   "\\( 1080 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Coefficient of \\( x^2 \\) in \\( (1+2x)^6 \\)” means: \\( 60 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:6caa08e5",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Constant term of \\( \\left(x+\\frac{1}{x}\\right)^8 \\) occurs at”?",
+  "options": [
+   "\\( 21 \\)",
+   "\\( r = 4 \\)",
+   "\\( n+1 \\)",
+   "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Constant term of \\( \\left(x+\\frac{1}{x}\\right)^8 \\) occurs at” means: \\( r = 4 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:7d63ff98",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Sum of the powers of \\( a \\) and \\( b \\) in each term”?",
+  "options": [
+   "\\( 60 \\)",
+   "\\( 15 \\)",
+   "\\( n \\)",
+   "\\( 1080 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Sum of the powers of \\( a \\) and \\( b \\) in each term” means: \\( n \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-2-the-binomial-expansion:match:05fa725f",
+  "pageId": "additional-maths:6-2-the-binomial-expansion",
+  "pageName": "6.2 The Binomial Expansion",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Pascal's triangle”?",
+  "options": [
+   "\\( 1080 \\)",
+   "A number triangle giving the binomial coefficients",
+   "The constant term (power of \\( x \\) is \\( 0 \\))",
+   "\\( 60 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Pascal's triangle” means: A number triangle giving the binomial coefficients"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:exam:8b2b50a9",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "2",
+  "question": "<p>Jack throws 4 ordinary six-sided dice numbered 1 to 6.</p><p>Find the probability that he throws at least one 3.</p>",
+  "hint": "Work out the probability of throwing NO 3s first, then subtract from 1 (the complement).",
+  "starter": "Give your answer as an exact fraction (or awrt 0.518).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>\n              <li><strong>B1</strong> — \\( P(0) = \\left(\\frac{5}{6}\\right)^4 = \\frac{625}{1296} \\) (\\( \\approx 0.4823 \\)) seen or implied.</li>\n              <li><strong>M1</strong> — subtract their term from 1: \\( 1 - \\left(\\frac{5}{6}\\right)^4 \\).</li>\n              <li><strong>A1</strong> — \\( \\frac{671}{1296} \\), awrt \\( 0.518 \\) (exact fraction or awrt decimal).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The three marks are for the probability of no 3s, the complement step, and the final exact/awrt value. N.B. \\( P(\\text{exactly one 3}) \\) is not required — the complement is the intended method.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The most successful responses found the probability of throwing no 3s and subtracted from 1. Many gave the wrong fraction and/or wrong powers, and few who instead added the four separate cases obtained the correct coefficients. It was pleasing to see candidates confident with an exact fraction, though some gave only a 2 s.f. decimal.</li>\n            </ul></div>",
+   "modelAnswer": "\\( P(\\text{no 3s}) = \\left(\\frac{5}{6}\\right)^4 = \\frac{625}{1296} \\). So \\( P(\\text{at least one 3}) = 1 - \\frac{625}{1296} = \\frac{671}{1296} \\approx 0.518 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:exam:311744fc",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "8 (a)",
+  "question": "<p>Calculate the probability that all students are eliminated after their first toss of the coin.</p>",
+  "caseStudy": "<p>Each of five students has a fair coin. They play a game in which each student tosses their coin and when the result of their toss is a head then that student is eliminated from the game. The game continues with the remaining students tossing their coin again. As before, any student who tosses a head is eliminated. The game continues until all the students have been eliminated or there is a single winner.</p>",
+  "hint": "All five must toss a head. Each head has probability \\( \\tfrac{1}{2} \\), and the tosses are independent.",
+  "starter": "Give your answer as an exact fraction or exact decimal.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>B1</strong> — probability and power seen or implied: \\( \\left(\\frac{1}{2}\\right)^5 \\).</li>\n              <li><strong>B1</strong> — \\( \\frac{1}{32} = 0.03125 \\) (correct fraction, or \\( 0.03125 \\) / \\( 0.0313 \\)).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Missing brackets are allowed if the correct answer is seen. All five students tossing a head are independent, so the probabilities multiply.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>This part was a source of 2 easy marks for almost all candidates.</li>\n            </ul></div>",
+   "modelAnswer": "All five toss a head: \\( \\left(\\frac{1}{2}\\right)^5 = \\frac{1}{32} = 0.03125 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:exam:2ded8d19",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "8 (b)",
+  "question": "<p>Calculate the probability that exactly two students are eliminated after their first toss and exactly two after their second toss, leaving one winner.</p>",
+  "caseStudy": "<p>Each of five students has a fair coin. They play a game in which each student tosses their coin and when the result of their toss is a head then that student is eliminated from the game. The game continues with the remaining students tossing their coin again. As before, any student who tosses a head is eliminated. The game continues until all the students have been eliminated or there is a single winner.</p>",
+  "hint": "First toss: exactly 2 heads from 5 students. Second toss: exactly 2 heads from the 3 who remain. Multiply the two stage probabilities.",
+  "starter": "Give your answer as an exact fraction or awrt decimal.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1/AO3)</h5><ul>\n              <li><strong>B1</strong> — 1st-stage term seen or implied: \\( {}^5C_2\\left(\\frac{1}{2}\\right)^2\\left(\\frac{1}{2}\\right)^3 = \\frac{5}{16} = 0.3125 \\).</li>\n              <li><strong>B1</strong> — 2nd-stage term seen or implied: \\( {}^3C_2\\left(\\frac{1}{2}\\right)^2\\left(\\frac{1}{2}\\right)^1 = \\frac{3}{8} = 0.375 \\).</li>\n              <li><strong>M1</strong> — their two probabilities multiplied together.</li>\n              <li><strong>A1</strong> — \\( \\frac{15}{128} = 0.117\\dots \\)</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Each stage-probability term must be less than 1. After 2 of the 5 are eliminated, 3 students remain, so the second stage chooses 2 heads from 3.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The two separate probabilities were often found, but a significant number of candidates added them rather than multiplying them.</li>\n            </ul></div>",
+   "modelAnswer": "First toss — 2 heads from 5: \\( {}^5C_2\\left(\\frac{1}{2}\\right)^5 = \\frac{10}{32} = \\frac{5}{16} \\). Then 3 remain; second toss — 2 heads from 3: \\( {}^3C_2\\left(\\frac{1}{2}\\right)^3 = \\frac{3}{8} \\). Multiply: \\( \\frac{5}{16} \\times \\frac{3}{8} = \\frac{15}{128} \\approx 0.117 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:mcq:ba9c915f",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A random variable is written \\( X \\sim B(12,\\ 0.3) \\). What is \\( n \\)?",
+  "options": [
+   "\\( 12 \\)",
+   "\\( 0.3 \\)",
+   "\\( 0.7 \\)",
+   "\\( 3.6 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "In \\( B(n,p) \\) the first entry is the number of trials, so \\( n = 12 \\) and \\( p = 0.3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:mcq:fc9a740c",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( X \\sim B(n,p) \\), the probability of failure on a single trial is:",
+  "options": [
+   "\\( 1 - p \\)",
+   "\\( p \\)",
+   "\\( 1 - n \\)",
+   "\\( np \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Each trial is success (prob \\( p \\)) or failure, so failure has probability \\( 1 - p \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:mcq:e7abe35d",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which situation can be modelled by a binomial distribution?",
+  "options": [
+   "Tossing a fair coin 20 times and counting heads",
+   "Drawing 5 cards without replacement and counting aces",
+   "Timing how long until a bus arrives",
+   "Selecting 4 pupils from a class without replacement and counting girls"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Coin tosses have a fixed \\( n \\), two outcomes, constant \\( p = 0.5 \\) and are independent. The others break the constant-\\( p \\)/independence conditions or have no fixed \\( n \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:mcq:3339a8fc",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( X \\sim B(10,\\ 0.2) \\), which expression gives \\( P(X = 3) \\)?",
+  "options": [
+   "\\( {}^{10}C_3\\,(0.2)^3 (0.8)^7 \\)",
+   "\\( {}^{10}C_3\\,(0.2)^7 (0.8)^3 \\)",
+   "\\( (0.2)^3 (0.8)^7 \\)",
+   "\\( {}^{10}C_3\\,(0.2)^3 (0.8)^{10} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Power of \\( p \\) is \\( x = 3 \\); power of \\( 1-p \\) is \\( n - x = 7 \\); and the \\( {}^{10}C_3 \\) coefficient is required."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:mcq:2ebd4855",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student computes \\( P(X = 2) = (0.4)^2 (0.6)^3 \\) for \\( X \\sim B(5,\\ 0.4) \\). What have they done wrong?",
+  "options": [
+   "They omitted the coefficient \\( {}^5C_2 \\)",
+   "They used the wrong value of \\( p \\)",
+   "Nothing — it is correct",
+   "They should use \\( (0.6)^2 (0.4)^3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The powers are right, but every binomial term needs the number-of-ways coefficient \\( {}^5C_2 = 10 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:mcq:f337e410",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( X \\sim B(6,\\ 0.5) \\), a student writes \\( P(X = 2) = {}^6C_2\\,(0.5)^4 (0.5)^2 \\). What is the error?",
+  "options": [
+   "The powers of \\( p \\) and \\( 1-p \\) are swapped (should be \\( (0.5)^2 (0.5)^4 \\))",
+   "\\( {}^6C_2 \\) is wrong",
+   "\\( p \\) should be \\( 0.6 \\)",
+   "There is no error"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The power of \\( p \\) must be the number of successes \\( x = 2 \\), and the power of \\( 1-p \\) the number of failures \\( n - x = 4 \\) — here they are the wrong way round (though with \\( p = 0.5 \\) the value happens to match, the method is wrong and would fail for other \\( p \\))."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:mcq:9c98cc8c",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The probability of getting NO successes in \\( X \\sim B(n,p) \\) is:",
+  "options": [
+   "\\( (1-p)^n \\)",
+   "\\( p^n \\)",
+   "\\( 1 - p^n \\)",
+   "\\( n(1-p) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( P(X=0) = {}^nC_0\\, p^0 (1-p)^n = (1-p)^n \\), since \\( {}^nC_0 = 1 \\) and \\( p^0 = 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:mcq:b73ac8a6",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A fair coin is tossed 5 times. \\( P(\\text{at least one head}) = \\)",
+  "options": [
+   "\\( 1 - (0.5)^5 \\)",
+   "\\( (0.5)^5 \\)",
+   "\\( 5 \\times 0.5 \\)",
+   "\\( 1 - 5(0.5)^5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'At least one head' is the complement of 'no heads': \\( 1 - P(X=0) = 1 - (0.5)^5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:mcq:c03a37b0",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A die is thrown 4 times. Which gives \\( P(\\text{at least one 3}) \\)?",
+  "options": [
+   "\\( 1 - (5/6)^4 \\)",
+   "\\( (1/6)^4 \\)",
+   "\\( 4 \\times (1/6) \\)",
+   "\\( 1 - (1/6)^4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( P(\\text{no 3s}) = (5/6)^4 \\), so \\( P(\\text{at least one 3}) = 1 - (5/6)^4 = 671/1296 \\approx 0.518 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:mcq:fa3f8095",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For a binomial \\( X \\), \\( P(X \\ge 2) \\) is best found as:",
+  "options": [
+   "\\( 1 - P(0) - P(1) \\)",
+   "\\( 1 - P(0) \\)",
+   "\\( 1 - P(2) \\)",
+   "\\( P(0) + P(1) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'At least two' leaves out only 0 and 1 successes, so subtract both: \\( P(X \\ge 2) = 1 - P(0) - P(1) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:mcq:35453b5f",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "\\( X \\sim B(8,\\ 0.25) \\). Which is \\( P(X \\le 1) \\)?",
+  "options": [
+   "\\( P(0) + P(1) \\)",
+   "\\( P(1) \\) only",
+   "\\( 1 - P(1) \\)",
+   "\\( P(1) + P(2) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'One or fewer' means 0 or 1 success, so \\( P(X \\le 1) = P(0) + P(1) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:mcq:fb8f02c3",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "'A machine produces items; each is faulty with probability 0.05, independently. In a box of 20, count the faulty items.' Why is this binomial?",
+  "options": [
+   "Fixed n = 20, two outcomes, constant p, independent trials",
+   "Because faults are rare",
+   "Because 20 is a large number",
+   "Because the probability is less than 0.5"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "All four conditions hold: a fixed number of trials (20), each item faulty/not faulty, the same \\( p = 0.05 \\) each time, and the items are independent — so \\( X \\sim B(20,\\ 0.05) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:tf:9421c645",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For \\( X \\sim B(n,p) \\), the probability of exactly \\( x \\) successes is \\( {}^nC_x\\, p^x (1-p)^{n-x} \\).",
+  "key": {
+   "answer": true,
+   "explain": "This is the binomial probability formula, provided on the exam sheet."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:tf:e623f968",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A binomial model requires the trials to be independent.",
+  "key": {
+   "answer": true,
+   "explain": "Independence is one of the four conditions, along with a fixed \\( n \\), two outcomes, and constant \\( p \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:tf:de1820b3",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Drawing 3 balls from a bag without replacement and counting reds is a binomial situation.",
+  "key": {
+   "answer": false,
+   "explain": "Removing a ball changes the proportion of reds, so \\( p \\) is not constant — it is not binomial."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:tf:af074b99",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The binomial probability formula must be memorised for the 6993 exam.",
+  "key": {
+   "answer": false,
+   "explain": "It is printed on the formula sheet, together with \\( {}^nC_r \\); the skill tested is using it correctly."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:tf:2d8cae14",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( P(X = 0) = (1-p)^n \\) for \\( X \\sim B(n,p) \\).",
+  "key": {
+   "answer": true,
+   "explain": "\\( {}^nC_0 = 1 \\) and \\( p^0 = 1 \\), so \\( P(X=0) = (1-p)^n \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:tf:5ad84980",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( P(\\text{at least one success}) = 1 - P(X = 0) \\).",
+  "key": {
+   "answer": true,
+   "explain": "The only case left out of 'at least one' is 'none', so subtract \\( P(X=0) \\) from 1."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:tf:dc70d848",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For 'at least two successes' you should calculate \\( 1 - P(X = 0) \\).",
+  "key": {
+   "answer": false,
+   "explain": "'At least two' leaves out 0 AND 1, so you need \\( 1 - P(0) - P(1) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:tf:0eeeead6",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\) the two powers \\( x \\) and \\( n-x \\) always add up to \\( n \\).",
+  "key": {
+   "answer": true,
+   "explain": "\\( x + (n - x) = n \\) — a useful check that you have not swapped successes and failures."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:learn:feda389e",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "When can you model a situation with a binomial distribution?",
+  "reading": "<p>A <strong>binomial distribution</strong> counts how many <strong>successes</strong> happen in a fixed number of repeated attempts. It applies only when <strong>all four</strong> of these conditions hold:</p>\n            <ul>\n              <li>There is a <strong>fixed number of trials</strong>, \\( n \\) (e.g. exactly 4 dice thrown, 5 coins tossed).</li>\n              <li>Each trial has just <strong>two outcomes</strong> — call them <em>success</em> and <em>failure</em> (throwing a 3 / not a 3).</li>\n              <li>The probability of success \\( p \\) is <strong>constant</strong> — the same on every trial.</li>\n              <li>The trials are <strong>independent</strong> — one outcome does not affect any other.</li>\n            </ul>\n            <p>Decide what counts as a \"success\" first, and read off \\( p \\) for that success. If any condition fails — for example drawing cards <em>without replacement</em> changes \\( p \\) as you go — the situation is <strong>not</strong> binomial.</p>",
+  "question": "Which of these is NOT a binomial situation?",
+  "options": [
+   "Drawing 3 cards from a pack without replacement and counting kings",
+   "Throwing 6 dice and counting the sixes",
+   "Tossing a coin 10 times and counting heads",
+   "Spinning a fair spinner 5 times and counting reds"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Without replacement the probability of a king changes after each draw, so \\( p \\) is not constant — the trials are not independent, so it is not binomial."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:learn:ec2e6dae",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What does the notation X ~ B(n, p) mean?",
+  "reading": "<p>We write \\[ X \\sim B(n,\\ p) \\] to say \"the random variable \\( X \\) follows a <strong>binomial distribution</strong> with \\( n \\) trials and probability of success \\( p \\)\". Here \\( X \\) is the <strong>number of successes</strong>, which can be \\( 0, 1, 2, \\dots, n \\).</p>\n            <ul>\n              <li>\\( n \\) = the number of trials; \\( p \\) = the probability of success on one trial.</li>\n              <li>The probability of <strong>failure</strong> on one trial is \\( 1 - p \\).</li>\n              <li>The probability of getting exactly \\( x \\) successes is given by the formula \\[ P(X = x) = {}^nC_x\\, p^x (1-p)^{n-x}. \\]</li>\n            </ul>\n            <p>This formula is <strong>provided on the exam formula sheet</strong> (together with \\( {}^nC_r \\)), so you do not need to memorise it — but you must know how to <em>use</em> it and how to read \\( n \\), \\( x \\) and \\( p \\) from a worded problem.</p>",
+  "question": "A drawing pin lands 'point up' with probability 0.4. It is dropped 8 times. How is the number of 'point up' results distributed?",
+  "options": [
+   "\\( X \\sim B(8,\\ 0.4) \\)",
+   "\\( X \\sim B(0.4,\\ 8) \\)",
+   "\\( X \\sim B(8,\\ 0.6) \\)",
+   "\\( X \\sim B(3.2,\\ 8) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "There are \\( n = 8 \\) trials and the success ('point up') probability is \\( p = 0.4 \\), so \\( X \\sim B(8,\\ 0.4) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:learn:778882f3",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you calculate P(X = x)?",
+  "reading": "<p>Substitute \\( n \\), \\( x \\) and \\( p \\) into \\( P(X = x) = {}^nC_x\\, p^x (1-p)^{n-x} \\). The power of \\( p \\) is the number of successes \\( x \\); the power of \\( (1-p) \\) is the number of failures \\( n - x \\).</p>\n            <p><strong>Worked example — \\( X \\sim B(10,\\ 0.2) \\), find \\( P(X = 3) \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Here \\( n = 10 \\), \\( x = 3 \\), \\( p = 0.2 \\), so \\( 1 - p = 0.8 \\).</td></tr>\n              <tr><td>2. \\( {}^{10}C_3 = 120 \\).</td></tr>\n              <tr><td>3. \\( p^x = 0.2^3 = 0.008 \\) and \\( (1-p)^{n-x} = 0.8^{7} = 0.2097152 \\).</td></tr>\n              <tr><td>4. \\( P(X = 3) = 120 \\times 0.008 \\times 0.2097152 = 0.2013\\dots \\)</td></tr>\n            </table>\n            <p>So \\( P(X = 3) \\approx 0.201 \\). Notice the two powers \\( 3 \\) and \\( 7 \\) add to \\( n = 10 \\) — a quick check you have not mixed up \\( x \\) and \\( n - x \\).</p>",
+  "question": "For \\( X \\sim B(6,\\ 0.5) \\), which expression gives \\( P(X = 2) \\)?",
+  "options": [
+   "\\( {}^6C_2\\, (0.5)^2 (0.5)^4 \\)",
+   "\\( {}^6C_2\\, (0.5)^4 (0.5)^2 \\)",
+   "\\( {}^6C_2\\, (0.5)^2 (0.5)^6 \\)",
+   "\\( (0.5)^2 (0.5)^4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The power of \\( p \\) is the number of successes \\( x = 2 \\); the power of \\( 1-p \\) is \\( n - x = 4 \\); and you must include \\( {}^6C_2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:learn:b534f9bc",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find P(X ≤ x) — 'at most' probabilities?",
+  "reading": "<p>\\( P(X \\le x) \\) means \"\\( x \\) or fewer successes\", so you <strong>add</strong> the separate probabilities: \\[ P(X \\le x) = P(0) + P(1) + \\dots + P(x). \\] Compute each term with the formula and total them.</p>\n            <p><strong>Worked example — \\( X \\sim B(6,\\ 0.25) \\), find \\( P(X \\le 1) \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( P(0) = {}^6C_0\\,(0.25)^0 (0.75)^6 = 0.75^6 = 0.1780 \\).</td></tr>\n              <tr><td>2. \\( P(1) = {}^6C_1\\,(0.25)^1 (0.75)^5 = 6 \\times 0.25 \\times 0.2373 = 0.3560 \\).</td></tr>\n              <tr><td>3. \\( P(X \\le 1) = 0.1780 + 0.3560 = 0.5339\\dots \\)</td></tr>\n            </table>\n            <p>So \\( P(X \\le 1) \\approx 0.534 \\). Watch the wording: \"<strong>fewer than</strong> 2\" means \\( P(X \\le 1) \\), but \"<strong>at most</strong> 2\" means \\( P(X \\le 2) \\) — always decide which values of \\( X \\) are included before you add.</p>",
+  "question": "For a binomial \\( X \\), what does \\( P(X \\le 2) \\) equal?",
+  "options": [
+   "\\( P(0) + P(1) + P(2) \\)",
+   "\\( P(2) \\) only",
+   "\\( 1 - P(2) \\)",
+   "\\( P(1) + P(2) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'At most 2' includes 0, 1 and 2 successes, so add all three probabilities."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:learn:da4f7890",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you answer 'at least one' questions?",
+  "reading": "<p>\"At least one success\" covers \\( X = 1, 2, 3, \\dots, n \\) — a lot of cases. The efficient route is the <strong>complement</strong>: the only outcome left out is \"no successes\", so \\[ P(X \\ge 1) = 1 - P(X = 0). \\] Because \\( {}^nC_0 = 1 \\) and \\( p^0 = 1 \\), this is simply \\( 1 - (1-p)^n \\).</p>\n            <p><strong>Worked example — a spinner lands on red with \\( p = 0.3 \\); it is spun 5 times. Find P(at least one red):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( P(\\text{no reds}) = P(X = 0) = (0.7)^5 = 0.16807 \\).</td></tr>\n              <tr><td>2. \\( P(\\text{at least one red}) = 1 - 0.16807 = 0.83193 \\).</td></tr>\n            </table>\n            <p>So \\( P(X \\ge 1) \\approx 0.832 \\). For \"<strong>at least two</strong>\" you must subtract more: \\( P(X \\ge 2) = 1 - P(0) - P(1) \\). The commonest exam error is using the wrong complement — check exactly which cases you are leaving out.</p>",
+  "question": "A fair die is thrown 3 times. Which gives P(at least one six)?",
+  "options": [
+   "\\( 1 - (5/6)^3 \\)",
+   "\\( (1/6)^3 \\)",
+   "\\( 1 - (1/6)^3 \\)",
+   "\\( 3 \\times (1/6) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'At least one six' is the complement of 'no sixes'. \\( P(\\text{no sixes}) = (5/6)^3 \\), so \\( P(X \\ge 1) = 1 - (5/6)^3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:learn:70d40be5",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Which formulae are provided, and when is a model NOT binomial?",
+  "reading": "<p><strong>Provided on the exam formula sheet</strong> (do not memorise): the combinations \\( {}^nC_r = \\frac{n!}{r!(n-r)!} \\) and the binomial distribution \\( P(X = x) = {}^nC_x\\, p^x (1-p)^{n-x} \\) for \\( X \\sim B(n,p) \\).</p>\n            <p>The skill the exam tests is <strong>recognising</strong> when the model is valid. Ask the four questions from card 1 — a situation is <strong>not</strong> binomial when:</p>\n            <ul>\n              <li>The probability changes trial to trial (e.g. selecting people or cards <strong>without replacement</strong>) — \\( p \\) is not constant.</li>\n              <li>The trials affect each other — they are not <strong>independent</strong>.</li>\n              <li>There is no fixed \\( n \\) (\"keep going until a six appears\"), or there are more than two outcomes you are not collapsing into success/failure.</li>\n            </ul>\n            <p>Even when the word \"binomial\" never appears, phrases like \"<em>at least</em>\", \"<em>exactly two</em>\" or a repeated fixed experiment are the signal to reach for \\( X \\sim B(n,p) \\).</p>",
+  "question": "Why is 'count the reds when 4 balls are drawn from a bag without replacement' NOT binomial?",
+  "options": [
+   "The probability of red changes after each draw, so p is not constant",
+   "There is no fixed number of trials",
+   "There are more than two colours possible",
+   "The trials are all identical"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Removing a ball changes the proportion of reds, so \\( p \\) varies from draw to draw — the trials are not independent and the model is not binomial."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:misc:88b9c004",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For 'at least one 3' with 4 dice, working out \\( (1/6)^4 \\) or \\( 4 \\times (1/6) \\)</p><p><strong>✅ The correct idea:</strong> 'At least one' is the complement of 'none'. A weak answer guesses a single power; a strong answer writes \\( 1 - P(X=0) = 1 - (5/6)^4 = 671/1296 \\approx 0.518 \\).</p>",
+  "question": "P(at least one 3) with 4 dice is:",
+  "options": [
+   "\\( 1 - (5/6)^4 \\)",
+   "\\( (1/6)^4 \\)",
+   "\\( 4 \\times (1/6) \\)",
+   "\\( (5/6)^4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Subtract P(no 3s) \\( = (5/6)^4 \\) from 1."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:misc:10127165",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Using a binomial model for 'draw 4 cards without replacement, count the kings'</p><p><strong>✅ The correct idea:</strong> Without replacement \\( p \\) changes after each draw, so the trials are not independent. A weak answer applies \\( {}^4C_x p^x (1-p)^{n-x} \\) anyway; a strong answer states it is not binomial and uses probabilities that change each draw.</p>",
+  "question": "Why can this not be modelled by \\( B(n,p) \\)?",
+  "options": [
+   "\\( p \\) is not constant (no replacement)",
+   "There is no fixed number of draws",
+   "There are only two outcomes",
+   "The draws are independent"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Removing cards changes the probability of a king, breaking the constant-\\( p \\)/independence condition."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:misc:c76a2a2d",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Writing \\( P(X=2) = p^2 (1-p)^{n-2} \\) with no coefficient</p><p><strong>✅ The correct idea:</strong> Every binomial term needs the number-of-ways coefficient. A weak answer omits \\( {}^nC_2 \\); a strong answer includes it: \\( P(X=2) = {}^nC_2\\, p^2 (1-p)^{n-2} \\).</p>",
+  "question": "What is missing from \\( p^2 (1-p)^{n-2} \\)?",
+  "options": [
+   "The coefficient \\( {}^nC_2 \\)",
+   "Nothing",
+   "The power of \\( p \\)",
+   "The value of \\( n \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "You must multiply by \\( {}^nC_2 \\), the number of ways of choosing which 2 trials succeed."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:misc:86550dde",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For \\( X \\sim B(5,\\ 0.4) \\), writing \\( P(X=2) = {}^5C_2\\,(0.4)^3 (0.6)^2 \\)</p><p><strong>✅ The correct idea:</strong> The power of \\( p \\) must be the number of successes and the power of \\( 1-p \\) the number of failures. A weak answer swaps them; a strong answer writes \\( {}^5C_2\\,(0.4)^2 (0.6)^3 \\).</p>",
+  "question": "Correct term for \\( P(X=2) \\), \\( X \\sim B(5,0.4) \\)?",
+  "options": [
+   "\\( {}^5C_2\\,(0.4)^2 (0.6)^3 \\)",
+   "\\( {}^5C_2\\,(0.4)^3 (0.6)^2 \\)",
+   "\\( (0.4)^2 (0.6)^3 \\)",
+   "\\( {}^5C_2\\,(0.6)^2 (0.4)^3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Power of \\( p \\) = successes = 2; power of \\( 1-p \\) = failures = 3."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:misc:6684b75b",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Giving an 'exact' probability answer only as a rounded decimal like 0.52</p><p><strong>✅ The correct idea:</strong> When exact form is asked for, keep the fraction. A weak answer rounds too early; a strong answer gives \\( 671/1296 \\) (and may add \\( \\approx 0.518 \\) as a check).</p>",
+  "question": "Which is the exact form of P(at least one 3) with 4 dice?",
+  "options": [
+   "\\( 671/1296 \\)",
+   "\\( 0.52 \\)",
+   "\\( 0.5 \\)",
+   "about \\( 0.518 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 1 - 625/1296 = 671/1296 \\) is exact; the decimal is a rounded approximation."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:tips:1c91ffcb",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Spot the 'at least' complement",
+  "reading": "<p><strong>Partial:</strong> a candidate lists \\( P(1) + P(2) + P(3) + P(4) \\) for 'at least one' and slips on a coefficient — long and error-prone.</p><p><strong>Full marks:</strong> use the complement \\( P(X \\ge 1) = 1 - P(X = 0) = 1 - (5/6)^4 = 671/1296 \\approx 0.518 \\). For 'at least two' subtract two terms: \\( 1 - P(0) - P(1) \\).</p>",
+  "question": "Fastest route for 'at least one success'?",
+  "options": [
+   "\\( 1 - P(X = 0) \\)",
+   "Add every case from 1 to n",
+   "\\( P(X = 1) \\) only",
+   "\\( 1 - P(X = 1) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The complement of 'at least one' is 'none', so subtract \\( P(X=0) \\) from 1."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:tips:0a1271b5",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Match the powers to successes and failures",
+  "reading": "<p><strong>0 marks method:</strong> \\( (0.4)^3 (0.6)^2 \\) with no coefficient, or the powers swapped.</p><p><strong>Full marks:</strong> for \\( X \\sim B(5,\\ 0.4) \\), \\( P(X=2) = {}^5C_2\\,(0.4)^2 (0.6)^3 \\) — power of \\( p \\) = successes, power of \\( 1-p \\) = failures, and the \\( {}^5C_2 \\) coefficient. Check the powers add to \\( n \\).</p>",
+  "question": "In \\( {}^nC_x\\, p^x (1-p)^{n-x} \\), the power of \\( 1-p \\) is:",
+  "options": [
+   "The number of failures \\( n - x \\)",
+   "The number of successes \\( x \\)",
+   "Always \\( n \\)",
+   "Always 1"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (1-p) \\) is failure, raised to the number of failures \\( n - x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:tips:8e8bba18",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Give probabilities exactly when asked",
+  "reading": "<p><strong>Loses the mark:</strong> writing only \\( 0.52 \\) for an 'exact' probability.</p><p><strong>Full marks:</strong> leave it as a fraction, e.g. \\( 671/1296 \\), and if you also want a decimal give it to enough figures (awrt 0.518). Never round intermediate probabilities before combining them.</p>",
+  "question": "An 'exact' probability answer should be:",
+  "options": [
+   "A fraction (optionally with a decimal check)",
+   "A 2 d.p. decimal",
+   "A percentage to the nearest whole number",
+   "Any rounded value"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Exact' means the fraction is kept; a decimal alone can lose the mark."
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:fib:55f6d88a",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A binomial distribution is written \\( X \\sim B(n,\\ p) \\), where \\( n \\) is the number of ___B1___ and \\( p \\) is the probability of ___B2___ on each one.",
+  "blankOptions": {
+   "B1": [
+    "625/1296",
+    "dependent",
+    "trials",
+    "successes"
+   ],
+   "B2": [
+    "625/1296",
+    "success",
+    "complement",
+    "provided"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "trials",
+    "B2": "success"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:fib:09b7d7ab",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "For a binomial model the trials must be ___B1___ of each other and the probability \\( p \\) must stay ___B2___ throughout.",
+  "blankOptions": {
+   "B1": [
+    "n-x",
+    "success",
+    "1/6",
+    "independent"
+   ],
+   "B2": [
+    "constant",
+    "complement",
+    "1/6",
+    "n-x"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "independent",
+    "B2": "constant"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:fib:89c2a827",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The formula \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\) is ___B1___ on the exam formula sheet, so you do not have to memorise it.",
+  "blankOptions": {
+   "B1": [
+    "provided",
+    "complement",
+    "0.5",
+    "x"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "provided"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:fib:3777e59a",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "In \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\), the power of \\( p \\) is the number of successes \\( x \\), and the power of \\( (1-p) \\) is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "trials",
+    "n-x",
+    "provided",
+    "constant"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "n-x"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:fib:b45c5d96",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "To find the probability of at least one success you use \\( 1 - P(X=0) \\); this is called using the ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "complement",
+    "1/6",
+    "x",
+    "trials"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "complement"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:fib:c5e4040b",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "For four dice, \\( P(\\text{at least one 3}) = 1 - (5/6)^4 \\), which as an exact fraction is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "successes",
+    "1/6",
+    "n-x",
+    "671/1296"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "671/1296"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:fib:cd244198",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "For a fair coin the probability of a head on a single toss is \\( p \\) = ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "0.5",
+    "provided",
+    "independent",
+    "671/1296"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "0.5"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:fib:afcccaed",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Selecting items without replacement is not binomial because the trials are not ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "independent",
+    "successes",
+    "memorised",
+    "success"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "independent"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:2669c41f",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( X \\sim B(n,\\ p) \\)”?",
+  "options": [
+   "\\( (1-p)^n \\)",
+   "The probability of failure on one trial",
+   "\\( P(0) + P(1) + P(2) \\)",
+   "\\( X \\) is binomial: \\( n \\) trials, success probability \\( p \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( X \\sim B(n,\\ p) \\)” means: \\( X \\) is binomial: \\( n \\) trials, success probability \\( p \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:0d929c1b",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( n \\) in \\( B(n,p) \\)”?",
+  "options": [
+   "Not binomial — \\( p \\) is not constant",
+   "The number of trials",
+   "The probability of failure on one trial",
+   "P(at least one 3) with 4 dice"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( n \\) in \\( B(n,p) \\)” means: The number of trials"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:04325b5a",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( p \\) in \\( B(n,p) \\)”?",
+  "options": [
+   "The number of ways to choose \\( x \\) successes from \\( n \\) trials",
+   "The probability of success on one trial",
+   "\\( (1-p)^n \\)",
+   "\\( 1 - P(X = 0) \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( p \\) in \\( B(n,p) \\)” means: The probability of success on one trial"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:474f780a",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 1 - p \\)”?",
+  "options": [
+   "Not binomial — \\( p \\) is not constant",
+   "The probability of success on one trial",
+   "The probability of failure on one trial",
+   "\\( 1 - P(X = 0) \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( 1 - p \\)” means: The probability of failure on one trial"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:354a24a9",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( P(X = x) = {}^nC_x\\, p^x (1-p)^{n-x} \\)”?",
+  "options": [
+   "\\( 1 - P(X = 0) \\)",
+   "The binomial probability formula (provided on the sheet)",
+   "P(no 3s) when 4 dice are thrown",
+   "The probability of success on one trial"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( P(X = x) = {}^nC_x\\, p^x (1-p)^{n-x} \\)” means: The binomial probability formula (provided on the sheet)"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:7bc81c7c",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( P(X = 0) \\)”?",
+  "options": [
+   "\\( (1-p)^n \\)",
+   "\\( P(0) + P(1) + P(2) \\)",
+   "\\( 1 - P(X = 0) \\)",
+   "\\( X \\) is binomial: \\( n \\) trials, success probability \\( p \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( P(X = 0) \\)” means: \\( (1-p)^n \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:590d1e41",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( P(X \\ge 1) \\)”?",
+  "options": [
+   "P(no 3s) when 4 dice are thrown",
+   "\\( 1 - P(X = 0) \\)",
+   "\\( P(0) + P(1) + P(2) \\)",
+   "Two conditions a binomial model needs"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( P(X \\ge 1) \\)” means: \\( 1 - P(X = 0) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:46eb020f",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( P(X \\le 2) \\)”?",
+  "options": [
+   "\\( (1-p)^n \\)",
+   "The number of ways to choose \\( x \\) successes from \\( n \\) trials",
+   "\\( P(0) + P(1) + P(2) \\)",
+   "Not binomial — \\( p \\) is not constant"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( P(X \\le 2) \\)” means: \\( P(0) + P(1) + P(2) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:6af9d733",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( {}^nC_x \\)”?",
+  "options": [
+   "The number of trials",
+   "\\( X \\) is binomial: \\( n \\) trials, success probability \\( p \\)",
+   "Two conditions a binomial model needs",
+   "The number of ways to choose \\( x \\) successes from \\( n \\) trials"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( {}^nC_x \\)” means: The number of ways to choose \\( x \\) successes from \\( n \\) trials"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:6bb0058c",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Constant \\( p \\) and independent trials”?",
+  "options": [
+   "\\( X \\) is binomial: \\( n \\) trials, success probability \\( p \\)",
+   "The number of trials",
+   "The number of ways to choose \\( x \\) successes from \\( n \\) trials",
+   "Two conditions a binomial model needs"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Constant \\( p \\) and independent trials” means: Two conditions a binomial model needs"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:d8290f36",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Drawing cards without replacement”?",
+  "options": [
+   "P(at least one 3) with 4 dice",
+   "\\( (1-p)^n \\)",
+   "Not binomial — \\( p \\) is not constant",
+   "The number of trials"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Drawing cards without replacement” means: Not binomial — \\( p \\) is not constant"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:84ae95f8",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( (5/6)^4 \\)”?",
+  "options": [
+   "P(no 3s) when 4 dice are thrown",
+   "The number of trials",
+   "\\( (1-p)^n \\)",
+   "The probability of failure on one trial"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( (5/6)^4 \\)” means: P(no 3s) when 4 dice are thrown"
+  }
+ },
+ {
+  "id": "additional-maths:6-3-the-binomial-distribution:match:190699e6",
+  "pageId": "additional-maths:6-3-the-binomial-distribution",
+  "pageName": "6.3 The Binomial Distribution",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 1 - (5/6)^4 \\)”?",
+  "options": [
+   "P(at least one 3) with 4 dice",
+   "The probability of failure on one trial",
+   "\\( X \\) is binomial: \\( n \\) trials, success probability \\( p \\)",
+   "The binomial probability formula (provided on the sheet)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( 1 - (5/6)^4 \\)” means: P(at least one 3) with 4 dice"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:exam:00b681fb",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "4 (a)",
+  "question": "<p>Draw a Venn diagram to illustrate this information.</p>",
+  "caseStudy": "<p>A group of 68 students was asked about their preference for pop music or classical music.</p>\n          <ul>\n            <li>10 said they did not like either pop music or classical music.</li>\n            <li>20 said they liked classical music.</li>\n            <li>50 said they liked pop music.</li>\n          </ul>",
+  "hint": "Draw the rectangle for all 68 students first, then two overlapping circles; the 10 who like neither go outside both circles.",
+  "starter": "Draw a labelled Venn diagram (rectangle + two overlapping rings, 10 outside).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>B1</strong> — understanding of a Venn diagram with two rings (not necessarily overlapping, and one could be inside the other) inside a universal set represented by a rectangle.</li>\n              <li><strong>B1</strong> — labelled rings overlapping with 10 given outside both (ignore other numbers).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>First mark: the correct structure — two rings inside a rectangle. Second mark: rings labelled and the 10 placed outside both, inside the rectangle.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Many drew two overlapping rings correctly but omitted the rectangle for the universal set — the answer space is not the rectangle. A third, separate but overlapping, circle was sometimes drawn for the 'neither' category, which is incorrect.</li>\n            </ul></div>",
+   "modelAnswer": "Rectangle (all 68) with two overlapping rings labelled Pop and Classical; write 50 − x in Pop only, x in the overlap, 20 − x in Classical only, and 10 outside both rings. <svg viewBox=\"0 0 300 200\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Venn diagram with rings Pop and Classical, 50 minus x in pop only, x in the overlap, 20 minus x in classical only, and 10 outside both\"><rect x=\"6\" y=\"6\" width=\"288\" height=\"188\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><circle cx=\"118\" cy=\"100\" r=\"70\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><circle cx=\"182\" cy=\"100\" r=\"70\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"64\" y=\"26\" fill=\"currentColor\" font-size=\"13\" font-weight=\"600\">Pop</text><text x=\"192\" y=\"26\" fill=\"currentColor\" font-size=\"13\" font-weight=\"600\">Classical</text><text x=\"78\" y=\"106\" fill=\"currentColor\" font-size=\"13\" text-anchor=\"middle\">50−x</text><text x=\"150\" y=\"106\" fill=\"currentColor\" font-size=\"15\" text-anchor=\"middle\">x</text><text x=\"216\" y=\"106\" fill=\"currentColor\" font-size=\"13\" text-anchor=\"middle\">20−x</text><text x=\"272\" y=\"186\" fill=\"currentColor\" font-size=\"14\" text-anchor=\"middle\">10</text><text x=\"20\" y=\"24\" fill=\"currentColor\" font-size=\"12\">ξ = 68</text></svg>"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:exam:5440bf9e",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "4 (b)",
+  "question": "<p>Determine the number of students who said they liked both pop music and classical music.</p>",
+  "caseStudy": "<p>A group of 68 students was asked about their preference for pop music or classical music.</p>\n          <ul>\n            <li>10 said they did not like either pop music or classical music.</li>\n            <li>20 said they liked classical music.</li>\n            <li>50 said they liked pop music.</li>\n          </ul>",
+  "hint": "The three regions inside the circles must total 68 − 10 = 58; use 50 + 20 − both = 58 (or add all four regions to 68).",
+  "starter": "Show your method, then state the number who liked both.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — adding 4 sets to make 68 (soi), or 3 sets to make 58.</li>\n              <li><strong>A1</strong> — giving 12 in the overlap. (Allow 2 marks for 12 clearly seen in the diagram for 4(a).)</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The method mark is for setting up the correct total equation; the accuracy mark is for reaching 12.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Well answered overall, but some scored 1 mark only — they added four sets to make 68 (or three to make 58) but did not reach 12 as the final answer.</li>\n            </ul></div>",
+   "modelAnswer": "Let x be the number who liked both. Those who liked at least one = 68 − 10 = 58. Then (50 − x) + x + (20 − x) = 58, so 70 − x = 58, giving x = 12. So 12 students liked both. <svg viewBox=\"0 0 300 200\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Completed Venn diagram: 38 pop only, 12 both, 8 classical only, 10 outside both\"><rect x=\"6\" y=\"6\" width=\"288\" height=\"188\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><circle cx=\"118\" cy=\"100\" r=\"70\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><circle cx=\"182\" cy=\"100\" r=\"70\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"64\" y=\"26\" fill=\"currentColor\" font-size=\"13\" font-weight=\"600\">Pop</text><text x=\"192\" y=\"26\" fill=\"currentColor\" font-size=\"13\" font-weight=\"600\">Classical</text><text x=\"82\" y=\"106\" fill=\"currentColor\" font-size=\"16\" text-anchor=\"middle\">38</text><text x=\"150\" y=\"106\" fill=\"currentColor\" font-size=\"16\" text-anchor=\"middle\">12</text><text x=\"216\" y=\"106\" fill=\"currentColor\" font-size=\"16\" text-anchor=\"middle\">8</text><text x=\"272\" y=\"186\" fill=\"currentColor\" font-size=\"14\" text-anchor=\"middle\">10</text><text x=\"20\" y=\"24\" fill=\"currentColor\" font-size=\"12\">ξ = 68</text></svg>"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:exam:3fb06fa7",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "6 (a)",
+  "question": "<p>Draw a tree diagram to illustrate the probabilities of Layla having to stop at each set of lights on a particular journey to work.</p>",
+  "caseStudy": "<p>Layla drives to work along a road which has three sets of traffic lights. The lights work independently of each other. Experience indicates that the probability that Layla has to stop at each set of lights is 0.5, 0.6 and 0.7 respectively.</p>",
+  "hint": "Three stages, each splitting into 'stop' and 'go'; label every branch with its probability (go = 1 − stop).",
+  "starter": "Draw a fully labelled three-stage tree diagram.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO2, AO2)</h5><ul>\n              <li><strong>B1</strong> — 3 events, each with two branches (some branches may be missing or not labelled).</li>\n              <li><strong>B1</strong> — probabilities of 0.5 on the first set, 0.6 and 0.4 on the second, and 0.7 and 0.3 on the third (at least one set of probabilities seen for each).</li>\n              <li><strong>B1</strong> — completed tree, all labels and probabilities correct.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Marks build up: the branch structure, then the probabilities, then a fully correct labelled tree.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most candidates drew the correct tree diagram, although some lost a mark for not labelling the branches with the outcomes and their associated probabilities.</li>\n            </ul></div>",
+   "modelAnswer": "Three stages, each a two-branch stop/go event. Stage 1: stop 0.5, go 0.5. Stage 2: stop 0.6, go 0.4. Stage 3: stop 0.7, go 0.3. Label every branch with outcome and probability. <svg viewBox=\"0 0 480 300\" width=\"100%\" style=\"max-width:480px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Three-stage tree diagram: stop or go at three sets of lights with probabilities 0.5/0.5, 0.6/0.4, 0.7/0.3\"><line x1=\"16\" y1=\"150\" x2=\"100\" y2=\"80\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"16\" y1=\"150\" x2=\"100\" y2=\"220\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"100\" y1=\"80\" x2=\"250\" y2=\"45\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"100\" y1=\"80\" x2=\"250\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"100\" y1=\"220\" x2=\"250\" y2=\"185\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"100\" y1=\"220\" x2=\"250\" y2=\"255\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"250\" y1=\"45\" x2=\"380\" y2=\"30\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"250\" y1=\"45\" x2=\"380\" y2=\"60\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"250\" y1=\"115\" x2=\"380\" y2=\"100\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"250\" y1=\"115\" x2=\"380\" y2=\"130\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"250\" y1=\"185\" x2=\"380\" y2=\"170\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"250\" y1=\"185\" x2=\"380\" y2=\"200\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"250\" y1=\"255\" x2=\"380\" y2=\"240\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"250\" y1=\"255\" x2=\"380\" y2=\"270\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"48\" y=\"106\" fill=\"currentColor\" font-size=\"11\">0.5</text><text x=\"48\" y=\"196\" fill=\"currentColor\" font-size=\"11\">0.5</text><text x=\"104\" y=\"80\" fill=\"currentColor\" font-size=\"12\" font-weight=\"600\">S</text><text x=\"104\" y=\"226\" fill=\"currentColor\" font-size=\"12\" font-weight=\"600\">G</text><text x=\"168\" y=\"56\" fill=\"currentColor\" font-size=\"11\">0.6</text><text x=\"168\" y=\"104\" fill=\"currentColor\" font-size=\"11\">0.4</text><text x=\"168\" y=\"196\" fill=\"currentColor\" font-size=\"11\">0.6</text><text x=\"168\" y=\"244\" fill=\"currentColor\" font-size=\"11\">0.4</text><text x=\"254\" y=\"48\" fill=\"currentColor\" font-size=\"12\" font-weight=\"600\">S</text><text x=\"254\" y=\"118\" fill=\"currentColor\" font-size=\"12\" font-weight=\"600\">G</text><text x=\"254\" y=\"188\" fill=\"currentColor\" font-size=\"12\" font-weight=\"600\">S</text><text x=\"254\" y=\"258\" fill=\"currentColor\" font-size=\"12\" font-weight=\"600\">G</text><text x=\"318\" y=\"30\" fill=\"currentColor\" font-size=\"11\">0.7</text><text x=\"318\" y=\"62\" fill=\"currentColor\" font-size=\"11\">0.3</text><text x=\"318\" y=\"100\" fill=\"currentColor\" font-size=\"11\">0.7</text><text x=\"318\" y=\"132\" fill=\"currentColor\" font-size=\"11\">0.3</text><text x=\"318\" y=\"170\" fill=\"currentColor\" font-size=\"11\">0.7</text><text x=\"318\" y=\"202\" fill=\"currentColor\" font-size=\"11\">0.3</text><text x=\"318\" y=\"240\" fill=\"currentColor\" font-size=\"11\">0.7</text><text x=\"318\" y=\"272\" fill=\"currentColor\" font-size=\"11\">0.3</text><text x=\"386\" y=\"34\" fill=\"currentColor\" font-size=\"11\">SSS</text><text x=\"386\" y=\"64\" fill=\"currentColor\" font-size=\"11\">SSG</text><text x=\"386\" y=\"104\" fill=\"currentColor\" font-size=\"11\">SGS</text><text x=\"386\" y=\"134\" fill=\"currentColor\" font-size=\"11\">SGG</text><text x=\"386\" y=\"174\" fill=\"currentColor\" font-size=\"11\">GSS</text><text x=\"386\" y=\"204\" fill=\"currentColor\" font-size=\"11\">GSG</text><text x=\"386\" y=\"244\" fill=\"currentColor\" font-size=\"11\">GGS</text><text x=\"386\" y=\"274\" fill=\"currentColor\" font-size=\"11\">GGG</text></svg>"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:exam:cadebb95",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "6 (b)",
+  "question": "<p>Calculate the probability that Layla has to stop exactly once on a particular journey to work.</p>",
+  "caseStudy": "<p>Layla drives to work along a road which has three sets of traffic lights. The lights work independently of each other. Experience indicates that the probability that Layla has to stop at each set of lights is 0.5, 0.6 and 0.7 respectively.</p>",
+  "hint": "'Exactly once' means stop at one set and go through the other two — there are three such paths; multiply along each, then add.",
+  "starter": "Give the probability as a decimal.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1, AO1, AO1)</h5><ul>\n              <li><strong>B1</strong> — any one correct product of three probabilities (soi).</li>\n              <li><strong>B1</strong> — three terms added, at least two correct (soi).</li>\n              <li><strong>B1</strong> — 0.29.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One correct path scores the first mark; adding the three exactly-once paths scores the second; the correct total scores the third.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The sum of the probabilities was well done.</li>\n            </ul></div>",
+   "modelAnswer": "Stop exactly once = stop at one set and go through the other two. The three paths are: stop 1st only 0.5 × 0.4 × 0.3 = 0.06; stop 2nd only 0.5 × 0.6 × 0.3 = 0.09; stop 3rd only 0.5 × 0.4 × 0.7 = 0.14. Adding: 0.06 + 0.09 + 0.14 = 0.29."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:mcq:825dcc52",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A spinner lands on red with probability \\( \\frac{2}{5} \\). It is spun twice. What is \\( P(\\text{red then red}) \\)?",
+  "options": [
+   "\\( \\frac{4}{25} \\)",
+   "\\( \\frac{4}{5} \\)",
+   "\\( \\frac{2}{5} \\)",
+   "\\( \\frac{4}{10} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Multiply along the path: \\( \\frac{2}{5}\\times\\frac{2}{5} = \\frac{4}{25} \\). Adding the branches (\\( \\frac{4}{5} \\)) is the classic error."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:mcq:b270430a",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "On a tree diagram, moving ALONG the branches (one event and then the next) you:",
+  "options": [
+   "Multiply the probabilities",
+   "Add the probabilities",
+   "Subtract them",
+   "Divide them"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Along a path means 'AND', so you multiply; adding is for separate paths ('OR')."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:mcq:0f8cf10e",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "To combine several separate paths that each give the wanted outcome (one path or another), you:",
+  "options": [
+   "Add the path probabilities",
+   "Multiply the path probabilities",
+   "Take the largest",
+   "Subtract each from 1"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Different paths that all succeed are an 'OR', so their probabilities add."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:mcq:189c4a22",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A bag has 4 red and 6 blue counters. Two are taken WITHOUT replacement. \\( P(\\text{red then red}) \\) is:",
+  "options": [
+   "\\( \\frac{4}{10}\\times\\frac{3}{9} = \\frac{2}{15} \\)",
+   "\\( \\frac{4}{10}\\times\\frac{4}{10} = \\frac{4}{25} \\)",
+   "\\( \\frac{4}{10}\\times\\frac{3}{10} \\)",
+   "\\( \\frac{4}{9}\\times\\frac{3}{9} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "After one red is kept, 3 red of 9 counters remain: \\( \\frac{4}{10}\\times\\frac{3}{9} = \\frac{2}{15} \\). Keeping \\( \\frac{4}{10} \\) twice ignores non-replacement."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:mcq:a8719d9e",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In a class of 30, 18 study art and 15 study music; 8 study both. How many study art only?",
+  "options": [
+   "\\( 10 \\)",
+   "\\( 18 \\)",
+   "\\( 8 \\)",
+   "\\( 26 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Art only \\( = 18 - 8 = 10 \\); subtract the intersection from the art total."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:mcq:415e0cd0",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "40 people are surveyed: 22 like tea, 15 like coffee and 5 like both. How many like at least one drink?",
+  "options": [
+   "\\( 32 \\)",
+   "\\( 37 \\)",
+   "\\( 42 \\)",
+   "\\( 27 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( |T \\cup C| = 22 + 15 - 5 = 32 \\). Adding \\( 22+15 = 37 \\) double-counts the 5 in the overlap."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:mcq:458ee836",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A question asks how many students are in each Venn region. In the regions you should write:",
+  "options": [
+   "The counts (numbers of students)",
+   "The probabilities as fractions",
+   "Percentages",
+   "Ratios"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Put counts in the regions unless the question specifically asks for probabilities."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:mcq:579f6a60",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "On a Venn diagram, the members who are in NEITHER set are shown:",
+  "options": [
+   "Outside both circles but inside the rectangle",
+   "In a third separate circle",
+   "In the overlap of the two circles",
+   "Outside the rectangle"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The 'neither' group lives in the universal-set rectangle but outside every circle."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:mcq:be67f2b3",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A two-way table records 60 boys and 40 girls; 30 students wear glasses in total, of whom 18 are boys. How many girls wear glasses?",
+  "options": [
+   "\\( 12 \\)",
+   "\\( 22 \\)",
+   "\\( 42 \\)",
+   "\\( 30 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Glasses column total is 30, so girls with glasses \\( = 30 - 18 = 12 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:mcq:d279aada",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In a survey of 100 people, 12 are girls who wear glasses. \\( P(\\text{a random person is a girl who wears glasses}) \\) is:",
+  "options": [
+   "\\( \\frac{12}{100} = \\frac{3}{25} \\)",
+   "\\( \\frac{12}{40} \\)",
+   "\\( \\frac{12}{30} \\)",
+   "\\( \\frac{1}{12} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The probability is that region's count over the grand total: \\( \\frac{12}{100} = \\frac{3}{25} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:mcq:2bfb5424",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "When filling a three-set Venn diagram from data, you should start with:",
+  "options": [
+   "The number in all three sets (the centre)",
+   "The grand total",
+   "The 'none' region",
+   "Any single set"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Begin at the centre and work outward, subtracting so no one is counted twice."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:mcq:2c13cf2e",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The notation \\( A \\cap B \\) means the members who are:",
+  "options": [
+   "In both A and B",
+   "In A or B or both",
+   "In A but not B",
+   "In neither A nor B"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\cap \\) is the intersection — in both sets. \\( \\cup \\) (union) is 'or both'."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:tf:2c844c2d",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Along the branches of a tree diagram you multiply the probabilities.",
+  "key": {
+   "answer": true,
+   "explain": "A whole path means one event AND the next, so the branch probabilities multiply."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:tf:d5a02b72",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "To find the probability of one outcome OR another you multiply the path probabilities.",
+  "key": {
+   "answer": false,
+   "explain": "Separate paths ('OR') are added; multiplying is for a single path ('AND')."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:tf:a6961f14",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The 'neither' group of a Venn diagram should be drawn as a third circle.",
+  "key": {
+   "answer": false,
+   "explain": "It is written outside the circles but inside the rectangle — never as an extra circle (a common examiner complaint)."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:tf:b7d41c36",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Every Venn diagram should be enclosed in a rectangle representing the universal set.",
+  "key": {
+   "answer": true,
+   "explain": "The rectangle is the universal set \\( \\xi \\); the answer box on the paper does not count as the rectangle."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:tf:3b7b523c",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "When items are drawn without replacement, the probabilities on the second set of branches change.",
+  "key": {
+   "answer": true,
+   "explain": "The collection is smaller for the second draw, so those branch probabilities differ from the first."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:tf:3fbfcbda",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For two sets, \\( |A \\cup B| = |A| + |B| - |A \\cap B| \\).",
+  "key": {
+   "answer": true,
+   "explain": "Adding the two totals counts the overlap twice, so subtract the intersection once."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:tf:a1f4f8a5",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "When a question asks how many people are in each region, you should put probabilities in the regions.",
+  "key": {
+   "answer": false,
+   "explain": "Put counts in the regions unless probabilities are specifically requested."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:tf:069da9cb",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( P(\\text{at least one}) = 1 - P(\\text{none}) \\).",
+  "key": {
+   "answer": true,
+   "explain": "'At least one' is the complement of 'none', so subtract \\( P(\\text{none}) \\) from 1."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:learn:d8e9e8fd",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you use a tree diagram: multiply along, add across?",
+  "reading": "<p>A <strong>tree diagram</strong> shows a sequence of events. Each branch is labelled with the probability of that outcome, and the branches from any single point always add up to \\( 1 \\).</p>\n            <ul>\n              <li><strong>Multiply ALONG the branches</strong> to find the probability of one outcome <em>AND</em> the next (a whole path from left to right).</li>\n              <li><strong>Add ACROSS the paths</strong> when several different paths all give the outcome you want (one path <em>OR</em> another).</li>\n              <li>Every complete path's probabilities multiply to that path's probability; all the path probabilities together add to \\( 1 \\).</li>\n            </ul>\n            <p><strong>Worked example.</strong> A bag holds 3 red and 2 blue counters. One is taken, its colour noted, and <em>replaced</em>; then a second is taken. So \\( P(R) = \\frac{3}{5} \\) and \\( P(B) = \\frac{2}{5} \\) on both draws.</p>\n            <svg viewBox=\"0 0 350 210\" width=\"100%\" style=\"max-width:380px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Two-stage tree diagram for two draws with replacement from a bag of 3 red and 2 blue counters\">\n              <line x1=\"20\" y1=\"105\" x2=\"130\" y2=\"55\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <line x1=\"20\" y1=\"105\" x2=\"130\" y2=\"155\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <line x1=\"150\" y1=\"55\" x2=\"270\" y2=\"30\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <line x1=\"150\" y1=\"55\" x2=\"270\" y2=\"80\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <line x1=\"150\" y1=\"155\" x2=\"270\" y2=\"130\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <line x1=\"150\" y1=\"155\" x2=\"270\" y2=\"180\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <text x=\"58\" y=\"70\" fill=\"currentColor\" font-size=\"13\">3/5</text>\n              <text x=\"58\" y=\"140\" fill=\"currentColor\" font-size=\"13\">2/5</text>\n              <text x=\"136\" y=\"60\" fill=\"currentColor\" font-size=\"14\" font-weight=\"600\">R</text>\n              <text x=\"136\" y=\"160\" fill=\"currentColor\" font-size=\"14\" font-weight=\"600\">B</text>\n              <text x=\"203\" y=\"35\" fill=\"currentColor\" font-size=\"12\">3/5</text>\n              <text x=\"203\" y=\"78\" fill=\"currentColor\" font-size=\"12\">2/5</text>\n              <text x=\"203\" y=\"128\" fill=\"currentColor\" font-size=\"12\">3/5</text>\n              <text x=\"203\" y=\"182\" fill=\"currentColor\" font-size=\"12\">2/5</text>\n              <text x=\"278\" y=\"34\" fill=\"currentColor\" font-size=\"12\">RR = 9/25</text>\n              <text x=\"278\" y=\"84\" fill=\"currentColor\" font-size=\"12\">RB = 6/25</text>\n              <text x=\"278\" y=\"134\" fill=\"currentColor\" font-size=\"12\">BR = 6/25</text>\n              <text x=\"278\" y=\"184\" fill=\"currentColor\" font-size=\"12\">BB = 4/25</text>\n            </svg>\n            <p>\\( P(\\text{one of each colour}) = \\frac{3}{5}\\times\\frac{2}{5} + \\frac{2}{5}\\times\\frac{3}{5} = \\frac{6}{25} + \\frac{6}{25} = \\frac{12}{25} \\) — two paths (RB and BR) added.</p>",
+  "question": "On a tree diagram, to find the probability of one event AND the next you:",
+  "options": [
+   "Multiply along the branches",
+   "Add along the branches",
+   "Add across the paths",
+   "Subtract from 1"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Along a path (this AND that) you multiply; across separate paths (this OR that) you add."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:learn:0d0eaa5f",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How does a tree diagram change without replacement?",
+  "reading": "<p>If an item is <strong>not replaced</strong>, the second draw happens from a smaller collection, so the probabilities on the <strong>second set of branches change</strong> (both the numerator and the denominator can fall).</p>\n            <p><strong>Worked example.</strong> The same bag (3 red, 2 blue) but now the first counter is <em>kept</em>. The first draw is \\( P(R)=\\frac{3}{5} \\); if a red was taken, only 2 red of 4 remain, so the second draw is \\( P(R)=\\frac{2}{4} \\).</p>\n            <table class=\"worked\">\n              <tr><td>1. \\( P(\\text{both red}) = \\frac{3}{5}\\times\\frac{2}{4} = \\frac{6}{20} = \\frac{3}{10} \\).</td></tr>\n              <tr><td>2. \\( P(\\text{both blue}) = \\frac{2}{5}\\times\\frac{1}{4} = \\frac{2}{20} = \\frac{1}{10} \\).</td></tr>\n              <tr><td>3. \\( P(\\text{one of each}) = \\frac{3}{5}\\times\\frac{2}{4} + \\frac{2}{5}\\times\\frac{3}{4} = \\frac{6}{20}+\\frac{6}{20} = \\frac{3}{5} \\).</td></tr>\n            </table>\n            <p>Check: \\( \\frac{3}{10}+\\frac{1}{10}+\\frac{3}{5} = \\frac{3+1+6}{10} = 1 \\). ✓ The three whole-outcome probabilities must still add to \\( 1 \\).</p>\n            <p><strong>\"At least one\" trick:</strong> it is usually quicker to use \\( P(\\text{at least one}) = 1 - P(\\text{none}) \\) than to add several paths.</p>",
+  "question": "Two counters are taken WITHOUT replacement from 3 red and 2 blue. \\( P(\\text{both red}) \\) is:",
+  "options": [
+   "\\( \\frac{3}{5}\\times\\frac{2}{4} = \\frac{3}{10} \\)",
+   "\\( \\frac{3}{5}\\times\\frac{3}{5} = \\frac{9}{25} \\)",
+   "\\( \\frac{3}{5}+\\frac{2}{4} \\)",
+   "\\( \\frac{3}{5}\\times\\frac{3}{4} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "After a red is kept, 2 red of 4 counters remain, so the second branch is \\( \\frac{2}{4} \\), giving \\( \\frac{3}{10} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:learn:3e6a8c24",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you complete and read a two-way table?",
+  "reading": "<p>A <strong>two-way table</strong> cross-classifies data by two features. Every <strong>row and every column adds up to its total</strong>, and the grand total sits in the corner — that is all you need to fill any missing cell.</p>\n            <p><strong>Worked example.</strong> 100 students are classified by gender and whether they wear glasses. Complete the table, then read off probabilities.</p>\n            <table class=\"worked\">\n              <tr><td></td><td><strong>Glasses</strong></td><td><strong>No glasses</strong></td><td><strong>Total</strong></td></tr>\n              <tr><td><strong>Boys</strong></td><td>18</td><td>42</td><td>60</td></tr>\n              <tr><td><strong>Girls</strong></td><td>12</td><td>28</td><td>40</td></tr>\n              <tr><td><strong>Total</strong></td><td>30</td><td>70</td><td>100</td></tr>\n            </table>\n            <ul>\n              <li>Boys, no glasses \\( = 60 - 18 = 42 \\); Girls total \\( = 100 - 60 = 40 \\); Girls glasses \\( = 30 - 18 = 12 \\).</li>\n              <li>\\( P(\\text{wears glasses}) = \\frac{30}{100} = \\frac{3}{10} \\).</li>\n              <li>\\( P(\\text{a girl who wears glasses}) = \\frac{12}{100} = \\frac{3}{25} \\).</li>\n            </ul>",
+  "question": "In the table above, what is \\( P(\\text{a randomly chosen student is a boy who wears no glasses}) \\)?",
+  "options": [
+   "\\( \\frac{42}{100} = \\frac{21}{50} \\)",
+   "\\( \\frac{18}{100} \\)",
+   "\\( \\frac{42}{60} \\)",
+   "\\( \\frac{70}{100} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "42 boys wear no glasses out of 100 students, so \\( \\frac{42}{100} = \\frac{21}{50} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:learn:236bc222",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you use a two-set Venn diagram?",
+  "reading": "<p>A <strong>Venn diagram</strong> shows two overlapping circles inside a <strong>rectangle</strong> that stands for the <strong>universal set</strong> \\( \\xi \\) — everything being considered. Key notation:</p>\n            <ul>\n              <li>\\( A \\cap B \\) — the <strong>intersection</strong>: members in <em>both</em> A and B (the overlap).</li>\n              <li>\\( A \\cup B \\) — the <strong>union</strong>: members in A <em>or</em> B <em>or</em> both.</li>\n              <li>\\( A' \\) — the <strong>complement</strong>: members <em>not</em> in A.</li>\n              <li>Members in <strong>neither</strong> set go <em>outside</em> both circles but <em>inside</em> the rectangle.</li>\n            </ul>\n            <p><strong>Put counts in the regions and work outward from the intersection.</strong> Example: 40 students, 25 study French, 18 study Spanish, 7 study both.</p>\n            <svg viewBox=\"0 0 300 210\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Two-set Venn diagram: French and Spanish, with 18 in French only, 7 in both, 11 in Spanish only and 4 in neither, inside a universal set of 40\">\n              <rect x=\"6\" y=\"6\" width=\"288\" height=\"198\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <circle cx=\"118\" cy=\"105\" r=\"72\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <circle cx=\"182\" cy=\"105\" r=\"72\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <text x=\"66\" y=\"30\" fill=\"currentColor\" font-size=\"13\" font-weight=\"600\">French</text>\n              <text x=\"196\" y=\"30\" fill=\"currentColor\" font-size=\"13\" font-weight=\"600\">Spanish</text>\n              <text x=\"80\" y=\"112\" fill=\"currentColor\" font-size=\"16\" text-anchor=\"middle\">18</text>\n              <text x=\"150\" y=\"112\" fill=\"currentColor\" font-size=\"16\" text-anchor=\"middle\">7</text>\n              <text x=\"220\" y=\"112\" fill=\"currentColor\" font-size=\"16\" text-anchor=\"middle\">11</text>\n              <text x=\"272\" y=\"194\" fill=\"currentColor\" font-size=\"14\" text-anchor=\"middle\">4</text>\n              <text x=\"20\" y=\"24\" fill=\"currentColor\" font-size=\"12\">ξ = 40</text>\n            </svg>\n            <p>Fill the <strong>overlap first</strong> (\\( 7 \\)), then French only \\( = 25-7 = 18 \\), Spanish only \\( = 18-7 = 11 \\). Neither \\( = 40 - (18+7+11) = 4 \\). Note \\( |A \\cup B| = |A| + |B| - |A \\cap B| = 25 + 18 - 7 = 36 \\), so \\( 40-36 = 4 \\) again.</p>",
+  "question": "In a group of 30, 18 play tennis, 15 play squash and 8 play both. How many play tennis only?",
+  "options": [
+   "\\( 10 \\)",
+   "\\( 18 \\)",
+   "\\( 8 \\)",
+   "\\( 26 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Tennis only \\( = 18 - 8 = 10 \\); subtract the overlap from the tennis total."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:learn:88155eb4",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you fill a three-set Venn diagram?",
+  "reading": "<p>With three circles there are <strong>seven regions</strong> inside plus the \"none\" region outside. Always <strong>start at the very centre</strong> (in all three sets) and <strong>work outward</strong>, subtracting as you go so nothing is double-counted.</p>\n            <p><strong>Worked example.</strong> 40 people are asked which of tea, coffee and juice they drink: 3 drink all three; 8 drink tea and coffee; 6 drink coffee and juice; 5 drink tea and juice; 20 drink tea; 18 drink coffee; 14 drink juice.</p>\n            <svg viewBox=\"0 0 320 300\" width=\"100%\" style=\"max-width:360px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Three-set Venn diagram for tea, coffee and juice showing all seven region counts and 4 people in none\">\n              <rect x=\"6\" y=\"6\" width=\"308\" height=\"288\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <circle cx=\"120\" cy=\"120\" r=\"82\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <circle cx=\"200\" cy=\"120\" r=\"82\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <circle cx=\"160\" cy=\"188\" r=\"82\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n              <text x=\"66\" y=\"30\" fill=\"currentColor\" font-size=\"13\" font-weight=\"600\">Tea</text>\n              <text x=\"226\" y=\"30\" fill=\"currentColor\" font-size=\"13\" font-weight=\"600\">Coffee</text>\n              <text x=\"150\" y=\"290\" fill=\"currentColor\" font-size=\"13\" font-weight=\"600\">Juice</text>\n              <text x=\"88\" y=\"102\" fill=\"currentColor\" font-size=\"15\" text-anchor=\"middle\">10</text>\n              <text x=\"232\" y=\"102\" fill=\"currentColor\" font-size=\"15\" text-anchor=\"middle\">7</text>\n              <text x=\"160\" y=\"242\" fill=\"currentColor\" font-size=\"15\" text-anchor=\"middle\">6</text>\n              <text x=\"160\" y=\"92\" fill=\"currentColor\" font-size=\"15\" text-anchor=\"middle\">5</text>\n              <text x=\"118\" y=\"178\" fill=\"currentColor\" font-size=\"15\" text-anchor=\"middle\">2</text>\n              <text x=\"202\" y=\"178\" fill=\"currentColor\" font-size=\"15\" text-anchor=\"middle\">3</text>\n              <text x=\"160\" y=\"148\" fill=\"currentColor\" font-size=\"15\" text-anchor=\"middle\">3</text>\n              <text x=\"296\" y=\"286\" fill=\"currentColor\" font-size=\"14\" text-anchor=\"middle\">4</text>\n              <text x=\"20\" y=\"24\" fill=\"currentColor\" font-size=\"12\">ξ = 40</text>\n            </svg>\n            <table class=\"worked\">\n              <tr><td>1. Centre (all three) \\( = 3 \\).</td></tr>\n              <tr><td>2. Tea &amp; coffee only \\( = 8-3 = 5 \\); coffee &amp; juice only \\( = 6-3 = 3 \\); tea &amp; juice only \\( = 5-3 = 2 \\).</td></tr>\n              <tr><td>3. Tea only \\( = 20-(5+2+3) = 10 \\); coffee only \\( = 18-(5+3+3) = 7 \\); juice only \\( = 14-(2+3+3) = 6 \\).</td></tr>\n              <tr><td>4. None \\( = 40 - (10+7+6+5+3+2+3) = 40 - 36 = 4 \\).</td></tr>\n            </table>",
+  "question": "When filling a three-set Venn diagram from totals, which region should you complete first?",
+  "options": [
+   "The centre — the number in all three sets",
+   "The 'none' region",
+   "The grand total",
+   "Any single-set region"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Start at the centre (all three) and work outward, subtracting so each region is counted once."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:learn:82c35997",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What Venn conventions do examiners insist on?",
+  "reading": "<p>These are the marks examiners report candidates lose most often on diagram questions — none of them are about the maths, all are about the <strong>conventions</strong>.</p>\n            <ul>\n              <li><strong>Always draw the universal-set rectangle.</strong> The answer box on the paper is <em>not</em> the rectangle — draw your own around the circles.</li>\n              <li><strong>The \"neither\" group is written outside the circles, inside the rectangle.</strong> Never draw it as a third, separate circle.</li>\n              <li><strong>Put COUNTS (numbers of items) in the regions</strong> unless the question asks for probabilities. Writing fractions where counts are wanted loses marks.</li>\n              <li><strong>Label the circles</strong> and, on a tree, label every branch with both the outcome and its probability.</li>\n              <li>\"<strong>Determine</strong>\" means show your working/justification — a bare number is not enough.</li>\n            </ul>\n            <p>Example: for \"10 like neither\", write \\( 10 \\) in the bottom corner of the rectangle, outside both rings — not in a new circle of its own.</p>",
+  "question": "Where should the people who belong to NEITHER set be shown on a Venn diagram?",
+  "options": [
+   "Outside both circles but inside the rectangle",
+   "In a separate third circle",
+   "In the overlap of the two circles",
+   "Outside the rectangle entirely"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The 'neither' count goes in the universal-set rectangle but outside every circle — never as an extra circle."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:misc:a9a5dcc6",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Drawing the 'neither' students in a third, separate circle inside the rectangle</p><p><strong>✅ The correct idea:</strong> The 'neither' group is NOT a set of its own — write its count outside both circles but inside the universal-set rectangle. A weak answer invents a third ring; a strong answer puts, e.g., \\( 10 \\) in the corner of the rectangle.</p>",
+  "question": "Where do the 10 students who like neither go?",
+  "options": [
+   "Outside both circles, inside the rectangle",
+   "In a new third circle",
+   "In the overlap",
+   "Outside the rectangle"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Neither' is written in the rectangle but outside every circle."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:misc:135a83c0",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Drawing the circles with no rectangle around them</p><p><strong>✅ The correct idea:</strong> Without the rectangle there is no universal set shown, which loses a mark. A strong answer always draws the rectangle first and labels it \\( \\xi \\) with the grand total.</p>",
+  "question": "What does the rectangle around the circles represent?",
+  "options": [
+   "The universal set (everything considered)",
+   "The intersection",
+   "The 'neither' group only",
+   "Nothing — it is decoration"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The rectangle is the universal set \\( \\xi \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:misc:60a5125d",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Multiplying across the wrong branches, e.g. adding 0.5 + 0.6 for two events happening</p><p><strong>✅ The correct idea:</strong> For one event AND another you multiply along the path (\\( 0.5\\times0.6 = 0.3 \\)); you only add when combining separate complete paths. A weak answer adds along a path; a strong answer multiplies along and adds across.</p>",
+  "question": "Two independent events have probabilities 0.5 and 0.6. \\( P(\\text{both}) \\) is:",
+  "options": [
+   "\\( 0.5\\times0.6 = 0.3 \\)",
+   "\\( 0.5+0.6 = 1.1 \\)",
+   "\\( 0.6-0.5 = 0.1 \\)",
+   "\\( 0.5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Both' is an AND, so multiply along the path: \\( 0.3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:misc:d7adc7b5",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Finding the overlap by adding the two set totals, e.g. 'both = 50 + 20'</p><p><strong>✅ The correct idea:</strong> Use inclusion–exclusion: \\( |A\\cap B| = |A| + |B| - |A\\cup B| \\). Adding the totals double-counts the overlap. A strong answer sets the region total equal to those who like at least one and solves for the overlap.</p>",
+  "question": "68 students; 10 like neither; 50 like pop, 20 like classical. How many like both?",
+  "options": [
+   "\\( 12 \\)",
+   "\\( 70 \\)",
+   "\\( 30 \\)",
+   "\\( 58 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "At least one \\( = 68-10 = 58 \\); \\( 50+20-\\text{both} = 58 \\Rightarrow \\text{both} = 12 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:misc:15743b39",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Keeping the first-draw probabilities on the second branches when there is no replacement</p><p><strong>✅ The correct idea:</strong> Without replacement the denominator (and sometimes numerator) falls for the second draw. A weak answer reuses \\( \\frac{3}{5} \\) twice; a strong answer uses \\( \\frac{3}{5}\\times\\frac{2}{4} \\).</p>",
+  "question": "3 red, 2 blue, taken without replacement. The second branch after a red is:",
+  "options": [
+   "\\( \\frac{2}{4} \\) for another red",
+   "\\( \\frac{3}{5} \\) for another red",
+   "\\( \\frac{3}{4} \\) for another red",
+   "\\( \\frac{2}{5} \\) for another red"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "One red is gone: 2 red of 4 counters remain, so \\( \\frac{2}{4} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:tips:df77baaa",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Multiply along, add across",
+  "reading": "<p><strong>Along a path = AND = multiply.</strong> <strong>Across paths = OR = add.</strong> For \"exactly one\" of three events, there are three winning paths (success in one place, failure in the other two) — work out each product, then add the three. For \"at least one\", use \\( 1 - P(\\text{none}) \\) instead of adding many paths.</p>",
+  "question": "For 'exactly one of three events', you should:",
+  "options": [
+   "Add the three single-success path probabilities",
+   "Multiply all three success probabilities",
+   "Use only one path",
+   "Subtract from 3"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Each 'exactly one' path is a product; add the three such paths together."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:tips:621724b3",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Counts, not probabilities, in Venn regions",
+  "reading": "<p><strong>0 marks:</strong> filling the regions with fractions when the question wants numbers of people. <strong>Full marks:</strong> put the <em>count</em> in each region, draw the universal-set rectangle, and write the 'neither' count outside the circles (never as a third circle). Only switch to probabilities if the question explicitly asks for them.</p>",
+  "question": "A Venn question asks 'how many'. The regions should contain:",
+  "options": [
+   "Counts",
+   "Probabilities",
+   "Percentages",
+   "Nothing"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'How many' wants counts; use probabilities only when asked."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:tips:77c7276e",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — 'Determine' means show justification",
+  "reading": "<p>The command word <strong>Determine</strong> requires visible working or reasoning, not just an answer. On \"Determine the number who liked both\", writing \\( 50 + 20 - \\text{both} = 58 \\Rightarrow \\text{both} = 12 \\) earns the method mark even before the final number — a bare \"12\" risks losing it.</p>",
+  "question": "'Determine' tells you to:",
+  "options": [
+   "Show working / justification for the answer",
+   "Just write the answer down",
+   "Give a decimal only",
+   "Draw a graph"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Determine' demands justification, so show the method."
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:fib:3295c805",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Moving along the branches of a tree diagram you ___B1___ the probabilities; to combine several separate paths you ___B2___ them.",
+  "blankOptions": {
+   "B1": [
+    "same",
+    "counts",
+    "total",
+    "multiply"
+   ],
+   "B2": [
+    "inside",
+    "rectangle",
+    "circle",
+    "add"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "multiply",
+    "B2": "add"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:fib:1d5e6ebf",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The people who are in neither set are written ___B1___ the circles but inside the ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "outside",
+    "centre",
+    "add",
+    "same"
+   ],
+   "B2": [
+    "circle",
+    "rectangle",
+    "multiply",
+    "probabilities"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "outside",
+    "B2": "rectangle"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:fib:4acd0d89",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The symbol \\( \\cap \\) stands for the ___B1___ (in both), and the symbol \\( \\cup \\) stands for the ___B2___ (in either).",
+  "blankOptions": {
+   "B1": [
+    "outside",
+    "subtract",
+    "intersection",
+    "inside"
+   ],
+   "B2": [
+    "circle",
+    "union",
+    "total",
+    "counts"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "intersection",
+    "B2": "union"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:fib:37e6390c",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "When filling a three-set Venn diagram, start from the ___B1___ where all three sets overlap and work ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "subtract",
+    "change",
+    "centre",
+    "inside"
+   ],
+   "B2": [
+    "probabilities",
+    "circle",
+    "outward",
+    "change"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "centre",
+    "B2": "outward"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:fib:a25aced4",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "With replacement the probabilities on the second set of branches are the ___B1___ as the first; without replacement they ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "same",
+    "counts",
+    "outside",
+    "rectangle"
+   ],
+   "B2": [
+    "change",
+    "intersection",
+    "union",
+    "total"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "same",
+    "B2": "change"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:fib:82f5b549",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "In a two-way table, each row and each column must add up to its ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "circle",
+    "probabilities",
+    "total",
+    "multiply"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "total"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:fib:b1b1bf01",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "When a Venn question asks 'how many', put ___B1___ (not probabilities) in each region.",
+  "blankOptions": {
+   "B1": [
+    "subtract",
+    "counts",
+    "total",
+    "multiply"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "counts"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:match:69ffb8d7",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( A \\cap B \\)”?",
+  "options": [
+   "\\( 1 - P(\\text{none}) \\)",
+   "In both A and B (intersection)",
+   "Everything under consideration — the rectangle",
+   "Second-draw probabilities change"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( A \\cap B \\)” means: In both A and B (intersection)"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:match:92a68a4c",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( A \\cup B \\)”?",
+  "options": [
+   "\\( 1 - P(\\text{none}) \\)",
+   "Everything under consideration — the rectangle",
+   "In A or B or both (union)",
+   "Probability of one outcome OR another"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( A \\cup B \\)” means: In A or B or both (union)"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:match:c7781218",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( A' \\)”?",
+  "options": [
+   "What to write for a 'how many' question",
+   "In both A and B (intersection)",
+   "Method for filling a three-set Venn",
+   "Not in A (complement)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( A' \\)” means: Not in A (complement)"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:match:4cef49f9",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( (A \\cup B)' \\)”?",
+  "options": [
+   "Probability of one event AND the next",
+   "In neither A nor B",
+   "In A or B or both (union)",
+   "Everything under consideration — the rectangle"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( (A \\cup B)' \\)” means: In neither A nor B"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:match:a0f5e523",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Universal set \\( \\xi \\)”?",
+  "options": [
+   "Every row and column sums to its total",
+   "Everything under consideration — the rectangle",
+   "\\( 1 - P(\\text{none}) \\)",
+   "Second-draw probabilities change"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Universal set \\( \\xi \\)” means: Everything under consideration — the rectangle"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:match:325f097e",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Multiply along the branches”?",
+  "options": [
+   "Probability of one outcome OR another",
+   "Probability of one event AND the next",
+   "What to write for a 'how many' question",
+   "In neither A nor B"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Multiply along the branches” means: Probability of one event AND the next"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:match:25500934",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Add across the paths”?",
+  "options": [
+   "Method for filling a three-set Venn",
+   "Probability of one outcome OR another",
+   "What to write for a 'how many' question",
+   "Everything under consideration — the rectangle"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Add across the paths” means: Probability of one outcome OR another"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:match:faa83643",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Without replacement”?",
+  "options": [
+   "What to write for a 'how many' question",
+   "Second-draw probabilities change",
+   "In neither A nor B",
+   "Method for filling a three-set Venn"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Without replacement” means: Second-draw probabilities change"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:match:ba828b3c",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Two-way table”?",
+  "options": [
+   "Every row and column sums to its total",
+   "In both A and B (intersection)",
+   "Second-draw probabilities change",
+   "Method for filling a three-set Venn"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Two-way table” means: Every row and column sums to its total"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:match:8971a2ce",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Work outward from the centre”?",
+  "options": [
+   "In neither A nor B",
+   "Probability of one event AND the next",
+   "What to write for a 'how many' question",
+   "Method for filling a three-set Venn"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Work outward from the centre” means: Method for filling a three-set Venn"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:match:7ce1f0f7",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Counts in the regions”?",
+  "options": [
+   "Every row and column sums to its total",
+   "In neither A nor B",
+   "In both A and B (intersection)",
+   "What to write for a 'how many' question"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Counts in the regions” means: What to write for a 'how many' question"
+  }
+ },
+ {
+  "id": "additional-maths:6-4-tree-two-way-and-venn-diagrams:match:23b510dd",
+  "pageId": "additional-maths:6-4-tree-two-way-and-venn-diagrams",
+  "pageName": "6.4 Tree, Two-Way and Venn Diagrams",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( P(\\text{at least one}) \\)”?",
+  "options": [
+   "Probability of one outcome OR another",
+   "In A or B or both (union)",
+   "\\( 1 - P(\\text{none}) \\)",
+   "Second-draw probabilities change"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( P(\\text{at least one}) \\)” means: \\( 1 - P(\\text{none}) \\)"
   }
  }
 ];

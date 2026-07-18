@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 6. Enumeration and Probability</div>
             <h1>6.1 Counting, Permutations and Combinations</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,10 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 6.1 Counting, Permutations and Combinations — placeholder, content not yet written
+    //  DATA: 6.1 Counting, Permutations and Combinations (EN3, EN4, EN5)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4).
+    //  Exam Qs: 2019 Q1 (5P3 = 60) + 2022 Q3 (2 × 7! = 10080).
     // ══════════════════════════════════════
     const pageMeta = {
             id: '6-1-counting-permutations-and-combinations',
@@ -268,21 +271,262 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>6.1 Counting, Permutations and Combinations</strong> will appear here soon.</p>`
+            title: "How does the product (multiplication) rule count choices?",
+            tag: "Key concept",
+            content: `<p>The <strong>product rule</strong> (or multiplication rule) says: if one choice can be made in \\( m \\) ways and, independently, a second choice in \\( n \\) ways, then the two choices together can be made in \\[ m \\times n \\] ways. It extends to any number of independent stages — you <strong>multiply</strong> the options at each stage.</p>
+            <ul>
+              <li>The word to spot is a sequence of independent decisions ("a starter <em>and</em> a main <em>and</em> a dessert").</li>
+              <li><strong>Repeats allowed:</strong> if each of \\( n \\) stages has the same \\( k \\) options, the total is \\( k^n \\). Rolling an ordinary die \\( n \\) times gives \\( 6^n \\) equally likely outcomes.</li>
+              <li>Everything else on this page (factorials, \\( {}^nP_r \\), \\( {}^nC_r \\)) is really just the product rule applied carefully.</li>
+            </ul>
+            <p><strong>Worked example — a café meal deal:</strong></p>
+            <table class="worked">
+              <tr><td>1. Bread: \\( 3 \\) choices. Filling: \\( 4 \\) choices. Drink: \\( 2 \\) choices.</td></tr>
+              <tr><td>2. The choices are independent, so multiply: \\( 3 \\times 4 \\times 2 \\).</td></tr>
+              <tr><td>3. Total \\( = 24 \\) different meal deals.</td></tr>
+            </table>`,
+            readCheck: { q: "A password uses 1 letter (26 options) then 2 digits (10 options each). How many are possible?", opts: ["\\( 2600 \\)", "\\( 46 \\)", "\\( 260 \\)", "\\( 676000 \\)"], ans: 0, explain: "Independent stages, so multiply: \\( 26 \\times 10 \\times 10 = 2600 \\)." }
+        },
+        {
+            title: "What does n! (factorial) count?",
+            tag: "Key concept",
+            content: `<p><strong>\\( n \\) factorial</strong>, written \\( n! \\), is the product \\[ n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 2 \\times 1. \\] It counts the number of ways to <strong>arrange \\( n \\) distinct objects in a line</strong> (an ordered list with no repeats).</p>
+            <ul>
+              <li>Why? By the product rule: \\( n \\) choices for the first place, \\( n-1 \\) for the second, and so on down to \\( 1 \\) — that product is exactly \\( n! \\).</li>
+              <li>By definition \\( 0! = 1 \\) (there is exactly one way to arrange nothing). This keeps the \\( {}^nP_r \\) and \\( {}^nC_r \\) formulas working.</li>
+              <li>Factorials grow fast: \\( 5! = 120 \\), \\( 6! = 720 \\), \\( 10! = 3628800 \\). Use the \\( x! \\) button on your calculator.</li>
+            </ul>
+            <p><strong>Worked example — arranging 4 books on a shelf:</strong> \\( 4! = 4 \\times 3 \\times 2 \\times 1 = 24 \\) orders.</p>`,
+            readCheck: { q: "In how many orders can 6 different runners finish a race (no ties)?", opts: ["\\( 720 \\)", "\\( 36 \\)", "\\( 21 \\)", "\\( 46656 \\)"], ans: 0, explain: "Arranging 6 distinct objects in a line: \\( 6! = 720 \\)." }
+        },
+        {
+            title: "How do you count permutations (order matters)?",
+            tag: "Method",
+            content: `<p>A <strong>permutation</strong> is an <strong>ordered</strong> selection: you choose \\( r \\) objects from \\( n \\) distinct objects <em>and</em> arrange them, so the order counts. The number of permutations is \\[ {}^nP_r = \\frac{n!}{(n-r)!}. \\]</p>
+            <ul>
+              <li>Reading the formula: you use the top \\( r \\) factors of \\( n! \\), i.e. \\( n \\times (n-1) \\times \\dots \\) for \\( r \\) terms; dividing by \\( (n-r)! \\) cancels the unused tail.</li>
+              <li>Swapping any two chosen objects gives a <strong>different</strong> permutation (gold–silver is not the same as silver–gold).</li>
+              <li>\\( {}^nP_r \\) is <strong>not</strong> on the formula sheet, so learn it. On a calculator it is the \\( \\text{nPr} \\) key.</li>
+            </ul>
+            <p><strong>Worked example — gold, silver and bronze for 3 of 5 athletes:</strong></p>
+            <table class="worked">
+              <tr><td>1. Order matters (the medals are different), so use \\( {}^5P_3 \\).</td></tr>
+              <tr><td>2. \\( {}^5P_3 = \\frac{5!}{(5-3)!} = \\frac{5!}{2!} = \\frac{120}{2} = 60 \\).</td></tr>
+              <tr><td>3. Or directly by the product rule: \\( 5 \\times 4 \\times 3 = 60 \\).</td></tr>
+            </table>`,
+            readCheck: { q: "Evaluate \\( {}^7P_3 \\).", opts: ["\\( 210 \\)", "\\( 35 \\)", "\\( 5040 \\)", "\\( 343 \\)"], ans: 0, explain: "\\( {}^7P_3 = 7 \\times 6 \\times 5 = 210 \\). (\\( 35 \\) is \\( {}^7C_3 \\); \\( 5040 = 7! \\).)" }
+        },
+        {
+            title: "How do you count combinations (order does not matter)?",
+            tag: "Method",
+            content: `<p>A <strong>combination</strong> is an <strong>unordered</strong> selection: you choose \\( r \\) objects from \\( n \\) but do <em>not</em> arrange them, so different orders of the same objects count as one. The number of combinations is \\[ {}^nC_r = \\frac{n!}{r!\\,(n-r)!}. \\]</p>
+            <ul>
+              <li>The extra \\( r! \\) in the denominator (compared with \\( {}^nP_r \\)) divides out the \\( r! \\) orderings of each chosen group: \\( {}^nP_r = r! \\times {}^nC_r \\).</li>
+              <li><strong>\\( {}^nC_r \\) is PROVIDED on the exam formula sheet</strong> — \\( {}^nC_r = \\frac{n!}{r!(n-r)!} \\). You still must know <em>when</em> to use it. On a calculator it is the \\( \\text{nCr} \\) key.</li>
+              <li>Useful facts: \\( {}^nC_0 = {}^nC_n = 1 \\) and \\( {}^nC_r = {}^nC_{n-r} \\) (choosing who is in = choosing who is out).</li>
+            </ul>
+            <p><strong>Worked example — a team of 3 from 5 players:</strong></p>
+            <table class="worked">
+              <tr><td>1. A team has no internal order, so use \\( {}^5C_3 \\).</td></tr>
+              <tr><td>2. \\( {}^5C_3 = \\frac{5!}{3!\\,2!} = \\frac{120}{6 \\times 2} = \\frac{120}{12} = 10 \\).</td></tr>
+            </table>
+            <p>Notice \\( {}^5C_3 = 10 \\) is exactly \\( {}^5P_3 = 60 \\) divided by \\( 3! = 6 \\).</p>`,
+            readCheck: { q: "Evaluate \\( {}^8C_2 \\).", opts: ["\\( 28 \\)", "\\( 56 \\)", "\\( 16 \\)", "\\( 64 \\)"], ans: 0, explain: "\\( {}^8C_2 = \\frac{8 \\times 7}{2!} = \\frac{56}{2} = 28 \\). (\\( 56 = {}^8P_2 \\), which keeps the ordering.)" }
+        },
+        {
+            title: "How do you decide: permutation or combination?",
+            tag: "Exam skill",
+            content: `<p>This is the single most examined decision on this topic. Ask one question: <strong>if I swap two of the chosen objects, is it a different result?</strong></p>
+            <ul>
+              <li><strong>Yes → order matters → permutation \\( {}^nP_r \\).</strong> Signals: <em>arrange, order, rank, line up, 1st/2nd/3rd, distinct roles, code/PIN/password, seat in positions</em>.</li>
+              <li><strong>No → order does not matter → combination \\( {}^nC_r \\).</strong> Signals: <em>choose, select, pick a group, committee, team, sample, handshakes, "how many groups"</em>.</li>
+              <li>Distinct <strong>roles</strong> (Chairman, Secretary, Treasurer) make an ordered choice — a permutation — even though you are "choosing" people. Equal-status members make a combination.</li>
+            </ul>
+            <p><strong>Worked example — 5 people, a committee of 3 vs three named officers:</strong></p>
+            <table class="worked">
+              <tr><td>1. A committee of 3 (all equal): order irrelevant → \\( {}^5C_3 = 10 \\).</td></tr>
+              <tr><td>2. A Chair, Secretary and Treasurer from 5: the three jobs differ → \\( {}^5P_3 = 60 \\).</td></tr>
+            </table>`,
+            readCheck: { q: "Which situation needs a COMBINATION?", opts: ["Choosing 4 books from 9 to take on holiday", "Setting a 4-digit PIN", "Awarding 1st, 2nd, 3rd prizes", "Seating 4 people in a row of chairs"], ans: 0, explain: "Only the books involve an unordered selection — the other three all depend on order." }
+        },
+        {
+            title: "How do you handle arrangements with constraints?",
+            tag: "Worked example",
+            content: `<p>Real questions add conditions. Handle them with three standard moves, then finish with the product rule.</p>
+            <ul>
+              <li><strong>A fixed position:</strong> place the fixed person first, then arrange everyone else. (5 people, one must sit at the end: fix them, arrange the other \\( 4 \\) → \\( 4! = 24 \\).)</li>
+              <li><strong>Two people must be together:</strong> tie them into a single <strong>block</strong>, arrange the blocks, then multiply by the arrangements <em>inside</em> the block.</li>
+              <li><strong>Two people must be apart:</strong> count all arrangements and <strong>subtract</strong> the "together" ones.</li>
+            </ul>
+            <p><strong>Worked example — 4 people in a row, two friends A and B must sit together:</strong></p>
+            <table class="worked">
+              <tr><td>1. Treat A and B as one block: that leaves \\( 3 \\) items (the block, plus the other two people).</td></tr>
+              <tr><td>2. Arrange the \\( 3 \\) items: \\( 3! = 6 \\).</td></tr>
+              <tr><td>3. A and B can be in \\( 2! = 2 \\) orders inside the block.</td></tr>
+              <tr><td>4. Total \\( = 3! \\times 2! = 6 \\times 2 = 12 \\).</td></tr>
+            </table>
+            <p><strong>Apart check:</strong> all arrangements \\( 4! = 24 \\); together \\( = 12 \\); so apart \\( = 24 - 12 = 12 \\).</p>`,
+            readCheck: { q: "5 people sit in a row; two of them must sit next to each other. How many arrangements?", opts: ["\\( 48 \\)", "\\( 120 \\)", "\\( 24 \\)", "\\( 240 \\)"], ans: 0, explain: "Block of 2 → 4 items: \\( 4! = 24 \\), times \\( 2! = 2 \\) inside the block \\( = 48 \\)." }
+        },
+        {
+            title: "How do circular arrangements differ, and which formulas must you learn?",
+            tag: "Key concept",
+            content: `<p><strong>Round a table</strong>, there is no fixed "first seat" — rotating everyone one place gives the <em>same</em> arrangement. So the number of distinct arrangements of \\( n \\) people around a circle is \\[ (n-1)! \\] not \\( n! \\). (Fix one person to remove the rotations, then arrange the other \\( n-1 \\).)</p>
+            <table class="worked">
+              <tr><td>Example: 5 people around a table \\( = (5-1)! = 4! = 24 \\) arrangements.</td></tr>
+            </table>
+            <p><strong>Formula discipline for this topic:</strong></p>
+            <ul>
+              <li><strong>MEMORISE:</strong> the product rule; \\( n! \\); the permutation formula \\( {}^nP_r = \\frac{n!}{(n-r)!} \\); the circular result \\( (n-1)! \\).</li>
+              <li><strong>PROVIDED on the formula sheet:</strong> the combination formula \\( {}^nC_r = \\frac{n!}{r!(n-r)!} \\) (given alongside the binomial series). Knowing where it is on the sheet saves time, but you still must know when to use it.</li>
+            </ul>`,
+            readCheck: { q: "In how many ways can 6 people be seated around a circular table?", opts: ["\\( 120 \\)", "\\( 720 \\)", "\\( 6 \\)", "\\( 36 \\)"], ans: 0, explain: "Circular arrangements of \\( n \\) people \\( = (n-1)! = 5! = 120 \\)." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "A menu has 4 starters, 5 mains and 3 desserts. How many different 3-course meals are possible?", opts: ["\\( 60 \\)", "\\( 12 \\)", "\\( 15 \\)", "\\( 45 \\)"], ans: 0, explain: "Independent stages, so multiply: \\( 4 \\times 5 \\times 3 = 60 \\). Adding (\\( 4+5+3 = 12 \\)) is the classic slip." },
+        { q: "Evaluate \\( 6! \\).", opts: ["\\( 720 \\)", "\\( 36 \\)", "\\( 120 \\)", "\\( 46656 \\)"], ans: 0, explain: "\\( 6! = 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1 = 720 \\)." },
+        { q: "In how many orders can the 5 distinct letters of MATHS be arranged?", opts: ["\\( 120 \\)", "\\( 25 \\)", "\\( 60 \\)", "\\( 3125 \\)"], ans: 0, explain: "Five distinct objects in a line: \\( 5! = 120 \\)." },
+        { q: "Evaluate \\( {}^7P_3 \\).", opts: ["\\( 210 \\)", "\\( 35 \\)", "\\( 5040 \\)", "\\( 343 \\)"], ans: 0, explain: "\\( {}^7P_3 = 7 \\times 6 \\times 5 = 210 \\). Choosing \\( 35 = {}^7C_3 \\) forgets that order matters." },
+        { q: "Evaluate \\( {}^8C_2 \\).", opts: ["\\( 28 \\)", "\\( 56 \\)", "\\( 16 \\)", "\\( 64 \\)"], ans: 0, explain: "\\( {}^8C_2 = \\frac{8 \\times 7}{2!} = 28 \\). \\( 56 = {}^8P_2 \\) keeps the ordering — divide by \\( 2! \\)." },
+        { q: "A club of 10 members elects a President, a Secretary and a Treasurer (one person per role). How many ways?", opts: ["\\( 720 \\)", "\\( 120 \\)", "\\( 30 \\)", "\\( 1000 \\)"], ans: 0, explain: "Three distinct roles → order matters → \\( {}^{10}P_3 = 10 \\times 9 \\times 8 = 720 \\). \\( 120 = {}^{10}C_3 \\) would be for an equal-status committee." },
+        { q: "A club of 10 members forms a committee of 3 (all equal status). How many ways?", opts: ["\\( 120 \\)", "\\( 720 \\)", "\\( 30 \\)", "\\( 1000 \\)"], ans: 0, explain: "Order does not matter → \\( {}^{10}C_3 = \\frac{10 \\times 9 \\times 8}{3!} = \\frac{720}{6} = 120 \\). Using \\( {}^{10}P_3 = 720 \\) treats the members as ordered." },
+        { q: "Which of these requires a COMBINATION (order does not matter)?", opts: ["Choosing 3 pizza toppings from 8", "Arranging 3 people in a queue", "Awarding gold, silver and bronze", "Setting a 4-digit passcode"], ans: 0, explain: "Only the toppings are an unordered selection; the others all depend on order." },
+        { q: "A student calculates \\( {}^6C_2 \\) and gets \\( 30 \\). What went wrong?", opts: ["They forgot to divide by \\( 2! \\); the answer is \\( 15 \\)", "Nothing — \\( 30 \\) is correct", "They should have divided by \\( 6! \\)", "They should have used \\( 6 + 2 \\)"], ans: 0, explain: "\\( 30 = {}^6P_2 \\) (order kept). Dividing by \\( 2! \\) removes the orderings: \\( {}^6C_2 = 15 \\)." },
+        { q: "In \\( {}^9P_4 = \\frac{9!}{(9-4)!} \\), the denominator is:", opts: ["\\( 5! \\)", "\\( 4! \\)", "\\( 6! \\)", "\\( 13! \\)"], ans: 0, explain: "\\( 9 - 4 = 5 \\), so the denominator is \\( 5! \\). Writing \\( 4! \\) is a common off-by-one slip." },
+        { q: "In how many ways can 5 people be seated around a circular table?", opts: ["\\( 24 \\)", "\\( 120 \\)", "\\( 5 \\)", "\\( 20 \\)"], ans: 0, explain: "Circular arrangements of \\( n \\) people \\( = (n-1)! = 4! = 24 \\); rotations count as the same." },
+        { q: "In how many ways can 4 people stand in a row if two particular people must stand together?", opts: ["\\( 12 \\)", "\\( 24 \\)", "\\( 48 \\)", "\\( 6 \\)"], ans: 0, explain: "Tie the pair into a block → 3 items: \\( 3! = 6 \\), times \\( 2! = 2 \\) inside the block \\( = 12 \\)." }
+    ];
+
+    const matchData = [
+        { term: "Arrange all 6 books on a shelf", def: "\\( 6! \\)" },
+        { term: "Choose 3 of 6 books to pack (order irrelevant)", def: "\\( {}^6C_3 \\)" },
+        { term: "Give 1st, 2nd, 3rd place to 3 of 6 runners", def: "\\( {}^6P_3 \\)" },
+        { term: "Fill 3 different offices from 8 people", def: "\\( {}^8P_3 \\)" },
+        { term: "Pick a 3-person team from 8 people", def: "\\( {}^8C_3 \\)" },
+        { term: "Ordered selection, no repeats", def: "Permutation" },
+        { term: "Unordered selection", def: "Combination" },
+        { term: "Formula for \\( {}^nC_r \\)", def: "\\( \\frac{n!}{r!(n-r)!} \\)" },
+        { term: "Formula for \\( {}^nP_r \\)", def: "\\( \\frac{n!}{(n-r)!} \\)" },
+        { term: "Seat 5 people around a round table", def: "\\( 4! \\)" },
+        { term: "Value of \\( 0! \\)", def: "\\( 1 \\)" },
+        { term: "Value of \\( {}^5C_2 \\)", def: "\\( 10 \\)" },
+        { term: "Value of \\( {}^5P_2 \\)", def: "\\( 20 \\)" },
+        { term: "Meals from 2 breads and 3 fillings", def: "\\( 6 \\)" }
+    ];
+
+    // NOTE: FIB blanks sit in PLAIN TEXT, never inside a \( \) region (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b).
+    // Answer VALUES are plain text so server string-equality still works.
+    const fibData = [
+        { display: "When you make a sequence of independent choices, the total number of outcomes is found by ___B1___ the number of options at each stage.", blanks: { B1: "multiplying" } },
+        { display: "The product \\( n \\times (n-1) \\times \\dots \\times 2 \\times 1 \\) is called n ___B1___, and by definition \\( 0! \\) equals ___B2___.", blanks: { B1: "factorial", B2: "1" } },
+        { display: "In a permutation the ___B1___ of the objects matters, but in a combination it does ___B2___.", blanks: { B1: "order", B2: "not" } },
+        { display: "In the permutation formula \\( {}^nP_r = \\frac{n!}{(n-r)!} \\), the denominator is the factorial of ___B1___.", blanks: { B1: "n-r" } },
+        { display: "Compared with \\( {}^nP_r \\), the combination \\( {}^nC_r \\) divides by an extra ___B1___ to cancel the repeated orderings.", blanks: { B1: "r!" } },
+        { display: "The number of distinct ways to seat n people around a circular table is ( ___B1___ )! because rotations are the same arrangement.", blanks: { B1: "n-1" } },
+        { display: "Selecting a team of 4 from a squad of 11, where order does not matter, is counted with a ___B1___.", blanks: { B1: "combination" } },
+        { display: "Awarding gold, silver and bronze to 3 of 8 runners, where order matters, is counted with a ___B1___.", blanks: { B1: "permutation" } }
+    ];
+
+    const fibWords = ["multiplying", "adding", "dividing", "factorial", "order", "not", "always", "1", "0", "n-r", "n+1", "r!", "n!", "n-1", "combination", "permutation"];
+
+    const tfData = [
+        { statement: "In a permutation the order of the selected objects matters.", answer: true, explanation: "Yes — a permutation is an ordered selection; swapping two chosen objects gives a different permutation." },
+        { statement: "\\( {}^5C_3 = {}^5C_2 \\).", answer: true, explanation: "Both equal \\( 10 \\): \\( {}^nC_r = {}^nC_{n-r} \\), since choosing who is in is the same as choosing who is out." },
+        { statement: "\\( 0! = 0 \\).", answer: false, explanation: "By definition \\( 0! = 1 \\); this is what keeps the \\( {}^nP_r \\) and \\( {}^nC_r \\) formulas valid." },
+        { statement: "The number of ways to arrange n distinct objects in a line is \\( n! \\).", answer: true, explanation: "By the product rule: \\( n \\) choices for the first place, \\( n-1 \\) for the next, … which multiplies to \\( n! \\)." },
+        { statement: "For a committee of 3 where every member has equal status, you should use a permutation.", answer: false, explanation: "Order does not matter for an equal-status committee, so use a combination \\( {}^nC_r \\)." },
+        { statement: "\\( {}^nC_r \\) is printed on the exam formula sheet, so you do not have to memorise it.", answer: true, explanation: "Correct — \\( {}^nC_r = \\frac{n!}{r!(n-r)!} \\) is provided; but you still must know when to use it. \\( {}^nP_r \\) and \\( n! \\) are NOT given." },
+        { statement: "\\( {}^8P_2 = {}^8C_2 \\).", answer: false, explanation: "\\( {}^8P_2 = 56 \\) but \\( {}^8C_2 = 28 \\); in general \\( {}^nP_r = r! \\times {}^nC_r \\)." },
+        { statement: "Seating 6 people around a circular table gives \\( 6! \\) different arrangements.", answer: false, explanation: "Rotations count as the same, so it is \\( (6-1)! = 5! = 120 \\), not \\( 6! \\)." }
+    ];
+
+    const miscData = [
+        { wrong: "To pick a committee of 3 from 8 people I used \\( {}^8P_3 = 336 \\).", correct: "A committee has no internal order, so order must not be counted. A weak answer keeps the orderings; a strong answer divides by \\( 3! \\): \\( {}^8C_3 = \\frac{336}{6} = 56 \\).", readCheck: { q: "How many committees of 3 can be formed from 8 people?", opts: ["\\( 56 \\)", "\\( 336 \\)", "\\( 24 \\)", "\\( 512 \\)"], ans: 0, explain: "\\( {}^8C_3 = \\frac{8 \\times 7 \\times 6}{3!} = \\frac{336}{6} = 56 \\)." } },
+        { wrong: "Choosing gold, silver and bronze for 3 of 5 athletes: \\( {}^5C_3 = 10 \\).", correct: "The three medals are different, so order matters — this is a permutation. A weak answer selects a group; a strong answer arranges it: \\( {}^5P_3 = 60 \\).", readCheck: { q: "Gold, silver and bronze for 3 of 5 athletes — how many ways?", opts: ["\\( 60 \\)", "\\( 10 \\)", "\\( 15 \\)", "\\( 125 \\)"], ans: 0, explain: "Order matters: \\( {}^5P_3 = 5 \\times 4 \\times 3 = 60 \\). \\( 10 = {}^5C_3 \\) ignores the different medals." } },
+        { wrong: "A permutation and a combination of r from n always give the same number.", correct: "They are equal only when \\( r = 0 \\) or \\( r = 1 \\). In general the permutation is bigger: \\( {}^nP_r = r! \\times {}^nC_r \\), because each chosen group can be ordered in \\( r! \\) ways.", readCheck: { q: "How are \\( {}^nP_r \\) and \\( {}^nC_r \\) related?", opts: ["\\( {}^nP_r = r! \\times {}^nC_r \\)", "\\( {}^nP_r = {}^nC_r \\)", "\\( {}^nC_r = r! \\times {}^nP_r \\)", "\\( {}^nP_r = n! \\times {}^nC_r \\)"], ans: 0, explain: "Each combination can be arranged in \\( r! \\) orders, so \\( {}^nP_r = r! \\times {}^nC_r \\)." } },
+        { wrong: "\\( 0! = 0 \\), so \\( {}^nP_n = \\frac{n!}{0!} \\) must be undefined.", correct: "By definition \\( 0! = 1 \\), so \\( {}^nP_n = \\frac{n!}{1} = n! \\) — the number of ways to arrange all n objects, which makes sense.", readCheck: { q: "What is the value of \\( 0! \\)?", opts: ["\\( 1 \\)", "\\( 0 \\)", "undefined", "\\( \\infty \\)"], ans: 0, explain: "\\( 0! = 1 \\) by definition." } },
+        { wrong: "The number of arrangements of the letters of LEVEL is \\( 5! = 120 \\).", correct: "Identical letters must not be treated as distinct: L and E each appear twice. A strong answer divides by the repeats: \\( \\frac{5!}{2!\\,2!} = \\frac{120}{4} = 30 \\).", readCheck: { q: "How many distinct arrangements of the letters of LEVEL are there?", opts: ["\\( 30 \\)", "\\( 120 \\)", "\\( 60 \\)", "\\( 20 \\)"], ans: 0, explain: "\\( \\frac{5!}{2!\\,2!} = \\frac{120}{4} = 30 \\), because L and E each repeat twice." } },
+        { wrong: "Seating 6 people around a circular table gives \\( 6! = 720 \\) ways.", correct: "Rotating everyone one seat gives the same arrangement, so fix one person: \\( (6-1)! = 5! = 120 \\).", readCheck: { q: "How many ways can 6 people sit around a round table?", opts: ["\\( 120 \\)", "\\( 720 \\)", "\\( 36 \\)", "\\( 6 \\)"], ans: 0, explain: "Circular: \\( (n-1)! = 5! = 120 \\)." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "Decide permutation or combination FIRST", pills: ["order matters?", "nPr vs nCr"], content: `<p>The most common lost mark on this topic is the wrong choice of method. Ask: <em>does swapping two chosen objects change the result?</em></p><p><strong>0 marks:</strong> gold/silver/bronze for 3 of 5 answered as \\( {}^5C_3 = 10 \\) — the medals are different, so order matters.</p><p><strong>Full marks:</strong> \\( {}^5P_3 = 60 \\). Write one line naming your method ("order matters, so permutation") before you calculate.</p>`, readCheck: { q: "Before computing, what should you decide?", opts: ["Whether order matters (permutation) or not (combination)", "Whether to add or subtract", "Whether to round", "Which calculator to use"], ans: 0, explain: "Choosing permutation vs combination is the decision that earns or loses the marks." } },
+        { type: "tip", title: "Show the structure of the count", pills: ["method mark", "working"], content: `<p>Enumeration marks are awarded for the visible structure, not just the final number. For a constrained arrangement, examiners look for each factor: e.g. the \\( 7! \\) for the free objects and the \\( \\times 2 \\) for a two-position constraint, then the product.</p><p>Writing \\( 2 \\times 7! = 2 \\times 5040 = 10080 \\) banks each mark even if the arithmetic slips; a bare number risks the lot.</p>`, readCheck: { q: "Why write each factor of the count separately?", opts: ["Each factor can earn its own method/B mark", "It looks neater", "It is required by law", "To use more space"], ans: 0, explain: "Mark schemes award a mark per correct factor (e.g. \\( 7! \\) soi, then \\( \\times 2 \\))." } },
+        { type: "explain", title: "nCr is given; nPr and n! are not", pills: ["formula sheet", "memorise"], content: `<p>The combination formula \\( {}^nC_r = \\frac{n!}{r!(n-r)!} \\) is <strong>printed on the exam formula sheet</strong> (next to the binomial series). The product rule, \\( n! \\), the permutation formula \\( {}^nP_r = \\frac{n!}{(n-r)!} \\) and the circular result \\( (n-1)! \\) are <strong>not</strong> — you must memorise those.</p>`, readCheck: { q: "Which of these is PROVIDED on the formula sheet?", opts: ["\\( {}^nC_r = \\frac{n!}{r!(n-r)!} \\)", "\\( {}^nP_r = \\frac{n!}{(n-r)!} \\)", "\\( n! \\)", "the circular result \\( (n-1)! \\)"], ans: 0, explain: "Only \\( {}^nC_r \\) is on the sheet; the rest must be learned." } }
+    ];
+
+    const flashcards = [
+        { term: "Product (multiplication) rule", def: "Multiply the number of options at each independent stage." },
+        { term: "Factorial \\( n! \\)", def: "\\( n \\times (n-1) \\times \\dots \\times 2 \\times 1 \\); arrangements of n distinct objects." },
+        { term: "\\( 0! \\)", def: "Equals \\( 1 \\) by definition." },
+        { term: "Permutation", def: "An ordered selection of r from n; order matters." },
+        { term: "Combination", def: "An unordered selection of r from n; order does not matter." },
+        { term: "\\( {}^nP_r \\) formula", def: "\\( \\frac{n!}{(n-r)!} \\) — must be memorised." },
+        { term: "\\( {}^nC_r \\) formula", def: "\\( \\frac{n!}{r!(n-r)!} \\) — provided on the formula sheet." },
+        { term: "Link between them", def: "\\( {}^nP_r = r! \\times {}^nC_r \\)." },
+        { term: "Symmetry of \\( {}^nC_r \\)", def: "\\( {}^nC_r = {}^nC_{n-r} \\)." },
+        { term: "\\( {}^nC_0 \\) and \\( {}^nC_n \\)", def: "Both equal \\( 1 \\)." },
+        { term: "Circular arrangements", def: "n people around a table: \\( (n-1)! \\), as rotations repeat." },
+        { term: "Objects together", def: "Treat the group as one block, arrange blocks, then arrange within the block." },
+        { term: "Objects apart", def: "All arrangements minus the 'together' arrangements." },
+        { term: "Deciding test", def: "Swap two chosen items: different result ⇒ permutation; same ⇒ combination." },
+        { term: "Identical items", def: "Divide n! by the factorial of each repeated count." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "2019 Q1",
+            marks: 2,
+            type: "written",
+            question: `<p>A committee consists of five people. The roles of Chairman, Secretary and Treasurer are to be allocated at random from the committee with no one person taking more than one role.</p>
+            <p>In how many ways can this allocation of roles be made?</p>`,
+            hint: "Three different roles means the order of selection matters — this is a permutation, not a combination.",
+            starter: "Show the calculation (e.g. \\( {}^5P_3 \\) or \\( 5 \\times 4 \\times 3 \\)) and give a single number.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — evidence of a permutation, soi: \\( {}^5P_3 \\) or \\( \\frac{5!}{2!} \\) or \\( 5 \\times 4 \\times 3 \\) oe.</li>
+              <li><strong>A1</strong> — \\( 60 \\) (mark final answer).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>M1 is for selecting a permutation method (order matters); A1 is for the correct value \\( 60 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>A large minority did not appreciate the difference between a permutation and a combination. A permutation of 3 from 5 was required; the response \\( 10 \\) (the combination \\( {}^5C_3 \\)) was seen rather too often.</li>
+            </ul></div>`,
+            modelAnswer: "The three roles are distinct, so order matters: \\( {}^5P_3 = 5 \\times 4 \\times 3 = 60 \\) ways.",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — permutation method", max: 1, points: ["Used a permutation, e.g. \\( {}^5P_3 \\), \\( \\frac{5!}{2!} \\) or \\( 5 \\times 4 \\times 3 \\)"] },
+                { label: "A1 — correct value", max: 1, points: ["\\( 60 \\) (final answer)"] }
+            ] }
+        },
+        {
+            num: "2022 Q3",
+            marks: 3,
+            type: "written",
+            question: `<p>A photograph is to be taken of 9 students who have represented their college in sailing this year. The students are to be arranged in a line. The captain is to stand in the middle with the vice-captain standing beside the captain.</p>
+            <p>How many ways are there of arranging the students?</p>`,
+            hint: "Fix the captain in the middle. The vice-captain has only two possible places (either side of the captain); the other seven students fill the rest.",
+            starter: "Show the \\( 7! \\) for the remaining students, the factor of 2 for the vice-captain, then the final number.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO3, AO1)</h5><ul>
+              <li><strong>B1</strong> — sight of \\( 7! \\) (soi by the correct answer; or \\( 5040 \\) or \\( {}^7P_7 \\)).</li>
+              <li><strong>B1</strong> — for multiplying their value by \\( 2 \\).</li>
+              <li><strong>B1</strong> — answer \\( 10080 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One mark for arranging the seven free students (\\( 7! \\)), one for doubling because the vice-captain can stand on either side of the captain, and one for the correct total.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>There were a number of correct answers but also a significant number who were unable to enumerate the number of ways. Although the vice-captain only has two positions (on the left or the right of the captain), candidates multiplied the arrangements of the other students by a variety of numbers.</li>
+            </ul></div>`,
+            modelAnswer: "The captain is fixed in the middle. The vice-captain stands on either side of the captain: 2 ways. The remaining 7 students fill the other 7 places: \\( 7! = 5040 \\). Total \\( = 2 \\times 7! = 2 \\times 5040 = 10080 \\) ways.",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "B1 — arrange the other seven", max: 1, points: ["Sight of \\( 7! \\) (or \\( 5040 \\) or \\( {}^7P_7 \\)), soi by the correct answer"] },
+                { label: "B1 — the factor of two", max: 1, points: ["Multiplied their value by \\( 2 \\) (vice-captain on either side of the captain)"] },
+                { label: "B1 — correct total", max: 1, points: ["\\( 10080 \\)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

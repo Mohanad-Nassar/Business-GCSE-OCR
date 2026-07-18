@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 6. Enumeration and Probability</div>
             <h1>6.3 The Binomial Distribution</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,10 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 6.3 The Binomial Distribution — placeholder, content not yet written
+    //  DATA: 6.3 The Binomial Distribution (EN2, EN6)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4).
+    //  Exam Qs = 2023 Q2 [3] + 2019 Q8 (a)+(b) [2+4]. Total 9 marks.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '6-3-the-binomial-distribution',
@@ -266,23 +269,259 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimulus for the 2019 Q8 coin-elimination game (parts a and b).
+    const EXAM_CASE_STUDIES = {
+        "q8-2019": `<p>Each of five students has a fair coin. They play a game in which each student tosses their coin and when the result of their toss is a head then that student is eliminated from the game. The game continues with the remaining students tossing their coin again. As before, any student who tosses a head is eliminated. The game continues until all the students have been eliminated or there is a single winner.</p>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>6.3 The Binomial Distribution</strong> will appear here soon.</p>`
+            title: "When can you model a situation with a binomial distribution?",
+            tag: "Key concept",
+            content: `<p>A <strong>binomial distribution</strong> counts how many <strong>successes</strong> happen in a fixed number of repeated attempts. It applies only when <strong>all four</strong> of these conditions hold:</p>
+            <ul>
+              <li>There is a <strong>fixed number of trials</strong>, \\( n \\) (e.g. exactly 4 dice thrown, 5 coins tossed).</li>
+              <li>Each trial has just <strong>two outcomes</strong> — call them <em>success</em> and <em>failure</em> (throwing a 3 / not a 3).</li>
+              <li>The probability of success \\( p \\) is <strong>constant</strong> — the same on every trial.</li>
+              <li>The trials are <strong>independent</strong> — one outcome does not affect any other.</li>
+            </ul>
+            <p>Decide what counts as a "success" first, and read off \\( p \\) for that success. If any condition fails — for example drawing cards <em>without replacement</em> changes \\( p \\) as you go — the situation is <strong>not</strong> binomial.</p>`,
+            readCheck: { q: "Which of these is NOT a binomial situation?", opts: ["Drawing 3 cards from a pack without replacement and counting kings", "Throwing 6 dice and counting the sixes", "Tossing a coin 10 times and counting heads", "Spinning a fair spinner 5 times and counting reds"], ans: 0, explain: "Without replacement the probability of a king changes after each draw, so \\( p \\) is not constant — the trials are not independent, so it is not binomial." }
+        },
+        {
+            title: "What does the notation X ~ B(n, p) mean?",
+            tag: "Key concept",
+            content: `<p>We write \\[ X \\sim B(n,\\ p) \\] to say "the random variable \\( X \\) follows a <strong>binomial distribution</strong> with \\( n \\) trials and probability of success \\( p \\)". Here \\( X \\) is the <strong>number of successes</strong>, which can be \\( 0, 1, 2, \\dots, n \\).</p>
+            <ul>
+              <li>\\( n \\) = the number of trials; \\( p \\) = the probability of success on one trial.</li>
+              <li>The probability of <strong>failure</strong> on one trial is \\( 1 - p \\).</li>
+              <li>The probability of getting exactly \\( x \\) successes is given by the formula \\[ P(X = x) = {}^nC_x\\, p^x (1-p)^{n-x}. \\]</li>
+            </ul>
+            <p>This formula is <strong>provided on the exam formula sheet</strong> (together with \\( {}^nC_r \\)), so you do not need to memorise it — but you must know how to <em>use</em> it and how to read \\( n \\), \\( x \\) and \\( p \\) from a worded problem.</p>`,
+            readCheck: { q: "A drawing pin lands 'point up' with probability 0.4. It is dropped 8 times. How is the number of 'point up' results distributed?", opts: ["\\( X \\sim B(8,\\ 0.4) \\)", "\\( X \\sim B(0.4,\\ 8) \\)", "\\( X \\sim B(8,\\ 0.6) \\)", "\\( X \\sim B(3.2,\\ 8) \\)"], ans: 0, explain: "There are \\( n = 8 \\) trials and the success ('point up') probability is \\( p = 0.4 \\), so \\( X \\sim B(8,\\ 0.4) \\)." }
+        },
+        {
+            title: "How do you calculate P(X = x)?",
+            tag: "Worked example",
+            content: `<p>Substitute \\( n \\), \\( x \\) and \\( p \\) into \\( P(X = x) = {}^nC_x\\, p^x (1-p)^{n-x} \\). The power of \\( p \\) is the number of successes \\( x \\); the power of \\( (1-p) \\) is the number of failures \\( n - x \\).</p>
+            <p><strong>Worked example — \\( X \\sim B(10,\\ 0.2) \\), find \\( P(X = 3) \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Here \\( n = 10 \\), \\( x = 3 \\), \\( p = 0.2 \\), so \\( 1 - p = 0.8 \\).</td></tr>
+              <tr><td>2. \\( {}^{10}C_3 = 120 \\).</td></tr>
+              <tr><td>3. \\( p^x = 0.2^3 = 0.008 \\) and \\( (1-p)^{n-x} = 0.8^{7} = 0.2097152 \\).</td></tr>
+              <tr><td>4. \\( P(X = 3) = 120 \\times 0.008 \\times 0.2097152 = 0.2013\\dots \\)</td></tr>
+            </table>
+            <p>So \\( P(X = 3) \\approx 0.201 \\). Notice the two powers \\( 3 \\) and \\( 7 \\) add to \\( n = 10 \\) — a quick check you have not mixed up \\( x \\) and \\( n - x \\).</p>`,
+            readCheck: { q: "For \\( X \\sim B(6,\\ 0.5) \\), which expression gives \\( P(X = 2) \\)?", opts: ["\\( {}^6C_2\\, (0.5)^2 (0.5)^4 \\)", "\\( {}^6C_2\\, (0.5)^4 (0.5)^2 \\)", "\\( {}^6C_2\\, (0.5)^2 (0.5)^6 \\)", "\\( (0.5)^2 (0.5)^4 \\)"], ans: 0, explain: "The power of \\( p \\) is the number of successes \\( x = 2 \\); the power of \\( 1-p \\) is \\( n - x = 4 \\); and you must include \\( {}^6C_2 \\)." }
+        },
+        {
+            title: "How do you find P(X ≤ x) — 'at most' probabilities?",
+            tag: "Method",
+            content: `<p>\\( P(X \\le x) \\) means "\\( x \\) or fewer successes", so you <strong>add</strong> the separate probabilities: \\[ P(X \\le x) = P(0) + P(1) + \\dots + P(x). \\] Compute each term with the formula and total them.</p>
+            <p><strong>Worked example — \\( X \\sim B(6,\\ 0.25) \\), find \\( P(X \\le 1) \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( P(0) = {}^6C_0\\,(0.25)^0 (0.75)^6 = 0.75^6 = 0.1780 \\).</td></tr>
+              <tr><td>2. \\( P(1) = {}^6C_1\\,(0.25)^1 (0.75)^5 = 6 \\times 0.25 \\times 0.2373 = 0.3560 \\).</td></tr>
+              <tr><td>3. \\( P(X \\le 1) = 0.1780 + 0.3560 = 0.5339\\dots \\)</td></tr>
+            </table>
+            <p>So \\( P(X \\le 1) \\approx 0.534 \\). Watch the wording: "<strong>fewer than</strong> 2" means \\( P(X \\le 1) \\), but "<strong>at most</strong> 2" means \\( P(X \\le 2) \\) — always decide which values of \\( X \\) are included before you add.</p>`,
+            readCheck: { q: "For a binomial \\( X \\), what does \\( P(X \\le 2) \\) equal?", opts: ["\\( P(0) + P(1) + P(2) \\)", "\\( P(2) \\) only", "\\( 1 - P(2) \\)", "\\( P(1) + P(2) \\)"], ans: 0, explain: "'At most 2' includes 0, 1 and 2 successes, so add all three probabilities." }
+        },
+        {
+            title: "How do you answer 'at least one' questions?",
+            tag: "Exam skill",
+            content: `<p>"At least one success" covers \\( X = 1, 2, 3, \\dots, n \\) — a lot of cases. The efficient route is the <strong>complement</strong>: the only outcome left out is "no successes", so \\[ P(X \\ge 1) = 1 - P(X = 0). \\] Because \\( {}^nC_0 = 1 \\) and \\( p^0 = 1 \\), this is simply \\( 1 - (1-p)^n \\).</p>
+            <p><strong>Worked example — a spinner lands on red with \\( p = 0.3 \\); it is spun 5 times. Find P(at least one red):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( P(\\text{no reds}) = P(X = 0) = (0.7)^5 = 0.16807 \\).</td></tr>
+              <tr><td>2. \\( P(\\text{at least one red}) = 1 - 0.16807 = 0.83193 \\).</td></tr>
+            </table>
+            <p>So \\( P(X \\ge 1) \\approx 0.832 \\). For "<strong>at least two</strong>" you must subtract more: \\( P(X \\ge 2) = 1 - P(0) - P(1) \\). The commonest exam error is using the wrong complement — check exactly which cases you are leaving out.</p>`,
+            readCheck: { q: "A fair die is thrown 3 times. Which gives P(at least one six)?", opts: ["\\( 1 - (5/6)^3 \\)", "\\( (1/6)^3 \\)", "\\( 1 - (1/6)^3 \\)", "\\( 3 \\times (1/6) \\)"], ans: 0, explain: "'At least one six' is the complement of 'no sixes'. \\( P(\\text{no sixes}) = (5/6)^3 \\), so \\( P(X \\ge 1) = 1 - (5/6)^3 \\)." }
+        },
+        {
+            title: "Which formulae are provided, and when is a model NOT binomial?",
+            tag: "Common error",
+            content: `<p><strong>Provided on the exam formula sheet</strong> (do not memorise): the combinations \\( {}^nC_r = \\frac{n!}{r!(n-r)!} \\) and the binomial distribution \\( P(X = x) = {}^nC_x\\, p^x (1-p)^{n-x} \\) for \\( X \\sim B(n,p) \\).</p>
+            <p>The skill the exam tests is <strong>recognising</strong> when the model is valid. Ask the four questions from card 1 — a situation is <strong>not</strong> binomial when:</p>
+            <ul>
+              <li>The probability changes trial to trial (e.g. selecting people or cards <strong>without replacement</strong>) — \\( p \\) is not constant.</li>
+              <li>The trials affect each other — they are not <strong>independent</strong>.</li>
+              <li>There is no fixed \\( n \\) ("keep going until a six appears"), or there are more than two outcomes you are not collapsing into success/failure.</li>
+            </ul>
+            <p>Even when the word "binomial" never appears, phrases like "<em>at least</em>", "<em>exactly two</em>" or a repeated fixed experiment are the signal to reach for \\( X \\sim B(n,p) \\).</p>`,
+            readCheck: { q: "Why is 'count the reds when 4 balls are drawn from a bag without replacement' NOT binomial?", opts: ["The probability of red changes after each draw, so p is not constant", "There is no fixed number of trials", "There are more than two colours possible", "The trials are all identical"], ans: 0, explain: "Removing a ball changes the proportion of reds, so \\( p \\) varies from draw to draw — the trials are not independent and the model is not binomial." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "A random variable is written \\( X \\sim B(12,\\ 0.3) \\). What is \\( n \\)?", opts: ["\\( 12 \\)", "\\( 0.3 \\)", "\\( 0.7 \\)", "\\( 3.6 \\)"], ans: 0, explain: "In \\( B(n,p) \\) the first entry is the number of trials, so \\( n = 12 \\) and \\( p = 0.3 \\)." },
+        { q: "For \\( X \\sim B(n,p) \\), the probability of failure on a single trial is:", opts: ["\\( 1 - p \\)", "\\( p \\)", "\\( 1 - n \\)", "\\( np \\)"], ans: 0, explain: "Each trial is success (prob \\( p \\)) or failure, so failure has probability \\( 1 - p \\)." },
+        { q: "Which situation can be modelled by a binomial distribution?", opts: ["Tossing a fair coin 20 times and counting heads", "Drawing 5 cards without replacement and counting aces", "Timing how long until a bus arrives", "Selecting 4 pupils from a class without replacement and counting girls"], ans: 0, explain: "Coin tosses have a fixed \\( n \\), two outcomes, constant \\( p = 0.5 \\) and are independent. The others break the constant-\\( p \\)/independence conditions or have no fixed \\( n \\)." },
+        { q: "For \\( X \\sim B(10,\\ 0.2) \\), which expression gives \\( P(X = 3) \\)?", opts: ["\\( {}^{10}C_3\\,(0.2)^3 (0.8)^7 \\)", "\\( {}^{10}C_3\\,(0.2)^7 (0.8)^3 \\)", "\\( (0.2)^3 (0.8)^7 \\)", "\\( {}^{10}C_3\\,(0.2)^3 (0.8)^{10} \\)"], ans: 0, explain: "Power of \\( p \\) is \\( x = 3 \\); power of \\( 1-p \\) is \\( n - x = 7 \\); and the \\( {}^{10}C_3 \\) coefficient is required." },
+        { q: "A student computes \\( P(X = 2) = (0.4)^2 (0.6)^3 \\) for \\( X \\sim B(5,\\ 0.4) \\). What have they done wrong?", opts: ["They omitted the coefficient \\( {}^5C_2 \\)", "They used the wrong value of \\( p \\)", "Nothing — it is correct", "They should use \\( (0.6)^2 (0.4)^3 \\)"], ans: 0, explain: "The powers are right, but every binomial term needs the number-of-ways coefficient \\( {}^5C_2 = 10 \\)." },
+        { q: "For \\( X \\sim B(6,\\ 0.5) \\), a student writes \\( P(X = 2) = {}^6C_2\\,(0.5)^4 (0.5)^2 \\). What is the error?", opts: ["The powers of \\( p \\) and \\( 1-p \\) are swapped (should be \\( (0.5)^2 (0.5)^4 \\))", "\\( {}^6C_2 \\) is wrong", "\\( p \\) should be \\( 0.6 \\)", "There is no error"], ans: 0, explain: "The power of \\( p \\) must be the number of successes \\( x = 2 \\), and the power of \\( 1-p \\) the number of failures \\( n - x = 4 \\) — here they are the wrong way round (though with \\( p = 0.5 \\) the value happens to match, the method is wrong and would fail for other \\( p \\))." },
+        { q: "The probability of getting NO successes in \\( X \\sim B(n,p) \\) is:", opts: ["\\( (1-p)^n \\)", "\\( p^n \\)", "\\( 1 - p^n \\)", "\\( n(1-p) \\)"], ans: 0, explain: "\\( P(X=0) = {}^nC_0\\, p^0 (1-p)^n = (1-p)^n \\), since \\( {}^nC_0 = 1 \\) and \\( p^0 = 1 \\)." },
+        { q: "A fair coin is tossed 5 times. \\( P(\\text{at least one head}) = \\)", opts: ["\\( 1 - (0.5)^5 \\)", "\\( (0.5)^5 \\)", "\\( 5 \\times 0.5 \\)", "\\( 1 - 5(0.5)^5 \\)"], ans: 0, explain: "'At least one head' is the complement of 'no heads': \\( 1 - P(X=0) = 1 - (0.5)^5 \\)." },
+        { q: "A die is thrown 4 times. Which gives \\( P(\\text{at least one 3}) \\)?", opts: ["\\( 1 - (5/6)^4 \\)", "\\( (1/6)^4 \\)", "\\( 4 \\times (1/6) \\)", "\\( 1 - (1/6)^4 \\)"], ans: 0, explain: "\\( P(\\text{no 3s}) = (5/6)^4 \\), so \\( P(\\text{at least one 3}) = 1 - (5/6)^4 = 671/1296 \\approx 0.518 \\)." },
+        { q: "For a binomial \\( X \\), \\( P(X \\ge 2) \\) is best found as:", opts: ["\\( 1 - P(0) - P(1) \\)", "\\( 1 - P(0) \\)", "\\( 1 - P(2) \\)", "\\( P(0) + P(1) \\)"], ans: 0, explain: "'At least two' leaves out only 0 and 1 successes, so subtract both: \\( P(X \\ge 2) = 1 - P(0) - P(1) \\)." },
+        { q: "\\( X \\sim B(8,\\ 0.25) \\). Which is \\( P(X \\le 1) \\)?", opts: ["\\( P(0) + P(1) \\)", "\\( P(1) \\) only", "\\( 1 - P(1) \\)", "\\( P(1) + P(2) \\)"], ans: 0, explain: "'One or fewer' means 0 or 1 success, so \\( P(X \\le 1) = P(0) + P(1) \\)." },
+        { q: "'A machine produces items; each is faulty with probability 0.05, independently. In a box of 20, count the faulty items.' Why is this binomial?", opts: ["Fixed n = 20, two outcomes, constant p, independent trials", "Because faults are rare", "Because 20 is a large number", "Because the probability is less than 0.5"], ans: 0, explain: "All four conditions hold: a fixed number of trials (20), each item faulty/not faulty, the same \\( p = 0.05 \\) each time, and the items are independent — so \\( X \\sim B(20,\\ 0.05) \\)." }
+    ];
+
+    const matchData = [
+        { term: "\\( X \\sim B(n,\\ p) \\)", def: "\\( X \\) is binomial: \\( n \\) trials, success probability \\( p \\)" },
+        { term: "\\( n \\) in \\( B(n,p) \\)", def: "The number of trials" },
+        { term: "\\( p \\) in \\( B(n,p) \\)", def: "The probability of success on one trial" },
+        { term: "\\( 1 - p \\)", def: "The probability of failure on one trial" },
+        { term: "\\( P(X = x) = {}^nC_x\\, p^x (1-p)^{n-x} \\)", def: "The binomial probability formula (provided on the sheet)" },
+        { term: "\\( P(X = 0) \\)", def: "\\( (1-p)^n \\)" },
+        { term: "\\( P(X \\ge 1) \\)", def: "\\( 1 - P(X = 0) \\)" },
+        { term: "\\( P(X \\le 2) \\)", def: "\\( P(0) + P(1) + P(2) \\)" },
+        { term: "\\( {}^nC_x \\)", def: "The number of ways to choose \\( x \\) successes from \\( n \\) trials" },
+        { term: "Constant \\( p \\) and independent trials", def: "Two conditions a binomial model needs" },
+        { term: "Drawing cards without replacement", def: "Not binomial — \\( p \\) is not constant" },
+        { term: "\\( (5/6)^4 \\)", def: "P(no 3s) when 4 dice are thrown" },
+        { term: "\\( 1 - (5/6)^4 \\)", def: "P(at least one 3) with 4 dice" }
+    ];
+
+    // FIB blanks sit in PLAIN TEXT, never inside \( \) (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b).
+    // Answer VALUES are plain text/number so server string-equality works.
+    const fibData = [
+        { display: "A binomial distribution is written \\( X \\sim B(n,\\ p) \\), where \\( n \\) is the number of ___B1___ and \\( p \\) is the probability of ___B2___ on each one.", blanks: { B1: "trials", B2: "success" } },
+        { display: "For a binomial model the trials must be ___B1___ of each other and the probability \\( p \\) must stay ___B2___ throughout.", blanks: { B1: "independent", B2: "constant" } },
+        { display: "The formula \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\) is ___B1___ on the exam formula sheet, so you do not have to memorise it.", blanks: { B1: "provided" } },
+        { display: "In \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\), the power of \\( p \\) is the number of successes \\( x \\), and the power of \\( (1-p) \\) is ___B1___.", blanks: { B1: "n-x" } },
+        { display: "To find the probability of at least one success you use \\( 1 - P(X=0) \\); this is called using the ___B1___.", blanks: { B1: "complement" } },
+        { display: "For four dice, \\( P(\\text{at least one 3}) = 1 - (5/6)^4 \\), which as an exact fraction is ___B1___.", blanks: { B1: "671/1296" } },
+        { display: "For a fair coin the probability of a head on a single toss is \\( p \\) = ___B1___.", blanks: { B1: "0.5" } },
+        { display: "Selecting items without replacement is not binomial because the trials are not ___B1___.", blanks: { B1: "independent" } }
+    ];
+
+    const fibWords = ["trials", "success", "independent", "constant", "provided", "n-x", "complement", "671/1296", "0.5", "successes", "failure", "dependent", "memorised", "x", "1/6", "625/1296"];
+
+    const tfData = [
+        { statement: "For \\( X \\sim B(n,p) \\), the probability of exactly \\( x \\) successes is \\( {}^nC_x\\, p^x (1-p)^{n-x} \\).", answer: true, explanation: "This is the binomial probability formula, provided on the exam sheet." },
+        { statement: "A binomial model requires the trials to be independent.", answer: true, explanation: "Independence is one of the four conditions, along with a fixed \\( n \\), two outcomes, and constant \\( p \\)." },
+        { statement: "Drawing 3 balls from a bag without replacement and counting reds is a binomial situation.", answer: false, explanation: "Removing a ball changes the proportion of reds, so \\( p \\) is not constant — it is not binomial." },
+        { statement: "The binomial probability formula must be memorised for the 6993 exam.", answer: false, explanation: "It is printed on the formula sheet, together with \\( {}^nC_r \\); the skill tested is using it correctly." },
+        { statement: "\\( P(X = 0) = (1-p)^n \\) for \\( X \\sim B(n,p) \\).", answer: true, explanation: "\\( {}^nC_0 = 1 \\) and \\( p^0 = 1 \\), so \\( P(X=0) = (1-p)^n \\)." },
+        { statement: "\\( P(\\text{at least one success}) = 1 - P(X = 0) \\).", answer: true, explanation: "The only case left out of 'at least one' is 'none', so subtract \\( P(X=0) \\) from 1." },
+        { statement: "For 'at least two successes' you should calculate \\( 1 - P(X = 0) \\).", answer: false, explanation: "'At least two' leaves out 0 AND 1, so you need \\( 1 - P(0) - P(1) \\)." },
+        { statement: "In \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\) the two powers \\( x \\) and \\( n-x \\) always add up to \\( n \\).", answer: true, explanation: "\\( x + (n - x) = n \\) — a useful check that you have not swapped successes and failures." }
+    ];
+
+    const miscData = [
+        { wrong: "For 'at least one 3' with 4 dice, working out \\( (1/6)^4 \\) or \\( 4 \\times (1/6) \\)", correct: "'At least one' is the complement of 'none'. A weak answer guesses a single power; a strong answer writes \\( 1 - P(X=0) = 1 - (5/6)^4 = 671/1296 \\approx 0.518 \\).", readCheck: { q: "P(at least one 3) with 4 dice is:", opts: ["\\( 1 - (5/6)^4 \\)", "\\( (1/6)^4 \\)", "\\( 4 \\times (1/6) \\)", "\\( (5/6)^4 \\)"], ans: 0, explain: "Subtract P(no 3s) \\( = (5/6)^4 \\) from 1." } },
+        { wrong: "Using a binomial model for 'draw 4 cards without replacement, count the kings'", correct: "Without replacement \\( p \\) changes after each draw, so the trials are not independent. A weak answer applies \\( {}^4C_x p^x (1-p)^{n-x} \\) anyway; a strong answer states it is not binomial and uses probabilities that change each draw.", readCheck: { q: "Why can this not be modelled by \\( B(n,p) \\)?", opts: ["\\( p \\) is not constant (no replacement)", "There is no fixed number of draws", "There are only two outcomes", "The draws are independent"], ans: 0, explain: "Removing cards changes the probability of a king, breaking the constant-\\( p \\)/independence condition." } },
+        { wrong: "Writing \\( P(X=2) = p^2 (1-p)^{n-2} \\) with no coefficient", correct: "Every binomial term needs the number-of-ways coefficient. A weak answer omits \\( {}^nC_2 \\); a strong answer includes it: \\( P(X=2) = {}^nC_2\\, p^2 (1-p)^{n-2} \\).", readCheck: { q: "What is missing from \\( p^2 (1-p)^{n-2} \\)?", opts: ["The coefficient \\( {}^nC_2 \\)", "Nothing", "The power of \\( p \\)", "The value of \\( n \\)"], ans: 0, explain: "You must multiply by \\( {}^nC_2 \\), the number of ways of choosing which 2 trials succeed." } },
+        { wrong: "For \\( X \\sim B(5,\\ 0.4) \\), writing \\( P(X=2) = {}^5C_2\\,(0.4)^3 (0.6)^2 \\)", correct: "The power of \\( p \\) must be the number of successes and the power of \\( 1-p \\) the number of failures. A weak answer swaps them; a strong answer writes \\( {}^5C_2\\,(0.4)^2 (0.6)^3 \\).", readCheck: { q: "Correct term for \\( P(X=2) \\), \\( X \\sim B(5,0.4) \\)?", opts: ["\\( {}^5C_2\\,(0.4)^2 (0.6)^3 \\)", "\\( {}^5C_2\\,(0.4)^3 (0.6)^2 \\)", "\\( (0.4)^2 (0.6)^3 \\)", "\\( {}^5C_2\\,(0.6)^2 (0.4)^3 \\)"], ans: 0, explain: "Power of \\( p \\) = successes = 2; power of \\( 1-p \\) = failures = 3." } },
+        { wrong: "Giving an 'exact' probability answer only as a rounded decimal like 0.52", correct: "When exact form is asked for, keep the fraction. A weak answer rounds too early; a strong answer gives \\( 671/1296 \\) (and may add \\( \\approx 0.518 \\) as a check).", readCheck: { q: "Which is the exact form of P(at least one 3) with 4 dice?", opts: ["\\( 671/1296 \\)", "\\( 0.52 \\)", "\\( 0.5 \\)", "about \\( 0.518 \\)"], ans: 0, explain: "\\( 1 - 625/1296 = 671/1296 \\) is exact; the decimal is a rounded approximation." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Spot the 'at least' complement", pills: ["at least", "complement", "1 - P(0)"], content: `<p><strong>Partial:</strong> a candidate lists \\( P(1) + P(2) + P(3) + P(4) \\) for 'at least one' and slips on a coefficient — long and error-prone.</p><p><strong>Full marks:</strong> use the complement \\( P(X \\ge 1) = 1 - P(X = 0) = 1 - (5/6)^4 = 671/1296 \\approx 0.518 \\). For 'at least two' subtract two terms: \\( 1 - P(0) - P(1) \\).</p>`, readCheck: { q: "Fastest route for 'at least one success'?", opts: ["\\( 1 - P(X = 0) \\)", "Add every case from 1 to n", "\\( P(X = 1) \\) only", "\\( 1 - P(X = 1) \\)"], ans: 0, explain: "The complement of 'at least one' is 'none', so subtract \\( P(X=0) \\) from 1." } },
+        { type: "explain", title: "Match the powers to successes and failures", pills: ["p^x", "(1-p)^(n-x)", "coefficient"], content: `<p><strong>0 marks method:</strong> \\( (0.4)^3 (0.6)^2 \\) with no coefficient, or the powers swapped.</p><p><strong>Full marks:</strong> for \\( X \\sim B(5,\\ 0.4) \\), \\( P(X=2) = {}^5C_2\\,(0.4)^2 (0.6)^3 \\) — power of \\( p \\) = successes, power of \\( 1-p \\) = failures, and the \\( {}^5C_2 \\) coefficient. Check the powers add to \\( n \\).</p>`, readCheck: { q: "In \\( {}^nC_x\\, p^x (1-p)^{n-x} \\), the power of \\( 1-p \\) is:", opts: ["The number of failures \\( n - x \\)", "The number of successes \\( x \\)", "Always \\( n \\)", "Always 1"], ans: 0, explain: "\\( (1-p) \\) is failure, raised to the number of failures \\( n - x \\)." } },
+        { type: "tip", title: "Give probabilities exactly when asked", pills: ["exact", "fraction", "no early rounding"], content: `<p><strong>Loses the mark:</strong> writing only \\( 0.52 \\) for an 'exact' probability.</p><p><strong>Full marks:</strong> leave it as a fraction, e.g. \\( 671/1296 \\), and if you also want a decimal give it to enough figures (awrt 0.518). Never round intermediate probabilities before combining them.</p>`, readCheck: { q: "An 'exact' probability answer should be:", opts: ["A fraction (optionally with a decimal check)", "A 2 d.p. decimal", "A percentage to the nearest whole number", "Any rounded value"], ans: 0, explain: "'Exact' means the fraction is kept; a decimal alone can lose the mark." } }
+    ];
+
+    const flashcards = [
+        { term: "Binomial distribution", def: "Counts successes in a fixed number of independent trials with constant \\( p \\)." },
+        { term: "\\( X \\sim B(n,\\ p) \\)", def: "\\( X \\) is binomial: \\( n \\) trials, success probability \\( p \\)." },
+        { term: "The four conditions", def: "Fixed \\( n \\); two outcomes; constant \\( p \\); independent trials." },
+        { term: "\\( P(X = x) \\)", def: "\\( {}^nC_x\\, p^x (1-p)^{n-x} \\) — provided on the formula sheet." },
+        { term: "\\( n \\)", def: "The number of trials in \\( B(n,p) \\)." },
+        { term: "\\( p \\)", def: "The probability of success on a single trial." },
+        { term: "\\( 1 - p \\)", def: "The probability of failure on a single trial." },
+        { term: "\\( P(X = 0) \\)", def: "\\( (1-p)^n \\) — no successes." },
+        { term: "P(at least one)", def: "\\( 1 - P(X = 0) \\) — the complement of 'none'." },
+        { term: "P(at least two)", def: "\\( 1 - P(0) - P(1) \\)." },
+        { term: "\\( P(X \\le x) \\)", def: "\\( P(0) + P(1) + \\dots + P(x) \\) — 'at most \\( x \\)'." },
+        { term: "\\( {}^nC_x \\)", def: "Ways to choose which \\( x \\) trials succeed; also on the sheet." },
+        { term: "Not binomial", def: "Sampling without replacement (\\( p \\) changes) or no fixed \\( n \\)." },
+        { term: "Power check", def: "In \\( p^x (1-p)^{n-x} \\) the powers add to \\( n \\)." },
+        { term: "'Success'", def: "The outcome you are counting; fix it before reading off \\( p \\)." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "2",
+            marks: 3,
+            type: "written",
+            question: `<p>Jack throws 4 ordinary six-sided dice numbered 1 to 6.</p><p>Find the probability that he throws at least one 3.</p>`,
+            hint: "Work out the probability of throwing NO 3s first, then subtract from 1 (the complement).",
+            starter: "Give your answer as an exact fraction (or awrt 0.518).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>B1</strong> — \\( P(0) = \\left(\\frac{5}{6}\\right)^4 = \\frac{625}{1296} \\) (\\( \\approx 0.4823 \\)) seen or implied.</li>
+              <li><strong>M1</strong> — subtract their term from 1: \\( 1 - \\left(\\frac{5}{6}\\right)^4 \\).</li>
+              <li><strong>A1</strong> — \\( \\frac{671}{1296} \\), awrt \\( 0.518 \\) (exact fraction or awrt decimal).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The three marks are for the probability of no 3s, the complement step, and the final exact/awrt value. N.B. \\( P(\\text{exactly one 3}) \\) is not required — the complement is the intended method.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The most successful responses found the probability of throwing no 3s and subtracted from 1. Many gave the wrong fraction and/or wrong powers, and few who instead added the four separate cases obtained the correct coefficients. It was pleasing to see candidates confident with an exact fraction, though some gave only a 2 s.f. decimal.</li>
+            </ul></div>`,
+            modelAnswer: "\\( P(\\text{no 3s}) = \\left(\\frac{5}{6}\\right)^4 = \\frac{625}{1296} \\). So \\( P(\\text{at least one 3}) = 1 - \\frac{625}{1296} = \\frac{671}{1296} \\approx 0.518 \\).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "B1 — P(no 3s)", max: 1, points: ["\\( \\left(\\frac{5}{6}\\right)^4 = \\frac{625}{1296} \\) seen or implied"] },
+                { label: "M1 — complement", max: 1, points: ["Subtracted their \\( P(0) \\) from 1"] },
+                { label: "A1 — answer", max: 1, points: ["\\( \\frac{671}{1296} \\) or awrt \\( 0.518 \\)"] }
+            ] }
+        },
+        {
+            num: "8 (a)",
+            marks: 2,
+            type: "written",
+            caseId: "q8-2019",
+            question: `<p>Calculate the probability that all students are eliminated after their first toss of the coin.</p>`,
+            hint: "All five must toss a head. Each head has probability \\( \\tfrac{1}{2} \\), and the tosses are independent.",
+            starter: "Give your answer as an exact fraction or exact decimal.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>B1</strong> — probability and power seen or implied: \\( \\left(\\frac{1}{2}\\right)^5 \\).</li>
+              <li><strong>B1</strong> — \\( \\frac{1}{32} = 0.03125 \\) (correct fraction, or \\( 0.03125 \\) / \\( 0.0313 \\)).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Missing brackets are allowed if the correct answer is seen. All five students tossing a head are independent, so the probabilities multiply.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>This part was a source of 2 easy marks for almost all candidates.</li>
+            </ul></div>`,
+            modelAnswer: "All five toss a head: \\( \\left(\\frac{1}{2}\\right)^5 = \\frac{1}{32} = 0.03125 \\).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "B1 — probability and power", max: 1, points: ["\\( \\left(\\frac{1}{2}\\right)^5 \\) seen or implied"] },
+                { label: "B1 — value", max: 1, points: ["\\( \\frac{1}{32} \\) or \\( 0.03125 \\)"] }
+            ] }
+        },
+        {
+            num: "8 (b)",
+            marks: 4,
+            type: "written",
+            caseId: "q8-2019",
+            question: `<p>Calculate the probability that exactly two students are eliminated after their first toss and exactly two after their second toss, leaving one winner.</p>`,
+            hint: "First toss: exactly 2 heads from 5 students. Second toss: exactly 2 heads from the 3 who remain. Multiply the two stage probabilities.",
+            starter: "Give your answer as an exact fraction or awrt decimal.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1/AO3)</h5><ul>
+              <li><strong>B1</strong> — 1st-stage term seen or implied: \\( {}^5C_2\\left(\\frac{1}{2}\\right)^2\\left(\\frac{1}{2}\\right)^3 = \\frac{5}{16} = 0.3125 \\).</li>
+              <li><strong>B1</strong> — 2nd-stage term seen or implied: \\( {}^3C_2\\left(\\frac{1}{2}\\right)^2\\left(\\frac{1}{2}\\right)^1 = \\frac{3}{8} = 0.375 \\).</li>
+              <li><strong>M1</strong> — their two probabilities multiplied together.</li>
+              <li><strong>A1</strong> — \\( \\frac{15}{128} = 0.117\\dots \\)</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Each stage-probability term must be less than 1. After 2 of the 5 are eliminated, 3 students remain, so the second stage chooses 2 heads from 3.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The two separate probabilities were often found, but a significant number of candidates added them rather than multiplying them.</li>
+            </ul></div>`,
+            modelAnswer: "First toss — 2 heads from 5: \\( {}^5C_2\\left(\\frac{1}{2}\\right)^5 = \\frac{10}{32} = \\frac{5}{16} \\). Then 3 remain; second toss — 2 heads from 3: \\( {}^3C_2\\left(\\frac{1}{2}\\right)^3 = \\frac{3}{8} \\). Multiply: \\( \\frac{5}{16} \\times \\frac{3}{8} = \\frac{15}{128} \\approx 0.117 \\).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "B1 — first-stage term", max: 1, points: ["\\( {}^5C_2\\left(\\frac{1}{2}\\right)^2\\left(\\frac{1}{2}\\right)^3 = \\frac{5}{16} \\) (0.3125)"] },
+                { label: "B1 — second-stage term", max: 1, points: ["\\( {}^3C_2\\left(\\frac{1}{2}\\right)^2\\left(\\frac{1}{2}\\right)^1 = \\frac{3}{8} \\) (0.375)"] },
+                { label: "M1 — multiply", max: 1, points: ["Multiplied their two stage probabilities together"] },
+                { label: "A1 — answer", max: 1, points: ["\\( \\frac{15}{128} \\) or awrt \\( 0.117 \\)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

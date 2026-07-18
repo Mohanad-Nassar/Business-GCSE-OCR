@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 6. Enumeration and Probability</div>
             <h1>6.4 Tree, Two-Way and Venn Diagrams</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,11 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 6.4 Tree, Two-Way and Venn Diagrams — placeholder, content not yet written
+    //  DATA: 6.4 Tree, Two-Way and Venn Diagrams (EN2)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Diagrams are
+    //  hand-authored theme-safe inline SVG (currentColor, no fixed fills), never
+    //  from a PDF. Exam Qs = 2024 Q4 (2-set Venn) + 2022 Q6 (tree diagram).
     // ══════════════════════════════════════
     const pageMeta = {
             id: '6-4-tree-two-way-and-venn-diagrams',
@@ -266,23 +270,346 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimulus for each exam question (parts share one caseId).
+    const EXAM_CASE_STUDIES = {
+        "q4-2024": `<p>A group of 68 students was asked about their preference for pop music or classical music.</p>
+          <ul>
+            <li>10 said they did not like either pop music or classical music.</li>
+            <li>20 said they liked classical music.</li>
+            <li>50 said they liked pop music.</li>
+          </ul>`,
+        "q6-2022": `<p>Layla drives to work along a road which has three sets of traffic lights. The lights work independently of each other. Experience indicates that the probability that Layla has to stop at each set of lights is 0.5, 0.6 and 0.7 respectively.</p>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>6.4 Tree, Two-Way and Venn Diagrams</strong> will appear here soon.</p>`
+            title: "How do you use a tree diagram: multiply along, add across?",
+            tag: "Key concept",
+            content: `<p>A <strong>tree diagram</strong> shows a sequence of events. Each branch is labelled with the probability of that outcome, and the branches from any single point always add up to \\( 1 \\).</p>
+            <ul>
+              <li><strong>Multiply ALONG the branches</strong> to find the probability of one outcome <em>AND</em> the next (a whole path from left to right).</li>
+              <li><strong>Add ACROSS the paths</strong> when several different paths all give the outcome you want (one path <em>OR</em> another).</li>
+              <li>Every complete path's probabilities multiply to that path's probability; all the path probabilities together add to \\( 1 \\).</li>
+            </ul>
+            <p><strong>Worked example.</strong> A bag holds 3 red and 2 blue counters. One is taken, its colour noted, and <em>replaced</em>; then a second is taken. So \\( P(R) = \\frac{3}{5} \\) and \\( P(B) = \\frac{2}{5} \\) on both draws.</p>
+            <svg viewBox="0 0 350 210" width="100%" style="max-width:380px;height:auto;display:block;margin:14px auto" role="img" aria-label="Two-stage tree diagram for two draws with replacement from a bag of 3 red and 2 blue counters">
+              <line x1="20" y1="105" x2="130" y2="55" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="20" y1="105" x2="130" y2="155" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="150" y1="55" x2="270" y2="30" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="150" y1="55" x2="270" y2="80" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="150" y1="155" x2="270" y2="130" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="150" y1="155" x2="270" y2="180" stroke="currentColor" stroke-width="1.5"/>
+              <text x="58" y="70" fill="currentColor" font-size="13">3/5</text>
+              <text x="58" y="140" fill="currentColor" font-size="13">2/5</text>
+              <text x="136" y="60" fill="currentColor" font-size="14" font-weight="600">R</text>
+              <text x="136" y="160" fill="currentColor" font-size="14" font-weight="600">B</text>
+              <text x="203" y="35" fill="currentColor" font-size="12">3/5</text>
+              <text x="203" y="78" fill="currentColor" font-size="12">2/5</text>
+              <text x="203" y="128" fill="currentColor" font-size="12">3/5</text>
+              <text x="203" y="182" fill="currentColor" font-size="12">2/5</text>
+              <text x="278" y="34" fill="currentColor" font-size="12">RR = 9/25</text>
+              <text x="278" y="84" fill="currentColor" font-size="12">RB = 6/25</text>
+              <text x="278" y="134" fill="currentColor" font-size="12">BR = 6/25</text>
+              <text x="278" y="184" fill="currentColor" font-size="12">BB = 4/25</text>
+            </svg>
+            <p>\\( P(\\text{one of each colour}) = \\frac{3}{5}\\times\\frac{2}{5} + \\frac{2}{5}\\times\\frac{3}{5} = \\frac{6}{25} + \\frac{6}{25} = \\frac{12}{25} \\) — two paths (RB and BR) added.</p>`,
+            readCheck: { q: "On a tree diagram, to find the probability of one event AND the next you:", opts: ["Multiply along the branches", "Add along the branches", "Add across the paths", "Subtract from 1"], ans: 0, explain: "Along a path (this AND that) you multiply; across separate paths (this OR that) you add." }
+        },
+        {
+            title: "How does a tree diagram change without replacement?",
+            tag: "Method",
+            content: `<p>If an item is <strong>not replaced</strong>, the second draw happens from a smaller collection, so the probabilities on the <strong>second set of branches change</strong> (both the numerator and the denominator can fall).</p>
+            <p><strong>Worked example.</strong> The same bag (3 red, 2 blue) but now the first counter is <em>kept</em>. The first draw is \\( P(R)=\\frac{3}{5} \\); if a red was taken, only 2 red of 4 remain, so the second draw is \\( P(R)=\\frac{2}{4} \\).</p>
+            <table class="worked">
+              <tr><td>1. \\( P(\\text{both red}) = \\frac{3}{5}\\times\\frac{2}{4} = \\frac{6}{20} = \\frac{3}{10} \\).</td></tr>
+              <tr><td>2. \\( P(\\text{both blue}) = \\frac{2}{5}\\times\\frac{1}{4} = \\frac{2}{20} = \\frac{1}{10} \\).</td></tr>
+              <tr><td>3. \\( P(\\text{one of each}) = \\frac{3}{5}\\times\\frac{2}{4} + \\frac{2}{5}\\times\\frac{3}{4} = \\frac{6}{20}+\\frac{6}{20} = \\frac{3}{5} \\).</td></tr>
+            </table>
+            <p>Check: \\( \\frac{3}{10}+\\frac{1}{10}+\\frac{3}{5} = \\frac{3+1+6}{10} = 1 \\). ✓ The three whole-outcome probabilities must still add to \\( 1 \\).</p>
+            <p><strong>"At least one" trick:</strong> it is usually quicker to use \\( P(\\text{at least one}) = 1 - P(\\text{none}) \\) than to add several paths.</p>`,
+            readCheck: { q: "Two counters are taken WITHOUT replacement from 3 red and 2 blue. \\( P(\\text{both red}) \\) is:", opts: ["\\( \\frac{3}{5}\\times\\frac{2}{4} = \\frac{3}{10} \\)", "\\( \\frac{3}{5}\\times\\frac{3}{5} = \\frac{9}{25} \\)", "\\( \\frac{3}{5}+\\frac{2}{4} \\)", "\\( \\frac{3}{5}\\times\\frac{3}{4} \\)"], ans: 0, explain: "After a red is kept, 2 red of 4 counters remain, so the second branch is \\( \\frac{2}{4} \\), giving \\( \\frac{3}{10} \\)." }
+        },
+        {
+            title: "How do you complete and read a two-way table?",
+            tag: "Worked example",
+            content: `<p>A <strong>two-way table</strong> cross-classifies data by two features. Every <strong>row and every column adds up to its total</strong>, and the grand total sits in the corner — that is all you need to fill any missing cell.</p>
+            <p><strong>Worked example.</strong> 100 students are classified by gender and whether they wear glasses. Complete the table, then read off probabilities.</p>
+            <table class="worked">
+              <tr><td></td><td><strong>Glasses</strong></td><td><strong>No glasses</strong></td><td><strong>Total</strong></td></tr>
+              <tr><td><strong>Boys</strong></td><td>18</td><td>42</td><td>60</td></tr>
+              <tr><td><strong>Girls</strong></td><td>12</td><td>28</td><td>40</td></tr>
+              <tr><td><strong>Total</strong></td><td>30</td><td>70</td><td>100</td></tr>
+            </table>
+            <ul>
+              <li>Boys, no glasses \\( = 60 - 18 = 42 \\); Girls total \\( = 100 - 60 = 40 \\); Girls glasses \\( = 30 - 18 = 12 \\).</li>
+              <li>\\( P(\\text{wears glasses}) = \\frac{30}{100} = \\frac{3}{10} \\).</li>
+              <li>\\( P(\\text{a girl who wears glasses}) = \\frac{12}{100} = \\frac{3}{25} \\).</li>
+            </ul>`,
+            readCheck: { q: "In the table above, what is \\( P(\\text{a randomly chosen student is a boy who wears no glasses}) \\)?", opts: ["\\( \\frac{42}{100} = \\frac{21}{50} \\)", "\\( \\frac{18}{100} \\)", "\\( \\frac{42}{60} \\)", "\\( \\frac{70}{100} \\)"], ans: 0, explain: "42 boys wear no glasses out of 100 students, so \\( \\frac{42}{100} = \\frac{21}{50} \\)." }
+        },
+        {
+            title: "How do you use a two-set Venn diagram?",
+            tag: "Key concept",
+            content: `<p>A <strong>Venn diagram</strong> shows two overlapping circles inside a <strong>rectangle</strong> that stands for the <strong>universal set</strong> \\( \\xi \\) — everything being considered. Key notation:</p>
+            <ul>
+              <li>\\( A \\cap B \\) — the <strong>intersection</strong>: members in <em>both</em> A and B (the overlap).</li>
+              <li>\\( A \\cup B \\) — the <strong>union</strong>: members in A <em>or</em> B <em>or</em> both.</li>
+              <li>\\( A' \\) — the <strong>complement</strong>: members <em>not</em> in A.</li>
+              <li>Members in <strong>neither</strong> set go <em>outside</em> both circles but <em>inside</em> the rectangle.</li>
+            </ul>
+            <p><strong>Put counts in the regions and work outward from the intersection.</strong> Example: 40 students, 25 study French, 18 study Spanish, 7 study both.</p>
+            <svg viewBox="0 0 300 210" width="100%" style="max-width:340px;height:auto;display:block;margin:14px auto" role="img" aria-label="Two-set Venn diagram: French and Spanish, with 18 in French only, 7 in both, 11 in Spanish only and 4 in neither, inside a universal set of 40">
+              <rect x="6" y="6" width="288" height="198" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="118" cy="105" r="72" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="182" cy="105" r="72" fill="none" stroke="currentColor" stroke-width="2"/>
+              <text x="66" y="30" fill="currentColor" font-size="13" font-weight="600">French</text>
+              <text x="196" y="30" fill="currentColor" font-size="13" font-weight="600">Spanish</text>
+              <text x="80" y="112" fill="currentColor" font-size="16" text-anchor="middle">18</text>
+              <text x="150" y="112" fill="currentColor" font-size="16" text-anchor="middle">7</text>
+              <text x="220" y="112" fill="currentColor" font-size="16" text-anchor="middle">11</text>
+              <text x="272" y="194" fill="currentColor" font-size="14" text-anchor="middle">4</text>
+              <text x="20" y="24" fill="currentColor" font-size="12">ξ = 40</text>
+            </svg>
+            <p>Fill the <strong>overlap first</strong> (\\( 7 \\)), then French only \\( = 25-7 = 18 \\), Spanish only \\( = 18-7 = 11 \\). Neither \\( = 40 - (18+7+11) = 4 \\). Note \\( |A \\cup B| = |A| + |B| - |A \\cap B| = 25 + 18 - 7 = 36 \\), so \\( 40-36 = 4 \\) again.</p>`,
+            readCheck: { q: "In a group of 30, 18 play tennis, 15 play squash and 8 play both. How many play tennis only?", opts: ["\\( 10 \\)", "\\( 18 \\)", "\\( 8 \\)", "\\( 26 \\)"], ans: 0, explain: "Tennis only \\( = 18 - 8 = 10 \\); subtract the overlap from the tennis total." }
+        },
+        {
+            title: "How do you fill a three-set Venn diagram?",
+            tag: "Method",
+            content: `<p>With three circles there are <strong>seven regions</strong> inside plus the "none" region outside. Always <strong>start at the very centre</strong> (in all three sets) and <strong>work outward</strong>, subtracting as you go so nothing is double-counted.</p>
+            <p><strong>Worked example.</strong> 40 people are asked which of tea, coffee and juice they drink: 3 drink all three; 8 drink tea and coffee; 6 drink coffee and juice; 5 drink tea and juice; 20 drink tea; 18 drink coffee; 14 drink juice.</p>
+            <svg viewBox="0 0 320 300" width="100%" style="max-width:360px;height:auto;display:block;margin:14px auto" role="img" aria-label="Three-set Venn diagram for tea, coffee and juice showing all seven region counts and 4 people in none">
+              <rect x="6" y="6" width="308" height="288" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="120" cy="120" r="82" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="200" cy="120" r="82" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="160" cy="188" r="82" fill="none" stroke="currentColor" stroke-width="2"/>
+              <text x="66" y="30" fill="currentColor" font-size="13" font-weight="600">Tea</text>
+              <text x="226" y="30" fill="currentColor" font-size="13" font-weight="600">Coffee</text>
+              <text x="150" y="290" fill="currentColor" font-size="13" font-weight="600">Juice</text>
+              <text x="88" y="102" fill="currentColor" font-size="15" text-anchor="middle">10</text>
+              <text x="232" y="102" fill="currentColor" font-size="15" text-anchor="middle">7</text>
+              <text x="160" y="242" fill="currentColor" font-size="15" text-anchor="middle">6</text>
+              <text x="160" y="92" fill="currentColor" font-size="15" text-anchor="middle">5</text>
+              <text x="118" y="178" fill="currentColor" font-size="15" text-anchor="middle">2</text>
+              <text x="202" y="178" fill="currentColor" font-size="15" text-anchor="middle">3</text>
+              <text x="160" y="148" fill="currentColor" font-size="15" text-anchor="middle">3</text>
+              <text x="296" y="286" fill="currentColor" font-size="14" text-anchor="middle">4</text>
+              <text x="20" y="24" fill="currentColor" font-size="12">ξ = 40</text>
+            </svg>
+            <table class="worked">
+              <tr><td>1. Centre (all three) \\( = 3 \\).</td></tr>
+              <tr><td>2. Tea &amp; coffee only \\( = 8-3 = 5 \\); coffee &amp; juice only \\( = 6-3 = 3 \\); tea &amp; juice only \\( = 5-3 = 2 \\).</td></tr>
+              <tr><td>3. Tea only \\( = 20-(5+2+3) = 10 \\); coffee only \\( = 18-(5+3+3) = 7 \\); juice only \\( = 14-(2+3+3) = 6 \\).</td></tr>
+              <tr><td>4. None \\( = 40 - (10+7+6+5+3+2+3) = 40 - 36 = 4 \\).</td></tr>
+            </table>`,
+            readCheck: { q: "When filling a three-set Venn diagram from totals, which region should you complete first?", opts: ["The centre — the number in all three sets", "The 'none' region", "The grand total", "Any single-set region"], ans: 0, explain: "Start at the centre (all three) and work outward, subtracting so each region is counted once." }
+        },
+        {
+            title: "What Venn conventions do examiners insist on?",
+            tag: "Exam skill",
+            content: `<p>These are the marks examiners report candidates lose most often on diagram questions — none of them are about the maths, all are about the <strong>conventions</strong>.</p>
+            <ul>
+              <li><strong>Always draw the universal-set rectangle.</strong> The answer box on the paper is <em>not</em> the rectangle — draw your own around the circles.</li>
+              <li><strong>The "neither" group is written outside the circles, inside the rectangle.</strong> Never draw it as a third, separate circle.</li>
+              <li><strong>Put COUNTS (numbers of items) in the regions</strong> unless the question asks for probabilities. Writing fractions where counts are wanted loses marks.</li>
+              <li><strong>Label the circles</strong> and, on a tree, label every branch with both the outcome and its probability.</li>
+              <li>"<strong>Determine</strong>" means show your working/justification — a bare number is not enough.</li>
+            </ul>
+            <p>Example: for "10 like neither", write \\( 10 \\) in the bottom corner of the rectangle, outside both rings — not in a new circle of its own.</p>`,
+            readCheck: { q: "Where should the people who belong to NEITHER set be shown on a Venn diagram?", opts: ["Outside both circles but inside the rectangle", "In a separate third circle", "In the overlap of the two circles", "Outside the rectangle entirely"], ans: 0, explain: "The 'neither' count goes in the universal-set rectangle but outside every circle — never as an extra circle." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "A spinner lands on red with probability \\( \\frac{2}{5} \\). It is spun twice. What is \\( P(\\text{red then red}) \\)?", opts: ["\\( \\frac{4}{25} \\)", "\\( \\frac{4}{5} \\)", "\\( \\frac{2}{5} \\)", "\\( \\frac{4}{10} \\)"], ans: 0, explain: "Multiply along the path: \\( \\frac{2}{5}\\times\\frac{2}{5} = \\frac{4}{25} \\). Adding the branches (\\( \\frac{4}{5} \\)) is the classic error." },
+        { q: "On a tree diagram, moving ALONG the branches (one event and then the next) you:", opts: ["Multiply the probabilities", "Add the probabilities", "Subtract them", "Divide them"], ans: 0, explain: "Along a path means 'AND', so you multiply; adding is for separate paths ('OR')." },
+        { q: "To combine several separate paths that each give the wanted outcome (one path or another), you:", opts: ["Add the path probabilities", "Multiply the path probabilities", "Take the largest", "Subtract each from 1"], ans: 0, explain: "Different paths that all succeed are an 'OR', so their probabilities add." },
+        { q: "A bag has 4 red and 6 blue counters. Two are taken WITHOUT replacement. \\( P(\\text{red then red}) \\) is:", opts: ["\\( \\frac{4}{10}\\times\\frac{3}{9} = \\frac{2}{15} \\)", "\\( \\frac{4}{10}\\times\\frac{4}{10} = \\frac{4}{25} \\)", "\\( \\frac{4}{10}\\times\\frac{3}{10} \\)", "\\( \\frac{4}{9}\\times\\frac{3}{9} \\)"], ans: 0, explain: "After one red is kept, 3 red of 9 counters remain: \\( \\frac{4}{10}\\times\\frac{3}{9} = \\frac{2}{15} \\). Keeping \\( \\frac{4}{10} \\) twice ignores non-replacement." },
+        { q: "In a class of 30, 18 study art and 15 study music; 8 study both. How many study art only?", opts: ["\\( 10 \\)", "\\( 18 \\)", "\\( 8 \\)", "\\( 26 \\)"], ans: 0, explain: "Art only \\( = 18 - 8 = 10 \\); subtract the intersection from the art total." },
+        { q: "40 people are surveyed: 22 like tea, 15 like coffee and 5 like both. How many like at least one drink?", opts: ["\\( 32 \\)", "\\( 37 \\)", "\\( 42 \\)", "\\( 27 \\)"], ans: 0, explain: "\\( |T \\cup C| = 22 + 15 - 5 = 32 \\). Adding \\( 22+15 = 37 \\) double-counts the 5 in the overlap." },
+        { q: "A question asks how many students are in each Venn region. In the regions you should write:", opts: ["The counts (numbers of students)", "The probabilities as fractions", "Percentages", "Ratios"], ans: 0, explain: "Put counts in the regions unless the question specifically asks for probabilities." },
+        { q: "On a Venn diagram, the members who are in NEITHER set are shown:", opts: ["Outside both circles but inside the rectangle", "In a third separate circle", "In the overlap of the two circles", "Outside the rectangle"], ans: 0, explain: "The 'neither' group lives in the universal-set rectangle but outside every circle." },
+        { q: "A two-way table records 60 boys and 40 girls; 30 students wear glasses in total, of whom 18 are boys. How many girls wear glasses?", opts: ["\\( 12 \\)", "\\( 22 \\)", "\\( 42 \\)", "\\( 30 \\)"], ans: 0, explain: "Glasses column total is 30, so girls with glasses \\( = 30 - 18 = 12 \\)." },
+        { q: "In a survey of 100 people, 12 are girls who wear glasses. \\( P(\\text{a random person is a girl who wears glasses}) \\) is:", opts: ["\\( \\frac{12}{100} = \\frac{3}{25} \\)", "\\( \\frac{12}{40} \\)", "\\( \\frac{12}{30} \\)", "\\( \\frac{1}{12} \\)"], ans: 0, explain: "The probability is that region's count over the grand total: \\( \\frac{12}{100} = \\frac{3}{25} \\)." },
+        { q: "When filling a three-set Venn diagram from data, you should start with:", opts: ["The number in all three sets (the centre)", "The grand total", "The 'none' region", "Any single set"], ans: 0, explain: "Begin at the centre and work outward, subtracting so no one is counted twice." },
+        { q: "The notation \\( A \\cap B \\) means the members who are:", opts: ["In both A and B", "In A or B or both", "In A but not B", "In neither A nor B"], ans: 0, explain: "\\( \\cap \\) is the intersection — in both sets. \\( \\cup \\) (union) is 'or both'." }
+    ];
+
+    const matchData = [
+        { term: "\\( A \\cap B \\)", def: "In both A and B (intersection)" },
+        { term: "\\( A \\cup B \\)", def: "In A or B or both (union)" },
+        { term: "\\( A' \\)", def: "Not in A (complement)" },
+        { term: "\\( (A \\cup B)' \\)", def: "In neither A nor B" },
+        { term: "Universal set \\( \\xi \\)", def: "Everything under consideration — the rectangle" },
+        { term: "Multiply along the branches", def: "Probability of one event AND the next" },
+        { term: "Add across the paths", def: "Probability of one outcome OR another" },
+        { term: "Without replacement", def: "Second-draw probabilities change" },
+        { term: "Two-way table", def: "Every row and column sums to its total" },
+        { term: "Work outward from the centre", def: "Method for filling a three-set Venn" },
+        { term: "Counts in the regions", def: "What to write for a 'how many' question" },
+        { term: "\\( P(\\text{at least one}) \\)", def: "\\( 1 - P(\\text{none}) \\)" }
+    ];
+
+    // FIB blanks are PLAIN TEXT beside complete \( \) expressions, never inside them
+    // (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b).
+    const fibData = [
+        { display: "Moving along the branches of a tree diagram you ___B1___ the probabilities; to combine several separate paths you ___B2___ them.", blanks: { B1: "multiply", B2: "add" } },
+        { display: "The people who are in neither set are written ___B1___ the circles but inside the ___B2___.", blanks: { B1: "outside", B2: "rectangle" } },
+        { display: "The symbol \\( \\cap \\) stands for the ___B1___ (in both), and the symbol \\( \\cup \\) stands for the ___B2___ (in either).", blanks: { B1: "intersection", B2: "union" } },
+        { display: "When filling a three-set Venn diagram, start from the ___B1___ where all three sets overlap and work ___B2___.", blanks: { B1: "centre", B2: "outward" } },
+        { display: "With replacement the probabilities on the second set of branches are the ___B1___ as the first; without replacement they ___B2___.", blanks: { B1: "same", B2: "change" } },
+        { display: "In a two-way table, each row and each column must add up to its ___B1___.", blanks: { B1: "total" } },
+        { display: "When a Venn question asks 'how many', put ___B1___ (not probabilities) in each region.", blanks: { B1: "counts" } }
+    ];
+
+    const fibWords = ["multiply", "add", "outside", "rectangle", "intersection", "union", "centre", "outward", "same", "change", "total", "counts", "inside", "subtract", "circle", "probabilities"];
+
+    const tfData = [
+        { statement: "Along the branches of a tree diagram you multiply the probabilities.", answer: true, explanation: "A whole path means one event AND the next, so the branch probabilities multiply." },
+        { statement: "To find the probability of one outcome OR another you multiply the path probabilities.", answer: false, explanation: "Separate paths ('OR') are added; multiplying is for a single path ('AND')." },
+        { statement: "The 'neither' group of a Venn diagram should be drawn as a third circle.", answer: false, explanation: "It is written outside the circles but inside the rectangle — never as an extra circle (a common examiner complaint)." },
+        { statement: "Every Venn diagram should be enclosed in a rectangle representing the universal set.", answer: true, explanation: "The rectangle is the universal set \\( \\xi \\); the answer box on the paper does not count as the rectangle." },
+        { statement: "When items are drawn without replacement, the probabilities on the second set of branches change.", answer: true, explanation: "The collection is smaller for the second draw, so those branch probabilities differ from the first." },
+        { statement: "For two sets, \\( |A \\cup B| = |A| + |B| - |A \\cap B| \\).", answer: true, explanation: "Adding the two totals counts the overlap twice, so subtract the intersection once." },
+        { statement: "When a question asks how many people are in each region, you should put probabilities in the regions.", answer: false, explanation: "Put counts in the regions unless probabilities are specifically requested." },
+        { statement: "\\( P(\\text{at least one}) = 1 - P(\\text{none}) \\).", answer: true, explanation: "'At least one' is the complement of 'none', so subtract \\( P(\\text{none}) \\) from 1." }
+    ];
+
+    const miscData = [
+        { wrong: "Drawing the 'neither' students in a third, separate circle inside the rectangle", correct: "The 'neither' group is NOT a set of its own — write its count outside both circles but inside the universal-set rectangle. A weak answer invents a third ring; a strong answer puts, e.g., \\( 10 \\) in the corner of the rectangle.", readCheck: { q: "Where do the 10 students who like neither go?", opts: ["Outside both circles, inside the rectangle", "In a new third circle", "In the overlap", "Outside the rectangle"], ans: 0, explain: "'Neither' is written in the rectangle but outside every circle." } },
+        { wrong: "Drawing the circles with no rectangle around them", correct: "Without the rectangle there is no universal set shown, which loses a mark. A strong answer always draws the rectangle first and labels it \\( \\xi \\) with the grand total.", readCheck: { q: "What does the rectangle around the circles represent?", opts: ["The universal set (everything considered)", "The intersection", "The 'neither' group only", "Nothing — it is decoration"], ans: 0, explain: "The rectangle is the universal set \\( \\xi \\)." } },
+        { wrong: "Multiplying across the wrong branches, e.g. adding 0.5 + 0.6 for two events happening", correct: "For one event AND another you multiply along the path (\\( 0.5\\times0.6 = 0.3 \\)); you only add when combining separate complete paths. A weak answer adds along a path; a strong answer multiplies along and adds across.", readCheck: { q: "Two independent events have probabilities 0.5 and 0.6. \\( P(\\text{both}) \\) is:", opts: ["\\( 0.5\\times0.6 = 0.3 \\)", "\\( 0.5+0.6 = 1.1 \\)", "\\( 0.6-0.5 = 0.1 \\)", "\\( 0.5 \\)"], ans: 0, explain: "'Both' is an AND, so multiply along the path: \\( 0.3 \\)." } },
+        { wrong: "Finding the overlap by adding the two set totals, e.g. 'both = 50 + 20'", correct: "Use inclusion–exclusion: \\( |A\\cap B| = |A| + |B| - |A\\cup B| \\). Adding the totals double-counts the overlap. A strong answer sets the region total equal to those who like at least one and solves for the overlap.", readCheck: { q: "68 students; 10 like neither; 50 like pop, 20 like classical. How many like both?", opts: ["\\( 12 \\)", "\\( 70 \\)", "\\( 30 \\)", "\\( 58 \\)"], ans: 0, explain: "At least one \\( = 68-10 = 58 \\); \\( 50+20-\\text{both} = 58 \\Rightarrow \\text{both} = 12 \\)." } },
+        { wrong: "Keeping the first-draw probabilities on the second branches when there is no replacement", correct: "Without replacement the denominator (and sometimes numerator) falls for the second draw. A weak answer reuses \\( \\frac{3}{5} \\) twice; a strong answer uses \\( \\frac{3}{5}\\times\\frac{2}{4} \\).", readCheck: { q: "3 red, 2 blue, taken without replacement. The second branch after a red is:", opts: ["\\( \\frac{2}{4} \\) for another red", "\\( \\frac{3}{5} \\) for another red", "\\( \\frac{3}{4} \\) for another red", "\\( \\frac{2}{5} \\) for another red"], ans: 0, explain: "One red is gone: 2 red of 4 counters remain, so \\( \\frac{2}{4} \\)." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Multiply along, add across", pills: ["tree", "AND / OR"], content: `<p><strong>Along a path = AND = multiply.</strong> <strong>Across paths = OR = add.</strong> For "exactly one" of three events, there are three winning paths (success in one place, failure in the other two) — work out each product, then add the three. For "at least one", use \\( 1 - P(\\text{none}) \\) instead of adding many paths.</p>`, readCheck: { q: "For 'exactly one of three events', you should:", opts: ["Add the three single-success path probabilities", "Multiply all three success probabilities", "Use only one path", "Subtract from 3"], ans: 0, explain: "Each 'exactly one' path is a product; add the three such paths together." } },
+        { type: "explain", title: "Counts, not probabilities, in Venn regions", pills: ["counts", "convention"], content: `<p><strong>0 marks:</strong> filling the regions with fractions when the question wants numbers of people. <strong>Full marks:</strong> put the <em>count</em> in each region, draw the universal-set rectangle, and write the 'neither' count outside the circles (never as a third circle). Only switch to probabilities if the question explicitly asks for them.</p>`, readCheck: { q: "A Venn question asks 'how many'. The regions should contain:", opts: ["Counts", "Probabilities", "Percentages", "Nothing"], ans: 0, explain: "'How many' wants counts; use probabilities only when asked." } },
+        { type: "explain", title: "'Determine' means show justification", pills: ["determine", "working"], content: `<p>The command word <strong>Determine</strong> requires visible working or reasoning, not just an answer. On "Determine the number who liked both", writing \\( 50 + 20 - \\text{both} = 58 \\Rightarrow \\text{both} = 12 \\) earns the method mark even before the final number — a bare "12" risks losing it.</p>`, readCheck: { q: "'Determine' tells you to:", opts: ["Show working / justification for the answer", "Just write the answer down", "Give a decimal only", "Draw a graph"], ans: 0, explain: "'Determine' demands justification, so show the method." } }
+    ];
+
+    const flashcards = [
+        { term: "Tree diagram rule", def: "Multiply along the branches (AND); add across the paths (OR)." },
+        { term: "Branch sum", def: "The branches leaving any one point add up to 1." },
+        { term: "With replacement", def: "Item returned; second-draw probabilities are unchanged." },
+        { term: "Without replacement", def: "Item kept; second-draw denominator (and numerator) fall." },
+        { term: "Two-way table", def: "Cross-classifies data; every row and column sums to its total." },
+        { term: "Venn diagram", def: "Overlapping circles inside a universal-set rectangle." },
+        { term: "\\( A \\cap B \\)", def: "Intersection: members in both A and B." },
+        { term: "\\( A \\cup B \\)", def: "Union: members in A or B or both." },
+        { term: "\\( A' \\)", def: "Complement: members not in A." },
+        { term: "Neither region", def: "Outside the circles but inside the rectangle." },
+        { term: "Inclusion–exclusion", def: "\\( |A \\cup B| = |A| + |B| - |A \\cap B| \\)." },
+        { term: "Filling a Venn", def: "Start at the centre (all sets) and work outward." },
+        { term: "Counts vs probabilities", def: "Put counts in regions unless probabilities are asked for." },
+        { term: "Universal set \\( \\xi \\)", def: "Everything under consideration; drawn as the rectangle." },
+        { term: "\\( P(\\text{at least one}) \\)", def: "\\( 1 - P(\\text{none}) \\)." },
+        { term: "Exactly once (three events)", def: "Add the three single-success paths on the tree." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "4 (a)",
+            marks: 2,
+            type: "written",
+            caseId: "q4-2024",
+            question: `<p>Draw a Venn diagram to illustrate this information.</p>`,
+            hint: "Draw the rectangle for all 68 students first, then two overlapping circles; the 10 who like neither go outside both circles.",
+            starter: "Draw a labelled Venn diagram (rectangle + two overlapping rings, 10 outside).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>B1</strong> — understanding of a Venn diagram with two rings (not necessarily overlapping, and one could be inside the other) inside a universal set represented by a rectangle.</li>
+              <li><strong>B1</strong> — labelled rings overlapping with 10 given outside both (ignore other numbers).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>First mark: the correct structure — two rings inside a rectangle. Second mark: rings labelled and the 10 placed outside both, inside the rectangle.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Many drew two overlapping rings correctly but omitted the rectangle for the universal set — the answer space is not the rectangle. A third, separate but overlapping, circle was sometimes drawn for the 'neither' category, which is incorrect.</li>
+            </ul></div>`,
+            modelAnswer: `Rectangle (all 68) with two overlapping rings labelled Pop and Classical; write 50 − x in Pop only, x in the overlap, 20 − x in Classical only, and 10 outside both rings. <svg viewBox="0 0 300 200" width="100%" style="max-width:340px;height:auto;display:block;margin:10px auto" role="img" aria-label="Venn diagram with rings Pop and Classical, 50 minus x in pop only, x in the overlap, 20 minus x in classical only, and 10 outside both"><rect x="6" y="6" width="288" height="188" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="118" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="182" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="2"/><text x="64" y="26" fill="currentColor" font-size="13" font-weight="600">Pop</text><text x="192" y="26" fill="currentColor" font-size="13" font-weight="600">Classical</text><text x="78" y="106" fill="currentColor" font-size="13" text-anchor="middle">50−x</text><text x="150" y="106" fill="currentColor" font-size="15" text-anchor="middle">x</text><text x="216" y="106" fill="currentColor" font-size="13" text-anchor="middle">20−x</text><text x="272" y="186" fill="currentColor" font-size="14" text-anchor="middle">10</text><text x="20" y="24" fill="currentColor" font-size="12">ξ = 68</text></svg>`,
+            markPoints: { note: "Award each B mark for the feature shown.", groups: [
+                { label: "B1 — two rings in a universal set", max: 1, points: ["Two rings drawn inside a rectangle representing the universal set"] },
+                { label: "B1 — labelled with 10 outside both", max: 1, points: ["Rings labelled (Pop / Classical) with 10 placed outside both rings, inside the rectangle"] }
+            ] }
+        },
+        {
+            num: "4 (b)",
+            marks: 2,
+            type: "written",
+            caseId: "q4-2024",
+            question: `<p>Determine the number of students who said they liked both pop music and classical music.</p>`,
+            hint: "The three regions inside the circles must total 68 − 10 = 58; use 50 + 20 − both = 58 (or add all four regions to 68).",
+            starter: "Show your method, then state the number who liked both.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — adding 4 sets to make 68 (soi), or 3 sets to make 58.</li>
+              <li><strong>A1</strong> — giving 12 in the overlap. (Allow 2 marks for 12 clearly seen in the diagram for 4(a).)</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The method mark is for setting up the correct total equation; the accuracy mark is for reaching 12.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Well answered overall, but some scored 1 mark only — they added four sets to make 68 (or three to make 58) but did not reach 12 as the final answer.</li>
+            </ul></div>`,
+            modelAnswer: `Let x be the number who liked both. Those who liked at least one = 68 − 10 = 58. Then (50 − x) + x + (20 − x) = 58, so 70 − x = 58, giving x = 12. So 12 students liked both. <svg viewBox="0 0 300 200" width="100%" style="max-width:340px;height:auto;display:block;margin:10px auto" role="img" aria-label="Completed Venn diagram: 38 pop only, 12 both, 8 classical only, 10 outside both"><rect x="6" y="6" width="288" height="188" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="118" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="182" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="2"/><text x="64" y="26" fill="currentColor" font-size="13" font-weight="600">Pop</text><text x="192" y="26" fill="currentColor" font-size="13" font-weight="600">Classical</text><text x="82" y="106" fill="currentColor" font-size="16" text-anchor="middle">38</text><text x="150" y="106" fill="currentColor" font-size="16" text-anchor="middle">12</text><text x="216" y="106" fill="currentColor" font-size="16" text-anchor="middle">8</text><text x="272" y="186" fill="currentColor" font-size="14" text-anchor="middle">10</text><text x="20" y="24" fill="currentColor" font-size="12">ξ = 68</text></svg>`,
+            markPoints: { note: "Both marks require the correct total set up and solved.", groups: [
+                { label: "M1 — set up the total", max: 1, points: ["Used 50 + 20 − both + 10 = 68 (or the three inner regions summing to 58)"] },
+                { label: "A1 — the overlap", max: 1, points: ["Both = 12"] }
+            ] }
+        },
+        {
+            num: "6 (a)",
+            marks: 3,
+            type: "written",
+            caseId: "q6-2022",
+            question: `<p>Draw a tree diagram to illustrate the probabilities of Layla having to stop at each set of lights on a particular journey to work.</p>`,
+            hint: "Three stages, each splitting into 'stop' and 'go'; label every branch with its probability (go = 1 − stop).",
+            starter: "Draw a fully labelled three-stage tree diagram.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO2, AO2)</h5><ul>
+              <li><strong>B1</strong> — 3 events, each with two branches (some branches may be missing or not labelled).</li>
+              <li><strong>B1</strong> — probabilities of 0.5 on the first set, 0.6 and 0.4 on the second, and 0.7 and 0.3 on the third (at least one set of probabilities seen for each).</li>
+              <li><strong>B1</strong> — completed tree, all labels and probabilities correct.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Marks build up: the branch structure, then the probabilities, then a fully correct labelled tree.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most candidates drew the correct tree diagram, although some lost a mark for not labelling the branches with the outcomes and their associated probabilities.</li>
+            </ul></div>`,
+            modelAnswer: `Three stages, each a two-branch stop/go event. Stage 1: stop 0.5, go 0.5. Stage 2: stop 0.6, go 0.4. Stage 3: stop 0.7, go 0.3. Label every branch with outcome and probability. <svg viewBox="0 0 480 300" width="100%" style="max-width:480px;height:auto;display:block;margin:10px auto" role="img" aria-label="Three-stage tree diagram: stop or go at three sets of lights with probabilities 0.5/0.5, 0.6/0.4, 0.7/0.3"><line x1="16" y1="150" x2="100" y2="80" stroke="currentColor" stroke-width="1.4"/><line x1="16" y1="150" x2="100" y2="220" stroke="currentColor" stroke-width="1.4"/><line x1="100" y1="80" x2="250" y2="45" stroke="currentColor" stroke-width="1.4"/><line x1="100" y1="80" x2="250" y2="115" stroke="currentColor" stroke-width="1.4"/><line x1="100" y1="220" x2="250" y2="185" stroke="currentColor" stroke-width="1.4"/><line x1="100" y1="220" x2="250" y2="255" stroke="currentColor" stroke-width="1.4"/><line x1="250" y1="45" x2="380" y2="30" stroke="currentColor" stroke-width="1.4"/><line x1="250" y1="45" x2="380" y2="60" stroke="currentColor" stroke-width="1.4"/><line x1="250" y1="115" x2="380" y2="100" stroke="currentColor" stroke-width="1.4"/><line x1="250" y1="115" x2="380" y2="130" stroke="currentColor" stroke-width="1.4"/><line x1="250" y1="185" x2="380" y2="170" stroke="currentColor" stroke-width="1.4"/><line x1="250" y1="185" x2="380" y2="200" stroke="currentColor" stroke-width="1.4"/><line x1="250" y1="255" x2="380" y2="240" stroke="currentColor" stroke-width="1.4"/><line x1="250" y1="255" x2="380" y2="270" stroke="currentColor" stroke-width="1.4"/><text x="48" y="106" fill="currentColor" font-size="11">0.5</text><text x="48" y="196" fill="currentColor" font-size="11">0.5</text><text x="104" y="80" fill="currentColor" font-size="12" font-weight="600">S</text><text x="104" y="226" fill="currentColor" font-size="12" font-weight="600">G</text><text x="168" y="56" fill="currentColor" font-size="11">0.6</text><text x="168" y="104" fill="currentColor" font-size="11">0.4</text><text x="168" y="196" fill="currentColor" font-size="11">0.6</text><text x="168" y="244" fill="currentColor" font-size="11">0.4</text><text x="254" y="48" fill="currentColor" font-size="12" font-weight="600">S</text><text x="254" y="118" fill="currentColor" font-size="12" font-weight="600">G</text><text x="254" y="188" fill="currentColor" font-size="12" font-weight="600">S</text><text x="254" y="258" fill="currentColor" font-size="12" font-weight="600">G</text><text x="318" y="30" fill="currentColor" font-size="11">0.7</text><text x="318" y="62" fill="currentColor" font-size="11">0.3</text><text x="318" y="100" fill="currentColor" font-size="11">0.7</text><text x="318" y="132" fill="currentColor" font-size="11">0.3</text><text x="318" y="170" fill="currentColor" font-size="11">0.7</text><text x="318" y="202" fill="currentColor" font-size="11">0.3</text><text x="318" y="240" fill="currentColor" font-size="11">0.7</text><text x="318" y="272" fill="currentColor" font-size="11">0.3</text><text x="386" y="34" fill="currentColor" font-size="11">SSS</text><text x="386" y="64" fill="currentColor" font-size="11">SSG</text><text x="386" y="104" fill="currentColor" font-size="11">SGS</text><text x="386" y="134" fill="currentColor" font-size="11">SGG</text><text x="386" y="174" fill="currentColor" font-size="11">GSS</text><text x="386" y="204" fill="currentColor" font-size="11">GSG</text><text x="386" y="244" fill="currentColor" font-size="11">GGS</text><text x="386" y="274" fill="currentColor" font-size="11">GGG</text></svg>`,
+            markPoints: { note: "Award each B mark for the feature shown (S = stop, G = go).", groups: [
+                { label: "B1 — structure", max: 1, points: ["Three sets of lights, each a two-branch (stop / go) event"] },
+                { label: "B1 — probabilities", max: 1, points: ["0.5 on the first set; 0.6 and 0.4 on the second; 0.7 and 0.3 on the third"] },
+                { label: "B1 — fully labelled", max: 1, points: ["Completed tree with all branches labelled and all probabilities correct"] }
+            ] }
+        },
+        {
+            num: "6 (b)",
+            marks: 3,
+            type: "written",
+            caseId: "q6-2022",
+            question: `<p>Calculate the probability that Layla has to stop exactly once on a particular journey to work.</p>`,
+            hint: "'Exactly once' means stop at one set and go through the other two — there are three such paths; multiply along each, then add.",
+            starter: "Give the probability as a decimal.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1, AO1, AO1)</h5><ul>
+              <li><strong>B1</strong> — any one correct product of three probabilities (soi).</li>
+              <li><strong>B1</strong> — three terms added, at least two correct (soi).</li>
+              <li><strong>B1</strong> — 0.29.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One correct path scores the first mark; adding the three exactly-once paths scores the second; the correct total scores the third.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The sum of the probabilities was well done.</li>
+            </ul></div>`,
+            modelAnswer: `Stop exactly once = stop at one set and go through the other two. The three paths are: stop 1st only 0.5 × 0.4 × 0.3 = 0.06; stop 2nd only 0.5 × 0.6 × 0.3 = 0.09; stop 3rd only 0.5 × 0.4 × 0.7 = 0.14. Adding: 0.06 + 0.09 + 0.14 = 0.29.`,
+            markPoints: { note: "Award each B mark for the step shown.", groups: [
+                { label: "B1 — one correct path", max: 1, points: ["One correct product of three probabilities, e.g. 0.5 × 0.4 × 0.3 = 0.06"] },
+                { label: "B1 — add three paths", max: 1, points: ["Added the three exactly-once paths (at least two correct): 0.06 + 0.09 + 0.14"] },
+                { label: "B1 — answer", max: 1, points: ["0.29"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>
