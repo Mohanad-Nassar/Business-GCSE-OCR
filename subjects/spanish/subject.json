@@ -197,15 +197,13 @@
           "id": "7-1-holidays-transport-and-places",
           "name": "7.1 Holidays, Transport and Places",
           "sub": "Travel and Tourism",
-          "file": "7.1-holidays-transport-and-places.html",
-          "noQuestions": true
+          "file": "7.1-holidays-transport-and-places.html"
         },
         {
           "id": "7-2-my-region-and-places-of-interest",
           "name": "7.2 My Region and Places of Interest",
           "sub": "Travel and Tourism",
-          "file": "7.2-my-region-and-places-of-interest.html",
-          "noQuestions": true
+          "file": "7.2-my-region-and-places-of-interest.html"
         }
       ]
     },
@@ -219,15 +217,13 @@
           "id": "8-1-technology-in-everyday-life",
           "name": "8.1 Technology in Everyday Life",
           "sub": "Media and Technology",
-          "file": "8.1-technology-in-everyday-life.html",
-          "noQuestions": true
+          "file": "8.1-technology-in-everyday-life.html"
         },
         {
           "id": "8-2-social-media-and-online-safety",
           "name": "8.2 Social Media and Online Safety",
           "sub": "Media and Technology",
-          "file": "8.2-social-media-and-online-safety.html",
-          "noQuestions": true
+          "file": "8.2-social-media-and-online-safety.html"
         }
       ]
     },
@@ -241,15 +237,13 @@
           "id": "9-1-my-town-home-and-local-area",
           "name": "9.1 My Town, Home and Local Area",
           "sub": "Environment and Where People Live",
-          "file": "9.1-my-town-home-and-local-area.html",
-          "noQuestions": true
+          "file": "9.1-my-town-home-and-local-area.html"
         },
         {
           "id": "9-2-the-environment-and-global-issues",
           "name": "9.2 The Environment and Global Issues",
           "sub": "Environment and Where People Live",
-          "file": "9.2-the-environment-and-global-issues.html",
-          "noQuestions": true
+          "file": "9.2-the-environment-and-global-issues.html"
         }
       ]
     },
@@ -263,29 +257,25 @@
           "id": "x-1-listening-and-dictation",
           "name": "X.1 Listening and Dictation",
           "sub": "Exam Skills",
-          "file": "X.1-listening-and-dictation.html",
-          "noQuestions": true
+          "file": "X.1-listening-and-dictation.html"
         },
         {
           "id": "x-2-reading-and-translation-into-english",
           "name": "X.2 Reading and Translation into English",
           "sub": "Exam Skills",
-          "file": "X.2-reading-and-translation-into-english.html",
-          "noQuestions": true
+          "file": "X.2-reading-and-translation-into-english.html"
         },
         {
           "id": "x-3-speaking-read-aloud-and-photo-card",
           "name": "X.3 Speaking: Read-Aloud and Photo Card",
           "sub": "Exam Skills",
-          "file": "X.3-speaking-read-aloud-and-photo-card.html",
-          "noQuestions": true
+          "file": "X.3-speaking-read-aloud-and-photo-card.html"
         },
         {
           "id": "x-4-writing-and-translation-into-spanish",
           "name": "X.4 Writing and Translation into Spanish",
           "sub": "Exam Skills",
-          "file": "X.4-writing-and-translation-into-spanish.html",
-          "noQuestions": true
+          "file": "X.4-writing-and-translation-into-spanish.html"
         }
       ]
     }

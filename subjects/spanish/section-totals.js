@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-18T23:09:24Z
+// Generated: 2026-07-18T23:34:09Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "spanish:p-1-spanish-sounds-and-the-alphabet": {
@@ -207,6 +207,116 @@ window.SECTION_TOTALS = {
   "flashcards": 18
  },
  "spanish:6-1-celebrities-influencers-and-fame": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:7-1-holidays-transport-and-places": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:7-2-my-region-and-places-of-interest": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:8-1-technology-in-everyday-life": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:8-2-social-media-and-online-safety": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:9-1-my-town-home-and-local-area": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:9-2-the-environment-and-global-issues": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:x-1-listening-and-dictation": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:x-2-reading-and-translation-into-english": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:x-3-speaking-read-aloud-and-photo-card": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:x-4-writing-and-translation-into-spanish": {
   "exam": 2,
   "mcq": 10,
   "tf": 8,
