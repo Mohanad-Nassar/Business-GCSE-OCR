@@ -80,15 +80,30 @@
 # Kill switch: set env var CONTENT_GATE_DISABLED=true and redeploy.
 # See netlify/edge-functions/content-gate.ts + supabase/entitlements.sql.
 #
-# If /subjects/* ever 500s locally with "There was an error with an Edge
-# Function", the cause is almost certainly netlify's cached Deno binary, NOT
-# this config or content-gate.ts. Netlify keeps it in
-# %APPDATA%\netlify\Config\deno-cli\ and trusts version.txt without checking
-# that deno.exe actually exists — a failed download leaves a 0-byte
-# deno-cli-latest.zip and no binary, and it then crash-loops ("Invalid
-# Version" / "deno.exe is not recognized") instead of re-downloading. Fix:
-# delete that whole deno-cli folder and restart `netlify dev`. Do NOT disable
-# this block to work around it — that ships course content ungated.
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║  ⚠️  RESTORE-FOR-DEPLOY BLOCK — comment out ONLY for local dev.       ║
+# ║                                                                      ║
+# ║  Uncomment the three lines below before committing/deploying. A       ║
+# ║  pre-commit hook (.githooks/pre-commit) BLOCKS committing this file   ║
+# ║  while they are commented out, so this cannot ship by accident.       ║
+# ║                                                                      ║
+# ║  Why it's off: this machine's managed Windows Defender policy         ║
+# ║  ("EUS:Win32/CustomEnterpriseBlock" — an Avanti Schools Trust custom  ║
+# ║  block rule) DELETES netlify's deno.exe minutes after it downloads,   ║
+# ║  and the account cannot add an AV exclusion (not admin + Tamper       ║
+# ║  Protection on). Edge functions need Deno, so with no deno.exe every  ║
+# ║  /subjects/* request 500s ("There was an error with an Edge           ║
+# ║  Function") and topic pages are blank white. Re-downloading Deno only ║
+# ║  works until Defender eats it again (observed: ~20 min).              ║
+# ║  Permanent fix = ask IT to whitelist                                  ║
+# ║    %APPDATA%\netlify\Config\deno-cli\deno.exe                         ║
+# ║    node_modules\@netlify\local-functions-proxy-win32-x64\bin\*.exe    ║
+# ║  then restore this block and delete the local-dev workaround.         ║
+# ║                                                                      ║
+# ║  Production is UNAFFECTED (netlify's own edge runtime, no Defender).  ║
+# ║  Deploying with this commented out would serve ALL course content     ║
+# ║  ungated — see supabase/entitlements.sql + content-gate.ts.           ║
+# ╚══════════════════════════════════════════════════════════════════════╝
 [[edge_functions]]
   path = "/subjects/*"
   function = "content-gate"

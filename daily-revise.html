@@ -44,6 +44,16 @@
       transition:background .15s,border-color .15s;
     }
     .nav-link:hover { background:rgba(255,255,255,.18); border-color:var(--gold); }
+    /* Subject switcher — same control as the dashboard header. */
+    .subject-switcher select {
+      appearance:none; -webkit-appearance:none;
+      background:rgba(255,255,255,.1) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'><path d='M1 1l4 4 4-4' stroke='%23f5f0e8' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>") no-repeat right 12px center;
+      border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper));
+      font-family:'DM Mono',monospace; font-size:11px; padding:8px 30px 8px 14px; border-radius:6px; cursor:pointer;
+    }
+    .subject-switcher select:hover { background-color:rgba(255,255,255,.18); border-color:var(--gold); }
+    .subject-switcher select:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+    .subject-switcher option { color:var(--ink); }
     .gcse-account-bar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-family:'DM Mono',monospace; font-size:11px; color:rgba(245,240,232,.75); }
     .gcse-account-bar button.nav-link { cursor:pointer; }
 
@@ -155,11 +165,12 @@
   </nav>
   <div class="header-inner">
     <div>
-      <div class="header-badge">OCR GCSE Business Studies · J204</div>
+      <div class="header-badge" id="drSubjectBadge">OCR GCSE Business Studies · J204</div>
       <h1>🎯 Daily Revise</h1>
       <p>Short, spaced-out practice — answer a question right three times running and it's mastered.</p>
     </div>
     <div class="header-links">
+      <span id="subjectSwitcherMount"></span>
       <a class="nav-link" id="reviewCalendarNavLink" href="review-calendar.html">🗓️ Review Calendar</a>
     </div>
   </div>

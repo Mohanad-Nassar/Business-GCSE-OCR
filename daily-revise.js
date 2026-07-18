@@ -147,7 +147,50 @@ async function init() {
     });
   }
 
+  // Header badge names the current subject (the static markup says Business).
+  try {
+    const badge = document.getElementById('drSubjectBadge');
+    if (badge && window.SUBJECT && window.SUBJECT.name) {
+      badge.textContent = window.SUBJECT.name +
+        (window.SUBJECT.specCode ? ' · ' + window.SUBJECT.specCode : '');
+    }
+  } catch (e) {}
+
+  // Subject switcher (same control + behaviour as the dashboard) — lets the
+  // student move Daily Revise to another of their subjects.
+  try { await drInitSubjectSwitcher(); } catch (e) { console.error('drInitSubjectSwitcher', e); }
+
   await refreshLive();
+}
+
+// Builds the header subject dropdown from get_my_subjects (the RPC the
+// dashboard uses), shown only when the student has 2+ subjects. Picking one
+// reloads Daily Revise for that subject via ?subject=<slug>.
+async function drInitSubjectSwitcher() {
+  const mount = document.getElementById('subjectSwitcherMount');
+  if (!mount || !drClient) return;
+  let subjects = null;
+  try {
+    const { data, error } = await drClient.rpc('get_my_subjects');
+    if (error || !Array.isArray(data)) return;
+    subjects = data;
+  } catch (e) { return; }
+  if (!subjects || subjects.length < 2) return;
+
+  const current = drSubjectSlug();
+  const select = document.createElement('select');
+  select.id = 'subjectSwitcherSelect';
+  select.setAttribute('aria-label', 'Switch subject');
+  select.innerHTML = subjects.map(s =>
+    `<option value="${esc(s.slug)}"${s.slug === current ? ' selected' : ''}>${(s.icon ? s.icon + ' ' : '') + esc(s.name)}</option>`
+  ).join('');
+  select.addEventListener('change', () => {
+    location.href = 'daily-revise.html?subject=' + encodeURIComponent(select.value);
+  });
+  const wrap = document.createElement('div');
+  wrap.className = 'subject-switcher';
+  wrap.appendChild(select);
+  mount.replaceWith(wrap);
 }
 
 // Re-fetches settings + the queue from the server. Called on first load,

@@ -147,6 +147,10 @@
 <div class="toast" id="toast"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<!-- 🔔 notification bell (derives edit/external-share/report/integrity alerts for
+     admins & owners too). Mounts into the #gcseNotifSlot the account cluster
+     (loaded via teacher-nav.js) creates; falls back to a fixed bell otherwise. -->
+<script src="/notifications-shared.js" defer></script>
 <script src="tasks-shared.js"></script>
 <script src="admin.js"></script>
 <script src="teacher-nav.js"></script>

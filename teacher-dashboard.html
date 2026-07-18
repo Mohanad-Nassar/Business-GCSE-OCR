@@ -68,6 +68,8 @@
   .empty { padding:24px; text-align:center; color:var(--mid); font-size:13px; font-style:italic; }
   .struggle-badge { display:inline-block; font-family:'DM Mono',monospace; font-size:10px; padding:2px 9px; border-radius:99px; background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.3); margin-left:6px; white-space:nowrap; cursor:help; }
   .reviews-overdue { display:inline-block; font-family:'DM Mono',monospace; font-weight:600; padding:2px 9px; border-radius:99px; background:rgba(200,75,49,.1); color:var(--wrong); border:1px solid rgba(200,75,49,.3); white-space:nowrap; cursor:help; }
+  /* Shown in the Streak column when a student has no live streak — muted, so a real "🔥 N" still stands out. */
+  .last-active-cell { font-size:11.5px; color:var(--mid,#5a6e7f); white-space:nowrap; }
   /* Student-profile review-calendar table */
   .rev-status { font-family:'DM Mono',monospace; font-size:11.5px; white-space:nowrap; }
   .rev-status.done { color:var(--right,#2f7d54); }
@@ -303,8 +305,9 @@
   .guide-step.next .gs-num { background:var(--gold); border-color:var(--gold); color:#fff; }
   .gs-title { font-weight:600; font-size:13px; }
   .gs-desc { font-size:11.5px; color:var(--mid); line-height:1.5; flex:1; }
-  .guide-panel.collapsed .guide-steps { display:none; }
-  .guide-panel.collapsed .step-sub { display:none; }
+  .guide-panel.guide-hidden { display:none; }
+  /* Small icon-only replay button beside the class tabs (always visible). */
+  #guideReplayBtn { padding:6px 10px; font-size:15px; line-height:1; }
   .login-link-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; background:var(--cream); border:1px solid var(--border); border-radius:8px; padding:10px 14px; max-width:640px; }
   .login-link-row code { font-family:'DM Mono',monospace; font-size:12px; word-break:break-all; flex:1; min-width:200px; }
   /* ── "Needs you today" strip + class-card badges ── */
@@ -361,6 +364,7 @@
     <div style="display:flex; gap:8px; margin-bottom:14px;">
       <button type="button" class="subtab active" id="classesTabActive">📚 My Classes</button>
       <button type="button" class="subtab" id="classesTabArchived">📦 Archived Classes</button>
+      <button type="button" class="subtab" id="guideReplayBtn" title="Replay the getting-started guide" aria-label="Replay the getting-started guide" style="margin-left:auto;">👋</button>
     </div>
     <div class="panel">
       <div class="class-grid" id="classGrid"><div class="empty">Loading…</div></div>
@@ -447,13 +451,14 @@
                 <th class="sortable" data-sort="name">Username</th>
                 <th class="sortable" data-sort="level">Level</th>
                 <th class="sortable" data-sort="progress">Overall progress</th>
-                <th class="sortable" data-sort="streak">🔥 Streak</th>
+                <th class="sortable" data-sort="streak" title="Current day-streak. When a student has no live streak this shows when they last practised instead.">🔥 Streak</th>
+                <th class="sortable" data-sort="longest" title="Longest day-streak this student has ever reached (kept even after a streak is lost)">🏆 Longest</th>
                 <th class="sortable" data-sort="badges">🏅 Badges</th>
                 <th class="sortable" data-sort="answers">Answers logged</th>
                 <th class="sortable" data-sort="reviews" title="Review-calendar tasks past their due date and not yet completed">⏰ Reviews due</th>
                 <th></th>
               </tr></thead>
-              <tbody id="leaderboardBody"><tr><td colspan="8" class="empty">Loading…</td></tr></tbody>
+              <tbody id="leaderboardBody"><tr><td colspan="9" class="empty">Loading…</td></tr></tbody>
             </table>
           </div>
         </div>
@@ -1183,10 +1188,9 @@ function renderActionStrip() {
       showClassSubView('topicAccess');
       loadTopicAccessView();
     });
-  } else if (students > 0) {
-    strip.className = 'panel action-strip all-clear';
-    strip.innerHTML = `<span class="as-label">✅ All caught up — nothing waiting for you.</span>`;
   } else {
+    // Nothing pending → the strip is simply hidden (no "all caught up"
+    // message). The "📥 Needs you today" state above is the only thing shown.
     strip.className = 'hidden';
     strip.innerHTML = '';
   }
@@ -1319,18 +1323,22 @@ document.getElementById('guideSteps').addEventListener('click', async (e) => {
   }
 });
 
+// "Hide guide" now dismisses the guide completely (not a collapse), persisting
+// the choice. It reappears only via the 👋 replay button beside the class tabs.
 document.getElementById('guideToggle').addEventListener('click', () => {
-  const collapsed = document.getElementById('guidePanel').classList.toggle('collapsed');
-  document.getElementById('guideToggle').textContent = collapsed ? 'Show guide' : 'Hide guide';
-  try { localStorage.setItem(GUIDE_HIDE_KEY, collapsed ? '1' : '0'); } catch (e) {}
+  document.getElementById('guidePanel').classList.add('guide-hidden');
+  try { localStorage.setItem(GUIDE_HIDE_KEY, '1'); } catch (e) {}
 });
-(function initGuideCollapsed() {
+document.getElementById('guideReplayBtn').addEventListener('click', () => {
+  try { localStorage.setItem(GUIDE_HIDE_KEY, '0'); } catch (e) {}
+  const panel = document.getElementById('guidePanel');
+  panel.classList.remove('guide-hidden');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+(function initGuideHidden() {
   let hidden = false;
   try { hidden = localStorage.getItem(GUIDE_HIDE_KEY) === '1'; } catch (e) {}
-  if (hidden) {
-    document.getElementById('guidePanel').classList.add('collapsed');
-    document.getElementById('guideToggle').textContent = 'Show guide';
-  }
+  if (hidden) document.getElementById('guidePanel').classList.add('guide-hidden');
 })();
 
 // State for the currently open class.
@@ -1477,7 +1485,11 @@ async function loadClassData() {
   classActivityDays = {};
   if (ids.length) {
     try {
-      const { data: st, error } = await supabaseClient.rpc('get_class_streaks', { p_class_id: activeClassId });
+      // Subject-scoped, like get_class_activity_days below — each class has
+      // one subject, so the streak shown matches that subject's dashboard.
+      const p_subject = (window.SUBJECT && window.SUBJECT.slug) || null;
+      let { data: st, error } = await supabaseClient.rpc('get_class_streaks', { p_class_id: activeClassId, p_subject });
+      if (error) { ({ data: st, error } = await supabaseClient.rpc('get_class_streaks', { p_class_id: activeClassId })); }
       if (!error) (st || []).forEach(r => { classStreaks[r.student_id] = r; });
     } catch (e) {}
 
@@ -1915,6 +1927,7 @@ function leaderboardValueFor(row, key) {
   if (key === 'level') return g ? g.level : null;
   if (key === 'progress') return row.t.total ? row.t.pct : null;
   if (key === 'streak') return ((classStreaks[row.s.id] || {}).current || 0) || null;
+  if (key === 'longest') return ((classStreaks[row.s.id] || {}).longest || 0) || null;
   if (key === 'badges') return g ? gamificationEarnedBadges(g).length : null;
   if (key === 'answers') return row.t.done; // always a real number, 0 included
   if (key === 'reviews') return reviewsOverdueFor(row.s.id); // null when reviews aren't installed / no schedule
@@ -1929,6 +1942,40 @@ function reviewsOverdueFor(studentId) {
   const rows = classReviews[studentId];
   if (!rows || !rows.length || typeof srCounts !== 'function') return null;
   return srCounts(rows, srTodayStr()).overdue;
+}
+
+// When a student's streak is 0, teachers still want to know when they last
+// practised. Prefer the exact timestamp from get_class_streaks (last_active,
+// all subjects) and fall back to the newest day in the subject-scoped practice
+// calendar if that SQL hasn't been re-run yet. Returns null if never active.
+function lastActiveFor(studentId) {
+  const last = (classStreaks[studentId] || {}).last_active;
+  if (last) return last;
+  if (typeof gamificationLastActiveDay === 'function') {
+    return gamificationLastActiveDay(classActivityDays[studentId] || []);
+  }
+  return null;
+}
+// "🔥 N" while a streak is live; once it lapses (0), the last-practised label
+// instead of a bare "–", so the cell always says something useful.
+function streakCellFor(studentId) {
+  const streak = (classStreaks[studentId] || {}).current || 0;
+  if (streak) return '🔥 ' + streak;
+  const last = lastActiveFor(studentId);
+  if (last && typeof gamificationAgoLabel === 'function') {
+    const ago = gamificationAgoLabel(last);
+    if (ago) return `<span class="last-active-cell">${escapeHtml(ago)}</span>`;
+  }
+  return '–';
+}
+// Hover tooltip for the streak cell — spells out the current streak or, when
+// there isn't one, when the student last practised.
+function streakCellTitle(studentId) {
+  const streak = (classStreaks[studentId] || {}).current || 0;
+  if (streak) return 'Current streak: ' + streak + ' day' + (streak === 1 ? '' : 's');
+  const last = lastActiveFor(studentId);
+  const ago = last && typeof gamificationAgoLabel === 'function' ? gamificationAgoLabel(last) : '';
+  return ago ? 'No live streak — last practised ' + ago : 'Never practised';
 }
 function leaderboardComparator(key, dir) {
   return (a, b) => {
@@ -1948,7 +1995,7 @@ function leaderboardComparator(key, dir) {
 function renderLeaderboardBody() {
   const body = document.getElementById('leaderboardBody');
   if (!classStudents.length) {
-    body.innerHTML = `<tr><td colspan="8" class="empty">No students yet -- open the <strong>⚙️ Settings</strong> tab above to create logins in two clicks.</td></tr>`;
+    body.innerHTML = `<tr><td colspan="9" class="empty">No students yet -- open the <strong>⚙️ Settings</strong> tab above to create logins in two clicks.</td></tr>`;
     updateLeaderboardSortIndicators();
     return;
   }
@@ -1964,7 +2011,8 @@ function renderLeaderboardBody() {
       <td class="mono">${escapeHtml(s.username)}${struggle.flag ? `<span class="struggle-badge" title="${escapeHtml(struggle.reason)}">⚠ needs attention</span>` : ''}</td>
       <td class="mono" title="${g ? g.xp.toLocaleString() + ' XP' : ''}">${g ? 'Lv ' + g.level : '–'}</td>
       <td><span class="pct-bar-wrap"><span class="pct-bar-fill" style="width:${t.pct}%"></span></span>${t.total ? t.pct + '%' : '–'}</td>
-      <td class="mono" title="Longest ever: ${longest} day${longest === 1 ? '' : 's'}">${streak ? '🔥 ' + streak : '–'}</td>
+      <td class="mono" title="${streakCellTitle(s.id)}">${streakCellFor(s.id)}</td>
+      <td class="mono" title="Longest streak ever reached">${longest ? '🏆 ' + longest : '–'}</td>
       <td class="mono">${g ? gamificationEarnedBadges(g).length + '/' + BADGE_DEFS.length : '–'}</td>
       <td>${t.done}</td>
       <td class="mono">${(() => { const o = reviewsOverdueFor(s.id); return o == null ? '–' : o > 0 ? `<span class="reviews-overdue" title="${o} review${o === 1 ? '' : 's'} past due and not completed">⏰ ${o}</span>` : '0'; })()}</td>
@@ -2643,6 +2691,9 @@ async function viewStudent(studentId, name) {
   // level/XP/badges are the same derived stats the student sees on
   // their own dashboard.
   const _streak = (classStreaks[studentId] || {}).current || 0;
+  const _longest = (classStreaks[studentId] || {}).longest || 0;
+  const _lastActive = lastActiveFor(studentId);
+  const _lastAgo = _lastActive && typeof gamificationAgoLabel === 'function' ? gamificationAgoLabel(_lastActive) : '';
   const gamStats = studentGamStats(studentId);
   const pasteAttempts = classIntegrityEvents.filter(ev => ev.student_id === studentId).length;
   const _reviewsOverdue = reviewsOverdueFor(studentId); // null if no schedule / SQL not run
@@ -2650,7 +2701,10 @@ async function viewStudent(studentId, name) {
     tile(totals.pct + '%', 'Overall') + tile(totals.grandDone, 'Activities done') +
     tile(totals.pagesStarted, 'Topics started') +
     (gamStats ? tile('Lv ' + gamStats.level, gamStats.xp.toLocaleString() + ' XP') +
-      tile('🔥 ' + _streak, 'Day streak') +
+      // Live streak, else when they last practised — mirrors the students table.
+      (_streak ? tile('🔥 ' + _streak, 'Day streak')
+               : tile('🔥 0', _lastAgo ? 'Last practised ' + _lastAgo : 'No streak yet')) +
+      tile('🏆 ' + _longest, 'Longest streak') +
       tile(gamificationEarnedBadges(gamStats).length + '/' + BADGE_DEFS.length, 'Badges earned') : '') +
     (_reviewsOverdue ? tile('⏰ ' + _reviewsOverdue, 'Reviews overdue') : '') +
     (pasteAttempts ? tile('🚫 ' + pasteAttempts, 'Integrity flags') : '');
@@ -2659,7 +2713,8 @@ async function viewStudent(studentId, name) {
   // own dashboard, fed this student's per-day slice (subject-scoped, loaded
   // with the class). Empty array is fully supported (renders an empty grid).
   if (typeof renderStreakHeatmap === 'function') {
-    renderStreakHeatmap(document.getElementById('studentHeatmapMount'), classActivityDays[studentId] || []);
+    renderStreakHeatmap(document.getElementById('studentHeatmapMount'), classActivityDays[studentId] || [],
+      { current: _streak, longest: _longest, lastActive: _lastActive });
   }
 
   renderProgressGrid(document.getElementById('studentGridView'), prog);

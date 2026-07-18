@@ -23,7 +23,11 @@
     let _rows = [];            // [{ task, assignment, attempts }]
     let _readKeys = [];
     let _classSubjects = {};   // class_id -> { slug, name, icon }
-    let _view = 'subject';     // 'subject' (active subject only) | 'all'
+    // Which subjects the table shows. null = every subject (the default when
+    // the page opens — see everything, then narrow); otherwise a Set of the
+    // selected slugs (empty Set = nothing selected). Tasks whose subject can't
+    // be resolved stay visible either way (fail open).
+    let _selectedSubjects = null;
 
     // Small local escape alias — tasks-shared.js provides taskEscapeHtml.
     const esc = (s) => (typeof taskEscapeHtml === 'function' ? taskEscapeHtml(s) : String(s == null ? '' : s));
@@ -41,9 +45,24 @@
         return s ? s.slug : null;
     }
 
+    // Distinct known subject slugs across this student's tasks (unknown/null
+    // dropped), in a stable order — the universe the filter chips cover.
+    function taskSubjectList() {
+        const seen = [];
+        _rows.forEach(r => { const s = taskSubjectSlug(r.task); if (s && seen.indexOf(s) < 0) seen.push(s); });
+        return seen;
+    }
+    function subjMeta(slug) {
+        for (const r of _rows) {
+            const info = r.task && r.task.class_id ? _classSubjects[r.task.class_id] : null;
+            if (info && info.slug === slug) return info;
+        }
+        return { slug, name: slug, icon: '' };
+    }
+
     window.studentTasksConfigure = function (cfg) { _cfg = Object.assign(_cfg, cfg || {}); };
     window.studentTasksRows = function () { return _rows; };
-    window.studentTasksSetView = function (v) { _view = v; window.studentTasksRender(); };
+    window.studentTasksSetSubjects = function (set) { _selectedSubjects = set; window.studentTasksRender(); };
 
     window.studentTasksLoad = async function () {
         const client = _cfg.client;
@@ -73,7 +92,21 @@
         window.studentTasksRender();
     };
 
+    // Filter-chip styles, injected once (this module is shared by tasks.html
+    // and the dashboard Tasks tab, neither of which defines .task-fchip).
+    function _ensureStyles() {
+        if (document.getElementById('student-tasks-styles')) return;
+        const st = document.createElement('style');
+        st.id = 'student-tasks-styles';
+        st.textContent = `
+            #taskSubjectFilterRow .task-fchip{font-family:'DM Mono',monospace;font-size:11.5px;padding:5px 12px;border-radius:99px;cursor:pointer;background:transparent;border:1px solid var(--border);color:var(--mid);transition:background .15s,border-color .15s,color .15s;}
+            #taskSubjectFilterRow .task-fchip:hover{border-color:var(--accent);color:var(--accent);}
+            #taskSubjectFilterRow .task-fchip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;}`;
+        document.head.appendChild(st);
+    }
+
     window.studentTasksRender = function () {
+        _ensureStyles();
         // ── Notifications ──
         const notifList = $('notifList');
         const badge = $('notifBadge');
@@ -92,33 +125,44 @@
                 </div>`).join('');
         }
 
-        // ── Subject filter chips — only when the student's tasks actually
-        // span more than the active subject. ──
-        const slug = activeSlug();
-        const spansOther = _rows.some(r => { const s = taskSubjectSlug(r.task); return s && s !== slug; });
+        // ── Subject filter chips — only when the student's tasks span more
+        // than one subject. Defaults to every subject selected; a select-all /
+        // clear toggle plus per-subject chips let them narrow it. ──
+        const subjects = taskSubjectList();
+        const spansMultiple = subjects.length > 1;
+        const isOn = (s) => _selectedSubjects === null || _selectedSubjects.has(s);
         const filterRow = $('taskSubjectFilterRow');
         if (filterRow) {
-            if (spansOther) {
+            if (spansMultiple) {
+                const allOn = _selectedSubjects === null || subjects.every(isOn);
+                const noneOn = _selectedSubjects !== null && subjects.every(s => !isOn(s));
                 filterRow.style.display = 'flex';
                 filterRow.innerHTML = `
-                    <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--mid);">Show tasks:</span>
-                    <button type="button" class="task-open-btn${_view === 'subject' ? '' : ' secondary'}" style="padding:5px 12px; font-size:11.5px;" data-taskview="subject">${esc(activeSubjectName())}</button>
-                    <button type="button" class="task-open-btn${_view === 'all' ? '' : ' secondary'}" style="padding:5px 12px; font-size:11.5px;" data-taskview="all">All subjects</button>`;
-                filterRow.querySelectorAll('[data-taskview]').forEach(b =>
-                    b.addEventListener('click', () => window.studentTasksSetView(b.dataset.taskview)));
+                    <span style="font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--mid);">Subjects</span>
+                    <button type="button" class="task-fchip" data-taskselall="1" aria-pressed="${allOn}" style="font-weight:600;">All</button>
+                    <button type="button" class="task-fchip" data-taskselnone="1" aria-pressed="${noneOn}">None</button>
+                    ${subjects.map(s => { const m = subjMeta(s); return `<button type="button" class="task-fchip" data-tasksubj="${esc(s)}" aria-pressed="${isOn(s)}">${m.icon ? esc(m.icon) + ' ' : ''}${esc(m.name)}</button>`; }).join('')}`;
+                filterRow.querySelector('[data-taskselall]').addEventListener('click', () => window.studentTasksSetSubjects(null));
+                filterRow.querySelector('[data-taskselnone]').addEventListener('click', () => window.studentTasksSetSubjects(new Set()));
+                filterRow.querySelectorAll('[data-tasksubj]').forEach(b => b.addEventListener('click', () => {
+                    // Materialise the current selection, then toggle this one.
+                    const next = new Set(_selectedSubjects === null ? subjects : _selectedSubjects);
+                    if (next.has(b.dataset.tasksubj)) next.delete(b.dataset.tasksubj); else next.add(b.dataset.tasksubj);
+                    window.studentTasksSetSubjects(next);
+                }));
             } else {
                 filterRow.style.display = 'none';
-                _view = 'subject';
             }
         }
 
         // ── Task table ──
         const body = $('tasksBody');
         if (body) {
+            const noneSelected = spansMultiple && _selectedSubjects !== null && subjects.every(s => !isOn(s));
             const visible = _rows.filter(r => {
-                if (_view === 'all' || !spansOther) return true;
+                if (!spansMultiple || _selectedSubjects === null) return true;
                 const s = taskSubjectSlug(r.task);
-                return !s || s === slug; // unknown subject stays visible (fail open)
+                return !s || _selectedSubjects.has(s); // unknown subject stays visible (fail open)
             });
             const order = { in_progress: 0, not_started: 1, overdue: 2, locked: 3, submitted: 4 };
             const rows = visible.slice().sort((a, b) => {
@@ -131,8 +175,9 @@
 
             if (!rows.length) {
                 body.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:22px; color:var(--mid); font-size:13px;">${
-                    _rows.length ? 'No tasks for this subject right now — try “All subjects”.'
-                                 : 'No tasks assigned yet — your teacher’s homework will show up here.'
+                    !_rows.length ? 'No tasks assigned yet — your teacher’s homework will show up here.'
+                                  : noneSelected ? 'No subjects selected — pick one above to see its tasks.'
+                                                 : 'No tasks match this filter — try selecting more subjects above.'
                 }</td></tr>`;
             } else {
                 body.innerHTML = rows.map(({ task, assignment, attempts }) => {
@@ -159,7 +204,7 @@
                         else if (hrs <= 72) { dueStyle = 'color:#8f6d19;font-weight:600;'; }
                     }
                     const subjInfo = task.class_id ? _classSubjects[task.class_id] : null;
-                    const subjTag = _view === 'all' && spansOther && subjInfo
+                    const subjTag = spansMultiple && subjInfo
                         ? `<span class="task-chip" style="background:var(--cream); color:var(--ink);" title="Subject">${subjInfo.icon ? subjInfo.icon + ' ' : ''}${esc(subjInfo.name)}</span>` : '';
                     return `<tr>
                         <td class="col-page" style="text-align:left;"><strong style="font-size:13px;">${esc(task.title)}</strong>

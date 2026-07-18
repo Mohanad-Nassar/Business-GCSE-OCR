@@ -1,0 +1,67 @@
+#!/bin/sh
+# ══════════════════════════════════════════════════════════════
+# Pre-commit guard: never let the WP-A3 content gate ship disabled.
+#
+# netlify.toml mounts the content-gate edge function on TWO paths, and both
+# are security boundaries:
+#   /subjects/*        — course content isn't publicly fetchable
+#   /question-bank.js  — the answer key, gated wherever it lands (fails CLOSED)
+# The /subjects/* mount gets commented out for LOCAL dev, because this
+# machine's managed Defender policy deletes netlify's deno.exe and edge
+# functions can't run without it. That workaround is safe only if it can never
+# reach a deploy — this hook is that guarantee.
+#
+# It checks the STAGED content (not the working tree), so a file that merely
+# looks fine on disk can't fool it. Checking each REQUIRED PATH individually
+# matters: an earlier version just looked for any uncommented
+# "[[edge_functions]]", which the /question-bank.js block satisfied — so it
+# waved through a commit with /subjects/* disabled. Verify the mounts, not the
+# block header.
+#
+# Enable (once per clone):  git config core.hooksPath .githooks
+# Bypass (don't):           git commit --no-verify
+# ══════════════════════════════════════════════════════════════
+
+# Only care when netlify.toml is actually part of this commit.
+if ! git diff --cached --name-only | grep -qx 'netlify.toml'; then
+    exit 0
+fi
+
+staged=$(git show :netlify.toml 2>/dev/null) || exit 0
+
+# An uncommented `path = "<mount>"` line only occurs inside a live
+# [[edge_functions]] block ([[headers]] uses `for =`, [[redirects]] `from =`),
+# so its presence is a reliable "this mount is active" signal.
+missing=''
+for mount in '/subjects/\*' '/question-bank\.js'; do
+    if ! printf '%s\n' "$staged" | grep -qE "^[[:space:]]*path[[:space:]]*=[[:space:]]*\"${mount}\""; then
+        missing="${missing} ${mount}"
+    fi
+done
+
+[ -z "$missing" ] && exit 0
+
+cat >&2 <<'MSG'
+
+  ✖ COMMIT BLOCKED — the content gate is disabled in netlify.toml
+
+  A content-gate edge-function mount is commented out or missing. Committing
+  this risks deploying with course content (or the answer key) publicly
+  fetchable.
+
+  netlify.toml must contain BOTH of these, uncommented:
+
+      [[edge_functions]]
+        path = "/subjects/*"
+        function = "content-gate"
+
+      [[edge_functions]]
+        path = "/question-bank.js"
+        function = "content-gate"
+
+  Note: with /subjects/* restored, that path will 500 locally on this machine
+  (Defender deletes netlify's deno.exe). That is expected and does NOT affect
+  production — see the comment block in netlify.toml.
+
+MSG
+exit 1

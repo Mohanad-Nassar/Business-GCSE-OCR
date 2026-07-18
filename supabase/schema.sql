@@ -58,9 +58,10 @@ create table if not exists subjects (
 -- the real 2027 timetable lands.
 insert into subjects (slug, name, key_stage, level, exam_board, spec_code, exam_date, colour, icon, sort_order)
 values
-    ('business',         'GCSE Business',         'ks4', 'GCSE', 'OCR', 'J204', '2027-05-12', '#7a5c9e', '💼', 1),
-    ('computer-science', 'GCSE Computer Science', 'ks4', 'GCSE', 'OCR', 'J277', '2027-05-17', '#1a6b6b', '💻', 2),
-    ('economics',        'GCSE Economics',        'ks4', 'GCSE', 'OCR', 'J205', '2027-05-19', '#2d7a4f', '📈', 3)
+    ('business',         'GCSE Business',              'ks4', 'GCSE',    'OCR', 'J204', '2027-05-12', '#7a5c9e', '💼', 1),
+    ('computer-science', 'GCSE Computer Science',      'ks4', 'GCSE',    'OCR', 'J277', '2027-05-17', '#1a6b6b', '💻', 2),
+    ('economics',        'GCSE Economics',             'ks4', 'GCSE',    'OCR', 'J205', '2027-05-19', '#2d7a4f', '📈', 3),
+    ('additional-maths', 'FSMQ Additional Mathematics','ks4', 'Level 3', 'OCR', '6993', '2027-06-09', '#5a4bc4', '📐', 4)
 on conflict (slug) do update set
     name       = excluded.name,
     key_stage  = excluded.key_stage,

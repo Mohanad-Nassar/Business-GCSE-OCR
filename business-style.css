@@ -198,9 +198,12 @@
  .tab-bar {
      background: var(--chrome, var(--ink));
      display: flex;
-     /* Wrap onto multiple rows instead of horizontal scrolling so every
-        tab stays visible on smaller screens (kept in sync with style.css). */
-     flex-wrap: wrap;
+     /* ONE ROW, ALWAYS — kept in sync with style.css, which is the copy the
+        topic pages actually load and which carries the [data-fit] label-tier
+        rules. Wrapping stacked 3-4 rows on a phone under a sticky bar; the
+        replacement is script.js measuring the row and shortening the labels
+        (full → short → icon-only) until it fits. */
+     flex-wrap: nowrap;
      border-bottom: 2px solid var(--accent);
      padding: 0 40px;
 

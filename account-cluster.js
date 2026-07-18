@@ -79,6 +79,12 @@ function _gcseInjectAccountBarStyles() {
         .gcse-profile-menu a.gpm-item:hover,.gcse-profile-menu button.gpm-item:hover{background:var(--cream,#ede7d9);}
         .gcse-profile-menu .gpm-divider{border-top:1px solid var(--border,#c9bfaa);margin:5px 0;}
         .gcse-profile-menu .gpm-section-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid,#5a6e7f);padding:7px 12px 3px;}
+        .gcse-profile-menu .gpm-subject-switch{padding:3px 12px 9px;}
+        .gcse-profile-menu .gpm-subject-select{width:100%;appearance:none;-webkit-appearance:none;
+            background:var(--cream,#ede7d9) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'><path d='M1 1l4 4 4-4' stroke='%235a6e7f' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>") no-repeat right 12px center;
+            border:1px solid var(--border,#c9bfaa);border-radius:8px;padding:9px 30px 9px 12px;cursor:pointer;
+            font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink,#1a2332);}
+        .gcse-profile-menu .gpm-subject-select:hover{border-color:var(--accent,#4a6fa5);}
         .gcse-profile-menu button.gpm-logout{color:#c84b31;font-weight:600;}
         @media (max-width:520px){
             .gcse-profile-name{display:none;}
@@ -133,6 +139,15 @@ function _gcseInjectAccountBar() {
     } catch (e) {}
     const subjQ = subjSlug ? '?subject=' + encodeURIComponent(subjSlug) : '';
 
+    // Page-specific menu links (e.g. a subject's "Mock Exams" page). A host
+    // page sets window._gcseExtraMenuItems = [{ href, icon, label }] before
+    // calling _gcseInjectAccountBar(); they appear at the top of the menu so
+    // the header itself can stay down to just the bell + this profile button.
+    const extras = Array.isArray(window._gcseExtraMenuItems) ? window._gcseExtraMenuItems : [];
+    const extraItems = extras.map(e =>
+        `<a class="gpm-item" href="${gcseEscapeHtml(e.href || '#')}"><span aria-hidden="true">${gcseEscapeHtml(e.icon || '📄')}</span> ${gcseEscapeHtml(e.label || '')}</a>`
+    ).join('');
+
     const items = role === 'teacher'
         ? `<a class="gpm-item" href="/teacher-dashboard.html"><span aria-hidden="true">🧑‍🏫</span> Teacher Dashboard</a>
            <a class="gpm-item" href="/teacher-classes.html"><span aria-hidden="true">📚</span> My Classes</a>
@@ -167,6 +182,7 @@ function _gcseInjectAccountBar() {
                     <div class="gpm-role">${role}</div>
                 </div>
             </div>
+            ${extraItems}${extraItems ? '<div class="gpm-divider" role="separator"></div>' : ''}
             ${items}
             <div class="gpm-divider" role="separator"></div>
             <button type="button" class="gpm-item gpm-logout gcse-logout-btn"><span aria-hidden="true">↪</span> Log out</button>
@@ -249,15 +265,31 @@ async function _gcseLoadSubjectSwitcher(menu, role) {
     let currentSlug = (window.SUBJECT && window.SUBJECT.slug) || null;
     try { currentSlug = currentSlug || localStorage.getItem('gcse_last_subject'); } catch (e) {}
 
-    const items = rows.map(r => {
+    // One compact dropdown rather than a row per subject — the menu stays
+    // short however many subjects the student has. Picking one reloads the
+    // dashboard for that subject (subject-loader reads ?subject= on the way in).
+    const options = rows.map(r => {
         const on = r.subject === currentSlug;
-        return `<a class="gpm-item gpm-subject-switch" href="/dashboard.html?subject=${encodeURIComponent(r.subject)}"${on ? ' aria-current="true" style="font-weight:700;"' : ''}>
-            <span aria-hidden="true">${gcseEscapeHtml(r.icon || '📘')}</span> ${gcseEscapeHtml(r.name || r.subject)}${on ? ' ✓' : ''}</a>`;
+        return `<option value="${gcseEscapeHtml(r.subject)}"${on ? ' selected' : ''}>${gcseEscapeHtml((r.icon ? r.icon + ' ' : '') + (r.name || r.subject))}</option>`;
     }).join('');
 
     const block = document.createElement('div');
     block.innerHTML = `<div class="gpm-divider" role="separator"></div>
-        <div class="gpm-section-label">Switch subject</div>${items}`;
+        <div class="gpm-section-label" id="gpmSubjectLabel">Switch subject</div>
+        <div class="gpm-subject-switch">
+            <select class="gpm-subject-select" aria-labelledby="gpmSubjectLabel">${options}</select>
+        </div>`;
     const anchor = menu.querySelector('.gpm-sound') || menu.querySelector('.gpm-divider');
     while (block.firstChild) menu.insertBefore(block.firstChild, anchor);
+
+    const select = menu.querySelector('.gpm-subject-select');
+    if (select) {
+        // Keep the menu open while the native picker is up; navigate on choice.
+        select.addEventListener('click', e => e.stopPropagation());
+        select.addEventListener('change', () => {
+            if (select.value && select.value !== currentSlug) {
+                location.href = '/dashboard.html?subject=' + encodeURIComponent(select.value);
+            }
+        });
+    }
 }

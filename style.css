@@ -249,12 +249,24 @@
  .tab-bar {
      background: var(--chrome, var(--ink));
      display: flex;
-     /* Wrap onto multiple rows instead of horizontal scrolling, so every
-        activity tab (incl. ✅ True/False and 📝 Exam Practice) is visible
-        on smaller laptop screens without scrolling them out of view. */
-     flex-wrap: wrap;
+     /* ONE ROW, ALWAYS. This used to be flex-wrap:wrap, which stacked 3-4
+        rows of tabs on a phone — and since the bar is sticky, that ate the
+        screen permanently. Horizontal scrolling isn't the answer either:
+        students on a desktop mouse with no touchpad can't scroll sideways,
+        so the last tabs became unreachable. Instead script.js measures the
+        bar and steps the LABELS down a tier until the row fits — see
+        RESPONSIVE TAB BAR there, and the [data-fit] rules below. */
+     flex-wrap: nowrap;
      border-bottom: 2px solid var(--accent);
      padding: 0 40px;
+
+     /* LOAD-BEARING with flex-wrap:nowrap. ≥900px `body` is a grid and this
+        bar is the item in the `tabbar` 1fr track (see DESKTOP ONLY below).
+        A 1fr track's automatic minimum is its item's MIN-CONTENT width, so a
+        no-wrap row of 9 full labels would blow the track wide open and give
+        the whole PAGE a horizontal scrollbar. min-width:0 lets the track win,
+        the row overflow, and fitTabBar() shrink the labels to suit. */
+     min-width: 0;
 
      /* Sticky under the header; z-index kept below the injected panels
         (see the z-index ladder above). */
@@ -262,6 +274,15 @@
      top: 0;
      z-index: 100;
  }
+
+ /* Last resort, added by fitTabBar() ONLY when even the icon tier can't fit
+    (absurdly narrow phone). It's a class rather than a permanent
+    overflow-x:auto because an overflow container also clips VERTICALLY,
+    which would shave the 2px that .tab-btn's margin-bottom:-2px deliberately
+    hangs below the bar — i.e. it would cut the active tab's gold underline.
+    In the normal (fitting) case there is no overflow container at all. */
+ .tab-bar.tab-bar-scroll { overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+ .tab-bar.tab-bar-scroll::-webkit-scrollbar { height: 0; }
 
  .tab-btn {
      background: none;
@@ -277,6 +298,80 @@
      white-space: nowrap;
      transition: color .2s, border-color .2s;
      margin-bottom: -2px;
+
+     /* Tabs must never shrink or the labels would squash instead of
+        stepping down a tier. */
+     display: inline-flex;
+     align-items: center;
+     gap: 6px;
+     flex: 0 0 auto;
+ }
+
+ /* ── Label tiers ────────────────────────────────────────────────
+    script.js sets data-fit on the bar to the WIDEST tier that fits, and the
+    measured row widths (9 tabs, rings on) are roughly:
+      full   📚 Key Learning   ~1510px
+      short  📚 Learn           ~980px   (ACTIVITY_ORDER[].short)
+      mini   📚 Learn           ~610px   tighter + ring moved to the corner
+      icon   📚                 ~375px   active tab keeps its short label
+    `mini` exists because the drop from short to icon is a cliff: a 1280px
+    laptop with the sidebar open has ~990px of room, which would otherwise
+    throw away every label on a big screen. It keeps words on screen down to
+    ~610px of room, so icon-only is reached on phones — not on laptops.
+    Every tab keeps title + aria-label at every tier, so the icon tier stays
+    decodable and screen-reader friendly. */
+ .tab-ico { font-size: 15px; line-height: 1; }
+ .tab-short { display: none; }
+
+ .tab-bar[data-fit="short"] .tab-full { display: none; }
+ .tab-bar[data-fit="short"] .tab-short { display: inline; }
+ .tab-bar[data-fit="short"] .tab-btn { padding-left: 10px; padding-right: 10px; }
+
+ .tab-bar[data-fit="mini"] .tab-full { display: none; }
+ .tab-bar[data-fit="mini"] .tab-short { display: inline; }
+ .tab-bar[data-fit="mini"] .tab-btn {
+     padding-left: 6px;
+     padding-right: 6px;
+     gap: 3px;
+     font-size: 11.5px;
+     letter-spacing: 0;
+ }
+ .tab-bar[data-fit="mini"] .tab-ico { font-size: 13px; }
+
+ .tab-bar[data-fit="icon"] .tab-full { display: none; }
+ .tab-bar[data-fit="icon"] .tab-btn { padding-left: 8px; padding-right: 8px; gap: 4px; }
+ /* Only the active tab is labelled, so you always know where you are. */
+ .tab-bar[data-fit="icon"] .tab-btn.active .tab-short { display: inline; }
+
+ /* The ring costs ~21px per tab — ~190px across the row, often the whole
+    difference between fitting and not. From `mini` down it rides the tab's
+    top-right corner, where it costs NO width and still reads as a status dot
+    (its own title still gives the exact count). transform: scale() alone
+    would not help — that's visual only and the box would still take 15px. */
+ .tab-bar[data-fit="mini"] .tab-btn,
+ .tab-bar[data-fit="icon"] .tab-btn { position: relative; }
+ .tab-bar[data-fit="mini"] .tab-prog,
+ .tab-bar[data-fit="icon"] .tab-prog {
+     position: absolute;
+     /* Sits ABOVE the label's line box, not across it. */
+     top: 2px;
+     right: 2px;
+     margin-left: 0;
+     transform: scale(.6);
+     transform-origin: 100% 0;
+     pointer-events: none;
+ }
+ /* In the icon tier the active tab is the one with a label, so it has room to
+    keep its ring inline where it reads properly. Only the 8 inactive tabs
+    need the corner trick, so this costs ~19px on ONE tab. */
+ .tab-bar[data-fit="icon"] .tab-btn.active .tab-prog {
+     position: static;
+     transform: none;
+     margin-left: 5px;
+ }
+ .tab-bar[data-fit="mini"] .tab-lock,
+ .tab-bar[data-fit="icon"] .tab-lock {
+     position: absolute; bottom: 3px; right: 2px; margin-left: 0; font-size: 9px;
  }
 
  .tab-btn:hover {
@@ -1264,7 +1359,24 @@
      font-family: 'DM Mono', monospace;
      font-size: 11px;
      color: #aaa;
+ }
+ .ep-head-right {
      margin-left: auto;
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     flex-shrink: 0;
+ }
+ .ep-year {
+     font-family: 'DM Mono', monospace;
+     font-size: 10px;
+     letter-spacing: 1px;
+     color: var(--chrome-text, var(--paper));
+     background: color-mix(in srgb, var(--gold) 26%, transparent);
+     border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+     border-radius: 999px;
+     padding: 3px 9px;
+     white-space: nowrap;
  }
 
  .ep-title {
@@ -1293,6 +1405,37 @@
      line-height: 1.55;
      margin-bottom: 14px;
      color: var(--ink);
+ }
+
+ /* Tables inside exam questions (CS complete-the-table / tick-grid stems):
+    without this they inherit no borders at all and collapse into floating
+    words. Empty cells get a visible tinted "answer box" so the table reads
+    like the printed paper. */
+ .ep-question table {
+     border-collapse: collapse;
+     width: 100%;
+     margin: 10px 0 14px;
+     font-weight: 400;
+     font-size: 13.5px;
+ }
+
+ .ep-question th,
+ .ep-question td {
+     border: 1px solid var(--border);
+     padding: 7px 10px;
+     text-align: left;
+     vertical-align: top;
+ }
+
+ .ep-question th {
+     background: var(--cream);
+     font-weight: 600;
+ }
+
+ .ep-question td:empty {
+     min-width: 56px;
+     height: 30px;
+     background: color-mix(in srgb, var(--cream) 55%, transparent);
  }
 
  .ep-mcq-opts {

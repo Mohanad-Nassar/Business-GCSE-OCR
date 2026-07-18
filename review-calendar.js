@@ -212,12 +212,13 @@ async function init() {
     const { data: ents, error: entsErr } = await srClient.rpc('get_my_entitlements');
     if (!entsErr && Array.isArray(ents)) calSubjectUniverse = ents.map(r => r.subject);
   } catch (e) {}
-  // Seed the subject selection: explicit ?subject=<slug> wins, then the
-  // saved selection, then everything (the all view / first visit).
-  if (rawParam && !calAllMode) {
-    calFilters.subjects = new Set([rawParam]);
-  } else if (calAllMode || !calFilters.subjects) {
-    calFilters.subjects = calAllMode && calSubjectUniverse.length
+  // Seed the subject selection. The calendar opens showing EVERY subject
+  // (see everything first, then filter) — a bare ?subject=<slug> no longer
+  // scopes it to just that subject; the chips + select-all/clear toggle do
+  // the narrowing. A saved narrower selection is still respected, except in
+  // the explicit all view (?subject=all), which always resets to everything.
+  if (calAllMode || !calFilters.subjects) {
+    calFilters.subjects = calSubjectUniverse.length
       ? new Set(calSubjectUniverse) : (calFilters.subjects || null);
   }
   // Drop stale saved slugs the student no longer has.
@@ -358,9 +359,17 @@ function renderFilterBar() {
       style="--chip-accent:${esc(meta.colour || 'var(--accent)')}">${meta.icon ? esc(meta.icon) + ' ' : ''}${esc(meta.name || s)}</button>`;
   }).join('') : '';
 
+  // Select-all / clear toggle for the subject chips (multi-subject only).
+  const allOn = !calFilters.subjects || subjects.every(s => calFilters.subjects.has(s));
+  const noneOn = !!calFilters.subjects && subjects.every(s => !calFilters.subjects.has(s));
+  const subjToggle = showSubjects
+    ? `<button type="button" class="sr-fchip" data-fsuball aria-pressed="${allOn}" style="font-weight:600;">All</button>
+       <button type="button" class="sr-fchip" data-fsubnone aria-pressed="${noneOn}">None</button>`
+    : '';
+
   bar.style.display = 'flex';
   bar.innerHTML = `
-    ${showSubjects ? `<div class="sr-fgroup"><span class="sr-flabel">Subjects</span>${subjChips}</div>` : ''}
+    ${showSubjects ? `<div class="sr-fgroup"><span class="sr-flabel">Subjects</span>${subjToggle}${subjChips}</div>` : ''}
     <div class="sr-fgroup"><span class="sr-flabel">Show</span>
       <button type="button" class="sr-fchip" data-fkind="reviews" aria-pressed="${calFilters.reviews}">🔁 Reviews</button>
       <button type="button" class="sr-fchip" data-fkind="tasks" aria-pressed="${calFilters.tasks}"
@@ -368,6 +377,16 @@ function renderFilterBar() {
     </div>`;
 
   if (!_calFilterWired) _calFilterWired = true; // listeners are re-attached per render below
+  const allBtn = bar.querySelector('[data-fsuball]');
+  if (allBtn) allBtn.addEventListener('click', () => {
+    calFilters.subjects = new Set(subjects); calSaveFilters(); renderAll();
+  });
+  const noneBtn = bar.querySelector('[data-fsubnone]');
+  if (noneBtn) noneBtn.addEventListener('click', () => {
+    // Explicit clear — an all-blank calendar is allowed (renderDueNow shows a
+    // "pick a subject" prompt); the per-chip rule below still keeps ≥1 on.
+    calFilters.subjects = new Set(); calSaveFilters(); renderAll();
+  });
   bar.querySelectorAll('[data-fsubject]').forEach(b => b.addEventListener('click', () => {
     const s = b.dataset.fsubject;
     if (!calFilters.subjects) calFilters.subjects = new Set(subjects);
@@ -429,6 +448,18 @@ function renderDueNow() {
   const host = document.getElementById('srDueNow');
   const today = srTodayStr();
   const schedule = calVisibleSchedule(); // shadow: this panel respects the subject filter
+
+  // Every subject cleared from the filter (via "None") — prompt rather than
+  // showing the "nothing practised yet" seedling, which would read as broken.
+  if (calFilters.subjects && calFilters.subjects.size === 0) {
+    host.innerHTML = `
+      <div class="sr-empty">
+        <div class="sr-empty-emoji">👆</div>
+        <p><strong>No subjects selected.</strong></p>
+        <p class="muted">Pick a subject above — or tap <strong>All</strong> — to see your reviews and tasks.</p>
+      </div>`;
+    return;
+  }
 
   // Entirely empty schedule = the student hasn't practised anything yet.
   if (!schedule.length) {
