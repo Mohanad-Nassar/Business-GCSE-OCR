@@ -252,6 +252,12 @@
           _refreshAllCards();
         },
       });
+      // Safety net: render any LaTeX the tool inserted during mount but did not
+      // renderMath() itself (e.g. a static intro/prompt outside its per-question
+      // container). Tools still call ctx.ui.renderMath for content they insert
+      // LATER (Next, reveal, etc.); re-rendering already-rendered KaTeX is a
+      // no-op, so this never double-renders.
+      ui.renderMath(body);
     }).catch(err => {
       console.error('[maths-lab]', err);
       body.innerHTML = '<p class="mathslab-error">⚠️ This activity could not load. Check your connection and try again — if you are on a school network, ask your teacher to report it.</p>';

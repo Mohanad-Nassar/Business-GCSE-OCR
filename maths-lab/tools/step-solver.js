@@ -293,6 +293,8 @@
       problemEl.className = 'mathslab-stepsolver-problem';
       problemEl.innerHTML = sol.problem;
       stage.appendChild(problemEl);
+      ui.renderMath(problemEl); // problem statement carries LaTeX; render it (the
+                                // step list renders separately in render() below)
 
       const hint = document.createElement('p');
       hint.className = 'mathslab-stepsolver-hint';
