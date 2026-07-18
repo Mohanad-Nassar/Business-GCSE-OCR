@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2 Exercise, Health Problems and Advice – GCSE Spanish</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 1 · 2. Healthy Living &amp; Lifestyle</div>
+            <h1>2.2 Exercise, Health Problems and Advice</h1>
+            <p>El ejercicio, los problemas de salud y los consejos · Interactive study guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
+            <div class="score-bar">
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
+            <div class="match-grid">
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
+            </div>
+        </div>
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
+            <div class="score-bar">
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
+                    </div>
+                </div>
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">¿Verdadero o falso?</p>
+            <div class="score-bar">
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 2.2 Exercise, health problems and advice  (AQA 8692, Theme 1 Topic 2)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = {
+        id: '2-2-exercise-health-problems-and-advice',
+        badge: 'AQA GCSE Spanish (8692) — Theme 1 · 2. Healthy Living & Lifestyle',
+        title: '2.2 Exercise, Health Problems and Advice',
+        subtitle: 'Interactive study guide',
+        subject: 'spanish',
+    };
+
+    const topics = [
+        {
+            title: "How do I talk about exercise and sport?",
+            tag: "Key concept",
+            content: `<p>The key verb is <span data-say="hacer ejercicio">hacer ejercicio</span> (to do exercise / to work out). Here is the core vocabulary — tap 🔊 to hear each one.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el deporte">el deporte</span></td><td>sport</td><td><span data-say="correr">correr</span></td><td>to run</td></tr>
+              <tr><td><span data-say="nadar">nadar</span></td><td>to swim</td><td><span data-say="montar en bicicleta">montar en bicicleta</span></td><td>to cycle</td></tr>
+              <tr><td><span data-say="el gimnasio">el gimnasio</span></td><td>the gym</td><td><span data-say="entrenar">entrenar</span></td><td>to train</td></tr>
+              <tr><td><span data-say="estar en forma">estar en forma</span></td><td>to be fit</td><td><span data-say="activo">activo / activa</span></td><td>active</td></tr>
+            </table>
+            <p>Model sentence: <span data-say="Para estar en forma, hago ejercicio tres veces por semana.">Para estar en forma, hago ejercicio tres veces por semana.</span> — <em>To be fit, I exercise three times a week.</em></p>`,
+            readCheck: { q: "What does ‘estar en forma’ mean?", opts: ["to be fit", "to run a race", "to go to the gym building", "to fill in a paper form"], ans: 0, explain: "estar en forma = to be fit / in shape. It is a false friend — ‘forma’ here is not a paper ‘form’." }
+        },
+        {
+            title: "How do I say what hurts? (me duele / me duelen)",
+            tag: "Exam skill",
+            content: `<p>To say something hurts, use <strong>doler</strong> — and it behaves <em>exactly like</em> <strong>gustar</strong>: the verb agrees with the body part, not with you.</p>
+            <ul>
+              <li>ONE thing hurts → <span data-say="me duele">me duele</span>: <span data-say="Me duele la cabeza.">Me duele la cabeza.</span> (My head hurts.)</li>
+              <li>MORE THAN ONE → <span data-say="me duelen">me duelen</span>: <span data-say="Me duelen los pies.">Me duelen los pies.</span> (My feet hurt.)</li>
+            </ul>
+            <p>Body parts (<strong>el cuerpo</strong>):</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la cabeza">la cabeza</span></td><td>head</td><td><span data-say="el estómago">el estómago</span></td><td>stomach</td></tr>
+              <tr><td><span data-say="la garganta">la garganta</span></td><td>throat</td><td><span data-say="la espalda">la espalda</span></td><td>back</td></tr>
+              <tr><td><span data-say="las piernas">las piernas</span></td><td>legs</td><td><span data-say="los ojos">los ojos</span></td><td>eyes</td></tr>
+            </table>`,
+            readCheck: { q: "Why is it ‘Me duelen los pies’ and not ‘Me duele los pies’?", opts: ["‘los pies’ is plural, so the verb is plural", "‘doler’ is a verb that is always plural in Spanish", "‘pies’ is a masculine noun", "it describes a future plan"], ans: 0, explain: "Like gustar, doler agrees with the body part; ‘los pies’ is plural → duelen (doler is NOT always plural)." }
+        },
+        {
+            title: "How do I describe health problems?",
+            tag: "Key concept",
+            content: `<p>Use <strong>estar</strong> (a temporary state) for how you feel:</p>
+            <ul>
+              <li><span data-say="estar enfermo">estar enfermo / enferma</span> — to be ill</li>
+              <li><span data-say="estar cansado">estar cansado / cansada</span> — to be tired</li>
+              <li><span data-say="estar resfriado">estar resfriado / resfriada</span> — to have a cold</li>
+              <li><span data-say="el estrés">el estrés</span> — stress; <span data-say="estar estresado">estar estresado</span> — to be stressed</li>
+            </ul>
+            <p>Example: <span data-say="Estoy muy cansado porque no duermo bien.">Estoy muy cansado porque no duermo bien.</span> — <em>I am very tired because I don’t sleep well.</em></p>`,
+            readCheck: { q: "Which verb do you use for ‘I am tired’ — a temporary state?", opts: ["estar → estoy cansado", "ser → soy cansado", "tener → tengo cansado", "hacer → hago cansado"], ans: 0, explain: "Temporary states and feelings use estar: estoy cansado. ‘ser’ would describe a permanent trait." }
+        },
+        {
+            title: "How do I give health advice?",
+            tag: "Exam skill",
+            content: `<p>Reuse the advice structures from 2.1 — each is followed by an <strong>infinitive</strong>:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="se debe descansar">se debe descansar</span></td><td>one should rest</td></tr>
+              <tr><td><span data-say="no se debe fumar">no se debe fumar</span></td><td>one must not smoke</td></tr>
+              <tr><td><span data-say="hay que dormir ocho horas">hay que dormir ocho horas</span></td><td>you have to sleep eight hours</td></tr>
+              <tr><td><span data-say="deberías relajarte">deberías relajarte</span> <span class="tier-h">H</span></td><td>you should relax</td></tr>
+            </table>
+            <p>Example: <span data-say="Para evitar el estrés, se debe descansar y hacer ejercicio.">Para evitar el estrés, se debe descansar y hacer ejercicio.</span></p>`,
+            readCheck: { q: "What follows ‘se debe’, ‘hay que’ and ‘deberías’?", opts: ["an infinitive (descansar, dormir…)", "a verb conjugated in the preterite past tense", "an adjective that agrees", "a noun on its own"], ans: 0, explain: "All the advice structures take an infinitive." }
+        },
+        {
+            title: "How do I talk about bad habits?",
+            tag: "Key concept",
+            content: `<p>Common ‘malos hábitos’ (bad habits) and how to reject them:</p>
+            <ul>
+              <li><span data-say="fumar">fumar</span> — to smoke; <span data-say="el tabaco">el tabaco</span> — tobacco</li>
+              <li><span data-say="beber alcohol">beber alcohol</span> — to drink alcohol; <span data-say="las drogas">las drogas</span> — drugs</li>
+              <li><span data-say="dejar de fumar">dejar de + infinitive</span> — to stop doing something: <span data-say="dejar de fumar">dejar de fumar</span> (to stop smoking)</li>
+            </ul>
+            <p><span data-say="No se debe fumar porque es muy malo para la salud.">No se debe fumar porque es muy malo para la salud.</span></p>`,
+            readCheck: { q: "‘dejar de fumar’ means…", opts: ["to stop smoking", "to let others smoke", "to smoke a little more", "to enjoy smoking outside"], ans: 0, explain: "dejar de + infinitive = to stop doing something; dejar de fumar = to stop smoking." }
+        },
+        {
+            title: "Higher: reflexives and future plans",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> Many health verbs are <strong>reflexive</strong> — the action is done to yourself, so they take <strong>me / te / se</strong>:</p>
+            <ul>
+              <li><span data-say="relajarse">relajarse</span> → <span data-say="me relajo">me relajo</span> (I relax)</li>
+              <li><span data-say="acostarse">acostarse</span> → <span data-say="me acuesto temprano">me acuesto temprano</span> (I go to bed early)</li>
+            </ul>
+            <p>Combine with a plan or a conditional for the top band:</p>
+            <ul>
+              <li><span data-say="Voy a dejar de fumar y acostarme más temprano.">Voy a dejar de fumar y acostarme más temprano.</span> <span class="tier-h">H</span></li>
+              <li><span data-say="Se debería evitar el estrés para mantenerse sano.">Se debería evitar el estrés para mantenerse sano.</span> <span class="tier-h">H</span></li>
+            </ul>`,
+            readCheck: { q: "Which sentence correctly uses a reflexive verb?", opts: ["Me acuesto temprano", "Acuesto temprano cada noche", "Yo acuesto muy temprano", "Se acuesto temprano"], ans: 0, explain: "acostarse is reflexive: (yo) me acuesto. Dropping ‘me’ or using the wrong pronoun is wrong." }
+        }
+    ];
+
+    const mcqData = [
+        { q: `<span data-say="Me duele la cabeza." data-listen></span><br>Listen. What is the problem?`, opts: ["My head hurts", "My head and my back both hurt", "I have banged my head badly", "My headache has finally gone"], ans: 0, explain: "‘me duele la cabeza’ = my head hurts. The traps add a second body part, a cause, or the opposite meaning." },
+        { q: `<span data-say="Voy a hacer más ejercicio." data-listen></span><br>Listen. What is the plan?`, opts: ["To do more exercise", "To do a bit less exercise", "One should exercise more often", "I already exercise every day"], ans: 0, explain: "‘voy a hacer más ejercicio’ = I’m going to do more exercise. Trap B swaps más→less; C is impersonal advice; D is present tense." },
+        { q: `<span data-say="No se debe fumar." data-listen></span><br>Listen. Which is correct?`, opts: ["One must not smoke", "One should smoke only a little", "You are allowed to smoke here", "I have never smoked in my life"], ans: 0, explain: "‘no se debe fumar’ = one must not smoke. Every distractor is longer and reverses or weakens the ‘no’." },
+        { q: "How do you say ‘my feet hurt’?", opts: ["Me duelen los pies", "Me duele los pies", "Me duelo los pies", "Yo duelo mucho los pies"], ans: 0, explain: "doler agrees with the body part; ‘los pies’ is plural → duelen. B fails to agree; C/D conjugate doler as if it were a normal verb." },
+        { q: "Careful — ‘Estoy constipado’ means…", opts: ["I have a cold", "I am constipated", "I am very tired today", "I feel completely fine"], ans: 0, explain: "False friend! ‘constipado’ = having a cold, NOT constipated. The obvious guess is the trap." },
+        { q: "How do you say ‘I go to bed early’?", opts: ["Me acuesto temprano", "Me acuesto muy tarde entre semana", "Acuesto temprano cada noche", "Se acuesta temprano"], ans: 0, explain: "acostarse is reflexive → me acuesto; ‘temprano’ = early. B says ‘tarde’ (late); C drops ‘me’; D is ‘he/she’." },
+        { q: "Which sentence gives POSITIVE health advice?", opts: ["Se debe descansar más", "No se debe descansar nunca", "No se debe hacer ejercicio", "Se debe fumar a menudo"], ans: 0, explain: "‘se debe descansar más’ = one should rest more (good advice). The others are negatives or bad advice." },
+        { q: "Complete: ‘Para estar en forma, hay que ___ ejercicio.’", opts: ["hacer", "hago", "haciendo", "hecho"], ans: 0, explain: "‘hay que’ takes an infinitive → hacer. The others are conjugated / non-finite forms." },
+        { q: "‘Me duele la garganta’ — where does it hurt?", opts: ["throat", "stomach", "back", "head"], ans: 0, explain: "la garganta = throat. estómago = stomach, espalda = back, cabeza = head." },
+        { q: "‘Se debería evitar el estrés’ uses which verb form?", opts: ["the conditional (should)", "a completed past-tense action", "the ordinary present tense", "a direct command"], ans: 0, explain: "‘se debería’ = one should → conditional, a strong Higher-tier feature." }
+    ];
+
+    const matchData = [
+        { term: "hacer ejercicio", def: "to do exercise" },
+        { term: "estar en forma", def: "to be fit" },
+        { term: "me duele la cabeza", def: "my head hurts" },
+        { term: "me duelen los pies", def: "my feet hurt" },
+        { term: "la garganta", def: "throat" },
+        { term: "estar cansado", def: "to be tired" },
+        { term: "el estrés", def: "stress" },
+        { term: "dejar de fumar", def: "to stop smoking" },
+        { term: "se debe descansar", def: "one should rest" },
+        { term: "acostarse", def: "to go to bed" },
+        { term: "relajarse", def: "to relax" },
+        { term: "malo para la salud", def: "bad for your health" }
+    ];
+
+    const fibData = [
+        { display: `Me _____ la cabeza. <span data-say="Me duele la cabeza." data-listen>Me duele la cabeza.</span>`, blanks: { B1: "duele" } },
+        { display: `No se debe _____ porque es malo para la salud. <span data-say="No se debe fumar porque es malo para la salud." data-listen>No se debe fumar porque es malo para la salud.</span>`, blanks: { B1: "fumar" } },
+        { display: `Para estar en forma, hay que hacer _____. <span data-say="Para estar en forma, hay que hacer ejercicio." data-listen>Para estar en forma, hay que hacer ejercicio.</span>`, blanks: { B1: "ejercicio" } },
+        { display: `Me _____ los pies. (my feet hurt — plural!)`, blanks: { B1: "duelen" } },
+        { display: `Estoy muy _____ porque no duermo bien. (tired)`, blanks: { B1: "cansado" } },
+        { display: `Voy a _____ de fumar. (to stop)`, blanks: { B1: "dejar" } },
+        { display: `Me _____ temprano para dormir ocho horas. (I go to bed — reflexive)`, blanks: { B1: "acuesto" } }
+    ];
+    const fibWords = ["duele", "fumar", "ejercicio", "duelen", "cansado", "dejar", "acuesto"];
+
+    const tfData = [
+        { statement: "‘doler’ works like ‘gustar’ — it agrees with the body part, not the person.", answer: true, explanation: "Me duele la cabeza / me duelen los pies — the verb matches the body part." },
+        { statement: "‘Estoy constipado’ means ‘I am constipated’.", answer: false, explanation: "False friend! It means ‘I have a cold’." },
+        { statement: "‘se debe’ is followed by an infinitive.", answer: true, explanation: "se debe descansar / fumar / dormir — always an infinitive." },
+        { statement: "‘dejar de fumar’ means ‘to start smoking’.", answer: false, explanation: "dejar de + infinitive = to STOP doing something — to stop smoking." },
+        { statement: "For temporary feelings like ‘tired’ you use ‘estar’ (estoy cansado).", answer: true, explanation: "Temporary states use estar, not ser." },
+        { statement: "‘la garganta’ means ‘the stomach’.", answer: false, explanation: "la garganta = throat; el estómago = stomach." },
+        { statement: "‘acostarse’ is a reflexive verb, so ‘I go to bed’ is ‘me acuesto’.", answer: true, explanation: "Reflexive: me acuesto, te acuestas, se acuesta." },
+        { statement: "‘Se debería evitar el estrés’ uses the conditional and suits Higher tier.", answer: true, explanation: "se debería = one should (conditional)." }
+    ];
+
+    const miscData = [
+        { wrong: "Me duele los pies.", correct: "Me duelen los pies.", readCheck: { q: "Why is ‘Me duele los pies’ wrong?", opts: ["‘los pies’ is plural, so it must be ‘duelen’", "you must always put the verb ‘estar’ in front of it", "‘pies’ needs a written accent", "the pronoun should be ‘te’, not ‘me’"], ans: 0, explain: "doler agrees with the body part; plural body part → duelen." } },
+        { wrong: "Estoy constipado. (= I am constipated)", correct: "Estoy constipado. (= I have a cold)", readCheck: { q: "What does ‘constipado’ really mean?", opts: ["having a cold", "being constipated as you would guess", "feeling completely healthy", "being extremely tired"], ans: 0, explain: "Classic false friend: constipado = having a cold." } },
+        { wrong: "Soy cansado.", correct: "Estoy cansado.", readCheck: { q: "Why ‘Estoy cansado’, not ‘Soy cansado’?", opts: ["tiredness is a temporary state → estar", "you should always use ‘tener’ with any feeling", "‘cansado’ is a plural adjective", "‘ser’ is only for the past"], ans: 0, explain: "Temporary states and moods take estar; ser would mean it is a permanent trait." } },
+        { wrong: "Acuesto temprano.", correct: "Me acuesto temprano.", readCheck: { q: "What is missing in ‘Acuesto temprano’?", opts: ["the reflexive pronoun ‘me’ (me acuesto)", "an accent on the final letter of the verb form", "the linking word ‘a’", "the article ‘la’"], ans: 0, explain: "acostarse is reflexive: you need me/te/se — ‘me acuesto’." } },
+        { wrong: "Se debe fumar para relajarse.", correct: "No se debe fumar; se debe descansar para relajarse.", readCheck: { q: "Why is the ‘wrong’ sentence a problem?", opts: ["it recommends smoking, which is bad advice", "it is missing an infinitive after ‘se debe’", "‘relajarse’ is spelt incorrectly", "it uses the past tense by mistake"], ans: 0, explain: "The grammar is fine, but the ADVICE is wrong — smoking is malo para la salud." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Dictation (listening)", pills: ["Listening", "Dictation"], content: "Health sentences reuse chunks you know: ‘me duele…’, ‘se debe…’, ‘voy a…’. Listen for whether it is ‘duele’ (one thing) or ‘duelen’ (more than one) — the ending tells you if the body part is singular or plural.", readCheck: { q: "You hear ‘…duelen…’. What does that tell you?", opts: ["more than one body part hurts", "only one single body part is actually hurting", "nothing hurts at all", "it is a future plan"], ans: 0, explain: "The -n ending of ‘duelen’ signals a plural body part (los pies, las piernas…)." } },
+        { type: "tip", title: "Paper 3 — Translation into English", pills: ["Reading", "Translation"], content: "Watch the false friends: ‘constipado’ = having a cold, ‘estar en forma’ = to be fit. Keep ‘me duele la cabeza’ natural: ‘my head hurts’ / ‘I have a headache’, not ‘the head hurts me’.", readCheck: { q: "‘Estoy resfriado y me duele la garganta’ =", opts: ["I have a cold and my throat hurts", "I am stressed out and my whole back hurts", "I am tired and my head hurts", "I am fit and my legs hurt"], ans: 0, explain: "resfriado = having a cold; la garganta = throat." } },
+        { type: "evaluate", title: "Paper 4 — Writing & translation into Spanish", pills: ["Writing", "Higher"], content: "Combine a problem, advice and a plan: ‘Estoy estresado, así que se debe descansar y voy a acostarme más temprano.’ At Higher, add a reflexive and a conditional: ‘se debería…’, ‘relajarse’.", readCheck: { q: "Which answer reaches the top band?", opts: ["Estoy estresado, así que voy a descansar y acostarme más temprano", "Estoy muy estresado y estresado y cansado todos los días sin parar nunca", "Estoy mal", "Me duele todo"], ans: 0, explain: "It links a problem, a plan, a reflexive and a time phrase — range and accuracy, not just length." } }
+    ];
+
+    const flashcards = [
+        { term: "hacer ejercicio", def: "to do exercise", say: "hacer ejercicio" },
+        { term: "el deporte", def: "sport", say: "el deporte" },
+        { term: "estar en forma", def: "to be fit", say: "estar en forma" },
+        { term: "el gimnasio", def: "the gym", say: "el gimnasio" },
+        { term: "me duele…", def: "…hurts (one thing)", say: "me duele la cabeza" },
+        { term: "me duelen…", def: "…hurt (more than one)", say: "me duelen los pies" },
+        { term: "la cabeza · el estómago", def: "head · stomach", say: "la cabeza, el estómago" },
+        { term: "la garganta · la espalda", def: "throat · back", say: "la garganta, la espalda" },
+        { term: "estar enfermo / cansado", def: "to be ill / tired", say: "estar enfermo, estar cansado" },
+        { term: "estar resfriado / constipado", def: "to have a cold", say: "estar resfriado, estar constipado" },
+        { term: "el estrés", def: "stress", say: "el estrés" },
+        { term: "fumar · las drogas", def: "to smoke · drugs", say: "fumar, las drogas" },
+        { term: "dejar de + infinitive", def: "to stop doing something", say: "dejar de fumar" },
+        { term: "se debe descansar", def: "one should rest", say: "se debe descansar" },
+        { term: "relajarse (H)", def: "to relax (reflexive)", say: "relajarse, me relajo" },
+        { term: "acostarse (H)", def: "to go to bed (reflexive)", say: "acostarse, me acuesto" },
+        { term: "deberías / se debería (H)", def: "you should / one should (conditional)", say: "deberías, se debería" },
+        { term: "para mantenerse sano (H)", def: "to stay healthy", say: "para mantenerse sano" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "elena-health": `<p><strong>Lee lo que dice Elena.</strong></p>
+        <p><em>"Normalmente estoy bastante en forma porque hago deporte cuatro veces por semana: nado y monto en bicicleta. Sin embargo, esta semana estoy resfriada y me duele la garganta, así que voy a descansar. Nunca fumo porque es muy malo para la salud, pero duermo poco. El mes que viene voy a acostarme más temprano para dormir ocho horas."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "elena-health",
+            question: "Read what Elena says. Answer <strong>in English</strong>.<br>(a) Name <strong>one</strong> sport Elena does. (1)<br>(b) What is wrong with her this week? (1)<br>(c) Why does she never smoke? (1)<br>(d) What is she going to change next month? (1)",
+            hint: "Find the sports after ‘hago deporte’, the problem after ‘esta semana’, the reason after ‘porque’, and the plan after ‘voy a’.",
+            starter: "(a) She… (b) She… (c) Because… (d) She is going to…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> swimming / cycling (ANY ONE) <em>(1)</em>.</li>
+                <li><strong>(b)</strong> she has a cold / her throat hurts (ANY ONE) <em>(1)</em>.</li>
+                <li><strong>(c)</strong> (because) it is very bad for your/her health <em>(1)</em>.</li>
+                <li><strong>(d)</strong> go to bed earlier / sleep eight hours <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Swimming (or cycling). (b) She has a cold / her throat hurts. (c) Because it is very bad for your health. (d) She is going to go to bed earlier to sleep eight hours.",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) a sport — 1", max: 1, points: ["swimming OR cycling"] },
+                { label: "(b) this week — 1", max: 1, points: ["a cold / her throat hurts"] },
+                { label: "(c) reason — 1", max: 1, points: ["(very) bad for (your) health"] },
+                { label: "(d) change — 1", max: 1, points: ["go to bed earlier / sleep eight hours"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) My head hurts. <br>(b) One must not smoke. <br>(c) I am going to do more exercise because it is good for your health.",
+            hint: "‘My head hurts’ = doler like gustar (Me duele…). ‘One must not smoke’ = No se debe… ‘I am going to do’ = Voy a hacer…",
+            starter: "(a) Me duele… (b) No se debe… (c) Voy a… porque…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Me duele la cabeza. <em>(1)</em></li>
+                <li><strong>(b)</strong> No se debe fumar. <em>(1)</em></li>
+                <li><strong>(c)</strong> Voy a hacer más ejercicio <em>(1)</em> porque <em>(1)</em> es bueno para la salud <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. ‘Me duele la cabeza’ must use the singular ‘duele’.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Me duele la cabeza. (b) No se debe fumar. (c) Voy a hacer más ejercicio porque es bueno para la salud.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Me duele la cabeza"] },
+                { label: "(b)", max: 1, points: ["No se debe fumar"] },
+                { label: "(c)", max: 3, points: ["Voy a hacer más ejercicio", "porque", "es bueno para la salud"] }
+            ] }
+        }
+    ];
+</script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
+    <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.2 Relationships and Role Models – GCSE Spanish</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 1 · 1. Identity and Relationships</div>
+            <h1>1.2 Relationships and Role Models</h1>
+            <p>Las relaciones y los modelos a seguir · Interactive study guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
+            <div class="score-bar">
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
+            <div class="match-grid">
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
+            </div>
+        </div>
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
+            <div class="score-bar">
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
+                    </div>
+                </div>
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">¿Verdadero o falso?</p>
+            <div class="score-bar">
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 1.2 Relationships and role models  (AQA 8692, Theme 1 Topic 1)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = {
+        id: '1-2-relationships-and-role-models',
+        badge: 'AQA GCSE Spanish (8692) — Theme 1 · 1. Identity and Relationships',
+        title: '1.2 Relationships and Role Models',
+        subtitle: 'Interactive study guide',
+        subject: 'spanish',
+    };
+
+    const topics = [
+        {
+            title: "Who are the people in my life?",
+            tag: "Key concept",
+            content: `<p>Core people vocabulary — tap 🔊 to hear each word.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la familia">la familia</span></td><td>family</td><td><span data-say="los padres">los padres</span></td><td>parents</td></tr>
+              <tr><td><span data-say="el hermano">el hermano</span></td><td>brother</td><td><span data-say="la hermana">la hermana</span></td><td>sister</td></tr>
+              <tr><td><span data-say="los abuelos">los abuelos</span></td><td>grandparents</td><td><span data-say="el amigo">el amigo / la amiga</span></td><td>friend</td></tr>
+              <tr><td><span data-say="el novio">el novio / la novia</span></td><td>boyfriend / girlfriend</td><td><span data-say="el hijo">el hijo / la hija</span></td><td>son / daughter</td></tr>
+            </table>
+            <p>Model: <span data-say="En mi familia hay cinco personas: mis padres, mis dos hermanos y yo.">En mi familia hay cinco personas: mis padres, mis dos hermanos y yo.</span></p>`,
+            readCheck: { q: "What does ‘los padres’ mean?", opts: ["parents", "grandparents", "godparents", "priests"], ans: 0, explain: "los padres = parents. los abuelos = grandparents." }
+        },
+        {
+            title: "How do I describe someone's personality?",
+            tag: "Exam skill",
+            content: `<p>Use <strong>ser</strong> (a permanent trait) + an adjective. The adjective must <strong>agree</strong>: change ‑o → ‑a for a female.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="simpático">simpático / simpática</span></td><td>nice, friendly</td><td><span data-say="gracioso">gracioso / graciosa</span></td><td>funny</td></tr>
+              <tr><td><span data-say="amable">amable</span></td><td>kind</td><td><span data-say="hablador">hablador / habladora</span></td><td>talkative</td></tr>
+              <tr><td><span data-say="cariñoso">cariñoso / cariñosa</span></td><td>affectionate</td><td><span data-say="egoísta">egoísta</span></td><td>selfish</td></tr>
+              <tr><td><span data-say="terco">terco / terca</span></td><td>stubborn</td><td><span data-say="celoso">celoso / celosa</span></td><td>jealous</td></tr>
+            </table>
+            <p><span data-say="Mi madre es muy cariñosa y mi hermano es gracioso.">Mi madre es muy cariñosa y mi hermano es gracioso.</span> <em>(Note: cariños<strong>a</strong> for ‘madre’, gracios<strong>o</strong> for ‘hermano’.)</em></p>`,
+            readCheck: { q: "How do you say ‘My sister is funny’?", opts: ["Mi hermana es graciosa", "Mi hermana es gracioso", "Mi hermana está graciosa", "Mi hermana es graciosos"], ans: 0, explain: "‘hermana’ is female → gracios­a; personality uses ser, not estar." }
+        },
+        {
+            title: "How do I say I get on (or clash) with people?",
+            tag: "Exam skill",
+            content: `<p>The key phrase is the reflexive <strong>llevarse bien / mal con</strong> — to get on well / badly with:</p>
+            <ul>
+              <li><span data-say="Me llevo bien con mi madre.">Me llevo bien con mi madre.</span> — I get on well with my mum.</li>
+              <li><span data-say="Me llevo mal con mi hermano.">Me llevo mal con mi hermano.</span> — I get on badly with my brother.</li>
+            </ul>
+            <p>Other useful verbs:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="pelearse">pelearse</span></td><td>to fight / argue</td><td><span data-say="apoyar">apoyar</span></td><td>to support</td></tr>
+              <tr><td><span data-say="respetar">respetar</span></td><td>to respect</td><td><span data-say="confiar en">confiar en</span></td><td>to trust</td></tr>
+            </table>`,
+            readCheck: { q: "‘Me llevo bien con mi madre’ means…", opts: ["I get on well with my mum", "I look exactly like my mother does", "I take my mum out a lot", "I carry my mum's bags"], ans: 0, explain: "llevarse bien con = to get on well with. (Don’t translate ‘llevo’ literally as ‘I carry’.)" }
+        },
+        {
+            title: "How do I compare people?",
+            tag: "Key concept",
+            content: `<p>Use comparatives to make richer sentences:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="más… que">más… que</span></td><td>more… than</td><td><span data-say="menos… que">menos… que</span></td><td>less… than</td></tr>
+              <tr><td><span data-say="tan… como">tan… como</span></td><td>as… as</td><td><span data-say="mejor / peor">mejor / peor</span></td><td>better / worse</td></tr>
+            </table>
+            <p><span data-say="Mi hermana es más habladora que yo, pero yo soy más trabajador.">Mi hermana es más habladora que yo, pero yo soy más trabajador.</span></p>
+            <p>Careful: ‘better’ is just <strong>mejor</strong> — never ‘más mejor’.</p>`,
+            readCheck: { q: "How do you say ‘more talkative than me’?", opts: ["más habladora que yo", "más habladora de yo", "tan habladora que yo", "más mejor habladora"], ans: 0, explain: "‘more… than’ = más… que; ‘than me’ = que yo." }
+        },
+        {
+            title: "How do I talk about role models?",
+            tag: "Key concept",
+            content: `<p>A role model is <span data-say="un modelo a seguir">un modelo a seguir</span>. Say who and, crucially, <strong>why</strong>:</p>
+            <ul>
+              <li><span data-say="admirar">admirar</span> — to admire; <span data-say="respetar">respetar</span> — to respect</li>
+              <li><span data-say="trabajador">trabajador / trabajadora</span> — hard-working; <span data-say="valiente">valiente</span> — brave</li>
+            </ul>
+            <p><span data-say="Mi modelo a seguir es mi abuela porque es muy trabajadora y siempre me apoya.">Mi modelo a seguir es mi abuela porque es muy trabajadora y siempre me apoya.</span></p>`,
+            readCheck: { q: "What does ‘un modelo a seguir’ mean?", opts: ["a role model", "a fashion model", "a model railway", "a school subject"], ans: 0, explain: "un modelo a seguir = a role model (literally ‘a model to follow’)." }
+        },
+        {
+            title: "Higher: relatives and the imperfect",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> Join ideas with relative pronouns and describe how things <em>used to be</em> with the imperfect:</p>
+            <ul>
+              <li><span data-say="que">que</span> (who/that), <span data-say="quien">quien</span> (who, after a preposition): <span data-say="Admiro a mi padre, que siempre me apoya.">Admiro a mi padre, que siempre me apoya.</span> <span class="tier-h">H</span></li>
+              <li>Imperfect for ‘used to’: <span data-say="De pequeño, me peleaba con mi hermano.">De pequeño, me peleaba con mi hermano.</span> — When I was little, I used to fight with my brother. <span class="tier-h">H</span></li>
+            </ul>`,
+            readCheck: { q: "‘De pequeño, me peleaba con mi hermano’ means…", opts: ["When I was little, I used to fight with my brother", "As a young child, I am going to fight with my brother", "I fought with my little brother once", "My little brother fights with me now"], ans: 0, explain: "The imperfect ‘me peleaba’ = ‘I used to fight’; ‘de pequeño’ = when I was little." }
+        }
+    ];
+
+    const mcqData = [
+        { q: `<span data-say="Me llevo muy bien con mi madre." data-listen></span><br>Listen. What is being said?`, opts: ["I get on very well with my mum", "I do not get on well with my mum at all", "I look a lot like my mum", "I live quite far from my mum"], ans: 0, explain: "‘me llevo bien con’ = I get on well with. Trap B flips bien to a negative; C/D translate ‘llevo’ wrongly." },
+        { q: `<span data-say="Mi hermano es muy gracioso." data-listen></span><br>Listen. What is the brother like?`, opts: ["funny", "boring and quiet", "hard-working", "very tall"], ans: 0, explain: "gracioso = funny. The distractors are other personality/appearance words that were not said." },
+        { q: `<span data-say="A veces me peleo con mi hermana." data-listen></span><br>Listen. Which is correct?`, opts: ["Sometimes I argue with my sister", "I never argue with my sister at all", "I always support my sister a lot", "I get on really well with my sister"], ans: 0, explain: "‘a veces me peleo’ = sometimes I argue/fight. The distractors are longer and reverse the meaning." },
+        { q: "How do you say ‘My mother is kind’ (agreement + correct verb)?", opts: ["Mi madre es amable", "Mi madre es amablo", "Mi madre está amable", "Mi madre son amable"], ans: 0, explain: "‘amable’ has no ‑o/‑a change; personality uses ser (es), and ‘madre’ is singular (es, not son)." },
+        { q: "‘simpático’ is a false friend. It means…", opts: ["nice / friendly", "sympathetic and understanding", "quite shy", "very clever"], ans: 0, explain: "simpático = nice/friendly, NOT ‘sympathetic’. That is the trap." },
+        { q: "Which correctly says ‘more hard-working than me’?", opts: ["más trabajador que yo", "más trabajador de mí", "tan trabajador que yo", "más mejor trabajador"], ans: 0, explain: "‘more… than’ = más… que; ‘than me’ = que yo." },
+        { q: "‘un modelo a seguir’ means a…", opts: ["role model", "fashion model", "model aeroplane", "new mobile model"], ans: 0, explain: "un modelo a seguir = a role model (‘a model to follow’)." },
+        { q: "Complete: ‘Me llevo bien ___ mis padres.’", opts: ["con", "para", "de", "a"], ans: 0, explain: "llevarse bien CON = to get on well WITH." },
+        { q: "Why is ‘Mi hermana es simpático’ wrong?", opts: ["‘hermana’ is female, so it needs ‘simpática’", "‘simpático’ should be in the plural form", "you must use ‘está’, not ‘es’, for people", "‘hermana’ always takes a masculine adjective"], ans: 0, explain: "Adjectives agree: a female (hermana) takes simpática." },
+        { q: "‘De pequeño me peleaba con mi hermano’ uses which tense?", opts: ["the imperfect (used to)", "the simple future tense", "a one-off completed action", "the present tense right now"], ans: 0, explain: "‘me peleaba’ is the imperfect — a repeated past habit (‘used to fight’), a Higher feature." }
+    ];
+
+    const matchData = [
+        { term: "los padres", def: "parents" },
+        { term: "los abuelos", def: "grandparents" },
+        { term: "el hermano", def: "brother" },
+        { term: "simpático", def: "nice, friendly" },
+        { term: "gracioso", def: "funny" },
+        { term: "cariñoso", def: "affectionate" },
+        { term: "egoísta", def: "selfish" },
+        { term: "me llevo bien con", def: "I get on well with" },
+        { term: "pelearse", def: "to argue / fight" },
+        { term: "apoyar", def: "to support" },
+        { term: "un modelo a seguir", def: "a role model" },
+        { term: "más… que", def: "more… than" }
+    ];
+
+    const fibData = [
+        { display: `Me llevo bien _____ mis padres. <span data-say="Me llevo bien con mis padres." data-listen>Me llevo bien con mis padres.</span>`, blanks: { B1: "con" } },
+        { display: `Mi hermano es muy _____. <span data-say="Mi hermano es muy gracioso." data-listen>Mi hermano es muy gracioso.</span>`, blanks: { B1: "gracioso" } },
+        { display: `Mi modelo a seguir es mi _____. <span data-say="Mi modelo a seguir es mi abuela." data-listen>Mi modelo a seguir es mi abuela.</span>`, blanks: { B1: "abuela" } },
+        { display: `Mi madre es muy _____. (affectionate — she is female!)`, blanks: { B1: "cariñosa" } },
+        { display: `Me _____ mal con mi hermano. (I get on badly — reflexive)`, blanks: { B1: "llevo" } },
+        { display: `Mi hermana es más habladora _____ yo. (than)`, blanks: { B1: "que" } },
+        { display: `Admiro a mi abuela porque es muy _____. (hard-working, female)`, blanks: { B1: "trabajadora" } }
+    ];
+    const fibWords = ["con", "gracioso", "abuela", "cariñosa", "llevo", "que", "trabajadora"];
+
+    const tfData = [
+        { statement: "Personality traits use ‘ser’ (es simpático), not ‘estar’.", answer: true, explanation: "ser describes permanent traits; estar is for temporary states/moods." },
+        { statement: "‘simpático’ means ‘sympathetic’.", answer: false, explanation: "False friend! simpático = nice / friendly." },
+        { statement: "For a female, ‘gracioso’ becomes ‘graciosa’.", answer: true, explanation: "Adjectives ending in ‑o change to ‑a to agree with a female." },
+        { statement: "‘llevarse bien con’ means ‘to carry well with’.", answer: false, explanation: "It means ‘to get on well with’ — don’t translate ‘llevo’ literally." },
+        { statement: "‘better’ in Spanish is ‘más mejor’.", answer: false, explanation: "‘better’ = mejor on its own; never ‘más mejor’." },
+        { statement: "‘los abuelos’ means ‘grandparents’.", answer: true, explanation: "los abuelos = grandparents; los padres = parents." },
+        { statement: "‘un modelo a seguir’ means ‘a role model’.", answer: true, explanation: "Literally ‘a model to follow’." },
+        { statement: "The imperfect ‘me peleaba’ describes something you USED TO do.", answer: true, explanation: "The imperfect expresses repeated/habitual past actions." }
+    ];
+
+    const miscData = [
+        { wrong: "Mi madre es simpático.", correct: "Mi madre es simpática.", readCheck: { q: "Why ‘simpática’ here?", opts: ["the adjective agrees with the female ‘madre’", "‘simpático’ has to be written in the plural", "you always use the masculine form as default", "the verb ‘ser’ forces an ‑o ending"], ans: 0, explain: "Adjectives agree in gender: madre is female → simpática." } },
+        { wrong: "simpático = sympathetic", correct: "simpático = nice / friendly", readCheck: { q: "What does ‘simpático’ actually mean?", opts: ["nice / friendly", "sympathetic, as you might guess", "extremely intelligent", "rather shy and quiet"], ans: 0, explain: "Classic false friend: simpático = nice/friendly." } },
+        { wrong: "Mi hermano está gracioso.", correct: "Mi hermano es gracioso.", readCheck: { q: "Why ‘es’, not ‘está’, for ‘funny’?", opts: ["a personality trait is permanent → ser", "you must always use ‘tener’ with people", "‘gracioso’ is a plural adjective", "‘estar’ only works in the past"], ans: 0, explain: "Permanent personality traits use ser; estar would suggest a temporary state." } },
+        { wrong: "Llevo bien con mi madre.", correct: "Me llevo bien con mi madre.", readCheck: { q: "What is missing in ‘Llevo bien con…’?", opts: ["the reflexive pronoun ‘me’ (me llevo)", "an accent on the first vowel of llevo", "the linking word ‘a’ after bien", "the article ‘la’ before madre"], ans: 0, explain: "llevarse is reflexive: me llevo, te llevas, se lleva." } },
+        { wrong: "Mi hermana es más mejor que yo.", correct: "Mi hermana es mejor que yo.", readCheck: { q: "Why is ‘más mejor’ wrong?", opts: ["‘mejor’ already means ‘better’ — no ‘más’", "you always need ‘de’ instead of ‘que’ in comparisons", "‘mejor’ should be written as two words", "‘mejor’ must agree and become ‘mejora’"], ans: 0, explain: "mejor is already the comparative ‘better’; adding más is a double comparative." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Dictation (listening)", pills: ["Listening", "Dictation"], content: "Listen for the little words that flip the meaning: ‘bien’ vs ‘mal’ (get on well vs badly), ‘con’ (with), ‘pero’ (but). And catch adjective endings — ‑o or ‑a tells you if it’s about a male or a female.", readCheck: { q: "You hear ‘me llevo mal con…’. What does ‘mal’ tell you?", opts: ["they get on badly", "they get on very well", "nobody was mentioned", "it happened in the past"], ans: 0, explain: "mal = badly, so ‘me llevo mal con’ = I get on badly with." } },
+        { type: "tip", title: "Paper 3 — Translation into English", pills: ["Reading", "Translation"], content: "Beware false friends: ‘simpático’ = nice, not sympathetic. Don’t translate ‘me llevo bien’ literally — it means ‘I get on well’, not ‘I carry well’.", readCheck: { q: "‘Mi primo es simpático pero un poco terco’ =", opts: ["My cousin is nice but a bit stubborn", "My cousin is sympathetic yet very brave", "My cousin is funny and rather generous", "My cousin is shy but really talkative"], ans: 0, explain: "simpático = nice; terco = stubborn." } },
+        { type: "evaluate", title: "Paper 4 — Writing & translation into Spanish", pills: ["Writing", "Higher"], content: "Combine a description, an opinion and a reason: ‘Me llevo bien con mi hermana porque es graciosa, pero a veces es egoísta.’ At Higher, add a relative pronoun (‘…que siempre me apoya’) or the imperfect (‘de pequeño…’).", readCheck: { q: "Which answer reaches the top band?", opts: ["Me llevo bien con mi hermana porque es graciosa, aunque a veces es egoísta", "Mi hermana es simpática y muy simpática y también simpática y graciosa siempre", "Tengo una hermana", "Mi hermana es maja"], ans: 0, explain: "It links a relationship, a reason and a contrast — range and accuracy, not just piling on words." } }
+    ];
+
+    const flashcards = [
+        { term: "la familia", def: "family", say: "la familia" },
+        { term: "los padres", def: "parents", say: "los padres" },
+        { term: "los abuelos", def: "grandparents", say: "los abuelos" },
+        { term: "el hermano / la hermana", def: "brother / sister", say: "el hermano, la hermana" },
+        { term: "simpático / simpática", def: "nice, friendly (false friend!)", say: "simpático, simpática" },
+        { term: "gracioso / graciosa", def: "funny", say: "gracioso, graciosa" },
+        { term: "amable", def: "kind", say: "amable" },
+        { term: "cariñoso / cariñosa", def: "affectionate", say: "cariñoso, cariñosa" },
+        { term: "egoísta", def: "selfish", say: "egoísta" },
+        { term: "terco · celoso", def: "stubborn · jealous", say: "terco, celoso" },
+        { term: "me llevo bien / mal con", def: "I get on well / badly with", say: "me llevo bien con, me llevo mal con" },
+        { term: "pelearse", def: "to argue / fight", say: "pelearse" },
+        { term: "apoyar · respetar", def: "to support · to respect", say: "apoyar, respetar" },
+        { term: "más… que · menos… que", def: "more… than · less… than", say: "más que, menos que" },
+        { term: "mejor / peor", def: "better / worse", say: "mejor, peor" },
+        { term: "un modelo a seguir", def: "a role model", say: "un modelo a seguir" },
+        { term: "trabajador / trabajadora", def: "hard-working", say: "trabajador, trabajadora" },
+        { term: "que / quien (H)", def: "who / that (relative pronouns)", say: "que, quien" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "marta-family": `<p><strong>Lee lo que dice Marta.</strong></p>
+        <p><em>"En mi familia somos cuatro. Me llevo muy bien con mi madre porque es cariñosa y siempre me apoya. Sin embargo, a veces me peleo con mi hermano menor porque es un poco egoísta. Mi modelo a seguir es mi abuela, que es muy trabajadora y valiente. De pequeña, pasaba mucho tiempo con ella."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "marta-family",
+            question: "Read what Marta says. Answer <strong>in English</strong>.<br>(a) Why does she get on well with her mother? (1)<br>(b) Why does she sometimes argue with her brother? (1)<br>(c) Who is her role model? (1)<br>(d) Give <strong>one</strong> reason she admires that person. (1)",
+            hint: "Find the reason after ‘porque’ (mum), the reason after ‘porque’ (brother), ‘mi modelo a seguir es…’, and the adjectives after ‘que es…’.",
+            starter: "(a) Because… (b) Because… (c) Her… (d) Because she is…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> (because) she is affectionate / always supports her (ANY ONE) <em>(1)</em>.</li>
+                <li><strong>(b)</strong> (because) he is a bit selfish <em>(1)</em>.</li>
+                <li><strong>(c)</strong> her grandmother <em>(1)</em>.</li>
+                <li><strong>(d)</strong> she is hard-working / brave (ANY ONE) <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Because she is affectionate and always supports her. (b) Because he is a bit selfish. (c) Her grandmother. (d) Because she is hard-working (or brave).",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) mum — 1", max: 1, points: ["affectionate / always supports her"] },
+                { label: "(b) brother — 1", max: 1, points: ["he is (a bit) selfish"] },
+                { label: "(c) role model — 1", max: 1, points: ["her grandmother"] },
+                { label: "(d) reason — 1", max: 1, points: ["hard-working / brave"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) My sister is funny. <br>(b) I get on well with my parents. <br>(c) My role model is my grandmother because she is hard-working.",
+            hint: "Agreement: ‘sister’ is female → graciosa. ‘I get on well with’ = Me llevo bien con. ‘hard-working’ (female) = trabajadora.",
+            starter: "(a) Mi hermana es… (b) Me llevo bien con… (c) Mi modelo a seguir es… porque…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Mi hermana es graciosa. <em>(1 — must agree: graciosa)</em></li>
+                <li><strong>(b)</strong> Me llevo bien con mis padres. <em>(1)</em></li>
+                <li><strong>(c)</strong> Mi modelo a seguir es mi abuela <em>(1)</em> porque <em>(1)</em> es trabajadora <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. ‘graciosa’ and ‘trabajadora’ must agree (female).</li>
+            </ul></div>`,
+            modelAnswer: "(a) Mi hermana es graciosa. (b) Me llevo bien con mis padres. (c) Mi modelo a seguir es mi abuela porque es trabajadora.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Mi hermana es graciosa (agrees)"] },
+                { label: "(b)", max: 1, points: ["Me llevo bien con mis padres"] },
+                { label: "(c)", max: 3, points: ["Mi modelo a seguir es mi abuela", "porque", "es trabajadora"] }
+            ] }
+        }
+    ];
+</script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
+    <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
+</body>
+
+</html>

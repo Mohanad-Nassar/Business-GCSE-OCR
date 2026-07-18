@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GCSE Spanish (OCR 8692) revision guide — topics are being written; explore the course structure now.">
+  <title>GCSE Spanish – Interactive Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0f1923;
+      --paper: #f5f0e8;
+      --cream: #ede7d9;
+      --accent: #d6455d;
+      --gold: #d4a843;
+      --teal: #1a6b6b;
+      --mid: #5a6e7f;
+      --border: #c9bfaa;
+      --success: #2d7a4f;
+      --card-bg: #fffcf6;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .skip-link {
+      position: absolute; left: 12px; top: -60px; z-index: 100;
+      background: var(--ink); color: var(--paper); padding: 10px 18px;
+      border-radius: 0 0 8px 8px; font-weight: 600; font-size: 14px;
+      text-decoration: none; transition: top .15s;
+    }
+    .skip-link:focus { top: 0; }
+
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+    .hero :focus-visible { outline-color: var(--gold); }
+
+    .hero {
+      background: var(--ink); color: var(--paper);
+      padding: 48px 48px 40px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 340px; height: 340px; border-radius: 50%;
+      background: var(--accent); opacity: .12;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+
+    .badge {
+      background: var(--accent); color: #fff;
+      font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+      padding: 4px 10px; border-radius: 3px; text-transform: uppercase;
+    }
+    .badge.gold { background: var(--gold); color: var(--ink); }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.1; margin-bottom: 14px; max-width: 720px;
+    }
+    .hero p { font-size: 15px; color: #c3ccd4; max-width: 600px; line-height: 1.7; }
+
+    .hero-nav {
+      position: absolute; top: 0; right: 0; z-index: 2;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end;
+    }
+    .hero-nav a, .hero-nav button {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.25);
+      color: var(--paper); font-family: 'DM Mono', monospace; font-size: 12px;
+      letter-spacing: .06em; padding: 9px 18px; border-radius: 8px;
+      text-decoration: none; cursor: pointer; transition: background .15s, border-color .15s;
+    }
+    .hero-nav a:hover, .hero-nav button:hover { background: rgba(255,255,255,.16); border-color: var(--gold); }
+
+    .content { max-width: 1200px; margin: 0 auto; padding: 36px 48px 80px; }
+
+    .coming-soon-note {
+      background: var(--card-bg); border: 1.5px dashed var(--border); border-radius: 10px;
+      padding: 18px 22px; margin-bottom: 40px; font-size: 14px; color: var(--mid); line-height: 1.6;
+    }
+    .coming-soon-note strong { color: var(--ink); }
+
+    .section-group { margin-bottom: 36px; }
+    .section-group-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .section-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .section-name {
+      font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--mid);
+    }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    .topic-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;
+    }
+    .topic-card {
+      background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 10px;
+      padding: 20px 22px 18px; cursor: pointer; text-decoration: none; color: inherit;
+      display: block; position: relative; overflow: hidden;
+      transition: box-shadow .22s, transform .22s, border-color .22s;
+    }
+    .topic-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      border-radius: 4px 0 0 4px; background: var(--accent); transition: width .22s;
+    }
+    .topic-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.13); transform: translateY(-3px); border-color: #b0a490; }
+    .topic-card:hover::before { width: 6px; }
+    .topic-card .code {
+      font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px;
+      color: var(--mid); margin-bottom: 8px; display: block;
+    }
+    .topic-card h3 { font-family: 'Playfair Display', serif; font-size: 16px; line-height: 1.35; color: var(--ink); margin-bottom: 10px; }
+    .topic-card .card-meta { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--mid); font-family: 'DM Mono', monospace; }
+    .topic-card:focus-visible {
+      outline: 3px solid var(--accent); outline-offset: 3px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.13); transform: translateY(-3px);
+    }
+    .topic-card .arrow { margin-left: auto; font-size: 14px; color: var(--mid); transition: transform .22s, color .22s; }
+    .topic-card:hover .arrow { transform: translateX(4px); color: var(--ink); }
+    .topic-card.child-card { margin-left: 18px; opacity: .92; }
+    .topic-card.child-card .code { opacity: .8; }
+
+    @media (max-width: 700px) {
+      .hero { padding: 32px 24px 28px; }
+      .content { padding: 24px 20px 60px; }
+      .topic-grid { grid-template-columns: 1fr; }
+      .hero-nav { position: static; margin-bottom: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .topic-card:hover, .topic-card:focus-visible { transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#mainContent">Skip to topics</a>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <nav class="hero-nav" aria-label="Site">
+        <a href="/index.html">🏠 <span>All Subjects</span></a>
+        <a href="/dashboard.html?subject=spanish">📊 <span>My Progress</span></a>
+        <span id="accountBar" style="display:inline-flex;align-items:center;gap:10px;"></span>
+      </nav>
+      <div class="hero-eyebrow">
+        <span class="badge">GCSE Spanish</span>
+        <span class="badge gold">🚧 Coming Soon</span>
+      </div>
+      <h1>🇪🇸 GCSE Spanish</h1>
+      <p>OCR 8692 · 12 units · 29 topics. Every topic below already has its own page and
+        full interactive shell (quizzes, flashcards, exam practice) — real notes and questions are being written
+        topic by topic. Explore the course structure now, or check back soon.</p>
+      <div id="gamHudMount"></div>
+    </div>
+  </header>
+
+  <main class="content" id="mainContent">
+    <p class="coming-soon-note">🚧 <strong>GCSE Spanish content is on its way.</strong> This subject's full topic tree is
+      live and navigable, but Key Learning notes, quizzes and exam practice for each topic are still being written —
+      the same one-command sync used for every other subject on this site will bring each page online.</p>
+    <div id="topicsMount"></div>
+  </main>
+
+  <script>
+    (function gcseHomeAuthGuard() {
+      const GCSE_SESSION_KEY = 'gcse_session_v1';
+      let session;
+      try { session = JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { session = null; }
+      if (!session || !session.access_token) {
+        location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname));
+      }
+    })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="page-groups.js"></script>
+  <script src="section-totals.js"></script>
+  <script src="/subject-home.js"></script>
+  <script>renderSubjectHome(document.getElementById('topicsMount'));</script>
+  <script src="/progress-shared.js"></script>
+  <script src="/gamification.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://eaohjlyiotyqhvsizcpw.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhb2hqbHlpb3R5cWh2c2l6Y3B3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMxNzUzMDksImV4cCI6MjA5ODc1MTMwOX0.lHF4OUiTT3G_fzlXvXI_4QMu48o6eEnq0hWw6K1uBAk';
+    const GCSE_SESSION_KEY = 'gcse_session_v1';
+
+    async function gcseHomeInitAccountBar() {
+      let cached;
+      try { cached = JSON.parse(localStorage.getItem(GCSE_SESSION_KEY) || 'null'); } catch (e) { cached = null; }
+      if (!cached) return;
+
+      const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      window._gcseSupabaseClient = supabaseClient;
+      const { data, error } = await supabaseClient.auth.setSession({
+        access_token: cached.access_token, refresh_token: cached.refresh_token,
+      });
+      if (error || !data.session) {
+        localStorage.removeItem(GCSE_SESSION_KEY);
+        location.replace('/index.html?redirect=' + encodeURIComponent(location.pathname));
+        return;
+      }
+      localStorage.setItem(GCSE_SESSION_KEY, JSON.stringify({
+        access_token: data.session.access_token, refresh_token: data.session.refresh_token,
+        expires_at: data.session.expires_at, role: cached.role, username: cached.username,
+      }));
+
+      const bar = document.getElementById('accountBar');
+      if (!bar) return;
+      bar.innerHTML = `<span style="font-size:13px;color:rgba(255,255,255,.75);">Hi, <strong>${cached.username || 'teacher'}</strong></span>
+        ${cached.role === 'teacher' ? '<a href="/teacher-dashboard.html">🧑‍🏫 <span>Teacher Dashboard</span></a>' : ''}
+        <a href="/manage-account.html" id="manageAccountLink">⚙ <span>Manage Account</span></a>
+        <a href="#" id="homeLogoutLink">↪ <span>Log out</span></a>`;
+      document.getElementById('homeLogoutLink').addEventListener('click', async (e) => {
+        e.preventDefault();
+        await supabaseClient.auth.signOut();
+        localStorage.removeItem(GCSE_SESSION_KEY);
+        location.replace('/login.html');
+      });
+
+      if (cached.role === 'student') {
+        if (typeof gamificationRefreshStreak === 'function') gamificationRefreshStreak(supabaseClient);
+        if (typeof gamificationRefreshDailyReviseStats === 'function') gamificationRefreshDailyReviseStats(supabaseClient);
+        if (typeof gamificationRefreshHomeFromServer === 'function') gamificationRefreshHomeFromServer(supabaseClient);
+      }
+    }
+    gcseHomeInitAccountBar();
+  </script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

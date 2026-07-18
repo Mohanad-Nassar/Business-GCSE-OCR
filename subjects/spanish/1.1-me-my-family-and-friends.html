@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.1 Me, My Family and Friends – GCSE Spanish</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 1 · 1. Identity and Relationships</div>
+            <h1>1.1 Me, My Family and Friends</h1>
+            <p>Yo, mi familia y mis amigos · Interactive study guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
+            <div class="score-bar">
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
+            <div class="match-grid">
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
+            </div>
+        </div>
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
+            <div class="score-bar">
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
+                    </div>
+                </div>
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">¿Verdadero o falso?</p>
+            <div class="score-bar">
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 1.1 Me, my family and friends  (AQA 8692, Theme 1 Topic 1)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = {
+        id: '1-1-me-my-family-and-friends',
+        badge: 'AQA GCSE Spanish (8692) — Theme 1 · 1. Identity and Relationships',
+        title: '1.1 Me, My Family and Friends',
+        subtitle: 'Interactive study guide',
+        subject: 'spanish',
+    };
+
+    const topics = [
+        {
+            title: "How do I introduce myself?",
+            tag: "Key concept",
+            content: `<p>The building blocks for talking about yourself — tap 🔊 to hear each one.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="me llamo">me llamo…</span></td><td>my name is…</td><td><span data-say="tengo catorce años">tengo… años</span></td><td>I am … years old</td></tr>
+              <tr><td><span data-say="soy de">soy de…</span></td><td>I am from…</td><td><span data-say="vivo en">vivo en…</span></td><td>I live in…</td></tr>
+            </table>
+            <p>Model: <span data-say="Me llamo Ana, tengo quince años y vivo en Madrid.">Me llamo Ana, tengo quince años y vivo en Madrid.</span></p>
+            <p><strong>Big rule:</strong> for age Spanish uses <strong>tener</strong> (to have), not ‘ser’ — you literally ‘have’ years.</p>`,
+            readCheck: { q: "How do you say ‘I am 15 years old’?", opts: ["Tengo quince años", "Soy quince años", "Estoy quince años", "Tengo quince año"], ans: 0, explain: "Age uses tener: ‘tengo quince años’ — never ‘soy’. ‘años’ is plural." }
+        },
+        {
+            title: "How do I describe how I look?",
+            tag: "Exam skill",
+            content: `<p>Use <strong>ser</strong> for build/height and <strong>tener</strong> for hair and eyes:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="soy alto">soy alto / alta</span></td><td>I am tall</td><td><span data-say="soy bajo">soy bajo / baja</span></td><td>I am short</td></tr>
+              <tr><td><span data-say="soy delgado">soy delgado / delgada</span></td><td>I am slim</td><td><span data-say="llevo gafas">llevo gafas</span></td><td>I wear glasses</td></tr>
+            </table>
+            <p>Model: <span data-say="Soy alta y delgada, y llevo gafas.">Soy alta y delgada, y llevo gafas.</span> <em>(alt<strong>a</strong>, delgad<strong>a</strong> — female.)</em></p>`,
+            readCheck: { q: "Which verb describes hair and eyes — ‘tengo el pelo…’?", opts: ["tener (to have)", "ser (to be)", "estar (to be)", "llevar (to wear)"], ans: 0, explain: "Spanish ‘has’ hair and eyes: tengo el pelo…, tengo los ojos… ‘llevar’ is for glasses/clothes." }
+        },
+        {
+            title: "How do I describe my hair and eyes?",
+            tag: "Exam skill",
+            content: `<p>Use <strong>tengo el pelo…</strong> (I have … hair) and <strong>tengo los ojos…</strong> (I have … eyes). Note the article (‘el’, ‘los’) — Spanish keeps it.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el pelo rubio">el pelo rubio</span></td><td>blond hair</td><td><span data-say="el pelo moreno">el pelo moreno</span></td><td>dark hair</td></tr>
+              <tr><td><span data-say="el pelo castaño">el pelo castaño</span></td><td>brown hair</td><td><span data-say="corto o largo">corto / largo</span></td><td>short / long</td></tr>
+              <tr><td><span data-say="los ojos azules">los ojos azules</span></td><td>blue eyes</td><td><span data-say="los ojos marrones">los ojos marrones</span></td><td>brown eyes</td></tr>
+            </table>
+            <p>Colours agree: eyes are plural, so <span data-say="Tengo los ojos verdes.">Tengo los ojos verdes.</span></p>`,
+            readCheck: { q: "How do you say ‘I have long hair’?", opts: ["Tengo el pelo largo", "Llevo el pelo largo casi siempre", "Soy el pelo largo", "Tengo el pelo larga"], ans: 0, explain: "Hair uses tener + the article ‘el’; ‘pelo’ is masculine so the colour/length agrees: largo (not larga)." }
+        },
+        {
+            title: "Who is in my family?",
+            tag: "Key concept",
+            content: `<p>Family members (<strong>la familia</strong>):</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="los padres">los padres</span></td><td>parents</td><td><span data-say="los abuelos">los abuelos</span></td><td>grandparents</td></tr>
+              <tr><td><span data-say="el hermano mayor">el hermano mayor</span></td><td>older brother</td><td><span data-say="la hermana menor">la hermana menor</span></td><td>younger sister</td></tr>
+              <tr><td><span data-say="el tío">el tío / la tía</span></td><td>uncle / aunt</td><td><span data-say="el primo">el primo / la prima</span></td><td>cousin</td></tr>
+            </table>
+            <p><span data-say="Soy hijo único.">Soy hijo único.</span> = I’m an only child. <span data-say="En mi familia hay cuatro personas.">En mi familia hay cuatro personas.</span></p>`,
+            readCheck: { q: "What does ‘mi hermana menor’ mean?", opts: ["my younger sister", "my older sister", "my younger brother", "my cousin"], ans: 0, explain: "hermana = sister; menor = younger. mayor = older." }
+        },
+        {
+            title: "How do I say ‘my’ and ‘your’? (possessives)",
+            tag: "Exam skill",
+            content: `<p>Possessive adjectives agree with the <strong>number</strong> of the thing owned (one or many), NOT with you:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="mi hermano">mi</span> (one thing)</td><td>my — <span data-say="mi hermano">mi hermano</span></td></tr>
+              <tr><td><span data-say="mis hermanos">mis</span> (more than one)</td><td>my — <span data-say="mis hermanos">mis hermanos</span></td></tr>
+              <tr><td><span data-say="tu casa">tu / tus</span></td><td>your — tu casa, tus amigos</td></tr>
+              <tr><td><span data-say="su perro">su / sus</span></td><td>his / her / their</td></tr>
+            </table>
+            <p>So it’s <strong>mi</strong> hermano but <strong>mis</strong> hermanos — the ‑s matches the plural noun.</p>`,
+            readCheck: { q: "How do you say ‘my brothers’ (more than one)?", opts: ["mis hermanos", "mi hermanos", "mío hermanos", "mis hermano"], ans: 0, explain: "The possessive agrees with the plural noun: mis hermanos." }
+        },
+        {
+            title: "Higher: longer, richer descriptions",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> Add quantifiers and join clauses to describe more precisely:</p>
+            <ul>
+              <li>Quantifiers: <span data-say="bastante alto">bastante alto</span> (quite tall), <span data-say="un poco tímido">un poco tímido</span> (a bit shy). <span class="tier-h">H</span></li>
+              <li>Relative ‘que’: <span data-say="Tengo un hermano que se llama Luis.">Tengo un hermano que se llama Luis.</span> <span class="tier-h">H</span></li>
+              <li>Combine appearance + who: <span data-say="Mi hermana mayor, que es muy alta, tiene el pelo largo y rizado.">Mi hermana mayor, que es muy alta, tiene el pelo largo y rizado.</span> <span class="tier-h">H</span></li>
+            </ul>`,
+            readCheck: { q: "‘Tengo un hermano que se llama Luis’ — what does ‘que’ do here?", opts: ["it links two ideas (‘who’ / ‘that’)", "it is used to ask a question meaning ‘what?’", "it means ‘because’", "it makes the sentence a plan"], ans: 0, explain: "Relative ‘que’ = who/that; it joins ‘I have a brother’ + ‘he is called Luis’." }
+        }
+    ];
+
+    const mcqData = [
+        { q: `<span data-say="Tengo quince años." data-listen></span><br>Listen. What is being said?`, opts: ["I am fifteen years old", "I have fifteen euros", "There are fifteen of us at home", "I am fifty years old"], ans: 0, explain: "‘tengo quince años’ = I am 15 (literally ‘I have 15 years’). Traps play on ‘tengo’ and the number." },
+        { q: `<span data-say="Tengo el pelo largo y castaño." data-listen></span><br>Listen. How is the hair described?`, opts: ["long and brown", "short and black", "long and blond", "curly and grey"], ans: 0, explain: "largo = long, castaño = brown. The distractors swap one or both features." },
+        { q: `<span data-say="Mi hermano mayor lleva gafas." data-listen></span><br>Listen. Which is correct?`, opts: ["My older brother wears glasses", "My younger brother has a beard", "My older sister wears glasses too", "My brother wants some new glasses"], ans: 0, explain: "hermano mayor = older brother; lleva gafas = wears glasses. Distractors change age, gender or add detail." },
+        { q: "How do you say ‘I am 14 years old’?", opts: ["Tengo catorce años", "Soy catorce años", "Tengo catorce años de vida", "Estoy catorce años"], ans: 0, explain: "Age = tener: tengo catorce años. ‘Soy/Estoy’ are the classic English-speaker error." },
+        { q: "Which is correct for ‘I have brown eyes’?", opts: ["Tengo los ojos marrones", "Tengo los ojos de color marrón", "Tengo los ojos marrón", "Soy los ojos marrones"], ans: 0, explain: "los ojos is plural → the colour agrees: marrones. ‘marrón’ singular does not agree; ‘soy’ is wrong." },
+        { q: "Complete: ‘___ hermanos son altos.’ (my brothers)", opts: ["Mis", "Sus", "Mi", "Tu"], ans: 0, explain: "The possessive agrees with the plural noun ‘hermanos’ → mis. ‘Sus’ would mean ‘their/his/her’." },
+        { q: "‘Soy hijo único’ means…", opts: ["I am an only child", "I am a unique person", "I am the eldest son", "I am someone's only true friend"], ans: 0, explain: "hijo único = only child. (‘único’ here is ‘only’, not ‘unique’.)" },
+        { q: "Complete: ‘___ el pelo rubio.’ (I have)", opts: ["Tengo", "Soy", "Está", "Llevo"], ans: 0, explain: "Hair uses tener → Tengo el pelo rubio." },
+        { q: "Why ‘Tengo 15 años’, not ‘Soy 15 años’?", opts: ["Spanish uses ‘tener’ (to have) for age", "‘ser’ can only describe your job", "you must always use ‘estar’ with numbers", "‘años’ has to follow the verb ‘ser’"], ans: 0, explain: "Age is expressed with tener in Spanish: you ‘have’ years." },
+        { q: "‘Mi hermana, que es alta, tiene el pelo rizado’ — what does ‘que’ do?", opts: ["links two ideas (‘who / that’)", "shows that it is a plan for the future", "turns it into a question", "means ‘because’"], ans: 0, explain: "Relative ‘que’ = who/that, joining ‘my sister’ + ‘she is tall’." }
+    ];
+
+    const matchData = [
+        { term: "me llamo…", def: "my name is…" },
+        { term: "tengo… años", def: "I am … years old" },
+        { term: "soy de…", def: "I am from…" },
+        { term: "tengo el pelo rubio", def: "I have blond hair" },
+        { term: "tengo los ojos azules", def: "I have blue eyes" },
+        { term: "llevo gafas", def: "I wear glasses" },
+        { term: "los padres", def: "parents" },
+        { term: "el hermano mayor", def: "older brother" },
+        { term: "la hermana menor", def: "younger sister" },
+        { term: "hijo único", def: "only child" },
+        { term: "mi / mis", def: "my (one / more than one)" },
+        { term: "el primo / la prima", def: "cousin" }
+    ];
+
+    const fibData = [
+        { display: `_____ quince años. <span data-say="Tengo quince años." data-listen>Tengo quince años.</span>`, blanks: { B1: "Tengo" } },
+        { display: `Tengo el pelo largo y _____. <span data-say="Tengo el pelo largo y castaño." data-listen>Tengo el pelo largo y castaño.</span>`, blanks: { B1: "castaño" } },
+        { display: `Mi hermano mayor _____ gafas. <span data-say="Mi hermano mayor lleva gafas." data-listen>Mi hermano mayor lleva gafas.</span>`, blanks: { B1: "lleva" } },
+        { display: `Tengo los ojos _____. (brown — plural agreement!)`, blanks: { B1: "marrones" } },
+        { display: `_____ hermanos son altos. (my — more than one)`, blanks: { B1: "Mis" } },
+        { display: `Soy hijo _____. (only child)`, blanks: { B1: "único" } },
+        { display: `Me _____ Ana y vivo en Madrid. (my name is)`, blanks: { B1: "llamo" } }
+    ];
+    const fibWords = ["Tengo", "castaño", "lleva", "marrones", "Mis", "único", "llamo"];
+
+    const tfData = [
+        { statement: "For age, Spanish uses ‘tener’ — ‘tengo quince años’.", answer: true, explanation: "You literally ‘have’ years: tengo… años. ‘Soy… años’ is wrong." },
+        { statement: "Hair and eyes use ‘tener’: ‘tengo el pelo rubio’.", answer: true, explanation: "Spanish ‘has’ hair and eyes, and keeps the article (el/los)." },
+        { statement: "‘hijo único’ means ‘a unique son’.", answer: false, explanation: "It means ‘only child’ — único here = only." },
+        { statement: "‘mis hermanos’ is correct because the possessive agrees with the plural noun.", answer: true, explanation: "mi → mis to match a plural noun (hermanos)." },
+        { statement: "‘mayor’ means ‘younger’.", answer: false, explanation: "mayor = older; menor = younger." },
+        { statement: "‘Tengo los ojos marrón’ is correct.", answer: false, explanation: "Eyes are plural, so the colour must agree: los ojos marrones." },
+        { statement: "‘llevar’ is used for glasses: ‘llevo gafas’.", answer: true, explanation: "llevar = to wear (glasses, clothes)." },
+        { statement: "Build/height uses ‘ser’: ‘soy alto’.", answer: true, explanation: "ser describes what you are like: soy alto/alta." }
+    ];
+
+    const miscData = [
+        { wrong: "Soy quince años.", correct: "Tengo quince años.", readCheck: { q: "Why ‘Tengo quince años’, not ‘Soy…’?", opts: ["Spanish expresses age with ‘tener’ (to have)", "‘ser’ can only ever be used with jobs", "you must put the number after the verb ‘ser’", "age always needs the verb ‘estar’ instead"], ans: 0, explain: "In Spanish you ‘have’ years: tengo… años." } },
+        { wrong: "Tengo ojos azul.", correct: "Tengo los ojos azules.", readCheck: { q: "What is wrong with ‘Tengo ojos azul’?", opts: ["needs ‘los’ and the plural colour ‘azules’", "the verb here should really be ‘soy’ and not ‘tengo’", "‘ojos’ must be written in the singular", "you must add an accent to ‘azul’"], ans: 0, explain: "Keep the article ‘los’ and agree the colour in the plural: los ojos azules." } },
+        { wrong: "Mis hermano es alto.", correct: "Mi hermano es alto.", readCheck: { q: "Why ‘Mi hermano’, not ‘Mis hermano’?", opts: ["‘hermano’ is singular, so the possessive is ‘mi’", "the possessive always agrees with the person who is speaking", "you always use ‘mis’ before a family word", "‘hermano’ must become plural after ‘mis’"], ans: 0, explain: "The possessive matches the noun: one hermano → mi; many → mis." } },
+        { wrong: "único = unique (only meaning)", correct: "hijo único = only child", readCheck: { q: "In ‘hijo único’, what does ‘único’ mean?", opts: ["only (an only child)", "unique, exactly as in English", "the youngest of the family", "a lonely or sad child"], ans: 0, explain: "hijo único = only child; único here = only, not ‘unique’." } },
+        { wrong: "Tengo alto.", correct: "Soy alto.", readCheck: { q: "Why ‘Soy alto’, not ‘Tengo alto’?", opts: ["height/build uses ‘ser’ (soy alto)", "you must always use ‘estar’ for describing height", "‘alto’ is really a type of hair", "‘tener’ is only used for eyes"], ans: 0, explain: "Use ser for what you are like (tall/short); tener is for age, hair and eyes." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Dictation (listening)", pills: ["Listening", "Dictation"], content: "Listen for the verb: ‘tengo’ (I have — age/hair/eyes) vs ‘soy’ (I am — build). Numbers for age come up a lot, and adjective endings (‑o/‑a) tell you if it is a male or female.", readCheck: { q: "You hear ‘tengo… años’. What is being described?", opts: ["the person's age", "the person's height", "the person's job", "where the person lives"], ans: 0, explain: "‘tengo… años’ = I am … years old — age uses tener." } },
+        { type: "tip", title: "Paper 3 — Translation into English", pills: ["Reading", "Translation"], content: "‘Tengo quince años’ = ‘I am fifteen’, not ‘I have fifteen years’. Keep ‘hijo único’ natural as ‘only child’. Watch the articles: ‘tengo el pelo…’ = ‘I have … hair’.", readCheck: { q: "‘Tengo el pelo corto y soy bastante alto’ =", opts: ["I have short hair and I am quite tall", "I have long flowing hair and I am very short", "My hair is short but I am rather old", "I want short hair and to be taller"], ans: 0, explain: "corto = short, bastante alto = quite tall." } },
+        { type: "evaluate", title: "Paper 4 — Writing & translation into Spanish", pills: ["Writing", "Higher"], content: "Combine identity + appearance + family: ‘Me llamo Ana, tengo quince años y tengo el pelo largo. En mi familia hay cuatro personas.’ At Higher, add a relative ‘que’ or a quantifier (‘bastante’, ‘un poco’).", readCheck: { q: "Which answer reaches the top band?", opts: ["Tengo quince años y el pelo castaño; vivo con mi hermana, que es muy graciosa", "Tengo pelo y tengo ojos y una familia y una casa y un perro y un gato también", "Me llamo Ana", "Soy alta"], ans: 0, explain: "It links age, appearance, family and a relative clause — range and accuracy, not just piling on words." } }
+    ];
+
+    const flashcards = [
+        { term: "me llamo…", def: "my name is…", say: "me llamo" },
+        { term: "tengo… años", def: "I am … years old", say: "tengo quince años" },
+        { term: "soy de… · vivo en…", def: "I am from… · I live in…", say: "soy de, vivo en" },
+        { term: "soy alto / bajo", def: "I am tall / short (ser)", say: "soy alto, soy bajo" },
+        { term: "tengo el pelo rubio", def: "I have blond hair", say: "tengo el pelo rubio" },
+        { term: "castaño · moreno", def: "brown · dark (hair)", say: "castaño, moreno" },
+        { term: "corto / largo · rizado / liso", def: "short / long · curly / straight", say: "corto, largo, rizado, liso" },
+        { term: "tengo los ojos azules", def: "I have blue eyes", say: "tengo los ojos azules" },
+        { term: "los ojos marrones / verdes", def: "brown / green eyes", say: "los ojos marrones, los ojos verdes" },
+        { term: "llevo gafas", def: "I wear glasses", say: "llevo gafas" },
+        { term: "los padres · los abuelos", def: "parents · grandparents", say: "los padres, los abuelos" },
+        { term: "el hermano mayor / menor", def: "older / younger brother", say: "el hermano mayor, el hermano menor" },
+        { term: "el tío / la tía · el primo / la prima", def: "uncle/aunt · cousin", say: "el tío, la tía, el primo, la prima" },
+        { term: "hijo único / hija única", def: "only child", say: "hijo único, hija única" },
+        { term: "mi / mis", def: "my (one / more than one)", say: "mi hermano, mis hermanos" },
+        { term: "tu / tus · su / sus", def: "your · his/her/their", say: "tu, tus, su, sus" },
+        { term: "bastante · un poco (H)", def: "quite · a bit (quantifiers)", say: "bastante, un poco" },
+        { term: "que (H)", def: "who / that (relative pronoun)", say: "que" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "pablo-me": `<p><strong>Lee lo que dice Pablo.</strong></p>
+        <p><em>"Me llamo Pablo y tengo dieciséis años. Soy bastante alto y tengo el pelo corto y moreno. También llevo gafas. En mi familia somos cinco: mis padres, mis dos hermanas menores y yo. No soy hijo único. Mi mejor amigo se llama Diego, que es muy gracioso y vive cerca de mi casa."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "pablo-me",
+            question: "Read what Pablo says. Answer <strong>in English</strong>.<br>(a) How old is Pablo? (1)<br>(b) Give <strong>one</strong> detail about his appearance. (1)<br>(c) How many people are in his family? (1)<br>(d) Why does he mention Diego — what is Diego like? (1)",
+            hint: "Find the number after ‘tengo’, the description after ‘soy/tengo el pelo’, ‘en mi familia somos…’, and the adjective after ‘que es…’.",
+            starter: "(a) He is… (b) He… (c) There are… (d) Diego is…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> 16 (years old) <em>(1)</em>.</li>
+                <li><strong>(b)</strong> ANY ONE of: (quite) tall / short dark hair / wears glasses <em>(1)</em>.</li>
+                <li><strong>(c)</strong> five / 5 <em>(1)</em>.</li>
+                <li><strong>(d)</strong> Diego is (his best friend and is) funny <em>(1)</em>; also accept ‘lives near him’.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "(a) He is 16. (b) He is quite tall / has short dark hair / wears glasses. (c) Five. (d) Diego is his best friend and is funny (and lives nearby).",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) age — 1", max: 1, points: ["16"] },
+                { label: "(b) appearance — 1", max: 1, points: ["tall / short dark hair / wears glasses"] },
+                { label: "(c) family size — 1", max: 1, points: ["five"] },
+                { label: "(d) Diego — 1", max: 1, points: ["funny (or lives nearby)"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) I am fifteen years old. <br>(b) I have short hair. <br>(c) In my family there are four people because I have two brothers.",
+            hint: "Age = tener (Tengo… años). ‘I have short hair’ = Tengo el pelo corto. ‘there are’ = hay.",
+            starter: "(a) Tengo… (b) Tengo el pelo… (c) En mi familia hay… porque…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Tengo quince años. <em>(1 — must use tener)</em></li>
+                <li><strong>(b)</strong> Tengo el pelo corto. <em>(1 — keep ‘el’)</em></li>
+                <li><strong>(c)</strong> En mi familia hay cuatro personas <em>(1)</em> porque <em>(1)</em> tengo dos hermanos <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. ‘Tengo quince años’ must use tener, not ser.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Tengo quince años. (b) Tengo el pelo corto. (c) En mi familia hay cuatro personas porque tengo dos hermanos.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Tengo quince años (tener)"] },
+                { label: "(b)", max: 1, points: ["Tengo el pelo corto"] },
+                { label: "(c)", max: 3, points: ["En mi familia hay cuatro personas", "porque", "tengo dos hermanos"] }
+            ] }
+        }
+    ];
+</script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
+    <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.1 Food, Drink and a Balanced Diet – GCSE Spanish</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 1 · 2. Healthy Living &amp; Lifestyle</div>
+            <h1>2.1 Food, Drink and a Balanced Diet</h1>
+            <p>La comida, la bebida y una dieta equilibrada · Interactive study guide</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
+            <div class="score-bar">
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
+            <div class="match-grid">
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
+            </div>
+        </div>
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
+            <div class="score-bar">
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
+                    </div>
+                </div>
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">¿Verdadero o falso?</p>
+            <div class="score-bar">
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 2.1 Food, drink and a balanced diet  (AQA 8692, Theme 1 Topic 2)
+    //  PILOT PAGE — SPANISH-CONTENT-PLAN.md §9 (ES-0). All taught Spanish is on the
+    //  prescribed wordlist. Spanish that should be audible carries data-say="…"
+    //  (working NOW via /speech.js + the inline bootstrap below). Higher-tier items
+    //  are marked with <span class="tier-h">H</span>.
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = {
+        id: '2-1-food-drink-and-a-balanced-diet',
+        badge: 'AQA GCSE Spanish (8692) — Theme 1 · 2. Healthy Living & Lifestyle',
+        title: '2.1 Food, Drink and a Balanced Diet',
+        subtitle: 'Interactive study guide',
+        subject: 'spanish',
+    };
+
+    // helper to keep the Spanish + its audio button together in Learn cards / prompts
+    // (kept inline as a template so builders read one convention).
+    const topics = [
+        {
+            title: "What food and drink words do I need?",
+            tag: "Key concept",
+            content: `<p>Start with the core nouns for <strong>la comida</strong> (food) and <strong>la bebida</strong> (drink). Every Spanish word below is on the AQA list — tap 🔊 to hear it.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la fruta">la fruta</span></td><td>fruit</td><td><span data-say="las verduras">las verduras</span></td><td>vegetables</td></tr>
+              <tr><td><span data-say="la carne">la carne</span></td><td>meat</td><td><span data-say="el pescado">el pescado</span></td><td>fish</td></tr>
+              <tr><td><span data-say="el pan">el pan</span></td><td>bread</td><td><span data-say="el queso">el queso</span></td><td>cheese</td></tr>
+              <tr><td><span data-say="el agua">el agua</span></td><td>water</td><td><span data-say="la leche">la leche</span></td><td>milk</td></tr>
+              <tr><td><span data-say="el azúcar">el azúcar</span></td><td>sugar</td><td><span data-say="la grasa">la grasa</span></td><td>fat</td></tr>
+            </table>
+            <p>Two useful meal words: <span data-say="el desayuno">el desayuno</span> (breakfast) and <span data-say="la cena">la cena</span> (dinner).</p>`,
+            readCheck: { q: "Which pair means ‘fruit and vegetables’?", opts: ["la fruta y las verduras", "las legumbres y el pescado", "la carne y el queso", "el agua y la leche"], ans: 0, explain: "la fruta = fruit, las verduras = vegetables. B mixes pulses and fish; C is meat and cheese." }
+        },
+        {
+            title: "How do I describe a balanced diet?",
+            tag: "Key concept",
+            content: `<p>The headline phrase is <span data-say="una dieta equilibrada">una dieta equilibrada</span> — <em>a balanced diet</em>. Notice the adjective <strong>equilibrada</strong> agrees with the feminine noun <strong>dieta</strong>.</p>
+            <ul>
+              <li><span data-say="sano">sano</span> / <span data-say="saludable">saludable</span> = healthy</li>
+              <li><span data-say="bueno para la salud">bueno para la salud</span> = good for your health</li>
+              <li><span data-say="malo para la salud">malo para la salud</span> = bad for your health</li>
+            </ul>
+            <p>Model sentence: <span data-say="Como una dieta equilibrada porque es buena para la salud.">Como una dieta equilibrada porque es buena para la salud.</span> — <em>I eat a balanced diet because it is good for your health.</em></p>`,
+            readCheck: { q: "Why does ‘equilibrada’ end in ‑a?", opts: ["It agrees with the feminine noun ‘dieta’", "It must copy the last letter of the word before it", "It is a verb ending", "It marks the plural"], ans: 0, explain: "Adjectives agree in gender and number with their noun: dieta is feminine singular → equilibrada (not a rule about the previous word)." }
+        },
+        {
+            title: "How do I give advice? (se debe / hay que)",
+            tag: "Exam skill",
+            content: `<p>To say what people <strong>should</strong> do, use these impersonal structures — each is followed by an <strong>infinitive</strong>:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="se debe">se debe…</span></td><td>one must / you should…</td></tr>
+              <tr><td><span data-say="no se debe">no se debe…</span></td><td>one must not…</td></tr>
+              <tr><td><span data-say="hay que">hay que…</span></td><td>you have to…</td></tr>
+            </table>
+            <p>Examples:</p>
+            <ul>
+              <li><span data-say="Se debe comer más fruta.">Se debe comer más fruta.</span> — One should eat more fruit.</li>
+              <li><span data-say="No se debe comer demasiada grasa.">No se debe comer demasiada grasa.</span> — One must not eat too much fat.</li>
+              <li><span data-say="Hay que beber mucha agua.">Hay que beber mucha agua.</span> — You have to drink lots of water.</li>
+            </ul>`,
+            readCheck: { q: "What kind of word follows ‘se debe’, ‘no se debe’ and ‘hay que’?", opts: ["an infinitive verb", "a fully conjugated past-tense verb", "a plural noun", "an adjective"], ans: 0, explain: "All three advice structures are followed by an infinitive (comer, beber, evitar…), never a conjugated form." }
+        },
+        {
+            title: "How do I say what I am going to change?",
+            tag: "Exam skill",
+            content: `<p>Use the near future — <strong>voy a</strong> + <strong>infinitive</strong> — to state a plan or intention:</p>
+            <ul>
+              <li><span data-say="Voy a comer más verduras.">Voy a comer más verduras.</span> — I am going to eat more vegetables.</li>
+              <li><span data-say="Voy a evitar la comida rápida.">Voy a evitar la comida rápida.</span> — I am going to avoid fast food.</li>
+              <li><span data-say="Voy a beber menos azúcar.">Voy a beber menos azúcar.</span> — I am going to have less sugar.</li>
+            </ul>
+            <p><strong>evitar</strong> = to avoid, <strong>la comida rápida</strong> = fast food. Add a time phrase to extend: <span data-say="todos los días">todos los días</span> (every day), <span data-say="a menudo">a menudo</span> (often).</p>`,
+            readCheck: { q: "How do you say ‘I am going to avoid fast food’?", opts: ["Voy a evitar la comida rápida", "Se debe evitar la comida rápida", "Evito la comida rápida", "Hay que evitar la comida rápida"], ans: 0, explain: "voy a + infinitive = a future plan; ‘I am going to avoid’ = Voy a evitar." }
+        },
+        {
+            title: "How do I give opinions and reasons?",
+            tag: "Exam skill",
+            content: `<p>Opinions lift your mark. Use <strong>gustar</strong>-type verbs and join ideas with connectors:</p>
+            <ul>
+              <li><span data-say="Me gusta la fruta.">Me gusta la fruta.</span> — I like fruit. <em>(singular thing)</em></li>
+              <li><span data-say="Me gustan las verduras.">Me gustan las verduras.</span> — I like vegetables. <em>(plural → gusta<strong>n</strong>)</em></li>
+              <li><span data-say="Prefiero el pescado.">Prefiero el pescado.</span> — I prefer fish.</li>
+            </ul>
+            <p>Connectors: <span data-say="porque">porque</span> (because), <span data-say="pero">pero</span> (but), <span data-say="también">también</span> (also). Example: <span data-say="Me gusta la carne, pero no como carne todos los días porque es mala para la salud.">Me gusta la carne, pero no como carne todos los días porque es mala para la salud.</span></p>`,
+            readCheck: { q: "Why is it ‘Me gustan las verduras’ (not ‘gusta’)?", opts: ["verduras is plural, so the verb agrees", "it expresses a future plan, not a preference", "verduras is a feminine singular noun here", "it is simply someone’s opinion"], ans: 0, explain: "gustar agrees with the THING liked; verduras is plural → gustan (nothing to do with plans or opinions)." }
+        },
+        {
+            title: "Higher: reach for the top band",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> To push into the higher band, add a <strong>conditional</strong> recommendation and a <strong>concession</strong>:</p>
+            <ul>
+              <li><span data-say="Se debería reducir el azúcar.">Se debería reducir el azúcar.</span> — One <em>should</em> reduce sugar. <span class="tier-h">H</span></li>
+              <li><span data-say="Lo más importante es llevar una dieta variada.">Lo más importante es llevar una dieta variada.</span> — The most important thing is to have a varied diet. <span class="tier-h">H</span></li>
+              <li><span data-say="Aunque me gusta el chocolate, intento comer sano.">Aunque me gusta el chocolate, intento comer sano.</span> — Although I like chocolate, I try to eat healthily. <span class="tier-h">H</span></li>
+            </ul>
+            <p>Aim for: <strong>opinion + reason + connector + a second tense</strong> in one sentence.</p>`,
+            readCheck: { q: "Which sentence shows a typically Higher-tier feature?", opts: ["Se debería reducir el azúcar", "Me gusta mucho la fruta fresca del país", "Como pan casi todos los días", "Bebo bastante agua con las comidas"], ans: 0, explain: "‘se debería’ is a conditional — a Higher feature. Option B is longer but only present-tense opinion." }
+        }
+    ];
+
+    // MCQs. LISTEN-AND-CHOOSE items: the prompt is AUDIO ONLY (data-listen removes the
+    // written Spanish) so the student must decode what they hear. Option design rule
+    // (docs/QUESTION-AUTHORING.md): the correct answer is NEVER the longest option, and
+    // every item has at least one equal-or-longer distractor that is a genuine trap
+    // (a near-miss on negation, tense, quantity or a false friend) — no guessing by length.
+    const mcqData = [
+        { q: `<span data-say="Se debe comer más fruta y verduras." data-listen></span><br>Listen. What is the advice?`, opts: ["One should eat more fruit and vegetables", "One must not eat so much fruit or fatty food", "They always eat their fruit and vegetables first", "You have to grow your own fruit and vegetables"], ans: 0, explain: "‘se debe comer más’ = one should eat more. Trap B flips it to a negative; C and D change the verb — you have to actually hear ‘se debe … más’." },
+        { q: `<span data-say="Voy a beber menos azúcar." data-listen></span><br>Listen. What does the speaker plan to do?`, opts: ["Have less sugar", "Drink more sugary things", "Give up fizzy drinks completely", "Stop drinking coffee with sugar"], ans: 0, explain: "‘voy a beber menos azúcar’ = I’m going to have less sugar. Trap B swaps menos→more; C and D add detail that was never said." },
+        { q: `<span data-say="No se debe comer demasiada grasa." data-listen></span><br>Listen. Which is correct?`, opts: ["One must not eat too much fat", "One should add a little healthy fat", "You are allowed to eat as much as you like", "It is fine to fry your food in lots of oil"], ans: 0, explain: "‘no se debe comer demasiada grasa’ = one must not eat too much fat. Every distractor is longer AND reverses the meaning — you must hear the ‘no’." },
+        { q: "‘una dieta equilibrada’ means…", opts: ["a balanced diet", "a varied menu", "a healthy lifestyle", "a strict weight-loss plan"], ans: 0, explain: "equilibrada = balanced. ‘variada’ (varied), ‘vida sana’ (lifestyle) and a diet-plan are close but wrong." },
+        { q: "Only ONE sentence is fully correct. Which?", opts: ["Me gustan las verduras", "Me gusta las verduras", "A mí me gusta mucho las verduras", "Yo gusto las verduras todos los días"], ans: 0, explain: "The thing liked is plural (verduras) so the verb is gustan. B fails to agree; C still uses gusta with a plural; D wrongly conjugates gustar as ‘yo gusto’." },
+        { q: "How do you say ‘I am going to eat more vegetables’?", opts: ["Voy a comer más verduras", "Como muchas más verduras ahora", "Se debe comer más verduras hoy", "Voy comer más verduras cada día"], ans: 0, explain: "A plan = voy a + infinitive. B is present tense; C is impersonal advice; D drops the ‘a’ that ‘voy a’ needs." },
+        { q: "In ‘Voy a evitar la comida rápida’, ‘evitar’ means to…", opts: ["avoid", "prepare it quickly", "cut down on it", "order it less often"], ans: 0, explain: "evitar = to avoid. The longer options are tempting ‘sort of healthy’ ideas, but none means avoid." },
+        { q: "‘Bebo mucha ___.’ — which word fits BOTH the grammar and ‘I drink lots of water’?", opts: ["agua", "leche", "zumo", "café con leche"], ans: 0, explain: "‘mucha’ is feminine, so leche/agua both fit grammatically — but only ‘agua’ = water. zumo is masculine (mucho zumo)." },
+        { q: "Which word means ‘because’ (gives a reason)?", opts: ["porque", "aunque", "también", "pero"], ans: 0, explain: "porque = because. ‘aunque’ (although) is the closest trap; también = also; pero = but." },
+        { q: "Why is ‘Se debería reducir el azúcar’ a strong Higher-tier phrase?", opts: ["It uses the conditional", "It is in the present tense", "It gives a direct command", "It describes a completed past action"], ans: 0, explain: "‘se debería’ = one should (conditional) — a Higher feature. The traps name other tenses/moods of similar length." }
+    ];
+
+    const matchData = [
+        { term: "la fruta", def: "fruit" },
+        { term: "las verduras", def: "vegetables" },
+        { term: "el pescado", def: "fish" },
+        { term: "el agua", def: "water" },
+        { term: "el azúcar", def: "sugar" },
+        { term: "una dieta equilibrada", def: "a balanced diet" },
+        { term: "se debe", def: "one should / must" },
+        { term: "hay que", def: "you have to" },
+        { term: "voy a comer", def: "I am going to eat" },
+        { term: "evitar", def: "to avoid" },
+        { term: "bueno para la salud", def: "good for your health" },
+        { term: "todos los días", def: "every day" }
+    ];
+
+    // FIB — mix of grammar gap-fill and DICTATION rows (🔊 plays the whole sentence,
+    // student types the missing word). Dictation prompts play now via data-say.
+    const fibData = [
+        { display: `Se _____ comer más fruta. <span data-say="Se debe comer más fruta." data-listen>Se debe comer más fruta.</span>`, blanks: { B1: "debe" } },
+        { display: `Voy a _____ la comida rápida. <span data-say="Voy a evitar la comida rápida." data-listen>Voy a evitar la comida rápida.</span>`, blanks: { B1: "evitar" } },
+        { display: `Hay que beber mucha _____. <span data-say="Hay que beber mucha agua." data-listen>Hay que beber mucha agua.</span>`, blanks: { B1: "agua" } },
+        { display: `Me _____ las verduras. (I like vegetables — plural!)`, blanks: { B1: "gustan" } },
+        { display: `Como una dieta _____. (balanced)`, blanks: { B1: "equilibrada" } },
+        { display: `No se debe comer demasiado _____. (sugar)`, blanks: { B1: "azúcar" } },
+        { display: `Prefiero el pescado _____ es bueno para la salud. (because)`, blanks: { B1: "porque" } }
+    ];
+    const fibWords = ["debe", "evitar", "agua", "gustan", "equilibrada", "azúcar", "porque"];
+
+    const tfData = [
+        { statement: "‘una dieta equilibrada’ means ‘a balanced diet’.", answer: true, explanation: "equilibrada = balanced." },
+        { statement: "‘se debe’ is followed by a past-tense verb.", answer: false, explanation: "It is followed by an infinitive: se debe comer / beber / evitar." },
+        { statement: "‘Me gustan las verduras’ is correct because ‘verduras’ is plural.", answer: true, explanation: "gustar agrees with the thing liked; plural → gustan." },
+        { statement: "‘evitar’ means ‘to enjoy’.", answer: false, explanation: "evitar = to avoid." },
+        { statement: "‘voy a comer’ describes a future plan.", answer: true, explanation: "voy a + infinitive = near future." },
+        { statement: "‘el azúcar’ means ‘salt’.", answer: false, explanation: "el azúcar = sugar; salt = la sal." },
+        { statement: "‘porque’ means ‘but’.", answer: false, explanation: "porque = because; ‘but’ = pero." },
+        { statement: "‘Se debería reducir el azúcar’ uses the conditional and suits Higher tier.", answer: true, explanation: "se debería = one should (conditional)." }
+    ];
+
+    const miscData = [
+        { wrong: "Me gusta las verduras.", correct: "Me gustan las verduras.", readCheck: { q: "Why is it ‘Me gustan las verduras’?", opts: ["verduras is plural, so it becomes gustan", "the subject ‘yo’ is what forces the ending gustan here", "verduras is a masculine noun", "the sentence is in the past"], ans: 0, explain: "gustar agrees with the thing liked (verduras, plural) → gustan. It is NOT the person that drives the ending — that is the classic error." } },
+        { wrong: "una dieta equilibrado", correct: "una dieta equilibrada", readCheck: { q: "Why must it be ‘equilibrada’?", opts: ["the adjective agrees with the feminine noun ‘dieta’", "it copies the gender of whichever verb happens to be closest to it", "the masculine form is the safe default", "adjectives only change in the plural"], ans: 0, explain: "Adjectives agree with their noun in gender AND number: dieta is feminine singular → equilibrada." } },
+        { wrong: "Se debe comí más fruta.", correct: "Se debe comer más fruta.", readCheck: { q: "What must follow ‘se debe’?", opts: ["an infinitive (comer)", "a verb written in a past tense form", "a plural noun", "an adjective"], ans: 0, explain: "‘se debe’ always takes an infinitive, never a conjugated past form." } },
+        { wrong: "Voy comer más verduras.", correct: "Voy a comer más verduras.", readCheck: { q: "What is missing in ‘Voy comer…’?", opts: ["the linking word ‘a’ (voy a + infinitive)", "an accent on the final vowel of the infinitive comer", "the pronoun ‘me’", "the article ‘las’"], ans: 0, explain: "The near future is voy/vas/va + a + infinitive; the ‘a’ is compulsory." } },
+        { wrong: "Como comida sensible.", correct: "Como comida sana.", readCheck: { q: "Why is ‘sensible’ wrong here for ‘healthy’?", opts: ["it is a false friend meaning ‘sensitive’", "it is the plural of an adjective you can’t use", "it is a verb, not an adjective", "it simply needs a written accent"], ans: 0, explain: "False friend: Spanish ‘sensible’ = sensitive. Healthy = sano/sana/saludable." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Dictation (listening)", pills: ["Listening", "Dictation"], content: "In the dictation you hear short sentences and write them down. Listen for whole chunks you know (‘se debe comer…’, ‘voy a…’) rather than single sounds. Get the accents where you can, but a minor accent slip is not always penalised — spelling the word right matters most.", readCheck: { q: "What is the best dictation strategy?", opts: ["Write the whole chunks you recognise, not single sounds", "Write down each and every individual letter that you hear", "Only ever write the very first word of each sentence", "Translate it straight into English as you listen"], ans: 0, explain: "You already know whole phrases (‘se debe comer’, ‘voy a…’); catching them as chunks is far more reliable than letter-by-letter." } },
+        { type: "tip", title: "Paper 3 — Translation into English", pills: ["Reading", "Translation"], content: "Don’t translate word-for-word. ‘Se debe comer fruta’ is ‘One should / you should eat fruit’, not ‘It must to eat fruit’. Keep the tense: ‘voy a evitar’ = ‘I am going to avoid’.", readCheck: { q: "‘Voy a evitar la comida rápida’ means…", opts: ["I am going to avoid fast food", "I am not going to avoid fast food", "I used to avoid fast food a lot", "I have already avoided fast food"], ans: 0, explain: "voy a + infinitive = the near future. The traps flip the meaning to a negative or a different tense — all longer than the answer." } },
+        { type: "evaluate", title: "Paper 4 — Writing & translation into Spanish", pills: ["Writing", "Higher"], content: "For top marks combine an opinion, a reason and a second tense in one sentence: ‘Me gusta la carne, pero voy a comer menos porque es mala para la salud.’ At Higher, add ‘se debería…’ or ‘aunque…’.", readCheck: { q: "Which sentence would score highest?", opts: ["Me gusta la carne, pero voy a comer menos porque es mala para la salud", "A mí me gusta mucho la carne y como carne y la carne está muy rica siempre", "Me gusta la carne", "Como carne todos los días"], ans: 0, explain: "The winner combines an opinion, a connector, a second tense (future) AND a reason. Option B is even longer but just repeats one idea in the present — length alone is not what scores." } }
+    ];
+
+    // `say` = the exact Spanish to speak (abbreviations expanded; no English) — the
+    // shared flashcard renderer adds a 🔊 to the front when /speech.js is loaded.
+    const flashcards = [
+        { term: "la fruta", def: "fruit", say: "la fruta" },
+        { term: "las verduras", def: "vegetables", say: "las verduras" },
+        { term: "el pescado", def: "fish", say: "el pescado" },
+        { term: "el agua", def: "water", say: "el agua" },
+        { term: "el azúcar", def: "sugar", say: "el azúcar" },
+        { term: "la grasa", def: "fat", say: "la grasa" },
+        { term: "una dieta equilibrada", def: "a balanced diet", say: "una dieta equilibrada" },
+        { term: "sano / saludable", def: "healthy", say: "sano, saludable" },
+        { term: "se debe + infinitive", def: "one should / must…", say: "se debe comer" },
+        { term: "no se debe + infinitive", def: "one must not…", say: "no se debe comer" },
+        { term: "hay que + infinitive", def: "you have to…", say: "hay que beber" },
+        { term: "voy a + infinitive", def: "I am going to… (plan)", say: "voy a comer" },
+        { term: "evitar", def: "to avoid", say: "evitar" },
+        { term: "la comida rápida", def: "fast food", say: "la comida rápida" },
+        { term: "bueno / malo para la salud", def: "good / bad for your health", say: "bueno para la salud, malo para la salud" },
+        { term: "porque · pero · también", def: "because · but · also", say: "porque, pero, también" },
+        { term: "se debería (H)", def: "one should… (conditional)", say: "se debería reducir" },
+        { term: "aunque (H)", def: "although", say: "aunque" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "carlos-diet": `<p><strong>Lee lo que dice Carlos.</strong></p>
+        <p><em>"Normalmente como una dieta bastante equilibrada. Para el desayuno tomo fruta y cereales, y bebo mucha agua. No me gusta la comida rápida porque es mala para la salud, pero a veces como chocolate. El año que viene voy a comer menos azúcar y voy a hacer más ejercicio."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "carlos-diet",
+            question: "Read what Carlos says. Answer the questions <strong>in English</strong>.<br>(a) What does Carlos have for breakfast? (2)<br>(b) Why doesn’t he like fast food? (1)<br>(c) Name <strong>one</strong> thing he is going to change next year. (1)",
+            hint: "Find ‘el desayuno’, then the reason after ‘porque’, then the ‘voy a…’ plans.",
+            starter: "(a) He has… and… (b) Because… (c) He is going to…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> fruit / cereals <em>(1 mark each, 2 total)</em>; also accept ‘drinks lots of water’ as an alternative detail.</li>
+                <li><strong>(b)</strong> (because) it is bad for your/his health <em>(1)</em>.</li>
+                <li><strong>(c)</strong> ANY ONE of: eat less sugar / do more exercise <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English. Do not penalise spelling if the meaning is clear.</li>
+                <li>(a) needs two distinct items for both marks.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Fruit and cereals (and he drinks lots of water). (b) Because it is bad for your health. (c) He is going to eat less sugar (or do more exercise).",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) breakfast — 2", max: 2, points: ["fruit", "cereals (or: drinks lots of water)"] },
+                { label: "(b) reason — 1", max: 1, points: ["it is bad for (your) health"] },
+                { label: "(c) future change — 1", max: 1, points: ["eat less sugar OR do more exercise"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) I like fruit. <br>(b) One should eat vegetables. <br>(c) I am going to avoid fast food because it is bad for your health.",
+            hint: "‘I like’ + singular = Me gusta. ‘One should eat’ = Se debe comer. ‘I am going to avoid’ = Voy a evitar.",
+            starter: "(a) Me gusta… (b) Se debe… (c) Voy a… porque…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Me gusta la fruta. <em>(1)</em></li>
+                <li><strong>(b)</strong> Se debe comer verduras / las verduras. <em>(1)</em></li>
+                <li><strong>(c)</strong> Voy a evitar la comida rápida <em>(1)</em> porque <em>(1)</em> es mala para la salud <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors; ‘mala/malo’ must agree sensibly. ‘comida rápida’ spelt without the accent is condoned once.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Me gusta la fruta. (b) Se debe comer verduras. (c) Voy a evitar la comida rápida porque es mala para la salud.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Me gusta la fruta"] },
+                { label: "(b)", max: 1, points: ["Se debe comer (las) verduras"] },
+                { label: "(c)", max: 3, points: ["Voy a evitar la comida rápida", "porque", "es mala para la salud"] }
+            ] }
+        }
+    ];
+</script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Loads before /script.js
+         so enhanceAudio exists when activities render. Zero vendor bytes / no CSP change. -->
+    <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths).
+         script.js's _epUseWidget seam routes every `written` question here; the student
+         reveals the scheme and ticks each mark point they earned (capped at the tariff).
+         Reads q.markPoints. This is the platform standard for ALL subjects — see
+         docs/SELF-MARK-POINTS-AUTHORING.md. -->
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
+    <!-- Audio (🔊 buttons, speed + voice panel, tab observer) is self-installed by
+         /speech.js — no per-page bootstrap. -->
+</body>
+
+</html>

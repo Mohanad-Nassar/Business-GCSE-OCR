@@ -2,7 +2,7 @@
 // SUBJECTS REGISTRY — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py from every
 // subjects/*/subject.json manifest header.
-// Generated: 2026-07-18T10:22:47Z
+// Generated: 2026-07-18T15:27:13Z
 // ══════════════════════════════════════════════════════════════
 window.SUBJECTS = [
  {
@@ -48,5 +48,16 @@ window.SUBJECTS = [
   "examBoard": "OCR",
   "specCode": "J205",
   "examDate": "2027-05-19"
+ },
+ {
+  "slug": "spanish",
+  "name": "GCSE Spanish",
+  "colour": "#d6455d",
+  "icon": "🇪🇸",
+  "keyStage": "ks4",
+  "level": "GCSE",
+  "examBoard": "AQA",
+  "specCode": "8692",
+  "examDate": "2026-06-08"
  }
 ];

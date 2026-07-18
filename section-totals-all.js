@@ -2,7 +2,7 @@
 // ALL SECTION TOTALS — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py: every subject's section
 // totals merged into one map keyed by subject-prefixed page id.
-// Generated: 2026-07-18T10:22:47Z
+// Generated: 2026-07-18T15:27:13Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS_ALL = {
  "additional-maths:1-1-notation-functions-and-indices": {
@@ -1126,6 +1126,50 @@ window.SECTION_TOTALS_ALL = {
   "fib": 6,
   "match": 13,
   "flashcards": 19
+ },
+ "spanish:1-1-me-my-family-and-friends": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:1-2-relationships-and-role-models": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:2-1-food-drink-and-a-balanced-diet": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:2-2-exercise-health-problems-and-advice": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
  }
 };
 // Every consumer (progress-shared.js, gamification.js, script.js,
