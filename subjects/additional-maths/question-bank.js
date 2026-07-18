@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-18T06:01:52Z · 2144 questions
+// Generated: 2026-07-18T09:11:09Z · 2144 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -92,7 +92,7 @@ window.QUESTION_BANK = [
   "question": "Evaluate \\( 2^{-4} \\).",
   "options": [
    "\\( -16 \\)",
-   "\\( -8 \\)",
+   "\\( -\\frac{1}{16} \\)",
    "\\( \\frac{1}{16} \\)",
    "\\( \\frac{1}{8} \\)"
   ],
@@ -170,7 +170,7 @@ window.QUESTION_BANK = [
    "\\( -4 \\)",
    "\\( 4 \\)",
    "\\( 3 \\)",
-   "\\( 9 \\)"
+   "\\( -4x^3 \\)"
   ],
   "key": {
    "answer": 0,
@@ -349,7 +349,7 @@ window.QUESTION_BANK = [
   "reading": "<p>Algebra has a precise vocabulary. Using it correctly is a real exam skill — mark schemes and command words are written in it.</p>\n            <ul>\n              <li>A <strong>variable</strong> (or <strong>unknown</strong>) is a letter standing for a quantity, e.g. \\( x \\). We call it a <em>variable</em> when its value may change, and an <em>unknown</em> when we are solving to find its one value.</li>\n              <li>A <strong>constant</strong> is a fixed number, e.g. the \\( 7 \\) in \\( 3x + 7 \\).</li>\n              <li>A <strong>term</strong> is a single part of an expression separated by \\( + \\) or \\( - \\): \\( 3x^2 \\), \\( -5x \\) and \\( 7 \\) are the three terms of \\( 3x^2 - 5x + 7 \\).</li>\n              <li>A <strong>coefficient</strong> is the number multiplying a variable. In \\( -5x \\) the coefficient is \\( -5 \\) (the sign belongs to it).</li>\n              <li>An <strong>expression</strong> is a collection of terms with no equals sign, e.g. \\( 3x^2 - 5x + 7 \\).</li>\n            </ul>\n            <p>An expression has no equals sign; the moment you write \\( = \\) you have an <strong>equation</strong> (next card).</p>",
   "question": "In the expression \\( 4 - 6x^2 \\), what is the coefficient of \\( x^2 \\)?",
   "options": [
-   "\\( 4 \\)",
+   "\\( -6x^2 \\)",
    "\\( 2 \\)",
    "\\( -6 \\)",
    "\\( 6 \\)"
@@ -373,7 +373,7 @@ window.QUESTION_BANK = [
    "\\( 3x = 12 \\)",
    "\\( x^2 = 9 \\)",
    "\\( 2(x + 3) \\equiv 2x + 6 \\)",
-   "\\( x + 1 = 0 \\)"
+   "\\( 5(x + 2) \\equiv 5x + 7 \\)"
   ],
   "key": {
    "answer": 2,
@@ -562,7 +562,7 @@ window.QUESTION_BANK = [
    "\\( \\frac{1}{9} \\)",
    "\\( -9 \\)",
    "\\( -6 \\)",
-   "\\( 9 \\)"
+   "\\( -\\frac{1}{9} \\)"
   ],
   "key": {
    "answer": 0,
@@ -604,7 +604,7 @@ window.QUESTION_BANK = [
    "\\( -7 \\)",
    "\\( 7 \\)",
    "\\( 1 \\)",
-   "\\( x \\)"
+   "\\( -7x \\)"
   ],
   "key": {
    "answer": 0,
@@ -646,7 +646,7 @@ window.QUESTION_BANK = [
    "To earn method marks even if the final value slips",
    "It wastes time",
    "To use more paper",
-   "It is never needed"
+   "Only the final answer earns marks, so the steps are optional"
   ],
   "key": {
    "answer": 0,
@@ -684,16 +684,16 @@ window.QUESTION_BANK = [
   "question": "To simplify \\( a^m \\times a^n \\) you ___B1___ the indices, and to simplify \\( a^m \\div a^n \\) you ___B2___ them.",
   "blankOptions": {
    "B1": [
-    "0",
-    "solve",
-    "add",
-    "1"
+    "power",
+    "divide",
+    "identity",
+    "add"
    ],
    "B2": [
-    "identity",
-    "nth",
+    "reciprocal",
     "subtract",
-    "unknown"
+    "1",
+    "nth"
    ]
   },
   "key": {
@@ -713,9 +713,9 @@ window.QUESTION_BANK = [
   "question": "The rule \\( (a^m)^n \\) tells you to ___B1___ the two indices together.",
   "blankOptions": {
    "B1": [
-    "index",
-    "unknown",
+    "1",
     "add",
+    "reciprocal",
     "multiply"
    ]
   },
@@ -735,10 +735,10 @@ window.QUESTION_BANK = [
   "question": "For any non-zero base, \\( a^0 \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "multiply",
-    "add",
+    "all",
+    "index",
     "1",
-    "identity"
+    "coefficient"
    ]
   },
   "key": {
@@ -757,10 +757,10 @@ window.QUESTION_BANK = [
   "question": "A negative index means take the ___B1___, so \\( a^{-n} \\) becomes a fraction.",
   "blankOptions": {
    "B1": [
-    "term",
-    "reciprocal",
-    "variable",
-    "0"
+    "solve",
+    "constant",
+    "coefficient",
+    "reciprocal"
    ]
   },
   "key": {
@@ -779,16 +779,16 @@ window.QUESTION_BANK = [
   "question": "In the term \\( 4x^3 \\), the number \\( 4 \\) is the ___B1___ and the number \\( 3 \\) is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "add",
-    "reciprocal",
+    "multiply",
+    "constant",
     "coefficient",
-    "solve"
+    "variable"
    ],
    "B2": [
-    "nth",
-    "term",
-    "power",
-    "index"
+    "index",
+    "identity",
+    "all",
+    "solve"
    ]
   },
   "key": {
@@ -808,15 +808,15 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) means the statement is an ___B1___, which is true for ___B2___ values of the variable.",
   "blankOptions": {
    "B1": [
-    "coefficient",
-    "divide",
+    "term",
+    "power",
     "identity",
     "reciprocal"
    ],
    "B2": [
-    "nth",
-    "power",
-    "variable",
+    "solve",
+    "multiply",
+    "subtract",
     "all"
    ]
   },
@@ -837,10 +837,10 @@ window.QUESTION_BANK = [
   "question": "In \\( a^{1/n} \\) the fraction \\( \\frac{1}{n} \\) tells you to take the ___B1___ root of \\( a \\).",
   "blankOptions": {
    "B1": [
+    "1",
+    "divide",
     "nth",
-    "subtract",
-    "term",
-    "all"
+    "constant"
    ]
   },
   "key": {
@@ -859,16 +859,16 @@ window.QUESTION_BANK = [
   "question": "In an equation you solve to find the value of the ___B1___, whereas in an expression there is no equals sign to ___B2___.",
   "blankOptions": {
    "B1": [
-    "1",
     "unknown",
-    "constant",
-    "subtract"
+    "add",
+    "multiply",
+    "reciprocal"
    ],
    "B2": [
     "solve",
-    "add",
-    "coefficient",
-    "0"
+    "constant",
+    "divide",
+    "index"
    ]
   },
   "key": {
@@ -1649,7 +1649,7 @@ window.QUESTION_BANK = [
   "options": [
    "A correct answer with no working (straight from a calculator)",
    "Showing every algebraic step",
-   "Leaving the answer as a surd",
+   "Leaving the answer in exact surd form instead of a rounded decimal value",
    "Writing the common denominator first"
   ],
   "key": {
@@ -1774,7 +1774,7 @@ window.QUESTION_BANK = [
   "question": "On an 'exact' surd question, which is safest?",
   "options": [
    "Give the surd form (optionally with the decimal)",
-   "Give only the decimal",
+   "Give only the decimal answer rounded carefully to two decimal places",
    "Round to 3 s.f.",
    "Give only the decimal to 2 d.p."
   ],
@@ -1816,7 +1816,7 @@ window.QUESTION_BANK = [
   "question": "For a DR rationalising question, which step must be visible?",
   "options": [
    "The unsimplified numerator over the common denominator",
-   "Only the final answer",
+   "Only the final simplified answer, as long as it is exactly correct",
    "A decimal check",
    "The calculator display"
   ],
@@ -1835,10 +1835,10 @@ window.QUESTION_BANK = [
   "question": "To simplify a surd, take out the largest perfect ___B1___ factor.",
   "blankOptions": {
    "B1": [
-    "exact",
     "square",
-    "expand",
-    "2"
+    "like",
+    "exact",
+    "unlike"
    ]
   },
   "key": {
@@ -1857,10 +1857,10 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sqrt{12} = 2\\sqrt{3} \\) we used the fact that \\( 12 = 4 \\times 3 \\) and \\( \\sqrt{4} = \\) ___B1___.",
   "blankOptions": {
    "B1": [
-    "calculator",
+    "factorise",
+    "conjugate",
     "2",
-    "reciprocal",
-    "conjugate"
+    "expand"
    ]
   },
   "key": {
@@ -1879,10 +1879,10 @@ window.QUESTION_BANK = [
   "question": "You can only add or subtract surds when they are ___B1___ surds (the same number under the root).",
   "blankOptions": {
    "B1": [
+    "calculator",
+    "unlike",
     "like",
-    "factorise",
-    "expand",
-    "1"
+    "reciprocal"
    ]
   },
   "key": {
@@ -1901,10 +1901,10 @@ window.QUESTION_BANK = [
   "question": "To rationalise \\( \\frac{1}{2+\\sqrt{3}} \\) you multiply by its ___B1___, which is \\( 2-\\sqrt{3} \\).",
   "blankOptions": {
    "B1": [
-    "unlike",
-    "exact",
-    "square",
-    "conjugate"
+    "1",
+    "conjugate",
+    "like",
+    "cube"
    ]
   },
   "key": {
@@ -1923,10 +1923,10 @@ window.QUESTION_BANK = [
   "question": "Multiplying \\( (2+\\sqrt{3})(2-\\sqrt{3}) \\) gives the whole number ___B1___.",
   "blankOptions": {
    "B1": [
-    "factorise",
-    "1",
-    "(x-1)(x+1)",
-    "square"
+    "unlike",
+    "exact",
+    "expand",
+    "1"
    ]
   },
   "key": {
@@ -1945,9 +1945,9 @@ window.QUESTION_BANK = [
   "question": "To simplify an algebraic fraction you first ___B1___ the top and bottom, then cancel common factors.",
   "blankOptions": {
    "B1": [
-    "expand",
-    "unlike",
-    "3",
+    "square",
+    "(x-1)(x+1)",
+    "reciprocal",
     "factorise"
    ]
   },
@@ -1967,10 +1967,10 @@ window.QUESTION_BANK = [
   "question": "To add \\( \\frac{1}{x-1} \\) and \\( \\frac{2}{x+1} \\) you write them over the common denominator ___B1___.",
   "blankOptions": {
    "B1": [
-    "factorise",
-    "3",
-    "1",
-    "(x-1)(x+1)"
+    "cube",
+    "(x-1)(x+1)",
+    "2",
+    "calculator"
    ]
   },
   "key": {
@@ -1989,10 +1989,10 @@ window.QUESTION_BANK = [
   "question": "The instruction 'show detailed reasoning' means a ___B1___ answer with no working scores zero.",
   "blankOptions": {
    "B1": [
-    "conjugate",
-    "factorise",
     "calculator",
-    "like"
+    "2",
+    "reciprocal",
+    "3"
    ]
   },
   "key": {
@@ -2293,7 +2293,7 @@ window.QUESTION_BANK = [
   "options": [
    "They forgot to subtract \\( 36 \\): it should be \\( (x+6)^2 - 40 \\)",
    "Nothing — it is correct",
-   "It should be \\( (x+12)^2 - 4 \\)",
+   "They failed to halve the coefficient: it should read \\( (x+12)^2 - 4 \\)",
    "\\( (x+6)^2 \\) should be \\( (x-6)^2 \\)"
   ],
   "key": {
@@ -2332,7 +2332,7 @@ window.QUESTION_BANK = [
    "\\( -13 \\)",
    "\\( 3 \\)",
    "\\( -8 \\)",
-   "\\( 13 \\)"
+   "\\( -16 \\)"
   ],
   "key": {
    "answer": 0,
@@ -2444,7 +2444,7 @@ window.QUESTION_BANK = [
   "question": "A question says 'Hence solve...'. What does this instruct you to do?",
   "options": [
    "Use the result you just found (the completed-square form)",
-   "Start again with the quadratic formula",
+   "Ignore part (a) and solve from scratch with the quadratic formula",
    "Give the answer as a decimal",
    "Draw a graph"
   ],
@@ -2819,7 +2819,7 @@ window.QUESTION_BANK = [
    "Give the surd form (optionally with the decimal)",
    "Give only the decimal",
    "Round to 2 d.p.",
-   "Give only the decimal to 3 s.f."
+   "Give only the decimal, rounded neatly to 3 significant figures"
   ],
   "key": {
    "answer": 0,
@@ -2838,7 +2838,7 @@ window.QUESTION_BANK = [
   "question": "Why write out each line of working?",
   "options": [
    "To earn method marks even if the final answer slips",
-   "It is not necessary",
+   "It is not necessary — only the final answer earns any marks",
    "To use more paper",
    "To slow down"
   ],
@@ -2859,7 +2859,7 @@ window.QUESTION_BANK = [
   "question": "Part (b) says 'Hence solve'. You should:",
   "options": [
    "Use your part (a) completed-square form",
-   "Use the quadratic formula from scratch",
+   "Use the quadratic formula on the original equation from scratch",
    "Factorise by trial",
    "Draw a graph and read off"
   ],
@@ -2878,16 +2878,16 @@ window.QUESTION_BANK = [
   "question": "In the quadratic formula \\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\), the term before the \\( \\pm \\) sign is ___B1___ and the denominator is ___B2___.",
   "blankOptions": {
    "B1": [
+    "square",
     "negative",
-    "-b",
-    "add",
-    "exact"
+    "3",
+    "-b"
    ],
    "B2": [
-    "q",
-    "2a",
+    "add",
+    "-p",
     "4ac",
-    "negative"
+    "2a"
    ]
   },
   "key": {
@@ -2907,16 +2907,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + bx \\), take ___B1___ the coefficient of \\( x \\) and then ___B2___ it.",
   "blankOptions": {
    "B1": [
-    "half",
     "double",
-    "4ac",
-    "negative"
+    "half",
+    "add",
+    "-p"
    ],
    "B2": [
-    "-b",
     "discriminant",
     "4ac",
-    "square"
+    "square",
+    "-p"
    ]
   },
   "key": {
@@ -2936,16 +2936,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + 6x - 11 \\), the number inside the bracket \\( (x + a)^2 \\) is ___B1___ and the number subtracted at the end is ___B2___.",
   "blankOptions": {
    "B1": [
-    "-p",
-    "square",
+    "add",
     "3",
-    "negative"
+    "q",
+    "2a"
    ],
    "B2": [
-    "q",
-    "square",
+    "negative",
+    "double",
     "20",
-    "exact"
+    "4ac"
    ]
   },
   "key": {
@@ -2965,10 +2965,10 @@ window.QUESTION_BANK = [
   "question": "The expression \\( b^2 - 4ac \\) is called the ___B1___.",
   "blankOptions": {
    "B1": [
-    "exact",
+    "4ac",
     "double",
-    "add",
-    "discriminant"
+    "discriminant",
+    "2a"
    ]
   },
   "key": {
@@ -2987,10 +2987,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, a quadratic has no real roots.",
   "blankOptions": {
    "B1": [
-    "add",
-    "discriminant",
-    "4ac",
-    "negative"
+    "2a",
+    "exact",
+    "negative",
+    "half"
    ]
   },
   "key": {
@@ -3009,15 +3009,15 @@ window.QUESTION_BANK = [
   "question": "For \\( a(x+p)^2 + q \\) with \\( a > 0 \\), the minimum value is ___B1___ and it occurs when \\( x \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "half",
-    "exact",
+    "discriminant",
     "q",
-    "discriminant"
+    "half",
+    "negative"
    ],
    "B2": [
     "-p",
-    "2a",
-    "exact",
+    "double",
+    "20",
     "add"
    ]
   },
@@ -3038,10 +3038,10 @@ window.QUESTION_BANK = [
   "question": "When you take the square root of both sides you must write \\( \\pm \\) to get ___B1___ roots.",
   "blankOptions": {
    "B1": [
-    "both",
     "double",
-    "exact",
-    "20"
+    "-b",
+    "both",
+    "half"
    ]
   },
   "key": {
@@ -3060,9 +3060,9 @@ window.QUESTION_BANK = [
   "question": "A command word telling you to leave surds rather than round is ___B1___.",
   "blankOptions": {
    "B1": [
-    "20",
-    "negative",
+    "-p",
     "3",
+    "double",
     "exact"
    ]
   },
@@ -3938,7 +3938,7 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>❌ Common misconception:</strong> Drawing an OPEN circle to show \\( x \\le 4 \\) on a number line</p><p><strong>✅ The correct idea:</strong> \\( \\le \\) includes the end value, so the circle must be CLOSED (filled). A weak answer leaves it open or ambiguous; a strong answer fills it clearly. OCR 2019 Q2b noted markers could not always tell whether a circle was filled in.</p>",
   "question": "For \\( x \\ge -1 \\), the circle at \\( -1 \\) should be:",
   "options": [
-   "open (empty)",
+   "open (empty), because the endpoint is not included",
    "closed (filled)",
    "half-shaded",
    "a cross"
@@ -3982,7 +3982,7 @@ window.QUESTION_BANK = [
   "options": [
    "The turning point",
    "The critical values (roots)",
-   "The discriminant's sign",
+   "The discriminant's sign, to count how many roots there are",
    "The y-intercept"
   ],
   "key": {
@@ -4021,10 +4021,10 @@ window.QUESTION_BANK = [
   "question": "When you multiply or divide an inequality by a negative number you must ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
+    "inside",
+    "outside",
     "reverse",
-    "flip",
-    "keeps",
-    "3"
+    "zero"
    ]
   },
   "key": {
@@ -4043,10 +4043,10 @@ window.QUESTION_BANK = [
   "question": "Adding or subtracting the same quantity from both sides ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "or",
-    "flip",
     "between",
-    "keeps"
+    "flip",
+    "keeps",
+    "or"
    ]
   },
   "key": {
@@ -4065,10 +4065,10 @@ window.QUESTION_BANK = [
   "question": "To solve a quadratic inequality, first rearrange it so that one side equals ___B1___, then factorise.",
   "blankOptions": {
    "B1": [
-    "add",
+    "3",
     "zero",
-    "open",
-    "closed"
+    "flip",
+    "keeps"
    ]
   },
   "key": {
@@ -4087,10 +4087,10 @@ window.QUESTION_BANK = [
   "question": "The quadratic \\( x^2 - x - 6 \\) factorises to \\( (x-3)(x+2) \\), so its critical values are \\( 3 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "closed",
-    "outside",
-    "-2",
-    "reverse"
+    "flip",
+    "add",
+    "or",
+    "-2"
    ]
   },
   "key": {
@@ -4109,10 +4109,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c < 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
-    "closed",
-    "between",
-    "inside",
-    "reverse"
+    "add",
+    "outside",
+    "and",
+    "between"
    ]
   },
   "key": {
@@ -4131,10 +4131,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c > 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
-    "flip",
-    "outside",
     "reverse",
-    "zero"
+    "open",
+    "outside",
+    "or"
    ]
   },
   "key": {
@@ -4153,10 +4153,10 @@ window.QUESTION_BANK = [
   "question": "A strict inequality such as \\( < \\) or \\( > \\) is shown on a number line with an ___B1___ circle.",
   "blankOptions": {
    "B1": [
-    "and",
     "open",
-    "zero",
-    "add"
+    "outside",
+    "3",
+    "-2"
    ]
   },
   "key": {
@@ -4175,10 +4175,10 @@ window.QUESTION_BANK = [
   "question": "The solution to \\( x^2 > 9 \\) is \\( x < -3 \\) ___B1___ \\( x > 3 \\).",
   "blankOptions": {
    "B1": [
-    "and",
-    "or",
+    "between",
     "3",
-    "flip"
+    "or",
+    "add"
    ]
   },
   "key": {
@@ -4595,7 +4595,7 @@ window.QUESTION_BANK = [
    "\\( x - a \\) is a factor of the polynomial",
    "The polynomial is linear",
    "The quotient is also \\( 0 \\)",
-   "You made an arithmetic mistake"
+   "The polynomial cannot be factorised any further"
   ],
   "key": {
    "answer": 0,
@@ -4631,7 +4631,7 @@ window.QUESTION_BANK = [
   "question": "To divide \\( 2x^3 - 5x + 1 \\) by \\( x - 1 \\), what should you do about the missing \\( x^2 \\) term?",
   "options": [
    "Write it in as \\( 0x^2 \\) to keep the columns lined up",
-   "Ignore it — a missing term has no effect",
+   "Ignore it — a missing term has no effect on the long division",
    "Add it to the constant term",
    "Move the \\( -5x \\) up into its place"
   ],
@@ -4926,7 +4926,7 @@ window.QUESTION_BANK = [
    "State the quotient AND the remainder clearly",
    "State only the quotient",
    "State only the remainder",
-   "Leave the examiner to read your working"
+   "Leave the examiner to read the answer from your working"
   ],
   "key": {
    "answer": 0,
@@ -4945,7 +4945,7 @@ window.QUESTION_BANK = [
   "question": "How do you handle a missing \\( x^2 \\) term in the dividend?",
   "options": [
    "Write it as \\( 0x^2 \\) to keep columns aligned",
-   "Skip that column entirely",
+   "Skip it and shift the remaining terms across one column",
    "Add it to the \\( -5x \\)",
    "Move the constant up"
   ],
@@ -4966,7 +4966,7 @@ window.QUESTION_BANK = [
   "question": "Simplify \\( x^2 + x^3 \\).",
   "options": [
    "\\( x^3 + x^2 \\)",
-   "\\( x^5 \\)",
+   "\\( x^{2+3} = x^5 \\)",
    "\\( 2x^5 \\)",
    "\\( x^6 \\)"
   ],
@@ -4988,7 +4988,7 @@ window.QUESTION_BANK = [
   "options": [
    "Label both the quotient and the remainder (a number)",
    "Show working only",
-   "Give the remainder as a fraction",
+   "Give the remainder as a fraction written over the divisor \\( x - a \\)",
    "Give only the quotient"
   ],
   "key": {
@@ -5009,7 +5009,7 @@ window.QUESTION_BANK = [
   "options": [
    "So the method mark is earned even if a later step slips",
    "To use more paper",
-   "It is optional decoration",
+   "It is only there to make the working look neat for the examiner",
    "To avoid using a calculator"
   ],
   "key": {
@@ -5029,7 +5029,7 @@ window.QUESTION_BANK = [
   "question": "A question says 'use long division'. You should:",
   "options": [
    "Carry out and show the long-division method",
-   "Use equating coefficients instead",
+   "Use equating coefficients instead — it is quicker",
    "Just write the answer",
    "Use a calculator to factorise"
   ],
@@ -5048,10 +5048,10 @@ window.QUESTION_BANK = [
   "question": "A polynomial written with its powers going from highest to lowest is in ___B1___ order.",
   "blankOptions": {
    "B1": [
-    "descending",
-    "term",
-    "degree",
-    "14"
+    "constant",
+    "placeholder",
+    "coefficient",
+    "descending"
    ]
   },
   "key": {
@@ -5070,16 +5070,16 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ of a polynomial is the highest power of the variable, and the number multiplying a power of \\( x \\) is its ___B2___.",
   "blankOptions": {
    "B1": [
+    "dividend",
     "degree",
-    "constant",
-    "factor",
-    "placeholder"
+    "remainder",
+    "sign"
    ],
    "B2": [
-    "placeholder",
     "coefficient",
-    "sign",
-    "constant"
+    "term",
+    "quotient",
+    "factor"
    ]
   },
   "key": {
@@ -5099,10 +5099,10 @@ window.QUESTION_BANK = [
   "question": "To subtract one polynomial from another you must change the ___B1___ of every term in the second bracket.",
   "blankOptions": {
    "B1": [
+    "zero",
     "sign",
-    "coefficient",
-    "descending",
-    "placeholder"
+    "degree",
+    "term"
    ]
   },
   "key": {
@@ -5121,16 +5121,16 @@ window.QUESTION_BANK = [
   "question": "In long division the expression built up on top is the ___B1___ and the value left over at the end is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "ascending",
-    "descending",
-    "placeholder",
-    "quotient"
+    "sign",
+    "coefficient",
+    "quotient",
+    "14"
    ],
    "B2": [
     "remainder",
+    "degree",
     "factor",
-    "ascending",
-    "degree"
+    "term"
    ]
   },
   "key": {
@@ -5150,10 +5150,10 @@ window.QUESTION_BANK = [
   "question": "When \\( x^3 + 2x^2 - 5x + 8 \\) is divided by \\( x + 3 \\), the quotient is \\( x^2 - x - 2 \\) and the remainder is ___B1___.",
   "blankOptions": {
    "B1": [
-    "factor",
-    "placeholder",
-    "zero",
-    "14"
+    "dividend",
+    "descending",
+    "14",
+    "constant"
    ]
   },
   "key": {
@@ -5172,10 +5172,10 @@ window.QUESTION_BANK = [
   "question": "When a polynomial is divided by \\( x - a \\) and the remainder is ___B1___, then \\( x - a \\) is a factor.",
   "blankOptions": {
    "B1": [
-    "term",
     "coefficient",
-    "zero",
-    "remainder"
+    "degree",
+    "quotient",
+    "zero"
    ]
   },
   "key": {
@@ -5194,10 +5194,10 @@ window.QUESTION_BANK = [
   "question": "When dividing, insert a ___B1___ (a term with coefficient 0) for any missing power so the columns stay lined up.",
   "blankOptions": {
    "B1": [
-    "coefficient",
-    "zero",
-    "14",
-    "placeholder"
+    "placeholder",
+    "descending",
+    "factor",
+    "14"
    ]
   },
   "key": {
@@ -5569,7 +5569,7 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "To test whether \\( (2x + 1) \\) is a factor, evaluate:",
   "options": [
-   "\\( \\text{f}(\\tfrac{1}{2}) \\)",
+   "\\( \\text{f}(\\tfrac{1}{2}) \\), from solving \\( 2x = 1 \\)",
    "\\( \\text{f}(-\\tfrac{1}{2}) \\)",
    "\\( \\text{f}(2) \\)",
    "\\( \\text{f}(-2) \\)"
@@ -5608,7 +5608,7 @@ window.QUESTION_BANK = [
   "question": "A student writes \\( \\text{f}(x) = (x - 1)(2x^2 + x - 6) \\) and stops. To solve \\( \\text{f}(x) = 0 \\) they must next:",
   "options": [
    "factorise the quadratic and set each factor to 0",
-   "divide again by \\( (x - 1) \\)",
+   "divide \\( 2x^2 + x - 6 \\) by \\( (x - 1) \\) again to get the third root",
    "substitute \\( x = 0 \\)",
    "state the remainder"
   ],
@@ -5832,7 +5832,7 @@ window.QUESTION_BANK = [
    "Divisors of 6: \\( \\pm1,\\pm2,\\pm3,\\pm6 \\)",
    "Only \\( 1 \\) and \\( 2 \\)",
    "Divisors of 2",
-   "Multiples of 6"
+   "Multiples of 6: \\( 6, 12, 18, 24 \\)"
   ],
   "key": {
    "answer": 0,
@@ -5915,7 +5915,7 @@ window.QUESTION_BANK = [
   "options": [
    "\\( \\text{f}(a)=0 \\) for a trial value, and the quadratic factor",
    "only the three final factors",
-   "just the calculator answer",
+   "the three factors copied straight from the calculator screen",
    "the value of the discriminant"
   ],
   "key": {
@@ -6040,7 +6040,7 @@ window.QUESTION_BANK = [
   "question": "On a DR factor question, the safest response:",
   "options": [
    "show \\( \\text{f}(a)=0 \\) then find the quadratic factor",
-   "write the factors from the calculator",
+   "write the three factors straight from the calculator display",
    "give decimals",
    "state the remainder"
   ],
@@ -6082,7 +6082,7 @@ window.QUESTION_BANK = [
   "question": "You have factorised \\( \\text{f}(x) \\). To finish 'solve \\( \\text{f}(x)=0 \\)':",
   "options": [
    "set each factor equal to zero",
-   "stop — that is the answer",
+   "stop — the factorised form is already the solution",
    "expand the brackets again",
    "find \\( \\text{f}(0) \\)"
   ],
@@ -6101,10 +6101,10 @@ window.QUESTION_BANK = [
   "question": "The factor theorem states that if \\( \\text{f}(a) \\) equals ___B1___, then \\( (x - a) \\) is a factor of \\( \\text{f}(x) \\).",
   "blankOptions": {
    "B1": [
-    "a",
-    "root",
+    "3/2",
     "0",
-    "2"
+    "not",
+    "root"
    ]
   },
   "key": {
@@ -6123,10 +6123,10 @@ window.QUESTION_BANK = [
   "question": "If \\( (x - 4) \\) is a factor of \\( \\text{f}(x) \\), then \\( \\text{f}(4) \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
-    "linear",
+    "not",
     "0",
-    "a"
+    "is",
+    "2"
    ]
   },
   "key": {
@@ -6146,9 +6146,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "1",
-    "root",
+    "3/2",
     "factors",
-    "is"
+    "not"
    ]
   },
   "key": {
@@ -6167,10 +6167,10 @@ window.QUESTION_BANK = [
   "question": "To test whether \\( (2x - 1) \\) is a factor of \\( \\text{f}(x) \\), work out f of ___B1___.",
   "blankOptions": {
    "B1": [
+    "1",
     "1/2",
-    "2",
-    "is",
-    "quadratic"
+    "3/2",
+    "a"
    ]
   },
   "key": {
@@ -6190,15 +6190,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "linear",
-    "root",
-    "a",
-    "3/2"
+    "1",
+    "quadratic",
+    "0"
    ],
    "B2": [
-    "1/2",
+    "is",
     "not",
-    "2",
-    "a"
+    "3/2",
+    "quadratic"
    ]
   },
   "key": {
@@ -6218,9 +6218,9 @@ window.QUESTION_BANK = [
   "question": "After factorising, you solve \\( \\text{f}(x) = 0 \\) by setting each ___B1___ equal to zero.",
   "blankOptions": {
    "B1": [
-    "root",
-    "1/2",
-    "not",
+    "linear",
+    "2",
+    "factors",
     "factor"
    ]
   },
@@ -6240,10 +6240,10 @@ window.QUESTION_BANK = [
   "question": "For \\( 2x^3 - x^2 - 7x + 6 \\), testing gives \\( \\text{f}(1) = 0 \\), so (x − ___B1___) is a factor.",
   "blankOptions": {
    "B1": [
-    "is",
-    "factors",
+    "linear",
     "1",
-    "factor"
+    "not",
+    "1/2"
    ]
   },
   "key": {
@@ -6673,7 +6673,7 @@ window.QUESTION_BANK = [
   "options": [
    "the speed of the current = 1 km/h",
    "\\( r = 1 \\)",
-   "\\( r = 1 \\) km/h",
+   "\\( r = 1 \\) km/h, the value with its correct units",
    "1"
   ],
   "key": {
@@ -6729,7 +6729,7 @@ window.QUESTION_BANK = [
   "question": "Setting up a real problem gives a quadratic with \\( b^2 - 4ac < 0 \\). This means:",
   "options": [
    "there is no real solution — re-check the model",
-   "there are two solutions",
+   "there are two solutions, one positive and one negative",
    "you should take the negative root",
    "the answer is 0"
   ],
@@ -6872,10 +6872,10 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>Setting up an equation</strong> means translating a real situation into algebra you can solve. The same five-step routine works whether the equation turns out to be linear, quadratic or cubic.</p>\n            <table class=\"worked\">\n              <tr><td>1. <strong>Define the unknown.</strong> Write \"Let \\( x \\) be …\" and include its <strong>units</strong> (cm, km/h, £).</td></tr>\n              <tr><td>2. <strong>Translate</strong> each sentence into algebra — \"5 more than\" is \\( +5 \\), \"3 times\" is \\( 3x \\), \"product\" is a multiplication.</td></tr>\n              <tr><td>3. <strong>Solve</strong> the equation using the right method for its degree.</td></tr>\n              <tr><td>4. <strong>Interpret</strong> the solution back in the context, with units.</td></tr>\n              <tr><td>5. <strong>Reject</strong> any solution that cannot occur (a negative length, a fractional number of people).</td></tr>\n            </table>\n            <p>The commonest lost marks are skipping step 1 (never saying what \\( x \\) is) and skipping steps 4–5 (leaving a bare number instead of a value in context).</p>",
   "question": "What should the very first line of a set-up-a-model answer do?",
   "options": [
-   "Define the unknown and its units, e.g. 'Let \\( x \\) be the width in cm'",
+   "Define the unknown and state its units",
    "Write down the final answer",
    "Draw a graph",
-   "Multiply everything out"
+   "Multiply out every bracket before doing anything else"
   ],
   "key": {
    "answer": 0,
@@ -6916,7 +6916,7 @@ window.QUESTION_BANK = [
   "options": [
    "\\( 5 \\) (reject \\( -9 \\): a length can't be negative)",
    "\\( -9 \\)",
-   "\\( 5 \\) or \\( -9 \\)",
+   "\\( 5 \\) or \\( -9 \\), since both values satisfy the equation",
    "\\( -4 \\), the sum of the roots"
   ],
   "key": {
@@ -6936,7 +6936,7 @@ window.QUESTION_BANK = [
   "question": "After spotting \\( n = 3 \\) is a root of a cubic, the next step is to:",
   "options": [
    "Factor out \\( (n - 3) \\) to get a quadratic, then solve that",
-   "Stop — one root is enough",
+   "Stop, because finding one root already answers the whole question",
    "Square both sides",
    "Reject \\( n = 3 \\)"
   ],
@@ -6959,7 +6959,7 @@ window.QUESTION_BANK = [
    "\\( x^2 + (2x)^2 = 20 \\)",
    "\\( x^2 + 2x = 20 \\)",
    "\\( (2x)^2 = 20 \\)",
-   "\\( x^2 + y = 20 \\)"
+   "\\( x^2 + 2x^2 = 20 \\), so \\( 3x^2 = 20 \\)"
   ],
   "key": {
    "answer": 0,
@@ -7000,7 +7000,7 @@ window.QUESTION_BANK = [
   "options": [
    "6 cm (reject \\( -8 \\))",
    "\\( -8 \\) cm",
-   "6 or \\( -8 \\) cm",
+   "both 6 cm and \\( -8 \\) cm are valid widths",
    "\\( -2 \\) cm"
   ],
   "key": {
@@ -7021,7 +7021,7 @@ window.QUESTION_BANK = [
   "options": [
    "speed = 1 km/h",
    "\\( r = 1 \\)",
-   "\\( r = 1 \\) km/h",
+   "\\( r = 1 \\) km/h, the variable with units added",
    "1"
   ],
   "key": {
@@ -7083,7 +7083,7 @@ window.QUESTION_BANK = [
   "question": "A 'show that' question wants you to:",
   "options": [
    "Derive the given result step by step",
-   "Solve for the unknown",
+   "Solve for the unknown and give its numerical value",
    "Give a decimal answer",
    "Draw the graph"
   ],
@@ -7103,9 +7103,9 @@ window.QUESTION_BANK = [
   "reading": "<p><strong>0 marks:</strong> jumping straight to numbers with no defined variable and no units.</p><p><strong>Partial:</strong> a correct equation solved to a bare number, e.g. \"\\( x = 6 \\)\", with no context.</p><p><strong>Full marks:</strong> \"Let \\( x \\) be the width in cm\" → \\( x(x+2) = 48 \\) → \\( x = 6 \\) (reject \\( -8 \\)) → \"the width is 6 cm, the length 8 cm\". Define, translate, solve, interpret.</p>",
   "question": "What lifts a partial answer to full marks in a modelling question?",
   "options": [
-   "Defining the variable and interpreting the answer in context with units",
+   "Defining the variable and interpreting in context",
    "Working faster",
-   "Giving a decimal",
+   "Giving the answer to more decimal places for accuracy",
    "Using a graph"
   ],
   "key": {
@@ -7126,7 +7126,7 @@ window.QUESTION_BANK = [
   "options": [
    "State which root and why it is impossible",
    "Erase it with no comment",
-   "Keep both roots anyway",
+   "Keep both roots and let the examiner pick the right one",
    "Round it to zero"
   ],
   "key": {
@@ -7146,7 +7146,7 @@ window.QUESTION_BANK = [
   "question": "Why did \"\\( r = 1 \\)\" lose the final mark in the 2023 boat question?",
   "options": [
    "It gave a bare value, not the speed with units in context",
-   "The arithmetic was wrong",
+   "The arithmetic must have gone wrong somewhere in the working",
    "\\( r = 1 \\) is not a root",
    "It used the wrong formula"
   ],
@@ -7165,10 +7165,10 @@ window.QUESTION_BANK = [
   "question": "The first step in modelling a worded problem is to define the ___B1___ and state what it represents.",
   "blankOptions": {
    "B1": [
-    "elimination",
-    "1",
     "reject",
-    "unknown"
+    "1",
+    "unknown",
+    "plus"
    ]
   },
   "key": {
@@ -7187,10 +7187,10 @@ window.QUESTION_BANK = [
   "question": "When a quadratic equation for a length gives a negative root, you must ___B1___ it, because a length cannot be negative.",
   "blankOptions": {
    "B1": [
-    "reject",
-    "2n",
-    "1",
-    "unknown"
+    "plus",
+    "substitution",
+    "minus",
+    "reject"
    ]
   },
   "key": {
@@ -7209,10 +7209,10 @@ window.QUESTION_BANK = [
   "question": "To solve one linear and one quadratic equation together, use the method of ___B1___.",
   "blankOptions": {
    "B1": [
-    "substitution",
-    "1",
-    "n+3",
-    "plus"
+    "units",
+    "minus",
+    "16",
+    "substitution"
    ]
   },
   "key": {
@@ -7231,10 +7231,10 @@ window.QUESTION_BANK = [
   "question": "In the boat problem the two roots were 1 and \\( -16 \\); the current speed must be positive, so the answer is ___B1___ km/h.",
   "blankOptions": {
    "B1": [
-    "elimination",
-    "2n",
-    "minus",
-    "1"
+    "unknown",
+    "units",
+    "1",
+    "minus"
    ]
   },
   "key": {
@@ -7253,10 +7253,10 @@ window.QUESTION_BANK = [
   "question": "A final answer in a real context should always be stated with its ___B1___.",
   "blankOptions": {
    "B1": [
-    "reject",
-    "elimination",
-    "1",
-    "units"
+    "unknown",
+    "variable",
+    "units",
+    "accept"
    ]
   },
   "key": {
@@ -7275,10 +7275,10 @@ window.QUESTION_BANK = [
   "question": "The phrase \"5 more than a number \\( x \\)\" translates to \\( x \\) ___B1___ 5.",
   "blankOptions": {
    "B1": [
-    "accept",
+    "substitution",
     "plus",
     "16",
-    "minus"
+    "1"
    ]
   },
   "key": {
@@ -7297,10 +7297,10 @@ window.QUESTION_BANK = [
   "question": "Three consecutive integers can be written as \\( n \\), \\( n+1 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "n+3",
-    "variable",
+    "16",
+    "substitution",
     "n+2",
-    "1"
+    "elimination"
    ]
   },
   "key": {
@@ -7601,7 +7601,7 @@ window.QUESTION_BANK = [
   "question": "A student is told \\( x_{n+1} = 5x_n \\) with \\( x_1 = 2 \\) and writes \\( x_2 = 7 \\). What went wrong?",
   "options": [
    "They added 5 instead of multiplying by 5 — it should be \\( x_2 = 10 \\)",
-   "Nothing — \\( x_2 = 7 \\) is correct",
+   "Nothing wrong — a recurrence adds the coefficient onto the term, so \\( x_2 = 7 \\)",
    "They should get \\( x_2 = 25 \\)",
    "They used the wrong starting value"
   ],
@@ -7639,7 +7639,7 @@ window.QUESTION_BANK = [
   "question": "Which recurrence generates the sequence \\( 2,\\ 10,\\ 50,\\ 250,\\ \\dots \\)?",
   "options": [
    "\\( x_{n+1} = 5x_n,\\ x_1 = 2 \\)",
-   "\\( x_{n+1} = x_n + 8 \\)",
+   "\\( x_{n+1} = x_n + 8,\\ x_1 = 2 \\)",
    "\\( x_{n+1} = x_n + 40 \\)",
    "\\( x_{n+2} = x_{n+1} + x_n \\)"
   ],
@@ -7697,7 +7697,7 @@ window.QUESTION_BANK = [
   "options": [
    "Two starting values",
    "One starting value",
-   "No starting values",
+   "No starting values — the rule on its own generates the whole sequence",
    "The 100th term"
   ],
   "key": {
@@ -8027,7 +8027,7 @@ window.QUESTION_BANK = [
   "question": "Why set out each term on its own line?",
   "options": [
    "Each correct term earns its own mark and it prevents copying slips",
-   "It uses more paper",
+   "Only the final answer is marked, so the separate lines are just optional rough working",
    "It is required by law",
    "To make the answer look longer"
   ],
@@ -8050,7 +8050,7 @@ window.QUESTION_BANK = [
    "A rule giving each term from earlier terms",
    "The sum of all the terms",
    "The 100th term of the sequence",
-   "A type of graph"
+   "A formula giving any term directly from its position number"
   ],
   "key": {
    "answer": 0,
@@ -8090,7 +8090,7 @@ window.QUESTION_BANK = [
   "question": "Why write each term of a recurrence on its own line?",
   "options": [
    "Each correct term earns a separate mark",
-   "It is not necessary",
+   "Only the final term is marked, so listing them is merely tidy presentation",
    "To slow yourself down",
    "To fill the answer space"
   ],
@@ -8111,7 +8111,7 @@ window.QUESTION_BANK = [
   "question": "What does 'Determine the value of \\( x_5 \\)' require?",
   "options": [
    "The value with working shown",
-   "Only the final number",
+   "Only the final number, since 'determine' just means calculate the answer",
    "A graph of the sequence",
    "A decimal approximation"
   ],
@@ -8151,10 +8151,10 @@ window.QUESTION_BANK = [
   "question": "A rule that gives each term of a sequence from earlier terms is called a ___B1___ relationship.",
   "blankOptions": {
    "B1": [
-    "two",
     "recurrence",
-    "added",
-    "one"
+    "subtracted",
+    "11",
+    "1.3"
    ]
   },
   "key": {
@@ -8173,9 +8173,9 @@ window.QUESTION_BANK = [
   "question": "As well as the rule, you need a ___B1___ value before you can generate the sequence.",
   "blankOptions": {
    "B1": [
-    "added",
-    "0.15",
-    "recurrence",
+    "1.3",
+    "1.03",
+    "7",
     "starting"
    ]
   },
@@ -8195,10 +8195,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = x_n + a \\) the fixed number \\( a \\) is ___B1___ to each term, giving an arithmetic sequence.",
   "blankOptions": {
    "B1": [
-    "two",
+    "7",
     "added",
-    "multiplied",
-    "7"
+    "divided",
+    "1.3"
    ]
   },
   "key": {
@@ -8217,9 +8217,9 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = a x_n \\) each term is ___B1___ by \\( a \\), giving a geometric sequence.",
   "blankOptions": {
    "B1": [
-    "geometric",
+    "starting",
+    "recurrence",
     "divided",
-    "7",
     "multiplied"
    ]
   },
@@ -8239,9 +8239,9 @@ window.QUESTION_BANK = [
   "question": "A second-order rule such as \\( x_{n+2} = x_{n+1} + x_n \\) needs ___B1___ starting values.",
   "blankOptions": {
    "B1": [
-    "starting",
+    "geometric",
+    "recurrence",
     "1.3",
-    "7",
     "two"
    ]
   },
@@ -8261,10 +8261,10 @@ window.QUESTION_BANK = [
   "question": "Compound interest of 3% per year gives \\( x_{n+1} = k x_n \\) where the multiplier \\( k \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "1.03",
-    "recurrence",
     "11",
-    "added"
+    "1.03",
+    "multiplied",
+    "divided"
    ]
   },
   "key": {
@@ -8283,10 +8283,10 @@ window.QUESTION_BANK = [
   "question": "An asset that loses 15% of its value each year has multiplier ___B1___.",
   "blankOptions": {
    "B1": [
-    "one",
-    "7",
     "0.85",
-    "0.15"
+    "starting",
+    "two",
+    "divided"
    ]
   },
   "key": {
@@ -8305,16 +8305,16 @@ window.QUESTION_BANK = [
   "question": "For \\( x_{n+1} = x_n + 4 \\) with \\( x_1 = 3 \\), the second term is ___B1___ and the third term is ___B2___.",
   "blankOptions": {
    "B1": [
+    "recurrence",
+    "7",
     "two",
-    "geometric",
-    "added",
-    "7"
+    "divided"
    ],
    "B2": [
-    "geometric",
-    "11",
+    "multiplied",
     "1.03",
-    "two"
+    "starting",
+    "11"
    ]
   },
   "key": {
@@ -8636,12 +8636,12 @@ window.QUESTION_BANK = [
   "options": [
    "\\( -\\frac{1}{3} \\)",
    "\\( \\frac{1}{3} \\)",
-   "\\( -3 \\)",
+   "\\( -\\frac{3}{1} \\)",
    "\\( 3 \\)"
   ],
   "key": {
    "answer": 0,
-   "explain": "Negative reciprocal of \\( 3 \\) is \\( -\\frac{1}{3} \\). \\( \\frac{1}{3} \\) flips but forgets the minus sign."
+   "explain": "Negative reciprocal of \\( 3 \\) is \\( -\\frac{1}{3} \\). \\( \\frac{1}{3} \\) flips but forgets the minus sign; \\( -\\frac{3}{1} = -3 \\) negates but never takes the reciprocal."
   }
  },
  {
@@ -9039,12 +9039,12 @@ window.QUESTION_BANK = [
   "options": [
    "\\( -\\frac{1}{5} \\)",
    "\\( \\frac{1}{5} \\)",
-   "\\( -5 \\)",
+   "\\( -\\frac{5}{1} \\)",
    "\\( 5 \\)"
   ],
   "key": {
    "answer": 0,
-   "explain": "Negative reciprocal of \\( 5 \\) is \\( -\\frac{1}{5} \\); \\( 5 \\times -\\frac{1}{5} = -1 \\)."
+   "explain": "Negative reciprocal of \\( 5 \\) is \\( -\\frac{1}{5} \\); \\( 5 \\times -\\frac{1}{5} = -1 \\). \\( -\\frac{5}{1} = -5 \\) negates without reciprocating."
   }
  },
  {
@@ -9102,7 +9102,7 @@ window.QUESTION_BANK = [
   "options": [
    "The midpoint and the perpendicular gradient",
    "Both endpoints only",
-   "The gradient of \\( AB \\) and one endpoint",
+   "The gradient of \\( AB \\) itself and one of its two endpoints",
    "The distance \\( AB \\) only"
   ],
   "key": {
@@ -9143,7 +9143,7 @@ window.QUESTION_BANK = [
   "question": "Which is the quickest full-mark route for a perpendicular bisector?",
   "options": [
    "Midpoint, then negative-reciprocal gradient, then the line through the midpoint",
-   "Find the equation of \\( AB \\) first",
+   "Find the gradient of \\( AB \\), then draw the line with that same gradient through the midpoint",
    "Only find the midpoint",
    "Only find the perpendicular gradient"
   ],
@@ -9164,7 +9164,7 @@ window.QUESTION_BANK = [
   "question": "Why do examiners prefer point-gradient form for these questions?",
   "options": [
    "It avoids the c-slip from substituting a point into y = mx + c",
-   "It is the only valid form",
+   "It is the only form the mark scheme will accept for the final answer",
    "It never needs a gradient",
    "It gives decimals automatically"
   ],
@@ -9204,10 +9204,10 @@ window.QUESTION_BANK = [
   "question": "The distance between two points comes from ___B1___ theorem, taking the square root of the sum of the squared gaps.",
   "blankOptions": {
    "B1": [
-    "point-gradient",
-    "Pythagoras",
     "intercept",
-    "y"
+    "average",
+    "equal",
+    "Pythagoras"
    ]
   },
   "key": {
@@ -9226,10 +9226,10 @@ window.QUESTION_BANK = [
   "question": "To find the midpoint you ___B1___ the two \\( x \\)-coordinates and do the same to the \\( y \\)-coordinates.",
   "blankOptions": {
    "B1": [
-    "average",
-    "equal",
     "-1",
-    "midpoint"
+    "gradient",
+    "average",
+    "intercept"
    ]
   },
   "key": {
@@ -9248,10 +9248,10 @@ window.QUESTION_BANK = [
   "question": "Parallel lines always have ___B1___ gradients.",
   "blankOptions": {
    "B1": [
-    "equal",
-    "point-gradient",
+    "1",
     "negative reciprocal",
-    "midpoint"
+    "equal",
+    "-1"
    ]
   },
   "key": {
@@ -9270,10 +9270,10 @@ window.QUESTION_BANK = [
   "question": "For two perpendicular lines the product of their gradients is ___B1___.",
   "blankOptions": {
    "B1": [
-    "-1",
+    "1",
     "Pythagoras",
-    "parallel",
-    "negative reciprocal"
+    "-1",
+    "reciprocal"
    ]
   },
   "key": {
@@ -9292,16 +9292,16 @@ window.QUESTION_BANK = [
   "question": "The perpendicular bisector of a segment passes through its ___B1___ and has a gradient equal to the ___B2___ of the segment's gradient.",
   "blankOptions": {
    "B1": [
-    "y",
-    "average",
     "midpoint",
-    "equal"
+    "y",
+    "point-gradient",
+    "parallel"
    ],
    "B2": [
+    "1",
+    "gradient",
     "negative reciprocal",
-    "average",
-    "intercept",
-    "subtracting"
+    "equal"
    ]
   },
   "key": {
@@ -9321,16 +9321,16 @@ window.QUESTION_BANK = [
   "question": "In the equation \\( y = mx + c \\), the letter \\( m \\) is the ___B1___ and \\( c \\) is the \\( y \\)-___B2___.",
   "blankOptions": {
    "B1": [
+    "subtracting",
     "gradient",
-    "slope",
-    "x",
-    "1"
+    "point-gradient",
+    "x"
    ],
    "B2": [
-    "-1",
+    "parallel",
     "intercept",
-    "1",
-    "Pythagoras"
+    "negative reciprocal",
+    "y"
    ]
   },
   "key": {
@@ -9350,10 +9350,10 @@ window.QUESTION_BANK = [
   "question": "The gradient of a line is the change in \\( y \\) divided by the change in ___B1___.",
   "blankOptions": {
    "B1": [
-    "negative reciprocal",
     "x",
-    "slope",
-    "average"
+    "intercept",
+    "point-gradient",
+    "gradient"
    ]
   },
   "key": {
@@ -9372,10 +9372,10 @@ window.QUESTION_BANK = [
   "question": "The form \\( y - y_1 = m(x - x_1) \\) is called the ___B1___ form of a line.",
   "blankOptions": {
    "B1": [
-    "intercept",
-    "x",
     "point-gradient",
-    "equal"
+    "1",
+    "midpoint",
+    "intercept"
    ]
   },
   "key": {
@@ -10161,7 +10161,7 @@ window.QUESTION_BANK = [
    "\\( -\\tfrac{1}{2} \\)",
    "\\( 2 \\)",
    "\\( \\tfrac{1}{2} \\)",
-   "\\( -2 \\)"
+   "\\( -\\tfrac{2}{1} \\)"
   ],
   "key": {
    "answer": 0,
@@ -10180,7 +10180,7 @@ window.QUESTION_BANK = [
   "question": "Which statement about the normal to a circle at a point is true?",
   "options": [
    "It passes through the centre of the circle",
-   "It is perpendicular to the radius",
+   "It is perpendicular to the radius at that point",
    "It is the same line as the tangent",
    "It never meets the centre"
   ],
@@ -10223,7 +10223,7 @@ window.QUESTION_BANK = [
   "options": [
    "Finding the normal to a circle at a point",
    "The circle \\( x^2 + y^2 = r^2 \\)",
-   "The tangent to a circle at a point",
+   "Finding the tangent to a circle at a point",
    "Reading a radius off \\( x^2 + y^2 = 25 \\)"
   ],
   "key": {
@@ -10349,7 +10349,7 @@ window.QUESTION_BANK = [
   "options": [
    "The concluding sentence stating they are perpendicular",
    "A diagram",
-   "The equations of both lines",
+   "The full equations of both lines, not just their gradients",
    "The area of the triangle"
   ],
   "key": {
@@ -10370,7 +10370,7 @@ window.QUESTION_BANK = [
   "options": [
    "It avoids errors from finding \\( c \\) separately",
    "It is the only allowed form",
-   "It gives the normal automatically",
+   "It also gives the normal's equation automatically",
    "It needs no gradient"
   ],
   "key": {
@@ -10392,7 +10392,7 @@ window.QUESTION_BANK = [
    "coincident (equal) roots, so \\( b^2 - 4ac = 0 \\)",
    "two distinct roots",
    "no real roots",
-   "a positive discriminant"
+   "a positive discriminant, meaning two real roots"
   ],
   "key": {
    "answer": 0,
@@ -10409,16 +10409,16 @@ window.QUESTION_BANK = [
   "question": "The general equation of a circle with centre \\( (a,\\ b) \\) and radius \\( r \\) is \\( (x-a)^2 + (y-b)^2 = r^2 \\). For \\( (x-3)^2 + (y+2)^2 = 25 \\), the centre is ___B1___ and the radius is ___B2___.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
-    "linear",
-    "25",
-    "(3, -2)"
+    "factorise",
+    "perpendicular",
+    "(3, -2)",
+    "tangent"
    ],
    "B2": [
-    "25",
-    "5",
+    "reciprocal",
     "double",
-    "perpendicular"
+    "zero",
+    "5"
    ]
   },
   "key": {
@@ -10438,10 +10438,10 @@ window.QUESTION_BANK = [
   "question": "To find the centre and radius from the expanded form \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\), you complete the ___B1___ in \\( x \\) and in \\( y \\) separately.",
   "blankOptions": {
    "B1": [
-    "negative reciprocal",
-    "perpendicular",
+    "negative",
     "square",
-    "parallel"
+    "parallel",
+    "linear"
    ]
   },
   "key": {
@@ -10460,16 +10460,16 @@ window.QUESTION_BANK = [
   "question": "At the point of contact, the radius is ___B1___ to the tangent, so the tangent gradient is the ___B2___ of the radius gradient.",
   "blankOptions": {
    "B1": [
-    "5",
-    "midpoint",
-    "perpendicular",
-    "normal"
+    "zero",
+    "parallel",
+    "normal",
+    "perpendicular"
    ],
    "B2": [
-    "normal",
-    "(3, -2)",
+    "factorise",
     "negative reciprocal",
-    "reciprocal"
+    "half",
+    "double"
    ]
   },
   "key": {
@@ -10489,10 +10489,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ to a circle at a point always passes through the centre of the circle.",
   "blankOptions": {
    "B1": [
-    "perpendicular",
+    "normal",
+    "factorise",
     "linear",
-    "reciprocal",
-    "normal"
+    "perpendicular"
    ]
   },
   "key": {
@@ -10511,16 +10511,16 @@ window.QUESTION_BANK = [
   "question": "To test where a line meets a circle, ___B1___ the line into the circle equation to obtain a ___B2___ equation.",
   "blankOptions": {
    "B1": [
-    "negative",
-    "linear",
-    "substitute",
-    "square"
+    "half",
+    "double",
+    "midpoint",
+    "substitute"
    ],
    "B2": [
-    "parallel",
-    "(3, -2)",
     "quadratic",
-    "positive"
+    "5",
+    "parallel",
+    "negative reciprocal"
    ]
   },
   "key": {
@@ -10540,10 +10540,10 @@ window.QUESTION_BANK = [
   "question": "A line is a tangent to a circle exactly when the discriminant of that quadratic equals ___B1___.",
   "blankOptions": {
    "B1": [
+    "reciprocal",
     "zero",
-    "tangent",
-    "factorise",
-    "square"
+    "normal",
+    "quadratic"
    ]
   },
   "key": {
@@ -10562,9 +10562,9 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, the line misses the circle completely.",
   "blankOptions": {
    "B1": [
-    "(-3, 2)",
-    "negative",
     "reciprocal",
+    "zero",
+    "negative",
     "gradient"
    ]
   },
@@ -10585,15 +10585,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "midpoint",
-    "factorise",
-    "quadratic",
-    "square"
+    "normal",
+    "tangent",
+    "gradient"
    ],
    "B2": [
-    "parallel",
-    "positive",
+    "substitute",
+    "half",
     "square",
-    "half"
+    "positive"
    ]
   },
   "key": {
@@ -10932,7 +10932,7 @@ window.QUESTION_BANK = [
   "question": "How many times does \\( y = (x-1)(x+2)(x-4) \\) cross the \\( x \\)-axis?",
   "options": [
    "Three",
-   "Two",
+   "Two — only the positive roots \\( x = 1 \\) and \\( x = 4 \\) count",
    "One",
    "Four"
   ],
@@ -10951,7 +10951,7 @@ window.QUESTION_BANK = [
   "question": "A cubic with a repeated factor \\( (x-2)^2 \\) does what at \\( x = 2 \\)?",
   "options": [
    "Touches the \\( x \\)-axis and turns back",
-   "Crosses the \\( x \\)-axis steeply",
+   "Crosses the \\( x \\)-axis steeply, just as any single unrepeated factor does",
    "Has a vertical asymptote",
    "Jumps discontinuously"
   ],
@@ -10989,7 +10989,7 @@ window.QUESTION_BANK = [
   "question": "Which statement about \\( y = \\cos x \\) on \\( 0^\\circ \\le x \\le 360^\\circ \\) is correct?",
   "options": [
    "It starts at \\( 1 \\), is \\( 0 \\) at \\( 90^\\circ \\), and \\( -1 \\) at \\( 180^\\circ \\)",
-   "It starts at \\( 0 \\) and peaks at \\( 90^\\circ \\)",
+   "It starts at \\( 0 \\), peaks at \\( 1 \\) when \\( x = 90^\\circ \\), then returns to \\( 0 \\)",
    "It starts at \\( -1 \\) at \\( 0^\\circ \\)",
    "It has no value at \\( 90^\\circ \\)"
   ],
@@ -11047,7 +11047,7 @@ window.QUESTION_BANK = [
   "options": [
    "Both go up (to \\( +\\infty \\)) as \\( x \\to \\pm\\infty \\)",
    "Both go down",
-   "One up, one down",
+   "One end goes up and the other goes down as \\( x \\to \\pm\\infty \\)",
    "Level off to an asymptote"
   ],
   "key": {
@@ -11209,7 +11209,7 @@ window.QUESTION_BANK = [
   "question": "A question says \"Sketch \\( y = 2^x \\)\". What is expected?",
   "options": [
    "A labelled freehand curve showing shape, the asymptote and the y-intercept",
-   "An accurate plot of exact points on graph paper",
+   "An accurate plot of exact points from a table of values on graph paper, joined smoothly",
    "A table of values only",
    "A ruled straight line"
   ],
@@ -11272,7 +11272,7 @@ window.QUESTION_BANK = [
   "question": "How does the graph of \\( y = (x+3)^2(x-1) \\) behave at \\( x = -3 \\)?",
   "options": [
    "It touches the \\( x \\)-axis (repeated root) and turns back",
-   "It crosses the \\( x \\)-axis steeply",
+   "It crosses the \\( x \\)-axis steeply, since every linear factor makes the curve cross once",
    "It has an asymptote there",
    "It is undefined there"
   ],
@@ -11335,7 +11335,7 @@ window.QUESTION_BANK = [
   "question": "Two graphs are plotted on one grid and cross at \\( (1.9,\\ 4) \\). What does \\( x = 1.9 \\) represent?",
   "options": [
    "A solution of the equation formed by setting the two expressions equal",
-   "The gradient of one curve",
+   "The \\( x \\)-value where just one of the two curves meets the \\( x \\)-axis (its own root)",
    "The \\( y \\)-intercept",
    "The period of the graph"
   ],
@@ -11356,7 +11356,7 @@ window.QUESTION_BANK = [
   "question": "How should plotted points on a curve be joined?",
   "options": [
    "With one smooth freehand curve",
-   "With ruled straight segments",
+   "With ruled straight segments joining each plotted point to the next",
    "Not joined at all",
    "With a dotted rectangle"
   ],
@@ -11377,7 +11377,7 @@ window.QUESTION_BANK = [
   "question": "What must an exponential sketch show near the \\( x \\)-axis?",
   "options": [
    "The curve approaching \\( y = 0 \\) as an asymptote",
-   "The curve crossing \\( y = 0 \\)",
+   "The curve crossing \\( y = 0 \\) and continuing below the \\( x \\)-axis",
    "A vertical asymptote",
    "A turning point on the axis"
   ],
@@ -11400,7 +11400,7 @@ window.QUESTION_BANK = [
    "Roots, \\( y \\)-intercept, turning point and direction of opening",
    "Only the vertex",
    "Only the \\( y \\)-intercept",
-   "Just a smooth U with no labels"
+   "Just a neatly drawn smooth U shape, accurate but with none of its features labelled"
   ],
   "key": {
    "answer": 0,
@@ -11440,7 +11440,7 @@ window.QUESTION_BANK = [
   "question": "A part says \"Hence write down the root from your graph\". You should:",
   "options": [
    "Read the crossing point off your plotted graph",
-   "Use the calculator solve function",
+   "Use the calculator's equation solver to find the exact root",
    "Factorise algebraically",
    "Complete the square"
   ],
@@ -11461,7 +11461,7 @@ window.QUESTION_BANK = [
   "question": "The grid is provided and the word is \"plot\". You should:",
   "options": [
    "Work out a table of values and mark points accurately",
-   "Draw a rough freehand shape",
+   "Draw a rough freehand shape showing only the main features",
    "Only describe the graph in words",
    "Give the equation only"
   ],
@@ -11482,7 +11482,7 @@ window.QUESTION_BANK = [
   "question": "Which feature is most often missing from an exponential sketch?",
   "options": [
    "The horizontal asymptote \\( y = 0 \\)",
-   "The gradient value",
+   "The gradient of the curve at its \\( y \\)-intercept",
    "The period",
    "The amplitude"
   ],
@@ -11522,16 +11522,16 @@ window.QUESTION_BANK = [
   "question": "A graph drawn with only its main features, not to scale, is called a ___B1___; an accurate one worked out on a grid is a ___B2___.",
   "blankOptions": {
    "B1": [
+    "cross",
+    "upwards",
     "sketch",
-    "downwards",
-    "roots",
-    "3"
+    "2"
    ],
    "B2": [
+    "2",
     "plot",
-    "cross",
-    "360",
-    "k"
+    "roots",
+    "3"
    ]
   },
   "key": {
@@ -11551,16 +11551,16 @@ window.QUESTION_BANK = [
   "question": "For the exponential graph \\( y = k a^x \\) with \\( a > 0 \\), the horizontal asymptote is the line \\( y = \\) ___B1___ and the curve crosses the \\( y \\)-axis at the value ___B2___.",
   "blankOptions": {
    "B1": [
-    "360",
     "3",
     "0",
-    "touch"
+    "draw",
+    "180"
    ],
    "B2": [
+    "3",
     "k",
-    "180",
-    "parabola",
-    "sketch"
+    "2",
+    "180"
    ]
   },
   "key": {
@@ -11580,16 +11580,16 @@ window.QUESTION_BANK = [
   "question": "A quadratic graph has the shape called a ___B1___; when the \\( x^2 \\) coefficient is positive it opens ___B2___.",
   "blankOptions": {
    "B1": [
+    "3",
+    "cross",
     "parabola",
-    "k",
-    "touch",
-    "downwards"
+    "2"
    ],
    "B2": [
-    "cross",
-    "360",
+    "draw",
+    "2",
     "upwards",
-    "plot"
+    "3"
    ]
   },
   "key": {
@@ -11609,15 +11609,15 @@ window.QUESTION_BANK = [
   "question": "The graphs of \\( y = \\sin x \\) and \\( y = \\cos x \\) both repeat every ___B1___ degrees and have amplitude ___B2___.",
   "blankOptions": {
    "B1": [
+    "2",
+    "360",
     "draw",
-    "roots",
-    "sketch",
-    "360"
+    "k"
    ],
    "B2": [
-    "k",
-    "3",
-    "plot",
+    "2",
+    "180",
+    "upwards",
     "1"
    ]
   },
@@ -11638,16 +11638,16 @@ window.QUESTION_BANK = [
   "question": "To find where a curve meets the \\( x \\)-axis you set \\( y = \\) ___B1___ and solve; these values are the ___B2___ of the function.",
   "blankOptions": {
    "B1": [
-    "upwards",
-    "3",
+    "downwards",
     "0",
+    "plot",
     "draw"
    ],
    "B2": [
-    "draw",
+    "360",
+    "2",
     "roots",
-    "k",
-    "360"
+    "draw"
    ]
   },
   "key": {
@@ -11668,15 +11668,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "3",
-    "upwards",
     "roots",
-    "1"
+    "draw",
+    "k"
    ],
    "B2": [
+    "0",
+    "plot",
     "touch",
-    "360",
-    "roots",
-    "cross"
+    "360"
    ]
   },
   "key": {
@@ -11696,10 +11696,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( y = \\tan x \\) has vertical asymptotes and repeats every ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "draw",
-    "180",
-    "sketch",
-    "downwards"
+    "2",
+    "plot",
+    "3",
+    "180"
    ]
   },
   "key": {
@@ -12075,7 +12075,7 @@ window.QUESTION_BANK = [
   "question": "The boundary of \\( y > x + 1 \\) should be drawn:",
   "options": [
    "Dashed, because the inequality is strict",
-   "Solid, because it is a straight line",
+   "Solid, because straight boundary lines are always drawn solid",
    "Dashed, because the gradient is 1",
    "Solid, because \\( > \\) means 'greater'"
   ],
@@ -12113,7 +12113,7 @@ window.QUESTION_BANK = [
   "question": "Under the OCR exam convention, which region do you shade?",
   "options": [
    "The region that is NOT required",
-   "The feasible region itself",
+   "The feasible region that satisfies every inequality",
    "Both regions",
    "Only the boundary lines"
   ],
@@ -12191,7 +12191,7 @@ window.QUESTION_BANK = [
    "The region satisfying every inequality at once (left clear)",
    "The largest shaded region",
    "The area under the topmost line",
-   "The region satisfying at least one inequality"
+   "The region satisfying at least one of the given inequalities"
   ],
   "key": {
    "answer": 0,
@@ -12229,7 +12229,7 @@ window.QUESTION_BANK = [
    "All the points on one side of a boundary line (with the line if the sign is \\( \\le / \\ge \\))",
    "A line segment",
    "The area of a triangle",
-   "Half of the coordinate grid, split by the y-axis"
+   "Exactly half of the whole coordinate grid, always split into two equal parts by the y-axis"
   ],
   "key": {
    "answer": 0,
@@ -12394,7 +12394,7 @@ window.QUESTION_BANK = [
   "question": "You test \\( (0,0) \\) in \\( 3x + y \\le 6 \\) and get \\( 0 \\le 6 \\). What does this tell you?",
   "options": [
    "The origin's side satisfies the inequality",
-   "The origin's side fails the inequality",
+   "The origin's side fails, so it is the unwanted region",
    "The boundary must be dashed",
    "Nothing — the origin is on the line"
   ],
@@ -12415,7 +12415,7 @@ window.QUESTION_BANK = [
   "question": "Under the OCR convention, which part of the diagram is your final answer?",
   "options": [
    "The clear (unshaded) region",
-   "The shaded region",
+   "The shaded region, since that is the part you drew",
    "The boundary line only",
    "Both regions together"
   ],
@@ -12541,7 +12541,7 @@ window.QUESTION_BANK = [
   "question": "The reliable way to choose the correct side is to:",
   "options": [
    "Test a point in the inequality",
-   "Always shade above the line",
+   "Always shade above the line, whatever the inequality says",
    "Always shade to the right",
    "Shade the smaller region"
   ],
@@ -12583,7 +12583,7 @@ window.QUESTION_BANK = [
   "question": "In a 4-mark 'draw and shade' question, the shading mark is awarded:",
   "options": [
    "Follow-through on your own lines, for shading the unwanted region",
-   "Only if every line is perfect",
+   "Only if every boundary line is drawn perfectly accurately by its intercepts",
    "For shading the feasible region",
    "For drawing dashed lines"
   ],
@@ -12625,7 +12625,7 @@ window.QUESTION_BANK = [
   "question": "Why write 'R' inside the clear region?",
   "options": [
    "So the examiner knows which region is your answer",
-   "It earns a bonus mark",
+   "It earns an extra bonus mark on top of the shading mark",
    "It is required to shade",
    "To mark the origin"
   ],
@@ -12644,16 +12644,16 @@ window.QUESTION_BANK = [
   "question": "For a strict inequality you draw the boundary as a ___B1___ line; for \\( \\le \\) or \\( \\ge \\) you draw a ___B2___ line.",
   "blankOptions": {
    "B1": [
-    "origin",
     "wanted",
-    "point",
+    "origin",
+    "region",
     "dashed"
    ],
    "B2": [
     "solid",
-    "not",
-    "origin",
-    "0"
+    "feasible",
+    "point",
+    "clear"
    ]
   },
   "key": {
@@ -12674,9 +12674,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "point",
-    "feasible",
-    "clear",
-    "not"
+    "want",
+    "line",
+    "curve"
    ]
   },
   "key": {
@@ -12695,16 +12695,16 @@ window.QUESTION_BANK = [
   "question": "In the OCR exam you shade the region that is ___B1___ required, leaving the feasible region ___B2___.",
   "blankOptions": {
    "B1": [
-    "not",
-    "line",
+    "0",
     "dashed",
-    "wanted"
+    "wanted",
+    "not"
    ],
    "B2": [
-    "solid",
-    "want",
-    "equals",
-    "clear"
+    "wanted",
+    "clear",
+    "curve",
+    "feasible"
    ]
   },
   "key": {
@@ -12724,10 +12724,10 @@ window.QUESTION_BANK = [
   "question": "You cannot make a negative number of items, so a real-world model also needs \\( x \\) and \\( y \\) each to be at least ___B1___.",
   "blankOptions": {
    "B1": [
-    "region",
-    "origin",
     "0",
-    "line"
+    "curve",
+    "point",
+    "region"
    ]
   },
   "key": {
@@ -12746,10 +12746,10 @@ window.QUESTION_BANK = [
   "question": "You find the boundary line of an inequality by replacing the inequality sign with an ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "dashed",
+    "shade",
+    "wanted",
     "equals",
-    "solid",
-    "region"
+    "feasible"
    ]
   },
   "key": {
@@ -12768,10 +12768,10 @@ window.QUESTION_BANK = [
   "question": "The single region that satisfies every inequality at once is called the ___B1___ region.",
   "blankOptions": {
    "B1": [
-    "feasible",
-    "0",
-    "origin",
-    "curve"
+    "clear",
+    "not",
+    "equals",
+    "feasible"
    ]
   },
   "key": {
@@ -12790,10 +12790,10 @@ window.QUESTION_BANK = [
   "question": "If substituting the origin makes the inequality true, the origin lies in the region you ___B1___ (so you do NOT shade it).",
   "blankOptions": {
    "B1": [
-    "want",
     "dashed",
-    "wanted",
-    "line"
+    "line",
+    "want",
+    "region"
    ]
   },
   "key": {
@@ -12812,9 +12812,9 @@ window.QUESTION_BANK = [
   "question": "The boundary drawn for \\( y > 2x \\) should be ___B1___ because the inequality is strict.",
   "blankOptions": {
    "B1": [
-    "feasible",
-    "region",
+    "solid",
     "clear",
+    "0",
     "dashed"
    ]
   },
@@ -13157,7 +13157,7 @@ window.QUESTION_BANK = [
   "question": "Which of the following is a constraint rather than an objective function?",
   "options": [
    "\\( 4x + 5y \\le 200 \\)",
-   "\\( C = 4x + 5y \\)",
+   "\\( C = 4x + 5y - 200 \\)",
    "\\( P = 2x + 7y \\)",
    "\\( N = x + y \\)"
   ],
@@ -13178,7 +13178,7 @@ window.QUESTION_BANK = [
    "You cannot produce a negative amount of something",
    "They increase the profit",
    "They are the objective function",
-   "They tell you which vertex is optimal"
+   "They tell you which vertex of the feasible region is optimal"
   ],
   "key": {
    "answer": 0,
@@ -13214,7 +13214,7 @@ window.QUESTION_BANK = [
   "question": "What is the correct first step when setting up any LP problem from words?",
   "options": [
    "Define the decision variables clearly",
-   "Draw the feasible region",
+   "Draw the axes and the feasible region first",
    "Read off the optimum vertex",
    "Guess an answer and check it"
   ],
@@ -13273,7 +13273,7 @@ window.QUESTION_BANK = [
    "It is an expression to be maximised or minimised, with no inequality sign",
    "It must contain a \\( \\le \\) or \\( \\ge \\) sign",
    "It restricts the feasible region",
-   "There can be several objective functions in one problem"
+   "There can be several objective functions, one for each constraint in the problem"
   ],
   "key": {
    "answer": 0,
@@ -13309,7 +13309,7 @@ window.QUESTION_BANK = [
   "question": "A student writes the profit £8 per sponge and £12 per fruit cake as \\( 8x + 12y \\le 100 \\). What is wrong?",
   "options": [
    "The objective function should have no inequality: it is \\( P = 8x + 12y \\)",
-   "The coefficients should be swapped",
+   "The coefficients are the wrong way round; it should read \\( P = 12x + 8y \\le 100 \\)",
    "It should be \\( \\ge 100 \\)",
    "Nothing is wrong"
   ],
@@ -13434,7 +13434,7 @@ window.QUESTION_BANK = [
   "question": "What does the modelling stage of an LP problem produce?",
   "options": [
    "Decision variables, constraints, and an objective function",
-   "A shaded graph with the answer read off",
+   "A shaded graph of the feasible region with the answer read off at a vertex",
    "A single numerical answer only",
    "The area of the feasible region"
   ],
@@ -13456,7 +13456,7 @@ window.QUESTION_BANK = [
   "options": [
    "Define the variables (e.g. let x = number of ...)",
    "Draw the axes",
-   "Write the objective function",
+   "Write the objective function you want to maximise first",
    "Divide every inequality through"
   ],
   "key": {
@@ -13499,7 +13499,7 @@ window.QUESTION_BANK = [
    "You cannot produce a negative quantity of something",
    "They are the objective function",
    "They make the profit larger",
-   "They replace the need to define variables"
+   "They replace the need to define the variables at the start"
   ],
   "key": {
    "answer": 0,
@@ -13518,7 +13518,7 @@ window.QUESTION_BANK = [
   "question": "Which of these is an objective function, not a constraint?",
   "options": [
    "\\( P = 28x + 60y \\)",
-   "\\( 2x + 3y \\le 42 \\)",
+   "\\( 20x + 30y \\le 420 \\)",
    "\\( y \\ge 3 \\)",
    "\\( x \\ge 0 \\)"
   ],
@@ -13539,7 +13539,7 @@ window.QUESTION_BANK = [
   "question": "In the baker example, why does the flour constraint become \\( 2x + 3y \\le 42 \\)?",
   "options": [
    "4.2 kg = 4200 g, and \\( 200x + 300y \\le 4200 \\) divides by 100",
-   "The eggs were converted to grams",
+   "The grams were rounded down to give whole-number coefficients",
    "Profit is £8 and £12 per cake",
    "4.2 kg = 42 g, divided by 1"
   ],
@@ -13581,7 +13581,7 @@ window.QUESTION_BANK = [
   "question": "Which constraints are most often forgotten?",
   "options": [
    "The non-negativity constraints \\( x \\ge 0,\\ y \\ge 0 \\)",
-   "The objective function",
+   "The objective function you are asked to maximise",
    "The resource limits",
    "The units"
   ],
@@ -13602,7 +13602,7 @@ window.QUESTION_BANK = [
   "question": "The profit £5 per A, £9 per B should be written as:",
   "options": [
    "\\( P = 5x + 9y \\) (objective)",
-   "\\( 5x + 9y \\le 200 \\)",
+   "\\( 5x + 9y \\le 200 \\) (constraint)",
    "\\( 5x + 9y \\ge 0 \\)",
    "\\( x + y = 5 \\)"
   ],
@@ -13646,7 +13646,7 @@ window.QUESTION_BANK = [
    "4200",
    "4.2",
    "42",
-   "420"
+   "42000"
   ],
   "key": {
    "answer": 0,
@@ -13667,7 +13667,7 @@ window.QUESTION_BANK = [
    "Define variables → constraints → objective",
    "Objective → variables → constraints",
    "Constraints → objective → variables",
-   "Draw graph → define variables → objective"
+   "Draw the graph → define variables → objective"
   ],
   "key": {
    "answer": 0,
@@ -13726,10 +13726,10 @@ window.QUESTION_BANK = [
   "question": "When modelling an LP problem you should always ___B1___ your variables first, for example 'let x = number of chairs'.",
   "blankOptions": {
    "B1": [
+    "non-negativity",
     "define",
-    "objective",
-    "greater than or equal to",
-    "inequality"
+    "constraint",
+    "draw"
    ]
   },
   "key": {
@@ -13748,10 +13748,10 @@ window.QUESTION_BANK = [
   "question": "A constraint is a limit in the problem written as a linear ___B1___.",
   "blankOptions": {
    "B1": [
-    "60",
+    "non-negativity",
+    "maximised",
     "inequality",
-    "simplify",
-    "constraint"
+    "equals"
    ]
   },
   "key": {
@@ -13770,16 +13770,16 @@ window.QUESTION_BANK = [
   "question": "The phrase 'at least' translates to the ___B1___ sign, while 'no more than' translates to the ___B2___ sign.",
   "blankOptions": {
    "B1": [
-    "feasible",
-    "inequality",
+    "define",
     "greater than or equal to",
-    "8"
+    "objective",
+    "60"
    ],
    "B2": [
-    "8",
+    "60",
     "less than or equal to",
-    "draw",
-    "non-negativity"
+    "non-negativity",
+    "draw"
    ]
   },
   "key": {
@@ -13799,10 +13799,10 @@ window.QUESTION_BANK = [
   "question": "Because you cannot make a negative quantity, an LP model includes the ___B1___ constraints x is greater than or equal to 0 and y is greater than or equal to 0.",
   "blankOptions": {
    "B1": [
-    "simplify",
-    "constraint",
+    "define",
+    "minimised",
     "non-negativity",
-    "feasible"
+    "objective"
    ]
   },
   "key": {
@@ -13821,10 +13821,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ function is the quantity, such as profit or cost, that you want to maximise or minimise.",
   "blankOptions": {
    "B1": [
-    "inequality",
-    "objective",
+    "greater than or equal to",
     "maximised",
-    "constraint"
+    "objective",
+    "inequality"
    ]
   },
   "key": {
@@ -13844,9 +13844,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "simplify",
-    "maximised",
-    "greater than or equal to",
-    "less than or equal to"
+    "less than or equal to",
+    "8",
+    "minimised"
    ]
   },
   "key": {
@@ -13866,15 +13866,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "60",
-    "draw",
+    "equals",
     "minimised",
     "define"
    ],
    "B2": [
-    "simplify",
-    "maximised",
-    "draw",
-    "non-negativity"
+    "constraint",
+    "objective",
+    "inequality",
+    "maximised"
    ]
   },
   "key": {
@@ -13894,10 +13894,10 @@ window.QUESTION_BANK = [
   "question": "Unlike a constraint, an objective function contains no ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "inequality",
-    "non-negativity",
-    "objective",
-    "define"
+    "draw",
+    "maximised",
+    "feasible",
+    "inequality"
    ]
   },
   "key": {
@@ -14445,7 +14445,7 @@ window.QUESTION_BANK = [
   "question": "To maximise using the objective-line method, you slide the line of constant objective until:",
   "options": [
    "It last touches the feasible region at a vertex",
-   "It first enters the region",
+   "It first touches the feasible region at a vertex, as you would for a minimum",
    "It passes through the origin",
    "It is vertical"
   ],
@@ -14464,7 +14464,7 @@ window.QUESTION_BANK = [
   "question": "A student gives the optimum as a point in the middle of the feasible region. The error is:",
   "options": [
    "The optimum lies at a vertex, not inside the region",
-   "The point should be on the y-axis",
+   "The optimum should sit on an axis where one variable equals zero",
    "There is nothing wrong",
    "The objective must be non-linear"
   ],
@@ -14483,7 +14483,7 @@ window.QUESTION_BANK = [
   "question": "The true minimum of \\( x + y \\) is at \\( (2.5,\\ 0) \\), but a student writes \\( (3,\\ 0) \\). Why is that wrong?",
   "options": [
    "They assumed the answer had to be a whole number",
-   "\\( (3,0) \\) is outside the feasible region",
+   "\\( (3,\\ 0) \\) actually lies outside the feasible region entirely",
    "\\( (2.5,0) \\) is not a vertex",
    "\\( x + y \\) is not linear"
   ],
@@ -14541,7 +14541,7 @@ window.QUESTION_BANK = [
   "options": [
    "Test feasible integer points near \\( (2.5,3.5) \\) and pick the best",
    "Give \\( (2.5,\\ 3.5) \\) as the answer",
-   "Always round both up to \\( (3,\\ 4) \\)",
+   "Always round both coordinates up to \\( (3,\\ 4) \\), the nearest whole point",
    "Give the origin instead"
   ],
   "key": {
@@ -14578,7 +14578,7 @@ window.QUESTION_BANK = [
   "question": "Maximising \\( P = 5x + 2y \\), a student picks \\( (0,10) \\) (where \\( P = 20 \\)) over \\( (6,3) \\) (where \\( P = 36 \\)) because \\( y \\) is larger there. The error is:",
   "options": [
    "They compared \\( y \\) instead of the objective value \\( P \\)",
-   "\\( (6,3) \\) is not a vertex",
+   "\\( (6,\\ 3) \\) is not actually a vertex of the feasible region",
    "\\( (0,10) \\) is infeasible",
    "\\( P \\) is not linear"
   ],
@@ -14703,7 +14703,7 @@ window.QUESTION_BANK = [
   "question": "In graphical LP, where does the optimum of a linear objective always occur?",
   "options": [
    "At a vertex (corner) of the feasible region",
-   "At the centre of the feasible region",
+   "At the centre point, found by averaging all the corner coordinates",
    "At the origin",
    "At any point inside the region"
   ],
@@ -14724,7 +14724,7 @@ window.QUESTION_BANK = [
   "question": "Using OCR's convention, after shading, the feasible region is:",
   "options": [
    "The region left unshaded (clear)",
-   "The region you shaded",
+   "The region you shaded in most heavily by hand",
    "Always a triangle",
    "The largest shaded region"
   ],
@@ -14766,7 +14766,7 @@ window.QUESTION_BANK = [
   "question": "To MAXIMISE with the objective-line method you slide the line until:",
   "options": [
    "Its last point of contact with the feasible region",
-   "It reaches the origin",
+   "Its first point of contact with the region, as you would for a minimum",
    "It becomes vertical",
    "It leaves the grid entirely"
   ],
@@ -14787,7 +14787,7 @@ window.QUESTION_BANK = [
   "question": "A drug problem's optimum vertex is at \\( x = 2.5 \\) mg. What should you write?",
   "options": [
    "\\( x = 2.5 \\) — it need not be a whole number",
-   "\\( x = 3 \\), rounding up",
+   "\\( x = 3 \\), since a measured dose must be a whole number",
    "\\( x = 2 \\), rounding down",
    "There is no valid answer"
   ],
@@ -14850,7 +14850,7 @@ window.QUESTION_BANK = [
   "question": "Where should you look for the optimum?",
   "options": [
    "At the vertices of the region",
-   "In the middle of the region",
+   "In the middle of the region, at its centre point",
    "Outside the region",
    "On the y-axis only"
   ],
@@ -14871,7 +14871,7 @@ window.QUESTION_BANK = [
   "question": "Under OCR's convention you shade:",
   "options": [
    "The unwanted region (not satisfying the constraints)",
-   "The feasible region",
+   "The feasible region, so that it stands out clearly from the rest",
    "The whole grid",
    "Nothing at all"
   ],
@@ -14894,7 +14894,7 @@ window.QUESTION_BANK = [
    "The objective value at each vertex",
    "The \\( y \\)-coordinate of each vertex",
    "The \\( x \\)-coordinate of each vertex",
-   "The distance from the origin"
+   "The distance of each vertex from the origin point"
   ],
   "key": {
    "answer": 0,
@@ -14955,7 +14955,7 @@ window.QUESTION_BANK = [
   "question": "The optimum vertex is \\( (2.5,\\ 0) \\) for a mass in mg. You write:",
   "options": [
    "\\( (2.5,\\ 0) \\) — a mass may be a decimal",
-   "\\( (3,\\ 0) \\), rounding up",
+   "\\( (3,\\ 0) \\), since a measured mass must be a whole number",
    "\\( (2,\\ 0) \\), rounding down",
    "no answer, since it is not whole"
   ],
@@ -14976,7 +14976,7 @@ window.QUESTION_BANK = [
   "question": "Which earns the method mark on an LP optimisation?",
   "options": [
    "A list of vertices with their objective values, or the objective line drawn",
-   "The final answer only, with no working",
+   "The correct final answer stated clearly on its own line, even with no working shown at all",
    "A decimal to 5 d.p.",
    "The feasible region shaded twice"
   ],
@@ -14995,16 +14995,16 @@ window.QUESTION_BANK = [
   "question": "In OCR linear programming you shade the region that does ___B1___ satisfy the constraints, so the feasible region is left ___B2___.",
   "blankOptions": {
    "B1": [
-    "objective",
-    "decreases",
-    "centre",
-    "not"
+    "vertex",
+    "not",
+    "constraint",
+    "2.5"
    ],
    "B2": [
-    "whole",
-    "objective",
     "unshaded",
-    "5"
+    "integers",
+    "shaded",
+    "increases"
    ]
   },
   "key": {
@@ -15024,10 +15024,10 @@ window.QUESTION_BANK = [
   "question": "The optimum value of a linear objective always lies at a ___B1___ of the feasible region, never inside it.",
   "blankOptions": {
    "B1": [
-    "3.8",
     "vertex",
     "centre",
-    "2.5"
+    "objective",
+    "3"
    ]
   },
   "key": {
@@ -15046,16 +15046,16 @@ window.QUESTION_BANK = [
   "question": "To find the optimum you can test each ___B1___ in the objective, or slide the ___B2___ line to its extreme position.",
   "blankOptions": {
    "B1": [
-    "edge",
+    "integers",
+    "integer",
     "vertex",
-    "decreases",
     "3"
    ],
    "B2": [
-    "3",
-    "less",
-    "constraint",
-    "objective"
+    "whole",
+    "3.8",
+    "objective",
+    "not"
    ]
   },
   "key": {
@@ -15075,16 +15075,16 @@ window.QUESTION_BANK = [
   "question": "The boundary line \\( 2x + y = 5 \\) has \\( y \\)-intercept ___B1___ and \\( x \\)-intercept ___B2___.",
   "blankOptions": {
    "B1": [
+    "less",
+    "unshaded",
     "5",
-    "integers",
-    "shaded",
-    "less"
+    "integer"
    ],
    "B2": [
-    "integer",
-    "shaded",
     "2.5",
-    "integers"
+    "3",
+    "decreases",
+    "less"
    ]
   },
   "key": {
@@ -15104,10 +15104,10 @@ window.QUESTION_BANK = [
   "question": "Optima in LP need not be whole numbers; assuming that they must be ___B1___ is a common examiner-reported error.",
   "blankOptions": {
    "B1": [
+    "2.5",
+    "integers",
     "whole",
-    "integer",
-    "constraint",
-    "integers"
+    "3"
    ]
   },
   "key": {
@@ -15126,10 +15126,10 @@ window.QUESTION_BANK = [
   "question": "If the context can only take whole items, check the feasible ___B1___ points nearest the optimum vertex.",
   "blankOptions": {
    "B1": [
-    "constraint",
-    "integer",
-    "less",
-    "whole"
+    "unshaded",
+    "whole",
+    "2.5",
+    "integer"
    ]
   },
   "key": {
@@ -15148,10 +15148,10 @@ window.QUESTION_BANK = [
   "question": "The words 'no more than' mean the total must be ___B1___ than or equal to the limit.",
   "blankOptions": {
    "B1": [
-    "vertex",
+    "constraint",
     "less",
     "objective",
-    "edge"
+    "not"
    ]
   },
   "key": {
@@ -15170,10 +15170,10 @@ window.QUESTION_BANK = [
   "question": "To maximise an objective, slide the objective line in the direction that ___B1___ its value; to minimise, slide the opposite way.",
   "blankOptions": {
    "B1": [
-    "greater",
-    "increases",
-    "integers",
-    "centre"
+    "decreases",
+    "vertex",
+    "objective",
+    "increases"
    ]
   },
   "key": {
@@ -15667,7 +15667,7 @@ window.QUESTION_BANK = [
   "question": "Why is \\( \\tan 90^\\circ \\) undefined?",
   "options": [
    "\\( \\cos 90^\\circ = 0 \\), so \\( \\tfrac{\\sin\\theta}{\\cos\\theta} \\) divides by zero",
-   "\\( \\sin 90^\\circ = 0 \\)",
+   "\\( \\sin 90^\\circ = 0 \\), so the top of \\( \\tfrac{\\sin\\theta}{\\cos\\theta} \\) is zero and the fraction has no value",
    "\\( \\tan\\theta \\) only exists for acute angles",
    "\\( 90^\\circ \\) is not on the graph"
   ],
@@ -15981,7 +15981,7 @@ window.QUESTION_BANK = [
   "question": "\\( \\tan 90^\\circ \\) is:",
   "options": [
    "undefined",
-   "\\( 0 \\)",
+   "\\( 0 \\), because \\( \\sin 90^\\circ = 0 \\) makes the fraction vanish",
    "\\( 1 \\)",
    "\\( 90 \\)"
   ],
@@ -16023,7 +16023,7 @@ window.QUESTION_BANK = [
   "question": "For \\( \\sin 300^\\circ \\), CAST tells you the sign is:",
   "options": [
    "Negative (Q4, only cos is positive)",
-   "Positive (Q4 is the 'A' quadrant)",
+   "Positive (Q4 is the 'All' quadrant, where every ratio is positive)",
    "Zero",
    "Undefined"
   ],
@@ -16084,16 +16084,16 @@ window.QUESTION_BANK = [
   "question": "On the unit circle the point at angle \\( \\theta \\) is \\( (\\cos\\theta,\\ \\sin\\theta) \\), so \\( \\cos\\theta \\) is the ___B1___ coordinate and \\( \\sin\\theta \\) is the ___B2___ coordinate.",
   "blankOptions": {
    "B1": [
+    "30",
+    "1/2",
     "second",
-    "-1",
-    "x",
-    "1"
+    "x"
    ],
    "B2": [
     "y",
-    "0",
+    "1/2",
     "first",
-    "360"
+    "30"
    ]
   },
   "key": {
@@ -16113,16 +16113,16 @@ window.QUESTION_BANK = [
   "question": "The period of both \\( \\sin\\theta \\) and \\( \\cos\\theta \\) is ___B1___ degrees, while the period of \\( \\tan\\theta \\) is ___B2___ degrees.",
   "blankOptions": {
    "B1": [
-    "2",
-    "second",
+    "90",
     "360",
-    "-1"
+    "y",
+    "fourth"
    ],
    "B2": [
-    "second",
-    "fourth",
+    "1/2",
     "180",
-    "y"
+    "second",
+    "30"
    ]
   },
   "key": {
@@ -16142,15 +16142,15 @@ window.QUESTION_BANK = [
   "question": "The maximum value of \\( \\sin\\theta \\) is ___B1___ and its minimum value is ___B2___.",
   "blankOptions": {
    "B1": [
-    "1",
-    "third",
     "asymptotes",
-    "1/2"
+    "1",
+    "0",
+    "30"
    ],
    "B2": [
-    "third",
-    "30",
     "-1",
+    "third",
+    "x",
     "45"
    ]
   },
@@ -16171,16 +16171,16 @@ window.QUESTION_BANK = [
   "question": "Using the CAST rule, sine is positive in the ___B1___ quadrant and tangent is positive in the ___B2___ quadrant.",
   "blankOptions": {
    "B1": [
+    "first",
     "second",
-    "45",
-    "360",
-    "asymptotes"
+    "1",
+    "-1"
    ],
    "B2": [
-    "45",
-    "2",
+    "y",
     "third",
-    "first"
+    "30",
+    "intercepts"
    ]
   },
   "key": {
@@ -16200,16 +16200,16 @@ window.QUESTION_BANK = [
   "question": "The exact value of \\( \\sin 30^\\circ \\) is ___B1___ and the exact value of \\( \\cos 60^\\circ \\) is ___B2___.",
   "blankOptions": {
    "B1": [
+    "90",
     "1/2",
-    "second",
-    "45",
-    "360"
+    "third",
+    "1"
    ],
    "B2": [
-    "asymptotes",
-    "y",
+    "0",
     "1/2",
-    "intercepts"
+    "90",
+    "2"
    ]
   },
   "key": {
@@ -16229,10 +16229,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( \\tan\\theta \\) has vertical ___B1___ at \\( 90^\\circ \\) and \\( 270^\\circ \\).",
   "blankOptions": {
    "B1": [
-    "first",
+    "third",
     "asymptotes",
     "fourth",
-    "45"
+    "30"
    ]
   },
   "key": {
@@ -16251,10 +16251,10 @@ window.QUESTION_BANK = [
   "question": "Because \\( \\sin(180^\\circ - \\theta) = \\sin\\theta \\), the angle \\( 150^\\circ \\) has the same sine as ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "30",
-    "360",
-    "-1",
-    "2"
+    "asymptotes",
+    "y",
+    "second",
+    "30"
    ]
   },
   "key": {
@@ -16273,10 +16273,10 @@ window.QUESTION_BANK = [
   "question": "The exact value of \\( \\tan 45^\\circ \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "first",
-    "30",
-    "1",
-    "asymptotes"
+    "1/2",
+    "0",
+    "90",
+    "1"
    ]
   },
   "key": {
@@ -16652,7 +16652,7 @@ window.QUESTION_BANK = [
   "question": "A student writes the cosine rule as \\( a^2 = b^2 + c^2 + 2bc\\cos A \\). What is wrong?",
   "options": [
    "The last term should be subtracted: \\( -2bc\\cos A \\)",
-   "Nothing — it is correct",
+   "Nothing is wrong — squared terms are always added together",
    "It should be \\( +2bc\\sin A \\)",
    "\\( a^2 \\) should be \\( 2a^2 \\)"
   ],
@@ -16711,7 +16711,7 @@ window.QUESTION_BANK = [
    "\\( 127.9^\\circ \\)",
    "\\( 52.1^\\circ \\)",
    "\\( 55^\\circ \\)",
-   "\\( 145^\\circ \\)"
+   "\\( 180^\\circ - 35^\\circ = 145^\\circ \\)"
   ],
   "key": {
    "answer": 0,
@@ -16785,7 +16785,7 @@ window.QUESTION_BANK = [
   "question": "Given two sides and the angle between them, a student tries the sine rule to find the third side. Why does it fail?",
   "options": [
    "No side is paired with its opposite angle, so no sine-rule ratio can be formed",
-   "The sine rule only works in right-angled triangles",
+   "The sine rule only works in right-angled triangles, and this triangle is not right-angled",
    "The sine rule cannot find sides, only angles",
    "It does not fail — it works fine"
   ],
@@ -17017,7 +17017,7 @@ window.QUESTION_BANK = [
    "None — the sine, cosine and area rules must all be memorised",
    "The sine rule only",
    "The cosine rule only",
-   "All three are provided"
+   "All three are printed on the sheet with the binomial expansion"
   ],
   "key": {
    "answer": 0,
@@ -17142,7 +17142,7 @@ window.QUESTION_BANK = [
   "options": [
    "Give \\( 180^\\circ - 66.8^\\circ = 113.2^\\circ \\) as the second value",
    "State \\( 66.8^\\circ \\) is the only answer",
-   "Give \\( 360^\\circ - 66.8^\\circ \\)",
+   "Give \\( 360^\\circ - 66.8^\\circ = 293.2^\\circ \\) as the second value",
    "Double it to \\( 133.6^\\circ \\)"
   ],
   "key": {
@@ -17162,7 +17162,7 @@ window.QUESTION_BANK = [
   "question": "You are given all three sides and want an angle. Which rule?",
   "options": [
    "Cosine rule, rearranged for the angle",
-   "Sine rule",
+   "Sine rule, since three sides give enough to form a ratio",
    "Area formula",
    "Pythagoras"
   ],
@@ -17185,7 +17185,7 @@ window.QUESTION_BANK = [
    "To earn the method marks even if the final value slips",
    "To use more space",
    "It is not necessary",
-   "To avoid using a calculator"
+   "To delay using the calculator until the very last step of working"
   ],
   "key": {
    "answer": 0,
@@ -17202,10 +17202,10 @@ window.QUESTION_BANK = [
   "question": "In the sine rule \\( \\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\), each side sits over the sine of the angle ___B1___ to it.",
   "blankOptions": {
    "B1": [
+    "113.2",
     "opposite",
-    "memorised",
-    "included",
-    "cosine"
+    "provided",
+    "memorised"
    ]
   },
   "key": {
@@ -17225,15 +17225,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "cosine",
-    "113.2",
     "2bc",
-    "adjacent"
+    "memorised",
+    "provided"
    ],
    "B2": [
+    "SSS",
     "sine",
-    "2ab",
-    "provided",
-    "non-included"
+    "SAS",
+    "included"
    ]
   },
   "key": {
@@ -17253,10 +17253,10 @@ window.QUESTION_BANK = [
   "question": "In the rearranged cosine rule \\( \\cos A = \\frac{b^2 + c^2 - a^2}{2bc} \\), the denominator is ___B1___.",
   "blankOptions": {
    "B1": [
-    "non-included",
-    "provided",
-    "SAS",
-    "2bc"
+    "2bc",
+    "excluded",
+    "SSS",
+    "246.8"
    ]
   },
   "key": {
@@ -17275,10 +17275,10 @@ window.QUESTION_BANK = [
   "question": "The area of a triangle equals \\( \\frac{1}{2}ab\\sin C \\), where C is the ___B1___ angle between sides a and b.",
   "blankOptions": {
    "B1": [
-    "2bc",
-    "included",
-    "excluded",
-    "SAS"
+    "opposite",
+    "SAS",
+    "adjacent",
+    "included"
    ]
   },
   "key": {
@@ -17297,10 +17297,10 @@ window.QUESTION_BANK = [
   "question": "If the acute angle from the sine rule is 66.8°, the second possible (obtuse) angle is 180° minus 66.8°, which is ___B1___ degrees.",
   "blankOptions": {
    "B1": [
+    "included",
+    "2bc",
     "113.2",
-    "cosine",
-    "excluded",
-    "adjacent"
+    "sine"
    ]
   },
   "key": {
@@ -17319,10 +17319,10 @@ window.QUESTION_BANK = [
   "question": "The ambiguous case can occur when you are given two sides and a ___B1___ angle (the SSA situation).",
   "blankOptions": {
    "B1": [
-    "non-included",
-    "provided",
-    "SAS",
-    "opposite"
+    "2bc",
+    "cosine",
+    "SSS",
+    "non-included"
    ]
   },
   "key": {
@@ -17341,10 +17341,10 @@ window.QUESTION_BANK = [
   "question": "The sine rule, cosine rule and area rule must all be ___B1___ because they are not on the formula sheet.",
   "blankOptions": {
    "B1": [
-    "246.8",
-    "memorised",
-    "opposite",
-    "adjacent"
+    "non-included",
+    "SAS",
+    "SSS",
+    "memorised"
    ]
   },
   "key": {
@@ -17363,9 +17363,9 @@ window.QUESTION_BANK = [
   "question": "A triangle in which all three sides are known is an ___B1___ situation, so you use the cosine rule.",
   "blankOptions": {
    "B1": [
-    "adjacent",
     "2ab",
-    "opposite",
+    "adjacent",
+    "113.2",
     "SSS"
    ]
   },
@@ -17817,14 +17817,14 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which statement is an identity (true for every \\( \\theta \\))?",
   "options": [
-   "\\( \\tan\\theta = 1 \\)",
+   "\\( \\cos^2\\theta - \\sin^2\\theta \\equiv 1 \\)",
    "\\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\)",
    "\\( \\sin\\theta = 0.5 \\)",
    "\\( \\cos\\theta = 1 \\)"
   ],
   "key": {
    "answer": 1,
-   "explain": "Only \\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\) holds for all \\( \\theta \\); the others are equations true only for special angles."
+   "explain": "Only \\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\) holds for all \\( \\theta \\); \\( \\cos^2\\theta - \\sin^2\\theta \\) equals \\( \\cos2\\theta \\), not \\( 1 \\); the rest are equations true only for special angles."
   }
  },
  {
@@ -17982,7 +17982,7 @@ window.QUESTION_BANK = [
   "options": [
    "The two sides are equal for every value of \\( \\theta \\)",
    "It only holds when \\( \\theta = 90^\\circ \\)",
-   "The two sides are approximately equal",
+   "The two sides are approximately equal for most values of \\( \\theta \\)",
    "\\( \\theta \\) must be acute"
   ],
   "key": {
@@ -18024,7 +18024,7 @@ window.QUESTION_BANK = [
   "options": [
    "Moving terms across \\( \\equiv \\) assumes the result you are proving",
    "It uses fewer lines of working",
-   "The identity is only true on one side",
+   "The identity is only true on one side, so the other side can be ignored",
    "It is quicker to read"
   ],
   "key": {
@@ -18088,7 +18088,7 @@ window.QUESTION_BANK = [
    "Neither — both trig identities must be memorised",
    "\\( \\sin^2\\theta + \\cos^2\\theta \\equiv 1 \\)",
    "\\( \\tan\\theta \\equiv \\frac{\\sin\\theta}{\\cos\\theta} \\)",
-   "Both identities"
+   "Both, because they are standard results always printed on the sheet"
   ],
   "key": {
    "answer": 0,
@@ -18151,11 +18151,11 @@ window.QUESTION_BANK = [
    "\\( \\dfrac{2\\sqrt{2}}{3} \\)",
    "\\( 0.94 \\)",
    "\\( \\dfrac{8}{9} \\)",
-   "\\( 0.9 \\)"
+   "\\( \\pm\\dfrac{2\\sqrt{2}}{3} \\)"
   ],
   "key": {
    "answer": 0,
-   "explain": "\\( \\sin^2\\theta = 1 - \\tfrac{1}{9} = \\tfrac{8}{9} \\Rightarrow \\sin\\theta = \\frac{2\\sqrt{2}}{3} \\); a decimal is not exact."
+   "explain": "\\( \\sin^2\\theta = 1 - \\tfrac{1}{9} = \\tfrac{8}{9} \\Rightarrow \\sin\\theta = \\frac{2\\sqrt{2}}{3} \\); since \\( \\theta \\) is acute the sine is positive, so the \\( \\pm \\) resolves to \\( + \\); a decimal is not exact."
   }
  },
  {
@@ -18214,7 +18214,7 @@ window.QUESTION_BANK = [
    "Give the surd form (optionally with the decimal)",
    "Give only the decimal",
    "Round to 2 d.p.",
-   "Give only the decimal to 3 s.f."
+   "Give the decimal to 3 s.f., since that is precise enough to count as exact"
   ],
   "key": {
    "answer": 0,
@@ -18234,7 +18234,7 @@ window.QUESTION_BANK = [
   "options": [
    "A genuine mark that is often forgotten",
    "Optional decoration",
-   "Only needed for long proofs",
+   "Only needed for long proofs, not for short one-line ones",
    "Never credited"
   ],
   "key": {
@@ -18254,7 +18254,7 @@ window.QUESTION_BANK = [
   "question": "After \\( \\cos\\theta = \\pm\\tfrac{4}{5} \\), how do you fix the sign?",
   "options": [
    "Use the quadrant \\( \\theta \\) lies in",
-   "Always choose positive",
+   "Always choose positive, since a cosine can never be negative",
    "Always choose negative",
    "Leave it as \\( \\pm \\)"
   ],
@@ -18273,10 +18273,10 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) marks an identity, which is true for ___B1___ value of \\( \\theta \\).",
   "blankOptions": {
    "B1": [
+    "memorised",
+    "decimal",
     "angle",
-    "every",
-    "one",
-    "±"
+    "every"
    ]
   },
   "key": {
@@ -18297,8 +18297,8 @@ window.QUESTION_BANK = [
    "B1": [
     "two",
     "memorised",
-    "exact",
-    "ratio"
+    "ratio",
+    "positive"
    ]
   },
   "key": {
@@ -18317,10 +18317,10 @@ window.QUESTION_BANK = [
   "question": "Finding another ratio needs a square root, which introduces a ___B1___ sign; the quadrant then decides which one to keep.",
   "blankOptions": {
    "B1": [
+    "exact",
+    "angle",
     "±",
-    "ratio",
-    "some",
-    "exact"
+    "decimal"
    ]
   },
   "key": {
@@ -18339,10 +18339,10 @@ window.QUESTION_BANK = [
   "question": "In the third quadrant, only \\( \\tan\\theta \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "positive",
-    "exact",
-    "some",
-    "ratio"
+    "every",
+    "decimal",
+    "negative",
+    "positive"
    ]
   },
   "key": {
@@ -18361,10 +18361,10 @@ window.QUESTION_BANK = [
   "question": "When a question says 'exact', leave your answer as a surd or fraction, never a ___B1___.",
   "blankOptions": {
    "B1": [
-    "some",
+    "negative",
+    "ratio",
     "decimal",
-    "±",
-    "positive"
+    "one"
    ]
   },
   "key": {
@@ -18383,10 +18383,10 @@ window.QUESTION_BANK = [
   "question": "To prove an identity you work on ___B1___ side at a time and finish with a concluding statement.",
   "blankOptions": {
    "B1": [
-    "positive",
+    "angle",
+    "some",
     "ratio",
-    "one",
-    "every"
+    "one"
    ]
   },
   "key": {
@@ -18405,9 +18405,9 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sin^2\\theta \\) you square the ___B1___, not the angle.",
   "blankOptions": {
    "B1": [
-    "some",
-    "two",
-    "angle",
+    "every",
+    "exact",
+    "negative",
     "ratio"
    ]
   },
@@ -18801,7 +18801,7 @@ window.QUESTION_BANK = [
    "\\( 15^\\circ,\\ 75^\\circ,\\ 195^\\circ,\\ 255^\\circ \\)",
    "\\( 15^\\circ,\\ 165^\\circ \\)",
    "\\( 30^\\circ,\\ 150^\\circ \\)",
-   "\\( 15^\\circ,\\ 75^\\circ \\)"
+   "\\( 15^\\circ,\\ 75^\\circ,\\ 105^\\circ,\\ 165^\\circ \\)"
   ],
   "key": {
    "answer": 0,
@@ -18819,7 +18819,7 @@ window.QUESTION_BANK = [
   "options": [
    "They forgot to expand the interval, so they lost the \\( 2\\theta \\) solutions beyond \\( 360^\\circ \\)",
    "Nothing — that is correct",
-   "They should have written \\( \\sin\\theta = 0.25 \\)",
+   "They should have halved it to \\( \\sin\\theta = 0.25 \\) and solved that over \\( 0^\\circ \\)–\\( 360^\\circ \\), giving \\( 14.5^\\circ,\\ 165.5^\\circ \\)",
    "They used degrees instead of radians"
   ],
   "key": {
@@ -18856,7 +18856,7 @@ window.QUESTION_BANK = [
   "question": "To solve \\( 2\\cos^2\\theta + 3\\cos\\theta + 1 = 0 \\), the best first step is to:",
   "options": [
    "Factorise it as a quadratic in \\( \\cos\\theta \\)",
-   "Replace \\( \\cos^2\\theta \\) with \\( 1 + \\sin^2\\theta \\)",
+   "Replace \\( \\cos^2\\theta \\) with \\( 1 + \\sin^2\\theta \\) to rewrite the whole equation in terms of \\( \\sin\\theta \\)",
    "Take \\( \\cos^{-1} \\) of every term",
    "Divide through by \\( \\cos\\theta \\)"
   ],
@@ -18894,7 +18894,7 @@ window.QUESTION_BANK = [
   "question": "\\( \\sin\\theta = -0.5 \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\). The calculator gives \\( -30^\\circ \\). The in-range solutions are:",
   "options": [
    "\\( 210^\\circ,\\ 330^\\circ \\)",
-   "\\( 30^\\circ,\\ 150^\\circ \\)",
+   "\\( 30^\\circ,\\ 150^\\circ,\\ 210^\\circ,\\ 330^\\circ \\)",
    "\\( 210^\\circ \\) only",
    "\\( 30^\\circ,\\ 330^\\circ \\)"
   ],
@@ -18913,7 +18913,7 @@ window.QUESTION_BANK = [
   "question": "Why is it wrong to solve \\( \\tan 2x = 0.5 \\) by writing \\( \\tan x = 0.25 \\)?",
   "options": [
    "You cannot halve the angle inside a trig ratio — \\( \\tan 2x \\ne 2\\tan x \\)",
-   "0.25 is not in range",
+   "Because \\( 0.25 \\) lies outside the range of the tangent function, so the equation has no solution",
    "\\( \\tan \\) has no inverse",
    "You must use \\( \\cos \\) instead"
   ],
@@ -19058,7 +19058,7 @@ window.QUESTION_BANK = [
   "options": [
    "It gives only one angle; the graph's symmetry has other solutions in the interval",
    "It is always wrong",
-   "It gives every solution automatically",
+   "It already lists every solution in the interval automatically, so no further working is needed",
    "It works only for \\( \\tan \\)"
   ],
   "key": {
@@ -19162,7 +19162,7 @@ window.QUESTION_BANK = [
   "question": "A question says \"show detailed reasoning\" and \"1 decimal place\". A student writes just the four final angles from the calculator. What happens?",
   "options": [
    "They score 0 — DR requires the analytical working to be shown",
-   "Full marks, the answers are right",
+   "Full marks — the four final angles are correct, so the method shown does not matter",
    "They lose one mark only",
    "It depends on rounding"
   ],
@@ -19225,7 +19225,7 @@ window.QUESTION_BANK = [
   "question": "The correct method for \\( \\tan 2x = 0.5 \\) is to:",
   "options": [
    "Solve for \\( 2x \\) over the doubled interval, then halve each answer",
-   "Write \\( \\tan x = 0.25 \\)",
+   "Halve the ratio to \\( \\tan x = 0.25 \\), then solve that over \\( 0^\\circ \\)–\\( 360^\\circ \\) as usual",
    "Take the square root",
    "Use \\( \\sin \\) instead"
   ],
@@ -19267,7 +19267,7 @@ window.QUESTION_BANK = [
   "question": "When should you round on a 1 dp trig question?",
   "options": [
    "At the very end, after finding all solutions",
-   "Immediately after the first calculator step",
+   "Immediately after the first calculator step, before building the partner angles",
    "Never round",
    "After every line"
   ],
@@ -19310,7 +19310,7 @@ window.QUESTION_BANK = [
   "options": [
    "To remind yourself to find all four solutions, not two",
    "To use more space",
-   "It earns a mark by itself",
+   "Because examiners award a mark just for writing the interval down",
    "It is not needed"
   ],
   "key": {
@@ -19350,9 +19350,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "360",
+    "90",
     "principal",
-    "cos^2",
-    "90"
+    "pairs"
    ]
   },
   "key": {
@@ -19371,10 +19371,10 @@ window.QUESTION_BANK = [
   "question": "For \\( \\sin\\theta = k \\), if the first solution is \\( \\alpha \\) the second is 180 minus ___B1___ degrees.",
   "blankOptions": {
    "B1": [
+    "sin^2",
     "alpha",
-    "exact",
-    "pairs",
-    "detailed"
+    "detailed",
+    "90"
    ]
   },
   "key": {
@@ -19393,10 +19393,10 @@ window.QUESTION_BANK = [
   "question": "For \\( \\cos\\theta = k \\), the second solution in \\( 0^\\circ \\)–\\( 360^\\circ \\) is ___B1___ minus \\( \\alpha \\).",
   "blankOptions": {
    "B1": [
-    "sin^2",
-    "pairs",
+    "exact",
+    "decimal",
     "360",
-    "cos^2"
+    "alpha"
    ]
   },
   "key": {
@@ -19415,10 +19415,10 @@ window.QUESTION_BANK = [
   "question": "The tangent graph repeats every ___B1___ degrees, so its second solution is \\( \\alpha \\) plus that many degrees.",
   "blankOptions": {
    "B1": [
-    "alpha",
-    "180",
-    "cos^2",
-    "360"
+    "360",
+    "sin^2",
+    "720",
+    "180"
    ]
   },
   "key": {
@@ -19437,10 +19437,10 @@ window.QUESTION_BANK = [
   "question": "To solve an equation in \\( 2\\theta \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), first solve for \\( 2\\theta \\) over the interval 0 to ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "principal",
+    "sin^2",
+    "90",
     "720",
-    "decimal",
-    "cos^2"
+    "principal"
    ]
   },
   "key": {
@@ -19459,10 +19459,10 @@ window.QUESTION_BANK = [
   "question": "To turn \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) into a quadratic, replace \\( \\cos^2\\theta \\) with 1 minus ___B1___.",
   "blankOptions": {
    "B1": [
-    "exact",
-    "detailed",
-    "sin^2",
-    "180"
+    "90",
+    "principal",
+    "alpha",
+    "sin^2"
    ]
   },
   "key": {
@@ -19481,10 +19481,10 @@ window.QUESTION_BANK = [
   "question": "A command word that means \"leave surds, not decimals\" is ___B1___; a decimal answer then scores zero.",
   "blankOptions": {
    "B1": [
-    "pairs",
-    "exact",
-    "180",
-    "detailed"
+    "cos^2",
+    "90",
+    "detailed",
+    "exact"
    ]
   },
   "key": {
@@ -19503,9 +19503,9 @@ window.QUESTION_BANK = [
   "question": "Solutions of \\( \\sin\\theta = k \\) and \\( \\cos\\theta = k \\) come in ___B1___ across a full \\( 360^\\circ \\), so an odd count usually signals a slip.",
   "blankOptions": {
    "B1": [
-    "alpha",
-    "720",
-    "cos^2",
+    "360",
+    "sin^2",
+    "detailed",
     "pairs"
    ]
   },
@@ -19838,7 +19838,7 @@ window.QUESTION_BANK = [
   "question": "What is the sensible first step in a 3D trigonometry problem?",
   "options": [
    "Identify the right-angled triangle in the correct plane and redraw it in 2D",
-   "Apply the sine rule to the whole solid at once",
+   "Apply the sine rule to the whole solid at once instead of breaking it into flat right-angled triangles",
    "Measure every angle with a protractor",
    "Assume the answer is \\( 45^\\circ \\)"
   ],
@@ -19916,7 +19916,7 @@ window.QUESTION_BANK = [
    "Its projection (shadow) on the plane",
    "The nearest vertical edge",
    "Any line in the plane",
-   "The perpendicular to the plane"
+   "The perpendicular dropped from the line straight down onto the plane"
   ],
   "key": {
    "answer": 0,
@@ -19932,9 +19932,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "On a sloping roof, the line of greatest slope is the line that is:",
   "options": [
-   "Perpendicular to the horizontal edges of the sloping face (straight up the slope)",
+   "Perpendicular to the horizontal edges, straight up the slope",
    "Parallel to the horizontal edges",
-   "The longest diagonal across the face",
+   "The longest diagonal that can be drawn across the sloping face",
    "Along the bottom edge"
   ],
   "key": {
@@ -19971,7 +19971,7 @@ window.QUESTION_BANK = [
   "question": "A bearing must be written:",
   "options": [
    "Clockwise from north, with three figures (e.g. \\( 072^\\circ \\))",
-   "Anticlockwise from north, with two figures",
+   "Anticlockwise from north, with two figures only (e.g. \\( 72^\\circ \\))",
    "Clockwise from east, with three figures",
    "As the acute angle to the nearest axis"
   ],
@@ -20153,7 +20153,7 @@ window.QUESTION_BANK = [
   "question": "What is the sensible first move in most 3D trig problems?",
   "options": [
    "Find a right-angled triangle in one plane and redraw it in 2D",
-   "Use the sine rule on the whole solid",
+   "Use the sine rule on the whole solid without first isolating a flat triangle",
    "Round every length to the nearest whole number first",
    "Guess which angle looks about right"
   ],
@@ -20174,7 +20174,7 @@ window.QUESTION_BANK = [
   "question": "The angle between the line AG and the base is measured between AG and:",
   "options": [
    "Its projection AC on the base",
-   "The vertical edge CG",
+   "The vertical edge CG that rises to the top corner",
    "The nearest side of the base",
    "The top face of the cuboid"
   ],
@@ -20259,7 +20259,7 @@ window.QUESTION_BANK = [
   "options": [
    "They used \\( \\tan^{-1}(80/20) \\) — the angle to the vertical, not the horizontal",
    "Nothing — \\( 76^\\circ \\) is correct",
-   "They should have used the sine rule",
+   "They should have used the sine rule instead of tan on this right-angled triangle",
    "They rounded too early"
   ],
   "key": {
@@ -20279,7 +20279,7 @@ window.QUESTION_BANK = [
   "question": "How do you fix on the correct right-angled triangle?",
   "options": [
    "Trace the line and the point directly below its top; use that triangle",
-   "Use whichever triangle is largest",
+   "Use whichever right-angled triangle in the diagram happens to be the largest",
    "Always use the front face",
    "Use the triangle with the biggest angle"
   ],
@@ -20342,7 +20342,7 @@ window.QUESTION_BANK = [
   "question": "Space diagonal of an \\( 8\\times 6\\times 5 \\) cuboid:",
   "options": [
    "\\( \\sqrt{125} \\approx 11.2 \\)",
-   "\\( 10 \\)",
+   "\\( \\sqrt{100} = 10 \\) (the base diagonal only)",
    "\\( 19 \\)",
    "\\( \\sqrt{61} \\)"
   ],
@@ -20363,7 +20363,7 @@ window.QUESTION_BANK = [
   "question": "An interior triangle angle of \\( 46^\\circ \\) becomes a bearing by:",
   "options": [
    "Combining it with a known direction and writing three figures",
-   "Just adding a zero to make \\( 046^\\circ \\)",
+   "Just writing it as three figures by adding a leading zero, giving \\( 046^\\circ \\)",
    "Doubling it",
    "Using it unchanged"
   ],
@@ -20386,7 +20386,7 @@ window.QUESTION_BANK = [
    "So opposite/adjacent/hypotenuse are clear and errors are avoided",
    "To use more paper",
    "Because 3D pictures are banned",
-   "To make it look neater only"
+   "Only to make the diagram look neater; it changes none of the answers"
   ],
   "key": {
    "answer": 0,
@@ -20405,7 +20405,7 @@ window.QUESTION_BANK = [
   "question": "A gentle slope gives an angle to the horizontal of about:",
   "options": [
    "A small angle (e.g. \\( 14^\\circ \\))",
-   "Close to \\( 90^\\circ \\)",
+   "An angle close to \\( 90^\\circ \\), because the slope climbs steeply",
    "Exactly \\( 45^\\circ \\)",
    "More than \\( 90^\\circ \\)"
   ],
@@ -20426,7 +20426,7 @@ window.QUESTION_BANK = [
   "question": "A question asks for the angle to 1 decimal place. You should:",
   "options": [
    "Round only the final answer to 1 d.p. and keep full accuracy before that",
-   "Round every intermediate step to 1 d.p.",
+   "Round every intermediate step to 1 d.p. as you go so the working stays tidy",
    "Give the answer to 4 d.p. to be safe",
    "Give it as a whole number"
   ],
@@ -20445,16 +20445,16 @@ window.QUESTION_BANK = [
   "question": "In a 3D problem the first step is to identify the correct right-angled ___B1___ lying in one flat ___B2___ (surface).",
   "blankOptions": {
    "B1": [
-    "three",
     "triangle",
-    "opposite",
-    "slope"
+    "foot",
+    "sine",
+    "perpendicular"
    ],
    "B2": [
-    "240",
-    "opposite",
-    "three",
-    "plane"
+    "perpendicular",
+    "slope",
+    "plane",
+    "sine"
    ]
   },
   "key": {
@@ -20474,16 +20474,16 @@ window.QUESTION_BANK = [
   "question": "The angle between a line and a plane is found by dropping a ___B1___ from the line down to the plane; the angle is then measured at the ___B2___ of that perpendicular.",
   "blankOptions": {
    "B1": [
+    "vertical",
+    "triangle",
     "perpendicular",
-    "sine",
-    "hypotenuse",
-    "triangle"
+    "plane"
    ],
    "B2": [
-    "240",
+    "triangle",
+    "opposite",
     "foot",
-    "slope",
-    "opposite"
+    "adjacent"
    ]
   },
   "key": {
@@ -20503,16 +20503,16 @@ window.QUESTION_BANK = [
   "question": "For a path going up a slope, the angle with the horizontal has the vertical height as the ___B1___ side and the horizontal distance as the ___B2___ side.",
   "blankOptions": {
    "B1": [
+    "opposite",
     "cosine",
-    "vertical",
-    "triangle",
-    "opposite"
+    "perpendicular",
+    "slope"
    ],
    "B2": [
-    "three",
-    "clockwise",
-    "hypotenuse",
-    "adjacent"
+    "cosine",
+    "adjacent",
+    "perpendicular",
+    "triangle"
    ]
   },
   "key": {
@@ -20532,10 +20532,10 @@ window.QUESTION_BANK = [
   "question": "The steepest line that can be drawn on a sloping face is called the line of greatest ___B1___.",
   "blankOptions": {
    "B1": [
-    "adjacent",
+    "slope",
+    "opposite",
     "perpendicular",
-    "plane",
-    "slope"
+    "triangle"
    ]
   },
   "key": {
@@ -20554,16 +20554,16 @@ window.QUESTION_BANK = [
   "question": "A bearing is measured ___B1___ from north and is always written with ___B2___ figures.",
   "blankOptions": {
    "B1": [
-    "slope",
-    "240",
     "clockwise",
-    "plane"
+    "triangle",
+    "adjacent",
+    "vertical"
    ],
    "B2": [
+    "opposite",
+    "cosine",
     "three",
-    "slope",
-    "plane",
-    "cosine"
+    "hypotenuse"
    ]
   },
   "key": {
@@ -20583,10 +20583,10 @@ window.QUESTION_BANK = [
   "question": "If the bearing of B from A is 060 degrees, then the bearing of A from B is ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "three",
-    "plane",
     "cosine",
-    "240"
+    "slope",
+    "240",
+    "plane"
    ]
   },
   "key": {
@@ -20605,10 +20605,10 @@ window.QUESTION_BANK = [
   "question": "When a right-angled triangle can be solved with SOH-CAH-TOA, you should not overcomplicate it with the ___B1___ rule.",
   "blankOptions": {
    "B1": [
-    "triangle",
+    "240",
+    "clockwise",
     "sine",
-    "opposite",
-    "foot"
+    "perpendicular"
    ]
   },
   "key": {
@@ -21039,7 +21039,7 @@ window.QUESTION_BANK = [
   "question": "A student calculates \\( {}^6C_2 \\) and gets \\( 30 \\). What went wrong?",
   "options": [
    "They forgot to divide by \\( 2! \\); the answer is \\( 15 \\)",
-   "Nothing — \\( 30 \\) is correct",
+   "Nothing is wrong — \\( 30 \\) is correct because order matters",
    "They should have divided by \\( 6! \\)",
    "They should have used \\( 6 + 2 \\)"
   ],
@@ -21306,7 +21306,7 @@ window.QUESTION_BANK = [
   "options": [
    "Choosing 4 books from 9 to take on holiday",
    "Setting a 4-digit PIN",
-   "Awarding 1st, 2nd, 3rd prizes",
+   "Awarding 1st, 2nd and 3rd prizes to three of the runners",
    "Seating 4 people in a row of chairs"
   ],
   "key": {
@@ -21493,8 +21493,8 @@ window.QUESTION_BANK = [
   "reading": "<p>The most common lost mark on this topic is the wrong choice of method. Ask: <em>does swapping two chosen objects change the result?</em></p><p><strong>0 marks:</strong> gold/silver/bronze for 3 of 5 answered as \\( {}^5C_3 = 10 \\) — the medals are different, so order matters.</p><p><strong>Full marks:</strong> \\( {}^5P_3 = 60 \\). Write one line naming your method (\"order matters, so permutation\") before you calculate.</p>",
   "question": "Before computing, what should you decide?",
   "options": [
-   "Whether order matters (permutation) or not (combination)",
-   "Whether to add or subtract",
+   "Whether order matters or not",
+   "Whether to add the stages together or multiply them",
    "Whether to round",
    "Which calculator to use"
   ],
@@ -21516,7 +21516,7 @@ window.QUESTION_BANK = [
   "options": [
    "Each factor can earn its own method/B mark",
    "It looks neater",
-   "It is required by law",
+   "So you can check the arithmetic of each step more easily",
    "To use more space"
   ],
   "key": {
@@ -21555,10 +21555,10 @@ window.QUESTION_BANK = [
   "question": "When you make a sequence of independent choices, the total number of outcomes is found by ___B1___ the number of options at each stage.",
   "blankOptions": {
    "B1": [
-    "always",
+    "0",
     "dividing",
     "multiplying",
-    "not"
+    "permutation"
    ]
   },
   "key": {
@@ -21577,16 +21577,16 @@ window.QUESTION_BANK = [
   "question": "The product \\( n \\times (n-1) \\times \\dots \\times 2 \\times 1 \\) is called n ___B1___, and by definition \\( 0! \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "dividing",
+    "n!",
     "factorial",
-    "n-1",
-    "r!"
+    "adding",
+    "permutation"
    ],
    "B2": [
+    "combination",
     "always",
-    "1",
-    "multiplying",
-    "dividing"
+    "adding",
+    "1"
    ]
   },
   "key": {
@@ -21606,16 +21606,16 @@ window.QUESTION_BANK = [
   "question": "In a permutation the ___B1___ of the objects matters, but in a combination it does ___B2___.",
   "blankOptions": {
    "B1": [
-    "order",
     "dividing",
-    "n+1",
-    "0"
+    "0",
+    "order",
+    "always"
    ],
    "B2": [
-    "always",
-    "permutation",
-    "1",
-    "not"
+    "n-1",
+    "not",
+    "dividing",
+    "adding"
    ]
   },
   "key": {
@@ -21635,10 +21635,10 @@ window.QUESTION_BANK = [
   "question": "In the permutation formula \\( {}^nP_r = \\frac{n!}{(n-r)!} \\), the denominator is the factorial of ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
-    "combination",
-    "adding",
-    "n-r"
+    "n-r",
+    "multiplying",
+    "dividing",
+    "n-1"
    ]
   },
   "key": {
@@ -21657,10 +21657,10 @@ window.QUESTION_BANK = [
   "question": "Compared with \\( {}^nP_r \\), the combination \\( {}^nC_r \\) divides by an extra ___B1___ to cancel the repeated orderings.",
   "blankOptions": {
    "B1": [
+    "1",
     "r!",
     "n-r",
-    "dividing",
-    "factorial"
+    "dividing"
    ]
   },
   "key": {
@@ -21679,10 +21679,10 @@ window.QUESTION_BANK = [
   "question": "The number of distinct ways to seat n people around a circular table is ( ___B1___ )! because rotations are the same arrangement.",
   "blankOptions": {
    "B1": [
-    "r!",
-    "dividing",
-    "1",
-    "n-1"
+    "n-1",
+    "not",
+    "adding",
+    "0"
    ]
   },
   "key": {
@@ -21701,10 +21701,10 @@ window.QUESTION_BANK = [
   "question": "Selecting a team of 4 from a squad of 11, where order does not matter, is counted with a ___B1___.",
   "blankOptions": {
    "B1": [
-    "permutation",
-    "order",
-    "combination",
-    "0"
+    "n+1",
+    "n-r",
+    "factorial",
+    "combination"
    ]
   },
   "key": {
@@ -21724,7 +21724,7 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "permutation",
-    "n+1",
+    "n-r",
     "not",
     "0"
    ]
@@ -22065,7 +22065,7 @@ window.QUESTION_BANK = [
   "question": "Which row of Pascal's triangle gives the coefficients of \\( (a+b)^6 \\)?",
   "options": [
    "\\( 1,\\ 6,\\ 15,\\ 20,\\ 15,\\ 6,\\ 1 \\)",
-   "\\( 1,\\ 6,\\ 15,\\ 15,\\ 6,\\ 1 \\)",
+   "\\( 1,\\ 7,\\ 21,\\ 35,\\ 35,\\ 21,\\ 7,\\ 1 \\)",
    "\\( 1,\\ 5,\\ 10,\\ 10,\\ 5,\\ 1 \\)",
    "\\( 1,\\ 6,\\ 20,\\ 15,\\ 6,\\ 1 \\)"
   ],
@@ -22141,7 +22141,7 @@ window.QUESTION_BANK = [
   "question": "What is the coefficient of \\( x^3 \\) in \\( (2+3x)^5 \\)?",
   "options": [
    "\\( 1080 \\)",
-   "\\( 40 \\)",
+   "\\( 8640 \\)",
    "\\( 270 \\)",
    "\\( 120 \\)"
   ],
@@ -22180,7 +22180,7 @@ window.QUESTION_BANK = [
   "options": [
    "The constant term (power of \\( x \\) is \\( 0 \\))",
    "The term in \\( x^1 \\)",
-   "The first term",
+   "The first term of the expansion, where the power of \\( x \\) is highest",
    "The last term"
   ],
   "key": {
@@ -22218,7 +22218,7 @@ window.QUESTION_BANK = [
   "options": [
    "They forgot to raise the \\( 2 \\): it is \\( 10\\times 2^3\\times 3^2 = 720x^2 \\)",
    "Nothing — it is correct",
-   "They should have used \\( {}^5C_3 \\)",
+   "They should have used \\( {}^5C_3 \\) because the \\( x^2 \\) term is the third term",
    "They forgot the \\( x^2 \\)"
   ],
   "key": {
@@ -22405,7 +22405,7 @@ window.QUESTION_BANK = [
    "The binomial series and \\( {}^nC_r \\)",
    "The quadratic formula",
    "The log laws",
-   "The sine and cosine rules"
+   "The sine, cosine and area-of-a-triangle formulae"
   ],
   "key": {
    "answer": 0,
@@ -22447,7 +22447,7 @@ window.QUESTION_BANK = [
    "\\( 3^2 = 9 \\) (raising the 3 to the power)",
    "The \\( {}^5C_2 \\) coefficient only",
    "The \\( x^2 \\)",
-   "Nothing — you just add the terms"
+   "Nothing — you just multiply the five brackets out term by term"
   ],
   "key": {
    "answer": 0,
@@ -22489,7 +22489,7 @@ window.QUESTION_BANK = [
    "\\( 720 \\)",
    "\\( 80 \\)",
    "\\( 90 \\)",
-   "\\( 10 \\)"
+   "\\( 2880 \\)"
   ],
   "key": {
    "answer": 0,
@@ -22551,7 +22551,7 @@ window.QUESTION_BANK = [
   "options": [
    "Set the power of \\( x \\) to \\( 0 \\) and solve for \\( r \\)",
    "Take the first term",
-   "Take the middle term always",
+   "Take the middle term, since the constant term always sits in the middle",
    "Take the last term"
   ],
   "key": {
@@ -22573,7 +22573,7 @@ window.QUESTION_BANK = [
    "\\( -32 \\)",
    "\\( 32 \\)",
    "\\( -8 \\)",
-   "\\( 8 \\)"
+   "\\( -24 \\)"
   ],
   "key": {
    "answer": 0,
@@ -22594,7 +22594,7 @@ window.QUESTION_BANK = [
    "It gives a reliable method that earns the method marks",
    "It is banned in the exam",
    "It only works for \\( n<4 \\)",
-   "It avoids using a calculator"
+   "It saves time by avoiding Pascal's triangle for large powers"
   ],
   "key": {
    "answer": 0,
@@ -22615,7 +22615,7 @@ window.QUESTION_BANK = [
    "Clearly state the specific term the question asked for",
    "Nothing — it is automatic",
    "Round to 3 s.f.",
-   "Draw Pascal's triangle"
+   "Draw Pascal's triangle to double-check every coefficient you found"
   ],
   "key": {
    "answer": 0,
@@ -22653,10 +22653,10 @@ window.QUESTION_BANK = [
   "question": "The expansion of \\( (a+b)^n \\) for a positive integer \\( n \\) has ___B1___ terms.",
   "blankOptions": {
    "B1": [
-    "n-r",
-    "3",
     "n+1",
-    "0"
+    "n",
+    "r",
+    "memorised"
    ]
   },
   "key": {
@@ -22676,15 +22676,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "n-r",
-    "n",
-    "memorised",
-    "0"
+    "3",
+    "Pascal's",
+    "n"
    ],
    "B2": [
-    "memorised",
-    "n-1",
-    "Pascal's",
-    "r"
+    "r",
+    "1",
+    "n+1",
+    "n-1"
    ]
   },
   "key": {
@@ -22704,10 +22704,10 @@ window.QUESTION_BANK = [
   "question": "The numbers in ___B1___ triangle give the binomial coefficients.",
   "blankOptions": {
    "B1": [
-    "n-r",
-    "4",
-    "memorised",
-    "Pascal's"
+    "Pascal's",
+    "0",
+    "n-1",
+    "provided"
    ]
   },
   "key": {
@@ -22726,10 +22726,10 @@ window.QUESTION_BANK = [
   "question": "The binomial coefficient \\( {}^nC_r \\) and the binomial series are ___B1___ on the exam formula sheet, so you need not memorise them.",
   "blankOptions": {
    "B1": [
-    "r",
-    "memorised",
     "provided",
-    "4"
+    "1",
+    "memorised",
+    "n-r"
    ]
   },
   "key": {
@@ -22749,8 +22749,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "0",
-    "2n",
-    "1",
+    "r",
+    "Pascal's",
     "n-1"
    ]
   },
@@ -22770,10 +22770,10 @@ window.QUESTION_BANK = [
   "question": "In the expansion of \\( \\left(x + \\frac{1}{x}\\right)^8 \\) the constant term occurs when \\( r \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
+    "memorised",
     "4",
-    "n-r",
-    "n",
-    "r"
+    "2n",
+    "given"
    ]
   },
   "key": {
@@ -22792,10 +22792,10 @@ window.QUESTION_BANK = [
   "question": "When expanding \\( (2+3x)^5 \\) the general term \\( {}^5C_r\\, 2^{5-r}(3x)^r \\) means the \\( 3 \\) must be raised to the power ___B1___.",
   "blankOptions": {
    "B1": [
-    "memorised",
-    "n-1",
     "Pascal's",
-    "r"
+    "r",
+    "n-1",
+    "0"
    ]
   },
   "key": {
@@ -22814,10 +22814,10 @@ window.QUESTION_BANK = [
   "question": "In every term of \\( (a+b)^n \\) the powers of \\( a \\) and \\( b \\) add up to ___B1___.",
   "blankOptions": {
    "B1": [
-    "given",
     "n+1",
-    "Pascal's",
-    "n"
+    "given",
+    "n",
+    "1"
    ]
   },
   "key": {
@@ -23228,7 +23228,7 @@ window.QUESTION_BANK = [
   "question": "A student computes \\( P(X = 2) = (0.4)^2 (0.6)^3 \\) for \\( X \\sim B(5,\\ 0.4) \\). What have they done wrong?",
   "options": [
    "They omitted the coefficient \\( {}^5C_2 \\)",
-   "They used the wrong value of \\( p \\)",
+   "They should have used \\( p = 0.6 \\) as the success probability",
    "Nothing — it is correct",
    "They should use \\( (0.6)^2 (0.4)^3 \\)"
   ],
@@ -23246,8 +23246,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "For \\( X \\sim B(6,\\ 0.5) \\), a student writes \\( P(X = 2) = {}^6C_2\\,(0.5)^4 (0.5)^2 \\). What is the error?",
   "options": [
-   "The powers of \\( p \\) and \\( 1-p \\) are swapped (should be \\( (0.5)^2 (0.5)^4 \\))",
-   "\\( {}^6C_2 \\) is wrong",
+   "The powers of \\( p \\) and \\( 1-p \\) are swapped",
+   "The coefficient \\( {}^6C_2 \\) should be \\( {}^6C_4 \\) to match the failures",
    "\\( p \\) should be \\( 0.6 \\)",
    "There is no error"
   ],
@@ -23324,7 +23324,7 @@ window.QUESTION_BANK = [
   "options": [
    "\\( 1 - P(0) - P(1) \\)",
    "\\( 1 - P(0) \\)",
-   "\\( 1 - P(2) \\)",
+   "\\( 1 - P(0) - P(1) - P(2) \\)",
    "\\( P(0) + P(1) \\)"
   ],
   "key": {
@@ -23363,7 +23363,7 @@ window.QUESTION_BANK = [
    "Fixed n = 20, two outcomes, constant p, independent trials",
    "Because faults are rare",
    "Because 20 is a large number",
-   "Because the probability is less than 0.5"
+   "Because there are only two outcomes, so any such count must be binomial"
   ],
   "key": {
    "answer": 0,
@@ -23487,7 +23487,7 @@ window.QUESTION_BANK = [
   "options": [
    "Drawing 3 cards from a pack without replacement and counting kings",
    "Throwing 6 dice and counting the sixes",
-   "Tossing a coin 10 times and counting heads",
+   "Tossing a fair coin 10 times in a row and counting the number of heads",
    "Spinning a fair spinner 5 times and counting reds"
   ],
   "key": {
@@ -23551,7 +23551,7 @@ window.QUESTION_BANK = [
    "\\( P(0) + P(1) + P(2) \\)",
    "\\( P(2) \\) only",
    "\\( 1 - P(2) \\)",
-   "\\( P(1) + P(2) \\)"
+   "\\( P(0) + P(1) + P(2) + P(3) \\)"
   ],
   "key": {
    "answer": 0,
@@ -23591,7 +23591,7 @@ window.QUESTION_BANK = [
   "question": "Why is 'count the reds when 4 balls are drawn from a bag without replacement' NOT binomial?",
   "options": [
    "The probability of red changes after each draw, so p is not constant",
-   "There is no fixed number of trials",
+   "There is no fixed number of trials once balls are removed from the bag",
    "There are more than two colours possible",
    "The trials are all identical"
   ],
@@ -23614,7 +23614,7 @@ window.QUESTION_BANK = [
    "\\( 1 - (5/6)^4 \\)",
    "\\( (1/6)^4 \\)",
    "\\( 4 \\times (1/6) \\)",
-   "\\( (5/6)^4 \\)"
+   "\\( 1 - (1/6)^4 \\)"
   ],
   "key": {
    "answer": 0,
@@ -23633,7 +23633,7 @@ window.QUESTION_BANK = [
   "question": "Why can this not be modelled by \\( B(n,p) \\)?",
   "options": [
    "\\( p \\) is not constant (no replacement)",
-   "There is no fixed number of draws",
+   "There is no fixed number of draws in this experiment",
    "There are only two outcomes",
    "The draws are independent"
   ],
@@ -23656,7 +23656,7 @@ window.QUESTION_BANK = [
    "The coefficient \\( {}^nC_2 \\)",
    "Nothing",
    "The power of \\( p \\)",
-   "The value of \\( n \\)"
+   "The value of \\( n \\) needs to be substituted in"
   ],
   "key": {
    "answer": 0,
@@ -23738,7 +23738,7 @@ window.QUESTION_BANK = [
   "question": "In \\( {}^nC_x\\, p^x (1-p)^{n-x} \\), the power of \\( 1-p \\) is:",
   "options": [
    "The number of failures \\( n - x \\)",
-   "The number of successes \\( x \\)",
+   "The number of successes \\( x \\) in the sample",
    "Always \\( n \\)",
    "Always 1"
   ],
@@ -23760,7 +23760,7 @@ window.QUESTION_BANK = [
   "options": [
    "A fraction (optionally with a decimal check)",
    "A 2 d.p. decimal",
-   "A percentage to the nearest whole number",
+   "A percentage rounded to the nearest whole number",
    "Any rounded value"
   ],
   "key": {
@@ -23778,16 +23778,16 @@ window.QUESTION_BANK = [
   "question": "A binomial distribution is written \\( X \\sim B(n,\\ p) \\), where \\( n \\) is the number of ___B1___ and \\( p \\) is the probability of ___B2___ on each one.",
   "blankOptions": {
    "B1": [
-    "provided",
-    "failure",
-    "trials",
-    "complement"
+    "constant",
+    "625/1296",
+    "successes",
+    "trials"
    ],
    "B2": [
-    "complement",
-    "memorised",
-    "success",
-    "provided"
+    "independent",
+    "constant",
+    "n-x",
+    "success"
    ]
   },
   "key": {
@@ -23807,16 +23807,16 @@ window.QUESTION_BANK = [
   "question": "For a binomial model the trials must be ___B1___ of each other and the probability \\( p \\) must stay ___B2___ throughout.",
   "blankOptions": {
    "B1": [
-    "successes",
     "independent",
-    "0.5",
-    "x"
+    "failure",
+    "provided",
+    "trials"
    ],
    "B2": [
-    "trials",
-    "provided",
     "constant",
-    "0.5"
+    "1/6",
+    "trials",
+    "dependent"
    ]
   },
   "key": {
@@ -23836,10 +23836,10 @@ window.QUESTION_BANK = [
   "question": "The formula \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\) is ___B1___ on the exam formula sheet, so you do not have to memorise it.",
   "blankOptions": {
    "B1": [
-    "memorised",
-    "dependent",
-    "x",
-    "provided"
+    "trials",
+    "provided",
+    "0.5",
+    "memorised"
    ]
   },
   "key": {
@@ -23858,10 +23858,10 @@ window.QUESTION_BANK = [
   "question": "In \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\), the power of \\( p \\) is the number of successes \\( x \\), and the power of \\( (1-p) \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "failure",
-    "x",
+    "671/1296",
+    "n-x",
     "provided",
-    "n-x"
+    "independent"
    ]
   },
   "key": {
@@ -23880,10 +23880,10 @@ window.QUESTION_BANK = [
   "question": "To find the probability of at least one success you use \\( 1 - P(X=0) \\); this is called using the ___B1___.",
   "blankOptions": {
    "B1": [
+    "memorised",
+    "independent",
     "complement",
-    "constant",
-    "671/1296",
-    "1/6"
+    "n-x"
    ]
   },
   "key": {
@@ -23902,10 +23902,10 @@ window.QUESTION_BANK = [
   "question": "For four dice, \\( P(\\text{at least one 3}) = 1 - (5/6)^4 \\), which as an exact fraction is ___B1___.",
   "blankOptions": {
    "B1": [
-    "failure",
-    "671/1296",
+    "success",
     "independent",
-    "successes"
+    "0.5",
+    "671/1296"
    ]
   },
   "key": {
@@ -23924,10 +23924,10 @@ window.QUESTION_BANK = [
   "question": "For a fair coin the probability of a head on a single toss is \\( p \\) = ___B1___.",
   "blankOptions": {
    "B1": [
-    "1/6",
     "0.5",
-    "671/1296",
-    "625/1296"
+    "memorised",
+    "complement",
+    "1/6"
    ]
   },
   "key": {
@@ -23946,10 +23946,10 @@ window.QUESTION_BANK = [
   "question": "Selecting items without replacement is not binomial because the trials are not ___B1___.",
   "blankOptions": {
    "B1": [
-    "provided",
-    "constant",
+    "complement",
     "independent",
-    "memorised"
+    "x",
+    "trials"
    ]
   },
   "key": {
@@ -24302,7 +24302,7 @@ window.QUESTION_BANK = [
   "question": "On a tree diagram, moving ALONG the branches (one event and then the next) you:",
   "options": [
    "Multiply the probabilities",
-   "Add the probabilities",
+   "Add the probabilities together",
    "Subtract them",
    "Divide them"
   ],
@@ -24397,7 +24397,7 @@ window.QUESTION_BANK = [
   "question": "A question asks how many students are in each Venn region. In the regions you should write:",
   "options": [
    "The counts (numbers of students)",
-   "The probabilities as fractions",
+   "The probabilities written as fractions",
    "Percentages",
    "Ratios"
   ],
@@ -24416,7 +24416,7 @@ window.QUESTION_BANK = [
   "question": "On a Venn diagram, the members who are in NEITHER set are shown:",
   "options": [
    "Outside both circles but inside the rectangle",
-   "In a third separate circle",
+   "In a third separate circle inside the rectangle",
    "In the overlap of the two circles",
    "Outside the rectangle"
   ],
@@ -24453,8 +24453,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "In a survey of 100 people, 12 are girls who wear glasses. \\( P(\\text{a random person is a girl who wears glasses}) \\) is:",
   "options": [
-   "\\( \\frac{12}{100} = \\frac{3}{25} \\)",
-   "\\( \\frac{12}{40} \\)",
+   "\\( \\frac{12}{100} \\)",
+   "\\( \\frac{12}{40} = \\frac{3}{10} \\)",
    "\\( \\frac{12}{30} \\)",
    "\\( \\frac{1}{12} \\)"
   ],
@@ -24473,7 +24473,7 @@ window.QUESTION_BANK = [
   "question": "When filling a three-set Venn diagram from data, you should start with:",
   "options": [
    "The number in all three sets (the centre)",
-   "The grand total",
+   "The grand total, then split it among the sets",
    "The 'none' region",
    "Any single set"
   ],
@@ -24617,7 +24617,7 @@ window.QUESTION_BANK = [
   "question": "On a tree diagram, to find the probability of one event AND the next you:",
   "options": [
    "Multiply along the branches",
-   "Add along the branches",
+   "Add along the branches of the path",
    "Add across the paths",
    "Subtract from 1"
   ],
@@ -24658,9 +24658,9 @@ window.QUESTION_BANK = [
   "reading": "<p>A <strong>two-way table</strong> cross-classifies data by two features. Every <strong>row and every column adds up to its total</strong>, and the grand total sits in the corner — that is all you need to fill any missing cell.</p>\n            <p><strong>Worked example.</strong> 100 students are classified by gender and whether they wear glasses. Complete the table, then read off probabilities.</p>\n            <table class=\"worked\">\n              <tr><td></td><td><strong>Glasses</strong></td><td><strong>No glasses</strong></td><td><strong>Total</strong></td></tr>\n              <tr><td><strong>Boys</strong></td><td>18</td><td>42</td><td>60</td></tr>\n              <tr><td><strong>Girls</strong></td><td>12</td><td>28</td><td>40</td></tr>\n              <tr><td><strong>Total</strong></td><td>30</td><td>70</td><td>100</td></tr>\n            </table>\n            <ul>\n              <li>Boys, no glasses \\( = 60 - 18 = 42 \\); Girls total \\( = 100 - 60 = 40 \\); Girls glasses \\( = 30 - 18 = 12 \\).</li>\n              <li>\\( P(\\text{wears glasses}) = \\frac{30}{100} = \\frac{3}{10} \\).</li>\n              <li>\\( P(\\text{a girl who wears glasses}) = \\frac{12}{100} = \\frac{3}{25} \\).</li>\n            </ul>",
   "question": "In the table above, what is \\( P(\\text{a randomly chosen student is a boy who wears no glasses}) \\)?",
   "options": [
-   "\\( \\frac{42}{100} = \\frac{21}{50} \\)",
+   "\\( \\frac{42}{100} \\)",
    "\\( \\frac{18}{100} \\)",
-   "\\( \\frac{42}{60} \\)",
+   "\\( \\frac{42}{60} = \\frac{7}{10} \\)",
    "\\( \\frac{70}{100} \\)"
   ],
   "key": {
@@ -24703,7 +24703,7 @@ window.QUESTION_BANK = [
    "The centre — the number in all three sets",
    "The 'none' region",
    "The grand total",
-   "Any single-set region"
+   "Any single-set region first, then work inward"
   ],
   "key": {
    "answer": 0,
@@ -24722,7 +24722,7 @@ window.QUESTION_BANK = [
   "question": "Where should the people who belong to NEITHER set be shown on a Venn diagram?",
   "options": [
    "Outside both circles but inside the rectangle",
-   "In a separate third circle",
+   "In a separate third circle inside the rectangle",
    "In the overlap of the two circles",
    "Outside the rectangle entirely"
   ],
@@ -24743,7 +24743,7 @@ window.QUESTION_BANK = [
   "question": "Where do the 10 students who like neither go?",
   "options": [
    "Outside both circles, inside the rectangle",
-   "In a new third circle",
+   "In a new third circle drawn inside the rectangle",
    "In the overlap",
    "Outside the rectangle"
   ],
@@ -24765,7 +24765,7 @@ window.QUESTION_BANK = [
   "options": [
    "The universal set (everything considered)",
    "The intersection",
-   "The 'neither' group only",
+   "The 'neither' group, shown outside the circles",
    "Nothing — it is decoration"
   ],
   "key": {
@@ -24848,7 +24848,7 @@ window.QUESTION_BANK = [
   "question": "For 'exactly one of three events', you should:",
   "options": [
    "Add the three single-success path probabilities",
-   "Multiply all three success probabilities",
+   "Multiply all three of the success path probabilities",
    "Use only one path",
    "Subtract from 3"
   ],
@@ -24890,7 +24890,7 @@ window.QUESTION_BANK = [
   "question": "'Determine' tells you to:",
   "options": [
    "Show working / justification for the answer",
-   "Just write the answer down",
+   "Just write the final answer down without working",
    "Give a decimal only",
    "Draw a graph"
   ],
@@ -24909,16 +24909,16 @@ window.QUESTION_BANK = [
   "question": "Moving along the branches of a tree diagram you ___B1___ the probabilities; to combine several separate paths you ___B2___ them.",
   "blankOptions": {
    "B1": [
-    "multiply",
-    "intersection",
-    "probabilities",
-    "subtract"
+    "same",
+    "inside",
+    "subtract",
+    "multiply"
    ],
    "B2": [
-    "counts",
-    "outward",
-    "change",
-    "add"
+    "add",
+    "subtract",
+    "probabilities",
+    "inside"
    ]
   },
   "key": {
@@ -24938,16 +24938,16 @@ window.QUESTION_BANK = [
   "question": "The people who are in neither set are written ___B1___ the circles but inside the ___B2___.",
   "blankOptions": {
    "B1": [
-    "outside",
-    "multiply",
+    "inside",
     "circle",
-    "outward"
+    "outside",
+    "probabilities"
    ],
    "B2": [
+    "multiply",
     "rectangle",
-    "add",
-    "probabilities",
-    "circle"
+    "total",
+    "outward"
    ]
   },
   "key": {
@@ -24967,16 +24967,16 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\cap \\) stands for the ___B1___ (in both), and the symbol \\( \\cup \\) stands for the ___B2___ (in either).",
   "blankOptions": {
    "B1": [
-    "circle",
-    "change",
+    "intersection",
     "subtract",
-    "intersection"
+    "counts",
+    "add"
    ],
    "B2": [
-    "counts",
-    "outward",
-    "probabilities",
-    "union"
+    "union",
+    "total",
+    "centre",
+    "add"
    ]
   },
   "key": {
@@ -24997,15 +24997,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "centre",
-    "multiply",
-    "circle",
-    "rectangle"
+    "outside",
+    "subtract",
+    "intersection"
    ],
    "B2": [
     "outward",
-    "subtract",
-    "add",
-    "inside"
+    "circle",
+    "total",
+    "probabilities"
    ]
   },
   "key": {
@@ -25025,16 +25025,16 @@ window.QUESTION_BANK = [
   "question": "With replacement the probabilities on the second set of branches are the ___B1___ as the first; without replacement they ___B2___.",
   "blankOptions": {
    "B1": [
-    "outside",
     "multiply",
     "same",
-    "circle"
+    "centre",
+    "outward"
    ],
    "B2": [
-    "outward",
-    "subtract",
     "change",
-    "add"
+    "add",
+    "multiply",
+    "total"
    ]
   },
   "key": {
@@ -25054,10 +25054,10 @@ window.QUESTION_BANK = [
   "question": "In a two-way table, each row and each column must add up to its ___B1___.",
   "blankOptions": {
    "B1": [
-    "probabilities",
     "total",
-    "circle",
-    "intersection"
+    "change",
+    "subtract",
+    "multiply"
    ]
   },
   "key": {
@@ -25076,10 +25076,10 @@ window.QUESTION_BANK = [
   "question": "When a Venn question asks 'how many', put ___B1___ (not probabilities) in each region.",
   "blankOptions": {
    "B1": [
-    "circle",
-    "change",
+    "outward",
+    "add",
     "counts",
-    "intersection"
+    "same"
    ]
   },
   "key": {
@@ -25384,7 +25384,7 @@ window.QUESTION_BANK = [
   "options": [
    "\\( y = 6 \\times 0.5^x \\)",
    "\\( y = 6 \\times 2^x \\)",
-   "\\( y = 6 \\times 3^x \\)",
+   "\\( y = 6 \\times 1.05^x \\)",
    "\\( y = 6x \\)"
   ],
   "key": {
@@ -25403,7 +25403,7 @@ window.QUESTION_BANK = [
   "options": [
    "\\( y \\) falls towards \\( 0 \\) but never reaches it",
    "\\( y \\) becomes negative",
-   "\\( y \\) reaches \\( 0 \\) and stops",
+   "\\( y \\) keeps falling until it reaches \\( 0 \\), then stays flat at zero",
    "\\( y \\) rises to infinity"
   ],
   "key": {
@@ -25498,7 +25498,7 @@ window.QUESTION_BANK = [
   "options": [
    "The same \\( y \\)-intercept \\( (0,\\ 3) \\)",
    "The same rate of growth",
-   "The same asymptote \\( y = 3 \\)",
+   "The same horizontal asymptote at \\( y = 3 \\)",
    "They are identical"
   ],
   "key": {
@@ -25517,7 +25517,7 @@ window.QUESTION_BANK = [
   "options": [
    "Exponentials multiply by \\( a \\) per unit step, not in proportion to \\( x \\)",
    "It is correct",
-   "Because \\( a = 3 \\) is odd",
+   "It is wrong, but only because \\( y \\) triples — doubling \\( x \\) multiplies \\( y \\) by the base \\( 3 \\)",
    "Because \\( k = 2 \\) is even"
   ],
   "key": {
@@ -25724,7 +25724,7 @@ window.QUESTION_BANK = [
   "options": [
    "No — it approaches \\( y = 0 \\) but never reaches it",
    "Yes, when \\( x = 0 \\)",
-   "Yes, for large \\( x \\)",
+   "Yes — for large enough \\( x \\) the value gets so small it lands on \\( 0 \\)",
    "Yes, when \\( x \\) is negative"
   ],
   "key": {
@@ -25746,7 +25746,7 @@ window.QUESTION_BANK = [
    "Linear adds a fixed amount each step; exponential multiplies by a fixed factor",
    "They are the same over long times",
    "Linear always overtakes exponential",
-   "Exponential adds a fixed amount each step"
+   "Exponential adds a fixed amount each step; linear multiplies by a fixed factor"
   ],
   "key": {
    "answer": 0,
@@ -25786,7 +25786,7 @@ window.QUESTION_BANK = [
   "question": "Does \\( y = 3 \\times 0.6^x \\) ever reach \\( y = 0 \\)?",
   "options": [
    "No — \\( y = 0 \\) is an asymptote it only approaches",
-   "Yes, for large \\( x \\)",
+   "Yes — once \\( x \\) is large enough the value drops all the way to \\( 0 \\)",
    "Yes, at \\( x = 0 \\)",
    "Yes, once"
   ],
@@ -25807,7 +25807,7 @@ window.QUESTION_BANK = [
   "question": "In \\( y = 200 \\times 1.05^x \\), what does the 1.05 represent?",
   "options": [
    "The growth factor (a 5% rise each step)",
-   "The starting value",
+   "The starting value that everything else is measured from",
    "The number of years",
    "The asymptote"
   ],
@@ -25952,16 +25952,16 @@ window.QUESTION_BANK = [
   "question": "In the exponential function \\( y = k a^x \\), the number \\( a \\) is called the ___B1___, and the value of \\( y \\) when \\( x = 0 \\) is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "above",
-    "crosses",
-    "gradient",
-    "base"
+    "linear",
+    "base",
+    "growth",
+    "decay"
    ],
    "B2": [
+    "growth",
     "y-intercept",
-    "linear",
-    "a",
-    "0.96"
+    "positive",
+    "0"
    ]
   },
   "key": {
@@ -25981,16 +25981,16 @@ window.QUESTION_BANK = [
   "question": "When \\( a > 1 \\) the graph shows exponential ___B1___; when \\( 0 < a < 1 \\) it shows exponential ___B2___.",
   "blankOptions": {
    "B1": [
-    "0",
-    "base",
-    "growth",
-    "above"
+    "0.96",
+    "positive",
+    "y-intercept",
+    "growth"
    ],
    "B2": [
+    "y-intercept",
+    "above",
     "decay",
-    "0",
-    "touches",
-    "base"
+    "0.96"
    ]
   },
   "key": {
@@ -26010,16 +26010,16 @@ window.QUESTION_BANK = [
   "question": "The horizontal asymptote of \\( y = k a^x \\) is the line where \\( y \\) equals ___B1___, which the curve approaches but never ___B2___.",
   "blankOptions": {
    "B1": [
-    "0",
-    "above",
+    "decay",
+    "base",
     "a",
-    "1.04"
+    "0"
    ],
    "B2": [
-    "crosses",
     "constant",
-    "k",
-    "touches"
+    "above",
+    "touches",
+    "crosses"
    ]
   },
   "key": {
@@ -26039,13 +26039,13 @@ window.QUESTION_BANK = [
   "question": "Since \\( a^x \\) is always positive and \\( k > 0 \\), the value of \\( y \\) is always ___B1___, so the curve stays ___B2___ the \\( x \\)-axis.",
   "blankOptions": {
    "B1": [
-    "0.96",
+    "linear",
     "positive",
-    "y-intercept",
-    "k"
+    "gradient",
+    "decay"
    ],
    "B2": [
-    "0",
+    "base",
     "gradient",
     "above",
     "negative"
@@ -26068,10 +26068,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( y = k a^x \\) always crosses the \\( y \\)-axis at the point whose \\( y \\)-coordinate equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "negative",
-    "growth",
-    "0.96",
-    "k"
+    "gradient",
+    "k",
+    "1.04",
+    "base"
    ]
   },
   "key": {
@@ -26090,10 +26090,10 @@ window.QUESTION_BANK = [
   "question": "A savings account of £500 growing at 4% each year is modelled by \\( y = 500 \\times a^x \\), where \\( a \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "0.96",
-    "0",
-    "1.04",
-    "linear"
+    "negative",
+    "y-intercept",
+    "crosses",
+    "1.04"
    ]
   },
   "key": {
@@ -26112,9 +26112,9 @@ window.QUESTION_BANK = [
   "question": "If \\( a = 1 \\) then \\( a^x = 1 \\) for every \\( x \\), so the graph is a ___B1___ horizontal line.",
   "blankOptions": {
    "B1": [
-    "rate",
-    "linear",
-    "positive",
+    "crosses",
+    "negative",
+    "decay",
     "constant"
    ]
   },
@@ -26581,7 +26581,7 @@ window.QUESTION_BANK = [
   "question": "Which statement is FALSE?",
   "options": [
    "\\( \\log(x+y) = \\log x + \\log y \\)",
-   "\\( \\log(xy) = \\log x + \\log y \\)",
+   "\\( \\log(xyz) = \\log x + \\log y + \\log z \\)",
    "\\( \\log\\frac{x}{y} = \\log x - \\log y \\)",
    "\\( \\log(x^n) = n\\log x \\)"
   ],
@@ -26931,7 +26931,7 @@ window.QUESTION_BANK = [
    "So a method mark survives even if the final answer slips",
    "It is not necessary",
    "To use more paper",
-   "To make it look neat only"
+   "Because you earn a separate mark for each line of working shown"
   ],
   "key": {
    "answer": 0,
@@ -26952,7 +26952,7 @@ window.QUESTION_BANK = [
    "\\( \\log 16 \\)",
    "\\( \\log 8 \\)",
    "\\( \\log 6 \\)",
-   "\\( \\log 2 \\)"
+   "\\( 2\\log 4 \\)"
   ],
   "key": {
    "answer": 0,
@@ -27014,7 +27014,7 @@ window.QUESTION_BANK = [
   "options": [
    "A wrong final answer can still keep the method mark",
    "It is quicker",
-   "It is required by the calculator",
+   "Because presentation marks are awarded for neatly laid-out working",
    "It changes the answer"
   ],
   "key": {
@@ -27035,7 +27035,7 @@ window.QUESTION_BANK = [
   "options": [
    "Combine the logs AND evaluate to an exact value",
    "Combine into one log and stop",
-   "Give a 3 s.f. decimal",
+   "Combine the logs and then round the value to 3 significant figures",
    "Draw a graph"
   ],
   "key": {
@@ -27074,10 +27074,10 @@ window.QUESTION_BANK = [
   "question": "A logarithm is the inverse of ___B1___: the statement \\( \\log_a x = y \\) means exactly the same as \\( a^y = x \\).",
   "blankOptions": {
    "B1": [
-    "exponentiation",
-    "power",
     "addition",
-    "index"
+    "not",
+    "exponentiation",
+    "2"
    ]
   },
   "key": {
@@ -27096,16 +27096,16 @@ window.QUESTION_BANK = [
   "question": "For any valid base, \\( \\log_a 1 \\) equals ___B1___ and \\( \\log_a a \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "0",
-    "10",
-    "subtraction",
-    "multiplication"
+    "multiplication",
+    "exponentiation",
+    "logs",
+    "0"
    ],
    "B2": [
-    "index",
+    "10",
+    "addition",
     "1",
-    "separate",
-    "10"
+    "separate"
    ]
   },
   "key": {
@@ -27125,16 +27125,16 @@ window.QUESTION_BANK = [
   "question": "The product law turns a multiplication inside a log into an ___B1___ of two logs; the quotient law turns a division into a ___B2___.",
   "blankOptions": {
    "B1": [
-    "addition",
-    "1",
     "index",
-    "separate"
+    "not",
+    "exponentiation",
+    "addition"
    ],
    "B2": [
-    "10",
-    "2",
+    "multiplication",
+    "1",
     "subtraction",
-    "1"
+    "2"
    ]
   },
   "key": {
@@ -27154,10 +27154,10 @@ window.QUESTION_BANK = [
   "question": "The power law \\( \\log(x^n) = n\\log x \\) brings the ___B1___ down to the front as a multiplier.",
   "blankOptions": {
    "B1": [
-    "exponentiation",
-    "separate",
-    "0",
-    "power"
+    "subtraction",
+    "power",
+    "addition",
+    "exponentiation"
    ]
   },
   "key": {
@@ -27176,10 +27176,10 @@ window.QUESTION_BANK = [
   "question": "Writing \\( \\log 4 + \\log 25 \\) as a single number gives \\( \\log 100 \\), which equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "subtraction",
-    "same",
-    "addition",
-    "2"
+    "not",
+    "2",
+    "power",
+    "exponentiation"
    ]
   },
   "key": {
@@ -27198,10 +27198,10 @@ window.QUESTION_BANK = [
   "question": "To make \\( x \\) the subject of \\( 3^x = 10 \\), take ___B1___ of both sides.",
   "blankOptions": {
    "B1": [
-    "power",
     "1",
     "10",
-    "logs"
+    "logs",
+    "addition"
    ]
   },
   "key": {
@@ -27220,10 +27220,10 @@ window.QUESTION_BANK = [
   "question": "The expression \\( \\log(x+y) \\) is ___B1___ equal to \\( \\log x + \\log y \\) — a sum inside a single log cannot be split.",
   "blankOptions": {
    "B1": [
-    "exponentiation",
-    "logs",
+    "index",
     "not",
-    "subtraction"
+    "power",
+    "10"
    ]
   },
   "key": {
@@ -27242,10 +27242,10 @@ window.QUESTION_BANK = [
   "question": "In the exam, write each log-law step on a ___B1___ line so that partial credit survives an error.",
   "blankOptions": {
    "B1": [
+    "subtraction",
+    "exponentiation",
     "separate",
-    "power",
-    "0",
-    "not"
+    "index"
    ]
   },
   "key": {
@@ -27621,7 +27621,7 @@ window.QUESTION_BANK = [
   "question": "What is the correct first step to solve \\( 4\\times 3^x = 100 \\)?",
   "options": [
    "Divide both sides by 4 to isolate \\( 3^x \\)",
-   "Take the logarithm of the 4",
+   "Take the log of both sides straight away, before isolating the power",
    "Multiply both sides by 3",
    "Subtract 4 from both sides"
   ],
@@ -27641,7 +27641,7 @@ window.QUESTION_BANK = [
   "options": [
    "They took logs of one side only — it should be \\( x\\log 2 = \\log 15 \\)",
    "Nothing — it is correct",
-   "They should have written \\( x = 15\\log 2 \\)",
+   "They should have divided by 2 instead of taking logs, giving \\( x = 7.5 \\)",
    "The base should be 10"
   ],
   "key": {
@@ -27679,7 +27679,7 @@ window.QUESTION_BANK = [
   "options": [
    "Rounding intermediate values can change the last significant figure of the answer",
    "It makes the working look longer",
-   "Logs only work with rounded numbers",
+   "Logs only work with rounded numbers, so rounding each value early actually keeps the answer accurate",
    "The calculator requires it"
   ],
   "key": {
@@ -27881,7 +27881,7 @@ window.QUESTION_BANK = [
   "question": "First step to solve \\( 4\\times 2^x = 100 \\)?",
   "options": [
    "Divide both sides by 4 to isolate \\( 2^x \\)",
-   "Take the log of the 4 only",
+   "Take the log of the 4 and the 100 but leave the power alone",
    "Work out \\( 100 \\div 2 = 50 \\)",
    "Subtract 4 from both sides"
   ],
@@ -27967,7 +27967,7 @@ window.QUESTION_BANK = [
    "Use logs and round only the final answer to 3 s.f.",
    "Use trial and improvement",
    "Leave the answer as an exact log expression",
-   "Round every intermediate value to 2 d.p. first"
+   "Round every intermediate value to 2 d.p. first to keep the numbers tidy"
   ],
   "key": {
    "answer": 0,
@@ -27986,7 +27986,7 @@ window.QUESTION_BANK = [
   "question": "Solve \\( 2^x = 15 \\) (3 s.f.).",
   "options": [
    "\\( 3.91 \\)",
-   "\\( 7.5 \\)",
+   "\\( 7.50 \\)",
    "\\( 13 \\)",
    "\\( 30 \\)"
   ],
@@ -28008,7 +28008,7 @@ window.QUESTION_BANK = [
   "options": [
    "\\( x\\log 2 = \\log 15 \\)",
    "\\( x\\log 2 = 15 \\)",
-   "\\( x = 15\\log 2 \\)",
+   "\\( x = \\log 15 - \\log 2 \\)",
    "\\( 2x = \\log 15 \\)"
   ],
   "key": {
@@ -28049,7 +28049,7 @@ window.QUESTION_BANK = [
   "question": "Why is \\( 3.93 \\) wrong here?",
   "options": [
    "The intermediate logs were rounded too early",
-   "Logs cannot be divided",
+   "Logs can only be added or subtracted, never divided",
    "\\( 2^x = 15 \\) has no solution",
    "The base should be 10"
   ],
@@ -28091,7 +28091,7 @@ window.QUESTION_BANK = [
   "question": "Why write out the log working in full?",
   "options": [
    "To earn the method marks even if the final value slips",
-   "It is optional and wastes time",
+   "It is optional, since only the final answer is worth any marks",
    "Logs need extra paper",
    "To hide the answer"
   ],
@@ -28133,7 +28133,7 @@ window.QUESTION_BANK = [
   "question": "For \\( 5\\times 2^x = 3 \\), the safest first move is:",
   "options": [
    "Divide by 5 to get \\( 2^x = 0.6 \\)",
-   "Multiply by 5",
+   "Multiply both sides by 5 to remove the coefficient",
    "Write \\( \\log 5 \\times x\\log 2 \\)",
    "Square both sides"
   ],
@@ -28152,22 +28152,22 @@ window.QUESTION_BANK = [
   "question": "To solve \\( a^x = b \\) you take the ___B1___ of both sides. Using the power law this gives \\( x\\log a = \\log b \\), so \\( x \\) equals log ___B2___ divided by log ___B3___.",
   "blankOptions": {
    "B1": [
-    "logarithm",
-    "last",
-    "doubling",
-    "1"
+    "1",
+    "first",
+    "greater",
+    "logarithm"
    ],
    "B2": [
-    "greater",
-    "1",
+    "round",
+    "decimal",
     "b",
-    "isolate"
+    "3.91"
    ],
    "B3": [
-    "isolate",
+    "less",
+    "half-life",
     "a",
-    "last",
-    "less"
+    "decimal"
    ]
   },
   "key": {
@@ -28188,15 +28188,15 @@ window.QUESTION_BANK = [
   "question": "Before solving \\( 5\\times 2^x = 3 \\) it is cleanest to ___B1___ the power by dividing both sides by ___B2___.",
   "blankOptions": {
    "B1": [
+    "1",
     "isolate",
-    "b",
-    "greater",
-    "first"
+    "round",
+    "exact"
    ],
    "B2": [
-    "5",
     "subtract",
-    "b",
+    "5",
+    "exact",
     "greater"
    ]
   },
@@ -28217,16 +28217,16 @@ window.QUESTION_BANK = [
   "question": "In the model \\( A = A_0 a^t \\), there is growth when \\( a \\) is ___B1___ than 1 and decay when \\( a \\) lies between 0 and ___B2___.",
   "blankOptions": {
    "B1": [
-    "a",
-    "subtract",
     "greater",
-    "doubling"
+    "isolate",
+    "decimal",
+    "round"
    ],
    "B2": [
     "1",
     "subtract",
     "less",
-    "exact"
+    "3.91"
    ]
   },
   "key": {
@@ -28246,10 +28246,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ of a decaying quantity is the time it takes to fall to half its value.",
   "blankOptions": {
    "B1": [
-    "last",
     "half-life",
-    "less",
-    "round"
+    "subtract",
+    "doubling",
+    "logarithm"
    ]
   },
   "key": {
@@ -28268,10 +28268,10 @@ window.QUESTION_BANK = [
   "question": "For a growing quantity, the ___B1___ time is how long it takes to become twice as large.",
   "blankOptions": {
    "B1": [
-    "doubling",
-    "decimal",
     "3.91",
-    "a"
+    "5",
+    "logarithm",
+    "doubling"
    ]
   },
   "key": {
@@ -28290,16 +28290,16 @@ window.QUESTION_BANK = [
   "question": "Keep full calculator accuracy and only ___B1___ your answer at the very ___B2___ step.",
   "blankOptions": {
    "B1": [
-    "greater",
+    "3.91",
+    "doubling",
     "round",
-    "subtract",
-    "a"
+    "less"
    ],
    "B2": [
-    "5",
+    "b",
     "a",
-    "last",
-    "greater"
+    "exact",
+    "last"
    ]
   },
   "key": {
@@ -28319,10 +28319,10 @@ window.QUESTION_BANK = [
   "question": "Solving \\( 2^x = 15 \\) gives \\( x = \\frac{\\log 15}{\\log 2} \\), which is ___B1___ to 3 significant figures.",
   "blankOptions": {
    "B1": [
-    "3.91",
-    "logarithm",
     "5",
-    "decimal"
+    "doubling",
+    "3.91",
+    "b"
    ]
   },
   "key": {
@@ -28341,10 +28341,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ tells you to leave the answer as a log or surd rather than a decimal.",
   "blankOptions": {
    "B1": [
-    "exact",
-    "half-life",
+    "1",
+    "b",
     "less",
-    "isolate"
+    "exact"
    ]
   },
   "key": {
@@ -28797,7 +28797,7 @@ window.QUESTION_BANK = [
   "question": "For \\( y = kx^n \\), what do you plot to obtain a straight line?",
   "options": [
    "\\( \\log y \\) against \\( \\log x \\)",
-   "\\( \\log y \\) against \\( x \\)",
+   "\\( \\log y \\) against \\( x \\), logging only \\( y \\)",
    "\\( y \\) against \\( \\log x \\)",
    "\\( x \\) against \\( y \\)"
   ],
@@ -28816,7 +28816,7 @@ window.QUESTION_BANK = [
   "question": "You plot \\( \\log y \\) against \\( x \\) for \\( y = ka^x \\) and find the gradient is \\( 0.6 \\). What is \\( a \\)?",
   "options": [
    "\\( 10^{0.6} \\approx 4.0 \\)",
-   "\\( 0.6 \\)",
+   "\\( 0.6 \\) (the gradient itself, un-anti-logged)",
    "\\( \\log 0.6 \\)",
    "\\( 6 \\)"
   ],
@@ -28835,7 +28835,7 @@ window.QUESTION_BANK = [
   "question": "The intercept of the line \\( \\log y = (\\log a)x + \\log k \\) is \\( 0.9 \\). What is \\( k \\)?",
   "options": [
    "\\( 10^{0.9} \\approx 7.9 \\)",
-   "\\( 0.9 \\)",
+   "\\( 0.9 \\) (the intercept itself, un-anti-logged)",
    "\\( \\log 0.9 \\)",
    "\\( 9 \\)"
   ],
@@ -28892,7 +28892,7 @@ window.QUESTION_BANK = [
   "question": "A model is \\( x = ka^n \\). Which axes give a straight line?",
   "options": [
    "\\( \\log x \\) (vertical) against \\( n \\) (horizontal)",
-   "\\( \\log x \\) against \\( \\log n \\)",
+   "\\( \\log x \\) against \\( \\log n \\), logging both as for a power law",
    "\\( x \\) against \\( \\log n \\)",
    "\\( n \\) against \\( \\log x \\)"
   ],
@@ -28912,7 +28912,7 @@ window.QUESTION_BANK = [
   "options": [
    "Otherwise all accuracy marks are lost",
    "To save space",
-   "Because logs are always negative",
+   "Because logarithms of the data values are always negative",
    "To make the line curve"
   ],
   "key": {
@@ -28930,7 +28930,7 @@ window.QUESTION_BANK = [
   "question": "You correctly find gradient \\( = \\log a = 0.30 \\) but write your final answer as \\( a = 0.30 \\). What is the error?",
   "options": [
    "You forgot to anti-log: \\( a = 10^{0.30} \\approx 2.0 \\)",
-   "You should have used the intercept",
+   "You should have used the intercept, not the gradient, to find \\( a \\)",
    "The gradient should be negative",
    "Nothing is wrong"
   ],
@@ -28949,7 +28949,7 @@ window.QUESTION_BANK = [
   "question": "In a 'show that' linearisation part, a student does all the log algebra correctly but stops. Which mark is most likely lost?",
   "options": [
    "The mark for stating the equation is of the form \\( Y = mX + c \\)",
-   "The mark for taking logs",
+   "The mark for identifying the gradient \\( m \\) and intercept \\( c \\) in terms of the constants",
    "The mark for the product law",
    "No mark is lost"
   ],
@@ -28968,7 +28968,7 @@ window.QUESTION_BANK = [
   "question": "For \\( T - 20 = A \\times 2^{-t/b} \\), taking logs gives \\( \\log(T-20) = \\log A - \\frac{\\log 2}{b}t \\). What is the gradient of \\( \\log(T-20) \\) against \\( t \\)?",
   "options": [
    "\\( -\\frac{\\log 2}{b} \\)",
-   "\\( \\log A \\)",
+   "\\( \\log A \\), which is actually the intercept",
    "\\( \\log 2 \\)",
    "\\( -b \\)"
   ],
@@ -29114,7 +29114,7 @@ window.QUESTION_BANK = [
    "So the constants can be found from a straight line's gradient and intercept",
    "To make the numbers larger",
    "To avoid using a calculator",
-   "Because curves cannot be drawn"
+   "Because a curved graph cannot be drawn accurately enough to read the constants off"
   ],
   "key": {
    "answer": 0,
@@ -29156,7 +29156,7 @@ window.QUESTION_BANK = [
    "\\( n \\)",
    "\\( \\log n \\)",
    "\\( \\log k \\)",
-   "\\( kn \\)"
+   "\\( k \\)"
   ],
   "key": {
    "answer": 0,
@@ -29196,7 +29196,7 @@ window.QUESTION_BANK = [
   "question": "You plot \\( \\log y \\) vs \\( x \\) for \\( y = ka^x \\) and read a gradient of \\( 0.3 \\). What is \\( a \\)?",
   "options": [
    "\\( a = 10^{0.3} \\approx 2.0 \\)",
-   "\\( a = 0.3 \\)",
+   "\\( a = 0.3 \\) (the raw gradient, not anti-logged)",
    "\\( a = \\log 0.3 \\)",
    "\\( a = 3 \\)"
   ],
@@ -29240,7 +29240,7 @@ window.QUESTION_BANK = [
    "Explicitly comparing your equation to \\( Y = mX + c \\)",
    "Giving the answer as a decimal",
    "Drawing the graph",
-   "Anti-logging the gradient"
+   "Anti-logging the gradient to recover the constant \\( a \\)"
   ],
   "key": {
    "answer": 0,
@@ -29259,7 +29259,7 @@ window.QUESTION_BANK = [
   "question": "Gradient \\( = \\log a = 0.18 \\). What is \\( a \\)?",
   "options": [
    "\\( 10^{0.18} \\approx 1.5 \\)",
-   "\\( 0.18 \\)",
+   "\\( 0.18 \\) (the gradient exactly as read off)",
    "\\( \\log 0.18 \\)",
    "\\( 1.8 \\)"
   ],
@@ -29303,7 +29303,7 @@ window.QUESTION_BANK = [
    "They used a non-linear horizontal scale",
    "They anti-logged twice",
    "They drew a curve",
-   "They used log base 2"
+   "They used logs to base 2 instead of base 10 when tabulating"
   ],
   "key": {
    "answer": 0,
@@ -29344,7 +29344,7 @@ window.QUESTION_BANK = [
   "options": [
    "The exponent is 0, so \\( b \\) cancels out",
    "The temperature is too high",
-   "Logs of 0 are undefined",
+   "Logs of 0 are undefined, so that point cannot be used at all",
    "It gives a negative value"
   ],
   "key": {
@@ -29365,7 +29365,7 @@ window.QUESTION_BANK = [
   "options": [
    "Anti-logging the gradient/intercept",
    "Taking logs",
-   "Drawing axes",
+   "Labelling the axes with the logged variable names",
    "Writing a title"
   ],
   "key": {
@@ -29387,7 +29387,7 @@ window.QUESTION_BANK = [
    "State the equation is of the form \\( Y = mX + c \\)",
    "Give a decimal answer",
    "Anti-log immediately",
-   "Draw the graph first"
+   "Draw the graph and read off the gradient before concluding"
   ],
   "key": {
    "answer": 0,
@@ -29407,7 +29407,7 @@ window.QUESTION_BANK = [
   "options": [
    "The gradient/intercept are read from a hand-drawn line",
    "The data is fake",
-   "Logs are approximate",
+   "Logarithm values can only ever be given to a few decimal places, so they vary",
    "The calculator rounds"
   ],
   "key": {
@@ -29425,16 +29425,16 @@ window.QUESTION_BANK = [
   "question": "Taking logs of \\( y = ka^x \\) gives \\( \\log y = x\\log a + \\log k \\). Plotting \\( \\log y \\) against \\( x \\), the gradient equals ___B1___ and the intercept equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "intercept",
     "log a",
-    "hence",
-    "antilog"
+    "log x",
+    "n",
+    "intercept"
    ],
    "B2": [
-    "gradient",
-    "intercept",
     "log k",
-    "10"
+    "n",
+    "antilog",
+    "c"
    ]
   },
   "key": {
@@ -29454,10 +29454,10 @@ window.QUESTION_BANK = [
   "question": "For the power law \\( y = kx^n \\) you take logs of both sides and plot \\( \\log y \\) against ___B1___.",
   "blankOptions": {
    "B1": [
-    "hence",
+    "10",
+    "gradient",
     "log x",
-    "anti-log",
-    "log a"
+    "m"
    ]
   },
   "key": {
@@ -29476,10 +29476,10 @@ window.QUESTION_BANK = [
   "question": "The gradient you read off is really \\( \\log a \\), so to recover \\( a \\) you must ___B1___ it, giving \\( a = 10 \\) to that power.",
   "blankOptions": {
    "B1": [
-    "n",
-    "anti-log",
-    "non-linear",
-    "m"
+    "hence",
+    "antilog",
+    "c",
+    "anti-log"
    ]
   },
   "key": {
@@ -29498,16 +29498,16 @@ window.QUESTION_BANK = [
   "question": "In the straight-line form \\( Y = mX + c \\), the gradient is the letter ___B1___ and the intercept is the letter ___B2___.",
   "blankOptions": {
    "B1": [
+    "gradient",
+    "10",
     "m",
-    "log a",
-    "hence",
-    "gradient"
+    "anti-log"
    ],
    "B2": [
     "linear",
-    "c",
-    "10",
-    "log a"
+    "n",
+    "antilog",
+    "c"
    ]
   },
   "key": {
@@ -29528,9 +29528,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "linear",
+    "log k",
     "non-linear",
-    "log a",
-    "anti-log"
+    "hence"
    ]
   },
   "key": {
@@ -29549,10 +29549,10 @@ window.QUESTION_BANK = [
   "question": "For \\( x = ka^n \\) you plot \\( \\log x \\) against \\( n \\); to find \\( a \\) you raise 10 to the power of the ___B1___.",
   "blankOptions": {
    "B1": [
+    "c",
+    "n",
     "gradient",
-    "m",
-    "linear",
-    "non-linear"
+    "intercept"
    ]
   },
   "key": {
@@ -29571,10 +29571,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ tells you to use your graph, not the calculator's equation solver.",
   "blankOptions": {
    "B1": [
-    "intercept",
-    "m",
     "hence",
-    "non-linear"
+    "n",
+    "c",
+    "intercept"
    ]
   },
   "key": {
@@ -29593,10 +29593,10 @@ window.QUESTION_BANK = [
   "question": "Expanding correctly, \\( \\log(ka^n) = \\log k + n\\log a \\); the power ___B1___ multiplies only the log of \\( a \\).",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "log a",
     "n",
-    "anti-log"
+    "non-linear",
+    "antilog",
+    "linear"
    ]
   },
   "key": {
@@ -30082,7 +30082,7 @@ window.QUESTION_BANK = [
   "question": "For \\( y = x^3 - 3x \\), where is the gradient equal to 0?",
   "options": [
    "At \\( x = 1 \\) and \\( x = -1 \\)",
-   "At \\( x = 0 \\) only",
+   "At \\( x = 0 \\) and \\( x = 1 \\) only",
    "At \\( x = 3 \\)",
    "Nowhere"
   ],
@@ -30102,7 +30102,7 @@ window.QUESTION_BANK = [
   "options": [
    "The gradient of the curve (and of its tangent) at a point",
    "The \\( y \\)-value of the curve",
-   "The area under the curve",
+   "The total area between the curve and the \\( x \\)-axis up to that point",
    "The \\( x \\)-intercept of the curve"
   ],
   "key": {
@@ -30265,7 +30265,7 @@ window.QUESTION_BANK = [
   "options": [
    "tangent to the curve at that point",
    "y-axis",
-   "chord across the whole curve",
+   "chord joining the two end-points of the curve",
    "x-axis"
   ],
   "key": {
@@ -30518,7 +30518,7 @@ window.QUESTION_BANK = [
    "Write the difference quotient with the table values before evaluating",
    "Write only the final number",
    "Round to 1 significant figure",
-   "Differentiate the curve instead"
+   "Differentiate the curve algebraically and substitute the given x-value"
   ],
   "key": {
    "answer": 0,
@@ -30539,7 +30539,7 @@ window.QUESTION_BANK = [
    "The intervals are unequal, so 1.4 is not the midpoint",
    "The values are too large",
    "1.8 is not on the curve",
-   "You cannot subtract y-values"
+   "You may only subtract y-values that are next to each other in the table"
   ],
   "key": {
    "answer": 0,
@@ -30577,16 +30577,16 @@ window.QUESTION_BANK = [
   "question": "To differentiate a power of \\( x \\), ___B1___ by the power and then ___B2___ the power by 1.",
   "blankOptions": {
    "B1": [
-    "multiply",
-    "add",
-    "area",
-    "forward"
+    "backward",
+    "rate",
+    "central",
+    "multiply"
    ],
    "B2": [
-    "6x",
+    "area",
+    "rate",
     "reduce",
-    "add",
-    "tangent"
+    "forward"
    ]
   },
   "key": {
@@ -30606,10 +30606,10 @@ window.QUESTION_BANK = [
   "question": "The derivative of any constant is ___B1___.",
   "blankOptions": {
    "B1": [
-    "increase",
-    "value",
     "backward",
-    "0"
+    "0",
+    "rate",
+    "central"
    ]
   },
   "key": {
@@ -30628,10 +30628,10 @@ window.QUESTION_BANK = [
   "question": "The gradient function measures the ___B1___ of change of \\( y \\) with respect to \\( x \\).",
   "blankOptions": {
    "B1": [
+    "chord",
+    "area",
     "rate",
-    "divide",
-    "6x",
-    "tangent"
+    "backward"
    ]
   },
   "key": {
@@ -30650,10 +30650,10 @@ window.QUESTION_BANK = [
   "question": "The value of \\( \\frac{dy}{dx} \\) at a point equals the gradient of the ___B1___ to the curve there.",
   "blankOptions": {
    "B1": [
-    "backward",
-    "tangent",
+    "increase",
     "12x",
-    "0"
+    "tangent",
+    "value"
    ]
   },
   "key": {
@@ -30672,10 +30672,10 @@ window.QUESTION_BANK = [
   "question": "Differentiating \\( 6x^2 \\) gives ___B1___.",
   "blankOptions": {
    "B1": [
-    "chord",
+    "rate",
+    "0",
     "12x",
-    "forward",
-    "increase"
+    "value"
    ]
   },
   "key": {
@@ -30694,10 +30694,10 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ difference uses points on both sides of \\( x \\) and is usually more accurate than a one-sided estimate.",
   "blankOptions": {
    "B1": [
-    "12x",
-    "add",
-    "rate",
-    "central"
+    "divide",
+    "central",
+    "0",
+    "add"
    ]
   },
   "key": {
@@ -30716,10 +30716,10 @@ window.QUESTION_BANK = [
   "question": "As the interval \\( h \\) gets smaller, the gradient of the ___B1___ approaches the gradient of the tangent.",
   "blankOptions": {
    "B1": [
-    "value",
+    "backward",
+    "0",
     "chord",
-    "increase",
-    "multiply"
+    "value"
    ]
   },
   "key": {
@@ -31073,7 +31073,7 @@ window.QUESTION_BANK = [
    "\\( -\\tfrac{1}{4} \\)",
    "\\( 4 \\)",
    "\\( \\tfrac{1}{4} \\)",
-   "\\( -4 \\)"
+   "\\( 4 \\times (-1) = -4 \\)"
   ],
   "key": {
    "answer": 0,
@@ -31108,10 +31108,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A student finds \\( \\frac{dy}{dx} = 2x \\) for \\( y = x^2 + 1 \\) and writes the tangent at \\( (2,\\ 5) \\) as \\( y = 2x \\). This is wrong because:",
   "options": [
-   "\\( \\frac{dy}{dx} \\) is the gradient function, not the tangent's equation",
+   "\\( \\frac{dy}{dx} \\) is the gradient function, not the equation",
    "the curve is not \\( x^2 + 1 \\)",
    "the point is not on the curve",
-   "the gradient should be negative"
+   "the constant \\( +1 \\) was dropped, so it should be \\( y = 2x + 1 \\)"
   ],
   "key": {
    "answer": 0,
@@ -31147,7 +31147,7 @@ window.QUESTION_BANK = [
   "question": "Which line form is best for writing a tangent or normal through a known point?",
   "options": [
    "\\( y - y_1 = m(x - x_1) \\)",
-   "\\( y = mx + c \\)",
+   "\\( y = mx + c \\), then substitute to find \\( c \\)",
    "\\( ax + by + c = 0 \\)",
    "\\( \\frac{dy}{dx} = m \\)"
   ],
@@ -31225,7 +31225,7 @@ window.QUESTION_BANK = [
    "\\( \\left( \\tfrac{5}{3},\\ 0 \\right) \\)",
    "\\( (0,\\ -5) \\)",
    "\\( (5,\\ 0) \\)",
-   "\\( (3,\\ 0) \\)"
+   "\\( \\left( \\tfrac{3}{5},\\ 0 \\right) \\)"
   ],
   "key": {
    "answer": 0,
@@ -31369,7 +31369,7 @@ window.QUESTION_BANK = [
    "\\( -\\tfrac{1}{3} \\)",
    "\\( 3 \\)",
    "\\( \\tfrac{1}{3} \\)",
-   "\\( -3 \\)"
+   "\\( 3 \\times (-1) = -3 \\)"
   ],
   "key": {
    "answer": 0,
@@ -31388,7 +31388,7 @@ window.QUESTION_BANK = [
   "question": "In the recipe, what do you substitute the point's \\( x \\)-value into to get the tangent gradient?",
   "options": [
    "The gradient function \\( \\frac{dy}{dx} \\)",
-   "The original curve \\( y \\)",
+   "The original equation of the curve \\( y = f(x) \\)",
    "The line \\( y = mx + c \\)",
    "The normal's equation"
   ],
@@ -31516,7 +31516,7 @@ window.QUESTION_BANK = [
    "\\( -\\tfrac{1}{2} \\)",
    "\\( 2 \\)",
    "\\( \\tfrac{1}{2} \\)",
-   "\\( -2 \\)"
+   "\\( 2 \\times (-1) = -2 \\)"
   ],
   "key": {
    "answer": 0,
@@ -31579,7 +31579,7 @@ window.QUESTION_BANK = [
    "\\( -\\tfrac{1}{6} \\)",
    "\\( 6 \\)",
    "\\( \\tfrac{1}{6} \\)",
-   "\\( -6 \\)"
+   "\\( 6 \\times (-1) = -6 \\)"
   ],
   "key": {
    "answer": 0,
@@ -31600,7 +31600,7 @@ window.QUESTION_BANK = [
    "The justification is required, not just the final line",
    "You may use a calculator only",
    "A diagram is compulsory",
-   "You must give a decimal answer"
+   "You must give an exact decimal answer to 3 significant figures"
   ],
   "key": {
    "answer": 0,
@@ -31621,7 +31621,7 @@ window.QUESTION_BANK = [
    "Using \\( m_1 m_2 = -1 \\) to get the negative reciprocal",
    "Substituting the point",
    "Differentiating the curve",
-   "Drawing a diagram"
+   "Rearranging the final answer into the form \\( ax + by + c = 0 \\)"
   ],
   "key": {
    "answer": 0,
@@ -31640,7 +31640,7 @@ window.QUESTION_BANK = [
   "question": "To find a normal, what do you actually need from the tangent?",
   "options": [
    "Only its gradient (to take the negative reciprocal)",
-   "Its full equation",
+   "Its full equation, worked out completely before writing the normal",
    "Where it meets the axes",
    "Nothing at all"
   ],
@@ -31659,16 +31659,16 @@ window.QUESTION_BANK = [
   "question": "To find a tangent's gradient you first ___B1___ the curve, then substitute the point's ___B2___ into the gradient function.",
   "blankOptions": {
    "B1": [
-    "point",
-    "m",
     "differentiate",
-    "3x^2"
+    "point",
+    "tangent",
+    "2x"
    ],
    "B2": [
-    "tangent",
+    "parallel",
+    "is",
     "x-coordinate",
-    "y-coordinate",
-    "point"
+    "-1/m"
    ]
   },
   "key": {
@@ -31688,10 +31688,10 @@ window.QUESTION_BANK = [
   "question": "If the tangent has gradient \\( m \\), the normal has gradient ___B1___.",
   "blankOptions": {
    "B1": [
+    "differentiate",
+    "3x^2",
     "-1/m",
-    "x-coordinate",
-    "2x",
-    "point"
+    "y-coordinate"
    ]
   },
   "key": {
@@ -31710,10 +31710,10 @@ window.QUESTION_BANK = [
   "question": "The normal to a curve is ___B1___ to the tangent at the same point.",
   "blankOptions": {
    "B1": [
-    "tangent",
-    "2x",
-    "-1/m",
-    "perpendicular"
+    "x",
+    "3x^2",
+    "perpendicular",
+    "is"
    ]
   },
   "key": {
@@ -31732,10 +31732,10 @@ window.QUESTION_BANK = [
   "question": "To write the equation you use \\( y - y_1 = m(x - x_1) \\) with the gradient and the ___B1___ of contact.",
   "blankOptions": {
    "B1": [
-    "m",
-    "-1/m",
+    "point",
     "x-coordinate",
-    "point"
+    "is",
+    "not"
    ]
   },
   "key": {
@@ -31754,10 +31754,10 @@ window.QUESTION_BANK = [
   "question": "Differentiating \\( y = x^3 - 2x + 3 \\) term by term, the derivative of \\( x^3 \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "3x^2",
-    "point",
-    "tangent",
-    "m"
+    "y-coordinate",
+    "x-coordinate",
+    "m",
+    "3x^2"
    ]
   },
   "key": {
@@ -31776,9 +31776,9 @@ window.QUESTION_BANK = [
   "question": "To find where a tangent crosses the \\( x \\)-axis, set ___B1___ equal to zero and solve.",
   "blankOptions": {
    "B1": [
-    "is",
+    "point",
     "y",
-    "perpendicular",
+    "m",
     "gradient"
    ]
   },
@@ -31798,10 +31798,10 @@ window.QUESTION_BANK = [
   "question": "The gradient function \\( \\frac{dy}{dx} \\) is ___B1___ the equation of the tangent — you must still substitute a point.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
-    "tangent",
+    "not",
     "-1/m",
-    "not"
+    "parallel",
+    "reciprocal"
    ]
   },
   "key": {
@@ -32195,7 +32195,7 @@ window.QUESTION_BANK = [
    "Substitute \\( x \\) into the original equation of the curve",
    "Substitute \\( x \\) into \\( \\frac{dy}{dx} \\)",
    "Substitute \\( x \\) into \\( \\frac{d^2y}{dx^2} \\)",
-   "Set \\( y = 0 \\) and solve"
+   "Set \\( y = 0 \\) and solve that equation to find the \\( x \\)-coordinate instead"
   ],
   "key": {
    "answer": 0,
@@ -32214,7 +32214,7 @@ window.QUESTION_BANK = [
    "The sign of \\( \\frac{d^2y}{dx^2} \\) AND the conclusion (max or min)",
    "Only the value of \\( \\frac{d^2y}{dx^2} \\)",
    "Only the \\( x \\)-coordinate",
-   "Only the word 'minimum'"
+   "Only the word 'minimum' or 'maximum' as the final answer"
   ],
   "key": {
    "answer": 0,
@@ -32233,7 +32233,7 @@ window.QUESTION_BANK = [
    "Check the sign of \\( \\frac{dy}{dx} \\) just either side of the point",
    "Set \\( y = 0 \\)",
    "Read the value off a calculator",
-   "Check the sign of the constant term"
+   "Check the sign of the constant term in the original equation"
   ],
   "key": {
    "answer": 0,
@@ -32250,7 +32250,7 @@ window.QUESTION_BANK = [
   "question": "For the curve \\( y = x^3 - 3x^2 - 9x + 5 \\), setting \\( y = 0 \\) would find:",
   "options": [
    "Where the curve crosses the \\( x \\)-axis, NOT its stationary points",
-   "The stationary points",
+   "The stationary points, since setting an expression equal to zero locates them",
    "The second derivative",
    "The maximum value only"
   ],
@@ -32269,7 +32269,7 @@ window.QUESTION_BANK = [
   "question": "At a stationary point \\( \\frac{d^2y}{dx^2} = 0 \\). What should you conclude?",
   "options": [
    "The test is inconclusive — check the gradient either side",
-   "It is definitely a point of inflection",
+   "It is definitely a point of inflection, since the second derivative is zero there",
    "It is definitely a minimum",
    "There is no stationary point there"
   ],
@@ -32307,7 +32307,7 @@ window.QUESTION_BANK = [
   "question": "The command word 'sketch' (rather than 'plot') means you should:",
   "options": [
    "Show the main features in the right places, not necessarily to scale",
-   "Plot every point exactly on a grid",
+   "Plot every single point precisely on graph paper using an accurate, measured scale",
    "Give a table of values only",
    "Not draw anything, just describe it"
   ],
@@ -32497,7 +32497,7 @@ window.QUESTION_BANK = [
    "Stationary point of inflection",
    "Minimum",
    "Maximum",
-   "Not a stationary point"
+   "Not a stationary point, since the curve does not turn there"
   ],
   "key": {
    "answer": 0,
@@ -32537,7 +32537,7 @@ window.QUESTION_BANK = [
   "question": "What does the command word 'determine' require you to do?",
   "options": [
    "Justify the result with working, not just state it",
-   "Give only the final answer",
+   "Give only the final numerical answer, with no working shown",
    "Draw an accurate graph",
    "Round the answer to 3 s.f."
   ],
@@ -32558,7 +32558,7 @@ window.QUESTION_BANK = [
   "question": "Why is 'the stationary points are at \\( x = 3 \\) and \\( x = -1 \\)' an incomplete answer?",
   "options": [
    "It gives no \\( y \\)-coordinates — points need \\( (x,\\ y) \\) pairs",
-   "The \\( x \\)-values are wrong",
+   "The \\( x \\)-values are wrong; they should be \\( x = -3 \\) and \\( x = 1 \\)",
    "It should be a decimal",
    "Stationary points have no \\( x \\)-value"
   ],
@@ -32579,7 +32579,7 @@ window.QUESTION_BANK = [
   "question": "What must you add after '\\( \\frac{d^2y}{dx^2} = 18 > 0 \\)' on a 'determine the nature' question?",
   "options": [
    "A conclusion such as 'so it is a minimum'",
-   "Nothing more is needed",
+   "Nothing more is needed — the value already answers it",
    "The value of \\( y \\) only",
    "The equation \\( y = 0 \\)"
   ],
@@ -32642,7 +32642,7 @@ window.QUESTION_BANK = [
   "question": "\\( \\frac{d^2y}{dx^2} = 0 \\) at a stationary point tells you:",
   "options": [
    "The test is inconclusive — check the gradient either side",
-   "It is certainly an inflection",
+   "It is certainly a stationary point of inflection at that point",
    "It is certainly a minimum",
    "There is no stationary point"
   ],
@@ -32664,7 +32664,7 @@ window.QUESTION_BANK = [
   "options": [
    "The sign of \\( \\frac{d^2y}{dx^2} \\) with a stated conclusion",
    "Just the word 'minimum'",
-   "Just the value of \\( \\frac{d^2y}{dx^2} \\)",
+   "Just the value of \\( \\frac{d^2y}{dx^2} \\), since its sign is obvious",
    "The \\( x \\)-coordinate only"
   ],
   "key": {
@@ -32684,7 +32684,7 @@ window.QUESTION_BANK = [
   "question": "Why substitute the \\( x \\)-values back into the original curve?",
   "options": [
    "To find the \\( y \\)-coordinates and give full coordinate pairs",
-   "To check the differentiation",
+   "To check that the differentiation was carried out correctly",
    "To find the second derivative",
    "To find the intercepts"
   ],
@@ -32724,10 +32724,10 @@ window.QUESTION_BANK = [
   "question": "A stationary point occurs where the ___B1___ is zero, that is where \\( \\frac{dy}{dx} = 0 \\).",
   "blankOptions": {
    "B1": [
-    "determine",
-    "pair",
     "behaviour",
-    "gradient"
+    "gradient",
+    "positive",
+    "pair"
    ]
   },
   "key": {
@@ -32746,16 +32746,16 @@ window.QUESTION_BANK = [
   "question": "Using the second derivative: if \\( \\frac{d^2y}{dx^2} > 0 \\) the point is a ___B1___, and if \\( \\frac{d^2y}{dx^2} < 0 \\) it is a ___B2___.",
   "blankOptions": {
    "B1": [
-    "y-coordinate",
+    "positive",
+    "intercepts",
     "minimum",
-    "determine",
-    "positive"
+    "gradient"
    ],
    "B2": [
-    "gradient",
-    "either side",
     "maximum",
-    "negative"
+    "negative",
+    "y-coordinate",
+    "either side"
    ]
   },
   "key": {
@@ -32775,16 +32775,16 @@ window.QUESTION_BANK = [
   "question": "After solving \\( \\frac{dy}{dx} = 0 \\) for \\( x \\), substitute back to find the ___B1___ and give the answer as a coordinate ___B2___.",
   "blankOptions": {
    "B1": [
-    "y-coordinate",
     "minimum",
-    "negative",
-    "zero"
+    "behaviour",
+    "determine",
+    "y-coordinate"
    ],
    "B2": [
-    "pair",
-    "inconclusive",
     "either side",
-    "minimum"
+    "pair",
+    "intercepts",
+    "maximum"
    ]
   },
   "key": {
@@ -32804,10 +32804,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ means you must justify your answer, not just state it.",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "zero",
-    "maximum",
-    "determine"
+    "determine",
+    "not",
+    "y-coordinate",
+    "gradient"
    ]
   },
   "key": {
@@ -32826,16 +32826,16 @@ window.QUESTION_BANK = [
   "question": "If \\( \\frac{d^2y}{dx^2} = 0 \\) at a stationary point, the second-derivative test is ___B1___, so check the sign of the gradient on ___B2___ of the point.",
   "blankOptions": {
    "B1": [
-    "zero",
-    "pair",
+    "maximum",
     "inconclusive",
-    "gradient"
+    "behaviour",
+    "zero"
    ],
    "B2": [
+    "positive",
     "maximum",
     "either side",
-    "behaviour",
-    "intercepts"
+    "not"
    ]
   },
   "key": {
@@ -32855,10 +32855,10 @@ window.QUESTION_BANK = [
   "question": "At a stationary point of inflection the gradient is zero but does ___B1___ change sign as you pass through.",
   "blankOptions": {
    "B1": [
-    "maximum",
-    "y-coordinate",
-    "not",
-    "minimum"
+    "either side",
+    "gradient",
+    "positive",
+    "not"
    ]
   },
   "key": {
@@ -32877,16 +32877,16 @@ window.QUESTION_BANK = [
   "question": "To sketch a cubic you use its stationary points, its ___B1___ with the axes and its long-run ___B2___.",
   "blankOptions": {
    "B1": [
+    "inconclusive",
+    "negative",
     "minimum",
-    "either side",
-    "intercepts",
-    "pair"
+    "intercepts"
    ],
    "B2": [
+    "behaviour",
+    "maximum",
     "not",
-    "zero",
-    "negative",
-    "behaviour"
+    "pair"
    ]
   },
   "key": {
@@ -32906,10 +32906,10 @@ window.QUESTION_BANK = [
   "question": "For a positive cubic, as \\( x \\) becomes very large and positive, \\( y \\) becomes very large and ___B1___.",
   "blankOptions": {
    "B1": [
+    "negative",
+    "inconclusive",
     "positive",
-    "not",
-    "intercepts",
-    "inconclusive"
+    "zero"
    ]
   },
   "key": {
@@ -33265,7 +33265,7 @@ window.QUESTION_BANK = [
   "options": [
    "\\( 4x + c \\)",
    "\\( 4 + c \\)",
-   "\\( 0 \\)",
+   "\\( 2x^2 + c \\)",
    "\\( 4x \\)"
   ],
   "key": {
@@ -33285,7 +33285,7 @@ window.QUESTION_BANK = [
    "Differentiating any constant gives 0, so infinitely many functions share one gradient function",
    "Because integration always adds 1",
    "Because the power always increases by 1",
-   "It is optional and can be left out"
+   "Because \\( +c \\) stores the limits of integration that were removed, so the definite value can be recovered later"
   ],
   "key": {
    "answer": 0,
@@ -33322,7 +33322,7 @@ window.QUESTION_BANK = [
   "options": [
    "The constant of integration, \\( +c \\)",
    "Nothing — it is complete",
-   "It should be \\( 3x^3 \\)",
+   "It should be \\( 3x^3 \\), raising the power but keeping the coefficient",
    "It should be divided by 3 again"
   ],
   "key": {
@@ -33359,7 +33359,7 @@ window.QUESTION_BANK = [
   "question": "To find the equation of a curve from its gradient function you should:",
   "options": [
    "Integrate, then use a known point to find \\( c \\)",
-   "Differentiate the gradient function again",
+   "Differentiate the gradient function again to get back the equation of the curve",
    "Substitute \\( x = 0 \\) only",
    "There is never enough information"
   ],
@@ -33378,7 +33378,7 @@ window.QUESTION_BANK = [
   "question": "Find \\( \\int x \\,dx \\).",
   "options": [
    "\\( \\frac{x^2}{2} + c \\)",
-   "\\( x^2 + c \\)",
+   "\\( \\frac{x^2}{1} + c \\)",
    "\\( 1 + c \\)",
    "\\( 2x + c \\)"
   ],
@@ -33398,7 +33398,7 @@ window.QUESTION_BANK = [
   "options": [
    "An indefinite integral has no limits and gives a function (\\( +c \\)); a definite integral has limits and gives a number",
    "They are exactly the same",
-   "A definite integral always includes \\( +c \\)",
+   "A definite integral has no limits and its answer is a function with \\( +c \\), while an indefinite integral has limits and evaluates to a number",
    "An indefinite integral gives a single number"
   ],
   "key": {
@@ -33625,7 +33625,7 @@ window.QUESTION_BANK = [
    "The derivative of any constant is 0, so many functions share the same gradient function",
    "Because integration always adds 1",
    "Because the power increases by 1",
-   "It is optional and can be left off"
+   "Because \\( +c \\) stores the limits of integration that were removed, so the value can be found later"
   ],
   "key": {
    "answer": 0,
@@ -33665,7 +33665,7 @@ window.QUESTION_BANK = [
   "question": "Which describes an indefinite integral?",
   "options": [
    "No limits; the answer is a function including \\( +c \\)",
-   "Limits given; the answer is a number",
+   "Limits \\( a \\) and \\( b \\) are given, so the answer is a single number",
    "It always equals zero",
    "It never needs \\( +c \\)"
   ],
@@ -33772,7 +33772,7 @@ window.QUESTION_BANK = [
    "\\( \\frac{4x^3}{3} + c \\)",
    "\\( 8x + c \\)",
    "\\( 4x^3 + c \\)",
-   "\\( 2x^3 + c \\)"
+   "\\( \\frac{4x^3}{2} + c \\)"
   ],
   "key": {
    "answer": 0,
@@ -33814,7 +33814,7 @@ window.QUESTION_BANK = [
    "As soon as you integrate an indefinite integral",
    "Only in definite integrals",
    "Never",
-   "Only at the very end if you remember"
+   "Only at the very end, and only if the question specifically asks for it"
   ],
   "key": {
    "answer": 0,
@@ -33833,7 +33833,7 @@ window.QUESTION_BANK = [
   "question": "How can you check an integral quickly?",
   "options": [
    "Differentiate your answer and see if it matches the integrand",
-   "Integrate a second time",
+   "Integrate your answer a second time and check you get the original expression back",
    "Substitute \\( x = 0 \\)",
    "You cannot check it"
   ],
@@ -33852,10 +33852,10 @@ window.QUESTION_BANK = [
   "question": "Integration is the ___B1___ process of differentiation.",
   "blankOptions": {
    "B1": [
-    "differentiate",
-    "increase",
     "reverse",
-    "x ="
+    "indefinite",
+    "decrease",
+    "constant"
    ]
   },
   "key": {
@@ -33874,16 +33874,16 @@ window.QUESTION_BANK = [
   "question": "To integrate a power of \\( x \\), you ___B1___ the power by 1 and then ___B2___ by the new power.",
   "blankOptions": {
    "B1": [
-    "indefinite",
     "increase",
-    "multiply",
-    "differentiate"
+    "indefinite",
+    "gradient",
+    "definite"
    ],
    "B2": [
-    "point",
-    "gradient",
+    "indefinite",
+    "reverse",
     "divide",
-    "definite"
+    "c"
    ]
   },
   "key": {
@@ -33905,14 +33905,14 @@ window.QUESTION_BANK = [
    "B1": [
     "constant",
     "y =",
-    "4x",
-    "x ="
+    "3",
+    "definite"
    ],
    "B2": [
+    "increase",
+    "4",
     "+c",
-    "decrease",
-    "3",
-    "increase"
+    "divide"
    ]
   },
   "key": {
@@ -33932,15 +33932,15 @@ window.QUESTION_BANK = [
   "question": "To find the equation of a curve you integrate the gradient function and then use a known ___B1___ to find the value of ___B2___.",
   "blankOptions": {
    "B1": [
-    "differentiate",
-    "+c",
+    "x =",
     "point",
-    "x ="
+    "4",
+    "y ="
    ],
    "B2": [
-    "indefinite",
-    "multiply",
-    "3",
+    "divide",
+    "constant",
+    "definite",
     "c"
    ]
   },
@@ -33961,16 +33961,16 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ integral has limits and gives a number, while an ___B2___ integral has no limits and gives a function.",
   "blankOptions": {
    "B1": [
-    "reverse",
-    "differentiate",
+    "4x",
     "definite",
-    "decrease"
+    "reverse",
+    "4"
    ],
    "B2": [
-    "multiply",
-    "point",
+    "reverse",
+    "y =",
     "indefinite",
-    "constant"
+    "x ="
    ]
   },
   "key": {
@@ -33990,10 +33990,10 @@ window.QUESTION_BANK = [
   "question": "The integral of the constant 4 with respect to \\( x \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "definite",
-    "4x",
+    "3",
+    "point",
     "increase",
-    "point"
+    "4x"
    ]
   },
   "key": {
@@ -34012,9 +34012,9 @@ window.QUESTION_BANK = [
   "question": "When you integrate \\( x^2 \\), the new power is ___B1___.",
   "blankOptions": {
    "B1": [
-    "point",
-    "c",
-    "multiply",
+    "decrease",
+    "divide",
+    "+c",
     "3"
    ]
   },
@@ -34034,10 +34034,10 @@ window.QUESTION_BANK = [
   "question": "The final answer to 'determine the equation of the curve' must be written starting with ___B1___, not left as an expression.",
   "blankOptions": {
    "B1": [
-    "point",
     "4",
+    "y =",
     "decrease",
-    "y ="
+    "indefinite"
    ]
   },
   "key": {
@@ -34523,7 +34523,7 @@ window.QUESTION_BANK = [
   "question": "To find the area between \\( y = 6 - x^2 \\) and \\( y = 2 \\), the first step is to:",
   "options": [
    "Solve \\( 6 - x^2 = 2 \\) to find the intersection \\( x \\)-values",
-   "Integrate \\( 6 - x^2 \\) from 0 to 6",
+   "Integrate \\( 6 - x^2 \\) between \\( x = 0 \\) and \\( x = 6 \\) without finding where they meet",
    "Add the two equations",
    "Differentiate both curves"
   ],
@@ -34561,7 +34561,7 @@ window.QUESTION_BANK = [
   "question": "A region lies partly above and partly below the \\( x \\)-axis. Integrating straight across the whole range gives:",
   "options": [
    "Less than the true area, because the parts partly cancel",
-   "Exactly the true area",
+   "Exactly the true area, because the integral handles the negative parts for you",
    "Always zero",
    "Double the true area"
   ],
@@ -34768,7 +34768,7 @@ window.QUESTION_BANK = [
   "question": "To find the area between \\( y = x + 2 \\) and \\( y = x^2 \\), what is the FIRST thing you do?",
   "options": [
    "Solve the equations simultaneously to find the limits",
-   "Integrate each curve from 0 to 10",
+   "Integrate each curve separately from \\( x = 0 \\) to \\( x = 10 \\) and subtract",
    "Add the two functions",
    "Take the modulus of each curve"
   ],
@@ -34936,7 +34936,7 @@ window.QUESTION_BANK = [
   "question": "On an 'exact' area question, the safest final answer is:",
   "options": [
    "A fraction such as \\( \\tfrac{4}{3} \\), with working shown",
-   "A decimal to 2 d.p.",
+   "A decimal rounded to two decimal places, such as \\( 1.33 \\)",
    "Just the rounded number",
    "The negative integral value"
   ],
@@ -34957,7 +34957,7 @@ window.QUESTION_BANK = [
   "question": "On a 'detailed reasoning' area question, a correct answer with no working:",
   "options": [
    "Scores no marks — the method must be shown",
-   "Scores full marks if the number is right",
+   "Scores full marks as long as the final number is correct",
    "Scores half marks",
    "Is fine if you used a calculator"
   ],
@@ -34978,7 +34978,7 @@ window.QUESTION_BANK = [
   "question": "The correct order for an area-between-curves question is:",
   "options": [
    "Intersections → top minus bottom → integrate between the x-limits",
-   "Integrate first → then find intersections",
+   "Integrate each curve first, then find where they intersect afterwards",
    "Add the curves → integrate → round",
    "Differentiate → subtract → square-root"
   ],
@@ -34997,10 +34997,10 @@ window.QUESTION_BANK = [
   "question": "A definite integral \\( \\int_a^b y\\,dx \\) is worked out by finding \\( [F(x)] \\), then calculating \\( F(b) \\) ___B1___ \\( F(a) \\).",
   "blankOptions": {
    "B1": [
-    "plus",
+    "y",
+    "negative",
     "minus",
-    "top",
-    "negative"
+    "3"
    ]
   },
   "key": {
@@ -35019,10 +35019,10 @@ window.QUESTION_BANK = [
   "question": "Unlike an indefinite integral, a definite integral needs no constant of integration, usually written ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
+    "roots",
     "+c",
-    "plus",
-    "roots"
+    "bottom",
+    "x"
    ]
   },
   "key": {
@@ -35041,10 +35041,10 @@ window.QUESTION_BANK = [
   "question": "The area between a curve, the \\( x \\)-axis and two ordinates uses \\( \\int_a^b y\\,dx \\), where the limits \\( a \\) and \\( b \\) are the ___B1___ values of the ordinates.",
   "blankOptions": {
    "B1": [
-    "3",
-    "x",
-    "exact",
-    "positive"
+    "minus",
+    "top",
+    "plus",
+    "x"
    ]
   },
   "key": {
@@ -35063,16 +35063,16 @@ window.QUESTION_BANK = [
   "question": "If a region lies below the \\( x \\)-axis, the definite integral comes out ___B1___, so for a physical area you take the ___B2___.",
   "blankOptions": {
    "B1": [
+    "negative",
     "x",
-    "plus",
-    "top",
-    "negative"
+    "3",
+    "top"
    ],
    "B2": [
-    "roots",
-    "minus",
+    "y",
     "modulus",
-    "intersections"
+    "1",
+    "bottom"
    ]
   },
   "key": {
@@ -35092,16 +35092,16 @@ window.QUESTION_BANK = [
   "question": "To find the area between two curves you integrate the ___B1___ curve minus the ___B2___ curve.",
   "blankOptions": {
    "B1": [
-    "y",
+    "x",
     "top",
-    "negative",
-    "positive"
+    "roots",
+    "exact"
    ],
    "B2": [
-    "roots",
-    "+c",
-    "1",
-    "bottom"
+    "bottom",
+    "negative",
+    "modulus",
+    "+c"
    ]
   },
   "key": {
@@ -35121,10 +35121,10 @@ window.QUESTION_BANK = [
   "question": "Before integrating between two curves you must first find their ___B1___, which give the limits.",
   "blankOptions": {
    "B1": [
-    "roots",
-    "y",
-    "3",
-    "intersections"
+    "top",
+    "positive",
+    "intersections",
+    "roots"
    ]
   },
   "key": {
@@ -35143,10 +35143,10 @@ window.QUESTION_BANK = [
   "question": "A command word telling you to leave an area as a fraction or surd rather than a decimal is ___B1___.",
   "blankOptions": {
    "B1": [
-    "minus",
-    "plus",
+    "exact",
+    "y",
     "intersections",
-    "exact"
+    "x"
    ]
   },
   "key": {
@@ -35166,15 +35166,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "1",
-    "+c",
-    "top",
-    "negative"
+    "y",
+    "minus",
+    "exact"
    ],
    "B2": [
-    "roots",
-    "positive",
+    "top",
+    "intersections",
     "3",
-    "bottom"
+    "exact"
    ]
   },
   "key": {
@@ -35582,7 +35582,7 @@ window.QUESTION_BANK = [
   "options": [
    "Every ordinate except the first and last",
    "Every ordinate including the ends",
-   "Only the first and last",
+   "Only the first and last (the two end ordinates)",
    "None of them"
   ],
   "key": {
@@ -35676,7 +35676,7 @@ window.QUESTION_BANK = [
   "question": "A candidate answers a trapezium-rule question using Simpson's rule and gets a sensible number. How is it marked?",
   "options": [
    "It scores 0 — Simpson's rule is off-specification",
-   "Full marks, since the number is sensible",
+   "Full marks, because a sensible number from any valid method earns credit",
    "Half marks",
    "Marks only for the final answer"
   ],
@@ -35713,8 +35713,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "A rectangle estimate of a distance comes out at 111 when the speeds in the table are all below 15. The most sensible response is to:",
   "options": [
-   "Accept it — width 2 over 5 strips of speeds around 10 gives a total near 100",
-   "Reject it as far too large",
+   "Accept it — the size matches the data",
+   "Reject it as far too large — speeds under 15 cannot give a three-figure area",
    "Divide it by the number of strips",
    "Assume \\( h = 5 \\) was needed"
   ],
@@ -35734,7 +35734,7 @@ window.QUESTION_BANK = [
   "options": [
    "Sloping chords fit the curve better than flat tops",
    "It uses fewer ordinates",
-   "It always gives the exact area",
+   "It always gives the exact area, unlike rough rectangles",
    "It does not need the value of \\( h \\)"
   ],
   "key": {
@@ -35881,7 +35881,7 @@ window.QUESTION_BANK = [
    "Right-hand (higher-edge) rectangles",
    "Left-hand rectangles",
    "Midpoint rectangles only",
-   "It is never an over-estimate"
+   "It is never an over-estimate for a curve that is rising"
   ],
   "key": {
    "answer": 0,
@@ -35942,7 +35942,7 @@ window.QUESTION_BANK = [
   "question": "\"Explain how the estimate could be improved.\" Which is the marks-earning answer?",
   "options": [
    "Use more strips (smaller intervals / more data points)",
-   "Give the answer to more significant figures",
+   "Give the final answer to more significant figures for accuracy",
    "Round to 3 decimal places",
    "Use Simpson's rule from memory"
   ],
@@ -36005,7 +36005,7 @@ window.QUESTION_BANK = [
   "question": "Which genuinely improves a trapezium-rule estimate?",
   "options": [
    "More strips (smaller \\( h \\))",
-   "More significant figures",
+   "More significant figures in the final answer",
    "Fewer strips",
    "Rounding the ordinates"
   ],
@@ -36026,7 +36026,7 @@ window.QUESTION_BANK = [
   "question": "Which ordinates are NOT doubled?",
   "options": [
    "The first and last (\\( y_0 \\) and \\( y_n \\))",
-   "The middle ones",
+   "The middle ordinates lying between the two ends",
    "All of them",
    "None of them"
   ],
@@ -36068,7 +36068,7 @@ window.QUESTION_BANK = [
   "question": "A question gives a table and asks you to 'estimate' the area. You should:",
   "options": [
    "Use the trapezium rule or rectangle strips",
-   "Find the equation and integrate",
+   "Find the equation of the curve and integrate it",
    "Use Simpson's rule",
    "Guess from the largest value"
   ],
@@ -36090,7 +36090,7 @@ window.QUESTION_BANK = [
   "options": [
    "Whether you used the correct \\( h = \\frac{b-a}{n} \\)",
    "Whether you rounded enough",
-   "Whether to add more sig figs",
+   "Whether you should quote a few more significant figures",
    "Whether to use Simpson's rule"
   ],
   "key": {
@@ -36132,7 +36132,7 @@ window.QUESTION_BANK = [
   "options": [
    "Used \\( h = 5 \\) instead of \\( h = 1 \\)",
    "Rounded too early",
-   "Doubled the wrong ordinates",
+   "Doubled the end ordinates instead of the middle ones",
    "Used too many strips"
   ],
   "key": {
@@ -36152,7 +36152,7 @@ window.QUESTION_BANK = [
   "question": "\"Explain how the estimate could be improved\" — the safe answer is:",
   "options": [
    "Take readings at smaller intervals (more strips)",
-   "Quote more significant figures",
+   "Quote the final answer to more significant figures",
    "Find the equation and integrate",
    "Use Simpson's rule"
   ],
@@ -36171,16 +36171,16 @@ window.QUESTION_BANK = [
   "question": "In the trapezium rule the whole bracket is multiplied by ___B1___ of \\( h \\), and the strip width is \\( h = \\frac{b-a}{n} \\), where \\( n \\) is the number of ___B2___.",
   "blankOptions": {
    "B1": [
-    "half",
-    "twice",
-    "up",
-    "larger"
+    "6",
+    "larger",
+    "left",
+    "half"
    ],
    "B2": [
-    "smaller",
-    "larger",
-    "once",
-    "strips"
+    "5",
+    "strips",
+    "right",
+    "down"
    ]
   },
   "key": {
@@ -36200,15 +36200,15 @@ window.QUESTION_BANK = [
   "question": "The two end ordinates \\( y_0 \\) and \\( y_n \\) are counted ___B1___, but every middle ordinate is ___B2___.",
   "blankOptions": {
    "B1": [
-    "down",
-    "larger",
     "once",
-    "half"
+    "quarter",
+    "half",
+    "figures"
    ],
    "B2": [
     "quarter",
-    "down",
-    "strips",
+    "smaller",
+    "larger",
     "doubled"
    ]
   },
@@ -36229,10 +36229,10 @@ window.QUESTION_BANK = [
   "question": "For a curve that is rising, rectangles taken at the ___B1___ end of each strip give an over-estimate of the area.",
   "blankOptions": {
    "B1": [
-    "quarter",
     "right",
-    "left",
-    "doubled"
+    "figures",
+    "strips",
+    "5"
    ]
   },
   "key": {
@@ -36251,10 +36251,10 @@ window.QUESTION_BANK = [
   "question": "The trapezium rule over-estimates the area under a curve that is concave ___B1___.",
   "blankOptions": {
    "B1": [
-    "6",
     "up",
-    "twice",
-    "left"
+    "half",
+    "once",
+    "larger"
    ]
   },
   "key": {
@@ -36274,9 +36274,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "doubled",
-    "quarter",
     "smaller",
-    "strips"
+    "strips",
+    "once"
    ]
   },
   "key": {
@@ -36296,9 +36296,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "figures",
-    "larger",
-    "up",
-    "quarter"
+    "once",
+    "down",
+    "smaller"
    ]
   },
   "key": {
@@ -36317,16 +36317,16 @@ window.QUESTION_BANK = [
   "question": "With 5 strips the trapezium rule needs ___B1___ ordinates, and using \\( h = 5 \\) instead of \\( h = 1 \\) is a common ___B2___.",
   "blankOptions": {
    "B1": [
-    "strips",
     "smaller",
-    "left",
+    "doubled",
+    "larger",
     "6"
    ],
    "B2": [
-    "right",
-    "5",
+    "quarter",
     "error",
-    "figures"
+    "right",
+    "half"
    ]
   },
   "key": {
@@ -36788,7 +36788,7 @@ window.QUESTION_BANK = [
   "question": "The velocity of a particle is a maximum when:",
   "options": [
    "\\( a = \\frac{dv}{dt} = 0 \\)",
-   "\\( v = 0 \\)",
+   "\\( v = 0 \\), i.e. where the particle is momentarily at rest",
    "\\( s = 0 \\)",
    "\\( t = 0 \\)"
   ],
@@ -36826,7 +36826,7 @@ window.QUESTION_BANK = [
   "question": "The maximum acceleration of a particle whose acceleration is \\( a = \\frac{1}{100}(30t - 3t^2) \\) occurs when:",
   "options": [
    "\\( \\frac{da}{dt} = 0 \\)",
-   "\\( a = 0 \\)",
+   "\\( a = 0 \\), where the acceleration vanishes",
    "\\( v = 0 \\)",
    "\\( t = 0 \\)"
   ],
@@ -36865,7 +36865,7 @@ window.QUESTION_BANK = [
   "options": [
    "The acceleration \\( a = 2t + 2 \\) is not constant, so suvat cannot be used",
    "Nothing — the method is fine",
-   "They should use \\( v^2 = u^2 + 2as \\) instead",
+   "They should use \\( v^2 = u^2 + 2as \\) instead, since that suvat formula has no time in it",
    "They forgot to add a constant of integration"
   ],
   "key": {
@@ -36903,7 +36903,7 @@ window.QUESTION_BANK = [
   "options": [
    "The second derivative of displacement with respect to time",
    "The integral of velocity",
-   "The first derivative of displacement",
+   "The first derivative of the displacement with respect to time",
    "Displacement divided by time"
   ],
   "key": {
@@ -37132,7 +37132,7 @@ window.QUESTION_BANK = [
    "A body moving with constant acceleration",
    "A body whose velocity is \\( v = t^2 - 3t \\)",
    "A body whose acceleration is \\( a = 6t \\)",
-   "Any moving body at all"
+   "Any moving body, because suvat applies to all motion"
   ],
   "key": {
    "answer": 0,
@@ -37172,7 +37172,7 @@ window.QUESTION_BANK = [
   "question": "The velocity is \\( v = \\frac{1}{100}(15t^2 - t^3) + 9 \\). How do you find the distance travelled?",
   "options": [
    "Integrate \\( v \\) with respect to \\( t \\)",
-   "Use \\( v^2 = u^2 + 2as \\)",
+   "Use \\( v^2 = u^2 + 2as \\) with the initial velocity",
    "Use \\( s = ut + \\frac{1}{2}at^2 \\)",
    "Differentiate \\( v \\)"
   ],
@@ -37215,7 +37215,7 @@ window.QUESTION_BANK = [
   "options": [
    "Add \\( + c \\) and find it from an initial condition",
    "Divide by \\( t \\)",
-   "Differentiate the result",
+   "Differentiate the result to get back the acceleration",
    "Nothing else"
   ],
   "key": {
@@ -37235,7 +37235,7 @@ window.QUESTION_BANK = [
   "question": "To find the maximum acceleration you should:",
   "options": [
    "Set \\( \\frac{da}{dt} = 0 \\)",
-   "Set \\( a = 0 \\)",
+   "Set \\( a = 0 \\), where the acceleration is zero",
    "Set \\( v = 0 \\)",
    "Set \\( s = 0 \\)"
   ],
@@ -37298,7 +37298,7 @@ window.QUESTION_BANK = [
   "question": "Why write out the integration before the final number?",
   "options": [
    "To earn the method mark even if the arithmetic slips",
-   "It is never necessary",
+   "It is never necessary — only the final answer earns marks",
    "To use more of the answer space",
    "To avoid giving units"
   ],
@@ -37338,9 +37338,9 @@ window.QUESTION_BANK = [
   "question": "Velocity is the rate of change of ___B1___ with respect to time, so \\( v = \\frac{ds}{dt} \\).",
   "blankOptions": {
    "B1": [
-    "constant",
-    "once",
     "displacement",
+    "constant",
+    "differentiating",
     "integrating"
    ]
   },
@@ -37360,16 +37360,16 @@ window.QUESTION_BANK = [
   "question": "To find acceleration from velocity you use ___B1___; to find it from displacement you differentiate ___B2___.",
   "blankOptions": {
    "B1": [
-    "differentiating",
-    "integrating",
-    "once",
-    "displacement"
+    "variable",
+    "constant",
+    "zero",
+    "differentiating"
    ],
    "B2": [
-    "integrate",
-    "differentiate",
     "twice",
-    "acceleration"
+    "acceleration",
+    "derivative",
+    "variable"
    ]
   },
   "key": {
@@ -37389,16 +37389,16 @@ window.QUESTION_BANK = [
   "question": "To recover velocity from acceleration you ___B1___, remembering to add a constant of ___B2___.",
   "blankOptions": {
    "B1": [
-    "zero",
-    "integrating",
+    "velocity",
     "integrate",
-    "differentiating"
+    "integrating",
+    "differentiate"
    ],
    "B2": [
-    "constant",
-    "gradient",
     "integration",
-    "integrating"
+    "variable",
+    "constant",
+    "gradient"
    ]
   },
   "key": {
@@ -37418,10 +37418,10 @@ window.QUESTION_BANK = [
   "question": "The suvat formulae may only be used when the acceleration is ___B1___.",
   "blankOptions": {
    "B1": [
-    "acceleration",
+    "integration",
+    "differentiating",
     "constant",
-    "integrate",
-    "once"
+    "displacement"
    ]
   },
   "key": {
@@ -37440,9 +37440,9 @@ window.QUESTION_BANK = [
   "question": "A particle is momentarily at rest when its velocity equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "constant",
-    "differentiating",
-    "once",
+    "displacement",
+    "variable",
+    "gradient",
     "zero"
    ]
   },
@@ -37462,10 +37462,10 @@ window.QUESTION_BANK = [
   "question": "The velocity of a particle is a maximum when its ___B1___ is zero.",
   "blankOptions": {
    "B1": [
-    "differentiating",
-    "constant",
     "acceleration",
-    "integrating"
+    "integrate",
+    "differentiate",
+    "constant"
    ]
   },
   "key": {
@@ -37484,10 +37484,10 @@ window.QUESTION_BANK = [
   "question": "Acceleration is the second ___B1___ of displacement with respect to time.",
   "blankOptions": {
    "B1": [
-    "displacement",
-    "differentiating",
-    "constant",
-    "derivative"
+    "velocity",
+    "differentiate",
+    "derivative",
+    "twice"
    ]
   },
   "key": {
@@ -37819,7 +37819,7 @@ window.QUESTION_BANK = [
   "question": "For a continuous function, which situation guarantees a root in \\( [a,\\ b] \\)?",
   "options": [
    "\\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have opposite signs",
-   "\\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have the same sign",
+   "\\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have the same sign but differ in size",
    "\\( \\text{f}(a) = \\text{f}(b) \\)",
    "\\( a \\) and \\( b \\) are both positive"
   ],
@@ -37858,7 +37858,7 @@ window.QUESTION_BANK = [
   "options": [
    "A conclusion sentence stating the change of sign locates a root",
    "Nothing — the two values are enough",
-   "The exact value of the root",
+   "The exact value of the root, found by averaging the endpoints \\( 2 \\) and \\( 3 \\)",
    "The gradient at \\( x = 2 \\)"
   ],
   "key": {
@@ -37952,7 +37952,7 @@ window.QUESTION_BANK = [
   "question": "Why might an iteration \\( x_{n+1} = \\text{g}(x_n) \\) diverge?",
   "options": [
    "The rearrangement is unsuitable, so the iterates run away from the root",
-   "The equation has no root at all",
+   "The equation has no root at all, so no rearrangement of it can ever converge",
    "The starting value was a whole number",
    "You used the ANS key"
   ],
@@ -37971,7 +37971,7 @@ window.QUESTION_BANK = [
   "question": "A decimal search over \\( [0,1] \\) in tenths shows no sign change. What can you conclude?",
   "options": [
    "Nothing certain — two roots or a repeated root could have been stepped over",
-   "There is definitely no root in \\( [0,1] \\)",
+   "There is definitely no root in \\( [0,1] \\), since a sign change is the only way a root can occur",
    "The function is not continuous",
    "The root is exactly 0.5"
   ],
@@ -38009,7 +38009,7 @@ window.QUESTION_BANK = [
   "question": "A candidate does one iteration, \\( x_1 = 2.08 \\), then writes \\( a = 2.09 \\). Why do they lose a mark?",
   "options": [
    "They have not shown the iterates settle to the required accuracy",
-   "2.08 rounds to 2.1, not 2.09",
+   "2.08 rounds to 2.1, not 2.09, so the final digit has been written down incorrectly",
    "They should have used degrees",
    "One iteration is always enough"
   ],
@@ -38134,7 +38134,7 @@ window.QUESTION_BANK = [
   "question": "What is a root of \\( \\text{f}(x) = 0 \\)?",
   "options": [
    "An \\( x\\)-value where the graph meets the \\( x\\)-axis",
-   "The \\( y\\)-intercept of the graph",
+   "The \\( y\\)-intercept, where the graph of \\( y = \\text{f}(x) \\) meets the \\( y\\)-axis",
    "The gradient of the curve",
    "The largest value of \\( \\text{f}(x) \\)"
   ],
@@ -38197,7 +38197,7 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = \\text{g}(x_n) \\), what does the ANS key do each press?",
   "options": [
    "Feeds the previous output back in as the next input",
-   "Rounds the answer to 1 dp",
+   "Rounds the answer to 1 dp before it is fed into the next step",
    "Resets the sequence to \\( x_0 \\)",
    "Differentiates \\( \\text{g} \\)"
   ],
@@ -38239,7 +38239,7 @@ window.QUESTION_BANK = [
   "question": "A decimal search over \\( [1,2] \\) in tenths finds no sign change. Which statement is safe?",
   "options": [
    "There may still be two roots (or a repeated root) it stepped over",
-   "There is definitely no root in \\( [1,2] \\)",
+   "There is definitely no root in \\( [1,2] \\), because a sign change always accompanies a root",
    "The function must be discontinuous",
    "The root must be exactly 1.5"
   ],
@@ -38260,7 +38260,7 @@ window.QUESTION_BANK = [
   "question": "After finding \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 17 \\), what must you write?",
   "options": [
    "The change-of-sign conclusion sentence",
-   "The exact root",
+   "The exact root, found by averaging the two endpoints",
    "The derivative \\( \\text{f}'(x) \\)",
    "The \\( y\\)-intercept"
   ],
@@ -38304,7 +38304,7 @@ window.QUESTION_BANK = [
    "To at least 4 s.f. (or full precision via ANS)",
    "To 1 dp each",
    "As whole numbers",
-   "Only the final one matters, so guess the rest"
+   "Only the final one matters, so you can just guess the earlier ones"
   ],
   "key": {
    "answer": 0,
@@ -38323,7 +38323,7 @@ window.QUESTION_BANK = [
   "question": "The iterates run away from the root. What has gone wrong?",
   "options": [
    "The rearrangement is unsuitable (it diverges)",
-   "The equation has no root",
+   "The equation has no root, so the iteration can never converge",
    "The calculator is broken",
    "You used too many significant figures"
   ],
@@ -38344,7 +38344,7 @@ window.QUESTION_BANK = [
   "question": "No sign change is found on \\( [1,2] \\). This proves:",
   "options": [
    "Nothing certain — roots could have been stepped over",
-   "There is definitely no root",
+   "There is definitely no root anywhere in the interval",
    "There are exactly two roots",
    "The function is discontinuous"
   ],
@@ -38365,7 +38365,7 @@ window.QUESTION_BANK = [
   "question": "On a 'show that a root lies between' question, the second mark is for:",
   "options": [
    "Stating the change-of-sign conclusion",
-   "Using more decimal places",
+   "Using more decimal places to pin the root down",
    "Drawing the graph",
    "Finding \\( \\text{f}'(x) \\)"
   ],
@@ -38387,7 +38387,7 @@ window.QUESTION_BANK = [
   "options": [
    "Show the iterates settle, each to at least 4 s.f.",
    "Do exactly one iteration",
-   "Round every iterate to 1 dp first",
+   "Round every iterate to 1 dp first to keep the working tidy",
    "Use the change-of-sign method instead"
   ],
   "key": {
@@ -38407,7 +38407,7 @@ window.QUESTION_BANK = [
   "question": "Which secures the final mark in a 1 dp decimal search?",
   "options": [
    "Testing the midpoint of the trapped interval",
-   "Quoting more tenths",
+   "Quoting more tenths until the sign finally settles",
    "Averaging the two endpoints",
    "Stating the root is halfway"
   ],
@@ -38426,10 +38426,10 @@ window.QUESTION_BANK = [
   "question": "If \\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have ___B1___ signs and f is continuous, a root lies between \\( a \\) and \\( b \\).",
   "blankOptions": {
    "B1": [
+    "sign",
+    "midpoint",
     "opposite",
-    "converges",
-    "diverges",
-    "midpoint"
+    "root"
    ]
   },
   "key": {
@@ -38448,9 +38448,9 @@ window.QUESTION_BANK = [
   "question": "After showing a change of sign you must write a ___B1___ sentence to earn the second mark.",
   "blankOptions": {
    "B1": [
-    "endpoint",
-    "3",
+    "root",
     "conclusion",
+    "midpoint",
     "opposite"
    ]
   },
@@ -38470,10 +38470,10 @@ window.QUESTION_BANK = [
   "question": "In a decimal search to 1 dp, once the root is trapped between two tenths you test the ___B1___ to decide which way to round.",
   "blankOptions": {
    "B1": [
-    "4",
+    "ANS",
+    "midpoint",
     "diverges",
-    "opposite",
-    "midpoint"
+    "square"
    ]
   },
   "key": {
@@ -38493,9 +38493,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "root",
-    "gradient",
     "midpoint",
-    "ANS"
+    "ANS",
+    "diverges"
    ]
   },
   "key": {
@@ -38514,10 +38514,10 @@ window.QUESTION_BANK = [
   "question": "Each iterate should be written to at least ___B1___ significant figures before you round the final answer.",
   "blankOptions": {
    "B1": [
-    "4",
     "midpoint",
-    "gradient",
-    "opposite"
+    "4",
+    "diverges",
+    "endpoint"
    ]
   },
   "key": {
@@ -38536,10 +38536,10 @@ window.QUESTION_BANK = [
   "question": "Rearranging \\( x^3 = x + 7 \\) for iteration gives x equal to the cube ___B1___ of \\( x + 7 \\).",
   "blankOptions": {
    "B1": [
+    "ANS",
     "root",
-    "sign",
-    "4",
-    "endpoint"
+    "converges",
+    "3"
    ]
   },
   "key": {
@@ -38558,10 +38558,10 @@ window.QUESTION_BANK = [
   "question": "If an iteration ___B1___ instead of settling, the rearrangement is unsuitable and you should try another.",
   "blankOptions": {
    "B1": [
-    "4",
-    "sign",
-    "conclusion",
-    "diverges"
+    "diverges",
+    "ANS",
+    "endpoint",
+    "conclusion"
    ]
   },
   "key": {
@@ -38580,10 +38580,10 @@ window.QUESTION_BANK = [
   "question": "No ___B1___ change on an interval does not prove there is no root there — two roots may have been stepped over.",
   "blankOptions": {
    "B1": [
-    "ANS",
+    "opposite",
     "sign",
-    "same",
-    "4"
+    "gradient",
+    "conclusion"
    ]
   },
   "key": {
@@ -38849,7 +38849,7 @@ window.QUESTION_BANK = [
   "question": "A 'show that' question prints the result to reach. How do you secure all the marks?",
   "options": [
    "Show every step and add a concluding statement",
-   "Write the given answer in a box",
+   "Copy the printed result neatly into a box and underline it",
    "Give a decimal to 3 s.f.",
    "State the answer with no working"
   ],
@@ -38868,7 +38868,7 @@ window.QUESTION_BANK = [
   "question": "On a question worth 2 marks for the 'exact' roots, a student writes only \\( x = 1.24 \\) and \\( x = -3.24 \\). The mark is:",
   "options": [
    "0 — decimals are not exact",
-   "2 — the values are right",
+   "2 — the numerical values are correct",
    "1 — half credit",
    "1 — for one root"
   ],
@@ -38887,7 +38887,7 @@ window.QUESTION_BANK = [
   "question": "'In this question you must show detailed reasoning.' A correct factorisation is written with no method. The mark is:",
   "options": [
    "0 — the reasoning must be shown",
-   "Full — the factors are correct",
+   "Full marks — the factors are all correct",
    "Half marks",
    "1 mark"
   ],
@@ -38906,7 +38906,7 @@ window.QUESTION_BANK = [
   "question": "Part (b) begins 'Hence solve...'. This instructs you to:",
   "options": [
    "Use the result from the previous part",
-   "Start a completely new method",
+   "Start a completely new method from scratch",
    "Give the answer as a decimal",
    "Use the calculator's equation solver"
   ],
@@ -38925,7 +38925,7 @@ window.QUESTION_BANK = [
   "question": "'Write down the coordinates of the y-intercept.' What is expected?",
   "options": [
    "Just the coordinate pair, with no working",
-   "A full algebraic method",
+   "A full algebraic method showing every step",
    "An exact surd",
    "A sketch of the curve"
   ],
@@ -38944,7 +38944,7 @@ window.QUESTION_BANK = [
   "question": "Which pair of command words differ mainly in whether justification must be shown?",
   "options": [
    "'State' (answer only) vs 'Determine' (answer with justification)",
-   "'Plot' vs 'Sketch'",
+   "'Plot' (accurate points on the grid) vs 'Sketch' (main features only)",
    "'Exact' vs 'Give'",
    "'Hence' vs 'Show that'"
   ],
@@ -38963,7 +38963,7 @@ window.QUESTION_BANK = [
   "question": "A question says 'Sketch the graph of \\( y = 2^x \\)'. You should:",
   "options": [
    "Show shape, the y-intercept and the asymptote — not to scale",
-   "Plot exact points on a grid",
+   "Plot each point accurately on the printed grid and then join them",
    "Give a table of 10 values",
    "Solve \\( 2^x = 0 \\)"
   ],
@@ -38984,7 +38984,7 @@ window.QUESTION_BANK = [
    "The pair \\( (3,\\ y) \\) with the \\( y \\)-value worked out",
    "\\( x = 3 \\) only",
    "\\( y = 3 \\)",
-   "\\( 3 \\)"
+   "just the number \\( 3 \\), because that is where the point occurs"
   ],
   "key": {
    "answer": 0,
@@ -39001,7 +39001,7 @@ window.QUESTION_BANK = [
   "question": "A student earns no method mark but writes the correct final value. Under OCR rules:",
   "options": [
    "No accuracy mark is possible — 'M0 A1 cannot be awarded'",
-   "The accuracy mark is still given",
+   "The accuracy mark is still given because the answer is correct",
    "Both marks are awarded",
    "A bonus mark applies"
   ],
@@ -39021,7 +39021,7 @@ window.QUESTION_BANK = [
   "options": [
    "Correct answer only — no follow-through or alternatives",
    "Calculator answer okay",
-   "Correct, and other forms accepted",
+   "Correct, and any algebraically equivalent forms are accepted",
    "Complete all options"
   ],
   "key": {
@@ -39039,7 +39039,7 @@ window.QUESTION_BANK = [
   "question": "The scheme writes 'oe' after an equation such as \\( 3y = 2x + 12 \\). This means:",
   "options": [
    "Any algebraically equivalent form is accepted",
-   "Only that exact form is accepted",
+   "Only that exact printed form of the equation is accepted",
    "Decimal answers only",
    "Omit the equals sign"
   ],
@@ -39164,7 +39164,7 @@ window.QUESTION_BANK = [
   "question": "What is a 'command word'?",
   "options": [
    "The instruction verb that says what the answer must contain",
-   "The hardest word in the question",
+   "The hardest or most technical word appearing in the question",
    "The topic of the question",
    "The number of marks"
   ],
@@ -39185,7 +39185,7 @@ window.QUESTION_BANK = [
   "question": "A question says 'Write down the value of f(0)'. What is expected?",
   "options": [
    "Just the answer, with no working",
-   "A full method with every step",
+   "A full method with every step written out",
    "An exact surd",
    "A graph"
   ],
@@ -39206,7 +39206,7 @@ window.QUESTION_BANK = [
   "question": "In a 'show that' change-of-sign question, what is most often missing?",
   "options": [
    "The concluding sentence stating a root lies in the interval",
-   "The value of f at each end",
+   "The value of f evaluated correctly at each end of the interval",
    "A calculator",
    "The graph"
   ],
@@ -39270,7 +39270,7 @@ window.QUESTION_BANK = [
   "options": [
    "It loses the mark — a coordinate must be a pair (x, y)",
    "Full marks",
-   "It gains a bonus",
+   "It gains a bonus mark for identifying the correct x-value",
    "It counts as a 'show that'"
   ],
   "key": {
@@ -39292,7 +39292,7 @@ window.QUESTION_BANK = [
    "An accuracy mark requires its method mark to be earned first",
    "A marks are worth 0",
    "M marks come last",
-   "It is only a typing rule"
+   "It is only a typing convention with no real effect on the marks"
   ],
   "key": {
    "answer": 0,
@@ -39334,7 +39334,7 @@ window.QUESTION_BANK = [
    "A sentence stating a root lies in the interval",
    "A decimal to 3 s.f.",
    "The quadratic formula",
-   "A second calculator check"
+   "A second calculator check confirming the same values"
   ],
   "key": {
    "answer": 0,
@@ -39374,7 +39374,7 @@ window.QUESTION_BANK = [
   "question": "How should a stationary point be stated?",
   "options": [
    "As a coordinate pair (x, y)",
-   "As the x-value only",
+   "As the x-value only, since that locates it",
    "As the y-value only",
    "As a gradient"
   ],
@@ -39395,7 +39395,7 @@ window.QUESTION_BANK = [
   "question": "Why can 'r = 1' lose a mark?",
   "options": [
    "The quantity and unit are not stated",
-   "1 is the wrong number",
+   "The number 1 is simply the wrong value here",
    "It should be exact",
    "It needs a graph"
   ],
@@ -39417,7 +39417,7 @@ window.QUESTION_BANK = [
   "options": [
    "Read the answer from the graph you drew",
    "Use the calculator solver",
-   "Start a new algebraic method",
+   "Start a completely new algebraic method instead",
    "Sketch a second graph"
   ],
   "key": {
@@ -39439,7 +39439,7 @@ window.QUESTION_BANK = [
    "Give the surd form, optionally with the decimal",
    "Give only the decimal",
    "Round to 2 d.p.",
-   "Give the decimal to 3 s.f."
+   "Give the decimal answer to 3 s.f. for full accuracy"
   ],
   "key": {
    "answer": 0,
@@ -39501,7 +39501,7 @@ window.QUESTION_BANK = [
   "options": [
    "A slip then costs one mark, not all of them",
    "It looks neat",
-   "It uses more paper",
+   "It uses more paper and makes the work look longer",
    "It is faster"
   ],
   "key": {
@@ -39519,10 +39519,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ tells you to leave the answer in surd or fraction form; a decimal alone scores 0.",
   "blankOptions": {
    "B1": [
-    "determine",
+    "hence",
     "method",
-    "isw",
-    "exact"
+    "exact",
+    "accuracy"
    ]
   },
   "key": {
@@ -39542,15 +39542,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "show",
-    "independent",
-    "sketch",
-    "determine"
+    "determine",
+    "accuracy",
+    "ft"
    ],
    "B2": [
-    "that",
-    "reasoning",
+    "hence",
     "sketch",
-    "hence"
+    "that",
+    "detailed"
    ]
   },
   "key": {
@@ -39570,16 +39570,16 @@ window.QUESTION_BANK = [
   "question": "When a question says you must show ___B1___ ___B2___, a calculator-only solution scores 0 even if the answer is correct.",
   "blankOptions": {
    "B1": [
-    "hence",
+    "method",
     "detailed",
-    "ft",
-    "cao"
+    "isw",
+    "that"
    ],
    "B2": [
-    "method",
-    "determine",
+    "cao",
+    "ft",
     "reasoning",
-    "cao"
+    "determine"
    ]
   },
   "key": {
@@ -39599,10 +39599,10 @@ window.QUESTION_BANK = [
   "question": "The word ___B1___ tells you to use the result of the previous part instead of starting again.",
   "blankOptions": {
    "B1": [
-    "exact",
     "hence",
-    "isw",
-    "that"
+    "ft",
+    "cao",
+    "accuracy"
    ]
   },
   "key": {
@@ -39622,8 +39622,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "exact",
-    "ft",
-    "hence",
+    "detailed",
+    "that",
     "method"
    ]
   },
@@ -39643,10 +39643,10 @@ window.QUESTION_BANK = [
   "question": "A mark given for a correct result regardless of the method used is called an ___B1___ mark.",
   "blankOptions": {
    "B1": [
-    "determine",
+    "exact",
+    "that",
     "independent",
-    "show",
-    "exact"
+    "reasoning"
    ]
   },
   "key": {
@@ -39665,9 +39665,9 @@ window.QUESTION_BANK = [
   "question": "The abbreviation ___B1___ means 'correct answer only', with no follow-through allowed.",
   "blankOptions": {
    "B1": [
+    "exact",
+    "method",
     "cao",
-    "detailed",
-    "determine",
     "hence"
    ]
   },
@@ -39687,10 +39687,10 @@ window.QUESTION_BANK = [
   "question": "The abbreviation ___B1___ means 'or equivalent', so any algebraically equivalent form is accepted.",
   "blankOptions": {
    "B1": [
-    "accuracy",
+    "detailed",
     "oe",
-    "method",
-    "reasoning"
+    "reasoning",
+    "that"
    ]
   },
   "key": {
@@ -40128,7 +40128,7 @@ window.QUESTION_BANK = [
   "question": "A question gives a curve, asks for the tangent at a point, then the area it traps. Which areas does it combine?",
   "options": [
    "Coordinate geometry, differentiation and integration",
-   "Only integration",
+   "Differentiation and integration, but not coordinate geometry",
    "Trigonometry and logarithms",
    "Only coordinate geometry"
   ],
@@ -40147,7 +40147,7 @@ window.QUESTION_BANK = [
   "question": "'The line \\( y = 2x + k \\) is a tangent to the circle.' What technique turns this into an equation for \\( k \\)?",
   "options": [
    "Substitute the line into the circle and set the discriminant to 0",
-   "Differentiate the circle",
+   "Differentiate the circle equation and set the derivative equal to the line's gradient",
    "Integrate the line",
    "Complete the square on the line"
   ],
@@ -40261,7 +40261,7 @@ window.QUESTION_BANK = [
   "question": "Which is the safest way to manage a 13-mark question in a 100-mark, 2-hour paper?",
   "options": [
    "Spend about 15 minutes, banking method marks part by part",
-   "Spend an hour to get it perfect",
+   "Spend as long as it takes to get every part perfect before moving on",
    "Skip it entirely",
    "Do only the final part"
   ],
@@ -40280,7 +40280,7 @@ window.QUESTION_BANK = [
   "question": "A candidate finds \\( D \\) has \\( y = 4 \\) and writes the answer as \\( (4, 0) \\). This loses a mark because:",
   "options": [
    "The coordinate pair is written the wrong way round / with the wrong values",
-   "\\( y = 4 \\) is wrong",
+   "Coordinate pairs must always be written with the larger of the two values placed first",
    "Decimals are not allowed",
    "Coordinates should be a single number"
   ],
@@ -40301,7 +40301,7 @@ window.QUESTION_BANK = [
    "It may lose the mark if the question demanded an exact form",
    "It always earns full marks",
    "It earns more marks for being simpler",
-   "It is never accepted in any question"
+   "It is never accepted because decimals are banned throughout the paper"
   ],
   "key": {
    "answer": 0,
@@ -40318,7 +40318,7 @@ window.QUESTION_BANK = [
   "question": "Which pairing is a genuinely synoptic combination seen in real 6993 papers?",
   "options": [
    "Curve sketching + calculus + area between curves",
-   "Only completing the square",
+   "Completing the square then reading the vertex off a calculator",
    "Only reading a value off a calculator",
    "Only naming a shape"
   ],
@@ -40337,7 +40337,7 @@ window.QUESTION_BANK = [
   "question": "You cannot finish part (b), which found a length. Part (c) needs that length. The best strategy is:",
   "options": [
    "Use a sensible assumed value and continue — ft marks are available",
-   "Leave part (c) blank",
+   "Leave part (c) blank, since it cannot score without the exact length",
    "Copy part (a)'s answer",
    "Rub out all your working"
   ],
@@ -40463,7 +40463,7 @@ window.QUESTION_BANK = [
   "options": [
    "At least one unstructured problem-solving question",
    "A question on brand-new content not in the spec",
-   "A question with no marks for method",
+   "Several questions where only the final numerical answer earns any marks",
    "Exactly one synoptic question"
   ],
   "key": {
@@ -40483,7 +40483,7 @@ window.QUESTION_BANK = [
   "question": "Part (c) says 'Hence find...'. What does 'Hence' tell you?",
   "options": [
    "Use the result from the previous part",
-   "Start again with a fresh method",
+   "Start again from scratch with a completely fresh method",
    "Give the answer as a decimal",
    "Draw a graph to read it off"
   ],
@@ -40505,7 +40505,7 @@ window.QUESTION_BANK = [
   "options": [
    "The x-coordinate of P, x = 3",
    "The area, 18",
-   "The gradient, -6",
+   "The gradient of the tangent, which comes out as -6",
    "The constant +18"
   ],
   "key": {
@@ -40527,7 +40527,7 @@ window.QUESTION_BANK = [
    "Zero — detailed reasoning needs the full method shown",
    "Full marks — the answer is correct",
    "Half marks",
-   "Full marks if the answer is exact"
+   "Full marks, provided the final answer is given in exact form"
   ],
   "key": {
    "answer": 0,
@@ -40547,7 +40547,7 @@ window.QUESTION_BANK = [
   "options": [
    "Around 15 minutes (≈1.2 min per mark)",
    "The whole paper",
-   "Exactly 13 minutes then stop",
+   "Exactly 13 minutes — one minute for each mark, then stop",
    "Under 5 minutes"
   ],
   "key": {
@@ -40568,7 +40568,7 @@ window.QUESTION_BANK = [
   "options": [
    "Their points of intersection, taking top minus bottom",
    "x = 0 and x = 1 always",
-   "The turning points of each curve",
+   "The turning points of each curve, taking top minus bottom",
    "The y-intercepts"
   ],
   "key": {
@@ -40609,7 +40609,7 @@ window.QUESTION_BANK = [
   "question": "After differentiating, the next step for a tangent is to:",
   "options": [
    "Substitute the point's x-value for the gradient",
-   "Integrate the derivative",
+   "Integrate the derivative to recover the original curve",
    "Set the derivative equal to y",
    "Stop — the derivative is the tangent"
   ],
@@ -40632,7 +40632,7 @@ window.QUESTION_BANK = [
    "When the figure is symmetric and you computed one half",
    "Always",
    "Never",
-   "Only for circles"
+   "Only for circles, where symmetry always doubles the area"
   ],
   "key": {
    "answer": 0,
@@ -40653,7 +40653,7 @@ window.QUESTION_BANK = [
    "Each tangent is only valid on its own half",
    "Tangents have no equation",
    "The roof is not symmetric",
-   "You must always integrate 0 to 12"
+   "You must always integrate from 0 to 12 across the full base"
   ],
   "key": {
    "answer": 0,
@@ -40673,7 +40673,7 @@ window.QUESTION_BANK = [
   "options": [
    "Write the starting equation and attempt a method",
    "Leave it blank",
-   "Only write the final answer",
+   "Only write down the final answer with no working shown",
    "Copy an earlier question"
   ],
   "key": {
@@ -40714,7 +40714,7 @@ window.QUESTION_BANK = [
   "question": "The key skill in a synoptic question is:",
   "options": [
    "Recognising and joining techniques you already know",
-   "Learning new content on the spot",
+   "Learning brand-new content on the spot during the exam",
    "Working faster than everyone else",
    "Avoiding all diagrams"
   ],
@@ -40736,7 +40736,7 @@ window.QUESTION_BANK = [
   "options": [
    "Carry a value forward and keep going for ft marks",
    "Give up on part (b)",
-   "Guess the final answer only",
+   "Guess the final answer and write nothing else down",
    "Erase part (a)"
   ],
   "key": {
@@ -40758,7 +40758,7 @@ window.QUESTION_BANK = [
    "\\( \\frac{64}{3} \\) (optionally with the decimal)",
    "\\( 21.3 \\) only",
    "\\( 21 \\) only",
-   "about 21"
+   "about 21, rounded to a sensible number of decimal places"
   ],
   "key": {
    "answer": 0,
@@ -40775,10 +40775,10 @@ window.QUESTION_BANK = [
   "question": "A question that combines two or more areas of the specification is described as ___B1___.",
   "blankOptions": {
    "B1": [
-    "double",
-    "follow-through",
     "synoptic",
-    "substitute"
+    "gradient",
+    "exact",
+    "lower"
    ]
   },
   "key": {
@@ -40797,10 +40797,10 @@ window.QUESTION_BANK = [
   "question": "A problem-solving question given with little or no scaffolding is described as ___B1___.",
   "blankOptions": {
    "B1": [
-    "unstructured",
-    "tangent",
-    "follow-through",
-    "substitute"
+    "exact",
+    "half",
+    "lower",
+    "unstructured"
    ]
   },
   "key": {
@@ -40819,10 +40819,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ instructs you to use the result of the previous part rather than start again.",
   "blankOptions": {
    "B1": [
-    "hence",
-    "exact",
     "synoptic",
-    "half"
+    "hence",
+    "upper",
+    "1.2"
    ]
   },
   "key": {
@@ -40841,16 +40841,16 @@ window.QUESTION_BANK = [
   "question": "To find the area between two curves you integrate the ___B1___ curve minus the lower curve, between their points of ___B2___.",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "1.2",
+    "upper",
     "lower",
-    "upper"
+    "double",
+    "1.2"
    ],
    "B2": [
     "intersection",
-    "exact",
+    "substitute",
     "gradient",
-    "double"
+    "unstructured"
    ]
   },
   "key": {
@@ -40870,16 +40870,16 @@ window.QUESTION_BANK = [
   "question": "The derivative \\( \\frac{dy}{dx} \\) gives the ___B1___ function; to get the gradient of a tangent you must ___B2___ the point's x-value.",
   "blankOptions": {
    "B1": [
+    "lower",
+    "follow-through",
     "gradient",
-    "1.2",
-    "half",
-    "hence"
+    "double"
    ],
    "B2": [
-    "exact",
-    "1.2",
-    "half",
-    "substitute"
+    "substitute",
+    "follow-through",
+    "hence",
+    "upper"
    ]
   },
   "key": {
@@ -40899,10 +40899,10 @@ window.QUESTION_BANK = [
   "question": "A mark awarded for a correct method applied to a wrong earlier answer is called a ___B1___ mark.",
   "blankOptions": {
    "B1": [
-    "hence",
-    "double",
-    "1.2",
-    "follow-through"
+    "upper",
+    "tangent",
+    "follow-through",
+    "synoptic"
    ]
   },
   "key": {
@@ -40921,10 +40921,10 @@ window.QUESTION_BANK = [
   "question": "Because 100 marks are worth 120 minutes, you should budget roughly ___B1___ minutes per mark.",
   "blankOptions": {
    "B1": [
-    "double",
-    "substitute",
-    "1.2",
-    "gradient"
+    "exact",
+    "lower",
+    "tangent",
+    "1.2"
    ]
   },
   "key": {
@@ -40943,16 +40943,16 @@ window.QUESTION_BANK = [
   "question": "When a figure is symmetric about the y-axis you can find one ___B1___ of the area and then ___B2___ it.",
   "blankOptions": {
    "B1": [
-    "half",
     "synoptic",
-    "1.2",
-    "substitute"
+    "exact",
+    "half",
+    "tangent"
    ],
    "B2": [
-    "hence",
+    "gradient",
+    "substitute",
     "double",
-    "lower",
-    "gradient"
+    "upper"
    ]
   },
   "key": {
