@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-18T22:38:56Z · 742 questions
+// Generated: 2026-07-18T22:52:13Z · 848 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -636,9 +636,9 @@ window.QUESTION_BANK = [
   "question": "The word for ‘five’ is _____. <span data-say=\"cinco\" data-listen>cinco</span>",
   "blankOptions": {
    "B1": [
-    "throaty",
-    "soft",
     "second",
+    "ñ",
+    "ñan",
     "cinco"
    ]
   },
@@ -658,10 +658,10 @@ window.QUESTION_BANK = [
   "question": "The ‘ny’ sound word for ‘tomorrow’ is ma_____a. <span data-say=\"mañana\" data-listen>mañana</span>",
   "blankOptions": {
    "B1": [
+    "second",
+    "soft",
     "ñan",
-    "cinco",
-    "ñ",
-    "second"
+    "cinco"
    ]
   },
   "key": {
@@ -680,10 +680,10 @@ window.QUESTION_BANK = [
   "question": "To keep a hard g before i, we write gu_____arra. <span data-say=\"guitarra\" data-listen>guitarra</span>",
   "blankOptions": {
    "B1": [
-    "cinco",
-    "ñ",
-    "throaty",
-    "it"
+    "ñan",
+    "second",
+    "it",
+    "soft"
    ]
   },
   "key": {
@@ -703,9 +703,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "ñ",
+    "cinco",
     "it",
-    "soft",
-    "ñan"
+    "soft"
    ]
   },
   "key": {
@@ -724,10 +724,10 @@ window.QUESTION_BANK = [
   "question": "Words ending in a vowel, n or s stress the _____-to-last syllable. (which one?)",
   "blankOptions": {
    "B1": [
-    "ñan",
-    "it",
+    "ñ",
     "soft",
-    "second"
+    "second",
+    "throaty"
    ]
   },
   "key": {
@@ -746,9 +746,9 @@ window.QUESTION_BANK = [
   "question": "The extra Spanish letter is _____. (its symbol)",
   "blankOptions": {
    "B1": [
-    "soft",
-    "ñan",
+    "second",
     "cinco",
+    "throaty",
     "ñ"
    ]
   },
@@ -768,10 +768,10 @@ window.QUESTION_BANK = [
   "question": "g before e or i is _____. (hard or throaty?)",
   "blankOptions": {
    "B1": [
-    "ñan",
-    "throaty",
     "it",
-    "soft"
+    "ñ",
+    "cinco",
+    "throaty"
    ]
   },
   "key": {
@@ -1638,10 +1638,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘street’ is _____. <span data-say=\"calle\" data-listen>calle</span>",
   "blankOptions": {
    "B1": [
-    "loch",
-    "tap",
+    "calle",
     "rolled",
-    "calle"
+    "y",
+    "loch"
    ]
   },
   "key": {
@@ -1660,10 +1660,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘birthday’, with its ‘ny’ sound, is cumplea_____. <span data-say=\"cumpleaños\" data-listen>cumpleaños</span>",
   "blankOptions": {
    "B1": [
-    "loch",
+    "tap",
     "ños",
-    "rolled",
-    "tap"
+    "verde",
+    "rolled"
    ]
   },
   "key": {
@@ -1682,10 +1682,10 @@ window.QUESTION_BANK = [
   "question": "ll sounds like the English letter _____. (which one?)",
   "blankOptions": {
    "B1": [
+    "y",
     "tap",
-    "rolled",
-    "calle",
-    "y"
+    "loch",
+    "rolled"
    ]
   },
   "key": {
@@ -1704,10 +1704,10 @@ window.QUESTION_BANK = [
   "question": "j is pronounced from the back of the throat, like the Scottish word ‘_____’.",
   "blankOptions": {
    "B1": [
-    "ños",
-    "rolled",
+    "tap",
     "loch",
-    "verde"
+    "ños",
+    "rolled"
    ]
   },
   "key": {
@@ -1726,10 +1726,10 @@ window.QUESTION_BANK = [
   "question": "A single r between vowels, as in ‘pero’, is a quick _____. (tap or roll?)",
   "blankOptions": {
    "B1": [
-    "calle",
     "tap",
     "loch",
-    "y"
+    "verde",
+    "ños"
    ]
   },
   "key": {
@@ -1749,9 +1749,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "tap",
-    "y",
+    "rolled",
     "ños",
-    "rolled"
+    "verde"
    ]
   },
   "key": {
@@ -1770,10 +1770,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘green’ is _____. <span data-say=\"verde\" data-listen>verde</span>",
   "blankOptions": {
    "B1": [
-    "verde",
-    "loch",
-    "y",
-    "rolled"
+    "ños",
+    "tap",
+    "calle",
+    "verde"
    ]
   },
   "key": {
@@ -2640,10 +2640,10 @@ window.QUESTION_BANK = [
   "question": "_____ problema es muy grande. <span data-say=\"El problema es muy grande.\" data-listen>El problema es muy grande.</span>",
   "blankOptions": {
    "B1": [
-    "unas",
+    "La",
+    "al",
     "El",
-    "lápices",
-    "al"
+    "del"
    ]
   },
   "key": {
@@ -2662,10 +2662,10 @@ window.QUESTION_BANK = [
   "question": "Voy _____ colegio a las ocho. <span data-say=\"Voy al colegio a las ocho.\" data-listen>Voy al colegio a las ocho.</span>",
   "blankOptions": {
    "B1": [
-    "El",
-    "La",
+    "unas",
     "mano",
-    "al"
+    "al",
+    "El"
    ]
   },
   "key": {
@@ -2684,10 +2684,10 @@ window.QUESTION_BANK = [
   "question": "Tengo _____ preguntas sobre la tarea. <span data-say=\"Tengo unas preguntas sobre la tarea.\" data-listen>Tengo unas preguntas sobre la tarea.</span>",
   "blankOptions": {
    "B1": [
-    "del",
     "mano",
-    "unas",
-    "al"
+    "del",
+    "El",
+    "unas"
    ]
   },
   "key": {
@@ -2706,10 +2706,10 @@ window.QUESTION_BANK = [
   "question": "Necesito dos _____ nuevos para el examen. <span data-say=\"Necesito dos lápices nuevos para el examen.\" data-listen>Necesito dos lápices nuevos para el examen.</span>",
   "blankOptions": {
    "B1": [
+    "lápices",
+    "La",
     "El",
-    "del",
-    "mano",
-    "lápices"
+    "unas"
    ]
   },
   "key": {
@@ -2728,10 +2728,10 @@ window.QUESTION_BANK = [
   "question": "_____ ciudad tiene mucha información. <span data-say=\"La ciudad tiene mucha información.\" data-listen>La ciudad tiene mucha información.</span>",
   "blankOptions": {
    "B1": [
+    "unas",
     "La",
-    "al",
     "mano",
-    "unas"
+    "lápices"
    ]
   },
   "key": {
@@ -2750,10 +2750,10 @@ window.QUESTION_BANK = [
   "question": "Salgo _____ gimnasio después de las clases. <span data-say=\"Salgo del gimnasio después de las clases.\" data-listen>Salgo del gimnasio después de las clases.</span>",
   "blankOptions": {
    "B1": [
-    "El",
-    "mano",
+    "La",
     "del",
-    "al"
+    "El",
+    "unas"
    ]
   },
   "key": {
@@ -2772,9 +2772,9 @@ window.QUESTION_BANK = [
   "question": "Escucha y escribe la palabra que falta: Me duele la _____. <span data-say=\"la mano\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "La",
     "al",
-    "El",
+    "La",
+    "unas",
     "mano"
    ]
   },
@@ -3642,10 +3642,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana es muy _____. (tall, feminine)",
   "blankOptions": {
    "B1": [
-    "azul",
+    "interesantes",
     "alta",
-    "estos",
-    "negro"
+    "negro",
+    "estos"
    ]
   },
   "key": {
@@ -3664,10 +3664,10 @@ window.QUESTION_BANK = [
   "question": "Los libros son muy _____. (interesting, plural)",
   "blankOptions": {
    "B1": [
-    "interesantes",
-    "azul",
+    "nuestra",
     "estos",
-    "nuestra"
+    "interesantes",
+    "mayor"
    ]
   },
   "key": {
@@ -3686,10 +3686,10 @@ window.QUESTION_BANK = [
   "question": "Tengo un perro _____. (black, masculine)",
   "blankOptions": {
    "B1": [
-    "negro",
-    "estos",
+    "nuestra",
     "alta",
-    "interesantes"
+    "interesantes",
+    "negro"
    ]
   },
   "key": {
@@ -3709,9 +3709,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "mayor",
-    "negro",
+    "alta",
     "azul",
-    "nuestra"
+    "estos"
    ]
   },
   "key": {
@@ -3730,10 +3730,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ es más alto que yo. (older)",
   "blankOptions": {
    "B1": [
-    "negro",
-    "mayor",
     "interesantes",
-    "estos"
+    "mayor",
+    "negro",
+    "nuestra"
    ]
   },
   "key": {
@@ -3752,10 +3752,10 @@ window.QUESTION_BANK = [
   "question": "Quiero comprar _____ zapatos negros. (these, masculine plural)",
   "blankOptions": {
    "B1": [
-    "alta",
-    "estos",
+    "interesantes",
     "azul",
-    "mayor"
+    "estos",
+    "nuestra"
    ]
   },
   "key": {
@@ -3774,10 +3774,10 @@ window.QUESTION_BANK = [
   "question": "En _____ casa vivimos con mis abuelos. (our, feminine singular)",
   "blankOptions": {
    "B1": [
+    "mayor",
     "nuestra",
-    "estos",
-    "alta",
-    "mayor"
+    "negro",
+    "estos"
    ]
   },
   "key": {
@@ -4645,10 +4645,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ a las siete. <span data-say=\"Me levanto a las siete.\" data-listen>Me levanto a las siete.</span>",
   "blankOptions": {
    "B1": [
-    "puedo",
-    "deberes",
-    "gusta",
-    "levanto"
+    "levanto",
+    "duerme",
+    "Tengo",
+    "Estoy"
    ]
   },
   "key": {
@@ -4667,10 +4667,10 @@ window.QUESTION_BANK = [
   "question": "No _____ salir porque tengo que estudiar. <span data-say=\"No puedo salir porque tengo que estudiar.\" data-listen>No puedo salir porque tengo que estudiar.</span>",
   "blankOptions": {
    "B1": [
-    "Estoy",
-    "duerme",
-    "gusta",
-    "puedo"
+    "levanto",
+    "puedo",
+    "deberes",
+    "Tengo"
    ]
   },
   "key": {
@@ -4689,10 +4689,10 @@ window.QUESTION_BANK = [
   "question": "Voy a hacer mis _____. <span data-say=\"Voy a hacer mis deberes esta tarde.\" data-listen>Voy a hacer mis deberes esta tarde.</span>",
   "blankOptions": {
    "B1": [
-    "puedo",
-    "Tengo",
     "deberes",
-    "Estoy"
+    "Tengo",
+    "gusta",
+    "puedo"
    ]
   },
   "key": {
@@ -4711,10 +4711,10 @@ window.QUESTION_BANK = [
   "question": "_____ cansado porque no duermo bien. (temporary state — estar)",
   "blankOptions": {
    "B1": [
+    "Estoy",
     "deberes",
     "puedo",
-    "levanto",
-    "Estoy"
+    "levanto"
    ]
   },
   "key": {
@@ -4733,10 +4733,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ el fútbol. (I like — singular subject)",
   "blankOptions": {
    "B1": [
-    "puedo",
     "levanto",
     "Estoy",
-    "gusta"
+    "gusta",
+    "Tengo"
    ]
   },
   "key": {
@@ -4755,10 +4755,10 @@ window.QUESTION_BANK = [
   "question": "_____ quince años. (age — with tener)",
   "blankOptions": {
    "B1": [
+    "levanto",
     "Tengo",
     "gusta",
-    "puedo",
-    "duerme"
+    "Estoy"
    ]
   },
   "key": {
@@ -4777,10 +4777,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ mucho por las noches. (o→ue stem-change: dormir)",
   "blankOptions": {
    "B1": [
+    "puedo",
+    "levanto",
     "duerme",
-    "Tengo",
-    "deberes",
-    "Estoy"
+    "gusta"
    ]
   },
   "key": {
@@ -5647,10 +5647,10 @@ window.QUESTION_BANK = [
   "question": "Ayer, yo _____ (hablar) con mi profesora sobre el examen. <span data-say=\"Ayer, yo hablé con mi profesora sobre el examen.\" data-listen>Ayer, yo hablé con mi profesora sobre el examen.</span>",
   "blankOptions": {
    "B1": [
-    "estuve",
-    "hablé",
     "fuimos",
-    "he comido"
+    "levantaba",
+    "llegó",
+    "hablé"
    ]
   },
   "key": {
@@ -5669,10 +5669,10 @@ window.QUESTION_BANK = [
   "question": "El año pasado, nosotros _____ (ir) de vacaciones a Francia. <span data-say=\"El año pasado, nosotros fuimos de vacaciones a Francia.\" data-listen>El año pasado, nosotros fuimos de vacaciones a Francia.</span>",
   "blankOptions": {
    "B1": [
-    "estuve",
-    "vivía",
     "llegó",
-    "fuimos"
+    "fuimos",
+    "vivía",
+    "hablé"
    ]
   },
   "key": {
@@ -5691,10 +5691,10 @@ window.QUESTION_BANK = [
   "question": "De pequeño, yo _____ (vivir) en Sevilla con mis abuelos. (imperfect — describes a past state)",
   "blankOptions": {
    "B1": [
-    "he comido",
-    "vivía",
     "estuve",
-    "fuimos"
+    "he comido",
+    "levantaba",
+    "vivía"
    ]
   },
   "key": {
@@ -5713,10 +5713,10 @@ window.QUESTION_BANK = [
   "question": "Normalmente, mi madre se _____ (levantarse) a las seis. (imperfect — a repeated habit)",
   "blankOptions": {
    "B1": [
-    "he comido",
     "hablé",
+    "fuimos",
     "levantaba",
-    "vivía"
+    "estuve"
    ]
   },
   "key": {
@@ -5735,10 +5735,10 @@ window.QUESTION_BANK = [
   "question": "Mientras yo cocinaba, mi hermano _____ (llegar) a casa. (the interrupting single event — preterite)",
   "blankOptions": {
    "B1": [
-    "fuimos",
     "estuve",
     "llegó",
-    "vivía"
+    "fuimos",
+    "he comido"
    ]
   },
   "key": {
@@ -5757,10 +5757,10 @@ window.QUESTION_BANK = [
   "question": "Escucha y completa: Ayer _____ en el parque toda la tarde. <span data-say=\"Ayer estuve en el parque toda la tarde.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "vivía",
     "llegó",
     "fuimos",
-    "estuve"
+    "estuve",
+    "vivía"
    ]
   },
   "key": {
@@ -5779,10 +5779,10 @@ window.QUESTION_BANK = [
   "question": "Higher: Nunca _____ (comer) paella antes. (perfect tense — haber + participle)",
   "blankOptions": {
    "B1": [
-    "estuve",
     "he comido",
-    "levantaba",
-    "fuimos"
+    "hablé",
+    "estuve",
+    "levantaba"
    ]
   },
   "key": {
@@ -6649,10 +6649,10 @@ window.QUESTION_BANK = [
   "question": "Yo _____ a estudiar esta noche. <span data-say=\"Yo voy a estudiar esta noche.\" data-listen>Yo voy a estudiar esta noche.</span>",
   "blankOptions": {
    "B1": [
-    "gustaría",
-    "viviré",
     "voy",
-    "haré"
+    "viviré",
+    "estudies",
+    "compraríamos"
    ]
   },
   "key": {
@@ -6671,10 +6671,10 @@ window.QUESTION_BANK = [
   "question": "Mañana, ella _____ que trabajar. <span data-say=\"Mañana, ella tendrá que trabajar.\" data-listen>Mañana, ella tendrá que trabajar.</span>",
   "blankOptions": {
    "B1": [
+    "haré",
+    "compraríamos",
     "tendrá",
-    "voy",
-    "gustaría",
-    "haré"
+    "voy"
    ]
   },
   "key": {
@@ -6693,10 +6693,10 @@ window.QUESTION_BANK = [
   "question": "El año que viene, (yo) _____ en Madrid. (I will live — vivir)",
   "blankOptions": {
    "B1": [
-    "tendrá",
     "voy",
-    "compraríamos",
-    "viviré"
+    "viviré",
+    "estudies",
+    "tendrá"
    ]
   },
   "key": {
@@ -6716,8 +6716,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "haré",
-    "viviré",
-    "estudies",
+    "voy",
+    "tendrá",
     "compraríamos"
    ]
   },
@@ -6737,7 +6737,7 @@ window.QUESTION_BANK = [
   "question": "Me _____ viajar a Japón algún día. (I would like)",
   "blankOptions": {
    "B1": [
-    "tendrá",
+    "voy",
     "gustaría",
     "haré",
     "compraríamos"
@@ -6759,9 +6759,9 @@ window.QUESTION_BANK = [
   "question": "_____ los deberes antes de salir. (I will do — hacer, yo)",
   "blankOptions": {
    "B1": [
-    "haré",
     "tendrá",
-    "estudies",
+    "voy",
+    "haré",
     "gustaría"
    ]
   },
@@ -6782,9 +6782,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "estudies",
-    "voy",
-    "haré",
-    "viviré"
+    "compraríamos",
+    "viviré",
+    "tendrá"
    ]
   },
   "key": {
@@ -7651,8 +7651,8 @@ window.QUESTION_BANK = [
   "question": "¿Tienes el libro? Sí, _____ tengo. (it — masculine, direct object pronoun)",
   "blankOptions": {
    "B1": [
-    "porque",
     "que",
+    "nunca",
     "nada",
     "lo"
    ]
@@ -7673,10 +7673,10 @@ window.QUESTION_BANK = [
   "question": "No veo _____. <span data-say=\"No veo nada.\" data-listen>No veo nada.</span>",
   "blankOptions": {
    "B1": [
+    "lo",
     "que",
-    "porque",
-    "nada",
-    "nunca"
+    "me",
+    "nada"
    ]
   },
   "key": {
@@ -7695,9 +7695,9 @@ window.QUESTION_BANK = [
   "question": "Voy a hacer más ejercicio, _____ es bueno para la salud. (because)",
   "blankOptions": {
    "B1": [
-    "me",
-    "que",
     "porque",
+    "que",
+    "lo",
     "nada"
    ]
   },
@@ -7717,10 +7717,10 @@ window.QUESTION_BANK = [
   "question": "(Yo) _____ levanto a las siete. (myself — reflexive pronoun)",
   "blankOptions": {
    "B1": [
-    "porque",
-    "me",
     "además",
-    "lo"
+    "me",
+    "nada",
+    "porque"
    ]
   },
   "key": {
@@ -7739,9 +7739,9 @@ window.QUESTION_BANK = [
   "question": "La chica _____ vive aquí es mi amiga. (who/that)",
   "blankOptions": {
    "B1": [
-    "que",
     "me",
-    "además",
+    "que",
+    "nunca",
     "nada"
    ]
   },
@@ -7761,10 +7761,10 @@ window.QUESTION_BANK = [
   "question": "No voy _____ al gimnasio los domingos. (never)",
   "blankOptions": {
    "B1": [
-    "nunca",
-    "lo",
     "que",
-    "porque"
+    "lo",
+    "nunca",
+    "me"
    ]
   },
   "key": {
@@ -7783,10 +7783,10 @@ window.QUESTION_BANK = [
   "question": "Juego al fútbol y, _____, hago natación. (also/furthermore)",
   "blankOptions": {
    "B1": [
+    "nunca",
     "nada",
     "además",
-    "porque",
-    "que"
+    "porque"
    ]
   },
   "key": {
@@ -8654,9 +8654,9 @@ window.QUESTION_BANK = [
   "question": "_____ quince años. <span data-say=\"Tengo quince años.\" data-listen>Tengo quince años.</span>",
   "blankOptions": {
    "B1": [
-    "llamo",
+    "Mis",
     "marrones",
-    "único",
+    "castaño",
     "Tengo"
    ]
   },
@@ -8676,8 +8676,8 @@ window.QUESTION_BANK = [
   "question": "Tengo el pelo largo y _____. <span data-say=\"Tengo el pelo largo y castaño.\" data-listen>Tengo el pelo largo y castaño.</span>",
   "blankOptions": {
    "B1": [
-    "llamo",
-    "único",
+    "Tengo",
+    "marrones",
     "castaño",
     "Mis"
    ]
@@ -8698,10 +8698,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano mayor _____ gafas. <span data-say=\"Mi hermano mayor lleva gafas.\" data-listen>Mi hermano mayor lleva gafas.</span>",
   "blankOptions": {
    "B1": [
-    "único",
-    "lleva",
-    "castaño",
-    "llamo"
+    "llamo",
+    "marrones",
+    "Mis",
+    "lleva"
    ]
   },
   "key": {
@@ -8720,10 +8720,10 @@ window.QUESTION_BANK = [
   "question": "Tengo los ojos _____. (brown — plural agreement!)",
   "blankOptions": {
    "B1": [
-    "marrones",
-    "Mis",
     "único",
-    "Tengo"
+    "Mis",
+    "lleva",
+    "marrones"
    ]
   },
   "key": {
@@ -8743,9 +8743,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "Mis",
-    "marrones",
-    "llamo",
-    "único"
+    "lleva",
+    "Tengo",
+    "castaño"
    ]
   },
   "key": {
@@ -8764,10 +8764,10 @@ window.QUESTION_BANK = [
   "question": "Soy hijo _____. (only child)",
   "blankOptions": {
    "B1": [
-    "lleva",
-    "castaño",
-    "llamo",
-    "único"
+    "único",
+    "Tengo",
+    "Mis",
+    "llamo"
    ]
   },
   "key": {
@@ -8786,9 +8786,9 @@ window.QUESTION_BANK = [
   "question": "Me _____ Ana y vivo en Madrid. (my name is)",
   "blankOptions": {
    "B1": [
-    "Mis",
+    "único",
     "llamo",
-    "marrones",
+    "castaño",
     "lleva"
    ]
   },
@@ -9657,10 +9657,10 @@ window.QUESTION_BANK = [
   "question": "Me llevo bien _____ mis padres. <span data-say=\"Me llevo bien con mis padres.\" data-listen>Me llevo bien con mis padres.</span>",
   "blankOptions": {
    "B1": [
-    "trabajadora",
     "con",
-    "abuela",
-    "cariñosa"
+    "gracioso",
+    "que",
+    "llevo"
    ]
   },
   "key": {
@@ -9679,10 +9679,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano es muy _____. <span data-say=\"Mi hermano es muy gracioso.\" data-listen>Mi hermano es muy gracioso.</span>",
   "blankOptions": {
    "B1": [
-    "con",
-    "gracioso",
+    "trabajadora",
     "que",
-    "llevo"
+    "cariñosa",
+    "gracioso"
    ]
   },
   "key": {
@@ -9701,10 +9701,10 @@ window.QUESTION_BANK = [
   "question": "Mi modelo a seguir es mi _____. <span data-say=\"Mi modelo a seguir es mi abuela.\" data-listen>Mi modelo a seguir es mi abuela.</span>",
   "blankOptions": {
    "B1": [
-    "con",
+    "abuela",
+    "gracioso",
     "que",
-    "llevo",
-    "abuela"
+    "con"
    ]
   },
   "key": {
@@ -9723,10 +9723,10 @@ window.QUESTION_BANK = [
   "question": "Mi madre es muy _____. (affectionate — she is female!)",
   "blankOptions": {
    "B1": [
-    "cariñosa",
-    "que",
-    "gracioso",
-    "con"
+    "trabajadora",
+    "abuela",
+    "llevo",
+    "cariñosa"
    ]
   },
   "key": {
@@ -9745,9 +9745,9 @@ window.QUESTION_BANK = [
   "question": "Me _____ mal con mi hermano. (I get on badly — reflexive)",
   "blankOptions": {
    "B1": [
-    "gracioso",
-    "con",
     "llevo",
+    "gracioso",
+    "abuela",
     "que"
    ]
   },
@@ -9767,10 +9767,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana es más habladora _____ yo. (than)",
   "blankOptions": {
    "B1": [
-    "abuela",
+    "con",
     "que",
-    "llevo",
-    "gracioso"
+    "gracioso",
+    "trabajadora"
    ]
   },
   "key": {
@@ -9789,10 +9789,10 @@ window.QUESTION_BANK = [
   "question": "Admiro a mi abuela porque es muy _____. (hard-working, female)",
   "blankOptions": {
    "B1": [
-    "abuela",
     "trabajadora",
     "gracioso",
-    "cariñosa"
+    "llevo",
+    "con"
    ]
   },
   "key": {
@@ -10660,10 +10660,10 @@ window.QUESTION_BANK = [
   "question": "Se _____ comer más fruta. <span data-say=\"Se debe comer más fruta.\" data-listen>Se debe comer más fruta.</span>",
   "blankOptions": {
    "B1": [
-    "debe",
-    "equilibrada",
     "agua",
-    "evitar"
+    "azúcar",
+    "debe",
+    "gustan"
    ]
   },
   "key": {
@@ -10682,10 +10682,10 @@ window.QUESTION_BANK = [
   "question": "Voy a _____ la comida rápida. <span data-say=\"Voy a evitar la comida rápida.\" data-listen>Voy a evitar la comida rápida.</span>",
   "blankOptions": {
    "B1": [
-    "agua",
-    "debe",
     "azúcar",
-    "evitar"
+    "evitar",
+    "equilibrada",
+    "gustan"
    ]
   },
   "key": {
@@ -10704,9 +10704,9 @@ window.QUESTION_BANK = [
   "question": "Hay que beber mucha _____. <span data-say=\"Hay que beber mucha agua.\" data-listen>Hay que beber mucha agua.</span>",
   "blankOptions": {
    "B1": [
-    "evitar",
     "equilibrada",
-    "debe",
+    "evitar",
+    "gustan",
     "agua"
    ]
   },
@@ -10726,10 +10726,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ las verduras. (I like vegetables — plural!)",
   "blankOptions": {
    "B1": [
-    "debe",
-    "agua",
+    "equilibrada",
+    "porque",
     "gustan",
-    "evitar"
+    "debe"
    ]
   },
   "key": {
@@ -10748,10 +10748,10 @@ window.QUESTION_BANK = [
   "question": "Como una dieta _____. (balanced)",
   "blankOptions": {
    "B1": [
-    "debe",
-    "equilibrada",
-    "agua",
-    "porque"
+    "porque",
+    "evitar",
+    "azúcar",
+    "equilibrada"
    ]
   },
   "key": {
@@ -10770,10 +10770,10 @@ window.QUESTION_BANK = [
   "question": "No se debe comer demasiado _____. (sugar)",
   "blankOptions": {
    "B1": [
-    "gustan",
-    "agua",
-    "porque",
-    "azúcar"
+    "azúcar",
+    "debe",
+    "evitar",
+    "gustan"
    ]
   },
   "key": {
@@ -10794,8 +10794,8 @@ window.QUESTION_BANK = [
    "B1": [
     "porque",
     "azúcar",
-    "gustan",
-    "evitar"
+    "equilibrada",
+    "debe"
    ]
   },
   "key": {
@@ -11665,7 +11665,7 @@ window.QUESTION_BANK = [
    "B1": [
     "duele",
     "duelen",
-    "ejercicio",
+    "cansado",
     "fumar"
    ]
   },
@@ -11685,10 +11685,10 @@ window.QUESTION_BANK = [
   "question": "No se debe _____ porque es malo para la salud. <span data-say=\"No se debe fumar porque es malo para la salud.\" data-listen>No se debe fumar porque es malo para la salud.</span>",
   "blankOptions": {
    "B1": [
-    "cansado",
     "fumar",
     "duelen",
-    "acuesto"
+    "acuesto",
+    "duele"
    ]
   },
   "key": {
@@ -11707,10 +11707,10 @@ window.QUESTION_BANK = [
   "question": "Para estar en forma, hay que hacer _____. <span data-say=\"Para estar en forma, hay que hacer ejercicio.\" data-listen>Para estar en forma, hay que hacer ejercicio.</span>",
   "blankOptions": {
    "B1": [
-    "fumar",
+    "cansado",
     "ejercicio",
     "duelen",
-    "duele"
+    "fumar"
    ]
   },
   "key": {
@@ -11731,7 +11731,7 @@ window.QUESTION_BANK = [
    "B1": [
     "duelen",
     "acuesto",
-    "fumar",
+    "duele",
     "ejercicio"
    ]
   },
@@ -11751,10 +11751,10 @@ window.QUESTION_BANK = [
   "question": "Estoy muy _____ porque no duermo bien. (tired)",
   "blankOptions": {
    "B1": [
-    "ejercicio",
     "duele",
-    "fumar",
-    "cansado"
+    "cansado",
+    "acuesto",
+    "fumar"
    ]
   },
   "key": {
@@ -11773,10 +11773,10 @@ window.QUESTION_BANK = [
   "question": "Voy a _____ de fumar. (to stop)",
   "blankOptions": {
    "B1": [
+    "ejercicio",
     "dejar",
-    "duele",
-    "cansado",
-    "acuesto"
+    "fumar",
+    "duele"
    ]
   },
   "key": {
@@ -11795,10 +11795,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ temprano para dormir ocho horas. (I go to bed — reflexive)",
   "blankOptions": {
    "B1": [
-    "fumar",
+    "acuesto",
+    "duelen",
     "cansado",
-    "dejar",
-    "acuesto"
+    "ejercicio"
    ]
   },
   "key": {
@@ -12666,9 +12666,9 @@ window.QUESTION_BANK = [
   "question": "Mi asignatura _____ es el español. <span data-say=\"Mi asignatura preferida es el español.\" data-listen>Mi asignatura preferida es el español.</span>",
   "blankOptions": {
    "B1": [
-    "ciencias",
-    "preferida",
     "empiezan",
+    "biblioteca",
+    "preferida",
     "informática"
    ]
   },
@@ -12688,10 +12688,10 @@ window.QUESTION_BANK = [
   "question": "Las clases _____ a las nueve. <span data-say=\"Las clases empiezan a las nueve.\" data-listen>Las clases empiezan a las nueve.</span>",
   "blankOptions": {
    "B1": [
+    "deberes",
+    "informática",
     "empiezan",
-    "biblioteca",
-    "ciencias",
-    "deberes"
+    "biblioteca"
    ]
   },
   "key": {
@@ -12710,10 +12710,10 @@ window.QUESTION_BANK = [
   "question": "Se me da bien la _____. <span data-say=\"Se me da bien la informática.\" data-listen>Se me da bien la informática.</span>",
   "blankOptions": {
    "B1": [
-    "informática",
-    "preferida",
     "ciencias",
-    "móvil"
+    "preferida",
+    "informática",
+    "empiezan"
    ]
   },
   "key": {
@@ -12732,10 +12732,10 @@ window.QUESTION_BANK = [
   "question": "Me gustan las _____. (science)",
   "blankOptions": {
    "B1": [
-    "móvil",
-    "deberes",
-    "empiezan",
-    "ciencias"
+    "preferida",
+    "ciencias",
+    "informática",
+    "empiezan"
    ]
   },
   "key": {
@@ -12754,9 +12754,9 @@ window.QUESTION_BANK = [
   "question": "Está prohibido usar el _____. (mobile phone)",
   "blankOptions": {
    "B1": [
+    "ciencias",
     "deberes",
-    "preferida",
-    "empiezan",
+    "biblioteca",
     "móvil"
    ]
   },
@@ -12776,10 +12776,10 @@ window.QUESTION_BANK = [
   "question": "Hago los _____ después de las clases. (homework)",
   "blankOptions": {
    "B1": [
-    "empiezan",
+    "biblioteca",
     "deberes",
-    "ciencias",
-    "informática"
+    "móvil",
+    "ciencias"
    ]
   },
   "key": {
@@ -12799,9 +12799,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "deberes",
-    "preferida",
     "móvil",
-    "biblioteca"
+    "biblioteca",
+    "empiezan"
    ]
   },
   "key": {
@@ -13669,10 +13669,10 @@ window.QUESTION_BANK = [
   "question": "Quiero _____ médica. <span data-say=\"Quiero ser médica.\" data-listen>Quiero ser médica.</span>",
   "blankOptions": {
    "B1": [
-    "ganar",
-    "estudiando",
     "ayudar",
-    "ser"
+    "ganar",
+    "ser",
+    "sea"
    ]
   },
   "key": {
@@ -13691,10 +13691,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ ser abogado porque me interesa la ley. (would like)",
   "blankOptions": {
    "B1": [
+    "gustaría",
+    "ayudar",
     "aprendizaje",
-    "estudiando",
-    "ser",
-    "gustaría"
+    "sea"
    ]
   },
   "key": {
@@ -13713,10 +13713,10 @@ window.QUESTION_BANK = [
   "question": "Voy a seguir _____ en la universidad. (studying)",
   "blankOptions": {
    "B1": [
+    "ganar",
     "estudiando",
-    "gustaría",
-    "ser",
-    "ganar"
+    "ayudar",
+    "aprendizaje"
    ]
   },
   "key": {
@@ -13735,10 +13735,10 @@ window.QUESTION_BANK = [
   "question": "Quiero hacer un _____ en vez de ir a la universidad. (apprenticeship)",
   "blankOptions": {
    "B1": [
-    "ayudar",
-    "sea",
-    "estudiando",
-    "aprendizaje"
+    "gustaría",
+    "aprendizaje",
+    "ser",
+    "ayudar"
    ]
   },
   "key": {
@@ -13757,10 +13757,10 @@ window.QUESTION_BANK = [
   "question": "Trabajo mucho para _____ dinero. (to earn)",
   "blankOptions": {
    "B1": [
-    "gustaría",
-    "aprendizaje",
     "ganar",
-    "ayudar"
+    "estudiando",
+    "aprendizaje",
+    "gustaría"
    ]
   },
   "key": {
@@ -13780,9 +13780,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "sea",
-    "ganar",
     "estudiando",
-    "ayudar"
+    "ganar",
+    "gustaría"
    ]
   },
   "key": {
@@ -13801,10 +13801,10 @@ window.QUESTION_BANK = [
   "question": "Para _____ a la gente, quiero ser enfermera. (to help)",
   "blankOptions": {
    "B1": [
+    "ganar",
     "aprendizaje",
     "ayudar",
-    "estudiando",
-    "ser"
+    "gustaría"
    ]
   },
   "key": {
@@ -14039,6 +14039,2012 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 3,
    "explain": "“cuando sea mayor” means: when I am older"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:exam:96da2443",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": 1,
+  "question": "Read what Carlos says. Answer <strong>in English</strong>.<br>(a) What is Carlos's favourite hobby? (1)<br>(b) When does he play basketball? (1)<br>(c) What did he do last weekend? (1)<br>(d) Why does he never go shopping? (1)",
+  "caseStudy": "<p><strong>Lee lo que dice Carlos.</strong></p>\n        <p><em>\"En mi tiempo libre, mi pasatiempo favorito es coleccionar sellos, pero también juego al baloncesto los fines de semana con mi equipo. Suelo salir con amigos los sábados por la noche — a veces vamos al cine y a veces vamos a la bolera. El fin de semana pasado fui a una fiesta y bailé toda la noche. Nunca voy de compras porque no me gusta nada.\"</em></p>",
+  "hint": "Find the hobby after ‘mi pasatiempo favorito es’, the timing after ‘los fines de semana’, the past action after ‘el fin de semana pasado’, and the reason after ‘porque’.",
+  "starter": "(a) His favourite hobby is… (b) He plays basketball… (c) Last weekend he… (d) He never goes shopping because…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>\n                <li><strong>(a)</strong> collecting stamps <em>(1)</em>.</li>\n                <li><strong>(b)</strong> at weekends (with his team) <em>(1)</em>.</li>\n                <li><strong>(c)</strong> went to a party / danced all night (ANY ONE) <em>(1)</em>.</li>\n                <li><strong>(d)</strong> (because) he doesn't like it at all <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>\n            </ul></div>",
+   "modelAnswer": "(a) Collecting stamps. (b) At weekends, with his team. (c) He went to a party and danced all night. (d) Because he doesn't like it at all."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:exam:3293ac7f",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": 2,
+  "question": "Translate these sentences <strong>into Spanish</strong>.<br>(a) I play football with my team. <br>(b) I love going out with my friends. <br>(c) Last weekend I went to the cinema because I like films.",
+  "hint": "‘I play football’ = jugar al fútbol. ‘I love going out’ = Me encanta + infinitive. ‘Last weekend I went’ = El fin de semana pasado + preterite (fui).",
+  "starter": "(a) Juego… (b) Me encanta… (c) El fin de semana pasado…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>\n                <li><strong>(a)</strong> Juego al fútbol con mi equipo. <em>(1)</em></li>\n                <li><strong>(b)</strong> Me encanta salir con mis amigos. <em>(1)</em></li>\n                <li><strong>(c)</strong> El fin de semana pasado <em>(1)</em> fui al cine <em>(1)</em> porque me gustan las películas <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Accept minor accent errors. ‘Fui al cine’ must use the preterite, not the present.</li>\n            </ul></div>",
+   "modelAnswer": "(a) Juego al fútbol con mi equipo. (b) Me encanta salir con mis amigos. (c) El fin de semana pasado fui al cine porque me gustan las películas."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:0f7bb308",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Juego al fútbol los sábados.\" data-listen></span><br>Listen. What is being said?",
+  "options": [
+   "I play football on Saturdays",
+   "I play football every day",
+   "I watch football on Saturdays",
+   "I played football last Saturday"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘juego al fútbol los sábados’ = I play football on Saturdays. Traps swap the frequency, the verb (watch) or the tense (played)."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:5be4fb4f",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Me encanta salir con amigos los fines de semana.\" data-listen></span><br>Listen. What does the speaker say?",
+  "options": [
+   "I love going out with friends at weekends",
+   "I hate going out with friends at weekends",
+   "I love going out with family at weekends",
+   "I sometimes go out with friends at weekends"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘me encanta’ = I love; ‘con amigos’ = with friends. Traps reverse the opinion, swap friends→family, or weaken encanta to ‘sometimes’."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:f68e0207",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Suelo jugar al tenis los domingos.\" data-listen></span><br>Listen. What is the habit?",
+  "options": [
+   "Usually playing tennis on Sundays",
+   "Usually playing football on Saturdays",
+   "Never playing tennis on Sundays",
+   "Having played tennis last Sunday"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘suelo jugar al tenis los domingos’ = I usually play tennis on Sundays. Traps swap sport/day, negate it, or shift it to the past."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:a727c42b",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How do you say ‘I play basketball’ correctly?",
+  "options": [
+   "Juego al baloncesto",
+   "Juego baloncesto",
+   "Hago al baloncesto",
+   "Juega al baloncesto cada semana"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "jugar takes ‘al’ before a ball sport: juego al baloncesto. B drops ‘al’, C swaps in hacer, D uses the wrong subject (juega = he/she, not yo)."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:f116e647",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Me ___ los deportes de equipo.’ (I like team sports)",
+  "options": [
+   "gustan",
+   "gusta",
+   "gustas",
+   "gustaría"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘los deportes’ is plural, so gustar agrees: me gustan. ‘gusta’ fails to agree; ‘gustaría’ shifts to the conditional (I would like)."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:0a54dceb",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence means ‘I never go to parties’?",
+  "options": [
+   "Nunca voy a fiestas",
+   "Voy a veces a fiestas",
+   "Siempre voy a fiestas",
+   "Nunca voy a fiestas los fines de semana solamente"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "nunca = never. B swaps in ‘sometimes’, C reverses it to ‘always’, D adds a limiting detail (weekends only) that changes the meaning."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:6da991b3",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘Fui al cine el sábado pasado’ means…",
+  "options": [
+   "I went to the cinema last Saturday",
+   "I go to the cinema every Saturday",
+   "I am going to the cinema next Saturday",
+   "I would go to the cinema on Saturdays"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "fui (preterite of ir) + el sábado pasado = I went last Saturday. The traps swap in present, future or conditional."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:153008e9",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence uses ‘soler + infinitive’ correctly for a habit?",
+  "options": [
+   "Suelo salir los sábados por la noche",
+   "Suelo salgo los sábados por la noche",
+   "Soy salir los sábados por la noche",
+   "Suelo saliendo los sábados por la noche"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "soler is followed by an infinitive: suelo salir. B conjugates salir again, C uses the wrong verb (soy), D uses the gerund (saliendo)."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:5a39fd6b",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is correct for ‘I do (go) swimming’?",
+  "options": [
+   "Hago natación",
+   "Juego a natación",
+   "Juego al natación",
+   "Hace natación yo"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Swimming isn’t a ‘jugar’ sport — use hacer + noun: hago natación. Adding ‘a’/‘al’ or swapping the subject are the traps."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:a41de7e7",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘dar un paseo’ mean?",
+  "options": [
+   "to go for a walk",
+   "to give a present or gift",
+   "to pass an exam easily",
+   "to pay for a bus ticket"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "dar un paseo = to go for a walk. False-friend traps: ‘dar’ (to give) and ‘paseo’ sounding like ‘pasar’/‘pagar’."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tf:18ecbc2c",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘jugar al fútbol’ needs the word ‘al’ before a ball sport.",
+  "key": {
+   "answer": true,
+   "explain": "jugar takes a+el=al before a ball/racquet sport: jugar al fútbol."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tf:70c64698",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘hacer natación’ is used because swimming is not a ‘jugar’ sport.",
+  "key": {
+   "answer": true,
+   "explain": "Non-ball activities use hacer + noun: hago natación."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tf:87ba22a9",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Me gusta jugar’ should really be ‘Me gustan jugar’ because jugar is an activity.",
+  "key": {
+   "answer": false,
+   "explain": "Before a single infinitive, gustar stays singular: me gusta jugar. ‘gustan’ is only for plural nouns."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tf:6539338d",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘quedar con’ means ‘to stay at home’.",
+  "key": {
+   "answer": false,
+   "explain": "quedar con = to meet up with someone; quedarse (reflexive) = to stay."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tf:7fedc9bd",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Frequency words like ‘a menudo’ and ‘a veces’ can go at the start or end of a sentence.",
+  "key": {
+   "answer": true,
+   "explain": "Both positions are correct in Spanish."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tf:1f429068",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Fui al cine’ is in the present tense.",
+  "key": {
+   "answer": false,
+   "explain": "‘fui’ is the (irregular) preterite of ir — a completed past action."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tf:9675ce74",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘nunca’ means ‘sometimes’.",
+  "key": {
+   "answer": false,
+   "explain": "nunca = never; a veces = sometimes."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tf:afd66076",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘soler + infinitive’ describes a usual habit, and is Higher tier.",
+  "key": {
+   "answer": true,
+   "explain": "soler + infinitive = to usually do something, e.g. suelo salir los sábados."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:learn:f6a6420d",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about playing sport? (jugar al vs hacer)",
+  "reading": "<p>Use <span data-say=\"jugar\">jugar</span> + <strong>a + el = al</strong> for ball / racquet sports, but <span data-say=\"hacer\">hacer</span> for other kinds of sport.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"jugar al fútbol\">jugar al fútbol</span></td><td>to play football</td><td><span data-say=\"jugar al baloncesto\">jugar al baloncesto</span></td><td>to play basketball</td></tr>\n              <tr><td><span data-say=\"jugar al tenis\">jugar al tenis</span></td><td>to play tennis</td><td><span data-say=\"el equipo\">el equipo</span></td><td>the team</td></tr>\n              <tr><td><span data-say=\"hacer deporte\">hacer deporte</span></td><td>to do sport</td><td><span data-say=\"nadar\">nadar</span></td><td>to swim</td></tr>\n              <tr><td><span data-say=\"montar en bicicleta\">montar en bicicleta</span></td><td>to cycle</td><td><span data-say=\"el deporte\">el deporte</span></td><td>sport</td></tr>\n            </table>\n            <p>Model: <span data-say=\"Juego al fútbol con mi equipo los sábados.\">Juego al fútbol con mi equipo los sábados.</span> — <em>I play football with my team on Saturdays.</em></p>",
+  "question": "Which is correct for ‘I play tennis’?",
+  "options": [
+   "Juego al tenis",
+   "Juego tenis",
+   "Hago al tenis",
+   "Juega el tenis"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "jugar takes ‘al’ before a ball/racquet sport: juego al tenis. Dropping ‘al’ or swapping in ‘hago’ are the classic errors."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:learn:21fe82b9",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about hobbies and free time?",
+  "reading": "<p>Key nouns: <span data-say=\"el tiempo libre\">el tiempo libre</span> (free time), <span data-say=\"el pasatiempo\">el pasatiempo</span> (hobby/pastime), <span data-say=\"la afición\">la afición</span> (hobby/interest).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"coleccionar\">coleccionar</span></td><td>to collect</td><td><span data-say=\"coleccionar sellos\">coleccionar sellos</span></td><td>to collect stamps</td></tr>\n              <tr><td><span data-say=\"cocinar\">cocinar</span></td><td>to cook</td><td><span data-say=\"leer\">leer</span></td><td>to read</td></tr>\n              <tr><td><span data-say=\"tocar un instrumento\">tocar un instrumento</span></td><td>to play an instrument</td><td><span data-say=\"jugar a videojuegos\">jugar a videojuegos</span></td><td>to play video games</td></tr>\n            </table>\n            <p>Example: <span data-say=\"En mi tiempo libre, mi afición es coleccionar sellos.\">En mi tiempo libre, mi afición es coleccionar sellos.</span> — <em>In my free time, my hobby is collecting stamps.</em></p>",
+  "question": "What does ‘el pasatiempo’ mean?",
+  "options": [
+   "hobby / pastime",
+   "a time in the past",
+   "a paid job",
+   "a type of team sport played daily"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el pasatiempo = a hobby/pastime — a false-friend trap is confusing it with ‘pasado’ (past)."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:learn:1ef2ec13",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I say what I like doing? (gustar/encantar + infinitive)",
+  "reading": "<p><span data-say=\"gustar\">gustar</span> and <span data-say=\"encantar\">encantar</span> work like ‘doler’ — before an infinitive they always stay <strong>singular</strong>, even if you name more than one activity.</p>\n            <ul>\n              <li><span data-say=\"me gusta jugar al fútbol\">me gusta jugar al fútbol</span> — I like playing football (ONE infinitive → gusta)</li>\n              <li><span data-say=\"me gustan los deportes de equipo\">me gustan los deportes de equipo</span> — I like team sports (PLURAL noun → gustan)</li>\n              <li><span data-say=\"me encanta salir con amigos\">me encanta salir con amigos</span> — I love going out with friends</li>\n              <li><span data-say=\"no me gusta nada cocinar\">no me gusta nada cocinar</span> — I don’t like cooking at all</li>\n            </ul>\n            <p>Model: <span data-say=\"Me encanta jugar al baloncesto, pero no me gusta nada nadar.\">Me encanta jugar al baloncesto, pero no me gusta nada nadar.</span></p>",
+  "question": "Complete: ‘Me ___ jugar al tenis.’ (I like playing tennis)",
+  "options": [
+   "gusta",
+   "gustan",
+   "gusto",
+   "gustaría"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Before a single infinitive, gustar stays singular: me gusta jugar. ‘gustan’ is only for plural nouns; ‘gustaría’ shifts to the conditional."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:learn:7f13d877",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about going out with friends?",
+  "reading": "<p>Common ways to talk about going out (<strong>salir</strong>):</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"salir con amigos\">salir con amigos</span></td><td>to go out with friends</td><td><span data-say=\"quedar con\">quedar con</span></td><td>to meet up with</td></tr>\n              <tr><td><span data-say=\"ir al cine\">ir al cine</span></td><td>to go to the cinema</td><td><span data-say=\"ir al parque\">ir al parque</span></td><td>to go to the park</td></tr>\n              <tr><td><span data-say=\"ir a la bolera\">ir a la bolera</span></td><td>to go bowling</td><td><span data-say=\"la fiesta\">la fiesta</span></td><td>the party</td></tr>\n              <tr><td><span data-say=\"bailar\">bailar</span></td><td>to dance</td><td><span data-say=\"dar un paseo\">dar un paseo</span></td><td>to go for a walk</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Normalmente quedo con mis amigos y vamos a la bolera o al cine.\">Normalmente quedo con mis amigos y vamos a la bolera o al cine.</span></p>",
+  "question": "What does ‘quedar con’ mean?",
+  "options": [
+   "to meet up with (someone)",
+   "to stay at home alone all day",
+   "to remain completely silent",
+   "to complain loudly about something"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "quedar con = to meet up / arrange to meet with someone — a false-friend trap with ‘quedarse’ (to stay)."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:learn:26280586",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I say how often I do something?",
+  "reading": "<p>Frequency expressions usually sit at the start or end of the sentence:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"a menudo\">a menudo</span></td><td>often</td><td><span data-say=\"a veces\">a veces</span></td><td>sometimes</td></tr>\n              <tr><td><span data-say=\"todos los días\">todos los días</span></td><td>every day</td><td><span data-say=\"una vez a la semana\">una vez a la semana</span></td><td>once a week</td></tr>\n              <tr><td><span data-say=\"los fines de semana\">los fines de semana</span></td><td>at weekends</td><td><span data-say=\"nunca\">nunca</span></td><td>never</td></tr>\n            </table>\n            <p>Example: <span data-say=\"A menudo salgo con amigos, pero nunca voy a la bolera.\">A menudo salgo con amigos, pero nunca voy a la bolera.</span></p>",
+  "question": "‘Nunca voy a la bolera’ means…",
+  "options": [
+   "I never go bowling",
+   "I sometimes go bowling",
+   "I go bowling every single day",
+   "I used to go bowling"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "nunca = never. It negates the verb completely — not ‘sometimes’, ‘every day’ or ‘used to’."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:learn:f9ee7a92",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Higher: last weekend (preterite) and soler + infinitive",
+  "reading": "<p><span class=\"tier-h\">H</span> To talk about <strong>last weekend</strong>, use the <strong>preterite</strong> (simple past):</p>\n            <ul>\n              <li><span data-say=\"jugar\">jugar</span> → <span data-say=\"jugué al tenis\">jugué al tenis</span> (I played tennis)</li>\n              <li><span data-say=\"ir\">ir</span> → <span data-say=\"fui al cine\">fui al cine</span> (I went to the cinema) — irregular!</li>\n              <li><span data-say=\"salir\">salir</span> → <span data-say=\"salí con amigos\">salí con amigos</span> (I went out with friends)</li>\n            </ul>\n            <p>Model: <span data-say=\"El fin de semana pasado jugué al tenis y luego fui a una fiesta.\">El fin de semana pasado jugué al tenis y luego fui a una fiesta.</span> <span class=\"tier-h\">H</span></p>\n            <p><span class=\"tier-h\">H</span> For habits, use <strong>soler + infinitive</strong> (to usually do something):</p>\n            <ul>\n              <li><span data-say=\"suelo salir los sábados\">suelo salir los sábados</span> — I usually go out on Saturdays <span class=\"tier-h\">H</span></li>\n            </ul>",
+  "question": "‘El fin de semana pasado jugué al tenis’ is in which tense?",
+  "options": [
+   "the preterite (a completed past action)",
+   "the ordinary present tense",
+   "the near future, using voy a + the infinitive form",
+   "the conditional (would)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "jugué is the yo form of the preterite — a single completed action last weekend, signalled by ‘el fin de semana pasado’."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:misc:86221d21",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Juego fútbol los sábados.</p><p><strong>✅ The correct idea:</strong> Juego al fútbol los sábados.</p>",
+  "question": "What is missing in ‘Juego fútbol’?",
+  "options": [
+   "the word ‘al’ (a + el) before the sport",
+   "an accent on the letter ó in fútbol",
+   "the pronoun ‘yo’ written at the very start of the sentence",
+   "the article ‘la’ before fútbol"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "jugar is always followed by ‘al’ before a ball sport: juego al fútbol."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:misc:254e7f26",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Hago fútbol todos los días.</p><p><strong>✅ The correct idea:</strong> Juego al fútbol todos los días.</p>",
+  "question": "Why is ‘Hago fútbol’ wrong?",
+  "options": [
+   "ball sports use jugar al, not hacer",
+   "fútbol must always be written with a capital letter",
+   "hacer needs a written accent here",
+   "todos los días has to come first"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘hacer’ is for non-ball activities (hacer natación); ball sports use jugar al: juego al fútbol."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:misc:6cad5d0f",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Me gustan jugar al tenis.</p><p><strong>✅ The correct idea:</strong> Me gusta jugar al tenis.</p>",
+  "question": "Why is ‘Me gustan jugar’ incorrect?",
+  "options": [
+   "before a single infinitive, gustar always stays singular",
+   "jugar always needs a plural verb form because ‘tenis’ ends in -s",
+   "‘tenis’ is treated as a plural noun in Spanish",
+   "gustar can never appear before an infinitive"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "gustar/encantar + infinitive is always singular, whatever the infinitive is: me gusta jugar."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:misc:c78282ff",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Quedo en casa todo el fin de semana. (= I meet up all weekend)</p><p><strong>✅ The correct idea:</strong> Me quedo en casa todo el fin de semana. (= I stay home all weekend)</p>",
+  "question": "What is the real difference between ‘quedar con’ and ‘quedarse’?",
+  "options": [
+   "quedar con = to meet up; quedarse = to stay (reflexive)",
+   "they are simply two different spellings of exactly the same verb",
+   "quedarse can only be used in the future tense",
+   "quedar con is only ever used with family members"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "quedar con alguien = to arrange to meet someone; quedarse (reflexive) = to stay/remain."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:misc:71a763a6",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> El sábado pasado juego al tenis.</p><p><strong>✅ The correct idea:</strong> El sábado pasado jugué al tenis.</p>",
+  "question": "Why is ‘juego’ wrong after ‘el sábado pasado’?",
+  "options": [
+   "‘el sábado pasado’ signals the past, so it needs the preterite jugué",
+   "‘juego’ is correct in absolutely any tense you choose",
+   "‘pasado’ must always be immediately followed by an infinitive verb",
+   "the sentence actually needs ‘voy a’ placed in front of the verb instead"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘el sábado pasado’ (last Saturday) is a past-time marker, so the verb must be preterite: jugué."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tips:e096ff5b",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 1 — Listening for frequency and habits",
+  "reading": "Listen for the frequency word AND the verb ending together: ‘suelo salir’ (habit) vs ‘salí’ (one past event) vs ‘voy a salir’ (future plan) sound different but are easy to confuse under time pressure.",
+  "question": "You hear ‘…suelo jugar…’. What does that signal?",
+  "options": [
+   "a usual habit, not a single past event",
+   "something that happened only once, yesterday",
+   "a plan for next weekend only",
+   "a command telling someone else to play"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "soler + infinitive describes a regular habit — not a one-off past action or a command."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tips:f01c5f1d",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 3 — Reading: gustar/encantar agreement",
+  "reading": "When you read ‘me gustan’ vs ‘me gusta’, check what follows: a plural noun (los deportes) takes gustan; an infinitive (jugar, salir) always takes the singular gusta, however many activities you list.",
+  "question": "‘Me gustan el fútbol y el baloncesto’ — why plural gustan?",
+  "options": [
+   "two nouns together are treated as a plural subject",
+   "gustar is always plural before a noun",
+   "fútbol on its own is a plural word",
+   "encantar and gustar always agree with the subject pronoun ‘yo’"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Two (or more) nouns joined by ‘y’ act as a plural subject, so gustar agrees: gustan."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tips:2f1a4fab",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "evaluate — Paper 4 — Writing: mixing tenses and soler for range",
+  "reading": "For the top band, combine a present habit, a preterite last-weekend action and an opinion with a reason: ‘Suelo jugar al fútbol los sábados. El fin de semana pasado fui a una fiesta y me encantó porque bailé mucho.’",
+  "question": "Which answer reaches the top band?",
+  "options": [
+   "Suelo jugar al fútbol, pero el sábado pasado fui a una fiesta",
+   "Me gusta el deporte y me gusta el deporte y también me gusta mucho salir",
+   "Juego al fútbol",
+   "Salgo"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "It mixes a present habit (suelo) with a past event (fui) and links ideas — range and accuracy, not just length."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:fib:3977ab4e",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Juego al _____ con mi equipo. <span data-say=\"Juego al fútbol con mi equipo.\" data-listen>Juego al fútbol con mi equipo.</span>",
+  "blankOptions": {
+   "B1": [
+    "fútbol",
+    "jugar",
+    "jugué",
+    "fiestas"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "fútbol"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:fib:228c70a5",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Mi afición es _____ sellos. (to collect)",
+  "blankOptions": {
+   "B1": [
+    "salir",
+    "fiestas",
+    "jugar",
+    "coleccionar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "coleccionar"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:fib:a5073ef6",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Me gusta _____ al baloncesto. (to play — infinitive after gustar)",
+  "blankOptions": {
+   "B1": [
+    "jugar",
+    "fiestas",
+    "salir",
+    "coleccionar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "jugar"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:fib:c540c478",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Normalmente _____ con mis amigos los sábados. (to meet up — yo form)",
+  "blankOptions": {
+   "B1": [
+    "coleccionar",
+    "fútbol",
+    "salir",
+    "quedo"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "quedo"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:fib:63f379e3",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El fin de semana pasado _____ al tenis. (I played — preterite)",
+  "blankOptions": {
+   "B1": [
+    "fiestas",
+    "jugué",
+    "jugar",
+    "salir"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "jugué"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:fib:91bcdc4b",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Nunca voy a _____. (parties)",
+  "blankOptions": {
+   "B1": [
+    "fiestas",
+    "jugué",
+    "coleccionar",
+    "salir"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "fiestas"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:fib:83dbf7dd",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Suelo _____ los sábados por la noche. (to go out — infinitive after soler) <span class=\"tier-h\">H</span>",
+  "blankOptions": {
+   "B1": [
+    "salir",
+    "fútbol",
+    "quedo",
+    "coleccionar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "salir"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:81bbe59c",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “jugar al fútbol”?",
+  "options": [
+   "hobby / pastime",
+   "to go for a walk",
+   "I usually go out",
+   "to play football"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“jugar al fútbol” means: to play football"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:d66a866e",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “hacer natación”?",
+  "options": [
+   "to do swimming",
+   "I usually go out",
+   "to play football",
+   "often"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“hacer natación” means: to do swimming"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:19fffae5",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el equipo”?",
+  "options": [
+   "free time",
+   "I usually go out",
+   "the team",
+   "hobby / pastime"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el equipo” means: the team"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:81559d77",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el tiempo libre”?",
+  "options": [
+   "free time",
+   "to do swimming",
+   "to collect stamps",
+   "to go for a walk"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el tiempo libre” means: free time"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:fb41a873",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el pasatiempo”?",
+  "options": [
+   "to collect stamps",
+   "to go bowling",
+   "the team",
+   "hobby / pastime"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el pasatiempo” means: hobby / pastime"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:65154cae",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “coleccionar sellos”?",
+  "options": [
+   "to collect stamps",
+   "free time",
+   "at weekends",
+   "to go for a walk"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“coleccionar sellos” means: to collect stamps"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:69bf98ca",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “quedar con”?",
+  "options": [
+   "the team",
+   "at weekends",
+   "to go bowling",
+   "to meet up with"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“quedar con” means: to meet up with"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:6ace5e42",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “ir a la bolera”?",
+  "options": [
+   "to go bowling",
+   "at weekends",
+   "the team",
+   "I usually go out"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“ir a la bolera” means: to go bowling"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:848e4afb",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “dar un paseo”?",
+  "options": [
+   "free time",
+   "to go for a walk",
+   "to meet up with",
+   "I usually go out"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“dar un paseo” means: to go for a walk"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:1299097e",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “a menudo”?",
+  "options": [
+   "often",
+   "to play football",
+   "hobby / pastime",
+   "the team"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“a menudo” means: often"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:f2ba4285",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “los fines de semana”?",
+  "options": [
+   "hobby / pastime",
+   "at weekends",
+   "the team",
+   "to go for a walk"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“los fines de semana” means: at weekends"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:6d0fe342",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “suelo salir”?",
+  "options": [
+   "I usually go out",
+   "hobby / pastime",
+   "at weekends",
+   "to do swimming"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“suelo salir” means: I usually go out"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:exam:dae053a1",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": 1,
+  "question": "Read what Carlos says. Answer <strong>in English</strong>.<br>(a) Name <strong>one</strong> instrument Carlos plays. (1)<br>(b) Which type of film does he prefer, and why? (1)<br>(c) What did he do yesterday? (1)<br>(d) What does he do most nights before he sleeps? (1)",
+  "caseStudy": "<p><strong>Lee lo que dice Carlos.</strong></p>\n        <p><em>\"Me llamo Carlos y me encantan la música y el cine. Toco la guitarra en un grupo con mis amigos y escucho música pop y rock. Los fines de semana veo muchas películas: prefiero las películas de ciencia ficción a las películas de terror porque son más emocionantes. Ayer vi una comedia con mi hermana y fue muy graciosa. También me gusta leer — leo una novela casi todas las noches antes de dormir. Lo que más me gusta es descargar canciones nuevas en mi móvil.\"</em></p>",
+  "hint": "Find the instrument after ‘toco’, the preference after ‘prefiero’, the past action after ‘ayer’, and the habit after ‘leo’.",
+  "starter": "(a) He plays… (b) He prefers… because… (c) Yesterday he… (d) He…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>\n                <li><strong>(a)</strong> the guitar <em>(1)</em>.</li>\n                <li><strong>(b)</strong> sci-fi films, because they are more exciting <em>(1)</em>.</li>\n                <li><strong>(c)</strong> watched a comedy with his sister (and it was very funny) <em>(1)</em>.</li>\n                <li><strong>(d)</strong> reads a novel (almost every night before he sleeps) <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>\n            </ul></div>",
+   "modelAnswer": "(a) The guitar. (b) Sci-fi films, because they are more exciting. (c) He watched a comedy with his sister. (d) He reads a novel almost every night before he sleeps."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:exam:11fd1500",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": 2,
+  "question": "Translate these sentences <strong>into Spanish</strong>.<br>(a) I like watching series. <br>(b) One must read more. <br>(c) Yesterday I downloaded a song because it is very good.",
+  "hint": "‘I like watching series’ = Me gusta ver series. ‘One must read more’ = Se debe leer más. ‘Yesterday I downloaded’ = Ayer descargué…",
+  "starter": "(a) Me gusta… (b) Se debe… (c) Ayer descargué… porque…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>\n                <li><strong>(a)</strong> Me gusta ver series. <em>(1)</em></li>\n                <li><strong>(b)</strong> Se debe leer más. <em>(1)</em></li>\n                <li><strong>(c)</strong> Ayer descargué una canción <em>(1)</em> porque <em>(1)</em> es muy buena <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Accept minor accent errors. ‘Ayer descargué’ must use the preterite ‘descargué’, not the present.</li>\n            </ul></div>",
+   "modelAnswer": "(a) Me gusta ver series. (b) Se debe leer más. (c) Ayer descargué una canción porque es muy buena."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:mcq:8ca484a3",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Me gustan las películas de acción.\" data-listen></span><br>Listen. What does the speaker like?",
+  "options": [
+   "action films (more than one)",
+   "one action film in particular",
+   "adventure films instead",
+   "she doesn't like action films"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘me gustan las películas de acción’ = I like action films (plural). The traps narrow it to one film, swap the genre, or reverse the meaning."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:mcq:a538f5b7",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Ayer vi una película de terror.\" data-listen></span><br>Listen. What is being described?",
+  "options": [
+   "Yesterday I watched a horror film",
+   "Tomorrow I will watch a horror film",
+   "Yesterday I watched a comedy film",
+   "I watch horror films every single day"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘ayer vi…’ = yesterday I watched (preterite). Trap B swaps to the future, C swaps the genre, D swaps to a present-tense habit."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:mcq:ea8aa3f1",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Toco la guitarra en un grupo.\" data-listen></span><br>Listen. What does the speaker do?",
+  "options": [
+   "Plays the guitar in a band",
+   "Sings in a band without playing an instrument",
+   "Listens to a band's guitar music",
+   "Plays the piano in a band"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘toco la guitarra’ = I play the guitar. The traps swap the action to singing/listening, or swap the instrument to piano."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:mcq:21269b87",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence correctly agrees with the plural noun?",
+  "options": [
+   "Me gustan las películas de acción",
+   "Me gusta las películas de acción",
+   "Me gusto las películas de acción",
+   "Me gustas las películas de acción"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "gustar agrees with the plural noun that follows → gustan. B fails to agree; C/D wrongly conjugate gustar for ‘I/you’ instead of the thing liked."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:mcq:3c9d52e8",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘el periódico’ mean?",
+  "options": [
+   "the newspaper",
+   "a period of time",
+   "the magazine",
+   "the weekly TV guide"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el periódico = the newspaper. It is a false friend — it does NOT mean ‘period’ (that is ‘el período’)."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:mcq:7866cd60",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘la revista’ mean?",
+  "options": [
+   "the magazine",
+   "a review of a film",
+   "the newspaper",
+   "the weekly TV schedule"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la revista = the magazine. It is not a ‘review’ (that would be ‘la reseña/crítica’) nor the newspaper (el periódico)."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:mcq:9e605ce2",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence correctly uses the preterite of ‘ver’ (to watch/see)?",
+  "options": [
+   "Ayer vi una película con mis amigos",
+   "Ayer veo una película con mis amigos",
+   "Ayer viendo una película con mis amigos",
+   "Ayer ver una película con mis amigos"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘ayer’ needs the preterite: vi. B is present tense, C is a gerund, D is the infinitive — none fit after ‘ayer’."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:mcq:cbce177d",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is the grammatically correct article for ‘serie’ (series)?",
+  "options": [
+   "una serie interesante",
+   "un serie interesante",
+   "unos serie interesante",
+   "uno serie interesante"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘serie’ is feminine, so it takes ‘una’: una serie. The others wrongly use masculine or plural forms."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:mcq:171c6c11",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Prefiero la música pop a la clásica.\">Prefiero la música pop a la clásica.</span> <span class=\"tier-h\">H</span> — what does this mean?",
+  "options": [
+   "I prefer pop music to classical music",
+   "I prefer classical music to pop music",
+   "I only like classical music",
+   "I don't like any type of music"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "preferir X a Y = to prefer X to Y, so pop is preferred over classical. B reverses the comparison."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:mcq:4130f7c1",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Lo que más me gusta es leer novelas.\">Lo que más me gusta es leer novelas.</span> <span class=\"tier-h\">H</span> — what does this mean?",
+  "options": [
+   "What I like most is reading novels",
+   "What I like least is reading novels",
+   "I sometimes like reading a novel",
+   "I used to like reading novels, but not anymore"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘lo que más me gusta es…’ = what I like most is…, a Higher-tier opinion structure."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tf:71148e63",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Me gustan las películas de acción’ uses the plural verb because ‘películas’ is plural.",
+  "key": {
+   "answer": true,
+   "explain": "gustar/encantar agree with the noun that follows — plural noun, plural verb."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tf:edd8e0ca",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘la revista’ means ‘the newspaper’.",
+  "key": {
+   "answer": false,
+   "explain": "la revista = the magazine; the newspaper is el periódico."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tf:85ceacfb",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Vi’ is the preterite (past) form of ‘ver’ (to watch/see).",
+  "key": {
+   "answer": true,
+   "explain": "ver → vi (preterite, I watched/saw)."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tf:b933f311",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘los dibujos animados’ means ‘the news’.",
+  "key": {
+   "answer": false,
+   "explain": "los dibujos animados = cartoons; the news is las noticias."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tf:0896fbe9",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "To say you play an instrument, you use ‘tocar’ + the instrument, e.g. ‘toco la guitarra’.",
+  "key": {
+   "answer": true,
+   "explain": "tocar la guitarra / el piano = to play the guitar / piano."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tf:72b7da76",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘una comedia’ is a type of book, not a type of film.",
+  "key": {
+   "answer": false,
+   "explain": "una comedia = a comedy FILM (a genre, like terror or acción)."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tf:3f80357c",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Lo que más me gusta es…’ is a Higher-tier structure meaning ‘What I like most is…’.",
+  "key": {
+   "answer": true,
+   "explain": "Correct — it is used to give a stronger, more developed opinion."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tf:eadb38f6",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Prefiero la música pop a la clásica’ means ‘I prefer classical music to pop music’.",
+  "key": {
+   "answer": false,
+   "explain": "preferir X a Y = prefer X TO Y — here pop is preferred over classical, the opposite of the statement."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:learn:dfbe9747",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about music?",
+  "reading": "<p>The key verb is <span data-say=\"escuchar música\">escuchar música</span> (to listen to music). Here is the core vocabulary — tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la música\">la música</span></td><td>music</td><td><span data-say=\"la canción\">la canción</span></td><td>the song</td></tr>\n              <tr><td><span data-say=\"el cantante\">el cantante / la cantante</span></td><td>the singer</td><td><span data-say=\"el grupo\">el grupo</span></td><td>the band/group</td></tr>\n              <tr><td><span data-say=\"tocar la guitarra\">tocar la guitarra</span></td><td>to play the guitar</td><td><span data-say=\"tocar el piano\">tocar el piano</span></td><td>to play the piano</td></tr>\n              <tr><td><span data-say=\"el concierto\">el concierto</span></td><td>the concert</td><td><span data-say=\"el pop, el rock, el rap\">el pop / el rock / el rap</span></td><td>pop / rock / rap</td></tr>\n            </table>\n            <p>Because <strong>gustar</strong> and <strong>encantar</strong> agree with the noun that follows, watch the plural: <span data-say=\"Me encantan las canciones de mi grupo favorito.\">Me encantan las canciones de mi grupo favorito.</span> — <em>I love the songs of my favourite band.</em> (plural canciones → encantan)</p>",
+  "question": "Why does the verb end in ‘-an’ in ‘Me encantan las canciones’?",
+  "options": [
+   "‘las canciones’ is plural, so the verb agrees with it",
+   "‘encantar’ is an irregular verb that always ends in ‘-an’",
+   "the subject of this particular sentence is ‘yo’, not ‘tú’",
+   "it is describing a single completed action in the simple past tense"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Like gustar, encantar agrees with the noun that follows it; a plural noun (las canciones) needs the plural verb form (encantan)."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:learn:1455c7df",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about TV programmes?",
+  "reading": "<p>The key verb is <span data-say=\"ver la tele\">ver la tele</span> (to watch TV).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la televisión\">la televisión</span></td><td>television</td><td><span data-say=\"el programa\">el programa</span></td><td>the programme</td></tr>\n              <tr><td><span data-say=\"la serie\">la serie</span></td><td>the series</td><td><span data-say=\"las noticias\">las noticias</span></td><td>the news</td></tr>\n              <tr><td><span data-say=\"los dibujos animados\">los dibujos animados</span></td><td>cartoons</td><td><span data-say=\"el actor\">el actor / la actriz</span></td><td>the actor / actress</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Veo la tele todos los días, sobre todo las series.\">Veo la tele todos los días, sobre todo las series.</span> — <em>I watch TV every day, especially series.</em></p>",
+  "question": "What does ‘los dibujos animados’ mean?",
+  "options": [
+   "cartoons",
+   "the news",
+   "a drawing competition",
+   "a documentary about animals"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "los dibujos animados = cartoons/animated shows. It is not the news (las noticias) nor a documentary."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:learn:07283a3a",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about films and give opinions?",
+  "reading": "<p>Learn the film genres and reuse the opinion + reason pattern from earlier topics.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la película\">la película</span></td><td>the film</td><td><span data-say=\"una película de terror\">una película de terror</span></td><td>a horror film</td></tr>\n              <tr><td><span data-say=\"una película de acción\">una película de acción</span></td><td>an action film</td><td><span data-say=\"una película de ciencia ficción\">una película de ciencia ficción</span></td><td>a sci-fi film</td></tr>\n              <tr><td><span data-say=\"una comedia\">una comedia</span></td><td>a comedy</td><td><span data-say=\"divertido, emocionante, aburrido, gracioso\">divertido / emocionante / aburrido / gracioso</span></td><td>fun / exciting / boring / funny</td></tr>\n            </table>\n            <p>Example with plural agreement: <span data-say=\"Me gustan las películas de acción porque son emocionantes.\">Me gustan las películas de acción porque son emocionantes.</span> — <em>I like action films because they are exciting.</em></p>",
+  "question": "In ‘Me gustan las películas de acción porque son emocionantes’, why is it ‘gustan’ and not ‘gusta’?",
+  "options": [
+   "‘las películas de acción’ is plural",
+   "‘acción’ is a feminine noun",
+   "the sentence gives a reason with ‘porque’",
+   "‘emocionante’ is an adjective, not a verb"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "gustar agrees with the plural noun ‘las películas de acción’, so it must be ‘gustan’."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:learn:079ca2d1",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about reading?",
+  "reading": "<p>The key verb is <span data-say=\"leer\">leer</span> (to read).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el libro\">el libro</span></td><td>the book</td><td><span data-say=\"la novela\">la novela</span></td><td>the novel</td></tr>\n              <tr><td><span data-say=\"la revista\">la revista</span></td><td>the magazine</td><td><span data-say=\"el periódico\">el periódico</span></td><td>the newspaper</td></tr>\n            </table>\n            <p>Careful with gender: <span data-say=\"la revista\">la revista</span> is feminine, so it is always <strong>la revista</strong>, never <em>el revista</em>. Example: <span data-say=\"Cada noche, leo una novela antes de dormir.\">Cada noche, leo una novela antes de dormir.</span> — <em>Every night, I read a novel before I sleep.</em></p>",
+  "question": "Which article goes with ‘revista’ (magazine)?",
+  "options": [
+   "la revista — it is feminine",
+   "el revista — it is masculine",
+   "los revista — it is plural",
+   "un revista — no article is needed"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘revista’ is a feminine noun, so it takes ‘la’: la revista, never el revista."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:learn:848941c9",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I say what I did yesterday, and talk about going online?",
+  "reading": "<p>Compare a <strong>present-tense habit</strong> with a <strong>preterite</strong> (completed past) action:</p>\n            <ul>\n              <li>habit → <span data-say=\"Veo la tele todos los días.\">Veo la tele todos los días.</span> (I watch TV every day.)</li>\n              <li>preterite → <span data-say=\"Ayer vi una película de terror con mis amigos.\">Ayer vi una película de terror con mis amigos.</span> (Yesterday I watched a horror film with my friends.)</li>\n            </ul>\n            <p>Online/downloading vocabulary:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"descargar\">descargar</span></td><td>to download</td><td><span data-say=\"en línea\">en línea</span></td><td>online</td></tr>\n              <tr><td><span data-say=\"el móvil\">el móvil</span></td><td>the mobile phone</td><td><span data-say=\"Ayer descargué una canción nueva en mi móvil.\">Ayer descargué una canción nueva en mi móvil.</span></td><td>Yesterday I downloaded a new song on my phone.</td></tr>\n            </table>",
+  "question": "Which word tells you the verb must be in the preterite (past)?",
+  "options": [
+   "ayer (yesterday)",
+   "todos los días (every day)",
+   "normalmente (normally)",
+   "siempre (always)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘ayer’ signals a completed action in the past, so the verb changes to the preterite (vi, not veo)."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:learn:1b0387ca",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Higher: giving stronger opinions and comparing",
+  "reading": "<p><span class=\"tier-h\">H</span> Use <strong>lo que más me gusta es…</strong> (what I like most is…) to add range:</p>\n            <ul>\n              <li><span data-say=\"Lo que más me gusta es leer novelas.\">Lo que más me gusta es leer novelas.</span> <span class=\"tier-h\">H</span> — What I like most is reading novels.</li>\n            </ul>\n            <p>Use <strong>preferir + a</strong> to compare two things:</p>\n            <ul>\n              <li><span data-say=\"Prefiero la música pop a la clásica.\">Prefiero la música pop a la clásica.</span> <span class=\"tier-h\">H</span> — I prefer pop music to classical music.</li>\n            </ul>",
+  "question": "What does ‘Lo que más me gusta es leer novelas’ mean?",
+  "options": [
+   "What I like most is reading novels",
+   "What I like least is reading novels",
+   "I sometimes like reading a novel",
+   "I used to like reading novels"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘lo que más me gusta es…’ = what I like most is…, a Higher-tier structure for a stronger opinion."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:misc:18c29c8c",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Me gusta las películas de acción.</p><p><strong>✅ The correct idea:</strong> Me gustan las películas de acción.</p>",
+  "question": "Why is ‘Me gusta las películas de acción’ wrong?",
+  "options": [
+   "‘películas’ is plural, so it must be ‘gustan’",
+   "the verb ‘gustar’ never changes its form no matter what follows it",
+   "‘acción’ needs a written accent added",
+   "the pronoun should be ‘te’ rather than ‘me’"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "gustar agrees with the plural noun that follows; plural noun → gustan."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:misc:fd81f545",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Leo el revista todos los meses.</p><p><strong>✅ The correct idea:</strong> Leo la revista todos los meses.</p>",
+  "question": "Why is ‘el revista’ wrong?",
+  "options": [
+   "‘revista’ is a feminine noun, so it needs ‘la’",
+   "‘revista’ is actually a plural noun, so it should take ‘los’ instead",
+   "‘revista’ never takes an article",
+   "‘el’ is only used for people, not objects"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "revista is feminine → la revista, never el revista."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:misc:052ba1b7",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Ayer veo una película con mi familia.</p><p><strong>✅ The correct idea:</strong> Ayer vi una película con mi familia.</p>",
+  "question": "Why is ‘Ayer veo…’ wrong?",
+  "options": [
+   "‘ayer’ signals the past, so the verb must be preterite ‘vi’",
+   "‘veo’ is spelt incorrectly and should be ‘veio’",
+   "‘película’ needs a plural verb",
+   "‘ayer’ can only ever be used together with ‘ir a’ + infinitive"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘ayer’ (yesterday) needs a completed past action: vi, not the present veo."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:misc:d8b30150",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Me gusta mucho los dibujos animados.</p><p><strong>✅ The correct idea:</strong> Me gustan mucho los dibujos animados.</p>",
+  "question": "Why must it be ‘gustan’ here?",
+  "options": [
+   "‘los dibujos animados’ is plural",
+   "‘dibujos’ is a feminine noun",
+   "‘mucho’ forces the singular form",
+   "cartoons are always described with ‘es’"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "los dibujos animados is plural, so gustar agrees: gustan, not gusta."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:misc:b9ab3da7",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> El periódico significa ‘el período de tiempo’.</p><p><strong>✅ The correct idea:</strong> El periódico significa ‘el diario / the newspaper’.</p>",
+  "question": "What does ‘el periódico’ actually mean?",
+  "options": [
+   "the newspaper",
+   "a period of time, as you might guess",
+   "a magazine published every week",
+   "a school timetable"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Classic false friend: periódico = newspaper, NOT ‘period’ (that word is período)."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tips:c8d8ef3a",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 1 — Dictation (listening)",
+  "reading": "Media sentences reuse chunks you know: ‘me gustan…’, ‘ayer vi…’, ‘toco la guitarra…’. Listen for whether the noun is singular or plural — it changes ‘gusta’ to ‘gustan’ — and whether the verb is present or preterite.",
+  "question": "You hear ‘…gustan…’ instead of ‘…gusta…’. What does that tell you?",
+  "options": [
+   "the thing being liked is plural",
+   "the sentence is definitely about the past",
+   "the speaker dislikes the thing",
+   "the sentence is a question"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The -n ending of ‘gustan’ signals a plural noun (las películas, las canciones…)."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tips:af62d065",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 3 — Translation into English",
+  "reading": "Watch the false friends: ‘periódico’ = newspaper (not ‘period’), ‘revista’ = magazine (not ‘review’). Keep ‘me gustan las películas de acción’ natural: ‘I like action films’, not ‘to me they like the films of action’.",
+  "question": "‘Prefiero leer una novela a ver la tele’ =",
+  "options": [
+   "I prefer reading a novel to watching TV",
+   "I prefer watching TV to reading a novel",
+   "I never read novels, only watch TV",
+   "I used to prefer watching TV"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "preferir X a Y = prefer X to Y; here reading a novel is preferred over watching TV."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tips:2f1a4fab",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "evaluate — Paper 4 — Writing & translation into Spanish",
+  "reading": "Combine an activity, an opinion and a reason: ‘Me gustan las películas de acción porque son emocionantes.’ At Higher, add a comparison and a stronger opinion structure: ‘Prefiero…a…’, ‘Lo que más me gusta es…’.",
+  "question": "Which answer reaches the top band?",
+  "options": [
+   "Me encantan las películas de ciencia ficción porque son emocionantes, pero lo que más me gusta es leer novelas",
+   "Me gustan las películas, las series, los libros y las canciones, pero nunca digo las razones por las que de verdad me gustan",
+   "Veo la tele y leo un libro y veo la tele otra vez sin parar nunca",
+   "Me gusta"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "It links an opinion, a reason, and a Higher-tier structure (lo que más me gusta) — range and accuracy, not just a long list with no reasons."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:fib:e3f564e3",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Me _____ mucho la música pop. <span data-say=\"Me encanta mucho la música pop.\" data-listen>Me encanta mucho la música pop.</span>",
+  "blankOptions": {
+   "B1": [
+    "leo",
+    "guitarra",
+    "encanta",
+    "gustan"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "encanta"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:fib:37d964a8",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Me _____ las películas de acción porque son emocionantes. (plural gustar)",
+  "blankOptions": {
+   "B1": [
+    "leo",
+    "gustan",
+    "encanta",
+    "descargué"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "gustan"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:fib:bc7c182d",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Ayer _____ una película de terror con mis amigos. (preterite of ver)",
+  "blankOptions": {
+   "B1": [
+    "vi",
+    "descargué",
+    "encanta",
+    "leo"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "vi"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:fib:b43f0120",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Toco la _____ en un grupo de música. (guitar)",
+  "blankOptions": {
+   "B1": [
+    "guitarra",
+    "encanta",
+    "leer",
+    "leo"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "guitarra"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:fib:3ec79950",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Cada noche, _____ una novela antes de dormir. <span data-say=\"Cada noche, leo una novela antes de dormir.\" data-listen>Cada noche, leo una novela antes de dormir.</span>",
+  "blankOptions": {
+   "B1": [
+    "leo",
+    "leer",
+    "gustan",
+    "vi"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "leo"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:fib:c22d4903",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Se debe _____ más para mejorar el vocabulario. (to read)",
+  "blankOptions": {
+   "B1": [
+    "descargué",
+    "gustan",
+    "leer",
+    "encanta"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "leer"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:fib:5cd136df",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Ayer _____ una canción nueva en mi móvil. <span data-say=\"Ayer descargué una canción nueva en mi móvil.\" data-listen>Ayer descargué una canción nueva en mi móvil.</span>",
+  "blankOptions": {
+   "B1": [
+    "descargué",
+    "leer",
+    "encanta",
+    "guitarra"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "descargué"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:ebca58fd",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la canción”?",
+  "options": [
+   "the song",
+   "the news",
+   "the magazine",
+   "cartoons"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la canción” means: the song"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:36dabfab",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el cantante / la cantante”?",
+  "options": [
+   "the newspaper",
+   "the singer",
+   "what I like most",
+   "a horror film"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el cantante / la cantante” means: the singer"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:6aa33784",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “tocar la guitarra”?",
+  "options": [
+   "the concert",
+   "the news",
+   "to play the guitar",
+   "the newspaper"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“tocar la guitarra” means: to play the guitar"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:bb9ee83f",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el concierto”?",
+  "options": [
+   "the concert",
+   "to download music",
+   "the song",
+   "the newspaper"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el concierto” means: the concert"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:52a89ae1",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “ver la tele”?",
+  "options": [
+   "to download music",
+   "the news",
+   "to watch TV",
+   "a horror film"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“ver la tele” means: to watch TV"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:2dca8df1",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “las noticias”?",
+  "options": [
+   "the news",
+   "cartoons",
+   "the singer",
+   "the magazine"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“las noticias” means: the news"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:6042102c",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “los dibujos animados”?",
+  "options": [
+   "to download music",
+   "what I like most",
+   "cartoons",
+   "a horror film"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“los dibujos animados” means: cartoons"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:6a5fe15c",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “una película de terror”?",
+  "options": [
+   "to download music",
+   "a horror film",
+   "the concert",
+   "what I like most"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“una película de terror” means: a horror film"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:aa9e2031",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la revista”?",
+  "options": [
+   "the magazine",
+   "to download music",
+   "the singer",
+   "the news"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la revista” means: the magazine"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:5e6426e2",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el periódico”?",
+  "options": [
+   "the song",
+   "a horror film",
+   "the singer",
+   "the newspaper"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el periódico” means: the newspaper"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:6a39b188",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “descargar música”?",
+  "options": [
+   "the news",
+   "to download music",
+   "the singer",
+   "what I like most"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“descargar música” means: to download music"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:008bea5b",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “lo que más me gusta”?",
+  "options": [
+   "cartoons",
+   "to watch TV",
+   "what I like most",
+   "the concert"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“lo que más me gusta” means: what I like most"
   }
  }
 ];

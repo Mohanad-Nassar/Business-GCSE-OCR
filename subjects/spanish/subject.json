@@ -143,15 +143,13 @@
           "id": "4-1-sport-hobbies-and-going-out",
           "name": "4.1 Sport, Hobbies and Going Out",
           "sub": "Free-Time Activities",
-          "file": "4.1-sport-hobbies-and-going-out.html",
-          "noQuestions": true
+          "file": "4.1-sport-hobbies-and-going-out.html"
         },
         {
           "id": "4-2-music-tv-film-and-reading",
           "name": "4.2 Music, TV, Film and Reading",
           "sub": "Free-Time Activities",
-          "file": "4.2-music-tv-film-and-reading.html",
-          "noQuestions": true
+          "file": "4.2-music-tv-film-and-reading.html"
         }
       ]
     },
