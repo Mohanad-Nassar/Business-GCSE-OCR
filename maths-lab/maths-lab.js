@@ -64,13 +64,29 @@
   const PAGE_TOOLS = {
     '1-1-notation-functions-and-indices': [{ tool: 'maths-drills', config: { modes: ['index-laws', 'expand-double', 'factorise-quad'] } }],
     '1-2-surds-and-algebraic-fractions': [{ tool: 'maths-drills', config: { modes: ['surds-simplify'] } }],
-    '1-3-quadratics-and-completing-the-square': [{ tool: 'maths-drills', config: { modes: ['complete-square', 'quad-formula', 'factorise-quad'] } }],
+    '1-3-quadratics-and-completing-the-square': [
+      { tool: 'maths-drills', config: { modes: ['complete-square', 'quad-formula', 'factorise-quad'] } },
+      { tool: 'choose-the-method' },
+      { tool: 'step-solver' },
+      { tool: 'design-an-example' },
+    ],
+    '1-4-linear-and-quadratic-inequalities': [{ tool: 'design-an-example' }],
+    '2-1-polynomial-arithmetic-and-division': [{ tool: 'step-visualiser' }],
+    '2-2-the-factor-theorem-and-cubics': [{ tool: 'step-solver' }],
+    '2-4-sequences-and-recurrence-relationships': [{ tool: 'design-an-example' }],
     '3-3-sketching-and-plotting-graphs': [{ tool: 'graph-explorer', config: { modes: ['quadratic', 'sine'] } }],
-    '7-1-exponential-functions': [{ tool: 'graph-explorer', config: { modes: ['exponential'] } }],
-    '8-1-the-gradient-function': [{ tool: 'graph-explorer', config: { modes: ['chord-tangent'] } }],
-    '9-2-definite-integrals-and-areas': [{ tool: 'graph-explorer', config: { modes: ['integral-area'] } }],
     '4-1-inequalities-in-two-variables': [{ tool: 'lp-builder' }],
     '4-3-solving-lp-problems-graphically': [{ tool: 'lp-builder' }],
+    '5-1-trig-ratios-for-any-angle': [{ tool: 'design-an-example' }],
+    '5-4-trigonometric-equations': [{ tool: 'step-solver' }],
+    '7-1-exponential-functions': [{ tool: 'graph-explorer', config: { modes: ['exponential'] } }],
+    '7-4-reduction-to-linear-form': [{ tool: 'step-solver' }],
+    '8-1-the-gradient-function': [{ tool: 'graph-explorer', config: { modes: ['chord-tangent'] } }],
+    '9-2-definite-integrals-and-areas': [{ tool: 'graph-explorer', config: { modes: ['integral-area'] } }],
+    '9-3-numerical-areas-and-the-trapezium-rule': [{ tool: 'step-visualiser' }, { tool: 'choose-the-method' }],
+    '10-1-kinematics': [{ tool: 'choose-the-method' }],
+    '10-2-solving-equations-numerically': [{ tool: 'step-visualiser' }],
+    '11-1-command-words-and-detailed-reasoning': [{ tool: 'examiner-trainer' }, { tool: 'command-words' }],
   };
 
   // module file per tool id (several ids may share one file)
@@ -78,6 +94,12 @@
     'maths-drills': 'tools/maths-drills.js',
     'graph-explorer': 'tools/graph-explorer.js',
     'lp-builder': 'tools/lp-builder.js',
+    'examiner-trainer': 'tools/examiner-trainer.js',
+    'step-solver': 'tools/step-solver.js',
+    'design-an-example': 'tools/design-an-example.js',
+    'step-visualiser': 'tools/step-visualiser.js',
+    'command-words': 'tools/command-words.js',
+    'choose-the-method': 'tools/choose-the-method.js',
   };
 
   // Launcher card copy (shown before the module is loaded).
@@ -85,6 +107,12 @@
     'maths-drills': { icon: '🔢', title: 'Maths Drills', blurb: 'Infinite practice: expand, factorise, complete the square, surds and index laws — with worked solutions.' },
     'graph-explorer': { icon: '📈', title: 'Graph Explorer', blurb: 'Drag the sliders and watch the graph move — see how each coefficient changes the curve.' },
     'lp-builder': { icon: '📐', title: 'LP Builder', blurb: 'Shade the feasible region, then read off the vertex that optimises the objective.' },
+    'examiner-trainer': { icon: '🖊️', title: 'Examiner Trainer', blurb: 'Mark a student’s answer against the real scheme — learn exactly where marks are lost.' },
+    'step-solver': { icon: '🧩', title: 'Step Solver', blurb: 'Put the shuffled steps of a worked solution back into the right order.' },
+    'design-an-example': { icon: '🎯', title: 'Design an Example', blurb: 'Invent your own example that fits the rule — the checker tells you if it works.' },
+    'step-visualiser': { icon: '🪜', title: 'Step Visualiser', blurb: 'Step through a method one line at a time and predict the next value.' },
+    'command-words': { icon: '🗝️', title: 'Command Words', blurb: 'State, show that, hence, prove — know exactly what each instruction demands.' },
+    'choose-the-method': { icon: '🧭', title: 'Choose the Method', blurb: 'Pick the best method for each problem — and see why the others are slower or wrong.' },
   };
 
   // `pageMeta` is declared `const` in each topic page's inline <script>, so it's
