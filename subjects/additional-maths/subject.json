@@ -289,15 +289,13 @@
           "id": "10-1-kinematics",
           "name": "10.1 Kinematics",
           "sub": "Kinematics and Numerical Methods",
-          "file": "10.1-kinematics.html",
-          "noQuestions": true
+          "file": "10.1-kinematics.html"
         },
         {
           "id": "10-2-solving-equations-numerically",
           "name": "10.2 Solving Equations Numerically",
           "sub": "Kinematics and Numerical Methods",
-          "file": "10.2-solving-equations-numerically.html",
-          "noQuestions": true
+          "file": "10.2-solving-equations-numerically.html"
         }
       ]
     },
@@ -311,15 +309,13 @@
           "id": "11-1-command-words-and-detailed-reasoning",
           "name": "11.1 Command Words and Detailed Reasoning",
           "sub": "Exam Preparation",
-          "file": "11.1-command-words-and-detailed-reasoning.html",
-          "noQuestions": true
+          "file": "11.1-command-words-and-detailed-reasoning.html"
         },
         {
           "id": "11-2-synoptic-and-unstructured-problems",
           "name": "11.2 Synoptic and Unstructured Problems",
           "sub": "Exam Preparation",
-          "file": "11.2-synoptic-and-unstructured-problems.html",
-          "noQuestions": true
+          "file": "11.2-synoptic-and-unstructured-problems.html"
         }
       ]
     }

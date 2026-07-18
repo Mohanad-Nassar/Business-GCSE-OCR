@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 10. Kinematics and Numerical Methods</div>
             <h1>10.2 Solving Equations Numerically</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,10 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 10.2 Solving Equations Numerically — placeholder, content not yet written
+    //  DATA: 10.2 Solving Equations Numerically (NM1, NM2, NM3)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes DOUBLED
+    //  in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). SINGLE underscore inside math
+    //  (x_n, x_{n+1}, x_r) is safe. Exam Qs = 2024 Q13 + 2023 Q7.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '10-2-solving-equations-numerically',
@@ -266,23 +269,312 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimuli for the exam parts (see examQuestions). Keep each real question on
+    // this page only (2024 Q13 + 2023 Q7 are the routed numerical-methods questions).
+    const EXAM_CASE_STUDIES = {
+        "q13-2024": `<p>Tom has been asked to solve the equation \\( x^3 - x - 7 = 0 \\).</p>`,
+        "q7-2023": `<p>You are given that the equation \\( 3^x - 4x^2 = 0 \\) has three roots, \\( \\alpha \\), \\( \\beta \\) and \\( \\gamma \\), where \\( \\alpha < 0 \\) and \\( \\gamma > 3 \\).</p>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>10.2 Solving Equations Numerically</strong> will appear here soon.</p>`
+            title: "Why do we solve equations numerically?",
+            tag: "Key concept",
+            content: `<p>A <strong>root</strong> of \\( \\text{f}(x) = 0 \\) is an \\( x\\)-value where the graph of \\( y = \\text{f}(x) \\) crosses (or touches) the \\( x\\)-axis. Many equations cannot be solved by algebra:</p>
+            <ul>
+              <li>most <strong>cubics</strong> do not factorise (e.g. \\( x^3 - x - 7 = 0 \\));</li>
+              <li>equations that mix families — such as \\( 3^x - 4x^2 = 0 \\) (an exponential and a quadratic) — have no exact rearrangement for \\( x \\).</li>
+            </ul>
+            <p>For these we use a <strong>numerical method</strong>: we do not find the exact root, we <em>locate</em> it and then <em>close in</em> on it to the precision the question asks for. The three tools on this page are <strong>change of sign</strong> (locate), <strong>decimal search</strong> (close in) and <strong>simple iteration</strong> (close in fast). All rely on the function being <strong>continuous</strong> — no jumps or asymptotes in the interval you are searching.</p>`,
+            readCheck: { q: "What is a root of \\( \\text{f}(x) = 0 \\)?", opts: ["An \\( x\\)-value where the graph meets the \\( x\\)-axis", "The \\( y\\)-intercept of the graph", "The gradient of the curve", "The largest value of \\( \\text{f}(x) \\)"], ans: 0, explain: "A root is a solution of \\( \\text{f}(x)=0 \\), i.e. a point where \\( y=\\text{f}(x) \\) crosses or touches the \\( x\\)-axis." }
+        },
+        {
+            title: "How does a change of sign locate a root?",
+            tag: "Method",
+            content: `<p>If \\( \\text{f} \\) is <strong>continuous</strong> and \\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have <strong>opposite signs</strong> (one positive, one negative), then the graph must cross the axis somewhere between \\( a \\) and \\( b \\) — so a <strong>root lies in the interval \\( [a,\\ b] \\)</strong>.</p>
+            <p><strong>You must WRITE the conclusion.</strong> Two numbers on their own are not enough: the examiner needs the sentence "there is a change of sign, so a root lies between \\( a \\) and \\( b \\)".</p>
+            <p><strong>Worked example — show \\( x^3 + 4x - 3 = 0 \\) has a root in \\( [0,\\ 1] \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Let \\( \\text{f}(x) = x^3 + 4x - 3 \\).</td></tr>
+              <tr><td>2. \\( \\text{f}(0) = 0 + 0 - 3 = -3 \\) (negative).</td></tr>
+              <tr><td>3. \\( \\text{f}(1) = 1 + 4 - 3 = 2 \\) (positive).</td></tr>
+              <tr><td>4. <strong>There is a change of sign and f is continuous, so a root lies between \\( 0 \\) and \\( 1 \\).</strong></td></tr>
+            </table>`,
+            readCheck: { q: "\\( \\text{f}(2) = -5 \\) and \\( \\text{f}(3) = 4 \\) for a continuous f. What can you conclude?", opts: ["A root lies between 2 and 3", "There is no root between 2 and 3", "The root is exactly 2.5", "\\( x = -5 \\) is a root"], ans: 0, explain: "Opposite signs across a continuous function mean the graph crosses the axis, so a root lies in \\( [2,3] \\). You cannot say where in the interval." }
+        },
+        {
+            title: "How does a decimal search find a root to 1 dp?",
+            tag: "Exam skill",
+            content: `<p>Once a root is trapped in an interval, <strong>step through in tenths</strong> and watch for the sign change to narrow it. The step that costs marks: once the root sits between two consecutive tenths, you must <strong>test the midpoint</strong> to decide which way to round.</p>
+            <p><strong>Worked example — find the root of \\( x^3 + 2x - 5 = 0 \\) in \\( [1,\\ 2] \\) to 1 dp:</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( \\text{f}(1.3) = 2.197 + 2.6 - 5 = -0.203 \\) (negative).</td></tr>
+              <tr><td>2. \\( \\text{f}(1.4) = 2.744 + 2.8 - 5 = 0.544 \\) (positive).</td></tr>
+              <tr><td>3. Sign change, so the root lies in \\( [1.3,\\ 1.4] \\).</td></tr>
+              <tr><td>4. <strong>Test the midpoint:</strong> \\( \\text{f}(1.35) = 2.460 + 2.7 - 5 = 0.160 \\) (positive).</td></tr>
+              <tr><td>5. The sign changes between \\( 1.3 \\) and \\( 1.35 \\), so the root is in \\( [1.3,\\ 1.35] \\).</td></tr>
+              <tr><td>6. Every value in \\( [1.3,\\ 1.35] \\) rounds to \\( 1.3 \\), so the root is \\( 1.3 \\) to 1 dp.</td></tr>
+            </table>
+            <p>Without step 4 you could not tell whether the answer was \\( 1.3 \\) or \\( 1.4 \\) — a 2023 examiner report awarded <strong>0</strong> for the final mark to candidates who claimed \\( 0.8 \\) without testing the midpoint.</p>`,
+            readCheck: { q: "A root is trapped in \\( [2.4,\\ 2.5] \\). You find \\( \\text{f}(2.45) < 0 \\) and \\( \\text{f}(2.4) > 0 \\). To 1 dp the root is:", opts: ["2.4", "2.5", "2.45", "Cannot decide"], ans: 0, explain: "The sign changes between 2.4 and 2.45, so the root is in \\( [2.4,\\ 2.45] \\); everything there rounds to 2.4." }
+        },
+        {
+            title: "How does simple iteration work with the ANS key?",
+            tag: "Method",
+            content: `<p><strong>Simple iteration</strong> uses a term-to-term rule \\( x_{n+1} = \\text{g}(x_n) \\): you put a value in, get an answer out, then <strong>feed that answer back in</strong> as the next input. On the calculator, type the starting value, press \\( = \\), then use the <strong>ANS</strong> key inside \\( \\text{g} \\) and keep pressing \\( = \\).</p>
+            <ul>
+              <li><strong>Quote each iterate to at least 4 significant figures</strong> — rounding early corrupts every later step.</li>
+              <li>Stop when the digits you need have <strong>settled</strong> (two iterates agree to the required precision), then round to the demanded accuracy.</li>
+            </ul>
+            <p><strong>Worked example — \\( x_{n+1} = \\sqrt{x_n + 6} \\) with \\( x_0 = 3 \\), to 3 s.f.:</strong></p>
+            <table class="worked">
+              <tr><td>\\( x_1 = \\sqrt{3 + 6} = \\sqrt{9} = 3.000 \\)</td></tr>
+              <tr><td>\\( x_2 = \\sqrt{3.000 + 6} = 3.000 \\)</td></tr>
+              <tr><td>The iterates have settled, so the root is \\( 3.00 \\) (3 s.f.).</td></tr>
+            </table>
+            <p>(Here \\( x = \\sqrt{x+6} \\) rearranges \\( x^2 - x - 6 = 0 \\), i.e. \\( (x-3)(x+2)=0 \\); the iteration finds the root \\( x = 3 \\).)</p>`,
+            readCheck: { q: "In \\( x_{n+1} = \\text{g}(x_n) \\), what does the ANS key do each press?", opts: ["Feeds the previous output back in as the next input", "Rounds the answer to 1 dp", "Resets the sequence to \\( x_0 \\)", "Differentiates \\( \\text{g} \\)"], ans: 0, explain: "ANS holds the last result, so pressing \\( = \\) again computes \\( \\text{g} \\) of the previous iterate — exactly \\( x_{n+1} = \\text{g}(x_n) \\)." }
+        },
+        {
+            title: "How do you turn f(x)=0 into an iterative formula?",
+            tag: "Worked example",
+            content: `<p>To build \\( x_{n+1} = \\text{g}(x_n) \\) you <strong>rearrange \\( \\text{f}(x) = 0 \\) to make \\( x \\) the subject</strong>. There is usually more than one way; a "show that" part gives you the formula and asks you to justify it (this is answer-given, so show every algebraic step).</p>
+            <p><strong>Worked example — verify \\( x_{r+1} = \\sqrt[3]{x_r + 7} \\) for \\( x^3 - x - 7 = 0 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Start from \\( x^3 - x - 7 = 0 \\).</td></tr>
+              <tr><td>2. Add \\( x + 7 \\) to both sides: \\( x^3 = x + 7 \\).</td></tr>
+              <tr><td>3. Cube-root both sides: \\( x = \\sqrt[3]{x + 7} \\).</td></tr>
+              <tr><td>4. Written as a term-to-term rule: \\( x_{r+1} = \\sqrt[3]{x_r + 7} \\). ✓</td></tr>
+            </table>
+            <p>This uses the same <strong>recurrence notation</strong> as lesson 2.4: the subscript labels the position, so \\( x_{r+1} \\) is the term straight after \\( x_r \\), and you need a starting value \\( x_0 \\).</p>`,
+            readCheck: { q: "Which is a correct rearrangement of \\( x^2 - x - 5 = 0 \\) into iterative form?", opts: ["\\( x_{n+1} = \\sqrt{x_n + 5} \\)", "\\( x_{n+1} = x_n^2 - 5 \\) only", "\\( x_{n+1} = \\sqrt{x_n} + 5 \\)", "\\( x_{n+1} = \\frac{5}{x_n} \\)"], ans: 0, explain: "\\( x^2 = x + 5 \\Rightarrow x = \\sqrt{x + 5} \\), so \\( x_{n+1} = \\sqrt{x_n + 5} \\)." }
+        },
+        {
+            title: "When do numerical methods fail?",
+            tag: "Common error",
+            content: `<p>Numerical methods are powerful but can <strong>let you down</strong> (spec statement NM3). Recognising this is examinable.</p>
+            <ul>
+              <li><strong>Iteration diverges.</strong> The same equation can be rearranged into \\( x = \\text{g}(x) \\) in several ways, and not all work. If the iterates <em>run away</em> instead of settling (this happens when \\( \\text{g} \\) is too steep near the root), the rearrangement is unsuitable — choose a different one.</li>
+              <li><strong>Two roots close together.</strong> A decimal search stepping in tenths can <em>jump over</em> two roots that sit inside the same \\( 0.1 \\) interval: \\( \\text{f} \\) has the same sign at both ends, so <strong>no sign change is seen</strong> even though roots exist.</li>
+              <li><strong>A repeated (double) root.</strong> Where the curve just <em>touches</em> the axis, \\( \\text{f} \\) does not change sign, so the change-of-sign test misses the root entirely.</li>
+            </ul>
+            <p>So "no sign change on \\( [a,b] \\)" does <strong>not</strong> prove "no root on \\( [a,b] \\)". A sketch, or a finer step, guards against these traps.</p>`,
+            readCheck: { q: "A decimal search over \\( [1,2] \\) in tenths finds no sign change. Which statement is safe?", opts: ["There may still be two roots (or a repeated root) it stepped over", "There is definitely no root in \\( [1,2] \\)", "The function must be discontinuous", "The root must be exactly 1.5"], ans: 0, explain: "No sign change does not prove no root: two roots in one tenth, or a repeated root that touches the axis, both give no sign change." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "For a continuous function, which situation guarantees a root in \\( [a,\\ b] \\)?", opts: ["\\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have opposite signs", "\\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have the same sign", "\\( \\text{f}(a) = \\text{f}(b) \\)", "\\( a \\) and \\( b \\) are both positive"], ans: 0, explain: "Opposite signs across a continuous function force the graph to cross the axis between \\( a \\) and \\( b \\)." },
+        { q: "Let \\( \\text{f}(x) = x^3 + 4x - 3 \\). Which interval contains a root?", opts: ["\\( [0,\\ 1] \\)", "\\( [1,\\ 2] \\)", "\\( [-2,\\ -1] \\)", "\\( [2,\\ 3] \\)"], ans: 0, explain: "\\( \\text{f}(0) = -3 \\) and \\( \\text{f}(1) = 2 \\): a change of sign, so a root lies in \\( [0,1] \\)." },
+        { q: "You have shown \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 17 \\) for a 'show that a root lies in \\( [2,3] \\)' question. What is still needed for the second mark?", opts: ["A conclusion sentence stating the change of sign locates a root", "Nothing — the two values are enough", "The exact value of the root", "The gradient at \\( x = 2 \\)"], ans: 0, explain: "The examiner must see the conclusion: 'there is a change of sign, so a root lies between 2 and 3'. Values alone score only 1." },
+        { q: "A decimal search traps a root in \\( [1.3,\\ 1.4] \\). You find \\( \\text{f}(1.3) < 0 \\) and \\( \\text{f}(1.35) > 0 \\). To 1 dp the root is:", opts: ["1.3", "1.4", "1.35", "1.30 or 1.40 — cannot decide"], ans: 0, explain: "The sign changes between 1.3 and 1.35, so the root is in \\( [1.3,1.35] \\), which all rounds to 1.3. Testing the midpoint is what decides it." },
+        { q: "Which is a correct rearrangement of \\( x^3 - x - 7 = 0 \\) for iteration?", opts: ["\\( x_{n+1} = \\sqrt[3]{x_n + 7} \\)", "\\( x_{n+1} = x_n^3 - 7 \\)", "\\( x_{n+1} = \\sqrt[3]{x_n} + 7 \\)", "\\( x_{n+1} = \\frac{7}{x_n^2 - 1} \\) only"], ans: 0, explain: "\\( x^3 = x + 7 \\Rightarrow x = \\sqrt[3]{x + 7} \\), giving \\( x_{n+1} = \\sqrt[3]{x_n + 7} \\)." },
+        { q: "Using \\( x_{n+1} = \\sqrt[3]{x_n + 7} \\) with \\( x_0 = 2 \\), what is \\( x_1 \\) to 4 s.f.?", opts: ["2.080", "9.000", "1.913", "2.000"], ans: 0, explain: "\\( x_1 = \\sqrt[3]{2 + 7} = \\sqrt[3]{9} = 2.080 \\). The distractor 9 forgets the cube root." },
+        { q: "To how many significant figures should you quote each iterate before rounding a final 3 s.f. answer?", opts: ["At least 4", "Exactly 1", "Exactly 2", "None — round each to 3 s.f. as you go"], ans: 0, explain: "Carry at least 4 s.f. (or use the ANS key at full precision); rounding iterates too early corrupts later steps." },
+        { q: "Why might an iteration \\( x_{n+1} = \\text{g}(x_n) \\) diverge?", opts: ["The rearrangement is unsuitable, so the iterates run away from the root", "The equation has no root at all", "The starting value was a whole number", "You used the ANS key"], ans: 0, explain: "Some rearrangements of \\( \\text{f}(x)=0 \\) drive the iterates away from the root; a different rearrangement of the same equation may converge." },
+        { q: "A decimal search over \\( [0,1] \\) in tenths shows no sign change. What can you conclude?", opts: ["Nothing certain — two roots or a repeated root could have been stepped over", "There is definitely no root in \\( [0,1] \\)", "The function is not continuous", "The root is exactly 0.5"], ans: 0, explain: "No sign change does not prove no root: two roots in one interval, or a repeated root touching the axis, both give no sign change." },
+        { q: "For the root of \\( 3^x - 4x^2 = 0 \\) in \\( [0.7,\\ 0.8] \\), you find \\( \\text{f}(0.75) > 0 \\) and \\( \\text{f}(0.8) < 0 \\). To 1 dp the root is:", opts: ["0.8", "0.7", "0.75", "0.70 — need more steps"], ans: 0, explain: "The sign changes between 0.75 and 0.8, so the root is in \\( [0.75,0.8] \\), which rounds to 0.8." },
+        { q: "A candidate does one iteration, \\( x_1 = 2.08 \\), then writes \\( a = 2.09 \\). Why do they lose a mark?", opts: ["They have not shown the iterates settle to the required accuracy", "2.08 rounds to 2.1, not 2.09", "They should have used degrees", "One iteration is always enough"], ans: 0, explain: "You must iterate until the answer settles and show the working; a single step does not justify a 3 s.f. conclusion." }
+    ];
+
+    const matchData = [
+        { term: "\\( \\text{f}(a),\\ \\text{f}(b) \\) have opposite signs (f continuous)", def: "A root lies between \\( a \\) and \\( b \\)" },
+        { term: "\\( \\text{f}(2) = -1,\\ \\text{f}(3) = 17 \\)", def: "Change of sign, so a root lies in \\( [2,\\ 3] \\)" },
+        { term: "Decimal search to 1 dp", def: "Test the midpoint of the final interval to decide the rounding" },
+        { term: "Simple iteration", def: "\\( x_{n+1} = \\text{g}(x_n) \\)" },
+        { term: "\\( x^3 = x + 7 \\)", def: "\\( x = \\sqrt[3]{x + 7} \\)" },
+        { term: "Calculator ANS key", def: "Feeds the previous output back in as the next input" },
+        { term: "Each iterate quoted to", def: "At least 4 significant figures" },
+        { term: "Iteration diverges", def: "The rearrangement is unsuitable — the values run away" },
+        { term: "Two roots inside one search step", def: "No sign change is seen, so the search misses them" },
+        { term: "Repeated (double) root", def: "The curve touches the axis: no sign change" },
+        { term: "\\( \\text{f}(0.75) > 0,\\ \\text{f}(0.8) < 0 \\)", def: "Root lies in \\( [0.75,\\ 0.8] \\), so \\( 0.8 \\) to 1 dp" },
+        { term: "'Show that a root lies between…'", def: "You must write the conclusion sentence" }
+    ];
+
+    // NOTE: FIB blanks sit in PLAIN TEXT, never inside \( \). Answer values are plain
+    // text/number so server string-equality works (ADDMATHS-CONTENT-PLAN.md §8.4).
+    const fibData = [
+        { display: "If \\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have ___B1___ signs and f is continuous, a root lies between \\( a \\) and \\( b \\).", blanks: { B1: "opposite" } },
+        { display: "After showing a change of sign you must write a ___B1___ sentence to earn the second mark.", blanks: { B1: "conclusion" } },
+        { display: "In a decimal search to 1 dp, once the root is trapped between two tenths you test the ___B1___ to decide which way to round.", blanks: { B1: "midpoint" } },
+        { display: "A simple iteration uses the rule \\( x_{n+1} = \\text{g}(x_n) \\); on the calculator the ___B1___ key feeds each answer back in.", blanks: { B1: "ANS" } },
+        { display: "Each iterate should be written to at least ___B1___ significant figures before you round the final answer.", blanks: { B1: "4" } },
+        { display: "Rearranging \\( x^3 = x + 7 \\) for iteration gives x equal to the cube ___B1___ of \\( x + 7 \\).", blanks: { B1: "root" } },
+        { display: "If an iteration ___B1___ instead of settling, the rearrangement is unsuitable and you should try another.", blanks: { B1: "diverges" } },
+        { display: "No ___B1___ change on an interval does not prove there is no root there — two roots may have been stepped over.", blanks: { B1: "sign" } }
+    ];
+
+    const fibWords = ["opposite", "conclusion", "midpoint", "ANS", "4", "root", "diverges", "sign", "same", "3", "converges", "endpoint", "gradient", "square"];
+
+    const tfData = [
+        { statement: "If \\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have the same sign, there is guaranteed to be a root between them.", answer: false, explanation: "You need OPPOSITE signs. The same sign proves nothing — there could be no root, or an even number of roots." },
+        { statement: "A change of sign only locates a root if f is continuous on the interval.", answer: true, explanation: "A jump or asymptote can create a change of sign with no root, so continuity is essential." },
+        { statement: "Writing \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 17 \\) is enough for full marks on 'show that a root lies in \\( [2,3] \\)'.", answer: false, explanation: "You also need the conclusion sentence: 'change of sign, so a root lies between 2 and 3'. Values alone score only 1 of 2." },
+        { statement: "In a decimal search, testing the midpoint of the trapped interval tells you which tenth to round to.", answer: true, explanation: "The midpoint's sign shows which half of the interval the root sits in, deciding the 1 dp answer." },
+        { statement: "When iterating you should round every intermediate value to 1 dp to save time.", answer: false, explanation: "Rounding early corrupts every later iterate. Keep at least 4 s.f. (or use the full-precision ANS key) and round only the final answer." },
+        { statement: "The same equation \\( \\text{f}(x) = 0 \\) can be rearranged into \\( x = \\text{g}(x) \\) in more than one way.", answer: true, explanation: "There are usually several rearrangements; some converge and some diverge, so the choice matters." },
+        { statement: "Every rearrangement \\( x = \\text{g}(x) \\) will converge to the root.", answer: false, explanation: "Some rearrangements diverge — the iterates run away from the root. Then you must pick a different rearrangement." },
+        { statement: "A decimal search stepping in tenths can miss two roots that lie inside the same \\( 0.1 \\) interval.", answer: true, explanation: "If f has the same sign at both ends of that tenth, no sign change is seen even though two roots are inside." }
+    ];
+
+    const miscData = [
+        { wrong: "For 'show that a root lies in \\( [2,3] \\)', writing \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 17 \\) and stopping.", correct: "A weak answer leaves the two numbers unexplained; a strong answer adds the conclusion: 'there is a change of sign, so a root lies between 2 and 3'. Without that sentence the second mark is lost.", readCheck: { q: "After finding \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 17 \\), what must you write?", opts: ["The change-of-sign conclusion sentence", "The exact root", "The derivative \\( \\text{f}'(x) \\)", "The \\( y\\)-intercept"], ans: 0, explain: "The conclusion sentence is its own mark on a 'show that a root lies between' question." } },
+        { wrong: "Finding a sign change in \\( [0.7,\\ 0.8] \\) and immediately claiming the root is \\( 0.8 \\) to 1 dp.", correct: "A weak answer rounds without evidence; a strong answer tests the midpoint \\( x = 0.75 \\). Here \\( \\text{f}(0.75) > 0 \\) and \\( \\text{f}(0.8) < 0 \\), so the root is in \\( [0.75,\\ 0.8] \\) — confirming \\( 0.8 \\). A 2023 examiner report gave 0 for the final mark to anyone who skipped this test.", readCheck: { q: "A root is in \\( [0.7,\\ 0.8] \\). What must you do before claiming 1 dp?", opts: ["Test the midpoint \\( x = 0.75 \\)", "State the root is 0.75", "Take the average 0.75 as the answer", "Round 0.8 down to 0.7"], ans: 0, explain: "Testing 0.75 shows which half of the interval contains the root, deciding whether it rounds to 0.7 or 0.8." } },
+        { wrong: "Rounding each iterate to 2 dp before feeding it back into \\( x_{n+1} = \\text{g}(x_n) \\).", correct: "A weak answer rounds early and drifts off the true value; a strong answer keeps at least 4 s.f. (or uses the ANS key at full precision) and rounds only the final answer to the requested accuracy.", readCheck: { q: "How should intermediate iterates be recorded?", opts: ["To at least 4 s.f. (or full precision via ANS)", "To 1 dp each", "As whole numbers", "Only the final one matters, so guess the rest"], ans: 0, explain: "Carrying at least 4 s.f. keeps the sequence accurate; rounding early corrupts later steps." } },
+        { wrong: "Assuming any rearrangement \\( x = \\text{g}(x) \\) will converge to the root.", correct: "A weak answer keeps iterating a divergent formula; a strong answer notices the iterates running away and rearranges \\( \\text{f}(x) = 0 \\) a different way. Convergence is not guaranteed.", readCheck: { q: "The iterates run away from the root. What has gone wrong?", opts: ["The rearrangement is unsuitable (it diverges)", "The equation has no root", "The calculator is broken", "You used too many significant figures"], ans: 0, explain: "Divergence signals an unsuitable rearrangement; a different \\( \\text{g} \\) for the same equation may converge." } },
+        { wrong: "Concluding 'no sign change on \\( [1,2] \\), so there is no root there'.", correct: "A weak answer treats no sign change as proof of no root; a strong answer knows two roots (or a repeated root touching the axis) can hide inside an interval with no sign change. A sketch or finer step is needed to be sure.", readCheck: { q: "No sign change is found on \\( [1,2] \\). This proves:", opts: ["Nothing certain — roots could have been stepped over", "There is definitely no root", "There are exactly two roots", "The function is discontinuous"], ans: 0, explain: "No sign change does not prove no root; even-numbered or repeated roots leave the sign unchanged." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "'Show that a root lies between…' — write the conclusion", pills: ["show that", "change of sign", "conclusion"], content: `<p><strong>1 mark:</strong> \\( \\text{f}(2) = -1,\\ \\text{f}(3) = 17 \\) and nothing else.</p><p><strong>Full marks:</strong> the same values <em>plus</em> "there is a change of sign, so a root lies between \\( 2 \\) and \\( 3 \\)". The conclusion sentence is its own tick point — never leave it out.</p>`, readCheck: { q: "On a 'show that a root lies between' question, the second mark is for:", opts: ["Stating the change-of-sign conclusion", "Using more decimal places", "Drawing the graph", "Finding \\( \\text{f}'(x) \\)"], ans: 0, explain: "The concluding sentence is a compulsory, separately-credited step." } },
+        { type: "tip", title: "Iterate to 4 s.f., then round", pills: ["iteration", "4 s.f.", "ANS key"], content: `<p><strong>Weak:</strong> one iteration, or every iterate rounded to 1–2 dp, then a stated answer.</p><p><strong>Full marks:</strong> quote each iterate to at least 4 s.f. (\\( x_1 = 2.080,\\ x_2 = 2.086,\\ x_3 = 2.087 \\)), show they have settled, then round to the requested precision (e.g. \\( 2.09 \\) to 3 s.f.). Use the ANS key so no accuracy is lost.</p>`, readCheck: { q: "Before rounding an iteration answer to 3 s.f. you should:", opts: ["Show the iterates settle, each to at least 4 s.f.", "Do exactly one iteration", "Round every iterate to 1 dp first", "Use the change-of-sign method instead"], ans: 0, explain: "Carry at least 4 s.f. and demonstrate convergence, then round the final answer." } },
+        { type: "tip", title: "Decimal search — always test the midpoint", pills: ["decimal search", "1 dp", "midpoint"], content: `<p><strong>0 marks for the final mark:</strong> a sign change in \\( [0.7,\\ 0.8] \\), then "so the root is \\( 0.8 \\)" with no further test.</p><p><strong>Full marks:</strong> test \\( x = 0.75 \\); \\( \\text{f}(0.75) > 0 \\) and \\( \\text{f}(0.8) < 0 \\) place the root in \\( [0.75,\\ 0.8] \\), so it is \\( 0.8 \\) to 1 dp. Testing the midpoint is the step that earns the last mark.</p>`, readCheck: { q: "Which secures the final mark in a 1 dp decimal search?", opts: ["Testing the midpoint of the trapped interval", "Quoting more tenths", "Averaging the two endpoints", "Stating the root is halfway"], ans: 0, explain: "The midpoint test shows which half of the interval holds the root, deciding the rounding." } }
+    ];
+
+    const flashcards = [
+        { term: "Root of \\( \\text{f}(x) = 0 \\)", def: "An \\( x\\)-value where the curve crosses or touches the \\( x\\)-axis." },
+        { term: "Change-of-sign rule", def: "If \\( \\text{f}(a),\\ \\text{f}(b) \\) have opposite signs and f is continuous, a root lies in \\( [a,\\ b] \\)." },
+        { term: "Conclusion sentence", def: "'There is a change of sign, so a root lies between \\( a \\) and \\( b \\)' — a compulsory mark." },
+        { term: "Continuous", def: "No breaks, jumps or asymptotes in the interval; required for the change-of-sign rule." },
+        { term: "Decimal search", def: "Step through in tenths until the root is trapped between two 1-dp values." },
+        { term: "Testing the midpoint", def: "Evaluate f at the halfway value to decide which way the 1-dp root rounds." },
+        { term: "Simple iteration", def: "\\( x_{n+1} = \\text{g}(x_n) \\): feed each output back in as the next input." },
+        { term: "ANS key", def: "Calculator memory holding the last result, reused for the next iterate." },
+        { term: "Rearranging to \\( x = \\text{g}(x) \\)", def: "Make \\( x \\) the subject of \\( \\text{f}(x) = 0 \\) to build the iteration." },
+        { term: "\\( x^3 = x + 7 \\Rightarrow x = \\sqrt[3]{x + 7} \\)", def: "A valid iterative rearrangement of \\( x^3 - x - 7 = 0 \\)." },
+        { term: "Quoting iterates", def: "Show each to at least 4 s.f. before rounding the final answer." },
+        { term: "Divergence", def: "Iterates run away from the root; the rearrangement is unsuitable." },
+        { term: "Missed roots", def: "A step-0.1 search can skip two roots (same sign at both ends, no sign change)." },
+        { term: "Repeated root", def: "The curve touches the axis, so f does not change sign there." },
+        { term: "Precision instruction", def: "Iterate to extra figures, then give the final answer to the requested accuracy (e.g. 3 s.f.)." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "13 (a)",
+            marks: 2,
+            type: "written",
+            caseId: "q13-2024",
+            question: `<p>Show by sign change that \\( x^3 - x - 7 = 0 \\) has a root, \\( a \\), in the interval \\( [2,\\ 3] \\).</p>`,
+            hint: "Evaluate \\( \\text{f}(x) = x^3 - x - 7 \\) at both ends, then write the conclusion sentence.",
+            starter: "This is 'show that' — no answer box; state \\( \\text{f}(2) \\), \\( \\text{f}(3) \\) and the change-of-sign conclusion.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>
+              <li><strong>M1</strong> — correct substitutions seen: \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 17 \\).</li>
+              <li><strong>A1</strong> — values correct AND a conclusion must be seen: change of sign means the root lies in between (oe).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The first mark is for evaluating the function at both endpoints; the second requires both correct values and an explicit conclusion.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Many candidates showed correct substitutions for one mark but did not write a valid conclusion. It was necessary to see a conclusion indicating a change of sign and therefore a root in the interval. As this is a 'show that', the explanation must cover every step — state what was calculated and what it shows.</li>
+            </ul></div>`,
+            modelAnswer: "Let \\( \\text{f}(x) = x^3 - x - 7 \\). \\( \\text{f}(2) = 8 - 2 - 7 = -1 \\) (negative) and \\( \\text{f}(3) = 27 - 3 - 7 = 17 \\) (positive). There is a change of sign and f is continuous, so a root \\( a \\) lies in the interval \\( [2,\\ 3] \\).",
+            markPoints: { note: "The conclusion sentence is a compulsory tick point.", groups: [
+                { label: "M1 — substitutions", max: 1, points: ["Evaluated \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 17 \\)"] },
+                { label: "A1 — values + conclusion", max: 1, points: ["Both values correct AND wrote the change-of-sign conclusion (a root lies between 2 and 3)"] }
+            ] }
+        },
+        {
+            num: "13 (b)(i)",
+            marks: 2,
+            type: "written",
+            caseId: "q13-2024",
+            question: `<p>Tom decides to use the iterative formula \\( x_{r+1} = \\sqrt[3]{x_r + 7} \\) to find \\( a \\). Explain how he obtained this iterative formula.</p>`,
+            hint: "Rearrange \\( x^3 - x - 7 = 0 \\) to make \\( x \\) the subject; show each algebraic step (answer given).",
+            starter: "This is answer-given (AG) — no answer box; show \\( x^3 = x + 7 \\) then cube-root.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>
+              <li><strong>M1</strong> — correct rearrangement: \\( x^3 - x - 7 = 0 \\Rightarrow x^3 = x + 7 \\) (or the reverse direction).</li>
+              <li><strong>A1</strong> — convincing algebra reaching \\( x = \\sqrt[3]{x + 7} \\), i.e. \\( x_{r+1} = \\sqrt[3]{x_r + 7} \\) (AG).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One mark for isolating \\( x^3 \\); one for a complete, convincing cube-root step to the given formula. Working may equally be done in reverse.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Well answered, but some did not show full and complete working, which was necessary for both marks. A small number wrote the explanation in words rather than as an algebraic solution.</li>
+            </ul></div>`,
+            modelAnswer: "Start from \\( x^3 - x - 7 = 0 \\). Add \\( x + 7 \\) to both sides: \\( x^3 = x + 7 \\). Cube-root both sides: \\( x = \\sqrt[3]{x + 7} \\). Written as a term-to-term rule this is \\( x_{r+1} = \\sqrt[3]{x_r + 7} \\).",
+            markPoints: { note: "Answer-given — every step must be shown.", groups: [
+                { label: "M1 — rearrange", max: 1, points: ["Reached \\( x^3 = x + 7 \\) (or worked in reverse)"] },
+                { label: "A1 — cube-root to the given formula", max: 1, points: ["Convincing algebra to \\( x = \\sqrt[3]{x + 7} \\), i.e. \\( x_{r+1} = \\sqrt[3]{x_r + 7} \\)"] }
+            ] }
+        },
+        {
+            num: "13 (b)(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "q13-2024",
+            question: `<p>Using this iterative formula, with \\( x_0 = 2 \\), find \\( a \\) correct to 3 significant figures.</p>`,
+            hint: "Use the ANS key; quote each iterate to at least 4 s.f. and keep going until they settle.",
+            starter: "Give the iterates then the final value: \\( a = \\ldots \\) (3 s.f.).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — sight of correct use of the formula (a chain of iterates from \\( x_0 = 2 \\)).</li>
+              <li><strong>A1</strong> — conclusion \\( a = 2.09 \\) plus justification of 3 s.f. (e.g. sight of successive iterates agreeing, or \\( x = 2.085 \\) gives \\( \\text{f} < 0 \\) and \\( x = 2.095 \\) gives \\( \\text{f} > 0 \\)). Accept "\\( x = \\)" in the final answer.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One mark for correctly applying the iteration; one for a justified 3 s.f. answer. A single iteration is not enough to justify the conclusion.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Candidates who set out each iterate clearly and showed the values settling gained both marks; a stated answer without sufficient iterates or justification lost the accuracy mark.</li>
+            </ul></div>`,
+            modelAnswer: "\\( x_0 = 2 \\); \\( x_1 = \\sqrt[3]{2 + 7} = \\sqrt[3]{9} = 2.080 \\); \\( x_2 = \\sqrt[3]{9.080} = 2.086 \\); \\( x_3 = \\sqrt[3]{9.086} = 2.087 \\); \\( x_4 = 2.087 \\). The iterates have settled, so \\( a = 2.09 \\) (3 s.f.). Check: \\( \\text{f}(2.085) < 0 \\) and \\( \\text{f}(2.095) > 0 \\).",
+            markPoints: { note: "Quote iterates to at least 4 s.f.; justify the 3 s.f. answer.", groups: [
+                { label: "M1 — correct iteration", max: 1, points: ["Sight of correct use of the formula from \\( x_0 = 2 \\) (e.g. \\( x_1 = 2.080,\\ x_2 = 2.086 \\))"] },
+                { label: "A1 — justified answer", max: 1, points: ["\\( a = 2.09 \\) (3 s.f.) with iterates settling or a sign-change justification"] }
+            ] }
+        },
+        {
+            num: "7 (a)",
+            marks: 2,
+            type: "written",
+            caseId: "q7-2023",
+            question: `<p>By considering the value of \\( 3^x - 4x^2 \\) when \\( x = 0 \\) and \\( x = 1 \\), show that \\( \\beta \\) lies between 0 and 1.</p>`,
+            hint: "Evaluate \\( \\text{f}(x) = 3^x - 4x^2 \\) at \\( x = 0 \\) and \\( x = 1 \\), then state the change of sign.",
+            starter: "This is 'show that' — no answer box; give both values and the conclusion.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>
+              <li><strong>B1</strong> — both values: at \\( x = 0 \\), \\( y = 1 \\); at \\( x = 1 \\), \\( y = -1 \\).</li>
+              <li><strong>B1</strong> — sign change stated (or 'change in sign' / 'different signs', or reference to graph; inequalities acceptable). Follow through their values provided there is a change of sign.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One mark for both correct function values; one for identifying the change of sign and concluding a root lies in the interval.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>In almost all cases the first mark was gained by evaluating the function at \\( x = 0 \\) and \\( 1 \\). The phrase 'change of sign' was very frequently used to gain the second mark; inequality symbols and wordy explanations were also accepted. Rarely was it written well as a formal statement that \\( \\beta \\) therefore lay in the range.</li>
+            </ul></div>`,
+            modelAnswer: "Let \\( \\text{f}(x) = 3^x - 4x^2 \\). \\( \\text{f}(0) = 3^0 - 0 = 1 \\) (positive) and \\( \\text{f}(1) = 3 - 4 = -1 \\) (negative). There is a change of sign, so a root \\( \\beta \\) lies between 0 and 1.",
+            markPoints: { note: "The change-of-sign statement is a compulsory tick point.", groups: [
+                { label: "B1 — both values", max: 1, points: ["\\( \\text{f}(0) = 1 \\) and \\( \\text{f}(1) = -1 \\)"] },
+                { label: "B1 — sign change", max: 1, points: ["Stated the change of sign, so \\( \\beta \\) lies between 0 and 1"] }
+            ] }
+        },
+        {
+            num: "7 (b)",
+            marks: 3,
+            type: "written",
+            caseId: "q7-2023",
+            question: `<p>By considering appropriate values of \\( x \\), determine the value of \\( \\beta \\) correct to 1 decimal place.</p>`,
+            hint: "Narrow the interval in tenths until you see the sign change, then TEST THE MIDPOINT to fix the 1 dp answer.",
+            starter: "Give your trial values, then \\( \\beta = \\ldots \\) (1 dp).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO2)</h5><ul>
+              <li><strong>M1</strong> — choose at least one value that narrows the range of the sign change.</li>
+              <li><strong>A1</strong> — reduce the range to \\( [0.7,\\ 0.85] \\) or better (e.g. \\( \\text{f}(0.7) > 0,\\ \\text{f}(0.8) < 0 \\)).</li>
+              <li><strong>A1</strong> — test a value in \\( [0.75,\\ 0.85] \\) and conclude: e.g. \\( \\text{f}(0.75) > 0 \\), so the root is in \\( [0.75,\\ 0.8] \\) and \\( \\beta = 0.8 \\) to 1 dp.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Stating the root is \\( 0.7 \\) or \\( 0.8 \\) with no justification does NOT earn the last mark; the range must be reduced to \\( [0.75,\\ 0.85] \\) (i.e. the midpoint must be tested).</li>
+              <li>Alternative: a correct iterative formula converging to \\( 0.758\\ldots \\) also scores M1 A1 A1.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The expected method was to reduce the \\( [0,1] \\) range from part (a). Candidates who stated the root was \\( 0.7 \\) or \\( 0.8 \\) with no justification, or who argued that \\( \\text{f}(0.8) \\) being closer to zero meant the root was \\( 0.8 \\), did not earn the last mark. Justifying \\( 0.8 \\) required testing the midpoint so the range became \\( [0.75,\\ 0.85] \\). The most successful candidates laid out their work carefully, describing the consequence of each calculation.</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\text{f}(0.7) = 3^{0.7} - 4(0.49) = 2.158 - 1.96 = 0.198 \\) (positive); \\( \\text{f}(0.8) = 3^{0.8} - 4(0.64) = 2.408 - 2.56 = -0.152 \\) (negative), so the root is in \\( [0.7,\\ 0.8] \\). Test the midpoint: \\( \\text{f}(0.75) = 3^{0.75} - 4(0.5625) = 2.280 - 2.25 = 0.030 \\) (positive). The sign changes between \\( 0.75 \\) and \\( 0.8 \\), so \\( \\beta \\) lies in \\( [0.75,\\ 0.8] \\); therefore \\( \\beta = 0.8 \\) to 1 dp.",
+            markPoints: { note: "The midpoint test earns the final mark.", groups: [
+                { label: "M1 — narrow the range", max: 1, points: ["Evaluated f at a trial value that narrows the sign-change interval"] },
+                { label: "A1 — range reduced", max: 1, points: ["Trapped the root in \\( [0.7,\\ 0.8] \\) (or better)"] },
+                { label: "A1 — midpoint test + conclusion", max: 1, points: ["Tested \\( x = 0.75 \\) (\\( \\text{f} > 0 \\)) giving range \\( [0.75,\\ 0.8] \\) and concluded \\( \\beta = 0.8 \\) to 1 dp"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

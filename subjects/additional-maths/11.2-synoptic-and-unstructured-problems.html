@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 11. Exam Preparation</div>
             <h1>11.2 Synoptic and Unstructured Problems</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,13 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 11.2 Synoptic and Unstructured Problems — placeholder, content not yet written
+    //  DATA: 11.2 Synoptic and Unstructured Problems (exam technique — no new spec content)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes doubled
+    //  in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Exam Qs (reserved for this page,
+    //  used nowhere else): OCR June 2024 Q15 (a–d) [13 marks] = coordinate geometry +
+    //  tangents + integration; OCR June 2019 Q12 (a–e) [14 marks] = curve sketching +
+    //  calculus + area between curves. Total = 27 marks. Figures re-authored as theme-safe
+    //  inline SVG (currentColor, no fixed fills) — NEVER extracted from a PDF.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '11-2-synoptic-and-unstructured-problems',
@@ -266,23 +272,467 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimulus (inserted RAW, not sanitised — SVG survives). caseId links parts.
+    const EXAM_CASE_STUDIES = {
+        "q15-2024": `<p><em>In this question you must show detailed reasoning.</em></p>
+        <p>The diagram shows a symmetric, triangular cross-section of a roof, ADB, where AB is horizontal. Under this roof is the ceiling, ACB, of a room.</p>
+        <p>In a coordinate system the mid-point of AB is the origin, O, with the \\( x \\)-axis passing through A and B and the \\( y \\)-axis passing through C and D.</p>
+        <p>With respect to this coordinate system the equation of the curve ACB is \\[ y = 2 - \\frac{1}{18}x^2. \\]</p>
+        <p>The lines AD and BD are tangents to the curve at A and B respectively. Units are metres.</p>
+        <svg viewBox="0 0 400 240" role="img" aria-label="Roof cross-section: ceiling curve ACB inside triangular roof ADB" style="max-width:420px;width:100%;height:auto;color:var(--ink,currentColor)">
+          <line x1="200" y1="215" x2="200" y2="58" stroke="currentColor" stroke-width="1"/>
+          <line x1="40" y1="200" x2="368" y2="200" stroke="currentColor" stroke-width="1"/>
+          <polygon points="200,52 196,64 204,64" fill="currentColor"/>
+          <polygon points="373,200 361,196 361,204" fill="currentColor"/>
+          <polygon points="50,200 200,80 350,200" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <polyline points="50,200 75,182 100,167 125,155 150,147 175,142 200,140 225,142 250,147 275,155 300,167 325,182 350,200" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="50" cy="200" r="2.5" fill="currentColor"/>
+          <circle cx="350" cy="200" r="2.5" fill="currentColor"/>
+          <circle cx="200" cy="140" r="2.5" fill="currentColor"/>
+          <circle cx="200" cy="80" r="2.5" fill="currentColor"/>
+          <text x="36" y="214" font-size="13" fill="currentColor">A</text>
+          <text x="354" y="214" font-size="13" fill="currentColor">B</text>
+          <text x="188" y="215" font-size="13" fill="currentColor">O</text>
+          <text x="206" y="151" font-size="13" fill="currentColor">C</text>
+          <text x="206" y="80" font-size="13" fill="currentColor">D</text>
+          <text x="184" y="64" font-size="13" font-style="italic" fill="currentColor">y</text>
+          <text x="360" y="216" font-size="13" font-style="italic" fill="currentColor">x</text>
+        </svg>`,
+        "q12-2019": `<p>The curve \\( C_1 \\) has equation \\( y = 10x - x^2 + k \\) and passes through the point \\( (5,\\ 10) \\).</p>
+        <p>The curve \\( C_2 \\) with equation \\( y = (x - 3)^2 \\) has been plotted on the grid provided (below), which has \\( x \\) from \\( 0 \\) to \\( 8 \\) and \\( y \\) from \\( 0 \\) to \\( 12 \\).</p>
+        <svg viewBox="0 0 380 300" role="img" aria-label="Grid from x=0 to 8 and y=0 to 12 with the curve C2 = (x-3) squared plotted" style="max-width:400px;width:100%;height:auto;color:var(--ink,currentColor)">
+          <g stroke="currentColor" stroke-width="0.5" opacity="0.35">
+            <line x1="30" y1="20" x2="30" y2="260"/><line x1="70" y1="20" x2="70" y2="260"/><line x1="110" y1="20" x2="110" y2="260"/><line x1="150" y1="20" x2="150" y2="260"/><line x1="190" y1="20" x2="190" y2="260"/><line x1="230" y1="20" x2="230" y2="260"/><line x1="270" y1="20" x2="270" y2="260"/><line x1="310" y1="20" x2="310" y2="260"/><line x1="350" y1="20" x2="350" y2="260"/>
+            <line x1="30" y1="260" x2="350" y2="260"/><line x1="30" y1="220" x2="350" y2="220"/><line x1="30" y1="180" x2="350" y2="180"/><line x1="30" y1="140" x2="350" y2="140"/><line x1="30" y1="100" x2="350" y2="100"/><line x1="30" y1="60" x2="350" y2="60"/><line x1="30" y1="20" x2="350" y2="20"/>
+          </g>
+          <line x1="30" y1="260" x2="358" y2="260" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="30" y1="260" x2="30" y2="14" stroke="currentColor" stroke-width="1.2"/>
+          <polyline points="30,80 70,180 110,240 150,260 190,240 230,180 270,80 288,20" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <text x="276" y="94" font-size="12" font-style="italic" fill="currentColor">C₂</text>
+          <g font-size="11" fill="currentColor" text-anchor="middle">
+            <text x="30" y="275">0</text><text x="70" y="275">1</text><text x="110" y="275">2</text><text x="150" y="275">3</text><text x="190" y="275">4</text><text x="230" y="275">5</text><text x="270" y="275">6</text><text x="310" y="275">7</text><text x="350" y="275">8</text>
+          </g>
+          <g font-size="11" fill="currentColor" text-anchor="end">
+            <text x="25" y="264">0</text><text x="25" y="224">2</text><text x="25" y="184">4</text><text x="25" y="144">6</text><text x="25" y="104">8</text><text x="25" y="64">10</text><text x="25" y="24">12</text>
+          </g>
+          <text x="360" y="264" font-size="12" font-style="italic" fill="currentColor">x</text>
+          <text x="16" y="16" font-size="12" font-style="italic" fill="currentColor">y</text>
+        </svg>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>11.2 Synoptic and Unstructured Problems</strong> will appear here soon.</p>`
+            title: "What makes a question 'synoptic' or 'unstructured'?",
+            tag: "Key concept",
+            content: `<p>Every 6993 paper deliberately mixes topics. Two kinds of question test more than fluency:</p>
+            <ul>
+              <li>A <strong>synoptic</strong> question combines <strong>two or more</strong> areas of the specification in one problem — for example coordinate geometry <em>and</em> calculus, or trigonometry <em>and</em> surds. The spec guarantees several of these each year.</li>
+              <li>An <strong>unstructured</strong> (problem-solving) question gives you <strong>little or no scaffolding</strong>: no "part (a), part (b)" ladder telling you what to do next. You must choose the strategy yourself. The spec guarantees <strong>at least one</strong> such question every paper.</li>
+            </ul>
+            <p>Neither introduces new content. Everything you need is a technique you have already met — the difficulty is <strong>recognising which techniques</strong> the question is asking for and <strong>joining them together</strong>. These questions carry the AO3 (problem-solving/modelling) marks, worth roughly a fifth of the paper.</p>
+            <p>A typical synoptic closer is a <strong>10–13 mark</strong> "extended response" built from a real context — a roof, a boat, a curve and its tangent. The marks are there for method, so a part-finished answer still scores well.</p>`,
+            readCheck: { q: "What is guaranteed on every 6993 paper?", opts: ["At least one unstructured problem-solving question", "A question on brand-new content not in the spec", "A question with no marks for method", "Exactly one synoptic question"], ans: 0, explain: "The spec guarantees at least one unstructured problem-solving question, plus several synoptic ones — all built from techniques you already know." }
+        },
+        {
+            title: "How do you break a big multi-part question into steps?",
+            tag: "Exam skill",
+            content: `<p>Read the <strong>whole</strong> question before writing anything, then work through a fixed routine:</p>
+            <table class="worked">
+              <tr><td>1. <strong>Read to the end.</strong> A later part often reveals what an earlier part is <em>for</em>.</td></tr>
+              <tr><td>2. <strong>Name the topics.</strong> Underline the maths words: "tangent", "area", "roots", "exact" — each names a technique.</td></tr>
+              <tr><td>3. <strong>Define variables and sketch.</strong> Put the given information on a diagram or in symbols.</td></tr>
+              <tr><td>4. <strong>Attack part by part.</strong> Each part is usually one technique. Finish it and <strong>keep the result</strong> — the next part likely needs it.</td></tr>
+              <tr><td>5. <strong>Watch for "Hence".</strong> "Hence" is an instruction to <em>use the previous answer</em>, not to start again.</td></tr>
+              <tr><td>6. <strong>Track exact forms and units</strong> right through — do not round early, and give units where the context has them.</td></tr>
+            </table>
+            <p>Even if you cannot finish part (b), you can usually still attempt part (c) using the <strong>given</strong> or assumed value — the mark scheme awards <strong>follow-through (ft)</strong> marks for correct method on a wrong earlier answer.</p>`,
+            readCheck: { q: "Part (c) says 'Hence find...'. What does 'Hence' tell you?", opts: ["Use the result from the previous part", "Start again with a fresh method", "Give the answer as a decimal", "Draw a graph to read it off"], ans: 0, explain: "'Hence' legally binds you to build on the previous result — it saves work and signals which method the examiner expects." }
+        },
+        {
+            title: "Worked walkthrough: a curve, a tangent and an area",
+            tag: "Worked example",
+            content: `<p>This is how one synoptic question decomposes into three familiar techniques. <em>The curve \\( y = 9 - x^2 \\) meets the positive \\( x \\)-axis at P. Find the tangent to the curve at P, and the area between the curve and the \\( x \\)-axis for \\( 0 \\le x \\le 3 \\).</em></p>
+            <table class="worked">
+              <tr><td><strong>Step 1 — coordinate geometry (find P).</strong> On the \\( x \\)-axis \\( y = 0 \\): \\( 9 - x^2 = 0 \\Rightarrow x = 3 \\) (positive root). So \\( P = (3,\\ 0) \\).</td></tr>
+              <tr><td><strong>Step 2 — differentiation (the tangent).</strong> \\( \\frac{dy}{dx} = -2x \\); at \\( x = 3 \\) the gradient is \\( -6 \\). Tangent: \\( y - 0 = -6(x - 3) \\), i.e. \\[ y = -6x + 18. \\]</td></tr>
+              <tr><td><strong>Step 3 — integration (the area).</strong> \\[ \\int_0^3 (9 - x^2)\\,dx = \\left[\\,9x - \\frac{x^3}{3}\\,\\right]_0^3 = 27 - 9 = 18. \\]</td></tr>
+            </table>
+            <p>Three specification areas — CG, CA (differentiation) and CA (integration) — in one problem, each done on its own then joined. Notice the answer to Step 1 <em>feeds</em> Step 2, exactly as parts of a real exam question chain together.</p>`,
+            readCheck: { q: "In the walkthrough, which value from Step 1 is reused in Step 2?", opts: ["The x-coordinate of P, x = 3", "The area, 18", "The gradient, -6", "The constant +18"], ans: 0, explain: "Step 2 substitutes P's x-coordinate (3) into dy/dx to get the tangent's gradient — later parts consume earlier results." }
+        },
+        {
+            title: "How do you tackle an unstructured question with no scaffold?",
+            tag: "Method",
+            content: `<p>With no "(a), (b), (c)" to guide you, <strong>you</strong> impose the structure:</p>
+            <ul>
+              <li><strong>Translate to maths.</strong> Turn each sentence into an equation, inequality or diagram. "A root is \\( x = 2 \\)" means \\( \\text{f}(2) = 0 \\); "the line is a tangent" means the discriminant is \\( 0 \\).</li>
+              <li><strong>Decide the goal, then work backwards.</strong> Ask "what do I need to reach the answer?" and set up the intermediate steps to get there.</li>
+              <li><strong>Show every analytical step.</strong> Many unstructured questions carry the "<em>detailed reasoning</em>" banner — a calculator answer with no working scores <strong>0</strong>, even if it is right.</li>
+              <li><strong>Never leave it blank.</strong> Writing down the correct starting equation earns method marks; a blank earns nothing.</li>
+            </ul>
+            <p><strong>Mini-example.</strong> "The equation \\( x^3 - 3x + k = 0 \\) has a root \\( x = 2 \\). Find the other roots." No scaffold — but "root \\( x=2 \\)" gives \\( 8 - 6 + k = 0 \\Rightarrow k = -2 \\); then \\( x^3 - 3x - 2 = (x - 2)(x^2 + 2x + 1) = (x-2)(x+1)^2 \\), so the other root is \\( x = -1 \\) (repeated).</p>`,
+            readCheck: { q: "An unstructured DR question is answered correctly using only a calculator, with no working. What is the score?", opts: ["Zero — detailed reasoning needs the full method shown", "Full marks — the answer is correct", "Half marks", "Full marks if the answer is exact"], ans: 0, explain: "'Detailed reasoning' awards all the marks for the visible analytical method; a bare calculator answer scores 0 even when correct." }
+        },
+        {
+            title: "How do you sanity-check and manage time?",
+            tag: "Exam skill",
+            content: `<p>The last habits that separate a B from an A on the big questions:</p>
+            <ul>
+              <li><strong>Check against the context.</strong> A length or an area cannot be negative; an angle in a triangle must be under \\( 180^\\circ \\); a probability lies in \\( [0,\\ 1] \\). If your answer breaks the context, you have slipped a sign.</li>
+              <li><strong>Use symmetry.</strong> A symmetric figure (like a roof about its centre line) lets you work one half and <strong>double</strong> — faster and less error-prone.</li>
+              <li><strong>Re-read the command word before you box the answer.</strong> "Exact" means surd/fraction, not a decimal; "coordinates" means a pair \\( (x,\\ y) \\), not just \\( x \\).</li>
+              <li><strong>Budget time by marks:</strong> roughly \\( 1.2 \\) minutes per mark (\\( 100 \\) marks in \\( 120 \\) minutes). A 13-mark question deserves about \\( 15 \\) minutes — do not sink 30 into it and starve the rest.</li>
+            </ul>
+            <p>If a big question stalls, secure the parts you can, move on, and return with time in hand — a half-finished extended-response question still banks its method marks.</p>`,
+            readCheck: { q: "About how long should you spend on a 13-mark question?", opts: ["Around 15 minutes (≈1.2 min per mark)", "The whole paper", "Exactly 13 minutes then stop", "Under 5 minutes"], ans: 0, explain: "At ≈1.2 minutes per mark (100 marks in 120 minutes), 13 marks is about 15–16 minutes — enough to work carefully without starving the rest." }
+        },
+        {
+            title: "Which cross-topic mistakes cost the most marks?",
+            tag: "Common error",
+            content: `<p>Examiner reports flag the same synoptic slips year after year:</p>
+            <ul>
+              <li><strong>Missing the "Hence" link</strong> — restarting a part from scratch (e.g. reaching for the quadratic formula when the completed-square form is already there), wasting time and risking errors.</li>
+              <li><strong>Confusing the gradient function with the tangent.</strong> \\( \\frac{dy}{dx} \\) is <em>not</em> the equation of the tangent — you must substitute the point's \\( x \\)-value to get the numerical gradient, then use \\( y - y_1 = m(x - x_1) \\).</li>
+              <li><strong>Wrong limits in area-between-curves.</strong> Integrate between the <strong>intersection points</strong>, subtract "top minus bottom", and do <strong>not</strong> divide by 2 unless symmetry genuinely demands it.</li>
+              <li><strong>Forgetting to double (or wrongly doubling)</strong> when a figure is symmetric.</li>
+              <li><strong>Giving up on the unstructured question</strong> — leaving it blank instead of writing the one equation that earns the method mark.</li>
+            </ul>
+            <p>Almost all of these are <em>recognition</em> failures, not arithmetic — which is exactly what these questions are designed to test.</p>`,
+            readCheck: { q: "To find the area between two curves, you integrate between:", opts: ["Their points of intersection, taking top minus bottom", "x = 0 and x = 1 always", "The turning points of each curve", "The y-intercepts"], ans: 0, explain: "The region is bounded by where the curves meet, so the limits are the intersection x-values, and the integrand is the upper curve minus the lower." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "A question gives a curve, asks for the tangent at a point, then the area it traps. Which areas does it combine?", opts: ["Coordinate geometry, differentiation and integration", "Only integration", "Trigonometry and logarithms", "Only coordinate geometry"], ans: 0, explain: "Finding a point is coordinate geometry, the tangent needs differentiation, and the trapped area needs integration — a classic three-topic synoptic question." },
+        { q: "'The line \\( y = 2x + k \\) is a tangent to the circle.' What technique turns this into an equation for \\( k \\)?", opts: ["Substitute the line into the circle and set the discriminant to 0", "Differentiate the circle", "Integrate the line", "Complete the square on the line"], ans: 0, explain: "A tangent meets the circle once, so the resulting quadratic has one repeated root: discriminant \\( b^2 - 4ac = 0 \\). This links coordinate geometry to the discriminant." },
+        { q: "In a multi-part question, part (b) begins 'Hence...'. Your first move should be to:", opts: ["Use your answer from part (a)", "Ignore part (a) and start fresh", "Skip to part (c)", "Convert everything to decimals"], ans: 0, explain: "'Hence' is an instruction to build on the previous result — the examiner is telling you which method to use." },
+        { q: "An unstructured question says 'The cubic has a root \\( x = 2 \\)'. The most useful first line is:", opts: ["\\( \\text{f}(2) = 0 \\)", "\\( \\text{f}'(2) = 0 \\)", "\\( \\int \\text{f}(x)\\,dx = 2 \\)", "\\( \\text{f}(2) = 2 \\)"], ans: 0, explain: "A root means the function is zero there: \\( \\text{f}(2) = 0 \\). Translating the sentence into that equation earns the first mark." },
+        { q: "To find the area between two curves that cross at \\( x = 2 \\) and \\( x = 6 \\), you evaluate:", opts: ["\\( \\int_2^6 (\\text{upper} - \\text{lower})\\,dx \\)", "\\( \\int_0^8 (\\text{upper} - \\text{lower})\\,dx \\)", "\\( \\tfrac12\\int_2^6 (\\text{upper} - \\text{lower})\\,dx \\)", "\\( \\int_2^6 \\text{upper}\\,dx \\) only"], ans: 0, explain: "Limits are the intersection points; integrate the difference (upper minus lower). No halving — that is a common error flagged by examiners." },
+        { q: "A symmetric roof has its apex on the \\( y \\)-axis. The quickest way to find the whole enclosed area is to:", opts: ["Find one half and double it", "Integrate from the far left to the far right in one go always", "Find a quarter and multiply by three", "Guess from the diagram"], ans: 0, explain: "Symmetry about the \\( y \\)-axis means the two halves are equal — compute one half (e.g. \\( x = 0 \\) to \\( 6 \\)) and multiply by 2." },
+        { q: "You have \\( \\frac{dy}{dx} = -2x \\) and want the tangent at \\( (3, 0) \\). The gradient of the tangent is:", opts: ["\\( -6 \\)", "\\( -2x \\)", "\\( 3 \\)", "\\( 0 \\)"], ans: 0, explain: "Substitute \\( x = 3 \\): gradient \\( = -2(3) = -6 \\). The derivative is only the gradient function; you must evaluate it at the point." },
+        { q: "Which is the safest way to manage a 13-mark question in a 100-mark, 2-hour paper?", opts: ["Spend about 15 minutes, banking method marks part by part", "Spend an hour to get it perfect", "Skip it entirely", "Do only the final part"], ans: 0, explain: "At ≈1.2 min/mark, 13 marks ≈ 15 minutes. Working part by part secures method marks even if you cannot finish." },
+        { q: "A candidate finds \\( D \\) has \\( y = 4 \\) and writes the answer as \\( (4, 0) \\). This loses a mark because:", opts: ["The coordinate pair is written the wrong way round / with the wrong values", "\\( y = 4 \\) is wrong", "Decimals are not allowed", "Coordinates should be a single number"], ans: 0, explain: "\\( D \\) is on the \\( y \\)-axis at height 4, so it is \\( (0, 4) \\), not \\( (4, 0) \\). Reading the command word 'coordinates' carefully avoids this." },
+        { q: "An 'exact area' answer of \\( \\frac{64}{3} \\) is written by a candidate as \\( 21.3 \\). What happens?", opts: ["It may lose the mark if the question demanded an exact form", "It always earns full marks", "It earns more marks for being simpler", "It is never accepted in any question"], ans: 0, explain: "Where a question asks for an exact value, a rounded decimal alone is not exact. If in doubt, give the fraction/surd and the decimal together." },
+        { q: "Which pairing is a genuinely synoptic combination seen in real 6993 papers?", opts: ["Curve sketching + calculus + area between curves", "Only completing the square", "Only reading a value off a calculator", "Only naming a shape"], ans: 0, explain: "OCR June 2019 Q12 combines exactly these: show a maximum, sketch, find intersections, then the area between two curves." },
+        { q: "You cannot finish part (b), which found a length. Part (c) needs that length. The best strategy is:", opts: ["Use a sensible assumed value and continue — ft marks are available", "Leave part (c) blank", "Copy part (a)'s answer", "Rub out all your working"], ans: 0, explain: "Mark schemes award follow-through (ft) marks for correct method applied to a wrong earlier value, so always continue." }
+    ];
+
+    const matchData = [
+        { term: "Curve + tangent + trapped area", def: "Coordinate geometry, differentiation and integration" },
+        { term: "Line is a tangent to a circle", def: "Substitute, then discriminant = 0" },
+        { term: "'A root is \\( x = 2 \\)'", def: "Set \\( \\text{f}(2) = 0 \\)" },
+        { term: "Area between two curves", def: "Integrate (upper − lower) between intersections" },
+        { term: "Symmetric figure about the \\( y \\)-axis", def: "Work one half, then double" },
+        { term: "'Hence' at the start of a part", def: "Use the result of the previous part" },
+        { term: "'In this question you must show detailed reasoning'", def: "Full method shown; calculator-only scores 0" },
+        { term: "'Exact' answer required", def: "Leave as a surd or fraction, not a decimal" },
+        { term: "'Find the coordinates of D'", def: "Give an ordered pair \\( (x,\\ y) \\)" },
+        { term: "Turning point of a curve", def: "Solve \\( \\frac{dy}{dx} = 0 \\)" },
+        { term: "Nature of a stationary point", def: "Sign of \\( \\frac{d^2y}{dx^2} \\) (or gradient either side)" },
+        { term: "Time budget on a 13-mark question", def: "About 15 minutes (≈1.2 min per mark)" },
+        { term: "Follow-through (ft) mark", def: "Correct method on a wrong earlier answer still scores" },
+        { term: "Sanity check on an area", def: "It must be positive" }
+    ];
+
+    // FIB blanks sit in PLAIN TEXT, never inside \( \) (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b).
+    const fibData = [
+        { display: "A question that combines two or more areas of the specification is described as ___B1___.", blanks: { B1: "synoptic" } },
+        { display: "A problem-solving question given with little or no scaffolding is described as ___B1___.", blanks: { B1: "unstructured" } },
+        { display: "The command word ___B1___ instructs you to use the result of the previous part rather than start again.", blanks: { B1: "hence" } },
+        { display: "To find the area between two curves you integrate the ___B1___ curve minus the lower curve, between their points of ___B2___.", blanks: { B1: "upper", B2: "intersection" } },
+        { display: "The derivative \\( \\frac{dy}{dx} \\) gives the ___B1___ function; to get the gradient of a tangent you must ___B2___ the point's x-value.", blanks: { B1: "gradient", B2: "substitute" } },
+        { display: "A mark awarded for a correct method applied to a wrong earlier answer is called a ___B1___ mark.", blanks: { B1: "follow-through" } },
+        { display: "Because 100 marks are worth 120 minutes, you should budget roughly ___B1___ minutes per mark.", blanks: { B1: "1.2" } },
+        { display: "When a figure is symmetric about the y-axis you can find one ___B1___ of the area and then ___B2___ it.", blanks: { B1: "half", B2: "double" } }
+    ];
+
+    const fibWords = ["synoptic", "unstructured", "hence", "upper", "intersection", "gradient", "substitute", "follow-through", "1.2", "half", "double", "lower", "exact", "tangent"];
+
+    const tfData = [
+        { statement: "Synoptic questions test brand-new content that is not on the specification.", answer: false, explanation: "They introduce no new content — the challenge is recognising and combining techniques you already know." },
+        { statement: "Every 6993 paper contains at least one unstructured problem-solving question.", answer: true, explanation: "The spec guarantees at least one, plus several synoptic questions and 3–4 'detailed reasoning' questions." },
+        { statement: "'Hence' means you may ignore the previous part and use any method you like.", answer: false, explanation: "'Hence' binds you to use the previous result — it tells you the expected method and saves work." },
+        { statement: "\\( \\frac{dy}{dx} \\) by itself is the equation of the tangent.", answer: false, explanation: "It is the gradient function; substitute the point's x-value to get the numerical gradient, then use \\( y - y_1 = m(x - x_1) \\)." },
+        { statement: "To find the area between two curves you integrate between their points of intersection.", answer: true, explanation: "The region is bounded where the curves meet, so the intersection x-values are the limits; integrate upper minus lower." },
+        { statement: "On a 'detailed reasoning' question, a correct calculator answer with no working still earns full marks.", answer: false, explanation: "Detailed reasoning awards the marks for the visible analytical method; a bare answer scores 0 even when correct." },
+        { statement: "If you cannot finish an early part, it is always best to leave the rest of the question blank.", answer: false, explanation: "Use a sensible assumed value and continue — follow-through marks reward correct method on a wrong earlier answer." },
+        { statement: "For a figure symmetric about the y-axis, finding one half of the area and doubling is a valid method.", answer: true, explanation: "Symmetry makes the halves equal, so computing one half and multiplying by 2 is quicker and less error-prone." }
+    ];
+
+    const miscData = [
+        { wrong: "Seeing 'Hence solve', a candidate restarts with the quadratic formula.", correct: "'Hence' means reuse the previous result. A weak answer restarts and risks fresh errors; a strong answer builds straight on part (a), saving time and marks (a repeated examiner-report complaint).", readCheck: { q: "'Hence solve f(x) = 0' after completing the square tells you to:", opts: ["Use your completed-square form", "Use the quadratic formula from scratch", "Factorise by trial", "Sketch the graph"], ans: 0, explain: "'Hence' directs you to the result you already have — the completed-square form." } },
+        { wrong: "For a tangent, a candidate writes the answer as \\( \\frac{dy}{dx} = -2x \\).", correct: "The derivative is only the gradient function. A strong answer substitutes the point (e.g. \\( x = -6 \\)) to get the numerical gradient, then forms \\( y - y_1 = m(x - x_1) \\). Examiners note many stop at \\( \\frac{dy}{dx} \\).", readCheck: { q: "After differentiating, the next step for a tangent is to:", opts: ["Substitute the point's x-value for the gradient", "Integrate the derivative", "Set the derivative equal to y", "Stop — the derivative is the tangent"], ans: 0, explain: "Evaluate \\( \\frac{dy}{dx} \\) at the point to get the gradient, then build the line equation." } },
+        { wrong: "For an area between two curves, a candidate integrates and then divides the result by 2.", correct: "Do not halve unless symmetry genuinely requires it. A weak answer divides by 2 out of habit; a strong answer integrates 'upper − lower' between the intersection points with no extra factor (a specific 2019 examiner-report error).", readCheck: { q: "When is it correct to double (not halve) an area?", opts: ["When the figure is symmetric and you computed one half", "Always", "Never", "Only for circles"], ans: 0, explain: "Doubling is right when you used symmetry to compute one half; unnecessary halving loses the mark." } },
+        { wrong: "A candidate integrates a symmetric roof area from \\( -6 \\) to \\( 6 \\) but forgets the tangent line is only valid on one half.", correct: "Each tangent line only describes its own half of the roof. A strong answer integrates one half (e.g. \\( 0 \\) to \\( 6 \\)) with the correct line and doubles, or uses each tangent on its own side — flagged in the 2024 report as a cause of 'unreasonably large answers'.", readCheck: { q: "Why can't you use one tangent's equation across the whole symmetric roof?", opts: ["Each tangent is only valid on its own half", "Tangents have no equation", "The roof is not symmetric", "You must always integrate 0 to 12"], ans: 0, explain: "AD and BD are different lines; each is only valid on its side, so integrate one half and double." } },
+        { wrong: "Facing an unstructured question with no parts, a candidate leaves it blank.", correct: "Impose your own structure. A weak response gives up; a strong response translates the first sentence into an equation (e.g. \\( \\text{f}(2) = 0 \\)) — that alone often earns the first method mark.", readCheck: { q: "The best response to a hard unstructured question is to:", opts: ["Write the starting equation and attempt a method", "Leave it blank", "Only write the final answer", "Copy an earlier question"], ans: 0, explain: "Even the correct opening equation banks method marks; a blank scores nothing." } },
+        { wrong: "A candidate finds a coordinate's height \\( y = 4 \\) and writes the point as \\( (4, 0) \\).", correct: "Read the command word 'coordinates'. A strong answer gives the pair in the right order — a point on the y-axis at height 4 is \\( (0, 4) \\). The 2024 report noted candidates who found \\( y = 4 \\) but mis-stated the pair.", readCheck: { q: "A point on the y-axis at height 4 has coordinates:", opts: ["\\( (0, 4) \\)", "\\( (4, 0) \\)", "\\( 4 \\)", "\\( (4, 4) \\)"], ans: 0, explain: "On the y-axis \\( x = 0 \\), so the point is \\( (0, 4) \\)." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "The decompose-a-big-question ladder", pills: ["synoptic", "extended response", "method marks"], content: `<p><strong>0 marks:</strong> stare at a 13-mark roof question, see "roof" and "area", panic, write nothing.</p>
+        <p><strong>Partial:</strong> find the points A, B, C (coordinate geometry), then stop — still banks the opening marks.</p>
+        <p><strong>Full marks:</strong> name each topic, do the parts in order — points → tangent → apex → area — reusing each result in the next, using symmetry, and checking the area is positive. Each technique is one you already know; the skill is joining them.</p>`, readCheck: { q: "The key skill in a synoptic question is:", opts: ["Recognising and joining techniques you already know", "Learning new content on the spot", "Working faster than everyone else", "Avoiding all diagrams"], ans: 0, explain: "No new content appears; you identify which known techniques the question spans and chain them together." } },
+        { type: "tip", title: "Make 'Hence' and follow-through work for you", pills: ["hence", "ft", "no restart"], content: `<p>When a part says "<em>Hence</em>", reach for your previous answer, not a fresh method — restarting wastes minutes and invites errors. And if an early part defeats you, carry a sensible value forward: examiners award <strong>follow-through</strong> marks for correct method on a wrong number, so a stuck part need not sink the whole question.</p>`, readCheck: { q: "You got part (a) wrong but part (b) needs it. You should:", opts: ["Carry a value forward and keep going for ft marks", "Give up on part (b)", "Guess the final answer only", "Erase part (a)"], ans: 0, explain: "Follow-through marks reward correct method on a wrong earlier answer, so always continue." } },
+        { type: "explain", title: "Command words and checks that save marks", pills: ["exact", "coordinates", "units", "sanity check"], content: `<p>Before boxing an answer, re-read the command word. <strong>"Exact"</strong> → leave the surd/fraction (\\( \\frac{64}{3} \\), not \\( 21.3 \\)); <strong>"coordinates"</strong> → a pair \\( (x,\\ y) \\) in the right order; a length or area → must be <strong>positive</strong>; a context with metres → give <strong>units</strong>. These are free marks that tired candidates throw away.</p>`, readCheck: { q: "A question asks for an exact area. Which answer is safest?", opts: ["\\( \\frac{64}{3} \\) (optionally with the decimal)", "\\( 21.3 \\) only", "\\( 21 \\) only", "about 21"], ans: 0, explain: "'Exact' needs the fraction or surd; adding the decimal is harmless but the exact form earns the mark." } }
+    ];
+
+    const flashcards = [
+        { term: "Synoptic question", def: "One combining two or more specification areas in a single problem." },
+        { term: "Unstructured question", def: "A problem with little or no scaffolding; you choose the strategy." },
+        { term: "Extended response", def: "A 10–13 mark multi-part closer built from a real context." },
+        { term: "'Hence'", def: "Use the result of the previous part; do not restart." },
+        { term: "Follow-through (ft)", def: "Marks for correct method applied to a wrong earlier answer." },
+        { term: "Detailed reasoning", def: "Full analytical method must be shown; calculator-only scores 0." },
+        { term: "Area between two curves", def: "Integrate (upper − lower) between the intersection points." },
+        { term: "Tangent from a derivative", def: "Substitute the point's x into \\( \\frac{dy}{dx} \\) for the gradient, then \\( y - y_1 = m(x - x_1) \\)." },
+        { term: "Line tangent to a circle", def: "Substitute the line in; the discriminant equals 0." },
+        { term: "Using symmetry", def: "Compute one half of a symmetric area, then double." },
+        { term: "'Root x = a'", def: "Translates to \\( \\text{f}(a) = 0 \\)." },
+        { term: "Stationary point", def: "Where \\( \\frac{dy}{dx} = 0 \\); nature from \\( \\frac{d^2y}{dx^2} \\) or a sign test." },
+        { term: "Time budget", def: "≈1.2 minutes per mark (100 marks, 120 minutes)." },
+        { term: "'Exact' answer", def: "Left as a surd or fraction, never just a decimal." },
+        { term: "Coordinate answer", def: "An ordered pair \\( (x,\\ y) \\), not a single value." },
+        { term: "Sanity check", def: "A length, area or probability must fall in its natural range." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "15 (a) · June 2024",
+            marks: 3,
+            type: "written",
+            caseId: "q15-2024",
+            question: `<p>Find the coordinates of the points A, C and B.</p>`,
+            hint: "A and B are where the curve meets the \\( x \\)-axis (\\( y = 0 \\)); C is where it meets the \\( y \\)-axis (\\( x = 0 \\)).",
+            starter: "Give each answer as a coordinate pair \\( (x,\\ y) \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1) · DR</h5><ul>
+              <li><strong>B1</strong> — \\( A(-6,\\ 0) \\) (must be a coordinate pair).</li>
+              <li><strong>B1</strong> — \\( B(6,\\ 0) \\) (must be a coordinate pair).</li>
+              <li><strong>B1</strong> — \\( C(0,\\ 2) \\) (must be a coordinate pair).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>A and B come from solving \\( 2 - \\tfrac{1}{18}x^2 = 0 \\Rightarrow x^2 = 36 \\Rightarrow x = \\pm 6 \\).</li>
+              <li>C comes from substituting \\( x = 0 \\) into the curve. Coordinate pairs given on the figure are accepted.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Generally well done; the only errors were in failing to solve the quadratic correctly. Almost all found C correctly by substituting \\( x = 0 \\).</li>
+            </ul></div>`,
+            modelAnswer: "At \\( y = 0 \\): \\( 2 - \\tfrac{1}{18}x^2 = 0 \\Rightarrow x^2 = 36 \\Rightarrow x = \\pm 6 \\), so \\( A(-6,\\ 0) \\) and \\( B(6,\\ 0) \\). At \\( x = 0 \\): \\( y = 2 \\), so \\( C(0,\\ 2) \\).",
+            markPoints: { note: "One mark per correct coordinate pair.", groups: [
+                { label: "B1 — point A", max: 1, points: ["\\( A(-6,\\ 0) \\) as a coordinate pair"] },
+                { label: "B1 — point B", max: 1, points: ["\\( B(6,\\ 0) \\) as a coordinate pair"] },
+                { label: "B1 — point C", max: 1, points: ["\\( C(0,\\ 2) \\) as a coordinate pair"] }
+            ] }
+        },
+        {
+            num: "15 (b) · June 2024",
+            marks: 4,
+            type: "written",
+            caseId: "q15-2024",
+            question: `<p>Find the equation of the line AD.</p>`,
+            hint: "AD is the tangent at A. Differentiate the curve, put in \\( x = -6 \\) for the gradient, then use the point A.",
+            starter: "Give the equation of the tangent (any correct rearrangement is fine).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1) · DR</h5><ul>
+              <li><strong>M1</strong> — attempt to differentiate: \\( \\frac{dy}{dx} = -\\tfrac{1}{9}x \\).</li>
+              <li><strong>A1</strong> — correct gradient at A: at \\( (-6,\\ 0) \\), \\( \\frac{dy}{dx} = \\tfrac{2}{3} \\).</li>
+              <li><strong>A1</strong> — correct method to form the tangent using the coordinates of A.</li>
+              <li><strong>A1</strong> — a correct 3-term equation, e.g. \\( 3y = 2x + 12 \\) (oe).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Differentiating earns M1; substituting \\( x = -6 \\) for the true gradient earns the first A1; the last A1 is for a correctly arranged equation of the line.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most differentiated successfully, but some treated \\( \\frac{dy}{dx} \\) itself as the start of the tangent equation rather than substituting \\( x = -6 \\) for the gradient. A few guessed D by assuming \\( OC = CD \\); this was not credited.</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\frac{dy}{dx} = -\\tfrac{1}{9}x \\); at A \\( (x = -6) \\) the gradient is \\( -\\tfrac{1}{9}(-6) = \\tfrac{2}{3} \\). Tangent through \\( (-6,\\ 0) \\): \\( y - 0 = \\tfrac{2}{3}(x + 6) \\), i.e. \\( 3y = 2x + 12 \\).",
+            markPoints: { note: "Method for the tangent; final equation must be a correct 3-term line.", groups: [
+                { label: "M1 — differentiate", max: 1, points: ["\\( \\frac{dy}{dx} = -\\tfrac{1}{9}x \\) (attempt to differentiate)"] },
+                { label: "A1 — gradient at A", max: 1, points: ["Substituted \\( x = -6 \\) to get gradient \\( \\tfrac{2}{3} \\)"] },
+                { label: "A1 — tangent method", max: 1, points: ["Used A's coordinates with the gradient to form the line"] },
+                { label: "A1 — final equation", max: 1, points: ["\\( 3y = 2x + 12 \\) (oe correct 3-term equation)"] }
+            ] }
+        },
+        {
+            num: "15 (c) · June 2024",
+            marks: 1,
+            type: "written",
+            caseId: "q15-2024",
+            question: `<p>Find the coordinates of the point D.</p>`,
+            hint: "D is on the \\( y \\)-axis, so put \\( x = 0 \\) into your tangent from part (b).",
+            starter: "Give the answer as a coordinate pair \\( (x,\\ y) \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>
+              <li><strong>B1</strong> — \\( D(0,\\ 4) \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Put \\( x = 0 \\) into \\( 3y = 2x + 12 \\Rightarrow 3y = 12 \\Rightarrow y = 4 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Straightforward for those with a correct equation in (b). A small number found \\( y = 4 \\) but wrote the answer as \\( (4,\\ 0) \\).</li>
+            </ul></div>`,
+            modelAnswer: "On the \\( y \\)-axis \\( x = 0 \\): \\( 3y = 2(0) + 12 \\Rightarrow y = 4 \\). So \\( D(0,\\ 4) \\).",
+            markPoints: { note: "One mark for the correct coordinate pair.", groups: [
+                { label: "B1 — point D", max: 1, points: ["\\( D(0,\\ 4) \\) (pair in the correct order)"] }
+            ] }
+        },
+        {
+            num: "15 (d) · June 2024",
+            marks: 5,
+            type: "written",
+            caseId: "q15-2024",
+            question: `<p>Find the cross-sectional area of the space between the roof and the ceiling.</p>`,
+            hint: "Use symmetry: work the right half. Area of triangle ODB minus area under the curve from \\( 0 \\) to \\( 6 \\), then double.",
+            starter: "Show the integrated function (DR), then give the area in \\( \\text{m}^2 \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO1/AO3) · DR</h5><ul>
+              <li><strong>M1</strong> — attempt to integrate the correct equation (ignore limits). <em>DR means the integrated function must be seen.</em></li>
+              <li><strong>A1</strong> — correct integration: \\( \\int \\left(2 - \\tfrac{1}{18}x^2\\right)dx = 2x - \\tfrac{x^3}{54} \\).</li>
+              <li><strong>A1</strong> — apply appropriate limits to obtain the area under the curve \\( = 8 \\) (for \\( 0 \\) to \\( 6 \\)).</li>
+              <li><strong>B1</strong> — area of triangle ODB \\( = \\tfrac12 \\times 6 \\times 4 = 12 \\).</li>
+              <li><strong>A1</strong> — total area \\( = 2(12 - 8) = 8 \\ \\text{m}^2 \\) (the \\( \\times 2 \\) may be seen anywhere).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Method: Area \\( = 2(\\text{triangle ODB} - \\text{area under curve, right half}) \\). The \\( \\times 2 \\) for symmetry is essential.</li>
+              <li>An alternative subtract-the-equations method (roof line \\( - \\) curve) also scores, but the tangent line is only valid on its own half.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most successful when finding the triangle by \\( \\tfrac12 bh \\) and the curve area separately. Weaker responses subtracted curve from line and made sign errors, or integrated \\( -6 \\) to \\( 6 \\) forgetting the line was valid on only one half, giving unreasonably large answers.</li>
+            </ul></div>`,
+            modelAnswer: "By symmetry work the right half and double. Triangle ODB \\( = \\tfrac12 \\times 6 \\times 4 = 12 \\). Area under the curve: \\( \\int_0^6 \\left(2 - \\tfrac{1}{18}x^2\\right)dx = \\left[2x - \\tfrac{x^3}{54}\\right]_0^6 = 12 - 4 = 8 \\). Half the space \\( = 12 - 8 = 4 \\); total \\( = 2 \\times 4 = 8 \\ \\text{m}^2 \\).",
+            markPoints: { note: "DR: the integrated function must be seen. Group maxes sum to 5.", groups: [
+                { label: "M1 — integrate", max: 1, points: ["Integrated the correct curve equation (integrated function seen)"] },
+                { label: "A1 — correct integration", max: 1, points: ["\\( 2x - \\tfrac{x^3}{54} \\)"] },
+                { label: "A1 — apply limits", max: 1, points: ["Area under curve (right half) \\( = 8 \\) using limits \\( 0 \\) to \\( 6 \\)"] },
+                { label: "B1 — triangle area", max: 1, points: ["Triangle ODB \\( = 12 \\)"] },
+                { label: "A1 — total area", max: 1, points: ["\\( 2(12 - 8) = 8 \\ \\text{m}^2 \\) (doubled for symmetry)"] }
+            ] }
+        },
+        {
+            num: "12 (a) · June 2019",
+            marks: 2,
+            type: "written",
+            caseId: "q12-2019",
+            question: `<p>Show that \\( k = -15 \\).</p>`,
+            hint: "Substitute the point \\( (5,\\ 10) \\) into \\( y = 10x - x^2 + k \\) and rearrange for \\( k \\).",
+            starter: "Show the substitution and conclude with the given result.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1) · AG</h5><ul>
+              <li><strong>M1</strong> — substitute \\( (5,\\ 10) \\): \\( 10 = 10(5) - 5^2 + k \\).</li>
+              <li><strong>A1</strong> — obtain \\( k = -15 \\) (or substitute \\( k = -15 \\) and show \\( (5,\\ 10) \\) is satisfied) — answer given, so working must be convincing.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Either derive \\( k \\) from the point, or verify \\( k = -15 \\) fits the point. The result is printed, so all credit is for the shown steps.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>An easy starter — almost all candidates earned full marks.</li>
+            </ul></div>`,
+            modelAnswer: "Substitute \\( (5,\\ 10) \\): \\( 10 = 10(5) - 5^2 + k = 50 - 25 + k = 25 + k \\), so \\( k = 10 - 25 = -15 \\), as required.",
+            markPoints: { note: "Answer given (AG) — working must be convincing.", groups: [
+                { label: "M1 — substitute", max: 1, points: ["Substituted \\( (5,\\ 10) \\) into the equation"] },
+                { label: "A1 — conclude", max: 1, points: ["Obtained \\( k = -15 \\) with convincing working"] }
+            ] }
+        },
+        {
+            num: "12 (b) · June 2019",
+            marks: 3,
+            type: "written",
+            caseId: "q12-2019",
+            question: `<p>Show that there is a maximum value at the point \\( (5,\\ 10) \\).</p>`,
+            hint: "Differentiate, set \\( \\frac{dy}{dx} = 0 \\) to locate \\( x = 5 \\), find \\( y = 10 \\), and confirm it is a maximum.",
+            starter: "Show the turning point is at (5, 10) AND that it is a maximum.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1) · AG</h5><ul>
+              <li><strong>M1</strong> — differentiate and set \\( = 0 \\): \\( \\frac{dy}{dx} = 10 - 2x = 0 \\Rightarrow x = 5 \\).</li>
+              <li><strong>A1</strong> — all powers reduced by 1 (correct derivative), leading to \\( x = 5,\\ y = 10 \\).</li>
+              <li><strong>A1</strong> — demonstration that it is a maximum, e.g. \\( \\frac{d^2y}{dx^2} = -2 < 0 \\), or gradient/values either side.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Stating \\( \\frac{d^2y}{dx^2} < 0 \\) alone is not enough — you must also show the turning point is at \\( (5,\\ 10) \\). Alternatives: completing the square, or symmetry of the quadratic with a pair of symmetric points.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>A significant number missed steps and earned few marks. The popular \\( \\frac{d^2y}{dx^2} < 0 \\) showed a maximum but neither that \\( x = 5 \\) nor that \\( y = 10 \\).</li>
+            </ul></div>`,
+            modelAnswer: "\\( y = 10x - x^2 - 15 \\), so \\( \\frac{dy}{dx} = 10 - 2x = 0 \\Rightarrow x = 5 \\), and \\( y = 50 - 25 - 15 = 10 \\), giving the point \\( (5,\\ 10) \\). Since \\( \\frac{d^2y}{dx^2} = -2 < 0 \\), it is a maximum.",
+            markPoints: { note: "Must show the location (5, 10) AND that it is a maximum.", groups: [
+                { label: "M1 — differentiate and set = 0", max: 1, points: ["\\( 10 - 2x = 0 \\Rightarrow x = 5 \\)"] },
+                { label: "A1 — locate the point", max: 1, points: ["Correct derivative and \\( y = 10 \\), giving \\( (5,\\ 10) \\)"] },
+                { label: "A1 — show it is a maximum", max: 1, points: ["\\( \\frac{d^2y}{dx^2} = -2 < 0 \\) (or a valid sign test)"] }
+            ] }
+        },
+        {
+            num: "12 (c) · June 2019",
+            marks: 2,
+            type: "written",
+            caseId: "q12-2019",
+            question: `<p>On the same grid, sketch the curve \\( C_1 \\). (Describe the shape and the key features you would draw.)</p>`,
+            hint: "\\( C_1 = 10x - x^2 - 15 \\) is an upside-down parabola with maximum \\( (5,\\ 10) \\); it must cross \\( C_2 \\) at two points.",
+            starter: "State the shape, the maximum, and that it meets C₂ twice.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>
+              <li><strong>B1</strong> — an upside-down (\\( \\cap \\)-shaped) parabola.</li>
+              <li><strong>B1</strong> — maximum at \\( (5,\\ 10) \\) and the curve meets the other curve \\( C_2 \\) at two points.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The sketch is marked on features, not accuracy: correct orientation, the maximum, and two intersections with \\( C_2 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Almost universally correct; some drew wayward ends or missed the correct intersection points.</li>
+            </ul></div>`,
+            modelAnswer: "\\( C_1 \\) is an \\( \\cap \\)-shaped (downward) parabola with maximum at \\( (5,\\ 10) \\), passing through the roots of \\( 10x - x^2 - 15 = 0 \\) and crossing \\( C_2 \\) at two points \\( (2,\\ 1) \\) and \\( (6,\\ 9) \\).",
+            markPoints: { note: "Feature-checklist marking.", groups: [
+                { label: "B1 — shape", max: 1, points: ["Upside-down parabola drawn"] },
+                { label: "B1 — key features", max: 1, points: ["Maximum \\( (5,\\ 10) \\) and two intersections with \\( C_2 \\)"] }
+            ] }
+        },
+        {
+            num: "12 (d) · June 2019",
+            marks: 2,
+            type: "written",
+            caseId: "q12-2019",
+            question: `<p>Find the coordinates of the points of intersection of the curves \\( C_1 \\) and \\( C_2 \\).</p>`,
+            hint: "Set \\( C_1 = C_2 \\): \\( 10x - x^2 - 15 = (x - 3)^2 \\), simplify to a quadratic and solve.",
+            starter: "Give both intersection points as coordinate pairs.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>B1</strong> — \\( (2,\\ 1) \\) (ft their graphs; an algebraic method is accepted).</li>
+              <li><strong>B1</strong> — \\( (6,\\ 9) \\) (ft their graphs).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Reading the points from a correct graph is acceptable, or solve algebraically: \\( 10x - x^2 - 15 = x^2 - 6x + 9 \\Rightarrow 2x^2 - 16x + 24 = 0 \\Rightarrow x = 2,\\ 6 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Little space was given, so reading the points from the graph was satisfactory.</li>
+            </ul></div>`,
+            modelAnswer: "\\( 10x - x^2 - 15 = (x - 3)^2 = x^2 - 6x + 9 \\Rightarrow 0 = 2x^2 - 16x + 24 \\Rightarrow x^2 - 8x + 12 = 0 \\Rightarrow (x - 2)(x - 6) = 0 \\). So \\( x = 2 \\) (\\( y = 1 \\)) and \\( x = 6 \\) (\\( y = 9 \\)): points \\( (2,\\ 1) \\) and \\( (6,\\ 9) \\).",
+            markPoints: { note: "One mark per correct intersection point.", groups: [
+                { label: "B1 — first point", max: 1, points: ["\\( (2,\\ 1) \\)"] },
+                { label: "B1 — second point", max: 1, points: ["\\( (6,\\ 9) \\)"] }
+            ] }
+        },
+        {
+            num: "12 (e) · June 2019",
+            marks: 5,
+            type: "written",
+            caseId: "q12-2019",
+            question: `<p>Find the area between the curves \\( C_1 \\) and \\( C_2 \\).</p>`,
+            hint: "Integrate (upper − lower) between the intersection points \\( x = 2 \\) and \\( x = 6 \\). Do not divide by 2.",
+            starter: "Show the difference of the curves, integrate, and give the area.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — difference of the curves: \\( C_1 - C_2 = (10x - x^2 - 15) - (x^2 - 6x + 9) = -2x^2 + 16x - 24 \\).</li>
+              <li><strong>A1</strong> — correct difference function.</li>
+              <li><strong>M1</strong> — integrate (dep): \\( \\int(-2x^2 + 16x - 24)dx = -\\tfrac{2x^3}{3} + 8x^2 - 24x \\) (ignore limits).</li>
+              <li><strong>M1</strong> — apply limits (dep) by substituting the intersections \\( 2 \\) and \\( 6 \\) and subtracting in the correct order.</li>
+              <li><strong>A1</strong> — area \\( = \\tfrac{64}{3} \\) (accept 3 s.f. or better; A0 if divided by 2).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Either subtract the equations then integrate, or find the area under each curve separately then subtract. A special case allows an answer with no working to score full marks (numerical integration on the calculator), since no 'command word' forbade it here.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Two valid routes. Common errors: equating the curves (so the integrand became zero), and dividing the final result by 2. Careful use of brackets in the first line avoids sign errors.</li>
+            </ul></div>`,
+            modelAnswer: "Between \\( x = 2 \\) and \\( x = 6 \\), \\( C_1 \\) is above \\( C_2 \\). \\( \\int_2^6 \\left[(10x - x^2 - 15) - (x^2 - 6x + 9)\\right]dx = \\int_2^6 (-2x^2 + 16x - 24)\\,dx = \\left[-\\tfrac{2x^3}{3} + 8x^2 - 24x\\right]_2^6 = 0 - \\left(-\\tfrac{64}{3}\\right) = \\tfrac{64}{3} \\approx 21.3 \\).",
+            markPoints: { note: "Group maxes sum to 5. A0 if the answer is divided by 2.", groups: [
+                { label: "M1 — difference of curves", max: 1, points: ["Formed \\( C_1 - C_2 \\)"] },
+                { label: "A1 — correct difference", max: 1, points: ["\\( -2x^2 + 16x - 24 \\)"] },
+                { label: "M1 — integrate", max: 1, points: ["\\( -\\tfrac{2x^3}{3} + 8x^2 - 24x \\) (dep)"] },
+                { label: "M1 — apply limits", max: 1, points: ["Substituted intersections 2 and 6, subtracted in correct order (dep)"] },
+                { label: "A1 — final area", max: 1, points: ["\\( \\tfrac{64}{3} \\) (not halved)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

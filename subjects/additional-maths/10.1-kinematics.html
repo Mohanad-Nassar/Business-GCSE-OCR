@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 10. Kinematics and Numerical Methods</div>
             <h1>10.1 Kinematics</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,16 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 10.1 Kinematics — placeholder, content not yet written
+    //  DATA: 10.1 Kinematics (CA14 differentiate/integrate w.r.t. time for variable
+    //  acceleration s,v,a; CA15 recognise when the constant-acceleration suvat formulae
+    //  apply; NM9 numerical methods in context — velocity from a displacement–time curve)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes DOUBLED
+    //  in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Both the calculus relations
+    //  (v=ds/dt, a=dv/dt=d²s/dt², s=∫v dt, v=∫a dt) AND the suvat set are PROVIDED on the
+    //  exam formula sheet (Appendix A). Guardrails: polynomials only, motion in a
+    //  straight line, always state units.
+    //  Exam Qs = 2019 Q14 (a)–(e), 12 marks (speed bumps: suvat + variable-acceleration
+    //  calculus + interpret) and 2022 Q2 (a)–(b), 4 marks (train past a platform, suvat).
     // ══════════════════════════════════════
     const pageMeta = {
             id: '10-1-kinematics',
@@ -266,23 +275,367 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimuli for the exam parts (see examQuestions). No questions are relocated
+    // off this page: 2019 Q14 and 2022 Q2 are the only kinematics questions in the pooled
+    // current-spec papers and both live here in full.
+    const EXAM_CASE_STUDIES = {
+        "q14-2019": `<p>Speed bumps are designed to encourage drivers to drive slowly. On a particular road, the bumps put onto the road are designed to give minimum discomfort and damage at a speed of 9 m s⁻¹.</p>
+        <p>Paul is driving along the road at a speed of 14 m s⁻¹ when he sees the warning sign; he is 50 m before the first bump. He immediately slows down with uniform deceleration so that when he reaches the first bump he is travelling at a speed of 9 m s⁻¹.</p>
+        <p>Immediately after the bump he accelerates such that at \\( t \\) seconds after leaving the bump his speed, \\( v \\) m s⁻¹, is given by \\[ v = \\frac{1}{100}\\left(15t^2 - t^3\\right) + 9. \\]</p>`,
+        "q2-2022": `<p>A passenger train is 175 m long and is stationary in a station. As it leaves the station it accelerates with uniform acceleration. When the front of the train reaches the end of the platform it is travelling at a speed of 3 m s⁻¹, and when the rear of the train reaches the end of the platform it is travelling at a speed of 18 m s⁻¹.</p>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>10.1 Kinematics</strong> will appear here soon.</p>`
+            title: "What do displacement, velocity and acceleration mean, and how are they linked?",
+            tag: "Key concept",
+            content: `<p><strong>Kinematics</strong> is the study of motion. In this course a particle always moves in a <strong>straight line</strong>, and three quantities describe it:</p>
+            <ul>
+              <li><strong>Displacement</strong> \\( s \\) — its position measured from a fixed point, in metres (m). Displacement has a <em>direction</em>, so it can be negative.</li>
+              <li><strong>Velocity</strong> \\( v \\) — the rate of change of displacement, in m s⁻¹. A negative velocity means moving in the negative direction.</li>
+              <li><strong>Acceleration</strong> \\( a \\) — the rate of change of velocity, in m s⁻². A negative acceleration is a <strong>deceleration</strong> (slowing down).</li>
+            </ul>
+            <p>They are linked by <strong>calculus</strong>. Going <em>down</em> the chain you differentiate; going <em>up</em> you integrate:</p>
+            <p>\\[ v = \\frac{ds}{dt}, \\qquad a = \\frac{dv}{dt} = \\frac{d^2s}{dt^2}, \\qquad v = \\int a\\,dt, \\qquad s = \\int v\\,dt. \\]</p>
+            <p>These four relations are <strong>PROVIDED</strong> on the exam formula sheet — you do not need to memorise them, but you must know how to use them. <strong>Always give units</strong> with every answer.</p>`,
+            readCheck: { q: "Which quantity is equal to \\( \\frac{ds}{dt} \\)?", opts: ["Velocity", "Acceleration", "Displacement", "Distance per bump"], ans: 0, explain: "Velocity is the rate of change of displacement, so \\( v = \\frac{ds}{dt} \\). Differentiating velocity again gives acceleration." }
+        },
+        {
+            title: "How do you go from displacement to velocity to acceleration?",
+            tag: "Worked example",
+            content: `<p>Given displacement as a function of time, <strong>differentiate to get velocity, then differentiate again to get acceleration</strong>. Use the ordinary rule for \\( x^n \\): multiply by the power, reduce the power by 1.</p>
+            <p><strong>Worked example — a particle has \\( s = t^3 - 6t^2 + 9t \\) metres at time \\( t \\) seconds:</strong></p>
+            <table class="worked">
+              <tr><td>1. Differentiate for velocity: \\( v = \\dfrac{ds}{dt} = 3t^2 - 12t + 9 \\) m s⁻¹.</td></tr>
+              <tr><td>2. Differentiate again for acceleration: \\( a = \\dfrac{dv}{dt} = 6t - 12 \\) m s⁻².</td></tr>
+              <tr><td>3. At \\( t = 4 \\): \\( v = 48 - 48 + 9 = 9 \\) m s⁻¹ and \\( a = 24 - 12 = 12 \\) m s⁻².</td></tr>
+            </table>
+            <p>Notice the constant term of \\( s \\) disappears on differentiating, and every unit changes as you go down the chain (m → m s⁻¹ → m s⁻²).</p>`,
+            readCheck: { q: "If \\( v = 3t^2 - 12t + 9 \\), find the acceleration when \\( t = 3 \\).", opts: ["6 m s⁻²", "0 m s⁻²", "18 m s⁻²", "9 m s⁻²"], ans: 0, explain: "\\( a = \\frac{dv}{dt} = 6t - 12 \\); at \\( t = 3 \\), \\( a = 18 - 12 = 6 \\) m s⁻²." }
+        },
+        {
+            title: "How do you go back from acceleration or velocity to displacement?",
+            tag: "Worked example",
+            content: `<p>Going <em>up</em> the chain you <strong>integrate</strong>. Every integration introduces a <strong>constant of integration</strong> \\( + c \\), and you find its value from an <strong>initial condition</strong> (a known velocity or displacement, usually at \\( t = 0 \\)). Forgetting the \\( + c \\) is the single most common error here.</p>
+            <p><strong>Worked example — a particle has acceleration \\( a = 10 - 2t \\) m s⁻², with velocity 3 m s⁻¹ and displacement 0 when \\( t = 0 \\). Find \\( v \\) and \\( s \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Integrate \\( a \\): \\( v = \\int (10 - 2t)\\,dt = 10t - t^2 + c \\).</td></tr>
+              <tr><td>2. Use \\( v = 3 \\) at \\( t = 0 \\): \\( 3 = 0 - 0 + c \\Rightarrow c = 3 \\), so \\( v = 10t - t^2 + 3 \\) m s⁻¹.</td></tr>
+              <tr><td>3. Integrate \\( v \\): \\( s = \\int (10t - t^2 + 3)\\,dt = 5t^2 - \\dfrac{t^3}{3} + 3t + k \\).</td></tr>
+              <tr><td>4. Use \\( s = 0 \\) at \\( t = 0 \\): \\( k = 0 \\), so \\( s = 5t^2 - \\dfrac{t^3}{3} + 3t \\) m.</td></tr>
+            </table>
+            <p>Sanity check: differentiate your \\( s \\) and you should get back the \\( v \\) you started with.</p>`,
+            readCheck: { q: "A particle has \\( a = 6t - 4 \\) and \\( v = 5 \\) when \\( t = 0 \\). Find \\( v \\).", opts: ["\\( 3t^2 - 4t + 5 \\)", "\\( 3t^2 - 4t \\)", "\\( 6 \\)", "\\( 3t^2 - 4t + c \\)"], ans: 0, explain: "\\( v = \\int (6t-4)\\,dt = 3t^2 - 4t + c \\); using \\( v = 5 \\) at \\( t = 0 \\) gives \\( c = 5 \\). You must evaluate the constant, not leave it as \\( c \\)." }
+        },
+        {
+            title: "How do you interpret motion — at rest, maximum velocity, maximum acceleration?",
+            tag: "Exam skill",
+            content: `<p>Many marks are for <strong>interpreting</strong> the calculus in context. The key facts:</p>
+            <ul>
+              <li>A particle is <strong>momentarily at rest</strong> when \\( v = 0 \\).</li>
+              <li>The <strong>velocity is a maximum (or minimum)</strong> when \\( a = \\dfrac{dv}{dt} = 0 \\) — velocity is stationary, so its rate of change is zero.</li>
+              <li>The <strong>acceleration is a maximum</strong> when \\( \\dfrac{da}{dt} = 0 \\) — a turning point of \\( a \\) itself. It is <em>not</em> where \\( a = 0 \\).</li>
+            </ul>
+            <p><strong>Worked example — a particle has \\( v = 12t - 3t^2 \\) m s⁻¹ for \\( t \\ge 0 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. At rest: \\( 12t - 3t^2 = 3t(4 - t) = 0 \\Rightarrow t = 0 \\) or \\( t = 4 \\) s.</td></tr>
+              <tr><td>2. Maximum velocity: \\( a = \\dfrac{dv}{dt} = 12 - 6t = 0 \\Rightarrow t = 2 \\) s.</td></tr>
+              <tr><td>3. That velocity is \\( v = 12(2) - 3(2)^2 = 24 - 12 = 12 \\) m s⁻¹.</td></tr>
+            </table>
+            <p>Because \\( a = 12 - 6t \\) is positive before \\( t = 2 \\) and negative after, the velocity really is a maximum there.</p>`,
+            readCheck: { q: "For \\( v = 15t - 3t^2 \\), at what time is the velocity a maximum?", opts: ["\\( t = 2.5 \\) s", "\\( t = 5 \\) s", "\\( t = 0 \\) s", "\\( t = 7.5 \\) s"], ans: 0, explain: "Maximum velocity is where \\( a = \\frac{dv}{dt} = 15 - 6t = 0 \\), giving \\( t = 2.5 \\) s. (\\( t = 5 \\) is where \\( v = 0 \\), i.e. at rest.)" }
+        },
+        {
+            title: "When can you use the suvat formulae instead of calculus?",
+            tag: "Method",
+            content: `<p>The <strong>suvat</strong> (constant-acceleration) formulae may be used <strong>only when the acceleration is constant</strong> (uniform). They are also <strong>PROVIDED</strong> on the formula sheet:</p>
+            <p>\\[ v = u + at, \\quad s = ut + \\tfrac{1}{2}at^2, \\quad s = \\tfrac{1}{2}(u+v)t, \\quad v^2 = u^2 + 2as, \\quad s = vt - \\tfrac{1}{2}at^2. \\]</p>
+            <ul>
+              <li>Here \\( u \\) is the <strong>initial</strong> velocity, \\( v \\) the <strong>final</strong> velocity, \\( a \\) the constant acceleration, \\( s \\) the displacement and \\( t \\) the time.</li>
+              <li><strong>How to spot which method:</strong> if a problem says "uniform / constant acceleration" (or "decelerates uniformly"), use suvat. If the velocity or acceleration is given as a <strong>function of \\( t \\)</strong> (e.g. \\( v = t^2 - 3t \\)), the acceleration <em>varies</em>, so suvat does not apply — you must differentiate or integrate.</li>
+            </ul>
+            <p><strong>Worked example (constant acceleration) — a train starts from rest and accelerates uniformly to 24 m s⁻¹ in 12 s:</strong> using \\( v = u + at \\) with \\( u = 0 \\): \\( 24 = 0 + a(12) \\Rightarrow a = 2 \\) m s⁻². The distance is \\( s = \\tfrac{1}{2}(u+v)t = \\tfrac{1}{2}(24)(12) = 144 \\) m.</p>`,
+            readCheck: { q: "In which situation can you use \\( v^2 = u^2 + 2as \\)?", opts: ["A body moving with constant acceleration", "A body whose velocity is \\( v = t^2 - 3t \\)", "A body whose acceleration is \\( a = 6t \\)", "Any moving body at all"], ans: 0, explain: "The suvat formulae need constant acceleration. If \\( v \\) or \\( a \\) is a function of \\( t \\), the acceleration varies, so you must use calculus." }
+        },
+        {
+            title: "How do you estimate velocity from a displacement–time graph? (numerical methods)",
+            tag: "Method",
+            content: `<p>Velocity is the <strong>gradient of the displacement–time curve</strong>. When you cannot (or need not) differentiate, you can <strong>estimate</strong> that gradient numerically using a <strong>chord</strong> between two nearby points — exactly the chord-to-tangent idea from differentiation:</p>
+            <p>\\[ v \\approx \\frac{s(t_2) - s(t_1)}{t_2 - t_1}. \\]</p>
+            <p>The <strong>smaller the interval</strong>, the closer the chord gradient gets to the true (tangent) velocity.</p>
+            <p><strong>Worked example — a runner's displacement \\( s \\) (m) is recorded near \\( t = 3 \\) s. Estimate the velocity at \\( t = 3 \\):</strong></p>
+            <table class="worked">
+              <tr><td>Given \\( s(3.0) = 12.00 \\), \\( s(3.2) = 13.44 \\): \\( v \\approx \\dfrac{13.44 - 12.00}{0.2} = 7.2 \\) m s⁻¹.</td></tr>
+              <tr><td>Using a smaller step \\( s(3.1) = 12.71 \\): \\( v \\approx \\dfrac{12.71 - 12.00}{0.1} = 7.1 \\) m s⁻¹.</td></tr>
+              <tr><td>The estimates are closing in on the true value, about \\( 7 \\) m s⁻¹.</td></tr>
+            </table>
+            <p>State the answer with its units and note that a smaller interval improves the estimate.</p>`,
+            readCheck: { q: "A displacement–time graph gives \\( s = 20 \\) m at \\( t = 4 \\) s and \\( s = 22.4 \\) m at \\( t = 4.4 \\) s. Estimate the velocity at \\( t = 4 \\).", opts: ["6 m s⁻¹", "2.4 m s⁻¹", "0.4 m s⁻¹", "9.6 m s⁻¹"], ans: 0, explain: "Chord gradient \\( = \\frac{22.4 - 20}{4.4 - 4} = \\frac{2.4}{0.4} = 6 \\) m s⁻¹." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "A particle has displacement \\( s = 2t^3 - 5t^2 \\). Find its velocity \\( v \\).", opts: ["\\( 6t^2 - 10t \\)", "\\( 6t^2 - 5t \\)", "\\( \\frac{t^4}{2} - \\frac{5t^3}{3} \\)", "\\( 12t - 10 \\)"], ans: 0, explain: "\\( v = \\frac{ds}{dt} = 6t^2 - 10t \\). The third option integrates instead of differentiating; the last differentiates twice (that would be the acceleration)." },
+        { q: "A particle has velocity \\( v = 4t^2 - 3 \\). Find its acceleration \\( a \\).", opts: ["\\( 8t \\)", "\\( 8t - 3 \\)", "\\( \\frac{4t^3}{3} - 3t \\)", "\\( 8 \\)"], ans: 0, explain: "\\( a = \\frac{dv}{dt} = 8t \\). The constant \\( -3 \\) differentiates to 0; the third option integrates by mistake." },
+        { q: "A particle has \\( a = 12t - 6 \\) and \\( v = 2 \\) when \\( t = 0 \\). Find \\( v \\).", opts: ["\\( 6t^2 - 6t + 2 \\)", "\\( 6t^2 - 6t \\)", "\\( 12 \\)", "\\( 6t^2 - 6t + c \\)"], ans: 0, explain: "\\( v = \\int (12t-6)\\,dt = 6t^2 - 6t + c \\); \\( v = 2 \\) at \\( t = 0 \\) gives \\( c = 2 \\). The second option forgets the constant; the last leaves it unevaluated." },
+        { q: "A particle is momentarily at rest when:", opts: ["\\( v = 0 \\)", "\\( a = 0 \\)", "\\( s = 0 \\)", "\\( \\frac{da}{dt} = 0 \\)"], ans: 0, explain: "At rest means the velocity is zero. \\( a = 0 \\) is where the velocity is a maximum or minimum, not where it is zero." },
+        { q: "The velocity of a particle is a maximum when:", opts: ["\\( a = \\frac{dv}{dt} = 0 \\)", "\\( v = 0 \\)", "\\( s = 0 \\)", "\\( t = 0 \\)"], ans: 0, explain: "Velocity is stationary (max or min) where its rate of change, the acceleration, is zero." },
+        { q: "A particle has velocity \\( v = 15t - 3t^2 \\). At what time is its velocity greatest?", opts: ["\\( t = 2.5 \\) s", "\\( t = 5 \\) s", "\\( t = 0 \\) s", "\\( t = 7.5 \\) s"], ans: 0, explain: "\\( a = 15 - 6t = 0 \\Rightarrow t = 2.5 \\) s. (\\( t = 5 \\) is when \\( v = 0 \\).)" },
+        { q: "The maximum acceleration of a particle whose acceleration is \\( a = \\frac{1}{100}(30t - 3t^2) \\) occurs when:", opts: ["\\( \\frac{da}{dt} = 0 \\)", "\\( a = 0 \\)", "\\( v = 0 \\)", "\\( t = 0 \\)"], ans: 0, explain: "Maximum acceleration is a turning point of \\( a \\), so set \\( \\frac{da}{dt} = 0 \\). Setting \\( a = 0 \\) finds where the acceleration vanishes, not where it is greatest." },
+        { q: "The suvat formula \\( s = ut + \\tfrac{1}{2}at^2 \\) may be used:", opts: ["Only when the acceleration is constant", "For any motion whatsoever", "Only when the particle starts from rest", "Only for the first second of motion"], ans: 0, explain: "The suvat formulae assume a constant (uniform) acceleration. If \\( a \\) varies with time you must use calculus." },
+        { q: "A car's velocity is \\( v = t^2 + 2t \\). A student uses \\( v = u + at \\) to find the velocity at \\( t = 3 \\). What is wrong?", opts: ["The acceleration \\( a = 2t + 2 \\) is not constant, so suvat cannot be used", "Nothing — the method is fine", "They should use \\( v^2 = u^2 + 2as \\) instead", "They forgot to add a constant of integration"], ans: 0, explain: "Here \\( a = \\frac{dv}{dt} = 2t + 2 \\), which changes with time. suvat needs constant acceleration, so this is invalid — just substitute \\( t = 3 \\) into \\( v \\) directly." },
+        { q: "A particle has velocity \\( v = 3t^2 \\) m s⁻¹. What distance does it travel between \\( t = 0 \\) and \\( t = 2 \\) s?", opts: ["8 m", "8 m s⁻¹", "12 m", "24 m"], ans: 0, explain: "Distance \\( = \\int_0^2 3t^2\\,dt = [t^3]_0^2 = 8 \\) m. The units are metres, not m s⁻¹; option 3 differentiates by mistake." },
+        { q: "Acceleration can be described as:", opts: ["The second derivative of displacement with respect to time", "The integral of velocity", "The first derivative of displacement", "Displacement divided by time"], ans: 0, explain: "\\( a = \\frac{dv}{dt} = \\frac{d^2s}{dt^2} \\): differentiate displacement twice. The first derivative of \\( s \\) is velocity." },
+        { q: "A body accelerates uniformly from rest at \\( 2 \\) m s⁻² for \\( 5 \\) s. Find its final velocity.", opts: ["10 m s⁻¹", "10 m", "25 m s⁻¹", "20 m s⁻¹"], ans: 0, explain: "Constant acceleration, so use \\( v = u + at = 0 + 2 \\times 5 = 10 \\) m s⁻¹. The units are m s⁻¹, not m." }
+    ];
+
+    const matchData = [
+        { term: "\\( v = \\frac{ds}{dt} \\)", def: "Differentiate displacement to get velocity" },
+        { term: "\\( a = \\frac{dv}{dt} \\)", def: "Differentiate velocity to get acceleration" },
+        { term: "\\( a = \\frac{d^2s}{dt^2} \\)", def: "Acceleration is the second derivative of displacement" },
+        { term: "\\( v = \\int a\\,dt \\)", def: "Integrate acceleration to get velocity" },
+        { term: "\\( s = \\int v\\,dt \\)", def: "Integrate velocity to get displacement" },
+        { term: "Particle momentarily at rest", def: "\\( v = 0 \\)" },
+        { term: "Velocity is a maximum or minimum", def: "\\( \\frac{dv}{dt} = 0 \\)" },
+        { term: "Acceleration is a maximum", def: "\\( \\frac{da}{dt} = 0 \\)" },
+        { term: "Acceleration is constant", def: "The suvat formulae may be used" },
+        { term: "Acceleration given as a function of \\( t \\)", def: "Use calculus, not suvat" },
+        { term: "\\( v^2 = u^2 + 2as \\)", def: "A suvat formula with no time in it" },
+        { term: "Constant of integration \\( + c \\)", def: "Found from an initial condition" }
+    ];
+
+    // FIB blanks sit in PLAIN TEXT only, never inside a \( \) region (ADDMATHS-CONTENT-PLAN
+    // §8.4 Rule 3b). Answer VALUES are plain words, never LaTeX.
+    const fibData = [
+        { display: "Velocity is the rate of change of ___B1___ with respect to time, so \\( v = \\frac{ds}{dt} \\).", blanks: { B1: "displacement" } },
+        { display: "To find acceleration from velocity you use ___B1___; to find it from displacement you differentiate ___B2___.", blanks: { B1: "differentiating", B2: "twice" } },
+        { display: "To recover velocity from acceleration you ___B1___, remembering to add a constant of ___B2___.", blanks: { B1: "integrate", B2: "integration" } },
+        { display: "The suvat formulae may only be used when the acceleration is ___B1___.", blanks: { B1: "constant" } },
+        { display: "A particle is momentarily at rest when its velocity equals ___B1___.", blanks: { B1: "zero" } },
+        { display: "The velocity of a particle is a maximum when its ___B1___ is zero.", blanks: { B1: "acceleration" } },
+        { display: "Acceleration is the second ___B1___ of displacement with respect to time.", blanks: { B1: "derivative" } }
+    ];
+
+    const fibWords = ["displacement", "velocity", "acceleration", "differentiating", "integrating", "twice", "once", "integrate", "differentiate", "integration", "constant", "variable", "zero", "derivative", "gradient"];
+
+    const tfData = [
+        { statement: "Velocity is the rate of change of displacement, \\( v = \\frac{ds}{dt} \\).", answer: true, explanation: "Yes — differentiate displacement to get velocity, and differentiate again for acceleration." },
+        { statement: "To find the acceleration from the velocity you integrate the velocity.", answer: false, explanation: "You differentiate: \\( a = \\frac{dv}{dt} \\). Integrating velocity gives displacement." },
+        { statement: "The suvat formulae can be used whenever an object is moving.", answer: false, explanation: "Only when the acceleration is constant. If \\( a \\) varies with time you must use calculus." },
+        { statement: "When you integrate acceleration to find velocity you must add a constant of integration.", answer: true, explanation: "Yes, and you then find its value from an initial condition such as the velocity at \\( t = 0 \\)." },
+        { statement: "A particle is momentarily at rest when its acceleration is zero.", answer: false, explanation: "At rest means \\( v = 0 \\). Zero acceleration is where the velocity is a maximum or minimum." },
+        { statement: "The kinematics calculus relations and the suvat set are both printed on the exam formula sheet.", answer: true, explanation: "Both are PROVIDED — but you still must know when and how to use each." },
+        { statement: "The velocity of a particle is a maximum where \\( \\frac{dv}{dt} = 0 \\).", answer: true, explanation: "Velocity is stationary where its rate of change (the acceleration) is zero." },
+        { statement: "If a particle's velocity is \\( v = 5t^2 - 2t \\), then its acceleration is constant.", answer: false, explanation: "\\( a = \\frac{dv}{dt} = 10t - 2 \\), which changes with time — the acceleration is variable, so suvat cannot be used." }
+    ];
+
+    const miscData = [
+        { wrong: "Using \\( v^2 = u^2 + 2as \\) to find a distance when the velocity is given by \\( v = \\frac{1}{100}(15t^2 - t^3) + 9 \\).", correct: "The suvat formulae only work for constant acceleration. Here \\( v \\) is a cubic in \\( t \\), so the acceleration varies — a weak answer plugs into suvat and scores nothing; a strong answer integrates: distance \\( = \\int v\\,dt \\).", readCheck: { q: "The velocity is \\( v = \\frac{1}{100}(15t^2 - t^3) + 9 \\). How do you find the distance travelled?", opts: ["Integrate \\( v \\) with respect to \\( t \\)", "Use \\( v^2 = u^2 + 2as \\)", "Use \\( s = ut + \\frac{1}{2}at^2 \\)", "Differentiate \\( v \\)"], ans: 0, explain: "Variable acceleration means suvat is invalid; distance is \\( \\int v\\,dt \\)." } },
+        { wrong: "Writing the maximum acceleration as \"0.75\" with nothing after it.", correct: "Every kinematics answer needs its units. A weak answer gives a bare number; a strong answer writes \\( 0.75 \\) m s⁻² — the units are part of the answer and a bare number can lose the mark.", readCheck: { q: "What are the correct units for an acceleration?", opts: ["m s⁻²", "m s⁻¹", "m", "s"], ans: 0, explain: "Acceleration is a change of velocity per second, so its units are m s⁻² (metres per second per second)." } },
+        { wrong: "Integrating \\( a = 6t - 4 \\) to get \\( v = 3t^2 - 4t \\) and stopping there.", correct: "Integration always introduces \\( + c \\). A weak answer omits it; a strong answer writes \\( v = 3t^2 - 4t + c \\) and then uses the initial condition (e.g. \\( v \\) at \\( t = 0 \\)) to find \\( c \\).", readCheck: { q: "After integrating acceleration to find velocity, what must you do next?", opts: ["Add \\( + c \\) and find it from an initial condition", "Divide by \\( t \\)", "Differentiate the result", "Nothing else"], ans: 0, explain: "The constant of integration must be added and then evaluated from a known velocity or displacement." } },
+        { wrong: "Finding the maximum acceleration by solving \\( a = 0 \\).", correct: "The maximum acceleration is a turning point of \\( a \\), so you set \\( \\frac{da}{dt} = 0 \\). A weak answer confuses \"maximum\" with \"zero\"; a strong answer differentiates \\( a \\) again (or completes the square) to locate the maximum.", readCheck: { q: "To find the maximum acceleration you should:", opts: ["Set \\( \\frac{da}{dt} = 0 \\)", "Set \\( a = 0 \\)", "Set \\( v = 0 \\)", "Set \\( s = 0 \\)"], ans: 0, explain: "Maximum acceleration is where the rate of change of acceleration is zero." } },
+        { wrong: "In a deceleration problem, interchanging the initial and final speeds \\( u \\) and \\( v \\).", correct: "\\( u \\) is the speed at the start, \\( v \\) the speed at the end. A weak answer swaps them; a strong answer substitutes carefully so that a deceleration comes out as a negative acceleration.", readCheck: { q: "A car slows from 14 m s⁻¹ to 9 m s⁻¹. In the suvat formulae, \\( u \\) is:", opts: ["14 m s⁻¹ (the initial speed)", "9 m s⁻¹ (the final speed)", "5 m s⁻¹ (the difference)", "either, it makes no difference"], ans: 0, explain: "\\( u \\) is the initial velocity (14), \\( v \\) the final velocity (9); swapping them gives the wrong sign for the acceleration." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "Read the acceleration: calculus or suvat?", pills: ["suvat", "calculus", "constant vs variable"], content: `<p><strong>Before you start, decide which toolkit applies.</strong> If the problem says the acceleration is constant/uniform (or "decelerates uniformly"), use the <strong>suvat</strong> formulae. If the velocity or acceleration is given as a <strong>function of \\( t \\)</strong>, the acceleration varies, so you must <strong>differentiate or integrate</strong>.</p><p>In the 2019 speed-bump question, part (a) is constant deceleration (suvat) but part (c) has a cubic velocity — examiners reported that candidates who reached for suvat on part (c) scored nothing.</p>`, readCheck: { q: "The velocity is \\( v = t^2 - 5t + 6 \\). Which method finds the acceleration?", opts: ["Differentiate \\( v \\)", "Use \\( v = u + at \\)", "Use \\( v^2 = u^2 + 2as \\)", "Integrate \\( v \\)"], ans: 0, explain: "Variable acceleration — differentiate: \\( a = 2t - 5 \\)." } },
+        { type: "tip", title: "Show your method and give units", pills: ["working", "units", "M marks"], content: `<p>Kinematics marks are split into method (M) and accuracy (A) marks.</p><p><strong>0 marks:</strong> a bare number such as "115" with no working.</p><p><strong>Partial:</strong> correct integration or suvat set-up shown, but no units or a slip in the arithmetic — the M mark is still earned.</p><p><strong>Full marks:</strong> method shown, correct value, and units stated, e.g. distance \\( = 115 \\) m or maximum acceleration \\( = 0.75 \\) m s⁻².</p>`, readCheck: { q: "Why write out the integration before the final number?", opts: ["To earn the method mark even if the arithmetic slips", "It is never necessary", "To use more of the answer space", "To avoid giving units"], ans: 0, explain: "Method (M) marks reward correct visible working, independent of the final value." } },
+        { type: "explain", title: "\"Maximum\" means a turning point", pills: ["maximum", "dv/dt = 0", "da/dt = 0"], content: `<p>To maximise a quantity, set the derivative of <em>that</em> quantity to zero. For a <strong>maximum velocity</strong>, set \\( a = \\frac{dv}{dt} = 0 \\). For a <strong>maximum acceleration</strong>, set \\( \\frac{da}{dt} = 0 \\) — differentiating the acceleration, not the velocity.</p><p>Then confirm it is a maximum (the derivative changes from positive to negative, or the second derivative is negative) and substitute back to state the value, with units.</p>`, readCheck: { q: "To find the maximum acceleration of a particle you set:", opts: ["\\( \\frac{da}{dt} = 0 \\)", "\\( a = 0 \\)", "\\( \\frac{dv}{dt} = 0 \\)", "\\( v = 0 \\)"], ans: 0, explain: "Maximum acceleration is a turning point of \\( a \\), so differentiate \\( a \\) and set it to zero." } }
+    ];
+
+    const flashcards = [
+        { term: "Displacement \\( s \\)", def: "Position on a line from a fixed point; can be negative; measured in m." },
+        { term: "Velocity \\( v \\)", def: "Rate of change of displacement, \\( v = \\frac{ds}{dt} \\); measured in m s⁻¹." },
+        { term: "Acceleration \\( a \\)", def: "Rate of change of velocity, \\( a = \\frac{dv}{dt} = \\frac{d^2s}{dt^2} \\); in m s⁻²." },
+        { term: "\\( s \\to v \\to a \\)", def: "Differentiate at each step (\\( \\frac{ds}{dt} \\), then \\( \\frac{dv}{dt} \\))." },
+        { term: "\\( a \\to v \\to s \\)", def: "Integrate at each step, adding \\( + c \\) every time." },
+        { term: "Constant of integration", def: "The \\( + c \\) fixed by an initial condition (e.g. \\( v \\) when \\( t = 0 \\))." },
+        { term: "Momentarily at rest", def: "The instant when \\( v = 0 \\)." },
+        { term: "Maximum / minimum velocity", def: "Where \\( a = \\frac{dv}{dt} = 0 \\)." },
+        { term: "Maximum acceleration", def: "Where \\( \\frac{da}{dt} = 0 \\) — a turning point of \\( a \\), not where \\( a = 0 \\)." },
+        { term: "When suvat applies", def: "Only when the acceleration is constant (uniform)." },
+        { term: "The suvat set", def: "\\( v=u+at,\\ s=ut+\\tfrac12 at^2,\\ s=\\tfrac12(u+v)t,\\ v^2=u^2+2as,\\ s=vt-\\tfrac12 at^2 \\)." },
+        { term: "Formula-sheet status", def: "Both the calculus relations and the suvat set are PROVIDED on the exam sheet." },
+        { term: "Distance travelled", def: "\\( s = \\int v\\,dt \\) between the two times." },
+        { term: "Velocity from an \\( s \\)–\\( t \\) graph", def: "The gradient; estimate it with a chord (numerical method)." },
+        { term: "Deceleration", def: "A negative acceleration — the velocity is decreasing." },
+        { term: "Units to state", def: "\\( s \\) in m, \\( v \\) in m s⁻¹, \\( a \\) in m s⁻²; always give them." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "14 (a)",
+            marks: 3,
+            type: "written",
+            caseId: "q14-2019",
+            question: `<p>Calculate the uniform deceleration <strong>and</strong> the time taken for Paul to reach the first bump.</p>`,
+            hint: "The deceleration is constant, so use the suvat formulae with \\( u = 14 \\), \\( v = 9 \\), \\( s = 50 \\).",
+            starter: "State the deceleration in m s⁻² and the time in s, both with units.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — use of at least one correct suvat formula to find \\( a \\) or \\( t \\) (with \\( u = 14 \\), \\( v = 9 \\), \\( s = 50 \\)); e.g. \\( v^2 = u^2 + 2as \\Rightarrow 100a = 9^2 - 14^2 \\).</li>
+              <li><strong>A1</strong> — \\( a = -1.15 \\) (deceleration \\( 1.15 \\) m s⁻²).</li>
+              <li><strong>A1</strong> — \\( t = \\dfrac{100}{23} \\approx 4.35 \\) s.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>suvat formulae may be quoted without derivation. Allow \\( 1.15 \\) provided it is clear that \\( a \\) is the deceleration.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The majority used \\( v^2 = u^2 + 2as \\). As it was a deceleration, careful substitution was needed — many simply interchanged \\( u \\) and \\( v \\), which was not accepted.</li>
+            </ul></div>`,
+            modelAnswer: "Constant deceleration, so use suvat with \\( u = 14 \\), \\( v = 9 \\), \\( s = 50 \\). From \\( v^2 = u^2 + 2as \\): \\( 81 = 196 + 100a \\Rightarrow a = -1.15 \\), i.e. a deceleration of \\( 1.15 \\) m s⁻². Then \\( s = \\tfrac12(u+v)t \\Rightarrow 50 = 11.5t \\Rightarrow t = \\dfrac{100}{23} \\approx 4.35 \\) s.",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — correct suvat set-up", max: 1, points: ["Used at least one correct suvat formula with \\( u = 14,\\ v = 9,\\ s = 50 \\)"] },
+                { label: "A1 — deceleration", max: 1, points: ["\\( a = -1.15 \\), i.e. deceleration \\( 1.15 \\) m s⁻²"] },
+                { label: "A1 — time", max: 1, points: ["\\( t = \\frac{100}{23} \\approx 4.35 \\) s"] }
+            ] }
+        },
+        {
+            num: "14 (b)",
+            marks: 1,
+            type: "written",
+            caseId: "q14-2019",
+            question: `<p>Show that he reaches his original speed of 14 m s⁻¹ in 10 seconds.</p>`,
+            hint: "This is a \"show that\": substitute \\( t = 10 \\) into \\( v \\) and confirm you get 14.",
+            starter: "Substitute the given value and finish with a concluding statement.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>
+              <li><strong>B1</strong> — substitute \\( t = 10 \\): \\( v = \\dfrac{1}{100}\\left(15(10)^2 - 10^3\\right) + 9 = \\dfrac{1}{100}(1500 - 1000) + 9 = 5 + 9 = 14 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Or substitute \\( v = 14 \\) to give the cubic \\( t^3 - 15t^2 + 500 = 0 \\) and show \\( t = 10 \\) is a root (more work than the single mark justifies).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The substitution of \\( t = 10 \\) to give \\( v = 14 \\) usually provided an easy mark. Some substituted \\( v = 14 \\) and solved the resulting cubic — an acceptable but far longer route.</li>
+            </ul></div>`,
+            modelAnswer: "Substituting \\( t = 10 \\): \\( v = \\frac{1}{100}(15 \\times 100 - 1000) + 9 = \\frac{1}{100}(500) + 9 = 5 + 9 = 14 \\) m s⁻¹, as required.",
+            markPoints: { note: "The concluding value 14 must be shown.", groups: [
+                { label: "B1 — substitute and conclude", max: 1, points: ["Substituted \\( t = 10 \\) and obtained \\( v = 14 \\) m s⁻¹"] }
+            ] }
+        },
+        {
+            num: "14 (c)",
+            marks: 4,
+            type: "written",
+            caseId: "q14-2019",
+            question: `<p>Find the distance travelled from the speed bump by the time he reaches this speed.</p>`,
+            hint: "The acceleration varies, so suvat is invalid. Distance \\( = \\int v\\,dt \\); integrate from \\( t = 0 \\) to \\( t = 10 \\).",
+            starter: "Integrate \\( v \\), substitute \\( t = 10 \\), and give the distance in metres.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — integrate \\( v \\): at least two powers increased by 1 (beware just multiplying by \\( t \\)).</li>
+              <li><strong>A1</strong> — \\( s = \\dfrac{1}{100}\\left(5t^3 - \\dfrac{t^4}{4}\\right) + 9t \\) (ignore \\( c \\)).</li>
+              <li><strong>M1*</strong> (dep) — substitute \\( t = 10 \\).</li>
+              <li><strong>A1</strong> — \\( s = \\dfrac{1}{100}(5000 - 2500) + 90 = 115 \\) m.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>M0 if the \\( \\frac{1}{100} \\) is "integrated". Beware: a suvat approach will also give 115 but earns no marks here because the acceleration is not constant.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The use of suvat here was inappropriate and many candidates did not score as a result — the fact that \\( v \\) was a cubic in \\( t \\) rather than linear should have been a clue.</li>
+            </ul></div>`,
+            modelAnswer: "The acceleration is variable, so integrate. \\( s = \\int_0^{10} \\left[\\frac{1}{100}(15t^2 - t^3) + 9\\right] dt = \\left[\\frac{1}{100}\\left(5t^3 - \\frac{t^4}{4}\\right) + 9t\\right]_0^{10} = \\frac{1}{100}(5000 - 2500) + 90 = 25 + 90 = 115 \\) m.",
+            markPoints: { note: "Award the method marks for correct integration and substitution.", groups: [
+                { label: "M1 — integrate \\( v \\)", max: 1, points: ["Integrated \\( v \\): at least two powers increased by 1"] },
+                { label: "A1 — correct integral", max: 1, points: ["\\( s = \\frac{1}{100}\\left(5t^3 - \\frac{t^4}{4}\\right) + 9t \\)"] },
+                { label: "M1* (dep) — substitute", max: 1, points: ["Substituted \\( t = 10 \\) into their integral"] },
+                { label: "A1 — distance", max: 1, points: ["\\( s = 115 \\) m"] }
+            ] }
+        },
+        {
+            num: "14 (d)",
+            marks: 3,
+            type: "written",
+            caseId: "q14-2019",
+            question: `<p>Find the maximum acceleration in this period.</p>`,
+            hint: "Differentiate \\( v \\) to get \\( a \\), then find the maximum of \\( a \\) by setting \\( \\frac{da}{dt} = 0 \\).",
+            starter: "Give the maximum acceleration in m s⁻², with the time at which it occurs.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — differentiate twice: \\( a = \\dfrac{dv}{dt} = \\dfrac{1}{100}\\left(30t - 3t^2\\right) \\), then \\( \\dfrac{da}{dt} = \\dfrac{1}{100}(30 - 6t) \\).</li>
+              <li><strong>A1</strong> — \\( \\dfrac{da}{dt} = 0 \\) when \\( t = 5 \\).</li>
+              <li><strong>A1</strong> — \\( a = \\dfrac{1}{100}(150 - 75) = 0.75 \\) m s⁻².</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Alternative: differentiate once and use the symmetry of the quadratic (symmetry must be stated) or complete the square to locate the maximum at \\( t = 5 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The question asked for a maximum, so candidates had to complete the square or differentiate the equation for \\( a \\). This was beyond most; the negative coefficient of \\( t^2 \\) caused real difficulties for those completing the square.</li>
+            </ul></div>`,
+            modelAnswer: "Differentiate: \\( a = \\frac{dv}{dt} = \\frac{1}{100}(30t - 3t^2) \\). This is greatest where \\( \\frac{da}{dt} = \\frac{1}{100}(30 - 6t) = 0 \\), i.e. \\( t = 5 \\) s. Then \\( a = \\frac{1}{100}(150 - 75) = 0.75 \\) m s⁻².",
+            markPoints: { note: "Award for finding a, locating the turning point, and the value.", groups: [
+                { label: "M1 — differentiate twice", max: 1, points: ["Found \\( a = \\frac{1}{100}(30t - 3t^2) \\) and differentiated again (or completed the square)"] },
+                { label: "A1 — locate the maximum", max: 1, points: ["\\( \\frac{da}{dt} = 0 \\) at \\( t = 5 \\) (or symmetry stated)"] },
+                { label: "A1 — maximum acceleration", max: 1, points: ["\\( a = 0.75 \\) m s⁻²"] }
+            ] }
+        },
+        {
+            num: "14 (e)",
+            marks: 1,
+            type: "written",
+            caseId: "q14-2019",
+            question: `<p>If all drivers decelerate and accelerate in the same way as Paul, suggest a maximum distance between bumps to ensure that drivers do not exceed a speed of 14 m s⁻¹ when driving down the road.</p>`,
+            hint: "Add the 50 m of the deceleration phase to the distance you found in part (c).",
+            starter: "State a single distance in metres.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO3)</h5><ul>
+              <li><strong>B1</strong> — distance between bumps \\( = \\) their (c) \\( + 50 = 115 + 50 = 165 \\) m (follow through their answer to (c)).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The 50 m is the deceleration distance from 14 to 9 m s⁻¹; the 115 m is the acceleration distance back up to 14 m s⁻¹.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>There were few correct responses to this part.</li>
+            </ul></div>`,
+            modelAnswer: "The driver uses 50 m slowing from 14 to 9 m s⁻¹ and then 115 m accelerating back to 14 m s⁻¹, so the bumps should be at most \\( 115 + 50 = 165 \\) m apart.",
+            markPoints: { note: "Follow through the distance from part (c).", groups: [
+                { label: "B1 — total distance", max: 1, points: ["\\( 115 + 50 = 165 \\) m (ft their (c))"] }
+            ] }
+        },
+        {
+            num: "2 (a)",
+            marks: 2,
+            type: "written",
+            caseId: "q2-2022",
+            question: `<p>Determine the uniform acceleration of the train.</p>`,
+            hint: "The whole train passes the end of the platform, so the speed rises from 3 to 18 m s⁻¹ over a displacement of 175 m (the train's length). Use \\( v^2 = u^2 + 2as \\).",
+            starter: "Give the acceleration in m s⁻².",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — use of a suvat formula to find \\( a \\): \\( 18^2 = 3^2 + 2a(175) \\).</li>
+              <li><strong>A1</strong> — \\( a = \\dfrac{18^2 - 3^2}{350} = 0.9 \\) m s⁻² (ignore units for the A mark).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The displacement is the train's length, 175 m, because the front and the rear pass the same point (the end of the platform).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>A typical constant-acceleration question; since \\( t \\) is not involved, suvat should be used (calculus would be very long-winded). The vast majority did and obtained the correct answer.</li>
+            </ul></div>`,
+            modelAnswer: "The speed goes from \\( u = 3 \\) to \\( v = 18 \\) m s⁻¹ over \\( s = 175 \\) m. Using \\( v^2 = u^2 + 2as \\): \\( 324 = 9 + 350a \\Rightarrow a = \\frac{315}{350} = 0.9 \\) m s⁻².",
+            markPoints: { note: "Award for the suvat set-up and the value.", groups: [
+                { label: "M1 — suvat set-up", max: 1, points: ["\\( 18^2 = 3^2 + 2a(175) \\) (or equivalent)"] },
+                { label: "A1 — acceleration", max: 1, points: ["\\( a = 0.9 \\) m s⁻²"] }
+            ] }
+        },
+        {
+            num: "2 (b)",
+            marks: 2,
+            type: "written",
+            caseId: "q2-2022",
+            question: `<p>Determine the time taken from when the train starts to move until it reaches a speed of 18 m s⁻¹.</p>`,
+            hint: "\"Starts to move\" means \\( u = 0 \\); this part has nothing to do with 175 m or the speed of 3 m s⁻¹. Use \\( v = u + at \\).",
+            starter: "Give the time in seconds.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — use of a suvat formula to find \\( t \\): \\( v = u + at \\) with \\( u = 0 \\), \\( v = 18 \\) and their \\( a \\).</li>
+              <li><strong>A1</strong> — \\( t = \\dfrac{18}{0.9} = 20 \\) s (follow through their \\( a \\)).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Take care: from rest to 18 m s⁻¹ the distance is actually \\( s = 180 \\) m, not 175 m; using \\( s = 175 \\) here gives an incorrect \\( t = 19.4 \\) s.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>This part has nothing to do with the length of the train or the speed at the end of the platform. Some candidates did not read "starts to move" and so wrongly used \\( s = 175 \\) and/or \\( u = 3 \\).</li>
+            </ul></div>`,
+            modelAnswer: "From rest, \\( u = 0 \\). Using \\( v = u + at \\): \\( 18 = 0 + 0.9t \\Rightarrow t = \\frac{18}{0.9} = 20 \\) s.",
+            markPoints: { note: "Follow through their acceleration from part (a).", groups: [
+                { label: "M1 — suvat set-up", max: 1, points: ["\\( v = u + at \\) with \\( u = 0,\\ v = 18 \\) and their \\( a \\)"] },
+                { label: "A1 — time", max: 1, points: ["\\( t = 20 \\) s"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

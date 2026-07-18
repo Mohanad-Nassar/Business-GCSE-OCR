@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 11. Exam Preparation</div>
             <h1>11.1 Command Words and Detailed Reasoning</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,12 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 11.1 Command Words and Detailed Reasoning — placeholder, content not yet written
+    //  DATA: 11.1 Command Words and Detailed Reasoning (technique / synoptic)
+    //  Exam-technique consolidation page — no new content statements. Synthesised in our
+    //  own words from ADDMATHS-CONTENT-PLAN.md Appendix A (command-word contract) + the
+    //  question-taxonomy §3 (mark-scheme conventions) and §4 (examiner-report themes).
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes doubled
+    //  in this JS source (§8.4).
     // ══════════════════════════════════════
     const pageMeta = {
             id: '11-1-command-words-and-detailed-reasoning',
@@ -268,20 +273,211 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>11.1 Command Words and Detailed Reasoning</strong> will appear here soon.</p>`
+            title: "Why does the command word decide your marks?",
+            tag: "Key concept",
+            content: `<p>Every 6993 question begins with an <strong>instruction verb</strong> — the <strong>command word</strong>. It is a <em>contract</em>: it tells you exactly what the examiner will reward and, just as importantly, what will score <strong>nothing</strong> however good your maths is.</p>
+            <ul>
+              <li>The command word decides <strong>how much you must write</strong>: "write down" wants only the answer, while "show that" and "detailed reasoning" want every step.</li>
+              <li>It decides the <strong>form of the answer</strong>: "exact" forbids a decimal, and a coordinate answer must be a <strong>pair</strong>.</li>
+              <li>Getting the right number is not enough — a correct answer in the wrong form, or with no working where working is demanded, is a common way even this top set still loses marks.</li>
+              <li>Examiners report the same command-word slips every year. Reading the verb first, and answering it literally, is one of the cheapest ways to raise your grade.</li>
+            </ul>
+            <p>This page is a checklist for the whole paper: learn the contract once and it pays off on every question.</p>`,
+            readCheck: { q: "What is a 'command word'?", opts: ["The instruction verb that says what the answer must contain", "The hardest word in the question", "The topic of the question", "The number of marks"], ans: 0, explain: "The command word (exact, show that, determine, hence…) is a contract for what will and will not be rewarded." }
+        },
+        {
+            title: "What does each OCR command word demand?",
+            tag: "Exam skill",
+            content: `<p>OCR uses a fixed set of command words. Learn what each one <em>requires</em>:</p>
+            <table class="worked">
+              <tr><td><strong>Exact</strong></td><td>Leave the answer in surd, fraction or π form. A decimal alone scores 0.</td></tr>
+              <tr><td><strong>Show that</strong></td><td>The result is printed for you. Show every step <em>and</em> write a concluding statement.</td></tr>
+              <tr><td><strong>Determine</strong> / <strong>Find</strong></td><td>Reach the result with <em>visible justification</em>, not just a bare value.</td></tr>
+              <tr><td><strong>Give</strong> / <strong>State</strong> / <strong>Write down</strong></td><td>Quote the result; no working or method is expected.</td></tr>
+              <tr><td><strong>Hence</strong></td><td>Use the result you have just found; do not start a new method.</td></tr>
+            </table>
+            <p>So "<strong>state</strong> the gradient" and "<strong>determine</strong> the gradient" are different tasks: the first wants a number, the second wants the number <em>with</em> the reasoning that produced it.</p>
+            <p>For an "exact" answer, write, e.g., \\( x = -3 + 2\\sqrt{5} \\) rather than \\( 1.47 \\). If you like, give <em>both</em> — the exact form earns the marks and the decimal cannot lose them.</p>`,
+            readCheck: { q: "A question says 'Write down the value of f(0)'. What is expected?", opts: ["Just the answer, with no working", "A full method with every step", "An exact surd", "A graph"], ans: 0, explain: "'Write down' / 'state' / 'give' ask only for the result; no method is required." }
+        },
+        {
+            title: "What does 'show that' require that an ordinary solve does not?",
+            tag: "Method",
+            content: `<p>In a <strong>show that</strong> question the answer is <em>given</em> to you (the mark scheme labels it <strong>AG</strong> — "answer given"). Every mark is therefore for the <strong>journey</strong>, not the destination.</p>
+            <ul>
+              <li>Write a <strong>full chain of working</strong> that clearly reaches the printed result — you cannot "accidentally" earn marks by quoting the answer.</li>
+              <li>Finish with an explicit <strong>concluding statement</strong>. This is the mark most often lost.</li>
+              <li>Change-of-sign example: after computing \\( \\text{f}(2) \\) and \\( \\text{f}(3) \\), add the sentence "there is a change of sign, so there is a root between \\( x = 2 \\) and \\( x = 3 \\)".</li>
+              <li>For "show these lines are perpendicular", state both gradients, show their product is \\( -1 \\), and write the word <strong>perpendicular</strong>.</li>
+            </ul>
+            <p>A calculation that stops at the numbers, with no concluding sentence, typically earns the method mark but loses the final accuracy mark.</p>`,
+            readCheck: { q: "In a 'show that' change-of-sign question, what is most often missing?", opts: ["The concluding sentence stating a root lies in the interval", "The value of f at each end", "A calculator", "The graph"], ans: 0, explain: "Candidates compute f at each end but omit the 'change of sign ⇒ root in interval' statement, losing the final mark." }
+        },
+        {
+            title: "What is a 'detailed reasoning' question — and why can a right answer score 0?",
+            tag: "Common error",
+            content: `<p>When a question prints "<strong>In this question you must show detailed reasoning</strong>" (DR), you must present the <strong>full analytical method</strong>. Solving it on the calculator and writing only the answer scores <strong>0</strong> — even when the answer is correct.</p>
+            <ul>
+              <li>Example: a DR factor-theorem question needs you to show \\( \\text{f}(a) = 0 \\) for a trial value, obtain the quadratic factor, then state all three factors. An answer-only factorisation scored nothing in the 2024 report.</li>
+              <li>For an iteration, every iterate must be written to at least <strong>4 significant figures</strong> before you give the 3 s.f. conclusion.</li>
+              <li>The mark scheme spells out which lines "must be seen" — treat DR like show that with no shortcuts.</li>
+            </ul>
+            <p><strong>"Hence"</strong> is a related instruction: it tells you to <em>use the previous result</em>. If part (b) says "hence solve", start from what part (a) gave you — do not reach for a fresh method. Ignoring "hence" (e.g. calculator-solving instead of reading a graph you were told to use) loses marks and wastes time.</p>`,
+            readCheck: { q: "A DR question is solved correctly on a calculator with no method shown. The mark is:", opts: ["0 — the method must be shown", "Full marks — the answer is right", "Half marks", "1 mark for the answer"], ans: 0, explain: "'Detailed reasoning' requires the full analytical method; a calculator-only solution scores 0 even if correct." }
+        },
+        {
+            title: "Plot, sketch or draw — and how should you use the calculator?",
+            tag: "Exam skill",
+            content: `<p>The three graph verbs are <em>not</em> interchangeable:</p>
+            <ul>
+              <li><strong>Plot</strong> — mark calculated points <em>accurately</em> on the printed grid and join them (a smooth curve or ruled line within half a square).</li>
+              <li><strong>Sketch</strong> — show the <strong>main features</strong> only (shape, intercepts, asymptotes, turning points); it need not be to scale.</li>
+              <li><strong>Draw</strong> — produce the graph or diagram to <strong>reasonable accuracy</strong>.</li>
+            </ul>
+            <p><strong>Calculator conduct</strong> (printed in the spec — a calculator is allowed throughout):</p>
+            <ul>
+              <li><strong>Write down any expression you evaluate</strong> on the calculator, e.g. show \\( \\sqrt{3^2 + 4^2} \\) before writing \\( 5 \\). If only the answer appears on a "must show working" question, the method marks are gone.</li>
+              <li>Use <strong>correct mathematical notation</strong>, not calculator notation — write \\( x^2 \\) and \\( \\frac{3}{4} \\), not the ambiguous strings a calculator screen shows.</li>
+              <li>A calculator answer never replaces the reasoning on a show-that or DR question.</li>
+            </ul>`,
+            readCheck: { q: "Which command word requires accurate points on the printed grid?", opts: ["Plot", "Sketch", "Determine", "State"], ans: 0, explain: "'Plot' means accurate points on the grid; 'sketch' shows main features only." }
+        },
+        {
+            title: "How should you set out working and answers?",
+            tag: "Exam skill",
+            content: `<p>Marks are earned line by line, so <strong>how</strong> you write matters as much as <em>what</em> you write.</p>
+            <ul>
+              <li><strong>One step per line.</strong> If each step is separate, a slip costs one mark, not all of them.</li>
+              <li><strong>Do not round until the end.</strong> Work to at least <strong>4 significant figures</strong> in the middle, then round the final answer to the demanded precision.</li>
+              <li><strong>Answer to the precision demanded.</strong> "Give your answer to 1 decimal place" is enforced by the final mark — too many or too few figures can cost it.</li>
+              <li><strong>Give units</strong> where the quantity has them, and label what the number <em>is</em> ("speed = 1 km/h", not just "1").</li>
+              <li><strong>Coordinates are pairs.</strong> Write \\( (4,\\ 0) \\), never just \\( x = 4 \\); a stationary point needs both its \\( x \\)- and \\( y \\)-values.</li>
+              <li><strong>An equation answer must be an equation.</strong> Finish "\\( y = \\tfrac{2}{3}x + 2 \\)", not just the gradient.</li>
+            </ul>
+            <p>These are the "cheap marks" the examiners report being lost every year — none of them require extra maths, only discipline.</p>`,
+            readCheck: { q: "A stationary-point answer gives only the x-value. What happens?", opts: ["It loses the mark — a coordinate must be a pair (x, y)", "Full marks", "It gains a bonus", "It counts as a 'show that'"], ans: 0, explain: "Coordinates must be given as pairs; an x-value with no y-value loses the accuracy mark." }
+        },
+        {
+            title: "How are marks actually awarded (M, A, B, ft, cao, oe, isw)?",
+            tag: "Method",
+            content: `<p>OCR schemes award three kinds of mark:</p>
+            <ul>
+              <li><strong>M (method)</strong> — for a correct method <em>applied to the problem</em>. It is not lost for a small numerical slip, but quoting a formula without using it earns nothing.</li>
+              <li><strong>A (accuracy)</strong> — for a correct answer or step, but <strong>only if its method mark is earned</strong>: "<strong>M0 A1 can never be awarded</strong>".</li>
+              <li><strong>B</strong> — an <strong>independent</strong> mark for a correct result, regardless of method.</li>
+            </ul>
+            <p>Common abbreviations:</p>
+            <ul>
+              <li><strong>ft</strong> (follow-through) — later marks can still be earned after an earlier error, provided there is no <em>further</em> mistake.</li>
+              <li><strong>cao</strong> — "correct answer only": no follow-through or alternatives.</li>
+              <li><strong>oe</strong> — "or equivalent": any algebraically equivalent form is accepted.</li>
+              <li><strong>isw</strong> — "ignore subsequent working": a correct answer is not spoiled by later fiddling.</li>
+            </ul>
+            <p>Because A marks depend on M marks, <strong>showing your method protects your accuracy marks</strong> — the single most valuable habit on the paper.</p>`,
+            readCheck: { q: "Why can 'M0 A1' never be awarded?", opts: ["An accuracy mark requires its method mark to be earned first", "A marks are worth 0", "M marks come last", "It is only a typing rule"], ans: 0, explain: "Accuracy (A) marks are conditional on the associated method (M) mark, so M0 A1 is impossible." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
+    const mcqData = [
+        { q: "A question asks for the 'exact' solution of an equation. Which answer can score full marks?", opts: ["\\( -1 + \\sqrt{7} \\)", "\\( 1.646 \\)", "\\( 1.65 \\)", "about \\( 1.6 \\)"], ans: 0, explain: "'Exact' requires surd/fraction/π form; only the surd \\( -1 + \\sqrt{7} \\) qualifies. A decimal alone scores 0." },
+        { q: "A 'show that' question prints the result to reach. How do you secure all the marks?", opts: ["Show every step and add a concluding statement", "Write the given answer in a box", "Give a decimal to 3 s.f.", "State the answer with no working"], ans: 0, explain: "The result is given (AG), so marks are for full valid working plus the concluding sentence." },
+        { q: "On a question worth 2 marks for the 'exact' roots, a student writes only \\( x = 1.24 \\) and \\( x = -3.24 \\). The mark is:", opts: ["0 — decimals are not exact", "2 — the values are right", "1 — half credit", "1 — for one root"], ans: 0, explain: "Decimal-only answers to an exact question receive no marks (2024 examiner report, Q3(b))." },
+        { q: "'In this question you must show detailed reasoning.' A correct factorisation is written with no method. The mark is:", opts: ["0 — the reasoning must be shown", "Full — the factors are correct", "Half marks", "1 mark"], ans: 0, explain: "DR requires the full analytical method; an answer-only solution scores 0 even when correct (2024 Q8(a))." },
+        { q: "Part (b) begins 'Hence solve...'. This instructs you to:", opts: ["Use the result from the previous part", "Start a completely new method", "Give the answer as a decimal", "Use the calculator's equation solver"], ans: 0, explain: "'Hence' means build on the previous result; a fresh method risks losing marks and time." },
+        { q: "'Write down the coordinates of the y-intercept.' What is expected?", opts: ["Just the coordinate pair, with no working", "A full algebraic method", "An exact surd", "A sketch of the curve"], ans: 0, explain: "'Write down' asks only for the result; no method is required." },
+        { q: "Which pair of command words differ mainly in whether justification must be shown?", opts: ["'State' (answer only) vs 'Determine' (answer with justification)", "'Plot' vs 'Sketch'", "'Exact' vs 'Give'", "'Hence' vs 'Show that'"], ans: 0, explain: "'State/write down' want only the result; 'determine/find' want the result supported by visible reasoning." },
+        { q: "A question says 'Sketch the graph of \\( y = 2^x \\)'. You should:", opts: ["Show shape, the y-intercept and the asymptote — not to scale", "Plot exact points on a grid", "Give a table of 10 values", "Solve \\( 2^x = 0 \\)"], ans: 0, explain: "'Sketch' means main features only; 'plot' would require accurate points on a grid." },
+        { q: "A stationary point is found at \\( x = 3 \\). What is the fully-credited answer?", opts: ["The pair \\( (3,\\ y) \\) with the \\( y \\)-value worked out", "\\( x = 3 \\) only", "\\( y = 3 \\)", "\\( 3 \\)"], ans: 0, explain: "Coordinates must be given as pairs; an x-value alone loses the mark (2024 Q10)." },
+        { q: "A student earns no method mark but writes the correct final value. Under OCR rules:", opts: ["No accuracy mark is possible — 'M0 A1 cannot be awarded'", "The accuracy mark is still given", "Both marks are awarded", "A bonus mark applies"], ans: 0, explain: "Accuracy marks depend on the method mark, so M0 A1 can never be awarded — unless the scheme states 'answer only scores full'." },
+        { q: "The scheme writes 'cao' next to an answer. This means:", opts: ["Correct answer only — no follow-through or alternatives", "Calculator answer okay", "Correct, and other forms accepted", "Complete all options"], ans: 0, explain: "'cao' = correct answer only; equivalent or follow-through forms are not credited there." },
+        { q: "The scheme writes 'oe' after an equation such as \\( 3y = 2x + 12 \\). This means:", opts: ["Any algebraically equivalent form is accepted", "Only that exact form is accepted", "Decimal answers only", "Omit the equals sign"], ans: 0, explain: "'oe' = or equivalent, so \\( y = \\tfrac{2}{3}x + 4 \\) would also score." }
+    ];
+
+    const matchData = [
+        { term: "Exact", def: "Answer in surd, fraction or π form; a decimal alone scores 0." },
+        { term: "Show that", def: "Result is given; show every step and write a concluding statement." },
+        { term: "Determine", def: "Reach the result with visible justification, not just a bare value." },
+        { term: "Give / State / Write down", def: "Quote the result; no working or method is required." },
+        { term: "In this question you must show detailed reasoning", def: "Show the full analytical method; a calculator-only solution scores 0." },
+        { term: "Hence", def: "Use the result of the previous part; do not start a fresh method." },
+        { term: "Plot", def: "Mark points accurately on the printed grid and join them." },
+        { term: "Sketch", def: "Show the main features (shape, intercepts, asymptotes); not to scale." },
+        { term: "Draw", def: "Produce the graph or diagram to reasonable accuracy." },
+        { term: "Prove", def: "Give a rigorous, general argument, not a check of one case." },
+        { term: "M mark (M1)", def: "Awarded for a correct method applied to the problem." },
+        { term: "A mark (A1)", def: "Awarded for accuracy, but only if the linked method mark is earned." },
+        { term: "B mark (B1)", def: "Independent mark for a correct result, regardless of method." },
+        { term: "cao", def: "Correct answer only; no follow-through or alternatives credited." }
+    ];
+
+    // NOTE: FIB blanks must sit in PLAIN TEXT, never inside a \( \) region — a blank
+    // becomes a <select>/<input> that would split a LaTeX run (§8.4 Rule 3b). These
+    // displays keep maths and blanks separate. Answer VALUES are plain text (server
+    // string-equality), all covered by fibWords.
+    const fibData = [
+        { display: "The command word ___B1___ tells you to leave the answer in surd or fraction form; a decimal alone scores 0.", blanks: { B1: "exact" } },
+        { display: "In a ___B1___ ___B2___ question the result is printed for you, so all the marks are for the working plus a concluding statement.", blanks: { B1: "show", B2: "that" } },
+        { display: "When a question says you must show ___B1___ ___B2___, a calculator-only solution scores 0 even if the answer is correct.", blanks: { B1: "detailed", B2: "reasoning" } },
+        { display: "The word ___B1___ tells you to use the result of the previous part instead of starting again.", blanks: { B1: "hence" } },
+        { display: "An accuracy mark is only awarded when its associated ___B1___ mark has been earned — 'M0 A1 cannot ever be awarded'.", blanks: { B1: "method" } },
+        { display: "A mark given for a correct result regardless of the method used is called an ___B1___ mark.", blanks: { B1: "independent" } },
+        { display: "The abbreviation ___B1___ means 'correct answer only', with no follow-through allowed.", blanks: { B1: "cao" } },
+        { display: "The abbreviation ___B1___ means 'or equivalent', so any algebraically equivalent form is accepted.", blanks: { B1: "oe" } }
+    ];
+
+    const fibWords = ["exact", "show", "that", "detailed", "reasoning", "hence", "method", "independent", "cao", "oe", "determine", "sketch", "isw", "ft", "accuracy"];
+
+    const tfData = [
+        { statement: "On a question that asks for the 'exact' value, giving only a decimal such as 1.41 scores full marks.", answer: false, explanation: "'Exact' requires surd/fraction/π form; a decimal alone scores 0. Give the exact form (optionally with the decimal)." },
+        { statement: "For a 'show that' question the result is already printed, so all the marks are for showing valid working and a concluding statement.", answer: true, explanation: "The answer is given (AG); the credit is entirely for the journey and the concluding sentence." },
+        { statement: "'Write down' questions expect you to show your full method.", answer: false, explanation: "'Write down' / 'state' / 'give' want only the result; no working is required." },
+        { statement: "If a question says 'In this question you must show detailed reasoning', solving it on a calculator scores 0 even if the answer is correct.", answer: true, explanation: "DR requires the full analytical method; a calculator-only answer scores nothing." },
+        { statement: "The command word 'Hence' means you may ignore the previous part and start again.", answer: false, explanation: "'Hence' means you must use the previous result; starting a new method risks losing marks." },
+        { statement: "'M0 A1' can never be awarded, because an accuracy mark needs its method mark.", answer: true, explanation: "A marks are conditional on the associated M mark being earned." },
+        { statement: "'Sketch' means you must plot points accurately on a grid.", answer: false, explanation: "'Sketch' shows main features only; it is 'plot' that requires accurate points on a grid." },
+        { statement: "'ft' (follow-through) lets you earn later marks after an earlier mistake, provided there is no further error.", answer: true, explanation: "Follow-through credits correct subsequent work built on an earlier wrong value, if no new error is made." }
+    ];
+
+    const miscData = [
+        { wrong: "Answering an 'exact' question with \\( x = 1.47 \\) and \\( x = -7.47 \\).", correct: "'Exact' means surd/fraction form. A weak answer rounds to decimals and scores 0; a strong answer gives \\( x = -3 \\pm 2\\sqrt{5} \\) (and may add the decimals as a check).", readCheck: { q: "Which is an acceptable 'exact' answer?", opts: ["\\( -3 + 2\\sqrt{5} \\)", "\\( 1.47 \\)", "\\( 1.5 \\)", "about \\( 1.47 \\)"], ans: 0, explain: "Only the surd form is exact; decimals score 0 on an 'exact' question." } },
+        { wrong: "In a change-of-sign 'show that', writing \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 4 \\) and stopping.", correct: "The numbers alone earn the method mark but not the answer mark. A strong answer adds: 'there is a change of sign, so a root lies between \\( x = 2 \\) and \\( x = 3 \\).'", readCheck: { q: "What completes a change-of-sign 'show that'?", opts: ["A sentence stating a root lies in the interval", "A decimal to 3 s.f.", "The quadratic formula", "A second calculator check"], ans: 0, explain: "The concluding statement is the mark most often lost." } },
+        { wrong: "On a 'detailed reasoning' factor question, writing the three correct factors straight from the calculator.", correct: "A calculator-only DR answer scores 0. A strong answer shows \\( \\text{f}(a) = 0 \\) for a trial value, finds the quadratic factor, then states all three factors.", readCheck: { q: "A DR factorisation with no method shown scores:", opts: ["0", "Full marks", "Half marks", "1 mark"], ans: 0, explain: "DR needs the full analytical method; answer-only scores nothing." } },
+        { wrong: "Giving a stationary point as '\\( x = 1 \\)' with no \\( y \\)-value.", correct: "Coordinates must be pairs. A weak answer gives only \\( x \\); a strong answer works out \\( y \\) too and writes \\( (1,\\ 8) \\).", readCheck: { q: "How should a stationary point be stated?", opts: ["As a coordinate pair (x, y)", "As the x-value only", "As the y-value only", "As a gradient"], ans: 0, explain: "A coordinate needs both values; x alone loses the mark." } },
+        { wrong: "Answering 'r = 1' when the quantity was a speed with no unit defined.", correct: "Label what the number is and give its unit. A weak answer writes '1'; a strong answer writes 'speed = 1 km/h'.", readCheck: { q: "Why can 'r = 1' lose a mark?", opts: ["The quantity and unit are not stated", "1 is the wrong number", "It should be exact", "It needs a graph"], ans: 0, explain: "Marks for interpretation require the quantity named and its unit given." } },
+        { wrong: "A part says 'Hence use your graph to solve...', but the student solves it on the calculator.", correct: "'Hence' directs you to the method just used. A weak answer ignores it; a strong answer reads the solution from the graph as instructed.", readCheck: { q: "'Hence use your graph' means:", opts: ["Read the answer from the graph you drew", "Use the calculator solver", "Start a new algebraic method", "Sketch a second graph"], ans: 0, explain: "'Hence' ties you to the previous result/method; ignoring it loses marks." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "The 'exact' ladder", pills: ["exact", "surds", "0 marks"], content: `<p><strong>0 marks:</strong> \\( x = 1.47,\\ -7.47 \\) only — decimals to an "exact" question.</p><p><strong>Partial:</strong> the correct method shown but the answer left as a decimal.</p><p><strong>Full marks:</strong> \\( x = -3 \\pm 2\\sqrt{5} \\). Safest of all: write the exact form <em>and</em> the decimal — the surd earns the marks, the decimal never loses them.</p>`, readCheck: { q: "The safest way to answer an 'exact' question is to:", opts: ["Give the surd form, optionally with the decimal", "Give only the decimal", "Round to 2 d.p.", "Give the decimal to 3 s.f."], ans: 0, explain: "The exact surd form is required; adding the decimal is harmless." } },
+        { type: "tip", title: "The 'show that' ladder", pills: ["show that", "AG", "conclusion"], content: `<p><strong>0 marks:</strong> writing the printed result in a box with no working.</p><p><strong>Partial:</strong> full correct working to the numbers, but no concluding sentence.</p><p><strong>Full marks:</strong> every step shown <em>and</em> the concluding statement, e.g. "change of sign, so a root lies between \\( x = 2 \\) and \\( x = 3 \\)."</p>`, readCheck: { q: "In a 'show that', where is the last mark usually lost?", opts: ["The concluding statement", "The first line", "Writing the given answer", "The units"], ans: 0, explain: "Candidates reach the numbers but omit the required concluding sentence." } },
+        { type: "explain", title: "The 'detailed reasoning' ladder", pills: ["DR", "method", "calc = 0"], content: `<p><strong>0 marks:</strong> the correct answer straight from the calculator on a "detailed reasoning" question.</p><p><strong>Partial:</strong> some analytical steps but a key required line missing.</p><p><strong>Full marks:</strong> the complete method — for a factor question, \\( \\text{f}(a) = 0 \\) for a trial value, the quadratic factor, then all three factors.</p>`, readCheck: { q: "On a DR question, a calculator-only correct answer scores:", opts: ["0", "Full marks", "All the method marks", "Half"], ans: 0, explain: "DR requires the analytical method; calculator-only scores nothing." } },
+        { type: "tip", title: "Protect your marks: method, form, precision", pills: ["M/A/B", "units", "precision"], content: `<p><strong>0 / partial:</strong> right number, wrong form — a decimal for "exact", an \\( x \\)-value with no \\( y \\), a gradient where an equation was asked, or a missing unit.</p><p><strong>Full marks:</strong> one step per line (so a slip costs one mark), work to \\( \\ge 4 \\) s.f. and round only at the end, coordinates as pairs \\( (x,\\ y) \\), units stated, and the answer to the precision demanded.</p>`, readCheck: { q: "Why write one step per line?", opts: ["A slip then costs one mark, not all of them", "It looks neat", "It uses more paper", "It is faster"], ans: 0, explain: "Separated steps preserve method and intermediate marks when a later slip occurs." } }
+    ];
+
+    const flashcards = [
+        { term: "Exact", def: "Answer in surd, fraction or π form; a decimal alone scores 0." },
+        { term: "Show that", def: "Result is given; show every step and a concluding statement." },
+        { term: "Determine / Find", def: "Reach the result with visible justification, not a bare value." },
+        { term: "Give / State / Write down", def: "Quote the result; no working or method needed." },
+        { term: "Detailed reasoning (DR)", def: "Show the full method; a calculator-only answer scores 0." },
+        { term: "Hence", def: "Use the result of the previous part; do not restart." },
+        { term: "Plot", def: "Mark points accurately on the printed grid and join them." },
+        { term: "Sketch", def: "Show main features (shape, intercepts, asymptotes); not to scale." },
+        { term: "Draw", def: "Produce the graph or diagram to reasonable accuracy." },
+        { term: "Prove", def: "Give a rigorous general argument, not a check of one case." },
+        { term: "M mark (method)", def: "For a correct method applied to the problem." },
+        { term: "A mark (accuracy)", def: "For a correct answer; only if its M mark is earned." },
+        { term: "B mark", def: "Independent mark for a correct result, regardless of method." },
+        { term: "M0 A1", def: "Can never be awarded — an A mark needs its M mark." },
+        { term: "ft (follow-through)", def: "Later marks still earned after an error if no further slip." },
+        { term: "cao", def: "Correct answer only — no follow-through or alternatives." },
+        { term: "oe", def: "Or equivalent — any algebraically equivalent form is accepted." },
+        { term: "isw", def: "Ignore subsequent working — a correct answer isn't spoiled by later fiddling." }
+    ];
+
+    // Technique consolidation page: the real past-paper questions are all routed to their
+    // topic pages (no duplicates). Exam practice lives on the topic pages; the Maths Lab
+    // command-words / examiner-trainer tools are added in ADM-C.
     const examQuestions = [];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />

@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-18T05:45:35Z
+// Generated: 2026-07-18T06:01:52Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "additional-maths:1-1-notation-functions-and-indices": {
@@ -369,6 +369,50 @@ window.SECTION_TOTALS = {
   "tips": 3,
   "fib": 7,
   "match": 13,
+  "flashcards": 16
+ },
+ "additional-maths:10-1-kinematics": {
+  "exam": 7,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 16
+ },
+ "additional-maths:10-2-solving-equations-numerically": {
+  "exam": 5,
+  "mcq": 11,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 12,
+  "flashcards": 15
+ },
+ "additional-maths:11-1-command-words-and-detailed-reasoning": {
+  "exam": 0,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 7,
+  "misc": 6,
+  "tips": 4,
+  "fib": 8,
+  "match": 14,
+  "flashcards": 18
+ },
+ "additional-maths:11-2-synoptic-and-unstructured-problems": {
+  "exam": 9,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 6,
+  "tips": 3,
+  "fib": 8,
+  "match": 14,
   "flashcards": 16
  }
 };

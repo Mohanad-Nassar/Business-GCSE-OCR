@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-18T05:45:35Z · 1901 questions
+// Generated: 2026-07-18T06:01:52Z · 2144 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -684,16 +684,16 @@ window.QUESTION_BANK = [
   "question": "To simplify \\( a^m \\times a^n \\) you ___B1___ the indices, and to simplify \\( a^m \\div a^n \\) you ___B2___ them.",
   "blankOptions": {
    "B1": [
-    "power",
-    "variable",
+    "0",
+    "solve",
     "add",
-    "solve"
+    "1"
    ],
    "B2": [
+    "identity",
+    "nth",
     "subtract",
-    "power",
-    "unknown",
-    "0"
+    "unknown"
    ]
   },
   "key": {
@@ -713,10 +713,10 @@ window.QUESTION_BANK = [
   "question": "The rule \\( (a^m)^n \\) tells you to ___B1___ the two indices together.",
   "blankOptions": {
    "B1": [
-    "multiply",
-    "1",
+    "index",
+    "unknown",
     "add",
-    "constant"
+    "multiply"
    ]
   },
   "key": {
@@ -735,10 +735,10 @@ window.QUESTION_BANK = [
   "question": "For any non-zero base, \\( a^0 \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "identity",
+    "multiply",
+    "add",
     "1",
-    "divide",
-    "multiply"
+    "identity"
    ]
   },
   "key": {
@@ -757,10 +757,10 @@ window.QUESTION_BANK = [
   "question": "A negative index means take the ___B1___, so \\( a^{-n} \\) becomes a fraction.",
   "blankOptions": {
    "B1": [
-    "power",
-    "index",
-    "nth",
-    "reciprocal"
+    "term",
+    "reciprocal",
+    "variable",
+    "0"
    ]
   },
   "key": {
@@ -779,16 +779,16 @@ window.QUESTION_BANK = [
   "question": "In the term \\( 4x^3 \\), the number \\( 4 \\) is the ___B1___ and the number \\( 3 \\) is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "nth",
-    "subtract",
+    "add",
+    "reciprocal",
     "coefficient",
-    "1"
+    "solve"
    ],
    "B2": [
-    "constant",
-    "index",
     "nth",
-    "reciprocal"
+    "term",
+    "power",
+    "index"
    ]
   },
   "key": {
@@ -808,15 +808,15 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) means the statement is an ___B1___, which is true for ___B2___ values of the variable.",
   "blankOptions": {
    "B1": [
-    "constant",
-    "term",
+    "coefficient",
+    "divide",
     "identity",
-    "1"
+    "reciprocal"
    ],
    "B2": [
     "nth",
-    "unknown",
-    "constant",
+    "power",
+    "variable",
     "all"
    ]
   },
@@ -837,10 +837,10 @@ window.QUESTION_BANK = [
   "question": "In \\( a^{1/n} \\) the fraction \\( \\frac{1}{n} \\) tells you to take the ___B1___ root of \\( a \\).",
   "blankOptions": {
    "B1": [
-    "solve",
-    "reciprocal",
     "nth",
-    "term"
+    "subtract",
+    "term",
+    "all"
    ]
   },
   "key": {
@@ -859,16 +859,16 @@ window.QUESTION_BANK = [
   "question": "In an equation you solve to find the value of the ___B1___, whereas in an expression there is no equals sign to ___B2___.",
   "blankOptions": {
    "B1": [
-    "nth",
-    "constant",
+    "1",
     "unknown",
-    "1"
+    "constant",
+    "subtract"
    ],
    "B2": [
-    "variable",
     "solve",
+    "add",
     "coefficient",
-    "reciprocal"
+    "0"
    ]
   },
   "key": {
@@ -1835,10 +1835,10 @@ window.QUESTION_BANK = [
   "question": "To simplify a surd, take out the largest perfect ___B1___ factor.",
   "blankOptions": {
    "B1": [
-    "factorise",
-    "unlike",
-    "cube",
-    "square"
+    "exact",
+    "square",
+    "expand",
+    "2"
    ]
   },
   "key": {
@@ -1857,10 +1857,10 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sqrt{12} = 2\\sqrt{3} \\) we used the fact that \\( 12 = 4 \\times 3 \\) and \\( \\sqrt{4} = \\) ___B1___.",
   "blankOptions": {
    "B1": [
-    "cube",
-    "square",
-    "(x-1)(x+1)",
-    "2"
+    "calculator",
+    "2",
+    "reciprocal",
+    "conjugate"
    ]
   },
   "key": {
@@ -1879,10 +1879,10 @@ window.QUESTION_BANK = [
   "question": "You can only add or subtract surds when they are ___B1___ surds (the same number under the root).",
   "blankOptions": {
    "B1": [
-    "square",
     "like",
     "factorise",
-    "cube"
+    "expand",
+    "1"
    ]
   },
   "key": {
@@ -1901,10 +1901,10 @@ window.QUESTION_BANK = [
   "question": "To rationalise \\( \\frac{1}{2+\\sqrt{3}} \\) you multiply by its ___B1___, which is \\( 2-\\sqrt{3} \\).",
   "blankOptions": {
    "B1": [
-    "calculator",
-    "conjugate",
-    "reciprocal",
-    "square"
+    "unlike",
+    "exact",
+    "square",
+    "conjugate"
    ]
   },
   "key": {
@@ -1923,10 +1923,10 @@ window.QUESTION_BANK = [
   "question": "Multiplying \\( (2+\\sqrt{3})(2-\\sqrt{3}) \\) gives the whole number ___B1___.",
   "blankOptions": {
    "B1": [
-    "3",
+    "factorise",
+    "1",
     "(x-1)(x+1)",
-    "cube",
-    "1"
+    "square"
    ]
   },
   "key": {
@@ -1945,10 +1945,10 @@ window.QUESTION_BANK = [
   "question": "To simplify an algebraic fraction you first ___B1___ the top and bottom, then cancel common factors.",
   "blankOptions": {
    "B1": [
-    "cube",
-    "factorise",
     "expand",
-    "calculator"
+    "unlike",
+    "3",
+    "factorise"
    ]
   },
   "key": {
@@ -1967,9 +1967,9 @@ window.QUESTION_BANK = [
   "question": "To add \\( \\frac{1}{x-1} \\) and \\( \\frac{2}{x+1} \\) you write them over the common denominator ___B1___.",
   "blankOptions": {
    "B1": [
-    "square",
-    "calculator",
-    "expand",
+    "factorise",
+    "3",
+    "1",
     "(x-1)(x+1)"
    ]
   },
@@ -1989,10 +1989,10 @@ window.QUESTION_BANK = [
   "question": "The instruction 'show detailed reasoning' means a ___B1___ answer with no working scores zero.",
   "blankOptions": {
    "B1": [
-    "square",
+    "conjugate",
+    "factorise",
     "calculator",
-    "unlike",
-    "expand"
+    "like"
    ]
   },
   "key": {
@@ -2878,16 +2878,16 @@ window.QUESTION_BANK = [
   "question": "In the quadratic formula \\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\), the term before the \\( \\pm \\) sign is ___B1___ and the denominator is ___B2___.",
   "blankOptions": {
    "B1": [
-    "half",
-    "-p",
-    "q",
-    "-b"
+    "negative",
+    "-b",
+    "add",
+    "exact"
    ],
    "B2": [
-    "-p",
+    "q",
+    "2a",
     "4ac",
-    "discriminant",
-    "2a"
+    "negative"
    ]
   },
   "key": {
@@ -2907,15 +2907,15 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + bx \\), take ___B1___ the coefficient of \\( x \\) and then ___B2___ it.",
   "blankOptions": {
    "B1": [
-    "negative",
-    "-b",
     "half",
-    "discriminant"
+    "double",
+    "4ac",
+    "negative"
    ],
    "B2": [
-    "negative",
-    "2a",
-    "both",
+    "-b",
+    "discriminant",
+    "4ac",
     "square"
    ]
   },
@@ -2936,16 +2936,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + 6x - 11 \\), the number inside the bracket \\( (x + a)^2 \\) is ___B1___ and the number subtracted at the end is ___B2___.",
   "blankOptions": {
    "B1": [
+    "-p",
     "square",
-    "discriminant",
-    "half",
-    "3"
+    "3",
+    "negative"
    ],
    "B2": [
-    "discriminant",
-    "half",
-    "negative",
-    "20"
+    "q",
+    "square",
+    "20",
+    "exact"
    ]
   },
   "key": {
@@ -2965,9 +2965,9 @@ window.QUESTION_BANK = [
   "question": "The expression \\( b^2 - 4ac \\) is called the ___B1___.",
   "blankOptions": {
    "B1": [
-    "half",
-    "4ac",
     "exact",
+    "double",
+    "add",
     "discriminant"
    ]
   },
@@ -2987,10 +2987,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, a quadratic has no real roots.",
   "blankOptions": {
    "B1": [
-    "square",
+    "add",
     "discriminant",
-    "negative",
-    "both"
+    "4ac",
+    "negative"
    ]
   },
   "key": {
@@ -3009,16 +3009,16 @@ window.QUESTION_BANK = [
   "question": "For \\( a(x+p)^2 + q \\) with \\( a > 0 \\), the minimum value is ___B1___ and it occurs when \\( x \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "20",
+    "half",
+    "exact",
     "q",
-    "4ac",
-    "2a"
+    "discriminant"
    ],
    "B2": [
     "-p",
-    "4ac",
-    "negative",
-    "20"
+    "2a",
+    "exact",
+    "add"
    ]
   },
   "key": {
@@ -3038,10 +3038,10 @@ window.QUESTION_BANK = [
   "question": "When you take the square root of both sides you must write \\( \\pm \\) to get ___B1___ roots.",
   "blankOptions": {
    "B1": [
-    "square",
-    "4ac",
     "both",
-    "2a"
+    "double",
+    "exact",
+    "20"
    ]
   },
   "key": {
@@ -3060,10 +3060,10 @@ window.QUESTION_BANK = [
   "question": "A command word telling you to leave surds rather than round is ___B1___.",
   "blankOptions": {
    "B1": [
-    "discriminant",
-    "exact",
-    "-b",
-    "4ac"
+    "20",
+    "negative",
+    "3",
+    "exact"
    ]
   },
   "key": {
@@ -4021,10 +4021,10 @@ window.QUESTION_BANK = [
   "question": "When you multiply or divide an inequality by a negative number you must ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "keeps",
-    "and",
     "reverse",
-    "add"
+    "flip",
+    "keeps",
+    "3"
    ]
   },
   "key": {
@@ -4043,10 +4043,10 @@ window.QUESTION_BANK = [
   "question": "Adding or subtracting the same quantity from both sides ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "keeps",
-    "closed",
     "or",
-    "3"
+    "flip",
+    "between",
+    "keeps"
    ]
   },
   "key": {
@@ -4066,9 +4066,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "add",
-    "keeps",
-    "or",
-    "zero"
+    "zero",
+    "open",
+    "closed"
    ]
   },
   "key": {
@@ -4088,9 +4088,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "closed",
-    "flip",
+    "outside",
     "-2",
-    "open"
+    "reverse"
    ]
   },
   "key": {
@@ -4109,9 +4109,9 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c < 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
-    "zero",
-    "add",
+    "closed",
     "between",
+    "inside",
     "reverse"
    ]
   },
@@ -4131,10 +4131,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c > 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
+    "flip",
     "outside",
-    "between",
-    "keeps",
-    "3"
+    "reverse",
+    "zero"
    ]
   },
   "key": {
@@ -4153,10 +4153,10 @@ window.QUESTION_BANK = [
   "question": "A strict inequality such as \\( < \\) or \\( > \\) is shown on a number line with an ___B1___ circle.",
   "blankOptions": {
    "B1": [
-    "3",
+    "and",
     "open",
-    "-2",
-    "between"
+    "zero",
+    "add"
    ]
   },
   "key": {
@@ -4175,10 +4175,10 @@ window.QUESTION_BANK = [
   "question": "The solution to \\( x^2 > 9 \\) is \\( x < -3 \\) ___B1___ \\( x > 3 \\).",
   "blankOptions": {
    "B1": [
-    "flip",
-    "add",
-    "keeps",
-    "or"
+    "and",
+    "or",
+    "3",
+    "flip"
    ]
   },
   "key": {
@@ -5048,10 +5048,10 @@ window.QUESTION_BANK = [
   "question": "A polynomial written with its powers going from highest to lowest is in ___B1___ order.",
   "blankOptions": {
    "B1": [
-    "14",
-    "degree",
     "descending",
-    "coefficient"
+    "term",
+    "degree",
+    "14"
    ]
   },
   "key": {
@@ -5071,15 +5071,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "degree",
-    "dividend",
-    "quotient",
-    "sign"
+    "constant",
+    "factor",
+    "placeholder"
    ],
    "B2": [
-    "zero",
-    "dividend",
+    "placeholder",
     "coefficient",
-    "descending"
+    "sign",
+    "constant"
    ]
   },
   "key": {
@@ -5099,10 +5099,10 @@ window.QUESTION_BANK = [
   "question": "To subtract one polynomial from another you must change the ___B1___ of every term in the second bracket.",
   "blankOptions": {
    "B1": [
-    "14",
     "sign",
-    "ascending",
-    "factor"
+    "coefficient",
+    "descending",
+    "placeholder"
    ]
   },
   "key": {
@@ -5121,16 +5121,16 @@ window.QUESTION_BANK = [
   "question": "In long division the expression built up on top is the ___B1___ and the value left over at the end is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "quotient",
-    "term",
     "ascending",
-    "14"
+    "descending",
+    "placeholder",
+    "quotient"
    ],
    "B2": [
     "remainder",
-    "dividend",
-    "coefficient",
-    "factor"
+    "factor",
+    "ascending",
+    "degree"
    ]
   },
   "key": {
@@ -5150,10 +5150,10 @@ window.QUESTION_BANK = [
   "question": "When \\( x^3 + 2x^2 - 5x + 8 \\) is divided by \\( x + 3 \\), the quotient is \\( x^2 - x - 2 \\) and the remainder is ___B1___.",
   "blankOptions": {
    "B1": [
-    "14",
-    "descending",
-    "constant",
-    "ascending"
+    "factor",
+    "placeholder",
+    "zero",
+    "14"
    ]
   },
   "key": {
@@ -5172,10 +5172,10 @@ window.QUESTION_BANK = [
   "question": "When a polynomial is divided by \\( x - a \\) and the remainder is ___B1___, then \\( x - a \\) is a factor.",
   "blankOptions": {
    "B1": [
-    "ascending",
-    "zero",
     "term",
-    "coefficient"
+    "coefficient",
+    "zero",
+    "remainder"
    ]
   },
   "key": {
@@ -5194,9 +5194,9 @@ window.QUESTION_BANK = [
   "question": "When dividing, insert a ___B1___ (a term with coefficient 0) for any missing power so the columns stay lined up.",
   "blankOptions": {
    "B1": [
-    "term",
-    "quotient",
+    "coefficient",
     "zero",
+    "14",
     "placeholder"
    ]
   },
@@ -6101,10 +6101,10 @@ window.QUESTION_BANK = [
   "question": "The factor theorem states that if \\( \\text{f}(a) \\) equals ___B1___, then \\( (x - a) \\) is a factor of \\( \\text{f}(x) \\).",
   "blankOptions": {
    "B1": [
-    "factor",
     "a",
+    "root",
     "0",
-    "quadratic"
+    "2"
    ]
   },
   "key": {
@@ -6123,10 +6123,10 @@ window.QUESTION_BANK = [
   "question": "If \\( (x - 4) \\) is a factor of \\( \\text{f}(x) \\), then \\( \\text{f}(4) \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
+    "1",
     "linear",
     "0",
-    "is",
-    "root"
+    "a"
    ]
   },
   "key": {
@@ -6145,10 +6145,10 @@ window.QUESTION_BANK = [
   "question": "To find a whole-number factor of a cubic, test the ___B1___ of the constant term.",
   "blankOptions": {
    "B1": [
-    "a",
-    "quadratic",
+    "1",
+    "root",
     "factors",
-    "1/2"
+    "is"
    ]
   },
   "key": {
@@ -6167,10 +6167,10 @@ window.QUESTION_BANK = [
   "question": "To test whether \\( (2x - 1) \\) is a factor of \\( \\text{f}(x) \\), work out f of ___B1___.",
   "blankOptions": {
    "B1": [
-    "0",
-    "1",
-    "linear",
-    "1/2"
+    "1/2",
+    "2",
+    "is",
+    "quadratic"
    ]
   },
   "key": {
@@ -6189,16 +6189,16 @@ window.QUESTION_BANK = [
   "question": "The factor theorem finds ___B1___ factors of a polynomial; the remainder theorem is ___B2___ on this specification.",
   "blankOptions": {
    "B1": [
-    "factor",
     "linear",
+    "root",
     "a",
     "3/2"
    ],
    "B2": [
-    "quadratic",
-    "a",
+    "1/2",
     "not",
-    "is"
+    "2",
+    "a"
    ]
   },
   "key": {
@@ -6218,10 +6218,10 @@ window.QUESTION_BANK = [
   "question": "After factorising, you solve \\( \\text{f}(x) = 0 \\) by setting each ___B1___ equal to zero.",
   "blankOptions": {
    "B1": [
-    "factor",
-    "multiples",
-    "a",
-    "1"
+    "root",
+    "1/2",
+    "not",
+    "factor"
    ]
   },
   "key": {
@@ -6241,9 +6241,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "is",
-    "quadratic",
-    "linear",
-    "1"
+    "factors",
+    "1",
+    "factor"
    ]
   },
   "key": {
@@ -7165,10 +7165,10 @@ window.QUESTION_BANK = [
   "question": "The first step in modelling a worded problem is to define the ___B1___ and state what it represents.",
   "blankOptions": {
    "B1": [
-    "unknown",
-    "plus",
-    "n+2",
-    "minus"
+    "elimination",
+    "1",
+    "reject",
+    "unknown"
    ]
   },
   "key": {
@@ -7187,10 +7187,10 @@ window.QUESTION_BANK = [
   "question": "When a quadratic equation for a length gives a negative root, you must ___B1___ it, because a length cannot be negative.",
   "blankOptions": {
    "B1": [
-    "substitution",
-    "16",
     "reject",
-    "n+3"
+    "2n",
+    "1",
+    "unknown"
    ]
   },
   "key": {
@@ -7210,9 +7210,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "substitution",
-    "minus",
-    "elimination",
-    "accept"
+    "1",
+    "n+3",
+    "plus"
    ]
   },
   "key": {
@@ -7231,8 +7231,8 @@ window.QUESTION_BANK = [
   "question": "In the boat problem the two roots were 1 and \\( -16 \\); the current speed must be positive, so the answer is ___B1___ km/h.",
   "blankOptions": {
    "B1": [
-    "16",
-    "plus",
+    "elimination",
+    "2n",
     "minus",
     "1"
    ]
@@ -7253,10 +7253,10 @@ window.QUESTION_BANK = [
   "question": "A final answer in a real context should always be stated with its ___B1___.",
   "blankOptions": {
    "B1": [
-    "n+2",
-    "units",
-    "variable",
-    "n+3"
+    "reject",
+    "elimination",
+    "1",
+    "units"
    ]
   },
   "key": {
@@ -7275,10 +7275,10 @@ window.QUESTION_BANK = [
   "question": "The phrase \"5 more than a number \\( x \\)\" translates to \\( x \\) ___B1___ 5.",
   "blankOptions": {
    "B1": [
+    "accept",
     "plus",
-    "2n",
-    "substitution",
-    "n+2"
+    "16",
+    "minus"
    ]
   },
   "key": {
@@ -7298,9 +7298,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "n+3",
-    "accept",
+    "variable",
     "n+2",
-    "units"
+    "1"
    ]
   },
   "key": {
@@ -8151,10 +8151,10 @@ window.QUESTION_BANK = [
   "question": "A rule that gives each term of a sequence from earlier terms is called a ___B1___ relationship.",
   "blankOptions": {
    "B1": [
-    "1.03",
-    "geometric",
+    "two",
     "recurrence",
-    "subtracted"
+    "added",
+    "one"
    ]
   },
   "key": {
@@ -8173,10 +8173,10 @@ window.QUESTION_BANK = [
   "question": "As well as the rule, you need a ___B1___ value before you can generate the sequence.",
   "blankOptions": {
    "B1": [
-    "starting",
-    "1.03",
-    "one",
-    "added"
+    "added",
+    "0.15",
+    "recurrence",
+    "starting"
    ]
   },
   "key": {
@@ -8195,10 +8195,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = x_n + a \\) the fixed number \\( a \\) is ___B1___ to each term, giving an arithmetic sequence.",
   "blankOptions": {
    "B1": [
-    "subtracted",
+    "two",
     "added",
-    "7",
-    "one"
+    "multiplied",
+    "7"
    ]
   },
   "key": {
@@ -8217,10 +8217,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = a x_n \\) each term is ___B1___ by \\( a \\), giving a geometric sequence.",
   "blankOptions": {
    "B1": [
-    "multiplied",
-    "added",
-    "subtracted",
-    "divided"
+    "geometric",
+    "divided",
+    "7",
+    "multiplied"
    ]
   },
   "key": {
@@ -8239,10 +8239,10 @@ window.QUESTION_BANK = [
   "question": "A second-order rule such as \\( x_{n+2} = x_{n+1} + x_n \\) needs ___B1___ starting values.",
   "blankOptions": {
    "B1": [
-    "11",
+    "starting",
+    "1.3",
     "7",
-    "two",
-    "added"
+    "two"
    ]
   },
   "key": {
@@ -8262,9 +8262,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "1.03",
-    "0.85",
-    "starting",
-    "recurrence"
+    "recurrence",
+    "11",
+    "added"
    ]
   },
   "key": {
@@ -8283,10 +8283,10 @@ window.QUESTION_BANK = [
   "question": "An asset that loses 15% of its value each year has multiplier ___B1___.",
   "blankOptions": {
    "B1": [
+    "one",
+    "7",
     "0.85",
-    "subtracted",
-    "added",
-    "multiplied"
+    "0.15"
    ]
   },
   "key": {
@@ -8305,16 +8305,16 @@ window.QUESTION_BANK = [
   "question": "For \\( x_{n+1} = x_n + 4 \\) with \\( x_1 = 3 \\), the second term is ___B1___ and the third term is ___B2___.",
   "blankOptions": {
    "B1": [
-    "starting",
-    "7",
-    "1.3",
-    "subtracted"
+    "two",
+    "geometric",
+    "added",
+    "7"
    ],
    "B2": [
-    "1.3",
+    "geometric",
     "11",
-    "recurrence",
-    "starting"
+    "1.03",
+    "two"
    ]
   },
   "key": {
@@ -9204,10 +9204,10 @@ window.QUESTION_BANK = [
   "question": "The distance between two points comes from ___B1___ theorem, taking the square root of the sum of the squared gaps.",
   "blankOptions": {
    "B1": [
+    "point-gradient",
     "Pythagoras",
-    "y",
-    "subtracting",
-    "-1"
+    "intercept",
+    "y"
    ]
   },
   "key": {
@@ -9226,10 +9226,10 @@ window.QUESTION_BANK = [
   "question": "To find the midpoint you ___B1___ the two \\( x \\)-coordinates and do the same to the \\( y \\)-coordinates.",
   "blankOptions": {
    "B1": [
-    "1",
-    "intercept",
-    "parallel",
-    "average"
+    "average",
+    "equal",
+    "-1",
+    "midpoint"
    ]
   },
   "key": {
@@ -9249,9 +9249,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "equal",
-    "midpoint",
-    "gradient",
-    "average"
+    "point-gradient",
+    "negative reciprocal",
+    "midpoint"
    ]
   },
   "key": {
@@ -9270,9 +9270,9 @@ window.QUESTION_BANK = [
   "question": "For two perpendicular lines the product of their gradients is ___B1___.",
   "blankOptions": {
    "B1": [
-    "parallel",
     "-1",
-    "midpoint",
+    "Pythagoras",
+    "parallel",
     "negative reciprocal"
    ]
   },
@@ -9292,16 +9292,16 @@ window.QUESTION_BANK = [
   "question": "The perpendicular bisector of a segment passes through its ___B1___ and has a gradient equal to the ___B2___ of the segment's gradient.",
   "blankOptions": {
    "B1": [
-    "midpoint",
     "y",
-    "slope",
-    "intercept"
+    "average",
+    "midpoint",
+    "equal"
    ],
    "B2": [
-    "average",
     "negative reciprocal",
-    "parallel",
-    "y"
+    "average",
+    "intercept",
+    "subtracting"
    ]
   },
   "key": {
@@ -9321,16 +9321,16 @@ window.QUESTION_BANK = [
   "question": "In the equation \\( y = mx + c \\), the letter \\( m \\) is the ___B1___ and \\( c \\) is the \\( y \\)-___B2___.",
   "blankOptions": {
    "B1": [
-    "Pythagoras",
-    "point-gradient",
     "gradient",
-    "-1"
+    "slope",
+    "x",
+    "1"
    ],
    "B2": [
-    "point-gradient",
-    "negative reciprocal",
-    "subtracting",
-    "intercept"
+    "-1",
+    "intercept",
+    "1",
+    "Pythagoras"
    ]
   },
   "key": {
@@ -9350,10 +9350,10 @@ window.QUESTION_BANK = [
   "question": "The gradient of a line is the change in \\( y \\) divided by the change in ___B1___.",
   "blankOptions": {
    "B1": [
-    "midpoint",
-    "slope",
+    "negative reciprocal",
     "x",
-    "gradient"
+    "slope",
+    "average"
    ]
   },
   "key": {
@@ -9372,10 +9372,10 @@ window.QUESTION_BANK = [
   "question": "The form \\( y - y_1 = m(x - x_1) \\) is called the ___B1___ form of a line.",
   "blankOptions": {
    "B1": [
-    "1",
+    "intercept",
+    "x",
     "point-gradient",
-    "slope",
-    "parallel"
+    "equal"
    ]
   },
   "key": {
@@ -10409,16 +10409,16 @@ window.QUESTION_BANK = [
   "question": "The general equation of a circle with centre \\( (a,\\ b) \\) and radius \\( r \\) is \\( (x-a)^2 + (y-b)^2 = r^2 \\). For \\( (x-3)^2 + (y+2)^2 = 25 \\), the centre is ___B1___ and the radius is ___B2___.",
   "blankOptions": {
    "B1": [
-    "double",
-    "tangent",
-    "(3, -2)",
-    "negative reciprocal"
+    "reciprocal",
+    "linear",
+    "25",
+    "(3, -2)"
    ],
    "B2": [
+    "25",
     "5",
-    "substitute",
-    "negative reciprocal",
-    "gradient"
+    "double",
+    "perpendicular"
    ]
   },
   "key": {
@@ -10438,10 +10438,10 @@ window.QUESTION_BANK = [
   "question": "To find the centre and radius from the expanded form \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\), you complete the ___B1___ in \\( x \\) and in \\( y \\) separately.",
   "blankOptions": {
    "B1": [
+    "negative reciprocal",
+    "perpendicular",
     "square",
-    "factorise",
-    "positive",
-    "double"
+    "parallel"
    ]
   },
   "key": {
@@ -10460,16 +10460,16 @@ window.QUESTION_BANK = [
   "question": "At the point of contact, the radius is ___B1___ to the tangent, so the tangent gradient is the ___B2___ of the radius gradient.",
   "blankOptions": {
    "B1": [
-    "substitute",
-    "perpendicular",
+    "5",
     "midpoint",
-    "quadratic"
+    "perpendicular",
+    "normal"
    ],
    "B2": [
-    "double",
-    "quadratic",
-    "reciprocal",
-    "negative reciprocal"
+    "normal",
+    "(3, -2)",
+    "negative reciprocal",
+    "reciprocal"
    ]
   },
   "key": {
@@ -10489,10 +10489,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ to a circle at a point always passes through the centre of the circle.",
   "blankOptions": {
    "B1": [
-    "normal",
-    "square",
-    "half",
-    "5"
+    "perpendicular",
+    "linear",
+    "reciprocal",
+    "normal"
    ]
   },
   "key": {
@@ -10511,16 +10511,16 @@ window.QUESTION_BANK = [
   "question": "To test where a line meets a circle, ___B1___ the line into the circle equation to obtain a ___B2___ equation.",
   "blankOptions": {
    "B1": [
-    "midpoint",
+    "negative",
+    "linear",
     "substitute",
-    "5",
-    "negative"
+    "square"
    ],
    "B2": [
-    "(-3, 2)",
-    "normal",
+    "parallel",
+    "(3, -2)",
     "quadratic",
-    "negative"
+    "positive"
    ]
   },
   "key": {
@@ -10540,10 +10540,10 @@ window.QUESTION_BANK = [
   "question": "A line is a tangent to a circle exactly when the discriminant of that quadratic equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "square",
-    "substitute",
-    "linear",
-    "zero"
+    "zero",
+    "tangent",
+    "factorise",
+    "square"
    ]
   },
   "key": {
@@ -10562,10 +10562,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, the line misses the circle completely.",
   "blankOptions": {
    "B1": [
-    "25",
+    "(-3, 2)",
     "negative",
-    "(3, -2)",
-    "midpoint"
+    "reciprocal",
+    "gradient"
    ]
   },
   "key": {
@@ -10584,16 +10584,16 @@ window.QUESTION_BANK = [
   "question": "Given the two ends of a diameter, the centre is the ___B1___ of the endpoints and the radius is ___B2___ the diameter.",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "parallel",
-    "linear",
-    "midpoint"
+    "midpoint",
+    "factorise",
+    "quadratic",
+    "square"
    ],
    "B2": [
-    "half",
-    "negative reciprocal",
-    "gradient",
-    "tangent"
+    "parallel",
+    "positive",
+    "square",
+    "half"
    ]
   },
   "key": {
@@ -11522,16 +11522,16 @@ window.QUESTION_BANK = [
   "question": "A graph drawn with only its main features, not to scale, is called a ___B1___; an accurate one worked out on a grid is a ___B2___.",
   "blankOptions": {
    "B1": [
-    "downwards",
-    "360",
     "sketch",
-    "parabola"
+    "downwards",
+    "roots",
+    "3"
    ],
    "B2": [
     "plot",
-    "downwards",
-    "0",
-    "2"
+    "cross",
+    "360",
+    "k"
    ]
   },
   "key": {
@@ -11551,16 +11551,16 @@ window.QUESTION_BANK = [
   "question": "For the exponential graph \\( y = k a^x \\) with \\( a > 0 \\), the horizontal asymptote is the line \\( y = \\) ___B1___ and the curve crosses the \\( y \\)-axis at the value ___B2___.",
   "blankOptions": {
    "B1": [
-    "upwards",
-    "0",
     "360",
-    "parabola"
+    "3",
+    "0",
+    "touch"
    ],
    "B2": [
-    "draw",
     "k",
-    "2",
-    "touch"
+    "180",
+    "parabola",
+    "sketch"
    ]
   },
   "key": {
@@ -11580,16 +11580,16 @@ window.QUESTION_BANK = [
   "question": "A quadratic graph has the shape called a ___B1___; when the \\( x^2 \\) coefficient is positive it opens ___B2___.",
   "blankOptions": {
    "B1": [
-    "0",
-    "cross",
-    "draw",
-    "parabola"
+    "parabola",
+    "k",
+    "touch",
+    "downwards"
    ],
    "B2": [
+    "cross",
+    "360",
     "upwards",
-    "3",
-    "downwards",
-    "cross"
+    "plot"
    ]
   },
   "key": {
@@ -11609,16 +11609,16 @@ window.QUESTION_BANK = [
   "question": "The graphs of \\( y = \\sin x \\) and \\( y = \\cos x \\) both repeat every ___B1___ degrees and have amplitude ___B2___.",
   "blankOptions": {
    "B1": [
+    "draw",
     "roots",
-    "parabola",
-    "360",
-    "2"
+    "sketch",
+    "360"
    ],
    "B2": [
-    "1",
-    "cross",
-    "upwards",
-    "downwards"
+    "k",
+    "3",
+    "plot",
+    "1"
    ]
   },
   "key": {
@@ -11638,16 +11638,16 @@ window.QUESTION_BANK = [
   "question": "To find where a curve meets the \\( x \\)-axis you set \\( y = \\) ___B1___ and solve; these values are the ___B2___ of the function.",
   "blankOptions": {
    "B1": [
+    "upwards",
+    "3",
     "0",
-    "plot",
-    "180",
-    "cross"
+    "draw"
    ],
    "B2": [
-    "parabola",
-    "3",
-    "1",
-    "roots"
+    "draw",
+    "roots",
+    "k",
+    "360"
    ]
   },
   "key": {
@@ -11667,16 +11667,16 @@ window.QUESTION_BANK = [
   "question": "The cubic \\( y = (x-1)(x+2)(x-4) \\) has ___B1___ real roots; a repeated factor makes the curve ___B2___ the \\( x \\)-axis instead of crossing it.",
   "blankOptions": {
    "B1": [
-    "180",
-    "upwards",
     "3",
-    "2"
+    "upwards",
+    "roots",
+    "1"
    ],
    "B2": [
-    "0",
-    "sketch",
     "touch",
-    "180"
+    "360",
+    "roots",
+    "cross"
    ]
   },
   "key": {
@@ -11698,8 +11698,8 @@ window.QUESTION_BANK = [
    "B1": [
     "draw",
     "180",
-    "1",
-    "plot"
+    "sketch",
+    "downwards"
    ]
   },
   "key": {
@@ -12644,16 +12644,16 @@ window.QUESTION_BANK = [
   "question": "For a strict inequality you draw the boundary as a ___B1___ line; for \\( \\le \\) or \\( \\ge \\) you draw a ___B2___ line.",
   "blankOptions": {
    "B1": [
-    "equals",
-    "dashed",
-    "line",
-    "region"
+    "origin",
+    "wanted",
+    "point",
+    "dashed"
    ],
    "B2": [
-    "region",
+    "solid",
+    "not",
     "origin",
-    "clear",
-    "solid"
+    "0"
    ]
   },
   "key": {
@@ -12673,10 +12673,10 @@ window.QUESTION_BANK = [
   "question": "To decide which side of the line to shade, you substitute a test ___B1___ such as the origin into the inequality.",
   "blankOptions": {
    "B1": [
-    "not",
-    "region",
     "point",
-    "equals"
+    "feasible",
+    "clear",
+    "not"
    ]
   },
   "key": {
@@ -12696,14 +12696,14 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "not",
-    "0",
-    "equals",
-    "shade"
+    "line",
+    "dashed",
+    "wanted"
    ],
    "B2": [
-    "point",
     "solid",
-    "feasible",
+    "want",
+    "equals",
     "clear"
    ]
   },
@@ -12724,10 +12724,10 @@ window.QUESTION_BANK = [
   "question": "You cannot make a negative number of items, so a real-world model also needs \\( x \\) and \\( y \\) each to be at least ___B1___.",
   "blankOptions": {
    "B1": [
-    "line",
-    "feasible",
+    "region",
+    "origin",
     "0",
-    "dashed"
+    "line"
    ]
   },
   "key": {
@@ -12746,10 +12746,10 @@ window.QUESTION_BANK = [
   "question": "You find the boundary line of an inequality by replacing the inequality sign with an ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "region",
-    "not",
+    "dashed",
+    "equals",
     "solid",
-    "equals"
+    "region"
    ]
   },
   "key": {
@@ -12769,9 +12769,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "feasible",
+    "0",
     "origin",
-    "curve",
-    "dashed"
+    "curve"
    ]
   },
   "key": {
@@ -12790,8 +12790,8 @@ window.QUESTION_BANK = [
   "question": "If substituting the origin makes the inequality true, the origin lies in the region you ___B1___ (so you do NOT shade it).",
   "blankOptions": {
    "B1": [
-    "not",
     "want",
+    "dashed",
     "wanted",
     "line"
    ]
@@ -12812,10 +12812,10 @@ window.QUESTION_BANK = [
   "question": "The boundary drawn for \\( y > 2x \\) should be ___B1___ because the inequality is strict.",
   "blankOptions": {
    "B1": [
-    "want",
-    "dashed",
+    "feasible",
     "region",
-    "not"
+    "clear",
+    "dashed"
    ]
   },
   "key": {
@@ -13727,9 +13727,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "define",
-    "non-negativity",
-    "feasible",
-    "simplify"
+    "objective",
+    "greater than or equal to",
+    "inequality"
    ]
   },
   "key": {
@@ -13748,10 +13748,10 @@ window.QUESTION_BANK = [
   "question": "A constraint is a limit in the problem written as a linear ___B1___.",
   "blankOptions": {
    "B1": [
+    "60",
+    "inequality",
     "simplify",
-    "minimised",
-    "equals",
-    "inequality"
+    "constraint"
    ]
   },
   "key": {
@@ -13770,16 +13770,16 @@ window.QUESTION_BANK = [
   "question": "The phrase 'at least' translates to the ___B1___ sign, while 'no more than' translates to the ___B2___ sign.",
   "blankOptions": {
    "B1": [
+    "feasible",
     "inequality",
-    "maximised",
     "greater than or equal to",
-    "constraint"
+    "8"
    ],
    "B2": [
-    "define",
-    "maximised",
+    "8",
+    "less than or equal to",
     "draw",
-    "less than or equal to"
+    "non-negativity"
    ]
   },
   "key": {
@@ -13799,10 +13799,10 @@ window.QUESTION_BANK = [
   "question": "Because you cannot make a negative quantity, an LP model includes the ___B1___ constraints x is greater than or equal to 0 and y is greater than or equal to 0.",
   "blankOptions": {
    "B1": [
-    "8",
+    "simplify",
+    "constraint",
     "non-negativity",
-    "greater than or equal to",
-    "simplify"
+    "feasible"
    ]
   },
   "key": {
@@ -13821,10 +13821,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ function is the quantity, such as profit or cost, that you want to maximise or minimise.",
   "blankOptions": {
    "B1": [
-    "greater than or equal to",
+    "inequality",
     "objective",
-    "equals",
-    "draw"
+    "maximised",
+    "constraint"
    ]
   },
   "key": {
@@ -13843,10 +13843,10 @@ window.QUESTION_BANK = [
   "question": "You can ___B1___ a constraint such as 6x + 4y is at most 240 by dividing every term by 2, giving 3x + 2y at most 120.",
   "blankOptions": {
    "B1": [
-    "60",
-    "minimised",
-    "non-negativity",
-    "simplify"
+    "simplify",
+    "maximised",
+    "greater than or equal to",
+    "less than or equal to"
    ]
   },
   "key": {
@@ -13866,15 +13866,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "60",
-    "greater than or equal to",
-    "non-negativity",
-    "draw"
+    "draw",
+    "minimised",
+    "define"
    ],
    "B2": [
-    "constraint",
-    "less than or equal to",
-    "equals",
-    "maximised"
+    "simplify",
+    "maximised",
+    "draw",
+    "non-negativity"
    ]
   },
   "key": {
@@ -13894,10 +13894,10 @@ window.QUESTION_BANK = [
   "question": "Unlike a constraint, an objective function contains no ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "minimised",
-    "non-negativity",
     "inequality",
-    "simplify"
+    "non-negativity",
+    "objective",
+    "define"
    ]
   },
   "key": {
@@ -14995,16 +14995,16 @@ window.QUESTION_BANK = [
   "question": "In OCR linear programming you shade the region that does ___B1___ satisfy the constraints, so the feasible region is left ___B2___.",
   "blankOptions": {
    "B1": [
-    "greater",
-    "integer",
-    "2.5",
+    "objective",
+    "decreases",
+    "centre",
     "not"
    ],
    "B2": [
-    "shaded",
-    "increases",
-    "5",
-    "unshaded"
+    "whole",
+    "objective",
+    "unshaded",
+    "5"
    ]
   },
   "key": {
@@ -15024,10 +15024,10 @@ window.QUESTION_BANK = [
   "question": "The optimum value of a linear objective always lies at a ___B1___ of the feasible region, never inside it.",
   "blankOptions": {
    "B1": [
-    "2.5",
+    "3.8",
     "vertex",
-    "not",
-    "increases"
+    "centre",
+    "2.5"
    ]
   },
   "key": {
@@ -15046,15 +15046,15 @@ window.QUESTION_BANK = [
   "question": "To find the optimum you can test each ___B1___ in the objective, or slide the ___B2___ line to its extreme position.",
   "blankOptions": {
    "B1": [
-    "does",
     "edge",
     "vertex",
-    "centre"
+    "decreases",
+    "3"
    ],
    "B2": [
-    "does",
-    "edge",
-    "3.8",
+    "3",
+    "less",
+    "constraint",
     "objective"
    ]
   },
@@ -15075,15 +15075,15 @@ window.QUESTION_BANK = [
   "question": "The boundary line \\( 2x + y = 5 \\) has \\( y \\)-intercept ___B1___ and \\( x \\)-intercept ___B2___.",
   "blankOptions": {
    "B1": [
-    "unshaded",
-    "not",
     "5",
-    "objective"
+    "integers",
+    "shaded",
+    "less"
    ],
    "B2": [
-    "not",
+    "integer",
+    "shaded",
     "2.5",
-    "objective",
     "integers"
    ]
   },
@@ -15104,10 +15104,10 @@ window.QUESTION_BANK = [
   "question": "Optima in LP need not be whole numbers; assuming that they must be ___B1___ is a common examiner-reported error.",
   "blankOptions": {
    "B1": [
-    "decreases",
-    "integers",
-    "vertex",
-    "shaded"
+    "whole",
+    "integer",
+    "constraint",
+    "integers"
    ]
   },
   "key": {
@@ -15126,9 +15126,9 @@ window.QUESTION_BANK = [
   "question": "If the context can only take whole items, check the feasible ___B1___ points nearest the optimum vertex.",
   "blankOptions": {
    "B1": [
-    "greater",
+    "constraint",
     "integer",
-    "edge",
+    "less",
     "whole"
    ]
   },
@@ -15149,9 +15149,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "vertex",
-    "greater",
     "less",
-    "integer"
+    "objective",
+    "edge"
    ]
   },
   "key": {
@@ -15170,10 +15170,10 @@ window.QUESTION_BANK = [
   "question": "To maximise an objective, slide the objective line in the direction that ___B1___ its value; to minimise, slide the opposite way.",
   "blankOptions": {
    "B1": [
+    "greater",
     "increases",
-    "5",
-    "not",
-    "edge"
+    "integers",
+    "centre"
    ]
   },
   "key": {
@@ -16084,16 +16084,16 @@ window.QUESTION_BANK = [
   "question": "On the unit circle the point at angle \\( \\theta \\) is \\( (\\cos\\theta,\\ \\sin\\theta) \\), so \\( \\cos\\theta \\) is the ___B1___ coordinate and \\( \\sin\\theta \\) is the ___B2___ coordinate.",
   "blankOptions": {
    "B1": [
-    "45",
-    "90",
-    "360",
-    "x"
+    "second",
+    "-1",
+    "x",
+    "1"
    ],
    "B2": [
     "y",
+    "0",
     "first",
-    "-1",
-    "30"
+    "360"
    ]
   },
   "key": {
@@ -16113,16 +16113,16 @@ window.QUESTION_BANK = [
   "question": "The period of both \\( \\sin\\theta \\) and \\( \\cos\\theta \\) is ___B1___ degrees, while the period of \\( \\tan\\theta \\) is ___B2___ degrees.",
   "blankOptions": {
    "B1": [
-    "fourth",
-    "90",
-    "1",
-    "360"
+    "2",
+    "second",
+    "360",
+    "-1"
    ],
    "B2": [
-    "intercepts",
-    "90",
+    "second",
+    "fourth",
     "180",
-    "asymptotes"
+    "y"
    ]
   },
   "key": {
@@ -16142,16 +16142,16 @@ window.QUESTION_BANK = [
   "question": "The maximum value of \\( \\sin\\theta \\) is ___B1___ and its minimum value is ___B2___.",
   "blankOptions": {
    "B1": [
-    "180",
-    "0",
-    "second",
-    "1"
+    "1",
+    "third",
+    "asymptotes",
+    "1/2"
    ],
    "B2": [
-    "-1",
-    "1/2",
+    "third",
     "30",
-    "2"
+    "-1",
+    "45"
    ]
   },
   "key": {
@@ -16171,16 +16171,16 @@ window.QUESTION_BANK = [
   "question": "Using the CAST rule, sine is positive in the ___B1___ quadrant and tangent is positive in the ___B2___ quadrant.",
   "blankOptions": {
    "B1": [
-    "180",
     "second",
-    "y",
-    "2"
+    "45",
+    "360",
+    "asymptotes"
    ],
    "B2": [
-    "x",
-    "0",
+    "45",
+    "2",
     "third",
-    "y"
+    "first"
    ]
   },
   "key": {
@@ -16201,15 +16201,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "1/2",
-    "30",
-    "90",
-    "-1"
+    "second",
+    "45",
+    "360"
    ],
    "B2": [
-    "first",
+    "asymptotes",
+    "y",
     "1/2",
-    "90",
-    "0"
+    "intercepts"
    ]
   },
   "key": {
@@ -16229,10 +16229,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( \\tan\\theta \\) has vertical ___B1___ at \\( 90^\\circ \\) and \\( 270^\\circ \\).",
   "blankOptions": {
    "B1": [
-    "-1",
-    "third",
-    "90",
-    "asymptotes"
+    "first",
+    "asymptotes",
+    "fourth",
+    "45"
    ]
   },
   "key": {
@@ -16251,10 +16251,10 @@ window.QUESTION_BANK = [
   "question": "Because \\( \\sin(180^\\circ - \\theta) = \\sin\\theta \\), the angle \\( 150^\\circ \\) has the same sine as ___B1___ degrees.",
   "blankOptions": {
    "B1": [
+    "30",
     "360",
-    "asymptotes",
-    "second",
-    "30"
+    "-1",
+    "2"
    ]
   },
   "key": {
@@ -16273,9 +16273,9 @@ window.QUESTION_BANK = [
   "question": "The exact value of \\( \\tan 45^\\circ \\) is ___B1___.",
   "blankOptions": {
    "B1": [
+    "first",
     "30",
     "1",
-    "45",
     "asymptotes"
    ]
   },
@@ -17203,9 +17203,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "opposite",
-    "excluded",
-    "2ab",
-    "adjacent"
+    "memorised",
+    "included",
+    "cosine"
    ]
   },
   "key": {
@@ -17224,16 +17224,16 @@ window.QUESTION_BANK = [
   "question": "You use the ___B1___ rule when you know two sides and the angle between them (SAS), and the ___B2___ rule when you know two angles and a side.",
   "blankOptions": {
    "B1": [
-    "included",
     "cosine",
-    "provided",
+    "113.2",
+    "2bc",
     "adjacent"
    ],
    "B2": [
-    "excluded",
-    "2bc",
-    "adjacent",
-    "sine"
+    "sine",
+    "2ab",
+    "provided",
+    "non-included"
    ]
   },
   "key": {
@@ -17253,10 +17253,10 @@ window.QUESTION_BANK = [
   "question": "In the rearranged cosine rule \\( \\cos A = \\frac{b^2 + c^2 - a^2}{2bc} \\), the denominator is ___B1___.",
   "blankOptions": {
    "B1": [
-    "sine",
-    "2bc",
-    "246.8",
-    "opposite"
+    "non-included",
+    "provided",
+    "SAS",
+    "2bc"
    ]
   },
   "key": {
@@ -17275,10 +17275,10 @@ window.QUESTION_BANK = [
   "question": "The area of a triangle equals \\( \\frac{1}{2}ab\\sin C \\), where C is the ___B1___ angle between sides a and b.",
   "blankOptions": {
    "B1": [
-    "sine",
-    "memorised",
+    "2bc",
     "included",
-    "cosine"
+    "excluded",
+    "SAS"
    ]
   },
   "key": {
@@ -17297,10 +17297,10 @@ window.QUESTION_BANK = [
   "question": "If the acute angle from the sine rule is 66.8°, the second possible (obtuse) angle is 180° minus 66.8°, which is ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "SAS",
     "113.2",
-    "non-included",
-    "included"
+    "cosine",
+    "excluded",
+    "adjacent"
    ]
   },
   "key": {
@@ -17319,10 +17319,10 @@ window.QUESTION_BANK = [
   "question": "The ambiguous case can occur when you are given two sides and a ___B1___ angle (the SSA situation).",
   "blankOptions": {
    "B1": [
-    "memorised",
     "non-included",
-    "excluded",
-    "SAS"
+    "provided",
+    "SAS",
+    "opposite"
    ]
   },
   "key": {
@@ -17341,10 +17341,10 @@ window.QUESTION_BANK = [
   "question": "The sine rule, cosine rule and area rule must all be ___B1___ because they are not on the formula sheet.",
   "blankOptions": {
    "B1": [
-    "2bc",
-    "opposite",
+    "246.8",
     "memorised",
-    "2ab"
+    "opposite",
+    "adjacent"
    ]
   },
   "key": {
@@ -17363,10 +17363,10 @@ window.QUESTION_BANK = [
   "question": "A triangle in which all three sides are known is an ___B1___ situation, so you use the cosine rule.",
   "blankOptions": {
    "B1": [
-    "excluded",
-    "SSS",
+    "adjacent",
     "2ab",
-    "non-included"
+    "opposite",
+    "SSS"
    ]
   },
   "key": {
@@ -18273,10 +18273,10 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) marks an identity, which is true for ___B1___ value of \\( \\theta \\).",
   "blankOptions": {
    "B1": [
+    "angle",
     "every",
-    "two",
-    "±",
-    "some"
+    "one",
+    "±"
    ]
   },
   "key": {
@@ -18295,10 +18295,10 @@ window.QUESTION_BANK = [
   "question": "Both trig identities must be ___B1___, because they are not printed on the exam formula sheet.",
   "blankOptions": {
    "B1": [
-    "ratio",
-    "negative",
-    "angle",
-    "memorised"
+    "two",
+    "memorised",
+    "exact",
+    "ratio"
    ]
   },
   "key": {
@@ -18317,10 +18317,10 @@ window.QUESTION_BANK = [
   "question": "Finding another ratio needs a square root, which introduces a ___B1___ sign; the quadrant then decides which one to keep.",
   "blankOptions": {
    "B1": [
-    "exact",
-    "two",
+    "±",
+    "ratio",
     "some",
-    "±"
+    "exact"
    ]
   },
   "key": {
@@ -18339,10 +18339,10 @@ window.QUESTION_BANK = [
   "question": "In the third quadrant, only \\( \\tan\\theta \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "one",
     "positive",
-    "±",
-    "two"
+    "exact",
+    "some",
+    "ratio"
    ]
   },
   "key": {
@@ -18361,7 +18361,7 @@ window.QUESTION_BANK = [
   "question": "When a question says 'exact', leave your answer as a surd or fraction, never a ___B1___.",
   "blankOptions": {
    "B1": [
-    "memorised",
+    "some",
     "decimal",
     "±",
     "positive"
@@ -18383,10 +18383,10 @@ window.QUESTION_BANK = [
   "question": "To prove an identity you work on ___B1___ side at a time and finish with a concluding statement.",
   "blankOptions": {
    "B1": [
-    "memorised",
+    "positive",
+    "ratio",
     "one",
-    "every",
-    "some"
+    "every"
    ]
   },
   "key": {
@@ -18405,9 +18405,9 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sin^2\\theta \\) you square the ___B1___, not the angle.",
   "blankOptions": {
    "B1": [
-    "negative",
-    "±",
-    "memorised",
+    "some",
+    "two",
+    "angle",
     "ratio"
    ]
   },
@@ -19349,10 +19349,10 @@ window.QUESTION_BANK = [
   "question": "The angle the calculator returns from \\( \\sin^{-1} \\), \\( \\cos^{-1} \\) or \\( \\tan^{-1} \\) is called the ___B1___ value.",
   "blankOptions": {
    "B1": [
+    "360",
     "principal",
-    "exact",
-    "detailed",
-    "sin^2"
+    "cos^2",
+    "90"
    ]
   },
   "key": {
@@ -19372,9 +19372,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "alpha",
-    "sin^2",
     "exact",
-    "90"
+    "pairs",
+    "detailed"
    ]
   },
   "key": {
@@ -19394,9 +19394,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "sin^2",
-    "decimal",
-    "detailed",
-    "360"
+    "pairs",
+    "360",
+    "cos^2"
    ]
   },
   "key": {
@@ -19415,9 +19415,9 @@ window.QUESTION_BANK = [
   "question": "The tangent graph repeats every ___B1___ degrees, so its second solution is \\( \\alpha \\) plus that many degrees.",
   "blankOptions": {
    "B1": [
-    "detailed",
-    "pairs",
+    "alpha",
     "180",
+    "cos^2",
     "360"
    ]
   },
@@ -19437,10 +19437,10 @@ window.QUESTION_BANK = [
   "question": "To solve an equation in \\( 2\\theta \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), first solve for \\( 2\\theta \\) over the interval 0 to ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "90",
+    "principal",
+    "720",
     "decimal",
-    "sin^2",
-    "720"
+    "cos^2"
    ]
   },
   "key": {
@@ -19459,10 +19459,10 @@ window.QUESTION_BANK = [
   "question": "To turn \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) into a quadratic, replace \\( \\cos^2\\theta \\) with 1 minus ___B1___.",
   "blankOptions": {
    "B1": [
-    "pairs",
+    "exact",
+    "detailed",
     "sin^2",
-    "alpha",
-    "principal"
+    "180"
    ]
   },
   "key": {
@@ -19481,9 +19481,9 @@ window.QUESTION_BANK = [
   "question": "A command word that means \"leave surds, not decimals\" is ___B1___; a decimal answer then scores zero.",
   "blankOptions": {
    "B1": [
-    "90",
-    "360",
+    "pairs",
     "exact",
+    "180",
     "detailed"
    ]
   },
@@ -19503,10 +19503,10 @@ window.QUESTION_BANK = [
   "question": "Solutions of \\( \\sin\\theta = k \\) and \\( \\cos\\theta = k \\) come in ___B1___ across a full \\( 360^\\circ \\), so an odd count usually signals a slip.",
   "blankOptions": {
    "B1": [
-    "sin^2",
-    "pairs",
-    "decimal",
-    "alpha"
+    "alpha",
+    "720",
+    "cos^2",
+    "pairs"
    ]
   },
   "key": {
@@ -20447,13 +20447,13 @@ window.QUESTION_BANK = [
    "B1": [
     "three",
     "triangle",
-    "adjacent",
-    "cosine"
+    "opposite",
+    "slope"
    ],
    "B2": [
-    "foot",
-    "cosine",
-    "sine",
+    "240",
+    "opposite",
+    "three",
     "plane"
    ]
   },
@@ -20474,16 +20474,16 @@ window.QUESTION_BANK = [
   "question": "The angle between a line and a plane is found by dropping a ___B1___ from the line down to the plane; the angle is then measured at the ___B2___ of that perpendicular.",
   "blankOptions": {
    "B1": [
-    "three",
     "perpendicular",
-    "slope",
-    "hypotenuse"
+    "sine",
+    "hypotenuse",
+    "triangle"
    ],
    "B2": [
-    "sine",
-    "plane",
+    "240",
     "foot",
-    "vertical"
+    "slope",
+    "opposite"
    ]
   },
   "key": {
@@ -20503,16 +20503,16 @@ window.QUESTION_BANK = [
   "question": "For a path going up a slope, the angle with the horizontal has the vertical height as the ___B1___ side and the horizontal distance as the ___B2___ side.",
   "blankOptions": {
    "B1": [
-    "opposite",
-    "clockwise",
-    "sine",
-    "slope"
+    "cosine",
+    "vertical",
+    "triangle",
+    "opposite"
    ],
    "B2": [
-    "adjacent",
-    "sine",
-    "240",
-    "three"
+    "three",
+    "clockwise",
+    "hypotenuse",
+    "adjacent"
    ]
   },
   "key": {
@@ -20532,10 +20532,10 @@ window.QUESTION_BANK = [
   "question": "The steepest line that can be drawn on a sloping face is called the line of greatest ___B1___.",
   "blankOptions": {
    "B1": [
-    "slope",
-    "vertical",
-    "foot",
-    "three"
+    "adjacent",
+    "perpendicular",
+    "plane",
+    "slope"
    ]
   },
   "key": {
@@ -20554,16 +20554,16 @@ window.QUESTION_BANK = [
   "question": "A bearing is measured ___B1___ from north and is always written with ___B2___ figures.",
   "blankOptions": {
    "B1": [
+    "slope",
+    "240",
     "clockwise",
-    "perpendicular",
-    "plane",
-    "triangle"
+    "plane"
    ],
    "B2": [
     "three",
-    "foot",
-    "vertical",
-    "240"
+    "slope",
+    "plane",
+    "cosine"
    ]
   },
   "key": {
@@ -20583,10 +20583,10 @@ window.QUESTION_BANK = [
   "question": "If the bearing of B from A is 060 degrees, then the bearing of A from B is ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "slope",
-    "240",
-    "foot",
-    "adjacent"
+    "three",
+    "plane",
+    "cosine",
+    "240"
    ]
   },
   "key": {
@@ -20605,10 +20605,10 @@ window.QUESTION_BANK = [
   "question": "When a right-angled triangle can be solved with SOH-CAH-TOA, you should not overcomplicate it with the ___B1___ rule.",
   "blankOptions": {
    "B1": [
-    "foot",
-    "slope",
-    "plane",
-    "sine"
+    "triangle",
+    "sine",
+    "opposite",
+    "foot"
    ]
   },
   "key": {
@@ -21555,10 +21555,10 @@ window.QUESTION_BANK = [
   "question": "When you make a sequence of independent choices, the total number of outcomes is found by ___B1___ the number of options at each stage.",
   "blankOptions": {
    "B1": [
-    "n!",
-    "not",
+    "always",
+    "dividing",
     "multiplying",
-    "1"
+    "not"
    ]
   },
   "key": {
@@ -21577,16 +21577,16 @@ window.QUESTION_BANK = [
   "question": "The product \\( n \\times (n-1) \\times \\dots \\times 2 \\times 1 \\) is called n ___B1___, and by definition \\( 0! \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "r!",
+    "dividing",
     "factorial",
-    "permutation",
-    "order"
+    "n-1",
+    "r!"
    ],
    "B2": [
-    "dividing",
+    "always",
     "1",
-    "r!",
-    "n+1"
+    "multiplying",
+    "dividing"
    ]
   },
   "key": {
@@ -21606,16 +21606,16 @@ window.QUESTION_BANK = [
   "question": "In a permutation the ___B1___ of the objects matters, but in a combination it does ___B2___.",
   "blankOptions": {
    "B1": [
-    "multiplying",
     "order",
-    "n-r",
-    "combination"
+    "dividing",
+    "n+1",
+    "0"
    ],
    "B2": [
-    "not",
-    "factorial",
-    "n-r",
-    "1"
+    "always",
+    "permutation",
+    "1",
+    "not"
    ]
   },
   "key": {
@@ -21635,9 +21635,9 @@ window.QUESTION_BANK = [
   "question": "In the permutation formula \\( {}^nP_r = \\frac{n!}{(n-r)!} \\), the denominator is the factorial of ___B1___.",
   "blankOptions": {
    "B1": [
+    "1",
+    "combination",
     "adding",
-    "factorial",
-    "order",
     "n-r"
    ]
   },
@@ -21657,10 +21657,10 @@ window.QUESTION_BANK = [
   "question": "Compared with \\( {}^nP_r \\), the combination \\( {}^nC_r \\) divides by an extra ___B1___ to cancel the repeated orderings.",
   "blankOptions": {
    "B1": [
-    "n!",
-    "n-1",
-    "combination",
-    "r!"
+    "r!",
+    "n-r",
+    "dividing",
+    "factorial"
    ]
   },
   "key": {
@@ -21679,10 +21679,10 @@ window.QUESTION_BANK = [
   "question": "The number of distinct ways to seat n people around a circular table is ( ___B1___ )! because rotations are the same arrangement.",
   "blankOptions": {
    "B1": [
-    "order",
-    "n-1",
-    "n!",
-    "not"
+    "r!",
+    "dividing",
+    "1",
+    "n-1"
    ]
   },
   "key": {
@@ -21702,9 +21702,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "permutation",
-    "n-r",
-    "r!",
-    "combination"
+    "order",
+    "combination",
+    "0"
    ]
   },
   "key": {
@@ -21724,9 +21724,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "permutation",
-    "always",
-    "factorial",
-    "combination"
+    "n+1",
+    "not",
+    "0"
    ]
   },
   "key": {
@@ -22653,10 +22653,10 @@ window.QUESTION_BANK = [
   "question": "The expansion of \\( (a+b)^n \\) for a positive integer \\( n \\) has ___B1___ terms.",
   "blankOptions": {
    "B1": [
-    "memorised",
+    "n-r",
+    "3",
     "n+1",
-    "4",
-    "1"
+    "0"
    ]
   },
   "key": {
@@ -22675,16 +22675,16 @@ window.QUESTION_BANK = [
   "question": "In the general term \\( {}^nC_r\\, a^{n-r} b^r \\), the power of \\( a \\) is ___B1___ and the power of \\( b \\) is ___B2___.",
   "blankOptions": {
    "B1": [
-    "4",
-    "n",
     "n-r",
-    "Pascal's"
+    "n",
+    "memorised",
+    "0"
    ],
    "B2": [
-    "2n",
-    "r",
-    "given",
-    "n-1"
+    "memorised",
+    "n-1",
+    "Pascal's",
+    "r"
    ]
   },
   "key": {
@@ -22704,10 +22704,10 @@ window.QUESTION_BANK = [
   "question": "The numbers in ___B1___ triangle give the binomial coefficients.",
   "blankOptions": {
    "B1": [
-    "Pascal's",
     "n-r",
-    "n-1",
-    "r"
+    "4",
+    "memorised",
+    "Pascal's"
    ]
   },
   "key": {
@@ -22726,10 +22726,10 @@ window.QUESTION_BANK = [
   "question": "The binomial coefficient \\( {}^nC_r \\) and the binomial series are ___B1___ on the exam formula sheet, so you need not memorise them.",
   "blankOptions": {
    "B1": [
+    "r",
+    "memorised",
     "provided",
-    "2n",
-    "given",
-    "Pascal's"
+    "4"
    ]
   },
   "key": {
@@ -22748,10 +22748,10 @@ window.QUESTION_BANK = [
   "question": "A term that is independent of \\( x \\) has \\( x \\) raised to the power ___B1___.",
   "blankOptions": {
    "B1": [
-    "n-1",
     "0",
-    "n",
-    "4"
+    "2n",
+    "1",
+    "n-1"
    ]
   },
   "key": {
@@ -22770,9 +22770,9 @@ window.QUESTION_BANK = [
   "question": "In the expansion of \\( \\left(x + \\frac{1}{x}\\right)^8 \\) the constant term occurs when \\( r \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "n+1",
     "4",
-    "2n",
+    "n-r",
+    "n",
     "r"
    ]
   },
@@ -22792,10 +22792,10 @@ window.QUESTION_BANK = [
   "question": "When expanding \\( (2+3x)^5 \\) the general term \\( {}^5C_r\\, 2^{5-r}(3x)^r \\) means the \\( 3 \\) must be raised to the power ___B1___.",
   "blankOptions": {
    "B1": [
-    "2n",
-    "r",
-    "3",
-    "0"
+    "memorised",
+    "n-1",
+    "Pascal's",
+    "r"
    ]
   },
   "key": {
@@ -22814,10 +22814,10 @@ window.QUESTION_BANK = [
   "question": "In every term of \\( (a+b)^n \\) the powers of \\( a \\) and \\( b \\) add up to ___B1___.",
   "blankOptions": {
    "B1": [
+    "given",
     "n+1",
-    "n",
-    "3",
-    "memorised"
+    "Pascal's",
+    "n"
    ]
   },
   "key": {
@@ -23778,16 +23778,16 @@ window.QUESTION_BANK = [
   "question": "A binomial distribution is written \\( X \\sim B(n,\\ p) \\), where \\( n \\) is the number of ___B1___ and \\( p \\) is the probability of ___B2___ on each one.",
   "blankOptions": {
    "B1": [
+    "provided",
+    "failure",
     "trials",
-    "n-x",
-    "625/1296",
-    "0.5"
+    "complement"
    ],
    "B2": [
-    "dependent",
+    "complement",
+    "memorised",
     "success",
-    "n-x",
-    "constant"
+    "provided"
    ]
   },
   "key": {
@@ -23807,16 +23807,16 @@ window.QUESTION_BANK = [
   "question": "For a binomial model the trials must be ___B1___ of each other and the probability \\( p \\) must stay ___B2___ throughout.",
   "blankOptions": {
    "B1": [
-    "1/6",
+    "successes",
+    "independent",
     "0.5",
-    "x",
-    "independent"
+    "x"
    ],
    "B2": [
+    "trials",
+    "provided",
     "constant",
-    "625/1296",
-    "memorised",
-    "x"
+    "0.5"
    ]
   },
   "key": {
@@ -23836,10 +23836,10 @@ window.QUESTION_BANK = [
   "question": "The formula \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\) is ___B1___ on the exam formula sheet, so you do not have to memorise it.",
   "blankOptions": {
    "B1": [
-    "provided",
-    "625/1296",
+    "memorised",
     "dependent",
-    "failure"
+    "x",
+    "provided"
    ]
   },
   "key": {
@@ -23858,9 +23858,9 @@ window.QUESTION_BANK = [
   "question": "In \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\), the power of \\( p \\) is the number of successes \\( x \\), and the power of \\( (1-p) \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "successes",
-    "complement",
     "failure",
+    "x",
+    "provided",
     "n-x"
    ]
   },
@@ -23880,10 +23880,10 @@ window.QUESTION_BANK = [
   "question": "To find the probability of at least one success you use \\( 1 - P(X=0) \\); this is called using the ___B1___.",
   "blankOptions": {
    "B1": [
-    "0.5",
     "complement",
     "constant",
-    "independent"
+    "671/1296",
+    "1/6"
    ]
   },
   "key": {
@@ -23902,10 +23902,10 @@ window.QUESTION_BANK = [
   "question": "For four dice, \\( P(\\text{at least one 3}) = 1 - (5/6)^4 \\), which as an exact fraction is ___B1___.",
   "blankOptions": {
    "B1": [
-    "successes",
-    "independent",
+    "failure",
     "671/1296",
-    "dependent"
+    "independent",
+    "successes"
    ]
   },
   "key": {
@@ -23924,10 +23924,10 @@ window.QUESTION_BANK = [
   "question": "For a fair coin the probability of a head on a single toss is \\( p \\) = ___B1___.",
   "blankOptions": {
    "B1": [
-    "successes",
-    "failure",
-    "n-x",
-    "0.5"
+    "1/6",
+    "0.5",
+    "671/1296",
+    "625/1296"
    ]
   },
   "key": {
@@ -23946,10 +23946,10 @@ window.QUESTION_BANK = [
   "question": "Selecting items without replacement is not binomial because the trials are not ___B1___.",
   "blankOptions": {
    "B1": [
-    "671/1296",
-    "successes",
-    "0.5",
-    "independent"
+    "provided",
+    "constant",
+    "independent",
+    "memorised"
    ]
   },
   "key": {
@@ -24910,14 +24910,14 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "multiply",
-    "circle",
-    "total",
-    "counts"
+    "intersection",
+    "probabilities",
+    "subtract"
    ],
    "B2": [
-    "inside",
-    "centre",
     "counts",
+    "outward",
+    "change",
     "add"
    ]
   },
@@ -24939,15 +24939,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "outside",
-    "union",
-    "centre",
-    "counts"
+    "multiply",
+    "circle",
+    "outward"
    ],
    "B2": [
-    "same",
-    "add",
     "rectangle",
-    "change"
+    "add",
+    "probabilities",
+    "circle"
    ]
   },
   "key": {
@@ -24967,16 +24967,16 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\cap \\) stands for the ___B1___ (in both), and the symbol \\( \\cup \\) stands for the ___B2___ (in either).",
   "blankOptions": {
    "B1": [
-    "probabilities",
-    "centre",
-    "intersection",
-    "subtract"
+    "circle",
+    "change",
+    "subtract",
+    "intersection"
    ],
    "B2": [
-    "subtract",
-    "same",
-    "union",
-    "inside"
+    "counts",
+    "outward",
+    "probabilities",
+    "union"
    ]
   },
   "key": {
@@ -24996,16 +24996,16 @@ window.QUESTION_BANK = [
   "question": "When filling a three-set Venn diagram, start from the ___B1___ where all three sets overlap and work ___B2___.",
   "blankOptions": {
    "B1": [
-    "rectangle",
-    "same",
     "centre",
-    "multiply"
+    "multiply",
+    "circle",
+    "rectangle"
    ],
    "B2": [
-    "same",
-    "total",
-    "counts",
-    "outward"
+    "outward",
+    "subtract",
+    "add",
+    "inside"
    ]
   },
   "key": {
@@ -25025,16 +25025,16 @@ window.QUESTION_BANK = [
   "question": "With replacement the probabilities on the second set of branches are the ___B1___ as the first; without replacement they ___B2___.",
   "blankOptions": {
    "B1": [
-    "inside",
-    "same",
     "outside",
-    "intersection"
+    "multiply",
+    "same",
+    "circle"
    ],
    "B2": [
+    "outward",
+    "subtract",
     "change",
-    "union",
-    "intersection",
-    "outward"
+    "add"
    ]
   },
   "key": {
@@ -25054,10 +25054,10 @@ window.QUESTION_BANK = [
   "question": "In a two-way table, each row and each column must add up to its ___B1___.",
   "blankOptions": {
    "B1": [
-    "same",
-    "inside",
+    "probabilities",
     "total",
-    "union"
+    "circle",
+    "intersection"
    ]
   },
   "key": {
@@ -25076,9 +25076,9 @@ window.QUESTION_BANK = [
   "question": "When a Venn question asks 'how many', put ___B1___ (not probabilities) in each region.",
   "blankOptions": {
    "B1": [
-    "centre",
-    "counts",
+    "circle",
     "change",
+    "counts",
     "intersection"
    ]
   },
@@ -25952,16 +25952,16 @@ window.QUESTION_BANK = [
   "question": "In the exponential function \\( y = k a^x \\), the number \\( a \\) is called the ___B1___, and the value of \\( y \\) when \\( x = 0 \\) is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "base",
-    "0.96",
-    "decay",
-    "growth"
+    "above",
+    "crosses",
+    "gradient",
+    "base"
    ],
    "B2": [
-    "linear",
     "y-intercept",
-    "growth",
-    "gradient"
+    "linear",
+    "a",
+    "0.96"
    ]
   },
   "key": {
@@ -25981,16 +25981,16 @@ window.QUESTION_BANK = [
   "question": "When \\( a > 1 \\) the graph shows exponential ___B1___; when \\( 0 < a < 1 \\) it shows exponential ___B2___.",
   "blankOptions": {
    "B1": [
+    "0",
     "base",
-    "gradient",
     "growth",
-    "constant"
+    "above"
    ],
    "B2": [
-    "base",
-    "linear",
     "decay",
-    "negative"
+    "0",
+    "touches",
+    "base"
    ]
   },
   "key": {
@@ -26010,16 +26010,16 @@ window.QUESTION_BANK = [
   "question": "The horizontal asymptote of \\( y = k a^x \\) is the line where \\( y \\) equals ___B1___, which the curve approaches but never ___B2___.",
   "blankOptions": {
    "B1": [
-    "above",
-    "1.04",
     "0",
-    "a"
+    "above",
+    "a",
+    "1.04"
    ],
    "B2": [
-    "touches",
-    "base",
-    "growth",
-    "below"
+    "crosses",
+    "constant",
+    "k",
+    "touches"
    ]
   },
   "key": {
@@ -26041,14 +26041,14 @@ window.QUESTION_BANK = [
    "B1": [
     "0.96",
     "positive",
-    "below",
-    "base"
+    "y-intercept",
+    "k"
    ],
    "B2": [
+    "0",
+    "gradient",
     "above",
-    "y-intercept",
-    "linear",
-    "rate"
+    "negative"
    ]
   },
   "key": {
@@ -26068,10 +26068,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( y = k a^x \\) always crosses the \\( y \\)-axis at the point whose \\( y \\)-coordinate equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "below",
-    "k",
-    "a",
-    "base"
+    "negative",
+    "growth",
+    "0.96",
+    "k"
    ]
   },
   "key": {
@@ -26090,10 +26090,10 @@ window.QUESTION_BANK = [
   "question": "A savings account of £500 growing at 4% each year is modelled by \\( y = 500 \\times a^x \\), where \\( a \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "a",
-    "rate",
-    "linear",
-    "1.04"
+    "0.96",
+    "0",
+    "1.04",
+    "linear"
    ]
   },
   "key": {
@@ -26112,10 +26112,10 @@ window.QUESTION_BANK = [
   "question": "If \\( a = 1 \\) then \\( a^x = 1 \\) for every \\( x \\), so the graph is a ___B1___ horizontal line.",
   "blankOptions": {
    "B1": [
-    "k",
-    "negative",
-    "constant",
-    "growth"
+    "rate",
+    "linear",
+    "positive",
+    "constant"
    ]
   },
   "key": {
@@ -27075,9 +27075,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "exponentiation",
+    "power",
     "addition",
-    "1",
-    "not"
+    "index"
    ]
   },
   "key": {
@@ -27096,16 +27096,16 @@ window.QUESTION_BANK = [
   "question": "For any valid base, \\( \\log_a 1 \\) equals ___B1___ and \\( \\log_a a \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "index",
     "0",
-    "multiplication",
-    "separate"
+    "10",
+    "subtraction",
+    "multiplication"
    ],
    "B2": [
+    "index",
     "1",
-    "addition",
-    "power",
-    "subtraction"
+    "separate",
+    "10"
    ]
   },
   "key": {
@@ -27125,16 +27125,16 @@ window.QUESTION_BANK = [
   "question": "The product law turns a multiplication inside a log into an ___B1___ of two logs; the quotient law turns a division into a ___B2___.",
   "blankOptions": {
    "B1": [
-    "index",
-    "2",
     "addition",
-    "0"
+    "1",
+    "index",
+    "separate"
    ],
    "B2": [
-    "logs",
-    "not",
-    "same",
-    "subtraction"
+    "10",
+    "2",
+    "subtraction",
+    "1"
    ]
   },
   "key": {
@@ -27154,10 +27154,10 @@ window.QUESTION_BANK = [
   "question": "The power law \\( \\log(x^n) = n\\log x \\) brings the ___B1___ down to the front as a multiplier.",
   "blankOptions": {
    "B1": [
-    "power",
-    "10",
-    "subtraction",
-    "1"
+    "exponentiation",
+    "separate",
+    "0",
+    "power"
    ]
   },
   "key": {
@@ -27177,9 +27177,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "subtraction",
-    "2",
-    "power",
-    "addition"
+    "same",
+    "addition",
+    "2"
    ]
   },
   "key": {
@@ -27198,10 +27198,10 @@ window.QUESTION_BANK = [
   "question": "To make \\( x \\) the subject of \\( 3^x = 10 \\), take ___B1___ of both sides.",
   "blankOptions": {
    "B1": [
+    "power",
     "1",
-    "logs",
-    "index",
-    "subtraction"
+    "10",
+    "logs"
    ]
   },
   "key": {
@@ -27221,9 +27221,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "exponentiation",
+    "logs",
     "not",
-    "subtraction",
-    "addition"
+    "subtraction"
    ]
   },
   "key": {
@@ -27243,9 +27243,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "separate",
-    "2",
     "power",
-    "index"
+    "0",
+    "not"
    ]
   },
   "key": {
@@ -28153,21 +28153,21 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "logarithm",
-    "isolate",
-    "half-life",
-    "last"
+    "last",
+    "doubling",
+    "1"
    ],
    "B2": [
+    "greater",
+    "1",
     "b",
-    "less",
-    "doubling",
-    "round"
+    "isolate"
    ],
    "B3": [
-    "greater",
+    "isolate",
     "a",
-    "1",
-    "3.91"
+    "last",
+    "less"
    ]
   },
   "key": {
@@ -28188,16 +28188,16 @@ window.QUESTION_BANK = [
   "question": "Before solving \\( 5\\times 2^x = 3 \\) it is cleanest to ___B1___ the power by dividing both sides by ___B2___.",
   "blankOptions": {
    "B1": [
-    "greater",
-    "round",
     "isolate",
-    "b"
+    "b",
+    "greater",
+    "first"
    ],
    "B2": [
-    "last",
-    "logarithm",
-    "first",
-    "5"
+    "5",
+    "subtract",
+    "b",
+    "greater"
    ]
   },
   "key": {
@@ -28217,16 +28217,16 @@ window.QUESTION_BANK = [
   "question": "In the model \\( A = A_0 a^t \\), there is growth when \\( a \\) is ___B1___ than 1 and decay when \\( a \\) lies between 0 and ___B2___.",
   "blankOptions": {
    "B1": [
-    "round",
+    "a",
     "subtract",
     "greater",
     "doubling"
    ],
    "B2": [
-    "round",
-    "logarithm",
-    "doubling",
-    "1"
+    "1",
+    "subtract",
+    "less",
+    "exact"
    ]
   },
   "key": {
@@ -28247,9 +28247,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "last",
-    "decimal",
     "half-life",
-    "greater"
+    "less",
+    "round"
    ]
   },
   "key": {
@@ -28268,10 +28268,10 @@ window.QUESTION_BANK = [
   "question": "For a growing quantity, the ___B1___ time is how long it takes to become twice as large.",
   "blankOptions": {
    "B1": [
-    "first",
+    "doubling",
     "decimal",
-    "isolate",
-    "doubling"
+    "3.91",
+    "a"
    ]
   },
   "key": {
@@ -28290,16 +28290,16 @@ window.QUESTION_BANK = [
   "question": "Keep full calculator accuracy and only ___B1___ your answer at the very ___B2___ step.",
   "blankOptions": {
    "B1": [
-    "a",
-    "decimal",
+    "greater",
     "round",
-    "1"
+    "subtract",
+    "a"
    ],
    "B2": [
-    "decimal",
-    "greater",
+    "5",
+    "a",
     "last",
-    "logarithm"
+    "greater"
    ]
   },
   "key": {
@@ -28320,9 +28320,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "3.91",
-    "a",
-    "half-life",
-    "first"
+    "logarithm",
+    "5",
+    "decimal"
    ]
   },
   "key": {
@@ -28341,10 +28341,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ tells you to leave the answer as a log or surd rather than a decimal.",
   "blankOptions": {
    "B1": [
-    "greater",
-    "logarithm",
-    "1",
-    "exact"
+    "exact",
+    "half-life",
+    "less",
+    "isolate"
    ]
   },
   "key": {
@@ -29425,15 +29425,15 @@ window.QUESTION_BANK = [
   "question": "Taking logs of \\( y = ka^x \\) gives \\( \\log y = x\\log a + \\log k \\). Plotting \\( \\log y \\) against \\( x \\), the gradient equals ___B1___ and the intercept equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "m",
-    "antilog",
+    "intercept",
     "log a",
-    "10"
+    "hence",
+    "antilog"
    ],
    "B2": [
+    "gradient",
+    "intercept",
     "log k",
-    "c",
-    "n",
     "10"
    ]
   },
@@ -29454,10 +29454,10 @@ window.QUESTION_BANK = [
   "question": "For the power law \\( y = kx^n \\) you take logs of both sides and plot \\( \\log y \\) against ___B1___.",
   "blankOptions": {
    "B1": [
-    "c",
+    "hence",
     "log x",
-    "linear",
-    "gradient"
+    "anti-log",
+    "log a"
    ]
   },
   "key": {
@@ -29478,8 +29478,8 @@ window.QUESTION_BANK = [
    "B1": [
     "n",
     "anti-log",
-    "10",
-    "gradient"
+    "non-linear",
+    "m"
    ]
   },
   "key": {
@@ -29498,16 +29498,16 @@ window.QUESTION_BANK = [
   "question": "In the straight-line form \\( Y = mX + c \\), the gradient is the letter ___B1___ and the intercept is the letter ___B2___.",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "log x",
     "m",
-    "linear"
+    "log a",
+    "hence",
+    "gradient"
    ],
    "B2": [
-    "antilog",
+    "linear",
     "c",
-    "log a",
-    "log k"
+    "10",
+    "log a"
    ]
   },
   "key": {
@@ -29528,9 +29528,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "linear",
-    "hence",
-    "log x",
-    "c"
+    "non-linear",
+    "log a",
+    "anti-log"
    ]
   },
   "key": {
@@ -29549,10 +29549,10 @@ window.QUESTION_BANK = [
   "question": "For \\( x = ka^n \\) you plot \\( \\log x \\) against \\( n \\); to find \\( a \\) you raise 10 to the power of the ___B1___.",
   "blankOptions": {
    "B1": [
-    "non-linear",
     "gradient",
+    "m",
     "linear",
-    "log k"
+    "non-linear"
    ]
   },
   "key": {
@@ -29571,10 +29571,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ tells you to use your graph, not the calculator's equation solver.",
   "blankOptions": {
    "B1": [
-    "log x",
-    "gradient",
-    "c",
-    "hence"
+    "intercept",
+    "m",
+    "hence",
+    "non-linear"
    ]
   },
   "key": {
@@ -29593,10 +29593,10 @@ window.QUESTION_BANK = [
   "question": "Expanding correctly, \\( \\log(ka^n) = \\log k + n\\log a \\); the power ___B1___ multiplies only the log of \\( a \\).",
   "blankOptions": {
    "B1": [
-    "antilog",
-    "non-linear",
-    "m",
-    "n"
+    "gradient",
+    "log a",
+    "n",
+    "anti-log"
    ]
   },
   "key": {
@@ -30577,16 +30577,16 @@ window.QUESTION_BANK = [
   "question": "To differentiate a power of \\( x \\), ___B1___ by the power and then ___B2___ the power by 1.",
   "blankOptions": {
    "B1": [
-    "tangent",
-    "forward",
     "multiply",
-    "central"
+    "add",
+    "area",
+    "forward"
    ],
    "B2": [
+    "6x",
     "reduce",
-    "12x",
-    "forward",
-    "add"
+    "add",
+    "tangent"
    ]
   },
   "key": {
@@ -30606,9 +30606,9 @@ window.QUESTION_BANK = [
   "question": "The derivative of any constant is ___B1___.",
   "blankOptions": {
    "B1": [
-    "tangent",
-    "divide",
-    "central",
+    "increase",
+    "value",
+    "backward",
     "0"
    ]
   },
@@ -30628,10 +30628,10 @@ window.QUESTION_BANK = [
   "question": "The gradient function measures the ___B1___ of change of \\( y \\) with respect to \\( x \\).",
   "blankOptions": {
    "B1": [
-    "divide",
-    "backward",
     "rate",
-    "0"
+    "divide",
+    "6x",
+    "tangent"
    ]
   },
   "key": {
@@ -30650,10 +30650,10 @@ window.QUESTION_BANK = [
   "question": "The value of \\( \\frac{dy}{dx} \\) at a point equals the gradient of the ___B1___ to the curve there.",
   "blankOptions": {
    "B1": [
+    "backward",
     "tangent",
-    "area",
-    "value",
-    "reduce"
+    "12x",
+    "0"
    ]
   },
   "key": {
@@ -30672,10 +30672,10 @@ window.QUESTION_BANK = [
   "question": "Differentiating \\( 6x^2 \\) gives ___B1___.",
   "blankOptions": {
    "B1": [
-    "tangent",
-    "reduce",
-    "0",
-    "12x"
+    "chord",
+    "12x",
+    "forward",
+    "increase"
    ]
   },
   "key": {
@@ -30694,9 +30694,9 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ difference uses points on both sides of \\( x \\) and is usually more accurate than a one-sided estimate.",
   "blankOptions": {
    "B1": [
-    "0",
-    "divide",
-    "reduce",
+    "12x",
+    "add",
+    "rate",
     "central"
    ]
   },
@@ -30716,10 +30716,10 @@ window.QUESTION_BANK = [
   "question": "As the interval \\( h \\) gets smaller, the gradient of the ___B1___ approaches the gradient of the tangent.",
   "blankOptions": {
    "B1": [
-    "area",
+    "value",
     "chord",
-    "forward",
-    "central"
+    "increase",
+    "multiply"
    ]
   },
   "key": {
@@ -31659,16 +31659,16 @@ window.QUESTION_BANK = [
   "question": "To find a tangent's gradient you first ___B1___ the curve, then substitute the point's ___B2___ into the gradient function.",
   "blankOptions": {
    "B1": [
-    "perpendicular",
+    "point",
+    "m",
     "differentiate",
-    "tangent",
-    "reciprocal"
+    "3x^2"
    ],
    "B2": [
+    "tangent",
     "x-coordinate",
-    "parallel",
-    "reciprocal",
-    "gradient"
+    "y-coordinate",
+    "point"
    ]
   },
   "key": {
@@ -31688,10 +31688,10 @@ window.QUESTION_BANK = [
   "question": "If the tangent has gradient \\( m \\), the normal has gradient ___B1___.",
   "blankOptions": {
    "B1": [
-    "tangent",
-    "point",
-    "3x^2",
-    "-1/m"
+    "-1/m",
+    "x-coordinate",
+    "2x",
+    "point"
    ]
   },
   "key": {
@@ -31710,10 +31710,10 @@ window.QUESTION_BANK = [
   "question": "The normal to a curve is ___B1___ to the tangent at the same point.",
   "blankOptions": {
    "B1": [
-    "perpendicular",
-    "reciprocal",
-    "m",
-    "tangent"
+    "tangent",
+    "2x",
+    "-1/m",
+    "perpendicular"
    ]
   },
   "key": {
@@ -31732,9 +31732,9 @@ window.QUESTION_BANK = [
   "question": "To write the equation you use \\( y - y_1 = m(x - x_1) \\) with the gradient and the ___B1___ of contact.",
   "blankOptions": {
    "B1": [
-    "2x",
-    "perpendicular",
-    "y-coordinate",
+    "m",
+    "-1/m",
+    "x-coordinate",
     "point"
    ]
   },
@@ -31755,9 +31755,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "3x^2",
-    "differentiate",
-    "y",
-    "perpendicular"
+    "point",
+    "tangent",
+    "m"
    ]
   },
   "key": {
@@ -31777,8 +31777,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "is",
-    "not",
     "y",
+    "perpendicular",
     "gradient"
    ]
   },
@@ -31798,10 +31798,10 @@ window.QUESTION_BANK = [
   "question": "The gradient function \\( \\frac{dy}{dx} \\) is ___B1___ the equation of the tangent — you must still substitute a point.",
   "blankOptions": {
    "B1": [
-    "integrate",
-    "parallel",
-    "not",
-    "perpendicular"
+    "reciprocal",
+    "tangent",
+    "-1/m",
+    "not"
    ]
   },
   "key": {
@@ -32724,10 +32724,10 @@ window.QUESTION_BANK = [
   "question": "A stationary point occurs where the ___B1___ is zero, that is where \\( \\frac{dy}{dx} = 0 \\).",
   "blankOptions": {
    "B1": [
-    "not",
-    "inconclusive",
-    "gradient",
-    "maximum"
+    "determine",
+    "pair",
+    "behaviour",
+    "gradient"
    ]
   },
   "key": {
@@ -32746,16 +32746,16 @@ window.QUESTION_BANK = [
   "question": "Using the second derivative: if \\( \\frac{d^2y}{dx^2} > 0 \\) the point is a ___B1___, and if \\( \\frac{d^2y}{dx^2} < 0 \\) it is a ___B2___.",
   "blankOptions": {
    "B1": [
-    "positive",
-    "behaviour",
-    "intercepts",
-    "minimum"
+    "y-coordinate",
+    "minimum",
+    "determine",
+    "positive"
    ],
    "B2": [
-    "intercepts",
+    "gradient",
+    "either side",
     "maximum",
-    "y-coordinate",
-    "not"
+    "negative"
    ]
   },
   "key": {
@@ -32775,16 +32775,16 @@ window.QUESTION_BANK = [
   "question": "After solving \\( \\frac{dy}{dx} = 0 \\) for \\( x \\), substitute back to find the ___B1___ and give the answer as a coordinate ___B2___.",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "inconclusive",
-    "either side",
-    "y-coordinate"
+    "y-coordinate",
+    "minimum",
+    "negative",
+    "zero"
    ],
    "B2": [
-    "maximum",
-    "minimum",
     "pair",
-    "determine"
+    "inconclusive",
+    "either side",
+    "minimum"
    ]
   },
   "key": {
@@ -32804,10 +32804,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ means you must justify your answer, not just state it.",
   "blankOptions": {
    "B1": [
-    "determine",
-    "not",
     "gradient",
-    "y-coordinate"
+    "zero",
+    "maximum",
+    "determine"
    ]
   },
   "key": {
@@ -32826,16 +32826,16 @@ window.QUESTION_BANK = [
   "question": "If \\( \\frac{d^2y}{dx^2} = 0 \\) at a stationary point, the second-derivative test is ___B1___, so check the sign of the gradient on ___B2___ of the point.",
   "blankOptions": {
    "B1": [
-    "y-coordinate",
-    "behaviour",
+    "zero",
+    "pair",
     "inconclusive",
-    "minimum"
+    "gradient"
    ],
    "B2": [
-    "either side",
     "maximum",
-    "gradient",
-    "pair"
+    "either side",
+    "behaviour",
+    "intercepts"
    ]
   },
   "key": {
@@ -32855,10 +32855,10 @@ window.QUESTION_BANK = [
   "question": "At a stationary point of inflection the gradient is zero but does ___B1___ change sign as you pass through.",
   "blankOptions": {
    "B1": [
-    "not",
-    "pair",
     "maximum",
-    "determine"
+    "y-coordinate",
+    "not",
+    "minimum"
    ]
   },
   "key": {
@@ -32877,16 +32877,16 @@ window.QUESTION_BANK = [
   "question": "To sketch a cubic you use its stationary points, its ___B1___ with the axes and its long-run ___B2___.",
   "blankOptions": {
    "B1": [
-    "inconclusive",
-    "y-coordinate",
+    "minimum",
+    "either side",
     "intercepts",
-    "zero"
+    "pair"
    ],
    "B2": [
-    "determine",
-    "behaviour",
-    "either side",
-    "zero"
+    "not",
+    "zero",
+    "negative",
+    "behaviour"
    ]
   },
   "key": {
@@ -32906,10 +32906,10 @@ window.QUESTION_BANK = [
   "question": "For a positive cubic, as \\( x \\) becomes very large and positive, \\( y \\) becomes very large and ___B1___.",
   "blankOptions": {
    "B1": [
-    "either side",
     "positive",
-    "determine",
-    "negative"
+    "not",
+    "intercepts",
+    "inconclusive"
    ]
   },
   "key": {
@@ -33852,10 +33852,10 @@ window.QUESTION_BANK = [
   "question": "Integration is the ___B1___ process of differentiation.",
   "blankOptions": {
    "B1": [
-    "c",
+    "differentiate",
+    "increase",
     "reverse",
-    "constant",
-    "divide"
+    "x ="
    ]
   },
   "key": {
@@ -33874,16 +33874,16 @@ window.QUESTION_BANK = [
   "question": "To integrate a power of \\( x \\), you ___B1___ the power by 1 and then ___B2___ by the new power.",
   "blankOptions": {
    "B1": [
-    "c",
+    "indefinite",
     "increase",
-    "4",
-    "point"
+    "multiply",
+    "differentiate"
    ],
    "B2": [
+    "point",
+    "gradient",
     "divide",
-    "+c",
-    "y =",
-    "differentiate"
+    "definite"
    ]
   },
   "key": {
@@ -33903,16 +33903,16 @@ window.QUESTION_BANK = [
   "question": "Every indefinite integral must include a ___B1___ of integration, written ___B2___.",
   "blankOptions": {
    "B1": [
-    "x =",
     "constant",
-    "reverse",
-    "definite"
+    "y =",
+    "4x",
+    "x ="
    ],
    "B2": [
-    "y =",
+    "+c",
     "decrease",
-    "4x",
-    "+c"
+    "3",
+    "increase"
    ]
   },
   "key": {
@@ -33932,15 +33932,15 @@ window.QUESTION_BANK = [
   "question": "To find the equation of a curve you integrate the gradient function and then use a known ___B1___ to find the value of ___B2___.",
   "blankOptions": {
    "B1": [
-    "reverse",
+    "differentiate",
+    "+c",
     "point",
-    "increase",
-    "divide"
+    "x ="
    ],
    "B2": [
-    "+c",
     "indefinite",
-    "divide",
+    "multiply",
+    "3",
     "c"
    ]
   },
@@ -33961,16 +33961,16 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ integral has limits and gives a number, while an ___B2___ integral has no limits and gives a function.",
   "blankOptions": {
    "B1": [
-    "increase",
-    "divide",
+    "reverse",
+    "differentiate",
     "definite",
-    "c"
+    "decrease"
    ],
    "B2": [
+    "multiply",
     "point",
-    "3",
-    "4",
-    "indefinite"
+    "indefinite",
+    "constant"
    ]
   },
   "key": {
@@ -33990,10 +33990,10 @@ window.QUESTION_BANK = [
   "question": "The integral of the constant 4 with respect to \\( x \\) is ___B1___.",
   "blankOptions": {
    "B1": [
+    "definite",
     "4x",
-    "multiply",
-    "c",
-    "reverse"
+    "increase",
+    "point"
    ]
   },
   "key": {
@@ -34012,10 +34012,10 @@ window.QUESTION_BANK = [
   "question": "When you integrate \\( x^2 \\), the new power is ___B1___.",
   "blankOptions": {
    "B1": [
-    "reverse",
-    "3",
-    "gradient",
-    "point"
+    "point",
+    "c",
+    "multiply",
+    "3"
    ]
   },
   "key": {
@@ -34034,10 +34034,10 @@ window.QUESTION_BANK = [
   "question": "The final answer to 'determine the equation of the curve' must be written starting with ___B1___, not left as an expression.",
   "blankOptions": {
    "B1": [
-    "divide",
-    "y =",
-    "differentiate",
-    "multiply"
+    "point",
+    "4",
+    "decrease",
+    "y ="
    ]
   },
   "key": {
@@ -34997,10 +34997,10 @@ window.QUESTION_BANK = [
   "question": "A definite integral \\( \\int_a^b y\\,dx \\) is worked out by finding \\( [F(x)] \\), then calculating \\( F(b) \\) ___B1___ \\( F(a) \\).",
   "blankOptions": {
    "B1": [
-    "roots",
     "plus",
     "minus",
-    "3"
+    "top",
+    "negative"
    ]
   },
   "key": {
@@ -35019,10 +35019,10 @@ window.QUESTION_BANK = [
   "question": "Unlike an indefinite integral, a definite integral needs no constant of integration, usually written ___B1___.",
   "blankOptions": {
    "B1": [
-    "x",
-    "3",
+    "1",
     "+c",
-    "1"
+    "plus",
+    "roots"
    ]
   },
   "key": {
@@ -35041,10 +35041,10 @@ window.QUESTION_BANK = [
   "question": "The area between a curve, the \\( x \\)-axis and two ordinates uses \\( \\int_a^b y\\,dx \\), where the limits \\( a \\) and \\( b \\) are the ___B1___ values of the ordinates.",
   "blankOptions": {
    "B1": [
-    "modulus",
-    "plus",
-    "positive",
-    "x"
+    "3",
+    "x",
+    "exact",
+    "positive"
    ]
   },
   "key": {
@@ -35063,16 +35063,16 @@ window.QUESTION_BANK = [
   "question": "If a region lies below the \\( x \\)-axis, the definite integral comes out ___B1___, so for a physical area you take the ___B2___.",
   "blankOptions": {
    "B1": [
-    "negative",
-    "y",
-    "intersections",
-    "exact"
+    "x",
+    "plus",
+    "top",
+    "negative"
    ],
    "B2": [
+    "roots",
     "minus",
-    "intersections",
     "modulus",
-    "positive"
+    "intersections"
    ]
   },
   "key": {
@@ -35092,16 +35092,16 @@ window.QUESTION_BANK = [
   "question": "To find the area between two curves you integrate the ___B1___ curve minus the ___B2___ curve.",
   "blankOptions": {
    "B1": [
-    "modulus",
+    "y",
     "top",
-    "exact",
-    "y"
+    "negative",
+    "positive"
    ],
    "B2": [
-    "y",
-    "bottom",
-    "intersections",
-    "1"
+    "roots",
+    "+c",
+    "1",
+    "bottom"
    ]
   },
   "key": {
@@ -35121,9 +35121,9 @@ window.QUESTION_BANK = [
   "question": "Before integrating between two curves you must first find their ___B1___, which give the limits.",
   "blankOptions": {
    "B1": [
+    "roots",
     "y",
-    "negative",
-    "1",
+    "3",
     "intersections"
    ]
   },
@@ -35143,9 +35143,9 @@ window.QUESTION_BANK = [
   "question": "A command word telling you to leave an area as a fraction or surd rather than a decimal is ___B1___.",
   "blankOptions": {
    "B1": [
-    "plus",
-    "modulus",
     "minus",
+    "plus",
+    "intersections",
     "exact"
    ]
   },
@@ -35167,14 +35167,14 @@ window.QUESTION_BANK = [
    "B1": [
     "1",
     "+c",
-    "intersections",
-    "minus"
+    "top",
+    "negative"
    ],
    "B2": [
-    "+c",
+    "roots",
+    "positive",
     "3",
-    "top",
-    "y"
+    "bottom"
    ]
   },
   "key": {
@@ -36171,16 +36171,16 @@ window.QUESTION_BANK = [
   "question": "In the trapezium rule the whole bracket is multiplied by ___B1___ of \\( h \\), and the strip width is \\( h = \\frac{b-a}{n} \\), where \\( n \\) is the number of ___B2___.",
   "blankOptions": {
    "B1": [
-    "quarter",
     "half",
-    "figures",
-    "5"
+    "twice",
+    "up",
+    "larger"
    ],
    "B2": [
-    "strips",
-    "5",
     "smaller",
-    "error"
+    "larger",
+    "once",
+    "strips"
    ]
   },
   "key": {
@@ -36201,15 +36201,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "down",
+    "larger",
     "once",
-    "half",
-    "quarter"
+    "half"
    ],
    "B2": [
-    "doubled",
-    "error",
+    "quarter",
+    "down",
     "strips",
-    "5"
+    "doubled"
    ]
   },
   "key": {
@@ -36229,10 +36229,10 @@ window.QUESTION_BANK = [
   "question": "For a curve that is rising, rectangles taken at the ___B1___ end of each strip give an over-estimate of the area.",
   "blankOptions": {
    "B1": [
-    "half",
-    "up",
-    "smaller",
-    "right"
+    "quarter",
+    "right",
+    "left",
+    "doubled"
    ]
   },
   "key": {
@@ -36251,10 +36251,10 @@ window.QUESTION_BANK = [
   "question": "The trapezium rule over-estimates the area under a curve that is concave ___B1___.",
   "blankOptions": {
    "B1": [
-    "error",
-    "doubled",
-    "half",
-    "up"
+    "6",
+    "up",
+    "twice",
+    "left"
    ]
   },
   "key": {
@@ -36273,10 +36273,10 @@ window.QUESTION_BANK = [
   "question": "To improve a numerical area estimate you should use more strips, that is, a ___B1___ value of \\( h \\).",
   "blankOptions": {
    "B1": [
-    "twice",
-    "once",
+    "doubled",
+    "quarter",
     "smaller",
-    "up"
+    "strips"
    ]
   },
   "key": {
@@ -36296,9 +36296,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "figures",
-    "twice",
-    "left",
-    "right"
+    "larger",
+    "up",
+    "quarter"
    ]
   },
   "key": {
@@ -36317,16 +36317,16 @@ window.QUESTION_BANK = [
   "question": "With 5 strips the trapezium rule needs ___B1___ ordinates, and using \\( h = 5 \\) instead of \\( h = 1 \\) is a common ___B2___.",
   "blankOptions": {
    "B1": [
-    "doubled",
-    "6",
-    "right",
-    "figures"
+    "strips",
+    "smaller",
+    "left",
+    "6"
    ],
    "B2": [
-    "smaller",
-    "once",
-    "strips",
-    "error"
+    "right",
+    "5",
+    "error",
+    "figures"
    ]
   },
   "key": {
@@ -36581,6 +36581,4651 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 2,
    "explain": "“Answer with no working shown” means: Scores M0 even if correct"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:exam:bd01f003",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "14 (a)",
+  "question": "<p>Calculate the uniform deceleration <strong>and</strong> the time taken for Paul to reach the first bump.</p>",
+  "caseStudy": "<p>Speed bumps are designed to encourage drivers to drive slowly. On a particular road, the bumps put onto the road are designed to give minimum discomfort and damage at a speed of 9 m s⁻¹.</p>\n        <p>Paul is driving along the road at a speed of 14 m s⁻¹ when he sees the warning sign; he is 50 m before the first bump. He immediately slows down with uniform deceleration so that when he reaches the first bump he is travelling at a speed of 9 m s⁻¹.</p>\n        <p>Immediately after the bump he accelerates such that at \\( t \\) seconds after leaving the bump his speed, \\( v \\) m s⁻¹, is given by \\[ v = \\frac{1}{100}\\left(15t^2 - t^3\\right) + 9. \\]</p>",
+  "hint": "The deceleration is constant, so use the suvat formulae with \\( u = 14 \\), \\( v = 9 \\), \\( s = 50 \\).",
+  "starter": "State the deceleration in m s⁻² and the time in s, both with units.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — use of at least one correct suvat formula to find \\( a \\) or \\( t \\) (with \\( u = 14 \\), \\( v = 9 \\), \\( s = 50 \\)); e.g. \\( v^2 = u^2 + 2as \\Rightarrow 100a = 9^2 - 14^2 \\).</li>\n              <li><strong>A1</strong> — \\( a = -1.15 \\) (deceleration \\( 1.15 \\) m s⁻²).</li>\n              <li><strong>A1</strong> — \\( t = \\dfrac{100}{23} \\approx 4.35 \\) s.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>suvat formulae may be quoted without derivation. Allow \\( 1.15 \\) provided it is clear that \\( a \\) is the deceleration.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The majority used \\( v^2 = u^2 + 2as \\). As it was a deceleration, careful substitution was needed — many simply interchanged \\( u \\) and \\( v \\), which was not accepted.</li>\n            </ul></div>",
+   "modelAnswer": "Constant deceleration, so use suvat with \\( u = 14 \\), \\( v = 9 \\), \\( s = 50 \\). From \\( v^2 = u^2 + 2as \\): \\( 81 = 196 + 100a \\Rightarrow a = -1.15 \\), i.e. a deceleration of \\( 1.15 \\) m s⁻². Then \\( s = \\tfrac12(u+v)t \\Rightarrow 50 = 11.5t \\Rightarrow t = \\dfrac{100}{23} \\approx 4.35 \\) s."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:exam:1bc617ef",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "14 (b)",
+  "question": "<p>Show that he reaches his original speed of 14 m s⁻¹ in 10 seconds.</p>",
+  "caseStudy": "<p>Speed bumps are designed to encourage drivers to drive slowly. On a particular road, the bumps put onto the road are designed to give minimum discomfort and damage at a speed of 9 m s⁻¹.</p>\n        <p>Paul is driving along the road at a speed of 14 m s⁻¹ when he sees the warning sign; he is 50 m before the first bump. He immediately slows down with uniform deceleration so that when he reaches the first bump he is travelling at a speed of 9 m s⁻¹.</p>\n        <p>Immediately after the bump he accelerates such that at \\( t \\) seconds after leaving the bump his speed, \\( v \\) m s⁻¹, is given by \\[ v = \\frac{1}{100}\\left(15t^2 - t^3\\right) + 9. \\]</p>",
+  "hint": "This is a \"show that\": substitute \\( t = 10 \\) into \\( v \\) and confirm you get 14.",
+  "starter": "Substitute the given value and finish with a concluding statement.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>\n              <li><strong>B1</strong> — substitute \\( t = 10 \\): \\( v = \\dfrac{1}{100}\\left(15(10)^2 - 10^3\\right) + 9 = \\dfrac{1}{100}(1500 - 1000) + 9 = 5 + 9 = 14 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Or substitute \\( v = 14 \\) to give the cubic \\( t^3 - 15t^2 + 500 = 0 \\) and show \\( t = 10 \\) is a root (more work than the single mark justifies).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The substitution of \\( t = 10 \\) to give \\( v = 14 \\) usually provided an easy mark. Some substituted \\( v = 14 \\) and solved the resulting cubic — an acceptable but far longer route.</li>\n            </ul></div>",
+   "modelAnswer": "Substituting \\( t = 10 \\): \\( v = \\frac{1}{100}(15 \\times 100 - 1000) + 9 = \\frac{1}{100}(500) + 9 = 5 + 9 = 14 \\) m s⁻¹, as required."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:exam:1fc4d2bc",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "14 (c)",
+  "question": "<p>Find the distance travelled from the speed bump by the time he reaches this speed.</p>",
+  "caseStudy": "<p>Speed bumps are designed to encourage drivers to drive slowly. On a particular road, the bumps put onto the road are designed to give minimum discomfort and damage at a speed of 9 m s⁻¹.</p>\n        <p>Paul is driving along the road at a speed of 14 m s⁻¹ when he sees the warning sign; he is 50 m before the first bump. He immediately slows down with uniform deceleration so that when he reaches the first bump he is travelling at a speed of 9 m s⁻¹.</p>\n        <p>Immediately after the bump he accelerates such that at \\( t \\) seconds after leaving the bump his speed, \\( v \\) m s⁻¹, is given by \\[ v = \\frac{1}{100}\\left(15t^2 - t^3\\right) + 9. \\]</p>",
+  "hint": "The acceleration varies, so suvat is invalid. Distance \\( = \\int v\\,dt \\); integrate from \\( t = 0 \\) to \\( t = 10 \\).",
+  "starter": "Integrate \\( v \\), substitute \\( t = 10 \\), and give the distance in metres.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — integrate \\( v \\): at least two powers increased by 1 (beware just multiplying by \\( t \\)).</li>\n              <li><strong>A1</strong> — \\( s = \\dfrac{1}{100}\\left(5t^3 - \\dfrac{t^4}{4}\\right) + 9t \\) (ignore \\( c \\)).</li>\n              <li><strong>M1*</strong> (dep) — substitute \\( t = 10 \\).</li>\n              <li><strong>A1</strong> — \\( s = \\dfrac{1}{100}(5000 - 2500) + 90 = 115 \\) m.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>M0 if the \\( \\frac{1}{100} \\) is \"integrated\". Beware: a suvat approach will also give 115 but earns no marks here because the acceleration is not constant.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The use of suvat here was inappropriate and many candidates did not score as a result — the fact that \\( v \\) was a cubic in \\( t \\) rather than linear should have been a clue.</li>\n            </ul></div>",
+   "modelAnswer": "The acceleration is variable, so integrate. \\( s = \\int_0^{10} \\left[\\frac{1}{100}(15t^2 - t^3) + 9\\right] dt = \\left[\\frac{1}{100}\\left(5t^3 - \\frac{t^4}{4}\\right) + 9t\\right]_0^{10} = \\frac{1}{100}(5000 - 2500) + 90 = 25 + 90 = 115 \\) m."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:exam:da527212",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "14 (d)",
+  "question": "<p>Find the maximum acceleration in this period.</p>",
+  "caseStudy": "<p>Speed bumps are designed to encourage drivers to drive slowly. On a particular road, the bumps put onto the road are designed to give minimum discomfort and damage at a speed of 9 m s⁻¹.</p>\n        <p>Paul is driving along the road at a speed of 14 m s⁻¹ when he sees the warning sign; he is 50 m before the first bump. He immediately slows down with uniform deceleration so that when he reaches the first bump he is travelling at a speed of 9 m s⁻¹.</p>\n        <p>Immediately after the bump he accelerates such that at \\( t \\) seconds after leaving the bump his speed, \\( v \\) m s⁻¹, is given by \\[ v = \\frac{1}{100}\\left(15t^2 - t^3\\right) + 9. \\]</p>",
+  "hint": "Differentiate \\( v \\) to get \\( a \\), then find the maximum of \\( a \\) by setting \\( \\frac{da}{dt} = 0 \\).",
+  "starter": "Give the maximum acceleration in m s⁻², with the time at which it occurs.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — differentiate twice: \\( a = \\dfrac{dv}{dt} = \\dfrac{1}{100}\\left(30t - 3t^2\\right) \\), then \\( \\dfrac{da}{dt} = \\dfrac{1}{100}(30 - 6t) \\).</li>\n              <li><strong>A1</strong> — \\( \\dfrac{da}{dt} = 0 \\) when \\( t = 5 \\).</li>\n              <li><strong>A1</strong> — \\( a = \\dfrac{1}{100}(150 - 75) = 0.75 \\) m s⁻².</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Alternative: differentiate once and use the symmetry of the quadratic (symmetry must be stated) or complete the square to locate the maximum at \\( t = 5 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The question asked for a maximum, so candidates had to complete the square or differentiate the equation for \\( a \\). This was beyond most; the negative coefficient of \\( t^2 \\) caused real difficulties for those completing the square.</li>\n            </ul></div>",
+   "modelAnswer": "Differentiate: \\( a = \\frac{dv}{dt} = \\frac{1}{100}(30t - 3t^2) \\). This is greatest where \\( \\frac{da}{dt} = \\frac{1}{100}(30 - 6t) = 0 \\), i.e. \\( t = 5 \\) s. Then \\( a = \\frac{1}{100}(150 - 75) = 0.75 \\) m s⁻²."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:exam:e1f0fec0",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "14 (e)",
+  "question": "<p>If all drivers decelerate and accelerate in the same way as Paul, suggest a maximum distance between bumps to ensure that drivers do not exceed a speed of 14 m s⁻¹ when driving down the road.</p>",
+  "caseStudy": "<p>Speed bumps are designed to encourage drivers to drive slowly. On a particular road, the bumps put onto the road are designed to give minimum discomfort and damage at a speed of 9 m s⁻¹.</p>\n        <p>Paul is driving along the road at a speed of 14 m s⁻¹ when he sees the warning sign; he is 50 m before the first bump. He immediately slows down with uniform deceleration so that when he reaches the first bump he is travelling at a speed of 9 m s⁻¹.</p>\n        <p>Immediately after the bump he accelerates such that at \\( t \\) seconds after leaving the bump his speed, \\( v \\) m s⁻¹, is given by \\[ v = \\frac{1}{100}\\left(15t^2 - t^3\\right) + 9. \\]</p>",
+  "hint": "Add the 50 m of the deceleration phase to the distance you found in part (c).",
+  "starter": "State a single distance in metres.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO3)</h5><ul>\n              <li><strong>B1</strong> — distance between bumps \\( = \\) their (c) \\( + 50 = 115 + 50 = 165 \\) m (follow through their answer to (c)).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The 50 m is the deceleration distance from 14 to 9 m s⁻¹; the 115 m is the acceleration distance back up to 14 m s⁻¹.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>There were few correct responses to this part.</li>\n            </ul></div>",
+   "modelAnswer": "The driver uses 50 m slowing from 14 to 9 m s⁻¹ and then 115 m accelerating back to 14 m s⁻¹, so the bumps should be at most \\( 115 + 50 = 165 \\) m apart."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:exam:94d8b812",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "2 (a)",
+  "question": "<p>Determine the uniform acceleration of the train.</p>",
+  "caseStudy": "<p>A passenger train is 175 m long and is stationary in a station. As it leaves the station it accelerates with uniform acceleration. When the front of the train reaches the end of the platform it is travelling at a speed of 3 m s⁻¹, and when the rear of the train reaches the end of the platform it is travelling at a speed of 18 m s⁻¹.</p>",
+  "hint": "The whole train passes the end of the platform, so the speed rises from 3 to 18 m s⁻¹ over a displacement of 175 m (the train's length). Use \\( v^2 = u^2 + 2as \\).",
+  "starter": "Give the acceleration in m s⁻².",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — use of a suvat formula to find \\( a \\): \\( 18^2 = 3^2 + 2a(175) \\).</li>\n              <li><strong>A1</strong> — \\( a = \\dfrac{18^2 - 3^2}{350} = 0.9 \\) m s⁻² (ignore units for the A mark).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The displacement is the train's length, 175 m, because the front and the rear pass the same point (the end of the platform).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>A typical constant-acceleration question; since \\( t \\) is not involved, suvat should be used (calculus would be very long-winded). The vast majority did and obtained the correct answer.</li>\n            </ul></div>",
+   "modelAnswer": "The speed goes from \\( u = 3 \\) to \\( v = 18 \\) m s⁻¹ over \\( s = 175 \\) m. Using \\( v^2 = u^2 + 2as \\): \\( 324 = 9 + 350a \\Rightarrow a = \\frac{315}{350} = 0.9 \\) m s⁻²."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:exam:d7a2027e",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "2 (b)",
+  "question": "<p>Determine the time taken from when the train starts to move until it reaches a speed of 18 m s⁻¹.</p>",
+  "caseStudy": "<p>A passenger train is 175 m long and is stationary in a station. As it leaves the station it accelerates with uniform acceleration. When the front of the train reaches the end of the platform it is travelling at a speed of 3 m s⁻¹, and when the rear of the train reaches the end of the platform it is travelling at a speed of 18 m s⁻¹.</p>",
+  "hint": "\"Starts to move\" means \\( u = 0 \\); this part has nothing to do with 175 m or the speed of 3 m s⁻¹. Use \\( v = u + at \\).",
+  "starter": "Give the time in seconds.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — use of a suvat formula to find \\( t \\): \\( v = u + at \\) with \\( u = 0 \\), \\( v = 18 \\) and their \\( a \\).</li>\n              <li><strong>A1</strong> — \\( t = \\dfrac{18}{0.9} = 20 \\) s (follow through their \\( a \\)).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Take care: from rest to 18 m s⁻¹ the distance is actually \\( s = 180 \\) m, not 175 m; using \\( s = 175 \\) here gives an incorrect \\( t = 19.4 \\) s.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>This part has nothing to do with the length of the train or the speed at the end of the platform. Some candidates did not read \"starts to move\" and so wrongly used \\( s = 175 \\) and/or \\( u = 3 \\).</li>\n            </ul></div>",
+   "modelAnswer": "From rest, \\( u = 0 \\). Using \\( v = u + at \\): \\( 18 = 0 + 0.9t \\Rightarrow t = \\frac{18}{0.9} = 20 \\) s."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:mcq:20c0d760",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A particle has displacement \\( s = 2t^3 - 5t^2 \\). Find its velocity \\( v \\).",
+  "options": [
+   "\\( 6t^2 - 10t \\)",
+   "\\( 6t^2 - 5t \\)",
+   "\\( \\frac{t^4}{2} - \\frac{5t^3}{3} \\)",
+   "\\( 12t - 10 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( v = \\frac{ds}{dt} = 6t^2 - 10t \\). The third option integrates instead of differentiating; the last differentiates twice (that would be the acceleration)."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:mcq:5d86d83a",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A particle has velocity \\( v = 4t^2 - 3 \\). Find its acceleration \\( a \\).",
+  "options": [
+   "\\( 8t \\)",
+   "\\( 8t - 3 \\)",
+   "\\( \\frac{4t^3}{3} - 3t \\)",
+   "\\( 8 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( a = \\frac{dv}{dt} = 8t \\). The constant \\( -3 \\) differentiates to 0; the third option integrates by mistake."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:mcq:32105410",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A particle has \\( a = 12t - 6 \\) and \\( v = 2 \\) when \\( t = 0 \\). Find \\( v \\).",
+  "options": [
+   "\\( 6t^2 - 6t + 2 \\)",
+   "\\( 6t^2 - 6t \\)",
+   "\\( 12 \\)",
+   "\\( 6t^2 - 6t + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( v = \\int (12t-6)\\,dt = 6t^2 - 6t + c \\); \\( v = 2 \\) at \\( t = 0 \\) gives \\( c = 2 \\). The second option forgets the constant; the last leaves it unevaluated."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:mcq:a7882466",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A particle is momentarily at rest when:",
+  "options": [
+   "\\( v = 0 \\)",
+   "\\( a = 0 \\)",
+   "\\( s = 0 \\)",
+   "\\( \\frac{da}{dt} = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "At rest means the velocity is zero. \\( a = 0 \\) is where the velocity is a maximum or minimum, not where it is zero."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:mcq:69e01e26",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The velocity of a particle is a maximum when:",
+  "options": [
+   "\\( a = \\frac{dv}{dt} = 0 \\)",
+   "\\( v = 0 \\)",
+   "\\( s = 0 \\)",
+   "\\( t = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Velocity is stationary (max or min) where its rate of change, the acceleration, is zero."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:mcq:c3a465de",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A particle has velocity \\( v = 15t - 3t^2 \\). At what time is its velocity greatest?",
+  "options": [
+   "\\( t = 2.5 \\) s",
+   "\\( t = 5 \\) s",
+   "\\( t = 0 \\) s",
+   "\\( t = 7.5 \\) s"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( a = 15 - 6t = 0 \\Rightarrow t = 2.5 \\) s. (\\( t = 5 \\) is when \\( v = 0 \\).)"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:mcq:41301bdc",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The maximum acceleration of a particle whose acceleration is \\( a = \\frac{1}{100}(30t - 3t^2) \\) occurs when:",
+  "options": [
+   "\\( \\frac{da}{dt} = 0 \\)",
+   "\\( a = 0 \\)",
+   "\\( v = 0 \\)",
+   "\\( t = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Maximum acceleration is a turning point of \\( a \\), so set \\( \\frac{da}{dt} = 0 \\). Setting \\( a = 0 \\) finds where the acceleration vanishes, not where it is greatest."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:mcq:e0bd3699",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The suvat formula \\( s = ut + \\tfrac{1}{2}at^2 \\) may be used:",
+  "options": [
+   "Only when the acceleration is constant",
+   "For any motion whatsoever",
+   "Only when the particle starts from rest",
+   "Only for the first second of motion"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The suvat formulae assume a constant (uniform) acceleration. If \\( a \\) varies with time you must use calculus."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:mcq:4899bf19",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A car's velocity is \\( v = t^2 + 2t \\). A student uses \\( v = u + at \\) to find the velocity at \\( t = 3 \\). What is wrong?",
+  "options": [
+   "The acceleration \\( a = 2t + 2 \\) is not constant, so suvat cannot be used",
+   "Nothing — the method is fine",
+   "They should use \\( v^2 = u^2 + 2as \\) instead",
+   "They forgot to add a constant of integration"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Here \\( a = \\frac{dv}{dt} = 2t + 2 \\), which changes with time. suvat needs constant acceleration, so this is invalid — just substitute \\( t = 3 \\) into \\( v \\) directly."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:mcq:a1d5f734",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A particle has velocity \\( v = 3t^2 \\) m s⁻¹. What distance does it travel between \\( t = 0 \\) and \\( t = 2 \\) s?",
+  "options": [
+   "8 m",
+   "8 m s⁻¹",
+   "12 m",
+   "24 m"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Distance \\( = \\int_0^2 3t^2\\,dt = [t^3]_0^2 = 8 \\) m. The units are metres, not m s⁻¹; option 3 differentiates by mistake."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:mcq:f710edbb",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Acceleration can be described as:",
+  "options": [
+   "The second derivative of displacement with respect to time",
+   "The integral of velocity",
+   "The first derivative of displacement",
+   "Displacement divided by time"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( a = \\frac{dv}{dt} = \\frac{d^2s}{dt^2} \\): differentiate displacement twice. The first derivative of \\( s \\) is velocity."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:mcq:49169362",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A body accelerates uniformly from rest at \\( 2 \\) m s⁻² for \\( 5 \\) s. Find its final velocity.",
+  "options": [
+   "10 m s⁻¹",
+   "10 m",
+   "25 m s⁻¹",
+   "20 m s⁻¹"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Constant acceleration, so use \\( v = u + at = 0 + 2 \\times 5 = 10 \\) m s⁻¹. The units are m s⁻¹, not m."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:tf:c5489d93",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Velocity is the rate of change of displacement, \\( v = \\frac{ds}{dt} \\).",
+  "key": {
+   "answer": true,
+   "explain": "Yes — differentiate displacement to get velocity, and differentiate again for acceleration."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:tf:88f622f6",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "To find the acceleration from the velocity you integrate the velocity.",
+  "key": {
+   "answer": false,
+   "explain": "You differentiate: \\( a = \\frac{dv}{dt} \\). Integrating velocity gives displacement."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:tf:1104e1e2",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The suvat formulae can be used whenever an object is moving.",
+  "key": {
+   "answer": false,
+   "explain": "Only when the acceleration is constant. If \\( a \\) varies with time you must use calculus."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:tf:97e71cb5",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "When you integrate acceleration to find velocity you must add a constant of integration.",
+  "key": {
+   "answer": true,
+   "explain": "Yes, and you then find its value from an initial condition such as the velocity at \\( t = 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:tf:10c89db0",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A particle is momentarily at rest when its acceleration is zero.",
+  "key": {
+   "answer": false,
+   "explain": "At rest means \\( v = 0 \\). Zero acceleration is where the velocity is a maximum or minimum."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:tf:3457380f",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The kinematics calculus relations and the suvat set are both printed on the exam formula sheet.",
+  "key": {
+   "answer": true,
+   "explain": "Both are PROVIDED — but you still must know when and how to use each."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:tf:7ce14013",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The velocity of a particle is a maximum where \\( \\frac{dv}{dt} = 0 \\).",
+  "key": {
+   "answer": true,
+   "explain": "Velocity is stationary where its rate of change (the acceleration) is zero."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:tf:14946b3f",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If a particle's velocity is \\( v = 5t^2 - 2t \\), then its acceleration is constant.",
+  "key": {
+   "answer": false,
+   "explain": "\\( a = \\frac{dv}{dt} = 10t - 2 \\), which changes with time — the acceleration is variable, so suvat cannot be used."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:learn:a275250d",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What do displacement, velocity and acceleration mean, and how are they linked?",
+  "reading": "<p><strong>Kinematics</strong> is the study of motion. In this course a particle always moves in a <strong>straight line</strong>, and three quantities describe it:</p>\n            <ul>\n              <li><strong>Displacement</strong> \\( s \\) — its position measured from a fixed point, in metres (m). Displacement has a <em>direction</em>, so it can be negative.</li>\n              <li><strong>Velocity</strong> \\( v \\) — the rate of change of displacement, in m s⁻¹. A negative velocity means moving in the negative direction.</li>\n              <li><strong>Acceleration</strong> \\( a \\) — the rate of change of velocity, in m s⁻². A negative acceleration is a <strong>deceleration</strong> (slowing down).</li>\n            </ul>\n            <p>They are linked by <strong>calculus</strong>. Going <em>down</em> the chain you differentiate; going <em>up</em> you integrate:</p>\n            <p>\\[ v = \\frac{ds}{dt}, \\qquad a = \\frac{dv}{dt} = \\frac{d^2s}{dt^2}, \\qquad v = \\int a\\,dt, \\qquad s = \\int v\\,dt. \\]</p>\n            <p>These four relations are <strong>PROVIDED</strong> on the exam formula sheet — you do not need to memorise them, but you must know how to use them. <strong>Always give units</strong> with every answer.</p>",
+  "question": "Which quantity is equal to \\( \\frac{ds}{dt} \\)?",
+  "options": [
+   "Velocity",
+   "Acceleration",
+   "Displacement",
+   "Distance per bump"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Velocity is the rate of change of displacement, so \\( v = \\frac{ds}{dt} \\). Differentiating velocity again gives acceleration."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:learn:a229a094",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you go from displacement to velocity to acceleration?",
+  "reading": "<p>Given displacement as a function of time, <strong>differentiate to get velocity, then differentiate again to get acceleration</strong>. Use the ordinary rule for \\( x^n \\): multiply by the power, reduce the power by 1.</p>\n            <p><strong>Worked example — a particle has \\( s = t^3 - 6t^2 + 9t \\) metres at time \\( t \\) seconds:</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Differentiate for velocity: \\( v = \\dfrac{ds}{dt} = 3t^2 - 12t + 9 \\) m s⁻¹.</td></tr>\n              <tr><td>2. Differentiate again for acceleration: \\( a = \\dfrac{dv}{dt} = 6t - 12 \\) m s⁻².</td></tr>\n              <tr><td>3. At \\( t = 4 \\): \\( v = 48 - 48 + 9 = 9 \\) m s⁻¹ and \\( a = 24 - 12 = 12 \\) m s⁻².</td></tr>\n            </table>\n            <p>Notice the constant term of \\( s \\) disappears on differentiating, and every unit changes as you go down the chain (m → m s⁻¹ → m s⁻²).</p>",
+  "question": "If \\( v = 3t^2 - 12t + 9 \\), find the acceleration when \\( t = 3 \\).",
+  "options": [
+   "6 m s⁻²",
+   "0 m s⁻²",
+   "18 m s⁻²",
+   "9 m s⁻²"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( a = \\frac{dv}{dt} = 6t - 12 \\); at \\( t = 3 \\), \\( a = 18 - 12 = 6 \\) m s⁻²."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:learn:261a1424",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you go back from acceleration or velocity to displacement?",
+  "reading": "<p>Going <em>up</em> the chain you <strong>integrate</strong>. Every integration introduces a <strong>constant of integration</strong> \\( + c \\), and you find its value from an <strong>initial condition</strong> (a known velocity or displacement, usually at \\( t = 0 \\)). Forgetting the \\( + c \\) is the single most common error here.</p>\n            <p><strong>Worked example — a particle has acceleration \\( a = 10 - 2t \\) m s⁻², with velocity 3 m s⁻¹ and displacement 0 when \\( t = 0 \\). Find \\( v \\) and \\( s \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Integrate \\( a \\): \\( v = \\int (10 - 2t)\\,dt = 10t - t^2 + c \\).</td></tr>\n              <tr><td>2. Use \\( v = 3 \\) at \\( t = 0 \\): \\( 3 = 0 - 0 + c \\Rightarrow c = 3 \\), so \\( v = 10t - t^2 + 3 \\) m s⁻¹.</td></tr>\n              <tr><td>3. Integrate \\( v \\): \\( s = \\int (10t - t^2 + 3)\\,dt = 5t^2 - \\dfrac{t^3}{3} + 3t + k \\).</td></tr>\n              <tr><td>4. Use \\( s = 0 \\) at \\( t = 0 \\): \\( k = 0 \\), so \\( s = 5t^2 - \\dfrac{t^3}{3} + 3t \\) m.</td></tr>\n            </table>\n            <p>Sanity check: differentiate your \\( s \\) and you should get back the \\( v \\) you started with.</p>",
+  "question": "A particle has \\( a = 6t - 4 \\) and \\( v = 5 \\) when \\( t = 0 \\). Find \\( v \\).",
+  "options": [
+   "\\( 3t^2 - 4t + 5 \\)",
+   "\\( 3t^2 - 4t \\)",
+   "\\( 6 \\)",
+   "\\( 3t^2 - 4t + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( v = \\int (6t-4)\\,dt = 3t^2 - 4t + c \\); using \\( v = 5 \\) at \\( t = 0 \\) gives \\( c = 5 \\). You must evaluate the constant, not leave it as \\( c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:learn:73ffed54",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you interpret motion — at rest, maximum velocity, maximum acceleration?",
+  "reading": "<p>Many marks are for <strong>interpreting</strong> the calculus in context. The key facts:</p>\n            <ul>\n              <li>A particle is <strong>momentarily at rest</strong> when \\( v = 0 \\).</li>\n              <li>The <strong>velocity is a maximum (or minimum)</strong> when \\( a = \\dfrac{dv}{dt} = 0 \\) — velocity is stationary, so its rate of change is zero.</li>\n              <li>The <strong>acceleration is a maximum</strong> when \\( \\dfrac{da}{dt} = 0 \\) — a turning point of \\( a \\) itself. It is <em>not</em> where \\( a = 0 \\).</li>\n            </ul>\n            <p><strong>Worked example — a particle has \\( v = 12t - 3t^2 \\) m s⁻¹ for \\( t \\ge 0 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. At rest: \\( 12t - 3t^2 = 3t(4 - t) = 0 \\Rightarrow t = 0 \\) or \\( t = 4 \\) s.</td></tr>\n              <tr><td>2. Maximum velocity: \\( a = \\dfrac{dv}{dt} = 12 - 6t = 0 \\Rightarrow t = 2 \\) s.</td></tr>\n              <tr><td>3. That velocity is \\( v = 12(2) - 3(2)^2 = 24 - 12 = 12 \\) m s⁻¹.</td></tr>\n            </table>\n            <p>Because \\( a = 12 - 6t \\) is positive before \\( t = 2 \\) and negative after, the velocity really is a maximum there.</p>",
+  "question": "For \\( v = 15t - 3t^2 \\), at what time is the velocity a maximum?",
+  "options": [
+   "\\( t = 2.5 \\) s",
+   "\\( t = 5 \\) s",
+   "\\( t = 0 \\) s",
+   "\\( t = 7.5 \\) s"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Maximum velocity is where \\( a = \\frac{dv}{dt} = 15 - 6t = 0 \\), giving \\( t = 2.5 \\) s. (\\( t = 5 \\) is where \\( v = 0 \\), i.e. at rest.)"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:learn:dad8c6ec",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "When can you use the suvat formulae instead of calculus?",
+  "reading": "<p>The <strong>suvat</strong> (constant-acceleration) formulae may be used <strong>only when the acceleration is constant</strong> (uniform). They are also <strong>PROVIDED</strong> on the formula sheet:</p>\n            <p>\\[ v = u + at, \\quad s = ut + \\tfrac{1}{2}at^2, \\quad s = \\tfrac{1}{2}(u+v)t, \\quad v^2 = u^2 + 2as, \\quad s = vt - \\tfrac{1}{2}at^2. \\]</p>\n            <ul>\n              <li>Here \\( u \\) is the <strong>initial</strong> velocity, \\( v \\) the <strong>final</strong> velocity, \\( a \\) the constant acceleration, \\( s \\) the displacement and \\( t \\) the time.</li>\n              <li><strong>How to spot which method:</strong> if a problem says \"uniform / constant acceleration\" (or \"decelerates uniformly\"), use suvat. If the velocity or acceleration is given as a <strong>function of \\( t \\)</strong> (e.g. \\( v = t^2 - 3t \\)), the acceleration <em>varies</em>, so suvat does not apply — you must differentiate or integrate.</li>\n            </ul>\n            <p><strong>Worked example (constant acceleration) — a train starts from rest and accelerates uniformly to 24 m s⁻¹ in 12 s:</strong> using \\( v = u + at \\) with \\( u = 0 \\): \\( 24 = 0 + a(12) \\Rightarrow a = 2 \\) m s⁻². The distance is \\( s = \\tfrac{1}{2}(u+v)t = \\tfrac{1}{2}(24)(12) = 144 \\) m.</p>",
+  "question": "In which situation can you use \\( v^2 = u^2 + 2as \\)?",
+  "options": [
+   "A body moving with constant acceleration",
+   "A body whose velocity is \\( v = t^2 - 3t \\)",
+   "A body whose acceleration is \\( a = 6t \\)",
+   "Any moving body at all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The suvat formulae need constant acceleration. If \\( v \\) or \\( a \\) is a function of \\( t \\), the acceleration varies, so you must use calculus."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:learn:9e4f9031",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you estimate velocity from a displacement–time graph? (numerical methods)",
+  "reading": "<p>Velocity is the <strong>gradient of the displacement–time curve</strong>. When you cannot (or need not) differentiate, you can <strong>estimate</strong> that gradient numerically using a <strong>chord</strong> between two nearby points — exactly the chord-to-tangent idea from differentiation:</p>\n            <p>\\[ v \\approx \\frac{s(t_2) - s(t_1)}{t_2 - t_1}. \\]</p>\n            <p>The <strong>smaller the interval</strong>, the closer the chord gradient gets to the true (tangent) velocity.</p>\n            <p><strong>Worked example — a runner's displacement \\( s \\) (m) is recorded near \\( t = 3 \\) s. Estimate the velocity at \\( t = 3 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>Given \\( s(3.0) = 12.00 \\), \\( s(3.2) = 13.44 \\): \\( v \\approx \\dfrac{13.44 - 12.00}{0.2} = 7.2 \\) m s⁻¹.</td></tr>\n              <tr><td>Using a smaller step \\( s(3.1) = 12.71 \\): \\( v \\approx \\dfrac{12.71 - 12.00}{0.1} = 7.1 \\) m s⁻¹.</td></tr>\n              <tr><td>The estimates are closing in on the true value, about \\( 7 \\) m s⁻¹.</td></tr>\n            </table>\n            <p>State the answer with its units and note that a smaller interval improves the estimate.</p>",
+  "question": "A displacement–time graph gives \\( s = 20 \\) m at \\( t = 4 \\) s and \\( s = 22.4 \\) m at \\( t = 4.4 \\) s. Estimate the velocity at \\( t = 4 \\).",
+  "options": [
+   "6 m s⁻¹",
+   "2.4 m s⁻¹",
+   "0.4 m s⁻¹",
+   "9.6 m s⁻¹"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Chord gradient \\( = \\frac{22.4 - 20}{4.4 - 4} = \\frac{2.4}{0.4} = 6 \\) m s⁻¹."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:misc:4805c0c3",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Using \\( v^2 = u^2 + 2as \\) to find a distance when the velocity is given by \\( v = \\frac{1}{100}(15t^2 - t^3) + 9 \\).</p><p><strong>✅ The correct idea:</strong> The suvat formulae only work for constant acceleration. Here \\( v \\) is a cubic in \\( t \\), so the acceleration varies — a weak answer plugs into suvat and scores nothing; a strong answer integrates: distance \\( = \\int v\\,dt \\).</p>",
+  "question": "The velocity is \\( v = \\frac{1}{100}(15t^2 - t^3) + 9 \\). How do you find the distance travelled?",
+  "options": [
+   "Integrate \\( v \\) with respect to \\( t \\)",
+   "Use \\( v^2 = u^2 + 2as \\)",
+   "Use \\( s = ut + \\frac{1}{2}at^2 \\)",
+   "Differentiate \\( v \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Variable acceleration means suvat is invalid; distance is \\( \\int v\\,dt \\)."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:misc:c33b70f6",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Writing the maximum acceleration as \"0.75\" with nothing after it.</p><p><strong>✅ The correct idea:</strong> Every kinematics answer needs its units. A weak answer gives a bare number; a strong answer writes \\( 0.75 \\) m s⁻² — the units are part of the answer and a bare number can lose the mark.</p>",
+  "question": "What are the correct units for an acceleration?",
+  "options": [
+   "m s⁻²",
+   "m s⁻¹",
+   "m",
+   "s"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Acceleration is a change of velocity per second, so its units are m s⁻² (metres per second per second)."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:misc:62055647",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Integrating \\( a = 6t - 4 \\) to get \\( v = 3t^2 - 4t \\) and stopping there.</p><p><strong>✅ The correct idea:</strong> Integration always introduces \\( + c \\). A weak answer omits it; a strong answer writes \\( v = 3t^2 - 4t + c \\) and then uses the initial condition (e.g. \\( v \\) at \\( t = 0 \\)) to find \\( c \\).</p>",
+  "question": "After integrating acceleration to find velocity, what must you do next?",
+  "options": [
+   "Add \\( + c \\) and find it from an initial condition",
+   "Divide by \\( t \\)",
+   "Differentiate the result",
+   "Nothing else"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The constant of integration must be added and then evaluated from a known velocity or displacement."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:misc:30c202f8",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Finding the maximum acceleration by solving \\( a = 0 \\).</p><p><strong>✅ The correct idea:</strong> The maximum acceleration is a turning point of \\( a \\), so you set \\( \\frac{da}{dt} = 0 \\). A weak answer confuses \"maximum\" with \"zero\"; a strong answer differentiates \\( a \\) again (or completes the square) to locate the maximum.</p>",
+  "question": "To find the maximum acceleration you should:",
+  "options": [
+   "Set \\( \\frac{da}{dt} = 0 \\)",
+   "Set \\( a = 0 \\)",
+   "Set \\( v = 0 \\)",
+   "Set \\( s = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Maximum acceleration is where the rate of change of acceleration is zero."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:misc:b6891d85",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> In a deceleration problem, interchanging the initial and final speeds \\( u \\) and \\( v \\).</p><p><strong>✅ The correct idea:</strong> \\( u \\) is the speed at the start, \\( v \\) the speed at the end. A weak answer swaps them; a strong answer substitutes carefully so that a deceleration comes out as a negative acceleration.</p>",
+  "question": "A car slows from 14 m s⁻¹ to 9 m s⁻¹. In the suvat formulae, \\( u \\) is:",
+  "options": [
+   "14 m s⁻¹ (the initial speed)",
+   "9 m s⁻¹ (the final speed)",
+   "5 m s⁻¹ (the difference)",
+   "either, it makes no difference"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( u \\) is the initial velocity (14), \\( v \\) the final velocity (9); swapping them gives the wrong sign for the acceleration."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:tips:fa0a9d08",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Read the acceleration: calculus or suvat?",
+  "reading": "<p><strong>Before you start, decide which toolkit applies.</strong> If the problem says the acceleration is constant/uniform (or \"decelerates uniformly\"), use the <strong>suvat</strong> formulae. If the velocity or acceleration is given as a <strong>function of \\( t \\)</strong>, the acceleration varies, so you must <strong>differentiate or integrate</strong>.</p><p>In the 2019 speed-bump question, part (a) is constant deceleration (suvat) but part (c) has a cubic velocity — examiners reported that candidates who reached for suvat on part (c) scored nothing.</p>",
+  "question": "The velocity is \\( v = t^2 - 5t + 6 \\). Which method finds the acceleration?",
+  "options": [
+   "Differentiate \\( v \\)",
+   "Use \\( v = u + at \\)",
+   "Use \\( v^2 = u^2 + 2as \\)",
+   "Integrate \\( v \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Variable acceleration — differentiate: \\( a = 2t - 5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:tips:ac8750eb",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Show your method and give units",
+  "reading": "<p>Kinematics marks are split into method (M) and accuracy (A) marks.</p><p><strong>0 marks:</strong> a bare number such as \"115\" with no working.</p><p><strong>Partial:</strong> correct integration or suvat set-up shown, but no units or a slip in the arithmetic — the M mark is still earned.</p><p><strong>Full marks:</strong> method shown, correct value, and units stated, e.g. distance \\( = 115 \\) m or maximum acceleration \\( = 0.75 \\) m s⁻².</p>",
+  "question": "Why write out the integration before the final number?",
+  "options": [
+   "To earn the method mark even if the arithmetic slips",
+   "It is never necessary",
+   "To use more of the answer space",
+   "To avoid giving units"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Method (M) marks reward correct visible working, independent of the final value."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:tips:a8dee1ff",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — \"Maximum\" means a turning point",
+  "reading": "<p>To maximise a quantity, set the derivative of <em>that</em> quantity to zero. For a <strong>maximum velocity</strong>, set \\( a = \\frac{dv}{dt} = 0 \\). For a <strong>maximum acceleration</strong>, set \\( \\frac{da}{dt} = 0 \\) — differentiating the acceleration, not the velocity.</p><p>Then confirm it is a maximum (the derivative changes from positive to negative, or the second derivative is negative) and substitute back to state the value, with units.</p>",
+  "question": "To find the maximum acceleration of a particle you set:",
+  "options": [
+   "\\( \\frac{da}{dt} = 0 \\)",
+   "\\( a = 0 \\)",
+   "\\( \\frac{dv}{dt} = 0 \\)",
+   "\\( v = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Maximum acceleration is a turning point of \\( a \\), so differentiate \\( a \\) and set it to zero."
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:fib:f84a002d",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Velocity is the rate of change of ___B1___ with respect to time, so \\( v = \\frac{ds}{dt} \\).",
+  "blankOptions": {
+   "B1": [
+    "constant",
+    "once",
+    "displacement",
+    "integrating"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "displacement"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:fib:2d8638e9",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "To find acceleration from velocity you use ___B1___; to find it from displacement you differentiate ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "differentiating",
+    "integrating",
+    "once",
+    "displacement"
+   ],
+   "B2": [
+    "integrate",
+    "differentiate",
+    "twice",
+    "acceleration"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "differentiating",
+    "B2": "twice"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:fib:95120f56",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "To recover velocity from acceleration you ___B1___, remembering to add a constant of ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "zero",
+    "integrating",
+    "integrate",
+    "differentiating"
+   ],
+   "B2": [
+    "constant",
+    "gradient",
+    "integration",
+    "integrating"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "integrate",
+    "B2": "integration"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:fib:ef615869",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The suvat formulae may only be used when the acceleration is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "acceleration",
+    "constant",
+    "integrate",
+    "once"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "constant"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:fib:f2cec031",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A particle is momentarily at rest when its velocity equals ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "constant",
+    "differentiating",
+    "once",
+    "zero"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "zero"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:fib:77944033",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The velocity of a particle is a maximum when its ___B1___ is zero.",
+  "blankOptions": {
+   "B1": [
+    "differentiating",
+    "constant",
+    "acceleration",
+    "integrating"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "acceleration"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:fib:a982e2f5",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Acceleration is the second ___B1___ of displacement with respect to time.",
+  "blankOptions": {
+   "B1": [
+    "displacement",
+    "differentiating",
+    "constant",
+    "derivative"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "derivative"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:match:ecc5f931",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( v = \\frac{ds}{dt} \\)”?",
+  "options": [
+   "Use calculus, not suvat",
+   "\\( \\frac{dv}{dt} = 0 \\)",
+   "\\( v = 0 \\)",
+   "Differentiate displacement to get velocity"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( v = \\frac{ds}{dt} \\)” means: Differentiate displacement to get velocity"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:match:591bf5b0",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( a = \\frac{dv}{dt} \\)”?",
+  "options": [
+   "\\( \\frac{da}{dt} = 0 \\)",
+   "Differentiate velocity to get acceleration",
+   "Found from an initial condition",
+   "The suvat formulae may be used"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( a = \\frac{dv}{dt} \\)” means: Differentiate velocity to get acceleration"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:match:1810fcbb",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( a = \\frac{d^2s}{dt^2} \\)”?",
+  "options": [
+   "Found from an initial condition",
+   "Use calculus, not suvat",
+   "Integrate acceleration to get velocity",
+   "Acceleration is the second derivative of displacement"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( a = \\frac{d^2s}{dt^2} \\)” means: Acceleration is the second derivative of displacement"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:match:7750bd9c",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( v = \\int a\\,dt \\)”?",
+  "options": [
+   "Integrate acceleration to get velocity",
+   "Found from an initial condition",
+   "\\( \\frac{dv}{dt} = 0 \\)",
+   "Integrate velocity to get displacement"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( v = \\int a\\,dt \\)” means: Integrate acceleration to get velocity"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:match:e397f59d",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( s = \\int v\\,dt \\)”?",
+  "options": [
+   "Differentiate displacement to get velocity",
+   "Differentiate velocity to get acceleration",
+   "Integrate velocity to get displacement",
+   "Integrate acceleration to get velocity"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( s = \\int v\\,dt \\)” means: Integrate velocity to get displacement"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:match:98c2a1bd",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Particle momentarily at rest”?",
+  "options": [
+   "Found from an initial condition",
+   "A suvat formula with no time in it",
+   "\\( v = 0 \\)",
+   "Use calculus, not suvat"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Particle momentarily at rest” means: \\( v = 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:match:0ababa50",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Velocity is a maximum or minimum”?",
+  "options": [
+   "\\( \\frac{da}{dt} = 0 \\)",
+   "\\( v = 0 \\)",
+   "Differentiate displacement to get velocity",
+   "\\( \\frac{dv}{dt} = 0 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Velocity is a maximum or minimum” means: \\( \\frac{dv}{dt} = 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:match:d23d6859",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Acceleration is a maximum”?",
+  "options": [
+   "\\( v = 0 \\)",
+   "Acceleration is the second derivative of displacement",
+   "\\( \\frac{da}{dt} = 0 \\)",
+   "The suvat formulae may be used"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Acceleration is a maximum” means: \\( \\frac{da}{dt} = 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:match:40b04bb7",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Acceleration is constant”?",
+  "options": [
+   "\\( v = 0 \\)",
+   "\\( \\frac{dv}{dt} = 0 \\)",
+   "Differentiate velocity to get acceleration",
+   "The suvat formulae may be used"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Acceleration is constant” means: The suvat formulae may be used"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:match:f5c13062",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Acceleration given as a function of \\( t \\)”?",
+  "options": [
+   "Found from an initial condition",
+   "\\( v = 0 \\)",
+   "Use calculus, not suvat",
+   "Acceleration is the second derivative of displacement"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Acceleration given as a function of \\( t \\)” means: Use calculus, not suvat"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:match:aac5faa1",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( v^2 = u^2 + 2as \\)”?",
+  "options": [
+   "The suvat formulae may be used",
+   "Integrate velocity to get displacement",
+   "A suvat formula with no time in it",
+   "Integrate acceleration to get velocity"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( v^2 = u^2 + 2as \\)” means: A suvat formula with no time in it"
+  }
+ },
+ {
+  "id": "additional-maths:10-1-kinematics:match:73d6b6c3",
+  "pageId": "additional-maths:10-1-kinematics",
+  "pageName": "10.1 Kinematics",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Constant of integration \\( + c \\)”?",
+  "options": [
+   "Integrate velocity to get displacement",
+   "Found from an initial condition",
+   "\\( \\frac{dv}{dt} = 0 \\)",
+   "Use calculus, not suvat"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Constant of integration \\( + c \\)” means: Found from an initial condition"
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:exam:5055cf50",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "13 (a)",
+  "question": "<p>Show by sign change that \\( x^3 - x - 7 = 0 \\) has a root, \\( a \\), in the interval \\( [2,\\ 3] \\).</p>",
+  "caseStudy": "<p>Tom has been asked to solve the equation \\( x^3 - x - 7 = 0 \\).</p>",
+  "hint": "Evaluate \\( \\text{f}(x) = x^3 - x - 7 \\) at both ends, then write the conclusion sentence.",
+  "starter": "This is 'show that' — no answer box; state \\( \\text{f}(2) \\), \\( \\text{f}(3) \\) and the change-of-sign conclusion.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>\n              <li><strong>M1</strong> — correct substitutions seen: \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 17 \\).</li>\n              <li><strong>A1</strong> — values correct AND a conclusion must be seen: change of sign means the root lies in between (oe).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The first mark is for evaluating the function at both endpoints; the second requires both correct values and an explicit conclusion.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Many candidates showed correct substitutions for one mark but did not write a valid conclusion. It was necessary to see a conclusion indicating a change of sign and therefore a root in the interval. As this is a 'show that', the explanation must cover every step — state what was calculated and what it shows.</li>\n            </ul></div>",
+   "modelAnswer": "Let \\( \\text{f}(x) = x^3 - x - 7 \\). \\( \\text{f}(2) = 8 - 2 - 7 = -1 \\) (negative) and \\( \\text{f}(3) = 27 - 3 - 7 = 17 \\) (positive). There is a change of sign and f is continuous, so a root \\( a \\) lies in the interval \\( [2,\\ 3] \\)."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:exam:656e338b",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "13 (b)(i)",
+  "question": "<p>Tom decides to use the iterative formula \\( x_{r+1} = \\sqrt[3]{x_r + 7} \\) to find \\( a \\). Explain how he obtained this iterative formula.</p>",
+  "caseStudy": "<p>Tom has been asked to solve the equation \\( x^3 - x - 7 = 0 \\).</p>",
+  "hint": "Rearrange \\( x^3 - x - 7 = 0 \\) to make \\( x \\) the subject; show each algebraic step (answer given).",
+  "starter": "This is answer-given (AG) — no answer box; show \\( x^3 = x + 7 \\) then cube-root.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>\n              <li><strong>M1</strong> — correct rearrangement: \\( x^3 - x - 7 = 0 \\Rightarrow x^3 = x + 7 \\) (or the reverse direction).</li>\n              <li><strong>A1</strong> — convincing algebra reaching \\( x = \\sqrt[3]{x + 7} \\), i.e. \\( x_{r+1} = \\sqrt[3]{x_r + 7} \\) (AG).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One mark for isolating \\( x^3 \\); one for a complete, convincing cube-root step to the given formula. Working may equally be done in reverse.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Well answered, but some did not show full and complete working, which was necessary for both marks. A small number wrote the explanation in words rather than as an algebraic solution.</li>\n            </ul></div>",
+   "modelAnswer": "Start from \\( x^3 - x - 7 = 0 \\). Add \\( x + 7 \\) to both sides: \\( x^3 = x + 7 \\). Cube-root both sides: \\( x = \\sqrt[3]{x + 7} \\). Written as a term-to-term rule this is \\( x_{r+1} = \\sqrt[3]{x_r + 7} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:exam:edbb76c1",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "13 (b)(ii)",
+  "question": "<p>Using this iterative formula, with \\( x_0 = 2 \\), find \\( a \\) correct to 3 significant figures.</p>",
+  "caseStudy": "<p>Tom has been asked to solve the equation \\( x^3 - x - 7 = 0 \\).</p>",
+  "hint": "Use the ANS key; quote each iterate to at least 4 s.f. and keep going until they settle.",
+  "starter": "Give the iterates then the final value: \\( a = \\ldots \\) (3 s.f.).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — sight of correct use of the formula (a chain of iterates from \\( x_0 = 2 \\)).</li>\n              <li><strong>A1</strong> — conclusion \\( a = 2.09 \\) plus justification of 3 s.f. (e.g. sight of successive iterates agreeing, or \\( x = 2.085 \\) gives \\( \\text{f} < 0 \\) and \\( x = 2.095 \\) gives \\( \\text{f} > 0 \\)). Accept \"\\( x = \\)\" in the final answer.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One mark for correctly applying the iteration; one for a justified 3 s.f. answer. A single iteration is not enough to justify the conclusion.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Candidates who set out each iterate clearly and showed the values settling gained both marks; a stated answer without sufficient iterates or justification lost the accuracy mark.</li>\n            </ul></div>",
+   "modelAnswer": "\\( x_0 = 2 \\); \\( x_1 = \\sqrt[3]{2 + 7} = \\sqrt[3]{9} = 2.080 \\); \\( x_2 = \\sqrt[3]{9.080} = 2.086 \\); \\( x_3 = \\sqrt[3]{9.086} = 2.087 \\); \\( x_4 = 2.087 \\). The iterates have settled, so \\( a = 2.09 \\) (3 s.f.). Check: \\( \\text{f}(2.085) < 0 \\) and \\( \\text{f}(2.095) > 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:exam:a3d17580",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "7 (a)",
+  "question": "<p>By considering the value of \\( 3^x - 4x^2 \\) when \\( x = 0 \\) and \\( x = 1 \\), show that \\( \\beta \\) lies between 0 and 1.</p>",
+  "caseStudy": "<p>You are given that the equation \\( 3^x - 4x^2 = 0 \\) has three roots, \\( \\alpha \\), \\( \\beta \\) and \\( \\gamma \\), where \\( \\alpha < 0 \\) and \\( \\gamma > 3 \\).</p>",
+  "hint": "Evaluate \\( \\text{f}(x) = 3^x - 4x^2 \\) at \\( x = 0 \\) and \\( x = 1 \\), then state the change of sign.",
+  "starter": "This is 'show that' — no answer box; give both values and the conclusion.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>\n              <li><strong>B1</strong> — both values: at \\( x = 0 \\), \\( y = 1 \\); at \\( x = 1 \\), \\( y = -1 \\).</li>\n              <li><strong>B1</strong> — sign change stated (or 'change in sign' / 'different signs', or reference to graph; inequalities acceptable). Follow through their values provided there is a change of sign.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One mark for both correct function values; one for identifying the change of sign and concluding a root lies in the interval.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>In almost all cases the first mark was gained by evaluating the function at \\( x = 0 \\) and \\( 1 \\). The phrase 'change of sign' was very frequently used to gain the second mark; inequality symbols and wordy explanations were also accepted. Rarely was it written well as a formal statement that \\( \\beta \\) therefore lay in the range.</li>\n            </ul></div>",
+   "modelAnswer": "Let \\( \\text{f}(x) = 3^x - 4x^2 \\). \\( \\text{f}(0) = 3^0 - 0 = 1 \\) (positive) and \\( \\text{f}(1) = 3 - 4 = -1 \\) (negative). There is a change of sign, so a root \\( \\beta \\) lies between 0 and 1."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:exam:1157658a",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "7 (b)",
+  "question": "<p>By considering appropriate values of \\( x \\), determine the value of \\( \\beta \\) correct to 1 decimal place.</p>",
+  "caseStudy": "<p>You are given that the equation \\( 3^x - 4x^2 = 0 \\) has three roots, \\( \\alpha \\), \\( \\beta \\) and \\( \\gamma \\), where \\( \\alpha < 0 \\) and \\( \\gamma > 3 \\).</p>",
+  "hint": "Narrow the interval in tenths until you see the sign change, then TEST THE MIDPOINT to fix the 1 dp answer.",
+  "starter": "Give your trial values, then \\( \\beta = \\ldots \\) (1 dp).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO2)</h5><ul>\n              <li><strong>M1</strong> — choose at least one value that narrows the range of the sign change.</li>\n              <li><strong>A1</strong> — reduce the range to \\( [0.7,\\ 0.85] \\) or better (e.g. \\( \\text{f}(0.7) > 0,\\ \\text{f}(0.8) < 0 \\)).</li>\n              <li><strong>A1</strong> — test a value in \\( [0.75,\\ 0.85] \\) and conclude: e.g. \\( \\text{f}(0.75) > 0 \\), so the root is in \\( [0.75,\\ 0.8] \\) and \\( \\beta = 0.8 \\) to 1 dp.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Stating the root is \\( 0.7 \\) or \\( 0.8 \\) with no justification does NOT earn the last mark; the range must be reduced to \\( [0.75,\\ 0.85] \\) (i.e. the midpoint must be tested).</li>\n              <li>Alternative: a correct iterative formula converging to \\( 0.758\\ldots \\) also scores M1 A1 A1.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The expected method was to reduce the \\( [0,1] \\) range from part (a). Candidates who stated the root was \\( 0.7 \\) or \\( 0.8 \\) with no justification, or who argued that \\( \\text{f}(0.8) \\) being closer to zero meant the root was \\( 0.8 \\), did not earn the last mark. Justifying \\( 0.8 \\) required testing the midpoint so the range became \\( [0.75,\\ 0.85] \\). The most successful candidates laid out their work carefully, describing the consequence of each calculation.</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\text{f}(0.7) = 3^{0.7} - 4(0.49) = 2.158 - 1.96 = 0.198 \\) (positive); \\( \\text{f}(0.8) = 3^{0.8} - 4(0.64) = 2.408 - 2.56 = -0.152 \\) (negative), so the root is in \\( [0.7,\\ 0.8] \\). Test the midpoint: \\( \\text{f}(0.75) = 3^{0.75} - 4(0.5625) = 2.280 - 2.25 = 0.030 \\) (positive). The sign changes between \\( 0.75 \\) and \\( 0.8 \\), so \\( \\beta \\) lies in \\( [0.75,\\ 0.8] \\); therefore \\( \\beta = 0.8 \\) to 1 dp."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:mcq:ca85d09f",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For a continuous function, which situation guarantees a root in \\( [a,\\ b] \\)?",
+  "options": [
+   "\\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have opposite signs",
+   "\\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have the same sign",
+   "\\( \\text{f}(a) = \\text{f}(b) \\)",
+   "\\( a \\) and \\( b \\) are both positive"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Opposite signs across a continuous function force the graph to cross the axis between \\( a \\) and \\( b \\)."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:mcq:f36ba321",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Let \\( \\text{f}(x) = x^3 + 4x - 3 \\). Which interval contains a root?",
+  "options": [
+   "\\( [0,\\ 1] \\)",
+   "\\( [1,\\ 2] \\)",
+   "\\( [-2,\\ -1] \\)",
+   "\\( [2,\\ 3] \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\text{f}(0) = -3 \\) and \\( \\text{f}(1) = 2 \\): a change of sign, so a root lies in \\( [0,1] \\)."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:mcq:8d9e7033",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "You have shown \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 17 \\) for a 'show that a root lies in \\( [2,3] \\)' question. What is still needed for the second mark?",
+  "options": [
+   "A conclusion sentence stating the change of sign locates a root",
+   "Nothing — the two values are enough",
+   "The exact value of the root",
+   "The gradient at \\( x = 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The examiner must see the conclusion: 'there is a change of sign, so a root lies between 2 and 3'. Values alone score only 1."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:mcq:11215854",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A decimal search traps a root in \\( [1.3,\\ 1.4] \\). You find \\( \\text{f}(1.3) < 0 \\) and \\( \\text{f}(1.35) > 0 \\). To 1 dp the root is:",
+  "options": [
+   "1.3",
+   "1.4",
+   "1.35",
+   "1.30 or 1.40 — cannot decide"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The sign changes between 1.3 and 1.35, so the root is in \\( [1.3,1.35] \\), which all rounds to 1.3. Testing the midpoint is what decides it."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:mcq:71d10a04",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is a correct rearrangement of \\( x^3 - x - 7 = 0 \\) for iteration?",
+  "options": [
+   "\\( x_{n+1} = \\sqrt[3]{x_n + 7} \\)",
+   "\\( x_{n+1} = x_n^3 - 7 \\)",
+   "\\( x_{n+1} = \\sqrt[3]{x_n} + 7 \\)",
+   "\\( x_{n+1} = \\frac{7}{x_n^2 - 1} \\) only"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x^3 = x + 7 \\Rightarrow x = \\sqrt[3]{x + 7} \\), giving \\( x_{n+1} = \\sqrt[3]{x_n + 7} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:mcq:b3f9e74d",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Using \\( x_{n+1} = \\sqrt[3]{x_n + 7} \\) with \\( x_0 = 2 \\), what is \\( x_1 \\) to 4 s.f.?",
+  "options": [
+   "2.080",
+   "9.000",
+   "1.913",
+   "2.000"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x_1 = \\sqrt[3]{2 + 7} = \\sqrt[3]{9} = 2.080 \\). The distractor 9 forgets the cube root."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:mcq:523b5163",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "To how many significant figures should you quote each iterate before rounding a final 3 s.f. answer?",
+  "options": [
+   "At least 4",
+   "Exactly 1",
+   "Exactly 2",
+   "None — round each to 3 s.f. as you go"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Carry at least 4 s.f. (or use the ANS key at full precision); rounding iterates too early corrupts later steps."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:mcq:654a852e",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Why might an iteration \\( x_{n+1} = \\text{g}(x_n) \\) diverge?",
+  "options": [
+   "The rearrangement is unsuitable, so the iterates run away from the root",
+   "The equation has no root at all",
+   "The starting value was a whole number",
+   "You used the ANS key"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Some rearrangements of \\( \\text{f}(x)=0 \\) drive the iterates away from the root; a different rearrangement of the same equation may converge."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:mcq:35d5a487",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A decimal search over \\( [0,1] \\) in tenths shows no sign change. What can you conclude?",
+  "options": [
+   "Nothing certain — two roots or a repeated root could have been stepped over",
+   "There is definitely no root in \\( [0,1] \\)",
+   "The function is not continuous",
+   "The root is exactly 0.5"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "No sign change does not prove no root: two roots in one interval, or a repeated root touching the axis, both give no sign change."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:mcq:19c56a53",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For the root of \\( 3^x - 4x^2 = 0 \\) in \\( [0.7,\\ 0.8] \\), you find \\( \\text{f}(0.75) > 0 \\) and \\( \\text{f}(0.8) < 0 \\). To 1 dp the root is:",
+  "options": [
+   "0.8",
+   "0.7",
+   "0.75",
+   "0.70 — need more steps"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The sign changes between 0.75 and 0.8, so the root is in \\( [0.75,0.8] \\), which rounds to 0.8."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:mcq:74a7611b",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A candidate does one iteration, \\( x_1 = 2.08 \\), then writes \\( a = 2.09 \\). Why do they lose a mark?",
+  "options": [
+   "They have not shown the iterates settle to the required accuracy",
+   "2.08 rounds to 2.1, not 2.09",
+   "They should have used degrees",
+   "One iteration is always enough"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "You must iterate until the answer settles and show the working; a single step does not justify a 3 s.f. conclusion."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:tf:8be6700d",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If \\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have the same sign, there is guaranteed to be a root between them.",
+  "key": {
+   "answer": false,
+   "explain": "You need OPPOSITE signs. The same sign proves nothing — there could be no root, or an even number of roots."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:tf:81b3837d",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A change of sign only locates a root if f is continuous on the interval.",
+  "key": {
+   "answer": true,
+   "explain": "A jump or asymptote can create a change of sign with no root, so continuity is essential."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:tf:493fa2b3",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Writing \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 17 \\) is enough for full marks on 'show that a root lies in \\( [2,3] \\)'.",
+  "key": {
+   "answer": false,
+   "explain": "You also need the conclusion sentence: 'change of sign, so a root lies between 2 and 3'. Values alone score only 1 of 2."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:tf:67205bcf",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In a decimal search, testing the midpoint of the trapped interval tells you which tenth to round to.",
+  "key": {
+   "answer": true,
+   "explain": "The midpoint's sign shows which half of the interval the root sits in, deciding the 1 dp answer."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:tf:c0b82a0c",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "When iterating you should round every intermediate value to 1 dp to save time.",
+  "key": {
+   "answer": false,
+   "explain": "Rounding early corrupts every later iterate. Keep at least 4 s.f. (or use the full-precision ANS key) and round only the final answer."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:tf:1582ee3b",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The same equation \\( \\text{f}(x) = 0 \\) can be rearranged into \\( x = \\text{g}(x) \\) in more than one way.",
+  "key": {
+   "answer": true,
+   "explain": "There are usually several rearrangements; some converge and some diverge, so the choice matters."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:tf:c447a8a9",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Every rearrangement \\( x = \\text{g}(x) \\) will converge to the root.",
+  "key": {
+   "answer": false,
+   "explain": "Some rearrangements diverge — the iterates run away from the root. Then you must pick a different rearrangement."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:tf:d5df965a",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A decimal search stepping in tenths can miss two roots that lie inside the same \\( 0.1 \\) interval.",
+  "key": {
+   "answer": true,
+   "explain": "If f has the same sign at both ends of that tenth, no sign change is seen even though two roots are inside."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:learn:d586b90c",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Why do we solve equations numerically?",
+  "reading": "<p>A <strong>root</strong> of \\( \\text{f}(x) = 0 \\) is an \\( x\\)-value where the graph of \\( y = \\text{f}(x) \\) crosses (or touches) the \\( x\\)-axis. Many equations cannot be solved by algebra:</p>\n            <ul>\n              <li>most <strong>cubics</strong> do not factorise (e.g. \\( x^3 - x - 7 = 0 \\));</li>\n              <li>equations that mix families — such as \\( 3^x - 4x^2 = 0 \\) (an exponential and a quadratic) — have no exact rearrangement for \\( x \\).</li>\n            </ul>\n            <p>For these we use a <strong>numerical method</strong>: we do not find the exact root, we <em>locate</em> it and then <em>close in</em> on it to the precision the question asks for. The three tools on this page are <strong>change of sign</strong> (locate), <strong>decimal search</strong> (close in) and <strong>simple iteration</strong> (close in fast). All rely on the function being <strong>continuous</strong> — no jumps or asymptotes in the interval you are searching.</p>",
+  "question": "What is a root of \\( \\text{f}(x) = 0 \\)?",
+  "options": [
+   "An \\( x\\)-value where the graph meets the \\( x\\)-axis",
+   "The \\( y\\)-intercept of the graph",
+   "The gradient of the curve",
+   "The largest value of \\( \\text{f}(x) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A root is a solution of \\( \\text{f}(x)=0 \\), i.e. a point where \\( y=\\text{f}(x) \\) crosses or touches the \\( x\\)-axis."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:learn:2f39cc61",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How does a change of sign locate a root?",
+  "reading": "<p>If \\( \\text{f} \\) is <strong>continuous</strong> and \\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have <strong>opposite signs</strong> (one positive, one negative), then the graph must cross the axis somewhere between \\( a \\) and \\( b \\) — so a <strong>root lies in the interval \\( [a,\\ b] \\)</strong>.</p>\n            <p><strong>You must WRITE the conclusion.</strong> Two numbers on their own are not enough: the examiner needs the sentence \"there is a change of sign, so a root lies between \\( a \\) and \\( b \\)\".</p>\n            <p><strong>Worked example — show \\( x^3 + 4x - 3 = 0 \\) has a root in \\( [0,\\ 1] \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Let \\( \\text{f}(x) = x^3 + 4x - 3 \\).</td></tr>\n              <tr><td>2. \\( \\text{f}(0) = 0 + 0 - 3 = -3 \\) (negative).</td></tr>\n              <tr><td>3. \\( \\text{f}(1) = 1 + 4 - 3 = 2 \\) (positive).</td></tr>\n              <tr><td>4. <strong>There is a change of sign and f is continuous, so a root lies between \\( 0 \\) and \\( 1 \\).</strong></td></tr>\n            </table>",
+  "question": "\\( \\text{f}(2) = -5 \\) and \\( \\text{f}(3) = 4 \\) for a continuous f. What can you conclude?",
+  "options": [
+   "A root lies between 2 and 3",
+   "There is no root between 2 and 3",
+   "The root is exactly 2.5",
+   "\\( x = -5 \\) is a root"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Opposite signs across a continuous function mean the graph crosses the axis, so a root lies in \\( [2,3] \\). You cannot say where in the interval."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:learn:633daff8",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How does a decimal search find a root to 1 dp?",
+  "reading": "<p>Once a root is trapped in an interval, <strong>step through in tenths</strong> and watch for the sign change to narrow it. The step that costs marks: once the root sits between two consecutive tenths, you must <strong>test the midpoint</strong> to decide which way to round.</p>\n            <p><strong>Worked example — find the root of \\( x^3 + 2x - 5 = 0 \\) in \\( [1,\\ 2] \\) to 1 dp:</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( \\text{f}(1.3) = 2.197 + 2.6 - 5 = -0.203 \\) (negative).</td></tr>\n              <tr><td>2. \\( \\text{f}(1.4) = 2.744 + 2.8 - 5 = 0.544 \\) (positive).</td></tr>\n              <tr><td>3. Sign change, so the root lies in \\( [1.3,\\ 1.4] \\).</td></tr>\n              <tr><td>4. <strong>Test the midpoint:</strong> \\( \\text{f}(1.35) = 2.460 + 2.7 - 5 = 0.160 \\) (positive).</td></tr>\n              <tr><td>5. The sign changes between \\( 1.3 \\) and \\( 1.35 \\), so the root is in \\( [1.3,\\ 1.35] \\).</td></tr>\n              <tr><td>6. Every value in \\( [1.3,\\ 1.35] \\) rounds to \\( 1.3 \\), so the root is \\( 1.3 \\) to 1 dp.</td></tr>\n            </table>\n            <p>Without step 4 you could not tell whether the answer was \\( 1.3 \\) or \\( 1.4 \\) — a 2023 examiner report awarded <strong>0</strong> for the final mark to candidates who claimed \\( 0.8 \\) without testing the midpoint.</p>",
+  "question": "A root is trapped in \\( [2.4,\\ 2.5] \\). You find \\( \\text{f}(2.45) < 0 \\) and \\( \\text{f}(2.4) > 0 \\). To 1 dp the root is:",
+  "options": [
+   "2.4",
+   "2.5",
+   "2.45",
+   "Cannot decide"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The sign changes between 2.4 and 2.45, so the root is in \\( [2.4,\\ 2.45] \\); everything there rounds to 2.4."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:learn:533e8ab8",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How does simple iteration work with the ANS key?",
+  "reading": "<p><strong>Simple iteration</strong> uses a term-to-term rule \\( x_{n+1} = \\text{g}(x_n) \\): you put a value in, get an answer out, then <strong>feed that answer back in</strong> as the next input. On the calculator, type the starting value, press \\( = \\), then use the <strong>ANS</strong> key inside \\( \\text{g} \\) and keep pressing \\( = \\).</p>\n            <ul>\n              <li><strong>Quote each iterate to at least 4 significant figures</strong> — rounding early corrupts every later step.</li>\n              <li>Stop when the digits you need have <strong>settled</strong> (two iterates agree to the required precision), then round to the demanded accuracy.</li>\n            </ul>\n            <p><strong>Worked example — \\( x_{n+1} = \\sqrt{x_n + 6} \\) with \\( x_0 = 3 \\), to 3 s.f.:</strong></p>\n            <table class=\"worked\">\n              <tr><td>\\( x_1 = \\sqrt{3 + 6} = \\sqrt{9} = 3.000 \\)</td></tr>\n              <tr><td>\\( x_2 = \\sqrt{3.000 + 6} = 3.000 \\)</td></tr>\n              <tr><td>The iterates have settled, so the root is \\( 3.00 \\) (3 s.f.).</td></tr>\n            </table>\n            <p>(Here \\( x = \\sqrt{x+6} \\) rearranges \\( x^2 - x - 6 = 0 \\), i.e. \\( (x-3)(x+2)=0 \\); the iteration finds the root \\( x = 3 \\).)</p>",
+  "question": "In \\( x_{n+1} = \\text{g}(x_n) \\), what does the ANS key do each press?",
+  "options": [
+   "Feeds the previous output back in as the next input",
+   "Rounds the answer to 1 dp",
+   "Resets the sequence to \\( x_0 \\)",
+   "Differentiates \\( \\text{g} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "ANS holds the last result, so pressing \\( = \\) again computes \\( \\text{g} \\) of the previous iterate — exactly \\( x_{n+1} = \\text{g}(x_n) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:learn:28eefbe6",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you turn f(x)=0 into an iterative formula?",
+  "reading": "<p>To build \\( x_{n+1} = \\text{g}(x_n) \\) you <strong>rearrange \\( \\text{f}(x) = 0 \\) to make \\( x \\) the subject</strong>. There is usually more than one way; a \"show that\" part gives you the formula and asks you to justify it (this is answer-given, so show every algebraic step).</p>\n            <p><strong>Worked example — verify \\( x_{r+1} = \\sqrt[3]{x_r + 7} \\) for \\( x^3 - x - 7 = 0 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Start from \\( x^3 - x - 7 = 0 \\).</td></tr>\n              <tr><td>2. Add \\( x + 7 \\) to both sides: \\( x^3 = x + 7 \\).</td></tr>\n              <tr><td>3. Cube-root both sides: \\( x = \\sqrt[3]{x + 7} \\).</td></tr>\n              <tr><td>4. Written as a term-to-term rule: \\( x_{r+1} = \\sqrt[3]{x_r + 7} \\). ✓</td></tr>\n            </table>\n            <p>This uses the same <strong>recurrence notation</strong> as lesson 2.4: the subscript labels the position, so \\( x_{r+1} \\) is the term straight after \\( x_r \\), and you need a starting value \\( x_0 \\).</p>",
+  "question": "Which is a correct rearrangement of \\( x^2 - x - 5 = 0 \\) into iterative form?",
+  "options": [
+   "\\( x_{n+1} = \\sqrt{x_n + 5} \\)",
+   "\\( x_{n+1} = x_n^2 - 5 \\) only",
+   "\\( x_{n+1} = \\sqrt{x_n} + 5 \\)",
+   "\\( x_{n+1} = \\frac{5}{x_n} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x^2 = x + 5 \\Rightarrow x = \\sqrt{x + 5} \\), so \\( x_{n+1} = \\sqrt{x_n + 5} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:learn:5245699c",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "When do numerical methods fail?",
+  "reading": "<p>Numerical methods are powerful but can <strong>let you down</strong> (spec statement NM3). Recognising this is examinable.</p>\n            <ul>\n              <li><strong>Iteration diverges.</strong> The same equation can be rearranged into \\( x = \\text{g}(x) \\) in several ways, and not all work. If the iterates <em>run away</em> instead of settling (this happens when \\( \\text{g} \\) is too steep near the root), the rearrangement is unsuitable — choose a different one.</li>\n              <li><strong>Two roots close together.</strong> A decimal search stepping in tenths can <em>jump over</em> two roots that sit inside the same \\( 0.1 \\) interval: \\( \\text{f} \\) has the same sign at both ends, so <strong>no sign change is seen</strong> even though roots exist.</li>\n              <li><strong>A repeated (double) root.</strong> Where the curve just <em>touches</em> the axis, \\( \\text{f} \\) does not change sign, so the change-of-sign test misses the root entirely.</li>\n            </ul>\n            <p>So \"no sign change on \\( [a,b] \\)\" does <strong>not</strong> prove \"no root on \\( [a,b] \\)\". A sketch, or a finer step, guards against these traps.</p>",
+  "question": "A decimal search over \\( [1,2] \\) in tenths finds no sign change. Which statement is safe?",
+  "options": [
+   "There may still be two roots (or a repeated root) it stepped over",
+   "There is definitely no root in \\( [1,2] \\)",
+   "The function must be discontinuous",
+   "The root must be exactly 1.5"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "No sign change does not prove no root: two roots in one tenth, or a repeated root that touches the axis, both give no sign change."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:misc:870717f0",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For 'show that a root lies in \\( [2,3] \\)', writing \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 17 \\) and stopping.</p><p><strong>✅ The correct idea:</strong> A weak answer leaves the two numbers unexplained; a strong answer adds the conclusion: 'there is a change of sign, so a root lies between 2 and 3'. Without that sentence the second mark is lost.</p>",
+  "question": "After finding \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 17 \\), what must you write?",
+  "options": [
+   "The change-of-sign conclusion sentence",
+   "The exact root",
+   "The derivative \\( \\text{f}'(x) \\)",
+   "The \\( y\\)-intercept"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The conclusion sentence is its own mark on a 'show that a root lies between' question."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:misc:91a5c5e7",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Finding a sign change in \\( [0.7,\\ 0.8] \\) and immediately claiming the root is \\( 0.8 \\) to 1 dp.</p><p><strong>✅ The correct idea:</strong> A weak answer rounds without evidence; a strong answer tests the midpoint \\( x = 0.75 \\). Here \\( \\text{f}(0.75) > 0 \\) and \\( \\text{f}(0.8) < 0 \\), so the root is in \\( [0.75,\\ 0.8] \\) — confirming \\( 0.8 \\). A 2023 examiner report gave 0 for the final mark to anyone who skipped this test.</p>",
+  "question": "A root is in \\( [0.7,\\ 0.8] \\). What must you do before claiming 1 dp?",
+  "options": [
+   "Test the midpoint \\( x = 0.75 \\)",
+   "State the root is 0.75",
+   "Take the average 0.75 as the answer",
+   "Round 0.8 down to 0.7"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Testing 0.75 shows which half of the interval contains the root, deciding whether it rounds to 0.7 or 0.8."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:misc:d64bebac",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Rounding each iterate to 2 dp before feeding it back into \\( x_{n+1} = \\text{g}(x_n) \\).</p><p><strong>✅ The correct idea:</strong> A weak answer rounds early and drifts off the true value; a strong answer keeps at least 4 s.f. (or uses the ANS key at full precision) and rounds only the final answer to the requested accuracy.</p>",
+  "question": "How should intermediate iterates be recorded?",
+  "options": [
+   "To at least 4 s.f. (or full precision via ANS)",
+   "To 1 dp each",
+   "As whole numbers",
+   "Only the final one matters, so guess the rest"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Carrying at least 4 s.f. keeps the sequence accurate; rounding early corrupts later steps."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:misc:c8bf827a",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Assuming any rearrangement \\( x = \\text{g}(x) \\) will converge to the root.</p><p><strong>✅ The correct idea:</strong> A weak answer keeps iterating a divergent formula; a strong answer notices the iterates running away and rearranges \\( \\text{f}(x) = 0 \\) a different way. Convergence is not guaranteed.</p>",
+  "question": "The iterates run away from the root. What has gone wrong?",
+  "options": [
+   "The rearrangement is unsuitable (it diverges)",
+   "The equation has no root",
+   "The calculator is broken",
+   "You used too many significant figures"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Divergence signals an unsuitable rearrangement; a different \\( \\text{g} \\) for the same equation may converge."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:misc:0c27267d",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Concluding 'no sign change on \\( [1,2] \\), so there is no root there'.</p><p><strong>✅ The correct idea:</strong> A weak answer treats no sign change as proof of no root; a strong answer knows two roots (or a repeated root touching the axis) can hide inside an interval with no sign change. A sketch or finer step is needed to be sure.</p>",
+  "question": "No sign change is found on \\( [1,2] \\). This proves:",
+  "options": [
+   "Nothing certain — roots could have been stepped over",
+   "There is definitely no root",
+   "There are exactly two roots",
+   "The function is discontinuous"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "No sign change does not prove no root; even-numbered or repeated roots leave the sign unchanged."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:tips:ab64d808",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — 'Show that a root lies between…' — write the conclusion",
+  "reading": "<p><strong>1 mark:</strong> \\( \\text{f}(2) = -1,\\ \\text{f}(3) = 17 \\) and nothing else.</p><p><strong>Full marks:</strong> the same values <em>plus</em> \"there is a change of sign, so a root lies between \\( 2 \\) and \\( 3 \\)\". The conclusion sentence is its own tick point — never leave it out.</p>",
+  "question": "On a 'show that a root lies between' question, the second mark is for:",
+  "options": [
+   "Stating the change-of-sign conclusion",
+   "Using more decimal places",
+   "Drawing the graph",
+   "Finding \\( \\text{f}'(x) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The concluding sentence is a compulsory, separately-credited step."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:tips:c07ec0dd",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Iterate to 4 s.f., then round",
+  "reading": "<p><strong>Weak:</strong> one iteration, or every iterate rounded to 1–2 dp, then a stated answer.</p><p><strong>Full marks:</strong> quote each iterate to at least 4 s.f. (\\( x_1 = 2.080,\\ x_2 = 2.086,\\ x_3 = 2.087 \\)), show they have settled, then round to the requested precision (e.g. \\( 2.09 \\) to 3 s.f.). Use the ANS key so no accuracy is lost.</p>",
+  "question": "Before rounding an iteration answer to 3 s.f. you should:",
+  "options": [
+   "Show the iterates settle, each to at least 4 s.f.",
+   "Do exactly one iteration",
+   "Round every iterate to 1 dp first",
+   "Use the change-of-sign method instead"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Carry at least 4 s.f. and demonstrate convergence, then round the final answer."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:tips:6086f949",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Decimal search — always test the midpoint",
+  "reading": "<p><strong>0 marks for the final mark:</strong> a sign change in \\( [0.7,\\ 0.8] \\), then \"so the root is \\( 0.8 \\)\" with no further test.</p><p><strong>Full marks:</strong> test \\( x = 0.75 \\); \\( \\text{f}(0.75) > 0 \\) and \\( \\text{f}(0.8) < 0 \\) place the root in \\( [0.75,\\ 0.8] \\), so it is \\( 0.8 \\) to 1 dp. Testing the midpoint is the step that earns the last mark.</p>",
+  "question": "Which secures the final mark in a 1 dp decimal search?",
+  "options": [
+   "Testing the midpoint of the trapped interval",
+   "Quoting more tenths",
+   "Averaging the two endpoints",
+   "Stating the root is halfway"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The midpoint test shows which half of the interval holds the root, deciding the rounding."
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:fib:e38812fb",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "If \\( \\text{f}(a) \\) and \\( \\text{f}(b) \\) have ___B1___ signs and f is continuous, a root lies between \\( a \\) and \\( b \\).",
+  "blankOptions": {
+   "B1": [
+    "opposite",
+    "converges",
+    "diverges",
+    "midpoint"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "opposite"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:fib:544c63f6",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "After showing a change of sign you must write a ___B1___ sentence to earn the second mark.",
+  "blankOptions": {
+   "B1": [
+    "endpoint",
+    "3",
+    "conclusion",
+    "opposite"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "conclusion"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:fib:5cf717cf",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "In a decimal search to 1 dp, once the root is trapped between two tenths you test the ___B1___ to decide which way to round.",
+  "blankOptions": {
+   "B1": [
+    "4",
+    "diverges",
+    "opposite",
+    "midpoint"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "midpoint"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:fib:635f7865",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A simple iteration uses the rule \\( x_{n+1} = \\text{g}(x_n) \\); on the calculator the ___B1___ key feeds each answer back in.",
+  "blankOptions": {
+   "B1": [
+    "root",
+    "gradient",
+    "midpoint",
+    "ANS"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "ANS"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:fib:3c51c4aa",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Each iterate should be written to at least ___B1___ significant figures before you round the final answer.",
+  "blankOptions": {
+   "B1": [
+    "4",
+    "midpoint",
+    "gradient",
+    "opposite"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "4"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:fib:43e62458",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Rearranging \\( x^3 = x + 7 \\) for iteration gives x equal to the cube ___B1___ of \\( x + 7 \\).",
+  "blankOptions": {
+   "B1": [
+    "root",
+    "sign",
+    "4",
+    "endpoint"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "root"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:fib:3020f573",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "If an iteration ___B1___ instead of settling, the rearrangement is unsuitable and you should try another.",
+  "blankOptions": {
+   "B1": [
+    "4",
+    "sign",
+    "conclusion",
+    "diverges"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "diverges"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:fib:6381bbe4",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "No ___B1___ change on an interval does not prove there is no root there — two roots may have been stepped over.",
+  "blankOptions": {
+   "B1": [
+    "ANS",
+    "sign",
+    "same",
+    "4"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "sign"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:match:db98c77a",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\text{f}(a),\\ \\text{f}(b) \\) have opposite signs (f continuous)”?",
+  "options": [
+   "Feeds the previous output back in as the next input",
+   "A root lies between \\( a \\) and \\( b \\)",
+   "Change of sign, so a root lies in \\( [2,\\ 3] \\)",
+   "\\( x = \\sqrt[3]{x + 7} \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( \\text{f}(a),\\ \\text{f}(b) \\) have opposite signs (f continuous)” means: A root lies between \\( a \\) and \\( b \\)"
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:match:173802e0",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\text{f}(2) = -1,\\ \\text{f}(3) = 17 \\)”?",
+  "options": [
+   "Root lies in \\( [0.75,\\ 0.8] \\), so \\( 0.8 \\) to 1 dp",
+   "Test the midpoint of the final interval to decide the rounding",
+   "\\( x = \\sqrt[3]{x + 7} \\)",
+   "Change of sign, so a root lies in \\( [2,\\ 3] \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\text{f}(2) = -1,\\ \\text{f}(3) = 17 \\)” means: Change of sign, so a root lies in \\( [2,\\ 3] \\)"
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:match:46aac058",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Decimal search to 1 dp”?",
+  "options": [
+   "Test the midpoint of the final interval to decide the rounding",
+   "A root lies between \\( a \\) and \\( b \\)",
+   "At least 4 significant figures",
+   "\\( x_{n+1} = \\text{g}(x_n) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Decimal search to 1 dp” means: Test the midpoint of the final interval to decide the rounding"
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:match:5d6fd727",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Simple iteration”?",
+  "options": [
+   "Feeds the previous output back in as the next input",
+   "You must write the conclusion sentence",
+   "The rearrangement is unsuitable — the values run away",
+   "\\( x_{n+1} = \\text{g}(x_n) \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Simple iteration” means: \\( x_{n+1} = \\text{g}(x_n) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:match:f52eedc3",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( x^3 = x + 7 \\)”?",
+  "options": [
+   "Root lies in \\( [0.75,\\ 0.8] \\), so \\( 0.8 \\) to 1 dp",
+   "The rearrangement is unsuitable — the values run away",
+   "A root lies between \\( a \\) and \\( b \\)",
+   "\\( x = \\sqrt[3]{x + 7} \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( x^3 = x + 7 \\)” means: \\( x = \\sqrt[3]{x + 7} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:match:86be7c50",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Calculator ANS key”?",
+  "options": [
+   "You must write the conclusion sentence",
+   "Feeds the previous output back in as the next input",
+   "A root lies between \\( a \\) and \\( b \\)",
+   "\\( x = \\sqrt[3]{x + 7} \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Calculator ANS key” means: Feeds the previous output back in as the next input"
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:match:74de9b93",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Each iterate quoted to”?",
+  "options": [
+   "\\( x = \\sqrt[3]{x + 7} \\)",
+   "You must write the conclusion sentence",
+   "At least 4 significant figures",
+   "A root lies between \\( a \\) and \\( b \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Each iterate quoted to” means: At least 4 significant figures"
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:match:cd02f0b1",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Iteration diverges”?",
+  "options": [
+   "Change of sign, so a root lies in \\( [2,\\ 3] \\)",
+   "A root lies between \\( a \\) and \\( b \\)",
+   "At least 4 significant figures",
+   "The rearrangement is unsuitable — the values run away"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Iteration diverges” means: The rearrangement is unsuitable — the values run away"
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:match:5e0c60dc",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Two roots inside one search step”?",
+  "options": [
+   "The rearrangement is unsuitable — the values run away",
+   "No sign change is seen, so the search misses them",
+   "You must write the conclusion sentence",
+   "A root lies between \\( a \\) and \\( b \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Two roots inside one search step” means: No sign change is seen, so the search misses them"
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:match:559915d8",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Repeated (double) root”?",
+  "options": [
+   "The curve touches the axis: no sign change",
+   "No sign change is seen, so the search misses them",
+   "A root lies between \\( a \\) and \\( b \\)",
+   "Feeds the previous output back in as the next input"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Repeated (double) root” means: The curve touches the axis: no sign change"
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:match:c4e749aa",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\text{f}(0.75) > 0,\\ \\text{f}(0.8) < 0 \\)”?",
+  "options": [
+   "Feeds the previous output back in as the next input",
+   "The curve touches the axis: no sign change",
+   "Root lies in \\( [0.75,\\ 0.8] \\), so \\( 0.8 \\) to 1 dp",
+   "No sign change is seen, so the search misses them"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\text{f}(0.75) > 0,\\ \\text{f}(0.8) < 0 \\)” means: Root lies in \\( [0.75,\\ 0.8] \\), so \\( 0.8 \\) to 1 dp"
+  }
+ },
+ {
+  "id": "additional-maths:10-2-solving-equations-numerically:match:d7db0a1f",
+  "pageId": "additional-maths:10-2-solving-equations-numerically",
+  "pageName": "10.2 Solving Equations Numerically",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'Show that a root lies between…'”?",
+  "options": [
+   "The rearrangement is unsuitable — the values run away",
+   "Root lies in \\( [0.75,\\ 0.8] \\), so \\( 0.8 \\) to 1 dp",
+   "No sign change is seen, so the search misses them",
+   "You must write the conclusion sentence"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“'Show that a root lies between…'” means: You must write the conclusion sentence"
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:mcq:0fb73b51",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A question asks for the 'exact' solution of an equation. Which answer can score full marks?",
+  "options": [
+   "\\( -1 + \\sqrt{7} \\)",
+   "\\( 1.646 \\)",
+   "\\( 1.65 \\)",
+   "about \\( 1.6 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Exact' requires surd/fraction/π form; only the surd \\( -1 + \\sqrt{7} \\) qualifies. A decimal alone scores 0."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:mcq:e74c65ae",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A 'show that' question prints the result to reach. How do you secure all the marks?",
+  "options": [
+   "Show every step and add a concluding statement",
+   "Write the given answer in a box",
+   "Give a decimal to 3 s.f.",
+   "State the answer with no working"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The result is given (AG), so marks are for full valid working plus the concluding sentence."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:mcq:6fb383ad",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "On a question worth 2 marks for the 'exact' roots, a student writes only \\( x = 1.24 \\) and \\( x = -3.24 \\). The mark is:",
+  "options": [
+   "0 — decimals are not exact",
+   "2 — the values are right",
+   "1 — half credit",
+   "1 — for one root"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Decimal-only answers to an exact question receive no marks (2024 examiner report, Q3(b))."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:mcq:350a35ad",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "'In this question you must show detailed reasoning.' A correct factorisation is written with no method. The mark is:",
+  "options": [
+   "0 — the reasoning must be shown",
+   "Full — the factors are correct",
+   "Half marks",
+   "1 mark"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "DR requires the full analytical method; an answer-only solution scores 0 even when correct (2024 Q8(a))."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:mcq:dfca5a7a",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Part (b) begins 'Hence solve...'. This instructs you to:",
+  "options": [
+   "Use the result from the previous part",
+   "Start a completely new method",
+   "Give the answer as a decimal",
+   "Use the calculator's equation solver"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Hence' means build on the previous result; a fresh method risks losing marks and time."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:mcq:e5d7a5cb",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "'Write down the coordinates of the y-intercept.' What is expected?",
+  "options": [
+   "Just the coordinate pair, with no working",
+   "A full algebraic method",
+   "An exact surd",
+   "A sketch of the curve"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Write down' asks only for the result; no method is required."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:mcq:53f12189",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which pair of command words differ mainly in whether justification must be shown?",
+  "options": [
+   "'State' (answer only) vs 'Determine' (answer with justification)",
+   "'Plot' vs 'Sketch'",
+   "'Exact' vs 'Give'",
+   "'Hence' vs 'Show that'"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'State/write down' want only the result; 'determine/find' want the result supported by visible reasoning."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:mcq:2efd2e91",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A question says 'Sketch the graph of \\( y = 2^x \\)'. You should:",
+  "options": [
+   "Show shape, the y-intercept and the asymptote — not to scale",
+   "Plot exact points on a grid",
+   "Give a table of 10 values",
+   "Solve \\( 2^x = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Sketch' means main features only; 'plot' would require accurate points on a grid."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:mcq:8a959b27",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A stationary point is found at \\( x = 3 \\). What is the fully-credited answer?",
+  "options": [
+   "The pair \\( (3,\\ y) \\) with the \\( y \\)-value worked out",
+   "\\( x = 3 \\) only",
+   "\\( y = 3 \\)",
+   "\\( 3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Coordinates must be given as pairs; an x-value alone loses the mark (2024 Q10)."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:mcq:b90a6bc7",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student earns no method mark but writes the correct final value. Under OCR rules:",
+  "options": [
+   "No accuracy mark is possible — 'M0 A1 cannot be awarded'",
+   "The accuracy mark is still given",
+   "Both marks are awarded",
+   "A bonus mark applies"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Accuracy marks depend on the method mark, so M0 A1 can never be awarded — unless the scheme states 'answer only scores full'."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:mcq:1712be2f",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The scheme writes 'cao' next to an answer. This means:",
+  "options": [
+   "Correct answer only — no follow-through or alternatives",
+   "Calculator answer okay",
+   "Correct, and other forms accepted",
+   "Complete all options"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'cao' = correct answer only; equivalent or follow-through forms are not credited there."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:mcq:c6ec5547",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The scheme writes 'oe' after an equation such as \\( 3y = 2x + 12 \\). This means:",
+  "options": [
+   "Any algebraically equivalent form is accepted",
+   "Only that exact form is accepted",
+   "Decimal answers only",
+   "Omit the equals sign"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'oe' = or equivalent, so \\( y = \\tfrac{2}{3}x + 4 \\) would also score."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:tf:c836c5c1",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "On a question that asks for the 'exact' value, giving only a decimal such as 1.41 scores full marks.",
+  "key": {
+   "answer": false,
+   "explain": "'Exact' requires surd/fraction/π form; a decimal alone scores 0. Give the exact form (optionally with the decimal)."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:tf:660cefeb",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For a 'show that' question the result is already printed, so all the marks are for showing valid working and a concluding statement.",
+  "key": {
+   "answer": true,
+   "explain": "The answer is given (AG); the credit is entirely for the journey and the concluding sentence."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:tf:c3fcf1dc",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "'Write down' questions expect you to show your full method.",
+  "key": {
+   "answer": false,
+   "explain": "'Write down' / 'state' / 'give' want only the result; no working is required."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:tf:202f6847",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If a question says 'In this question you must show detailed reasoning', solving it on a calculator scores 0 even if the answer is correct.",
+  "key": {
+   "answer": true,
+   "explain": "DR requires the full analytical method; a calculator-only answer scores nothing."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:tf:70839c92",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The command word 'Hence' means you may ignore the previous part and start again.",
+  "key": {
+   "answer": false,
+   "explain": "'Hence' means you must use the previous result; starting a new method risks losing marks."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:tf:29513735",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "'M0 A1' can never be awarded, because an accuracy mark needs its method mark.",
+  "key": {
+   "answer": true,
+   "explain": "A marks are conditional on the associated M mark being earned."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:tf:510dbd4a",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "'Sketch' means you must plot points accurately on a grid.",
+  "key": {
+   "answer": false,
+   "explain": "'Sketch' shows main features only; it is 'plot' that requires accurate points on a grid."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:tf:977c2815",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "'ft' (follow-through) lets you earn later marks after an earlier mistake, provided there is no further error.",
+  "key": {
+   "answer": true,
+   "explain": "Follow-through credits correct subsequent work built on an earlier wrong value, if no new error is made."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:learn:cfcfa55e",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Why does the command word decide your marks?",
+  "reading": "<p>Every 6993 question begins with an <strong>instruction verb</strong> — the <strong>command word</strong>. It is a <em>contract</em>: it tells you exactly what the examiner will reward and, just as importantly, what will score <strong>nothing</strong> however good your maths is.</p>\n            <ul>\n              <li>The command word decides <strong>how much you must write</strong>: \"write down\" wants only the answer, while \"show that\" and \"detailed reasoning\" want every step.</li>\n              <li>It decides the <strong>form of the answer</strong>: \"exact\" forbids a decimal, and a coordinate answer must be a <strong>pair</strong>.</li>\n              <li>Getting the right number is not enough — a correct answer in the wrong form, or with no working where working is demanded, is a common way even this top set still loses marks.</li>\n              <li>Examiners report the same command-word slips every year. Reading the verb first, and answering it literally, is one of the cheapest ways to raise your grade.</li>\n            </ul>\n            <p>This page is a checklist for the whole paper: learn the contract once and it pays off on every question.</p>",
+  "question": "What is a 'command word'?",
+  "options": [
+   "The instruction verb that says what the answer must contain",
+   "The hardest word in the question",
+   "The topic of the question",
+   "The number of marks"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The command word (exact, show that, determine, hence…) is a contract for what will and will not be rewarded."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:learn:968427d8",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What does each OCR command word demand?",
+  "reading": "<p>OCR uses a fixed set of command words. Learn what each one <em>requires</em>:</p>\n            <table class=\"worked\">\n              <tr><td><strong>Exact</strong></td><td>Leave the answer in surd, fraction or π form. A decimal alone scores 0.</td></tr>\n              <tr><td><strong>Show that</strong></td><td>The result is printed for you. Show every step <em>and</em> write a concluding statement.</td></tr>\n              <tr><td><strong>Determine</strong> / <strong>Find</strong></td><td>Reach the result with <em>visible justification</em>, not just a bare value.</td></tr>\n              <tr><td><strong>Give</strong> / <strong>State</strong> / <strong>Write down</strong></td><td>Quote the result; no working or method is expected.</td></tr>\n              <tr><td><strong>Hence</strong></td><td>Use the result you have just found; do not start a new method.</td></tr>\n            </table>\n            <p>So \"<strong>state</strong> the gradient\" and \"<strong>determine</strong> the gradient\" are different tasks: the first wants a number, the second wants the number <em>with</em> the reasoning that produced it.</p>\n            <p>For an \"exact\" answer, write, e.g., \\( x = -3 + 2\\sqrt{5} \\) rather than \\( 1.47 \\). If you like, give <em>both</em> — the exact form earns the marks and the decimal cannot lose them.</p>",
+  "question": "A question says 'Write down the value of f(0)'. What is expected?",
+  "options": [
+   "Just the answer, with no working",
+   "A full method with every step",
+   "An exact surd",
+   "A graph"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Write down' / 'state' / 'give' ask only for the result; no method is required."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:learn:c5e5092f",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What does 'show that' require that an ordinary solve does not?",
+  "reading": "<p>In a <strong>show that</strong> question the answer is <em>given</em> to you (the mark scheme labels it <strong>AG</strong> — \"answer given\"). Every mark is therefore for the <strong>journey</strong>, not the destination.</p>\n            <ul>\n              <li>Write a <strong>full chain of working</strong> that clearly reaches the printed result — you cannot \"accidentally\" earn marks by quoting the answer.</li>\n              <li>Finish with an explicit <strong>concluding statement</strong>. This is the mark most often lost.</li>\n              <li>Change-of-sign example: after computing \\( \\text{f}(2) \\) and \\( \\text{f}(3) \\), add the sentence \"there is a change of sign, so there is a root between \\( x = 2 \\) and \\( x = 3 \\)\".</li>\n              <li>For \"show these lines are perpendicular\", state both gradients, show their product is \\( -1 \\), and write the word <strong>perpendicular</strong>.</li>\n            </ul>\n            <p>A calculation that stops at the numbers, with no concluding sentence, typically earns the method mark but loses the final accuracy mark.</p>",
+  "question": "In a 'show that' change-of-sign question, what is most often missing?",
+  "options": [
+   "The concluding sentence stating a root lies in the interval",
+   "The value of f at each end",
+   "A calculator",
+   "The graph"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Candidates compute f at each end but omit the 'change of sign ⇒ root in interval' statement, losing the final mark."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:learn:36425c75",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is a 'detailed reasoning' question — and why can a right answer score 0?",
+  "reading": "<p>When a question prints \"<strong>In this question you must show detailed reasoning</strong>\" (DR), you must present the <strong>full analytical method</strong>. Solving it on the calculator and writing only the answer scores <strong>0</strong> — even when the answer is correct.</p>\n            <ul>\n              <li>Example: a DR factor-theorem question needs you to show \\( \\text{f}(a) = 0 \\) for a trial value, obtain the quadratic factor, then state all three factors. An answer-only factorisation scored nothing in the 2024 report.</li>\n              <li>For an iteration, every iterate must be written to at least <strong>4 significant figures</strong> before you give the 3 s.f. conclusion.</li>\n              <li>The mark scheme spells out which lines \"must be seen\" — treat DR like show that with no shortcuts.</li>\n            </ul>\n            <p><strong>\"Hence\"</strong> is a related instruction: it tells you to <em>use the previous result</em>. If part (b) says \"hence solve\", start from what part (a) gave you — do not reach for a fresh method. Ignoring \"hence\" (e.g. calculator-solving instead of reading a graph you were told to use) loses marks and wastes time.</p>",
+  "question": "A DR question is solved correctly on a calculator with no method shown. The mark is:",
+  "options": [
+   "0 — the method must be shown",
+   "Full marks — the answer is right",
+   "Half marks",
+   "1 mark for the answer"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Detailed reasoning' requires the full analytical method; a calculator-only solution scores 0 even if correct."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:learn:68bda6a1",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Plot, sketch or draw — and how should you use the calculator?",
+  "reading": "<p>The three graph verbs are <em>not</em> interchangeable:</p>\n            <ul>\n              <li><strong>Plot</strong> — mark calculated points <em>accurately</em> on the printed grid and join them (a smooth curve or ruled line within half a square).</li>\n              <li><strong>Sketch</strong> — show the <strong>main features</strong> only (shape, intercepts, asymptotes, turning points); it need not be to scale.</li>\n              <li><strong>Draw</strong> — produce the graph or diagram to <strong>reasonable accuracy</strong>.</li>\n            </ul>\n            <p><strong>Calculator conduct</strong> (printed in the spec — a calculator is allowed throughout):</p>\n            <ul>\n              <li><strong>Write down any expression you evaluate</strong> on the calculator, e.g. show \\( \\sqrt{3^2 + 4^2} \\) before writing \\( 5 \\). If only the answer appears on a \"must show working\" question, the method marks are gone.</li>\n              <li>Use <strong>correct mathematical notation</strong>, not calculator notation — write \\( x^2 \\) and \\( \\frac{3}{4} \\), not the ambiguous strings a calculator screen shows.</li>\n              <li>A calculator answer never replaces the reasoning on a show-that or DR question.</li>\n            </ul>",
+  "question": "Which command word requires accurate points on the printed grid?",
+  "options": [
+   "Plot",
+   "Sketch",
+   "Determine",
+   "State"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Plot' means accurate points on the grid; 'sketch' shows main features only."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:learn:852a706e",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How should you set out working and answers?",
+  "reading": "<p>Marks are earned line by line, so <strong>how</strong> you write matters as much as <em>what</em> you write.</p>\n            <ul>\n              <li><strong>One step per line.</strong> If each step is separate, a slip costs one mark, not all of them.</li>\n              <li><strong>Do not round until the end.</strong> Work to at least <strong>4 significant figures</strong> in the middle, then round the final answer to the demanded precision.</li>\n              <li><strong>Answer to the precision demanded.</strong> \"Give your answer to 1 decimal place\" is enforced by the final mark — too many or too few figures can cost it.</li>\n              <li><strong>Give units</strong> where the quantity has them, and label what the number <em>is</em> (\"speed = 1 km/h\", not just \"1\").</li>\n              <li><strong>Coordinates are pairs.</strong> Write \\( (4,\\ 0) \\), never just \\( x = 4 \\); a stationary point needs both its \\( x \\)- and \\( y \\)-values.</li>\n              <li><strong>An equation answer must be an equation.</strong> Finish \"\\( y = \\tfrac{2}{3}x + 2 \\)\", not just the gradient.</li>\n            </ul>\n            <p>These are the \"cheap marks\" the examiners report being lost every year — none of them require extra maths, only discipline.</p>",
+  "question": "A stationary-point answer gives only the x-value. What happens?",
+  "options": [
+   "It loses the mark — a coordinate must be a pair (x, y)",
+   "Full marks",
+   "It gains a bonus",
+   "It counts as a 'show that'"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Coordinates must be given as pairs; an x-value with no y-value loses the accuracy mark."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:learn:c06d5f4a",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How are marks actually awarded (M, A, B, ft, cao, oe, isw)?",
+  "reading": "<p>OCR schemes award three kinds of mark:</p>\n            <ul>\n              <li><strong>M (method)</strong> — for a correct method <em>applied to the problem</em>. It is not lost for a small numerical slip, but quoting a formula without using it earns nothing.</li>\n              <li><strong>A (accuracy)</strong> — for a correct answer or step, but <strong>only if its method mark is earned</strong>: \"<strong>M0 A1 can never be awarded</strong>\".</li>\n              <li><strong>B</strong> — an <strong>independent</strong> mark for a correct result, regardless of method.</li>\n            </ul>\n            <p>Common abbreviations:</p>\n            <ul>\n              <li><strong>ft</strong> (follow-through) — later marks can still be earned after an earlier error, provided there is no <em>further</em> mistake.</li>\n              <li><strong>cao</strong> — \"correct answer only\": no follow-through or alternatives.</li>\n              <li><strong>oe</strong> — \"or equivalent\": any algebraically equivalent form is accepted.</li>\n              <li><strong>isw</strong> — \"ignore subsequent working\": a correct answer is not spoiled by later fiddling.</li>\n            </ul>\n            <p>Because A marks depend on M marks, <strong>showing your method protects your accuracy marks</strong> — the single most valuable habit on the paper.</p>",
+  "question": "Why can 'M0 A1' never be awarded?",
+  "options": [
+   "An accuracy mark requires its method mark to be earned first",
+   "A marks are worth 0",
+   "M marks come last",
+   "It is only a typing rule"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Accuracy (A) marks are conditional on the associated method (M) mark, so M0 A1 is impossible."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:misc:c2bd4599",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Answering an 'exact' question with \\( x = 1.47 \\) and \\( x = -7.47 \\).</p><p><strong>✅ The correct idea:</strong> 'Exact' means surd/fraction form. A weak answer rounds to decimals and scores 0; a strong answer gives \\( x = -3 \\pm 2\\sqrt{5} \\) (and may add the decimals as a check).</p>",
+  "question": "Which is an acceptable 'exact' answer?",
+  "options": [
+   "\\( -3 + 2\\sqrt{5} \\)",
+   "\\( 1.47 \\)",
+   "\\( 1.5 \\)",
+   "about \\( 1.47 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Only the surd form is exact; decimals score 0 on an 'exact' question."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:misc:4a54528b",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> In a change-of-sign 'show that', writing \\( \\text{f}(2) = -1 \\) and \\( \\text{f}(3) = 4 \\) and stopping.</p><p><strong>✅ The correct idea:</strong> The numbers alone earn the method mark but not the answer mark. A strong answer adds: 'there is a change of sign, so a root lies between \\( x = 2 \\) and \\( x = 3 \\).'</p>",
+  "question": "What completes a change-of-sign 'show that'?",
+  "options": [
+   "A sentence stating a root lies in the interval",
+   "A decimal to 3 s.f.",
+   "The quadratic formula",
+   "A second calculator check"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The concluding statement is the mark most often lost."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:misc:44e68924",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> On a 'detailed reasoning' factor question, writing the three correct factors straight from the calculator.</p><p><strong>✅ The correct idea:</strong> A calculator-only DR answer scores 0. A strong answer shows \\( \\text{f}(a) = 0 \\) for a trial value, finds the quadratic factor, then states all three factors.</p>",
+  "question": "A DR factorisation with no method shown scores:",
+  "options": [
+   "0",
+   "Full marks",
+   "Half marks",
+   "1 mark"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "DR needs the full analytical method; answer-only scores nothing."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:misc:2ed62086",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Giving a stationary point as '\\( x = 1 \\)' with no \\( y \\)-value.</p><p><strong>✅ The correct idea:</strong> Coordinates must be pairs. A weak answer gives only \\( x \\); a strong answer works out \\( y \\) too and writes \\( (1,\\ 8) \\).</p>",
+  "question": "How should a stationary point be stated?",
+  "options": [
+   "As a coordinate pair (x, y)",
+   "As the x-value only",
+   "As the y-value only",
+   "As a gradient"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A coordinate needs both values; x alone loses the mark."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:misc:72fa703b",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Answering 'r = 1' when the quantity was a speed with no unit defined.</p><p><strong>✅ The correct idea:</strong> Label what the number is and give its unit. A weak answer writes '1'; a strong answer writes 'speed = 1 km/h'.</p>",
+  "question": "Why can 'r = 1' lose a mark?",
+  "options": [
+   "The quantity and unit are not stated",
+   "1 is the wrong number",
+   "It should be exact",
+   "It needs a graph"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Marks for interpretation require the quantity named and its unit given."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:misc:71c57a32",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> A part says 'Hence use your graph to solve...', but the student solves it on the calculator.</p><p><strong>✅ The correct idea:</strong> 'Hence' directs you to the method just used. A weak answer ignores it; a strong answer reads the solution from the graph as instructed.</p>",
+  "question": "'Hence use your graph' means:",
+  "options": [
+   "Read the answer from the graph you drew",
+   "Use the calculator solver",
+   "Start a new algebraic method",
+   "Sketch a second graph"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Hence' ties you to the previous result/method; ignoring it loses marks."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:tips:f23d2ff3",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — The 'exact' ladder",
+  "reading": "<p><strong>0 marks:</strong> \\( x = 1.47,\\ -7.47 \\) only — decimals to an \"exact\" question.</p><p><strong>Partial:</strong> the correct method shown but the answer left as a decimal.</p><p><strong>Full marks:</strong> \\( x = -3 \\pm 2\\sqrt{5} \\). Safest of all: write the exact form <em>and</em> the decimal — the surd earns the marks, the decimal never loses them.</p>",
+  "question": "The safest way to answer an 'exact' question is to:",
+  "options": [
+   "Give the surd form, optionally with the decimal",
+   "Give only the decimal",
+   "Round to 2 d.p.",
+   "Give the decimal to 3 s.f."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The exact surd form is required; adding the decimal is harmless."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:tips:91b78370",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — The 'show that' ladder",
+  "reading": "<p><strong>0 marks:</strong> writing the printed result in a box with no working.</p><p><strong>Partial:</strong> full correct working to the numbers, but no concluding sentence.</p><p><strong>Full marks:</strong> every step shown <em>and</em> the concluding statement, e.g. \"change of sign, so a root lies between \\( x = 2 \\) and \\( x = 3 \\).\"</p>",
+  "question": "In a 'show that', where is the last mark usually lost?",
+  "options": [
+   "The concluding statement",
+   "The first line",
+   "Writing the given answer",
+   "The units"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Candidates reach the numbers but omit the required concluding sentence."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:tips:dc18d6a2",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — The 'detailed reasoning' ladder",
+  "reading": "<p><strong>0 marks:</strong> the correct answer straight from the calculator on a \"detailed reasoning\" question.</p><p><strong>Partial:</strong> some analytical steps but a key required line missing.</p><p><strong>Full marks:</strong> the complete method — for a factor question, \\( \\text{f}(a) = 0 \\) for a trial value, the quadratic factor, then all three factors.</p>",
+  "question": "On a DR question, a calculator-only correct answer scores:",
+  "options": [
+   "0",
+   "Full marks",
+   "All the method marks",
+   "Half"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "DR requires the analytical method; calculator-only scores nothing."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:tips:638203f4",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Protect your marks: method, form, precision",
+  "reading": "<p><strong>0 / partial:</strong> right number, wrong form — a decimal for \"exact\", an \\( x \\)-value with no \\( y \\), a gradient where an equation was asked, or a missing unit.</p><p><strong>Full marks:</strong> one step per line (so a slip costs one mark), work to \\( \\ge 4 \\) s.f. and round only at the end, coordinates as pairs \\( (x,\\ y) \\), units stated, and the answer to the precision demanded.</p>",
+  "question": "Why write one step per line?",
+  "options": [
+   "A slip then costs one mark, not all of them",
+   "It looks neat",
+   "It uses more paper",
+   "It is faster"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Separated steps preserve method and intermediate marks when a later slip occurs."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:fib:12d8c197",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The command word ___B1___ tells you to leave the answer in surd or fraction form; a decimal alone scores 0.",
+  "blankOptions": {
+   "B1": [
+    "determine",
+    "method",
+    "isw",
+    "exact"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "exact"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:fib:46bcbe5b",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "In a ___B1___ ___B2___ question the result is printed for you, so all the marks are for the working plus a concluding statement.",
+  "blankOptions": {
+   "B1": [
+    "show",
+    "independent",
+    "sketch",
+    "determine"
+   ],
+   "B2": [
+    "that",
+    "reasoning",
+    "sketch",
+    "hence"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "show",
+    "B2": "that"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:fib:cfb99ade",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "When a question says you must show ___B1___ ___B2___, a calculator-only solution scores 0 even if the answer is correct.",
+  "blankOptions": {
+   "B1": [
+    "hence",
+    "detailed",
+    "ft",
+    "cao"
+   ],
+   "B2": [
+    "method",
+    "determine",
+    "reasoning",
+    "cao"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "detailed",
+    "B2": "reasoning"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:fib:8e1e5681",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The word ___B1___ tells you to use the result of the previous part instead of starting again.",
+  "blankOptions": {
+   "B1": [
+    "exact",
+    "hence",
+    "isw",
+    "that"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "hence"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:fib:313887b2",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "An accuracy mark is only awarded when its associated ___B1___ mark has been earned — 'M0 A1 cannot ever be awarded'.",
+  "blankOptions": {
+   "B1": [
+    "exact",
+    "ft",
+    "hence",
+    "method"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "method"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:fib:01c3106d",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A mark given for a correct result regardless of the method used is called an ___B1___ mark.",
+  "blankOptions": {
+   "B1": [
+    "determine",
+    "independent",
+    "show",
+    "exact"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "independent"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:fib:f3060c2b",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The abbreviation ___B1___ means 'correct answer only', with no follow-through allowed.",
+  "blankOptions": {
+   "B1": [
+    "cao",
+    "detailed",
+    "determine",
+    "hence"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "cao"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:fib:7225b1a1",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The abbreviation ___B1___ means 'or equivalent', so any algebraically equivalent form is accepted.",
+  "blankOptions": {
+   "B1": [
+    "accuracy",
+    "oe",
+    "method",
+    "reasoning"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "oe"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:f04425b1",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Exact”?",
+  "options": [
+   "Awarded for a correct method applied to the problem.",
+   "Answer in surd, fraction or π form; a decimal alone scores 0.",
+   "Result is given; show every step and write a concluding statement.",
+   "Reach the result with visible justification, not just a bare value."
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Exact” means: Answer in surd, fraction or π form; a decimal alone scores 0."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:27e1558a",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Show that”?",
+  "options": [
+   "Awarded for accuracy, but only if the linked method mark is earned.",
+   "Quote the result; no working or method is required.",
+   "Result is given; show every step and write a concluding statement.",
+   "Show the main features (shape, intercepts, asymptotes); not to scale."
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Show that” means: Result is given; show every step and write a concluding statement."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:cbced248",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Determine”?",
+  "options": [
+   "Independent mark for a correct result, regardless of method.",
+   "Reach the result with visible justification, not just a bare value.",
+   "Result is given; show every step and write a concluding statement.",
+   "Quote the result; no working or method is required."
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Determine” means: Reach the result with visible justification, not just a bare value."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:377304da",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Give / State / Write down”?",
+  "options": [
+   "Quote the result; no working or method is required.",
+   "Awarded for a correct method applied to the problem.",
+   "Result is given; show every step and write a concluding statement.",
+   "Show the main features (shape, intercepts, asymptotes); not to scale."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Give / State / Write down” means: Quote the result; no working or method is required."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:52e019e0",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “In this question you must show detailed reasoning”?",
+  "options": [
+   "Show the main features (shape, intercepts, asymptotes); not to scale.",
+   "Correct answer only; no follow-through or alternatives credited.",
+   "Result is given; show every step and write a concluding statement.",
+   "Show the full analytical method; a calculator-only solution scores 0."
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“In this question you must show detailed reasoning” means: Show the full analytical method; a calculator-only solution scores 0."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:59776cc8",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Hence”?",
+  "options": [
+   "Show the main features (shape, intercepts, asymptotes); not to scale.",
+   "Reach the result with visible justification, not just a bare value.",
+   "Use the result of the previous part; do not start a fresh method.",
+   "Awarded for accuracy, but only if the linked method mark is earned."
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Hence” means: Use the result of the previous part; do not start a fresh method."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:6653b106",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Plot”?",
+  "options": [
+   "Show the main features (shape, intercepts, asymptotes); not to scale.",
+   "Answer in surd, fraction or π form; a decimal alone scores 0.",
+   "Mark points accurately on the printed grid and join them.",
+   "Show the full analytical method; a calculator-only solution scores 0."
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Plot” means: Mark points accurately on the printed grid and join them."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:9ff987da",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Sketch”?",
+  "options": [
+   "Mark points accurately on the printed grid and join them.",
+   "Use the result of the previous part; do not start a fresh method.",
+   "Show the main features (shape, intercepts, asymptotes); not to scale.",
+   "Result is given; show every step and write a concluding statement."
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Sketch” means: Show the main features (shape, intercepts, asymptotes); not to scale."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:e41d27da",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Draw”?",
+  "options": [
+   "Reach the result with visible justification, not just a bare value.",
+   "Produce the graph or diagram to reasonable accuracy.",
+   "Independent mark for a correct result, regardless of method.",
+   "Use the result of the previous part; do not start a fresh method."
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Draw” means: Produce the graph or diagram to reasonable accuracy."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:74ba3d15",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Prove”?",
+  "options": [
+   "Give a rigorous, general argument, not a check of one case.",
+   "Mark points accurately on the printed grid and join them.",
+   "Answer in surd, fraction or π form; a decimal alone scores 0.",
+   "Reach the result with visible justification, not just a bare value."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Prove” means: Give a rigorous, general argument, not a check of one case."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:ff571235",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “M mark (M1)”?",
+  "options": [
+   "Awarded for a correct method applied to the problem.",
+   "Mark points accurately on the printed grid and join them.",
+   "Show the full analytical method; a calculator-only solution scores 0.",
+   "Independent mark for a correct result, regardless of method."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“M mark (M1)” means: Awarded for a correct method applied to the problem."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:0b4bba77",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “A mark (A1)”?",
+  "options": [
+   "Independent mark for a correct result, regardless of method.",
+   "Mark points accurately on the printed grid and join them.",
+   "Awarded for accuracy, but only if the linked method mark is earned.",
+   "Reach the result with visible justification, not just a bare value."
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“A mark (A1)” means: Awarded for accuracy, but only if the linked method mark is earned."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:cbf7ff98",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “B mark (B1)”?",
+  "options": [
+   "Reach the result with visible justification, not just a bare value.",
+   "Independent mark for a correct result, regardless of method.",
+   "Quote the result; no working or method is required.",
+   "Awarded for accuracy, but only if the linked method mark is earned."
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“B mark (B1)” means: Independent mark for a correct result, regardless of method."
+  }
+ },
+ {
+  "id": "additional-maths:11-1-command-words-and-detailed-reasoning:match:8445454e",
+  "pageId": "additional-maths:11-1-command-words-and-detailed-reasoning",
+  "pageName": "11.1 Command Words and Detailed Reasoning",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “cao”?",
+  "options": [
+   "Answer in surd, fraction or π form; a decimal alone scores 0.",
+   "Reach the result with visible justification, not just a bare value.",
+   "Correct answer only; no follow-through or alternatives credited.",
+   "Quote the result; no working or method is required."
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“cao” means: Correct answer only; no follow-through or alternatives credited."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:exam:2262f3ab",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "15 (a) · June 2024",
+  "question": "<p>Find the coordinates of the points A, C and B.</p>",
+  "caseStudy": "<p><em>In this question you must show detailed reasoning.</em></p>\n        <p>The diagram shows a symmetric, triangular cross-section of a roof, ADB, where AB is horizontal. Under this roof is the ceiling, ACB, of a room.</p>\n        <p>In a coordinate system the mid-point of AB is the origin, O, with the \\( x \\)-axis passing through A and B and the \\( y \\)-axis passing through C and D.</p>\n        <p>With respect to this coordinate system the equation of the curve ACB is \\[ y = 2 - \\frac{1}{18}x^2. \\]</p>\n        <p>The lines AD and BD are tangents to the curve at A and B respectively. Units are metres.</p>\n        <svg viewBox=\"0 0 400 240\" role=\"img\" aria-label=\"Roof cross-section: ceiling curve ACB inside triangular roof ADB\" style=\"max-width:420px;width:100%;height:auto;color:var(--ink,currentColor)\">\n          <line x1=\"200\" y1=\"215\" x2=\"200\" y2=\"58\" stroke=\"currentColor\" stroke-width=\"1\"/>\n          <line x1=\"40\" y1=\"200\" x2=\"368\" y2=\"200\" stroke=\"currentColor\" stroke-width=\"1\"/>\n          <polygon points=\"200,52 196,64 204,64\" fill=\"currentColor\"/>\n          <polygon points=\"373,200 361,196 361,204\" fill=\"currentColor\"/>\n          <polygon points=\"50,200 200,80 350,200\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n          <polyline points=\"50,200 75,182 100,167 125,155 150,147 175,142 200,140 225,142 250,147 275,155 300,167 325,182 350,200\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <circle cx=\"50\" cy=\"200\" r=\"2.5\" fill=\"currentColor\"/>\n          <circle cx=\"350\" cy=\"200\" r=\"2.5\" fill=\"currentColor\"/>\n          <circle cx=\"200\" cy=\"140\" r=\"2.5\" fill=\"currentColor\"/>\n          <circle cx=\"200\" cy=\"80\" r=\"2.5\" fill=\"currentColor\"/>\n          <text x=\"36\" y=\"214\" font-size=\"13\" fill=\"currentColor\">A</text>\n          <text x=\"354\" y=\"214\" font-size=\"13\" fill=\"currentColor\">B</text>\n          <text x=\"188\" y=\"215\" font-size=\"13\" fill=\"currentColor\">O</text>\n          <text x=\"206\" y=\"151\" font-size=\"13\" fill=\"currentColor\">C</text>\n          <text x=\"206\" y=\"80\" font-size=\"13\" fill=\"currentColor\">D</text>\n          <text x=\"184\" y=\"64\" font-size=\"13\" font-style=\"italic\" fill=\"currentColor\">y</text>\n          <text x=\"360\" y=\"216\" font-size=\"13\" font-style=\"italic\" fill=\"currentColor\">x</text>\n        </svg>",
+  "hint": "A and B are where the curve meets the \\( x \\)-axis (\\( y = 0 \\)); C is where it meets the \\( y \\)-axis (\\( x = 0 \\)).",
+  "starter": "Give each answer as a coordinate pair \\( (x,\\ y) \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1) · DR</h5><ul>\n              <li><strong>B1</strong> — \\( A(-6,\\ 0) \\) (must be a coordinate pair).</li>\n              <li><strong>B1</strong> — \\( B(6,\\ 0) \\) (must be a coordinate pair).</li>\n              <li><strong>B1</strong> — \\( C(0,\\ 2) \\) (must be a coordinate pair).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>A and B come from solving \\( 2 - \\tfrac{1}{18}x^2 = 0 \\Rightarrow x^2 = 36 \\Rightarrow x = \\pm 6 \\).</li>\n              <li>C comes from substituting \\( x = 0 \\) into the curve. Coordinate pairs given on the figure are accepted.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Generally well done; the only errors were in failing to solve the quadratic correctly. Almost all found C correctly by substituting \\( x = 0 \\).</li>\n            </ul></div>",
+   "modelAnswer": "At \\( y = 0 \\): \\( 2 - \\tfrac{1}{18}x^2 = 0 \\Rightarrow x^2 = 36 \\Rightarrow x = \\pm 6 \\), so \\( A(-6,\\ 0) \\) and \\( B(6,\\ 0) \\). At \\( x = 0 \\): \\( y = 2 \\), so \\( C(0,\\ 2) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:exam:1d7fb121",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "15 (b) · June 2024",
+  "question": "<p>Find the equation of the line AD.</p>",
+  "caseStudy": "<p><em>In this question you must show detailed reasoning.</em></p>\n        <p>The diagram shows a symmetric, triangular cross-section of a roof, ADB, where AB is horizontal. Under this roof is the ceiling, ACB, of a room.</p>\n        <p>In a coordinate system the mid-point of AB is the origin, O, with the \\( x \\)-axis passing through A and B and the \\( y \\)-axis passing through C and D.</p>\n        <p>With respect to this coordinate system the equation of the curve ACB is \\[ y = 2 - \\frac{1}{18}x^2. \\]</p>\n        <p>The lines AD and BD are tangents to the curve at A and B respectively. Units are metres.</p>\n        <svg viewBox=\"0 0 400 240\" role=\"img\" aria-label=\"Roof cross-section: ceiling curve ACB inside triangular roof ADB\" style=\"max-width:420px;width:100%;height:auto;color:var(--ink,currentColor)\">\n          <line x1=\"200\" y1=\"215\" x2=\"200\" y2=\"58\" stroke=\"currentColor\" stroke-width=\"1\"/>\n          <line x1=\"40\" y1=\"200\" x2=\"368\" y2=\"200\" stroke=\"currentColor\" stroke-width=\"1\"/>\n          <polygon points=\"200,52 196,64 204,64\" fill=\"currentColor\"/>\n          <polygon points=\"373,200 361,196 361,204\" fill=\"currentColor\"/>\n          <polygon points=\"50,200 200,80 350,200\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n          <polyline points=\"50,200 75,182 100,167 125,155 150,147 175,142 200,140 225,142 250,147 275,155 300,167 325,182 350,200\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <circle cx=\"50\" cy=\"200\" r=\"2.5\" fill=\"currentColor\"/>\n          <circle cx=\"350\" cy=\"200\" r=\"2.5\" fill=\"currentColor\"/>\n          <circle cx=\"200\" cy=\"140\" r=\"2.5\" fill=\"currentColor\"/>\n          <circle cx=\"200\" cy=\"80\" r=\"2.5\" fill=\"currentColor\"/>\n          <text x=\"36\" y=\"214\" font-size=\"13\" fill=\"currentColor\">A</text>\n          <text x=\"354\" y=\"214\" font-size=\"13\" fill=\"currentColor\">B</text>\n          <text x=\"188\" y=\"215\" font-size=\"13\" fill=\"currentColor\">O</text>\n          <text x=\"206\" y=\"151\" font-size=\"13\" fill=\"currentColor\">C</text>\n          <text x=\"206\" y=\"80\" font-size=\"13\" fill=\"currentColor\">D</text>\n          <text x=\"184\" y=\"64\" font-size=\"13\" font-style=\"italic\" fill=\"currentColor\">y</text>\n          <text x=\"360\" y=\"216\" font-size=\"13\" font-style=\"italic\" fill=\"currentColor\">x</text>\n        </svg>",
+  "hint": "AD is the tangent at A. Differentiate the curve, put in \\( x = -6 \\) for the gradient, then use the point A.",
+  "starter": "Give the equation of the tangent (any correct rearrangement is fine).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1) · DR</h5><ul>\n              <li><strong>M1</strong> — attempt to differentiate: \\( \\frac{dy}{dx} = -\\tfrac{1}{9}x \\).</li>\n              <li><strong>A1</strong> — correct gradient at A: at \\( (-6,\\ 0) \\), \\( \\frac{dy}{dx} = \\tfrac{2}{3} \\).</li>\n              <li><strong>A1</strong> — correct method to form the tangent using the coordinates of A.</li>\n              <li><strong>A1</strong> — a correct 3-term equation, e.g. \\( 3y = 2x + 12 \\) (oe).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Differentiating earns M1; substituting \\( x = -6 \\) for the true gradient earns the first A1; the last A1 is for a correctly arranged equation of the line.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most differentiated successfully, but some treated \\( \\frac{dy}{dx} \\) itself as the start of the tangent equation rather than substituting \\( x = -6 \\) for the gradient. A few guessed D by assuming \\( OC = CD \\); this was not credited.</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\frac{dy}{dx} = -\\tfrac{1}{9}x \\); at A \\( (x = -6) \\) the gradient is \\( -\\tfrac{1}{9}(-6) = \\tfrac{2}{3} \\). Tangent through \\( (-6,\\ 0) \\): \\( y - 0 = \\tfrac{2}{3}(x + 6) \\), i.e. \\( 3y = 2x + 12 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:exam:9a819137",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "15 (c) · June 2024",
+  "question": "<p>Find the coordinates of the point D.</p>",
+  "caseStudy": "<p><em>In this question you must show detailed reasoning.</em></p>\n        <p>The diagram shows a symmetric, triangular cross-section of a roof, ADB, where AB is horizontal. Under this roof is the ceiling, ACB, of a room.</p>\n        <p>In a coordinate system the mid-point of AB is the origin, O, with the \\( x \\)-axis passing through A and B and the \\( y \\)-axis passing through C and D.</p>\n        <p>With respect to this coordinate system the equation of the curve ACB is \\[ y = 2 - \\frac{1}{18}x^2. \\]</p>\n        <p>The lines AD and BD are tangents to the curve at A and B respectively. Units are metres.</p>\n        <svg viewBox=\"0 0 400 240\" role=\"img\" aria-label=\"Roof cross-section: ceiling curve ACB inside triangular roof ADB\" style=\"max-width:420px;width:100%;height:auto;color:var(--ink,currentColor)\">\n          <line x1=\"200\" y1=\"215\" x2=\"200\" y2=\"58\" stroke=\"currentColor\" stroke-width=\"1\"/>\n          <line x1=\"40\" y1=\"200\" x2=\"368\" y2=\"200\" stroke=\"currentColor\" stroke-width=\"1\"/>\n          <polygon points=\"200,52 196,64 204,64\" fill=\"currentColor\"/>\n          <polygon points=\"373,200 361,196 361,204\" fill=\"currentColor\"/>\n          <polygon points=\"50,200 200,80 350,200\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n          <polyline points=\"50,200 75,182 100,167 125,155 150,147 175,142 200,140 225,142 250,147 275,155 300,167 325,182 350,200\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <circle cx=\"50\" cy=\"200\" r=\"2.5\" fill=\"currentColor\"/>\n          <circle cx=\"350\" cy=\"200\" r=\"2.5\" fill=\"currentColor\"/>\n          <circle cx=\"200\" cy=\"140\" r=\"2.5\" fill=\"currentColor\"/>\n          <circle cx=\"200\" cy=\"80\" r=\"2.5\" fill=\"currentColor\"/>\n          <text x=\"36\" y=\"214\" font-size=\"13\" fill=\"currentColor\">A</text>\n          <text x=\"354\" y=\"214\" font-size=\"13\" fill=\"currentColor\">B</text>\n          <text x=\"188\" y=\"215\" font-size=\"13\" fill=\"currentColor\">O</text>\n          <text x=\"206\" y=\"151\" font-size=\"13\" fill=\"currentColor\">C</text>\n          <text x=\"206\" y=\"80\" font-size=\"13\" fill=\"currentColor\">D</text>\n          <text x=\"184\" y=\"64\" font-size=\"13\" font-style=\"italic\" fill=\"currentColor\">y</text>\n          <text x=\"360\" y=\"216\" font-size=\"13\" font-style=\"italic\" fill=\"currentColor\">x</text>\n        </svg>",
+  "hint": "D is on the \\( y \\)-axis, so put \\( x = 0 \\) into your tangent from part (b).",
+  "starter": "Give the answer as a coordinate pair \\( (x,\\ y) \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>\n              <li><strong>B1</strong> — \\( D(0,\\ 4) \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Put \\( x = 0 \\) into \\( 3y = 2x + 12 \\Rightarrow 3y = 12 \\Rightarrow y = 4 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Straightforward for those with a correct equation in (b). A small number found \\( y = 4 \\) but wrote the answer as \\( (4,\\ 0) \\).</li>\n            </ul></div>",
+   "modelAnswer": "On the \\( y \\)-axis \\( x = 0 \\): \\( 3y = 2(0) + 12 \\Rightarrow y = 4 \\). So \\( D(0,\\ 4) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:exam:71c07a5c",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": "15 (d) · June 2024",
+  "question": "<p>Find the cross-sectional area of the space between the roof and the ceiling.</p>",
+  "caseStudy": "<p><em>In this question you must show detailed reasoning.</em></p>\n        <p>The diagram shows a symmetric, triangular cross-section of a roof, ADB, where AB is horizontal. Under this roof is the ceiling, ACB, of a room.</p>\n        <p>In a coordinate system the mid-point of AB is the origin, O, with the \\( x \\)-axis passing through A and B and the \\( y \\)-axis passing through C and D.</p>\n        <p>With respect to this coordinate system the equation of the curve ACB is \\[ y = 2 - \\frac{1}{18}x^2. \\]</p>\n        <p>The lines AD and BD are tangents to the curve at A and B respectively. Units are metres.</p>\n        <svg viewBox=\"0 0 400 240\" role=\"img\" aria-label=\"Roof cross-section: ceiling curve ACB inside triangular roof ADB\" style=\"max-width:420px;width:100%;height:auto;color:var(--ink,currentColor)\">\n          <line x1=\"200\" y1=\"215\" x2=\"200\" y2=\"58\" stroke=\"currentColor\" stroke-width=\"1\"/>\n          <line x1=\"40\" y1=\"200\" x2=\"368\" y2=\"200\" stroke=\"currentColor\" stroke-width=\"1\"/>\n          <polygon points=\"200,52 196,64 204,64\" fill=\"currentColor\"/>\n          <polygon points=\"373,200 361,196 361,204\" fill=\"currentColor\"/>\n          <polygon points=\"50,200 200,80 350,200\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n          <polyline points=\"50,200 75,182 100,167 125,155 150,147 175,142 200,140 225,142 250,147 275,155 300,167 325,182 350,200\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <circle cx=\"50\" cy=\"200\" r=\"2.5\" fill=\"currentColor\"/>\n          <circle cx=\"350\" cy=\"200\" r=\"2.5\" fill=\"currentColor\"/>\n          <circle cx=\"200\" cy=\"140\" r=\"2.5\" fill=\"currentColor\"/>\n          <circle cx=\"200\" cy=\"80\" r=\"2.5\" fill=\"currentColor\"/>\n          <text x=\"36\" y=\"214\" font-size=\"13\" fill=\"currentColor\">A</text>\n          <text x=\"354\" y=\"214\" font-size=\"13\" fill=\"currentColor\">B</text>\n          <text x=\"188\" y=\"215\" font-size=\"13\" fill=\"currentColor\">O</text>\n          <text x=\"206\" y=\"151\" font-size=\"13\" fill=\"currentColor\">C</text>\n          <text x=\"206\" y=\"80\" font-size=\"13\" fill=\"currentColor\">D</text>\n          <text x=\"184\" y=\"64\" font-size=\"13\" font-style=\"italic\" fill=\"currentColor\">y</text>\n          <text x=\"360\" y=\"216\" font-size=\"13\" font-style=\"italic\" fill=\"currentColor\">x</text>\n        </svg>",
+  "hint": "Use symmetry: work the right half. Area of triangle ODB minus area under the curve from \\( 0 \\) to \\( 6 \\), then double.",
+  "starter": "Show the integrated function (DR), then give the area in \\( \\text{m}^2 \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO1/AO3) · DR</h5><ul>\n              <li><strong>M1</strong> — attempt to integrate the correct equation (ignore limits). <em>DR means the integrated function must be seen.</em></li>\n              <li><strong>A1</strong> — correct integration: \\( \\int \\left(2 - \\tfrac{1}{18}x^2\\right)dx = 2x - \\tfrac{x^3}{54} \\).</li>\n              <li><strong>A1</strong> — apply appropriate limits to obtain the area under the curve \\( = 8 \\) (for \\( 0 \\) to \\( 6 \\)).</li>\n              <li><strong>B1</strong> — area of triangle ODB \\( = \\tfrac12 \\times 6 \\times 4 = 12 \\).</li>\n              <li><strong>A1</strong> — total area \\( = 2(12 - 8) = 8 \\ \\text{m}^2 \\) (the \\( \\times 2 \\) may be seen anywhere).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Method: Area \\( = 2(\\text{triangle ODB} - \\text{area under curve, right half}) \\). The \\( \\times 2 \\) for symmetry is essential.</li>\n              <li>An alternative subtract-the-equations method (roof line \\( - \\) curve) also scores, but the tangent line is only valid on its own half.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most successful when finding the triangle by \\( \\tfrac12 bh \\) and the curve area separately. Weaker responses subtracted curve from line and made sign errors, or integrated \\( -6 \\) to \\( 6 \\) forgetting the line was valid on only one half, giving unreasonably large answers.</li>\n            </ul></div>",
+   "modelAnswer": "By symmetry work the right half and double. Triangle ODB \\( = \\tfrac12 \\times 6 \\times 4 = 12 \\). Area under the curve: \\( \\int_0^6 \\left(2 - \\tfrac{1}{18}x^2\\right)dx = \\left[2x - \\tfrac{x^3}{54}\\right]_0^6 = 12 - 4 = 8 \\). Half the space \\( = 12 - 8 = 4 \\); total \\( = 2 \\times 4 = 8 \\ \\text{m}^2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:exam:9ea6f56c",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "12 (a) · June 2019",
+  "question": "<p>Show that \\( k = -15 \\).</p>",
+  "caseStudy": "<p>The curve \\( C_1 \\) has equation \\( y = 10x - x^2 + k \\) and passes through the point \\( (5,\\ 10) \\).</p>\n        <p>The curve \\( C_2 \\) with equation \\( y = (x - 3)^2 \\) has been plotted on the grid provided (below), which has \\( x \\) from \\( 0 \\) to \\( 8 \\) and \\( y \\) from \\( 0 \\) to \\( 12 \\).</p>\n        <svg viewBox=\"0 0 380 300\" role=\"img\" aria-label=\"Grid from x=0 to 8 and y=0 to 12 with the curve C2 = (x-3) squared plotted\" style=\"max-width:400px;width:100%;height:auto;color:var(--ink,currentColor)\">\n          <g stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.35\">\n            <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"260\"/><line x1=\"70\" y1=\"20\" x2=\"70\" y2=\"260\"/><line x1=\"110\" y1=\"20\" x2=\"110\" y2=\"260\"/><line x1=\"150\" y1=\"20\" x2=\"150\" y2=\"260\"/><line x1=\"190\" y1=\"20\" x2=\"190\" y2=\"260\"/><line x1=\"230\" y1=\"20\" x2=\"230\" y2=\"260\"/><line x1=\"270\" y1=\"20\" x2=\"270\" y2=\"260\"/><line x1=\"310\" y1=\"20\" x2=\"310\" y2=\"260\"/><line x1=\"350\" y1=\"20\" x2=\"350\" y2=\"260\"/>\n            <line x1=\"30\" y1=\"260\" x2=\"350\" y2=\"260\"/><line x1=\"30\" y1=\"220\" x2=\"350\" y2=\"220\"/><line x1=\"30\" y1=\"180\" x2=\"350\" y2=\"180\"/><line x1=\"30\" y1=\"140\" x2=\"350\" y2=\"140\"/><line x1=\"30\" y1=\"100\" x2=\"350\" y2=\"100\"/><line x1=\"30\" y1=\"60\" x2=\"350\" y2=\"60\"/><line x1=\"30\" y1=\"20\" x2=\"350\" y2=\"20\"/>\n          </g>\n          <line x1=\"30\" y1=\"260\" x2=\"358\" y2=\"260\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n          <line x1=\"30\" y1=\"260\" x2=\"30\" y2=\"14\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n          <polyline points=\"30,80 70,180 110,240 150,260 190,240 230,180 270,80 288,20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <text x=\"276\" y=\"94\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">C₂</text>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"30\" y=\"275\">0</text><text x=\"70\" y=\"275\">1</text><text x=\"110\" y=\"275\">2</text><text x=\"150\" y=\"275\">3</text><text x=\"190\" y=\"275\">4</text><text x=\"230\" y=\"275\">5</text><text x=\"270\" y=\"275\">6</text><text x=\"310\" y=\"275\">7</text><text x=\"350\" y=\"275\">8</text>\n          </g>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\">\n            <text x=\"25\" y=\"264\">0</text><text x=\"25\" y=\"224\">2</text><text x=\"25\" y=\"184\">4</text><text x=\"25\" y=\"144\">6</text><text x=\"25\" y=\"104\">8</text><text x=\"25\" y=\"64\">10</text><text x=\"25\" y=\"24\">12</text>\n          </g>\n          <text x=\"360\" y=\"264\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">x</text>\n          <text x=\"16\" y=\"16\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">y</text>\n        </svg>",
+  "hint": "Substitute the point \\( (5,\\ 10) \\) into \\( y = 10x - x^2 + k \\) and rearrange for \\( k \\).",
+  "starter": "Show the substitution and conclude with the given result.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1) · AG</h5><ul>\n              <li><strong>M1</strong> — substitute \\( (5,\\ 10) \\): \\( 10 = 10(5) - 5^2 + k \\).</li>\n              <li><strong>A1</strong> — obtain \\( k = -15 \\) (or substitute \\( k = -15 \\) and show \\( (5,\\ 10) \\) is satisfied) — answer given, so working must be convincing.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Either derive \\( k \\) from the point, or verify \\( k = -15 \\) fits the point. The result is printed, so all credit is for the shown steps.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>An easy starter — almost all candidates earned full marks.</li>\n            </ul></div>",
+   "modelAnswer": "Substitute \\( (5,\\ 10) \\): \\( 10 = 10(5) - 5^2 + k = 50 - 25 + k = 25 + k \\), so \\( k = 10 - 25 = -15 \\), as required."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:exam:711c8730",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "12 (b) · June 2019",
+  "question": "<p>Show that there is a maximum value at the point \\( (5,\\ 10) \\).</p>",
+  "caseStudy": "<p>The curve \\( C_1 \\) has equation \\( y = 10x - x^2 + k \\) and passes through the point \\( (5,\\ 10) \\).</p>\n        <p>The curve \\( C_2 \\) with equation \\( y = (x - 3)^2 \\) has been plotted on the grid provided (below), which has \\( x \\) from \\( 0 \\) to \\( 8 \\) and \\( y \\) from \\( 0 \\) to \\( 12 \\).</p>\n        <svg viewBox=\"0 0 380 300\" role=\"img\" aria-label=\"Grid from x=0 to 8 and y=0 to 12 with the curve C2 = (x-3) squared plotted\" style=\"max-width:400px;width:100%;height:auto;color:var(--ink,currentColor)\">\n          <g stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.35\">\n            <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"260\"/><line x1=\"70\" y1=\"20\" x2=\"70\" y2=\"260\"/><line x1=\"110\" y1=\"20\" x2=\"110\" y2=\"260\"/><line x1=\"150\" y1=\"20\" x2=\"150\" y2=\"260\"/><line x1=\"190\" y1=\"20\" x2=\"190\" y2=\"260\"/><line x1=\"230\" y1=\"20\" x2=\"230\" y2=\"260\"/><line x1=\"270\" y1=\"20\" x2=\"270\" y2=\"260\"/><line x1=\"310\" y1=\"20\" x2=\"310\" y2=\"260\"/><line x1=\"350\" y1=\"20\" x2=\"350\" y2=\"260\"/>\n            <line x1=\"30\" y1=\"260\" x2=\"350\" y2=\"260\"/><line x1=\"30\" y1=\"220\" x2=\"350\" y2=\"220\"/><line x1=\"30\" y1=\"180\" x2=\"350\" y2=\"180\"/><line x1=\"30\" y1=\"140\" x2=\"350\" y2=\"140\"/><line x1=\"30\" y1=\"100\" x2=\"350\" y2=\"100\"/><line x1=\"30\" y1=\"60\" x2=\"350\" y2=\"60\"/><line x1=\"30\" y1=\"20\" x2=\"350\" y2=\"20\"/>\n          </g>\n          <line x1=\"30\" y1=\"260\" x2=\"358\" y2=\"260\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n          <line x1=\"30\" y1=\"260\" x2=\"30\" y2=\"14\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n          <polyline points=\"30,80 70,180 110,240 150,260 190,240 230,180 270,80 288,20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <text x=\"276\" y=\"94\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">C₂</text>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"30\" y=\"275\">0</text><text x=\"70\" y=\"275\">1</text><text x=\"110\" y=\"275\">2</text><text x=\"150\" y=\"275\">3</text><text x=\"190\" y=\"275\">4</text><text x=\"230\" y=\"275\">5</text><text x=\"270\" y=\"275\">6</text><text x=\"310\" y=\"275\">7</text><text x=\"350\" y=\"275\">8</text>\n          </g>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\">\n            <text x=\"25\" y=\"264\">0</text><text x=\"25\" y=\"224\">2</text><text x=\"25\" y=\"184\">4</text><text x=\"25\" y=\"144\">6</text><text x=\"25\" y=\"104\">8</text><text x=\"25\" y=\"64\">10</text><text x=\"25\" y=\"24\">12</text>\n          </g>\n          <text x=\"360\" y=\"264\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">x</text>\n          <text x=\"16\" y=\"16\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">y</text>\n        </svg>",
+  "hint": "Differentiate, set \\( \\frac{dy}{dx} = 0 \\) to locate \\( x = 5 \\), find \\( y = 10 \\), and confirm it is a maximum.",
+  "starter": "Show the turning point is at (5, 10) AND that it is a maximum.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1) · AG</h5><ul>\n              <li><strong>M1</strong> — differentiate and set \\( = 0 \\): \\( \\frac{dy}{dx} = 10 - 2x = 0 \\Rightarrow x = 5 \\).</li>\n              <li><strong>A1</strong> — all powers reduced by 1 (correct derivative), leading to \\( x = 5,\\ y = 10 \\).</li>\n              <li><strong>A1</strong> — demonstration that it is a maximum, e.g. \\( \\frac{d^2y}{dx^2} = -2 < 0 \\), or gradient/values either side.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Stating \\( \\frac{d^2y}{dx^2} < 0 \\) alone is not enough — you must also show the turning point is at \\( (5,\\ 10) \\). Alternatives: completing the square, or symmetry of the quadratic with a pair of symmetric points.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>A significant number missed steps and earned few marks. The popular \\( \\frac{d^2y}{dx^2} < 0 \\) showed a maximum but neither that \\( x = 5 \\) nor that \\( y = 10 \\).</li>\n            </ul></div>",
+   "modelAnswer": "\\( y = 10x - x^2 - 15 \\), so \\( \\frac{dy}{dx} = 10 - 2x = 0 \\Rightarrow x = 5 \\), and \\( y = 50 - 25 - 15 = 10 \\), giving the point \\( (5,\\ 10) \\). Since \\( \\frac{d^2y}{dx^2} = -2 < 0 \\), it is a maximum."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:exam:f61596d4",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "12 (c) · June 2019",
+  "question": "<p>On the same grid, sketch the curve \\( C_1 \\). (Describe the shape and the key features you would draw.)</p>",
+  "caseStudy": "<p>The curve \\( C_1 \\) has equation \\( y = 10x - x^2 + k \\) and passes through the point \\( (5,\\ 10) \\).</p>\n        <p>The curve \\( C_2 \\) with equation \\( y = (x - 3)^2 \\) has been plotted on the grid provided (below), which has \\( x \\) from \\( 0 \\) to \\( 8 \\) and \\( y \\) from \\( 0 \\) to \\( 12 \\).</p>\n        <svg viewBox=\"0 0 380 300\" role=\"img\" aria-label=\"Grid from x=0 to 8 and y=0 to 12 with the curve C2 = (x-3) squared plotted\" style=\"max-width:400px;width:100%;height:auto;color:var(--ink,currentColor)\">\n          <g stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.35\">\n            <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"260\"/><line x1=\"70\" y1=\"20\" x2=\"70\" y2=\"260\"/><line x1=\"110\" y1=\"20\" x2=\"110\" y2=\"260\"/><line x1=\"150\" y1=\"20\" x2=\"150\" y2=\"260\"/><line x1=\"190\" y1=\"20\" x2=\"190\" y2=\"260\"/><line x1=\"230\" y1=\"20\" x2=\"230\" y2=\"260\"/><line x1=\"270\" y1=\"20\" x2=\"270\" y2=\"260\"/><line x1=\"310\" y1=\"20\" x2=\"310\" y2=\"260\"/><line x1=\"350\" y1=\"20\" x2=\"350\" y2=\"260\"/>\n            <line x1=\"30\" y1=\"260\" x2=\"350\" y2=\"260\"/><line x1=\"30\" y1=\"220\" x2=\"350\" y2=\"220\"/><line x1=\"30\" y1=\"180\" x2=\"350\" y2=\"180\"/><line x1=\"30\" y1=\"140\" x2=\"350\" y2=\"140\"/><line x1=\"30\" y1=\"100\" x2=\"350\" y2=\"100\"/><line x1=\"30\" y1=\"60\" x2=\"350\" y2=\"60\"/><line x1=\"30\" y1=\"20\" x2=\"350\" y2=\"20\"/>\n          </g>\n          <line x1=\"30\" y1=\"260\" x2=\"358\" y2=\"260\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n          <line x1=\"30\" y1=\"260\" x2=\"30\" y2=\"14\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n          <polyline points=\"30,80 70,180 110,240 150,260 190,240 230,180 270,80 288,20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <text x=\"276\" y=\"94\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">C₂</text>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"30\" y=\"275\">0</text><text x=\"70\" y=\"275\">1</text><text x=\"110\" y=\"275\">2</text><text x=\"150\" y=\"275\">3</text><text x=\"190\" y=\"275\">4</text><text x=\"230\" y=\"275\">5</text><text x=\"270\" y=\"275\">6</text><text x=\"310\" y=\"275\">7</text><text x=\"350\" y=\"275\">8</text>\n          </g>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\">\n            <text x=\"25\" y=\"264\">0</text><text x=\"25\" y=\"224\">2</text><text x=\"25\" y=\"184\">4</text><text x=\"25\" y=\"144\">6</text><text x=\"25\" y=\"104\">8</text><text x=\"25\" y=\"64\">10</text><text x=\"25\" y=\"24\">12</text>\n          </g>\n          <text x=\"360\" y=\"264\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">x</text>\n          <text x=\"16\" y=\"16\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">y</text>\n        </svg>",
+  "hint": "\\( C_1 = 10x - x^2 - 15 \\) is an upside-down parabola with maximum \\( (5,\\ 10) \\); it must cross \\( C_2 \\) at two points.",
+  "starter": "State the shape, the maximum, and that it meets C₂ twice.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO2)</h5><ul>\n              <li><strong>B1</strong> — an upside-down (\\( \\cap \\)-shaped) parabola.</li>\n              <li><strong>B1</strong> — maximum at \\( (5,\\ 10) \\) and the curve meets the other curve \\( C_2 \\) at two points.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The sketch is marked on features, not accuracy: correct orientation, the maximum, and two intersections with \\( C_2 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Almost universally correct; some drew wayward ends or missed the correct intersection points.</li>\n            </ul></div>",
+   "modelAnswer": "\\( C_1 \\) is an \\( \\cap \\)-shaped (downward) parabola with maximum at \\( (5,\\ 10) \\), passing through the roots of \\( 10x - x^2 - 15 = 0 \\) and crossing \\( C_2 \\) at two points \\( (2,\\ 1) \\) and \\( (6,\\ 9) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:exam:f6f0e84c",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "12 (d) · June 2019",
+  "question": "<p>Find the coordinates of the points of intersection of the curves \\( C_1 \\) and \\( C_2 \\).</p>",
+  "caseStudy": "<p>The curve \\( C_1 \\) has equation \\( y = 10x - x^2 + k \\) and passes through the point \\( (5,\\ 10) \\).</p>\n        <p>The curve \\( C_2 \\) with equation \\( y = (x - 3)^2 \\) has been plotted on the grid provided (below), which has \\( x \\) from \\( 0 \\) to \\( 8 \\) and \\( y \\) from \\( 0 \\) to \\( 12 \\).</p>\n        <svg viewBox=\"0 0 380 300\" role=\"img\" aria-label=\"Grid from x=0 to 8 and y=0 to 12 with the curve C2 = (x-3) squared plotted\" style=\"max-width:400px;width:100%;height:auto;color:var(--ink,currentColor)\">\n          <g stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.35\">\n            <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"260\"/><line x1=\"70\" y1=\"20\" x2=\"70\" y2=\"260\"/><line x1=\"110\" y1=\"20\" x2=\"110\" y2=\"260\"/><line x1=\"150\" y1=\"20\" x2=\"150\" y2=\"260\"/><line x1=\"190\" y1=\"20\" x2=\"190\" y2=\"260\"/><line x1=\"230\" y1=\"20\" x2=\"230\" y2=\"260\"/><line x1=\"270\" y1=\"20\" x2=\"270\" y2=\"260\"/><line x1=\"310\" y1=\"20\" x2=\"310\" y2=\"260\"/><line x1=\"350\" y1=\"20\" x2=\"350\" y2=\"260\"/>\n            <line x1=\"30\" y1=\"260\" x2=\"350\" y2=\"260\"/><line x1=\"30\" y1=\"220\" x2=\"350\" y2=\"220\"/><line x1=\"30\" y1=\"180\" x2=\"350\" y2=\"180\"/><line x1=\"30\" y1=\"140\" x2=\"350\" y2=\"140\"/><line x1=\"30\" y1=\"100\" x2=\"350\" y2=\"100\"/><line x1=\"30\" y1=\"60\" x2=\"350\" y2=\"60\"/><line x1=\"30\" y1=\"20\" x2=\"350\" y2=\"20\"/>\n          </g>\n          <line x1=\"30\" y1=\"260\" x2=\"358\" y2=\"260\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n          <line x1=\"30\" y1=\"260\" x2=\"30\" y2=\"14\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n          <polyline points=\"30,80 70,180 110,240 150,260 190,240 230,180 270,80 288,20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <text x=\"276\" y=\"94\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">C₂</text>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"30\" y=\"275\">0</text><text x=\"70\" y=\"275\">1</text><text x=\"110\" y=\"275\">2</text><text x=\"150\" y=\"275\">3</text><text x=\"190\" y=\"275\">4</text><text x=\"230\" y=\"275\">5</text><text x=\"270\" y=\"275\">6</text><text x=\"310\" y=\"275\">7</text><text x=\"350\" y=\"275\">8</text>\n          </g>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\">\n            <text x=\"25\" y=\"264\">0</text><text x=\"25\" y=\"224\">2</text><text x=\"25\" y=\"184\">4</text><text x=\"25\" y=\"144\">6</text><text x=\"25\" y=\"104\">8</text><text x=\"25\" y=\"64\">10</text><text x=\"25\" y=\"24\">12</text>\n          </g>\n          <text x=\"360\" y=\"264\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">x</text>\n          <text x=\"16\" y=\"16\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">y</text>\n        </svg>",
+  "hint": "Set \\( C_1 = C_2 \\): \\( 10x - x^2 - 15 = (x - 3)^2 \\), simplify to a quadratic and solve.",
+  "starter": "Give both intersection points as coordinate pairs.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>B1</strong> — \\( (2,\\ 1) \\) (ft their graphs; an algebraic method is accepted).</li>\n              <li><strong>B1</strong> — \\( (6,\\ 9) \\) (ft their graphs).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Reading the points from a correct graph is acceptable, or solve algebraically: \\( 10x - x^2 - 15 = x^2 - 6x + 9 \\Rightarrow 2x^2 - 16x + 24 = 0 \\Rightarrow x = 2,\\ 6 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Little space was given, so reading the points from the graph was satisfactory.</li>\n            </ul></div>",
+   "modelAnswer": "\\( 10x - x^2 - 15 = (x - 3)^2 = x^2 - 6x + 9 \\Rightarrow 0 = 2x^2 - 16x + 24 \\Rightarrow x^2 - 8x + 12 = 0 \\Rightarrow (x - 2)(x - 6) = 0 \\). So \\( x = 2 \\) (\\( y = 1 \\)) and \\( x = 6 \\) (\\( y = 9 \\)): points \\( (2,\\ 1) \\) and \\( (6,\\ 9) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:exam:0a14a3c0",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": "12 (e) · June 2019",
+  "question": "<p>Find the area between the curves \\( C_1 \\) and \\( C_2 \\).</p>",
+  "caseStudy": "<p>The curve \\( C_1 \\) has equation \\( y = 10x - x^2 + k \\) and passes through the point \\( (5,\\ 10) \\).</p>\n        <p>The curve \\( C_2 \\) with equation \\( y = (x - 3)^2 \\) has been plotted on the grid provided (below), which has \\( x \\) from \\( 0 \\) to \\( 8 \\) and \\( y \\) from \\( 0 \\) to \\( 12 \\).</p>\n        <svg viewBox=\"0 0 380 300\" role=\"img\" aria-label=\"Grid from x=0 to 8 and y=0 to 12 with the curve C2 = (x-3) squared plotted\" style=\"max-width:400px;width:100%;height:auto;color:var(--ink,currentColor)\">\n          <g stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.35\">\n            <line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"260\"/><line x1=\"70\" y1=\"20\" x2=\"70\" y2=\"260\"/><line x1=\"110\" y1=\"20\" x2=\"110\" y2=\"260\"/><line x1=\"150\" y1=\"20\" x2=\"150\" y2=\"260\"/><line x1=\"190\" y1=\"20\" x2=\"190\" y2=\"260\"/><line x1=\"230\" y1=\"20\" x2=\"230\" y2=\"260\"/><line x1=\"270\" y1=\"20\" x2=\"270\" y2=\"260\"/><line x1=\"310\" y1=\"20\" x2=\"310\" y2=\"260\"/><line x1=\"350\" y1=\"20\" x2=\"350\" y2=\"260\"/>\n            <line x1=\"30\" y1=\"260\" x2=\"350\" y2=\"260\"/><line x1=\"30\" y1=\"220\" x2=\"350\" y2=\"220\"/><line x1=\"30\" y1=\"180\" x2=\"350\" y2=\"180\"/><line x1=\"30\" y1=\"140\" x2=\"350\" y2=\"140\"/><line x1=\"30\" y1=\"100\" x2=\"350\" y2=\"100\"/><line x1=\"30\" y1=\"60\" x2=\"350\" y2=\"60\"/><line x1=\"30\" y1=\"20\" x2=\"350\" y2=\"20\"/>\n          </g>\n          <line x1=\"30\" y1=\"260\" x2=\"358\" y2=\"260\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n          <line x1=\"30\" y1=\"260\" x2=\"30\" y2=\"14\" stroke=\"currentColor\" stroke-width=\"1.2\"/>\n          <polyline points=\"30,80 70,180 110,240 150,260 190,240 230,180 270,80 288,20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <text x=\"276\" y=\"94\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">C₂</text>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"30\" y=\"275\">0</text><text x=\"70\" y=\"275\">1</text><text x=\"110\" y=\"275\">2</text><text x=\"150\" y=\"275\">3</text><text x=\"190\" y=\"275\">4</text><text x=\"230\" y=\"275\">5</text><text x=\"270\" y=\"275\">6</text><text x=\"310\" y=\"275\">7</text><text x=\"350\" y=\"275\">8</text>\n          </g>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"end\">\n            <text x=\"25\" y=\"264\">0</text><text x=\"25\" y=\"224\">2</text><text x=\"25\" y=\"184\">4</text><text x=\"25\" y=\"144\">6</text><text x=\"25\" y=\"104\">8</text><text x=\"25\" y=\"64\">10</text><text x=\"25\" y=\"24\">12</text>\n          </g>\n          <text x=\"360\" y=\"264\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">x</text>\n          <text x=\"16\" y=\"16\" font-size=\"12\" font-style=\"italic\" fill=\"currentColor\">y</text>\n        </svg>",
+  "hint": "Integrate (upper − lower) between the intersection points \\( x = 2 \\) and \\( x = 6 \\). Do not divide by 2.",
+  "starter": "Show the difference of the curves, integrate, and give the area.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — difference of the curves: \\( C_1 - C_2 = (10x - x^2 - 15) - (x^2 - 6x + 9) = -2x^2 + 16x - 24 \\).</li>\n              <li><strong>A1</strong> — correct difference function.</li>\n              <li><strong>M1</strong> — integrate (dep): \\( \\int(-2x^2 + 16x - 24)dx = -\\tfrac{2x^3}{3} + 8x^2 - 24x \\) (ignore limits).</li>\n              <li><strong>M1</strong> — apply limits (dep) by substituting the intersections \\( 2 \\) and \\( 6 \\) and subtracting in the correct order.</li>\n              <li><strong>A1</strong> — area \\( = \\tfrac{64}{3} \\) (accept 3 s.f. or better; A0 if divided by 2).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Either subtract the equations then integrate, or find the area under each curve separately then subtract. A special case allows an answer with no working to score full marks (numerical integration on the calculator), since no 'command word' forbade it here.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Two valid routes. Common errors: equating the curves (so the integrand became zero), and dividing the final result by 2. Careful use of brackets in the first line avoids sign errors.</li>\n            </ul></div>",
+   "modelAnswer": "Between \\( x = 2 \\) and \\( x = 6 \\), \\( C_1 \\) is above \\( C_2 \\). \\( \\int_2^6 \\left[(10x - x^2 - 15) - (x^2 - 6x + 9)\\right]dx = \\int_2^6 (-2x^2 + 16x - 24)\\,dx = \\left[-\\tfrac{2x^3}{3} + 8x^2 - 24x\\right]_2^6 = 0 - \\left(-\\tfrac{64}{3}\\right) = \\tfrac{64}{3} \\approx 21.3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:mcq:4451c086",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A question gives a curve, asks for the tangent at a point, then the area it traps. Which areas does it combine?",
+  "options": [
+   "Coordinate geometry, differentiation and integration",
+   "Only integration",
+   "Trigonometry and logarithms",
+   "Only coordinate geometry"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Finding a point is coordinate geometry, the tangent needs differentiation, and the trapped area needs integration — a classic three-topic synoptic question."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:mcq:f29ce924",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "'The line \\( y = 2x + k \\) is a tangent to the circle.' What technique turns this into an equation for \\( k \\)?",
+  "options": [
+   "Substitute the line into the circle and set the discriminant to 0",
+   "Differentiate the circle",
+   "Integrate the line",
+   "Complete the square on the line"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A tangent meets the circle once, so the resulting quadratic has one repeated root: discriminant \\( b^2 - 4ac = 0 \\). This links coordinate geometry to the discriminant."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:mcq:7e3b8e3c",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In a multi-part question, part (b) begins 'Hence...'. Your first move should be to:",
+  "options": [
+   "Use your answer from part (a)",
+   "Ignore part (a) and start fresh",
+   "Skip to part (c)",
+   "Convert everything to decimals"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Hence' is an instruction to build on the previous result — the examiner is telling you which method to use."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:mcq:5d549b56",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "An unstructured question says 'The cubic has a root \\( x = 2 \\)'. The most useful first line is:",
+  "options": [
+   "\\( \\text{f}(2) = 0 \\)",
+   "\\( \\text{f}'(2) = 0 \\)",
+   "\\( \\int \\text{f}(x)\\,dx = 2 \\)",
+   "\\( \\text{f}(2) = 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A root means the function is zero there: \\( \\text{f}(2) = 0 \\). Translating the sentence into that equation earns the first mark."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:mcq:e43d3800",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "To find the area between two curves that cross at \\( x = 2 \\) and \\( x = 6 \\), you evaluate:",
+  "options": [
+   "\\( \\int_2^6 (\\text{upper} - \\text{lower})\\,dx \\)",
+   "\\( \\int_0^8 (\\text{upper} - \\text{lower})\\,dx \\)",
+   "\\( \\tfrac12\\int_2^6 (\\text{upper} - \\text{lower})\\,dx \\)",
+   "\\( \\int_2^6 \\text{upper}\\,dx \\) only"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Limits are the intersection points; integrate the difference (upper minus lower). No halving — that is a common error flagged by examiners."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:mcq:e2861381",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A symmetric roof has its apex on the \\( y \\)-axis. The quickest way to find the whole enclosed area is to:",
+  "options": [
+   "Find one half and double it",
+   "Integrate from the far left to the far right in one go always",
+   "Find a quarter and multiply by three",
+   "Guess from the diagram"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Symmetry about the \\( y \\)-axis means the two halves are equal — compute one half (e.g. \\( x = 0 \\) to \\( 6 \\)) and multiply by 2."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:mcq:b62a05bb",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "You have \\( \\frac{dy}{dx} = -2x \\) and want the tangent at \\( (3, 0) \\). The gradient of the tangent is:",
+  "options": [
+   "\\( -6 \\)",
+   "\\( -2x \\)",
+   "\\( 3 \\)",
+   "\\( 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Substitute \\( x = 3 \\): gradient \\( = -2(3) = -6 \\). The derivative is only the gradient function; you must evaluate it at the point."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:mcq:831544ee",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is the safest way to manage a 13-mark question in a 100-mark, 2-hour paper?",
+  "options": [
+   "Spend about 15 minutes, banking method marks part by part",
+   "Spend an hour to get it perfect",
+   "Skip it entirely",
+   "Do only the final part"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "At ≈1.2 min/mark, 13 marks ≈ 15 minutes. Working part by part secures method marks even if you cannot finish."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:mcq:1400f29d",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A candidate finds \\( D \\) has \\( y = 4 \\) and writes the answer as \\( (4, 0) \\). This loses a mark because:",
+  "options": [
+   "The coordinate pair is written the wrong way round / with the wrong values",
+   "\\( y = 4 \\) is wrong",
+   "Decimals are not allowed",
+   "Coordinates should be a single number"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( D \\) is on the \\( y \\)-axis at height 4, so it is \\( (0, 4) \\), not \\( (4, 0) \\). Reading the command word 'coordinates' carefully avoids this."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:mcq:87b91c76",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "An 'exact area' answer of \\( \\frac{64}{3} \\) is written by a candidate as \\( 21.3 \\). What happens?",
+  "options": [
+   "It may lose the mark if the question demanded an exact form",
+   "It always earns full marks",
+   "It earns more marks for being simpler",
+   "It is never accepted in any question"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Where a question asks for an exact value, a rounded decimal alone is not exact. If in doubt, give the fraction/surd and the decimal together."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:mcq:aca2dea6",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which pairing is a genuinely synoptic combination seen in real 6993 papers?",
+  "options": [
+   "Curve sketching + calculus + area between curves",
+   "Only completing the square",
+   "Only reading a value off a calculator",
+   "Only naming a shape"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "OCR June 2019 Q12 combines exactly these: show a maximum, sketch, find intersections, then the area between two curves."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:mcq:fa3d82af",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "You cannot finish part (b), which found a length. Part (c) needs that length. The best strategy is:",
+  "options": [
+   "Use a sensible assumed value and continue — ft marks are available",
+   "Leave part (c) blank",
+   "Copy part (a)'s answer",
+   "Rub out all your working"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Mark schemes award follow-through (ft) marks for correct method applied to a wrong earlier value, so always continue."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:tf:ac2a91ad",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Synoptic questions test brand-new content that is not on the specification.",
+  "key": {
+   "answer": false,
+   "explain": "They introduce no new content — the challenge is recognising and combining techniques you already know."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:tf:1be75390",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Every 6993 paper contains at least one unstructured problem-solving question.",
+  "key": {
+   "answer": true,
+   "explain": "The spec guarantees at least one, plus several synoptic questions and 3–4 'detailed reasoning' questions."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:tf:2448a6e0",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "'Hence' means you may ignore the previous part and use any method you like.",
+  "key": {
+   "answer": false,
+   "explain": "'Hence' binds you to use the previous result — it tells you the expected method and saves work."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:tf:d9cc7e49",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\frac{dy}{dx} \\) by itself is the equation of the tangent.",
+  "key": {
+   "answer": false,
+   "explain": "It is the gradient function; substitute the point's x-value to get the numerical gradient, then use \\( y - y_1 = m(x - x_1) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:tf:0f897a9c",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "To find the area between two curves you integrate between their points of intersection.",
+  "key": {
+   "answer": true,
+   "explain": "The region is bounded where the curves meet, so the intersection x-values are the limits; integrate upper minus lower."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:tf:ac71c95e",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "On a 'detailed reasoning' question, a correct calculator answer with no working still earns full marks.",
+  "key": {
+   "answer": false,
+   "explain": "Detailed reasoning awards the marks for the visible analytical method; a bare answer scores 0 even when correct."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:tf:41cc880f",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If you cannot finish an early part, it is always best to leave the rest of the question blank.",
+  "key": {
+   "answer": false,
+   "explain": "Use a sensible assumed value and continue — follow-through marks reward correct method on a wrong earlier answer."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:tf:e1fe001d",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For a figure symmetric about the y-axis, finding one half of the area and doubling is a valid method.",
+  "key": {
+   "answer": true,
+   "explain": "Symmetry makes the halves equal, so computing one half and multiplying by 2 is quicker and less error-prone."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:learn:bef71daf",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What makes a question 'synoptic' or 'unstructured'?",
+  "reading": "<p>Every 6993 paper deliberately mixes topics. Two kinds of question test more than fluency:</p>\n            <ul>\n              <li>A <strong>synoptic</strong> question combines <strong>two or more</strong> areas of the specification in one problem — for example coordinate geometry <em>and</em> calculus, or trigonometry <em>and</em> surds. The spec guarantees several of these each year.</li>\n              <li>An <strong>unstructured</strong> (problem-solving) question gives you <strong>little or no scaffolding</strong>: no \"part (a), part (b)\" ladder telling you what to do next. You must choose the strategy yourself. The spec guarantees <strong>at least one</strong> such question every paper.</li>\n            </ul>\n            <p>Neither introduces new content. Everything you need is a technique you have already met — the difficulty is <strong>recognising which techniques</strong> the question is asking for and <strong>joining them together</strong>. These questions carry the AO3 (problem-solving/modelling) marks, worth roughly a fifth of the paper.</p>\n            <p>A typical synoptic closer is a <strong>10–13 mark</strong> \"extended response\" built from a real context — a roof, a boat, a curve and its tangent. The marks are there for method, so a part-finished answer still scores well.</p>",
+  "question": "What is guaranteed on every 6993 paper?",
+  "options": [
+   "At least one unstructured problem-solving question",
+   "A question on brand-new content not in the spec",
+   "A question with no marks for method",
+   "Exactly one synoptic question"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The spec guarantees at least one unstructured problem-solving question, plus several synoptic ones — all built from techniques you already know."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:learn:6a14b697",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you break a big multi-part question into steps?",
+  "reading": "<p>Read the <strong>whole</strong> question before writing anything, then work through a fixed routine:</p>\n            <table class=\"worked\">\n              <tr><td>1. <strong>Read to the end.</strong> A later part often reveals what an earlier part is <em>for</em>.</td></tr>\n              <tr><td>2. <strong>Name the topics.</strong> Underline the maths words: \"tangent\", \"area\", \"roots\", \"exact\" — each names a technique.</td></tr>\n              <tr><td>3. <strong>Define variables and sketch.</strong> Put the given information on a diagram or in symbols.</td></tr>\n              <tr><td>4. <strong>Attack part by part.</strong> Each part is usually one technique. Finish it and <strong>keep the result</strong> — the next part likely needs it.</td></tr>\n              <tr><td>5. <strong>Watch for \"Hence\".</strong> \"Hence\" is an instruction to <em>use the previous answer</em>, not to start again.</td></tr>\n              <tr><td>6. <strong>Track exact forms and units</strong> right through — do not round early, and give units where the context has them.</td></tr>\n            </table>\n            <p>Even if you cannot finish part (b), you can usually still attempt part (c) using the <strong>given</strong> or assumed value — the mark scheme awards <strong>follow-through (ft)</strong> marks for correct method on a wrong earlier answer.</p>",
+  "question": "Part (c) says 'Hence find...'. What does 'Hence' tell you?",
+  "options": [
+   "Use the result from the previous part",
+   "Start again with a fresh method",
+   "Give the answer as a decimal",
+   "Draw a graph to read it off"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Hence' legally binds you to build on the previous result — it saves work and signals which method the examiner expects."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:learn:9a777a52",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Worked walkthrough: a curve, a tangent and an area",
+  "reading": "<p>This is how one synoptic question decomposes into three familiar techniques. <em>The curve \\( y = 9 - x^2 \\) meets the positive \\( x \\)-axis at P. Find the tangent to the curve at P, and the area between the curve and the \\( x \\)-axis for \\( 0 \\le x \\le 3 \\).</em></p>\n            <table class=\"worked\">\n              <tr><td><strong>Step 1 — coordinate geometry (find P).</strong> On the \\( x \\)-axis \\( y = 0 \\): \\( 9 - x^2 = 0 \\Rightarrow x = 3 \\) (positive root). So \\( P = (3,\\ 0) \\).</td></tr>\n              <tr><td><strong>Step 2 — differentiation (the tangent).</strong> \\( \\frac{dy}{dx} = -2x \\); at \\( x = 3 \\) the gradient is \\( -6 \\). Tangent: \\( y - 0 = -6(x - 3) \\), i.e. \\[ y = -6x + 18. \\]</td></tr>\n              <tr><td><strong>Step 3 — integration (the area).</strong> \\[ \\int_0^3 (9 - x^2)\\,dx = \\left[\\,9x - \\frac{x^3}{3}\\,\\right]_0^3 = 27 - 9 = 18. \\]</td></tr>\n            </table>\n            <p>Three specification areas — CG, CA (differentiation) and CA (integration) — in one problem, each done on its own then joined. Notice the answer to Step 1 <em>feeds</em> Step 2, exactly as parts of a real exam question chain together.</p>",
+  "question": "In the walkthrough, which value from Step 1 is reused in Step 2?",
+  "options": [
+   "The x-coordinate of P, x = 3",
+   "The area, 18",
+   "The gradient, -6",
+   "The constant +18"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Step 2 substitutes P's x-coordinate (3) into dy/dx to get the tangent's gradient — later parts consume earlier results."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:learn:5d436359",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you tackle an unstructured question with no scaffold?",
+  "reading": "<p>With no \"(a), (b), (c)\" to guide you, <strong>you</strong> impose the structure:</p>\n            <ul>\n              <li><strong>Translate to maths.</strong> Turn each sentence into an equation, inequality or diagram. \"A root is \\( x = 2 \\)\" means \\( \\text{f}(2) = 0 \\); \"the line is a tangent\" means the discriminant is \\( 0 \\).</li>\n              <li><strong>Decide the goal, then work backwards.</strong> Ask \"what do I need to reach the answer?\" and set up the intermediate steps to get there.</li>\n              <li><strong>Show every analytical step.</strong> Many unstructured questions carry the \"<em>detailed reasoning</em>\" banner — a calculator answer with no working scores <strong>0</strong>, even if it is right.</li>\n              <li><strong>Never leave it blank.</strong> Writing down the correct starting equation earns method marks; a blank earns nothing.</li>\n            </ul>\n            <p><strong>Mini-example.</strong> \"The equation \\( x^3 - 3x + k = 0 \\) has a root \\( x = 2 \\). Find the other roots.\" No scaffold — but \"root \\( x=2 \\)\" gives \\( 8 - 6 + k = 0 \\Rightarrow k = -2 \\); then \\( x^3 - 3x - 2 = (x - 2)(x^2 + 2x + 1) = (x-2)(x+1)^2 \\), so the other root is \\( x = -1 \\) (repeated).</p>",
+  "question": "An unstructured DR question is answered correctly using only a calculator, with no working. What is the score?",
+  "options": [
+   "Zero — detailed reasoning needs the full method shown",
+   "Full marks — the answer is correct",
+   "Half marks",
+   "Full marks if the answer is exact"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Detailed reasoning' awards all the marks for the visible analytical method; a bare calculator answer scores 0 even when correct."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:learn:f34bf855",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you sanity-check and manage time?",
+  "reading": "<p>The last habits that separate a B from an A on the big questions:</p>\n            <ul>\n              <li><strong>Check against the context.</strong> A length or an area cannot be negative; an angle in a triangle must be under \\( 180^\\circ \\); a probability lies in \\( [0,\\ 1] \\). If your answer breaks the context, you have slipped a sign.</li>\n              <li><strong>Use symmetry.</strong> A symmetric figure (like a roof about its centre line) lets you work one half and <strong>double</strong> — faster and less error-prone.</li>\n              <li><strong>Re-read the command word before you box the answer.</strong> \"Exact\" means surd/fraction, not a decimal; \"coordinates\" means a pair \\( (x,\\ y) \\), not just \\( x \\).</li>\n              <li><strong>Budget time by marks:</strong> roughly \\( 1.2 \\) minutes per mark (\\( 100 \\) marks in \\( 120 \\) minutes). A 13-mark question deserves about \\( 15 \\) minutes — do not sink 30 into it and starve the rest.</li>\n            </ul>\n            <p>If a big question stalls, secure the parts you can, move on, and return with time in hand — a half-finished extended-response question still banks its method marks.</p>",
+  "question": "About how long should you spend on a 13-mark question?",
+  "options": [
+   "Around 15 minutes (≈1.2 min per mark)",
+   "The whole paper",
+   "Exactly 13 minutes then stop",
+   "Under 5 minutes"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "At ≈1.2 minutes per mark (100 marks in 120 minutes), 13 marks is about 15–16 minutes — enough to work carefully without starving the rest."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:learn:eb98cc6f",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Which cross-topic mistakes cost the most marks?",
+  "reading": "<p>Examiner reports flag the same synoptic slips year after year:</p>\n            <ul>\n              <li><strong>Missing the \"Hence\" link</strong> — restarting a part from scratch (e.g. reaching for the quadratic formula when the completed-square form is already there), wasting time and risking errors.</li>\n              <li><strong>Confusing the gradient function with the tangent.</strong> \\( \\frac{dy}{dx} \\) is <em>not</em> the equation of the tangent — you must substitute the point's \\( x \\)-value to get the numerical gradient, then use \\( y - y_1 = m(x - x_1) \\).</li>\n              <li><strong>Wrong limits in area-between-curves.</strong> Integrate between the <strong>intersection points</strong>, subtract \"top minus bottom\", and do <strong>not</strong> divide by 2 unless symmetry genuinely demands it.</li>\n              <li><strong>Forgetting to double (or wrongly doubling)</strong> when a figure is symmetric.</li>\n              <li><strong>Giving up on the unstructured question</strong> — leaving it blank instead of writing the one equation that earns the method mark.</li>\n            </ul>\n            <p>Almost all of these are <em>recognition</em> failures, not arithmetic — which is exactly what these questions are designed to test.</p>",
+  "question": "To find the area between two curves, you integrate between:",
+  "options": [
+   "Their points of intersection, taking top minus bottom",
+   "x = 0 and x = 1 always",
+   "The turning points of each curve",
+   "The y-intercepts"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The region is bounded by where the curves meet, so the limits are the intersection x-values, and the integrand is the upper curve minus the lower."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:misc:0f38ee2f",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Seeing 'Hence solve', a candidate restarts with the quadratic formula.</p><p><strong>✅ The correct idea:</strong> 'Hence' means reuse the previous result. A weak answer restarts and risks fresh errors; a strong answer builds straight on part (a), saving time and marks (a repeated examiner-report complaint).</p>",
+  "question": "'Hence solve f(x) = 0' after completing the square tells you to:",
+  "options": [
+   "Use your completed-square form",
+   "Use the quadratic formula from scratch",
+   "Factorise by trial",
+   "Sketch the graph"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Hence' directs you to the result you already have — the completed-square form."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:misc:a1fd23a4",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For a tangent, a candidate writes the answer as \\( \\frac{dy}{dx} = -2x \\).</p><p><strong>✅ The correct idea:</strong> The derivative is only the gradient function. A strong answer substitutes the point (e.g. \\( x = -6 \\)) to get the numerical gradient, then forms \\( y - y_1 = m(x - x_1) \\). Examiners note many stop at \\( \\frac{dy}{dx} \\).</p>",
+  "question": "After differentiating, the next step for a tangent is to:",
+  "options": [
+   "Substitute the point's x-value for the gradient",
+   "Integrate the derivative",
+   "Set the derivative equal to y",
+   "Stop — the derivative is the tangent"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Evaluate \\( \\frac{dy}{dx} \\) at the point to get the gradient, then build the line equation."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:misc:d4d7f8f9",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For an area between two curves, a candidate integrates and then divides the result by 2.</p><p><strong>✅ The correct idea:</strong> Do not halve unless symmetry genuinely requires it. A weak answer divides by 2 out of habit; a strong answer integrates 'upper − lower' between the intersection points with no extra factor (a specific 2019 examiner-report error).</p>",
+  "question": "When is it correct to double (not halve) an area?",
+  "options": [
+   "When the figure is symmetric and you computed one half",
+   "Always",
+   "Never",
+   "Only for circles"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Doubling is right when you used symmetry to compute one half; unnecessary halving loses the mark."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:misc:4d8cde24",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> A candidate integrates a symmetric roof area from \\( -6 \\) to \\( 6 \\) but forgets the tangent line is only valid on one half.</p><p><strong>✅ The correct idea:</strong> Each tangent line only describes its own half of the roof. A strong answer integrates one half (e.g. \\( 0 \\) to \\( 6 \\)) with the correct line and doubles, or uses each tangent on its own side — flagged in the 2024 report as a cause of 'unreasonably large answers'.</p>",
+  "question": "Why can't you use one tangent's equation across the whole symmetric roof?",
+  "options": [
+   "Each tangent is only valid on its own half",
+   "Tangents have no equation",
+   "The roof is not symmetric",
+   "You must always integrate 0 to 12"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "AD and BD are different lines; each is only valid on its side, so integrate one half and double."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:misc:a299020f",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Facing an unstructured question with no parts, a candidate leaves it blank.</p><p><strong>✅ The correct idea:</strong> Impose your own structure. A weak response gives up; a strong response translates the first sentence into an equation (e.g. \\( \\text{f}(2) = 0 \\)) — that alone often earns the first method mark.</p>",
+  "question": "The best response to a hard unstructured question is to:",
+  "options": [
+   "Write the starting equation and attempt a method",
+   "Leave it blank",
+   "Only write the final answer",
+   "Copy an earlier question"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Even the correct opening equation banks method marks; a blank scores nothing."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:misc:786e6c1c",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> A candidate finds a coordinate's height \\( y = 4 \\) and writes the point as \\( (4, 0) \\).</p><p><strong>✅ The correct idea:</strong> Read the command word 'coordinates'. A strong answer gives the pair in the right order — a point on the y-axis at height 4 is \\( (0, 4) \\). The 2024 report noted candidates who found \\( y = 4 \\) but mis-stated the pair.</p>",
+  "question": "A point on the y-axis at height 4 has coordinates:",
+  "options": [
+   "\\( (0, 4) \\)",
+   "\\( (4, 0) \\)",
+   "\\( 4 \\)",
+   "\\( (4, 4) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "On the y-axis \\( x = 0 \\), so the point is \\( (0, 4) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:tips:1d322a8d",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — The decompose-a-big-question ladder",
+  "reading": "<p><strong>0 marks:</strong> stare at a 13-mark roof question, see \"roof\" and \"area\", panic, write nothing.</p>\n        <p><strong>Partial:</strong> find the points A, B, C (coordinate geometry), then stop — still banks the opening marks.</p>\n        <p><strong>Full marks:</strong> name each topic, do the parts in order — points → tangent → apex → area — reusing each result in the next, using symmetry, and checking the area is positive. Each technique is one you already know; the skill is joining them.</p>",
+  "question": "The key skill in a synoptic question is:",
+  "options": [
+   "Recognising and joining techniques you already know",
+   "Learning new content on the spot",
+   "Working faster than everyone else",
+   "Avoiding all diagrams"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "No new content appears; you identify which known techniques the question spans and chain them together."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:tips:99852377",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Make 'Hence' and follow-through work for you",
+  "reading": "<p>When a part says \"<em>Hence</em>\", reach for your previous answer, not a fresh method — restarting wastes minutes and invites errors. And if an early part defeats you, carry a sensible value forward: examiners award <strong>follow-through</strong> marks for correct method on a wrong number, so a stuck part need not sink the whole question.</p>",
+  "question": "You got part (a) wrong but part (b) needs it. You should:",
+  "options": [
+   "Carry a value forward and keep going for ft marks",
+   "Give up on part (b)",
+   "Guess the final answer only",
+   "Erase part (a)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Follow-through marks reward correct method on a wrong earlier answer, so always continue."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:tips:7aa4e806",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Command words and checks that save marks",
+  "reading": "<p>Before boxing an answer, re-read the command word. <strong>\"Exact\"</strong> → leave the surd/fraction (\\( \\frac{64}{3} \\), not \\( 21.3 \\)); <strong>\"coordinates\"</strong> → a pair \\( (x,\\ y) \\) in the right order; a length or area → must be <strong>positive</strong>; a context with metres → give <strong>units</strong>. These are free marks that tired candidates throw away.</p>",
+  "question": "A question asks for an exact area. Which answer is safest?",
+  "options": [
+   "\\( \\frac{64}{3} \\) (optionally with the decimal)",
+   "\\( 21.3 \\) only",
+   "\\( 21 \\) only",
+   "about 21"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Exact' needs the fraction or surd; adding the decimal is harmless but the exact form earns the mark."
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:fib:91beb420",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A question that combines two or more areas of the specification is described as ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "double",
+    "follow-through",
+    "synoptic",
+    "substitute"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "synoptic"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:fib:580b88af",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A problem-solving question given with little or no scaffolding is described as ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "unstructured",
+    "tangent",
+    "follow-through",
+    "substitute"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "unstructured"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:fib:77fd2ee1",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The command word ___B1___ instructs you to use the result of the previous part rather than start again.",
+  "blankOptions": {
+   "B1": [
+    "hence",
+    "exact",
+    "synoptic",
+    "half"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "hence"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:fib:5424470d",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "To find the area between two curves you integrate the ___B1___ curve minus the lower curve, between their points of ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "gradient",
+    "1.2",
+    "lower",
+    "upper"
+   ],
+   "B2": [
+    "intersection",
+    "exact",
+    "gradient",
+    "double"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "upper",
+    "B2": "intersection"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:fib:acf09cb2",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The derivative \\( \\frac{dy}{dx} \\) gives the ___B1___ function; to get the gradient of a tangent you must ___B2___ the point's x-value.",
+  "blankOptions": {
+   "B1": [
+    "gradient",
+    "1.2",
+    "half",
+    "hence"
+   ],
+   "B2": [
+    "exact",
+    "1.2",
+    "half",
+    "substitute"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "gradient",
+    "B2": "substitute"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:fib:8cb8e7b0",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A mark awarded for a correct method applied to a wrong earlier answer is called a ___B1___ mark.",
+  "blankOptions": {
+   "B1": [
+    "hence",
+    "double",
+    "1.2",
+    "follow-through"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "follow-through"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:fib:c143ab1f",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Because 100 marks are worth 120 minutes, you should budget roughly ___B1___ minutes per mark.",
+  "blankOptions": {
+   "B1": [
+    "double",
+    "substitute",
+    "1.2",
+    "gradient"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "1.2"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:fib:37508953",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "When a figure is symmetric about the y-axis you can find one ___B1___ of the area and then ___B2___ it.",
+  "blankOptions": {
+   "B1": [
+    "half",
+    "synoptic",
+    "1.2",
+    "substitute"
+   ],
+   "B2": [
+    "hence",
+    "double",
+    "lower",
+    "gradient"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "half",
+    "B2": "double"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:73bb5ca0",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Curve + tangent + trapped area”?",
+  "options": [
+   "Use the result of the previous part",
+   "About 15 minutes (≈1.2 min per mark)",
+   "Coordinate geometry, differentiation and integration",
+   "Integrate (upper − lower) between intersections"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Curve + tangent + trapped area” means: Coordinate geometry, differentiation and integration"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:5971034e",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Line is a tangent to a circle”?",
+  "options": [
+   "About 15 minutes (≈1.2 min per mark)",
+   "Full method shown; calculator-only scores 0",
+   "Leave as a surd or fraction, not a decimal",
+   "Substitute, then discriminant = 0"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Line is a tangent to a circle” means: Substitute, then discriminant = 0"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:95fbc6dc",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'A root is \\( x = 2 \\)'”?",
+  "options": [
+   "It must be positive",
+   "Set \\( \\text{f}(2) = 0 \\)",
+   "Coordinate geometry, differentiation and integration",
+   "About 15 minutes (≈1.2 min per mark)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“'A root is \\( x = 2 \\)'” means: Set \\( \\text{f}(2) = 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:0c7d10dd",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Area between two curves”?",
+  "options": [
+   "Substitute, then discriminant = 0",
+   "Correct method on a wrong earlier answer still scores",
+   "Integrate (upper − lower) between intersections",
+   "About 15 minutes (≈1.2 min per mark)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Area between two curves” means: Integrate (upper − lower) between intersections"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:72201fce",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Symmetric figure about the \\( y \\)-axis”?",
+  "options": [
+   "Correct method on a wrong earlier answer still scores",
+   "Work one half, then double",
+   "Set \\( \\text{f}(2) = 0 \\)",
+   "Integrate (upper − lower) between intersections"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Symmetric figure about the \\( y \\)-axis” means: Work one half, then double"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:1e0d66d2",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'Hence' at the start of a part”?",
+  "options": [
+   "Use the result of the previous part",
+   "It must be positive",
+   "Full method shown; calculator-only scores 0",
+   "Leave as a surd or fraction, not a decimal"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“'Hence' at the start of a part” means: Use the result of the previous part"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:f48fbf4d",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'In this question you must show detailed reasoning'”?",
+  "options": [
+   "Use the result of the previous part",
+   "Give an ordered pair \\( (x,\\ y) \\)",
+   "Work one half, then double",
+   "Full method shown; calculator-only scores 0"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“'In this question you must show detailed reasoning'” means: Full method shown; calculator-only scores 0"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:b19850b1",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'Exact' answer required”?",
+  "options": [
+   "Correct method on a wrong earlier answer still scores",
+   "Full method shown; calculator-only scores 0",
+   "Solve \\( \\frac{dy}{dx} = 0 \\)",
+   "Leave as a surd or fraction, not a decimal"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“'Exact' answer required” means: Leave as a surd or fraction, not a decimal"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:a404b2bb",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'Find the coordinates of D'”?",
+  "options": [
+   "Coordinate geometry, differentiation and integration",
+   "Give an ordered pair \\( (x,\\ y) \\)",
+   "Work one half, then double",
+   "About 15 minutes (≈1.2 min per mark)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“'Find the coordinates of D'” means: Give an ordered pair \\( (x,\\ y) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:5ba5cfc5",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Turning point of a curve”?",
+  "options": [
+   "Solve \\( \\frac{dy}{dx} = 0 \\)",
+   "Give an ordered pair \\( (x,\\ y) \\)",
+   "Full method shown; calculator-only scores 0",
+   "Set \\( \\text{f}(2) = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Turning point of a curve” means: Solve \\( \\frac{dy}{dx} = 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:6d266aec",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Nature of a stationary point”?",
+  "options": [
+   "Leave as a surd or fraction, not a decimal",
+   "Full method shown; calculator-only scores 0",
+   "Solve \\( \\frac{dy}{dx} = 0 \\)",
+   "Sign of \\( \\frac{d^2y}{dx^2} \\) (or gradient either side)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Nature of a stationary point” means: Sign of \\( \\frac{d^2y}{dx^2} \\) (or gradient either side)"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:c55a651b",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Time budget on a 13-mark question”?",
+  "options": [
+   "Leave as a surd or fraction, not a decimal",
+   "It must be positive",
+   "Integrate (upper − lower) between intersections",
+   "About 15 minutes (≈1.2 min per mark)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Time budget on a 13-mark question” means: About 15 minutes (≈1.2 min per mark)"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:f6278e99",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Follow-through (ft) mark”?",
+  "options": [
+   "Solve \\( \\frac{dy}{dx} = 0 \\)",
+   "It must be positive",
+   "Set \\( \\text{f}(2) = 0 \\)",
+   "Correct method on a wrong earlier answer still scores"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Follow-through (ft) mark” means: Correct method on a wrong earlier answer still scores"
+  }
+ },
+ {
+  "id": "additional-maths:11-2-synoptic-and-unstructured-problems:match:ddff2b94",
+  "pageId": "additional-maths:11-2-synoptic-and-unstructured-problems",
+  "pageName": "11.2 Synoptic and Unstructured Problems",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Sanity check on an area”?",
+  "options": [
+   "Use the result of the previous part",
+   "Set \\( \\text{f}(2) = 0 \\)",
+   "It must be positive",
+   "Leave as a surd or fraction, not a decimal"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Sanity check on an area” means: It must be positive"
   }
  }
 ];
