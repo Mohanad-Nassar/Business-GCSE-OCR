@@ -4,297 +4,392 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>G.4 Talking About the Past – Interactive Study Guide</title>
+    <title>G.4 Talking About the Past – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Grammar Toolkit · G. Grammar Toolkit</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Grammar Toolkit · G. Grammar Toolkit</div>
             <h1>G.4 Talking About the Past</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>El pretérito, el imperfecto y el pretérito perfecto · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Grammar transformation and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: G.4 Talking About the Past — placeholder, content not yet written
-    // ══════════════════════════════════════
-    const pageMeta = {
-            id: 'g-4-talking-about-the-past',
-            badge: 'AQA GCSE Spanish — Grammar Toolkit · G. Grammar Toolkit',
-            title: 'G.4 Talking About the Past',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: G.4 Talking About the Past  (AQA 8692, Grammar Toolkit)
+    //  Preterite (completed past) vs imperfect (habit/description/ongoing);
+    //  Higher: the perfect tense. All audible Spanish carries data-say="…";
+    //  data-listen makes a prompt audio-only (no transcript shown). Higher-tier
+    //  items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = { id: 'g-4-talking-about-the-past', badge: 'AQA GCSE Spanish (8692) — Grammar Toolkit · G. Grammar Toolkit', title: 'G.4 Talking About the Past', subtitle: 'Interactive study guide', subject: 'spanish' };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>G.4 Talking About the Past</strong> will appear here soon.</p>`
+            title: "How do I form the preterite of regular -AR verbs?",
+            tag: "Key concept",
+            content: `<p>The preterite (<span data-say="el pretérito">el pretérito</span>) describes a <strong>completed action in the past</strong> — something that happened and finished at a specific point in time.</p>
+            <p>Regular <strong>-AR</strong> verbs like <span data-say="hablar">hablar</span> (to speak) follow this pattern:</p>
+            <table class="vocab-tbl">
+              <tr><td>yo</td><td><span data-say="hablé">hablé</span></td><td>nosotros/as</td><td>hablamos</td></tr>
+              <tr><td>tú</td><td>hablaste</td><td>vosotros/as</td><td>hablasteis</td></tr>
+              <tr><td>él/ella/usted</td><td><span data-say="habló">habló</span></td><td>ellos/ellas/ustedes</td><td>hablaron</td></tr>
+            </table>
+            <p>Example: <span data-say="Ayer hablé con mi profesora por teléfono.">Ayer hablé con mi profesora por teléfono.</span> — <em>Yesterday I spoke to my teacher on the phone.</em> Note the accent on <strong>hablé</strong> and <strong>habló</strong> — without it, the meaning changes!</p>`,
+            readCheck: { q: "What is the 'yo' (I) form of 'hablar' in the preterite?", opts: ["hablé", "hablaba", "hablo", "he hablado"], ans: 0, explain: "The 'yo' preterite ending for -AR verbs is -é (with an accent): hablé. 'hablaba' is imperfect, 'hablo' is present, 'he hablado' is perfect." }
+        },
+        {
+            title: "How do I form the preterite of regular -ER/-IR verbs?",
+            tag: "Key concept",
+            content: `<p><strong>-ER</strong> and <strong>-IR</strong> verbs share the SAME preterite endings. Compare <span data-say="comer">comer</span> (to eat) and <span data-say="vivir">vivir</span> (to live):</p>
+            <table class="vocab-tbl">
+              <tr><td>yo</td><td><span data-say="comí">comí</span></td><td><span data-say="viví">viví</span></td></tr>
+              <tr><td>tú</td><td>comiste</td><td>viviste</td></tr>
+              <tr><td>él/ella/usted</td><td><span data-say="comió">comió</span></td><td><span data-say="vivió">vivió</span></td></tr>
+              <tr><td>nosotros/as</td><td>comimos</td><td>vivimos</td></tr>
+              <tr><td>ellos/ellas/ustedes</td><td>comieron</td><td>vivieron</td></tr>
+            </table>
+            <p>Example: <span data-say="Anoche comimos pasta en el restaurante.">Anoche comimos pasta en el restaurante.</span> — <em>Last night we ate pasta at the restaurant.</em></p>`,
+            readCheck: { q: "Which ending do -ER and -IR verbs share for 'él/ella' in the preterite?", opts: ["-ió (comió, vivió)", "-aba, used for every single verb", "-ía, with no exceptions at all", "-ando, added to the stem"], ans: 0, explain: "-ER/-IR verbs share preterite endings: comió, vivió both end in -ió. -aba/-ía are imperfect endings; -ando builds the gerund." }
+        },
+        {
+            title: "What are the key irregular preterites?",
+            tag: "Exam skill",
+            content: `<p>Some very common verbs are IRREGULAR in the preterite — they use different stems and take NO written accent.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="ser">ser</span> / <span data-say="ir">ir</span></td><td><span data-say="fui">fui</span>, fuiste, <span data-say="fue">fue</span>, fuimos, fuisteis, fueron</td></tr>
+              <tr><td><span data-say="hacer">hacer</span></td><td><span data-say="hice">hice</span>, hiciste, hizo, hicimos</td></tr>
+              <tr><td><span data-say="tener">tener</span></td><td><span data-say="tuve">tuve</span>, tuviste, tuvo, tuvimos</td></tr>
+              <tr><td><span data-say="estar">estar</span></td><td><span data-say="estuve">estuve</span>, estuviste, estuvo, estuvimos</td></tr>
+            </table>
+            <p><strong>ser and ir share IDENTICAL forms</strong> in the preterite — only context tells you which one is meant: <span data-say="Fui al cine.">Fui al cine.</span> (I went) vs <span data-say="Fue muy interesante.">Fue muy interesante.</span> (It was).</p>`,
+            readCheck: { q: "'fui' can mean 'I went' OR 'I was', because…", opts: ["ser and ir share identical preterite forms", "the word changes its spelling with meaning", "'fui' only ever means 'I was' in context", "'fui' is a completely regular -IR verb"], ans: 0, explain: "ser (to be) and ir (to go) have exactly the same irregular preterite forms — fui, fuiste, fue… Context tells you which verb is meant." }
+        },
+        {
+            title: "How do I form the imperfect tense?",
+            tag: "Key concept",
+            content: `<p>The imperfect (<span data-say="el imperfecto">el imperfecto</span>) describes what you <strong>used to do</strong>, <strong>was doing</strong>, or how things <strong>were</strong> — no fixed end point.</p>
+            <table class="vocab-tbl">
+              <tr><td>yo</td><td><span data-say="hablaba">hablaba</span></td><td><span data-say="comía">comía</span></td><td><span data-say="vivía">vivía</span></td></tr>
+              <tr><td>tú</td><td>hablabas</td><td>comías</td><td>vivías</td></tr>
+              <tr><td>él/ella</td><td>hablaba</td><td>comía</td><td>vivía</td></tr>
+              <tr><td>nosotros/as</td><td><span data-say="hablábamos">hablábamos</span></td><td>comíamos</td><td>vivíamos</td></tr>
+            </table>
+            <p>Example: <span data-say="Cuando era niño, jugaba al fútbol todos los días.">Cuando era niño, jugaba al fútbol todos los días.</span> — <em>When I was a child, I used to play football every day.</em></p>`,
+            readCheck: { q: "What does the imperfect tense express?", opts: ["a habitual or ongoing past action ('used to')", "a single action completed at one exact moment", "an action that is going to happen soon", "an instruction telling someone what to do"], ans: 0, explain: "The imperfect describes habits, ongoing states or descriptions in the past — 'used to' / 'was -ing'. A single finished action needs the preterite instead." }
+        },
+        {
+            title: "Preterite or imperfect — which do I choose?",
+            tag: "Exam skill",
+            content: `<p>Ask: is it a SINGLE completed event, or a HABIT / DESCRIPTION / ongoing background action?</p>
+            <table class="vocab-tbl">
+              <tr><td><strong>PRETERITE</strong> — one-off, finished</td><td><span data-say="ayer">ayer</span>, <span data-say="el año pasado">el año pasado</span>, <span data-say="el fin de semana pasado">el fin de semana pasado</span>, <span data-say="anoche">anoche</span></td></tr>
+              <tr><td><strong>IMPERFECT</strong> — habit, description, ongoing</td><td><span data-say="normalmente">normalmente</span>, <span data-say="todos los días">todos los días</span>, <span data-say="de pequeño">de pequeño</span>, <span data-say="mientras">mientras</span></td></tr>
+            </table>
+            <p>The two often combine: <span data-say="Mientras yo cocinaba, mi hermano llegó a casa.">Mientras yo cocinaba, mi hermano llegó a casa.</span> — <em>While I was cooking (ongoing, imperfect), my brother arrived (interrupting event, preterite).</em></p>
+            <p>Irregular imperfects: <span data-say="ser">ser</span> → <span data-say="era">era</span>; <span data-say="ir">ir</span> → <span data-say="iba">iba</span>; <span data-say="ver">ver</span> → <span data-say="veía">veía</span>.</p>`,
+            readCheck: { q: "In 'Mientras cocinaba, mi hermano llegó', why is 'llegó' in the preterite?", opts: ["it is the single event that interrupted the ongoing action", "every verb that comes after the word 'mientras' must always be preterite too", "'llegó' describes a repeated daily habit", "the whole sentence is describing the future"], ans: 0, explain: "'cocinaba' (imperfect) sets the ongoing background; 'llegó' (preterite) is the single completed event that broke in." }
+        },
+        {
+            title: "Higher: the perfect tense",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> The perfect tense (<span data-say="el pretérito perfecto">el pretérito perfecto</span>) links the past to NOW — recent past or experience, with no definite time marker like 'ayer'.</p>
+            <p>Form: <strong>haber</strong> + past participle.</p>
+            <table class="vocab-tbl">
+              <tr><td>he</td><td><span data-say="he hablado">he hablado</span></td><td>hemos</td><td>hemos comido</td></tr>
+              <tr><td>has</td><td>has vivido</td><td>habéis</td><td>habéis hecho</td></tr>
+              <tr><td>ha</td><td><span data-say="ha comido">ha comido</span></td><td>han</td><td>han ido</td></tr>
+            </table>
+            <p>Irregular participles: <span data-say="hecho">hecho</span> (hacer), visto (ver), escrito (escribir).</p>
+            <p>Example: <span data-say="Nunca he comido paella.">Nunca he comido paella.</span> — <em>I have never eaten paella.</em></p>`,
+            readCheck: { q: "How is the perfect tense formed?", opts: ["haber (he/has/ha…) + past participle", "the preterite stem plus the ending -aba", "estar + a gerund ending in -ando/-iendo", "the plain infinitive with no changes"], ans: 0, explain: "Perfect = present of haber + past participle: he comido, ha hecho. estar+gerund is the continuous; -aba builds the imperfect." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Ayer fui al cine." data-listen></span><br>Listen. What happened?`, opts: ["I went to the cinema yesterday", "I go to the cinema every single day", "I used to go to the cinema often", "I am going to the cinema later today"], ans: 0, explain: "'Ayer fui al cine' = I went to the cinema yesterday (preterite, one-off past event). The distractors swap it for a habit, present routine or future plan." },
+        { q: `<span data-say="Cuando era niño, jugaba en el parque todos los días." data-listen></span><br>Listen. What is being described?`, opts: ["a childhood habit that happened repeatedly", "a single visit made to the park last Tuesday", "a plan to play at the park next weekend", "an instruction telling a child to go and play"], ans: 0, explain: "'jugaba… todos los días' is the imperfect describing a repeated childhood habit. The others turn it into a single event, a future plan or a command." },
+        { q: `Complete: "Ayer, yo ___ (comer) una hamburguesa enorme."`, opts: ["comí", "comía", "como", "he comido"], ans: 0, explain: "'Ayer' signals a single completed action → preterite: comí. 'comía' is imperfect, 'como' present, 'he comido' perfect (no definite time marker needed there)." },
+        { q: `Complete: "Cuando era pequeña, ___ (vivir) en Madrid."`, opts: ["vivía", "viví", "vivo", "he vivido"], ans: 0, explain: "'Cuando era pequeña' sets up a description of a past state → imperfect: vivía. 'viví' is preterite (single event), 'vivo' present, 'he vivido' perfect." },
+        { q: `Which form means 'I went' (from 'ir')?`, opts: ["fui", "fue", "iba", "voy"], ans: 0, explain: "'fui' (yo) = I went / I was. 'fue' is él/ella, 'iba' is the imperfect (I used to go), 'voy' is present." },
+        { q: `Which sentence correctly says 'I did my homework yesterday'?`, opts: ["Hice los deberes ayer", "Hacía los deberes ayer siempre", "Hago los deberes cada día", "He hecho los deberes ayer"], ans: 0, explain: "'ayer' plus a one-off completed action = preterite: Hice los deberes ayer. 'Hacía…siempre' is imperfect, 'Hago…cada día' is present, 'He hecho' is perfect." },
+        { q: `Complete: "De pequeño, normalmente mi madre se ___ (levantarse) a las seis."`, opts: ["levantaba", "levantó", "levanta", "ha levantado"], ans: 0, explain: "'normalmente' plus a repeated childhood habit = imperfect: se levantaba. 'levantó' is a single occasion, 'levanta' present, 'ha levantado' perfect." },
+        { q: `Higher: which sentence correctly uses the perfect tense for 'I have never eaten paella'?`, opts: ["Nunca he comido paella", "Nunca comí paella el sábado", "Nunca como paella los domingos", "Nunca comía paella de pequeño"], ans: 0, explain: "The perfect (haber + participle) links past experience to now with no definite time marker: Nunca he comido paella. The others add a preterite, present or imperfect time frame." },
+        { q: `Complete: "Mientras yo ___ (cocinar), mi hermano llegó a casa."`, opts: ["cocinaba", "cociné", "cocino", "he cocinado"], ans: 0, explain: "'mientras' introduces the ongoing background action → imperfect: cocinaba, interrupted by the preterite 'llegó'." },
+        { q: `<span data-say="El año pasado, viajé a España con mi familia." data-listen></span><br>Listen. What is being said?`, opts: ["Last year, I travelled to Spain with my family", "Every year, I travel to Spain with my family", "I used to travel to Spain with my family", "Next year, I will travel to Spain with my family"], ans: 0, explain: "'El año pasado, viajé' = Last year, I travelled (preterite, a single trip). The others swap the time frame to present, habitual or future." }
+    ];
+
+    const matchData = [
+        { term: "hablé", def: "I spoke" },
+        { term: "comió", def: "he/she ate" },
+        { term: "vivimos", def: "we lived" },
+        { term: "fui", def: "I went / I was" },
+        { term: "hice", def: "I did / made" },
+        { term: "tuve", def: "I had" },
+        { term: "estuve", def: "I was (place/state)" },
+        { term: "hablaba", def: "I used to speak" },
+        { term: "comía", def: "I used to eat / was eating" },
+        { term: "era", def: "I was (description)" },
+        { term: "iba", def: "I used to go" },
+        { term: "he comido", def: "I have eaten" }
+    ];
+
+    const fibData = [
+        { display: `Ayer, yo _____ (hablar) con mi profesora sobre el examen. <span data-say="Ayer, yo hablé con mi profesora sobre el examen." data-listen>Ayer, yo hablé con mi profesora sobre el examen.</span>`, blanks: { B1: "hablé" } },
+        { display: `El año pasado, nosotros _____ (ir) de vacaciones a Francia. <span data-say="El año pasado, nosotros fuimos de vacaciones a Francia." data-listen>El año pasado, nosotros fuimos de vacaciones a Francia.</span>`, blanks: { B1: "fuimos" } },
+        { display: `De pequeño, yo _____ (vivir) en Sevilla con mis abuelos. (imperfect — describes a past state)`, blanks: { B1: "vivía" } },
+        { display: `Normalmente, mi madre se _____ (levantarse) a las seis. (imperfect — a repeated habit)`, blanks: { B1: "levantaba" } },
+        { display: `Mientras yo cocinaba, mi hermano _____ (llegar) a casa. (the interrupting single event — preterite)`, blanks: { B1: "llegó" } },
+        { display: `Escucha y completa: Ayer _____ en el parque toda la tarde. <span data-say="Ayer estuve en el parque toda la tarde." data-listen></span>`, blanks: { B1: "estuve" } },
+        { display: `Higher: Nunca _____ (comer) paella antes. (perfect tense — haber + participle)`, blanks: { B1: "he comido" } }
+    ];
+    const fibWords = ["hablé", "fuimos", "vivía", "levantaba", "llegó", "estuve", "he comido"];
+
+    const tfData = [
+        { statement: "The preterite describes a completed action in the past.", answer: true, explanation: "hablé, comí, fui — all describe an action that finished at a specific point in time." },
+        { statement: "'fui' can only ever mean 'I was', never 'I went'.", answer: false, explanation: "ser and ir share identical preterite forms — 'fui' can mean 'I went' (ir) or 'I was' (ser); context decides." },
+        { statement: "-ER and -IR verbs share the same preterite endings.", answer: true, explanation: "comí/comió and viví/vivió use identical endings once you strip the stem." },
+        { statement: "The imperfect is used for a single, completed one-off event.", answer: false, explanation: "The imperfect describes habits, ongoing states or descriptions; a single finished event needs the preterite." },
+        { statement: "'era', 'iba' and 'veía' are the only three irregular imperfect verbs.", answer: true, explanation: "ser (era), ir (iba) and ver (veía) are the sole imperfect irregulars — every other verb is regular." },
+        { statement: "'ayer' is a time marker usually paired with the preterite.", answer: true, explanation: "ayer, el año pasado, anoche all point to a finished one-off action → preterite." },
+        { statement: "'normalmente' usually signals the imperfect tense.", answer: true, explanation: "normalmente, todos los días, de pequeño all point to a habit → imperfect." },
+        { statement: "The perfect tense is formed with estar plus a gerund.", answer: false, explanation: "The perfect is haber + past participle (he comido); estar + gerund (-ando/-iendo) builds the continuous instead." }
+    ];
+
+    const miscData = [
+        { wrong: "Ayer jugaba al fútbol con mis amigos.", correct: "Ayer jugué al fútbol con mis amigos.", readCheck: { q: "Why is 'Ayer jugaba…' wrong here?", opts: ["'ayer' signals a single finished event, so it needs the preterite", "'jugaba' is spelt correctly but carries an accent mark it should not have", "'jugar' cannot be used with 'ayer' at all", "the sentence should be in the future tense instead"], ans: 0, explain: "'ayer' = a one-off, completed action → preterite (jugué), not the imperfect (jugaba), which suits habits." } },
+        { wrong: "Cuando era niño, jugué en el parque todos los días.", correct: "Cuando era niño, jugaba en el parque todos los días.", readCheck: { q: "Why is 'jugué…todos los días' wrong here?", opts: ["'todos los días' describes a repeated habit, needing the imperfect", "'todos los días' can only ever be used together with the present tense, never the past", "'todos los días' can only pair with the perfect tense", "the sentence needs a reflexive pronoun instead"], ans: 0, explain: "'todos los días' signals a repeated childhood habit → imperfect (jugaba), not the preterite (jugué), which suits one-off events." } },
+        { wrong: "Yo hací los deberes ayer.", correct: "Yo hice los deberes ayer.", readCheck: { q: "What is wrong with 'hací'?", opts: ["hacer's irregular preterite stem is 'hic-', giving 'hice'", "the ending '-í' used here is actually the completely correct and standard ending for hacer", "'hací' is the correct imperfect form of hacer", "the accent mark has simply been left off 'hací'"], ans: 0, explain: "hacer is irregular in the preterite: hice, hiciste, hizo… There is no form 'hací' — the stem changes to hic-." } },
+        { wrong: "Nunca comí paella.", correct: "Nunca he comido paella.", readCheck: { q: "Why does 'I have never eaten paella' need the perfect, not the preterite?", opts: ["there is no definite past time marker, so the perfect links it to now", "'nunca' can only ever be correctly followed by the imperfect tense in Spanish grammar", "'comí' is actually spelt incorrectly in that sentence", "the preterite cannot be used with any negative word"], ans: 0, explain: "With no time marker like 'ayer', an experience 'up to now' takes the perfect: Nunca he comido paella." } },
+        { wrong: "Mientras cociné, mi hermano llegaba a casa.", correct: "Mientras cocinaba, mi hermano llegó a casa.", readCheck: { q: "Which verb should be the ongoing background action, and which the interrupting event?", opts: ["cocinaba is the ongoing background; llegó is the single interrupting event", "cociné is the ongoing background action here, while llegaba is meant to be the interrupting event", "both verbs must be in the preterite in this sentence", "both verbs must be in the imperfect in this sentence"], ans: 0, explain: "The wrong version swaps the tenses round: the ongoing action (cooking) needs the imperfect, and the single event that interrupts it (arriving) needs the preterite." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Listening for tense endings", pills: ["Listening", "Dictation"], content: "Preterite and imperfect verbs often differ by a single sound. Listen for the stressed final vowel: -é/-ó (preterite: hablé, habló) vs -aba/-ía (imperfect: hablaba, comía). That one sound changes whether it was a finished event or a habit.", readCheck: { q: "You hear the ending '-aba' on a verb. What does that most likely signal?", opts: ["an imperfect form describing a habit or description", "a preterite form that is describing one single finished action in the past", "a command telling someone to do something", "the perfect tense describing an experience"], ans: 0, explain: "-aba is the -AR imperfect ending (hablaba, jugaba) — habits, descriptions, ongoing past actions." } },
+        { type: "tip", title: "Paper 3 — Reading: spot the accent", pills: ["Reading", "Grammar"], content: "A missing or misread accent changes the tense entirely: 'hablo' (I speak, present) vs 'habló' (he/she spoke, preterite); 'hable' (subjunctive) vs 'hablé' (I spoke, preterite). Always check who is doing the action before you translate.", readCheck: { q: "What is the key difference between 'hablo' and 'habló' in a reading text?", opts: ["'hablo' is present tense (I), 'habló' is preterite (he/she)", "they are simply two different but interchangeable spellings of the exact same word", "'habló' is always the correct spelling to use", "there is no real difference in meaning between them"], ans: 0, explain: "The accent moves the stress and changes both tense and subject: hablo = I speak (now); habló = he/she spoke (finished)." } },
+        { type: "evaluate", title: "Paper 4 — Writing: mix your past tenses", pills: ["Writing", "Higher"], content: "Top-band answers combine tenses naturally: a preterite for a single trip, an imperfect for a childhood habit, and (Higher) a perfect for an experience with no date. Example: 'El año pasado fui a España. Cuando era niño, iba todos los veranos. Nunca he visitado Barcelona.'", readCheck: { q: "Which answer shows the widest and most accurate range of past tenses?", opts: ["El año pasado fui a España; de niño iba cada verano; nunca he visitado Barcelona", "Fui a España, fui a Francia, fui a Italia y también fui a Portugal el año pasado otra vez", "Voy a España todos los años porque me gusta mucho viajar", "España es un país muy bonito con playas y montañas"], ans: 0, explain: "It combines preterite (fui), imperfect (iba) and perfect (he visitado) accurately — range, not just length or repetition." } }
+    ];
+
+    const flashcards = [
+        { term: "hablé", def: "I spoke", say: "hablé" },
+        { term: "hablaste", def: "you spoke", say: "hablaste" },
+        { term: "habló", def: "he/she spoke", say: "habló" },
+        { term: "comí", def: "I ate", say: "comí" },
+        { term: "comió", def: "he/she ate", say: "comió" },
+        { term: "viví", def: "I lived", say: "viví" },
+        { term: "fui (ir)", def: "I went", say: "fui" },
+        { term: "fui (ser)", def: "I was", say: "fui" },
+        { term: "hice", def: "I did / made", say: "hice" },
+        { term: "tuve", def: "I had", say: "tuve" },
+        { term: "estuve", def: "I was (place/state)", say: "estuve" },
+        { term: "hablaba", def: "I used to speak", say: "hablaba" },
+        { term: "comía", def: "I used to eat / was eating", say: "comía" },
+        { term: "vivía", def: "I used to live", say: "vivía" },
+        { term: "era", def: "I was (description)", say: "era" },
+        { term: "iba", def: "I used to go", say: "iba" },
+        { term: "veía", def: "I used to see / watch", say: "veía" },
+        { term: "he comido (H)", def: "I have eaten", say: "he comido" }
+    ];
+
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: 1, marks: 5, type: "written",
+            question: "Complete each sentence with the correct form of the verb in brackets (preterite or imperfect).<br>(a) Ayer, yo ___ (ir) al cine con mi hermano. (1)<br>(b) De pequeño, mi abuelo ___ (vivir) en un pueblo pequeño. (1)<br>(c) El año pasado, nosotros ___ (hacer) un viaje a Italia. (1)<br>(d) Mientras mi madre ___ (cocinar), yo puse la mesa. (1)<br>(e) Normalmente, los sábados yo ___ (levantarse) tarde. (1)",
+            hint: "Look for the time clue in each sentence: 'ayer'/'el año pasado' = a single finished event (preterite); 'de pequeño'/'mientras'/'normalmente' = a habit or ongoing background action (imperfect).",
+            starter: "(a) Ayer, yo… (b) De pequeño, mi abuelo… (c) El año pasado, nosotros… (d) Mientras mi madre… (e) Normalmente, yo…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO2 Grammar)</h5><ul>
+                <li><strong>(a)</strong> fui <em>(1)</em> — 'ayer' = single event → preterite.</li>
+                <li><strong>(b)</strong> vivía <em>(1)</em> — 'de pequeño' = past description → imperfect.</li>
+                <li><strong>(c)</strong> hicimos <em>(1)</em> — 'el año pasado' = single event → preterite.</li>
+                <li><strong>(d)</strong> cocinaba <em>(1)</em> — ongoing background action interrupted by 'puse' → imperfect.</li>
+                <li><strong>(e)</strong> me levantaba <em>(1)</em> — 'normalmente' = repeated habit → imperfect.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>One mark per correctly-conjugated verb; accept minor accent slips if the tense is clearly right.</li>
+            </ul></div>`,
+            modelAnswer: "(a) fui. (b) vivía. (c) hicimos. (d) cocinaba. (e) me levantaba.",
+            markPoints: { note: "One tick per correctly-conjugated verb; cap at 5.", groups: [
+                { label: "(a) fui — 1", max: 1, points: ["fui"] },
+                { label: "(b) vivía — 1", max: 1, points: ["vivía"] },
+                { label: "(c) hicimos — 1", max: 1, points: ["hicimos"] },
+                { label: "(d) cocinaba — 1", max: 1, points: ["cocinaba"] },
+                { label: "(e) me levantaba — 1", max: 1, points: ["me levantaba"] }
+            ] }
+        },
+        {
+            num: 2, marks: 6, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) Last year I travelled to Mexico. <br>(b) When I was young, I used to go to the beach every summer. <br>(c) I have never visited Peru.",
+            hint: "'Last year' + a single trip = preterite (viajé). 'Used to go every summer' = a repeated habit = imperfect (iba). 'I have never visited' with no exact date = the perfect (he visitado).",
+            starter: "(a) El año pasado… (b) Cuando era joven,… (c) Nunca…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> El año pasado <em>(1)</em> viajé a México <em>(1)</em>.</li>
+                <li><strong>(b)</strong> Cuando era joven/niño, iba a la playa <em>(1)</em> todos los veranos <em>(1)</em>.</li>
+                <li><strong>(c)</strong> Nunca <em>(1)</em> he visitado Perú <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. The tense choice (preterite/imperfect/perfect) must be correct for the mark.</li>
+            </ul></div>`,
+            modelAnswer: "(a) El año pasado viajé a México. (b) Cuando era joven, iba a la playa todos los veranos. (c) Nunca he visitado Perú.",
+            markPoints: { note: "One tick per scheme point; cap at 6.", groups: [
+                { label: "(a)", max: 2, points: ["El año pasado", "viajé a México"] },
+                { label: "(b)", max: 2, points: ["iba a la playa", "todos los veranos"] },
+                { label: "(c)", max: 2, points: ["Nunca", "he visitado Perú"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

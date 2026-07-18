@@ -4,297 +4,389 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>P.1 Spanish Sounds and the Alphabet – Interactive Study Guide</title>
+    <title>P.1 Spanish Sounds and the Alphabet – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Phonics · P. Phonics & Sound-Symbol</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Phonics · P. Phonics &amp; Sound-Symbol</div>
             <h1>P.1 Spanish Sounds and the Alphabet</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Los sonidos del español y el alfabeto · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear every sound.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Many questions play audio — tap 🔊 and choose what you hear.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The pronunciation traps English speakers fall into.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How phonics is rewarded across the four papers.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Read-aloud and dictation practice. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: P.1 Spanish Sounds and the Alphabet — placeholder, content not yet written
-    // ══════════════════════════════════════
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: P.1 Spanish sounds and the alphabet  (AQA 8692, Appendix 1 SSCs)
+    //  Audible Spanish carries data-say="…"; data-listen makes a prompt audio-only.
+    //  Example words are the spec's own SSC examples (all on the wordlist).
+    //  Option-writing follows docs/QUESTION-AUTHORING.md (no length tell).
+    // ══════════════════════════════════════════════════════════════════
     const pageMeta = {
-            id: 'p-1-spanish-sounds-and-the-alphabet',
-            badge: 'AQA GCSE Spanish — Phonics · P. Phonics & Sound-Symbol',
-            title: 'P.1 Spanish Sounds and the Alphabet',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+        id: 'p-1-spanish-sounds-and-the-alphabet',
+        badge: 'AQA GCSE Spanish (8692) — Phonics · P. Phonics & Sound-Symbol',
+        title: 'P.1 Spanish Sounds and the Alphabet',
+        subtitle: 'Interactive study guide',
+        subject: 'spanish',
+    };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>P.1 Spanish Sounds and the Alphabet</strong> will appear here soon.</p>`
+            title: "The five vowel sounds — short, pure, always the same",
+            tag: "Key concept",
+            content: `<p>Spanish has <strong>five</strong> vowel sounds and they <strong>never change</strong> — unlike English. Each is short and crisp. Tap 🔊 to hear them.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="a">a</span> — like ‘cat’</td><td><span data-say="alto">alto</span>, <span data-say="antes">antes</span></td></tr>
+              <tr><td><span data-say="e">e</span> — like ‘pet’</td><td><span data-say="español">español</span>, <span data-say="medio">medio</span></td></tr>
+              <tr><td><span data-say="i">i</span> — like ‘see’</td><td><span data-say="idea">idea</span>, <span data-say="iglesia">iglesia</span></td></tr>
+              <tr><td><span data-say="o">o</span> — like ‘hot’</td><td><span data-say="dos">dos</span>, <span data-say="cinco">cinco</span></td></tr>
+              <tr><td><span data-say="u">u</span> — like ‘boot’</td><td><span data-say="universidad">universidad</span>, <span data-say="instituto">instituto</span></td></tr>
+            </table>
+            <p>Never let a vowel ‘glide’ the way English does — keep it pure and even.</p>`,
+            readCheck: { q: "How many vowel sounds does Spanish have, and do they change?", opts: ["Five, and they stay the same", "Twelve different ones, like in English", "Five, but they glide", "Three main ones only"], ans: 0, explain: "Five pure vowels (a, e, i, o, u) that never change — the foundation of clear Spanish." }
+        },
+        {
+            title: "The alphabet and the extra letter ñ",
+            tag: "Key concept",
+            content: `<p>The Spanish alphabet is the same as English plus one extra letter: <strong>ñ</strong> (‘eñe’). Some useful letter names: <span data-say="be">be</span> (b), <span data-say="ce">ce</span> (c), <span data-say="jota">jota</span> (j), <span data-say="hache">hache</span> (h), <span data-say="uve">uve</span> (v), <span data-say="i griega">i griega</span> (y).</p>
+            <ul>
+              <li><strong>ñ</strong> = the ‘ny’ sound in ‘onion’: <span data-say="mañana">mañana</span>, <span data-say="cumpleaños">cumpleaños</span>.</li>
+              <li>Spelling aloud matters for the exam — practise spelling your name and town.</li>
+            </ul>`,
+            readCheck: { q: "Which letter is unique to the Spanish alphabet?", opts: ["ñ", "k", "w", "q"], ans: 0, explain: "ñ (eñe) is the extra letter; it makes the ‘ny’ sound as in mañana." }
+        },
+        {
+            title: "Stress and the written accent (á é í ó ú)",
+            tag: "Exam skill",
+            content: `<p>Two simple rules tell you which syllable is stressed:</p>
+            <ul>
+              <li>Words ending in a <strong>vowel, n or s</strong> → stress the <strong>second-to-last</strong> syllable: <span data-say="hablo">hablo</span>, <span data-say="joven">joven</span>.</li>
+              <li>Words ending in any <strong>other consonant</strong> → stress the <strong>last</strong> syllable: <span data-say="hablar">hablar</span>, <span data-say="ciudad">ciudad</span>.</li>
+              <li>A <strong>written accent</strong> overrides both and shows the stress: <span data-say="región">región</span>, <span data-say="sonreír">sonreír</span>.</li>
+            </ul>
+            <p>Accents can change meaning: <span data-say="sí">sí</span> (yes) vs <em>si</em> (if); <span data-say="él">él</span> (he) vs <em>el</em> (the). The upside-down <strong>¿ ¡</strong> open questions and exclamations.</p>`,
+            readCheck: { q: "‘hablar’ ends in ‑r. Which syllable is stressed?", opts: ["the last one (ha-blar)", "none of them — it needs a written accent", "the first one (ha-blar)", "the middle one"], ans: 0, explain: "Ending in a consonant other than n/s → stress the final syllable: ha-BLAR." }
+        },
+        {
+            title: "The letter C: two sounds (+ Z and QU)",
+            tag: "Exam skill",
+            content: `<p>The letter <strong>c</strong> makes two different sounds depending on the next letter:</p>
+            <table class="vocab-tbl">
+              <tr><td><strong>ca, co, cu</strong> → hard /k/</td><td><span data-say="casa">casa</span>, <span data-say="coche">coche</span>, <span data-say="escuchar">escuchar</span></td></tr>
+              <tr><td><strong>ce, ci</strong> → soft ‘th’ (Spain)</td><td><span data-say="cerca">cerca</span>, <span data-say="cinco">cinco</span></td></tr>
+            </table>
+            <ul>
+              <li><strong>z</strong> makes the same soft sound as ce/ci: <span data-say="zona">zona</span>, <span data-say="manzana">manzana</span>.</li>
+              <li>To get a hard /k/ before e or i, Spanish uses <strong>que, qui</strong> (the u is silent): <span data-say="porque">porque</span>, <span data-say="quince">quince</span>.</li>
+            </ul>`,
+            readCheck: { q: "How is the ‘c’ in ‘cinco’ pronounced?", opts: ["soft (like ‘th’ / ‘s’)", "just like an English ‘ch’ sound", "hard, like ‘k’", "silent"], ans: 0, explain: "c before e or i is soft; before a/o/u it is hard /k/. So cinco = ‘thin-ko’." }
+        },
+        {
+            title: "The letter G, and GUE / GUI",
+            tag: "Exam skill",
+            content: `<p>Like c, the letter <strong>g</strong> makes two sounds:</p>
+            <table class="vocab-tbl">
+              <tr><td><strong>ga, go, gu</strong> → hard /g/</td><td><span data-say="gato">gato</span>, <span data-say="largo">largo</span>, <span data-say="preguntar">preguntar</span></td></tr>
+              <tr><td><strong>ge, gi</strong> → throaty /x/ (like ‘loch’)</td><td><span data-say="gente">gente</span>, <span data-say="gimnasio">gimnasio</span></td></tr>
+            </table>
+            <ul>
+              <li>To keep a hard /g/ before e or i, add a silent <strong>u</strong>: <span data-say="hamburguesa">hamburguesa</span>, <span data-say="guitarra">guitarra</span>.</li>
+            </ul>`,
+            readCheck: { q: "How is the ‘g’ in ‘gente’ pronounced?", opts: ["throaty, like the ‘ch’ in ‘loch’", "like an English ‘j’ as in the word ‘jam’ exactly", "hard, like ‘g’ in ‘go’", "silent"], ans: 0, explain: "g before e or i is the throaty /x/ sound; before a/o/u it is a hard /g/." }
+        },
+        {
+            title: "Why sounds matter in the exam",
+            tag: "Exam skill",
+            content: `<p>Sound-Symbol Correspondences (SSCs) are tested directly:</p>
+            <ul>
+              <li><strong>Paper 2 (Speaking): Read-aloud</strong> — you read a short text out loud and are marked on accurate sounds.</li>
+              <li><strong>Paper 1 (Listening): Dictation</strong> — you write down what you hear, so you must link sound → spelling.</li>
+            </ul>
+            <p>Master a few rules (soft c, throaty g, silent h, rolled r) and both tasks become far easier. <span class="tier-h">H</span> Higher texts are longer, but the same rules apply.</p>`,
+            readCheck: { q: "Which TWO papers test your sound knowledge most directly?", opts: ["Speaking (read-aloud) and Listening (dictation)", "The Reading paper and the Writing paper only, nothing else", "Writing and Speaking essays", "None — sounds aren't assessed"], ans: 0, explain: "Read-aloud (Paper 2) and dictation (Paper 1) both reward accurate sound-symbol links." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="cinco" data-listen></span><br>Listen. How is the ‘c’ sound here?`, opts: ["soft, like ‘th’ / ‘s’", "hard, like ‘k’ in ‘cat’", "silent, not pronounced", "rolled like a Spanish ‘r’"], ans: 0, explain: "‘cinco’ — c before i is soft. (Before a/o/u it would be hard.)" },
+        { q: `<span data-say="gato" data-listen></span><br>Listen. The ‘g’ sound is…`, opts: ["hard, like ‘g’ in ‘go’", "throaty, like the ‘ch’ in ‘loch’", "silent", "soft like an English ‘j’"], ans: 0, explain: "‘gato’ — g before a is hard. (Before e/i it is the throaty sound.)" },
+        { q: `<span data-say="mañana" data-listen></span><br>Listen. Which spelling did you hear?`, opts: ["mañana", "manana", "manyana", "maniana"], ans: 0, explain: "The ‘ny’ sound is written ñ: mañana." },
+        { q: "The five Spanish vowels are best described as…", opts: ["short and always the same", "long and changing, like English", "silent most of the time", "only used in stressed syllables"], ans: 0, explain: "Spanish vowels are pure, short and consistent." },
+        { q: "‘hablar’ ends in ‑r. Where is the stress?", opts: ["the final syllable", "the first syllable", "spread evenly across it", "shown by a written accent"], ans: 0, explain: "Ending in a consonant (not n/s) → stress the last syllable: ha-BLAR." },
+        { q: "To write a hard /k/ sound before ‘e’, Spanish uses…", opts: ["qu (as in porque)", "just the letter c (as in cerca)", "the letter k in every case", "z (as in zona)"], ans: 0, explain: "que/qui give a hard /k/ (silent u); ‘c’ before e/i is soft." },
+        { q: "Which word has the throaty /x/ ‘g’ sound?", opts: ["gimnasio", "gato", "largo", "guitarra"], ans: 0, explain: "g before i (gimnasio) is throaty; the others are hard /g/." },
+        { q: `<span data-say="zona" data-listen></span><br>Listen. The ‘z’ sound matches which letters?`, opts: ["ce / ci (soft)", "ca / co (hard)", "qu (hard k)", "ñ (ny)"], ans: 0, explain: "z makes the same soft sound as ce/ci." },
+        { q: "Why does ‘guitarra’ have a ‘u’ after the g?", opts: ["to keep the g hard before ‘i’", "because every single g must be followed by a u", "to make the g throaty", "to add an extra syllable"], ans: 0, explain: "gue/gui keep a hard /g/ before e/i; the u is silent." },
+        { q: "A written accent (as in ‘región’) tells you…", opts: ["which syllable is stressed", "that you should whisper the whole word", "the word is plural", "to roll the r"], ans: 0, explain: "The accent marks the stressed syllable (and can change meaning)." }
+    ];
+
+    const matchData = [
+        { term: "a, e, i, o, u", def: "five pure, short vowels" },
+        { term: "ñ", def: "the ‘ny’ sound (mañana)" },
+        { term: "ca, co, cu", def: "hard /k/ sound" },
+        { term: "ce, ci", def: "soft ‘th’ / ‘s’ sound" },
+        { term: "z", def: "same soft sound as ce/ci" },
+        { term: "que, qui", def: "hard /k/ (silent u)" },
+        { term: "ga, go, gu", def: "hard /g/ sound" },
+        { term: "ge, gi", def: "throaty /x/ sound" },
+        { term: "gue, gui", def: "hard /g/ (silent u)" },
+        { term: "written accent (é)", def: "marks the stressed syllable" },
+        { term: "¿ ¡", def: "open a question / exclamation" },
+        { term: "hache (h)", def: "the silent letter" }
+    ];
+
+    const fibData = [
+        { display: `The word for ‘five’ is _____. <span data-say="cinco" data-listen>cinco</span>`, blanks: { B1: "cinco" } },
+        { display: `The ‘ny’ sound word for ‘tomorrow’ is ma_____a. <span data-say="mañana" data-listen>mañana</span>`, blanks: { B1: "ñan" } },
+        { display: `To keep a hard g before i, we write gu_____arra. <span data-say="guitarra" data-listen>guitarra</span>`, blanks: { B1: "it" } },
+        { display: `c before e or i sounds _____. (hard or soft?)`, blanks: { B1: "soft" } },
+        { display: `Words ending in a vowel, n or s stress the _____-to-last syllable. (which one?)`, blanks: { B1: "second" } },
+        { display: `The extra Spanish letter is _____. (its symbol)`, blanks: { B1: "ñ" } },
+        { display: `g before e or i is _____. (hard or throaty?)`, blanks: { B1: "throaty" } }
+    ];
+    const fibWords = ["cinco", "ñan", "it", "soft", "second", "ñ", "throaty"];
+
+    const tfData = [
+        { statement: "Spanish vowels change their sound depending on the word, like English.", answer: false, explanation: "Spanish vowels are pure and always the same." },
+        { statement: "‘ñ’ is a separate letter of the Spanish alphabet.", answer: true, explanation: "ñ (eñe) is a distinct letter; it makes the ‘ny’ sound." },
+        { statement: "c before e or i is pronounced soft (like ‘th’/‘s’).", answer: true, explanation: "ce/ci are soft; ca/co/cu are hard /k/." },
+        { statement: "The letter h is usually silent in Spanish.", answer: true, explanation: "h is silent: hospital, hoy." },
+        { statement: "‘que’ and ‘qui’ give a soft ‘s’ sound.", answer: false, explanation: "They give a hard /k/ (the u is silent)." },
+        { statement: "A written accent shows which syllable is stressed.", answer: true, explanation: "It marks stress and can change meaning (sí vs si)." },
+        { statement: "g before a, o or u is hard, as in ‘gato’.", answer: true, explanation: "ga/go/gu are hard; ge/gi are throaty." },
+        { statement: "Words ending in ‑r stress the second-to-last syllable.", answer: false, explanation: "Ending in a consonant (not n/s) → stress the LAST syllable (ha-BLAR)." }
+    ];
+
+    const miscData = [
+        { wrong: "Pronouncing ‘v’ (verde) like an English ‘v’.", correct: "Spanish v sounds almost like a soft ‘b’: verde.", readCheck: { q: "How is Spanish ‘v’ (verde) pronounced?", opts: ["almost like a soft ‘b’", "exactly like an English ‘v’", "like an English ‘f’", "it is always silent"], ans: 0, explain: "v and b sound almost identical in Spanish — a soft ‘b’." } },
+        { wrong: "Saying the ‘h’ in ‘hospital’.", correct: "The h is silent: ‘ospital’.", readCheck: { q: "How do you pronounce the h in ‘hospital’?", opts: ["you don't — it is silent", "as a strong English ‘h’ sound", "as a throaty sound", "as a ‘j’"], ans: 0, explain: "h is silent in Spanish (hospital, hoy)." } },
+        { wrong: "Reading ‘gente’ with a hard English ‘g’.", correct: "g before e/i is throaty: ‘hente’.", readCheck: { q: "The g in ‘gente’ should sound…", opts: ["throaty, like ‘loch’", "like an English ‘j’ in ‘jam’", "hard, like ‘go’", "silent"], ans: 0, explain: "g before e/i is the throaty /x/, not a hard g." } },
+        { wrong: "Reading ‘ce’ in ‘cerca’ as a hard ‘k’.", correct: "c before e/i is soft: ‘therka’.", readCheck: { q: "The c in ‘cerca’ is…", opts: ["soft (‘th’/‘s’)", "hard, like ‘k’", "silent", "a throaty sound"], ans: 0, explain: "c before e/i is soft; only ca/co/cu are hard." } },
+        { wrong: "Letting vowels glide, e.g. ‘no’ → ‘nou’.", correct: "Keep vowels pure and short: ‘no’.", readCheck: { q: "How should you say a Spanish vowel like the ‘o’ in ‘no’?", opts: ["short and pure, no glide", "long, gliding towards an ‘ou’ sound", "silent unless stressed", "rolled"], ans: 0, explain: "Spanish vowels never glide — keep them crisp." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 2 — Read-aloud (speaking)", pills: ["Speaking", "Phonics"], content: "Before you read, scan for the traps: soft c/z, throaty ge/gi, silent h, and the vowels. Read slowly and evenly — accurate sounds beat speed. Rolling the rr and keeping vowels pure make the biggest difference.", readCheck: { q: "What matters most in the read-aloud task?", opts: ["accurate sounds, read steadily", "reading it as fast as you possibly can", "a loud English accent", "skipping the hard words"], ans: 0, explain: "You're marked on accurate pronunciation, not speed." } },
+        { type: "tip", title: "Paper 1 — Dictation (listening)", pills: ["Listening", "Dictation"], content: "Link sound to spelling: a soft ‘th’ could be c (ce/ci) or z; a throaty sound is ge/gi or j; a silent h still gets written. Say the word in your head and picture the letters.", readCheck: { q: "You hear a throaty sound before an ‘e’. It is most likely spelt…", opts: ["ge or j", "gue or gui", "ca", "qu"], ans: 0, explain: "The throaty /x/ before e is ge (or j); gue would be a hard g." } },
+        { type: "evaluate", title: "Paper 4 — Accents in writing", pills: ["Writing", "Accuracy"], content: "In written Spanish, missing or wrong accents can cost accuracy marks and even change meaning (sí/si, él/el). When you learn a word, learn its accent as part of the spelling.", readCheck: { q: "Why do written accents matter in Paper 4?", opts: ["they affect accuracy and can change meaning", "they only ever matter when you are speaking aloud", "they are optional decoration", "they show the plural"], ans: 0, explain: "Accents carry meaning and accuracy marks (sí = yes vs si = if)." } }
+    ];
+
+    const flashcards = [
+        { term: "a, e, i, o, u", def: "five short, pure vowels", say: "a, e, i, o, u" },
+        { term: "ñ (eñe)", def: "the ‘ny’ sound — mañana", say: "mañana" },
+        { term: "ca, co, cu", def: "hard /k/ — casa, coche", say: "casa, coche" },
+        { term: "ce, ci", def: "soft ‘th’/‘s’ — cerca, cinco", say: "cerca, cinco" },
+        { term: "z", def: "soft sound — zona, manzana", say: "zona, manzana" },
+        { term: "que, qui", def: "hard /k/, silent u — porque, quince", say: "porque, quince" },
+        { term: "ga, go, gu", def: "hard /g/ — gato, largo", say: "gato, largo" },
+        { term: "ge, gi", def: "throaty /x/ — gente, gimnasio", say: "gente, gimnasio" },
+        { term: "gue, gui", def: "hard /g/, silent u — guitarra", say: "hamburguesa, guitarra" },
+        { term: "silent h", def: "not pronounced — hospital, hoy", say: "hospital, hoy" },
+        { term: "written accent (é)", def: "marks the stressed syllable", say: "región" },
+        { term: "¿ ? · ¡ !", def: "open a question / exclamation", say: "¿qué tal?" },
+        { term: "stress rule 1", def: "vowel/n/s → 2nd-to-last syllable", say: "hablo, joven" },
+        { term: "stress rule 2", def: "other consonant → last syllable", say: "hablar, ciudad" },
+        { term: "sí vs si", def: "yes vs if — accent changes meaning", say: "sí, si" },
+        { term: "el alfabeto", def: "same as English + ñ", say: "el alfabeto" },
+        { term: "jota (j)", def: "throaty sound — ojo, naranja", say: "ojo, naranja" },
+        { term: "uve (v)", def: "soft ‘b’ sound — verde, verdad", say: "verde, verdad" }
+    ];
+
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: 1, marks: 5, type: "written",
+            question: `<strong>Read-aloud practice.</strong> Read this text out loud, then tick the sounds you produced correctly.<br><br><em>«Hola. Me llamo Guille. Vivo en una ciudad grande y voy al gimnasio los jueves. La gente aquí es muy simpática.»</em><br><br>Hear a model first: 🔊 <span data-say="Hola. Me llamo Guille. Vivo en una ciudad grande y voy al gimnasio los jueves. La gente aquí es muy simpática.">model</span>`,
+            hint: "Watch: gui (hard g), ciudad (soft c), gimnasio & gente (throaty g), jueves (throaty j), the silent h in Hola, and pure vowels.",
+            starter: "Read slowly and evenly — accurate sounds, not speed.",
+            markScheme: `<div class="marks-section"><h5>Self-mark — 5 pronunciation points</h5><ul>
+                <li>Silent <strong>h</strong> in ‘Hola’ (not an English h).</li>
+                <li><strong>gui</strong> in ‘Guille’ = hard g (silent u).</li>
+                <li>Soft <strong>c</strong> in ‘ciudad’ (‘th’/‘s’, not ‘k’).</li>
+                <li>Throaty <strong>g/j</strong> in ‘gimnasio’, ‘gente’, ‘jueves’.</li>
+                <li>Pure, even <strong>vowels</strong> throughout.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Tick each feature you produced correctly. In the real NEA an examiner rewards clear, comprehensible pronunciation.</li>
+            </ul></div>`,
+            modelAnswer: "Accurate reading: silent h, hard gui, soft ciudad, throaty gimnasio/gente/jueves, pure vowels.",
+            markPoints: { note: "Tick each sound you produced correctly; cap at 5.", groups: [
+                { label: "Silent h", max: 1, points: ["‘Hola’ read with a silent h"] },
+                { label: "Hard gui", max: 1, points: ["‘Guille’ with a hard g, silent u"] },
+                { label: "Soft c", max: 1, points: ["‘ciudad’ with a soft c"] },
+                { label: "Throaty g/j", max: 1, points: ["‘gimnasio/gente/jueves’ throaty"] },
+                { label: "Pure vowels", max: 1, points: ["vowels kept short and pure"] }
+            ] }
+        },
+        {
+            num: 2, marks: 4, type: "written",
+            question: `<strong>Dictation.</strong> Listen and write the four words you hear, then check them.<br>🔊 <span data-say="cinco" data-listen>word 1</span> &nbsp; 🔊 <span data-say="gente" data-listen>word 2</span> &nbsp; 🔊 <span data-say="guitarra" data-listen>word 3</span> &nbsp; 🔊 <span data-say="mañana" data-listen>word 4</span>`,
+            hint: "Think about the sound rules: soft c, throaty g vs hard gui, the ‘ny’ = ñ.",
+            starter: "1 … 2 … 3 … 4 …",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks</h5><ul>
+                <li>1 = <strong>cinco</strong> (soft c) · 2 = <strong>gente</strong> (throaty g) · 3 = <strong>guitarra</strong> (hard gui) · 4 = <strong>mañana</strong> (ñ).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>1 mark per correctly-spelt word. Minor accent slips are condoned once.</li>
+            </ul></div>`,
+            modelAnswer: "1 cinco · 2 gente · 3 guitarra · 4 mañana",
+            markPoints: { note: "One tick per correctly-spelt word; cap at 4.", groups: [
+                { label: "Word 1", max: 1, points: ["cinco"] },
+                { label: "Word 2", max: 1, points: ["gente"] },
+                { label: "Word 3", max: 1, points: ["guitarra"] },
+                { label: "Word 4", max: 1, points: ["mañana"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

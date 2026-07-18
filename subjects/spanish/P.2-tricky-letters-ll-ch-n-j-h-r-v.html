@@ -4,297 +4,388 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>P.2 Tricky Letters: ll, ch, ñ, j, h, r, v – Interactive Study Guide</title>
+    <title>P.2 Tricky Letters: ll, ch, ñ, j, h, r, v – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Phonics · P. Phonics & Sound-Symbol</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Phonics · P. Phonics &amp; Sound-Symbol</div>
             <h1>P.2 Tricky Letters: ll, ch, ñ, j, h, r, v</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Las letras difíciles del español · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear every sound.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Many questions play audio — tap 🔊 and choose what you hear.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The pronunciation traps English speakers fall into.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How phonics is rewarded across the four papers.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Read-aloud and dictation practice. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: P.2 Tricky Letters: ll, ch, ñ, j, h, r, v — placeholder, content not yet written
-    // ══════════════════════════════════════
-    const pageMeta = {
-            id: 'p-2-tricky-letters-ll-ch-j-h-r-v',
-            badge: 'AQA GCSE Spanish — Phonics · P. Phonics & Sound-Symbol',
-            title: 'P.2 Tricky Letters: ll, ch, ñ, j, h, r, v',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: P.2 Tricky letters ll, ch, ñ, j, h, r, v  (AQA 8692, Appendix 1 SSCs)
+    //  Audible Spanish carries data-say="…"; data-listen makes a prompt audio-only.
+    //  Example words are the spec's own SSC examples (all on the wordlist).
+    //  Option-writing follows docs/QUESTION-AUTHORING.md (no length tell).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = { id: 'p-2-tricky-letters-ll-ch-j-h-r-v', badge: 'AQA GCSE Spanish (8692) — Phonics · P. Phonics & Sound-Symbol', title: 'P.2 Tricky Letters: ll, ch, ñ, j, h, r, v', subtitle: 'Interactive study guide', subject: 'spanish' };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>P.2 Tricky Letters: ll, ch, ñ, j, h, r, v</strong> will appear here soon.</p>`
+            title: "ll — one letter, one sound: the ‘y’ in ‘yes’",
+            tag: "Key concept",
+            content: `<p>The double letter <strong>ll</strong> is never two separate ‘l’ sounds — in most of the Spanish-speaking world it is pronounced like the English <strong>‘y’</strong> in ‘yes’.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="llamar">llamar</span> — to call</td><td>sounds like ‘ya-MAR’</td></tr>
+              <tr><td><span data-say="calle">calle</span> — street</td><td>sounds like ‘CA-ye’</td></tr>
+              <tr><td><span data-say="amarillo">amarillo</span> — yellow</td><td>sounds like ‘a-ma-RI-yo’</td></tr>
+              <tr><td><span data-say="silla">silla</span> — chair</td><td>sounds like ‘SI-ya’</td></tr>
+            </table>
+            <p>English speakers often say a hard ‘l’ sound (as in the word ‘llama’ mispronounced in English) — resist that instinct.</p>`,
+            readCheck: { q: "How is the ‘ll’ in ‘calle’ pronounced?", opts: ["like the ‘y’ in ‘yes’", "as two separate English ‘l’ sounds run together", "silent — it isn't pronounced at all", "like the throaty ‘ch’ in ‘loch’"], ans: 0, explain: "ll = ‘y’ sound: calle sounds like ‘CA-ye’, not ‘CAL-le’." }
+        },
+        {
+            title: "ch — always the familiar English ‘ch’",
+            tag: "Key concept",
+            content: `<p><strong>ch</strong> is one of the easier tricky letters: it always sounds like the English ‘ch’ in ‘chip’ — and it never softens the way it can in French.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="leche">leche</span> — milk</td><td>‘LE-che’, as in ‘chip’</td></tr>
+              <tr><td><span data-say="ocho">ocho</span> — eight</td><td>‘O-cho’, as in ‘chip’</td></tr>
+              <tr><td><span data-say="noche">noche</span> — night</td><td>‘NO-che’</td></tr>
+              <tr><td><span data-say="mucho">mucho</span> — a lot</td><td>‘MU-cho’</td></tr>
+            </table>
+            <p>Because it is so close to the English sound, the real risk is skipping it or swapping it for a soft ‘sh’ — keep it crisp.</p>`,
+            readCheck: { q: "How should you pronounce the ‘ch’ in ‘leche’?", opts: ["like the English ‘ch’ in ‘chip’", "silent — it isn't pronounced at all", "like a soft French ‘sh’ sound", "like a hard English ‘k’ sound"], ans: 0, explain: "ch is always the familiar English ‘ch’ sound — leche = ‘LE-che’." }
+        },
+        {
+            title: "ñ — a ‘ny’ glide, not a plain n",
+            tag: "Key concept",
+            content: `<p><strong>ñ</strong> (‘eñe’) is a separate letter from ‘n’ and always adds a ‘y’ glide, like the ‘ny’ in ‘canyon’.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="mañana">mañana</span> — tomorrow</td><td>‘ma-NYA-na’</td></tr>
+              <tr><td><span data-say="cumpleaños">cumpleaños</span> — birthday</td><td>‘cum-ple-A-nyos’</td></tr>
+              <tr><td><span data-say="pequeño">pequeño</span> — small</td><td>‘pe-QUE-nyo’</td></tr>
+              <tr><td><span data-say="año">año</span> — year</td><td>‘A-nyo’</td></tr>
+            </table>
+            <p>Dropping the tilde and saying a plain ‘n’ is a very common English-speaker error — the glide is essential, not optional decoration.</p>`,
+            readCheck: { q: "What does the tilde on ‘ñ’ change about the sound?", opts: ["it adds a ‘y’ glide, giving ‘ny’", "it makes the letter completely silent, with no sound", "it turns the n into an ‘m’ sound", "nothing — ñ and n sound identical"], ans: 0, explain: "ñ = ‘ny’, as in cumpleaños (‘cum-ple-A-nyos’) — never a plain n." }
+        },
+        {
+            title: "j and h — similar on the page, opposite in sound",
+            tag: "Exam skill",
+            content: `<p>These two letters trip learners up because they sit close together conceptually, yet do opposite things.</p>
+            <table class="vocab-tbl">
+              <tr><td><strong>j</strong> → throaty /x/</td><td><span data-say="ojo">ojo</span>, <span data-say="naranja">naranja</span>, <span data-say="trabajar">trabajar</span></td></tr>
+              <tr><td><strong>h</strong> → always silent</td><td><span data-say="hospital">hospital</span>, <span data-say="hoy">hoy</span>, <span data-say="ahora">ahora</span></td></tr>
+            </table>
+            <p><strong>j</strong> is pronounced from the back of the throat, like the Scottish ‘loch’ — never like an English ‘j’ (as in ‘jam’). <strong>h</strong> is never pronounced at all, even at the start of a word.</p>`,
+            readCheck: { q: "Which statement correctly contrasts j and h?", opts: ["j is a throaty sound; h is always silent", "j is silent; h is a throaty sound instead", "both letters are completely silent in Spanish", "both letters sound like an English ‘j’ in ‘jam’"], ans: 0, explain: "j = throaty /x/ (ojo); h = never pronounced (hospital = ‘os-pi-TAL’)." }
+        },
+        {
+            title: "r vs rr — a quick tap or a strong roll?",
+            tag: "Exam skill",
+            content: `<p>Spanish has two different r-sounds, and mixing them up can change the meaning of a word entirely.</p>
+            <table class="vocab-tbl">
+              <tr><td>single <strong>r</strong> between vowels → one quick tap</td><td><span data-say="pero">pero</span> (but), <span data-say="hablar">hablar</span> (to speak)</td></tr>
+              <tr><td><strong>rr</strong>, or <strong>r</strong> at the start of a word → strongly rolled</td><td><span data-say="cerrar">cerrar</span> (to close), <span data-say="sonreír">sonreír</span> (to smile), <span data-say="perro">perro</span> (dog)</td></tr>
+            </table>
+            <p>The signature exam trap is the minimal pair <span data-say="pero">pero</span> (‘but’) vs <span data-say="perro">perro</span> (‘dog’) — say the wrong one and the sentence stops making sense. <span class="tier-h">H</span> Higher-tier read-aloud texts pack several of these r-sounds into one sentence, so practise the switch.</p>`,
+            readCheck: { q: "What is the difference between ‘pero’ and ‘perro’?", opts: ["a single tap vs a strongly rolled r, and the meaning changes completely", "nothing at all — the two words are pronounced in exactly the same identical way", "‘pero’ has a silent r and ‘perro’ does not", "only the stress moves to a different syllable"], ans: 0, explain: "pero (single tap, ‘but’) vs perro (rolled rr, ‘dog’) — a classic minimal pair." }
+        },
+        {
+            title: "v and b — the same soft ‘b’ sound",
+            tag: "Exam skill",
+            content: `<p>In Spanish, <strong>v</strong> and <strong>b</strong> are pronounced almost identically — a soft ‘b’, made without fully closing the lips. Spanish speakers do not distinguish them the way English does.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="verde">verde</span> — green</td><td>soft ‘b’, not an English ‘v’</td></tr>
+              <tr><td><span data-say="verdad">verdad</span> — truth</td><td>soft ‘b’, not an English ‘v’</td></tr>
+              <tr><td><span data-say="vivir">vivir</span> — to live</td><td>soft ‘b’ at the start too</td></tr>
+              <tr><td><span data-say="beber">beber</span> — to drink</td><td>compare: also a soft ‘b’</td></tr>
+            </table>
+            <p>The letter's own name — <span data-say="uve">uve</span> — is a useful reminder: it borrows the ‘b’ sound, not an English ‘v’.</p>`,
+            readCheck: { q: "How does Spanish ‘v’ (as in ‘verde’) sound?", opts: ["almost exactly like a soft ‘b’ sound", "exactly like an English ‘v’, as in ‘van’", "like an English ‘f’ sound instead", "it is completely silent"], ans: 0, explain: "Spanish v and b share the same soft ‘b’-like sound — verde is not an English ‘v’." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="llamar" data-listen></span><br>Listen. The ‘ll’ sound you hear is closest to the English…`, opts: ["‘y’ in ‘yes’", "‘l’ sound, doubled up and held for longer", "‘j’ in the English word ‘jam’", "‘w’ in ‘wet’"], ans: 0, explain: "ll = ‘y’ sound: llamar sounds like ‘ya-MAR’." },
+        { q: `<span data-say="leche" data-listen></span><br>Listen. How is the ‘ch’ in this word pronounced?`, opts: ["silent — it isn't pronounced at all", "like the English ‘ch’ in ‘chip’", "like a soft French ‘sh’ sound", "like a hard English ‘k’ sound"], ans: 1, explain: "ch is always the familiar English ‘ch’ — leche = ‘LE-che’." },
+        { q: `<span data-say="cumpleaños" data-listen></span><br>Listen. Which spelling matches what you hear?`, opts: ["cumpleanos", "cumplenos", "cumpleaños", "cumpleagnos"], ans: 2, explain: "The ‘ny’ glide is written with a tilde: cumpleaños." },
+        { q: "Which pair of words BOTH contain the throaty j sound?", opts: ["ojo and naranja", "hoy and hospital", "calle and llamar", "leche and ocho"], ans: 0, explain: "ojo and naranja both use the throaty /x/ j sound." },
+        { q: `<span data-say="perro" data-listen></span><br>Listen. Is this r single-tap or rolled?`, opts: ["silent, not pronounced at all", "pronounced like an English r, as in ‘red’", "a single quick tap of the tongue", "strongly rolled — this is the rr sound"], ans: 3, explain: "perro is spelt with rr, so the r is strongly rolled." },
+        { q: `<span data-say="pero" data-listen></span><br>Listen. Is this r single-tap or rolled?`, opts: ["a single quick tap of the tongue", "strongly rolled, like the rr in perro", "silent — the r isn't pronounced here", "pronounced with an English r sound"], ans: 0, explain: "A single r between vowels (pero) is just one quick tap." },
+        { q: "Why do ‘pero’ (but) and ‘perro’ (dog) mean completely different things?", opts: ["they are actually pronounced exactly the same way", "one of them uses a silent h at the start that completely changes its meaning", "a single-tap r versus a strongly rolled rr changes the word", "the stress moves from the first to the second syllable"], ans: 2, explain: "The single r / rolled rr distinction is what separates pero from perro." },
+        { q: `<span data-say="verde" data-listen></span><br>Listen. The consonant sound you hear is closest to an English…`, opts: ["‘f’ sound", "soft ‘b’ sound", "‘v’ sound, exactly as in English", "silent sound — nothing is pronounced"], ans: 1, explain: "Spanish v and b share the same soft ‘b’-like sound." },
+        { q: "Which two words BOTH contain a silent letter?", opts: ["llamar and calle", "naranja and ojo", "verde and verdad", "hospital and hoy"], ans: 3, explain: "hospital and hoy both start with a silent h." },
+        { q: `<span data-say="calle" data-listen></span><br>Listen. Which spelling matches what you hear?`, opts: ["carre", "calle", "cae", "calye"], ans: 1, explain: "The ‘y’ sound here is written ll: calle." }
+    ];
+
+    const matchData = [
+        { term: "ll", def: "the ‘y’ sound (llamar, calle)" },
+        { term: "ch", def: "the English ‘ch’ sound (leche, ocho)" },
+        { term: "ñ", def: "the ‘ny’ glide (mañana, cumpleaños)" },
+        { term: "j", def: "throaty /x/ sound (ojo, naranja)" },
+        { term: "h", def: "always silent (hospital, hoy)" },
+        { term: "pero", def: "‘but’ — single-tap r" },
+        { term: "perro", def: "‘dog’ — strongly rolled rr" },
+        { term: "cerrar", def: "‘to close’ — rolled rr" },
+        { term: "sonreír", def: "‘to smile’ — rolled r" },
+        { term: "verde", def: "‘green’ — soft ‘b’ sound, not an English v" },
+        { term: "beber", def: "‘to drink’ — same soft ‘b’ sound as v" },
+        { term: "uve", def: "the name of the letter v — borrows the ‘b’ sound" }
+    ];
+
+    const fibData = [
+        { display: `The word for ‘street’ is _____. <span data-say="calle" data-listen>calle</span>`, blanks: { B1: "calle" } },
+        { display: `The word for ‘birthday’, with its ‘ny’ sound, is cumplea_____. <span data-say="cumpleaños" data-listen>cumpleaños</span>`, blanks: { B1: "ños" } },
+        { display: `ll sounds like the English letter _____. (which one?)`, blanks: { B1: "y" } },
+        { display: `j is pronounced from the back of the throat, like the Scottish word ‘_____’.`, blanks: { B1: "loch" } },
+        { display: `A single r between vowels, as in ‘pero’, is a quick _____. (tap or roll?)`, blanks: { B1: "tap" } },
+        { display: `‘perro’ has a strongly _____ r. (tap or roll?)`, blanks: { B1: "rolled" } },
+        { display: `The word for ‘green’ is _____. <span data-say="verde" data-listen>verde</span>`, blanks: { B1: "verde" } }
+    ];
+    const fibWords = ["calle", "ños", "y", "loch", "tap", "rolled", "verde"];
+
+    const tfData = [
+        { statement: "In most Spanish accents, ‘ll’ sounds like the English ‘y’.", answer: true, explanation: "ll = ‘y’ sound: llamar, calle." },
+        { statement: "The letter h is usually pronounced strongly in Spanish, just like in English.", answer: false, explanation: "h is always silent: hospital, hoy." },
+        { statement: "‘ch’ always sounds like the English ‘ch’ in ‘chip’.", answer: true, explanation: "ch never softens — leche, ocho." },
+        { statement: "A single r between vowels (as in ‘pero’) is rolled just as strongly as the rr in ‘perro’.", answer: false, explanation: "Single r = one quick tap; rr = a strong roll." },
+        { statement: "ñ adds a ‘y’ glide, making ‘mañana’ sound like ‘ma-NYA-na’.", answer: true, explanation: "ñ = ‘ny’, never a plain n." },
+        { statement: "Spanish ‘v’ is pronounced exactly like an English ‘v’.", answer: false, explanation: "Spanish v sounds like a soft ‘b’, not an English v." },
+        { statement: "‘j’ is pronounced from the back of the throat, similar to the Scottish ‘loch’.", answer: true, explanation: "j = throaty /x/: ojo, naranja." },
+        { statement: "‘pero’ and ‘perro’ are pronounced identically.", answer: false, explanation: "pero (single tap) vs perro (rolled rr) — a minimal pair with different meanings." }
+    ];
+
+    const miscData = [
+        { wrong: "Pronouncing ‘ll’ (as in llamar) as two separate English ‘l’ sounds.", correct: "‘ll’ is a single ‘y’ sound: llamar sounds like ‘ya-MAR’.", readCheck: { q: "How should ‘ll’ in ‘llamar’ sound?", opts: ["like the English ‘y’ in ‘yes’", "like two separate English ‘l’ sounds run together", "like the throaty j sound instead", "silent, with no sound at all"], ans: 0, explain: "ll is a single ‘y’ sound, never two ‘l’ sounds." } },
+        { wrong: "Pronouncing the h in ‘hospital’ as a strong English h.", correct: "h is always silent: ‘hospital’ sounds like ‘os-pi-TAL’.", readCheck: { q: "How is the h in ‘hospital’ pronounced?", opts: ["it isn't — the h is always silent", "as a strong English h sound, exactly like the start of ‘hospital’ in English", "as a throaty j sound instead", "as a soft ‘ch’ sound"], ans: 0, explain: "h is never pronounced in Spanish." } },
+        { wrong: "Rolling the r in ‘pero’ as strongly as in ‘perro’.", correct: "A single r between vowels (pero) is just one quick tap.", readCheck: { q: "How strongly should the r in ‘pero’ be rolled?", opts: ["barely at all — it is a single quick tap", "exactly as strongly as the rr in ‘perro’", "not pronounced at all", "rolled even more strongly than rr"], ans: 0, explain: "Single r between vowels = one quick tap, not a roll." } },
+        { wrong: "Pronouncing Spanish v (as in verde) like an English v.", correct: "Spanish v sounds almost like a soft b: verde.", readCheck: { q: "How is Spanish ‘v’ (verde) pronounced?", opts: ["almost like a soft ‘b’ sound", "exactly like an English ‘v’, as in ‘van’", "like an English ‘f’ sound instead", "it is always silent"], ans: 0, explain: "v and b sound almost identical in Spanish — a soft ‘b’." } },
+        { wrong: "Saying ‘mañana’ with a plain n instead of the ñ glide.", correct: "ñ always adds a ‘y’ glide: ‘ma-NYA-na’.", readCheck: { q: "What happens if you drop the tilde and say a plain n in ‘mañana’?", opts: ["you lose the essential ‘y’ glide the ñ adds", "nothing at all changes — n and ñ are pronounced exactly the same way", "the whole word becomes silent", "the stress moves to a different syllable"], ans: 0, explain: "ñ is a distinct letter with its own ‘ny’ sound." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 2 — Read-aloud (speaking)", pills: ["Speaking", "Phonics"], content: "Scan the text first for tricky-letter traps: ll (y sound), ch, ñ (ny), j (throaty), silent h, single r vs rolled rr, and v/b (soft b). Read steadily — accurate sounds are worth more than speed.", readCheck: { q: "What should you do before reading a Paper 2 text aloud?", opts: ["scan it for tricky-letter traps like ll, ñ, j and rr", "read it as fast as possible without stopping to think", "skip over any word you find difficult to say", "translate every single word into English first"], ans: 0, explain: "Spotting the traps in advance stops you defaulting to English sounds mid-sentence." } },
+        { type: "tip", title: "Paper 1 — Dictation (listening)", pills: ["Listening", "Dictation"], content: "Listen for the minimal pairs: a single tap is r (pero), a strong roll is rr (perro) — this one difference changes the word's meaning. A ‘y’ sound is almost always ll; a ‘ny’ glide is always ñ.", readCheck: { q: "In dictation, a strongly rolled r sound should usually be written as…", opts: ["rr, or r at the very start of a word", "a single r written between two vowels only, never at the start", "ñ, with a tilde added", "silent — don't write it at all"], ans: 0, explain: "A rolled r is written rr (or word-initial r); a single tap is a lone r." } },
+        { type: "evaluate", title: "Paper 4 — Spelling tricky letters accurately", pills: ["Writing", "Accuracy"], content: "Confusing ll/y, ñ/n, v/b, or single r/rr in writing changes meaning (pero/perro) or reads as a spelling error. Learn each tricky letter as part of the word's spelling, not as an afterthought.", readCheck: { q: "Why does it matter if you write ‘pero’ instead of ‘perro’ in an exam answer?", opts: ["it is a completely different word with a different meaning", "examiners never distinguish between the two different spellings at all", "it only affects your pronunciation mark, not writing", "both spellings are always accepted as identical"], ans: 0, explain: "pero (‘but’) and perro (‘dog’) are different words — the spelling carries meaning." } }
+    ];
+
+    const flashcards = [
+        { term: "ll (llamar)", def: "sounds like ‘y’ — ‘ya-MAR’", say: "llamar" },
+        { term: "ll (calle)", def: "sounds like ‘y’ — ‘CA-ye’", say: "calle" },
+        { term: "ch (leche)", def: "English ‘ch’ — ‘LE-che’", say: "leche" },
+        { term: "ch (ocho)", def: "English ‘ch’ — ‘O-cho’", say: "ocho" },
+        { term: "ñ (mañana)", def: "‘ny’ glide — ‘ma-NYA-na’", say: "mañana" },
+        { term: "ñ (cumpleaños)", def: "‘ny’ glide — ‘cum-ple-A-nyos’", say: "cumpleaños" },
+        { term: "j (ojo)", def: "throaty /x/ — like Scottish ‘loch’", say: "ojo" },
+        { term: "j (naranja)", def: "throaty /x/ sound", say: "naranja" },
+        { term: "silent h (hospital)", def: "not pronounced — ‘os-pi-TAL’", say: "hospital" },
+        { term: "silent h (hoy)", def: "not pronounced at all", say: "hoy" },
+        { term: "single r (pero)", def: "one quick tap between vowels", say: "pero" },
+        { term: "single r (hablar)", def: "one quick tap between vowels", say: "hablar" },
+        { term: "rr (cerrar)", def: "strongly rolled", say: "cerrar" },
+        { term: "rr (perro)", def: "strongly rolled — ‘dog’", say: "perro" },
+        { term: "word-initial r (sonreír)", def: "rolled, like rr", say: "sonreír" },
+        { term: "v (verde)", def: "soft ‘b’ sound, not English v", say: "verde" },
+        { term: "b (beber)", def: "same soft ‘b’ sound as v", say: "beber" },
+        { term: "pero vs perro", def: "‘but’ vs ‘dog’ — single tap vs rolled rr", say: "pero, perro" }
+    ];
+
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: 1, marks: 7, type: "written",
+            question: `<strong>Read-aloud practice.</strong> Read this text out loud, then tick the sounds you produced correctly.<br><br><em>«Mi amigo Guillermo tiene un perro que se llama Chico. Vivimos en una calle cerca del hospital, y mañana vamos a la playa. Mi hermano prefiere el chocolate, pero yo prefiero la naranja y llevo una camiseta verde.»</em><br><br>Hear a model first: 🔊 <span data-say="Mi amigo Guillermo tiene un perro que se llama Chico. Vivimos en una calle cerca del hospital, y mañana vamos a la playa. Mi hermano prefiere el chocolate, pero yo prefiero la naranja y llevo una camiseta verde.">model</span>`,
+            hint: "Watch: Guillermo/llama/calle/llevo (ll = y), Chico/chocolate (ch), hospital (silent h), mañana (ñ), naranja (throaty j), perro vs pero (rolled rr vs single tap), verde (soft b, not v).",
+            starter: "Read slowly and evenly — accurate sounds, not speed.",
+            markScheme: `<div class="marks-section"><h5>Self-mark — 7 pronunciation points</h5><ul>
+                <li><strong>ll</strong> = ‘y’ sound in Guillermo, llama, calle, llevo.</li>
+                <li><strong>ch</strong> in Chico and chocolate sounds like English ‘ch’.</li>
+                <li>Silent <strong>h</strong> in ‘hospital’.</li>
+                <li><strong>ñ</strong> glide in ‘mañana’.</li>
+                <li>Throaty <strong>j</strong> in ‘naranja’.</li>
+                <li><strong>rr</strong> in ‘perro’ rolled strongly; <strong>r</strong> in ‘pero’ a single tap.</li>
+                <li><strong>v</strong> in ‘verde’ pronounced as a soft ‘b’.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Tick each feature you produced correctly. In the real NEA an examiner rewards clear, comprehensible pronunciation.</li>
+            </ul></div>`,
+            modelAnswer: "Accurate reading: ll = y, ch as English ch, silent h, ñ glide, throaty j, pero/perro contrast, v as soft b.",
+            markPoints: { note: "Tick each sound you produced correctly; cap at 7.", groups: [
+                { label: "ll = y sound", max: 1, points: ["Guillermo/llama/calle/llevo with a ‘y’ sound"] },
+                { label: "ch sound", max: 1, points: ["Chico/chocolate with the English ‘ch’"] },
+                { label: "Silent h", max: 1, points: ["‘hospital’ read with a silent h"] },
+                { label: "ñ glide", max: 1, points: ["‘mañana’ pronounced ‘ma-NYA-na’"] },
+                { label: "Throaty j", max: 1, points: ["‘naranja’ with the throaty /x/ sound"] },
+                { label: "r vs rr", max: 1, points: ["‘perro’ rolled strongly; ‘pero’ a single tap"] },
+                { label: "v as soft b", max: 1, points: ["‘verde’ pronounced with a soft ‘b’"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: `<strong>Dictation.</strong> Listen and write the five words you hear, then check them.<br>🔊 <span data-say="llamar" data-listen>word 1</span> &nbsp; 🔊 <span data-say="mañana" data-listen>word 2</span> &nbsp; 🔊 <span data-say="hospital" data-listen>word 3</span> &nbsp; 🔊 <span data-say="perro" data-listen>word 4</span> &nbsp; 🔊 <span data-say="verde" data-listen>word 5</span>`,
+            hint: "Think about the sound rules: ll = y, ñ = ny, silent h, rolled rr, v = soft b.",
+            starter: "1 … 2 … 3 … 4 … 5 …",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks</h5><ul>
+                <li>1 = <strong>llamar</strong> (ll) · 2 = <strong>mañana</strong> (ñ) · 3 = <strong>hospital</strong> (silent h) · 4 = <strong>perro</strong> (rr) · 5 = <strong>verde</strong> (v).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>1 mark per correctly-spelt word. Minor accent slips are condoned once.</li>
+            </ul></div>`,
+            modelAnswer: "1 llamar · 2 mañana · 3 hospital · 4 perro · 5 verde",
+            markPoints: { note: "One tick per correctly-spelt word; cap at 5.", groups: [
+                { label: "Word 1", max: 1, points: ["llamar"] },
+                { label: "Word 2", max: 1, points: ["mañana"] },
+                { label: "Word 3", max: 1, points: ["hospital"] },
+                { label: "Word 4", max: 1, points: ["perro"] },
+                { label: "Word 5", max: 1, points: ["verde"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

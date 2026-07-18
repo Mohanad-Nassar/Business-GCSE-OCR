@@ -4,297 +4,380 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>G.5 Future, Conditional and More Tenses – Interactive Study Guide</title>
+    <title>G.5 Future, Conditional and More Tenses – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Grammar Toolkit · G. Grammar Toolkit</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Grammar Toolkit · G. Grammar Toolkit</div>
             <h1>G.5 Future, Conditional and More Tenses</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>El futuro, el condicional y otros tiempos verbales · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Grammar and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: G.5 Future, Conditional and More Tenses — placeholder, content not yet written
-    // ══════════════════════════════════════
-    const pageMeta = {
-            id: 'g-5-future-conditional-and-more-tenses',
-            badge: 'AQA GCSE Spanish — Grammar Toolkit · G. Grammar Toolkit',
-            title: 'G.5 Future, Conditional and More Tenses',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: G.5 Future, Conditional and More Tenses  (AQA 8692, Grammar Toolkit)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = { id: 'g-5-future-conditional-and-more-tenses', badge: 'AQA GCSE Spanish (8692) — Grammar Toolkit · G. Grammar Toolkit', title: 'G.5 Future, Conditional and More Tenses', subtitle: 'Interactive study guide', subject: 'spanish' };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>G.5 Future, Conditional and More Tenses</strong> will appear here soon.</p>`
+            title: "How do I talk about near-future plans? (ir a + infinitivo)",
+            tag: "Key concept",
+            content: `<p>The easiest way to talk about the future is <strong>ir a + infinitivo</strong> — literally “to go to do something”. Conjugate <span data-say="ir">ir</span> and add an infinitive.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="voy a">voy a</span></td><td>I am going to</td><td><span data-say="vamos a">vamos a</span></td><td>we are going to</td></tr>
+              <tr><td><span data-say="vas a">vas a</span></td><td>you are going to</td><td><span data-say="vais a">vais a</span></td><td>you all are going to</td></tr>
+              <tr><td><span data-say="va a">va a</span></td><td>he/she is going to</td><td><span data-say="van a">van a</span></td><td>they are going to</td></tr>
+            </table>
+            <p>Example: <span data-say="Voy a estudiar en la universidad.">Voy a estudiar en la universidad.</span> — <em>I am going to study at university.</em> Never drop the little word <strong>a</strong> — <span data-say="voy estudiar">voy estudiar</span> is missing it and is wrong.</p>`,
+            readCheck: { q: "What is wrong with ‘Voy estudiar mañana’?", opts: ["It is missing ‘a’ between voy and the infinitive", "It should not use the verb ‘ir’ at all here", "The infinitive ‘estudiar’ should be conjugated instead", "‘mañana’ must come before ‘voy’, not after it"], ans: 0, explain: "ir a + infinitive always needs ‘a’ linking the conjugated ir and the infinitive: voy a estudiar." }
+        },
+        {
+            title: "How do I form the simple future for regular verbs?",
+            tag: "Key concept",
+            content: `<p>For regular verbs, add these endings to the <strong>whole infinitive</strong> — don’t remove -ar/-er/-ir first: <strong>-é, -ás, -á, -emos, -éis, -án</strong>. The same endings work for -ar, -er and -ir verbs.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="hablaré">hablaré</span></td><td>I will speak</td><td><span data-say="hablaremos">hablaremos</span></td><td>we will speak</td></tr>
+              <tr><td><span data-say="comerás">comerás</span></td><td>you will eat</td><td><span data-say="comeréis">comeréis</span></td><td>you all will eat</td></tr>
+              <tr><td><span data-say="vivirá">vivirá</span></td><td>he/she will live</td><td><span data-say="vivirán">vivirán</span></td><td>they will live</td></tr>
+            </table>
+            <p>Example: <span data-say="El año que viene, viviré en Madrid y estudiaré español.">El año que viene, viviré en Madrid y estudiaré español.</span> — <em>Next year, I will live in Madrid and study Spanish.</em> Every future ending except <strong>-emos</strong> carries a written accent.</p>`,
+            readCheck: { q: "Complete: ‘Mañana, tú ___ con el director.’ (you will speak)", opts: ["hablarás", "hablaras", "hablas", "hablarías"], ans: 0, explain: "hablarás is the future tú form — note the accented á. hablaras drops the accent, hablas is present tense, and hablarías is the CONDITIONAL, not future." }
+        },
+        {
+            title: "Which verbs have an irregular stem in the future?",
+            tag: "Exam skill",
+            content: `<p>A group of common verbs use a shortened or changed stem before the <strong>same endings</strong> (-é, -ás, -á, -emos, -éis, -án). Learn these:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="tendré">tendré</span></td><td>I will have (tener)</td><td><span data-say="haré">haré</span></td><td>I will do/make (hacer)</td></tr>
+              <tr><td><span data-say="podré">podré</span></td><td>I will be able to (poder)</td><td><span data-say="saldré">saldré</span></td><td>I will leave (salir)</td></tr>
+              <tr><td><span data-say="vendré">vendré</span></td><td>I will come (venir)</td><td><span data-say="diré">diré</span></td><td>I will say (decir)</td></tr>
+              <tr><td><span data-say="querré">querré</span></td><td>I will want (querer)</td><td><span data-say="pondré">pondré</span></td><td>I will put (poner)</td></tr>
+            </table>
+            <p>Example: <span data-say="El sábado, tendré que estudiar pero después saldré con mis amigos.">El sábado, tendré que estudiar pero después saldré con mis amigos.</span> — <em>On Saturday I will have to study but afterwards I will go out with my friends.</em> Never write “tenerá” — the stem changes to <strong>tendr-</strong> before any future ending.</p>`,
+            readCheck: { q: "Complete: ‘El sábado, ella ___ que estudiar.’ (she will have to)", opts: ["tendrá", "tenerá", "tiene", "tendría"], ans: 0, explain: "tener has the irregular future stem tendr-. ‘tenerá’ wrongly keeps the full infinitive stem, ‘tiene’ is present tense, and ‘tendría’ is the conditional, not future." }
+        },
+        {
+            title: "How do I form the conditional? (would…)",
+            tag: "Key concept",
+            content: `<p>The conditional uses the <strong>same stem</strong> as the future (regular = whole infinitive; irregular = the same shortened stem), plus a different set of endings: <strong>-ía, -ías, -ía, -íamos, -íais, -ían</strong>.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="hablaría">hablaría</span></td><td>I would speak</td><td><span data-say="viviríamos">viviríamos</span></td><td>we would live</td></tr>
+              <tr><td><span data-say="tendría">tendría</span></td><td>I would have</td><td><span data-say="haría">haría</span></td><td>I would do/make</td></tr>
+              <tr><td><span data-say="podría">podría</span></td><td>I would be able to</td><td><span data-say="saldrías">saldrías</span></td><td>you would leave</td></tr>
+            </table>
+            <p>Example: <span data-say="Con más dinero, viajaría por el mundo y compraría una casa grande.">Con más dinero, viajaría por el mundo y compraría una casa grande.</span> — <em>With more money, I would travel the world and buy a big house.</em> Every conditional ending carries a written accent.</p>`,
+            readCheck: { q: "Complete: ‘Con más tiempo, (yo) ___ más deporte.’ (I would do)", opts: ["haría", "haré", "hago", "harían"], ans: 0, explain: "haría is the conditional (would). haré is future (will), hago is present, and harían is conditional but for ‘ellos’ (they), not ‘yo’." }
+        },
+        {
+            title: "How do I politely say what I would like? (me gustaría)",
+            tag: "Exam skill",
+            content: `<p><span data-say="me gustaría">me gustaría</span> (I would like) is one of the most useful exam phrases. It is the conditional of <strong>gustar</strong>, so it behaves just like <em>me gusta</em> and is followed by an infinitive.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="me gustaría">me gustaría</span></td><td>I would like</td><td><span data-say="te gustaría">te gustaría</span></td><td>you would like</td></tr>
+              <tr><td><span data-say="le gustaría">le gustaría</span></td><td>he/she would like</td><td><span data-say="nos gustaría">nos gustaría</span></td><td>we would like</td></tr>
+            </table>
+            <p>Example: <span data-say="Me gustaría estudiar en el extranjero después del instituto.">Me gustaría estudiar en el extranjero después del instituto.</span> — <em>I would like to study abroad after school.</em> Like <em>me gusta</em>, it does not agree with what follows — it stays as ‘gustaría’, never ‘gustarían’, when followed by an infinitive.</p>`,
+            readCheck: { q: "What must follow ‘me gustaría’ in a sentence like ‘me gustaría estudiar’?", opts: ["an infinitive, exactly like after me gusta", "a verb conjugated to agree with ‘yo’, like hago", "the word ‘que’ followed by a new subject", "a plural noun with no verb at all"], ans: 0, explain: "me gustaría + infinitive = I would like to do something, exactly like me gusta + infinitive (me gusta estudiar)." }
+        },
+        {
+            title: "Higher: the perfect, pluperfect and an intro to the subjunctive",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> The <strong>perfect tense</strong> (have/has done) = present of <em>haber</em> + past participle: <span data-say="he estudiado">he estudiado</span> (I have studied), <span data-say="ha comido">ha comido</span> (he/she has eaten).</p>
+            <p>The <strong>pluperfect</strong> (had done) = imperfect of <em>haber</em> + past participle: <span data-say="había terminado">había terminado</span> (I had finished) — used for something that had ALREADY happened before another past event.</p>
+            <p><span class="tier-h">H</span> After certain trigger phrases like <span data-say="es importante que">es importante que</span> (it’s important that) or a future-time <span data-say="cuando">cuando</span> (when), Spanish switches to the <strong>present subjunctive</strong>: <span data-say="Es importante que estudies mucho.">Es importante que estudies mucho.</span> (It’s important that you study a lot.) / <span data-say="Cuando llegue a casa, cenaré.">Cuando llegue a casa, cenaré.</span> (When I get home, I will have dinner.)</p>`,
+            readCheck: { q: "Which sentence correctly uses the present subjunctive after a trigger phrase?", opts: ["Es importante que estudies mucho", "Es importante que estudias mucho", "Es importante estudiar que mucho", "Estudiarás mucho, es importante"], ans: 0, explain: "‘es importante que’ + a change of subject triggers the subjunctive (estudies), not the ordinary present indicative (estudias)." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Voy a estudiar esta noche." data-listen></span><br>Listen. What is the plan?`, opts: ["To study tonight", "To study tomorrow morning instead", "To not study at all tonight", "I already studied last night"], ans: 0, explain: "‘voy a estudiar esta noche’ = I’m going to study tonight. The traps change the time, add a negative, or switch to the past." },
+        { q: `<span data-say="Tendré que trabajar el sábado." data-listen></span><br>Listen. What is being said?`, opts: ["I will have to work on Saturday", "I would have to work on Saturday", "I had to work last Saturday", "I don’t have to work on Saturday"], ans: 0, explain: "‘tendré que’ = I will have to (future). Trap B swaps it for the conditional (tendría), C for the past, D adds a negative." },
+        { q: "Which is the correct future form of ‘vivir’ for ‘nosotros’?", opts: ["viviremos", "viviréis", "viviríamos", "vivimos"], ans: 0, explain: "The nosotros future ending is -emos → viviremos. viviréis is vosotros, viviríamos is conditional, vivimos is present." },
+        { q: "Complete: ‘Si gano la lotería, ___ una casa nueva.’ (I would buy)", opts: ["compraría", "compraré", "compro", "comprarían"], ans: 0, explain: "compraría = I would buy (conditional). compraré is future, compro is present, comprarían is conditional but for ‘ellos’." },
+        { q: "What does ‘me gustaría viajar a Japón’ mean?", opts: ["I would like to travel to Japan", "I am going to travel to Japan", "I travelled to Japan last year", "I like travelling, and Japan is nice"], ans: 0, explain: "me gustaría + infinitive = I would like to. B uses ir a, C is past tense, D breaks the phrase apart." },
+        { q: "Which sentence correctly uses the irregular future stem for ‘hacer’?", opts: ["Mañana haré la tarea.", "Mañana haceré la tarea.", "Mañana hacía la tarea siempre.", "Mañana haría la tarea seguramente."], ans: 0, explain: "hacer → har- + é = haré. ‘haceré’ keeps the full infinitive wrongly, ‘hacía’ is imperfect, ‘haría’ is conditional." },
+        { q: `<span data-say="Cuando tenga dieciocho años, aprenderé a conducir." data-listen></span><br>Listen. What will happen at 18?`, opts: ["They will learn to drive", "They will buy a car", "They have already learned to drive", "They will not be allowed to drive"], ans: 0, explain: "‘aprenderé a conducir’ = I will learn to drive. The traps swap the action, the tense, or add a negative." },
+        { q: "Complete: ‘Ellos ___ venir a la fiesta el viernes.’ (they will be able to)", opts: ["podrán", "poderán", "pueden", "podrían"], ans: 0, explain: "poder → podr- + án = podrán. ‘poderán’ wrongly keeps the infinitive stem, ‘pueden’ is present, ‘podrían’ is conditional." },
+        { q: "Which sentence correctly uses the present subjunctive?", opts: ["Es importante que hagas los deberes.", "Es importante que haces los deberes.", "Es importante hacer que los deberes.", "Es importante harás los deberes pronto."], ans: 0, explain: "‘es importante que’ + new subject needs the subjunctive: hagas. B keeps the ordinary present, C and D are ungrammatical word orders." },
+        { q: "What is the difference between ‘tendré’ and ‘tendría’?", opts: ["tendré = will have, tendría = would have", "tendré = would have, tendría = will have", "they mean exactly the same thing", "tendré is present tense, tendría is past tense"], ans: 0, explain: "The -é ending marks the future (will), the -ía ending marks the conditional (would) — same stem, different meaning." }
+    ];
+
+    const matchData = [
+        { term: "voy a estudiar", def: "I am going to study" },
+        { term: "hablaré", def: "I will speak" },
+        { term: "comerás", def: "you will eat" },
+        { term: "vivirá", def: "he/she will live" },
+        { term: "tendré", def: "I will have" },
+        { term: "haré", def: "I will do / make" },
+        { term: "podré", def: "I will be able to" },
+        { term: "saldré", def: "I will leave / go out" },
+        { term: "hablaría", def: "I would speak" },
+        { term: "me gustaría", def: "I would like" },
+        { term: "he estudiado", def: "I have studied" },
+        { term: "es importante que estudies", def: "it’s important that you study" }
+    ];
+
+    const fibData = [
+        { display: `Yo _____ a estudiar esta noche. <span data-say="Yo voy a estudiar esta noche." data-listen>Yo voy a estudiar esta noche.</span>`, blanks: { B1: "voy" } },
+        { display: `Mañana, ella _____ que trabajar. <span data-say="Mañana, ella tendrá que trabajar." data-listen>Mañana, ella tendrá que trabajar.</span>`, blanks: { B1: "tendrá" } },
+        { display: `El año que viene, (yo) _____ en Madrid. (I will live — vivir)`, blanks: { B1: "viviré" } },
+        { display: `Con más dinero, (nosotros) _____ una casa grande. (we would buy — comprar)`, blanks: { B1: "compraríamos" } },
+        { display: `Me _____ viajar a Japón algún día. (I would like)`, blanks: { B1: "gustaría" } },
+        { display: `_____ los deberes antes de salir. (I will do — hacer, yo)`, blanks: { B1: "haré" } },
+        { display: `Es importante que (tú) _____ mucho para el examen. (present subjunctive of estudiar)`, blanks: { B1: "estudies" } }
+    ];
+    const fibWords = ["voy", "tendrá", "viviré", "compraríamos", "gustaría", "haré", "estudies"];
+
+    const tfData = [
+        { statement: "The near future (ir a + infinitive) is formed with a conjugated form of ‘ir’, then ‘a’, then an infinitive.", answer: true, explanation: "voy a estudiar, vas a comer, va a salir — always ir + a + infinitive." },
+        { statement: "The simple future removes -ar/-er/-ir before adding the endings, like the imperfect tense.", answer: false, explanation: "Future endings attach to the WHOLE infinitive (hablar+é); it is the stem for irregular verbs that changes, not a rule about all verbs." },
+        { statement: "‘tendré’, ‘haré’, ‘podré’ and ‘saldré’ all have irregular stems in the future.", answer: true, explanation: "tener→tendr-, hacer→har-, poder→podr-, salir→saldr- — all irregular future stems." },
+        { statement: "The conditional uses a completely different stem from the future for irregular verbs.", answer: false, explanation: "The conditional reuses the SAME stem as the future (e.g. tendr-); only the endings change." },
+        { statement: "‘me gustaría’ is followed by an infinitive, just like ‘me gusta’.", answer: true, explanation: "me gustaría estudiar / me gustaría viajar — same pattern as me gusta + infinitive." },
+        { statement: "Every future and conditional ending carries a written accent, except the ‘nosotros’ future form.", answer: true, explanation: "hablaremos has no accent, but every other future/conditional ending does (é, ás, á, éis, án / ía, ías, ía, íamos, íais, ían)." },
+        { statement: "‘Es importante que estudies’ uses the present subjunctive because of ‘que’ plus a change of subject after a trigger phrase.", answer: true, explanation: "es importante que + new subject triggers the subjunctive: estudies." },
+        { statement: "The perfect tense is formed with the PRETERITE of haber plus a past participle.", answer: false, explanation: "The perfect uses the PRESENT of haber (he/has/ha/hemos/habéis/han) + past participle." }
+    ];
+
+    const miscData = [
+        { wrong: "Voy estudiar esta noche.", correct: "Voy a estudiar esta noche.", readCheck: { q: "What is missing from ‘Voy estudiar esta noche’?", opts: ["the linking word ‘a’ (voy a estudiar)", "an accent on the final letter of ‘voy’", "the subject pronoun ‘yo’ at the start", "the word ‘esta’ before ‘noche’"], ans: 0, explain: "ir a + infinitive always needs ‘a’ between the conjugated ir and the infinitive." } },
+        { wrong: "Yo tenerá mucho dinero.", correct: "Yo tendré mucho dinero.", readCheck: { q: "Why is ‘tenerá’ wrong for the future of tener?", opts: ["tener has the irregular future stem tendr-, not tener-", "the ending should be -ería instead of the future ending -á", "‘tenerá’ is actually a correctly formed present-tense verb", "‘tenerá’ only needs an accent added on the very first e"], ans: 0, explain: "tener changes to the irregular stem tendr- before ANY future ending: tendré, tendrás, tendrá…" } },
+        { wrong: "Me gustaría estudio medicina.", correct: "Me gustaría estudiar medicina.", readCheck: { q: "Why is ‘Me gustaría estudio medicina’ wrong?", opts: ["‘gustaría’ must be followed by an infinitive, not a conjugated verb", "‘medicina’ should come before ‘gustaría’ at the start of the sentence", "‘me’ should be replaced with ‘yo’ at the front of the sentence", "‘gustaría’ should change to agree with ‘medicina’, becoming ‘gustarían’"], ans: 0, explain: "Like me gusta, me gustaría is followed by an infinitive: me gustaría estudiar." } },
+        { wrong: "Cuando llegaré a casa, cenaré.", correct: "Cuando llegue a casa, cenaré.", readCheck: { q: "Why does ‘cuando’ need the subjunctive here, not the future?", opts: ["‘cuando’ referring to a future event triggers the present subjunctive", "‘cuando’ is always followed by the preterite tense in absolutely every sentence", "‘llegaré’ is simply spelt incorrectly and needs an extra letter", "the second verb ‘cenaré’ should change too, to match the subjunctive"], ans: 0, explain: "A future-time ‘cuando’ clause takes the present subjunctive (llegue), while the main clause stays in the future (cenaré)." } },
+        { wrong: "Tendré muchas ganas de viajar si tuviera dinero.", correct: "Tendría muchas ganas de viajar si tuviera dinero.", readCheck: { q: "Why should ‘Tendré’ change to ‘Tendría’ here?", opts: ["a hypothetical ‘if I had…’ idea needs the conditional, not the future", "‘Tendré’ is missing the irregular stem tendr- at the very front", "‘viajar’ should be conjugated instead of being left as an infinitive here", "‘ganas’ needs to be made singular instead of staying plural"], ans: 0, explain: "A hypothetical ‘would’ idea needs the conditional (tendría), not the plain future (tendré)." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Listening for tense endings", pills: ["Listening", "Dictation"], content: "Future and conditional endings sound very similar — the difference is often just one syllable: hablará (future, he will speak) vs hablaría (conditional, he would speak). Listen carefully for the extra ‘-í-’ sound that marks the conditional.", readCheck: { q: "You hear ‘…comería…’ rather than ‘…comerá…’. What does the extra syllable tell you?", opts: ["it is the conditional (would eat), not the future (will eat)", "it is simply a longer, more formal way of saying the same thing", "nothing changes — they mean exactly the same", "it must be a reflexive verb"], ans: 0, explain: "The -ía sound is the conditional marker (would); -á alone is the future marker (will)." } },
+        { type: "tip", title: "Paper 3/4 — Grammar accuracy in reading and writing", pills: ["Reading", "Grammar"], content: "Examiners reward accurate irregular stems (tendré, not tenerá) and the little word ‘a’ after ir (voy a…, not voy…). Build a checklist before you submit any future/conditional sentence.", readCheck: { q: "Which sentence would lose an accuracy mark?", opts: ["Voy estudiar mañana por la tarde.", "Voy a estudiar mañana por la tarde.", "Mañana voy a estudiar por la tarde.", "Por la tarde, voy a estudiar mañana."], ans: 0, explain: "‘Voy estudiar’ is missing the essential ‘a’ — ir a + infinitive." } },
+        { type: "evaluate", title: "Paper 4 — Higher writing: range of tenses", pills: ["Writing", "Higher"], content: "Top-band answers combine several tenses and structures in one paragraph: a plan (voy a…), a firm future (estudiaré…), a conditional wish (me gustaría…) and, for the very top, the perfect/pluperfect or a subjunctive after ‘es importante que…’.", readCheck: { q: "Which answer shows the widest range of tenses for the top band?", opts: ["Voy a estudiar mucho, estudiaré todos los días y me gustaría ir a la universidad", "Estudio mucho y estudio todos los días y quiero ir a la universidad siempre también", "Voy a estudiar", "Estudiaré"], ans: 0, explain: "It combines the near future, simple future and conditional in one answer, showing range and accuracy rather than just length." } }
+    ];
+
+    const flashcards = [
+        { term: "ir a + infinitivo", def: "near future: going to…", say: "voy a estudiar" },
+        { term: "voy a / vas a / va a", def: "I am / you are / he-she is going to", say: "voy a, vas a, va a" },
+        { term: "hablaré", def: "I will speak", say: "hablaré" },
+        { term: "comerás", def: "you will eat", say: "comerás" },
+        { term: "vivirá", def: "he/she will live", say: "vivirá" },
+        { term: "tendré (tener)", def: "I will have", say: "tendré" },
+        { term: "haré (hacer)", def: "I will do / make", say: "haré" },
+        { term: "podré (poder)", def: "I will be able to", say: "podré" },
+        { term: "saldré (salir)", def: "I will leave / go out", say: "saldré" },
+        { term: "vendré (venir)", def: "I will come", say: "vendré" },
+        { term: "diré (decir)", def: "I will say", say: "diré" },
+        { term: "hablaría", def: "I would speak", say: "hablaría" },
+        { term: "tendría", def: "I would have", say: "tendría" },
+        { term: "me gustaría + infinitivo", def: "I would like to…", say: "me gustaría estudiar" },
+        { term: "he estudiado (H)", def: "I have studied", say: "he estudiado" },
+        { term: "había terminado (H)", def: "I had finished", say: "había terminado" },
+        { term: "es importante que… (H)", def: "it’s important that… (+ subjunctive)", say: "es importante que estudies" },
+        { term: "cuando… (future time, H)", def: "when… (+ subjunctive)", say: "cuando llegue a casa" }
+    ];
+
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: 1, marks: 5, type: "written",
+            question: "Put each verb into the tense shown in brackets. Write the <strong>full Spanish verb form</strong> only.<br>(a) estudiar (yo — future)<br>(b) tener (ella — future)<br>(c) poder (nosotros — conditional)<br>(d) hacer (tú — future)<br>(e) gustar (a mí — conditional, meaning ‘I would like’)",
+            hint: "Regular future/conditional endings attach to the whole infinitive. tener and hacer have irregular stems (tendr-, har-) in BOTH the future and the conditional. ‘I would like’ = me gustaría.",
+            starter: "(a) … (b) … (c) … (d) … (e) …",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: grammar)</h5><ul>
+                <li><strong>(a)</strong> estudiaré <em>(1)</em>.</li>
+                <li><strong>(b)</strong> tendrá <em>(1)</em>.</li>
+                <li><strong>(c)</strong> podríamos <em>(1)</em>.</li>
+                <li><strong>(d)</strong> harás <em>(1)</em>.</li>
+                <li><strong>(e)</strong> me gustaría <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent slips only if the verb form is otherwise unambiguous; missing the irregular stem (e.g. ‘hacerás’) loses the mark.</li>
+            </ul></div>`,
+            modelAnswer: "(a) estudiaré (b) tendrá (c) podríamos (d) harás (e) me gustaría",
+            markPoints: { note: "One tick per correct verb form; cap at 5.", groups: [
+                { label: "(a) estudiaré — 1", max: 1, points: ["estudiaré"] },
+                { label: "(b) tendrá — 1", max: 1, points: ["tendrá"] },
+                { label: "(c) podríamos — 1", max: 1, points: ["podríamos"] },
+                { label: "(d) harás — 1", max: 1, points: ["harás"] },
+                { label: "(e) me gustaría — 1", max: 1, points: ["me gustaría"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) I am going to travel to Spain next summer.<br>(b) I will study a lot for the exams.<br>(c) I would like to work abroad because it would be a good experience.",
+            hint: "(a) ir a + infinitive. (b) simple future of estudiar. (c) me gustaría + infinitive, then ‘sería’ (conditional of ser) for ‘it would be’.",
+            starter: "(a) Voy a… (b) … (c) Me gustaría… porque…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Voy a viajar a España el verano que viene. <em>(1)</em></li>
+                <li><strong>(b)</strong> Estudiaré mucho para los exámenes. <em>(1)</em></li>
+                <li><strong>(c)</strong> Me gustaría trabajar en el extranjero <em>(1)</em> porque <em>(1)</em> sería una buena experiencia <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. The irregular future/conditional stems must be recognisable to earn the mark.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Voy a viajar a España el verano que viene. (b) Estudiaré mucho para los exámenes. (c) Me gustaría trabajar en el extranjero porque sería una buena experiencia.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Voy a viajar a España el verano que viene"] },
+                { label: "(b)", max: 1, points: ["Estudiaré mucho para los exámenes"] },
+                { label: "(c)", max: 3, points: ["Me gustaría trabajar en el extranjero", "porque", "sería una buena experiencia"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

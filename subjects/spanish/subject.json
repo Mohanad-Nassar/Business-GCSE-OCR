@@ -19,15 +19,13 @@
           "id": "p-1-spanish-sounds-and-the-alphabet",
           "name": "P.1 Spanish Sounds and the Alphabet",
           "sub": "Phonics & Sound-Symbol",
-          "file": "P.1-spanish-sounds-and-the-alphabet.html",
-          "noQuestions": true
+          "file": "P.1-spanish-sounds-and-the-alphabet.html"
         },
         {
           "id": "p-2-tricky-letters-ll-ch-j-h-r-v",
           "name": "P.2 Tricky Letters: ll, ch, ñ, j, h, r, v",
           "sub": "Phonics & Sound-Symbol",
-          "file": "P.2-tricky-letters-ll-ch-n-j-h-r-v.html",
-          "noQuestions": true
+          "file": "P.2-tricky-letters-ll-ch-n-j-h-r-v.html"
         }
       ]
     },
@@ -41,43 +39,37 @@
           "id": "g-1-nouns-articles-and-gender",
           "name": "G.1 Nouns, Articles and Gender",
           "sub": "Grammar Toolkit",
-          "file": "G.1-nouns-articles-and-gender.html",
-          "noQuestions": true
+          "file": "G.1-nouns-articles-and-gender.html"
         },
         {
           "id": "g-2-adjectives-and-agreement",
           "name": "G.2 Adjectives and Agreement",
           "sub": "Grammar Toolkit",
-          "file": "G.2-adjectives-and-agreement.html",
-          "noQuestions": true
+          "file": "G.2-adjectives-and-agreement.html"
         },
         {
           "id": "g-3-present-tense-and-key-irregulars",
           "name": "G.3 Present Tense and Key Irregulars",
           "sub": "Grammar Toolkit",
-          "file": "G.3-present-tense-and-key-irregulars.html",
-          "noQuestions": true
+          "file": "G.3-present-tense-and-key-irregulars.html"
         },
         {
           "id": "g-4-talking-about-the-past",
           "name": "G.4 Talking About the Past",
           "sub": "Grammar Toolkit",
-          "file": "G.4-talking-about-the-past.html",
-          "noQuestions": true
+          "file": "G.4-talking-about-the-past.html"
         },
         {
           "id": "g-5-future-conditional-and-more-tenses",
           "name": "G.5 Future, Conditional and More Tenses",
           "sub": "Grammar Toolkit",
-          "file": "G.5-future-conditional-and-more-tenses.html",
-          "noQuestions": true
+          "file": "G.5-future-conditional-and-more-tenses.html"
         },
         {
           "id": "g-6-pronouns-negatives-and-connectors",
           "name": "G.6 Pronouns, Negatives and Connectors",
           "sub": "Grammar Toolkit",
-          "file": "G.6-pronouns-negatives-and-connectors.html",
-          "noQuestions": true
+          "file": "G.6-pronouns-negatives-and-connectors.html"
         }
       ]
     },

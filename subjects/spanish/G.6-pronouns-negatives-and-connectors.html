@@ -4,297 +4,380 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>G.6 Pronouns, Negatives and Connectors – Interactive Study Guide</title>
+    <title>G.6 Pronouns, Negatives and Connectors – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Grammar Toolkit · G. Grammar Toolkit</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Grammar Toolkit · G. Grammar Toolkit</div>
             <h1>G.6 Pronouns, Negatives and Connectors</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Los pronombres, los negativos y los conectores · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Grammar and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: G.6 Pronouns, Negatives and Connectors — placeholder, content not yet written
-    // ══════════════════════════════════════
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: G.6 Pronouns, Negatives and Connectors  (AQA 8692, Grammar Toolkit)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
     const pageMeta = {
-            id: 'g-6-pronouns-negatives-and-connectors',
-            badge: 'AQA GCSE Spanish — Grammar Toolkit · G. Grammar Toolkit',
-            title: 'G.6 Pronouns, Negatives and Connectors',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+        id: 'g-6-pronouns-negatives-and-connectors',
+        badge: 'AQA GCSE Spanish (8692) — Grammar Toolkit · G. Grammar Toolkit',
+        title: 'G.6 Pronouns, Negatives and Connectors',
+        subtitle: 'Interactive study guide',
+        subject: 'spanish',
+    };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>G.6 Pronouns, Negatives and Connectors</strong> will appear here soon.</p>`
+            title: "When do I use (or drop) subject pronouns?",
+            tag: "Key concept",
+            content: `<p>Subject pronouns are <span data-say="yo">yo</span> (I), <span data-say="tú">tú</span> (you), <span data-say="él">él</span> / <span data-say="ella">ella</span> (he/she), <span data-say="nosotros">nosotros / nosotras</span> (we), <span data-say="vosotros">vosotros / vosotras</span> (you all) and <span data-say="ellos">ellos</span> / <span data-say="ellas">ellas</span> (they).</p>
+            <p>Spanish verb endings already show <em>who</em> is doing the action, so subject pronouns are usually <strong>dropped</strong>: <span data-say="Hablo español.">Hablo español.</span> (I speak Spanish) needs no ‘yo’.</p>
+            <p>Keep the pronoun only for <strong>emphasis or contrast</strong>: <span data-say="Yo prefiero el fútbol, pero él prefiere el baloncesto.">Yo prefiero el fútbol, pero él prefiere el baloncesto.</span> — <em>I prefer football, but he prefers basketball.</em></p>`,
+            readCheck: { q: "Why does Spanish often drop ‘yo’, ‘tú’, etc.?", opts: ["the verb ending already shows who is doing the action", "subject pronouns are considered rude in spoken Spanish", "subject pronouns only exist for plural forms", "Spanish sentences never contain a conjugated verb"], ans: 0, explain: "The verb ending (hablo, hablas, habla…) already tells you the subject, so the pronoun is optional unless you need emphasis or contrast." }
+        },
+        {
+            title: "Direct object pronouns: lo, la, los, las",
+            tag: "Exam skill",
+            content: `<p>Use a <strong>direct object pronoun</strong> to avoid repeating a noun you have just mentioned: <span data-say="lo">lo</span> (him/it, masc.), <span data-say="la">la</span> (her/it, fem.), <span data-say="los">los</span> (them, masc.), <span data-say="las">las</span> (them, fem.).</p>
+            <p>Position: put it <strong>before a conjugated verb</strong> — <span data-say="¿Tienes el libro?">¿Tienes el libro?</span> <span data-say="Sí, lo tengo.">Sí, lo tengo.</span> (Yes, I have it) — or <strong>attach it to an infinitive</strong>: <span data-say="Voy a verlo.">Voy a verlo.</span> (I’m going to watch it).</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="lo veo">lo veo</span></td><td>I see him / it (masc.)</td></tr>
+              <tr><td><span data-say="la veo">la veo</span></td><td>I see her / it (fem.)</td></tr>
+              <tr><td><span data-say="los veo">los veo</span></td><td>I see them (masc.)</td></tr>
+              <tr><td><span data-say="las veo">las veo</span></td><td>I see them (fem.)</td></tr>
+            </table>`,
+            readCheck: { q: "Where does the direct object pronoun ‘lo’ go with a conjugated verb like ‘veo’?", opts: ["before the verb: lo veo", "after the verb with a gap: veo lo", "attached to the end of the conjugated verb: veolo", "it can never be used with a conjugated verb"], ans: 0, explain: "With a conjugated verb the pronoun goes immediately before it: lo veo. It only attaches to the END of an infinitive or gerund." }
+        },
+        {
+            title: "Indirect object and reflexive pronouns",
+            tag: "Key concept",
+            content: `<p><strong>Indirect object pronouns</strong> (to/for whom) are <span data-say="me">me</span>, <span data-say="te">te</span>, <span data-say="le">le</span>, <span data-say="nos">nos</span>: <span data-say="Le doy el regalo a mi madre.">Le doy el regalo a mi madre.</span> (I give the present to my mother.)</p>
+            <p><strong>Reflexive pronouns</strong> (me, te, se, nos, os, se) show the action is done <em>to yourself</em>: <span data-say="me levanto">me levanto</span> (I get up), <span data-say="se levanta">se levanta</span> (he/she gets up).</p>
+            <p><span class="tier-h">H</span> When a direct AND indirect pronoun combine, ‘le’/‘les’ change to <strong>se</strong>: <span data-say="Se lo doy a mi hermano.">Se lo doy a mi hermano.</span> — <em>I give it to my brother.</em></p>`,
+            readCheck: { q: "Which set of pronouns is used for reflexive verbs like ‘levantarse’?", opts: ["me, te, se, nos, os, se", "lo, la, los, las", "que, quien, lo que", "muy, bastante, demasiado"], ans: 0, explain: "Reflexive verbs take me/te/se/nos/os/se, matching the subject doing the action to itself." }
+        },
+        {
+            title: "Relative pronouns: que, quien, lo que",
+            tag: "Higher tier",
+            content: `<p><span data-say="que">que</span> (who/that/which) is the most common relative pronoun and works for <strong>both</strong> people and things: <span data-say="El chico que vive aquí es mi amigo.">El chico que vive aquí es mi amigo.</span></p>
+            <p><span data-say="quien">quien</span> / quienes <span class="tier-h">H</span> means ‘who’ but is normally used only for people, especially after a preposition: <span data-say="la persona con quien hablo">la persona con quien hablo</span> (the person I talk to).</p>
+            <p><span data-say="lo que">lo que</span> <span class="tier-h">H</span> means ‘what / that which’ — it refers to an <strong>idea</strong>, not one specific noun: <span data-say="Hago lo que quiero.">Hago lo que quiero.</span> (I do what I want.)</p>`,
+            readCheck: { q: "Which relative pronoun means ‘what/that which’ and refers to an idea rather than one noun?", opts: ["lo que", "que", "quien", "quienes"], ans: 0, explain: "‘lo que’ sums up a whole idea (‘what I want’), while ‘que’ and ‘quien(es)’ replace a specific noun." }
+        },
+        {
+            title: "Negatives: nada, nunca, nadie, ni…ni",
+            tag: "Exam skill",
+            content: `<p>Spanish uses a <strong>double negative</strong> — ‘no’ plus a negative word: <span data-say="no veo nada">no veo nada</span> (I don’t see anything/I see nothing).</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="no...nada">no … nada</span></td><td>nothing</td></tr>
+              <tr><td><span data-say="no...nunca">no … nunca</span> / <span data-say="jamás">jamás</span></td><td>never</td></tr>
+              <tr><td><span data-say="no...nadie">no … nadie</span></td><td>nobody</td></tr>
+              <tr><td><span data-say="no...ni...ni">no … ni … ni</span></td><td>neither … nor</td></tr>
+            </table>
+            <p>Examples: <span data-say="no como nunca carne">No como nunca carne.</span> (I never eat meat.) <span data-say="no hay nadie">No hay nadie.</span> (There’s nobody.) <span data-say="no me gusta ni el fútbol ni el tenis">No me gusta ni el fútbol ni el tenis.</span> (I like neither football nor tennis.)</p>
+            <p><span class="tier-h">H</span> You can drop ‘no’ if the negative word comes BEFORE the verb: <span data-say="nunca voy al gimnasio">Nunca voy al gimnasio.</span> (I never go to the gym.)</p>`,
+            readCheck: { q: "How do you say ‘I don’t see anything’ correctly in Spanish?", opts: ["No veo nada.", "No veo.", "Veo nada.", "No veo algo."], ans: 0, explain: "Spanish needs the double negative: no + veo + nada. Dropping ‘nada’, dropping ‘no’, or using ‘algo’ (something) are all wrong." }
+        },
+        {
+            title: "Connectors and intensifiers",
+            tag: "Higher tier",
+            content: `<p>Basic connectors join ideas: <span data-say="y">y</span> (and), <span data-say="pero">pero</span> (but), <span data-say="porque">porque</span> (because), <span data-say="también">también</span> (also), <span data-say="además">además</span> (furthermore).</p>
+            <p><span class="tier-h">H</span> For top marks add: <span data-say="sin embargo">sin embargo</span> (however) and <span data-say="aunque">aunque</span> (although) — <span data-say="aunque">aunque</span> introduces a <strong>contrast</strong>, unlike ‘además’ which adds an idea.</p>
+            <p>Intensifiers strengthen or soften an adjective: <span data-say="muy">muy</span> (very), <span data-say="bastante">bastante</span> (quite), <span data-say="demasiado">demasiado</span> (too much/many), <span data-say="un poco">un poco</span> (a bit).</p>
+            <p>Example: <span data-say="Me gusta el deporte, pero prefiero la música. Además, toco la guitarra. Sin embargo, no tengo mucho tiempo.">Me gusta el deporte, pero prefiero la música. Además, toco la guitarra. Sin embargo, no tengo mucho tiempo.</span></p>`,
+            readCheck: { q: "Which connector means ‘although’ and introduces a contrast?", opts: ["aunque", "porque", "también", "además"], ans: 0, explain: "‘aunque’ (although) signals a contrast; ‘porque’ gives a reason, and ‘también’/‘además’ add extra ideas rather than contrast them." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="No veo nada." data-listen></span><br>Listen. What does she say?`, opts: ["I don't see anything", "I never see anything", "I don't see anybody", "I always see everything"], ans: 0, explain: "‘No veo nada’ = I don't see anything. The traps swap nada→nunca, nada→nadie, or reverse the negative entirely." },
+        { q: `<span data-say="Se lo doy a mi hermano." data-listen></span><br>Listen. What is being described?`, opts: ["I give it to my brother", "I give it to my sister", "I gave it to my brother yesterday", "I never give it to my brother"], ans: 0, explain: "‘Se lo doy a mi hermano’ = I give it to my brother (se lo = le + lo). Traps swap the gender, the tense, or add a negative." },
+        { q: "Complete: ‘¿Tienes las llaves? Sí, ___ tengo.’", opts: ["las", "los", "la", "le"], ans: 0, explain: "‘las llaves’ is feminine plural, so the pronoun must be ‘las’. The others fail to agree in gender/number or are the wrong pronoun type." },
+        { q: "Which sentence means ‘I speak Spanish’ and drops the unneeded pronoun, as native speakers usually do?", opts: ["Hablo español.", "Yo hablo español todos los días.", "Habla español.", "Hablas español."], ans: 0, explain: "‘Hablo español’ already shows ‘I’ through the verb ending — no pronoun needed. C and D conjugate for the wrong person." },
+        { q: "Complete: ‘(Yo) ___ levanto a las siete.’", opts: ["me", "te", "se", "nos"], ans: 0, explain: "‘(Yo) me levanto’ — the reflexive pronoun must match the subject ‘yo’. The others are for a different person." },
+        { q: "Complete: ‘La chica ___ vive al lado es mi vecina.’ (who/that)", opts: ["que", "quien", "lo que", "cual"], ans: 0, explain: "‘que’ links a noun (la chica) to extra information. ‘quien’ needs a preposition, ‘lo que’ refers to an idea, and ‘cual’ needs an article." },
+        { q: "How do you say ‘There is nobody here’?", opts: ["No hay nadie aquí.", "Hay nadie aquí.", "No hay alguien aquí.", "No hay nada aquí."], ans: 0, explain: "‘No hay nadie aquí’ needs the double negative. B drops ‘no’; C wrongly pairs ‘no’ with ‘alguien’ (someone); D confuses nadie (nobody) with nada (nothing)." },
+        { q: "Complete: ‘No voy a la fiesta ___ tengo mucha tarea.’ (because)", opts: ["porque", "aunque", "pero", "también"], ans: 0, explain: "‘porque’ gives the reason. ‘aunque’ (although) reverses the logic, ‘pero’ (but) and ‘también’ (also) don't fit a cause." },
+        { q: "Which best translates ‘un poco cansado’?", opts: ["a bit tired", "extremely tired", "never tired", "the most tired of all"], ans: 0, explain: "‘un poco’ softens the adjective to ‘a bit’. The distractors overstate it, negate it, or turn it into a superlative." },
+        { q: "How do you say ‘I see it’, referring to ‘la película’ (feminine)?", opts: ["La veo.", "Veo la.", "Lo veo.", "La veo mucho."], ans: 0, explain: "‘la película’ is feminine, so the pronoun ‘la’ goes before the verb: La veo. B puts it after; C uses the wrong gender; D adds a meaning-changing ‘mucho’." }
+    ];
+
+    const matchData = [
+        { term: "lo", def: "him / it (masculine)" },
+        { term: "la", def: "her / it (feminine)" },
+        { term: "me", def: "to/for me · myself (reflexive)" },
+        { term: "se", def: "himself / herself / themselves" },
+        { term: "que", def: "who, that, which" },
+        { term: "quien", def: "who (after a preposition)" },
+        { term: "lo que", def: "what, that which" },
+        { term: "no … nada", def: "nothing" },
+        { term: "no … nunca", def: "never" },
+        { term: "no … nadie", def: "nobody" },
+        { term: "sin embargo", def: "however" },
+        { term: "aunque", def: "although" }
+    ];
+
+    const fibData = [
+        { display: `¿Tienes el libro? Sí, _____ tengo. (it — masculine, direct object pronoun)`, blanks: { B1: "lo" } },
+        { display: `No veo _____. <span data-say="No veo nada." data-listen>No veo nada.</span>`, blanks: { B1: "nada" } },
+        { display: `Voy a hacer más ejercicio, _____ es bueno para la salud. (because)`, blanks: { B1: "porque" } },
+        { display: `(Yo) _____ levanto a las siete. (myself — reflexive pronoun)`, blanks: { B1: "me" } },
+        { display: `La chica _____ vive aquí es mi amiga. (who/that)`, blanks: { B1: "que" } },
+        { display: `No voy _____ al gimnasio los domingos. (never)`, blanks: { B1: "nunca" } },
+        { display: `Juego al fútbol y, _____, hago natación. (also/furthermore)`, blanks: { B1: "además" } }
+    ];
+    const fibWords = ["lo", "nada", "porque", "me", "que", "nunca", "además"];
+
+    const tfData = [
+        { statement: "Spanish usually drops subject pronouns like ‘yo’ and ‘tú’ because the verb ending shows who is speaking.", answer: true, explanation: "Hablo español needs no ‘yo’ — the -o ending already shows it." },
+        { statement: "‘lo’ and ‘la’ are indirect object pronouns.", answer: false, explanation: "‘lo’ and ‘la’ are DIRECT object pronouns; ‘le’ and ‘les’ are indirect." },
+        { statement: "A direct object pronoun can attach to the end of an infinitive, e.g. ‘voy a verlo’.", answer: true, explanation: "voy a verlo = I'm going to watch it, with ‘lo’ attached to the infinitive." },
+        { statement: "Reflexive pronouns are only used in the plural.", answer: false, explanation: "Reflexive pronouns exist for every person: me, te, se, nos, os, se." },
+        { statement: "‘que’ can refer to both people and things.", answer: true, explanation: "El chico que vive aquí… / El libro que compré… — que works for both." },
+        { statement: "‘lo que’ means ‘the’ and goes before every noun.", answer: false, explanation: "‘lo que’ means ‘what/that which’ and refers to a whole idea, not a single noun." },
+        { statement: "Spanish uses a double negative, e.g. ‘no veo nada’.", answer: true, explanation: "‘no’ plus a negative word (nada, nunca, nadie…) is the normal Spanish pattern." },
+        { statement: "‘sin embargo’ and ‘aunque’ are examples of negatives.", answer: false, explanation: "They are CONNECTORS (however / although), not negatives." }
+    ];
+
+    const miscData = [
+        { wrong: "Veo lo.", correct: "Lo veo.", readCheck: { q: "Why is ‘Veo lo’ wrong?", opts: ["the object pronoun must go BEFORE a conjugated verb (Lo veo)", "the pronoun ‘lo’ should be ‘la’ instead", "the verb ‘veo’ is spelt incorrectly", "object pronouns can never be used with a conjugated verb like ‘veo’, only with an infinitive such as ‘ver’"], ans: 0, explain: "With a conjugated verb the pronoun comes before it; it only attaches after an infinitive or gerund." } },
+        { wrong: "Yo yo hablo español.", correct: "Hablo español.", readCheck: { q: "What’s wrong with doubling the pronoun in ‘Yo yo hablo’?", opts: ["the subject pronoun only needs using once, or can be dropped, since the verb ending shows ‘yo’", "‘yo’ must always be repeated twice in a row for extra emphasis in every single Spanish sentence you write", "‘hablo’ needs two subject pronouns to agree", "Spanish verbs cannot be used without two pronouns"], ans: 0, explain: "‘Hablo’ already carries the meaning of ‘yo’; one pronoun (or none) is correct, never a double." } },
+        { wrong: "El libro quien compré es interesante.", correct: "El libro que compré es interesante.", readCheck: { q: "Why is ‘el libro quien compré’ wrong?", opts: ["‘quien’ only refers to people, not things — things need ‘que’", "‘quien’ must always follow the word ‘lo’ before any noun or pronoun", "‘compré’ should be changed to ‘compro’", "‘libro’ needs a written accent on the final syllable"], ans: 0, explain: "‘quien/quienes’ refers to people; a thing like ‘el libro’ needs ‘que’." } },
+        { wrong: "No veo.", correct: "No veo nada.", readCheck: { q: "Why is ‘No veo’ alone not correct for ‘I don’t see anything’?", opts: ["Spanish needs the double negative: no + veo + nada", "‘veo’ on its own already means ‘nothing’ without adding any other word", "‘no’ on its own already means ‘nothing’", "you should never use ‘no’ together with ‘ver’"], ans: 0, explain: "Without ‘nada’, ‘No veo’ just means ‘I don’t see’ — it is missing what you don’t see." } },
+        { wrong: "Me gusta el deporte, aunque prefiero la música.", correct: "Me gusta el deporte, además prefiero la música.", readCheck: { q: "What’s the problem with ‘aunque’ here if you mean ‘as well as that’?", opts: ["‘aunque’ means ‘although’ and introduces a contrast, not an addition", "‘aunque’ is spelt incorrectly and should not appear anywhere in the sentence", "‘aunque’ can only be used to start a question", "‘aunque’ is one of the negative words like ‘nada’"], ans: 0, explain: "‘aunque’ signals a contrast (although); to ADD an idea you need ‘además’ or ‘también’." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Listening: pronouns and negatives in context", pills: ["Listening", "Grammar"], content: "Listen for whether the object pronoun is ‘lo/la’ (singular) or ‘los/las’ (plural), and for the negative word right after ‘no’ — ‘nada’, ‘nunca’ or ‘nadie’ completely change the meaning even though they sound similar.", readCheck: { q: "You hear ‘no … nadie’. What does that tell you?", opts: ["nobody is involved", "nothing at all happened", "the action never happens", "everything is fine"], ans: 0, explain: "‘no … nadie’ = nobody, not ‘nada’ (nothing) or ‘nunca’ (never)." } },
+        { type: "tip", title: "Paper 3 — Reading: relative pronouns link ideas", pills: ["Reading", "Grammar"], content: "Long reading texts use ‘que’, ‘quien’ and ‘lo que’ to join sentences. Track WHO or WHAT each pronoun refers back to — that noun is usually a few words earlier in the sentence.", readCheck: { q: "In ‘Hago lo que quiero’, what does ‘lo que’ refer to?", opts: ["a whole idea (‘what I want’), not one specific noun", "one masculine singular noun that was already mentioned earlier in the same sentence", "a person the speaker is talking to directly", "a place mentioned earlier in the text"], ans: 0, explain: "‘lo que’ sums up an idea, unlike ‘que’, which replaces one specific noun." } },
+        { type: "evaluate", title: "Paper 4 — Writing: use connectors and pronouns for range", pills: ["Writing", "Higher"], content: "Top-band answers combine a pronoun (‘lo/la’), a negative (‘nunca’, ‘nada’) and a Higher connector (‘sin embargo’, ‘aunque’) in the same paragraph, instead of repeating ‘y’ and ‘pero’ throughout.", readCheck: { q: "Which answer shows the widest range of structures?", opts: ["Me gusta el fútbol, pero nunca lo juego porque, sin embargo, prefiero nadar", "Me gusta el fútbol y me gusta nadar y me gusta el baloncesto y también me gusta el tenis", "Me gusta el deporte", "No me gusta nada"], ans: 0, explain: "It combines a pronoun (lo), a negative (nunca) and Higher connectors (pero, sin embargo) — range plus accuracy, not just repeated ‘y’." } }
+    ];
+
+    const flashcards = [
+        { term: "lo", def: "him / it (masculine)", say: "lo" },
+        { term: "la", def: "her / it (feminine)", say: "la" },
+        { term: "los", def: "them (masculine)", say: "los" },
+        { term: "las", def: "them (feminine)", say: "las" },
+        { term: "me", def: "to/for me · myself (reflexive)", say: "me" },
+        { term: "te", def: "to/for you · yourself (reflexive)", say: "te" },
+        { term: "se", def: "himself / herself / themselves (reflexive)", say: "se" },
+        { term: "que", def: "who, that, which", say: "que" },
+        { term: "quien (H)", def: "who (after a preposition)", say: "quien" },
+        { term: "lo que (H)", def: "what, that which", say: "lo que" },
+        { term: "no … nada", def: "nothing", say: "no veo nada" },
+        { term: "no … nunca", def: "never", say: "no como nunca carne" },
+        { term: "no … nadie", def: "nobody", say: "no hay nadie" },
+        { term: "no … ni … ni", def: "neither … nor", say: "no me gusta ni el fútbol ni el tenis" },
+        { term: "sin embargo (H)", def: "however", say: "sin embargo" },
+        { term: "aunque (H)", def: "although", say: "aunque" },
+        { term: "además", def: "furthermore, also", say: "además" },
+        { term: "un poco", def: "a bit", say: "un poco cansado" }
+    ];
+
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: 1, marks: 5, type: "written",
+            question: "Complete the text with <strong>one</strong> word from this list for each gap: <strong>lo, porque, que, nunca, aunque</strong>. Use each word once.<br>Mi amigo Carlos tiene un coche nuevo. Yo no (1)___ tengo, así que voy en bici. Me gusta el ciclismo (2)___ es bueno para la salud. Mi hermano, (3)___ vive cerca, viene conmigo a veces. (4)___ vamos en invierno porque hace demasiado frío. Me gusta el ciclismo, (5)___ prefiero nadar en verano.",
+            hint: "(1) replaces ‘un coche nuevo’ (masculine). (2) gives a reason. (3) links back to ‘mi hermano’. (4) is a negative word before the verb. (5) introduces a contrast with what comes before it.",
+            starter: "(1) lo (2) porque (3) ... (4) ... (5) ...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (grammar in context)</h5><ul>
+                <li><strong>(1)</strong> lo <em>(1)</em></li>
+                <li><strong>(2)</strong> porque <em>(1)</em></li>
+                <li><strong>(3)</strong> que <em>(1)</em></li>
+                <li><strong>(4)</strong> nunca <em>(1)</em></li>
+                <li><strong>(5)</strong> aunque <em>(1)</em></li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Each gap is worth one mark; the word must be spelt correctly and used only once.</li>
+            </ul></div>`,
+            modelAnswer: "(1) lo (2) porque (3) que (4) nunca (5) aunque",
+            markPoints: { note: "One tick per correct gap; cap at 5.", groups: [
+                { label: "(1) lo — 1", max: 1, points: ["lo"] },
+                { label: "(2) porque — 1", max: 1, points: ["porque"] },
+                { label: "(3) que — 1", max: 1, points: ["que"] },
+                { label: "(4) nunca — 1", max: 1, points: ["nunca"] },
+                { label: "(5) aunque — 1", max: 1, points: ["aunque"] }
+            ] }
+        },
+        {
+            num: 2, marks: 4, type: "written",
+            question: "Translate this paragraph <strong>into Spanish</strong>: ‘I like football, but I prefer basketball. However, I never play at the weekend because I have too much homework.’",
+            hint: "‘however’ = sin embargo; ‘I never play’ needs the double negative (no juego … nunca, or nunca before the verb); ‘too much/many’ = demasiado/demasiados.",
+            starter: "Me gusta el fútbol, pero...",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>Me gusta el fútbol</strong> <em>(1)</em></li>
+                <li><strong>pero prefiero el baloncesto</strong> <em>(1)</em></li>
+                <li><strong>Sin embargo, nunca juego los fines de semana</strong> <em>(1)</em></li>
+                <li><strong>porque tengo demasiados deberes</strong> <em>(1)</em></li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors and ‘no juego nunca’ as an alternative to ‘nunca juego’.</li>
+            </ul></div>`,
+            modelAnswer: "Me gusta el fútbol, pero prefiero el baloncesto. Sin embargo, nunca juego los fines de semana porque tengo demasiados deberes.",
+            markPoints: { note: "One tick per scheme point; cap at 4.", groups: [
+                { label: "Me gusta el fútbol", max: 1, points: ["Me gusta el fútbol"] },
+                { label: "pero prefiero el baloncesto", max: 1, points: ["pero prefiero el baloncesto"] },
+                { label: "Sin embargo, nunca juego los fines de semana", max: 1, points: ["Sin embargo, nunca juego los fines de semana"] },
+                { label: "porque tengo demasiados deberes", max: 1, points: ["porque tengo demasiados deberes"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>
