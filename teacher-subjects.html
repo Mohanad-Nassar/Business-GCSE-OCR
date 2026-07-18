@@ -2733,7 +2733,9 @@ async function saveOverride(mode) {
   fadeMsgLater($('step3Msg'), targetStatus === 'published' ? 3500 : 2200);
 
   // A published override's questions must reach this school's Daily Revise / Tasks.
-  if (targetStatus === 'published') syncOverrideBank();
+  // Awaited + error-surfacing: if the bank sync fails, the teacher must SEE it
+  // (otherwise the topic looks published but has no questions for students).
+  if (targetStatus === 'published') await syncOverrideBank();
 }
 
 // Rebuild THIS school's override bank rows for the subject and POST them to
@@ -2742,35 +2744,38 @@ async function saveOverride(mode) {
 // this school's rows that aren't in the payload — sending one topic would wipe
 // the school's other overridden topics. Fire-and-forget, like the custom path.
 async function syncOverrideBank() {
-  if (!window.CustomBank || !overrideCtx) return;
-  const schoolId = await ensureMySchool();
-  if (!schoolId) return;
-  const token = auth && auth.session && auth.session.access_token;
-  if (!token) return;
-  // RLS scopes this to the caller's own school's published overrides.
-  const { data, error } = await auth.client.from('subject_overrides')
-    .select('topic_slug, sections').eq('subject_id', overrideCtx.subjectId).eq('status', 'published');
-  if (error) { console.error('override bank: load published', error.message); return; }
-  const subjectForBank = { slug: overrideCtx.subjectSlug, colour: overrideCtx.subjectRow.colour };
-  const topicRows = (data || []).map(o => ({
-    slug: o.topic_slug, title: topicNameForSlug(overrideCtx.subjectSlug, o.topic_slug),
-    section: '', sections: o.sections || {}, status: 'published',
-  }));
-  const rows = CustomBank.buildBankRows(subjectForBank, topicRows, { overrideSchoolId: schoolId });
+  // Any failure here means "published but students get no questions" — so every
+  // exit path SURFACES why, rather than returning silently.
+  const warn = (m) => { console.error('override bank sync:', m); setMsg($('step3Msg'), 'Published, but questions did NOT sync: ' + m, false); };
   try {
+    if (!window.CustomBank || !overrideCtx) return warn('editor not ready — reload and re-publish.');
+    const schoolId = await ensureMySchool();
+    if (!schoolId) return warn('couldn’t resolve your school (my_school) — is subjects-v2-s5-overrides.sql applied?');
+    const token = auth && auth.session && auth.session.access_token;
+    if (!token) return warn('no session token — log in again.');
+    // RLS scopes this to the caller's own school's published overrides.
+    const { data, error } = await auth.client.from('subject_overrides')
+      .select('topic_slug, sections').eq('subject_id', overrideCtx.subjectId).eq('status', 'published');
+    if (error) return warn('loading your published overrides failed — ' + error.message);
+    const subjectForBank = { slug: overrideCtx.subjectSlug, colour: overrideCtx.subjectRow.colour };
+    const topicRows = (data || []).map(o => ({
+      slug: o.topic_slug, title: topicNameForSlug(overrideCtx.subjectSlug, o.topic_slug),
+      section: '', sections: o.sections || {}, status: 'published',
+    }));
+    const rows = CustomBank.buildBankRows(subjectForBank, topicRows, { overrideSchoolId: schoolId });
     const res = await fetch('/.netlify/functions/sync-override-bank', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
       body: JSON.stringify({ subject_id: overrideCtx.subjectId, school_id: schoolId, rows }),
     });
     const payload = await res.json().catch(() => ({}));
-    if (!res.ok) { console.error('sync-override-bank', payload.error || res.status); return; }
+    if (!res.ok) return warn((payload && payload.error) || ('sync-override-bank HTTP ' + res.status));
     const n = (payload && payload.synced) || 0;
-    const el = $('step3Msg');
-    if (el && el.classList.contains('ok')) {
-      el.textContent = 'Published for your school ✓ · ' + n + ' question' + (n === 1 ? '' : 's') + ' synced to Daily Revise & Tasks';
-    }
-  } catch (err) { console.error('sync-override-bank', err); }
+    setMsg($('step3Msg'), 'Published for your school ✓ · ' + n + ' question' + (n === 1 ? '' : 's') + ' synced to Daily Revise & Tasks', true);
+    fadeMsgLater($('step3Msg'), 4000);
+  } catch (err) {
+    warn((err && err.message) || 'unexpected error building/sending the question bank.');
+  }
 }
 
 function wireStaticListeners() {
