@@ -44,6 +44,87 @@ function _notifFmtScore(attempt) {
     return `${attempt.marks_awarded ?? 0}/${attempt.marks_total} (${pct}%)`;
 }
 
+// ── private copies of the spaced-repetition helpers (spaced-repetition.js is
+// NOT loaded on topic pages, and this file must stay self-contained). Keep
+// these in step with srTodayStr/srStatus/srStageLabel over there. ──
+
+// Local-timezone 'YYYY-MM-DD', deliberately not toISOString() (UTC) — a review
+// due "today" must flip at local midnight, not at 11pm/1am under BST.
+function _notifTodayStr(d) {
+    d = d || new Date();
+    const p = n => String(n).padStart(2, '0');
+    return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+function _notifReviewStatus(row, todayStr) {
+    if (row.completed_at) return 'completed';
+    if (row.due_date < todayStr) return 'overdue';   // 'YYYY-MM-DD' sorts as a date
+    if (row.due_date === todayStr) return 'due';
+    return 'upcoming';
+}
+function _notifStageLabel(stage) {
+    return { 1: '1 day', 2: '1 week', 3: '4 weeks' }[stage] || ('stage ' + stage);
+}
+// Topic display name for a review row. Tries the all-subjects tree (root
+// pages), then the current subject's (topic pages load only their own), then
+// degrades to the readable half of the page id — the bell runs on pages that
+// have any of the three.
+function _notifPageName(pageId) {
+    const id = String(pageId || '');
+    const trees = [];
+    if (window.PAGE_GROUPS_ALL) Object.keys(window.PAGE_GROUPS_ALL).forEach(s => trees.push(window.PAGE_GROUPS_ALL[s]));
+    if (window.PAGE_GROUPS) trees.push(window.PAGE_GROUPS);
+    for (const groups of trees) {
+        for (const g of (groups || [])) {
+            for (const p of (g.pages || [])) {
+                if (p.id === id) return p.name;
+                for (const c of (p.children || [])) if (c.id === id) return c.name;
+            }
+        }
+    }
+    return id.split(':').pop().replace(/[-_]+/g, ' ') || id;
+}
+
+// ── Review-due notifications (shared: the bell AND notifications.html) ──
+// Pure: takes schedule rows ({ page_id, stage, due_date, completed_at }) and
+// returns the same note shape as deriveStudentNotifications.
+//
+// This derivation USED to live only inside notifications.html, which is why
+// due reviews showed on that page but never reached the bell or its badge —
+// students got no nudge unless they went looking. Both callers now share this
+// one function so the two can't drift apart again, and so the note KEYS match:
+// dismissals are stored per-key in task_notification_reads, so a review
+// dismissed on the page must be the same key the bell dismisses.
+//
+// page_id is subject-prefixed ('business:1-3-business-ownership'), so the slug
+// comes from the id itself — no extra `classes` round trip needed.
+function deriveReviewNotifications(scheduleRows, readKeys, todayStr) {
+    const today = todayStr || _notifTodayStr();
+    const read = new Set(readKeys || []);
+    const notes = [];
+    (scheduleRows || []).forEach(r => {
+        // 'example' is the permanent demo row get_review_schedule() re-dates to
+        // today on every call. It has no questions and can NEVER be ticked off,
+        // so nudging about it would put an un-clearable badge on every student
+        // forever. It still shows on the calendar, where it's a harmless
+        // "this is what a due review looks like" example.
+        if (r.page_id === 'example') return;
+        const st = _notifReviewStatus(r, today);
+        if (st !== 'due' && st !== 'overdue') return;
+        const slug = String(r.page_id).split(':')[0];
+        const name = _notifPageName(r.page_id);
+        notes.push({
+            key: `review:${slug}:${r.page_id}:${r.stage}:${r.due_date}`,
+            icon: st === 'overdue' ? '⏰' : '🗓️',
+            at: new Date(r.due_date + 'T08:00:00').getTime(),
+            href: '/review-calendar.html?subject=' + encodeURIComponent(slug),
+            text: st === 'overdue'
+                ? `Review overdue: “${name}” (${_notifStageLabel(r.stage)}) was due ${new Date(r.due_date).toLocaleDateString(undefined, { day: 'numeric', month: 'short' })}`
+                : `Review due today: “${name}” (${_notifStageLabel(r.stage)}) — pass a short quiz to tick it off`,
+        });
+    });
+    return notes.filter(n => !read.has(n.key)).map(notifDecorate).sort((a, b) => b.at - a.at);
+}
+
 // ── Student notifications (derived — no cron needed) ──
 // Returns [{ key, icon, text, taskId, at }] newest first, excluding read keys.
 function deriveStudentNotifications(rows, readKeys) {
@@ -87,11 +168,335 @@ function deriveStudentNotifications(rows, readKeys) {
         });
     });
 
-    return notes.filter(n => !read.has(n.key)).sort((a, b) => b.at - a.at);
+    return notes.filter(n => !read.has(n.key)).map(notifDecorate).sort((a, b) => b.at - a.at);
 }
 
 function _notifEsc(str) {
     return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+// ══════════════════════════════════════════════════════════════
+// NOTIFICATION TYPE REGISTRY — the single source of truth for every
+// alert the platform derives (student + teacher + admin). Each derived
+// note carries `type` (a key of this map) and `priority`; the bell,
+// both notifications pages and the preferences UI all read from here so
+// icons, labels and defaults never drift apart.
+//
+//   aud      — who this type is for ('student' | 'teacher' | 'admin').
+//   kind     — 'action' (must DO) | 'info' (FYI); mirrors teacher_todos.
+//   priority — 'high' | 'normal' | 'low'; sorts high-first within a day.
+// ══════════════════════════════════════════════════════════════
+const NOTIF_TYPES = {
+    // teacher
+    marking:         { icon: '✍️',   label: 'Submissions to mark',              aud: 'teacher', kind: 'action', priority: 'high'   },
+    topic_request:   { icon: '🙋',   label: 'Student topic-access requests',    aud: 'teacher', kind: 'action', priority: 'high'   },
+    class_invite:    { icon: '🧑‍🏫', label: 'Co-teacher invites',               aud: 'teacher', kind: 'action', priority: 'normal' },
+    edit_request:    { icon: '✋',   label: 'Requests to edit your subjects',   aud: 'teacher', kind: 'action', priority: 'normal' },
+    external_share:  { icon: '🌐',   label: 'External share requests',          aud: 'admin',   kind: 'action', priority: 'normal' },
+    question_report: { icon: '🚩',   label: 'Question reports from students',   aud: 'teacher', kind: 'action', priority: 'normal' },
+    integrity:       { icon: '🚫',   label: 'Integrity alerts (blocked paste)', aud: 'teacher', kind: 'info',   priority: 'low'    },
+    // student
+    task_assigned:   { icon: '📋',   label: 'New tasks assigned',    aud: 'student', kind: 'action', priority: 'high'   },
+    task_due:        { icon: '⏰',   label: 'Deadlines approaching', aud: 'student', kind: 'action', priority: 'high'   },
+    task_overdue:    { icon: '⚠️',   label: 'Overdue tasks',         aud: 'student', kind: 'action', priority: 'high'   },
+    task_marked:     { icon: '✅',   label: 'Marked results',        aud: 'student', kind: 'info',   priority: 'normal' },
+    review_due:      { icon: '🗓️',  label: 'Reviews due',           aud: 'student', kind: 'action', priority: 'normal' },
+};
+
+// Key-prefix → type. Existing keys are IMMUTABLE (dismissals live per-key in
+// task_notification_reads), so this maps the historical prefixes rather than
+// changing them. Longest/most-specific prefixes are tested first ('overdue:'
+// before 'due:') so neither shadows the other.
+function notifTypeForKey(key) {
+    const k = String(key || '');
+    if (k.startsWith('mark:')) return 'marking';
+    if (k.startsWith('req:')) return 'topic_request';
+    if (k.startsWith('classinvite:')) return 'class_invite';
+    if (k.startsWith('editreq:')) return 'edit_request';
+    if (k.startsWith('extshare:')) return 'external_share';
+    if (k.startsWith('qreport:')) return 'question_report';
+    if (k.startsWith('integrity:')) return 'integrity';
+    if (k.startsWith('assigned:')) return 'task_assigned';
+    if (k.startsWith('overdue:')) return 'task_overdue';
+    if (k.startsWith('due:')) return 'task_due';
+    if (k.startsWith('marked:')) return 'task_marked';
+    if (k.startsWith('review:')) return 'review_due';
+    return null;
+}
+
+// Stamps `type`, `priority` and `kind` onto a derived note from the registry,
+// without clobbering anything a derivation set explicitly. Applied at the
+// return of every derive*Notifications function so callers can rely on the
+// fields being present.
+function notifDecorate(n) {
+    if (!n.type) n.type = notifTypeForKey(n.key);
+    const t = NOTIF_TYPES[n.type];
+    if (t) {
+        if (n.priority == null) n.priority = t.priority;
+        if (n.kind == null) n.kind = t.kind;
+    }
+    if (n.priority == null) n.priority = 'normal';
+    return n;
+}
+
+// ── Cached am_i_admin() (school-admin.sql) ──
+// Memoised as a PROMISE on window so the bell derivation and the full to-do
+// page (both of which call deriveTeacherNotifications on the same page load)
+// share one RPC round-trip. Degrades to "not an admin" if the RPC is missing.
+function notifAmIAdmin(client) {
+    if (window._gcseAmIAdminP) return window._gcseAmIAdminP;
+    window._gcseAmIAdminP = (async () => {
+        try {
+            const { data, error } = await client.rpc('am_i_admin');
+            if (error) return { is_owner: false, schools: [] };
+            return data || { is_owner: false, schools: [] };
+        } catch (e) { return { is_owner: false, schools: [] }; }
+    })();
+    return window._gcseAmIAdminP;
+}
+
+// ══════════════════════════════════════════════════════════════
+// FEED HEALTH (observability)
+// supabase-js RESOLVES with { error } rather than throwing, so a discarded
+// error is INDISTINGUISHABLE from "no rows" — a renamed column, changed RLS or
+// drifted RPC signature silently kills a feed forever, and nobody notices
+// because "zero notifications" looks exactly like a healthy quiet day. So every
+// feed runs through notifFeed(): it still returns data||[] (a broken feed
+// degrades, never throws), but records the outcome on window._gcseNotifHealth
+// keyed by label. A QA pass or devtools can then assert, against a
+// fully-migrated DB, that Object.values(_gcseNotifHealth).every(h => h.ok).
+// Purely additive: no user-facing or control-flow change.
+//   window._gcseNotifHealth = { edit_request:{ok,code,at}, integrity:{…}, … }
+// ══════════════════════════════════════════════════════════════
+function notifHealthMark(label, ok, code) {
+    try {
+        const w = (typeof window !== 'undefined') ? window : {};
+        const health = (w._gcseNotifHealth = w._gcseNotifHealth || {});
+        health[label] = { ok: !!ok, code: ok ? null : (code || 'error'), at: Date.now() };
+    } catch (e) { /* no window (tests) — health is best-effort */ }
+}
+// Wrap a supabase query/RPC thunk. Records health for `label`, always resolves
+// to an array (never throws), so callers just do `(await notifFeed(...)).forEach`.
+async function notifFeed(label, thunk) {
+    try {
+        const res = await thunk();
+        const err = res && res.error;
+        notifHealthMark(label, !err, err && (err.code || err.message));
+        return (res && res.data) || [];
+    } catch (e) {
+        notifHealthMark(label, false, (e && (e.code || e.message)) || 'threw');
+        return [];
+    }
+}
+
+// ══════════════════════════════════════════════════════════════
+// NOTIFICATION PREFERENCES — per-type level + sound, plus a global
+// sound switch. localStorage (gcse_notif_prefs_v1) is the primary store;
+// user_notif_prefs (supabase/notification-prefs.sql — NOT yet run on
+// live) is a best-effort cross-device sync. Everything degrades to
+// localStorage-only when the table is missing (42P01), with no console spam.
+//
+//   level ∈ 'normal' (bell + badge + chime + page)
+//         | 'quiet'  (page only — muted from the bell)
+//         | 'off'    (hidden everywhere)
+//   sound  — per-type chime opt-out (only meaningful at level 'normal')
+//   soundOn — global master switch (default true)
+// ══════════════════════════════════════════════════════════════
+const NOTIF_PREFS_KEY = 'gcse_notif_prefs_v1';
+const NOTIF_SEEN_KEY = 'gcse_notif_seen_v1';
+
+// ── Per-account localStorage namespacing ──
+// School machines are SHARED (ICT suites, staffrooms), so every localStorage
+// key here is suffixed with the signed-in uid. An un-namespaced blob would leak
+// one teacher's muted types onto the next person to log in on the same PC — and
+// the moment they touched any setting, notifPrefsSave() would upsert the
+// borrowed prefs into THEIR server row, making the bleed permanent and
+// cross-device. uid is set the first time notifPrefsLoad()/notifPrefsSave()
+// runs (both always receive it); before that the bare key is used for the
+// pre-auth case only, where nothing syncs to a server row anyway.
+let _notifPrefsUid = null;
+function _notifNsKey(base) {
+    return _notifPrefsUid ? base + ':' + _notifPrefsUid : base;
+}
+// Adopt the uid and, once, drop the legacy un-namespaced blobs from the
+// pre-namespacing build so they can never be read as if they were this
+// account's. Called with the uid the moment it's known.
+function _notifSetUid(uid) {
+    if (!uid || _notifPrefsUid === uid) return;
+    _notifPrefsUid = uid;
+    try { localStorage.removeItem(NOTIF_PREFS_KEY); localStorage.removeItem(NOTIF_SEEN_KEY); } catch (e) {}
+}
+
+// integrity alerts are noisy/low-stakes, so they start muted from the bell
+// (still visible on the notifications page). Everything else is 'normal' —
+// students in particular have always had "results ready" in their bell.
+function _notifDefaultLevel(type) {
+    return type === 'integrity' ? 'quiet' : 'normal';
+}
+function _notifPrefsDefaults() {
+    const types = {};
+    Object.keys(NOTIF_TYPES).forEach(t => { types[t] = { level: _notifDefaultLevel(t), sound: true }; });
+    return { v: 1, soundOn: true, updatedAt: null, types };
+}
+// Defaults ← base ← incoming (later source wins per field). Unknown types in a
+// stored blob are ignored, so adding a type to the registry Just Works.
+function _notifPrefsMerge(base, incoming) {
+    const out = _notifPrefsDefaults();
+    const apply = (p) => {
+        if (!p || typeof p !== 'object') return;
+        if (typeof p.soundOn === 'boolean') out.soundOn = p.soundOn;
+        if (p.updatedAt) out.updatedAt = p.updatedAt;
+        if (p.types && typeof p.types === 'object') {
+            Object.keys(p.types).forEach(t => {
+                if (!out.types[t]) return;
+                const src = p.types[t] || {};
+                if (src.level === 'normal' || src.level === 'quiet' || src.level === 'off') out.types[t].level = src.level;
+                if (typeof src.sound === 'boolean') out.types[t].sound = src.sound;
+            });
+        }
+    };
+    apply(base); apply(incoming);
+    return out;
+}
+function _notifPrefsLoadLocal() {
+    try {
+        const raw = localStorage.getItem(_notifNsKey(NOTIF_PREFS_KEY));
+        return raw ? JSON.parse(raw) : null;
+    } catch (e) { return null; }
+}
+function _notifPrefsSaveLocal(prefs) {
+    try { localStorage.setItem(_notifNsKey(NOTIF_PREFS_KEY), JSON.stringify(prefs)); } catch (e) {}
+}
+// Synchronous, localStorage-only merged prefs — used by the bell on every
+// refresh so a change made on the settings page is reflected next poll without
+// another round trip.
+function notifPrefsLocal() {
+    return _notifPrefsMerge(_notifPrefsLoadLocal(), null);
+}
+// Async load with best-effort server merge (newer updatedAt wins). Always
+// resolves to a usable prefs object; caches the merged result locally.
+async function notifPrefsLoad(client, uid) {
+    if (uid) _notifSetUid(uid);
+    const local = _notifPrefsLoadLocal();
+    let server = null;
+    if (client && uid) {
+        try {
+            const { data, error } = await client.from('user_notif_prefs')
+                .select('prefs, updated_at').eq('user_id', uid).maybeSingle();
+            if (!error && data) {
+                server = (data.prefs && typeof data.prefs === 'object') ? Object.assign({}, data.prefs) : {};
+                server.updatedAt = data.updated_at || server.updatedAt || null;
+            }
+        } catch (e) { /* 42P01 / offline — localStorage only */ }
+    }
+    const lt = local && local.updatedAt ? new Date(local.updatedAt).getTime() : 0;
+    const st = server && server.updatedAt ? new Date(server.updatedAt).getTime() : 0;
+    const prefs = st >= lt ? _notifPrefsMerge(local, server) : _notifPrefsMerge(server, local);
+    _notifPrefsSaveLocal(prefs);
+    return prefs;
+}
+// Writes localStorage synchronously (source of truth) then upserts the server
+// row best-effort. A missing table just leaves the server copy absent.
+async function notifPrefsSave(client, uid, prefs) {
+    if (uid) _notifSetUid(uid);
+    prefs = prefs || _notifPrefsDefaults();
+    prefs.updatedAt = new Date().toISOString();
+    _notifPrefsSaveLocal(prefs);
+    if (client && uid) {
+        try {
+            await client.from('user_notif_prefs')
+                .upsert({ user_id: uid, prefs: prefs, updated_at: prefs.updatedAt });
+        } catch (e) { /* table missing — localStorage remains the source of truth */ }
+    }
+    return prefs;
+}
+function notifLevelFor(prefs, type) {
+    const t = prefs && prefs.types && prefs.types[type];
+    if (t && (t.level === 'normal' || t.level === 'quiet' || t.level === 'off')) return t.level;
+    return _notifDefaultLevel(type);
+}
+function notifSoundFor(prefs, type) {
+    const t = prefs && prefs.types && prefs.types[type];
+    if (t && typeof t.sound === 'boolean') return t.sound;
+    return true;
+}
+
+// ══════════════════════════════════════════════════════════════
+// CHIME + "new item" detection. Self-contained Web Audio (NOT
+// gamification.js — that isn't loaded on teacher pages). The seen-set
+// (gcse_notif_seen_v1) records the first time each note key was seen at
+// level 'normal', so a given notification chimes exactly once per browser
+// even across page navigations. (NOTIF_SEEN_KEY is declared up top, next to
+// NOTIF_PREFS_KEY, because both are per-account namespaced via _notifNsKey.)
+// ══════════════════════════════════════════════════════════════
+let _notifAudioCtx = null;
+
+function _notifAudioContext() {
+    if (_notifAudioCtx) return _notifAudioCtx;
+    try {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return null;
+        _notifAudioCtx = new AC();
+    } catch (e) { _notifAudioCtx = null; }
+    return _notifAudioCtx;
+}
+// Autoplay policy blocks audio before a user gesture; resume on the first
+// pointerdown so the next genuinely-new item can chime. No-op if no ctx yet.
+function _notifResumeAudio() {
+    if (_notifAudioCtx && _notifAudioCtx.state === 'suspended') {
+        try { _notifAudioCtx.resume().catch(() => {}); } catch (e) {}
+    }
+}
+// Two-tone ding (~880→1318 Hz, ~0.35 s, peak gain ≤0.12). Never throws.
+function notifPlayChime() {
+    const ctx = _notifAudioContext();
+    if (!ctx) return;
+    try {
+        if (ctx.state === 'suspended') ctx.resume().catch(() => {});
+        const now = ctx.currentTime;
+        const gain = ctx.createGain();
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.12, now + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
+        gain.connect(ctx.destination);
+        const osc = ctx.createOscillator();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(880, now);
+        osc.frequency.setValueAtTime(1318.5, now + 0.16);
+        osc.connect(gain);
+        osc.start(now);
+        osc.stop(now + 0.36);
+    } catch (e) { /* audio unavailable — badge still updated */ }
+}
+function _notifSeenLoad() {
+    try {
+        const m = JSON.parse(localStorage.getItem(_notifNsKey(NOTIF_SEEN_KEY)) || '{}');
+        return (m && typeof m === 'object') ? m : {};
+    } catch (e) { return {}; }
+}
+function _notifSeenSave(map) {
+    try {
+        let keys = Object.keys(map);
+        if (keys.length > 400) {
+            keys = keys.sort((a, b) => (map[b] || 0) - (map[a] || 0)).slice(0, 400);
+            const pruned = {};
+            keys.forEach(k => { pruned[k] = map[k]; });
+            map = pruned;
+        }
+        localStorage.setItem(_notifNsKey(NOTIF_SEEN_KEY), JSON.stringify(map));
+    } catch (e) {}
+}
+// Pure: which of `visibleKeys` aren't in `seenMap` yet. Returns the new keys
+// plus a fresh map with them recorded at `now`. Exported shape kept simple so
+// it's unit-testable without a DOM.
+function notifDetectNew(visibleKeys, seenMap, now) {
+    now = now || Date.now();
+    const map = Object.assign({}, seenMap || {});
+    const newKeys = [];
+    (visibleKeys || []).forEach(k => {
+        if (!(k in map)) { map[k] = now; newKeys.push(k); }
+    });
+    return { newKeys, map };
 }
 
 // ── Teacher notifications (derived — no cron needed) ──
@@ -104,6 +509,9 @@ function _notifEsc(str) {
 async function deriveTeacherNotifications(client, uid) {
     const notes = [];
     if (!client || !uid) return notes;
+    // Hoisted so the new feeds below (which live in their OWN try/catch, outside
+    // the tasks fetch) can still name a class even if the tasks query failed.
+    const className = {};
     const pageName = (pageId) => {
         const bySlug = window.PAGE_GROUPS_ALL || {};
         for (const slug of Object.keys(bySlug)) {
@@ -117,22 +525,24 @@ async function deriveTeacherNotifications(client, uid) {
         return pageId;
     };
     try {
-        const [{ data: tasks }, { data: classes }] = await Promise.all([
+        const [tasksRes, classesRes] = await Promise.all([
             client.from('tasks').select('id, title, class_id, status').eq('status', 'published'),
             client.from('classes').select('id, name'),
         ]);
-        const className = {};
+        const tasks = tasksRes && tasksRes.data, classes = classesRes && classesRes.data;
+        notifHealthMark('tasks', !(tasksRes && tasksRes.error),
+            tasksRes && tasksRes.error && (tasksRes.error.code || tasksRes.error.message));
         (classes || []).forEach(c => { className[c.id] = c.name; });
 
         // ✍️ Submissions waiting to be marked, grouped per task.
         const taskIds = (tasks || []).map(t => t.id);
         if (taskIds.length) {
-            const { data: atts } = await client.from('task_attempts')
+            const atts = await notifFeed('marking', () => client.from('task_attempts')
                 .select('task_id, submitted_at')
                 .in('task_id', taskIds)
-                .eq('status', 'submitted').eq('marking_complete', false);
+                .eq('status', 'submitted').eq('marking_complete', false));
             const byTask = {};
-            (atts || []).forEach(a => {
+            atts.forEach(a => {
                 const b = byTask[a.task_id] = byTask[a.task_id] || { n: 0, at: 0 };
                 b.n++;
                 const t = new Date(a.submitted_at || 0).getTime();
@@ -151,45 +561,142 @@ async function deriveTeacherNotifications(client, uid) {
         }
 
         // 🙋 Pending topic-access requests.
-        try {
-            const { data: reqs } = await client.from('topic_access_requests')
-                .select('id, page_id, class_id, requested_at, status, profiles!topic_access_requests_student_id_fkey(username)')
-                .eq('status', 'pending');
-            (reqs || []).forEach(r => {
-                const who = (r.profiles && r.profiles.username) || 'A student';
-                const cls = className[r.class_id] || '';
-                notes.push({
-                    key: `req:${r.id}`, icon: '🙋', kind: 'action', at: new Date(r.requested_at || 0).getTime(),
-                    href: `/teacher-dashboard.html?class=${encodeURIComponent(r.class_id)}#topic-access`,
-                    text: `${who} asked to open “${pageName(r.page_id)}”${cls ? ' (' + cls + ')' : ''}`,
-                });
+        (await notifFeed('topic_request', () => client.from('topic_access_requests')
+            .select('id, page_id, class_id, requested_at, status, profiles!topic_access_requests_student_id_fkey(username)')
+            .eq('status', 'pending'))).forEach(r => {
+            const who = (r.profiles && r.profiles.username) || 'A student';
+            const cls = className[r.class_id] || '';
+            notes.push({
+                key: `req:${r.id}`, icon: '🙋', kind: 'action', at: new Date(r.requested_at || 0).getTime(),
+                href: `/teacher-dashboard.html?class=${encodeURIComponent(r.class_id)}#topic-access`,
+                text: `${who} asked to open “${pageName(r.page_id)}”${cls ? ' (' + cls + ')' : ''}`,
             });
-        } catch (e) { /* topic-access schema not installed — skip */ }
+        });
 
         // 🧑‍🏫 Pending co-teacher invites (supabase/class-teachers.sql). Links to
         // My Classes, where the accept/decline banner lives.
-        try {
-            const { data: invs } = await client.rpc('get_my_pending_class_invites');
-            (invs || []).forEach(iv => {
-                notes.push({
-                    key: `classinvite:${iv.id}`, icon: '🧑‍🏫', kind: 'action',
-                    at: new Date(iv.created_at || 0).getTime(),
-                    href: '/teacher-classes.html',
-                    text: `${iv.invited_by || 'A teacher'} invited you to co-teach “${iv.class_name}” — open My Classes to accept`,
-                });
+        (await notifFeed('class_invite', () => client.rpc('get_my_pending_class_invites'))).forEach(iv => {
+            notes.push({
+                key: `classinvite:${iv.id}`, icon: '🧑‍🏫', kind: 'action',
+                at: new Date(iv.created_at || 0).getTime(),
+                href: '/teacher-classes.html',
+                text: `${iv.invited_by || 'A teacher'} invited you to co-teach “${iv.class_name}” — open My Classes to accept`,
             });
-        } catch (e) { /* class-teachers.sql not installed — skip */ }
-    } catch (e) { /* tasks schema not installed yet, or offline */ }
-    return notes.sort((a, b) => b.at - a.at);
+        });
+    } catch (e) { notifHealthMark('tasks', false, (e && (e.code || e.message)) || 'threw'); }
+
+    // ── The four extra feeds live OUTSIDE the tasks try/catch, each in their
+    // own guard, so a missing tasks table doesn't silence them (and vice
+    // versa). Several of these source tables/RPCs are not installed on live —
+    // every block degrades silently. ──
+
+    // ✋ Requests to edit a subject you own (subjects-v2-s2-requests.sql).
+    // notifFeed records health + returns [] on a missing table / errored RPC.
+    (await notifFeed('edit_request', () => client.rpc('get_incoming_edit_requests'))).forEach(r => {
+        notes.push({
+            key: `editreq:${r.id}`, icon: NOTIF_TYPES.edit_request.icon,
+            type: 'edit_request', kind: 'action', priority: 'normal',
+            at: new Date(r.created_at || 0).getTime(),
+            href: '/teacher-subjects.html',
+            text: `“${r.requester_name || 'A teacher'}” asked to edit “${r.subject_name || 'a subject'}”`
+                + (r.reason ? ` — “${r.reason}”` : ''),
+        });
+    });
+
+    // 🌐 External-share requests (subjects-v2-s3-external.sql). Admin/owner only:
+    // gated on the memoised am_i_admin() call, then queried per administered
+    // school (the RPC is scoped to one school_id at a time, as admin.js does).
+    try {
+        const admin = await notifAmIAdmin(client);
+        if (admin && (admin.is_owner || (admin.schools && admin.schools.length))) {
+            for (const sc of (admin.schools || [])) {
+                // Per-school; the label carries the school id so one school's
+                // failure doesn't masquerade as another's success in health.
+                const xr = await notifFeed('external_share:' + sc.id,
+                    () => client.rpc('get_incoming_external_requests', { p_school_id: sc.id }));
+                xr.filter(r => r.status === 'pending').forEach(r => {
+                    notes.push({
+                        key: `extshare:${r.id}`, icon: NOTIF_TYPES.external_share.icon,
+                        type: 'external_share', kind: 'action', priority: 'normal',
+                        at: new Date(r.created_at || 0).getTime(),
+                        href: '/admin.html',
+                        text: `External share request: “${r.subject_name}” → ${r.invitee_name} (${r.invitee_email})`
+                            + (r.requester_name ? ` · from ${r.requester_name}` : ''),
+                    });
+                });
+            }
+        }
+    } catch (e) { /* am_i_admin() unavailable — skip */ }
+
+    // 🚩 Open question reports from students you teach (question-reports.sql).
+    // Same 'open' filter the dashboard uses, so resolving one there stops it
+    // re-alerting here (it leaves the 'open' set).
+    (await notifFeed('question_report', () => client.rpc('get_question_reports', { p_status: 'open' }))).forEach(r => {
+        const reasonLabel = ({ wrong_answer: 'wrong answer', typo: 'typo', confusing: 'confusing', technical: 'technical', other: 'issue' })[r.reason] || 'issue';
+        notes.push({
+            key: `qreport:${r.id}`, icon: NOTIF_TYPES.question_report.icon,
+            type: 'question_report', kind: 'action', priority: 'normal',
+            at: new Date(r.created_at || 0).getTime(),
+            href: '/teacher-dashboard.html#alerts',
+            text: `Question report (${reasonLabel}) from ${r.reporter_username || 'a student'}`
+                + (r.subject_slug ? ` · ${r.subject_slug}` : ''),
+        });
+    });
+
+    // 🚫 Integrity alerts — blocked copy-paste attempts in the last 48h,
+    // grouped per student per LOCAL day (integrity-events.sql). kind 'info'.
+    {
+        const since = new Date(Date.now() - 48 * 3600 * 1000).toISOString();
+        const ev = await notifFeed('integrity', () => client.from('integrity_events')
+            .select('student_id, created_at, profiles(username)')
+            .gte('created_at', since)
+            .order('created_at', { ascending: false })
+            .limit(500));
+        const groups = {};
+        ev.forEach(e => {
+            const day = _notifTodayStr(new Date(e.created_at));
+            const gk = e.student_id + ':' + day;
+            const g = groups[gk] = groups[gk] || { student_id: e.student_id, day, n: 0, at: 0, name: null };
+            g.n++;
+            const t = new Date(e.created_at).getTime();
+            if (t > g.at) g.at = t;
+            if (!g.name && e.profiles && e.profiles.username) g.name = e.profiles.username;
+        });
+        Object.keys(groups).forEach(gk => {
+            const g = groups[gk];
+            const dayLabel = new Date(g.day + 'T12:00:00').toLocaleDateString(undefined, { day: 'numeric', month: 'short' });
+            notes.push({
+                key: `integrity:${g.student_id}:${g.day}`, icon: NOTIF_TYPES.integrity.icon,
+                type: 'integrity', kind: 'info', priority: 'low',
+                at: g.at || Date.now(),
+                href: '/teacher-dashboard.html#alerts',
+                text: `${g.name || 'A student'} — ${g.n} blocked paste attempt${g.n === 1 ? '' : 's'} on ${dayLabel}`,
+            });
+        });
+    }
+
+    // Priority-aware sort: newest LOCAL day first, then high priority within a
+    // day, then newest. Composite-key comparator so it stays transitive.
+    const rank = { high: 0, normal: 1, low: 2 };
+    return notes.map(notifDecorate).sort((a, b) => {
+        const da = _notifTodayStr(new Date(a.at)), db = _notifTodayStr(new Date(b.at));
+        if (da !== db) return db < da ? -1 : 1;               // newer day first
+        const pr = (rank[a.priority] ?? 1) - (rank[b.priority] ?? 1);
+        if (pr) return pr;
+        return b.at - a.at;
+    });
 }
 
 // ── Bell UI (self-invoking; everything below is private to this IIFE) ──
 (function () {
-    const REFRESH_INTERVAL_MS = 5 * 60 * 1000; // conservative backstop poll
+    const REFRESH_INTERVAL_MS = 2 * 60 * 1000; // backstop poll (was 5 min; no realtime yet)
     let _client = null;
     let _uid = null;
     let _items = [];
     let _role = 'student'; // set by boot(); teachers get their own derivation
+    let _prefs = null;     // notification preferences (level + sound per type)
+    let _baseTitle = null; // document.title without our "(n) " badge
+    let _lastSetTitle = null;
 
     function injectStyles() {
         if (document.getElementById('gcseNotifStyles')) return;
@@ -291,11 +798,13 @@ async function deriveTeacherNotifications(client, uid) {
         // Full-history / to-do page: students → notifications.html,
         // teachers → their task-management page.
         const viewAllHref = _role === 'teacher' ? '/teacher-notifications.html' : '/notifications.html';
+        const settingsHref = _role === 'teacher' ? '/teacher-notifications.html#settings' : '/notifications.html';
         const viewAll = `<a href="${viewAllHref}" style="font-size:11px;color:var(--accent,#4a6fa5);font-weight:600;text-decoration:none;">View all →</a>`;
+        const gear = `<a href="${settingsHref}" title="Notification settings" aria-label="Notification settings" style="font-size:13px;line-height:1;text-decoration:none;color:var(--mid,#5a6e7f);">⚙️</a>`;
         const head = _items.length
             ? `<div class="gcse-notif-head" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 6px;border-bottom:1px solid var(--border,#c9bfaa);">
                  <strong style="font-size:12px;">Notifications (${_items.length})</strong>
-                 <span style="display:inline-flex;gap:12px;align-items:center;">${viewAll}<button type="button" class="gcse-notif-clearall" style="background:none;border:none;cursor:pointer;font-size:11px;color:var(--accent,#4a6fa5);font-weight:600;">Mark all read</button></span>
+                 <span style="display:inline-flex;gap:12px;align-items:center;">${viewAll}<button type="button" class="gcse-notif-clearall" style="background:none;border:none;cursor:pointer;font-size:11px;color:var(--accent,#4a6fa5);font-weight:600;">Mark all read</button>${gear}</span>
                </div>`
             : '';
         panel.innerHTML = head + (_items.length ? _items.map(n => `
@@ -303,7 +812,44 @@ async function deriveTeacherNotifications(client, uid) {
                 <span class="gcse-notif-icon" aria-hidden="true">${n.icon}</span>
                 <span class="gcse-notif-text">${_notifEsc(n.text)}<a class="gcse-notif-open" href="${_notifEsc(n.href || ('/task.html?id=' + encodeURIComponent(n.taskId)))}">Open →</a></span>
                 <button type="button" class="gcse-notif-dismiss" title="Dismiss" aria-label="Dismiss notification">✕</button>
-            </div>`).join('') : `<div class="gcse-notif-empty">No new notifications.<br><br>${viewAll}</div>`);
+            </div>`).join('') : `<div class="gcse-notif-empty">No new notifications.<br><br><span style="display:inline-flex;gap:12px;align-items:center;">${viewAll}${gear}</span></div>`);
+    }
+
+    // Bell shows only level 'normal' items; badge counts only those. Called by
+    // both role paths after they build _items. Also drives the tab-title badge
+    // and the once-per-new-item chime.
+    function applyPrefsAndRender(wrap) {
+        _prefs = notifPrefsLocal();
+        _items = _items.filter(n => notifLevelFor(_prefs, n.type || notifTypeForKey(n.key)) === 'normal');
+        render(wrap);
+        updateTitleBadge(_items.length);
+        maybeChime();
+    }
+
+    // Capture the base title once; if another script has since rewritten it,
+    // adopt the new value (stripping any stale "(n) " prefix) so we never fight
+    // over the title with, e.g., a page that shows an unsaved-changes marker.
+    function updateTitleBadge(n) {
+        try {
+            if (_baseTitle === null) _baseTitle = document.title;
+            else if (document.title !== _lastSetTitle) _baseTitle = document.title.replace(/^\(\d+\)\s+/, '');
+            const next = (n ? '(' + n + ') ' : '') + _baseTitle;
+            document.title = next;
+            _lastSetTitle = next;
+        } catch (e) {}
+    }
+
+    // One chime per refresh, once per new item ever, gated on prefs. New =
+    // a normal-level key not previously in the seen-set (which persists, so a
+    // notification never chimes twice across page loads).
+    function maybeChime() {
+        const keys = _items.map(n => n.key);
+        const { newKeys, map } = notifDetectNew(keys, _notifSeenLoad());
+        _notifSeenSave(map);
+        if (!newKeys.length) return;
+        if (!_prefs || !_prefs.soundOn) return;
+        const anyAudible = newKeys.some(k => notifSoundFor(_prefs, notifTypeForKey(k)) !== false);
+        if (anyAudible) notifPlayChime();
     }
 
     function mountBell(wrap, tries) {
@@ -351,6 +897,53 @@ async function deriveTeacherNotifications(client, uid) {
         });
     }
 
+    // ── Due reviews for the bell ──
+    // The schedule is seeded LAZILY, inside get_review_schedule() — which is a
+    // write (it inserts the +1d/+7d/+28d rows for any topic that has none). A
+    // student who only ever opens topic pages would otherwise never have a
+    // schedule seeded, and so would never be nudged: the exact gap this fixes.
+    // But running a write on every page load and every 5-minute poll, for every
+    // student, would be indefensible. So: seed at most ONCE A DAY per browser,
+    // then read the schedule straight from topic_reviews on every refresh —
+    // that read is RLS-guarded (topic_reviews_self_select), hits the
+    // (student_id, due_date) index, and returns only what's actionable.
+    // Seeding daily is enough: a topic studied today has its +1d review created
+    // by tomorrow's first page load, which is exactly when it first comes due.
+    const SR_SEED_DAY_KEY = 'gcse_sr_seeded_v1';
+
+    async function loadDueReviews() {
+        const today = _notifTodayStr();
+        // Per-account (see _notifNsKey): on a shared machine, seeding must run
+        // once per DAY per STUDENT, not once per machine — otherwise only the
+        // first student to log in each day gets their +1d/+7d/+28d rows created,
+        // and everyone after them silently loses the very nudge this restores.
+        const seedKey = _notifNsKey(SR_SEED_DAY_KEY);
+        let seededOn = null;
+        try { seededOn = localStorage.getItem(seedKey); } catch (e) {}
+        if (seededOn !== today) {
+            // Only stamp the day as seeded when the RPC actually SUCCEEDED.
+            // supabase-js resolves with { error } instead of throwing, so an
+            // unconditional setItem would mark the day done even when seeding
+            // failed — a transient network blip, or the spaced-repetition
+            // migration not yet being live, would then suppress seeding until
+            // tomorrow: the exact day the +1d review first comes due. On the
+            // day the migration is finally run, every browser that already
+            // polled would skip seeding for the rest of that day.
+            let ok = false;
+            try {
+                const { error } = await _client.rpc('get_review_schedule', { p_subject: null });
+                ok = !error;
+                notifHealthMark('review_seed', ok, error && (error.code || error.message));
+            } catch (e) { notifHealthMark('review_seed', false, (e && (e.code || e.message)) || 'threw'); }
+            if (ok) { try { localStorage.setItem(seedKey, today); } catch (e) {} }
+        }
+        // due today + overdue = everything actionable.
+        return await notifFeed('review_due', () => _client.from('topic_reviews')
+            .select('page_id, stage, due_date, completed_at')
+            .is('completed_at', null)
+            .lte('due_date', today));
+    }
+
     async function loadAndRender(wrap) {
         if (!_uid) {
             try {
@@ -360,11 +953,12 @@ async function deriveTeacherNotifications(client, uid) {
         }
         if (!_uid) return;
         try {
-            const [{ data: tasks }, { data: asg }, { data: atts }, { data: reads }] = await Promise.all([
+            const [{ data: tasks }, { data: asg }, { data: atts }, { data: reads }, reviews] = await Promise.all([
                 _client.from('tasks').select('*'),
                 _client.from('task_assignments').select('*').eq('student_id', _uid),
                 _client.from('task_attempts').select('*').eq('student_id', _uid),
                 _client.from('task_notification_reads').select('note_key').eq('student_id', _uid),
+                loadDueReviews(),
             ]);
             const readKeys = (reads || []).map(r => r.note_key);
             const rows = (asg || []).map(a => {
@@ -372,8 +966,12 @@ async function deriveTeacherNotifications(client, uid) {
                 if (!task) return null;
                 return { task, assignment: a, attempts: (atts || []).filter(x => x.task_id === a.task_id) };
             }).filter(Boolean);
-            _items = deriveStudentNotifications(rows, readKeys);
-            render(wrap);
+            // Same derivation (and so the same keys) notifications.html uses, so
+            // dismissing a review in either place clears it in both.
+            _items = deriveStudentNotifications(rows, readKeys)
+                .concat(deriveReviewNotifications(reviews, readKeys))
+                .sort((a, b) => b.at - a.at);
+            applyPrefsAndRender(wrap);
         } catch (e) { /* tasks schema not installed yet, or offline — leave as-is */ }
     }
 
@@ -409,7 +1007,7 @@ async function deriveTeacherNotifications(client, uid) {
                 if (st && st.snooze_until && new Date(st.snooze_until).getTime() > now) return false;
                 return true;
             });
-            render(wrap);
+            applyPrefsAndRender(wrap);
         } catch (e) { /* tasks schema not installed yet, or offline — leave as-is */ }
     }
 
@@ -438,6 +1036,19 @@ async function deriveTeacherNotifications(client, uid) {
 
         _client = await getClient();
         if (!_client) return;
+
+        // Resume a suspended AudioContext on the first user gesture so a chime
+        // that was blocked pre-gesture can sound on the next new item.
+        document.addEventListener('pointerdown', _notifResumeAudio);
+
+        // Resolve uid + do the one server-merge of prefs up front; every refresh
+        // then reads prefs from localStorage synchronously (fast, no round trip).
+        try {
+            const { data } = await _client.auth.getSession();
+            _uid = (data && data.session && data.session.user && data.session.user.id) || _uid;
+        } catch (e) {}
+        _prefs = await notifPrefsLoad(_client, _uid);
+
         const refresh = () => (_role === 'teacher' ? loadAndRenderTeacher(wrap) : loadAndRender(wrap));
         refresh();
         document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });

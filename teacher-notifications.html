@@ -75,7 +75,30 @@
   .snooze-row input[type=number] { width:58px; padding:7px 9px; border:1px solid var(--border); border-radius:6px; font-size:12.5px; background:var(--card-bg); }
   .snooze-row select { padding:7px 9px; border:1px solid var(--border); border-radius:6px; font-size:12.5px; background:var(--card-bg); }
 
-  @media (max-width:480px){ main { padding:18px 14px 60px; } header { padding:20px 18px 16px; } }
+  /* ── type filter chips + quiet marker ── */
+  .typechip-row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:14px; }
+  .typechip .tc-count { font-family:'DM Mono',monospace; opacity:.8; margin-left:4px; }
+  .quiet-chip { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.05em; text-transform:uppercase; padding:2px 8px; border-radius:99px; border:1px solid var(--border); color:var(--mid); background:var(--cream); white-space:nowrap; }
+
+  /* ── ⚙️ Manage notifications panel ── */
+  #settingsPanel .set-global { display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:12px; }
+  .set-toggle { display:inline-flex; align-items:center; gap:8px; font-size:13.5px; cursor:pointer; }
+  .set-toggle input { width:16px; height:16px; accent-color:var(--accent); cursor:pointer; }
+  .set-flash { font-family:'DM Mono',monospace; font-size:11.5px; color:var(--success,#2d7a4f); opacity:0; transition:opacity .2s; }
+  .set-flash.show { opacity:1; }
+  .set-row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:12px 2px; border-bottom:1px solid var(--border); }
+  .set-row:last-child { border-bottom:none; }
+  .set-row-label { display:flex; align-items:center; gap:8px; font-size:13.5px; min-width:190px; flex:1; color:var(--ink); }
+  .level-seg { display:inline-flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  .level-seg .lvl { background:var(--card-bg); border:none; border-right:1px solid var(--border); color:var(--mid); font-family:'DM Mono',monospace; font-size:11px; padding:7px 11px; cursor:pointer; white-space:nowrap; }
+  .level-seg .lvl:last-child { border-right:none; }
+  .level-seg .lvl:hover { color:var(--accent); }
+  .level-seg .lvl.active { background:var(--accent); color:#fff; }
+  .set-sound { display:inline-flex; align-items:center; gap:6px; font-size:12px; color:var(--mid); cursor:pointer; white-space:nowrap; }
+  .set-sound input { width:15px; height:15px; accent-color:var(--accent); cursor:pointer; }
+  .set-sound.disabled { opacity:.4; cursor:not-allowed; }
+
+  @media (max-width:480px){ main { padding:18px 14px 60px; } header { padding:20px 18px 16px; } .set-row-label { min-width:0; } }
 </style>
 </head>
 <body>
@@ -97,6 +120,27 @@
     <button type="button" class="subtab" data-filter="snoozed" role="tab">⏰ Snoozed<span class="tab-count" id="cntSnoozed"></span></button>
     <button type="button" class="subtab" data-filter="done" role="tab">☑️ Done<span class="tab-count" id="cntDone"></span></button>
     <button type="button" class="subtab" data-filter="all" role="tab">🗂️ All active<span class="tab-count" id="cntAll"></span></button>
+  </div>
+
+  <!-- Second row: filter the list by notification TYPE (chips are injected for
+       the teacher types actually present) + the ⚙️ Settings toggle. -->
+  <div class="typechip-row" id="typeChips" role="group" aria-label="Filter by notification type">
+    <button type="button" class="subtab typechip active" data-type="all">All types</button>
+    <button type="button" class="subtab" id="openSettingsBtn" style="margin-left:auto;" aria-expanded="false">⚙️ Settings</button>
+  </div>
+
+  <!-- ⚙️ Manage notifications — reachable via the button above, the #settings
+       hash, and the ⚙️ link in the header bell. -->
+  <div class="panel hidden" id="settingsPanel">
+    <div class="section-label">⚙️ Manage notifications</div>
+    <div class="set-global">
+      <label class="set-toggle"><input type="checkbox" id="setSoundOn"/> <span>🔊 Notification sound</span></label>
+      <button type="button" class="btn ghost small" id="testSoundBtn">▶ Test sound</button>
+      <span class="set-flash" id="setFlash" role="status" aria-live="polite"></span>
+    </div>
+    <p class="muted" style="margin:0 0 10px;"><strong>🔔 Normal</strong> — bell, badge, chime and this page. <strong>🔕 Quiet</strong> — this page only (muted from the bell). <strong>⏸ Off</strong> — hidden everywhere.</p>
+    <div id="settingsRows"></div>
+    <p class="muted" style="margin:12px 0 0;">Settings sync to your account when available; otherwise they apply to this browser.</p>
   </div>
 
   <div class="panel" id="addPanel">
@@ -166,7 +210,19 @@ let todos = [];          // teacher_todos rows
 let tablesReady = true;  // false when teacher_todos / teacher_notif_state don't exist yet (42P01)
 let currentItems = [];   // last buildItems() result, for click-handler lookups
 let currentFilter = 'todo';
+let currentType = 'all';  // active type-chip filter
 let defaultTabChosen = false;
+let notifPrefs = null;    // notification preferences (level + sound per type)
+let amIAdmin = { is_owner: false, schools: [] };  // gates the external-share type
+let settingsOpen = false;
+let _saveFlashTimer = null;
+
+// Short chip labels (the full labels live in NOTIF_TYPES for the settings rows).
+const SHORT_TYPE_LABEL = {
+  marking: 'To mark', topic_request: 'Access', class_invite: 'Invites',
+  edit_request: 'Edit reqs', external_share: 'External',
+  question_report: 'Reports', integrity: 'Integrity',
+};
 
 const SNOOZE_UNIT_MS = { hours: 3600000, days: 86400000, weeks: 604800000 };
 
@@ -200,7 +256,18 @@ async function init() {
   window._gcseSupabaseClient = auth.client;
   window._gcseProfile = window._gcseProfile || { username: auth.username, role: auth.role };
   if (typeof _gcseInjectAccountBar === 'function') _gcseInjectAccountBar();
+
+  // Notification preferences (localStorage-primary, server best-effort) + admin
+  // role (gates the external-share type). Both degrade to sensible defaults.
+  const uid = auth.session.user.id;
+  if (typeof notifPrefsLoad === 'function') { try { notifPrefs = await notifPrefsLoad(auth.client, uid); } catch (e) {} }
+  if (typeof notifAmIAdmin === 'function') { try { amIAdmin = await notifAmIAdmin(auth.client) || amIAdmin; } catch (e) {} }
+
   await loadAll();
+
+  // Deep-link: the bell's ⚙️ link and manual #settings both open the panel.
+  if (location.hash === '#settings') toggleSettings(true);
+  window.addEventListener('hashchange', () => { if (location.hash === '#settings') toggleSettings(true); });
 }
 
 async function loadAll() {
@@ -246,11 +313,17 @@ function computeBucket(done, snoozeUntil) {
 function buildItems() {
   const items = [];
   derivedNotes.forEach(n => {
+    const type = n.type || (typeof notifTypeForKey === 'function' ? notifTypeForKey(n.key) : null);
+    // Levels: 'off' items are hidden from the page entirely; 'quiet' items show
+    // here (with a marker) but never in the bell; 'normal' shows everywhere.
+    const level = (typeof notifLevelFor === 'function') ? notifLevelFor(notifPrefs, type) : 'normal';
+    if (level === 'off') return;
     const st = notifState[n.key] || {};
     items.push({
       source: 'derived', key: n.key, id: n.key,
       icon: n.icon, title: n.text, notes: '',
-      kind: n.kind || 'action', priority: null,
+      kind: n.kind || 'action', priority: n.priority || null,
+      type: type, quiet: level === 'quiet',
       href: n.href || '', at: n.at,
       bucket: computeBucket(!!st.done, st.snooze_until),
       snooze_until: st.snooze_until || null,
@@ -263,6 +336,7 @@ function buildItems() {
       icon: t.kind === 'info' ? '🗒️' : '📌',
       title: t.title, notes: t.notes || '',
       kind: t.kind, priority: t.priority,
+      type: null, quiet: false,
       href: t.link_href || '', at: new Date(t.created_at).getTime(),
       bucket: computeBucket(t.status === 'done', t.snooze_until),
       snooze_until: t.snooze_until || null,
@@ -377,7 +451,7 @@ function itemRow(item) {
   return `<div class="item-row" data-key="${esc(item.key)}" data-source="${item.source}">
     <span class="i-icon" aria-hidden="true">${item.icon}</span>
     <div class="i-body">
-      <div class="i-title">${esc(item.title)} ${kindTag(item.kind)} ${priorityChip(item.priority)}</div>
+      <div class="i-title">${esc(item.title)} ${kindTag(item.kind)} ${priorityChip(item.priority)}${item.quiet ? ' <span class="quiet-chip" title="Muted from the bell — shows on this page only">🔕 quiet</span>' : ''}</div>
       ${notesHtml}
       <div class="i-when">${esc(whenLabel)}</div>
       <div class="i-actions">${openLink}${actionButtonsHtml(item)}</div>
@@ -411,8 +485,12 @@ function render() {
     b.setAttribute('aria-selected', String(active));
   });
 
+  renderTypeChips(items);
+
   const f = FILTERS[currentFilter] || FILTERS.todo;
-  const shown = sortItems(items.filter(f.test), currentFilter);
+  let filtered = items.filter(f.test);
+  if (currentType !== 'all') filtered = filtered.filter(it => it.type === currentType);
+  const shown = sortItems(filtered, currentFilter);
   $('itemList').innerHTML = shown.length
     ? shown.map(itemRow).join('')
     : `<div class="empty">${esc(f.empty)}</div>`;
@@ -420,6 +498,123 @@ function render() {
   $('setupNotice').classList.toggle('hidden', tablesReady);
   $('addBtn').disabled = !tablesReady;
 }
+
+// ── type filter chips + ⚙️ settings ──
+
+function isAdminUser() {
+  return !!(amIAdmin && (amIAdmin.is_owner || (amIAdmin.schools && amIAdmin.schools.length)));
+}
+
+// One chip per teacher type actually present (with a live count), plus the
+// admin-only external-share type when the caller is an admin/owner. Re-rendered
+// every render(); a delegated listener on #typeChips survives it.
+function renderTypeChips(items) {
+  const counts = {};
+  items.forEach(it => { if (it.type) counts[it.type] = (counts[it.type] || 0) + 1; });
+  const present = Object.keys(NOTIF_TYPES).filter(t => {
+    const aud = NOTIF_TYPES[t].aud;
+    if (aud === 'student') return false;
+    if (aud === 'admin' && !isAdminUser()) return false;
+    return (counts[t] || 0) > 0;
+  });
+  // If the active type has fallen away (e.g. its last item was cleared), snap
+  // back to All so the list doesn't look mysteriously empty.
+  if (currentType !== 'all' && !present.includes(currentType)) currentType = 'all';
+
+  const chip = (t, label, count, active) =>
+    `<button type="button" class="subtab typechip${active ? ' active' : ''}" data-type="${esc(t)}" aria-pressed="${active}">${label}${count != null ? `<span class="tc-count">(${count})</span>` : ''}</button>`;
+  let html = chip('all', 'All types', null, currentType === 'all');
+  present.forEach(t => {
+    html += chip(t, `${NOTIF_TYPES[t].icon} ${esc(SHORT_TYPE_LABEL[t] || NOTIF_TYPES[t].label)}`, counts[t], currentType === t);
+  });
+  html += `<button type="button" class="subtab" id="openSettingsBtn" style="margin-left:auto;" aria-expanded="${settingsOpen}">⚙️ Settings</button>`;
+  $('typeChips').innerHTML = html;
+}
+
+$('typeChips').addEventListener('click', (e) => {
+  if (e.target.closest('#openSettingsBtn')) { toggleSettings(); return; }
+  const chip = e.target.closest('[data-type]');
+  if (!chip) return;
+  currentType = chip.dataset.type;
+  render();
+});
+
+function toggleSettings(open) {
+  settingsOpen = (open === undefined) ? !settingsOpen : open;
+  $('settingsPanel').classList.toggle('hidden', !settingsOpen);
+  const btn = $('openSettingsBtn');
+  if (btn) btn.setAttribute('aria-expanded', String(settingsOpen));
+  if (settingsOpen) {
+    renderSettings();
+    $('settingsPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+// Per-type level (Normal/Quiet/Off) + a per-type Sound checkbox (only
+// meaningful, and enabled, at Normal). Teacher types always; the admin-only
+// external-share type only for admins/owners. Student types never appear here.
+function renderSettings() {
+  $('setSoundOn').checked = !!(notifPrefs && notifPrefs.soundOn);
+  const types = Object.keys(NOTIF_TYPES).filter(t => {
+    const aud = NOTIF_TYPES[t].aud;
+    if (aud === 'admin') return isAdminUser();
+    return aud === 'teacher';
+  });
+  const LEVELS = [['normal', '🔔 Normal'], ['quiet', '🔕 Quiet'], ['off', '⏸ Off']];
+  $('settingsRows').innerHTML = types.map(t => {
+    const level = notifLevelFor(notifPrefs, t);
+    const sound = notifSoundFor(notifPrefs, t);
+    const seg = LEVELS.map(([lv, lbl]) =>
+      `<button type="button" class="lvl${level === lv ? ' active' : ''}" data-type="${esc(t)}" data-level="${lv}" role="radio" aria-checked="${level === lv}">${lbl}</button>`).join('');
+    const soundOff = level !== 'normal';
+    return `<div class="set-row">
+      <div class="set-row-label"><span aria-hidden="true">${NOTIF_TYPES[t].icon}</span> ${esc(NOTIF_TYPES[t].label)}</div>
+      <div class="level-seg" role="radiogroup" aria-label="${esc(NOTIF_TYPES[t].label)} level">${seg}</div>
+      <label class="set-sound${soundOff ? ' disabled' : ''}"><input type="checkbox" class="type-sound" data-type="${esc(t)}" ${sound ? 'checked' : ''} ${soundOff ? 'disabled' : ''}/> Sound</label>
+    </div>`;
+  }).join('');
+}
+
+function ensureTypePref(t) {
+  if (!notifPrefs) notifPrefs = { v: 1, soundOn: true, types: {} };
+  if (!notifPrefs.types) notifPrefs.types = {};
+  if (!notifPrefs.types[t]) notifPrefs.types[t] = { level: t === 'integrity' ? 'quiet' : 'normal', sound: true };
+  return notifPrefs.types[t];
+}
+
+async function savePrefs() {
+  if (typeof notifPrefsSave === 'function') {
+    notifPrefs = await notifPrefsSave(auth.client, auth.session.user.id, notifPrefs);
+  }
+  const flash = $('setFlash');
+  if (flash) {
+    flash.textContent = 'saved ✓';
+    flash.classList.add('show');
+    clearTimeout(_saveFlashTimer);
+    _saveFlashTimer = setTimeout(() => flash.classList.remove('show'), 1400);
+  }
+}
+
+$('settingsPanel').addEventListener('click', async (e) => {
+  if (e.target.closest('#testSoundBtn')) { if (typeof notifPlayChime === 'function') notifPlayChime(); return; }
+  const lvlBtn = e.target.closest('.lvl');
+  if (!lvlBtn) return;
+  ensureTypePref(lvlBtn.dataset.type).level = lvlBtn.dataset.level;
+  await savePrefs();
+  renderSettings();  // enable/disable the Sound box for the new level
+  render();          // level change affects visibility + the quiet marker + chips
+});
+
+$('settingsPanel').addEventListener('change', async (e) => {
+  if (e.target.id === 'setSoundOn') {
+    if (!notifPrefs) notifPrefs = { v: 1, soundOn: true, types: {} };
+    notifPrefs.soundOn = e.target.checked;
+    await savePrefs();
+    return;
+  }
+  const cb = e.target.closest('.type-sound');
+  if (cb) { ensureTypePref(cb.dataset.type).sound = cb.checked; await savePrefs(); }
+});
 
 // ── writes: snooze / done / reopen / delete on both derived + todo items ──
 

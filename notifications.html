@@ -75,7 +75,8 @@
     <button type="button" class="filter-chip active" data-nfilter="all">All</button>
     <button type="button" class="filter-chip" data-nfilter="unread">Unread</button>
     <span class="count" id="notifCount"></span>
-    <button type="button" class="btn" id="markAllBtn" style="margin-left:auto;">✓ Mark all as read</button>
+    <button type="button" class="btn" id="soundToggle" aria-pressed="true" title="Play a chime when a new notification arrives" style="margin-left:auto;">🔊 Sound on</button>
+    <button type="button" class="btn" id="markAllBtn">✓ Mark all as read</button>
   </div>
   <div class="notif-panel" id="notifPanel"><div class="empty">Loading…</div></div>
   <p class="muted" style="margin-top:12px;">Tick the box on a notification to mark it read (untick to bring it back). Read notifications also stop showing in the 🔔 bell.</p>
@@ -99,20 +100,10 @@ let auth = null;
 let allNotes = [];        // [{ key, icon, text, at, href, read }] newest first, max 100
 let readSet = new Set();
 let filterMode = 'all';
+let notifPrefs = null;    // shared notification preferences (soundOn + per-type levels)
 
-// Topic name lookup across every subject (reviews can span subjects).
-function pageNameAcrossSubjects(pageId) {
-  const bySlug = window.PAGE_GROUPS_ALL || {};
-  for (const slug of Object.keys(bySlug)) {
-    for (const g of bySlug[slug]) {
-      for (const p of g.pages) {
-        if (p.id === pageId) return p.name;
-        for (const c of (p.children || [])) if (c.id === pageId) return c.name;
-      }
-    }
-  }
-  return pageId;
-}
+// (Topic-name lookup moved to _notifPageName in notifications-shared.js, next
+// to the review derivation that was the only thing using it.)
 
 function fmtWhen(ts) {
   if (!ts) return '';
@@ -124,12 +115,18 @@ function fmtWhen(ts) {
   return d.toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) + ' ' + time;
 }
 
-// Review-due notifications from the spaced-repetition schedule, across every
-// subject this student studies (distinct class subjects). Key includes the
-// due date so a completed-then-rescheduled review notifies afresh.
-async function deriveReviewNotifications() {
-  const notes = [];
-  const today = srTodayStr();
+// Fetch the review schedule across every subject this student studies, then
+// hand the rows to deriveReviewNotifications() in notifications-shared.js.
+//
+// That derivation used to live HERE, and only here — which is why due reviews
+// listed on this page but never reached the 🔔 bell or its badge. It's shared
+// now; this function only does the fetching. Don't re-inline it: the note keys
+// are what task_notification_reads stores, so a second copy silently breaks
+// "dismiss it once, it stays dismissed".
+//
+// srFetchSchedule() also SEEDS the schedule server-side (per subject), so it's
+// still the right call here even though the bell reads topic_reviews directly.
+async function fetchReviewRows() {
   let slugs = [];
   try {
     const { data: cls } = await auth.client.from('classes').select('subjects(slug)');
@@ -137,26 +134,22 @@ async function deriveReviewNotifications() {
   } catch (e) {}
   if (!slugs.length) slugs = [(window.SUBJECT && window.SUBJECT.slug) || 'business'];
 
+  const all = [];
   for (const slug of slugs) {
     let rows = [];
     try { rows = await srFetchSchedule(auth.client, slug) || []; }
     catch (e) { rows = srCachedSchedule(slug) || []; }
-    rows.forEach(r => {
-      const st = srStatus(r, today);
-      if (st !== 'due' && st !== 'overdue') return;
-      const name = pageNameAcrossSubjects(r.page_id);
-      notes.push({
-        key: `review:${slug}:${r.page_id}:${r.stage}:${r.due_date}`,
-        icon: st === 'overdue' ? '⏰' : '🗓️',
-        at: new Date(r.due_date + 'T08:00:00').getTime(),
-        href: '/review-calendar.html?subject=' + encodeURIComponent(slug),
-        text: st === 'overdue'
-          ? `Review overdue: “${name}” (${srStageLabel(r.stage)}) was due ${new Date(r.due_date).toLocaleDateString(undefined, { day: 'numeric', month: 'short' })}`
-          : `Review due today: “${name}” (${srStageLabel(r.stage)}) — pass a short quiz to tick it off`,
-      });
-    });
+    all.push(...rows);
   }
-  return notes;
+  // One subject's fetch also returns the shared 'example' demo row, so the same
+  // row can arrive once per subject — de-dupe before deriving.
+  const seen = new Set();
+  return all.filter(r => {
+    const k = r.page_id + ':' + r.stage;
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
 }
 
 async function loadAll() {
@@ -180,14 +173,38 @@ async function loadAll() {
   const taskNotes = deriveStudentNotifications(rows, []).map(n => ({
     ...n, href: '/task.html?id=' + encodeURIComponent(n.taskId),
   }));
-  const reviewNotes = await deriveReviewNotifications();
+  // Same empty-readKeys treatment as the tasks above: read ones still show
+  // here (greyed with a ticked box); the bell does its own excluding.
+  const reviewNotes = deriveReviewNotifications(await fetchReviewRows(), []);
 
+  // Respect notification levels: 'off' types are hidden from this page too
+  // (the bell already excludes non-'normal'). 'quiet' still shows here.
+  const levelOk = n => (typeof notifLevelFor !== 'function')
+    || notifLevelFor(notifPrefs, n.type || (typeof notifTypeForKey === 'function' ? notifTypeForKey(n.key) : null)) !== 'off';
   allNotes = taskNotes.concat(reviewNotes)
+    .filter(levelOk)
     .sort((a, b) => b.at - a.at)
     .slice(0, 100)
     .map(n => ({ ...n, read: readSet.has(n.key) }));
   render();
 }
+
+function updateSoundToggle() {
+  const on = !!(notifPrefs && notifPrefs.soundOn);
+  const b = $('soundToggle');
+  if (!b) return;
+  b.textContent = on ? '🔊 Sound on' : '🔇 Sound off';
+  b.setAttribute('aria-pressed', String(on));
+}
+
+$('soundToggle').addEventListener('click', async () => {
+  if (!notifPrefs) notifPrefs = { v: 1, soundOn: true, types: {} };
+  notifPrefs.soundOn = !notifPrefs.soundOn;
+  updateSoundToggle();
+  if (typeof notifPrefsSave === 'function') {
+    notifPrefs = await notifPrefsSave(auth.client, auth.session.user.id, notifPrefs);
+  }
+});
 
 function render() {
   const shown = filterMode === 'unread' ? allNotes.filter(n => !n.read) : allNotes;
@@ -253,6 +270,10 @@ document.querySelectorAll('[data-nfilter]').forEach(b => b.addEventListener('cli
   window._gcseSupabaseClient = auth.client;
   window._gcseProfile = window._gcseProfile || { username: auth.username, role: auth.role };
   if (typeof _gcseInjectAccountBar === 'function') _gcseInjectAccountBar();
+  if (typeof notifPrefsLoad === 'function') {
+    try { notifPrefs = await notifPrefsLoad(auth.client, auth.session.user.id); } catch (e) {}
+  }
+  updateSoundToggle();
   await loadAll();
 })();
 </script>
