@@ -193,7 +193,7 @@ begin
     left join question_mastery m
         on m.question_key = b.question_key and m.student_id = v_uid
     where b.page_id = p_page_id
-      and b.qtype in ('mcq', 'tf', 'fib')  -- only the qtypes record_mastery_answer can grade
+      and b.qtype in ('mcq', 'tf', 'fib', 'numeric')  -- only the qtypes record_mastery_answer can grade
     order by random()
     limit greatest(coalesce(p_limit, 5), 0);
 end;

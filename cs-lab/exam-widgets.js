@@ -64,6 +64,7 @@
     return b;
   }
   function injectStyleOnce(id, css) {
+    if (typeof document === 'undefined') return; // Node (unit tests) — no DOM
     if (document.getElementById(id)) return;
     var s = document.createElement('style');
     s.id = id;
@@ -473,6 +474,116 @@
     };
   }
 
+  // ── 'numeric' — typed numeric answer, AUTO-marked (ADM-B B1) ──────
+  // The question carries q.numeric, a map of blank-id → answer key:
+  //   q.numeric = { "1": { value: 2.45, tol: 0.005, accept: ["-3+2root5"] } }
+  // (one key is the common case; multi-key supports multi-part numeric).
+  // Normalisation MUST stay byte-identical to the server graders'
+  // numeric_answer_correct() (supabase/numeric-normalise.sql) or the live
+  // mark diverges from what the student sees — change both together.
+  //
+  //   normNumeric(s): lowercase, √→root, strip spaces/commas/£/$/€/%.
+  //   value match:    parse a plain decimal OR an a/b fraction, then
+  //                   |parsed − key.value| ≤ (key.tol ?? 0.0005).
+  //   exact-form match: normNumeric(student) === normNumeric(any accept[]).
+  function normNumeric(s) {
+    return String(s == null ? '' : s)
+      .toLowerCase()
+      .replace(/√/g, 'root')      // √ → root
+      .replace(/[\s,£$€%]/g, '');
+  }
+  function evalNumericValue(ns) {
+    // leading '+' deliberately NOT accepted — keeps the parse identical to the
+    // server, where '+3'::numeric is not portable. Students type '-3', not '+3'.
+    if (/^-?\d+(\.\d+)?$/.test(ns)) return parseFloat(ns);
+    var m = /^(-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)$/.exec(ns);
+    if (m) { var d = parseFloat(m[2]); if (d !== 0) return parseFloat(m[1]) / d; }
+    return null; // not a bare number/fraction — only an accept-form can match
+  }
+  function numericKeyCorrect(raw, key) {
+    if (!key) return false;
+    var ns = normNumeric(raw);
+    if (ns === '') return false;
+    var accept = key.accept || [];
+    for (var i = 0; i < accept.length; i++) { if (ns === normNumeric(accept[i])) return true; }
+    var v = evalNumericValue(ns);
+    if (v === null) return false;
+    var tol = (key.tol != null) ? key.tol : 0.0005;
+    return Math.abs(v - key.value) <= tol + 1e-12;
+  }
+
+  function mountNumeric(elc, q, qi, opts) {
+    injectStyleOnce('csew-numeric-style', [
+      '.csew-numeric { font-family: "DM Mono","Consolas",monospace; font-size: 15px; padding: 9px 11px; min-height: 42px; width: 100%; max-width: 260px; box-sizing: border-box; border: 1px solid var(--border); border-radius: 7px; background: var(--cream); color: var(--ink); }',
+      '.csew-numeric:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }',
+      '.csew-numeric.csew-correct { border-color: var(--success); box-shadow: 0 0 0 1px var(--success); }',
+      '.csew-numeric.csew-incorrect { border-color: #c0392b; box-shadow: 0 0 0 1px #c0392b; }',
+      '.csew-numeric-fb { font-size: 13.5px; font-weight: 600; margin: 8px 0 0; }',
+      '.csew-numeric-fb.ok { color: var(--success); }',
+      '.csew-numeric-fb.no { color: #c0392b; }',
+    ].join('\n'));
+
+    var keys = q.numeric || {};
+    var ids = Object.keys(keys);
+    if (!ids.length) return factories['lines'](elc, q, qi, opts); // no key → self-mark fallback
+
+    var inputs = {};
+    ids.forEach(function (id) {
+      var k = keys[id];
+      if (k.label || ids.length > 1) elc.appendChild(el('div', 'csew-lines-label', k.label || ('Answer ' + id)));
+      var inp = document.createElement('input');
+      inp.type = 'text';
+      inp.className = 'csew-numeric';
+      inp.autocomplete = 'off';
+      inp.spellcheck = false;
+      inp.setAttribute('aria-label', k.label || ('Numeric answer ' + id));
+      inputs[id] = inp;
+      elc.appendChild(inp);
+    });
+    elc.appendChild(el('div', 'csew-marksright', '[' + q.marks + ']'));
+    var submit = btn('✓ Check my answer');
+    elc.appendChild(submit);
+    var fb = el('div', 'csew-numeric-fb');
+    elc.appendChild(fb);
+
+    var answered = false;
+    function stateOf() { var t = {}; ids.forEach(function (id) { t[id] = inputs[id].value; }); return { values: t }; }
+    function markInputs() {
+      var correct = 0;
+      ids.forEach(function (id) {
+        var ok = numericKeyCorrect(inputs[id].value, keys[id]);
+        inputs[id].classList.toggle('csew-correct', ok);
+        inputs[id].classList.toggle('csew-incorrect', !ok);
+        inputs[id].disabled = true;
+        if (ok) correct++;
+      });
+      return correct;
+    }
+    function grade() {
+      var correct = markInputs();
+      var mark = Math.round((q.marks || 0) * correct / ids.length);
+      submit.disabled = true;
+      var all = correct === ids.length;
+      fb.className = 'csew-numeric-fb ' + (all ? 'ok' : 'no');
+      fb.textContent = all ? ('Correct — ' + mark + ' / ' + q.marks)
+        : (correct ? 'Partly right — ' + mark + ' / ' + q.marks : 'Not correct — 0 / ' + q.marks) + '. Check the mark scheme for the method.';
+      opts.reveal();
+      opts.save({ mark: mark, max: q.marks, state: { values: stateOf().values, _mark: mark } });
+    }
+    submit.addEventListener('click', function () { if (answered) return; answered = true; grade(); });
+    ids.forEach(function (id) {
+      inputs[id].addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); if (!answered) { answered = true; grade(); } } });
+    });
+
+    return {
+      getState: stateOf,
+      setState: function (s, locked) {
+        if (s && s.values) ids.forEach(function (id) { if (s.values[id] != null) inputs[id].value = s.values[id]; });
+        if (locked) { answered = true; markInputs(); submit.disabled = true; opts.reveal(); }
+      },
+    };
+  }
+
   window.CsExamWidgets = {
     register: function (format, factory) { factories[format] = factory; },
     supports: function (format) { return !!factories[format]; },
@@ -489,9 +600,14 @@
       el: el, btn: btn, injectStyleOnce: injectStyleOnce,
       parseMarkPoints: parseMarkPoints, buildSelfMarkPanel: buildSelfMarkPanel,
       lockPanel: lockPanel, bandsFor: bandsFor,
+      // numeric normalisation/compare — exposed so tests (and any future
+      // caller) use the SAME logic the server graders mirror.
+      normNumeric: normNumeric, evalNumericValue: evalNumericValue,
+      numericAnswerCorrect: numericKeyCorrect,
     },
   };
 
   window.CsExamWidgets.register('lines', mountLines);
   window.CsExamWidgets.register('banded', mountBanded);
+  window.CsExamWidgets.register('numeric', mountNumeric);
 })();

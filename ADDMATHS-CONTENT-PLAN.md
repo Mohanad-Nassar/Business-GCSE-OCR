@@ -916,13 +916,27 @@ solve/show-that/detailed-reasoning written items (defaults to `lines`).
 
 | OCR form | format |
 |---|---|
-| Numeric / exact-value / trig-equation answer entry | `numeric` (NEW) |
-| Multi-part with working (a/b/c, models, log-linearisation) | `mathParts` (NEW) |
-| Plot / sketch / Venn / tree (paper + overlay self-check) | `sketch` (NEW) |
+| Numeric / exact-value / trig-equation answer entry | `numeric` (BUILT — ADM-B B1) |
+| Multi-part with working (a/b/c, models, log-linearisation) | `mathParts` (NEW — not built) |
+| Plot / sketch / Venn / tree (paper + overlay self-check) | `sketch` (NEW — not built) |
 | Complete a table (log values, function values) | `tableFill` (reuse CS) |
 | 6/8-mark banded extended response | `banded` (reuse CS) |
 | Tick-one / MCQ | `type:"mcq"` |
 | (plain written: solve, show-that, DR, unstructured) | omit -> `lines` |
+
+**`numeric` authoring (ADM-B B1, BUILT 2026-07-19).** A numeric question sets
+`format:"numeric"` and carries an answer key `q.numeric`, a map of blank-id →
+`{ value, tol?, accept? }` (one key = the common single-answer case):
+
+```js
+numeric: { "1": { value: 2.45, tol: 0.005, accept: ["-3+2root5", "(-6+root80)/2"] } }
+```
+
+- `value` — the numeric target. `tol` — absolute tolerance (default `0.0005`).
+- `accept` — optional exact-form strings for surds/symbolic answers.
+- **Marking rule (client `cs-lab/exam-widgets.js` = server `supabase/numeric-normalise.sql`, kept identical):** normalise = lower-case, `√`→`root`, strip spaces / commas / `£ $ € %`; a student string is correct if it equals a normalised `accept[]` form, OR parses as a plain decimal or `a/b` fraction within `tol` of `value`. Leading `+` is NOT accepted (write `-3`, never `+3`).
+- Multi-key = multi-part numeric; each key contributes an equal share of `q.marks` (client shows partial credit; the server records binary correct = all keys right, like `fib`).
+- Still author a `markScheme` (+ `markPoints` for any method marks) — the widget reveals it after checking so method/M marks are visible. Server grading needs `qtype:"numeric"` + `answer_key.numeric` — the build pipeline mapping for that is PENDING (see below).
 
 ## Appendix E - Delegation prompt templates
 

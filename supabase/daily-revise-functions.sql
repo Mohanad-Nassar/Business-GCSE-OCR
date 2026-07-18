@@ -298,6 +298,12 @@ begin
                 select 1 from jsonb_each_text(v_row.answer_key->'blanks') kb
                 where lower(btrim(coalesce(p_answer->'value'->>kb.key, '')))
                       <> lower(btrim(kb.value)))
+        when v_row.qtype = 'numeric' then
+            -- correct iff EVERY numeric key matches (numeric_answer_correct
+            -- mirrors the client comparator — supabase/numeric-normalise.sql).
+            p_answer is not null and (v_row.answer_key ? 'numeric') and not exists (
+                select 1 from jsonb_object_keys(v_row.answer_key->'numeric') k
+                where not numeric_answer_correct(p_answer->'value'->>k, v_row.answer_key->'numeric'->k))
         else false
     end;
 
