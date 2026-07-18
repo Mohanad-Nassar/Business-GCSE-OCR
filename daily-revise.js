@@ -385,6 +385,10 @@ function renderQuestion() {
       <button type="button" class="btn" id="drSubmitBtn" disabled>Submit</button>
     </div>`;
 
+  // Render any LaTeX in the freshly-inserted card (Additional Maths). No-op on
+  // subjects without maths / pages that don't load math-render.js.
+  if (typeof renderMathIn === 'function') renderMathIn(panel);
+
   const submitBtn = document.getElementById('drSubmitBtn');
   questionShownAt = Date.now();
   applyPreGuard(submitBtn);
@@ -528,6 +532,7 @@ function applyFeedback(q, result) {
   const explain = answerKey.explain || answerKey.markScheme || '';
   fb.innerHTML = `<span class="dr-mastery-chip m${tier}">${DR_MASTERY_LABELS[tier]}</span><br>`
     + (correct ? '✓ Correct! ' : '✗ Not quite. ') + explain;
+  if (typeof renderMathIn === 'function') renderMathIn(fb);
 
   // "Report a problem" (WP-C5) — only once the answer's marked, so the
   // student can judge whether it's actually wrong. Optional feature: no-op

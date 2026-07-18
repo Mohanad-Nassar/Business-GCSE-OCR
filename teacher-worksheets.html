@@ -416,6 +416,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="tasks-shared.js"></script>
+<script src="/math-render.js"></script>
 <script src="/rich-editor.js"></script>
 <script src="/subjects-index.js"></script>
 <script src="/page-groups-all.js"></script>
@@ -682,6 +683,10 @@ function categoryRow(page, sourceDef, questions, pageCfg) {
           <button type="button" class="btn icon-btn" data-preview="${q.id}">👁 Preview</button>
         </span>
       </label>`).join('');
+    // Question stems are truncated raw text (taskStripTags), so any \(...\)
+    // in an Additional Maths stem needs rendering here too — same idiom as
+    // the worksheet/preview containers below.
+    if (typeof renderMathIn === 'function') renderMathIn(body);
     body.querySelectorAll('input[data-qid]').forEach(cb => cb.addEventListener('change', () => {
       toggleQuestion(BANK_BY_ID[cb.dataset.qid], cb.checked);
     }));
@@ -773,6 +778,9 @@ function openPreview(q) {
       <button type="button" class="qp-close" id="qpCloseBtn" aria-label="Close preview">✕</button>
     </div>
     ${questionBodyHtml(q)}`;
+  // Render any LaTeX in the freshly-inserted preview card (Additional Maths).
+  // No-op on subjects without maths / before math-render.js has loaded assets.
+  if (typeof renderMathIn === 'function') renderMathIn($('qpModal'));
   $('qpOverlay').classList.remove('hidden');
   $('qpCloseBtn').addEventListener('click', closePreview);
 }
@@ -814,6 +822,9 @@ function renderReview() {
     if (justAdded) lastAddedEl = card;
     list.appendChild(card);
   });
+  // Render any LaTeX across the whole selected-questions list in one pass
+  // (Additional Maths). No-op without math-render.js or on math-free content.
+  if (typeof renderMathIn === 'function') renderMathIn(list);
   if (lastAddedEl) lastAddedEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
@@ -1314,6 +1325,11 @@ function buildAndRenderWorksheet() {
   if (empty) { root.innerHTML = ''; $('printSummary').textContent = ''; return; }
   const model = buildWorksheetModel(opts);
   root.innerHTML = renderWorksheet(model, opts);
+  // Render any LaTeX across the whole printable worksheet in one pass
+  // (stems, options, fill-in-the-blanks, match tables, answer key) —
+  // Additional Maths. Must finish before window.print() (doPrint) so the
+  // rendered KaTeX nodes are in the DOM to print; no-op without math-render.js.
+  if (typeof renderMathIn === 'function') renderMathIn(root);
   $('printSummary').textContent = `— ${model.count} questions · ${model.totalMarks} marks${model.rounds.length ? ` · ${model.rounds.length} blank round${model.rounds.length === 1 ? '' : 's'}` : ''}`;
 }
 

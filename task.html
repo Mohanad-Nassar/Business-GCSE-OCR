@@ -190,6 +190,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="tasks-shared.js"></script>
+<script src="/math-render.js"></script>
 <script src="/rich-editor.js"></script>
 <script src="/account-cluster.js"></script>
 <script>
@@ -570,6 +571,10 @@ function renderQuestion() {
     ${q.qtype === 'fib' ? '' : `<div class="qtext">${taskRichText(snap.question)}</div>`}
     ${inputHtml}`;
 
+  // Render any LaTeX in the freshly-inserted card (Additional Maths). No-op on
+  // subjects without maths / pages that don't load math-render.js.
+  if (typeof renderMathIn === 'function') renderMathIn($('questionPanel'));
+
   $('prevBtn').disabled = curIdx === 0;
   $('nextBtn').disabled = curIdx === questions.length - 1;
 
@@ -840,6 +845,9 @@ async function showResults() {
     $('resultsQuestions').insertAdjacentHTML('afterbegin',
       '<div class="banner warn" style="margin-bottom:12px;">Correct answers and mark schemes stay hidden while you can still submit attempts.</div>');
   }
+  // Render LaTeX across the whole results list (stems, options, mark schemes,
+  // explanations) — Additional Maths. No-op without math-render.js.
+  if (typeof renderMathIn === 'function') renderMathIn($('resultsQuestions'));
   window.scrollTo({ top: 0 });
 }
 

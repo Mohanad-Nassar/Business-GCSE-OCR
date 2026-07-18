@@ -755,6 +755,10 @@ function renderQuizQuestion() {
       <button type="button" class="btn" id="srqSubmitBtn" disabled>Submit</button>
     </div>`;
 
+  // Render any LaTeX in the freshly-inserted card (Additional Maths). No-op on
+  // subjects without maths / pages that don't load math-render.js.
+  if (typeof renderMathIn === 'function') renderMathIn(panel);
+
   const submitBtn = document.getElementById('srqSubmitBtn');
   const enable = () => { submitBtn.disabled = !hasSelection; };
 
@@ -863,6 +867,7 @@ function applyQuizFeedback(q, result) {
   const explain = answerKey.explain || answerKey.markScheme || '';
   fb.className = `dr-feedback show ${correct ? 'm3' : 'm0'}`;
   fb.innerHTML = (correct ? '✓ Correct! ' : '✗ Not quite. ') + explain;
+  if (typeof renderMathIn === 'function') renderMathIn(fb);
 
   // "Report a problem" (WP-C5) — appended once the answer's marked. Optional:
   // no-op if question-report.js isn't loaded.

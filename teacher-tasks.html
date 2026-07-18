@@ -494,6 +494,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="tasks-shared.js"></script>
+<script src="/math-render.js"></script>
 <script src="/rich-editor.js"></script>
 <script src="/subjects-index.js"></script>
 <script src="/page-groups-all.js"></script>
@@ -1103,6 +1104,8 @@ function categoryRow(page, sourceDef, questions, pageCfg) {
       toggleQuestion(BANK_BY_ID[cb.dataset.qid], cb.checked);
     }));
     body.querySelectorAll('[data-preview]').forEach(btn => btn.addEventListener('click', () => openPreview(BANK_BY_ID[btn.dataset.preview])));
+    // Question stems can contain raw LaTeX (Additional Maths) — no-op elsewhere.
+    if (typeof renderMathIn === 'function') renderMathIn(body);
   }
 
   renderHeader();
@@ -1202,6 +1205,9 @@ function openPreview(q) {
       <button type="button" class="qp-close" id="qpCloseBtn" aria-label="Close preview">✕</button>
     </div>
     ${questionBodyHtml(q)}`;
+  // Render any LaTeX in the freshly-inserted modal (Additional Maths). No-op on
+  // subjects without maths / pages that don't load math-render.js.
+  if (typeof renderMathIn === 'function') renderMathIn($('qpModal'));
   $('qpOverlay').classList.remove('hidden');
   $('qpCloseBtn').addEventListener('click', closePreview);
 }
@@ -1243,6 +1249,7 @@ function renderReview() {
     if (justAdded) lastAddedEl = card;
     list.appendChild(card);
   });
+  if (typeof renderMathIn === 'function') renderMathIn(list);
   if (lastAddedEl) lastAddedEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
@@ -1881,6 +1888,7 @@ function renderAnalytics() {
     </tr>`;
     return summaryRow + (open ? renderQuestionDrilldown(q, rows, countedIds) : '');
   }).join('') || '<tr><td colspan="8" class="empty">No questions.</td></tr>';
+  if (typeof renderMathIn === 'function') renderMathIn($('anaQuestionsBody'));
 }
 
 // ── Per-question drill-down: who answered what ──
@@ -2199,6 +2207,7 @@ function renderMarkingQueue() {
     });
     container.appendChild(card);
   });
+  if (typeof renderMathIn === 'function') renderMathIn(container);
 }
 
 // Answers eligible for a fresh AI suggestion: submitted, written, unmarked,
@@ -2317,6 +2326,7 @@ function renderDetailQuestions() {
       ${q.answer_key.markScheme ? `<details class="ms"><summary>Mark scheme</summary><div>${_safeHtml(q.answer_key.markScheme)}</div></details>` : ''}
       ${q.answer_key.explain ? `<details class="ms"><summary>Answer explanation</summary><div>${taskRichText(q.answer_key.explain)}</div></details>` : ''}
     </div>`).join('') || '<div class="empty">No questions.</div>';
+  if (typeof renderMathIn === 'function') renderMathIn($('detailQuestionList'));
 }
 
 init();
