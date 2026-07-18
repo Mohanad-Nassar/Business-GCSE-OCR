@@ -205,29 +205,25 @@
           "id": "7-1-exponential-functions",
           "name": "7.1 Exponential Functions",
           "sub": "Exponentials and Logarithms",
-          "file": "7.1-exponential-functions.html",
-          "noQuestions": true
+          "file": "7.1-exponential-functions.html"
         },
         {
           "id": "7-2-logarithms-and-the-log-laws",
           "name": "7.2 Logarithms and the Log Laws",
           "sub": "Exponentials and Logarithms",
-          "file": "7.2-logarithms-and-the-log-laws.html",
-          "noQuestions": true
+          "file": "7.2-logarithms-and-the-log-laws.html"
         },
         {
           "id": "7-3-solving-exponential-equations",
           "name": "7.3 Solving Exponential Equations",
           "sub": "Exponentials and Logarithms",
-          "file": "7.3-solving-exponential-equations.html",
-          "noQuestions": true
+          "file": "7.3-solving-exponential-equations.html"
         },
         {
           "id": "7-4-reduction-to-linear-form",
           "name": "7.4 Reduction to Linear Form",
           "sub": "Exponentials and Logarithms",
-          "file": "7.4-reduction-to-linear-form.html",
-          "noQuestions": true
+          "file": "7.4-reduction-to-linear-form.html"
         }
       ]
     },

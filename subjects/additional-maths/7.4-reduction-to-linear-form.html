@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 7. Exponentials and Logarithms</div>
             <h1>7.4 Reduction to Linear Form</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 7.4 Reduction to Linear Form — placeholder, content not yet written
+    //  DATA: 7.4 Reduction to Linear Form (EL4, EL5)
     // ══════════════════════════════════════
     const pageMeta = {
             id: '7-4-reduction-to-linear-form',
@@ -266,23 +266,505 @@
             subject: 'additional-maths',
         };
 
+    // Shared exam stimuli. Blank data tables + blank grids are authored as inline SVG
+    // (theme-safe currentColor). The two real questions on this page:
+    //   • 2024 Q14 [11] — model x = ka^n (this page: dominant skill EL4/EL5).
+    //   • 2023 Q14 [11] — model T - 20 = A×2^(-t/b) (this page: dominant skill EL4/EL5).
+    const EXAM_CASE_STUDIES = {
+        "q14-2024": `<p><strong>OCR June 2024, Question 14.</strong> Layla is given the following data.</p>
+        <table class="worked" style="text-align:center"><tbody>
+          <tr><td style="font-weight:600">\\( n \\)</td><td>1</td><td>3</td><td>5</td><td>7</td><td>9</td></tr>
+          <tr><td style="font-weight:600">\\( x \\)</td><td>0.5</td><td>1.1</td><td>2.5</td><td>5.7</td><td>12.8</td></tr>
+        </tbody></table>
+        <p>She believes that the relationship between \\( n \\) and \\( x \\) can be modelled by the equation \\( x = ka^n \\), where \\( k \\) and \\( a \\) are constants. The grid below has \\( n \\) on the horizontal axis and \\( \\log_{10} x \\) on the vertical axis.</p>
+        <svg viewBox="0 0 470 300" width="100%" style="max-width:520px;height:auto;display:block;margin:10px auto" role="img" aria-label="Blank grid with horizontal axis n from 0 to 10 and vertical axis log base 10 of x from minus 0.5 to 1.5"><g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.18"><line x1="98" y1="30" x2="98" y2="290"/><line x1="136" y1="30" x2="136" y2="290"/><line x1="174" y1="30" x2="174" y2="290"/><line x1="212" y1="30" x2="212" y2="290"/><line x1="250" y1="30" x2="250" y2="290"/><line x1="288" y1="30" x2="288" y2="290"/><line x1="326" y1="30" x2="326" y2="290"/><line x1="364" y1="30" x2="364" y2="290"/><line x1="402" y1="30" x2="402" y2="290"/><line x1="440" y1="30" x2="440" y2="290"/><line x1="60" y1="40" x2="440" y2="40"/><line x1="60" y1="100" x2="440" y2="100"/><line x1="60" y1="160" x2="440" y2="160"/><line x1="60" y1="280" x2="440" y2="280"/></g><line x1="60" y1="30" x2="60" y2="290" stroke="currentColor" stroke-width="1.5"/><line x1="55" y1="220" x2="445" y2="220" stroke="currentColor" stroke-width="1.5"/><polygon points="440,30 436,40 444,40" fill="currentColor"/><polygon points="445,220 435,216 435,224" fill="currentColor"/><g font-size="11" fill="currentColor" text-anchor="middle"><text x="98" y="234">1</text><text x="174" y="234">3</text><text x="250" y="234">5</text><text x="326" y="234">7</text><text x="402" y="234">9</text><text x="54" y="44" text-anchor="end">1.5</text><text x="54" y="104" text-anchor="end">1.0</text><text x="54" y="164" text-anchor="end">0.5</text><text x="54" y="284" text-anchor="end">-0.5</text><text x="52" y="224" text-anchor="end">0</text><text x="450" y="217" text-anchor="start">n</text><text x="60" y="26" text-anchor="middle">log₁₀x</text></g></svg>`,
+        "q14-2023": `<p><strong>OCR June 2023, Question 14.</strong> Sarah brings a saucepan of water to the boil. She leaves the water to cool, measuring its temperature every 10 minutes for 30 minutes. The results are shown below.</p>
+        <table class="worked" style="text-align:center"><tbody>
+          <tr><td style="font-weight:600">Time (\\( t \\) minutes)</td><td>0</td><td>10</td><td>20</td><td>30</td></tr>
+          <tr><td style="font-weight:600">Temperature (\\( T \\) °C)</td><td>100</td><td>60</td><td>40</td><td>30</td></tr>
+        </tbody></table>
+        <p>Sarah believes the cooling can be modelled by \\( T - 20 = A \\times 2^{-t/b} \\), where \\( A \\) and \\( b \\) are constants. The grid below has \\( t \\) on the horizontal axis and \\( \\log_{10}(T-20) \\) on the vertical axis.</p>
+        <svg viewBox="0 0 470 300" width="100%" style="max-width:520px;height:auto;display:block;margin:10px auto" role="img" aria-label="Blank grid with horizontal axis t from 0 to 30 and vertical axis log base 10 of T minus 20 from 0 to 2"><g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.18"><line x1="180" y1="40" x2="180" y2="280"/><line x1="300" y1="40" x2="300" y2="280"/><line x1="420" y1="40" x2="420" y2="280"/><line x1="60" y1="40" x2="420" y2="40"/><line x1="60" y1="100" x2="420" y2="100"/><line x1="60" y1="160" x2="420" y2="160"/><line x1="60" y1="220" x2="420" y2="220"/></g><line x1="60" y1="30" x2="60" y2="290" stroke="currentColor" stroke-width="1.5"/><line x1="60" y1="280" x2="435" y2="280" stroke="currentColor" stroke-width="1.5"/><polygon points="60,30 56,40 64,40" fill="currentColor"/><polygon points="435,280 425,276 425,284" fill="currentColor"/><g font-size="11" fill="currentColor" text-anchor="middle"><text x="60" y="294">0</text><text x="180" y="294">10</text><text x="300" y="294">20</text><text x="420" y="294">30</text><text x="54" y="44" text-anchor="end">2.0</text><text x="54" y="104" text-anchor="end">1.5</text><text x="54" y="164" text-anchor="end">1.0</text><text x="54" y="224" text-anchor="end">0.5</text><text x="54" y="284" text-anchor="end">0</text><text x="440" y="284" text-anchor="start">t</text><text x="62" y="26" text-anchor="start">log₁₀(T-20)</text></g></svg>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>7.4 Reduction to Linear Form</strong> will appear here soon.</p>`
+            title: "Why turn a curve into a straight line?",
+            tag: "Key concept",
+            content: `<p>Real data rarely lies on a neat curve you can read constants off. But a <strong>straight line</strong> is easy: its gradient and intercept are simple to measure. <strong>Reduction to linear form</strong> uses <strong>logarithms</strong> to turn an exponential or power law into a straight-line relationship, so the unknown constants can be estimated from a graph.</p>
+            <ul>
+              <li>The two laws you must handle are \\( y = ka^x \\) (an <strong>exponential</strong> law) and \\( y = kx^n \\) (a <strong>power</strong> law).</li>
+              <li>Taking logs of both sides "unpacks" the powers using the log laws, leaving something of the form \\( Y = mX + c \\).</li>
+              <li>You then plot the <em>logged</em> data, draw a line of best fit, read off the <strong>gradient</strong> and <strong>intercept</strong>, and finally <strong>anti-log</strong> to recover the original constants.</li>
+              <li>This is the signature exponentials-and-logs exam question — it appears almost every year, worth 10–11 marks.</li>
+            </ul>
+            <p>The three log laws you rely on (all MEMORISE): \\[ \\log(MN) = \\log M + \\log N, \\quad \\log\\!\\left(\\tfrac{M}{N}\\right) = \\log M - \\log N, \\quad \\log(M^p) = p\\log M. \\]</p>`,
+            readCheck: { q: "What is the point of reducing a law to linear form?", opts: ["So the constants can be found from a straight line's gradient and intercept", "To make the numbers larger", "To avoid using a calculator", "Because curves cannot be drawn"], ans: 0, explain: "A straight line's gradient and intercept are easy to measure, and logs convert the law into \\( Y = mX + c \\)." }
+        },
+        {
+            title: "How do you linearise \\( y = ka^x \\)?",
+            tag: "Worked example",
+            content: `<p>Take logs of <strong>both</strong> sides, then use two log laws to split the right-hand side.</p>
+            <table class="worked">
+              <tr><td>1. Start: \\( y = ka^x \\).</td></tr>
+              <tr><td>2. Log both sides: \\( \\log y = \\log(ka^x) \\).</td></tr>
+              <tr><td>3. Product law: \\( \\log y = \\log k + \\log(a^x) \\).</td></tr>
+              <tr><td>4. Power law: \\( \\log y = \\log k + x\\log a \\).</td></tr>
+              <tr><td>5. Reorder into \\( Y = mX + c \\): \\[ \\log y = (\\log a)\\,x + \\log k. \\]</td></tr>
+            </table>
+            <p>So plotting \\( \\log y \\) (vertical) against \\( x \\) (horizontal) gives a straight line with <strong>gradient \\( \\log a \\)</strong> and <strong>intercept \\( \\log k \\)</strong>. Compare term-by-term with \\( Y = mX + c \\): \\( Y = \\log y \\), \\( X = x \\), \\( m = \\log a \\), \\( c = \\log k \\).</p>
+            <p><strong>Note:</strong> only \\( y \\) is logged, not \\( x \\) — the exponent \\( x \\) is already "linear".</p>`,
+            readCheck: { q: "For \\( y = ka^x \\), what should you plot to get a straight line?", opts: ["\\( \\log y \\) against \\( x \\)", "\\( \\log y \\) against \\( \\log x \\)", "\\( y \\) against \\( \\log x \\)", "\\( \\log x \\) against \\( \\log y \\)"], ans: 0, explain: "\\( \\log y = (\\log a)x + \\log k \\), so \\( \\log y \\) against \\( x \\) is linear." }
+        },
+        {
+            title: "How do you linearise \\( y = kx^n \\)?",
+            tag: "Method",
+            content: `<p>The power law is different: here \\( x \\) is raised to a power, so you must log <strong>both</strong> variables.</p>
+            <table class="worked">
+              <tr><td>1. Start: \\( y = kx^n \\).</td></tr>
+              <tr><td>2. Log both sides: \\( \\log y = \\log(kx^n) \\).</td></tr>
+              <tr><td>3. Product law: \\( \\log y = \\log k + \\log(x^n) \\).</td></tr>
+              <tr><td>4. Power law: \\( \\log y = \\log k + n\\log x \\).</td></tr>
+              <tr><td>5. As \\( Y = mX + c \\): \\[ \\log y = n\\log x + \\log k. \\]</td></tr>
+            </table>
+            <p>So plotting \\( \\log y \\) against \\( \\log x \\) gives a straight line with <strong>gradient \\( n \\)</strong> and <strong>intercept \\( \\log k \\)</strong>. Here \\( Y = \\log y \\), \\( X = \\log x \\), \\( m = n \\), \\( c = \\log k \\).</p>
+            <p><strong>Tell them apart:</strong> in \\( y = ka^x \\) the variable is the <em>exponent</em>, so plot \\( \\log y \\) vs \\( x \\); in \\( y = kx^n \\) the variable is the <em>base</em>, so plot \\( \\log y \\) vs \\( \\log x \\). The gradient is \\( \\log a \\) for the exponential but just \\( n \\) for the power.</p>`,
+            readCheck: { q: "When plotting \\( \\log y \\) against \\( \\log x \\) for \\( y = kx^n \\), the gradient is:", opts: ["\\( n \\)", "\\( \\log n \\)", "\\( \\log k \\)", "\\( kn \\)"], ans: 0, explain: "\\( \\log y = n\\log x + \\log k \\); the gradient is the power \\( n \\) itself (not its log)." }
+        },
+        {
+            title: "How do you complete a table of logs and plot the line?",
+            tag: "Worked example",
+            content: `<p>You are usually given a data table and a printed grid. Work in a spare row: compute the log of every value you will plot, to about 2 decimal places, then plot on a <strong>linear</strong> scale.</p>
+            <p><strong>Worked example.</strong> Data believed to fit \\( y = ka^x \\):</p>
+            <table class="worked" style="text-align:center"><tbody>
+              <tr><td style="font-weight:600">\\( x \\)</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+              <tr><td style="font-weight:600">\\( y \\)</td><td>6</td><td>18</td><td>54</td><td>162</td></tr>
+              <tr><td style="font-weight:600">\\( \\log_{10} y \\)</td><td>0.78</td><td>1.26</td><td>1.73</td><td>2.21</td></tr>
+            </tbody></table>
+            <p>Plotting \\( \\log_{10} y \\) against \\( x \\) gives points that lie on a straight line:</p>
+            <svg viewBox="0 0 470 300" width="100%" style="max-width:520px;height:auto;display:block;margin:8px auto" role="img" aria-label="log base 10 of y plotted against x, four points lying on a straight line of positive gradient with a positive intercept"><g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.18"><line x1="60" y1="40" x2="440" y2="40"/><line x1="60" y1="100" x2="440" y2="100"/><line x1="60" y1="160" x2="440" y2="160"/><line x1="60" y1="220" x2="440" y2="220"/><line x1="160" y1="30" x2="160" y2="270"/><line x1="260" y1="30" x2="260" y2="270"/><line x1="360" y1="30" x2="360" y2="270"/></g><line x1="60" y1="30" x2="60" y2="270" stroke="currentColor" stroke-width="1.5"/><line x1="60" y1="270" x2="445" y2="270" stroke="currentColor" stroke-width="1.5"/><polygon points="60,30 56,40 64,40" fill="currentColor"/><polygon points="445,270 435,266 435,274" fill="currentColor"/><line x1="60" y1="223.6" x2="360" y2="93.4" stroke="currentColor" stroke-width="2.2"/><circle cx="60" cy="223.6" r="4" fill="currentColor"/><circle cx="160" cy="180.2" r="4" fill="currentColor"/><circle cx="260" cy="137.6" r="4" fill="currentColor"/><circle cx="360" cy="93.4" r="4" fill="currentColor"/><g font-size="11" fill="currentColor" text-anchor="middle"><text x="60" y="285">0</text><text x="160" y="285">1</text><text x="260" y="285">2</text><text x="360" y="285">3</text><text x="450" y="273" text-anchor="start">x</text><text x="55" y="227" text-anchor="end">0.78</text><text x="80" y="26">log₁₀y</text></g></svg>
+            <p>The line is straight, so the model fits. Its gradient \\( \\approx (2.21-0.78)/3 = 0.48 \\) and its intercept \\( \\approx 0.78 \\) — these are \\( \\log a \\) and \\( \\log k \\), ready to anti-log (next card).</p>`,
+            readCheck: { q: "What must be true of the horizontal axis scale for the accuracy marks?", opts: ["It must be a linear (evenly-spaced) scale", "It must be a log scale", "The gaps must match the data values, however uneven", "It does not matter"], ans: 0, explain: "Plotting values at equal intervals when they are not equal loses all accuracy marks — the axis scale must be linear." }
+        },
+        {
+            title: "How do you estimate the constants by anti-logging?",
+            tag: "Exam skill",
+            content: `<p>The gradient and intercept you read off are <em>logged</em> quantities. To get back the real constants you must <strong>anti-log</strong> (raise 10 to the power), because the data was plotted with base-10 logs.</p>
+            <table class="worked">
+              <tr><td>For \\( y = ka^x \\): gradient \\( = \\log a \\Rightarrow a = 10^{\\text{gradient}} \\); intercept \\( = \\log k \\Rightarrow k = 10^{\\text{intercept}} \\).</td></tr>
+              <tr><td>For \\( y = kx^n \\): gradient \\( = n \\) directly (no anti-log); intercept \\( = \\log k \\Rightarrow k = 10^{\\text{intercept}} \\).</td></tr>
+            </table>
+            <p><strong>Continuing the worked example</strong> (\\( y = ka^x \\), gradient \\( 0.48 \\), intercept \\( 0.78 \\)):</p>
+            <table class="worked">
+              <tr><td>1. \\( a = 10^{0.48} \\approx 3.0 \\).</td></tr>
+              <tr><td>2. \\( k = 10^{0.78} \\approx 6.0 \\).</td></tr>
+              <tr><td>3. So the model is \\( y \\approx 6 \\times 3^x \\) — which matches the original data \\( 6, 18, 54, 162 \\). ✓</td></tr>
+            </table>
+            <p>The single most common lost mark on this whole topic is stopping at the gradient/intercept and <strong>forgetting to anti-log</strong>. Because you read the line by hand, examiners accept a <strong>range</strong> of answers (a wide acceptance band).</p>`,
+            readCheck: { q: "You plot \\( \\log y \\) vs \\( x \\) for \\( y = ka^x \\) and read a gradient of \\( 0.3 \\). What is \\( a \\)?", opts: ["\\( a = 10^{0.3} \\approx 2.0 \\)", "\\( a = 0.3 \\)", "\\( a = \\log 0.3 \\)", "\\( a = 3 \\)"], ans: 0, explain: "Gradient \\( = \\log a \\), so anti-log: \\( a = 10^{0.3} \\approx 2.0 \\)." }
+        },
+        {
+            title: "What are the examiner traps on this topic?",
+            tag: "Common error",
+            content: `<p>The examiner reports flag the same errors every year. Know them cold.</p>
+            <ul>
+              <li><strong>Expanding the log wrongly.</strong> \\( \\log(ka^n) = \\log k + n\\log a \\). It is <em>not</em> \\( n\\log(ka) \\), and <em>not</em> \\( n\\log k + n\\log a \\). The power \\( n \\) multiplies only \\( \\log a \\).</li>
+              <li><strong>Non-linear axis scale.</strong> Plotting the data values at equal spacing (e.g. \\( n = 1,3,5,7,9 \\) written in equal steps) when they are unequal loses every accuracy mark.</li>
+              <li><strong>Forgetting to anti-log.</strong> Reading gradient \\( = \\log a \\) and quoting that as \\( a \\). You must compute \\( a = 10^{\\text{gradient}} \\).</li>
+              <li><strong>Swapping gradient and intercept.</strong> Gradient gives \\( \\log a \\) (or \\( n \\)); intercept gives \\( \\log k \\). Do not mix them up.</li>
+              <li><strong>Not comparing to \\( Y = mX + c \\).</strong> In a "show that" part the final mark is for explicitly stating the linear form — computing the algebra is not enough.</li>
+              <li><strong>Using the wrong data point.</strong> For \\( T-20 = A\\times 2^{-t/b} \\), substituting the \\( t=0 \\) point to find \\( b \\) fails, because the exponent is 0 and \\( b \\) cancels out — use any <em>other</em> pair.</li>
+            </ul>`,
+            readCheck: { q: "A student writes \\( \\log(ka^n) = n\\log(ka) \\). What is the correct expansion?", opts: ["\\( \\log k + n\\log a \\)", "\\( n\\log k + n\\log a \\)", "\\( n\\log(ka) \\)", "\\( \\log k \\times n\\log a \\)"], ans: 0, explain: "Product law then power law: \\( \\log k + \\log(a^n) = \\log k + n\\log a \\). The \\( n \\) attaches only to \\( \\log a \\)." }
+        },
+        {
+            title: "Command words and the full method ladder",
+            tag: "Method",
+            content: `<p>This topic mixes several command words. Read each part carefully.</p>
+            <ul>
+              <li><strong>"Show that"</strong> (the linearise part): every step of the log algebra must be shown, ending with an explicit comparison to \\( Y = mX + c \\). The final mark is that concluding statement.</li>
+              <li><strong>"Plot"</strong>: accurate points on the printed grid, joined only if asked; use a linear scale.</li>
+              <li><strong>"Draw the line of best fit"</strong>: a single ruled straight line balancing the points.</li>
+              <li><strong>"Hence estimate"</strong>: use your graph and your gradient/intercept — then anti-log. "Hence" means the graph is the tool.</li>
+              <li><strong>"Explain why the model is reasonable"</strong>: say the plotted points lie (close to) a straight line.</li>
+            </ul>
+            <p><strong>The full pipeline, every time:</strong></p>
+            <table class="worked">
+              <tr><td>1. <strong>Take logs</strong> of both sides and use the log laws.</td></tr>
+              <tr><td>2. <strong>Compare</strong> to \\( Y = mX + c \\) to see what to plot.</td></tr>
+              <tr><td>3. <strong>Tabulate</strong> the log values (2 d.p.) in the spare row.</td></tr>
+              <tr><td>4. <strong>Plot</strong> on a linear scale and draw the line of best fit.</td></tr>
+              <tr><td>5. <strong>Read</strong> the gradient and intercept from the line.</td></tr>
+              <tr><td>6. <strong>Anti-log</strong> to recover the constants \\( (k \\) and \\( a \\), or \\( k \\) and \\( n) \\).</td></tr>
+            </table>`,
+            readCheck: { q: "In a 'show that logs give a straight line' part, what earns the final mark?", opts: ["Explicitly comparing your equation to \\( Y = mX + c \\)", "Giving the answer as a decimal", "Drawing the graph", "Anti-logging the gradient"], ans: 0, explain: "The concluding statement — that the equation is of the form \\( Y = mX + c \\) — is the final mark in the show-that part." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "Taking logs of \\( y = ka^x \\) gives which linear equation?", opts: ["\\( \\log y = (\\log a)x + \\log k \\)", "\\( \\log y = x\\log(ka) \\)", "\\( \\log y = a\\log x + \\log k \\)", "\\( \\log y = (\\log k)x + \\log a \\)"], ans: 0, explain: "Product then power law: \\( \\log y = \\log k + x\\log a = (\\log a)x + \\log k \\)." },
+        { q: "For \\( y = kx^n \\), what do you plot to obtain a straight line?", opts: ["\\( \\log y \\) against \\( \\log x \\)", "\\( \\log y \\) against \\( x \\)", "\\( y \\) against \\( \\log x \\)", "\\( x \\) against \\( y \\)"], ans: 0, explain: "\\( \\log y = n\\log x + \\log k \\), so plot \\( \\log y \\) vs \\( \\log x \\)." },
+        { q: "You plot \\( \\log y \\) against \\( x \\) for \\( y = ka^x \\) and find the gradient is \\( 0.6 \\). What is \\( a \\)?", opts: ["\\( 10^{0.6} \\approx 4.0 \\)", "\\( 0.6 \\)", "\\( \\log 0.6 \\)", "\\( 6 \\)"], ans: 0, explain: "Gradient \\( = \\log a \\), so anti-log: \\( a = 10^{0.6} \\approx 4.0 \\). Do not quote the gradient itself." },
+        { q: "The intercept of the line \\( \\log y = (\\log a)x + \\log k \\) is \\( 0.9 \\). What is \\( k \\)?", opts: ["\\( 10^{0.9} \\approx 7.9 \\)", "\\( 0.9 \\)", "\\( \\log 0.9 \\)", "\\( 9 \\)"], ans: 0, explain: "Intercept \\( = \\log k \\), so \\( k = 10^{0.9} \\approx 7.9 \\)." },
+        { q: "Which is the correct expansion of \\( \\log(ka^n) \\)?", opts: ["\\( \\log k + n\\log a \\)", "\\( n\\log(ka) \\)", "\\( n\\log k + n\\log a \\)", "\\( \\log k \\times n\\log a \\)"], ans: 0, explain: "Product law then power law. The classic 2024 trap is writing \\( n\\log(ka) \\)." },
+        { q: "For \\( y = kx^n \\), plotting \\( \\log y \\) vs \\( \\log x \\) gives a line of gradient \\( 2.5 \\). What is \\( n \\)?", opts: ["\\( 2.5 \\)", "\\( 10^{2.5} \\)", "\\( \\log 2.5 \\)", "\\( 25 \\)"], ans: 0, explain: "For a power law the gradient IS \\( n \\) — no anti-log needed. So \\( n = 2.5 \\)." },
+        { q: "A model is \\( x = ka^n \\). Which axes give a straight line?", opts: ["\\( \\log x \\) (vertical) against \\( n \\) (horizontal)", "\\( \\log x \\) against \\( \\log n \\)", "\\( x \\) against \\( \\log n \\)", "\\( n \\) against \\( \\log x \\)"], ans: 0, explain: "\\( \\log x = (\\log a)n + \\log k \\): plot \\( \\log x \\) against \\( n \\)." },
+        { q: "When plotting log-transformed data, why must the axis use a linear scale?", opts: ["Otherwise all accuracy marks are lost", "To save space", "Because logs are always negative", "To make the line curve"], ans: 0, explain: "A non-linear scale (equal spacing for unequal values) means \"A0 if either scale is not linear\"." },
+        { q: "You correctly find gradient \\( = \\log a = 0.30 \\) but write your final answer as \\( a = 0.30 \\). What is the error?", opts: ["You forgot to anti-log: \\( a = 10^{0.30} \\approx 2.0 \\)", "You should have used the intercept", "The gradient should be negative", "Nothing is wrong"], ans: 0, explain: "The gradient is \\( \\log a \\), not \\( a \\); you must anti-log to \\( a = 10^{0.30} \\)." },
+        { q: "In a 'show that' linearisation part, a student does all the log algebra correctly but stops. Which mark is most likely lost?", opts: ["The mark for stating the equation is of the form \\( Y = mX + c \\)", "The mark for taking logs", "The mark for the product law", "No mark is lost"], ans: 0, explain: "The final mark is the explicit comparison to \\( Y = mX + c \\)." },
+        { q: "For \\( T - 20 = A \\times 2^{-t/b} \\), taking logs gives \\( \\log(T-20) = \\log A - \\frac{\\log 2}{b}t \\). What is the gradient of \\( \\log(T-20) \\) against \\( t \\)?", opts: ["\\( -\\frac{\\log 2}{b} \\)", "\\( \\log A \\)", "\\( \\log 2 \\)", "\\( -b \\)"], ans: 0, explain: "In \\( Y = mX + c \\) the coefficient of \\( t \\) is the gradient: \\( m = -\\frac{\\log 2}{b} \\); the intercept is \\( \\log A \\)." },
+        { q: "For \\( T - 20 = A \\times 2^{-t/b} \\) with initial temperature \\( 100 \\)°C at \\( t = 0 \\), what is \\( A \\)?", opts: ["\\( 80 \\)", "\\( 100 \\)", "\\( 20 \\)", "\\( 60 \\)"], ans: 0, explain: "At \\( t=0 \\), \\( 2^0 = 1 \\), so \\( 100 - 20 = A \\Rightarrow A = 80 \\)." }
+    ];
+
+    const matchData = [
+        { term: "\\( y = ka^x \\)", def: "\\( \\log y = (\\log a)x + \\log k \\)" },
+        { term: "\\( y = kx^n \\)", def: "\\( \\log y = n\\log x + \\log k \\)" },
+        { term: "What to plot for \\( y = ka^x \\)", def: "\\( \\log y \\) against \\( x \\)" },
+        { term: "What to plot for \\( y = kx^n \\)", def: "\\( \\log y \\) against \\( \\log x \\)" },
+        { term: "Gradient when linearising \\( y = ka^x \\)", def: "\\( \\log a \\)" },
+        { term: "Gradient when linearising \\( y = kx^n \\)", def: "\\( n \\)" },
+        { term: "Intercept in either linearised law", def: "\\( \\log k \\)" },
+        { term: "Recover \\( a \\) from gradient \\( m \\)", def: "\\( a = 10^{m} \\)" },
+        { term: "Recover \\( k \\) from intercept \\( c \\)", def: "\\( k = 10^{c} \\)" },
+        { term: "Correct expansion of \\( \\log(ka^n) \\)", def: "\\( \\log k + n\\log a \\)" },
+        { term: "Standard straight-line form", def: "\\( Y = mX + c \\)" },
+        { term: "Command word 'Hence estimate'", def: "Use your graph, then anti-log" },
+        { term: "Linearised \\( T - 20 = A\\times 2^{-t/b} \\)", def: "\\( \\log(T-20) = \\log A - \\frac{\\log 2}{b}t \\)" }
+    ];
+
+    // FIB: blanks live in PLAIN TEXT, never inside \( \) (§8.4 Rule 3b). Values plain text.
+    const fibData = [
+        { display: "Taking logs of \\( y = ka^x \\) gives \\( \\log y = x\\log a + \\log k \\). Plotting \\( \\log y \\) against \\( x \\), the gradient equals ___B1___ and the intercept equals ___B2___.", blanks: { B1: "log a", B2: "log k" } },
+        { display: "For the power law \\( y = kx^n \\) you take logs of both sides and plot \\( \\log y \\) against ___B1___.", blanks: { B1: "log x" } },
+        { display: "The gradient you read off is really \\( \\log a \\), so to recover \\( a \\) you must ___B1___ it, giving \\( a = 10 \\) to that power.", blanks: { B1: "anti-log" } },
+        { display: "In the straight-line form \\( Y = mX + c \\), the gradient is the letter ___B1___ and the intercept is the letter ___B2___.", blanks: { B1: "m", B2: "c" } },
+        { display: "A log-transformed plot only earns the accuracy marks if the axis scale is ___B1___.", blanks: { B1: "linear" } },
+        { display: "For \\( x = ka^n \\) you plot \\( \\log x \\) against \\( n \\); to find \\( a \\) you raise 10 to the power of the ___B1___.", blanks: { B1: "gradient" } },
+        { display: "The command word ___B1___ tells you to use your graph, not the calculator's equation solver.", blanks: { B1: "hence" } },
+        { display: "Expanding correctly, \\( \\log(ka^n) = \\log k + n\\log a \\); the power ___B1___ multiplies only the log of \\( a \\).", blanks: { B1: "n" } }
+    ];
+
+    const fibWords = ["log a", "log k", "log x", "anti-log", "m", "c", "linear", "gradient", "hence", "n", "intercept", "non-linear", "antilog", "10"];
+
+    const tfData = [
+        { statement: "Taking logs of \\( y = ka^x \\) gives \\( \\log y = (\\log a)x + \\log k \\).", answer: true, explanation: "Product law then power law: \\( \\log y = \\log k + x\\log a \\), i.e. gradient \\( \\log a \\), intercept \\( \\log k \\)." },
+        { statement: "For \\( y = kx^n \\) you should plot \\( \\log y \\) against \\( x \\).", answer: false, explanation: "Because \\( x \\) is the base raised to a power, you plot \\( \\log y \\) against \\( \\log x \\); the gradient is then \\( n \\)." },
+        { statement: "\\( \\log(ka^n) \\) equals \\( n\\log(ka) \\).", answer: false, explanation: "It equals \\( \\log k + n\\log a \\). The power \\( n \\) attaches only to \\( \\log a \\), not to the whole product." },
+        { statement: "If the gradient of \\( \\log y \\) against \\( x \\) is \\( 0.5 \\), then \\( a = 0.5 \\).", answer: false, explanation: "Gradient \\( = \\log a \\), so anti-log: \\( a = 10^{0.5} \\approx 3.16 \\)." },
+        { statement: "When linearising \\( y = kx^n \\), the gradient is the power \\( n \\) itself, with no anti-logging needed.", answer: true, explanation: "\\( \\log y = n\\log x + \\log k \\); the gradient is exactly \\( n \\). Only \\( k \\) (from the intercept) needs anti-logging." },
+        { statement: "Plotting the values \\( n = 1,3,5,7,9 \\) at equal spacing along the axis is acceptable.", answer: false, explanation: "That is a non-linear scale; the mark scheme awards A0 if either scale is not linear." },
+        { statement: "For \\( T - 20 = A\\times 2^{-t/b} \\), substituting the \\( t = 0 \\) point is a good way to find \\( b \\).", answer: false, explanation: "At \\( t = 0 \\) the exponent is 0, so \\( b \\) cancels out. Use the gradient, or any pair with \\( t \\ne 0 \\)." },
+        { statement: "In a 'show that' linearisation, doing the algebra is enough — you need not mention \\( Y = mX + c \\).", answer: false, explanation: "The final mark is explicitly stating the equation is of the form \\( Y = mX + c \\), i.e. a straight line." }
+    ];
+
+    const miscData = [
+        { wrong: "Reading gradient \\( = \\log a = 0.18 \\) and writing the answer as \\( a = 0.18 \\).", correct: "The gradient is a LOG value — you must anti-log. A weak answer stops at \\( 0.18 \\); a strong answer writes \\( a = 10^{0.18} \\approx 1.5 \\). Likewise \\( k = 10^{\\text{intercept}} \\).", readCheck: { q: "Gradient \\( = \\log a = 0.18 \\). What is \\( a \\)?", opts: ["\\( 10^{0.18} \\approx 1.5 \\)", "\\( 0.18 \\)", "\\( \\log 0.18 \\)", "\\( 1.8 \\)"], ans: 0, explain: "Anti-log the gradient: \\( a = 10^{0.18} \\approx 1.5 \\)." } },
+        { wrong: "Expanding \\( \\log(ka^n) \\) as \\( n\\log(ka) \\) (or as \\( n\\log k + n\\log a \\)).", correct: "Apply the product law first, then the power law: \\( \\log(ka^n) = \\log k + n\\log a \\). The \\( n \\) multiplies ONLY \\( \\log a \\). Both wrong forms scored 0 in 2024.", readCheck: { q: "Correct expansion of \\( \\log(ka^n) \\)?", opts: ["\\( \\log k + n\\log a \\)", "\\( n\\log(ka) \\)", "\\( n\\log k + n\\log a \\)", "\\( \\log(k+a^n) \\)"], ans: 0, explain: "Product law then power law gives \\( \\log k + n\\log a \\)." } },
+        { wrong: "Plotting \\( n = 1,3,5,7,9 \\) at equal steps across the grid.", correct: "That is a non-linear scale. A weak answer spaces the data points evenly; a strong answer marks a true linear axis (equal distance = equal amount) so the points fall where they should. A non-linear scale loses every accuracy mark.", readCheck: { q: "Why did some 2024 candidates lose all the plotting accuracy marks?", opts: ["They used a non-linear horizontal scale", "They anti-logged twice", "They drew a curve", "They used log base 2"], ans: 0, explain: "\"A0 if either scale is not linear\" — equal spacing of unequal values is the error." } },
+        { wrong: "Swapping the roles of gradient and intercept when recovering the constants.", correct: "Gradient gives \\( \\log a \\) (or \\( n \\)); intercept gives \\( \\log k \\). A weak answer reads them the wrong way round; a strong answer labels the line clearly and matches term-by-term to \\( Y = mX + c \\).", readCheck: { q: "In \\( \\log y = (\\log a)x + \\log k \\), the intercept gives:", opts: ["\\( \\log k \\)", "\\( \\log a \\)", "\\( n \\)", "\\( a \\)"], ans: 0, explain: "The constant term is the intercept, so intercept \\( = \\log k \\); the coefficient of \\( x \\) is the gradient \\( \\log a \\)." } },
+        { wrong: "Finding \\( b \\) in \\( T - 20 = A\\times 2^{-t/b} \\) by substituting the \\( (0, 100) \\) point.", correct: "At \\( t = 0 \\) the exponent is 0 and \\( 2^0 = 1 \\), so \\( b \\) disappears — that point can only give \\( A \\). A strong answer uses the gradient of the line, or substitutes a pair with \\( t \\ne 0 \\).", readCheck: { q: "Why can't the \\( t = 0 \\) point be used to find \\( b \\)?", opts: ["The exponent is 0, so \\( b \\) cancels out", "The temperature is too high", "Logs of 0 are undefined", "It gives a negative value"], ans: 0, explain: "\\( 2^{-0/b} = 2^0 = 1 \\) regardless of \\( b \\), so \\( b \\) cannot be recovered from \\( t = 0 \\)." } }
+    ];
+
+    const examTips = [
+        { type: "explain", title: "The take-logs → plot → anti-log ladder", pills: ["take logs", "compare Y=mX+c", "anti-log"], content: `<p>Every reduction-to-linear-form question follows the same six steps:</p><p><strong>1.</strong> Take logs of both sides and use the log laws. <strong>2.</strong> Compare to \\( Y = mX + c \\) to see what to plot. <strong>3.</strong> Tabulate the log values (2 d.p.) in the spare row. <strong>4.</strong> Plot on a LINEAR scale and draw the line of best fit. <strong>5.</strong> Read the gradient and intercept. <strong>6.</strong> Anti-log to recover the constants.</p><p>Miss step 6 and you throw away the last 2–3 marks — the commonest error on the topic.</p>`, readCheck: { q: "Which step is most often skipped, costing 2–3 marks?", opts: ["Anti-logging the gradient/intercept", "Taking logs", "Drawing axes", "Writing a title"], ans: 0, explain: "Students read the gradient/intercept but forget to anti-log back to the real constants." } },
+        { type: "tip", title: "Show every log law on its own line", pills: ["show that", "M and A marks"], content: `<p>For the "show that logs give a straight line" part [3]: you earn <strong>M1</strong> for using the log laws, <strong>A1</strong> for the correct linearised equation, and <strong>A1</strong> for stating it is of the form \\( Y = mX + c \\). Write each law on its own line, and finish with the explicit \\( Y = mX + c \\) sentence — the 2024/2023 examiners saw many candidates do the algebra but never claim the third mark.</p>`, readCheck: { q: "How do you secure the third mark in the 'show that' part?", opts: ["State the equation is of the form \\( Y = mX + c \\)", "Give a decimal answer", "Anti-log immediately", "Draw the graph first"], ans: 0, explain: "The concluding comparison to \\( Y = mX + c \\) is its own mark." } },
+        { type: "explain", title: "'Hence' means use your graph", pills: ["hence", "no calculator solve"], content: `<p>When a part says "<em>Hence</em> estimate \\( k \\) and \\( a \\)", the examiner wants you to read the gradient and intercept from the line you drew, then anti-log. Because the line is drawn by hand, a <strong>range</strong> of answers is accepted — in 2024, \\( k \\) awrt \\( 0.3 \\) (allow \\( 0.35 \\)) and \\( a \\) awrt \\( 1.5 \\) all scored. Do not switch to the calculator's regression or solver.</p>`, readCheck: { q: "Why does the mark scheme accept a range of values for \\( k \\) and \\( a \\)?", opts: ["The gradient/intercept are read from a hand-drawn line", "The data is fake", "Logs are approximate", "The calculator rounds"], ans: 0, explain: "Reading a hand-drawn best-fit line gives slightly different gradients/intercepts, so a wide band is allowed." } }
+    ];
+
+    const flashcards = [
+        { term: "Reduction to linear form", def: "Using logs to turn a curve law into \\( Y = mX + c \\) so constants can be read from a line." },
+        { term: "Linearise \\( y = ka^x \\)", def: "\\( \\log y = (\\log a)x + \\log k \\); plot \\( \\log y \\) vs \\( x \\)." },
+        { term: "Linearise \\( y = kx^n \\)", def: "\\( \\log y = n\\log x + \\log k \\); plot \\( \\log y \\) vs \\( \\log x \\)." },
+        { term: "Gradient for \\( y = ka^x \\)", def: "\\( \\log a \\) (anti-log to get \\( a \\))." },
+        { term: "Gradient for \\( y = kx^n \\)", def: "\\( n \\), the power itself (no anti-log)." },
+        { term: "Intercept (either law)", def: "\\( \\log k \\) (anti-log to get \\( k \\))." },
+        { term: "Anti-log a gradient \\( m \\)", def: "\\( a = 10^{m} \\) when base-10 logs were used." },
+        { term: "Anti-log an intercept \\( c \\)", def: "\\( k = 10^{c} \\)." },
+        { term: "Expand \\( \\log(ka^n) \\)", def: "\\( \\log k + n\\log a \\) — not \\( n\\log(ka) \\)." },
+        { term: "Three log laws", def: "\\( \\log MN = \\log M + \\log N \\); \\( \\log\\frac{M}{N} = \\log M - \\log N \\); \\( \\log M^p = p\\log M \\)." },
+        { term: "Linear-scale rule", def: "Equal distances = equal amounts; a non-linear scale scores A0." },
+        { term: "'Show that' final mark", def: "Explicitly stating the equation is of the form \\( Y = mX + c \\)." },
+        { term: "'Hence estimate'", def: "Read gradient/intercept from your line, then anti-log; a range is accepted." },
+        { term: "Why not use \\( t = 0 \\) for \\( b \\)?", def: "The exponent becomes 0, so the constant cancels — use another pair or the gradient." },
+        { term: "Log laws: memorise or provided?", def: "MEMORISE — the log laws are not on the exam formula sheet." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "14 (a)",
+            marks: 3,
+            year: "2024",
+            type: "written",
+            caseId: "q14-2024",
+            question: `<p>Show by taking logs of both sides of the equation \\( x = ka^n \\) that a straight line will be obtained by plotting \\( \\log_{10} x \\) against \\( n \\).</p>`,
+            hint: "Log both sides, then split the right-hand side with the product law and the power law; finish by comparing to \\( Y = mX + c \\).",
+            starter: "Take \\( \\log_{10} \\) of both sides, apply the log laws, then state the form \\( Y = mX + c \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO2)</h5><ul>
+              <li><strong>M1</strong> — correct use of at least one of the log laws.</li>
+              <li><strong>A1</strong> — \\( \\log x = \\log k + n\\log a \\).</li>
+              <li><strong>A1</strong> — interpretation of the equation as a straight line, i.e. it is of the form \\( Y = MX + C \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The third mark is specifically for comparing the logged equation with \\( Y = MX + C \\); the algebra alone is not enough.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Almost half the cohort scored all 3 marks. Errors seen regularly included simplifying \\( \\log_{10}(ka^n) \\) to \\( n\\log_{10}(ka) \\) or to \\( n\\log_{10}k + n\\log_{10}a \\) — both scored 0. Some obtained \\( \\log_{10}x = \\log_{10}k + n\\log_{10}a \\) but did not compare it to \\( y = mx + c \\) to earn the third mark.</li>
+            </ul></div>`,
+            modelAnswer: `Take \\( \\log_{10} \\) of both sides: \\( \\log_{10} x = \\log_{10}(ka^n) \\). Product law: \\( \\log_{10} x = \\log_{10} k + \\log_{10}(a^n) \\). Power law: \\( \\log_{10} x = \\log_{10} k + n\\log_{10} a \\), i.e. \\( \\log_{10} x = (\\log_{10} a)\\,n + \\log_{10} k \\). This is of the form \\( Y = MX + C \\) with \\( Y = \\log_{10} x \\), \\( X = n \\), gradient \\( M = \\log_{10} a \\) and intercept \\( C = \\log_{10} k \\); so plotting \\( \\log_{10} x \\) against \\( n \\) gives a straight line.`,
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — use a log law", max: 1, points: ["Took \\( \\log_{10} \\) of both sides and used at least one log law correctly"] },
+                { label: "A1 — linearised equation", max: 1, points: ["\\( \\log_{10} x = \\log_{10} k + n\\log_{10} a \\)"] },
+                { label: "A1 — compare to Y=MX+C", max: 1, points: ["Stated the equation is of the form \\( Y = MX + C \\) (so a straight line)"] }
+            ] }
+        },
+        {
+            num: "14 (b)",
+            marks: 3,
+            year: "2024",
+            type: "written",
+            caseId: "q14-2024",
+            question: `<p>For the data given in the table, plot the points \\( (n,\\ \\log_{10} x) \\) on the grid. Use the spare row in the table for any values you need to calculate.</p>`,
+            hint: "Do this on paper (or a printout of the grid): first compute \\( \\log_{10} x \\) for each \\( x \\), then plot the five points — and make sure your \\( n \\)-axis uses a linear scale.",
+            starter: "List \\( \\log_{10} x \\) for \\( x = 0.5, 1.1, 2.5, 5.7, 12.8 \\) to 2 d.p., then plot \\( (n, \\log_{10} x) \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — evidence of taking logs. Values: \\( \\log_{10} x = -0.30,\\ 0.04,\\ 0.40,\\ 0.76,\\ 1.11 \\) for \\( n = 1,3,5,7,9 \\).</li>
+              <li><strong>A2,1</strong> — correct points plotted; A1 for one error, A0 for more than one error. <strong>A0 if either scale is not linear.</strong></li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One mark for computing the logs; up to two for accurate plotting on linear axes.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most knew to find \\( \\log_{10} x \\) and plotted it against \\( n \\). Some lost all the accuracy marks by not using a linear scale on the horizontal axis — simply plotting \\( n = 1,3,5,7,9 \\) at equal intervals.</li>
+            </ul></div>`,
+            modelAnswer: `Log values (to 2 d.p.): \\( \\log_{10} 0.5 = -0.30 \\), \\( \\log_{10} 1.1 = 0.04 \\), \\( \\log_{10} 2.5 = 0.40 \\), \\( \\log_{10} 5.7 = 0.76 \\), \\( \\log_{10} 12.8 = 1.11 \\). Plot \\( (1,-0.30),(3,0.04),(5,0.40),(7,0.76),(9,1.11) \\) on a linear scale — they lie on a rising straight line: <svg viewBox="0 0 470 300" width="100%" style="max-width:520px;height:auto;display:block;margin:8px auto" role="img" aria-label="The five points log base 10 of x against n lying on a straight line of positive gradient and negative intercept"><g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.18"><line x1="98" y1="30" x2="98" y2="290"/><line x1="174" y1="30" x2="174" y2="290"/><line x1="250" y1="30" x2="250" y2="290"/><line x1="326" y1="30" x2="326" y2="290"/><line x1="402" y1="30" x2="402" y2="290"/><line x1="60" y1="40" x2="440" y2="40"/><line x1="60" y1="100" x2="440" y2="100"/><line x1="60" y1="160" x2="440" y2="160"/><line x1="60" y1="280" x2="440" y2="280"/></g><line x1="60" y1="30" x2="60" y2="290" stroke="currentColor" stroke-width="1.5"/><line x1="55" y1="220" x2="445" y2="220" stroke="currentColor" stroke-width="1.5"/><polygon points="440,30 436,40 444,40" fill="currentColor"/><polygon points="445,220 435,216 435,224" fill="currentColor"/><line x1="60" y1="277" x2="440" y2="66" stroke="currentColor" stroke-width="2.2"/><circle cx="98" cy="256" r="4" fill="currentColor"/><circle cx="174" cy="215" r="4" fill="currentColor"/><circle cx="250" cy="172" r="4" fill="currentColor"/><circle cx="326" cy="129" r="4" fill="currentColor"/><circle cx="402" cy="87" r="4" fill="currentColor"/><g font-size="11" fill="currentColor" text-anchor="middle"><text x="98" y="234">1</text><text x="174" y="234">3</text><text x="250" y="234">5</text><text x="326" y="234">7</text><text x="402" y="234">9</text><text x="54" y="44" text-anchor="end">1.5</text><text x="54" y="164" text-anchor="end">0.5</text><text x="54" y="284" text-anchor="end">-0.5</text><text x="52" y="224" text-anchor="end">0</text><text x="450" y="217" text-anchor="start">n</text><text x="60" y="26" text-anchor="middle">log₁₀x</text></g></svg>`,
+            markPoints: { note: "Tick each feature you achieved on your paper plot (this checklist is the OCR mark scheme).", groups: [
+                { label: "M1 — take logs", max: 1, points: ["Computed \\( \\log_{10} x = -0.30,\\ 0.04,\\ 0.40,\\ 0.76,\\ 1.11 \\)"] },
+                { label: "A2,1 — points plotted", max: 2, points: ["Plotted \\( (1,-0.30),(3,0.04),(5,0.40),(7,0.76),(9,1.11) \\) accurately — one error loses 1 mark", "Used a LINEAR scale on the \\( n \\)-axis (A0 otherwise)"] }
+            ] }
+        },
+        {
+            num: "14 (c)(i)",
+            marks: 1,
+            year: "2024",
+            type: "written",
+            caseId: "q14-2024",
+            question: `<p>Draw the line of best fit for the points on the grid.</p>`,
+            hint: "One ruled straight line that balances the five points — it will have a positive gradient and cross the vertical axis below zero.",
+            starter: "Rule a single straight line of best fit through your plotted points.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>
+              <li><strong>B1</strong> — a straight line with positive gradient and (which would have) a negative intercept that best fits their log values.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>A single ruled straight line balancing the points; it should extend to cross the vertical axis below zero.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The drawing of the straight line caused no problem except that some were a little wayward and outside the bounds of acceptability.</li>
+            </ul></div>`,
+            modelAnswer: `A single ruled straight line of best fit through the five points. It rises left-to-right (positive gradient \\( \\approx 0.18 \\)) and, extended back, meets the vertical axis at about \\( -0.48 \\) (a negative intercept).`,
+            markPoints: { note: "Award the mark if your line meets the description.", groups: [
+                { label: "B1 — line of best fit", max: 1, points: ["Ruled one straight line with positive gradient and a negative intercept that best fits the points"] }
+            ] }
+        },
+        {
+            num: "14 (c)(ii)",
+            marks: 1,
+            year: "2024",
+            type: "written",
+            caseId: "q14-2024",
+            question: `<p>Explain why the model is reasonable for these data.</p>`,
+            hint: "Look at your plotted points — what does their arrangement tell you?",
+            starter: "One sentence about how the points lie.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>
+              <li><strong>B1</strong> — the points appear to lie on a (straight) line, e.g. "there is a linear relationship".</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Any clear statement that the plotted (logged) points are close to a straight line.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Candidates who scored well earlier found this straightforward, though some struggled to articulate a clear justification.</li>
+            </ul></div>`,
+            modelAnswer: `The plotted points \\( (n, \\log_{10} x) \\) lie close to a straight line, so a linear relationship holds between \\( \\log_{10} x \\) and \\( n \\); this is exactly what the model \\( x = ka^n \\) predicts, so the model is reasonable.`,
+            markPoints: { note: "Award the mark for a clear justification.", groups: [
+                { label: "B1 — justify the model", max: 1, points: ["Said the plotted points appear to lie on a straight line (a linear relationship)"] }
+            ] }
+        },
+        {
+            num: "14 (d)",
+            marks: 3,
+            year: "2024",
+            type: "written",
+            caseId: "q14-2024",
+            question: `<p>Hence estimate values for \\( k \\) and \\( a \\).</p>`,
+            hint: "Read the intercept and find the gradient of your line — but remember these are \\( \\log_{10} k \\) and \\( \\log_{10} a \\), so anti-log both.",
+            starter: "Find the gradient and intercept, then compute \\( a = 10^{\\text{gradient}} \\) and \\( k = 10^{\\text{intercept}} \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO3)</h5><ul>
+              <li><strong>M1</strong> — read off intercept and, with two pairs, calculate gradient (one pair could be \\( (0, \\) their intercept\\( ) \\)), then anti-log both (soi by answers). <em>Or:</em> choose two pairs to form 2 equations and attempt to solve.</li>
+              <li><strong>A1</strong> — one correct. For \\( k \\) awrt \\( 0.3 \\); allow \\( 0.35 \\). (Intercept \\( = \\log_{10} k \\approx -0.49 \\).)</li>
+              <li><strong>A1</strong> — other correct. For \\( a \\) awrt \\( 1.5 \\). (Gradient \\( = 0.17 = \\log_{10} a \\).)</li>
+              <li><strong>SC</strong> — correct answers from the original figures, B3 cao.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The method mark requires anti-logging; a range of final answers is accepted because the line is hand-drawn.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>More challenging. Some realised they needed the gradient and intercept but did not realise they had log values and did not anti-log to obtain the correct answers. Some went back to the original equation and solved two simultaneous equations — accepted if correct, but the exponential simultaneous equations proved hard.</li>
+            </ul></div>`,
+            modelAnswer: `Intercept \\( = \\log_{10} k \\approx -0.49 \\), so \\( k = 10^{-0.49} \\approx 0.3 \\). Gradient \\( = \\log_{10} a \\approx 0.17 \\), so \\( a = 10^{0.17} \\approx 1.5 \\). Hence \\( k \\approx 0.3 \\) (allow \\( 0.35 \\)) and \\( a \\approx 1.5 \\); the model is about \\( x = 0.3 \\times 1.5^n \\).`,
+            markPoints: { note: "Award each mark for the step shown; a range of final values is accepted.", groups: [
+                { label: "M1 — read + anti-log", max: 1, points: ["Read the intercept and found the gradient from two points, then anti-logged both (\\( a = 10^{\\text{grad}} \\), \\( k = 10^{\\text{intercept}} \\))"] },
+                { label: "A1 — value of k", max: 1, points: ["\\( k \\approx 0.3 \\) (allow \\( 0.35 \\)) from intercept \\( \\approx -0.49 \\)"] },
+                { label: "A1 — value of a", max: 1, points: ["\\( a \\approx 1.5 \\) from gradient \\( \\approx 0.17 \\)"] }
+            ] }
+        },
+        {
+            num: "14 (a)(i)",
+            marks: 1,
+            year: "2023",
+            type: "written",
+            caseId: "q14-2023",
+            question: `<p>Explain the significance of the number 20 in the equation \\( T - 20 = A \\times 2^{-t/b} \\).</p>`,
+            hint: "Think about what happens to \\( 2^{-t/b} \\) as time \\( t \\) gets very large.",
+            starter: "One sentence about the long-term temperature.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>
+              <li><strong>B1</strong> — e.g. as \\( t \\) increases, the RHS tends to 0, so 20 is the long-term temperature, e.g. the room temperature.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Any statement identifying 20 as the limiting / room temperature.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>A significant proportion did not contextually understand that the number represented room temperature; consideration of the long-term temperature from the model was very rarely seen.</li>
+            </ul></div>`,
+            modelAnswer: `As \\( t \\) increases, \\( 2^{-t/b} \\to 0 \\), so \\( T - 20 \\to 0 \\) and \\( T \\to 20 \\). The number 20 is therefore the long-term temperature the water cools to — the room (surrounding) temperature, in °C.`,
+            markPoints: { note: "Award the mark for identifying 20 as room / long-term temperature.", groups: [
+                { label: "B1 — significance of 20", max: 1, points: ["20 is the room (long-term) temperature: as \\( t \\to \\infty \\), \\( T \\to 20 \\)"] }
+            ] }
+        },
+        {
+            num: "14 (a)(ii)",
+            marks: 2,
+            year: "2023",
+            type: "written",
+            caseId: "q14-2023",
+            question: `<p>Use the fact that the initial temperature of the water is \\( 100 \\)°C to determine the value of \\( A \\).</p>`,
+            hint: "Substitute the values at the start, \\( t = 0 \\) and \\( T = 100 \\); recall \\( 2^0 = 1 \\).",
+            starter: "Put \\( t = 0 \\) and \\( T = 100 \\) into the model and solve for \\( A \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — substitute \\( t = 0 \\) and \\( T = 100 \\): \\( 100 - 20 = A \\times 2^{0} \\).</li>
+              <li><strong>A1</strong> — \\( A = 80 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One mark for the substitution, one for the value using \\( 2^0 = 1 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>No difficulty with this calculation for those who knew that \\( 2^0 = 1 \\).</li>
+            </ul></div>`,
+            modelAnswer: `At the start \\( t = 0 \\) and \\( T = 100 \\): \\( 100 - 20 = A \\times 2^{-0/b} = A \\times 2^{0} = A \\times 1 \\). So \\( A = 80 \\).`,
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — substitute", max: 1, points: ["Put \\( t = 0,\\ T = 100 \\): \\( 100 - 20 = A \\times 2^{0} \\)"] },
+                { label: "A1 — value of A", max: 1, points: ["\\( A = 80 \\) (using \\( 2^0 = 1 \\))"] }
+            ] }
+        },
+        {
+            num: "14 (b)",
+            marks: 3,
+            year: "2023",
+            type: "written",
+            caseId: "q14-2023",
+            question: `<p>By taking logs of both sides of Sarah's equation, show that plotting \\( \\log_{10}(T-20) \\) against \\( t \\) will give a straight line.</p>`,
+            hint: "Log both sides; use the product law and the power law on the right; then compare to \\( Y = mX + c \\). Keep the left-hand side as \\( \\log_{10}(T-20) \\).",
+            starter: "Take \\( \\log_{10} \\) of both sides, split the RHS with both log laws, and state the form \\( Y = mX + c \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO2)</h5><ul>
+              <li><strong>M1</strong> — use of both log laws on the RHS: \\( \\log(T-20) = \\log A + \\log\\!\\big(2^{-t/b}\\big) \\).</li>
+              <li><strong>A1</strong> — correct equation \\( \\log(T-20) = \\log A - \\frac{\\log 2}{b}\\,t \\) (the LHS must be correct).</li>
+              <li><strong>A1</strong> — interpretation of the correct equation as a straight line, i.e. it is of the form \\( Y = mX + c \\) (no follow-through).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The final mark is the explicit comparison to \\( Y = mX + c \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>This question really exposed understanding of the log laws. Many could not combine the two laws correctly; some took the log of the LHS incorrectly. Of those who used the laws correctly, only a proportion identified the form \\( y = mx + c \\). Common issues were multiplying the two RHS logs and taking the "2" out of the log.</li>
+            </ul></div>`,
+            modelAnswer: `\\( T - 20 = A \\times 2^{-t/b} \\). Take \\( \\log_{10} \\) of both sides: \\( \\log_{10}(T-20) = \\log_{10}\\!\\big(A \\times 2^{-t/b}\\big) \\). Product law: \\( = \\log_{10} A + \\log_{10}\\!\\big(2^{-t/b}\\big) \\). Power law: \\( = \\log_{10} A - \\frac{t}{b}\\log_{10} 2 = \\log_{10} A - \\frac{\\log_{10} 2}{b}\\,t \\). This is of the form \\( Y = mX + c \\) with \\( Y = \\log_{10}(T-20) \\), \\( X = t \\), gradient \\( m = -\\frac{\\log_{10} 2}{b} \\) and intercept \\( c = \\log_{10} A \\); so the plot is a straight line.`,
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — both log laws", max: 1, points: ["\\( \\log_{10}(T-20) = \\log_{10} A + \\log_{10}\\!\\big(2^{-t/b}\\big) \\)"] },
+                { label: "A1 — correct linear equation", max: 1, points: ["\\( \\log_{10}(T-20) = \\log_{10} A - \\frac{\\log_{10} 2}{b}\\,t \\) (LHS correct)"] },
+                { label: "A1 — compare to Y=mX+c", max: 1, points: ["Stated it is of the form \\( Y = mX + c \\) (a straight line)"] }
+            ] }
+        },
+        {
+            num: "14 (c)",
+            marks: 2,
+            year: "2023",
+            type: "written",
+            caseId: "q14-2023",
+            question: `<p>Complete the table below, giving the rows for \\( T - 20 \\) and \\( \\log_{10}(T-20) \\) for \\( t = 0, 10, 20, 30 \\).</p>`,
+            hint: "Subtract 20 from each temperature first, then take \\( \\log_{10} \\) of each result (1 d.p. is enough to plot).",
+            starter: "Fill the \\( T-20 \\) row, then the \\( \\log_{10}(T-20) \\) row.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>B2</strong> — all correct to 1 d.p.; <strong>B1</strong> for one error.</li>
+              <li>\\( T - 20 = 80,\\ 40,\\ 20,\\ 10 \\); \\( \\log_{10}(T-20) = 1.90,\\ 1.60,\\ 1.30,\\ 1.00 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Values may be read to the accuracy needed for the plot (1 d.p.) — that is acceptable.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>No problems with filling in the table; some sensibly gave values to one decimal place, which was perfectly acceptable.</li>
+            </ul></div>`,
+            modelAnswer: `\\( T - 20 \\): \\( 80,\\ 40,\\ 20,\\ 10 \\). Then \\( \\log_{10}(T-20) \\): \\( \\log_{10} 80 = 1.90 \\), \\( \\log_{10} 40 = 1.60 \\), \\( \\log_{10} 20 = 1.30 \\), \\( \\log_{10} 10 = 1.00 \\).`,
+            markPoints: { note: "Award up to 2 marks; one error loses 1 mark.", groups: [
+                { label: "B2 — complete the table", max: 2, points: ["\\( T - 20 = 80,\\ 40,\\ 20,\\ 10 \\)", "\\( \\log_{10}(T-20) = 1.90,\\ 1.60,\\ 1.30,\\ 1.00 \\)"] }
+            ] }
+        },
+        {
+            num: "14 (d)",
+            marks: 1,
+            year: "2023",
+            type: "written",
+            caseId: "q14-2023",
+            question: `<p>Plot the values of \\( \\log_{10}(T-20) \\) against \\( t \\) on the grid.</p>`,
+            hint: "Do this on paper (or a printout of the grid): plot the four points from your completed table; a straight line is not required.",
+            starter: "Plot \\( (0,1.90),(10,1.60),(20,1.30),(30,1.00) \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>
+              <li><strong>B1</strong> — all four points correct. The straight line is not required.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One mark for all four points plotted accurately on the linear grid.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Only a handful of rather odd graphs; failure to obtain a straight line should have alerted candidates to an earlier error. Most drew the line even though it was not required.</li>
+            </ul></div>`,
+            modelAnswer: `Plot \\( (0,1.90),(10,1.60),(20,1.30),(30,1.00) \\); they fall on a straight line of negative gradient: <svg viewBox="0 0 470 300" width="100%" style="max-width:520px;height:auto;display:block;margin:8px auto" role="img" aria-label="The four points log base 10 of T minus 20 against t, lying on a straight line of negative gradient"><g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.18"><line x1="180" y1="40" x2="180" y2="280"/><line x1="300" y1="40" x2="300" y2="280"/><line x1="420" y1="40" x2="420" y2="280"/><line x1="60" y1="40" x2="420" y2="40"/><line x1="60" y1="100" x2="420" y2="100"/><line x1="60" y1="160" x2="420" y2="160"/><line x1="60" y1="220" x2="420" y2="220"/></g><line x1="60" y1="30" x2="60" y2="290" stroke="currentColor" stroke-width="1.5"/><line x1="60" y1="280" x2="435" y2="280" stroke="currentColor" stroke-width="1.5"/><polygon points="60,30 56,40 64,40" fill="currentColor"/><polygon points="435,280 425,276 425,284" fill="currentColor"/><line x1="60" y1="52" x2="420" y2="160" stroke="currentColor" stroke-width="2.2"/><circle cx="60" cy="52" r="4" fill="currentColor"/><circle cx="180" cy="88" r="4" fill="currentColor"/><circle cx="300" cy="124" r="4" fill="currentColor"/><circle cx="420" cy="160" r="4" fill="currentColor"/><g font-size="11" fill="currentColor" text-anchor="middle"><text x="60" y="294">0</text><text x="180" y="294">10</text><text x="300" y="294">20</text><text x="420" y="294">30</text><text x="54" y="44" text-anchor="end">2.0</text><text x="54" y="164" text-anchor="end">1.0</text><text x="54" y="284" text-anchor="end">0</text><text x="440" y="284" text-anchor="start">t</text><text x="62" y="26" text-anchor="start">log₁₀(T-20)</text></g></svg>`,
+            markPoints: { note: "Tick if your four points are correct (this is the OCR mark).", groups: [
+                { label: "B1 — plot the points", max: 1, points: ["Plotted \\( (0,1.90),(10,1.60),(20,1.30),(30,1.00) \\) correctly"] }
+            ] }
+        },
+        {
+            num: "14 (e)",
+            marks: 2,
+            year: "2023",
+            type: "written",
+            caseId: "q14-2023",
+            question: `<p>Hence estimate the value of \\( b \\).</p>`,
+            hint: "The gradient of your line is \\( -\\frac{\\log_{10} 2}{b} \\); set that equal to your measured gradient and solve for \\( b \\). (Or substitute a pair of values other than the \\( t = 0 \\) point.)",
+            starter: "Equate your gradient to \\( -\\frac{\\log_{10} 2}{b} \\) and solve for \\( b \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO3)</h5><ul>
+              <li><strong>M1</strong> — correct attempt: gradient \\( = -0.03 \\), so \\( -\\frac{\\log 2}{b} = -0.03 \\) (a positive value means an incorrect attempt).</li>
+              <li><strong>A1</strong> — \\( b = \\frac{\\log 2}{0.03} \\approx 10 \\) (www B2).</li>
+              <li><strong>Alternative:</strong> substitute any set of values other than \\( t = 0 \\), e.g. \\( T-20 = 10, t = 30, A = 80 \\): \\( \\log 10 = \\log 80 - \\frac{30\\log 2}{b} \\Rightarrow \\frac{30\\log 2}{b} = \\log 8 = 3\\log 2 \\Rightarrow b = 10 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Method mark for equating the gradient to \\( -\\frac{\\log 2}{b} \\) (or a valid substitution); accuracy mark for \\( b \\approx 10 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>"Hence" should have led candidates to find the gradient and equate it to their \\( m \\); many did so. Others substituted another pair of values, which is fine — but using \\( (0, 100) \\) would not find \\( b \\).</li>
+            </ul></div>`,
+            modelAnswer: `The line's gradient is \\( m \\approx \\frac{1.00 - 1.90}{30 - 0} = -0.03 \\). Since the gradient is \\( -\\frac{\\log_{10} 2}{b} \\), set \\( -\\frac{\\log_{10} 2}{b} = -0.03 \\), so \\( b = \\frac{\\log_{10} 2}{0.03} = \\frac{0.301}{0.03} \\approx 10 \\). (Check with \\( t = 30 \\): \\( 80 \\times 2^{-30/10} = 80 \\times 2^{-3} = 10 \\) ✓.)`,
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — gradient = m, solve", max: 1, points: ["Found gradient \\( \\approx -0.03 \\) and set \\( -\\frac{\\log_{10} 2}{b} = -0.03 \\) (or substituted a pair with \\( t \\ne 0 \\))"] },
+                { label: "A1 — value of b", max: 1, points: ["\\( b \\approx 10 \\)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

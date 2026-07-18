@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-18T05:02:48Z
+// Generated: 2026-07-18T05:18:10Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "additional-maths:1-1-notation-functions-and-indices": {
@@ -260,5 +260,49 @@ window.SECTION_TOTALS = {
   "fib": 7,
   "match": 12,
   "flashcards": 16
+ },
+ "additional-maths:7-1-exponential-functions": {
+  "exam": 0,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 13,
+  "flashcards": 14
+ },
+ "additional-maths:7-2-logarithms-and-the-log-laws": {
+  "exam": 4,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 12,
+  "flashcards": 14
+ },
+ "additional-maths:7-3-solving-exponential-equations": {
+  "exam": 2,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 12,
+  "flashcards": 16
+ },
+ "additional-maths:7-4-reduction-to-linear-form": {
+  "exam": 11,
+  "mcq": 12,
+  "tf": 8,
+  "learn": 7,
+  "misc": 5,
+  "tips": 3,
+  "fib": 8,
+  "match": 13,
+  "flashcards": 15
  }
 };

@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 7. Exponentials and Logarithms</div>
             <h1>7.2 Logarithms and the Log Laws</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,10 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 7.2 Logarithms and the Log Laws — placeholder, content not yet written
+    //  DATA: 7.2 Logarithms and the Log Laws (EL2, EL3)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4).
+    //  Exam Qs = 2024 Q2 [2] + 2022 Q9(a)(b)(c) [2+3+2] = 9 marks.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '7-2-logarithms-and-the-log-laws',
@@ -266,23 +269,301 @@
             subject: 'additional-maths',
         };
 
+    // Shared "detailed reasoning" stimulus for the 2022 Q9 parts (see examQuestions).
+    const EXAM_CASE_STUDIES = {
+        "q9-2022": `<p><em>In this question you must show detailed reasoning.</em> (Each part below carried this instruction — every analytical step must be written out; an answer read straight from a calculator scores nothing.)</p>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>7.2 Logarithms and the Log Laws</strong> will appear here soon.</p>`
+            title: "What is a logarithm?",
+            tag: "Key concept",
+            content: `<p>A <strong>logarithm</strong> answers the question "<em>what power do I raise the base to?</em>" It is the <strong>inverse of exponentiation</strong>: \\[ \\log_a x = y \\iff a^y = x. \\] So \\( \\log_a x \\) is the power you must raise the base \\( a \\) to in order to get \\( x \\).</p>
+            <ul>
+              <li>\\( \\log_2 8 = 3 \\) because \\( 2^3 = 8 \\).</li>
+              <li>The base \\( a \\) is written as a small subscript. When no base is shown, base 10 (\\( \\log_{10} \\), the "log" button on a calculator) is usually meant.</li>
+              <li>You can only take the log of a <strong>positive</strong> number, and the base must be positive and not 1.</li>
+            </ul>
+            <p><strong>Worked example — evaluate \\( \\log_5 125 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Ask: \\( 5 \\) to what power gives \\( 125 \\)?</td></tr>
+              <tr><td>2. \\( 5^3 = 125 \\).</td></tr>
+              <tr><td>3. So \\( \\log_5 125 = 3 \\).</td></tr>
+            </table>`,
+            readCheck: { q: "Evaluate \\( \\log_3 81 \\).", opts: ["\\( 4 \\)", "\\( 3 \\)", "\\( 27 \\)", "\\( 9 \\)"], ans: 0, explain: "\\( 3^4 = 81 \\), so \\( \\log_3 81 = 4 \\)." }
+        },
+        {
+            title: "How do you switch between exponential and log form?",
+            tag: "Method",
+            content: `<p>The definition \\( \\log_a x = y \\iff a^y = x \\) lets you rewrite any statement either way. The <strong>base stays the base</strong>; the log and the power swap places.</p>
+            <ul>
+              <li>Exponential \\( \\to \\) log: \\( 2^5 = 32 \\) becomes \\( \\log_2 32 = 5 \\).</li>
+              <li>Log \\( \\to \\) exponential: \\( \\log_{10} 1000 = 3 \\) becomes \\( 10^3 = 1000 \\).</li>
+            </ul>
+            <p>Two <strong>special values</strong> follow straight from the definition and are worth memorising:</p>
+            <table class="worked">
+              <tr><td>\\( \\log_a a = 1 \\) — because \\( a^1 = a \\) (any base to the power 1 is itself).</td></tr>
+              <tr><td>\\( \\log_a 1 = 0 \\) — because \\( a^0 = 1 \\) (any base to the power 0 is 1).</td></tr>
+            </table>
+            <p>So \\( \\log_7 7 = 1 \\) and \\( \\log_7 1 = 0 \\), whatever the base.</p>`,
+            readCheck: { q: "Write \\( \\log_4 64 = 3 \\) in exponential form.", opts: ["\\( 4^3 = 64 \\)", "\\( 3^4 = 64 \\)", "\\( 64^3 = 4 \\)", "\\( 4^{64} = 3 \\)"], ans: 0, explain: "\\( \\log_a x = y \\iff a^y = x \\); here \\( a=4,\\ x=64,\\ y=3 \\), so \\( 4^3 = 64 \\)." }
+        },
+        {
+            title: "What are the three log laws?",
+            tag: "Key concept",
+            content: `<p>Three laws let you combine or split logarithms. They are a <strong>MEMORISE</strong> set — the log laws are <strong>not printed on the exam formula sheet</strong>, so you must know them by heart.</p>
+            <table class="worked">
+              <tr><td><strong>Product law:</strong> \\[ \\log(xy) = \\log x + \\log y \\] a multiplication inside the log becomes an <strong>addition</strong> of logs.</td></tr>
+              <tr><td><strong>Quotient law:</strong> \\[ \\log\\frac{x}{y} = \\log x - \\log y \\] a division inside the log becomes a <strong>subtraction</strong> of logs.</td></tr>
+              <tr><td><strong>Power law:</strong> \\[ \\log(x^n) = n\\log x \\] a power inside the log comes <strong>down to the front</strong> as a multiplier.</td></tr>
+            </table>
+            <ul>
+              <li>All three logs must share the <strong>same base</strong>.</li>
+              <li>There is <strong>no law</strong> for \\( \\log(x + y) \\) or \\( \\log(x - y) \\) — a sum or difference <em>inside</em> a single log cannot be split.</li>
+            </ul>`,
+            readCheck: { q: "Which of these is a correct log law?", opts: ["\\( \\log(x^n) = n\\log x \\)", "\\( \\log(x+y) = \\log x + \\log y \\)", "\\( \\log(xy) = \\log x \\times \\log y \\)", "\\( \\log\\frac{x}{y} = \\frac{\\log x}{\\log y} \\)"], ans: 0, explain: "The power law \\( \\log(x^n)=n\\log x \\) is correct. The others are classic fallacies — a sum inside a log does not split, and multiplication/division inside becomes addition/subtraction of logs, not multiplication/division of logs." }
+        },
+        {
+            title: "How do you write an expression as a single logarithm?",
+            tag: "Worked example",
+            content: `<p>Work in <strong>two stages</strong>: first use the <em>power law</em> to clear any coefficients, then use the <em>product/quotient laws</em> to combine into one log.</p>
+            <p><strong>Worked example — write \\( \\log x + 3\\log y - \\log z \\) as a single logarithm:</strong></p>
+            <table class="worked">
+              <tr><td>1. Power law on the middle term: \\( 3\\log y = \\log y^3 \\).</td></tr>
+              <tr><td>2. So the expression is \\( \\log x + \\log y^3 - \\log z \\).</td></tr>
+              <tr><td>3. Product law combines the additions: \\( \\log(x y^3) - \\log z \\).</td></tr>
+              <tr><td>4. Quotient law for the subtraction: \\[ \\log\\frac{x y^3}{z}. \\]</td></tr>
+            </table>
+            <p>Notice the coefficient <strong>must</strong> become a power first — writing \\( 3\\log y = \\log 3y \\) is wrong (that would be \\( \\log 3 + \\log y \\)).</p>`,
+            readCheck: { q: "Write \\( 2\\log a + \\log b \\) as a single logarithm.", opts: ["\\( \\log(a^2 b) \\)", "\\( \\log(2ab) \\)", "\\( \\log(a^2 + b) \\)", "\\( 2\\log(ab) \\)"], ans: 0, explain: "Power law: \\( 2\\log a = \\log a^2 \\); then product law: \\( \\log a^2 + \\log b = \\log(a^2 b) \\)." }
+        },
+        {
+            title: "How do you write logs as a single number?",
+            tag: "Worked example",
+            content: `<p>When every log has the same base and the numbers are chosen well, combining the logs collapses the whole expression to a single value. Reach for the special values \\( \\log_a a = 1 \\) and \\( \\log_a 1 = 0 \\), and powers of the base.</p>
+            <p><strong>Worked example — write \\( 2\\log_{10} 5 + \\log_{10} 4 \\) as a single number:</strong></p>
+            <table class="worked">
+              <tr><td>1. Power law: \\( 2\\log_{10} 5 = \\log_{10} 25 \\).</td></tr>
+              <tr><td>2. Product law: \\( \\log_{10} 25 + \\log_{10} 4 = \\log_{10} 100 \\).</td></tr>
+              <tr><td>3. \\( 100 = 10^2 \\), so \\( \\log_{10} 100 = 2 \\).</td></tr>
+            </table>
+            <p>The final answer is the <strong>exact</strong> value \\( 2 \\) — not a rounded decimal. On a "detailed reasoning" question, evaluating the separate logs on a calculator is not appropriate; show the law-by-law working instead.</p>`,
+            readCheck: { q: "Write \\( \\log_{10} 20 + \\log_{10} 5 \\) as a single number.", opts: ["\\( 2 \\)", "\\( 1 \\)", "\\( \\log_{10} 25 \\)", "\\( 100 \\)"], ans: 0, explain: "Product law: \\( \\log_{10} 20 + \\log_{10} 5 = \\log_{10} 100 = 2 \\), since \\( 10^2 = 100 \\)." }
+        },
+        {
+            title: "How do you make an unknown exponent the subject?",
+            tag: "Exam skill",
+            content: `<p>When the unknown is stuck up in the exponent — such as \\( a^x = b \\) — you <strong>take logs of both sides</strong>. The power law then brings the exponent down where you can reach it.</p>
+            <p><strong>Worked example — solve \\( 3^x = 20 \\), giving \\( x \\) to 3 s.f.:</strong></p>
+            <table class="worked">
+              <tr><td>1. Take logs of both sides: \\( \\log(3^x) = \\log 20 \\).</td></tr>
+              <tr><td>2. Power law brings \\( x \\) down: \\( x\\log 3 = \\log 20 \\).</td></tr>
+              <tr><td>3. Divide: \\( x = \\dfrac{\\log 20}{\\log 3} \\).</td></tr>
+              <tr><td>4. \\( x = \\dfrac{1.3010}{0.4771} = 2.73 \\) (3 s.f.).</td></tr>
+            </table>
+            <p>The same rearranging skill lets you make any variable the subject of a log equation — e.g. from \\( y = 4\\log_3 x \\) you can isolate \\( \\log_3 x = \\frac{y}{4} \\) and then write \\( x = 3^{y/4} \\).</p>`,
+            readCheck: { q: "Solve \\( 2^x = 10 \\), giving \\( x \\) to 3 s.f.", opts: ["\\( 3.32 \\)", "\\( 5 \\)", "\\( 8 \\)", "\\( 1.30 \\)"], ans: 0, explain: "\\( x = \\frac{\\log 10}{\\log 2} = \\frac{1}{0.3010} = 3.32 \\) (3 s.f.)." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "Evaluate \\( \\log_2 32 \\).", opts: ["\\( 5 \\)", "\\( 16 \\)", "\\( 6 \\)", "\\( 4 \\)"], ans: 0, explain: "\\( 2^5 = 32 \\), so \\( \\log_2 32 = 5 \\)." },
+        { q: "\\( \\log_a x = y \\) is another way of writing which statement?", opts: ["\\( a^y = x \\)", "\\( a^x = y \\)", "\\( x^y = a \\)", "\\( y^a = x \\)"], ans: 0, explain: "By definition a logarithm is the inverse of a power: \\( \\log_a x = y \\iff a^y = x \\)." },
+        { q: "What is \\( \\log_7 1 \\)?", opts: ["\\( 0 \\)", "\\( 1 \\)", "\\( 7 \\)", "undefined"], ans: 0, explain: "\\( \\log_a 1 = 0 \\) for every valid base, because \\( a^0 = 1 \\)." },
+        { q: "What is \\( \\log_a a \\)?", opts: ["\\( 1 \\)", "\\( 0 \\)", "\\( a \\)", "\\( a^2 \\)"], ans: 0, explain: "\\( \\log_a a = 1 \\) because \\( a^1 = a \\)." },
+        { q: "Write \\( \\log 4 + \\log 5 \\) as a single logarithm.", opts: ["\\( \\log 20 \\)", "\\( \\log 9 \\)", "\\( \\log 45 \\)", "\\( 2\\log 20 \\)"], ans: 0, explain: "Product law: adding logs multiplies the arguments, \\( \\log 4 + \\log 5 = \\log(4\\times5) = \\log 20 \\). (\\( \\log 9 \\) would be the fallacy of adding the arguments.)" },
+        { q: "Write \\( 3\\log x \\) as a single logarithm.", opts: ["\\( \\log x^3 \\)", "\\( \\log 3x \\)", "\\( (\\log x)^3 \\)", "\\( 3 + \\log x \\)"], ans: 0, explain: "Power law: the coefficient becomes the power, \\( 3\\log x = \\log x^3 \\). It does NOT become a factor inside the log (\\( \\log 3x \\) is wrong)." },
+        { q: "Write \\( \\log 12 - \\log 3 \\) as a single logarithm.", opts: ["\\( \\log 4 \\)", "\\( \\log 9 \\)", "\\( \\log 36 \\)", "\\( \\log 15 \\)"], ans: 0, explain: "Quotient law: subtracting logs divides the arguments, \\( \\log 12 - \\log 3 = \\log\\frac{12}{3} = \\log 4 \\). (\\( \\log 9 \\) would be the fallacy of subtracting the arguments.)" },
+        { q: "Which statement is FALSE?", opts: ["\\( \\log(x+y) = \\log x + \\log y \\)", "\\( \\log(xy) = \\log x + \\log y \\)", "\\( \\log\\frac{x}{y} = \\log x - \\log y \\)", "\\( \\log(x^n) = n\\log x \\)"], ans: 0, explain: "There is no law for a sum inside a log. The product law applies to a multiplication \\( \\log(xy) \\), not to \\( \\log(x+y) \\)." },
+        { q: "What is \\( \\log_{10} 2 + \\log_{10} 50 \\)?", opts: ["\\( 2 \\)", "\\( 1 \\)", "\\( \\log_{10} 52 \\)", "\\( 100 \\)"], ans: 0, explain: "Product law: \\( \\log_{10}(2\\times50) = \\log_{10} 100 = 2 \\)." },
+        { q: "Write \\( \\log 3 + 2\\log 4 \\) as a single logarithm.", opts: ["\\( \\log 48 \\)", "\\( \\log 24 \\)", "\\( \\log 11 \\)", "\\( \\log 144 \\)"], ans: 0, explain: "First the power law: \\( 2\\log 4 = \\log 16 \\); then the product law: \\( \\log 3 + \\log 16 = \\log 48 \\). (\\( \\log 24 \\) comes from dropping the power and using \\( 3\\times4\\times2 \\).)" },
+        { q: "Solve \\( 5^x = 40 \\), giving \\( x \\) to 3 s.f.", opts: ["\\( 2.29 \\)", "\\( 8 \\)", "\\( 1.60 \\)", "\\( 3.69 \\)"], ans: 0, explain: "Take logs: \\( x = \\frac{\\log 40}{\\log 5} = \\frac{1.6021}{0.6990} = 2.29 \\) (3 s.f.). (\\( 8 \\) is \\( 40\\div5 \\) — the wrong operation.)" },
+        { q: "Given \\( \\log_2 x = 5 \\), find \\( x \\).", opts: ["\\( 32 \\)", "\\( 25 \\)", "\\( 10 \\)", "\\( 7 \\)"], ans: 0, explain: "Rewrite in exponential form: \\( x = 2^5 = 32 \\)." }
+    ];
+
+    const matchData = [
+        { term: "Product law", def: "\\( \\log(xy) = \\log x + \\log y \\)" },
+        { term: "Quotient law", def: "\\( \\log\\frac{x}{y} = \\log x - \\log y \\)" },
+        { term: "Power law", def: "\\( \\log(x^n) = n\\log x \\)" },
+        { term: "Definition of a logarithm", def: "\\( \\log_a x = y \\iff a^y = x \\)" },
+        { term: "\\( \\log_a a \\)", def: "\\( 1 \\)" },
+        { term: "\\( \\log_a 1 \\)", def: "\\( 0 \\)" },
+        { term: "\\( \\log 4 + \\log 5 \\)", def: "\\( \\log 20 \\)" },
+        { term: "\\( \\log 12 - \\log 3 \\)", def: "\\( \\log 4 \\)" },
+        { term: "\\( 2\\log 3 \\)", def: "\\( \\log 9 \\)" },
+        { term: "\\( \\log_2 16 \\)", def: "\\( 4 \\)" },
+        { term: "\\( \\log_{10} 100 \\)", def: "\\( 2 \\)" },
+        { term: "\\( \\log_5 125 \\)", def: "\\( 3 \\)" }
+    ];
+
+    // NOTE: FIB blanks must sit in PLAIN TEXT, never inside a \( \) region — a blank
+    // becomes a <select>/<input> that splits the LaTeX run so KaTeX shows raw source
+    // (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b). Keep every \( \) a complete expression.
+    const fibData = [
+        { display: "A logarithm is the inverse of ___B1___: the statement \\( \\log_a x = y \\) means exactly the same as \\( a^y = x \\).", blanks: { B1: "exponentiation" } },
+        { display: "For any valid base, \\( \\log_a 1 \\) equals ___B1___ and \\( \\log_a a \\) equals ___B2___.", blanks: { B1: "0", B2: "1" } },
+        { display: "The product law turns a multiplication inside a log into an ___B1___ of two logs; the quotient law turns a division into a ___B2___.", blanks: { B1: "addition", B2: "subtraction" } },
+        { display: "The power law \\( \\log(x^n) = n\\log x \\) brings the ___B1___ down to the front as a multiplier.", blanks: { B1: "power" } },
+        { display: "Writing \\( \\log 4 + \\log 25 \\) as a single number gives \\( \\log 100 \\), which equals ___B1___.", blanks: { B1: "2" } },
+        { display: "To make \\( x \\) the subject of \\( 3^x = 10 \\), take ___B1___ of both sides.", blanks: { B1: "logs" } },
+        { display: "The expression \\( \\log(x+y) \\) is ___B1___ equal to \\( \\log x + \\log y \\) — a sum inside a single log cannot be split.", blanks: { B1: "not" } },
+        { display: "In the exam, write each log-law step on a ___B1___ line so that partial credit survives an error.", blanks: { B1: "separate" } }
+    ];
+
+    const fibWords = ["exponentiation", "0", "1", "2", "addition", "subtraction", "power", "logs", "not", "separate", "multiplication", "index", "same", "10"];
+
+    const tfData = [
+        { statement: "\\( \\log_a x = y \\) is equivalent to \\( a^y = x \\).", answer: true, explanation: "This is the definition of a logarithm — it is the inverse of raising the base to a power." },
+        { statement: "\\( \\log(x+y) = \\log x + \\log y \\).", answer: false, explanation: "The product law applies to \\( \\log(xy) \\), a multiplication. A sum inside a single log cannot be split." },
+        { statement: "\\( \\log_a 1 = 0 \\) for every valid base \\( a \\).", answer: true, explanation: "\\( a^0 = 1 \\) for any base, so \\( \\log_a 1 = 0 \\)." },
+        { statement: "\\( \\log(x^n) = n\\log x \\).", answer: true, explanation: "This is the power law: the exponent comes down to the front as a multiplier." },
+        { statement: "\\( \\log 12 - \\log 4 = \\log 3 \\).", answer: true, explanation: "Quotient law: \\( \\log 12 - \\log 4 = \\log\\frac{12}{4} = \\log 3 \\)." },
+        { statement: "\\( \\log_a a = 0 \\).", answer: false, explanation: "\\( \\log_a a = 1 \\), because \\( a^1 = a \\). It is \\( \\log_a 1 \\) that equals 0." },
+        { statement: "\\( 2\\log 3 = \\log 6 \\).", answer: false, explanation: "Power law: \\( 2\\log 3 = \\log 3^2 = \\log 9 \\), not \\( \\log 6 \\). The coefficient becomes a power, not a factor." },
+        { statement: "To solve \\( 4^x = 20 \\) you can take logs of both sides to get \\( x\\log 4 = \\log 20 \\).", answer: true, explanation: "Taking logs and using the power law brings the exponent down, giving \\( x = \\frac{\\log 20}{\\log 4} \\)." }
+    ];
+
+    const miscData = [
+        { wrong: "\\( \\log(x + y) = \\log x + \\log y \\)", correct: "The product law needs a MULTIPLICATION inside the log: \\( \\log(xy) = \\log x + \\log y \\). A weak answer splits a sum; a strong answer knows \\( \\log(x+y) \\) has no simplification at all.", readCheck: { q: "Which is correct?", opts: ["\\( \\log(xy) = \\log x + \\log y \\)", "\\( \\log(x+y) = \\log x + \\log y \\)", "\\( \\log(x+y) = \\log x \\times \\log y \\)", "\\( \\log(xy) = \\log x - \\log y \\)"], ans: 0, explain: "Adding logs corresponds to multiplying the arguments — the product law is about \\( \\log(xy) \\), not \\( \\log(x+y) \\)." } },
+        { wrong: "Doing a whole log-law question on one line and just writing the final answer", correct: "The 2024 examiners award a method mark for the first log law used, then an accuracy mark for the final single log. A weak answer that lands wrong in one line scores nothing; a strong answer does EACH log-law step on a separate line so partial credit survives a slip.", readCheck: { q: "Why write each log-law step on its own line?", opts: ["So a method mark survives even if the final answer slips", "It is not necessary", "To use more paper", "To make it look neat only"], ans: 0, explain: "An unexplained wrong answer scores 0; a visible correct first step still earns the method mark." } },
+        { wrong: "\\( 2\\log 4 = \\log 8 \\)", correct: "The power law makes the coefficient a POWER, not a factor: \\( 2\\log 4 = \\log 4^2 = \\log 16 \\). A weak answer multiplies 2 into the argument; a strong answer squares it.", readCheck: { q: "Simplify \\( 2\\log 4 \\).", opts: ["\\( \\log 16 \\)", "\\( \\log 8 \\)", "\\( \\log 6 \\)", "\\( \\log 2 \\)"], ans: 0, explain: "\\( 2\\log 4 = \\log 4^2 = \\log 16 \\)." } },
+        { wrong: "\\( \\log 12 - \\log 3 = \\log 9 \\)", correct: "Subtracting logs DIVIDES the arguments: \\( \\log 12 - \\log 3 = \\log\\frac{12}{3} = \\log 4 \\). A weak answer subtracts the numbers (12 − 3); a strong answer uses the quotient law.", readCheck: { q: "Simplify \\( \\log 12 - \\log 3 \\).", opts: ["\\( \\log 4 \\)", "\\( \\log 9 \\)", "\\( \\log 15 \\)", "\\( \\log 36 \\)"], ans: 0, explain: "Quotient law: \\( \\log 12 - \\log 3 = \\log\\frac{12}{3} = \\log 4 \\)." } },
+        { wrong: "Answering 'write ... as a single number' with a rounded decimal from the calculator", correct: "In 2022 Q9(b) the wording (and the detailed-reasoning instruction) meant the answer had to be EXACT: \\( \\log_{10} 100 = 2 \\). A weak answer types the separate logs into a calculator and rounds; a strong answer combines with the laws and reads off the exact value.", readCheck: { q: "\\( 2\\log_{10} 5 + \\log_{10} 4 \\) as a single number is:", opts: ["\\( 2 \\)", "\\( 1.7 \\)", "\\( \\log_{10} 20 \\)", "\\( 100 \\)"], ans: 0, explain: "\\( \\log_{10} 25 + \\log_{10} 4 = \\log_{10} 100 = 2 \\), an exact value." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "One log law per line (partial-credit ladder)", pills: ["one step per line", "M mark", "A mark"], content: `<p>For "write as a single logarithm" [2] the marks are: <strong>M1</strong> for correctly using at least one log law, then <strong>A1</strong> for the final single log.</p>
+            <p><strong>0 marks:</strong> \\( \\log_{10} 2a + 2\\log_{10} b = \\log_{10} 2ab \\) — a wrong answer with no law visibly used.</p>
+            <p><strong>Partial (M1):</strong> \\( \\log_{10} 2a + \\log_{10} b^2 \\) then a slip — the power law is visible, so the method mark stands.</p>
+            <p><strong>Full marks:</strong> \\( \\log_{10} 2a + \\log_{10} b^2 = \\log_{10}(2ab^2) \\) — each law on its own line. The 2024 examiners noted an incorrect answer with no sight of a law gained no marks.</p>`, readCheck: { q: "Why show each log law on a separate line?", opts: ["A wrong final answer can still keep the method mark", "It is quicker", "It is required by the calculator", "It changes the answer"], ans: 0, explain: "Visible correct steps earn method (M) marks even when the final answer is wrong." } },
+        { type: "explain", title: "'Single logarithm' vs 'single number'", pills: ["read the command", "exact"], content: `<p><strong>"As a single logarithm"</strong> means combine into one \\( \\log \\) expression, e.g. \\( \\log(2ab^2) \\) — you stop there.</p>
+            <p><strong>"As a single number"</strong> means go one step further and evaluate, e.g. \\( \\log_{10} 100 = 2 \\). Give the <strong>exact</strong> value, not a decimal — and on a "detailed reasoning" question do not read the separate logs off a calculator.</p>`, readCheck: { q: "'Write ... as a single number' asks you to:", opts: ["Combine the logs AND evaluate to an exact value", "Combine into one log and stop", "Give a 3 s.f. decimal", "Draw a graph"], ans: 0, explain: "A single number means the combined logs are evaluated to their exact value." } },
+        { type: "tip", title: "Making an exponent the subject", pills: ["take logs", "÷ by log a"], content: `<p>For \\( a^x = b \\): take logs of both sides, bring the power down, then divide.</p>
+            <table class="worked">
+              <tr><td>1. \\( a^x = b \\Rightarrow \\log(a^x) = \\log b \\).</td></tr>
+              <tr><td>2. Power law: \\( x\\log a = \\log b \\).</td></tr>
+              <tr><td>3. Divide: \\( x = \\dfrac{\\log b}{\\log a} \\).</td></tr>
+            </table>
+            <p>In 2022 Q9(c), taking logs of both sides to get \\( \\log a = \\frac{\\log 17}{2.58} \\) was the cleanest route — the examiners noted it was "not seen often".</p>`, readCheck: { q: "First step to solve \\( a^x = b \\) for \\( x \\)?", opts: ["Take logs of both sides", "Divide both sides by \\( a \\)", "Square both sides", "Subtract \\( b \\)"], ans: 0, explain: "Taking logs lets the power law bring the exponent down." } }
+    ];
+
+    const flashcards = [
+        { term: "Logarithm", def: "The inverse of exponentiation: \\( \\log_a x = y \\iff a^y = x \\)." },
+        { term: "Product law", def: "\\( \\log(xy) = \\log x + \\log y \\)." },
+        { term: "Quotient law", def: "\\( \\log\\frac{x}{y} = \\log x - \\log y \\)." },
+        { term: "Power law", def: "\\( \\log(x^n) = n\\log x \\)." },
+        { term: "\\( \\log_a a \\)", def: "Equals \\( 1 \\), because \\( a^1 = a \\)." },
+        { term: "\\( \\log_a 1 \\)", def: "Equals \\( 0 \\), because \\( a^0 = 1 \\)." },
+        { term: "Are the log laws provided?", def: "No — the three log laws are a MEMORISE set, not on the formula sheet." },
+        { term: "\\( \\log_a x = y \\) in exponential form", def: "\\( a^y = x \\)." },
+        { term: "\\( \\log(x+y) \\)", def: "Has NO simplification; it is NOT \\( \\log x + \\log y \\)." },
+        { term: "Single number, e.g. \\( \\log_{10} 100 \\)", def: "\\( 2 \\), because \\( 10^2 = 100 \\)." },
+        { term: "Solve \\( a^x = b \\)", def: "Take logs both sides: \\( x = \\frac{\\log b}{\\log a} \\)." },
+        { term: "\\( \\log_2 8 \\)", def: "\\( 3 \\), because \\( 2^3 = 8 \\)." },
+        { term: "\\( 2\\log 3 \\)", def: "\\( \\log 9 \\) (power law: the coefficient becomes a power)." },
+        { term: "Exam discipline (2024)", def: "Do each log law on a separate line so partial credit survives a slip." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "2 (2024)",
+            marks: 2,
+            type: "written",
+            question: `<p>Write \\( \\log_{10} 2a + 2\\log_{10} b \\) as a single logarithm.</p>`,
+            hint: "Use the power law on \\( 2\\log_{10} b \\) first, then combine with the product law.",
+            starter: "Give your answer as one logarithm to base 10.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — correct use of at least one log law, e.g. \\( 2\\log_{10} b = \\log_{10} b^2 \\) (or otherwise combining into a single log).</li>
+              <li><strong>A1</strong> — \\( \\log_{10}(2ab^2) \\) (allow the answer with no base specified).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>N.B. \\( 2\\log_{10}(2ab) \\), \\( \\log_{10}(2ab)^2 \\) or \\( 3\\log_{10} 2ab \\) is M0.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>This required the use of the laws of logarithms. There are two steps, so it is good practice to do each step on a separate line of working — both to avoid errors and to make partial credit easier to award. An incorrect answer with no sight of one of the laws being used gained no marks.</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\log_{10} 2a + 2\\log_{10} b = \\log_{10} 2a + \\log_{10} b^2 = \\log_{10}(2ab^2) \\).",
+            markPoints: { note: "Award each mark for the step shown.", groups: [
+                { label: "M1 — use a log law", max: 1, points: ["Used at least one log law, e.g. \\( 2\\log_{10} b = \\log_{10} b^2 \\)"] },
+                { label: "A1 — single logarithm", max: 1, points: ["\\( \\log_{10}(2ab^2) \\) (base may be omitted)"] }
+            ] }
+        },
+        {
+            num: "9 (a) (2022)",
+            marks: 2,
+            type: "written",
+            caseId: "q9-2022",
+            question: `<p>You are given that \\( y = 4\\log_3 x \\).</p><p>Rewrite this equation with \\( x \\) as the subject.</p>`,
+            hint: "Isolate \\( \\log_3 x \\) first, then switch to exponential form; or use the power law to write \\( 4\\log_3 x = \\log_3 x^4 \\).",
+            starter: "Give your answer in the form \\( x = \\ldots \\), showing every step (detailed reasoning).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1) · Detailed reasoning</h5><ul>
+              <li><strong>B1</strong> — \\( \\log_3 x = \\dfrac{y}{4} \\) (oe).</li>
+              <li><strong>B1</strong> — \\( x = 3^{y/4} \\) (oe).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li><strong>Alternative method:</strong> \\( y = 4\\log_3 x \\Rightarrow y = \\log_3 x^4 \\) (B1; implied by \\( x^4 = 3^y \\)) \\( \\Rightarrow x = \\sqrt[4]{3^y} \\) (B1).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The three parts of this question proved to be the most challenging on the paper. The laws of logarithms were usually not applied correctly.</li>
+            </ul></div>`,
+            modelAnswer: "\\( y = 4\\log_3 x \\Rightarrow \\log_3 x = \\dfrac{y}{4} \\Rightarrow x = 3^{y/4} \\) (equivalently \\( x = \\sqrt[4]{3^y} \\)).",
+            markPoints: { note: "Detailed reasoning — every step must be shown.", groups: [
+                { label: "B1 — isolate the log / index", max: 1, points: ["\\( \\log_3 x = \\frac{y}{4} \\) (oe, e.g. \\( y = \\log_3 x^4 \\))"] },
+                { label: "B1 — x as the subject", max: 1, points: ["\\( x = 3^{y/4} \\) (oe, e.g. \\( x = \\sqrt[4]{3^y} \\))"] }
+            ] }
+        },
+        {
+            num: "9 (b) (2022)",
+            marks: 3,
+            type: "written",
+            caseId: "q9-2022",
+            question: `<p>Write \\( 2\\log_{10} 5 + \\dfrac{1}{2}\\log_{10} 16 \\) as a single number.</p>`,
+            hint: "Use the power law on both terms first (\\( 2\\log_{10} 5 \\) and \\( \\frac{1}{2}\\log_{10} 16 \\)), then add the logs.",
+            starter: "Give the exact value — do not read the separate logs off a calculator.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1) · Detailed reasoning</h5><ul>
+              <li><strong>M1</strong> — dealing with the powers: \\( 2\\log_{10} 5 = \\log_{10} 25 \\) and \\( \\frac{1}{2}\\log_{10} 16 = \\log_{10} 4 \\).</li>
+              <li><strong>M1</strong> — adding the logs: \\( \\log_{10} 25 + \\log_{10} 4 = \\log_{10} 100 \\).</li>
+              <li><strong>A1</strong> — \\( 2 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The answer had to be exact (\\( \\log_{10} 100 = 2 \\)); this is a detailed-reasoning question, so using a calculator to find numeric values of the separate logs was not appropriate.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Both laws were needed in this part, leading to \\( \\log_{10} 100 = 2 \\). Some candidates were not aware that the wording of the question meant the answer had to be exact, so the use of calculators to find numeric values was not appropriate.</li>
+            </ul></div>`,
+            modelAnswer: "\\( 2\\log_{10} 5 + \\dfrac{1}{2}\\log_{10} 16 = \\log_{10} 25 + \\log_{10} 4 = \\log_{10} 100 = 2 \\).",
+            markPoints: { note: "Detailed reasoning — show the law-by-law working; the answer is exact.", groups: [
+                { label: "M1 — deal with the powers", max: 1, points: ["\\( 2\\log_{10} 5 = \\log_{10} 25 \\) and \\( \\frac{1}{2}\\log_{10} 16 = \\log_{10} 4 \\)"] },
+                { label: "M1 — add the logs", max: 1, points: ["\\( \\log_{10} 25 + \\log_{10} 4 = \\log_{10} 100 \\)"] },
+                { label: "A1 — exact value", max: 1, points: ["\\( 2 \\)"] }
+            ] }
+        },
+        {
+            num: "9 (c) (2022)",
+            marks: 2,
+            type: "written",
+            caseId: "q9-2022",
+            question: `<p>The equation \\( a^x = 17 \\) has the solution \\( x = 2.58 \\), correct to 3 significant figures.</p><p>Given that \\( a \\) is an integer, determine the value of \\( a \\).</p>`,
+            hint: "Take logs of both sides so the power law brings \\( x \\) down, then make \\( \\log a \\) the subject.",
+            starter: "Show the detailed reasoning, then state the integer value of \\( a \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1) · Detailed reasoning</h5><ul>
+              <li><strong>M1</strong> — take logs of both sides and divide: \\( x\\log a = \\log 17 \\Rightarrow \\log a = \\dfrac{\\log 17}{2.58} \\) (any base acceptable, e.g. \\( \\log_{2.58} 17 \\) gets M1).</li>
+              <li><strong>A1</strong> — \\( a = 3 \\) (has to be 3 — the question says \\( a \\) is an integer).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li><strong>Alternative method:</strong> \\( a = \\sqrt[2.58]{17} = 3 \\) (M1 A1).</li>
+              <li><strong>Alternative method:</strong> try \\( a = 2, 3 \\) and choose \\( a = 3 \\) (M1 A1). SC B1 for claiming 3 without checking.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The simplest method — taking logs of both sides to give \\( \\log a = \\dfrac{\\log 17}{2.58} \\) — was not seen often.</li>
+            </ul></div>`,
+            modelAnswer: "\\( a^x = 17 \\Rightarrow x\\log a = \\log 17 \\Rightarrow \\log a = \\dfrac{\\log 17}{2.58} = \\dfrac{1.2304}{2.58} = 0.4769 \\Rightarrow a = 10^{0.4769} = 3.00 \\). So \\( a = 3 \\).",
+            markPoints: { note: "Detailed reasoning — the method must be shown.", groups: [
+                { label: "M1 — take logs and divide", max: 1, points: ["\\( \\log a = \\frac{\\log 17}{2.58} \\) (any base), or \\( a = \\sqrt[2.58]{17} \\)"] },
+                { label: "A1 — integer value", max: 1, points: ["\\( a = 3 \\)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

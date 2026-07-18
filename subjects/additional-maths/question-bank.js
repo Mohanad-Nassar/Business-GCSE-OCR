@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-18T05:02:48Z · 1316 questions
+// Generated: 2026-07-18T05:18:10Z · 1551 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -684,16 +684,16 @@ window.QUESTION_BANK = [
   "question": "To simplify \\( a^m \\times a^n \\) you ___B1___ the indices, and to simplify \\( a^m \\div a^n \\) you ___B2___ them.",
   "blankOptions": {
    "B1": [
-    "solve",
+    "coefficient",
+    "index",
     "add",
-    "power",
-    "reciprocal"
+    "multiply"
    ],
    "B2": [
-    "multiply",
-    "power",
     "subtract",
-    "reciprocal"
+    "divide",
+    "all",
+    "1"
    ]
   },
   "key": {
@@ -713,10 +713,10 @@ window.QUESTION_BANK = [
   "question": "The rule \\( (a^m)^n \\) tells you to ___B1___ the two indices together.",
   "blankOptions": {
    "B1": [
-    "solve",
-    "0",
     "multiply",
-    "unknown"
+    "variable",
+    "add",
+    "term"
    ]
   },
   "key": {
@@ -735,10 +735,10 @@ window.QUESTION_BANK = [
   "question": "For any non-zero base, \\( a^0 \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
     "reciprocal",
-    "index",
-    "constant"
+    "1",
+    "unknown",
+    "all"
    ]
   },
   "key": {
@@ -757,10 +757,10 @@ window.QUESTION_BANK = [
   "question": "A negative index means take the ___B1___, so \\( a^{-n} \\) becomes a fraction.",
   "blankOptions": {
    "B1": [
-    "subtract",
+    "unknown",
+    "nth",
     "reciprocal",
-    "add",
-    "unknown"
+    "add"
    ]
   },
   "key": {
@@ -779,16 +779,16 @@ window.QUESTION_BANK = [
   "question": "In the term \\( 4x^3 \\), the number \\( 4 \\) is the ___B1___ and the number \\( 3 \\) is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
-    "constant",
+    "nth",
+    "term",
     "coefficient",
-    "1"
+    "constant"
    ],
    "B2": [
+    "0",
     "index",
-    "all",
-    "constant",
-    "term"
+    "1",
+    "subtract"
    ]
   },
   "key": {
@@ -808,16 +808,16 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) means the statement is an ___B1___, which is true for ___B2___ values of the variable.",
   "blankOptions": {
    "B1": [
+    "subtract",
     "reciprocal",
-    "identity",
-    "solve",
-    "term"
+    "power",
+    "identity"
    ],
    "B2": [
-    "constant",
-    "add",
-    "all",
-    "variable"
+    "term",
+    "variable",
+    "index",
+    "all"
    ]
   },
   "key": {
@@ -837,10 +837,10 @@ window.QUESTION_BANK = [
   "question": "In \\( a^{1/n} \\) the fraction \\( \\frac{1}{n} \\) tells you to take the ___B1___ root of \\( a \\).",
   "blankOptions": {
    "B1": [
-    "power",
     "nth",
-    "coefficient",
-    "multiply"
+    "solve",
+    "subtract",
+    "identity"
    ]
   },
   "key": {
@@ -859,16 +859,16 @@ window.QUESTION_BANK = [
   "question": "In an equation you solve to find the value of the ___B1___, whereas in an expression there is no equals sign to ___B2___.",
   "blankOptions": {
    "B1": [
-    "multiply",
-    "1",
+    "index",
     "unknown",
-    "all"
+    "0",
+    "reciprocal"
    ],
    "B2": [
-    "coefficient",
-    "multiply",
+    "term",
     "solve",
-    "constant"
+    "0",
+    "identity"
    ]
   },
   "key": {
@@ -1835,10 +1835,10 @@ window.QUESTION_BANK = [
   "question": "To simplify a surd, take out the largest perfect ___B1___ factor.",
   "blankOptions": {
    "B1": [
-    "expand",
     "square",
     "1",
-    "like"
+    "factorise",
+    "expand"
    ]
   },
   "key": {
@@ -1857,10 +1857,10 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sqrt{12} = 2\\sqrt{3} \\) we used the fact that \\( 12 = 4 \\times 3 \\) and \\( \\sqrt{4} = \\) ___B1___.",
   "blankOptions": {
    "B1": [
-    "exact",
-    "reciprocal",
-    "(x-1)(x+1)",
-    "2"
+    "3",
+    "2",
+    "calculator",
+    "cube"
    ]
   },
   "key": {
@@ -1879,9 +1879,9 @@ window.QUESTION_BANK = [
   "question": "You can only add or subtract surds when they are ___B1___ surds (the same number under the root).",
   "blankOptions": {
    "B1": [
-    "(x-1)(x+1)",
-    "1",
-    "square",
+    "conjugate",
+    "2",
+    "3",
     "like"
    ]
   },
@@ -1901,9 +1901,9 @@ window.QUESTION_BANK = [
   "question": "To rationalise \\( \\frac{1}{2+\\sqrt{3}} \\) you multiply by its ___B1___, which is \\( 2-\\sqrt{3} \\).",
   "blankOptions": {
    "B1": [
-    "exact",
-    "reciprocal",
-    "calculator",
+    "1",
+    "like",
+    "3",
     "conjugate"
    ]
   },
@@ -1923,10 +1923,10 @@ window.QUESTION_BANK = [
   "question": "Multiplying \\( (2+\\sqrt{3})(2-\\sqrt{3}) \\) gives the whole number ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
-    "like",
     "reciprocal",
-    "expand"
+    "square",
+    "1",
+    "cube"
    ]
   },
   "key": {
@@ -1945,10 +1945,10 @@ window.QUESTION_BANK = [
   "question": "To simplify an algebraic fraction you first ___B1___ the top and bottom, then cancel common factors.",
   "blankOptions": {
    "B1": [
-    "expand",
     "factorise",
-    "2",
-    "exact"
+    "unlike",
+    "square",
+    "3"
    ]
   },
   "key": {
@@ -1967,10 +1967,10 @@ window.QUESTION_BANK = [
   "question": "To add \\( \\frac{1}{x-1} \\) and \\( \\frac{2}{x+1} \\) you write them over the common denominator ___B1___.",
   "blankOptions": {
    "B1": [
-    "calculator",
     "(x-1)(x+1)",
     "expand",
-    "unlike"
+    "2",
+    "3"
    ]
   },
   "key": {
@@ -1989,9 +1989,9 @@ window.QUESTION_BANK = [
   "question": "The instruction 'show detailed reasoning' means a ___B1___ answer with no working scores zero.",
   "blankOptions": {
    "B1": [
-    "factorise",
-    "(x-1)(x+1)",
-    "unlike",
+    "exact",
+    "square",
+    "cube",
     "calculator"
    ]
   },
@@ -2878,16 +2878,16 @@ window.QUESTION_BANK = [
   "question": "In the quadratic formula \\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\), the term before the \\( \\pm \\) sign is ___B1___ and the denominator is ___B2___.",
   "blankOptions": {
    "B1": [
-    "exact",
-    "-b",
-    "add",
-    "3"
+    "both",
+    "20",
+    "negative",
+    "-b"
    ],
    "B2": [
+    "20",
+    "4ac",
     "2a",
-    "-p",
-    "add",
-    "square"
+    "negative"
    ]
   },
   "key": {
@@ -2907,16 +2907,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + bx \\), take ___B1___ the coefficient of \\( x \\) and then ___B2___ it.",
   "blankOptions": {
    "B1": [
-    "negative",
     "half",
-    "4ac",
-    "add"
+    "negative",
+    "2a",
+    "both"
    ],
    "B2": [
     "2a",
-    "discriminant",
-    "exact",
-    "square"
+    "-b",
+    "square",
+    "3"
    ]
   },
   "key": {
@@ -2936,16 +2936,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + 6x - 11 \\), the number inside the bracket \\( (x + a)^2 \\) is ___B1___ and the number subtracted at the end is ___B2___.",
   "blankOptions": {
    "B1": [
-    "square",
+    "both",
     "3",
-    "negative",
-    "-b"
+    "4ac",
+    "-p"
    ],
    "B2": [
-    "-b",
-    "double",
+    "square",
     "20",
-    "exact"
+    "2a",
+    "both"
    ]
   },
   "key": {
@@ -2965,10 +2965,10 @@ window.QUESTION_BANK = [
   "question": "The expression \\( b^2 - 4ac \\) is called the ___B1___.",
   "blankOptions": {
    "B1": [
-    "discriminant",
     "exact",
-    "-b",
-    "4ac"
+    "2a",
+    "both",
+    "discriminant"
    ]
   },
   "key": {
@@ -2987,10 +2987,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, a quadratic has no real roots.",
   "blankOptions": {
    "B1": [
+    "exact",
     "both",
-    "discriminant",
     "negative",
-    "q"
+    "3"
    ]
   },
   "key": {
@@ -3009,16 +3009,16 @@ window.QUESTION_BANK = [
   "question": "For \\( a(x+p)^2 + q \\) with \\( a > 0 \\), the minimum value is ___B1___ and it occurs when \\( x \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "both",
-    "3",
-    "2a",
-    "q"
+    "negative",
+    "q",
+    "double",
+    "3"
    ],
    "B2": [
-    "exact",
     "2a",
-    "-b",
-    "-p"
+    "20",
+    "-p",
+    "half"
    ]
   },
   "key": {
@@ -3038,10 +3038,10 @@ window.QUESTION_BANK = [
   "question": "When you take the square root of both sides you must write \\( \\pm \\) to get ___B1___ roots.",
   "blankOptions": {
    "B1": [
-    "half",
-    "both",
-    "4ac",
-    "discriminant"
+    "2a",
+    "add",
+    "3",
+    "both"
    ]
   },
   "key": {
@@ -3060,10 +3060,10 @@ window.QUESTION_BANK = [
   "question": "A command word telling you to leave surds rather than round is ___B1___.",
   "blankOptions": {
    "B1": [
-    "20",
-    "-p",
+    "discriminant",
+    "both",
     "exact",
-    "-b"
+    "20"
    ]
   },
   "key": {
@@ -4021,10 +4021,10 @@ window.QUESTION_BANK = [
   "question": "When you multiply or divide an inequality by a negative number you must ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "flip",
+    "-2",
     "reverse",
     "open",
-    "-2"
+    "or"
    ]
   },
   "key": {
@@ -4043,10 +4043,10 @@ window.QUESTION_BANK = [
   "question": "Adding or subtracting the same quantity from both sides ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "open",
-    "keeps",
-    "between",
-    "closed"
+    "and",
+    "inside",
+    "-2",
+    "keeps"
    ]
   },
   "key": {
@@ -4065,10 +4065,10 @@ window.QUESTION_BANK = [
   "question": "To solve a quadratic inequality, first rearrange it so that one side equals ___B1___, then factorise.",
   "blankOptions": {
    "B1": [
-    "closed",
-    "zero",
+    "between",
+    "or",
     "and",
-    "reverse"
+    "zero"
    ]
   },
   "key": {
@@ -4087,10 +4087,10 @@ window.QUESTION_BANK = [
   "question": "The quadratic \\( x^2 - x - 6 \\) factorises to \\( (x-3)(x+2) \\), so its critical values are \\( 3 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "add",
-    "-2",
     "flip",
-    "or"
+    "open",
+    "-2",
+    "add"
    ]
   },
   "key": {
@@ -4109,10 +4109,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c < 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
+    "zero",
     "between",
     "add",
-    "open",
-    "zero"
+    "3"
    ]
   },
   "key": {
@@ -4131,10 +4131,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c > 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
-    "keeps",
-    "add",
     "between",
-    "outside"
+    "closed",
+    "outside",
+    "and"
    ]
   },
   "key": {
@@ -4153,10 +4153,10 @@ window.QUESTION_BANK = [
   "question": "A strict inequality such as \\( < \\) or \\( > \\) is shown on a number line with an ___B1___ circle.",
   "blankOptions": {
    "B1": [
-    "or",
     "open",
-    "zero",
-    "outside"
+    "between",
+    "closed",
+    "-2"
    ]
   },
   "key": {
@@ -4175,10 +4175,10 @@ window.QUESTION_BANK = [
   "question": "The solution to \\( x^2 > 9 \\) is \\( x < -3 \\) ___B1___ \\( x > 3 \\).",
   "blankOptions": {
    "B1": [
-    "outside",
+    "3",
+    "-2",
     "or",
-    "between",
-    "zero"
+    "closed"
    ]
   },
   "key": {
@@ -5048,10 +5048,10 @@ window.QUESTION_BANK = [
   "question": "A polynomial written with its powers going from highest to lowest is in ___B1___ order.",
   "blankOptions": {
    "B1": [
-    "factor",
+    "quotient",
+    "remainder",
     "descending",
-    "zero",
-    "dividend"
+    "placeholder"
    ]
   },
   "key": {
@@ -5070,16 +5070,16 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ of a polynomial is the highest power of the variable, and the number multiplying a power of \\( x \\) is its ___B2___.",
   "blankOptions": {
    "B1": [
-    "factor",
-    "term",
     "degree",
-    "zero"
+    "descending",
+    "14",
+    "ascending"
    ],
    "B2": [
-    "zero",
-    "sign",
+    "coefficient",
     "remainder",
-    "coefficient"
+    "descending",
+    "zero"
    ]
   },
   "key": {
@@ -5099,10 +5099,10 @@ window.QUESTION_BANK = [
   "question": "To subtract one polynomial from another you must change the ___B1___ of every term in the second bracket.",
   "blankOptions": {
    "B1": [
-    "degree",
-    "ascending",
     "descending",
-    "sign"
+    "placeholder",
+    "sign",
+    "14"
    ]
   },
   "key": {
@@ -5121,16 +5121,16 @@ window.QUESTION_BANK = [
   "question": "In long division the expression built up on top is the ___B1___ and the value left over at the end is the ___B2___.",
   "blankOptions": {
    "B1": [
+    "descending",
+    "placeholder",
     "coefficient",
-    "ascending",
-    "quotient",
-    "term"
+    "quotient"
    ],
    "B2": [
-    "degree",
+    "remainder",
     "placeholder",
-    "descending",
-    "remainder"
+    "dividend",
+    "descending"
    ]
   },
   "key": {
@@ -5150,10 +5150,10 @@ window.QUESTION_BANK = [
   "question": "When \\( x^3 + 2x^2 - 5x + 8 \\) is divided by \\( x + 3 \\), the quotient is \\( x^2 - x - 2 \\) and the remainder is ___B1___.",
   "blankOptions": {
    "B1": [
-    "sign",
+    "constant",
+    "degree",
     "14",
-    "placeholder",
-    "factor"
+    "quotient"
    ]
   },
   "key": {
@@ -5172,10 +5172,10 @@ window.QUESTION_BANK = [
   "question": "When a polynomial is divided by \\( x - a \\) and the remainder is ___B1___, then \\( x - a \\) is a factor.",
   "blankOptions": {
    "B1": [
-    "14",
-    "quotient",
     "sign",
-    "zero"
+    "term",
+    "zero",
+    "constant"
    ]
   },
   "key": {
@@ -5194,10 +5194,10 @@ window.QUESTION_BANK = [
   "question": "When dividing, insert a ___B1___ (a term with coefficient 0) for any missing power so the columns stay lined up.",
   "blankOptions": {
    "B1": [
-    "dividend",
-    "sign",
-    "ascending",
-    "placeholder"
+    "zero",
+    "placeholder",
+    "factor",
+    "term"
    ]
   },
   "key": {
@@ -6102,9 +6102,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "2",
-    "1",
+    "not",
     "0",
-    "factors"
+    "quadratic"
    ]
   },
   "key": {
@@ -6123,10 +6123,10 @@ window.QUESTION_BANK = [
   "question": "If \\( (x - 4) \\) is a factor of \\( \\text{f}(x) \\), then \\( \\text{f}(4) \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "is",
-    "0",
-    "factors",
-    "factor"
+    "quadratic",
+    "linear",
+    "a",
+    "0"
    ]
   },
   "key": {
@@ -6145,10 +6145,10 @@ window.QUESTION_BANK = [
   "question": "To find a whole-number factor of a cubic, test the ___B1___ of the constant term.",
   "blankOptions": {
    "B1": [
-    "root",
+    "not",
     "factors",
-    "3/2",
-    "a"
+    "linear",
+    "2"
    ]
   },
   "key": {
@@ -6167,10 +6167,10 @@ window.QUESTION_BANK = [
   "question": "To test whether \\( (2x - 1) \\) is a factor of \\( \\text{f}(x) \\), work out f of ___B1___.",
   "blankOptions": {
    "B1": [
+    "root",
+    "not",
     "1/2",
-    "2",
-    "is",
-    "root"
+    "quadratic"
    ]
   },
   "key": {
@@ -6189,16 +6189,16 @@ window.QUESTION_BANK = [
   "question": "The factor theorem finds ___B1___ factors of a polynomial; the remainder theorem is ___B2___ on this specification.",
   "blankOptions": {
    "B1": [
-    "root",
-    "is",
+    "2",
     "linear",
-    "2"
+    "0",
+    "multiples"
    ],
    "B2": [
-    "2",
-    "not",
-    "root",
-    "multiples"
+    "is",
+    "0",
+    "factors",
+    "not"
    ]
   },
   "key": {
@@ -6218,10 +6218,10 @@ window.QUESTION_BANK = [
   "question": "After factorising, you solve \\( \\text{f}(x) = 0 \\) by setting each ___B1___ equal to zero.",
   "blankOptions": {
    "B1": [
-    "1/2",
+    "2",
+    "linear",
     "not",
-    "factor",
-    "multiples"
+    "factor"
    ]
   },
   "key": {
@@ -6240,10 +6240,10 @@ window.QUESTION_BANK = [
   "question": "For \\( 2x^3 - x^2 - 7x + 6 \\), testing gives \\( \\text{f}(1) = 0 \\), so (x − ___B1___) is a factor.",
   "blankOptions": {
    "B1": [
-    "1",
-    "quadratic",
-    "multiples",
-    "linear"
+    "2",
+    "factor",
+    "linear",
+    "1"
    ]
   },
   "key": {
@@ -7166,9 +7166,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "1",
-    "2n",
+    "substitution",
     "unknown",
-    "accept"
+    "reject"
    ]
   },
   "key": {
@@ -7187,9 +7187,9 @@ window.QUESTION_BANK = [
   "question": "When a quadratic equation for a length gives a negative root, you must ___B1___ it, because a length cannot be negative.",
   "blankOptions": {
    "B1": [
-    "variable",
     "accept",
-    "substitution",
+    "units",
+    "n+2",
     "reject"
    ]
   },
@@ -7209,10 +7209,10 @@ window.QUESTION_BANK = [
   "question": "To solve one linear and one quadratic equation together, use the method of ___B1___.",
   "blankOptions": {
    "B1": [
-    "substitution",
     "units",
-    "n+2",
-    "unknown"
+    "substitution",
+    "elimination",
+    "reject"
    ]
   },
   "key": {
@@ -7231,10 +7231,10 @@ window.QUESTION_BANK = [
   "question": "In the boat problem the two roots were 1 and \\( -16 \\); the current speed must be positive, so the answer is ___B1___ km/h.",
   "blankOptions": {
    "B1": [
-    "variable",
-    "1",
-    "accept",
-    "substitution"
+    "plus",
+    "2n",
+    "reject",
+    "1"
    ]
   },
   "key": {
@@ -7253,10 +7253,10 @@ window.QUESTION_BANK = [
   "question": "A final answer in a real context should always be stated with its ___B1___.",
   "blankOptions": {
    "B1": [
-    "unknown",
+    "n+3",
+    "minus",
     "units",
-    "accept",
-    "substitution"
+    "plus"
    ]
   },
   "key": {
@@ -7275,10 +7275,10 @@ window.QUESTION_BANK = [
   "question": "The phrase \"5 more than a number \\( x \\)\" translates to \\( x \\) ___B1___ 5.",
   "blankOptions": {
    "B1": [
-    "2n",
-    "reject",
     "plus",
-    "elimination"
+    "n+3",
+    "1",
+    "accept"
    ]
   },
   "key": {
@@ -7297,10 +7297,10 @@ window.QUESTION_BANK = [
   "question": "Three consecutive integers can be written as \\( n \\), \\( n+1 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "minus",
-    "units",
-    "16",
-    "n+2"
+    "accept",
+    "n+2",
+    "elimination",
+    "units"
    ]
   },
   "key": {
@@ -8151,10 +8151,10 @@ window.QUESTION_BANK = [
   "question": "A rule that gives each term of a sequence from earlier terms is called a ___B1___ relationship.",
   "blankOptions": {
    "B1": [
-    "multiplied",
-    "1.3",
+    "11",
     "recurrence",
-    "starting"
+    "7",
+    "multiplied"
    ]
   },
   "key": {
@@ -8173,10 +8173,10 @@ window.QUESTION_BANK = [
   "question": "As well as the rule, you need a ___B1___ value before you can generate the sequence.",
   "blankOptions": {
    "B1": [
+    "two",
+    "0.15",
     "starting",
-    "7",
-    "multiplied",
-    "two"
+    "one"
    ]
   },
   "key": {
@@ -8195,10 +8195,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = x_n + a \\) the fixed number \\( a \\) is ___B1___ to each term, giving an arithmetic sequence.",
   "blankOptions": {
    "B1": [
-    "recurrence",
-    "1.3",
     "added",
-    "11"
+    "geometric",
+    "one",
+    "two"
    ]
   },
   "key": {
@@ -8217,10 +8217,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = a x_n \\) each term is ___B1___ by \\( a \\), giving a geometric sequence.",
   "blankOptions": {
    "B1": [
+    "starting",
     "multiplied",
-    "7",
-    "11",
-    "geometric"
+    "two",
+    "divided"
    ]
   },
   "key": {
@@ -8239,10 +8239,10 @@ window.QUESTION_BANK = [
   "question": "A second-order rule such as \\( x_{n+2} = x_{n+1} + x_n \\) needs ___B1___ starting values.",
   "blankOptions": {
    "B1": [
-    "0.15",
+    "geometric",
+    "recurrence",
     "two",
-    "added",
-    "subtracted"
+    "divided"
    ]
   },
   "key": {
@@ -8261,9 +8261,9 @@ window.QUESTION_BANK = [
   "question": "Compound interest of 3% per year gives \\( x_{n+1} = k x_n \\) where the multiplier \\( k \\) is ___B1___.",
   "blankOptions": {
    "B1": [
+    "0.85",
     "7",
-    "starting",
-    "two",
+    "11",
     "1.03"
    ]
   },
@@ -8283,10 +8283,10 @@ window.QUESTION_BANK = [
   "question": "An asset that loses 15% of its value each year has multiplier ___B1___.",
   "blankOptions": {
    "B1": [
+    "multiplied",
     "0.85",
-    "geometric",
-    "starting",
-    "two"
+    "subtracted",
+    "added"
    ]
   },
   "key": {
@@ -8305,16 +8305,16 @@ window.QUESTION_BANK = [
   "question": "For \\( x_{n+1} = x_n + 4 \\) with \\( x_1 = 3 \\), the second term is ___B1___ and the third term is ___B2___.",
   "blankOptions": {
    "B1": [
-    "starting",
-    "divided",
+    "multiplied",
+    "recurrence",
     "7",
-    "geometric"
+    "one"
    ],
    "B2": [
-    "subtracted",
+    "one",
     "11",
-    "two",
-    "one"
+    "1.3",
+    "subtracted"
    ]
   },
   "key": {
@@ -9204,10 +9204,10 @@ window.QUESTION_BANK = [
   "question": "The distance between two points comes from ___B1___ theorem, taking the square root of the sum of the squared gaps.",
   "blankOptions": {
    "B1": [
-    "x",
-    "slope",
-    "Pythagoras",
-    "equal"
+    "1",
+    "-1",
+    "average",
+    "Pythagoras"
    ]
   },
   "key": {
@@ -9226,10 +9226,10 @@ window.QUESTION_BANK = [
   "question": "To find the midpoint you ___B1___ the two \\( x \\)-coordinates and do the same to the \\( y \\)-coordinates.",
   "blankOptions": {
    "B1": [
-    "intercept",
     "average",
     "point-gradient",
-    "-1"
+    "subtracting",
+    "x"
    ]
   },
   "key": {
@@ -9249,9 +9249,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "Pythagoras",
-    "slope",
+    "subtracting",
     "equal",
-    "y"
+    "1"
    ]
   },
   "key": {
@@ -9270,10 +9270,10 @@ window.QUESTION_BANK = [
   "question": "For two perpendicular lines the product of their gradients is ___B1___.",
   "blankOptions": {
    "B1": [
-    "negative reciprocal",
-    "-1",
+    "1",
     "reciprocal",
-    "parallel"
+    "Pythagoras",
+    "-1"
    ]
   },
   "key": {
@@ -9292,16 +9292,16 @@ window.QUESTION_BANK = [
   "question": "The perpendicular bisector of a segment passes through its ___B1___ and has a gradient equal to the ___B2___ of the segment's gradient.",
   "blankOptions": {
    "B1": [
+    "Pythagoras",
     "midpoint",
-    "reciprocal",
     "equal",
-    "y"
+    "x"
    ],
    "B2": [
-    "-1",
     "negative reciprocal",
-    "intercept",
-    "x"
+    "slope",
+    "reciprocal",
+    "-1"
    ]
   },
   "key": {
@@ -9321,16 +9321,16 @@ window.QUESTION_BANK = [
   "question": "In the equation \\( y = mx + c \\), the letter \\( m \\) is the ___B1___ and \\( c \\) is the \\( y \\)-___B2___.",
   "blankOptions": {
    "B1": [
-    "-1",
     "gradient",
-    "y",
-    "x"
+    "average",
+    "point-gradient",
+    "subtracting"
    ],
    "B2": [
-    "reciprocal",
-    "parallel",
     "intercept",
-    "equal"
+    "midpoint",
+    "average",
+    "-1"
    ]
   },
   "key": {
@@ -9350,10 +9350,10 @@ window.QUESTION_BANK = [
   "question": "The gradient of a line is the change in \\( y \\) divided by the change in ___B1___.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
-    "parallel",
+    "subtracting",
+    "1",
     "x",
-    "slope"
+    "y"
    ]
   },
   "key": {
@@ -9372,10 +9372,10 @@ window.QUESTION_BANK = [
   "question": "The form \\( y - y_1 = m(x - x_1) \\) is called the ___B1___ form of a line.",
   "blankOptions": {
    "B1": [
+    "average",
+    "negative reciprocal",
     "point-gradient",
-    "slope",
-    "1",
-    "reciprocal"
+    "parallel"
    ]
   },
   "key": {
@@ -10409,16 +10409,16 @@ window.QUESTION_BANK = [
   "question": "The general equation of a circle with centre \\( (a,\\ b) \\) and radius \\( r \\) is \\( (x-a)^2 + (y-b)^2 = r^2 \\). For \\( (x-3)^2 + (y+2)^2 = 25 \\), the centre is ___B1___ and the radius is ___B2___.",
   "blankOptions": {
    "B1": [
-    "double",
-    "linear",
+    "zero",
+    "half",
     "(3, -2)",
-    "factorise"
+    "(-3, 2)"
    ],
    "B2": [
-    "midpoint",
     "negative reciprocal",
+    "normal",
     "5",
-    "perpendicular"
+    "zero"
    ]
   },
   "key": {
@@ -10438,10 +10438,10 @@ window.QUESTION_BANK = [
   "question": "To find the centre and radius from the expanded form \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\), you complete the ___B1___ in \\( x \\) and in \\( y \\) separately.",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "reciprocal",
-    "(-3, 2)",
-    "square"
+    "zero",
+    "negative",
+    "square",
+    "(-3, 2)"
    ]
   },
   "key": {
@@ -10460,16 +10460,16 @@ window.QUESTION_BANK = [
   "question": "At the point of contact, the radius is ___B1___ to the tangent, so the tangent gradient is the ___B2___ of the radius gradient.",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "negative",
+    "midpoint",
     "25",
+    "double",
     "perpendicular"
    ],
    "B2": [
-    "linear",
-    "gradient",
-    "midpoint",
-    "negative reciprocal"
+    "factorise",
+    "negative reciprocal",
+    "half",
+    "quadratic"
    ]
   },
   "key": {
@@ -10489,10 +10489,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ to a circle at a point always passes through the centre of the circle.",
   "blankOptions": {
    "B1": [
-    "quadratic",
+    "negative",
     "normal",
-    "5",
-    "factorise"
+    "25",
+    "positive"
    ]
   },
   "key": {
@@ -10511,16 +10511,16 @@ window.QUESTION_BANK = [
   "question": "To test where a line meets a circle, ___B1___ the line into the circle equation to obtain a ___B2___ equation.",
   "blankOptions": {
    "B1": [
-    "zero",
-    "square",
-    "factorise",
+    "parallel",
+    "double",
+    "perpendicular",
     "substitute"
    ],
    "B2": [
+    "5",
     "quadratic",
-    "half",
-    "square",
-    "5"
+    "tangent",
+    "square"
    ]
   },
   "key": {
@@ -10540,10 +10540,10 @@ window.QUESTION_BANK = [
   "question": "A line is a tangent to a circle exactly when the discriminant of that quadratic equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "double",
-    "(3, -2)",
+    "negative reciprocal",
     "zero",
-    "5"
+    "reciprocal",
+    "half"
    ]
   },
   "key": {
@@ -10562,10 +10562,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, the line misses the circle completely.",
   "blankOptions": {
    "B1": [
+    "(-3, 2)",
     "negative",
-    "normal",
-    "parallel",
-    "substitute"
+    "half",
+    "linear"
    ]
   },
   "key": {
@@ -10584,16 +10584,16 @@ window.QUESTION_BANK = [
   "question": "Given the two ends of a diameter, the centre is the ___B1___ of the endpoints and the radius is ___B2___ the diameter.",
   "blankOptions": {
    "B1": [
-    "negative reciprocal",
-    "factorise",
-    "substitute",
-    "midpoint"
+    "midpoint",
+    "quadratic",
+    "double",
+    "positive"
    ],
    "B2": [
     "half",
-    "positive",
-    "normal",
-    "5"
+    "perpendicular",
+    "(-3, 2)",
+    "double"
    ]
   },
   "key": {
@@ -11522,15 +11522,15 @@ window.QUESTION_BANK = [
   "question": "A graph drawn with only its main features, not to scale, is called a ___B1___; an accurate one worked out on a grid is a ___B2___.",
   "blankOptions": {
    "B1": [
-    "downwards",
-    "sketch",
-    "draw",
-    "360"
+    "1",
+    "cross",
+    "k",
+    "sketch"
    ],
    "B2": [
-    "draw",
+    "upwards",
     "downwards",
-    "touch",
+    "cross",
     "plot"
    ]
   },
@@ -11551,16 +11551,16 @@ window.QUESTION_BANK = [
   "question": "For the exponential graph \\( y = k a^x \\) with \\( a > 0 \\), the horizontal asymptote is the line \\( y = \\) ___B1___ and the curve crosses the \\( y \\)-axis at the value ___B2___.",
   "blankOptions": {
    "B1": [
-    "plot",
-    "3",
+    "cross",
     "0",
-    "cross"
+    "2",
+    "downwards"
    ],
    "B2": [
-    "upwards",
-    "k",
+    "1",
+    "2",
     "180",
-    "1"
+    "k"
    ]
   },
   "key": {
@@ -11580,16 +11580,16 @@ window.QUESTION_BANK = [
   "question": "A quadratic graph has the shape called a ___B1___; when the \\( x^2 \\) coefficient is positive it opens ___B2___.",
   "blankOptions": {
    "B1": [
-    "180",
-    "sketch",
-    "parabola",
-    "2"
+    "cross",
+    "1",
+    "k",
+    "parabola"
    ],
    "B2": [
     "upwards",
-    "360",
-    "3",
-    "0"
+    "sketch",
+    "2",
+    "plot"
    ]
   },
   "key": {
@@ -11609,16 +11609,16 @@ window.QUESTION_BANK = [
   "question": "The graphs of \\( y = \\sin x \\) and \\( y = \\cos x \\) both repeat every ___B1___ degrees and have amplitude ___B2___.",
   "blankOptions": {
    "B1": [
-    "3",
-    "downwards",
+    "k",
+    "roots",
     "360",
-    "cross"
+    "parabola"
    ],
    "B2": [
-    "touch",
-    "k",
+    "parabola",
     "1",
-    "cross"
+    "upwards",
+    "downwards"
    ]
   },
   "key": {
@@ -11638,16 +11638,16 @@ window.QUESTION_BANK = [
   "question": "To find where a curve meets the \\( x \\)-axis you set \\( y = \\) ___B1___ and solve; these values are the ___B2___ of the function.",
   "blankOptions": {
    "B1": [
-    "2",
-    "downwards",
-    "1",
-    "0"
+    "180",
+    "0",
+    "upwards",
+    "3"
    ],
    "B2": [
-    "3",
-    "downwards",
+    "touch",
     "roots",
-    "1"
+    "draw",
+    "3"
    ]
   },
   "key": {
@@ -11667,16 +11667,16 @@ window.QUESTION_BANK = [
   "question": "The cubic \\( y = (x-1)(x+2)(x-4) \\) has ___B1___ real roots; a repeated factor makes the curve ___B2___ the \\( x \\)-axis instead of crossing it.",
   "blankOptions": {
    "B1": [
-    "0",
     "3",
-    "1",
-    "plot"
+    "180",
+    "downwards",
+    "1"
    ],
    "B2": [
-    "sketch",
-    "downwards",
-    "1",
-    "touch"
+    "draw",
+    "touch",
+    "360",
+    "1"
    ]
   },
   "key": {
@@ -11696,10 +11696,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( y = \\tan x \\) has vertical asymptotes and repeats every ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "sketch",
     "180",
-    "3",
-    "k"
+    "upwards",
+    "touch",
+    "3"
    ]
   },
   "key": {
@@ -12644,16 +12644,16 @@ window.QUESTION_BANK = [
   "question": "For a strict inequality you draw the boundary as a ___B1___ line; for \\( \\le \\) or \\( \\ge \\) you draw a ___B2___ line.",
   "blankOptions": {
    "B1": [
-    "curve",
-    "line",
+    "region",
     "dashed",
-    "want"
+    "wanted",
+    "equals"
    ],
    "B2": [
-    "solid",
     "shade",
-    "clear",
-    "0"
+    "solid",
+    "region",
+    "equals"
    ]
   },
   "key": {
@@ -12673,10 +12673,10 @@ window.QUESTION_BANK = [
   "question": "To decide which side of the line to shade, you substitute a test ___B1___ such as the origin into the inequality.",
   "blankOptions": {
    "B1": [
-    "origin",
-    "point",
     "equals",
-    "line"
+    "point",
+    "line",
+    "shade"
    ]
   },
   "key": {
@@ -12695,16 +12695,16 @@ window.QUESTION_BANK = [
   "question": "In the OCR exam you shade the region that is ___B1___ required, leaving the feasible region ___B2___.",
   "blankOptions": {
    "B1": [
-    "dashed",
-    "line",
     "not",
-    "shade"
+    "curve",
+    "solid",
+    "region"
    ],
    "B2": [
-    "clear",
-    "curve",
-    "region",
-    "feasible"
+    "want",
+    "line",
+    "origin",
+    "clear"
    ]
   },
   "key": {
@@ -12724,10 +12724,10 @@ window.QUESTION_BANK = [
   "question": "You cannot make a negative number of items, so a real-world model also needs \\( x \\) and \\( y \\) each to be at least ___B1___.",
   "blankOptions": {
    "B1": [
-    "point",
-    "shade",
-    "not",
-    "0"
+    "0",
+    "region",
+    "line",
+    "wanted"
    ]
   },
   "key": {
@@ -12746,10 +12746,10 @@ window.QUESTION_BANK = [
   "question": "You find the boundary line of an inequality by replacing the inequality sign with an ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "equals",
-    "shade",
     "line",
-    "not"
+    "curve",
+    "equals",
+    "shade"
    ]
   },
   "key": {
@@ -12768,9 +12768,9 @@ window.QUESTION_BANK = [
   "question": "The single region that satisfies every inequality at once is called the ___B1___ region.",
   "blankOptions": {
    "B1": [
-    "wanted",
-    "want",
-    "curve",
+    "region",
+    "solid",
+    "0",
     "feasible"
    ]
   },
@@ -12790,10 +12790,10 @@ window.QUESTION_BANK = [
   "question": "If substituting the origin makes the inequality true, the origin lies in the region you ___B1___ (so you do NOT shade it).",
   "blankOptions": {
    "B1": [
-    "curve",
-    "shade",
+    "0",
+    "not",
     "want",
-    "dashed"
+    "equals"
    ]
   },
   "key": {
@@ -12812,10 +12812,10 @@ window.QUESTION_BANK = [
   "question": "The boundary drawn for \\( y > 2x \\) should be ___B1___ because the inequality is strict.",
   "blankOptions": {
    "B1": [
-    "dashed",
-    "clear",
     "solid",
-    "not"
+    "curve",
+    "dashed",
+    "clear"
    ]
   },
   "key": {
@@ -13726,10 +13726,10 @@ window.QUESTION_BANK = [
   "question": "When modelling an LP problem you should always ___B1___ your variables first, for example 'let x = number of chairs'.",
   "blankOptions": {
    "B1": [
-    "constraint",
-    "simplify",
     "define",
-    "less than or equal to"
+    "constraint",
+    "8",
+    "equals"
    ]
   },
   "key": {
@@ -13748,10 +13748,10 @@ window.QUESTION_BANK = [
   "question": "A constraint is a limit in the problem written as a linear ___B1___.",
   "blankOptions": {
    "B1": [
-    "objective",
-    "minimised",
     "inequality",
-    "equals"
+    "8",
+    "feasible",
+    "maximised"
    ]
   },
   "key": {
@@ -13770,16 +13770,16 @@ window.QUESTION_BANK = [
   "question": "The phrase 'at least' translates to the ___B1___ sign, while 'no more than' translates to the ___B2___ sign.",
   "blankOptions": {
    "B1": [
-    "simplify",
-    "constraint",
     "greater than or equal to",
-    "minimised"
+    "minimised",
+    "maximised",
+    "non-negativity"
    ],
    "B2": [
-    "inequality",
-    "less than or equal to",
+    "constraint",
     "minimised",
-    "define"
+    "less than or equal to",
+    "60"
    ]
   },
   "key": {
@@ -13799,10 +13799,10 @@ window.QUESTION_BANK = [
   "question": "Because you cannot make a negative quantity, an LP model includes the ___B1___ constraints x is greater than or equal to 0 and y is greater than or equal to 0.",
   "blankOptions": {
    "B1": [
-    "less than or equal to",
-    "define",
-    "draw",
-    "non-negativity"
+    "maximised",
+    "simplify",
+    "non-negativity",
+    "equals"
    ]
   },
   "key": {
@@ -13821,10 +13821,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ function is the quantity, such as profit or cost, that you want to maximise or minimise.",
   "blankOptions": {
    "B1": [
-    "draw",
+    "objective",
+    "equals",
     "simplify",
-    "greater than or equal to",
-    "objective"
+    "less than or equal to"
    ]
   },
   "key": {
@@ -13843,10 +13843,10 @@ window.QUESTION_BANK = [
   "question": "You can ___B1___ a constraint such as 6x + 4y is at most 240 by dividing every term by 2, giving 3x + 2y at most 120.",
   "blankOptions": {
    "B1": [
+    "maximised",
     "8",
-    "simplify",
-    "equals",
-    "minimised"
+    "non-negativity",
+    "simplify"
    ]
   },
   "key": {
@@ -13865,16 +13865,16 @@ window.QUESTION_BANK = [
   "question": "Profit of £28 per train and £60 per aeroplane gives the objective P = 28x + ___B1___ y, which is to be ___B2___.",
   "blankOptions": {
    "B1": [
-    "define",
-    "objective",
-    "less than or equal to",
-    "60"
+    "non-negativity",
+    "60",
+    "minimised",
+    "objective"
    ],
    "B2": [
-    "maximised",
-    "feasible",
-    "constraint",
-    "greater than or equal to"
+    "greater than or equal to",
+    "objective",
+    "minimised",
+    "maximised"
    ]
   },
   "key": {
@@ -13894,10 +13894,10 @@ window.QUESTION_BANK = [
   "question": "Unlike a constraint, an objective function contains no ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "simplify",
-    "inequality",
-    "60",
-    "maximised"
+    "objective",
+    "less than or equal to",
+    "draw",
+    "inequality"
    ]
   },
   "key": {
@@ -14995,16 +14995,16 @@ window.QUESTION_BANK = [
   "question": "In OCR linear programming you shade the region that does ___B1___ satisfy the constraints, so the feasible region is left ___B2___.",
   "blankOptions": {
    "B1": [
+    "increases",
     "integer",
-    "centre",
     "not",
-    "does"
+    "3"
    ],
    "B2": [
-    "objective",
-    "does",
-    "increases",
-    "unshaded"
+    "unshaded",
+    "3.8",
+    "vertex",
+    "less"
    ]
   },
   "key": {
@@ -15024,10 +15024,10 @@ window.QUESTION_BANK = [
   "question": "The optimum value of a linear objective always lies at a ___B1___ of the feasible region, never inside it.",
   "blankOptions": {
    "B1": [
-    "does",
+    "increases",
     "vertex",
-    "shaded",
-    "objective"
+    "edge",
+    "does"
    ]
   },
   "key": {
@@ -15046,16 +15046,16 @@ window.QUESTION_BANK = [
   "question": "To find the optimum you can test each ___B1___ in the objective, or slide the ___B2___ line to its extreme position.",
   "blankOptions": {
    "B1": [
-    "edge",
-    "increases",
+    "not",
+    "2.5",
     "vertex",
-    "does"
+    "whole"
    ],
    "B2": [
+    "decreases",
     "objective",
-    "whole",
-    "integer",
-    "shaded"
+    "greater",
+    "unshaded"
    ]
   },
   "key": {
@@ -15075,16 +15075,16 @@ window.QUESTION_BANK = [
   "question": "The boundary line \\( 2x + y = 5 \\) has \\( y \\)-intercept ___B1___ and \\( x \\)-intercept ___B2___.",
   "blankOptions": {
    "B1": [
-    "does",
-    "5",
+    "3",
+    "increases",
     "vertex",
-    "greater"
+    "5"
    ],
    "B2": [
-    "objective",
-    "2.5",
-    "not",
-    "vertex"
+    "greater",
+    "vertex",
+    "shaded",
+    "2.5"
    ]
   },
   "key": {
@@ -15104,9 +15104,9 @@ window.QUESTION_BANK = [
   "question": "Optima in LP need not be whole numbers; assuming that they must be ___B1___ is a common examiner-reported error.",
   "blankOptions": {
    "B1": [
+    "shaded",
     "3.8",
-    "centre",
-    "objective",
+    "whole",
     "integers"
    ]
   },
@@ -15126,10 +15126,10 @@ window.QUESTION_BANK = [
   "question": "If the context can only take whole items, check the feasible ___B1___ points nearest the optimum vertex.",
   "blankOptions": {
    "B1": [
-    "less",
-    "edge",
+    "does",
     "integer",
-    "constraint"
+    "less",
+    "increases"
    ]
   },
   "key": {
@@ -15148,10 +15148,10 @@ window.QUESTION_BANK = [
   "question": "The words 'no more than' mean the total must be ___B1___ than or equal to the limit.",
   "blankOptions": {
    "B1": [
-    "increases",
     "less",
-    "not",
-    "decreases"
+    "whole",
+    "2.5",
+    "shaded"
    ]
   },
   "key": {
@@ -15170,10 +15170,10 @@ window.QUESTION_BANK = [
   "question": "To maximise an objective, slide the objective line in the direction that ___B1___ its value; to minimise, slide the opposite way.",
   "blankOptions": {
    "B1": [
-    "increases",
-    "edge",
-    "does",
-    "objective"
+    "shaded",
+    "unshaded",
+    "vertex",
+    "increases"
    ]
   },
   "key": {
@@ -16084,16 +16084,16 @@ window.QUESTION_BANK = [
   "question": "On the unit circle the point at angle \\( \\theta \\) is \\( (\\cos\\theta,\\ \\sin\\theta) \\), so \\( \\cos\\theta \\) is the ___B1___ coordinate and \\( \\sin\\theta \\) is the ___B2___ coordinate.",
   "blankOptions": {
    "B1": [
-    "360",
     "-1",
-    "x",
-    "asymptotes"
+    "intercepts",
+    "third",
+    "x"
    ],
    "B2": [
-    "fourth",
+    "intercepts",
     "y",
-    "30",
-    "-1"
+    "first",
+    "2"
    ]
   },
   "key": {
@@ -16113,16 +16113,16 @@ window.QUESTION_BANK = [
   "question": "The period of both \\( \\sin\\theta \\) and \\( \\cos\\theta \\) is ___B1___ degrees, while the period of \\( \\tan\\theta \\) is ___B2___ degrees.",
   "blankOptions": {
    "B1": [
-    "first",
-    "third",
+    "fourth",
     "360",
-    "0"
+    "second",
+    "x"
    ],
    "B2": [
-    "180",
-    "fourth",
-    "1",
-    "second"
+    "0",
+    "first",
+    "-1",
+    "180"
    ]
   },
   "key": {
@@ -16142,16 +16142,16 @@ window.QUESTION_BANK = [
   "question": "The maximum value of \\( \\sin\\theta \\) is ___B1___ and its minimum value is ___B2___.",
   "blankOptions": {
    "B1": [
+    "third",
     "30",
-    "x",
-    "1",
-    "1/2"
+    "second",
+    "1"
    ],
    "B2": [
+    "0",
+    "360",
     "-1",
-    "intercepts",
-    "second",
-    "90"
+    "asymptotes"
    ]
   },
   "key": {
@@ -16171,16 +16171,16 @@ window.QUESTION_BANK = [
   "question": "Using the CAST rule, sine is positive in the ___B1___ quadrant and tangent is positive in the ___B2___ quadrant.",
   "blankOptions": {
    "B1": [
-    "first",
+    "90",
     "second",
-    "intercepts",
-    "0"
+    "30",
+    "-1"
    ],
    "B2": [
-    "180",
     "0",
     "third",
-    "fourth"
+    "fourth",
+    "90"
    ]
   },
   "key": {
@@ -16200,15 +16200,15 @@ window.QUESTION_BANK = [
   "question": "The exact value of \\( \\sin 30^\\circ \\) is ___B1___ and the exact value of \\( \\cos 60^\\circ \\) is ___B2___.",
   "blankOptions": {
    "B1": [
-    "first",
-    "0",
-    "1",
-    "1/2"
+    "1/2",
+    "third",
+    "30",
+    "180"
    ],
    "B2": [
-    "0",
-    "90",
-    "intercepts",
+    "1",
+    "360",
+    "y",
     "1/2"
    ]
   },
@@ -16229,10 +16229,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( \\tan\\theta \\) has vertical ___B1___ at \\( 90^\\circ \\) and \\( 270^\\circ \\).",
   "blankOptions": {
    "B1": [
+    "fourth",
+    "90",
     "asymptotes",
-    "first",
-    "third",
-    "90"
+    "x"
    ]
   },
   "key": {
@@ -16251,10 +16251,10 @@ window.QUESTION_BANK = [
   "question": "Because \\( \\sin(180^\\circ - \\theta) = \\sin\\theta \\), the angle \\( 150^\\circ \\) has the same sine as ___B1___ degrees.",
   "blankOptions": {
    "B1": [
+    "2",
+    "30",
     "0",
-    "third",
-    "asymptotes",
-    "30"
+    "y"
    ]
   },
   "key": {
@@ -16273,10 +16273,10 @@ window.QUESTION_BANK = [
   "question": "The exact value of \\( \\tan 45^\\circ \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "x",
-    "0",
+    "third",
+    "asymptotes",
     "1",
-    "-1"
+    "2"
    ]
   },
   "key": {
@@ -17202,10 +17202,10 @@ window.QUESTION_BANK = [
   "question": "In the sine rule \\( \\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\), each side sits over the sine of the angle ___B1___ to it.",
   "blankOptions": {
    "B1": [
-    "sine",
     "2ab",
-    "cosine",
-    "opposite"
+    "opposite",
+    "SAS",
+    "excluded"
    ]
   },
   "key": {
@@ -17224,15 +17224,15 @@ window.QUESTION_BANK = [
   "question": "You use the ___B1___ rule when you know two sides and the angle between them (SAS), and the ___B2___ rule when you know two angles and a side.",
   "blankOptions": {
    "B1": [
-    "non-included",
-    "adjacent",
     "cosine",
+    "non-included",
+    "provided",
     "opposite"
    ],
    "B2": [
+    "sine",
     "non-included",
     "SAS",
-    "sine",
     "SSS"
    ]
   },
@@ -17253,10 +17253,10 @@ window.QUESTION_BANK = [
   "question": "In the rearranged cosine rule \\( \\cos A = \\frac{b^2 + c^2 - a^2}{2bc} \\), the denominator is ___B1___.",
   "blankOptions": {
    "B1": [
-    "included",
-    "adjacent",
-    "113.2",
-    "2bc"
+    "cosine",
+    "excluded",
+    "2bc",
+    "SAS"
    ]
   },
   "key": {
@@ -17275,10 +17275,10 @@ window.QUESTION_BANK = [
   "question": "The area of a triangle equals \\( \\frac{1}{2}ab\\sin C \\), where C is the ___B1___ angle between sides a and b.",
   "blankOptions": {
    "B1": [
-    "2bc",
+    "included",
+    "cosine",
     "SAS",
-    "non-included",
-    "included"
+    "sine"
    ]
   },
   "key": {
@@ -17297,10 +17297,10 @@ window.QUESTION_BANK = [
   "question": "If the acute angle from the sine rule is 66.8°, the second possible (obtuse) angle is 180° minus 66.8°, which is ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "246.8",
+    "provided",
     "113.2",
-    "opposite",
-    "provided"
+    "included",
+    "SSS"
    ]
   },
   "key": {
@@ -17319,10 +17319,10 @@ window.QUESTION_BANK = [
   "question": "The ambiguous case can occur when you are given two sides and a ___B1___ angle (the SSA situation).",
   "blankOptions": {
    "B1": [
-    "provided",
-    "adjacent",
-    "246.8",
-    "non-included"
+    "non-included",
+    "SAS",
+    "2ab",
+    "cosine"
    ]
   },
   "key": {
@@ -17341,10 +17341,10 @@ window.QUESTION_BANK = [
   "question": "The sine rule, cosine rule and area rule must all be ___B1___ because they are not on the formula sheet.",
   "blankOptions": {
    "B1": [
-    "113.2",
-    "excluded",
+    "cosine",
+    "SSS",
     "memorised",
-    "246.8"
+    "2bc"
    ]
   },
   "key": {
@@ -17363,10 +17363,10 @@ window.QUESTION_BANK = [
   "question": "A triangle in which all three sides are known is an ___B1___ situation, so you use the cosine rule.",
   "blankOptions": {
    "B1": [
-    "SSS",
     "adjacent",
-    "113.2",
-    "246.8"
+    "SSS",
+    "2bc",
+    "memorised"
    ]
   },
   "key": {
@@ -18273,10 +18273,10 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) marks an identity, which is true for ___B1___ value of \\( \\theta \\).",
   "blankOptions": {
    "B1": [
+    "every",
     "angle",
-    "positive",
-    "±",
-    "every"
+    "some",
+    "one"
    ]
   },
   "key": {
@@ -18295,10 +18295,10 @@ window.QUESTION_BANK = [
   "question": "Both trig identities must be ___B1___, because they are not printed on the exam formula sheet.",
   "blankOptions": {
    "B1": [
-    "one",
-    "memorised",
     "negative",
-    "two"
+    "some",
+    "±",
+    "memorised"
    ]
   },
   "key": {
@@ -18317,10 +18317,10 @@ window.QUESTION_BANK = [
   "question": "Finding another ratio needs a square root, which introduces a ___B1___ sign; the quadrant then decides which one to keep.",
   "blankOptions": {
    "B1": [
+    "positive",
     "±",
-    "angle",
-    "memorised",
-    "positive"
+    "exact",
+    "some"
    ]
   },
   "key": {
@@ -18339,10 +18339,10 @@ window.QUESTION_BANK = [
   "question": "In the third quadrant, only \\( \\tan\\theta \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "memorised",
-    "angle",
-    "positive",
-    "one"
+    "two",
+    "one",
+    "ratio",
+    "positive"
    ]
   },
   "key": {
@@ -18361,10 +18361,10 @@ window.QUESTION_BANK = [
   "question": "When a question says 'exact', leave your answer as a surd or fraction, never a ___B1___.",
   "blankOptions": {
    "B1": [
-    "negative",
-    "one",
+    "positive",
+    "exact",
     "decimal",
-    "memorised"
+    "some"
    ]
   },
   "key": {
@@ -18385,8 +18385,8 @@ window.QUESTION_BANK = [
    "B1": [
     "exact",
     "one",
-    "ratio",
-    "memorised"
+    "memorised",
+    "angle"
    ]
   },
   "key": {
@@ -18405,10 +18405,10 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sin^2\\theta \\) you square the ___B1___, not the angle.",
   "blankOptions": {
    "B1": [
-    "ratio",
-    "every",
-    "memorised",
-    "one"
+    "one",
+    "exact",
+    "some",
+    "ratio"
    ]
   },
   "key": {
@@ -19349,10 +19349,10 @@ window.QUESTION_BANK = [
   "question": "The angle the calculator returns from \\( \\sin^{-1} \\), \\( \\cos^{-1} \\) or \\( \\tan^{-1} \\) is called the ___B1___ value.",
   "blankOptions": {
    "B1": [
-    "alpha",
-    "pairs",
-    "principal",
-    "cos^2"
+    "exact",
+    "detailed",
+    "90",
+    "principal"
    ]
   },
   "key": {
@@ -19371,10 +19371,10 @@ window.QUESTION_BANK = [
   "question": "For \\( \\sin\\theta = k \\), if the first solution is \\( \\alpha \\) the second is 180 minus ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "alpha",
     "detailed",
-    "sin^2",
-    "decimal"
+    "90",
+    "alpha",
+    "sin^2"
    ]
   },
   "key": {
@@ -19393,10 +19393,10 @@ window.QUESTION_BANK = [
   "question": "For \\( \\cos\\theta = k \\), the second solution in \\( 0^\\circ \\)–\\( 360^\\circ \\) is ___B1___ minus \\( \\alpha \\).",
   "blankOptions": {
    "B1": [
-    "720",
-    "sin^2",
+    "principal",
     "360",
-    "pairs"
+    "exact",
+    "720"
    ]
   },
   "key": {
@@ -19415,10 +19415,10 @@ window.QUESTION_BANK = [
   "question": "The tangent graph repeats every ___B1___ degrees, so its second solution is \\( \\alpha \\) plus that many degrees.",
   "blankOptions": {
    "B1": [
-    "360",
-    "pairs",
-    "detailed",
-    "180"
+    "decimal",
+    "90",
+    "180",
+    "cos^2"
    ]
   },
   "key": {
@@ -19438,9 +19438,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "sin^2",
-    "pairs",
-    "cos^2",
-    "720"
+    "720",
+    "decimal",
+    "exact"
    ]
   },
   "key": {
@@ -19459,9 +19459,9 @@ window.QUESTION_BANK = [
   "question": "To turn \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) into a quadratic, replace \\( \\cos^2\\theta \\) with 1 minus ___B1___.",
   "blankOptions": {
    "B1": [
-    "360",
-    "alpha",
     "sin^2",
+    "decimal",
+    "90",
     "720"
    ]
   },
@@ -19482,8 +19482,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "exact",
-    "sin^2",
-    "principal",
+    "alpha",
+    "90",
     "detailed"
    ]
   },
@@ -19503,9 +19503,9 @@ window.QUESTION_BANK = [
   "question": "Solutions of \\( \\sin\\theta = k \\) and \\( \\cos\\theta = k \\) come in ___B1___ across a full \\( 360^\\circ \\), so an odd count usually signals a slip.",
   "blankOptions": {
    "B1": [
+    "cos^2",
     "pairs",
-    "sin^2",
-    "90",
+    "decimal",
     "720"
    ]
   },
@@ -20445,16 +20445,16 @@ window.QUESTION_BANK = [
   "question": "In a 3D problem the first step is to identify the correct right-angled ___B1___ lying in one flat ___B2___ (surface).",
   "blankOptions": {
    "B1": [
-    "cosine",
-    "240",
     "triangle",
-    "perpendicular"
-   ],
-   "B2": [
     "clockwise",
     "cosine",
+    "240"
+   ],
+   "B2": [
+    "adjacent",
     "plane",
-    "vertical"
+    "three",
+    "opposite"
    ]
   },
   "key": {
@@ -20474,16 +20474,16 @@ window.QUESTION_BANK = [
   "question": "The angle between a line and a plane is found by dropping a ___B1___ from the line down to the plane; the angle is then measured at the ___B2___ of that perpendicular.",
   "blankOptions": {
    "B1": [
+    "opposite",
+    "slope",
     "three",
-    "perpendicular",
-    "triangle",
-    "clockwise"
+    "perpendicular"
    ],
    "B2": [
-    "three",
-    "triangle",
-    "vertical",
-    "foot"
+    "clockwise",
+    "foot",
+    "slope",
+    "plane"
    ]
   },
   "key": {
@@ -20503,16 +20503,16 @@ window.QUESTION_BANK = [
   "question": "For a path going up a slope, the angle with the horizontal has the vertical height as the ___B1___ side and the horizontal distance as the ___B2___ side.",
   "blankOptions": {
    "B1": [
-    "vertical",
+    "three",
     "opposite",
-    "clockwise",
-    "foot"
+    "plane",
+    "240"
    ],
    "B2": [
-    "vertical",
-    "slope",
-    "plane",
-    "adjacent"
+    "foot",
+    "adjacent",
+    "three",
+    "slope"
    ]
   },
   "key": {
@@ -20532,10 +20532,10 @@ window.QUESTION_BANK = [
   "question": "The steepest line that can be drawn on a sloping face is called the line of greatest ___B1___.",
   "blankOptions": {
    "B1": [
-    "triangle",
+    "240",
+    "sine",
     "slope",
-    "opposite",
-    "foot"
+    "cosine"
    ]
   },
   "key": {
@@ -20554,15 +20554,15 @@ window.QUESTION_BANK = [
   "question": "A bearing is measured ___B1___ from north and is always written with ___B2___ figures.",
   "blankOptions": {
    "B1": [
+    "hypotenuse",
     "slope",
     "clockwise",
-    "foot",
     "240"
    ],
    "B2": [
-    "perpendicular",
-    "vertical",
     "three",
+    "plane",
+    "foot",
     "triangle"
    ]
   },
@@ -20583,10 +20583,10 @@ window.QUESTION_BANK = [
   "question": "If the bearing of B from A is 060 degrees, then the bearing of A from B is ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "slope",
-    "triangle",
-    "vertical",
-    "240"
+    "cosine",
+    "240",
+    "adjacent",
+    "opposite"
    ]
   },
   "key": {
@@ -20605,10 +20605,10 @@ window.QUESTION_BANK = [
   "question": "When a right-angled triangle can be solved with SOH-CAH-TOA, you should not overcomplicate it with the ___B1___ rule.",
   "blankOptions": {
    "B1": [
-    "adjacent",
     "sine",
-    "perpendicular",
-    "plane"
+    "opposite",
+    "foot",
+    "triangle"
    ]
   },
   "key": {
@@ -21555,10 +21555,10 @@ window.QUESTION_BANK = [
   "question": "When you make a sequence of independent choices, the total number of outcomes is found by ___B1___ the number of options at each stage.",
   "blankOptions": {
    "B1": [
-    "dividing",
+    "order",
     "multiplying",
-    "combination",
-    "order"
+    "permutation",
+    "n-r"
    ]
   },
   "key": {
@@ -21577,16 +21577,16 @@ window.QUESTION_BANK = [
   "question": "The product \\( n \\times (n-1) \\times \\dots \\times 2 \\times 1 \\) is called n ___B1___, and by definition \\( 0! \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "permutation",
     "factorial",
     "n+1",
-    "combination"
+    "0",
+    "n-r"
    ],
    "B2": [
     "dividing",
-    "not",
     "1",
-    "multiplying"
+    "n-r",
+    "permutation"
    ]
   },
   "key": {
@@ -21606,15 +21606,15 @@ window.QUESTION_BANK = [
   "question": "In a permutation the ___B1___ of the objects matters, but in a combination it does ___B2___.",
   "blankOptions": {
    "B1": [
-    "n!",
-    "0",
-    "factorial",
-    "order"
+    "1",
+    "order",
+    "dividing",
+    "permutation"
    ],
    "B2": [
-    "multiplying",
     "not",
-    "n-r",
+    "factorial",
+    "1",
     "combination"
    ]
   },
@@ -21635,10 +21635,10 @@ window.QUESTION_BANK = [
   "question": "In the permutation formula \\( {}^nP_r = \\frac{n!}{(n-r)!} \\), the denominator is the factorial of ___B1___.",
   "blankOptions": {
    "B1": [
-    "factorial",
+    "order",
+    "always",
     "n-r",
-    "r!",
-    "combination"
+    "dividing"
    ]
   },
   "key": {
@@ -21657,10 +21657,10 @@ window.QUESTION_BANK = [
   "question": "Compared with \\( {}^nP_r \\), the combination \\( {}^nC_r \\) divides by an extra ___B1___ to cancel the repeated orderings.",
   "blankOptions": {
    "B1": [
+    "combination",
     "r!",
-    "0",
     "n-1",
-    "not"
+    "dividing"
    ]
   },
   "key": {
@@ -21680,9 +21680,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "n-1",
+    "not",
     "n!",
-    "combination",
-    "n-r"
+    "adding"
    ]
   },
   "key": {
@@ -21701,10 +21701,10 @@ window.QUESTION_BANK = [
   "question": "Selecting a team of 4 from a squad of 11, where order does not matter, is counted with a ___B1___.",
   "blankOptions": {
    "B1": [
+    "r!",
+    "order",
     "n-r",
-    "factorial",
-    "combination",
-    "adding"
+    "combination"
    ]
   },
   "key": {
@@ -21723,10 +21723,10 @@ window.QUESTION_BANK = [
   "question": "Awarding gold, silver and bronze to 3 of 8 runners, where order matters, is counted with a ___B1___.",
   "blankOptions": {
    "B1": [
-    "n+1",
-    "order",
     "permutation",
-    "not"
+    "1",
+    "dividing",
+    "order"
    ]
   },
   "key": {
@@ -22653,10 +22653,10 @@ window.QUESTION_BANK = [
   "question": "The expansion of \\( (a+b)^n \\) for a positive integer \\( n \\) has ___B1___ terms.",
   "blankOptions": {
    "B1": [
-    "given",
+    "n-1",
     "4",
     "n+1",
-    "0"
+    "memorised"
    ]
   },
   "key": {
@@ -22675,16 +22675,16 @@ window.QUESTION_BANK = [
   "question": "In the general term \\( {}^nC_r\\, a^{n-r} b^r \\), the power of \\( a \\) is ___B1___ and the power of \\( b \\) is ___B2___.",
   "blankOptions": {
    "B1": [
+    "0",
+    "given",
     "n-r",
-    "Pascal's",
-    "3",
-    "n"
+    "n-1"
    ],
    "B2": [
-    "3",
-    "2n",
     "r",
-    "Pascal's"
+    "memorised",
+    "n",
+    "3"
    ]
   },
   "key": {
@@ -22704,10 +22704,10 @@ window.QUESTION_BANK = [
   "question": "The numbers in ___B1___ triangle give the binomial coefficients.",
   "blankOptions": {
    "B1": [
-    "Pascal's",
     "provided",
-    "1",
-    "n"
+    "Pascal's",
+    "3",
+    "given"
    ]
   },
   "key": {
@@ -22726,10 +22726,10 @@ window.QUESTION_BANK = [
   "question": "The binomial coefficient \\( {}^nC_r \\) and the binomial series are ___B1___ on the exam formula sheet, so you need not memorise them.",
   "blankOptions": {
    "B1": [
-    "given",
     "provided",
     "1",
-    "3"
+    "0",
+    "n+1"
    ]
   },
   "key": {
@@ -22748,10 +22748,10 @@ window.QUESTION_BANK = [
   "question": "A term that is independent of \\( x \\) has \\( x \\) raised to the power ___B1___.",
   "blankOptions": {
    "B1": [
+    "2n",
     "0",
-    "n-r",
-    "4",
-    "1"
+    "memorised",
+    "3"
    ]
   },
   "key": {
@@ -22770,10 +22770,10 @@ window.QUESTION_BANK = [
   "question": "In the expansion of \\( \\left(x + \\frac{1}{x}\\right)^8 \\) the constant term occurs when \\( r \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
+    "n",
     "4",
-    "n-r",
-    "n+1",
-    "Pascal's"
+    "0",
+    "n-r"
    ]
   },
   "key": {
@@ -22792,10 +22792,10 @@ window.QUESTION_BANK = [
   "question": "When expanding \\( (2+3x)^5 \\) the general term \\( {}^5C_r\\, 2^{5-r}(3x)^r \\) means the \\( 3 \\) must be raised to the power ___B1___.",
   "blankOptions": {
    "B1": [
-    "given",
-    "Pascal's",
+    "provided",
+    "n-1",
     "r",
-    "3"
+    "n-r"
    ]
   },
   "key": {
@@ -22814,10 +22814,10 @@ window.QUESTION_BANK = [
   "question": "In every term of \\( (a+b)^n \\) the powers of \\( a \\) and \\( b \\) add up to ___B1___.",
   "blankOptions": {
    "B1": [
+    "n-r",
+    "n+1",
     "4",
-    "given",
-    "n",
-    "provided"
+    "n"
    ]
   },
   "key": {
@@ -23778,16 +23778,16 @@ window.QUESTION_BANK = [
   "question": "A binomial distribution is written \\( X \\sim B(n,\\ p) \\), where \\( n \\) is the number of ___B1___ and \\( p \\) is the probability of ___B2___ on each one.",
   "blankOptions": {
    "B1": [
-    "625/1296",
-    "dependent",
     "trials",
-    "successes"
+    "0.5",
+    "1/6",
+    "625/1296"
    ],
    "B2": [
-    "625/1296",
     "success",
-    "complement",
-    "provided"
+    "625/1296",
+    "n-x",
+    "constant"
    ]
   },
   "key": {
@@ -23807,16 +23807,16 @@ window.QUESTION_BANK = [
   "question": "For a binomial model the trials must be ___B1___ of each other and the probability \\( p \\) must stay ___B2___ throughout.",
   "blankOptions": {
    "B1": [
-    "n-x",
-    "success",
-    "1/6",
-    "independent"
+    "independent",
+    "provided",
+    "x",
+    "failure"
    ],
    "B2": [
-    "constant",
-    "complement",
     "1/6",
-    "n-x"
+    "constant",
+    "0.5",
+    "memorised"
    ]
   },
   "key": {
@@ -23836,10 +23836,10 @@ window.QUESTION_BANK = [
   "question": "The formula \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\) is ___B1___ on the exam formula sheet, so you do not have to memorise it.",
   "blankOptions": {
    "B1": [
-    "provided",
-    "complement",
-    "0.5",
-    "x"
+    "constant",
+    "independent",
+    "671/1296",
+    "provided"
    ]
   },
   "key": {
@@ -23858,10 +23858,10 @@ window.QUESTION_BANK = [
   "question": "In \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\), the power of \\( p \\) is the number of successes \\( x \\), and the power of \\( (1-p) \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "trials",
-    "n-x",
-    "provided",
-    "constant"
+    "failure",
+    "671/1296",
+    "x",
+    "n-x"
    ]
   },
   "key": {
@@ -23880,10 +23880,10 @@ window.QUESTION_BANK = [
   "question": "To find the probability of at least one success you use \\( 1 - P(X=0) \\); this is called using the ___B1___.",
   "blankOptions": {
    "B1": [
+    "671/1296",
+    "dependent",
     "complement",
-    "1/6",
-    "x",
-    "trials"
+    "x"
    ]
   },
   "key": {
@@ -23903,9 +23903,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "successes",
-    "1/6",
-    "n-x",
-    "671/1296"
+    "671/1296",
+    "x",
+    "memorised"
    ]
   },
   "key": {
@@ -23924,10 +23924,10 @@ window.QUESTION_BANK = [
   "question": "For a fair coin the probability of a head on a single toss is \\( p \\) = ___B1___.",
   "blankOptions": {
    "B1": [
-    "0.5",
     "provided",
-    "independent",
-    "671/1296"
+    "0.5",
+    "constant",
+    "successes"
    ]
   },
   "key": {
@@ -23946,10 +23946,10 @@ window.QUESTION_BANK = [
   "question": "Selecting items without replacement is not binomial because the trials are not ___B1___.",
   "blankOptions": {
    "B1": [
+    "625/1296",
     "independent",
-    "successes",
-    "memorised",
-    "success"
+    "dependent",
+    "x"
    ]
   },
   "key": {
@@ -24909,15 +24909,15 @@ window.QUESTION_BANK = [
   "question": "Moving along the branches of a tree diagram you ___B1___ the probabilities; to combine several separate paths you ___B2___ them.",
   "blankOptions": {
    "B1": [
-    "same",
-    "counts",
-    "total",
+    "outside",
+    "centre",
+    "circle",
     "multiply"
    ],
    "B2": [
-    "inside",
-    "rectangle",
+    "change",
     "circle",
+    "centre",
     "add"
    ]
   },
@@ -24938,16 +24938,16 @@ window.QUESTION_BANK = [
   "question": "The people who are in neither set are written ___B1___ the circles but inside the ___B2___.",
   "blankOptions": {
    "B1": [
+    "counts",
+    "union",
     "outside",
-    "centre",
-    "add",
-    "same"
+    "change"
    ],
    "B2": [
-    "circle",
     "rectangle",
-    "multiply",
-    "probabilities"
+    "add",
+    "change",
+    "counts"
    ]
   },
   "key": {
@@ -24967,16 +24967,16 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\cap \\) stands for the ___B1___ (in both), and the symbol \\( \\cup \\) stands for the ___B2___ (in either).",
   "blankOptions": {
    "B1": [
-    "outside",
-    "subtract",
-    "intersection",
-    "inside"
+    "probabilities",
+    "multiply",
+    "change",
+    "intersection"
    ],
    "B2": [
-    "circle",
-    "union",
-    "total",
-    "counts"
+    "outside",
+    "inside",
+    "same",
+    "union"
    ]
   },
   "key": {
@@ -24996,16 +24996,16 @@ window.QUESTION_BANK = [
   "question": "When filling a three-set Venn diagram, start from the ___B1___ where all three sets overlap and work ___B2___.",
   "blankOptions": {
    "B1": [
-    "subtract",
-    "change",
     "centre",
-    "inside"
+    "subtract",
+    "outside",
+    "union"
    ],
    "B2": [
-    "probabilities",
-    "circle",
+    "subtract",
+    "union",
     "outward",
-    "change"
+    "probabilities"
    ]
   },
   "key": {
@@ -25025,16 +25025,16 @@ window.QUESTION_BANK = [
   "question": "With replacement the probabilities on the second set of branches are the ___B1___ as the first; without replacement they ___B2___.",
   "blankOptions": {
    "B1": [
-    "same",
-    "counts",
-    "outside",
-    "rectangle"
+    "rectangle",
+    "inside",
+    "centre",
+    "same"
    ],
    "B2": [
-    "change",
-    "intersection",
-    "union",
-    "total"
+    "total",
+    "outward",
+    "circle",
+    "change"
    ]
   },
   "key": {
@@ -25054,10 +25054,10 @@ window.QUESTION_BANK = [
   "question": "In a two-way table, each row and each column must add up to its ___B1___.",
   "blankOptions": {
    "B1": [
-    "circle",
-    "probabilities",
+    "multiply",
+    "change",
     "total",
-    "multiply"
+    "same"
    ]
   },
   "key": {
@@ -25076,10 +25076,10 @@ window.QUESTION_BANK = [
   "question": "When a Venn question asks 'how many', put ___B1___ (not probabilities) in each region.",
   "blankOptions": {
    "B1": [
-    "subtract",
+    "centre",
     "counts",
-    "total",
-    "multiply"
+    "rectangle",
+    "change"
    ]
   },
   "key": {
@@ -25314,6 +25314,4542 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 2,
    "explain": "“\\( P(\\text{at least one}) \\)” means: \\( 1 - P(\\text{none}) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:mcq:152eaf00",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which function is exponential?",
+  "options": [
+   "\\( y = 7 \\times 2^x \\)",
+   "\\( y = 2x^7 \\)",
+   "\\( y = 7x + 2 \\)",
+   "\\( y = x^2 + 7 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Exponential means the variable is in the exponent: \\( y = 7 \\times 2^x \\). The others are power/linear/quadratic."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:mcq:6d0cc3f3",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Where does \\( y = 5 \\times 2^x \\) cross the \\( y \\)-axis?",
+  "options": [
+   "\\( (0,\\ 5) \\)",
+   "\\( (0,\\ 2) \\)",
+   "\\( (0,\\ 10) \\)",
+   "\\( (0,\\ 0) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "At \\( x = 0 \\), \\( y = 5 \\times 2^0 = 5 \\times 1 = 5 \\), so it crosses at \\( (0,\\ k) = (0,\\ 5) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:mcq:ca372cb4",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the horizontal asymptote of \\( y = 3 \\times 4^x \\)?",
+  "options": [
+   "\\( y = 0 \\)",
+   "\\( y = 3 \\)",
+   "\\( y = 4 \\)",
+   "\\( x = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "For \\( y = k a^x \\) the asymptote is always \\( y = 0 \\) (the \\( x \\)-axis); the curve approaches it but never touches it."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:mcq:3dda6fb2",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which graph is exponential decay?",
+  "options": [
+   "\\( y = 6 \\times 0.5^x \\)",
+   "\\( y = 6 \\times 2^x \\)",
+   "\\( y = 6 \\times 3^x \\)",
+   "\\( y = 6x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Decay needs \\( 0 < a < 1 \\); here \\( a = 0.5 \\), so the curve falls. Bases greater than 1 give growth."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:mcq:f19334d8",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( y = 10 \\times 0.9^x \\), what happens as \\( x \\) gets large?",
+  "options": [
+   "\\( y \\) falls towards \\( 0 \\) but never reaches it",
+   "\\( y \\) becomes negative",
+   "\\( y \\) reaches \\( 0 \\) and stops",
+   "\\( y \\) rises to infinity"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "With \\( 0 < a < 1 \\) the curve decays towards the asymptote \\( y = 0 \\); it stays positive and never reaches or crosses zero."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:mcq:1b8c38e2",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In \\( y = k a^x \\), which constant controls whether the curve grows or decays?",
+  "options": [
+   "\\( a \\)",
+   "\\( k \\)",
+   "\\( x \\)",
+   "Both equally"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The base \\( a \\) sets direction/rate (\\( a>1 \\) grows, \\( 0<a<1 \\) decays). \\( k \\) only fixes the vertical scale."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:mcq:6299c0c6",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A savings account of £800 earns 5% interest per year. Which model gives its value after \\( t \\) years?",
+  "options": [
+   "\\( y = 800 \\times 1.05^t \\)",
+   "\\( y = 800 \\times 0.05^t \\)",
+   "\\( y = 800 \\times 5^t \\)",
+   "\\( y = 800 + 0.05t \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A 5% rise means multiplying by \\( 1 + 0.05 = 1.05 \\) each year: \\( y = 800 \\times 1.05^t \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:mcq:8dab54ae",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A machine worth £4000 loses 15% of its value each year. What is the base \\( a \\)?",
+  "options": [
+   "\\( 0.85 \\)",
+   "\\( 1.15 \\)",
+   "\\( 0.15 \\)",
+   "\\( 15 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Losing 15% means keeping 85%, so \\( a = 1 - 0.15 = 0.85 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:mcq:01ba3eb3",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which statement about \\( y = k a^x \\) (with \\( k > 0 \\)) is true?",
+  "options": [
+   "It is always positive",
+   "It can be negative for large \\( x \\)",
+   "It equals \\( 0 \\) at \\( x = 0 \\)",
+   "It crosses the \\( x \\)-axis once"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( a^x \\) is always positive and \\( k > 0 \\), so \\( y \\) stays positive; the curve never reaches the \\( x \\)-axis."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:mcq:7aa435b5",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The curves \\( y = 3 \\times 2^x \\) and \\( y = 3 \\times 5^x \\) share which feature?",
+  "options": [
+   "The same \\( y \\)-intercept \\( (0,\\ 3) \\)",
+   "The same rate of growth",
+   "The same asymptote \\( y = 3 \\)",
+   "They are identical"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Both have \\( k = 3 \\), so both cross at \\( (0,\\ 3) \\); but \\( a = 5 \\) grows faster than \\( a = 2 \\). The asymptote is \\( y = 0 \\) for both."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:mcq:c896e306",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student says the value of \\( y = 2 \\times 3^x \\) doubles when \\( x \\) doubles. Why is that wrong?",
+  "options": [
+   "Exponentials multiply by \\( a \\) per unit step, not in proportion to \\( x \\)",
+   "It is correct",
+   "Because \\( a = 3 \\) is odd",
+   "Because \\( k = 2 \\) is even"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Exponential values are multiplied by the base for each \\( +1 \\) in \\( x \\); they are not proportional to \\( x \\) as a linear function would be."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:mcq:4830dbb9",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "If \\( a = 1 \\) in \\( y = k a^x \\), the graph is:",
+  "options": [
+   "A horizontal line \\( y = k \\)",
+   "An increasing curve",
+   "A decreasing curve",
+   "A line through the origin"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 1^x = 1 \\) for every \\( x \\), so \\( y = k \\times 1 = k \\): a flat horizontal line, neither growth nor decay."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:tf:3f0066d1",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The graph of \\( y = k a^x \\) (with \\( k > 0 \\)) never crosses the \\( x \\)-axis.",
+  "key": {
+   "answer": true,
+   "explain": "\\( a^x \\) is always positive and \\( k > 0 \\), so \\( y > 0 \\) for every \\( x \\); \\( y = 0 \\) is an asymptote the curve only approaches."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:tf:81b7e2ed",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The curve \\( y = 4 \\times 2^x \\) passes through the origin \\( (0,\\ 0) \\).",
+  "key": {
+   "answer": false,
+   "explain": "At \\( x = 0 \\), \\( y = 4 \\times 2^0 = 4 \\); the curve passes through \\( (0,\\ 4) \\), never the origin."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:tf:91a5e7e8",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( y = 6 \\times 0.5^x \\) is an example of exponential decay.",
+  "key": {
+   "answer": true,
+   "explain": "The base \\( a = 0.5 \\) satisfies \\( 0 < a < 1 \\), so the curve falls — exponential decay."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:tf:bea2997d",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In \\( y = k a^x \\), the constant \\( k \\) decides whether the graph grows or decays.",
+  "key": {
+   "answer": false,
+   "explain": "The base \\( a \\) decides growth vs decay; \\( k \\) only sets the vertical scale and the \\( y \\)-intercept."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:tf:97e22704",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A quantity that rises 7% per year is modelled with base \\( a = 1.07 \\).",
+  "key": {
+   "answer": true,
+   "explain": "A 7% rise means multiplying by \\( 1 + 0.07 = 1.07 \\) each year."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:tf:142245bd",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The horizontal asymptote of every \\( y = k a^x \\) graph is \\( y = k \\).",
+  "key": {
+   "answer": false,
+   "explain": "The asymptote is \\( y = 0 \\), the \\( x \\)-axis. \\( k \\) is where the curve meets the \\( y \\)-axis, not the asymptote."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:tf:b337cbbe",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If \\( a = 1 \\), the graph of \\( y = k a^x \\) is a horizontal line.",
+  "key": {
+   "answer": true,
+   "explain": "\\( 1^x = 1 \\) for all \\( x \\), so \\( y = k \\) — a constant horizontal line, neither growth nor decay."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:tf:f87bcb25",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "An exponential growth curve will always stay below a straight line that starts steeper.",
+  "key": {
+   "answer": false,
+   "explain": "Exponential growth multiplies each step, so it eventually overtakes any straight line, however steep it starts."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:learn:70857e5d",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is an exponential function?",
+  "reading": "<p>An <strong>exponential function</strong> has the form \\[ y = k a^x, \\] where \\( a > 0 \\) is the <strong>base</strong> and \\( k \\) is a fixed multiplier. The key feature is that the <strong>variable \\( x \\) is in the exponent (the power)</strong> — not in the base.</p>\n            <ul>\n              <li>This is the opposite of a <strong>power function</strong> such as \\( y = x^3 \\), where the variable is in the base and the power is fixed. Do not confuse the two.</li>\n              <li>The base \\( a \\) is a fixed positive number (e.g. \\( 2 \\), \\( 10 \\), \\( 0.5 \\), \\( 1.05 \\)). We keep \\( a > 0 \\) so that \\( a^x \\) is defined for every value of \\( x \\).</li>\n              <li>When \\( k > 0 \\), the value of \\( y \\) is <strong>always positive</strong>, because a positive number raised to any power stays positive.</li>\n              <li>Each time \\( x \\) increases by \\( 1 \\), \\( y \\) is <strong>multiplied by \\( a \\)</strong> — this constant multiplying factor is what makes growth or decay \"exponential\".</li>\n            </ul>\n            <p>For example, in \\( y = 3 \\times 2^x \\) the base is \\( a = 2 \\) and \\( k = 3 \\): every step of \\( +1 \\) in \\( x \\) doubles \\( y \\) (\\( 3, 6, 12, 24, \\dots \\)).</p>",
+  "question": "Which of these is an exponential function?",
+  "options": [
+   "\\( y = 5 \\times 3^x \\)",
+   "\\( y = x^3 \\)",
+   "\\( y = 3x + 5 \\)",
+   "\\( y = x^2 + 3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "An exponential function has the variable in the exponent: \\( y = 5 \\times 3^x \\). \\( y = x^3 \\) is a power function (variable in the base)."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:learn:fd7f0fcc",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What does the graph of y = k aˣ look like?",
+  "reading": "<p>The shape of \\( y = k a^x \\) (with \\( k > 0 \\)) is controlled by the base \\( a \\):</p>\n            <ul>\n              <li>If \\( a > 1 \\) the graph shows exponential <strong>growth</strong> — it rises, getting ever steeper to the right.</li>\n              <li>If \\( 0 < a < 1 \\) the graph shows exponential <strong>decay</strong> — it falls, flattening off towards the right.</li>\n              <li><strong>Every</strong> such curve passes through the \\( y \\)-axis at \\( (0,\\ k) \\), because \\( y = k a^0 = k \\times 1 = k \\).</li>\n              <li>The \\( x \\)-axis, \\( y = 0 \\), is a <strong>horizontal asymptote</strong>: the curve gets closer and closer to it but never touches or crosses it.</li>\n            </ul>\n            <p><strong>A growth curve</strong> (\\( a > 1 \\)), e.g. \\( y = 2 \\times 1.6^x \\): near the asymptote on the left, then rising steeply.</p>\n            <svg viewBox=\"0 0 300 190\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Exponential growth curve: near the horizontal asymptote y = 0 on the left, crossing the y-axis at 0, k, then rising steeply to the right\">\n              <line x1=\"30\" y1=\"160\" x2=\"285\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"60\" y1=\"18\" x2=\"60\" y2=\"178\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"285,160 276,156 276,164\" fill=\"currentColor\"/>\n              <polygon points=\"60,18 56,27 64,27\" fill=\"currentColor\"/>\n              <polyline points=\"30,150 45,146 60,140 75,132 90,121 105,106 120,86 133,64 144,40 152,20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <circle cx=\"60\" cy=\"140\" r=\"3.5\" fill=\"currentColor\"/>\n              <g font-size=\"12\" fill=\"currentColor\">\n                <text x=\"66\" y=\"137\">(0, k)</text><text x=\"150\" y=\"155\">asymptote y = 0</text>\n                <text x=\"278\" y=\"153\" text-anchor=\"end\">x</text>\n              </g>\n            </svg>",
+  "question": "For \\( y = 4 \\times 3^x \\), where does the curve cross the \\( y \\)-axis?",
+  "options": [
+   "\\( (0,\\ 4) \\)",
+   "\\( (0,\\ 3) \\)",
+   "\\( (0,\\ 0) \\)",
+   "\\( (0,\\ 12) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "At \\( x = 0 \\), \\( y = 4 \\times 3^0 = 4 \\times 1 = 4 \\), so the curve crosses at \\( (0,\\ k) = (0,\\ 4) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:learn:3a60d9cc",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do k and a change the graph?",
+  "reading": "<p>The two constants play different roles — knowing which is which is a common exam decider.</p>\n            <table class=\"worked\">\n              <tr><td><strong>\\( k \\) — the vertical scale.</strong> It stretches the curve up or down and fixes the \\( y \\)-intercept at \\( (0,\\ k) \\). Bigger \\( k \\) means a higher starting value.</td></tr>\n              <tr><td><strong>\\( a \\) — the rate and direction.</strong> \\( a > 1 \\) gives growth (the larger \\( a \\), the steeper); \\( 0 < a < 1 \\) gives decay (the smaller \\( a \\), the faster the fall).</td></tr>\n              <tr><td><strong>\\( a = 1 \\) — the special case.</strong> Then \\( a^x = 1^x = 1 \\) for every \\( x \\), so \\( y = k \\) is a flat horizontal line, not a growth or decay curve.</td></tr>\n            </table>\n            <p>So \\( y = 2 \\times 3^x \\) and \\( y = 10 \\times 3^x \\) have the <strong>same rate</strong> (both triple each step) but different starting heights; \\( y = 5 \\times 2^x \\) and \\( y = 5 \\times 4^x \\) share the same \\( y \\)-intercept \\( (0,\\ 5) \\) but the second grows much faster.</p>",
+  "question": "In \\( y = k a^x \\), which constant decides whether the graph grows or decays?",
+  "options": [
+   "\\( a \\) (the base)",
+   "\\( k \\) (the multiplier)",
+   "\\( x \\) (the exponent)",
+   "Neither — it always grows"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The base \\( a \\) sets direction and rate: \\( a>1 \\) grows, \\( 0<a<1 \\) decays. \\( k \\) only fixes the vertical scale / \\( y \\)-intercept."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:learn:3dc3cfbf",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Why is y = 0 an asymptote, and why is the curve always positive?",
+  "reading": "<p>For any base \\( a > 0 \\), the power \\( a^x \\) is <strong>always positive</strong> — it can be very small but never zero or negative. Multiplying by \\( k > 0 \\) keeps \\( y \\) positive too, so:</p>\n            <ul>\n              <li>The curve stays <strong>entirely above</strong> the \\( x \\)-axis. It <strong>never touches or crosses</strong> \\( y = 0 \\).</li>\n              <li>As the curve heads towards the \"flat\" end, it gets arbitrarily close to \\( y = 0 \\) without ever reaching it — that line is the <strong>horizontal asymptote</strong>.</li>\n              <li>For decay (\\( 0 < a < 1 \\)) the flat end is on the <strong>right</strong>; for growth (\\( a > 1 \\)) it is on the <strong>left</strong>.</li>\n            </ul>\n            <p><strong>A decay curve</strong> (\\( 0 < a < 1 \\)), e.g. \\( y = 8 \\times 0.5^x \\): starts high at \\( (0,\\ k) \\) and falls towards the asymptote \\( y = 0 \\).</p>\n            <svg viewBox=\"0 0 300 190\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Exponential decay curve: starting at 0, k on the y-axis and falling towards the horizontal asymptote y = 0 on the right\">\n              <line x1=\"30\" y1=\"160\" x2=\"285\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"60\" y1=\"18\" x2=\"60\" y2=\"178\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"285,160 276,156 276,164\" fill=\"currentColor\"/>\n              <polygon points=\"60,18 56,27 64,27\" fill=\"currentColor\"/>\n              <line x1=\"60\" y1=\"160\" x2=\"285\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-dasharray=\"5 4\" stroke-opacity=\"0.7\"/>\n              <polyline points=\"60,30 85,66 110,94 135,113 160,126 185,136 210,143 232,148 258,152 282,155\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <circle cx=\"60\" cy=\"30\" r=\"3.5\" fill=\"currentColor\"/>\n              <g font-size=\"12\" fill=\"currentColor\">\n                <text x=\"66\" y=\"28\">(0, k)</text><text x=\"150\" y=\"153\">asymptote y = 0</text>\n                <text x=\"278\" y=\"153\" text-anchor=\"end\">x</text>\n              </g>\n            </svg>",
+  "question": "Can the graph of \\( y = 6 \\times 0.7^x \\) ever equal \\( 0 \\)?",
+  "options": [
+   "No — it approaches \\( y = 0 \\) but never reaches it",
+   "Yes, when \\( x = 0 \\)",
+   "Yes, for large \\( x \\)",
+   "Yes, when \\( x \\) is negative"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 0.7^x \\) is always positive, so \\( 6 \\times 0.7^x > 0 \\) for every \\( x \\); \\( y = 0 \\) is an asymptote the curve never reaches."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:learn:5dd80be3",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How does exponential growth compare with linear growth?",
+  "reading": "<p>A <strong>linear</strong> function such as \\( y = mx + c \\) <strong>adds</strong> a fixed amount each step. An <strong>exponential</strong> function <strong>multiplies</strong> by a fixed factor each step. That difference is huge over time.</p>\n            <ul>\n              <li>Adding \\( 10 \\) each year: \\( 10, 20, 30, 40, \\dots \\) — a straight line.</li>\n              <li>Multiplying by \\( 2 \\) each year: \\( 10, 20, 40, 80, \\dots \\) — an exponential curve that quickly leaves the line far behind.</li>\n              <li>An exponential growth curve will <strong>eventually overtake any straight line or polynomial</strong>, no matter how steep the line starts.</li>\n            </ul>\n            <p>The picture shows a line and an exponential curve: the curve starts lower, then crosses and races above the line.</p>\n            <svg viewBox=\"0 0 300 180\" width=\"100%\" style=\"max-width:340px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"A straight line and an exponential curve on the same axes: the exponential starts lower, then crosses the line and rises far above it\">\n              <line x1=\"40\" y1=\"155\" x2=\"285\" y2=\"155\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"40\" y1=\"15\" x2=\"40\" y2=\"170\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"285,155 276,151 276,159\" fill=\"currentColor\"/>\n              <polygon points=\"40,15 36,24 44,24\" fill=\"currentColor\"/>\n              <polyline points=\"40,140 285,55\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"6 4\"/>\n              <polyline points=\"40,150 80,146 120,138 150,127 180,108 210,78 235,45 255,22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <g font-size=\"12\" fill=\"currentColor\">\n                <text x=\"200\" y=\"72\">linear</text><text x=\"150\" y=\"70\" text-anchor=\"end\">exponential</text>\n                <text x=\"278\" y=\"148\" text-anchor=\"end\">x</text>\n              </g>\n            </svg>",
+  "question": "What is the key difference between linear and exponential growth?",
+  "options": [
+   "Linear adds a fixed amount each step; exponential multiplies by a fixed factor",
+   "They are the same over long times",
+   "Linear always overtakes exponential",
+   "Exponential adds a fixed amount each step"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Linear growth adds a constant; exponential growth multiplies by a constant factor, so it eventually overtakes any line."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:learn:4ea66cdb",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do exponential models describe real situations?",
+  "reading": "<p>Anything that changes by a <strong>fixed percentage each period</strong> is modelled by \\( y = k a^x \\), where \\( k \\) is the starting amount and \\( a \\) is the multiplier per period:</p>\n            <ul>\n              <li><strong>Growth</strong> (percentage rise \\( r \\)): \\( a = 1 + r \\). Population up 3% a year → \\( a = 1.03 \\); compound interest at 5% → \\( a = 1.05 \\).</li>\n              <li><strong>Decay</strong> (percentage fall \\( r \\)): \\( a = 1 - r \\). Depreciation of 18% a year → \\( a = 0.82 \\); cooling and radioactive decay behave the same way.</li>\n              <li><strong>Compound interest</strong> is the classic case: a principal \\( P \\) at rate \\( r \\) per year gives \\( y = P(1 + r)^t \\) after \\( t \\) years.</li>\n            </ul>\n            <p><strong>Worked example — a car costing £15 000 loses 18% of its value each year.</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Starting value \\( k = 15000 \\); it keeps \\( 100\\% - 18\\% = 82\\% \\) each year, so \\( a = 0.82 \\).</td></tr>\n              <tr><td>2. Model: \\( y = 15000 \\times 0.82^{\\,t} \\), where \\( t \\) is the number of years.</td></tr>\n              <tr><td>3. After 3 years: \\( y = 15000 \\times 0.82^3 = 15000 \\times 0.5514 \\approx £8271 \\).</td></tr>\n            </table>\n            <p>Because \\( 0 < a < 1 \\), this is a decay curve: it starts at \\( (0,\\ 15000) \\) and falls towards the asymptote \\( y = 0 \\) (the car's value approaches, but never quite reaches, £0).</p>",
+  "question": "A population grows 4% each year from 2000. Which model fits?",
+  "options": [
+   "\\( y = 2000 \\times 1.04^x \\)",
+   "\\( y = 2000 \\times 0.04^x \\)",
+   "\\( y = 2000 \\times 0.96^x \\)",
+   "\\( y = 2000 + 0.04x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A 4% rise means keeping 104% each year, so \\( a = 1 + 0.04 = 1.04 \\): \\( y = 2000 \\times 1.04^x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:misc:50a6656d",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The graph of \\( y = k a^x \\) eventually touches or crosses the \\( x \\)-axis.</p><p><strong>✅ The correct idea:</strong> It never does. Because \\( a^x > 0 \\) for every \\( x \\) and \\( k > 0 \\), the curve stays above the axis and only approaches \\( y = 0 \\). A strong answer names \\( y = 0 \\) as a horizontal asymptote, not a crossing point.</p>",
+  "question": "Does \\( y = 3 \\times 0.6^x \\) ever reach \\( y = 0 \\)?",
+  "options": [
+   "No — \\( y = 0 \\) is an asymptote it only approaches",
+   "Yes, for large \\( x \\)",
+   "Yes, at \\( x = 0 \\)",
+   "Yes, once"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The value stays positive for all \\( x \\); the curve approaches but never touches \\( y = 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:misc:d0fc742c",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> In \\( y = 200 \\times 1.05^x \\), the growth rate is 200.</p><p><strong>✅ The correct idea:</strong> This confuses \\( k \\) (the start value) with \\( a \\) (the factor). Here \\( k = 200 \\) is the starting amount and \\( a = 1.05 \\) is the growth factor — a 5% rise per step. A strong answer keeps the two roles separate.</p>",
+  "question": "In \\( y = 200 \\times 1.05^x \\), what does the 1.05 represent?",
+  "options": [
+   "The growth factor (a 5% rise each step)",
+   "The starting value",
+   "The number of years",
+   "The asymptote"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( a = 1.05 \\) multiplies \\( y \\) by 5% growth each step; \\( k = 200 \\) is the start value."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:misc:1b99c40c",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( y = 0.7^x \\) is exponential growth because the exponent \\( x \\) increases.</p><p><strong>✅ The correct idea:</strong> Direction comes from the base, not the exponent. With \\( 0 < a < 1 \\) (here \\( a = 0.7 \\)), each step multiplies by less than 1, so the curve falls — this is decay.</p>",
+  "question": "Is \\( y = 0.7^x \\) growth or decay?",
+  "options": [
+   "Decay, because \\( 0 < a < 1 \\)",
+   "Growth, because \\( x \\) increases",
+   "Neither",
+   "Growth, because it is positive"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A base between 0 and 1 gives exponential decay."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:misc:62090b29",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> In \\( y = 3^x \\), doubling \\( x \\) doubles \\( y \\).</p><p><strong>✅ The correct idea:</strong> That is linear thinking. Exponentials multiply by the base for each \\( +1 \\) step, so \\( y \\) is not proportional to \\( x \\): e.g. \\( 3^1 = 3 \\) but \\( 3^2 = 9 \\), which is triple, not double. A strong answer uses the multiply-per-step rule.</p>",
+  "question": "For \\( y = 3^x \\), going from \\( x = 1 \\) to \\( x = 2 \\) multiplies \\( y \\) by:",
+  "options": [
+   "3",
+   "2",
+   "6",
+   "9"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Each step of \\( +1 \\) in \\( x \\) multiplies \\( y \\) by the base \\( a = 3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:misc:e9f080d3",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The curve \\( y = 4 \\times 2^x \\) passes through the origin.</p><p><strong>✅ The correct idea:</strong> No exponential of this form passes through the origin. At \\( x = 0 \\), \\( y = 4 \\times 2^0 = 4 \\), so it cuts the \\( y \\)-axis at \\( (0,\\ 4) \\). A strong answer computes the \\( y \\)-intercept as \\( (0,\\ k) \\).</p>",
+  "question": "Where does \\( y = 4 \\times 2^x \\) meet the \\( y \\)-axis?",
+  "options": [
+   "\\( (0,\\ 4) \\)",
+   "\\( (0,\\ 0) \\)",
+   "\\( (0,\\ 2) \\)",
+   "\\( (0,\\ 8) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "At \\( x = 0 \\), \\( y = 4 \\times 1 = 4 \\): the intercept is \\( (0,\\ k) = (0,\\ 4) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:tips:c98b401e",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Reading the features off a graph",
+  "reading": "<p>Given \\( y = k a^x \\), state its features in a fixed order: <strong>\\( y \\)-intercept \\( (0,\\ k) \\)</strong>, then the <strong>asymptote \\( y = 0 \\)</strong>, then whether it is <strong>growth (\\( a>1 \\)) or decay (\\( 0<a<1 \\))</strong>.</p><p>A full-mark description of \\( y = 3 \\times 2^x \\): \"passes through \\( (0,\\ 3) \\), rises (growth, \\( a>1 \\)), with the \\( x \\)-axis \\( y = 0 \\) as a horizontal asymptote.\" Naming all three features is what earns the marks.</p>",
+  "question": "Which three features best describe \\( y = k a^x \\)?",
+  "options": [
+   "\\( y \\)-intercept, asymptote, growth/decay",
+   "Gradient, midpoint, roots",
+   "Turning point, roots, axis of symmetry",
+   "Period, amplitude, phase"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "For an exponential curve, describe the intercept \\( (0,k) \\), the asymptote \\( y=0 \\), and whether it grows or decays."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:tips:8fdee0b2",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Growth vs decay at a glance",
+  "reading": "<p>Do not be misled by the numbers around the base. The <strong>only</strong> test is the value of \\( a \\): \\( a > 1 \\) means growth, \\( 0 < a < 1 \\) means decay. So \\( y = 100 \\times 0.95^x \\) is decay (falls slowly) and \\( y = 0.2 \\times 3^x \\) is growth (a small start but rising fast).</p>",
+  "question": "Is \\( y = 100 \\times 0.95^x \\) growth or decay?",
+  "options": [
+   "Decay (\\( a = 0.95 < 1 \\))",
+   "Growth (starts at 100)",
+   "Constant",
+   "Cannot tell"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The base \\( 0.95 \\) is between 0 and 1, so it decays — the large \\( k \\) does not change that."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:tips:c24dc970",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Turning a percentage into a base",
+  "reading": "<p>To model a fixed percentage change, convert it to the base \\( a \\): a <strong>rise</strong> of \\( r\\% \\) gives \\( a = 1 + \\tfrac{r}{100} \\); a <strong>fall</strong> of \\( r\\% \\) gives \\( a = 1 - \\tfrac{r}{100} \\). Then \\( y = k a^x \\) with \\( k \\) the starting amount.</p><p>Growth of 3% → \\( a = 1.03 \\); depreciation of 12% → \\( a = 0.88 \\). Writing the base correctly is usually the first mark.</p>",
+  "question": "A quantity falls 12% per year. Its base \\( a \\) is:",
+  "options": [
+   "0.88",
+   "1.12",
+   "0.12",
+   "12"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A 12% fall keeps 88%, so \\( a = 1 - 0.12 = 0.88 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:fib:b93e2c47",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "In the exponential function \\( y = k a^x \\), the number \\( a \\) is called the ___B1___, and the value of \\( y \\) when \\( x = 0 \\) is the ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "base",
+    "gradient",
+    "0.96",
+    "negative"
+   ],
+   "B2": [
+    "constant",
+    "touches",
+    "y-intercept",
+    "positive"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "base",
+    "B2": "y-intercept"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:fib:ddd7b10f",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "When \\( a > 1 \\) the graph shows exponential ___B1___; when \\( 0 < a < 1 \\) it shows exponential ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "growth",
+    "touches",
+    "below",
+    "1.04"
+   ],
+   "B2": [
+    "a",
+    "0",
+    "y-intercept",
+    "decay"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "growth",
+    "B2": "decay"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:fib:2ed601d8",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The horizontal asymptote of \\( y = k a^x \\) is the line where \\( y \\) equals ___B1___, which the curve approaches but never ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "crosses",
+    "a",
+    "decay",
+    "0"
+   ],
+   "B2": [
+    "rate",
+    "positive",
+    "touches",
+    "constant"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "0",
+    "B2": "touches"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:fib:48b2cdaf",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Since \\( a^x \\) is always positive and \\( k > 0 \\), the value of \\( y \\) is always ___B1___, so the curve stays ___B2___ the \\( x \\)-axis.",
+  "blankOptions": {
+   "B1": [
+    "a",
+    "positive",
+    "base",
+    "1.04"
+   ],
+   "B2": [
+    "a",
+    "linear",
+    "above",
+    "below"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "positive",
+    "B2": "above"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:fib:7b17d2a9",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The graph of \\( y = k a^x \\) always crosses the \\( y \\)-axis at the point whose \\( y \\)-coordinate equals ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "k",
+    "0.96",
+    "a",
+    "positive"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "k"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:fib:bd44d385",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A savings account of £500 growing at 4% each year is modelled by \\( y = 500 \\times a^x \\), where \\( a \\) equals ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "1.04",
+    "positive",
+    "gradient",
+    "linear"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "1.04"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:fib:b31d7a87",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "If \\( a = 1 \\) then \\( a^x = 1 \\) for every \\( x \\), so the graph is a ___B1___ horizontal line.",
+  "blankOptions": {
+   "B1": [
+    "decay",
+    "constant",
+    "touches",
+    "linear"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "constant"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:81b8c9ad",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = 5 \\times 2^x \\)”?",
+  "options": [
+   "Exponential decay",
+   "Base \\( a = 0.8 \\)",
+   "Growth or decay factor per step",
+   "Growth; \\( y \\)-intercept \\( (0,\\ 5) \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( y = 5 \\times 2^x \\)” means: Growth; \\( y \\)-intercept \\( (0,\\ 5) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:705ab5d9",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = 5 \\times 0.5^x \\)”?",
+  "options": [
+   "Growth; \\( y \\)-intercept \\( (0,\\ 5) \\)",
+   "Vertical scale and starting value",
+   "Decay; \\( y \\)-intercept \\( (0,\\ 5) \\)",
+   "\\( y = 0 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( y = 5 \\times 0.5^x \\)” means: Decay; \\( y \\)-intercept \\( (0,\\ 5) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:8f6de877",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = 3^x \\)”?",
+  "options": [
+   "Decay; \\( y \\)-intercept \\( (0,\\ 5) \\)",
+   "Exponential decay",
+   "Growth; \\( y \\)-intercept \\( (0,\\ 1) \\)",
+   "Exponential growth"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( y = 3^x \\)” means: Growth; \\( y \\)-intercept \\( (0,\\ 1) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:c0b6ecd5",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = 100 \\times 0.9^x \\)”?",
+  "options": [
+   "Base \\( a = 0.8 \\)",
+   "Vertical scale and starting value",
+   "Growth or decay factor per step",
+   "Decay; \\( y \\)-intercept \\( (0,\\ 100) \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( y = 100 \\times 0.9^x \\)” means: Decay; \\( y \\)-intercept \\( (0,\\ 100) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:57ab710f",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Base \\( a > 1 \\)”?",
+  "options": [
+   "Decay; \\( y \\)-intercept \\( (0,\\ 100) \\)",
+   "Exponential growth",
+   "Vertical scale and starting value",
+   "Base \\( a = 0.8 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Base \\( a > 1 \\)” means: Exponential growth"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:af326a24",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Base \\( 0 < a < 1 \\)”?",
+  "options": [
+   "Growth or decay factor per step",
+   "Exponential decay",
+   "Growth; \\( y \\)-intercept \\( (0,\\ 1) \\)",
+   "Decay; \\( y \\)-intercept \\( (0,\\ 5) \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Base \\( 0 < a < 1 \\)” means: Exponential decay"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:ecae2fe8",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Base \\( a = 1 \\)”?",
+  "options": [
+   "Base \\( a = 0.8 \\)",
+   "Exponential decay",
+   "Constant horizontal line",
+   "Growth; \\( y \\)-intercept \\( (0,\\ 1) \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Base \\( a = 1 \\)” means: Constant horizontal line"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:4ff25344",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Asymptote of \\( y = k a^x \\)”?",
+  "options": [
+   "\\( y = 0 \\)",
+   "Decay; \\( y \\)-intercept \\( (0,\\ 5) \\)",
+   "Growth or decay factor per step",
+   "Constant horizontal line"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Asymptote of \\( y = k a^x \\)” means: \\( y = 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:5b385089",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y \\)-intercept of \\( y = k a^x \\)”?",
+  "options": [
+   "\\( (0,\\ k) \\)",
+   "Decay; \\( y \\)-intercept \\( (0,\\ 100) \\)",
+   "\\( y = 0 \\)",
+   "Base \\( a = 1.06 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( y \\)-intercept of \\( y = k a^x \\)” means: \\( (0,\\ k) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:fca52b5b",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Compound interest at 6% per year”?",
+  "options": [
+   "Decay; \\( y \\)-intercept \\( (0,\\ 100) \\)",
+   "Base \\( a = 1.06 \\)",
+   "Vertical scale and starting value",
+   "\\( y = 0 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Compound interest at 6% per year” means: Base \\( a = 1.06 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:a43af7ca",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Value falling 20% per year”?",
+  "options": [
+   "Base \\( a = 0.8 \\)",
+   "Growth; \\( y \\)-intercept \\( (0,\\ 5) \\)",
+   "Decay; \\( y \\)-intercept \\( (0,\\ 5) \\)",
+   "Constant horizontal line"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Value falling 20% per year” means: Base \\( a = 0.8 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:e3506f16",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “The constant \\( k \\)”?",
+  "options": [
+   "Vertical scale and starting value",
+   "\\( (0,\\ k) \\)",
+   "Growth or decay factor per step",
+   "\\( y = 0 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“The constant \\( k \\)” means: Vertical scale and starting value"
+  }
+ },
+ {
+  "id": "additional-maths:7-1-exponential-functions:match:df543383",
+  "pageId": "additional-maths:7-1-exponential-functions",
+  "pageName": "7.1 Exponential Functions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “The base \\( a \\)”?",
+  "options": [
+   "Growth; \\( y \\)-intercept \\( (0,\\ 1) \\)",
+   "Growth or decay factor per step",
+   "Exponential growth",
+   "Base \\( a = 1.06 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“The base \\( a \\)” means: Growth or decay factor per step"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:exam:22293206",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "2 (2024)",
+  "question": "<p>Write \\( \\log_{10} 2a + 2\\log_{10} b \\) as a single logarithm.</p>",
+  "hint": "Use the power law on \\( 2\\log_{10} b \\) first, then combine with the product law.",
+  "starter": "Give your answer as one logarithm to base 10.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — correct use of at least one log law, e.g. \\( 2\\log_{10} b = \\log_{10} b^2 \\) (or otherwise combining into a single log).</li>\n              <li><strong>A1</strong> — \\( \\log_{10}(2ab^2) \\) (allow the answer with no base specified).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>N.B. \\( 2\\log_{10}(2ab) \\), \\( \\log_{10}(2ab)^2 \\) or \\( 3\\log_{10} 2ab \\) is M0.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>This required the use of the laws of logarithms. There are two steps, so it is good practice to do each step on a separate line of working — both to avoid errors and to make partial credit easier to award. An incorrect answer with no sight of one of the laws being used gained no marks.</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\log_{10} 2a + 2\\log_{10} b = \\log_{10} 2a + \\log_{10} b^2 = \\log_{10}(2ab^2) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:exam:c0001183",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "9 (a) (2022)",
+  "question": "<p>You are given that \\( y = 4\\log_3 x \\).</p><p>Rewrite this equation with \\( x \\) as the subject.</p>",
+  "caseStudy": "<p><em>In this question you must show detailed reasoning.</em> (Each part below carried this instruction — every analytical step must be written out; an answer read straight from a calculator scores nothing.)</p>",
+  "hint": "Isolate \\( \\log_3 x \\) first, then switch to exponential form; or use the power law to write \\( 4\\log_3 x = \\log_3 x^4 \\).",
+  "starter": "Give your answer in the form \\( x = \\ldots \\), showing every step (detailed reasoning).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1) · Detailed reasoning</h5><ul>\n              <li><strong>B1</strong> — \\( \\log_3 x = \\dfrac{y}{4} \\) (oe).</li>\n              <li><strong>B1</strong> — \\( x = 3^{y/4} \\) (oe).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li><strong>Alternative method:</strong> \\( y = 4\\log_3 x \\Rightarrow y = \\log_3 x^4 \\) (B1; implied by \\( x^4 = 3^y \\)) \\( \\Rightarrow x = \\sqrt[4]{3^y} \\) (B1).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The three parts of this question proved to be the most challenging on the paper. The laws of logarithms were usually not applied correctly.</li>\n            </ul></div>",
+   "modelAnswer": "\\( y = 4\\log_3 x \\Rightarrow \\log_3 x = \\dfrac{y}{4} \\Rightarrow x = 3^{y/4} \\) (equivalently \\( x = \\sqrt[4]{3^y} \\))."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:exam:b18640fe",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "9 (b) (2022)",
+  "question": "<p>Write \\( 2\\log_{10} 5 + \\dfrac{1}{2}\\log_{10} 16 \\) as a single number.</p>",
+  "caseStudy": "<p><em>In this question you must show detailed reasoning.</em> (Each part below carried this instruction — every analytical step must be written out; an answer read straight from a calculator scores nothing.)</p>",
+  "hint": "Use the power law on both terms first (\\( 2\\log_{10} 5 \\) and \\( \\frac{1}{2}\\log_{10} 16 \\)), then add the logs.",
+  "starter": "Give the exact value — do not read the separate logs off a calculator.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1) · Detailed reasoning</h5><ul>\n              <li><strong>M1</strong> — dealing with the powers: \\( 2\\log_{10} 5 = \\log_{10} 25 \\) and \\( \\frac{1}{2}\\log_{10} 16 = \\log_{10} 4 \\).</li>\n              <li><strong>M1</strong> — adding the logs: \\( \\log_{10} 25 + \\log_{10} 4 = \\log_{10} 100 \\).</li>\n              <li><strong>A1</strong> — \\( 2 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The answer had to be exact (\\( \\log_{10} 100 = 2 \\)); this is a detailed-reasoning question, so using a calculator to find numeric values of the separate logs was not appropriate.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Both laws were needed in this part, leading to \\( \\log_{10} 100 = 2 \\). Some candidates were not aware that the wording of the question meant the answer had to be exact, so the use of calculators to find numeric values was not appropriate.</li>\n            </ul></div>",
+   "modelAnswer": "\\( 2\\log_{10} 5 + \\dfrac{1}{2}\\log_{10} 16 = \\log_{10} 25 + \\log_{10} 4 = \\log_{10} 100 = 2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:exam:e7794a03",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "9 (c) (2022)",
+  "question": "<p>The equation \\( a^x = 17 \\) has the solution \\( x = 2.58 \\), correct to 3 significant figures.</p><p>Given that \\( a \\) is an integer, determine the value of \\( a \\).</p>",
+  "caseStudy": "<p><em>In this question you must show detailed reasoning.</em> (Each part below carried this instruction — every analytical step must be written out; an answer read straight from a calculator scores nothing.)</p>",
+  "hint": "Take logs of both sides so the power law brings \\( x \\) down, then make \\( \\log a \\) the subject.",
+  "starter": "Show the detailed reasoning, then state the integer value of \\( a \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1) · Detailed reasoning</h5><ul>\n              <li><strong>M1</strong> — take logs of both sides and divide: \\( x\\log a = \\log 17 \\Rightarrow \\log a = \\dfrac{\\log 17}{2.58} \\) (any base acceptable, e.g. \\( \\log_{2.58} 17 \\) gets M1).</li>\n              <li><strong>A1</strong> — \\( a = 3 \\) (has to be 3 — the question says \\( a \\) is an integer).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li><strong>Alternative method:</strong> \\( a = \\sqrt[2.58]{17} = 3 \\) (M1 A1).</li>\n              <li><strong>Alternative method:</strong> try \\( a = 2, 3 \\) and choose \\( a = 3 \\) (M1 A1). SC B1 for claiming 3 without checking.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The simplest method — taking logs of both sides to give \\( \\log a = \\dfrac{\\log 17}{2.58} \\) — was not seen often.</li>\n            </ul></div>",
+   "modelAnswer": "\\( a^x = 17 \\Rightarrow x\\log a = \\log 17 \\Rightarrow \\log a = \\dfrac{\\log 17}{2.58} = \\dfrac{1.2304}{2.58} = 0.4769 \\Rightarrow a = 10^{0.4769} = 3.00 \\). So \\( a = 3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:mcq:fdb3f687",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Evaluate \\( \\log_2 32 \\).",
+  "options": [
+   "\\( 5 \\)",
+   "\\( 16 \\)",
+   "\\( 6 \\)",
+   "\\( 4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 2^5 = 32 \\), so \\( \\log_2 32 = 5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:mcq:723b1558",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "\\( \\log_a x = y \\) is another way of writing which statement?",
+  "options": [
+   "\\( a^y = x \\)",
+   "\\( a^x = y \\)",
+   "\\( x^y = a \\)",
+   "\\( y^a = x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "By definition a logarithm is the inverse of a power: \\( \\log_a x = y \\iff a^y = x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:mcq:2346fde2",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is \\( \\log_7 1 \\)?",
+  "options": [
+   "\\( 0 \\)",
+   "\\( 1 \\)",
+   "\\( 7 \\)",
+   "undefined"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\log_a 1 = 0 \\) for every valid base, because \\( a^0 = 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:mcq:c7b98dbc",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is \\( \\log_a a \\)?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( 0 \\)",
+   "\\( a \\)",
+   "\\( a^2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\log_a a = 1 \\) because \\( a^1 = a \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:mcq:c327cd55",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Write \\( \\log 4 + \\log 5 \\) as a single logarithm.",
+  "options": [
+   "\\( \\log 20 \\)",
+   "\\( \\log 9 \\)",
+   "\\( \\log 45 \\)",
+   "\\( 2\\log 20 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Product law: adding logs multiplies the arguments, \\( \\log 4 + \\log 5 = \\log(4\\times5) = \\log 20 \\). (\\( \\log 9 \\) would be the fallacy of adding the arguments.)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:mcq:afd54a2e",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Write \\( 3\\log x \\) as a single logarithm.",
+  "options": [
+   "\\( \\log x^3 \\)",
+   "\\( \\log 3x \\)",
+   "\\( (\\log x)^3 \\)",
+   "\\( 3 + \\log x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Power law: the coefficient becomes the power, \\( 3\\log x = \\log x^3 \\). It does NOT become a factor inside the log (\\( \\log 3x \\) is wrong)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:mcq:3d2f4544",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Write \\( \\log 12 - \\log 3 \\) as a single logarithm.",
+  "options": [
+   "\\( \\log 4 \\)",
+   "\\( \\log 9 \\)",
+   "\\( \\log 36 \\)",
+   "\\( \\log 15 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Quotient law: subtracting logs divides the arguments, \\( \\log 12 - \\log 3 = \\log\\frac{12}{3} = \\log 4 \\). (\\( \\log 9 \\) would be the fallacy of subtracting the arguments.)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:mcq:d6ea6c13",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which statement is FALSE?",
+  "options": [
+   "\\( \\log(x+y) = \\log x + \\log y \\)",
+   "\\( \\log(xy) = \\log x + \\log y \\)",
+   "\\( \\log\\frac{x}{y} = \\log x - \\log y \\)",
+   "\\( \\log(x^n) = n\\log x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "There is no law for a sum inside a log. The product law applies to a multiplication \\( \\log(xy) \\), not to \\( \\log(x+y) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:mcq:7cdf898b",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is \\( \\log_{10} 2 + \\log_{10} 50 \\)?",
+  "options": [
+   "\\( 2 \\)",
+   "\\( 1 \\)",
+   "\\( \\log_{10} 52 \\)",
+   "\\( 100 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Product law: \\( \\log_{10}(2\\times50) = \\log_{10} 100 = 2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:mcq:57e85be5",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Write \\( \\log 3 + 2\\log 4 \\) as a single logarithm.",
+  "options": [
+   "\\( \\log 48 \\)",
+   "\\( \\log 24 \\)",
+   "\\( \\log 11 \\)",
+   "\\( \\log 144 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "First the power law: \\( 2\\log 4 = \\log 16 \\); then the product law: \\( \\log 3 + \\log 16 = \\log 48 \\). (\\( \\log 24 \\) comes from dropping the power and using \\( 3\\times4\\times2 \\).)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:mcq:bd89083f",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Solve \\( 5^x = 40 \\), giving \\( x \\) to 3 s.f.",
+  "options": [
+   "\\( 2.29 \\)",
+   "\\( 8 \\)",
+   "\\( 1.60 \\)",
+   "\\( 3.69 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Take logs: \\( x = \\frac{\\log 40}{\\log 5} = \\frac{1.6021}{0.6990} = 2.29 \\) (3 s.f.). (\\( 8 \\) is \\( 40\\div5 \\) — the wrong operation.)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:mcq:6e9023dc",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Given \\( \\log_2 x = 5 \\), find \\( x \\).",
+  "options": [
+   "\\( 32 \\)",
+   "\\( 25 \\)",
+   "\\( 10 \\)",
+   "\\( 7 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Rewrite in exponential form: \\( x = 2^5 = 32 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:tf:3c85febb",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\log_a x = y \\) is equivalent to \\( a^y = x \\).",
+  "key": {
+   "answer": true,
+   "explain": "This is the definition of a logarithm — it is the inverse of raising the base to a power."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:tf:3054779c",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\log(x+y) = \\log x + \\log y \\).",
+  "key": {
+   "answer": false,
+   "explain": "The product law applies to \\( \\log(xy) \\), a multiplication. A sum inside a single log cannot be split."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:tf:201166bf",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\log_a 1 = 0 \\) for every valid base \\( a \\).",
+  "key": {
+   "answer": true,
+   "explain": "\\( a^0 = 1 \\) for any base, so \\( \\log_a 1 = 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:tf:3e81e130",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\log(x^n) = n\\log x \\).",
+  "key": {
+   "answer": true,
+   "explain": "This is the power law: the exponent comes down to the front as a multiplier."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:tf:e856036a",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\log 12 - \\log 4 = \\log 3 \\).",
+  "key": {
+   "answer": true,
+   "explain": "Quotient law: \\( \\log 12 - \\log 4 = \\log\\frac{12}{4} = \\log 3 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:tf:baf31108",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\log_a a = 0 \\).",
+  "key": {
+   "answer": false,
+   "explain": "\\( \\log_a a = 1 \\), because \\( a^1 = a \\). It is \\( \\log_a 1 \\) that equals 0."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:tf:6eb27590",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( 2\\log 3 = \\log 6 \\).",
+  "key": {
+   "answer": false,
+   "explain": "Power law: \\( 2\\log 3 = \\log 3^2 = \\log 9 \\), not \\( \\log 6 \\). The coefficient becomes a power, not a factor."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:tf:b0c1a947",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "To solve \\( 4^x = 20 \\) you can take logs of both sides to get \\( x\\log 4 = \\log 20 \\).",
+  "key": {
+   "answer": true,
+   "explain": "Taking logs and using the power law brings the exponent down, giving \\( x = \\frac{\\log 20}{\\log 4} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:learn:f58d7e0c",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is a logarithm?",
+  "reading": "<p>A <strong>logarithm</strong> answers the question \"<em>what power do I raise the base to?</em>\" It is the <strong>inverse of exponentiation</strong>: \\[ \\log_a x = y \\iff a^y = x. \\] So \\( \\log_a x \\) is the power you must raise the base \\( a \\) to in order to get \\( x \\).</p>\n            <ul>\n              <li>\\( \\log_2 8 = 3 \\) because \\( 2^3 = 8 \\).</li>\n              <li>The base \\( a \\) is written as a small subscript. When no base is shown, base 10 (\\( \\log_{10} \\), the \"log\" button on a calculator) is usually meant.</li>\n              <li>You can only take the log of a <strong>positive</strong> number, and the base must be positive and not 1.</li>\n            </ul>\n            <p><strong>Worked example — evaluate \\( \\log_5 125 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Ask: \\( 5 \\) to what power gives \\( 125 \\)?</td></tr>\n              <tr><td>2. \\( 5^3 = 125 \\).</td></tr>\n              <tr><td>3. So \\( \\log_5 125 = 3 \\).</td></tr>\n            </table>",
+  "question": "Evaluate \\( \\log_3 81 \\).",
+  "options": [
+   "\\( 4 \\)",
+   "\\( 3 \\)",
+   "\\( 27 \\)",
+   "\\( 9 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 3^4 = 81 \\), so \\( \\log_3 81 = 4 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:learn:1c5bf244",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you switch between exponential and log form?",
+  "reading": "<p>The definition \\( \\log_a x = y \\iff a^y = x \\) lets you rewrite any statement either way. The <strong>base stays the base</strong>; the log and the power swap places.</p>\n            <ul>\n              <li>Exponential \\( \\to \\) log: \\( 2^5 = 32 \\) becomes \\( \\log_2 32 = 5 \\).</li>\n              <li>Log \\( \\to \\) exponential: \\( \\log_{10} 1000 = 3 \\) becomes \\( 10^3 = 1000 \\).</li>\n            </ul>\n            <p>Two <strong>special values</strong> follow straight from the definition and are worth memorising:</p>\n            <table class=\"worked\">\n              <tr><td>\\( \\log_a a = 1 \\) — because \\( a^1 = a \\) (any base to the power 1 is itself).</td></tr>\n              <tr><td>\\( \\log_a 1 = 0 \\) — because \\( a^0 = 1 \\) (any base to the power 0 is 1).</td></tr>\n            </table>\n            <p>So \\( \\log_7 7 = 1 \\) and \\( \\log_7 1 = 0 \\), whatever the base.</p>",
+  "question": "Write \\( \\log_4 64 = 3 \\) in exponential form.",
+  "options": [
+   "\\( 4^3 = 64 \\)",
+   "\\( 3^4 = 64 \\)",
+   "\\( 64^3 = 4 \\)",
+   "\\( 4^{64} = 3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\log_a x = y \\iff a^y = x \\); here \\( a=4,\\ x=64,\\ y=3 \\), so \\( 4^3 = 64 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:learn:fef2d47a",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What are the three log laws?",
+  "reading": "<p>Three laws let you combine or split logarithms. They are a <strong>MEMORISE</strong> set — the log laws are <strong>not printed on the exam formula sheet</strong>, so you must know them by heart.</p>\n            <table class=\"worked\">\n              <tr><td><strong>Product law:</strong> \\[ \\log(xy) = \\log x + \\log y \\] a multiplication inside the log becomes an <strong>addition</strong> of logs.</td></tr>\n              <tr><td><strong>Quotient law:</strong> \\[ \\log\\frac{x}{y} = \\log x - \\log y \\] a division inside the log becomes a <strong>subtraction</strong> of logs.</td></tr>\n              <tr><td><strong>Power law:</strong> \\[ \\log(x^n) = n\\log x \\] a power inside the log comes <strong>down to the front</strong> as a multiplier.</td></tr>\n            </table>\n            <ul>\n              <li>All three logs must share the <strong>same base</strong>.</li>\n              <li>There is <strong>no law</strong> for \\( \\log(x + y) \\) or \\( \\log(x - y) \\) — a sum or difference <em>inside</em> a single log cannot be split.</li>\n            </ul>",
+  "question": "Which of these is a correct log law?",
+  "options": [
+   "\\( \\log(x^n) = n\\log x \\)",
+   "\\( \\log(x+y) = \\log x + \\log y \\)",
+   "\\( \\log(xy) = \\log x \\times \\log y \\)",
+   "\\( \\log\\frac{x}{y} = \\frac{\\log x}{\\log y} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The power law \\( \\log(x^n)=n\\log x \\) is correct. The others are classic fallacies — a sum inside a log does not split, and multiplication/division inside becomes addition/subtraction of logs, not multiplication/division of logs."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:learn:26eb33c1",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you write an expression as a single logarithm?",
+  "reading": "<p>Work in <strong>two stages</strong>: first use the <em>power law</em> to clear any coefficients, then use the <em>product/quotient laws</em> to combine into one log.</p>\n            <p><strong>Worked example — write \\( \\log x + 3\\log y - \\log z \\) as a single logarithm:</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Power law on the middle term: \\( 3\\log y = \\log y^3 \\).</td></tr>\n              <tr><td>2. So the expression is \\( \\log x + \\log y^3 - \\log z \\).</td></tr>\n              <tr><td>3. Product law combines the additions: \\( \\log(x y^3) - \\log z \\).</td></tr>\n              <tr><td>4. Quotient law for the subtraction: \\[ \\log\\frac{x y^3}{z}. \\]</td></tr>\n            </table>\n            <p>Notice the coefficient <strong>must</strong> become a power first — writing \\( 3\\log y = \\log 3y \\) is wrong (that would be \\( \\log 3 + \\log y \\)).</p>",
+  "question": "Write \\( 2\\log a + \\log b \\) as a single logarithm.",
+  "options": [
+   "\\( \\log(a^2 b) \\)",
+   "\\( \\log(2ab) \\)",
+   "\\( \\log(a^2 + b) \\)",
+   "\\( 2\\log(ab) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Power law: \\( 2\\log a = \\log a^2 \\); then product law: \\( \\log a^2 + \\log b = \\log(a^2 b) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:learn:9fbc6875",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you write logs as a single number?",
+  "reading": "<p>When every log has the same base and the numbers are chosen well, combining the logs collapses the whole expression to a single value. Reach for the special values \\( \\log_a a = 1 \\) and \\( \\log_a 1 = 0 \\), and powers of the base.</p>\n            <p><strong>Worked example — write \\( 2\\log_{10} 5 + \\log_{10} 4 \\) as a single number:</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Power law: \\( 2\\log_{10} 5 = \\log_{10} 25 \\).</td></tr>\n              <tr><td>2. Product law: \\( \\log_{10} 25 + \\log_{10} 4 = \\log_{10} 100 \\).</td></tr>\n              <tr><td>3. \\( 100 = 10^2 \\), so \\( \\log_{10} 100 = 2 \\).</td></tr>\n            </table>\n            <p>The final answer is the <strong>exact</strong> value \\( 2 \\) — not a rounded decimal. On a \"detailed reasoning\" question, evaluating the separate logs on a calculator is not appropriate; show the law-by-law working instead.</p>",
+  "question": "Write \\( \\log_{10} 20 + \\log_{10} 5 \\) as a single number.",
+  "options": [
+   "\\( 2 \\)",
+   "\\( 1 \\)",
+   "\\( \\log_{10} 25 \\)",
+   "\\( 100 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Product law: \\( \\log_{10} 20 + \\log_{10} 5 = \\log_{10} 100 = 2 \\), since \\( 10^2 = 100 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:learn:48970379",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you make an unknown exponent the subject?",
+  "reading": "<p>When the unknown is stuck up in the exponent — such as \\( a^x = b \\) — you <strong>take logs of both sides</strong>. The power law then brings the exponent down where you can reach it.</p>\n            <p><strong>Worked example — solve \\( 3^x = 20 \\), giving \\( x \\) to 3 s.f.:</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Take logs of both sides: \\( \\log(3^x) = \\log 20 \\).</td></tr>\n              <tr><td>2. Power law brings \\( x \\) down: \\( x\\log 3 = \\log 20 \\).</td></tr>\n              <tr><td>3. Divide: \\( x = \\dfrac{\\log 20}{\\log 3} \\).</td></tr>\n              <tr><td>4. \\( x = \\dfrac{1.3010}{0.4771} = 2.73 \\) (3 s.f.).</td></tr>\n            </table>\n            <p>The same rearranging skill lets you make any variable the subject of a log equation — e.g. from \\( y = 4\\log_3 x \\) you can isolate \\( \\log_3 x = \\frac{y}{4} \\) and then write \\( x = 3^{y/4} \\).</p>",
+  "question": "Solve \\( 2^x = 10 \\), giving \\( x \\) to 3 s.f.",
+  "options": [
+   "\\( 3.32 \\)",
+   "\\( 5 \\)",
+   "\\( 8 \\)",
+   "\\( 1.30 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x = \\frac{\\log 10}{\\log 2} = \\frac{1}{0.3010} = 3.32 \\) (3 s.f.)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:misc:7785d365",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\log(x + y) = \\log x + \\log y \\)</p><p><strong>✅ The correct idea:</strong> The product law needs a MULTIPLICATION inside the log: \\( \\log(xy) = \\log x + \\log y \\). A weak answer splits a sum; a strong answer knows \\( \\log(x+y) \\) has no simplification at all.</p>",
+  "question": "Which is correct?",
+  "options": [
+   "\\( \\log(xy) = \\log x + \\log y \\)",
+   "\\( \\log(x+y) = \\log x + \\log y \\)",
+   "\\( \\log(x+y) = \\log x \\times \\log y \\)",
+   "\\( \\log(xy) = \\log x - \\log y \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Adding logs corresponds to multiplying the arguments — the product law is about \\( \\log(xy) \\), not \\( \\log(x+y) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:misc:ab40a650",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Doing a whole log-law question on one line and just writing the final answer</p><p><strong>✅ The correct idea:</strong> The 2024 examiners award a method mark for the first log law used, then an accuracy mark for the final single log. A weak answer that lands wrong in one line scores nothing; a strong answer does EACH log-law step on a separate line so partial credit survives a slip.</p>",
+  "question": "Why write each log-law step on its own line?",
+  "options": [
+   "So a method mark survives even if the final answer slips",
+   "It is not necessary",
+   "To use more paper",
+   "To make it look neat only"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "An unexplained wrong answer scores 0; a visible correct first step still earns the method mark."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:misc:177b9dcd",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( 2\\log 4 = \\log 8 \\)</p><p><strong>✅ The correct idea:</strong> The power law makes the coefficient a POWER, not a factor: \\( 2\\log 4 = \\log 4^2 = \\log 16 \\). A weak answer multiplies 2 into the argument; a strong answer squares it.</p>",
+  "question": "Simplify \\( 2\\log 4 \\).",
+  "options": [
+   "\\( \\log 16 \\)",
+   "\\( \\log 8 \\)",
+   "\\( \\log 6 \\)",
+   "\\( \\log 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 2\\log 4 = \\log 4^2 = \\log 16 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:misc:105c2a28",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\log 12 - \\log 3 = \\log 9 \\)</p><p><strong>✅ The correct idea:</strong> Subtracting logs DIVIDES the arguments: \\( \\log 12 - \\log 3 = \\log\\frac{12}{3} = \\log 4 \\). A weak answer subtracts the numbers (12 − 3); a strong answer uses the quotient law.</p>",
+  "question": "Simplify \\( \\log 12 - \\log 3 \\).",
+  "options": [
+   "\\( \\log 4 \\)",
+   "\\( \\log 9 \\)",
+   "\\( \\log 15 \\)",
+   "\\( \\log 36 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Quotient law: \\( \\log 12 - \\log 3 = \\log\\frac{12}{3} = \\log 4 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:misc:3b228456",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Answering 'write ... as a single number' with a rounded decimal from the calculator</p><p><strong>✅ The correct idea:</strong> In 2022 Q9(b) the wording (and the detailed-reasoning instruction) meant the answer had to be EXACT: \\( \\log_{10} 100 = 2 \\). A weak answer types the separate logs into a calculator and rounds; a strong answer combines with the laws and reads off the exact value.</p>",
+  "question": "\\( 2\\log_{10} 5 + \\log_{10} 4 \\) as a single number is:",
+  "options": [
+   "\\( 2 \\)",
+   "\\( 1.7 \\)",
+   "\\( \\log_{10} 20 \\)",
+   "\\( 100 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\log_{10} 25 + \\log_{10} 4 = \\log_{10} 100 = 2 \\), an exact value."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:tips:7aa2b60f",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — One log law per line (partial-credit ladder)",
+  "reading": "<p>For \"write as a single logarithm\" [2] the marks are: <strong>M1</strong> for correctly using at least one log law, then <strong>A1</strong> for the final single log.</p>\n            <p><strong>0 marks:</strong> \\( \\log_{10} 2a + 2\\log_{10} b = \\log_{10} 2ab \\) — a wrong answer with no law visibly used.</p>\n            <p><strong>Partial (M1):</strong> \\( \\log_{10} 2a + \\log_{10} b^2 \\) then a slip — the power law is visible, so the method mark stands.</p>\n            <p><strong>Full marks:</strong> \\( \\log_{10} 2a + \\log_{10} b^2 = \\log_{10}(2ab^2) \\) — each law on its own line. The 2024 examiners noted an incorrect answer with no sight of a law gained no marks.</p>",
+  "question": "Why show each log law on a separate line?",
+  "options": [
+   "A wrong final answer can still keep the method mark",
+   "It is quicker",
+   "It is required by the calculator",
+   "It changes the answer"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Visible correct steps earn method (M) marks even when the final answer is wrong."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:tips:edbaf674",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — 'Single logarithm' vs 'single number'",
+  "reading": "<p><strong>\"As a single logarithm\"</strong> means combine into one \\( \\log \\) expression, e.g. \\( \\log(2ab^2) \\) — you stop there.</p>\n            <p><strong>\"As a single number\"</strong> means go one step further and evaluate, e.g. \\( \\log_{10} 100 = 2 \\). Give the <strong>exact</strong> value, not a decimal — and on a \"detailed reasoning\" question do not read the separate logs off a calculator.</p>",
+  "question": "'Write ... as a single number' asks you to:",
+  "options": [
+   "Combine the logs AND evaluate to an exact value",
+   "Combine into one log and stop",
+   "Give a 3 s.f. decimal",
+   "Draw a graph"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A single number means the combined logs are evaluated to their exact value."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:tips:8eec52db",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Making an exponent the subject",
+  "reading": "<p>For \\( a^x = b \\): take logs of both sides, bring the power down, then divide.</p>\n            <table class=\"worked\">\n              <tr><td>1. \\( a^x = b \\Rightarrow \\log(a^x) = \\log b \\).</td></tr>\n              <tr><td>2. Power law: \\( x\\log a = \\log b \\).</td></tr>\n              <tr><td>3. Divide: \\( x = \\dfrac{\\log b}{\\log a} \\).</td></tr>\n            </table>\n            <p>In 2022 Q9(c), taking logs of both sides to get \\( \\log a = \\frac{\\log 17}{2.58} \\) was the cleanest route — the examiners noted it was \"not seen often\".</p>",
+  "question": "First step to solve \\( a^x = b \\) for \\( x \\)?",
+  "options": [
+   "Take logs of both sides",
+   "Divide both sides by \\( a \\)",
+   "Square both sides",
+   "Subtract \\( b \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Taking logs lets the power law bring the exponent down."
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:fib:35d6555a",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A logarithm is the inverse of ___B1___: the statement \\( \\log_a x = y \\) means exactly the same as \\( a^y = x \\).",
+  "blankOptions": {
+   "B1": [
+    "logs",
+    "10",
+    "multiplication",
+    "exponentiation"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "exponentiation"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:fib:f66d151d",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "For any valid base, \\( \\log_a 1 \\) equals ___B1___ and \\( \\log_a a \\) equals ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "0",
+    "separate",
+    "subtraction",
+    "exponentiation"
+   ],
+   "B2": [
+    "addition",
+    "multiplication",
+    "power",
+    "1"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "0",
+    "B2": "1"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:fib:e92992e1",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The product law turns a multiplication inside a log into an ___B1___ of two logs; the quotient law turns a division into a ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "same",
+    "addition",
+    "multiplication",
+    "logs"
+   ],
+   "B2": [
+    "2",
+    "subtraction",
+    "exponentiation",
+    "index"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "addition",
+    "B2": "subtraction"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:fib:2b0ec176",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The power law \\( \\log(x^n) = n\\log x \\) brings the ___B1___ down to the front as a multiplier.",
+  "blankOptions": {
+   "B1": [
+    "power",
+    "logs",
+    "0",
+    "subtraction"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "power"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:fib:d83d31ef",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Writing \\( \\log 4 + \\log 25 \\) as a single number gives \\( \\log 100 \\), which equals ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "2",
+    "10",
+    "addition",
+    "0"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "2"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:fib:efd1efc3",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "To make \\( x \\) the subject of \\( 3^x = 10 \\), take ___B1___ of both sides.",
+  "blankOptions": {
+   "B1": [
+    "0",
+    "1",
+    "multiplication",
+    "logs"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "logs"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:fib:9522bafe",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The expression \\( \\log(x+y) \\) is ___B1___ equal to \\( \\log x + \\log y \\) — a sum inside a single log cannot be split.",
+  "blankOptions": {
+   "B1": [
+    "not",
+    "addition",
+    "power",
+    "10"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "not"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:fib:e679de1b",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "In the exam, write each log-law step on a ___B1___ line so that partial credit survives an error.",
+  "blankOptions": {
+   "B1": [
+    "power",
+    "separate",
+    "1",
+    "2"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "separate"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:match:d85e8fdc",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Product law”?",
+  "options": [
+   "\\( \\log\\frac{x}{y} = \\log x - \\log y \\)",
+   "\\( 2 \\)",
+   "\\( \\log(xy) = \\log x + \\log y \\)",
+   "\\( \\log 9 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Product law” means: \\( \\log(xy) = \\log x + \\log y \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:match:93a0c14d",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Quotient law”?",
+  "options": [
+   "\\( 3 \\)",
+   "\\( \\log\\frac{x}{y} = \\log x - \\log y \\)",
+   "\\( \\log_a x = y \\iff a^y = x \\)",
+   "\\( 4 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Quotient law” means: \\( \\log\\frac{x}{y} = \\log x - \\log y \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:match:3960d847",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Power law”?",
+  "options": [
+   "\\( \\log 4 \\)",
+   "\\( 2 \\)",
+   "\\( \\log(x^n) = n\\log x \\)",
+   "\\( \\log(xy) = \\log x + \\log y \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Power law” means: \\( \\log(x^n) = n\\log x \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:match:eb507412",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Definition of a logarithm”?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( \\log_a x = y \\iff a^y = x \\)",
+   "\\( \\log 9 \\)",
+   "\\( \\log(xy) = \\log x + \\log y \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Definition of a logarithm” means: \\( \\log_a x = y \\iff a^y = x \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:match:03925dfb",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\log_a a \\)”?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( 3 \\)",
+   "\\( \\log 9 \\)",
+   "\\( \\log\\frac{x}{y} = \\log x - \\log y \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\log_a a \\)” means: \\( 1 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:match:21c0096a",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\log_a 1 \\)”?",
+  "options": [
+   "\\( 0 \\)",
+   "\\( 1 \\)",
+   "\\( \\log 4 \\)",
+   "\\( \\log(x^n) = n\\log x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\log_a 1 \\)” means: \\( 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:match:9ad3431b",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\log 4 + \\log 5 \\)”?",
+  "options": [
+   "\\( \\log\\frac{x}{y} = \\log x - \\log y \\)",
+   "\\( 4 \\)",
+   "\\( \\log 20 \\)",
+   "\\( \\log(xy) = \\log x + \\log y \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\log 4 + \\log 5 \\)” means: \\( \\log 20 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:match:e9cd529c",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\log 12 - \\log 3 \\)”?",
+  "options": [
+   "\\( \\log 4 \\)",
+   "\\( \\log\\frac{x}{y} = \\log x - \\log y \\)",
+   "\\( 4 \\)",
+   "\\( 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\log 12 - \\log 3 \\)” means: \\( \\log 4 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:match:e065f4c5",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 2\\log 3 \\)”?",
+  "options": [
+   "\\( 3 \\)",
+   "\\( 0 \\)",
+   "\\( \\log 4 \\)",
+   "\\( \\log 9 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( 2\\log 3 \\)” means: \\( \\log 9 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:match:158c76d5",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\log_2 16 \\)”?",
+  "options": [
+   "\\( 4 \\)",
+   "\\( \\log 20 \\)",
+   "\\( \\log\\frac{x}{y} = \\log x - \\log y \\)",
+   "\\( \\log(x^n) = n\\log x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\log_2 16 \\)” means: \\( 4 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:match:364ada24",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\log_{10} 100 \\)”?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( \\log 20 \\)",
+   "\\( \\log 9 \\)",
+   "\\( 2 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\log_{10} 100 \\)” means: \\( 2 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-2-logarithms-and-the-log-laws:match:3c8d4d88",
+  "pageId": "additional-maths:7-2-logarithms-and-the-log-laws",
+  "pageName": "7.2 Logarithms and the Log Laws",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\log_5 125 \\)”?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( \\log\\frac{x}{y} = \\log x - \\log y \\)",
+   "\\( \\log 20 \\)",
+   "\\( 3 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\log_5 125 \\)” means: \\( 3 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:exam:787ed41e",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "4 (a)",
+  "question": "<p>On the grid provided, sketch the curve \\( y = \\frac{1}{5}\\times 2^x \\).</p>",
+  "caseStudy": "<p><strong>OCR June 2019, Question 4.</strong> You are asked to work on the grid below, which has \\( x \\) from \\( -3 \\) to \\( 6 \\) and \\( y \\) from \\( 0 \\) to \\( 10 \\).</p>\n        <svg viewBox=\"0 0 420 250\" width=\"100%\" style=\"max-width:460px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x-axis from minus 3 to 6 and y-axis from 0 to 10\">\n          <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.22\">\n            <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\"/><line x1=\"80\" y1=\"30\" x2=\"80\" y2=\"210\"/><line x1=\"120\" y1=\"30\" x2=\"120\" y2=\"210\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"210\"/><line x1=\"240\" y1=\"30\" x2=\"240\" y2=\"210\"/><line x1=\"280\" y1=\"30\" x2=\"280\" y2=\"210\"/><line x1=\"320\" y1=\"30\" x2=\"320\" y2=\"210\"/><line x1=\"360\" y1=\"30\" x2=\"360\" y2=\"210\"/><line x1=\"400\" y1=\"30\" x2=\"400\" y2=\"210\"/>\n            <line x1=\"40\" y1=\"48\" x2=\"400\" y2=\"48\"/><line x1=\"40\" y1=\"66\" x2=\"400\" y2=\"66\"/><line x1=\"40\" y1=\"84\" x2=\"400\" y2=\"84\"/><line x1=\"40\" y1=\"102\" x2=\"400\" y2=\"102\"/><line x1=\"40\" y1=\"138\" x2=\"400\" y2=\"138\"/><line x1=\"40\" y1=\"156\" x2=\"400\" y2=\"156\"/><line x1=\"40\" y1=\"174\" x2=\"400\" y2=\"174\"/><line x1=\"40\" y1=\"192\" x2=\"400\" y2=\"192\"/>\n          </g>\n          <line x1=\"40\" y1=\"210\" x2=\"410\" y2=\"210\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <line x1=\"160\" y1=\"22\" x2=\"160\" y2=\"210\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <line x1=\"40\" y1=\"120\" x2=\"400\" y2=\"120\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.5\"/>\n          <line x1=\"40\" y1=\"30\" x2=\"400\" y2=\"30\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.5\"/>\n          <polygon points=\"410,210 401,206 401,214\" fill=\"currentColor\"/>\n          <polygon points=\"160,22 156,31 164,31\" fill=\"currentColor\"/>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"40\" y=\"226\">-3</text><text x=\"80\" y=\"226\">-2</text><text x=\"120\" y=\"226\">-1</text><text x=\"200\" y=\"226\">1</text><text x=\"240\" y=\"226\">2</text><text x=\"280\" y=\"226\">3</text><text x=\"320\" y=\"226\">4</text><text x=\"360\" y=\"226\">5</text><text x=\"400\" y=\"226\">6</text>\n            <text x=\"152\" y=\"124\" text-anchor=\"end\">5</text><text x=\"152\" y=\"34\" text-anchor=\"end\">10</text><text x=\"152\" y=\"207\" text-anchor=\"end\">0</text>\n            <text x=\"415\" y=\"207\">x</text><text x=\"166\" y=\"30\">y</text>\n          </g>\n        </svg>",
+  "hint": "This is exponential GROWTH (base \\( 2 > 1 \\)). Find the \\( y \\)-intercept from \\( x = 0 \\), and remember it is asymptotic to the negative \\( x \\)-axis.",
+  "starter": "Show the shape, the asymptote and the \\( y \\)-intercept (draw to at least \\( x = -1 \\)).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>B1</strong> — exponential curve, negative \\( x \\)-axis asymptotic; sketch must go to at least \\( x = -1 \\).</li>\n              <li><strong>B1</strong> — intercept on the \\( y \\)-axis seen to be between 0 and 0.5 (i.e. at \\( (0,\\ 0.2) \\)).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The two B-marks are independent: one for the correct growth shape/asymptote, one for a \\( y \\)-intercept in the stated range. A plotted curve (rather than a sketch) is not penalised.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The vast majority of candidates plotted the curve rather than sketching it — no penalty, but slower. The required features were: asymptotic with the negative \\( x \\)-axis, passing through \\( (0,\\ 0.2) \\), and a steadily increasing gradient.</li>\n            </ul></div>",
+   "modelAnswer": "<p>A correct answer is an <strong>exponential growth</strong> curve: it hugs the negative \\( x \\)-axis (asymptote \\( y = 0 \\)) on the left, cuts the \\( y \\)-axis at \\( (0,\\ 0.2) \\), and rises with a steadily increasing gradient to the right.</p><svg viewBox=\"0 0 320 210\" width=\"100%\" style=\"max-width:360px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Exponential growth curve for y equals one fifth times two to the x, asymptotic to the negative x-axis on the left, crossing the y-axis at 0, 0.2 and rising steeply to the right\"><line x1=\"25\" y1=\"180\" x2=\"310\" y2=\"180\" stroke=\"currentColor\" stroke-width=\"1.4\"/><line x1=\"120\" y1=\"18\" x2=\"120\" y2=\"198\" stroke=\"currentColor\" stroke-width=\"1.4\"/><polygon points=\"310,180 301,176 301,184\" fill=\"currentColor\"/><polygon points=\"120,18 116,27 124,27\" fill=\"currentColor\"/><polyline points=\"30,180 60,179 90,178 120,177 150,174 180,167 210,154 240,129 270,78 289,20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/><circle cx=\"120\" cy=\"177\" r=\"3.5\" fill=\"currentColor\"/><g font-size=\"12\" fill=\"currentColor\"><text x=\"126\" y=\"174\">(0, 0.2)</text><text x=\"40\" y=\"174\">asymptote y = 0</text><text x=\"90\" y=\"194\" text-anchor=\"middle\">-1</text><text x=\"302\" y=\"176\" text-anchor=\"end\">x</text><text x=\"126\" y=\"28\">y</text></g></svg>"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:exam:e8ac117a",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "4 (b)",
+  "question": "<p>Solve algebraically the equation \\( \\frac{1}{5}\\times 2^x = 3 \\), giving your answer correct to 3 significant figures.</p>",
+  "caseStudy": "<p><strong>OCR June 2019, Question 4.</strong> You are asked to work on the grid below, which has \\( x \\) from \\( -3 \\) to \\( 6 \\) and \\( y \\) from \\( 0 \\) to \\( 10 \\).</p>\n        <svg viewBox=\"0 0 420 250\" width=\"100%\" style=\"max-width:460px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank coordinate grid with x-axis from minus 3 to 6 and y-axis from 0 to 10\">\n          <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.22\">\n            <line x1=\"40\" y1=\"30\" x2=\"40\" y2=\"210\"/><line x1=\"80\" y1=\"30\" x2=\"80\" y2=\"210\"/><line x1=\"120\" y1=\"30\" x2=\"120\" y2=\"210\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"210\"/><line x1=\"240\" y1=\"30\" x2=\"240\" y2=\"210\"/><line x1=\"280\" y1=\"30\" x2=\"280\" y2=\"210\"/><line x1=\"320\" y1=\"30\" x2=\"320\" y2=\"210\"/><line x1=\"360\" y1=\"30\" x2=\"360\" y2=\"210\"/><line x1=\"400\" y1=\"30\" x2=\"400\" y2=\"210\"/>\n            <line x1=\"40\" y1=\"48\" x2=\"400\" y2=\"48\"/><line x1=\"40\" y1=\"66\" x2=\"400\" y2=\"66\"/><line x1=\"40\" y1=\"84\" x2=\"400\" y2=\"84\"/><line x1=\"40\" y1=\"102\" x2=\"400\" y2=\"102\"/><line x1=\"40\" y1=\"138\" x2=\"400\" y2=\"138\"/><line x1=\"40\" y1=\"156\" x2=\"400\" y2=\"156\"/><line x1=\"40\" y1=\"174\" x2=\"400\" y2=\"174\"/><line x1=\"40\" y1=\"192\" x2=\"400\" y2=\"192\"/>\n          </g>\n          <line x1=\"40\" y1=\"210\" x2=\"410\" y2=\"210\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <line x1=\"160\" y1=\"22\" x2=\"160\" y2=\"210\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <line x1=\"40\" y1=\"120\" x2=\"400\" y2=\"120\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.5\"/>\n          <line x1=\"40\" y1=\"30\" x2=\"400\" y2=\"30\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.5\"/>\n          <polygon points=\"410,210 401,206 401,214\" fill=\"currentColor\"/>\n          <polygon points=\"160,22 156,31 164,31\" fill=\"currentColor\"/>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"40\" y=\"226\">-3</text><text x=\"80\" y=\"226\">-2</text><text x=\"120\" y=\"226\">-1</text><text x=\"200\" y=\"226\">1</text><text x=\"240\" y=\"226\">2</text><text x=\"280\" y=\"226\">3</text><text x=\"320\" y=\"226\">4</text><text x=\"360\" y=\"226\">5</text><text x=\"400\" y=\"226\">6</text>\n            <text x=\"152\" y=\"124\" text-anchor=\"end\">5</text><text x=\"152\" y=\"34\" text-anchor=\"end\">10</text><text x=\"152\" y=\"207\" text-anchor=\"end\">0</text>\n            <text x=\"415\" y=\"207\">x</text><text x=\"166\" y=\"30\">y</text>\n          </g>\n        </svg>",
+  "hint": "Multiply both sides by 5 to isolate \\( 2^x \\), then take logs of both sides.",
+  "starter": "Give \\( x \\) correct to 3 significant figures.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — manipulating the equation: \\( \\frac{1}{5}\\times 2^x = 3 \\Rightarrow 2^x = 15 \\).</li>\n              <li><strong>M1</strong> — correct use of logs (to any base) soi: \\( x\\log 2 = \\log 15 \\), or \\( x = \\log_2 15 \\).</li>\n              <li><strong>A1</strong> — \\( x = 3.91 \\). Answer must be to 3 s.f. Mark final answer.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>\\( x = \\dfrac{\\log 15}{\\log 2} = 3.91 \\). Special case: \\( 3.91 \\) with no working scores 2 of 3.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Many completed this well, though a number did not give the answer to 3 significant figures. Some used trial and improvement and could not reach the required accuracy — the wording requires an analytical solution using logs. It was pleasing to see some use base 2 directly to find \\( \\log_2 15 \\).</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\frac{1}{5}\\times 2^x = 3 \\Rightarrow 2^x = 15 \\Rightarrow x\\log 2 = \\log 15 \\Rightarrow x = \\frac{\\log 15}{\\log 2} = 3.91 \\) (3 s.f.)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:mcq:c440725c",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Solve \\( 2^x = 15 \\), giving your answer to 3 s.f.",
+  "options": [
+   "\\( 3.91 \\)",
+   "\\( 7.5 \\)",
+   "\\( 0.256 \\)",
+   "\\( 30 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x = \\frac{\\log 15}{\\log 2} = 3.9069\\ldots = 3.91 \\). (\\( 15\\div 2 = 7.5 \\) ignores the power; \\( \\frac{\\log 2}{\\log 15} = 0.256 \\) inverts the fraction.)"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:mcq:f047f137",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Solve \\( 10^x = 500 \\), to 3 s.f.",
+  "options": [
+   "\\( 2.70 \\)",
+   "\\( 50 \\)",
+   "\\( 0.370 \\)",
+   "\\( 250 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x = \\log_{10} 500 = 2.6989\\ldots = 2.70 \\). Base 10 is on your calculator directly."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:mcq:44b73048",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Solve \\( 5^x = 2 \\), to 3 s.f.",
+  "options": [
+   "\\( 0.431 \\)",
+   "\\( 2.32 \\)",
+   "\\( 0.400 \\)",
+   "\\( 2.50 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x = \\frac{\\log 2}{\\log 5} = 0.4307\\ldots = 0.431 \\). \\( \\frac{\\log 5}{\\log 2} = 2.32 \\) is the inverted (wrong) fraction."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:mcq:387bb947",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Solve \\( 3\\times 2^x = 48 \\).",
+  "options": [
+   "\\( 4 \\)",
+   "\\( 5.58 \\)",
+   "\\( 16 \\)",
+   "\\( 8 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Divide by 3 first: \\( 2^x = 16 \\Rightarrow x = 4 \\). Taking \\( \\frac{\\log 48}{\\log 2} = 5.58 \\) forgets to divide by 3 first."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:mcq:583186b2",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Solve \\( 100\\times(0.5)^x = 25 \\).",
+  "options": [
+   "\\( 2 \\)",
+   "\\( 4 \\)",
+   "\\( -2 \\)",
+   "\\( 0.5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (0.5)^x = 0.25 = (0.5)^2 \\), so \\( x = 2 \\). Or \\( x = \\frac{\\log 0.25}{\\log 0.5} = 2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:mcq:354618c9",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the correct first step to solve \\( 4\\times 3^x = 100 \\)?",
+  "options": [
+   "Divide both sides by 4 to isolate \\( 3^x \\)",
+   "Take the logarithm of the 4",
+   "Multiply both sides by 3",
+   "Subtract 4 from both sides"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Isolate the power: \\( 3^x = 25 \\). Then take logs: \\( x = \\frac{\\log 25}{\\log 3} = 2.93 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:mcq:7f24657c",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student solves \\( 2^x = 15 \\) by writing \\( x\\log 2 = 15 \\). What went wrong?",
+  "options": [
+   "They took logs of one side only — it should be \\( x\\log 2 = \\log 15 \\)",
+   "Nothing — it is correct",
+   "They should have written \\( x = 15\\log 2 \\)",
+   "The base should be 10"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Logs must be taken of BOTH sides: \\( \\log(2^x) = \\log 15 \\Rightarrow x\\log 2 = \\log 15 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:mcq:82095fb1",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A quantity grows by \\( 3\\% \\) a year: \\( V = V_0(1.03)^t \\). Its doubling time (3 s.f.) is:",
+  "options": [
+   "\\( 23.4 \\) years",
+   "\\( 0.667 \\) years",
+   "\\( 66.7 \\) years",
+   "\\( 2 \\) years"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( (1.03)^t = 2 \\Rightarrow t = \\frac{\\log 2}{\\log 1.03} = 23.4 \\) years, independent of \\( V_0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:mcq:e2fc3b28",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Why should you keep full calculator accuracy until the final step?",
+  "options": [
+   "Rounding intermediate values can change the last significant figure of the answer",
+   "It makes the working look longer",
+   "Logs only work with rounded numbers",
+   "The calculator requires it"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Rounding \\( \\log 15,\\ \\log 2 \\) early can shift the final figure; round only the final answer."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:mcq:b4f2fac4",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A radioactive sample is \\( M = 50\\times(0.9)^t \\) grams after \\( t \\) days. Find \\( M \\) after 5 days.",
+  "options": [
+   "\\( 29.5 \\) g",
+   "\\( 45 \\) g",
+   "\\( 25 \\) g",
+   "\\( 32.8 \\) g"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( M = 50\\times(0.9)^5 = 50\\times 0.59049 = 29.5 \\) g. (No logs needed — just substitute.)"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:mcq:5957c9ee",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( a^x = b \\) with \\( a > 1 \\) and \\( b > 1 \\), the solution \\( x \\) is:",
+  "options": [
+   "Positive",
+   "Negative",
+   "Always zero",
+   "Impossible to find"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\log b \\) and \\( \\log a \\) are both positive, so \\( x = \\frac{\\log b}{\\log a} > 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:mcq:b19a37ba",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Give the EXACT solution of \\( 2^x = 15 \\).",
+  "options": [
+   "\\( x = \\frac{\\log 15}{\\log 2} \\)",
+   "\\( x = 3.91 \\)",
+   "\\( x = \\log(15 - 2) \\)",
+   "\\( x = \\frac{15}{2} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\"Exact\" means leave it as \\( \\frac{\\log 15}{\\log 2} \\) (equivalently \\( \\log_2 15 \\)); \\( 3.91 \\) is a rounded decimal."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:tf:03fd9dce",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "To solve \\( a^x = b \\) you calculate \\( x = \\frac{\\log b}{\\log a} \\).",
+  "key": {
+   "answer": true,
+   "explain": "Take logs of both sides and use the power law: \\( x\\log a = \\log b \\), so \\( x = \\frac{\\log b}{\\log a} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:tf:ef9345a2",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "To solve \\( 2^x = 15 \\) you work out \\( 15 \\div 2 = 7.5 \\).",
+  "key": {
+   "answer": false,
+   "explain": "Dividing does not undo a power. You must take logs: \\( x = \\frac{\\log 15}{\\log 2} = 3.91 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:tf:e3696505",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\frac{\\log 15}{\\log 2} \\) is the same as \\( \\log\\!\\left(\\frac{15}{2}\\right) \\).",
+  "key": {
+   "answer": false,
+   "explain": "A quotient of two logs is NOT the log of a quotient. \\( \\frac{\\log 15}{\\log 2} = 3.91 \\) but \\( \\log(7.5) = 0.875 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:tf:dda8a09f",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "One valid way to solve \\( 5\\times 2^x = 3 \\) is to take logs of both sides and use \\( \\log(5\\times 2^x) = \\log 5 + x\\log 2 \\).",
+  "key": {
+   "answer": true,
+   "explain": "The product and power laws give \\( \\log 5 + x\\log 2 = \\log 3 \\), which solves correctly. Isolating first is usually tidier."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:tf:022162b3",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Rounding \\( \\log 15 \\) and \\( \\log 2 \\) to 2 decimal places before dividing can change the last significant figure of the answer.",
+  "key": {
+   "answer": true,
+   "explain": "Early rounding accumulates error; keep full accuracy and round only at the end."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:tf:da0955b2",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "An exponential decay curve eventually reaches exactly zero.",
+  "key": {
+   "answer": false,
+   "explain": "The horizontal axis is an asymptote: the curve gets ever closer to \\( y = 0 \\) but never touches it."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:tf:d8a70de0",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The half-life of a substance is the same length whatever amount you start with.",
+  "key": {
+   "answer": true,
+   "explain": "The starting amount \\( A_0 \\) cancels when you divide, so the half-life is independent of it."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:tf:8d51bfe8",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Every exponential equation \\( k a^x = b \\) needs logs, even \\( 2^x = 16 \\).",
+  "key": {
+   "answer": false,
+   "explain": "When the answer is a whole-number power you can solve by inspection: \\( 2^x = 16 = 2^4 \\Rightarrow x = 4 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:learn:8f4a8138",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you solve \\( a^x = b \\) by taking logs?",
+  "reading": "<p>When the unknown is stuck in the <strong>exponent</strong>, you cannot get at it by ordinary algebra — you have to <strong>take the logarithm of both sides</strong>. The key move uses the <strong>power law</strong> \\( \\log(a^x) = x\\log a \\), which brings the \\( x \\) down to the front where you can divide it out.</p>\n            <p>The general result is: \\[ a^x = b \\quad\\Rightarrow\\quad x = \\frac{\\log b}{\\log a}. \\]</p>\n            <p><strong>Worked example — solve \\( 3^x = 20 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Take logs of <em>both</em> sides: \\( \\log(3^x) = \\log 20 \\).</td></tr>\n              <tr><td>2. Bring the power down (power law): \\( x\\log 3 = \\log 20 \\).</td></tr>\n              <tr><td>3. Divide by \\( \\log 3 \\): \\( x = \\dfrac{\\log 20}{\\log 3} \\).</td></tr>\n              <tr><td>4. Evaluate: \\( x = 2.7268\\ldots = 2.73 \\) (3 s.f.).</td></tr>\n            </table>\n            <p>Any base of log works (your calculator has \\( \\log_{10} \\) and \\( \\ln \\)) — you get the same answer. Notice it is \\( \\log b \\) <strong>divided by</strong> \\( \\log a \\), <em>not</em> \\( \\log(b \\div a) \\).</p>",
+  "question": "Solve \\( 4^x = 30 \\), to 3 s.f.",
+  "options": [
+   "\\( 2.45 \\)",
+   "\\( 7.5 \\)",
+   "\\( 0.407 \\)",
+   "\\( 1.48 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x = \\frac{\\log 30}{\\log 4} = 2.4534\\ldots = 2.45 \\). (\\( 30\\div 4 = 7.5 \\) ignores the power; \\( \\frac{\\log 4}{\\log 30} = 0.407 \\) inverts the fraction.)"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:learn:e9eaf745",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you solve equations like \\( k\\times a^x = b \\)?",
+  "reading": "<p>When there is a number multiplying the power, first <strong>isolate the power</strong> by dividing both sides by that number, then take logs as before.</p>\n            <p><strong>Worked example — solve \\( 5\\times 3^x = 60 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Divide both sides by \\( 5 \\): \\( 3^x = 12 \\).</td></tr>\n              <tr><td>2. Take logs and bring the power down: \\( x\\log 3 = \\log 12 \\).</td></tr>\n              <tr><td>3. Divide: \\( x = \\dfrac{\\log 12}{\\log 3} = 2.2619\\ldots = 2.26 \\) (3 s.f.).</td></tr>\n            </table>\n            <p>The same works for a <strong>decay</strong> base (\\( 0 < a < 1 \\)). <strong>Solve \\( 200\\times(0.8)^x = 50 \\):</strong> divide by 200 to get \\( (0.8)^x = 0.25 \\), then \\( x = \\dfrac{\\log 0.25}{\\log 0.8} = 6.21 \\) (3 s.f.). Here both logs are negative, and a negative divided by a negative is positive — so a shrinking quantity still takes a positive number of steps to reach a target.</p>\n            <p><em>Alternative:</em> you may instead take logs of \\( 5\\times 3^x = 60 \\) straight away and use \\( \\log(5\\times 3^x) = \\log 5 + x\\log 3 \\) (product + power laws). Isolating first is usually cleaner.</p>",
+  "question": "First step to solve \\( 4\\times 2^x = 100 \\)?",
+  "options": [
+   "Divide both sides by 4 to isolate \\( 2^x \\)",
+   "Take the log of the 4 only",
+   "Work out \\( 100 \\div 2 = 50 \\)",
+   "Subtract 4 from both sides"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Isolate the power first: \\( 2^x = 25 \\). Then \\( x = \\frac{\\log 25}{\\log 2} = 4.64 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:learn:d68e1565",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you set up an exponential growth or decay model?",
+  "reading": "<p>Many real quantities change by a fixed <strong>multiplier</strong> each time period — money in a savings account, a population, the mass of a decaying substance. These are modelled by \\[ A = A_0\\,a^t, \\] where \\( A_0 \\) is the <strong>starting amount</strong> (at \\( t = 0 \\)), \\( a \\) is the <strong>multiplier per period</strong>, and \\( t \\) is the time.</p>\n            <ul>\n              <li>\\( a > 1 \\) gives <strong>growth</strong> — e.g. a \\( 3\\% \\) yearly rise means \\( a = 1.03 \\).</li>\n              <li>\\( 0 < a < 1 \\) gives <strong>decay</strong> — e.g. losing \\( 15\\% \\) per year means \\( a = 0.85 \\).</li>\n              <li>Putting \\( t = 0 \\) always gives \\( A = A_0 \\); the graph cuts the vertical axis at \\( (0,\\ A_0) \\) and has the horizontal axis as an <strong>asymptote</strong> — it never actually reaches zero.</li>\n            </ul>\n            <p><strong>Compound interest is the classic example:</strong> £2000 invested at \\( 3\\% \\) per year grows to \\( A = 2000\\times(1.03)^t \\) pounds after \\( t \\) years.</p>",
+  "question": "A car worth £12000 loses 18% of its value each year. Which model fits?",
+  "options": [
+   "\\( V = 12000\\times(0.82)^t \\)",
+   "\\( V = 12000\\times(1.18)^t \\)",
+   "\\( V = 12000\\times(0.18)^t \\)",
+   "\\( V = 12000 - 0.18t \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Losing 18% keeps 82%, so the yearly multiplier is \\( 0.82 \\); it is decay, so \\( 0 < a < 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:learn:86bc5dd0",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the TIME to reach a given amount?",
+  "reading": "<p>This is the commonest applied question: you are given a model and a target amount, and asked <em>when</em> it is reached. Substitute the target, <strong>isolate the power</strong>, then <strong>take logs</strong>.</p>\n            <p><strong>Worked example.</strong> A bacterial colony is modelled by \\( N = 500\\times(1.2)^t \\), where \\( t \\) is in hours. After how long does it reach \\( 2000 \\)?</p>\n            <table class=\"worked\">\n              <tr><td>1. Set \\( N = 2000 \\): \\( 500\\times(1.2)^t = 2000 \\).</td></tr>\n              <tr><td>2. Divide by 500 to isolate the power: \\( (1.2)^t = 4 \\).</td></tr>\n              <tr><td>3. Take logs, bring the power down: \\( t\\log 1.2 = \\log 4 \\).</td></tr>\n              <tr><td>4. Divide: \\( t = \\dfrac{\\log 4}{\\log 1.2} = 7.60 \\) hours (3 s.f.).</td></tr>\n            </table>\n            <p>To find a <strong>remaining amount</strong> instead of a time, you don't need logs at all — just substitute the time. For \\( M = 80\\times(0.85)^t \\) grams, after \\( 10 \\) years \\( M = 80\\times(0.85)^{10} = 15.7 \\) g (3 s.f.).</p>",
+  "question": "For \\( P = 3000\\times(1.05)^t \\), which equation finds when \\( P = 6000 \\)?",
+  "options": [
+   "\\( (1.05)^t = 2 \\)",
+   "\\( (1.05)^t = 6000 \\)",
+   "\\( (1.05)^t = 3000 \\)",
+   "\\( 1.05t = 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Divide \\( 6000 \\) by \\( 3000 \\) to isolate the power: \\( (1.05)^t = 2 \\), then \\( t = \\frac{\\log 2}{\\log 1.05} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:learn:046366af",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What are half-life and doubling time?",
+  "reading": "<p>Two special \"time to reach an amount\" questions have their own names:</p>\n            <ul>\n              <li><strong>Half-life</strong> — for a <em>decaying</em> quantity, the time taken to fall to <strong>half</strong> its value. You solve \\( a^t = \\tfrac{1}{2} \\).</li>\n              <li><strong>Doubling time</strong> — for a <em>growing</em> quantity, the time taken to become <strong>twice</strong> as large. You solve \\( a^t = 2 \\).</li>\n            </ul>\n            <p>A neat feature: both are <strong>independent of the starting amount</strong> — the \\( A_0 \\) cancels when you divide, so the half-life of a sample is the same whether you start with 1 kg or 1 g.</p>\n            <p><strong>Worked example — half-life for \\( M = M_0\\times(0.85)^t \\) (years):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Half the amount: \\( M_0\\times(0.85)^t = \\tfrac{1}{2}M_0 \\).</td></tr>\n              <tr><td>2. Divide by \\( M_0 \\): \\( (0.85)^t = 0.5 \\).</td></tr>\n              <tr><td>3. Logs: \\( t = \\dfrac{\\log 0.5}{\\log 0.85} = 4.27 \\) years (3 s.f.).</td></tr>\n            </table>",
+  "question": "An investment grows by \\( 5\\% \\) a year, so \\( a = 1.05 \\). Its doubling time solves:",
+  "options": [
+   "\\( (1.05)^t = 2 \\)",
+   "\\( (1.05)^t = 0.5 \\)",
+   "\\( (1.05)^t = 5 \\)",
+   "\\( 1.05^t = 100 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Doubling means twice the amount, so \\( (1.05)^t = 2 \\), giving \\( t = \\frac{\\log 2}{\\log 1.05} = 14.2 \\) years."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:learn:b995ce91",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How accurate should your answer be?",
+  "reading": "<p>Exponential answers are almost always <strong>irrational</strong>, so the question tells you the precision it wants — usually <strong>3 significant figures</strong>. Two rules save marks:</p>\n            <ul>\n              <li><strong>Don't round early.</strong> Keep the full value on your calculator (or store it) and round only at the <em>very last</em> step. Rounding \\( \\log 15 \\) and \\( \\log 2 \\) to 2 d.p. first can shift the last figure of the answer.</li>\n              <li><strong>Read the command word.</strong> \\\"Correct to 3 significant figures\\\" wants a decimal to that precision; \\\"exact\\\" wants the answer left as \\( \\dfrac{\\log 15}{\\log 2} \\) or \\( \\log_2 15 \\), <strong>not</strong> a decimal.</li>\n            </ul>\n            <p>If a question is answered by <strong>trial and improvement</strong> rather than logs, examiners note it rarely reaches the required accuracy and an \"analytical\" or \"algebraic\" instruction means the log method is compulsory.</p>",
+  "question": "A question says \"solve algebraically, to 3 significant figures\". You should:",
+  "options": [
+   "Use logs and round only the final answer to 3 s.f.",
+   "Use trial and improvement",
+   "Leave the answer as an exact log expression",
+   "Round every intermediate value to 2 d.p. first"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\"Algebraically\" requires the log method; keep full accuracy and round the final answer to 3 s.f."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:misc:c28db309",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Solving \\( 2^x = 15 \\) by working out \\( 15 \\div 2 = 7.5 \\)</p><p><strong>✅ The correct idea:</strong> Dividing does not release an exponent. A weak answer divides; a strong answer takes logs of both sides: \\( x\\log 2 = \\log 15 \\Rightarrow x = \\frac{\\log 15}{\\log 2} = 3.91 \\).</p>",
+  "question": "Solve \\( 2^x = 15 \\) (3 s.f.).",
+  "options": [
+   "\\( 3.91 \\)",
+   "\\( 7.5 \\)",
+   "\\( 13 \\)",
+   "\\( 30 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x = \\frac{\\log 15}{\\log 2} = 3.91 \\); dividing gives the wrong \\( 7.5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:misc:ed420e3c",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Taking the log of only one side: \\( 2^x = 15 \\Rightarrow x\\log 2 = 15 \\)</p><p><strong>✅ The correct idea:</strong> Whatever you do to one side you must do to the other. A strong answer logs BOTH sides: \\( \\log(2^x) = \\log 15 \\Rightarrow x\\log 2 = \\log 15 \\).</p>",
+  "question": "Take logs of both sides of \\( 2^x = 15 \\):",
+  "options": [
+   "\\( x\\log 2 = \\log 15 \\)",
+   "\\( x\\log 2 = 15 \\)",
+   "\\( x = 15\\log 2 \\)",
+   "\\( 2x = \\log 15 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Log both sides, then bring the power down: \\( x\\log 2 = \\log 15 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:misc:4becb26f",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Writing \\( \\frac{\\log 15}{\\log 2} \\) as \\( \\log\\!\\left(\\frac{15}{2}\\right) = \\log 7.5 \\)</p><p><strong>✅ The correct idea:</strong> A division of two logs is not the log of a division. A strong answer divides the two log VALUES: \\( \\frac{1.176}{0.301} = 3.91 \\), not \\( \\log 7.5 = 0.875 \\).</p>",
+  "question": "\\( \\frac{\\log 15}{\\log 2} \\) equals:",
+  "options": [
+   "\\( 3.91 \\)",
+   "\\( \\log 7.5 \\)",
+   "\\( 0.875 \\)",
+   "\\( \\log 13 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Divide the values: \\( 1.176 \\div 0.301 = 3.91 \\). It is not \\( \\log(15/2) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:misc:3d875d5f",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Rounding to \\( \\log 15 \\approx 1.18 \\) and \\( \\log 2 \\approx 0.30 \\) before dividing, giving \\( 3.93 \\)</p><p><strong>✅ The correct idea:</strong> Early rounding shifts the last figure. A strong answer keeps full accuracy (\\( 1.17609\\ldots \\div 0.30103\\ldots \\)) and only rounds the final result to \\( 3.91 \\).</p>",
+  "question": "Why is \\( 3.93 \\) wrong here?",
+  "options": [
+   "The intermediate logs were rounded too early",
+   "Logs cannot be divided",
+   "\\( 2^x = 15 \\) has no solution",
+   "The base should be 10"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Rounding \\( \\log 15,\\ \\log 2 \\) before dividing changes the last figure; keep full accuracy."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:misc:8d8128fd",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For \\( 5\\times 2^x = 3 \\), taking logs to get \\( \\log 5 \\times x\\log 2 = \\log 3 \\)</p><p><strong>✅ The correct idea:</strong> The log of a PRODUCT is a SUM, not a product: \\( \\log(5\\times 2^x) = \\log 5 + x\\log 2 \\). A strong answer either isolates first (\\( 2^x = 0.6 \\)) or uses the sum correctly.</p>",
+  "question": "\\( \\log(5\\times 2^x) \\) equals:",
+  "options": [
+   "\\( \\log 5 + x\\log 2 \\)",
+   "\\( \\log 5 \\times x\\log 2 \\)",
+   "\\( x\\log 10 \\)",
+   "\\( \\log 5 - x\\log 2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Product law: \\( \\log(MN) = \\log M + \\log N \\), so \\( \\log 5 + x\\log 2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:tips:74a73b0d",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Show every step of the log method",
+  "reading": "<p>For \"solve \\( \\frac{1}{5}\\times 2^x = 3 \\) algebraically\" [3], examiners award <strong>M1</strong> for rearranging to \\( 2^x = 15 \\), <strong>M1</strong> for correct use of logs (\\( x\\log 2 = \\log 15 \\)), <strong>A1</strong> for \\( x = 3.91 \\).</p><p>A bare \\( 3.91 \\) with no working scores only a special-case 2 out of 3 — and trial-and-improvement rarely reaches the required accuracy. Write each line so a slip costs one mark, not all three.</p>",
+  "question": "Why write out the log working in full?",
+  "options": [
+   "To earn the method marks even if the final value slips",
+   "It is optional and wastes time",
+   "Logs need extra paper",
+   "To hide the answer"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Method (M) marks reward the visible rearrange-and-log steps regardless of the final answer."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:tips:c56a585b",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Answer to the demanded precision",
+  "reading": "<p><strong>0 marks:</strong> an answer to the wrong accuracy, or a trial-and-improvement value that misses 3 s.f.</p><p><strong>Full marks:</strong> \\( x = 3.91 \\) (3 s.f.), obtained by keeping the full value \\( 3.9069\\ldots \\) on the calculator and rounding only at the end. If \"exact\" is asked instead, leave \\( \\frac{\\log 15}{\\log 2} \\) or \\( \\log_2 15 \\).</p>",
+  "question": "The question says \"to 3 significant figures\". You should give:",
+  "options": [
+   "\\( 3.91 \\)",
+   "\\( \\frac{\\log 15}{\\log 2} \\)",
+   "\\( 3.9 \\)",
+   "\\( 3.907 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "3 s.f. of \\( 3.9069\\ldots \\) is \\( 3.91 \\); the exact form is only wanted when the command word is \"exact\"."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:tips:0a8a5888",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Isolate the power before taking logs",
+  "reading": "<p>With a coefficient in front (\\( k a^x = b \\)), a clean, low-risk route is: <strong>divide by \\( k \\)</strong> to get \\( a^x = \\frac{b}{k} \\), <strong>then</strong> take logs. This avoids the classic slip of turning \\( \\log(k a^x) \\) into \\( \\log k \\times x\\log a \\) instead of the correct sum \\( \\log k + x\\log a \\).</p>",
+  "question": "For \\( 5\\times 2^x = 3 \\), the safest first move is:",
+  "options": [
+   "Divide by 5 to get \\( 2^x = 0.6 \\)",
+   "Multiply by 5",
+   "Write \\( \\log 5 \\times x\\log 2 \\)",
+   "Square both sides"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Isolating the power first (\\( 2^x = 0.6 \\)) avoids product-law errors."
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:fib:5fdb6030",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 3,
+  "question": "To solve \\( a^x = b \\) you take the ___B1___ of both sides. Using the power law this gives \\( x\\log a = \\log b \\), so \\( x \\) equals log ___B2___ divided by log ___B3___.",
+  "blankOptions": {
+   "B1": [
+    "logarithm",
+    "decimal",
+    "less",
+    "5"
+   ],
+   "B2": [
+    "doubling",
+    "greater",
+    "b",
+    "decimal"
+   ],
+   "B3": [
+    "half-life",
+    "last",
+    "a",
+    "isolate"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "logarithm",
+    "B2": "b",
+    "B3": "a"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:fib:ddfaa7d9",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Before solving \\( 5\\times 2^x = 3 \\) it is cleanest to ___B1___ the power by dividing both sides by ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "half-life",
+    "isolate",
+    "less",
+    "first"
+   ],
+   "B2": [
+    "less",
+    "last",
+    "subtract",
+    "5"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "isolate",
+    "B2": "5"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:fib:e1f5c8ff",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "In the model \\( A = A_0 a^t \\), there is growth when \\( a \\) is ___B1___ than 1 and decay when \\( a \\) lies between 0 and ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "isolate",
+    "decimal",
+    "greater",
+    "round"
+   ],
+   "B2": [
+    "1",
+    "last",
+    "a",
+    "less"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "greater",
+    "B2": "1"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:fib:4560e5c8",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The ___B1___ of a decaying quantity is the time it takes to fall to half its value.",
+  "blankOptions": {
+   "B1": [
+    "half-life",
+    "logarithm",
+    "b",
+    "greater"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "half-life"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:fib:ae38f218",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "For a growing quantity, the ___B1___ time is how long it takes to become twice as large.",
+  "blankOptions": {
+   "B1": [
+    "5",
+    "greater",
+    "doubling",
+    "a"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "doubling"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:fib:40f4c9a7",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Keep full calculator accuracy and only ___B1___ your answer at the very ___B2___ step.",
+  "blankOptions": {
+   "B1": [
+    "isolate",
+    "round",
+    "1",
+    "logarithm"
+   ],
+   "B2": [
+    "last",
+    "5",
+    "exact",
+    "greater"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "round",
+    "B2": "last"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:fib:b2dfa703",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Solving \\( 2^x = 15 \\) gives \\( x = \\frac{\\log 15}{\\log 2} \\), which is ___B1___ to 3 significant figures.",
+  "blankOptions": {
+   "B1": [
+    "subtract",
+    "a",
+    "3.91",
+    "exact"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "3.91"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:fib:7d155415",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The command word ___B1___ tells you to leave the answer as a log or surd rather than a decimal.",
+  "blankOptions": {
+   "B1": [
+    "exact",
+    "doubling",
+    "3.91",
+    "less"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "exact"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:match:a5691fe7",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 2^x = 15 \\)”?",
+  "options": [
+   "Time for a decaying amount to fall to half",
+   "Left in log/surd/fraction form, not a decimal",
+   "\\( x = \\frac{\\log 15}{\\log 2} \\)",
+   "\\( \\log(a^x) = x\\log a \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( 2^x = 15 \\)” means: \\( x = \\frac{\\log 15}{\\log 2} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:match:9556dec8",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 10^x = 1000 \\)”?",
+  "options": [
+   "Exponential growth",
+   "Divide both sides by \\( k \\)",
+   "\\( x = 3 \\)",
+   "Time for a growing amount to reach twice its value"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( 10^x = 1000 \\)” means: \\( x = 3 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:match:e72c0d69",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 5^x = 1 \\)”?",
+  "options": [
+   "Time for a decaying amount to fall to half",
+   "\\( \\log(a^x) = x\\log a \\)",
+   "\\( x = \\frac{\\log 15}{\\log 2} \\)",
+   "\\( x = 0 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( 5^x = 1 \\)” means: \\( x = 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:match:a3f3dbb6",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( a > 1 \\) in \\( k a^x \\)”?",
+  "options": [
+   "\\( (0,\\ k) \\)",
+   "\\( \\log(a^x) = x\\log a \\)",
+   "Time for a growing amount to reach twice its value",
+   "Exponential growth"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( a > 1 \\) in \\( k a^x \\)” means: Exponential growth"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:match:d0934d2b",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( 0 < a < 1 \\) in \\( k a^x \\)”?",
+  "options": [
+   "\\( (0,\\ k) \\)",
+   "Exponential decay",
+   "\\( x = \\frac{\\log 15}{\\log 2} \\)",
+   "Time for a decaying amount to fall to half"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( 0 < a < 1 \\) in \\( k a^x \\)” means: Exponential decay"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:match:ff0ee250",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Half-life”?",
+  "options": [
+   "Left in log/surd/fraction form, not a decimal",
+   "\\( \\log(a^x) = x\\log a \\)",
+   "\\( x = 0 \\)",
+   "Time for a decaying amount to fall to half"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Half-life” means: Time for a decaying amount to fall to half"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:match:4d884e53",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Doubling time”?",
+  "options": [
+   "Time for a growing amount to reach twice its value",
+   "\\( x = \\frac{\\log 15}{\\log 2} \\)",
+   "\\( (0,\\ k) \\)",
+   "Exponential growth"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Doubling time” means: Time for a growing amount to reach twice its value"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:match:d818de37",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “First step for \\( k a^x = b \\)”?",
+  "options": [
+   "Left in log/surd/fraction form, not a decimal",
+   "\\( y = 0 \\)",
+   "\\( (0,\\ k) \\)",
+   "Divide both sides by \\( k \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“First step for \\( k a^x = b \\)” means: Divide both sides by \\( k \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:match:5d562083",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'Exact' answer”?",
+  "options": [
+   "\\( y = 0 \\)",
+   "Divide both sides by \\( k \\)",
+   "\\( x = 3 \\)",
+   "Left in log/surd/fraction form, not a decimal"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“'Exact' answer” means: Left in log/surd/fraction form, not a decimal"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:match:cff383ae",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Horizontal asymptote of \\( y = k a^x \\)”?",
+  "options": [
+   "Exponential growth",
+   "\\( y = 0 \\)",
+   "Time for a decaying amount to fall to half",
+   "\\( \\log(a^x) = x\\log a \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Horizontal asymptote of \\( y = k a^x \\)” means: \\( y = 0 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:match:5b385089",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y \\)-intercept of \\( y = k a^x \\)”?",
+  "options": [
+   "Left in log/surd/fraction form, not a decimal",
+   "\\( (0,\\ k) \\)",
+   "Exponential growth",
+   "\\( \\log(a^x) = x\\log a \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( y \\)-intercept of \\( y = k a^x \\)” means: \\( (0,\\ k) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-3-solving-exponential-equations:match:dfcff8f7",
+  "pageId": "additional-maths:7-3-solving-exponential-equations",
+  "pageName": "7.3 Solving Exponential Equations",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Power law of logs”?",
+  "options": [
+   "\\( x = \\frac{\\log 15}{\\log 2} \\)",
+   "\\( \\log(a^x) = x\\log a \\)",
+   "Left in log/surd/fraction form, not a decimal",
+   "Time for a decaying amount to fall to half"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Power law of logs” means: \\( \\log(a^x) = x\\log a \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:exam:35bd2477",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "14 (a)",
+  "question": "<p>Show by taking logs of both sides of the equation \\( x = ka^n \\) that a straight line will be obtained by plotting \\( \\log_{10} x \\) against \\( n \\).</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 14.</strong> Layla is given the following data.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">\\( n \\)</td><td>1</td><td>3</td><td>5</td><td>7</td><td>9</td></tr>\n          <tr><td style=\"font-weight:600\">\\( x \\)</td><td>0.5</td><td>1.1</td><td>2.5</td><td>5.7</td><td>12.8</td></tr>\n        </tbody></table>\n        <p>She believes that the relationship between \\( n \\) and \\( x \\) can be modelled by the equation \\( x = ka^n \\), where \\( k \\) and \\( a \\) are constants. The grid below has \\( n \\) on the horizontal axis and \\( \\log_{10} x \\) on the vertical axis.</p>\n        <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Blank grid with horizontal axis n from 0 to 10 and vertical axis log base 10 of x from minus 0.5 to 1.5\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"98\" y1=\"30\" x2=\"98\" y2=\"290\"/><line x1=\"136\" y1=\"30\" x2=\"136\" y2=\"290\"/><line x1=\"174\" y1=\"30\" x2=\"174\" y2=\"290\"/><line x1=\"212\" y1=\"30\" x2=\"212\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"288\" y1=\"30\" x2=\"288\" y2=\"290\"/><line x1=\"326\" y1=\"30\" x2=\"326\" y2=\"290\"/><line x1=\"364\" y1=\"30\" x2=\"364\" y2=\"290\"/><line x1=\"402\" y1=\"30\" x2=\"402\" y2=\"290\"/><line x1=\"440\" y1=\"30\" x2=\"440\" y2=\"290\"/><line x1=\"60\" y1=\"40\" x2=\"440\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"440\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"440\" y2=\"160\"/><line x1=\"60\" y1=\"280\" x2=\"440\" y2=\"280\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"55\" y1=\"220\" x2=\"445\" y2=\"220\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"440,30 436,40 444,40\" fill=\"currentColor\"/><polygon points=\"445,220 435,216 435,224\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"98\" y=\"234\">1</text><text x=\"174\" y=\"234\">3</text><text x=\"250\" y=\"234\">5</text><text x=\"326\" y=\"234\">7</text><text x=\"402\" y=\"234\">9</text><text x=\"54\" y=\"44\" text-anchor=\"end\">1.5</text><text x=\"54\" y=\"104\" text-anchor=\"end\">1.0</text><text x=\"54\" y=\"164\" text-anchor=\"end\">0.5</text><text x=\"54\" y=\"284\" text-anchor=\"end\">-0.5</text><text x=\"52\" y=\"224\" text-anchor=\"end\">0</text><text x=\"450\" y=\"217\" text-anchor=\"start\">n</text><text x=\"60\" y=\"26\" text-anchor=\"middle\">log₁₀x</text></g></svg>",
+  "hint": "Log both sides, then split the right-hand side with the product law and the power law; finish by comparing to \\( Y = mX + c \\).",
+  "starter": "Take \\( \\log_{10} \\) of both sides, apply the log laws, then state the form \\( Y = mX + c \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO2)</h5><ul>\n              <li><strong>M1</strong> — correct use of at least one of the log laws.</li>\n              <li><strong>A1</strong> — \\( \\log x = \\log k + n\\log a \\).</li>\n              <li><strong>A1</strong> — interpretation of the equation as a straight line, i.e. it is of the form \\( Y = MX + C \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The third mark is specifically for comparing the logged equation with \\( Y = MX + C \\); the algebra alone is not enough.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Almost half the cohort scored all 3 marks. Errors seen regularly included simplifying \\( \\log_{10}(ka^n) \\) to \\( n\\log_{10}(ka) \\) or to \\( n\\log_{10}k + n\\log_{10}a \\) — both scored 0. Some obtained \\( \\log_{10}x = \\log_{10}k + n\\log_{10}a \\) but did not compare it to \\( y = mx + c \\) to earn the third mark.</li>\n            </ul></div>",
+   "modelAnswer": "Take \\( \\log_{10} \\) of both sides: \\( \\log_{10} x = \\log_{10}(ka^n) \\). Product law: \\( \\log_{10} x = \\log_{10} k + \\log_{10}(a^n) \\). Power law: \\( \\log_{10} x = \\log_{10} k + n\\log_{10} a \\), i.e. \\( \\log_{10} x = (\\log_{10} a)\\,n + \\log_{10} k \\). This is of the form \\( Y = MX + C \\) with \\( Y = \\log_{10} x \\), \\( X = n \\), gradient \\( M = \\log_{10} a \\) and intercept \\( C = \\log_{10} k \\); so plotting \\( \\log_{10} x \\) against \\( n \\) gives a straight line."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:exam:8b92d4f4",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "14 (b)",
+  "question": "<p>For the data given in the table, plot the points \\( (n,\\ \\log_{10} x) \\) on the grid. Use the spare row in the table for any values you need to calculate.</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 14.</strong> Layla is given the following data.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">\\( n \\)</td><td>1</td><td>3</td><td>5</td><td>7</td><td>9</td></tr>\n          <tr><td style=\"font-weight:600\">\\( x \\)</td><td>0.5</td><td>1.1</td><td>2.5</td><td>5.7</td><td>12.8</td></tr>\n        </tbody></table>\n        <p>She believes that the relationship between \\( n \\) and \\( x \\) can be modelled by the equation \\( x = ka^n \\), where \\( k \\) and \\( a \\) are constants. The grid below has \\( n \\) on the horizontal axis and \\( \\log_{10} x \\) on the vertical axis.</p>\n        <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Blank grid with horizontal axis n from 0 to 10 and vertical axis log base 10 of x from minus 0.5 to 1.5\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"98\" y1=\"30\" x2=\"98\" y2=\"290\"/><line x1=\"136\" y1=\"30\" x2=\"136\" y2=\"290\"/><line x1=\"174\" y1=\"30\" x2=\"174\" y2=\"290\"/><line x1=\"212\" y1=\"30\" x2=\"212\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"288\" y1=\"30\" x2=\"288\" y2=\"290\"/><line x1=\"326\" y1=\"30\" x2=\"326\" y2=\"290\"/><line x1=\"364\" y1=\"30\" x2=\"364\" y2=\"290\"/><line x1=\"402\" y1=\"30\" x2=\"402\" y2=\"290\"/><line x1=\"440\" y1=\"30\" x2=\"440\" y2=\"290\"/><line x1=\"60\" y1=\"40\" x2=\"440\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"440\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"440\" y2=\"160\"/><line x1=\"60\" y1=\"280\" x2=\"440\" y2=\"280\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"55\" y1=\"220\" x2=\"445\" y2=\"220\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"440,30 436,40 444,40\" fill=\"currentColor\"/><polygon points=\"445,220 435,216 435,224\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"98\" y=\"234\">1</text><text x=\"174\" y=\"234\">3</text><text x=\"250\" y=\"234\">5</text><text x=\"326\" y=\"234\">7</text><text x=\"402\" y=\"234\">9</text><text x=\"54\" y=\"44\" text-anchor=\"end\">1.5</text><text x=\"54\" y=\"104\" text-anchor=\"end\">1.0</text><text x=\"54\" y=\"164\" text-anchor=\"end\">0.5</text><text x=\"54\" y=\"284\" text-anchor=\"end\">-0.5</text><text x=\"52\" y=\"224\" text-anchor=\"end\">0</text><text x=\"450\" y=\"217\" text-anchor=\"start\">n</text><text x=\"60\" y=\"26\" text-anchor=\"middle\">log₁₀x</text></g></svg>",
+  "hint": "Do this on paper (or a printout of the grid): first compute \\( \\log_{10} x \\) for each \\( x \\), then plot the five points — and make sure your \\( n \\)-axis uses a linear scale.",
+  "starter": "List \\( \\log_{10} x \\) for \\( x = 0.5, 1.1, 2.5, 5.7, 12.8 \\) to 2 d.p., then plot \\( (n, \\log_{10} x) \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — evidence of taking logs. Values: \\( \\log_{10} x = -0.30,\\ 0.04,\\ 0.40,\\ 0.76,\\ 1.11 \\) for \\( n = 1,3,5,7,9 \\).</li>\n              <li><strong>A2,1</strong> — correct points plotted; A1 for one error, A0 for more than one error. <strong>A0 if either scale is not linear.</strong></li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One mark for computing the logs; up to two for accurate plotting on linear axes.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most knew to find \\( \\log_{10} x \\) and plotted it against \\( n \\). Some lost all the accuracy marks by not using a linear scale on the horizontal axis — simply plotting \\( n = 1,3,5,7,9 \\) at equal intervals.</li>\n            </ul></div>",
+   "modelAnswer": "Log values (to 2 d.p.): \\( \\log_{10} 0.5 = -0.30 \\), \\( \\log_{10} 1.1 = 0.04 \\), \\( \\log_{10} 2.5 = 0.40 \\), \\( \\log_{10} 5.7 = 0.76 \\), \\( \\log_{10} 12.8 = 1.11 \\). Plot \\( (1,-0.30),(3,0.04),(5,0.40),(7,0.76),(9,1.11) \\) on a linear scale — they lie on a rising straight line: <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:8px auto\" role=\"img\" aria-label=\"The five points log base 10 of x against n lying on a straight line of positive gradient and negative intercept\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"98\" y1=\"30\" x2=\"98\" y2=\"290\"/><line x1=\"174\" y1=\"30\" x2=\"174\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"326\" y1=\"30\" x2=\"326\" y2=\"290\"/><line x1=\"402\" y1=\"30\" x2=\"402\" y2=\"290\"/><line x1=\"60\" y1=\"40\" x2=\"440\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"440\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"440\" y2=\"160\"/><line x1=\"60\" y1=\"280\" x2=\"440\" y2=\"280\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"55\" y1=\"220\" x2=\"445\" y2=\"220\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"440,30 436,40 444,40\" fill=\"currentColor\"/><polygon points=\"445,220 435,216 435,224\" fill=\"currentColor\"/><line x1=\"60\" y1=\"277\" x2=\"440\" y2=\"66\" stroke=\"currentColor\" stroke-width=\"2.2\"/><circle cx=\"98\" cy=\"256\" r=\"4\" fill=\"currentColor\"/><circle cx=\"174\" cy=\"215\" r=\"4\" fill=\"currentColor\"/><circle cx=\"250\" cy=\"172\" r=\"4\" fill=\"currentColor\"/><circle cx=\"326\" cy=\"129\" r=\"4\" fill=\"currentColor\"/><circle cx=\"402\" cy=\"87\" r=\"4\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"98\" y=\"234\">1</text><text x=\"174\" y=\"234\">3</text><text x=\"250\" y=\"234\">5</text><text x=\"326\" y=\"234\">7</text><text x=\"402\" y=\"234\">9</text><text x=\"54\" y=\"44\" text-anchor=\"end\">1.5</text><text x=\"54\" y=\"164\" text-anchor=\"end\">0.5</text><text x=\"54\" y=\"284\" text-anchor=\"end\">-0.5</text><text x=\"52\" y=\"224\" text-anchor=\"end\">0</text><text x=\"450\" y=\"217\" text-anchor=\"start\">n</text><text x=\"60\" y=\"26\" text-anchor=\"middle\">log₁₀x</text></g></svg>"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:exam:06a082fc",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "14 (c)(i)",
+  "question": "<p>Draw the line of best fit for the points on the grid.</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 14.</strong> Layla is given the following data.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">\\( n \\)</td><td>1</td><td>3</td><td>5</td><td>7</td><td>9</td></tr>\n          <tr><td style=\"font-weight:600\">\\( x \\)</td><td>0.5</td><td>1.1</td><td>2.5</td><td>5.7</td><td>12.8</td></tr>\n        </tbody></table>\n        <p>She believes that the relationship between \\( n \\) and \\( x \\) can be modelled by the equation \\( x = ka^n \\), where \\( k \\) and \\( a \\) are constants. The grid below has \\( n \\) on the horizontal axis and \\( \\log_{10} x \\) on the vertical axis.</p>\n        <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Blank grid with horizontal axis n from 0 to 10 and vertical axis log base 10 of x from minus 0.5 to 1.5\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"98\" y1=\"30\" x2=\"98\" y2=\"290\"/><line x1=\"136\" y1=\"30\" x2=\"136\" y2=\"290\"/><line x1=\"174\" y1=\"30\" x2=\"174\" y2=\"290\"/><line x1=\"212\" y1=\"30\" x2=\"212\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"288\" y1=\"30\" x2=\"288\" y2=\"290\"/><line x1=\"326\" y1=\"30\" x2=\"326\" y2=\"290\"/><line x1=\"364\" y1=\"30\" x2=\"364\" y2=\"290\"/><line x1=\"402\" y1=\"30\" x2=\"402\" y2=\"290\"/><line x1=\"440\" y1=\"30\" x2=\"440\" y2=\"290\"/><line x1=\"60\" y1=\"40\" x2=\"440\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"440\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"440\" y2=\"160\"/><line x1=\"60\" y1=\"280\" x2=\"440\" y2=\"280\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"55\" y1=\"220\" x2=\"445\" y2=\"220\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"440,30 436,40 444,40\" fill=\"currentColor\"/><polygon points=\"445,220 435,216 435,224\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"98\" y=\"234\">1</text><text x=\"174\" y=\"234\">3</text><text x=\"250\" y=\"234\">5</text><text x=\"326\" y=\"234\">7</text><text x=\"402\" y=\"234\">9</text><text x=\"54\" y=\"44\" text-anchor=\"end\">1.5</text><text x=\"54\" y=\"104\" text-anchor=\"end\">1.0</text><text x=\"54\" y=\"164\" text-anchor=\"end\">0.5</text><text x=\"54\" y=\"284\" text-anchor=\"end\">-0.5</text><text x=\"52\" y=\"224\" text-anchor=\"end\">0</text><text x=\"450\" y=\"217\" text-anchor=\"start\">n</text><text x=\"60\" y=\"26\" text-anchor=\"middle\">log₁₀x</text></g></svg>",
+  "hint": "One ruled straight line that balances the five points — it will have a positive gradient and cross the vertical axis below zero.",
+  "starter": "Rule a single straight line of best fit through your plotted points.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>\n              <li><strong>B1</strong> — a straight line with positive gradient and (which would have) a negative intercept that best fits their log values.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>A single ruled straight line balancing the points; it should extend to cross the vertical axis below zero.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The drawing of the straight line caused no problem except that some were a little wayward and outside the bounds of acceptability.</li>\n            </ul></div>",
+   "modelAnswer": "A single ruled straight line of best fit through the five points. It rises left-to-right (positive gradient \\( \\approx 0.18 \\)) and, extended back, meets the vertical axis at about \\( -0.48 \\) (a negative intercept)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:exam:45f2cdc3",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "14 (c)(ii)",
+  "question": "<p>Explain why the model is reasonable for these data.</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 14.</strong> Layla is given the following data.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">\\( n \\)</td><td>1</td><td>3</td><td>5</td><td>7</td><td>9</td></tr>\n          <tr><td style=\"font-weight:600\">\\( x \\)</td><td>0.5</td><td>1.1</td><td>2.5</td><td>5.7</td><td>12.8</td></tr>\n        </tbody></table>\n        <p>She believes that the relationship between \\( n \\) and \\( x \\) can be modelled by the equation \\( x = ka^n \\), where \\( k \\) and \\( a \\) are constants. The grid below has \\( n \\) on the horizontal axis and \\( \\log_{10} x \\) on the vertical axis.</p>\n        <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Blank grid with horizontal axis n from 0 to 10 and vertical axis log base 10 of x from minus 0.5 to 1.5\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"98\" y1=\"30\" x2=\"98\" y2=\"290\"/><line x1=\"136\" y1=\"30\" x2=\"136\" y2=\"290\"/><line x1=\"174\" y1=\"30\" x2=\"174\" y2=\"290\"/><line x1=\"212\" y1=\"30\" x2=\"212\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"288\" y1=\"30\" x2=\"288\" y2=\"290\"/><line x1=\"326\" y1=\"30\" x2=\"326\" y2=\"290\"/><line x1=\"364\" y1=\"30\" x2=\"364\" y2=\"290\"/><line x1=\"402\" y1=\"30\" x2=\"402\" y2=\"290\"/><line x1=\"440\" y1=\"30\" x2=\"440\" y2=\"290\"/><line x1=\"60\" y1=\"40\" x2=\"440\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"440\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"440\" y2=\"160\"/><line x1=\"60\" y1=\"280\" x2=\"440\" y2=\"280\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"55\" y1=\"220\" x2=\"445\" y2=\"220\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"440,30 436,40 444,40\" fill=\"currentColor\"/><polygon points=\"445,220 435,216 435,224\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"98\" y=\"234\">1</text><text x=\"174\" y=\"234\">3</text><text x=\"250\" y=\"234\">5</text><text x=\"326\" y=\"234\">7</text><text x=\"402\" y=\"234\">9</text><text x=\"54\" y=\"44\" text-anchor=\"end\">1.5</text><text x=\"54\" y=\"104\" text-anchor=\"end\">1.0</text><text x=\"54\" y=\"164\" text-anchor=\"end\">0.5</text><text x=\"54\" y=\"284\" text-anchor=\"end\">-0.5</text><text x=\"52\" y=\"224\" text-anchor=\"end\">0</text><text x=\"450\" y=\"217\" text-anchor=\"start\">n</text><text x=\"60\" y=\"26\" text-anchor=\"middle\">log₁₀x</text></g></svg>",
+  "hint": "Look at your plotted points — what does their arrangement tell you?",
+  "starter": "One sentence about how the points lie.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>\n              <li><strong>B1</strong> — the points appear to lie on a (straight) line, e.g. \"there is a linear relationship\".</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Any clear statement that the plotted (logged) points are close to a straight line.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Candidates who scored well earlier found this straightforward, though some struggled to articulate a clear justification.</li>\n            </ul></div>",
+   "modelAnswer": "The plotted points \\( (n, \\log_{10} x) \\) lie close to a straight line, so a linear relationship holds between \\( \\log_{10} x \\) and \\( n \\); this is exactly what the model \\( x = ka^n \\) predicts, so the model is reasonable."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:exam:f4ed625d",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "14 (d)",
+  "question": "<p>Hence estimate values for \\( k \\) and \\( a \\).</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 14.</strong> Layla is given the following data.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">\\( n \\)</td><td>1</td><td>3</td><td>5</td><td>7</td><td>9</td></tr>\n          <tr><td style=\"font-weight:600\">\\( x \\)</td><td>0.5</td><td>1.1</td><td>2.5</td><td>5.7</td><td>12.8</td></tr>\n        </tbody></table>\n        <p>She believes that the relationship between \\( n \\) and \\( x \\) can be modelled by the equation \\( x = ka^n \\), where \\( k \\) and \\( a \\) are constants. The grid below has \\( n \\) on the horizontal axis and \\( \\log_{10} x \\) on the vertical axis.</p>\n        <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Blank grid with horizontal axis n from 0 to 10 and vertical axis log base 10 of x from minus 0.5 to 1.5\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"98\" y1=\"30\" x2=\"98\" y2=\"290\"/><line x1=\"136\" y1=\"30\" x2=\"136\" y2=\"290\"/><line x1=\"174\" y1=\"30\" x2=\"174\" y2=\"290\"/><line x1=\"212\" y1=\"30\" x2=\"212\" y2=\"290\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"290\"/><line x1=\"288\" y1=\"30\" x2=\"288\" y2=\"290\"/><line x1=\"326\" y1=\"30\" x2=\"326\" y2=\"290\"/><line x1=\"364\" y1=\"30\" x2=\"364\" y2=\"290\"/><line x1=\"402\" y1=\"30\" x2=\"402\" y2=\"290\"/><line x1=\"440\" y1=\"30\" x2=\"440\" y2=\"290\"/><line x1=\"60\" y1=\"40\" x2=\"440\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"440\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"440\" y2=\"160\"/><line x1=\"60\" y1=\"280\" x2=\"440\" y2=\"280\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"55\" y1=\"220\" x2=\"445\" y2=\"220\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"440,30 436,40 444,40\" fill=\"currentColor\"/><polygon points=\"445,220 435,216 435,224\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"98\" y=\"234\">1</text><text x=\"174\" y=\"234\">3</text><text x=\"250\" y=\"234\">5</text><text x=\"326\" y=\"234\">7</text><text x=\"402\" y=\"234\">9</text><text x=\"54\" y=\"44\" text-anchor=\"end\">1.5</text><text x=\"54\" y=\"104\" text-anchor=\"end\">1.0</text><text x=\"54\" y=\"164\" text-anchor=\"end\">0.5</text><text x=\"54\" y=\"284\" text-anchor=\"end\">-0.5</text><text x=\"52\" y=\"224\" text-anchor=\"end\">0</text><text x=\"450\" y=\"217\" text-anchor=\"start\">n</text><text x=\"60\" y=\"26\" text-anchor=\"middle\">log₁₀x</text></g></svg>",
+  "hint": "Read the intercept and find the gradient of your line — but remember these are \\( \\log_{10} k \\) and \\( \\log_{10} a \\), so anti-log both.",
+  "starter": "Find the gradient and intercept, then compute \\( a = 10^{\\text{gradient}} \\) and \\( k = 10^{\\text{intercept}} \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO3)</h5><ul>\n              <li><strong>M1</strong> — read off intercept and, with two pairs, calculate gradient (one pair could be \\( (0, \\) their intercept\\( ) \\)), then anti-log both (soi by answers). <em>Or:</em> choose two pairs to form 2 equations and attempt to solve.</li>\n              <li><strong>A1</strong> — one correct. For \\( k \\) awrt \\( 0.3 \\); allow \\( 0.35 \\). (Intercept \\( = \\log_{10} k \\approx -0.49 \\).)</li>\n              <li><strong>A1</strong> — other correct. For \\( a \\) awrt \\( 1.5 \\). (Gradient \\( = 0.17 = \\log_{10} a \\).)</li>\n              <li><strong>SC</strong> — correct answers from the original figures, B3 cao.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The method mark requires anti-logging; a range of final answers is accepted because the line is hand-drawn.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>More challenging. Some realised they needed the gradient and intercept but did not realise they had log values and did not anti-log to obtain the correct answers. Some went back to the original equation and solved two simultaneous equations — accepted if correct, but the exponential simultaneous equations proved hard.</li>\n            </ul></div>",
+   "modelAnswer": "Intercept \\( = \\log_{10} k \\approx -0.49 \\), so \\( k = 10^{-0.49} \\approx 0.3 \\). Gradient \\( = \\log_{10} a \\approx 0.17 \\), so \\( a = 10^{0.17} \\approx 1.5 \\). Hence \\( k \\approx 0.3 \\) (allow \\( 0.35 \\)) and \\( a \\approx 1.5 \\); the model is about \\( x = 0.3 \\times 1.5^n \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:exam:b843512c",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "14 (a)(i)",
+  "question": "<p>Explain the significance of the number 20 in the equation \\( T - 20 = A \\times 2^{-t/b} \\).</p>",
+  "caseStudy": "<p><strong>OCR June 2023, Question 14.</strong> Sarah brings a saucepan of water to the boil. She leaves the water to cool, measuring its temperature every 10 minutes for 30 minutes. The results are shown below.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">Time (\\( t \\) minutes)</td><td>0</td><td>10</td><td>20</td><td>30</td></tr>\n          <tr><td style=\"font-weight:600\">Temperature (\\( T \\) °C)</td><td>100</td><td>60</td><td>40</td><td>30</td></tr>\n        </tbody></table>\n        <p>Sarah believes the cooling can be modelled by \\( T - 20 = A \\times 2^{-t/b} \\), where \\( A \\) and \\( b \\) are constants. The grid below has \\( t \\) on the horizontal axis and \\( \\log_{10}(T-20) \\) on the vertical axis.</p>\n        <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Blank grid with horizontal axis t from 0 to 30 and vertical axis log base 10 of T minus 20 from 0 to 2\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"180\" y1=\"40\" x2=\"180\" y2=\"280\"/><line x1=\"300\" y1=\"40\" x2=\"300\" y2=\"280\"/><line x1=\"420\" y1=\"40\" x2=\"420\" y2=\"280\"/><line x1=\"60\" y1=\"40\" x2=\"420\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"420\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"420\" y2=\"160\"/><line x1=\"60\" y1=\"220\" x2=\"420\" y2=\"220\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"60\" y1=\"280\" x2=\"435\" y2=\"280\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"60,30 56,40 64,40\" fill=\"currentColor\"/><polygon points=\"435,280 425,276 425,284\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"60\" y=\"294\">0</text><text x=\"180\" y=\"294\">10</text><text x=\"300\" y=\"294\">20</text><text x=\"420\" y=\"294\">30</text><text x=\"54\" y=\"44\" text-anchor=\"end\">2.0</text><text x=\"54\" y=\"104\" text-anchor=\"end\">1.5</text><text x=\"54\" y=\"164\" text-anchor=\"end\">1.0</text><text x=\"54\" y=\"224\" text-anchor=\"end\">0.5</text><text x=\"54\" y=\"284\" text-anchor=\"end\">0</text><text x=\"440\" y=\"284\" text-anchor=\"start\">t</text><text x=\"62\" y=\"26\" text-anchor=\"start\">log₁₀(T-20)</text></g></svg>",
+  "hint": "Think about what happens to \\( 2^{-t/b} \\) as time \\( t \\) gets very large.",
+  "starter": "One sentence about the long-term temperature.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>\n              <li><strong>B1</strong> — e.g. as \\( t \\) increases, the RHS tends to 0, so 20 is the long-term temperature, e.g. the room temperature.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Any statement identifying 20 as the limiting / room temperature.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>A significant proportion did not contextually understand that the number represented room temperature; consideration of the long-term temperature from the model was very rarely seen.</li>\n            </ul></div>",
+   "modelAnswer": "As \\( t \\) increases, \\( 2^{-t/b} \\to 0 \\), so \\( T - 20 \\to 0 \\) and \\( T \\to 20 \\). The number 20 is therefore the long-term temperature the water cools to — the room (surrounding) temperature, in °C."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:exam:5dab52ab",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "14 (a)(ii)",
+  "question": "<p>Use the fact that the initial temperature of the water is \\( 100 \\)°C to determine the value of \\( A \\).</p>",
+  "caseStudy": "<p><strong>OCR June 2023, Question 14.</strong> Sarah brings a saucepan of water to the boil. She leaves the water to cool, measuring its temperature every 10 minutes for 30 minutes. The results are shown below.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">Time (\\( t \\) minutes)</td><td>0</td><td>10</td><td>20</td><td>30</td></tr>\n          <tr><td style=\"font-weight:600\">Temperature (\\( T \\) °C)</td><td>100</td><td>60</td><td>40</td><td>30</td></tr>\n        </tbody></table>\n        <p>Sarah believes the cooling can be modelled by \\( T - 20 = A \\times 2^{-t/b} \\), where \\( A \\) and \\( b \\) are constants. The grid below has \\( t \\) on the horizontal axis and \\( \\log_{10}(T-20) \\) on the vertical axis.</p>\n        <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Blank grid with horizontal axis t from 0 to 30 and vertical axis log base 10 of T minus 20 from 0 to 2\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"180\" y1=\"40\" x2=\"180\" y2=\"280\"/><line x1=\"300\" y1=\"40\" x2=\"300\" y2=\"280\"/><line x1=\"420\" y1=\"40\" x2=\"420\" y2=\"280\"/><line x1=\"60\" y1=\"40\" x2=\"420\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"420\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"420\" y2=\"160\"/><line x1=\"60\" y1=\"220\" x2=\"420\" y2=\"220\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"60\" y1=\"280\" x2=\"435\" y2=\"280\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"60,30 56,40 64,40\" fill=\"currentColor\"/><polygon points=\"435,280 425,276 425,284\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"60\" y=\"294\">0</text><text x=\"180\" y=\"294\">10</text><text x=\"300\" y=\"294\">20</text><text x=\"420\" y=\"294\">30</text><text x=\"54\" y=\"44\" text-anchor=\"end\">2.0</text><text x=\"54\" y=\"104\" text-anchor=\"end\">1.5</text><text x=\"54\" y=\"164\" text-anchor=\"end\">1.0</text><text x=\"54\" y=\"224\" text-anchor=\"end\">0.5</text><text x=\"54\" y=\"284\" text-anchor=\"end\">0</text><text x=\"440\" y=\"284\" text-anchor=\"start\">t</text><text x=\"62\" y=\"26\" text-anchor=\"start\">log₁₀(T-20)</text></g></svg>",
+  "hint": "Substitute the values at the start, \\( t = 0 \\) and \\( T = 100 \\); recall \\( 2^0 = 1 \\).",
+  "starter": "Put \\( t = 0 \\) and \\( T = 100 \\) into the model and solve for \\( A \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — substitute \\( t = 0 \\) and \\( T = 100 \\): \\( 100 - 20 = A \\times 2^{0} \\).</li>\n              <li><strong>A1</strong> — \\( A = 80 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One mark for the substitution, one for the value using \\( 2^0 = 1 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>No difficulty with this calculation for those who knew that \\( 2^0 = 1 \\).</li>\n            </ul></div>",
+   "modelAnswer": "At the start \\( t = 0 \\) and \\( T = 100 \\): \\( 100 - 20 = A \\times 2^{-0/b} = A \\times 2^{0} = A \\times 1 \\). So \\( A = 80 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:exam:2538c33a",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "14 (b)",
+  "question": "<p>By taking logs of both sides of Sarah's equation, show that plotting \\( \\log_{10}(T-20) \\) against \\( t \\) will give a straight line.</p>",
+  "caseStudy": "<p><strong>OCR June 2023, Question 14.</strong> Sarah brings a saucepan of water to the boil. She leaves the water to cool, measuring its temperature every 10 minutes for 30 minutes. The results are shown below.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">Time (\\( t \\) minutes)</td><td>0</td><td>10</td><td>20</td><td>30</td></tr>\n          <tr><td style=\"font-weight:600\">Temperature (\\( T \\) °C)</td><td>100</td><td>60</td><td>40</td><td>30</td></tr>\n        </tbody></table>\n        <p>Sarah believes the cooling can be modelled by \\( T - 20 = A \\times 2^{-t/b} \\), where \\( A \\) and \\( b \\) are constants. The grid below has \\( t \\) on the horizontal axis and \\( \\log_{10}(T-20) \\) on the vertical axis.</p>\n        <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Blank grid with horizontal axis t from 0 to 30 and vertical axis log base 10 of T minus 20 from 0 to 2\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"180\" y1=\"40\" x2=\"180\" y2=\"280\"/><line x1=\"300\" y1=\"40\" x2=\"300\" y2=\"280\"/><line x1=\"420\" y1=\"40\" x2=\"420\" y2=\"280\"/><line x1=\"60\" y1=\"40\" x2=\"420\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"420\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"420\" y2=\"160\"/><line x1=\"60\" y1=\"220\" x2=\"420\" y2=\"220\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"60\" y1=\"280\" x2=\"435\" y2=\"280\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"60,30 56,40 64,40\" fill=\"currentColor\"/><polygon points=\"435,280 425,276 425,284\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"60\" y=\"294\">0</text><text x=\"180\" y=\"294\">10</text><text x=\"300\" y=\"294\">20</text><text x=\"420\" y=\"294\">30</text><text x=\"54\" y=\"44\" text-anchor=\"end\">2.0</text><text x=\"54\" y=\"104\" text-anchor=\"end\">1.5</text><text x=\"54\" y=\"164\" text-anchor=\"end\">1.0</text><text x=\"54\" y=\"224\" text-anchor=\"end\">0.5</text><text x=\"54\" y=\"284\" text-anchor=\"end\">0</text><text x=\"440\" y=\"284\" text-anchor=\"start\">t</text><text x=\"62\" y=\"26\" text-anchor=\"start\">log₁₀(T-20)</text></g></svg>",
+  "hint": "Log both sides; use the product law and the power law on the right; then compare to \\( Y = mX + c \\). Keep the left-hand side as \\( \\log_{10}(T-20) \\).",
+  "starter": "Take \\( \\log_{10} \\) of both sides, split the RHS with both log laws, and state the form \\( Y = mX + c \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO2)</h5><ul>\n              <li><strong>M1</strong> — use of both log laws on the RHS: \\( \\log(T-20) = \\log A + \\log\\!\\big(2^{-t/b}\\big) \\).</li>\n              <li><strong>A1</strong> — correct equation \\( \\log(T-20) = \\log A - \\frac{\\log 2}{b}\\,t \\) (the LHS must be correct).</li>\n              <li><strong>A1</strong> — interpretation of the correct equation as a straight line, i.e. it is of the form \\( Y = mX + c \\) (no follow-through).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The final mark is the explicit comparison to \\( Y = mX + c \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>This question really exposed understanding of the log laws. Many could not combine the two laws correctly; some took the log of the LHS incorrectly. Of those who used the laws correctly, only a proportion identified the form \\( y = mx + c \\). Common issues were multiplying the two RHS logs and taking the \"2\" out of the log.</li>\n            </ul></div>",
+   "modelAnswer": "\\( T - 20 = A \\times 2^{-t/b} \\). Take \\( \\log_{10} \\) of both sides: \\( \\log_{10}(T-20) = \\log_{10}\\!\\big(A \\times 2^{-t/b}\\big) \\). Product law: \\( = \\log_{10} A + \\log_{10}\\!\\big(2^{-t/b}\\big) \\). Power law: \\( = \\log_{10} A - \\frac{t}{b}\\log_{10} 2 = \\log_{10} A - \\frac{\\log_{10} 2}{b}\\,t \\). This is of the form \\( Y = mX + c \\) with \\( Y = \\log_{10}(T-20) \\), \\( X = t \\), gradient \\( m = -\\frac{\\log_{10} 2}{b} \\) and intercept \\( c = \\log_{10} A \\); so the plot is a straight line."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:exam:c861e601",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "14 (c)",
+  "question": "<p>Complete the table below, giving the rows for \\( T - 20 \\) and \\( \\log_{10}(T-20) \\) for \\( t = 0, 10, 20, 30 \\).</p>",
+  "caseStudy": "<p><strong>OCR June 2023, Question 14.</strong> Sarah brings a saucepan of water to the boil. She leaves the water to cool, measuring its temperature every 10 minutes for 30 minutes. The results are shown below.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">Time (\\( t \\) minutes)</td><td>0</td><td>10</td><td>20</td><td>30</td></tr>\n          <tr><td style=\"font-weight:600\">Temperature (\\( T \\) °C)</td><td>100</td><td>60</td><td>40</td><td>30</td></tr>\n        </tbody></table>\n        <p>Sarah believes the cooling can be modelled by \\( T - 20 = A \\times 2^{-t/b} \\), where \\( A \\) and \\( b \\) are constants. The grid below has \\( t \\) on the horizontal axis and \\( \\log_{10}(T-20) \\) on the vertical axis.</p>\n        <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Blank grid with horizontal axis t from 0 to 30 and vertical axis log base 10 of T minus 20 from 0 to 2\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"180\" y1=\"40\" x2=\"180\" y2=\"280\"/><line x1=\"300\" y1=\"40\" x2=\"300\" y2=\"280\"/><line x1=\"420\" y1=\"40\" x2=\"420\" y2=\"280\"/><line x1=\"60\" y1=\"40\" x2=\"420\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"420\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"420\" y2=\"160\"/><line x1=\"60\" y1=\"220\" x2=\"420\" y2=\"220\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"60\" y1=\"280\" x2=\"435\" y2=\"280\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"60,30 56,40 64,40\" fill=\"currentColor\"/><polygon points=\"435,280 425,276 425,284\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"60\" y=\"294\">0</text><text x=\"180\" y=\"294\">10</text><text x=\"300\" y=\"294\">20</text><text x=\"420\" y=\"294\">30</text><text x=\"54\" y=\"44\" text-anchor=\"end\">2.0</text><text x=\"54\" y=\"104\" text-anchor=\"end\">1.5</text><text x=\"54\" y=\"164\" text-anchor=\"end\">1.0</text><text x=\"54\" y=\"224\" text-anchor=\"end\">0.5</text><text x=\"54\" y=\"284\" text-anchor=\"end\">0</text><text x=\"440\" y=\"284\" text-anchor=\"start\">t</text><text x=\"62\" y=\"26\" text-anchor=\"start\">log₁₀(T-20)</text></g></svg>",
+  "hint": "Subtract 20 from each temperature first, then take \\( \\log_{10} \\) of each result (1 d.p. is enough to plot).",
+  "starter": "Fill the \\( T-20 \\) row, then the \\( \\log_{10}(T-20) \\) row.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>B2</strong> — all correct to 1 d.p.; <strong>B1</strong> for one error.</li>\n              <li>\\( T - 20 = 80,\\ 40,\\ 20,\\ 10 \\); \\( \\log_{10}(T-20) = 1.90,\\ 1.60,\\ 1.30,\\ 1.00 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Values may be read to the accuracy needed for the plot (1 d.p.) — that is acceptable.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>No problems with filling in the table; some sensibly gave values to one decimal place, which was perfectly acceptable.</li>\n            </ul></div>",
+   "modelAnswer": "\\( T - 20 \\): \\( 80,\\ 40,\\ 20,\\ 10 \\). Then \\( \\log_{10}(T-20) \\): \\( \\log_{10} 80 = 1.90 \\), \\( \\log_{10} 40 = 1.60 \\), \\( \\log_{10} 20 = 1.30 \\), \\( \\log_{10} 10 = 1.00 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:exam:5aba21d6",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "14 (d)",
+  "question": "<p>Plot the values of \\( \\log_{10}(T-20) \\) against \\( t \\) on the grid.</p>",
+  "caseStudy": "<p><strong>OCR June 2023, Question 14.</strong> Sarah brings a saucepan of water to the boil. She leaves the water to cool, measuring its temperature every 10 minutes for 30 minutes. The results are shown below.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">Time (\\( t \\) minutes)</td><td>0</td><td>10</td><td>20</td><td>30</td></tr>\n          <tr><td style=\"font-weight:600\">Temperature (\\( T \\) °C)</td><td>100</td><td>60</td><td>40</td><td>30</td></tr>\n        </tbody></table>\n        <p>Sarah believes the cooling can be modelled by \\( T - 20 = A \\times 2^{-t/b} \\), where \\( A \\) and \\( b \\) are constants. The grid below has \\( t \\) on the horizontal axis and \\( \\log_{10}(T-20) \\) on the vertical axis.</p>\n        <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Blank grid with horizontal axis t from 0 to 30 and vertical axis log base 10 of T minus 20 from 0 to 2\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"180\" y1=\"40\" x2=\"180\" y2=\"280\"/><line x1=\"300\" y1=\"40\" x2=\"300\" y2=\"280\"/><line x1=\"420\" y1=\"40\" x2=\"420\" y2=\"280\"/><line x1=\"60\" y1=\"40\" x2=\"420\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"420\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"420\" y2=\"160\"/><line x1=\"60\" y1=\"220\" x2=\"420\" y2=\"220\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"60\" y1=\"280\" x2=\"435\" y2=\"280\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"60,30 56,40 64,40\" fill=\"currentColor\"/><polygon points=\"435,280 425,276 425,284\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"60\" y=\"294\">0</text><text x=\"180\" y=\"294\">10</text><text x=\"300\" y=\"294\">20</text><text x=\"420\" y=\"294\">30</text><text x=\"54\" y=\"44\" text-anchor=\"end\">2.0</text><text x=\"54\" y=\"104\" text-anchor=\"end\">1.5</text><text x=\"54\" y=\"164\" text-anchor=\"end\">1.0</text><text x=\"54\" y=\"224\" text-anchor=\"end\">0.5</text><text x=\"54\" y=\"284\" text-anchor=\"end\">0</text><text x=\"440\" y=\"284\" text-anchor=\"start\">t</text><text x=\"62\" y=\"26\" text-anchor=\"start\">log₁₀(T-20)</text></g></svg>",
+  "hint": "Do this on paper (or a printout of the grid): plot the four points from your completed table; a straight line is not required.",
+  "starter": "Plot \\( (0,1.90),(10,1.60),(20,1.30),(30,1.00) \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO1)</h5><ul>\n              <li><strong>B1</strong> — all four points correct. The straight line is not required.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One mark for all four points plotted accurately on the linear grid.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Only a handful of rather odd graphs; failure to obtain a straight line should have alerted candidates to an earlier error. Most drew the line even though it was not required.</li>\n            </ul></div>",
+   "modelAnswer": "Plot \\( (0,1.90),(10,1.60),(20,1.30),(30,1.00) \\); they fall on a straight line of negative gradient: <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:8px auto\" role=\"img\" aria-label=\"The four points log base 10 of T minus 20 against t, lying on a straight line of negative gradient\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"180\" y1=\"40\" x2=\"180\" y2=\"280\"/><line x1=\"300\" y1=\"40\" x2=\"300\" y2=\"280\"/><line x1=\"420\" y1=\"40\" x2=\"420\" y2=\"280\"/><line x1=\"60\" y1=\"40\" x2=\"420\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"420\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"420\" y2=\"160\"/><line x1=\"60\" y1=\"220\" x2=\"420\" y2=\"220\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"60\" y1=\"280\" x2=\"435\" y2=\"280\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"60,30 56,40 64,40\" fill=\"currentColor\"/><polygon points=\"435,280 425,276 425,284\" fill=\"currentColor\"/><line x1=\"60\" y1=\"52\" x2=\"420\" y2=\"160\" stroke=\"currentColor\" stroke-width=\"2.2\"/><circle cx=\"60\" cy=\"52\" r=\"4\" fill=\"currentColor\"/><circle cx=\"180\" cy=\"88\" r=\"4\" fill=\"currentColor\"/><circle cx=\"300\" cy=\"124\" r=\"4\" fill=\"currentColor\"/><circle cx=\"420\" cy=\"160\" r=\"4\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"60\" y=\"294\">0</text><text x=\"180\" y=\"294\">10</text><text x=\"300\" y=\"294\">20</text><text x=\"420\" y=\"294\">30</text><text x=\"54\" y=\"44\" text-anchor=\"end\">2.0</text><text x=\"54\" y=\"164\" text-anchor=\"end\">1.0</text><text x=\"54\" y=\"284\" text-anchor=\"end\">0</text><text x=\"440\" y=\"284\" text-anchor=\"start\">t</text><text x=\"62\" y=\"26\" text-anchor=\"start\">log₁₀(T-20)</text></g></svg>"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:exam:d62efe13",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "14 (e)",
+  "question": "<p>Hence estimate the value of \\( b \\).</p>",
+  "caseStudy": "<p><strong>OCR June 2023, Question 14.</strong> Sarah brings a saucepan of water to the boil. She leaves the water to cool, measuring its temperature every 10 minutes for 30 minutes. The results are shown below.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">Time (\\( t \\) minutes)</td><td>0</td><td>10</td><td>20</td><td>30</td></tr>\n          <tr><td style=\"font-weight:600\">Temperature (\\( T \\) °C)</td><td>100</td><td>60</td><td>40</td><td>30</td></tr>\n        </tbody></table>\n        <p>Sarah believes the cooling can be modelled by \\( T - 20 = A \\times 2^{-t/b} \\), where \\( A \\) and \\( b \\) are constants. The grid below has \\( t \\) on the horizontal axis and \\( \\log_{10}(T-20) \\) on the vertical axis.</p>\n        <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Blank grid with horizontal axis t from 0 to 30 and vertical axis log base 10 of T minus 20 from 0 to 2\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"180\" y1=\"40\" x2=\"180\" y2=\"280\"/><line x1=\"300\" y1=\"40\" x2=\"300\" y2=\"280\"/><line x1=\"420\" y1=\"40\" x2=\"420\" y2=\"280\"/><line x1=\"60\" y1=\"40\" x2=\"420\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"420\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"420\" y2=\"160\"/><line x1=\"60\" y1=\"220\" x2=\"420\" y2=\"220\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"290\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"60\" y1=\"280\" x2=\"435\" y2=\"280\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"60,30 56,40 64,40\" fill=\"currentColor\"/><polygon points=\"435,280 425,276 425,284\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"60\" y=\"294\">0</text><text x=\"180\" y=\"294\">10</text><text x=\"300\" y=\"294\">20</text><text x=\"420\" y=\"294\">30</text><text x=\"54\" y=\"44\" text-anchor=\"end\">2.0</text><text x=\"54\" y=\"104\" text-anchor=\"end\">1.5</text><text x=\"54\" y=\"164\" text-anchor=\"end\">1.0</text><text x=\"54\" y=\"224\" text-anchor=\"end\">0.5</text><text x=\"54\" y=\"284\" text-anchor=\"end\">0</text><text x=\"440\" y=\"284\" text-anchor=\"start\">t</text><text x=\"62\" y=\"26\" text-anchor=\"start\">log₁₀(T-20)</text></g></svg>",
+  "hint": "The gradient of your line is \\( -\\frac{\\log_{10} 2}{b} \\); set that equal to your measured gradient and solve for \\( b \\). (Or substitute a pair of values other than the \\( t = 0 \\) point.)",
+  "starter": "Equate your gradient to \\( -\\frac{\\log_{10} 2}{b} \\) and solve for \\( b \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO3)</h5><ul>\n              <li><strong>M1</strong> — correct attempt: gradient \\( = -0.03 \\), so \\( -\\frac{\\log 2}{b} = -0.03 \\) (a positive value means an incorrect attempt).</li>\n              <li><strong>A1</strong> — \\( b = \\frac{\\log 2}{0.03} \\approx 10 \\) (www B2).</li>\n              <li><strong>Alternative:</strong> substitute any set of values other than \\( t = 0 \\), e.g. \\( T-20 = 10, t = 30, A = 80 \\): \\( \\log 10 = \\log 80 - \\frac{30\\log 2}{b} \\Rightarrow \\frac{30\\log 2}{b} = \\log 8 = 3\\log 2 \\Rightarrow b = 10 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Method mark for equating the gradient to \\( -\\frac{\\log 2}{b} \\) (or a valid substitution); accuracy mark for \\( b \\approx 10 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>\"Hence\" should have led candidates to find the gradient and equate it to their \\( m \\); many did so. Others substituted another pair of values, which is fine — but using \\( (0, 100) \\) would not find \\( b \\).</li>\n            </ul></div>",
+   "modelAnswer": "The line's gradient is \\( m \\approx \\frac{1.00 - 1.90}{30 - 0} = -0.03 \\). Since the gradient is \\( -\\frac{\\log_{10} 2}{b} \\), set \\( -\\frac{\\log_{10} 2}{b} = -0.03 \\), so \\( b = \\frac{\\log_{10} 2}{0.03} = \\frac{0.301}{0.03} \\approx 10 \\). (Check with \\( t = 30 \\): \\( 80 \\times 2^{-30/10} = 80 \\times 2^{-3} = 10 \\) ✓.)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:mcq:eed3ed3f",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Taking logs of \\( y = ka^x \\) gives which linear equation?",
+  "options": [
+   "\\( \\log y = (\\log a)x + \\log k \\)",
+   "\\( \\log y = x\\log(ka) \\)",
+   "\\( \\log y = a\\log x + \\log k \\)",
+   "\\( \\log y = (\\log k)x + \\log a \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Product then power law: \\( \\log y = \\log k + x\\log a = (\\log a)x + \\log k \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:mcq:04191a97",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( y = kx^n \\), what do you plot to obtain a straight line?",
+  "options": [
+   "\\( \\log y \\) against \\( \\log x \\)",
+   "\\( \\log y \\) against \\( x \\)",
+   "\\( y \\) against \\( \\log x \\)",
+   "\\( x \\) against \\( y \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\log y = n\\log x + \\log k \\), so plot \\( \\log y \\) vs \\( \\log x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:mcq:43edfa74",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "You plot \\( \\log y \\) against \\( x \\) for \\( y = ka^x \\) and find the gradient is \\( 0.6 \\). What is \\( a \\)?",
+  "options": [
+   "\\( 10^{0.6} \\approx 4.0 \\)",
+   "\\( 0.6 \\)",
+   "\\( \\log 0.6 \\)",
+   "\\( 6 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Gradient \\( = \\log a \\), so anti-log: \\( a = 10^{0.6} \\approx 4.0 \\). Do not quote the gradient itself."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:mcq:017212b8",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The intercept of the line \\( \\log y = (\\log a)x + \\log k \\) is \\( 0.9 \\). What is \\( k \\)?",
+  "options": [
+   "\\( 10^{0.9} \\approx 7.9 \\)",
+   "\\( 0.9 \\)",
+   "\\( \\log 0.9 \\)",
+   "\\( 9 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Intercept \\( = \\log k \\), so \\( k = 10^{0.9} \\approx 7.9 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:mcq:75b887c0",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is the correct expansion of \\( \\log(ka^n) \\)?",
+  "options": [
+   "\\( \\log k + n\\log a \\)",
+   "\\( n\\log(ka) \\)",
+   "\\( n\\log k + n\\log a \\)",
+   "\\( \\log k \\times n\\log a \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Product law then power law. The classic 2024 trap is writing \\( n\\log(ka) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:mcq:c1dd181b",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( y = kx^n \\), plotting \\( \\log y \\) vs \\( \\log x \\) gives a line of gradient \\( 2.5 \\). What is \\( n \\)?",
+  "options": [
+   "\\( 2.5 \\)",
+   "\\( 10^{2.5} \\)",
+   "\\( \\log 2.5 \\)",
+   "\\( 25 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "For a power law the gradient IS \\( n \\) — no anti-log needed. So \\( n = 2.5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:mcq:1f6e8514",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A model is \\( x = ka^n \\). Which axes give a straight line?",
+  "options": [
+   "\\( \\log x \\) (vertical) against \\( n \\) (horizontal)",
+   "\\( \\log x \\) against \\( \\log n \\)",
+   "\\( x \\) against \\( \\log n \\)",
+   "\\( n \\) against \\( \\log x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\log x = (\\log a)n + \\log k \\): plot \\( \\log x \\) against \\( n \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:mcq:e32e4da9",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "When plotting log-transformed data, why must the axis use a linear scale?",
+  "options": [
+   "Otherwise all accuracy marks are lost",
+   "To save space",
+   "Because logs are always negative",
+   "To make the line curve"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A non-linear scale (equal spacing for unequal values) means \"A0 if either scale is not linear\"."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:mcq:cbc5836e",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "You correctly find gradient \\( = \\log a = 0.30 \\) but write your final answer as \\( a = 0.30 \\). What is the error?",
+  "options": [
+   "You forgot to anti-log: \\( a = 10^{0.30} \\approx 2.0 \\)",
+   "You should have used the intercept",
+   "The gradient should be negative",
+   "Nothing is wrong"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The gradient is \\( \\log a \\), not \\( a \\); you must anti-log to \\( a = 10^{0.30} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:mcq:4580c8a0",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In a 'show that' linearisation part, a student does all the log algebra correctly but stops. Which mark is most likely lost?",
+  "options": [
+   "The mark for stating the equation is of the form \\( Y = mX + c \\)",
+   "The mark for taking logs",
+   "The mark for the product law",
+   "No mark is lost"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The final mark is the explicit comparison to \\( Y = mX + c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:mcq:c5e2b8bd",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( T - 20 = A \\times 2^{-t/b} \\), taking logs gives \\( \\log(T-20) = \\log A - \\frac{\\log 2}{b}t \\). What is the gradient of \\( \\log(T-20) \\) against \\( t \\)?",
+  "options": [
+   "\\( -\\frac{\\log 2}{b} \\)",
+   "\\( \\log A \\)",
+   "\\( \\log 2 \\)",
+   "\\( -b \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "In \\( Y = mX + c \\) the coefficient of \\( t \\) is the gradient: \\( m = -\\frac{\\log 2}{b} \\); the intercept is \\( \\log A \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:mcq:a1d33733",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For \\( T - 20 = A \\times 2^{-t/b} \\) with initial temperature \\( 100 \\)°C at \\( t = 0 \\), what is \\( A \\)?",
+  "options": [
+   "\\( 80 \\)",
+   "\\( 100 \\)",
+   "\\( 20 \\)",
+   "\\( 60 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "At \\( t=0 \\), \\( 2^0 = 1 \\), so \\( 100 - 20 = A \\Rightarrow A = 80 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:tf:37954073",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Taking logs of \\( y = ka^x \\) gives \\( \\log y = (\\log a)x + \\log k \\).",
+  "key": {
+   "answer": true,
+   "explain": "Product law then power law: \\( \\log y = \\log k + x\\log a \\), i.e. gradient \\( \\log a \\), intercept \\( \\log k \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:tf:dd6dfd3b",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For \\( y = kx^n \\) you should plot \\( \\log y \\) against \\( x \\).",
+  "key": {
+   "answer": false,
+   "explain": "Because \\( x \\) is the base raised to a power, you plot \\( \\log y \\) against \\( \\log x \\); the gradient is then \\( n \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:tf:1ab21ae0",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\log(ka^n) \\) equals \\( n\\log(ka) \\).",
+  "key": {
+   "answer": false,
+   "explain": "It equals \\( \\log k + n\\log a \\). The power \\( n \\) attaches only to \\( \\log a \\), not to the whole product."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:tf:1451265b",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If the gradient of \\( \\log y \\) against \\( x \\) is \\( 0.5 \\), then \\( a = 0.5 \\).",
+  "key": {
+   "answer": false,
+   "explain": "Gradient \\( = \\log a \\), so anti-log: \\( a = 10^{0.5} \\approx 3.16 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:tf:60b0f015",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "When linearising \\( y = kx^n \\), the gradient is the power \\( n \\) itself, with no anti-logging needed.",
+  "key": {
+   "answer": true,
+   "explain": "\\( \\log y = n\\log x + \\log k \\); the gradient is exactly \\( n \\). Only \\( k \\) (from the intercept) needs anti-logging."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:tf:a4f46c9b",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Plotting the values \\( n = 1,3,5,7,9 \\) at equal spacing along the axis is acceptable.",
+  "key": {
+   "answer": false,
+   "explain": "That is a non-linear scale; the mark scheme awards A0 if either scale is not linear."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:tf:90eb2a98",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For \\( T - 20 = A\\times 2^{-t/b} \\), substituting the \\( t = 0 \\) point is a good way to find \\( b \\).",
+  "key": {
+   "answer": false,
+   "explain": "At \\( t = 0 \\) the exponent is 0, so \\( b \\) cancels out. Use the gradient, or any pair with \\( t \\ne 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:tf:6d839b35",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In a 'show that' linearisation, doing the algebra is enough — you need not mention \\( Y = mX + c \\).",
+  "key": {
+   "answer": false,
+   "explain": "The final mark is explicitly stating the equation is of the form \\( Y = mX + c \\), i.e. a straight line."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:learn:97a633dc",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Why turn a curve into a straight line?",
+  "reading": "<p>Real data rarely lies on a neat curve you can read constants off. But a <strong>straight line</strong> is easy: its gradient and intercept are simple to measure. <strong>Reduction to linear form</strong> uses <strong>logarithms</strong> to turn an exponential or power law into a straight-line relationship, so the unknown constants can be estimated from a graph.</p>\n            <ul>\n              <li>The two laws you must handle are \\( y = ka^x \\) (an <strong>exponential</strong> law) and \\( y = kx^n \\) (a <strong>power</strong> law).</li>\n              <li>Taking logs of both sides \"unpacks\" the powers using the log laws, leaving something of the form \\( Y = mX + c \\).</li>\n              <li>You then plot the <em>logged</em> data, draw a line of best fit, read off the <strong>gradient</strong> and <strong>intercept</strong>, and finally <strong>anti-log</strong> to recover the original constants.</li>\n              <li>This is the signature exponentials-and-logs exam question — it appears almost every year, worth 10–11 marks.</li>\n            </ul>\n            <p>The three log laws you rely on (all MEMORISE): \\[ \\log(MN) = \\log M + \\log N, \\quad \\log\\!\\left(\\tfrac{M}{N}\\right) = \\log M - \\log N, \\quad \\log(M^p) = p\\log M. \\]</p>",
+  "question": "What is the point of reducing a law to linear form?",
+  "options": [
+   "So the constants can be found from a straight line's gradient and intercept",
+   "To make the numbers larger",
+   "To avoid using a calculator",
+   "Because curves cannot be drawn"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A straight line's gradient and intercept are easy to measure, and logs convert the law into \\( Y = mX + c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:learn:9a97c6e9",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you linearise \\( y = ka^x \\)?",
+  "reading": "<p>Take logs of <strong>both</strong> sides, then use two log laws to split the right-hand side.</p>\n            <table class=\"worked\">\n              <tr><td>1. Start: \\( y = ka^x \\).</td></tr>\n              <tr><td>2. Log both sides: \\( \\log y = \\log(ka^x) \\).</td></tr>\n              <tr><td>3. Product law: \\( \\log y = \\log k + \\log(a^x) \\).</td></tr>\n              <tr><td>4. Power law: \\( \\log y = \\log k + x\\log a \\).</td></tr>\n              <tr><td>5. Reorder into \\( Y = mX + c \\): \\[ \\log y = (\\log a)\\,x + \\log k. \\]</td></tr>\n            </table>\n            <p>So plotting \\( \\log y \\) (vertical) against \\( x \\) (horizontal) gives a straight line with <strong>gradient \\( \\log a \\)</strong> and <strong>intercept \\( \\log k \\)</strong>. Compare term-by-term with \\( Y = mX + c \\): \\( Y = \\log y \\), \\( X = x \\), \\( m = \\log a \\), \\( c = \\log k \\).</p>\n            <p><strong>Note:</strong> only \\( y \\) is logged, not \\( x \\) — the exponent \\( x \\) is already \"linear\".</p>",
+  "question": "For \\( y = ka^x \\), what should you plot to get a straight line?",
+  "options": [
+   "\\( \\log y \\) against \\( x \\)",
+   "\\( \\log y \\) against \\( \\log x \\)",
+   "\\( y \\) against \\( \\log x \\)",
+   "\\( \\log x \\) against \\( \\log y \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\log y = (\\log a)x + \\log k \\), so \\( \\log y \\) against \\( x \\) is linear."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:learn:57b24b14",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you linearise \\( y = kx^n \\)?",
+  "reading": "<p>The power law is different: here \\( x \\) is raised to a power, so you must log <strong>both</strong> variables.</p>\n            <table class=\"worked\">\n              <tr><td>1. Start: \\( y = kx^n \\).</td></tr>\n              <tr><td>2. Log both sides: \\( \\log y = \\log(kx^n) \\).</td></tr>\n              <tr><td>3. Product law: \\( \\log y = \\log k + \\log(x^n) \\).</td></tr>\n              <tr><td>4. Power law: \\( \\log y = \\log k + n\\log x \\).</td></tr>\n              <tr><td>5. As \\( Y = mX + c \\): \\[ \\log y = n\\log x + \\log k. \\]</td></tr>\n            </table>\n            <p>So plotting \\( \\log y \\) against \\( \\log x \\) gives a straight line with <strong>gradient \\( n \\)</strong> and <strong>intercept \\( \\log k \\)</strong>. Here \\( Y = \\log y \\), \\( X = \\log x \\), \\( m = n \\), \\( c = \\log k \\).</p>\n            <p><strong>Tell them apart:</strong> in \\( y = ka^x \\) the variable is the <em>exponent</em>, so plot \\( \\log y \\) vs \\( x \\); in \\( y = kx^n \\) the variable is the <em>base</em>, so plot \\( \\log y \\) vs \\( \\log x \\). The gradient is \\( \\log a \\) for the exponential but just \\( n \\) for the power.</p>",
+  "question": "When plotting \\( \\log y \\) against \\( \\log x \\) for \\( y = kx^n \\), the gradient is:",
+  "options": [
+   "\\( n \\)",
+   "\\( \\log n \\)",
+   "\\( \\log k \\)",
+   "\\( kn \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\log y = n\\log x + \\log k \\); the gradient is the power \\( n \\) itself (not its log)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:learn:999ac6b6",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you complete a table of logs and plot the line?",
+  "reading": "<p>You are usually given a data table and a printed grid. Work in a spare row: compute the log of every value you will plot, to about 2 decimal places, then plot on a <strong>linear</strong> scale.</p>\n            <p><strong>Worked example.</strong> Data believed to fit \\( y = ka^x \\):</p>\n            <table class=\"worked\" style=\"text-align:center\"><tbody>\n              <tr><td style=\"font-weight:600\">\\( x \\)</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>\n              <tr><td style=\"font-weight:600\">\\( y \\)</td><td>6</td><td>18</td><td>54</td><td>162</td></tr>\n              <tr><td style=\"font-weight:600\">\\( \\log_{10} y \\)</td><td>0.78</td><td>1.26</td><td>1.73</td><td>2.21</td></tr>\n            </tbody></table>\n            <p>Plotting \\( \\log_{10} y \\) against \\( x \\) gives points that lie on a straight line:</p>\n            <svg viewBox=\"0 0 470 300\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:8px auto\" role=\"img\" aria-label=\"log base 10 of y plotted against x, four points lying on a straight line of positive gradient with a positive intercept\"><g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\"><line x1=\"60\" y1=\"40\" x2=\"440\" y2=\"40\"/><line x1=\"60\" y1=\"100\" x2=\"440\" y2=\"100\"/><line x1=\"60\" y1=\"160\" x2=\"440\" y2=\"160\"/><line x1=\"60\" y1=\"220\" x2=\"440\" y2=\"220\"/><line x1=\"160\" y1=\"30\" x2=\"160\" y2=\"270\"/><line x1=\"260\" y1=\"30\" x2=\"260\" y2=\"270\"/><line x1=\"360\" y1=\"30\" x2=\"360\" y2=\"270\"/></g><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"270\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"60\" y1=\"270\" x2=\"445\" y2=\"270\" stroke=\"currentColor\" stroke-width=\"1.5\"/><polygon points=\"60,30 56,40 64,40\" fill=\"currentColor\"/><polygon points=\"445,270 435,266 435,274\" fill=\"currentColor\"/><line x1=\"60\" y1=\"223.6\" x2=\"360\" y2=\"93.4\" stroke=\"currentColor\" stroke-width=\"2.2\"/><circle cx=\"60\" cy=\"223.6\" r=\"4\" fill=\"currentColor\"/><circle cx=\"160\" cy=\"180.2\" r=\"4\" fill=\"currentColor\"/><circle cx=\"260\" cy=\"137.6\" r=\"4\" fill=\"currentColor\"/><circle cx=\"360\" cy=\"93.4\" r=\"4\" fill=\"currentColor\"/><g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\"><text x=\"60\" y=\"285\">0</text><text x=\"160\" y=\"285\">1</text><text x=\"260\" y=\"285\">2</text><text x=\"360\" y=\"285\">3</text><text x=\"450\" y=\"273\" text-anchor=\"start\">x</text><text x=\"55\" y=\"227\" text-anchor=\"end\">0.78</text><text x=\"80\" y=\"26\">log₁₀y</text></g></svg>\n            <p>The line is straight, so the model fits. Its gradient \\( \\approx (2.21-0.78)/3 = 0.48 \\) and its intercept \\( \\approx 0.78 \\) — these are \\( \\log a \\) and \\( \\log k \\), ready to anti-log (next card).</p>",
+  "question": "What must be true of the horizontal axis scale for the accuracy marks?",
+  "options": [
+   "It must be a linear (evenly-spaced) scale",
+   "It must be a log scale",
+   "The gaps must match the data values, however uneven",
+   "It does not matter"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Plotting values at equal intervals when they are not equal loses all accuracy marks — the axis scale must be linear."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:learn:0398f307",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you estimate the constants by anti-logging?",
+  "reading": "<p>The gradient and intercept you read off are <em>logged</em> quantities. To get back the real constants you must <strong>anti-log</strong> (raise 10 to the power), because the data was plotted with base-10 logs.</p>\n            <table class=\"worked\">\n              <tr><td>For \\( y = ka^x \\): gradient \\( = \\log a \\Rightarrow a = 10^{\\text{gradient}} \\); intercept \\( = \\log k \\Rightarrow k = 10^{\\text{intercept}} \\).</td></tr>\n              <tr><td>For \\( y = kx^n \\): gradient \\( = n \\) directly (no anti-log); intercept \\( = \\log k \\Rightarrow k = 10^{\\text{intercept}} \\).</td></tr>\n            </table>\n            <p><strong>Continuing the worked example</strong> (\\( y = ka^x \\), gradient \\( 0.48 \\), intercept \\( 0.78 \\)):</p>\n            <table class=\"worked\">\n              <tr><td>1. \\( a = 10^{0.48} \\approx 3.0 \\).</td></tr>\n              <tr><td>2. \\( k = 10^{0.78} \\approx 6.0 \\).</td></tr>\n              <tr><td>3. So the model is \\( y \\approx 6 \\times 3^x \\) — which matches the original data \\( 6, 18, 54, 162 \\). ✓</td></tr>\n            </table>\n            <p>The single most common lost mark on this whole topic is stopping at the gradient/intercept and <strong>forgetting to anti-log</strong>. Because you read the line by hand, examiners accept a <strong>range</strong> of answers (a wide acceptance band).</p>",
+  "question": "You plot \\( \\log y \\) vs \\( x \\) for \\( y = ka^x \\) and read a gradient of \\( 0.3 \\). What is \\( a \\)?",
+  "options": [
+   "\\( a = 10^{0.3} \\approx 2.0 \\)",
+   "\\( a = 0.3 \\)",
+   "\\( a = \\log 0.3 \\)",
+   "\\( a = 3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Gradient \\( = \\log a \\), so anti-log: \\( a = 10^{0.3} \\approx 2.0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:learn:8b385c66",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What are the examiner traps on this topic?",
+  "reading": "<p>The examiner reports flag the same errors every year. Know them cold.</p>\n            <ul>\n              <li><strong>Expanding the log wrongly.</strong> \\( \\log(ka^n) = \\log k + n\\log a \\). It is <em>not</em> \\( n\\log(ka) \\), and <em>not</em> \\( n\\log k + n\\log a \\). The power \\( n \\) multiplies only \\( \\log a \\).</li>\n              <li><strong>Non-linear axis scale.</strong> Plotting the data values at equal spacing (e.g. \\( n = 1,3,5,7,9 \\) written in equal steps) when they are unequal loses every accuracy mark.</li>\n              <li><strong>Forgetting to anti-log.</strong> Reading gradient \\( = \\log a \\) and quoting that as \\( a \\). You must compute \\( a = 10^{\\text{gradient}} \\).</li>\n              <li><strong>Swapping gradient and intercept.</strong> Gradient gives \\( \\log a \\) (or \\( n \\)); intercept gives \\( \\log k \\). Do not mix them up.</li>\n              <li><strong>Not comparing to \\( Y = mX + c \\).</strong> In a \"show that\" part the final mark is for explicitly stating the linear form — computing the algebra is not enough.</li>\n              <li><strong>Using the wrong data point.</strong> For \\( T-20 = A\\times 2^{-t/b} \\), substituting the \\( t=0 \\) point to find \\( b \\) fails, because the exponent is 0 and \\( b \\) cancels out — use any <em>other</em> pair.</li>\n            </ul>",
+  "question": "A student writes \\( \\log(ka^n) = n\\log(ka) \\). What is the correct expansion?",
+  "options": [
+   "\\( \\log k + n\\log a \\)",
+   "\\( n\\log k + n\\log a \\)",
+   "\\( n\\log(ka) \\)",
+   "\\( \\log k \\times n\\log a \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Product law then power law: \\( \\log k + \\log(a^n) = \\log k + n\\log a \\). The \\( n \\) attaches only to \\( \\log a \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:learn:75c250d1",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Command words and the full method ladder",
+  "reading": "<p>This topic mixes several command words. Read each part carefully.</p>\n            <ul>\n              <li><strong>\"Show that\"</strong> (the linearise part): every step of the log algebra must be shown, ending with an explicit comparison to \\( Y = mX + c \\). The final mark is that concluding statement.</li>\n              <li><strong>\"Plot\"</strong>: accurate points on the printed grid, joined only if asked; use a linear scale.</li>\n              <li><strong>\"Draw the line of best fit\"</strong>: a single ruled straight line balancing the points.</li>\n              <li><strong>\"Hence estimate\"</strong>: use your graph and your gradient/intercept — then anti-log. \"Hence\" means the graph is the tool.</li>\n              <li><strong>\"Explain why the model is reasonable\"</strong>: say the plotted points lie (close to) a straight line.</li>\n            </ul>\n            <p><strong>The full pipeline, every time:</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. <strong>Take logs</strong> of both sides and use the log laws.</td></tr>\n              <tr><td>2. <strong>Compare</strong> to \\( Y = mX + c \\) to see what to plot.</td></tr>\n              <tr><td>3. <strong>Tabulate</strong> the log values (2 d.p.) in the spare row.</td></tr>\n              <tr><td>4. <strong>Plot</strong> on a linear scale and draw the line of best fit.</td></tr>\n              <tr><td>5. <strong>Read</strong> the gradient and intercept from the line.</td></tr>\n              <tr><td>6. <strong>Anti-log</strong> to recover the constants \\( (k \\) and \\( a \\), or \\( k \\) and \\( n) \\).</td></tr>\n            </table>",
+  "question": "In a 'show that logs give a straight line' part, what earns the final mark?",
+  "options": [
+   "Explicitly comparing your equation to \\( Y = mX + c \\)",
+   "Giving the answer as a decimal",
+   "Drawing the graph",
+   "Anti-logging the gradient"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The concluding statement — that the equation is of the form \\( Y = mX + c \\) — is the final mark in the show-that part."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:misc:eeb4b063",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Reading gradient \\( = \\log a = 0.18 \\) and writing the answer as \\( a = 0.18 \\).</p><p><strong>✅ The correct idea:</strong> The gradient is a LOG value — you must anti-log. A weak answer stops at \\( 0.18 \\); a strong answer writes \\( a = 10^{0.18} \\approx 1.5 \\). Likewise \\( k = 10^{\\text{intercept}} \\).</p>",
+  "question": "Gradient \\( = \\log a = 0.18 \\). What is \\( a \\)?",
+  "options": [
+   "\\( 10^{0.18} \\approx 1.5 \\)",
+   "\\( 0.18 \\)",
+   "\\( \\log 0.18 \\)",
+   "\\( 1.8 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Anti-log the gradient: \\( a = 10^{0.18} \\approx 1.5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:misc:51e3da30",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Expanding \\( \\log(ka^n) \\) as \\( n\\log(ka) \\) (or as \\( n\\log k + n\\log a \\)).</p><p><strong>✅ The correct idea:</strong> Apply the product law first, then the power law: \\( \\log(ka^n) = \\log k + n\\log a \\). The \\( n \\) multiplies ONLY \\( \\log a \\). Both wrong forms scored 0 in 2024.</p>",
+  "question": "Correct expansion of \\( \\log(ka^n) \\)?",
+  "options": [
+   "\\( \\log k + n\\log a \\)",
+   "\\( n\\log(ka) \\)",
+   "\\( n\\log k + n\\log a \\)",
+   "\\( \\log(k+a^n) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Product law then power law gives \\( \\log k + n\\log a \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:misc:3a01eb20",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Plotting \\( n = 1,3,5,7,9 \\) at equal steps across the grid.</p><p><strong>✅ The correct idea:</strong> That is a non-linear scale. A weak answer spaces the data points evenly; a strong answer marks a true linear axis (equal distance = equal amount) so the points fall where they should. A non-linear scale loses every accuracy mark.</p>",
+  "question": "Why did some 2024 candidates lose all the plotting accuracy marks?",
+  "options": [
+   "They used a non-linear horizontal scale",
+   "They anti-logged twice",
+   "They drew a curve",
+   "They used log base 2"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\"A0 if either scale is not linear\" — equal spacing of unequal values is the error."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:misc:743f05a8",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Swapping the roles of gradient and intercept when recovering the constants.</p><p><strong>✅ The correct idea:</strong> Gradient gives \\( \\log a \\) (or \\( n \\)); intercept gives \\( \\log k \\). A weak answer reads them the wrong way round; a strong answer labels the line clearly and matches term-by-term to \\( Y = mX + c \\).</p>",
+  "question": "In \\( \\log y = (\\log a)x + \\log k \\), the intercept gives:",
+  "options": [
+   "\\( \\log k \\)",
+   "\\( \\log a \\)",
+   "\\( n \\)",
+   "\\( a \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The constant term is the intercept, so intercept \\( = \\log k \\); the coefficient of \\( x \\) is the gradient \\( \\log a \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:misc:5444b505",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Finding \\( b \\) in \\( T - 20 = A\\times 2^{-t/b} \\) by substituting the \\( (0, 100) \\) point.</p><p><strong>✅ The correct idea:</strong> At \\( t = 0 \\) the exponent is 0 and \\( 2^0 = 1 \\), so \\( b \\) disappears — that point can only give \\( A \\). A strong answer uses the gradient of the line, or substitutes a pair with \\( t \\ne 0 \\).</p>",
+  "question": "Why can't the \\( t = 0 \\) point be used to find \\( b \\)?",
+  "options": [
+   "The exponent is 0, so \\( b \\) cancels out",
+   "The temperature is too high",
+   "Logs of 0 are undefined",
+   "It gives a negative value"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 2^{-0/b} = 2^0 = 1 \\) regardless of \\( b \\), so \\( b \\) cannot be recovered from \\( t = 0 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:tips:9839e477",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — The take-logs → plot → anti-log ladder",
+  "reading": "<p>Every reduction-to-linear-form question follows the same six steps:</p><p><strong>1.</strong> Take logs of both sides and use the log laws. <strong>2.</strong> Compare to \\( Y = mX + c \\) to see what to plot. <strong>3.</strong> Tabulate the log values (2 d.p.) in the spare row. <strong>4.</strong> Plot on a LINEAR scale and draw the line of best fit. <strong>5.</strong> Read the gradient and intercept. <strong>6.</strong> Anti-log to recover the constants.</p><p>Miss step 6 and you throw away the last 2–3 marks — the commonest error on the topic.</p>",
+  "question": "Which step is most often skipped, costing 2–3 marks?",
+  "options": [
+   "Anti-logging the gradient/intercept",
+   "Taking logs",
+   "Drawing axes",
+   "Writing a title"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Students read the gradient/intercept but forget to anti-log back to the real constants."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:tips:f5d7b47f",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Show every log law on its own line",
+  "reading": "<p>For the \"show that logs give a straight line\" part [3]: you earn <strong>M1</strong> for using the log laws, <strong>A1</strong> for the correct linearised equation, and <strong>A1</strong> for stating it is of the form \\( Y = mX + c \\). Write each law on its own line, and finish with the explicit \\( Y = mX + c \\) sentence — the 2024/2023 examiners saw many candidates do the algebra but never claim the third mark.</p>",
+  "question": "How do you secure the third mark in the 'show that' part?",
+  "options": [
+   "State the equation is of the form \\( Y = mX + c \\)",
+   "Give a decimal answer",
+   "Anti-log immediately",
+   "Draw the graph first"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The concluding comparison to \\( Y = mX + c \\) is its own mark."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:tips:874e2d03",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — 'Hence' means use your graph",
+  "reading": "<p>When a part says \"<em>Hence</em> estimate \\( k \\) and \\( a \\)\", the examiner wants you to read the gradient and intercept from the line you drew, then anti-log. Because the line is drawn by hand, a <strong>range</strong> of answers is accepted — in 2024, \\( k \\) awrt \\( 0.3 \\) (allow \\( 0.35 \\)) and \\( a \\) awrt \\( 1.5 \\) all scored. Do not switch to the calculator's regression or solver.</p>",
+  "question": "Why does the mark scheme accept a range of values for \\( k \\) and \\( a \\)?",
+  "options": [
+   "The gradient/intercept are read from a hand-drawn line",
+   "The data is fake",
+   "Logs are approximate",
+   "The calculator rounds"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Reading a hand-drawn best-fit line gives slightly different gradients/intercepts, so a wide band is allowed."
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:fib:380d43b7",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Taking logs of \\( y = ka^x \\) gives \\( \\log y = x\\log a + \\log k \\). Plotting \\( \\log y \\) against \\( x \\), the gradient equals ___B1___ and the intercept equals ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "intercept",
+    "log a",
+    "10",
+    "m"
+   ],
+   "B2": [
+    "intercept",
+    "n",
+    "log k",
+    "antilog"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "log a",
+    "B2": "log k"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:fib:6bcf2551",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "For the power law \\( y = kx^n \\) you take logs of both sides and plot \\( \\log y \\) against ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "non-linear",
+    "log x",
+    "hence",
+    "log a"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "log x"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:fib:6b25245d",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The gradient you read off is really \\( \\log a \\), so to recover \\( a \\) you must ___B1___ it, giving \\( a = 10 \\) to that power.",
+  "blankOptions": {
+   "B1": [
+    "10",
+    "n",
+    "anti-log",
+    "intercept"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "anti-log"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:fib:3a47ebde",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "In the straight-line form \\( Y = mX + c \\), the gradient is the letter ___B1___ and the intercept is the letter ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "m",
+    "hence",
+    "anti-log",
+    "log a"
+   ],
+   "B2": [
+    "intercept",
+    "log k",
+    "antilog",
+    "c"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "m",
+    "B2": "c"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:fib:8ba22de2",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A log-transformed plot only earns the accuracy marks if the axis scale is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "m",
+    "gradient",
+    "10",
+    "linear"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "linear"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:fib:a2a19258",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "For \\( x = ka^n \\) you plot \\( \\log x \\) against \\( n \\); to find \\( a \\) you raise 10 to the power of the ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "10",
+    "gradient",
+    "m",
+    "log k"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "gradient"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:fib:d18d8551",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The command word ___B1___ tells you to use your graph, not the calculator's equation solver.",
+  "blankOptions": {
+   "B1": [
+    "antilog",
+    "gradient",
+    "10",
+    "hence"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "hence"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:fib:b314c984",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Expanding correctly, \\( \\log(ka^n) = \\log k + n\\log a \\); the power ___B1___ multiplies only the log of \\( a \\).",
+  "blankOptions": {
+   "B1": [
+    "10",
+    "intercept",
+    "hence",
+    "n"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "n"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:6ed47793",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = ka^x \\)”?",
+  "options": [
+   "\\( a = 10^{m} \\)",
+   "\\( \\log k \\)",
+   "\\( \\log y = (\\log a)x + \\log k \\)",
+   "\\( \\log k + n\\log a \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( y = ka^x \\)” means: \\( \\log y = (\\log a)x + \\log k \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:9a17d2bc",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( y = kx^n \\)”?",
+  "options": [
+   "\\( Y = mX + c \\)",
+   "\\( \\log y = n\\log x + \\log k \\)",
+   "\\( \\log y \\) against \\( \\log x \\)",
+   "\\( n \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( y = kx^n \\)” means: \\( \\log y = n\\log x + \\log k \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:280dcc5f",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “What to plot for \\( y = ka^x \\)”?",
+  "options": [
+   "\\( Y = mX + c \\)",
+   "Use your graph, then anti-log",
+   "\\( \\log y \\) against \\( x \\)",
+   "\\( \\log y \\) against \\( \\log x \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“What to plot for \\( y = ka^x \\)” means: \\( \\log y \\) against \\( x \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:c848bd0a",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “What to plot for \\( y = kx^n \\)”?",
+  "options": [
+   "\\( a = 10^{m} \\)",
+   "\\( \\log y \\) against \\( \\log x \\)",
+   "\\( \\log y = (\\log a)x + \\log k \\)",
+   "\\( Y = mX + c \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“What to plot for \\( y = kx^n \\)” means: \\( \\log y \\) against \\( \\log x \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:42f8e3d7",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Gradient when linearising \\( y = ka^x \\)”?",
+  "options": [
+   "\\( \\log k + n\\log a \\)",
+   "\\( \\log a \\)",
+   "Use your graph, then anti-log",
+   "\\( \\log y = (\\log a)x + \\log k \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Gradient when linearising \\( y = ka^x \\)” means: \\( \\log a \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:18c35e53",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Gradient when linearising \\( y = kx^n \\)”?",
+  "options": [
+   "\\( \\log y \\) against \\( \\log x \\)",
+   "\\( \\log y = (\\log a)x + \\log k \\)",
+   "\\( n \\)",
+   "\\( a = 10^{m} \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Gradient when linearising \\( y = kx^n \\)” means: \\( n \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:e7df9155",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Intercept in either linearised law”?",
+  "options": [
+   "\\( \\log y \\) against \\( \\log x \\)",
+   "\\( \\log k \\)",
+   "\\( k = 10^{c} \\)",
+   "\\( n \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Intercept in either linearised law” means: \\( \\log k \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:c0e37e7c",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Recover \\( a \\) from gradient \\( m \\)”?",
+  "options": [
+   "\\( \\log y = n\\log x + \\log k \\)",
+   "\\( \\log k + n\\log a \\)",
+   "\\( k = 10^{c} \\)",
+   "\\( a = 10^{m} \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Recover \\( a \\) from gradient \\( m \\)” means: \\( a = 10^{m} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:dcb1dcfc",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Recover \\( k \\) from intercept \\( c \\)”?",
+  "options": [
+   "\\( a = 10^{m} \\)",
+   "Use your graph, then anti-log",
+   "\\( k = 10^{c} \\)",
+   "\\( Y = mX + c \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Recover \\( k \\) from intercept \\( c \\)” means: \\( k = 10^{c} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:17054fcf",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Correct expansion of \\( \\log(ka^n) \\)”?",
+  "options": [
+   "\\( \\log k + n\\log a \\)",
+   "\\( \\log y \\) against \\( \\log x \\)",
+   "\\( Y = mX + c \\)",
+   "\\( \\log a \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Correct expansion of \\( \\log(ka^n) \\)” means: \\( \\log k + n\\log a \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:90c0d5ab",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Standard straight-line form”?",
+  "options": [
+   "\\( \\log a \\)",
+   "\\( a = 10^{m} \\)",
+   "\\( Y = mX + c \\)",
+   "\\( \\log y = (\\log a)x + \\log k \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Standard straight-line form” means: \\( Y = mX + c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:81dd31c5",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Command word 'Hence estimate'”?",
+  "options": [
+   "\\( \\log y = (\\log a)x + \\log k \\)",
+   "\\( \\log y = n\\log x + \\log k \\)",
+   "\\( \\log(T-20) = \\log A - \\frac{\\log 2}{b}t \\)",
+   "Use your graph, then anti-log"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Command word 'Hence estimate'” means: Use your graph, then anti-log"
+  }
+ },
+ {
+  "id": "additional-maths:7-4-reduction-to-linear-form:match:c1bbfb0d",
+  "pageId": "additional-maths:7-4-reduction-to-linear-form",
+  "pageName": "7.4 Reduction to Linear Form",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Linearised \\( T - 20 = A\\times 2^{-t/b} \\)”?",
+  "options": [
+   "\\( \\log y \\) against \\( \\log x \\)",
+   "\\( \\log a \\)",
+   "\\( \\log y \\) against \\( x \\)",
+   "\\( \\log(T-20) = \\log A - \\frac{\\log 2}{b}t \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Linearised \\( T - 20 = A\\times 2^{-t/b} \\)” means: \\( \\log(T-20) = \\log A - \\frac{\\log 2}{b}t \\)"
   }
  }
 ];

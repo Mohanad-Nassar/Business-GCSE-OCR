@@ -379,6 +379,8 @@ new formats and the sketch pattern close most of the rest.
 
 ### 6.2 Authoring rules for `examQuestions`
 
+> **FORMAT NOTE (ADM-A, learned 2026-07-17):** OMIT the `format` field on ALL exam questions during ADM-A content waves. The `numeric`/`sketch`/`mathParts`/`tableFill` widgets are ADM-B and NOT registered yet, so setting those values makes `_epUseWidget` fall back to the BASE type-a-number self-panel instead of the CS tick-the-mark-scheme panel (`exam-widgets.js` registers only `lines`/`banded`). Omitting `format` routes to `lines` → the grouped-markPoints tick panel the owner wants. When ADM-B builds those widgets, add the Appendix D format hints then. (7.3 shipped with format:"numeric"/"sketch" and was corrected.)
+
 - Transcribe question text, mark-scheme bullets, "How the marks are given" rules, and
   Examiner's Comments into the same three-section `markScheme` HTML as the exemplar
   (`marks-section` divs: Mark Scheme - N marks (AOx) / How the marks are given /
@@ -746,10 +748,10 @@ delegation produces confidently wrong maths.
 | 6.2 | The binomial expansion | ✅ 2026-07-17 | ✅ coord | ✅ 2023 Q1, 3 marks | 🔄 built, NOT uploaded |
 | 6.3 | The binomial distribution | ✅ 2026-07-17 | ✅ coord | ✅ 2023 Q2 + 2019 Q8, 9 marks | 🔄 built, NOT uploaded |
 | 6.4 | Tree, two-way & Venn diagrams | ✅ 2026-07-17 | ✅ coord | ✅ 2024 Q4 + 2022 Q6, 10 marks | 🔄 built, NOT uploaded |
-| 7.1 | Exponential functions | ⬜ | ⬜ | ⬜ | ⬜ |
-| 7.2 | Logarithms & the log laws | ⬜ | ⬜ | ⬜ | ⬜ |
-| 7.3 | Solving exponential equations | ⬜ | ⬜ | ⬜ | ⬜ |
-| 7.4 | Reduction to linear form | ⬜ | ⬜ | ⬜ | ⬜ |
+| 7.1 | Exponential functions | ✅ 2026-07-17 | ✅ coord | — none standalone (EL1) | 🔄 built, NOT uploaded |
+| 7.2 | Logarithms & the log laws | ✅ 2026-07-17 | ✅ coord | ✅ 2024 Q2 + 2022 Q9, 9 marks | 🔄 built, NOT uploaded |
+| 7.3 | Solving exponential equations | ✅ 2026-07-17 | ✅ coord | ✅ 2019 Q4, 5 marks | 🔄 built, NOT uploaded |
+| 7.4 | Reduction to linear form | ✅ 2026-07-17 | ✅ coord | ✅ 2024 Q14 + 2023 Q14, 22 marks | 🔄 built, NOT uploaded |
 | 8.1 | The gradient function | ⬜ | ⬜ | ⬜ | ⬜ |
 | 8.2 | Tangents & normals | ⬜ | ⬜ | ⬜ | ⬜ |
 | 8.3 | Stationary points & curve sketching | ⬜ | ⬜ | ⬜ | ⬜ |
