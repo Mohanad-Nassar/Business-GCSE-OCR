@@ -263,22 +263,19 @@
           "id": "9-1-indefinite-integration",
           "name": "9.1 Indefinite Integration",
           "sub": "Integration",
-          "file": "9.1-indefinite-integration.html",
-          "noQuestions": true
+          "file": "9.1-indefinite-integration.html"
         },
         {
           "id": "9-2-definite-integrals-and-areas",
           "name": "9.2 Definite Integrals and Areas",
           "sub": "Integration",
-          "file": "9.2-definite-integrals-and-areas.html",
-          "noQuestions": true
+          "file": "9.2-definite-integrals-and-areas.html"
         },
         {
           "id": "9-3-numerical-areas-and-the-trapezium-rule",
           "name": "9.3 Numerical Areas and the Trapezium Rule",
           "sub": "Integration",
-          "file": "9.3-numerical-areas-and-the-trapezium-rule.html",
-          "noQuestions": true
+          "file": "9.3-numerical-areas-and-the-trapezium-rule.html"
         }
       ]
     },

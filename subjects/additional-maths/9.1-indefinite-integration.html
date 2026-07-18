@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 9. Integration</div>
             <h1>9.1 Indefinite Integration</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,14 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 9.1 Indefinite Integration — placeholder, content not yet written
+    //  DATA: 9.1 Indefinite Integration (CA8 integrate kx^n and sums; CA9 integration
+    //  is the reverse of differentiation, +c, curve from a gradient function + a point;
+    //  CA10 indefinite vs definite integral)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  DOUBLED in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Exam Qs = 2024 Q11,
+    //  2022 Q8 (both: find the equation of a curve from dy/dx and a point).
+    //  Guardrails: polynomials only, non-negative integer powers (so n+1 is never 0);
+    //  NO trig/exp/log integration (all AS/A-level, out of 6993).
     // ══════════════════════════════════════
     const pageMeta = {
             id: '9-1-indefinite-integration',
@@ -268,21 +275,246 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>9.1 Indefinite Integration</strong> will appear here soon.</p>`
+            title: "What is integration, and why is it the reverse of differentiation?",
+            tag: "Key concept",
+            content: `<p><strong>Integration</strong> is the <strong>reverse process of differentiation</strong>. Differentiation takes \\( y \\) and finds its gradient function \\( \\frac{dy}{dx} \\); integration starts from the gradient function and works back to \\( y \\).</p>
+            <ul>
+              <li>The symbol is \\( \\int \\), and you write \\( \\int y\\,dx \\) to mean "integrate \\( y \\) with respect to \\( x \\)". The \\( dx \\) tells you the variable, and it is part of the notation — never leave it out.</li>
+              <li>Because differentiating \\( x^3 \\) gives \\( 3x^2 \\), integrating \\( 3x^2 \\) must give back \\( x^3 \\) (plus a constant — see below).</li>
+              <li>A quick sanity check on any integral: <strong>differentiate your answer</strong>. If you get back what you started with, the integration is right.</li>
+            </ul>
+            <p>In this qualification you only ever integrate <strong>polynomials</strong> — sums of terms \\( kx^n \\) where \\( n \\) is a non-negative whole number. You never integrate a trig, exponential or log function; those are A-level.</p>`,
+            readCheck: { q: "Differentiating \\( x^5 \\) gives \\( 5x^4 \\). So what is \\( \\int 5x^4\\,dx \\)?", opts: ["\\( x^5 + c \\)", "\\( 20x^3 + c \\)", "\\( 5x^5 + c \\)", "\\( x^4 + c \\)"], ans: 0, explain: "Integration reverses differentiation, so integrating \\( 5x^4 \\) takes you back to \\( x^5 \\) (plus a constant of integration)." }
+        },
+        {
+            title: "How do you integrate a power of x?",
+            tag: "Worked example",
+            content: `<p>The single rule the whole topic rests on — one you <strong>MUST MEMORISE</strong> (it is <em>not</em> on the formula sheet):</p>
+            <p>\\[ \\int k x^n \\,dx = \\frac{k x^{n+1}}{n+1} + c. \\]</p>
+            <p>In words: <strong>increase the power by 1, then divide by the new power</strong> — and add a constant. (This is the exact opposite of differentiating, where you multiply by the power and reduce it by 1.) Since \\( n \\) is a non-negative integer here, \\( n+1 \\) is never 0, so the division is always safe.</p>
+            <p><strong>Worked example — find \\( \\int 12x^3 \\,dx \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. The power is \\( n = 3 \\). Increase it by 1: \\( x^{3+1} = x^4 \\).</td></tr>
+              <tr><td>2. Divide by the new power, 4: \\( \\frac{12x^4}{4} \\).</td></tr>
+              <tr><td>3. Simplify and add the constant: \\( 3x^4 + c \\).</td></tr>
+              <tr><td>4. So \\[ \\int 12x^3 \\,dx = 3x^4 + c. \\]</td></tr>
+            </table>
+            <p>Check by differentiating: \\( \\frac{d}{dx}(3x^4 + c) = 12x^3 \\). ✓</p>`,
+            readCheck: { q: "Find \\( \\int x^3 \\,dx \\).", opts: ["\\( \\frac{x^4}{4} + c \\)", "\\( \\frac{x^4}{3} + c \\)", "\\( x^4 + c \\)", "\\( 3x^2 + c \\)"], ans: 0, explain: "Increase the power to 4 and divide by 4: \\( \\frac{x^4}{4} + c \\). Dividing by the old power (3) or forgetting to divide are the usual slips." }
+        },
+        {
+            title: "How do you integrate a whole polynomial?",
+            tag: "Method",
+            content: `<p>Integrate a sum <strong>term by term</strong>, applying the rule to each term. Two extra points:</p>
+            <ul>
+              <li>A <strong>number multiplying</strong> \\( x^n \\) stays as a factor — e.g. \\( \\int 6x^2 \\,dx = 6 \\times \\frac{x^3}{3} = 2x^3 + c \\).</li>
+              <li>A <strong>constant term</strong> such as \\( 4 \\) is really \\( 4x^0 \\), so it integrates to \\( 4x \\). (Check: differentiating \\( 4x \\) gives 4.)</li>
+              <li>You only need <strong>one</strong> constant \\( +c \\) at the end for the whole expression, not one per term.</li>
+            </ul>
+            <p><strong>Worked example — find \\( \\int (6x^2 - 10x + 4) \\,dx \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( 6x^2 \\to 6 \\times \\frac{x^3}{3} = 2x^3 \\).</td></tr>
+              <tr><td>2. \\( -10x \\to -10 \\times \\frac{x^2}{2} = -5x^2 \\).</td></tr>
+              <tr><td>3. \\( 4 \\to 4x \\) (the constant becomes a term in \\( x \\)).</td></tr>
+              <tr><td>4. Add the single constant: \\[ \\int (6x^2 - 10x + 4)\\,dx = 2x^3 - 5x^2 + 4x + c. \\]</td></tr>
+            </table>
+            <p>Differentiate to check: \\( \\frac{d}{dx}(2x^3 - 5x^2 + 4x + c) = 6x^2 - 10x + 4 \\). ✓</p>`,
+            readCheck: { q: "Find \\( \\int (2x + 5) \\,dx \\).", opts: ["\\( x^2 + 5x + c \\)", "\\( 2x^2 + 5x + c \\)", "\\( x^2 + 5 + c \\)", "\\( 2 + c \\)"], ans: 0, explain: "\\( 2x \\to x^2 \\) and \\( 5 \\to 5x \\), giving \\( x^2 + 5x + c \\). The constant 5 must become \\( 5x \\), not stay as 5." }
+        },
+        {
+            title: "Why does every indefinite integral need + c?",
+            tag: "Key concept",
+            content: `<p>When you differentiate, <strong>any constant disappears</strong> — the derivative of \\( 7 \\), of \\( -3 \\) and of \\( 0 \\) are all \\( 0 \\). So working backwards you cannot know what constant was there.</p>
+            <ul>
+              <li>\\( x^2 + 1 \\), \\( x^2 - 5 \\) and \\( x^2 + 100 \\) all differentiate to \\( 2x \\). Integrating \\( 2x \\) could give <em>any</em> of them.</li>
+              <li>We record this "unknown constant" as the <strong>constant of integration</strong>, \\( +c \\). It stands for a whole <strong>family</strong> of parallel curves, all with the same gradient function.</li>
+              <li>An integral written <strong>without limits</strong> is called an <strong>indefinite integral</strong>, and it must <em>always</em> carry \\( +c \\). Dropping it is the most common — and most avoidable — lost mark on this topic.</li>
+            </ul>
+            <p>To pin down which member of the family you want, you need one extra piece of information, such as a point the curve passes through (next card).</p>`,
+            readCheck: { q: "Why must an indefinite integral include \\( +c \\)?", opts: ["The derivative of any constant is 0, so many functions share the same gradient function", "Because integration always adds 1", "Because the power increases by 1", "It is optional and can be left off"], ans: 0, explain: "Differentiation erases constants, so integrating cannot recover them — \\( +c \\) represents every possible constant." }
+        },
+        {
+            title: "How do you find the equation of a curve from its gradient function?",
+            tag: "Exam skill",
+            content: `<p>If you are told the gradient function \\( \\frac{dy}{dx} \\) <strong>and</strong> one point the curve passes through, you can find the exact equation:</p>
+            <ol>
+              <li><strong>Integrate</strong> \\( \\frac{dy}{dx} \\) to get \\( y \\) in terms of \\( x \\) — remember \\( +c \\).</li>
+              <li><strong>Substitute</strong> the known point's coordinates and solve for \\( c \\).</li>
+              <li><strong>Write the answer as an equation starting \\( y = \\)</strong> — not just an expression.</li>
+            </ol>
+            <p><strong>Worked example — a curve has \\( \\frac{dy}{dx} = 3x^2 - 4x \\) and passes through \\( (2,\\ 1) \\). Find its equation.</strong></p>
+            <table class="worked">
+              <tr><td>1. Integrate: \\( y = \\frac{3x^3}{3} - \\frac{4x^2}{2} + c = x^3 - 2x^2 + c \\).</td></tr>
+              <tr><td>2. Substitute \\( (2,\\ 1) \\): \\( 1 = (2)^3 - 2(2)^2 + c = 8 - 8 + c \\).</td></tr>
+              <tr><td>3. So \\( c = 1 \\).</td></tr>
+              <tr><td>4. The equation is \\[ y = x^3 - 2x^2 + 1. \\]</td></tr>
+            </table>
+            <p>Two marks are routinely lost here: forgetting \\( +c \\) (so you can never find it), and giving the final answer as \\( x^3 - 2x^2 + 1 \\) rather than \\( y = x^3 - 2x^2 + 1 \\). The command word is "equation", so it <em>must</em> start \\( y = \\).</p>`,
+            readCheck: { q: "A curve has \\( \\frac{dy}{dx} = 4x^3 \\) and passes through the origin. Find \\( y \\).", opts: ["\\( y = x^4 \\)", "\\( y = x^4 + c \\)", "\\( y = 12x^2 \\)", "\\( y = 4x^4 \\)"], ans: 0, explain: "\\( y = x^4 + c \\); at \\( (0,0) \\), \\( 0 = 0 + c \\) so \\( c = 0 \\), giving \\( y = x^4 \\). The point is needed to fix the constant." }
+        },
+        {
+            title: "What is the difference between an indefinite and a definite integral?",
+            tag: "Key concept",
+            content: `<p>The two kinds of integral look similar but answer different questions.</p>
+            <ul>
+              <li>An <strong>indefinite integral</strong> \\( \\int y\\,dx \\) has <strong>no limits</strong>. Its answer is a <strong>function</strong> (plus \\( +c \\)) — for example \\( \\int 2x\\,dx = x^2 + c \\). That is the topic of this page.</li>
+              <li>A <strong>definite integral</strong> \\( \\int_a^b y\\,dx \\) has <strong>limits</strong> \\( a \\) and \\( b \\) written on the sign. Its answer is a single <strong>number</strong>, and the constant \\( +c \\) cancels out, so no \\( +c \\) appears. Definite integrals give areas under curves — that is the next lesson (9.2).</li>
+            </ul>
+            <p>So: <strong>no limits → a function with \\( +c \\); limits → a number, no \\( +c \\).</strong> Knowing which one a question wants tells you whether to expect a formula or a value as your answer.</p>`,
+            readCheck: { q: "Which describes an indefinite integral?", opts: ["No limits; the answer is a function including \\( +c \\)", "Limits given; the answer is a number", "It always equals zero", "It never needs \\( +c \\)"], ans: 0, explain: "An indefinite integral has no limits and gives a function plus a constant of integration; a definite integral has limits and gives a number." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "Find \\( \\int x^3 \\,dx \\).", opts: ["\\( \\frac{x^4}{4} + c \\)", "\\( \\frac{x^4}{3} + c \\)", "\\( x^4 + c \\)", "\\( 3x^2 + c \\)"], ans: 0, explain: "Increase the power to 4 and divide by 4: \\( \\frac{x^4}{4} + c \\). Dividing by 3 uses the old power; \\( 3x^2 \\) is the derivative, not the integral." },
+        { q: "Find \\( \\int 6x^2 \\,dx \\).", opts: ["\\( 2x^3 + c \\)", "\\( 3x^3 + c \\)", "\\( 6x^3 + c \\)", "\\( 12x + c \\)"], ans: 0, explain: "\\( 6 \\times \\frac{x^3}{3} = 2x^3 \\), so \\( 2x^3 + c \\). \\( 3x^3 \\) comes from dividing by 2 (the old power) instead of 3." },
+        { q: "Find \\( \\int 4 \\,dx \\).", opts: ["\\( 4x + c \\)", "\\( 4 + c \\)", "\\( 0 \\)", "\\( 4x \\)"], ans: 0, explain: "A constant \\( 4 = 4x^0 \\) integrates to \\( 4x + c \\). Leaving it as \\( 4 \\) forgets to raise the power; \\( 4x \\) forgets the \\( +c \\)." },
+        { q: "Why must an indefinite integral include a constant of integration?", opts: ["Differentiating any constant gives 0, so infinitely many functions share one gradient function", "Because integration always adds 1", "Because the power always increases by 1", "It is optional and can be left out"], ans: 0, explain: "Constants vanish when you differentiate, so integrating cannot recover them; \\( +c \\) covers every possibility." },
+        { q: "Find \\( \\int (2x + 5) \\,dx \\).", opts: ["\\( x^2 + 5x + c \\)", "\\( 2x^2 + 5x + c \\)", "\\( x^2 + 5 + c \\)", "\\( 2 + c \\)"], ans: 0, explain: "\\( 2x \\to x^2 \\) and the constant \\( 5 \\to 5x \\). Keeping 5 (not \\( 5x \\)) or not halving the \\( 2x \\) are the usual errors." },
+        { q: "A student integrates \\( \\frac{dy}{dx} = 3x^2 \\) and writes \\( y = x^3 \\). What is missing?", opts: ["The constant of integration, \\( +c \\)", "Nothing — it is complete", "It should be \\( 3x^3 \\)", "It should be divided by 3 again"], ans: 0, explain: "The integral of \\( 3x^2 \\) is \\( x^3 + c \\); an indefinite integral must always carry the \\( +c \\)." },
+        { q: "Which is the correct rule for \\( \\int k x^n \\,dx \\) (with \\( n \\) a non-negative integer)?", opts: ["\\( \\frac{k x^{n+1}}{n+1} + c \\)", "\\( \\frac{k x^{n-1}}{n-1} + c \\)", "\\( n k x^{n-1} + c \\)", "\\( \\frac{k x^{n}}{n} + c \\)"], ans: 0, explain: "Increase the power by 1 and divide by the new power: \\( \\frac{k x^{n+1}}{n+1} + c \\). Reducing the power is differentiation." },
+        { q: "To find the equation of a curve from its gradient function you should:", opts: ["Integrate, then use a known point to find \\( c \\)", "Differentiate the gradient function again", "Substitute \\( x = 0 \\) only", "There is never enough information"], ans: 0, explain: "Integrate \\( \\frac{dy}{dx} \\) to get \\( y \\) (with \\( +c \\)), then substitute the given point to find the value of \\( c \\)." },
+        { q: "Find \\( \\int x \\,dx \\).", opts: ["\\( \\frac{x^2}{2} + c \\)", "\\( x^2 + c \\)", "\\( 1 + c \\)", "\\( 2x + c \\)"], ans: 0, explain: "\\( x = x^1 \\to \\frac{x^2}{2} + c \\). \\( x^2 \\) forgets to divide by 2; \\( 1 \\) and \\( 2x \\) are derivatives, not integrals." },
+        { q: "What is the difference between an indefinite and a definite integral?", opts: ["An indefinite integral has no limits and gives a function (\\( +c \\)); a definite integral has limits and gives a number", "They are exactly the same", "A definite integral always includes \\( +c \\)", "An indefinite integral gives a single number"], ans: 0, explain: "No limits → a function with \\( +c \\); limits \\( a \\) and \\( b \\) → a number (the \\( +c \\) cancels)." },
+        { q: "A curve has \\( \\frac{dy}{dx} = 4x^3 \\) and passes through the origin \\( (0,\\ 0) \\). Find its equation.", opts: ["\\( y = x^4 \\)", "\\( y = x^4 + c \\)", "\\( y = 12x^2 \\)", "\\( y = 4x^4 \\)"], ans: 0, explain: "\\( y = x^4 + c \\); substituting \\( (0,0) \\) gives \\( c = 0 \\), so \\( y = x^4 \\). You must use the point to remove \\( c \\)." },
+        { q: "Find \\( \\int (6x^2 - 4x + 1) \\,dx \\).", opts: ["\\( 2x^3 - 2x^2 + x + c \\)", "\\( 6x^3 - 4x^2 + x + c \\)", "\\( 12x - 4 + c \\)", "\\( 2x^3 - 2x^2 + 1 + c \\)"], ans: 0, explain: "\\( 6x^2 \\to 2x^3 \\), \\( -4x \\to -2x^2 \\), \\( 1 \\to x \\). \\( 12x - 4 \\) is the derivative; keeping \\( 1 \\) forgets that a constant integrates to a term in \\( x \\)." }
+    ];
+
+    const matchData = [
+        { term: "\\( \\int 2x \\,dx \\)", def: "\\( x^2 + c \\)" },
+        { term: "\\( \\int 3x^2 \\,dx \\)", def: "\\( x^3 + c \\)" },
+        { term: "\\( \\int x^3 \\,dx \\)", def: "\\( \\frac{x^4}{4} + c \\)" },
+        { term: "\\( \\int 4 \\,dx \\)", def: "\\( 4x + c \\)" },
+        { term: "\\( \\int 5x^4 \\,dx \\)", def: "\\( x^5 + c \\)" },
+        { term: "\\( \\int x \\,dx \\)", def: "\\( \\frac{x^2}{2} + c \\)" },
+        { term: "\\( \\int 6x^5 \\,dx \\)", def: "\\( x^6 + c \\)" },
+        { term: "\\( \\int (2x + 1) \\,dx \\)", def: "\\( x^2 + x + c \\)" },
+        { term: "\\( \\int 12x^3 \\,dx \\)", def: "\\( 3x^4 + c \\)" },
+        { term: "Constant of integration", def: "The \\( +c \\), needed because the derivative of a constant is 0" },
+        { term: "Definite integral", def: "Has limits; evaluates to a number" },
+        { term: "Indefinite integral", def: "No limits; gives a function plus \\( +c \\)" },
+        { term: "Rule for \\( \\int k x^n \\,dx \\)", def: "\\( \\frac{k x^{n+1}}{n+1} + c \\)" }
+    ];
+
+    // NOTE: FIB blanks must sit in PLAIN TEXT, never inside a \( \) region — a blank
+    // becomes a <select>/<input> that splits the LaTeX run so KaTeX shows raw source
+    // (ADDMATHS-CONTENT-PLAN.md §8.4 Rule 3b). Keep every \( \) a complete expression.
+    // FIB answer VALUES stay plain text/number so server string-equality works.
+    const fibData = [
+        { display: "Integration is the ___B1___ process of differentiation.", blanks: { B1: "reverse" } },
+        { display: "To integrate a power of \\( x \\), you ___B1___ the power by 1 and then ___B2___ by the new power.", blanks: { B1: "increase", B2: "divide" } },
+        { display: "Every indefinite integral must include a ___B1___ of integration, written ___B2___.", blanks: { B1: "constant", B2: "+c" } },
+        { display: "To find the equation of a curve you integrate the gradient function and then use a known ___B1___ to find the value of ___B2___.", blanks: { B1: "point", B2: "c" } },
+        { display: "A ___B1___ integral has limits and gives a number, while an ___B2___ integral has no limits and gives a function.", blanks: { B1: "definite", B2: "indefinite" } },
+        { display: "The integral of the constant 4 with respect to \\( x \\) is ___B1___.", blanks: { B1: "4x" } },
+        { display: "When you integrate \\( x^2 \\), the new power is ___B1___.", blanks: { B1: "3" } },
+        { display: "The final answer to 'determine the equation of the curve' must be written starting with ___B1___, not left as an expression.", blanks: { B1: "y =" } }
+    ];
+
+    const fibWords = ["reverse", "increase", "divide", "constant", "+c", "point", "c", "definite", "indefinite", "4x", "3", "y =", "differentiate", "multiply", "decrease", "gradient", "4", "x ="];
+
+    const tfData = [
+        { statement: "Integration is the reverse process of differentiation.", answer: true, explanation: "Differentiation finds the gradient function; integration works back from it to the original function." },
+        { statement: "\\( \\int x^4 \\,dx = 4x^3 + c \\).", answer: false, explanation: "\\( 4x^3 \\) is the derivative of \\( x^4 \\). Integrating gives \\( \\frac{x^5}{5} + c \\) — increase the power and divide." },
+        { statement: "Every indefinite integral needs a constant of integration \\( +c \\).", answer: true, explanation: "Constants vanish on differentiating, so integrating cannot recover them; \\( +c \\) stands for all of them." },
+        { statement: "To integrate \\( x^n \\) you increase the power by 1 and divide by the new power.", answer: true, explanation: "\\( \\int x^n \\,dx = \\frac{x^{n+1}}{n+1} + c \\) — the exact reverse of the differentiation rule." },
+        { statement: "\\( \\int 6x^2 \\,dx = 3x^3 + c \\).", answer: false, explanation: "You divide by the new power 3, not the old power 2: \\( 6 \\times \\frac{x^3}{3} = 2x^3 + c \\)." },
+        { statement: "A definite integral gives a numerical value, not a function.", answer: true, explanation: "A definite integral has limits and evaluates to a number; the \\( +c \\) cancels out." },
+        { statement: "When finding a curve from its gradient function, the final answer can be left as an expression without \\( y = \\).", answer: false, explanation: "The question asks for the equation of the curve, so it must be written \\( y = \\ldots \\) — a mark is lost otherwise." },
+        { statement: "The integral of the constant 7 with respect to \\( x \\) is \\( 7x + c \\).", answer: true, explanation: "A constant \\( 7 = 7x^0 \\) integrates to \\( 7x + c \\); differentiating \\( 7x \\) returns 7." }
+    ];
+
+    const miscData = [
+        { wrong: "\\( \\int 3x^2 \\,dx = x^3 \\)", correct: "Every indefinite integral needs the constant of integration. A weak answer stops at \\( x^3 \\); a strong answer writes \\( x^3 + c \\) — and without it you can never find the curve's equation later.", readCheck: { q: "Find \\( \\int 3x^2 \\,dx \\).", opts: ["\\( x^3 + c \\)", "\\( x^3 \\)", "\\( 6x + c \\)", "\\( \\frac{x^3}{3} + c \\)"], ans: 0, explain: "Integrating \\( 3x^2 \\) gives \\( x^3 \\), and an indefinite integral must include \\( +c \\)." } },
+        { wrong: "\\( \\int x^3 \\,dx = \\frac{x^3}{3} + c \\)", correct: "You must increase the power first. A weak answer divides by the old power 3; a strong answer raises the power to 4 and divides by 4: \\( \\frac{x^4}{4} + c \\).", readCheck: { q: "Find \\( \\int x^3 \\,dx \\).", opts: ["\\( \\frac{x^4}{4} + c \\)", "\\( \\frac{x^3}{3} + c \\)", "\\( 3x^2 + c \\)", "\\( x^4 + c \\)"], ans: 0, explain: "Increase the power to 4, then divide by 4: \\( \\frac{x^4}{4} + c \\)." } },
+        { wrong: "\\( \\int (2x + 5) \\,dx = x^2 + 5 + c \\)", correct: "A constant term integrates to a term in \\( x \\). A weak answer keeps the 5; a strong answer writes \\( 5 \\to 5x \\), giving \\( x^2 + 5x + c \\).", readCheck: { q: "Find \\( \\int (2x + 5) \\,dx \\).", opts: ["\\( x^2 + 5x + c \\)", "\\( x^2 + 5 + c \\)", "\\( 2x^2 + 5x + c \\)", "\\( 2 + c \\)"], ans: 0, explain: "\\( 2x \\to x^2 \\) and \\( 5 \\to 5x \\), so \\( x^2 + 5x + c \\)." } },
+        { wrong: "Answering 'find the equation of the curve' with \\( x^3 - 2x^2 + 1 \\)", correct: "The answer must be an equation. A weak answer gives only the expression; a strong answer writes \\( y = x^3 - 2x^2 + 1 \\) — the examiner requires the \\( y = \\).", readCheck: { q: "How should the equation of a curve be written?", opts: ["Starting with \\( y = \\ldots \\)", "As an expression only", "As \\( \\frac{dy}{dx} = \\ldots \\)", "As a number"], ans: 0, explain: "'Equation of the curve' means it must be written \\( y = \\ldots \\), not just an expression." } },
+        { wrong: "\\( \\int 4x^2 \\,dx = 8x + c \\)", correct: "This differentiates instead of integrating. A weak answer multiplies by the power and reduces it; a strong answer increases the power and divides: \\( \\frac{4x^3}{3} + c \\).", readCheck: { q: "Find \\( \\int 4x^2 \\,dx \\).", opts: ["\\( \\frac{4x^3}{3} + c \\)", "\\( 8x + c \\)", "\\( 4x^3 + c \\)", "\\( 2x^3 + c \\)"], ans: 0, explain: "\\( 4 \\times \\frac{x^3}{3} = \\frac{4x^3}{3} + c \\); \\( 8x \\) is the derivative." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Finding a curve: the four-step ladder", pills: ["integrate", "+c", "substitute", "y ="], content: `<p>For "determine the equation of the curve" [4], examiners reward four visible steps:</p><p><strong>0 marks:</strong> jump straight to a number, or differentiate by mistake.</p><p><strong>Part marks:</strong> integrate correctly with \\( +c \\) (M1 A1), but forget to use the point, or drop the \\( +c \\) so \\( c \\) cannot be found.</p><p><strong>Full marks:</strong> integrate (with \\( +c \\)), substitute the point to find \\( c \\), then write the final answer as \\( y = \\ldots \\). Show every line so one slip costs one mark, not all four.</p>`, readCheck: { q: "What earns the final mark on 'find the equation of the curve'?", opts: ["Writing the answer as \\( y = \\ldots \\)", "Leaving the answer as an expression", "Giving \\( \\frac{dy}{dx} \\)", "Rounding to 2 d.p."], ans: 0, explain: "The last mark is for the complete equation written \\( y = \\ldots \\)." } },
+        { type: "tip", title: "Never lose the +c mark", pills: ["+c", "constant"], content: `<p>The \\( +c \\) is worth a mark in its own right and is the key to finding the constant later. Write \\( +c \\) the moment you integrate — before you even substitute the point. If you drop it, you cannot solve for \\( c \\), and you also lose the accuracy mark for a correct integral.</p>`, readCheck: { q: "When should you write \\( +c \\)?", opts: ["As soon as you integrate an indefinite integral", "Only in definite integrals", "Never", "Only at the very end if you remember"], ans: 0, explain: "Add \\( +c \\) immediately on integrating; it is required and lets you find the constant from the point." } },
+        { type: "explain", title: "Check by differentiating back", pills: ["check", "reverse"], content: `<p>Integration and differentiation are opposites, so you can check any integral for free: <strong>differentiate your answer and see if you get the integrand back</strong>. For example, if you claim \\( \\int (6x^2 - 10x + 4)\\,dx = 2x^3 - 5x^2 + 4x + c \\), differentiate the right-hand side: \\( 6x^2 - 10x + 4 \\). ✓ It matches, so the integration is correct.</p>`, readCheck: { q: "How can you check an integral quickly?", opts: ["Differentiate your answer and see if it matches the integrand", "Integrate a second time", "Substitute \\( x = 0 \\)", "You cannot check it"], ans: 0, explain: "Because integration reverses differentiation, differentiating a correct integral returns the original expression." } }
+    ];
+
+    const flashcards = [
+        { term: "Integration", def: "The reverse process of differentiation; symbol \\( \\int \\)." },
+        { term: "\\( \\int k x^n \\,dx \\) (memorise)", def: "\\( \\frac{k x^{n+1}}{n+1} + c \\) — raise the power, divide by the new power." },
+        { term: "Integrating a power", def: "Increase the power by 1, then divide by the new power; add \\( +c \\)." },
+        { term: "Constant of integration", def: "The \\( +c \\) on every indefinite integral, because the derivative of a constant is 0." },
+        { term: "Indefinite integral", def: "An integral with no limits; the answer is a function plus \\( +c \\)." },
+        { term: "Definite integral", def: "An integral with limits \\( a \\) and \\( b \\); the answer is a number (no \\( +c \\))." },
+        { term: "Integral of a constant \\( k \\)", def: "\\( kx + c \\), since \\( k = kx^0 \\)." },
+        { term: "\\( \\int x \\,dx \\)", def: "\\( \\frac{x^2}{2} + c \\)." },
+        { term: "\\( \\int x^2 \\,dx \\)", def: "\\( \\frac{x^3}{3} + c \\)." },
+        { term: "Curve from a gradient function", def: "Integrate \\( \\frac{dy}{dx} \\), then substitute a known point to find \\( c \\)." },
+        { term: "Final-answer form", def: "The equation of a curve must be written \\( y = \\ldots \\), not just an expression." },
+        { term: "Integrating a sum", def: "Integrate term by term; one \\( +c \\) covers the whole expression." },
+        { term: "Checking an integral", def: "Differentiate the answer — it should give back the integrand." },
+        { term: "Notation \\( \\int y \\,dx \\)", def: "Integrate \\( y \\) with respect to \\( x \\); the \\( dx \\) is part of the symbol." },
+        { term: "Guardrail (6993)", def: "Only integrate polynomials with non-negative integer powers — no trig, exp or log." },
+        { term: "Why a point is needed", def: "It fixes the value of \\( c \\), choosing one curve from the family of parallel curves." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "11",
+            marks: 4,
+            type: "written",
+            question: `<p>The gradient function of a curve is given by \\( \\frac{dy}{dx} = 4 + 6x - 3x^2 \\) and the curve passes through the point \\( (1,\\ 5) \\).</p>
+              <p>Determine the equation of the curve.</p>`,
+            hint: "Integrate the gradient function (remember \\( +c \\)), then substitute \\( (1,\\ 5) \\) to find \\( c \\).",
+            starter: "Give your answer as an equation starting \\( y = \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — integrate: powers in at least one term increased by 1 and coefficients adjusted.</li>
+              <li><strong>A1</strong> — correct integral \\( 4x + 3x^2 - x^3 + c \\) (ignore \\( c \\) at this stage).</li>
+              <li><strong>M1</strong> — substitute \\( (1,\\ 5) \\) into their integrated function; \\( c \\) must be included.</li>
+              <li><strong>A1</strong> — \\( y = 4x + 3x^2 - x^3 - 1 \\) (must be seen and must include \\( y = \\)).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The first two marks are for a correct integration carrying a constant; the third for substituting the point into their expression; the fourth for the complete equation written as \\( y = \\ldots \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Answered well by most; very few failed to realise integration was required. The \\( +c \\) was sometimes omitted but often rescued at the substitution stage. The most common lost mark was not writing the final answer as \\( y = \\ldots \\), with some writing "equation = ..." or just the expression.</li>
+            </ul></div>`,
+            modelAnswer: "Integrating term by term: \\( y = 4x + \\frac{6x^2}{2} - \\frac{3x^3}{3} + c = 4x + 3x^2 - x^3 + c \\). Substituting \\( (1,\\ 5) \\): \\( 5 = 4 + 3 - 1 + c \\), so \\( c = -1 \\). Therefore \\( y = 4x + 3x^2 - x^3 - 1 \\).",
+            markPoints: { note: "Award each mark for the step shown; the final answer must be written as \\( y = \\ldots \\).", groups: [
+                { label: "M1 — integrate", max: 1, points: ["Integrated the gradient function (at least one power raised by 1, coefficients adjusted)"] },
+                { label: "A1 — correct integral", max: 1, points: ["\\( 4x + 3x^2 - x^3 + c \\) (with a constant present)"] },
+                { label: "M1 — substitute the point", max: 1, points: ["Substituted \\( (1,\\ 5) \\) into their integral with \\( c \\) included"] },
+                { label: "A1 — final equation", max: 1, points: ["\\( y = 4x + 3x^2 - x^3 - 1 \\), written as \\( y = \\ldots \\)"] }
+            ] }
+        },
+        {
+            num: "8",
+            marks: 4,
+            type: "written",
+            question: `<p>The gradient function of a curve is given by \\( \\frac{dy}{dx} = 2 + 4x - 3x^2 \\) and the curve passes through the point \\( (1,\\ 2) \\).</p>
+              <p>Determine the equation of the curve.</p>`,
+            hint: "Integrate to get \\( y \\) (include \\( +c \\)), then use \\( (1,\\ 2) \\) to find \\( c \\).",
+            starter: "Give your answer as an equation starting \\( y = \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — integrate: at least two powers increased by 1.</li>
+              <li><strong>A1</strong> — correct integral including \\( c \\): \\( 2x + 2x^2 - x^3 + c \\).</li>
+              <li><strong>M1</strong> — substitute the correct values in all terms into their integrated function.</li>
+              <li><strong>A1</strong> — \\( y = 2x + 2x^2 - x^3 - 1 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Two marks for a correct integral with a constant, one for substituting the point in all terms, and one for the final equation written as \\( y = \\ldots \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most candidates found the equation by integration and substitution to find the constant. Because the gradient function was given as \\( \\frac{dy}{dx} \\), the answer was expected as \\( y = \\ldots \\); some lost the last mark by not doing so.</li>
+            </ul></div>`,
+            modelAnswer: "Integrating term by term: \\( y = 2x + \\frac{4x^2}{2} - \\frac{3x^3}{3} + c = 2x + 2x^2 - x^3 + c \\). Substituting \\( (1,\\ 2) \\): \\( 2 = 2 + 2 - 1 + c \\), so \\( c = -1 \\). Therefore \\( y = 2x + 2x^2 - x^3 - 1 \\).",
+            markPoints: { note: "Award each mark for the step shown; the final answer must be written as \\( y = \\ldots \\).", groups: [
+                { label: "M1 — integrate", max: 1, points: ["Integrated the gradient function (at least two powers raised by 1)"] },
+                { label: "A1 — correct integral", max: 1, points: ["\\( 2x + 2x^2 - x^3 + c \\) (including the constant)"] },
+                { label: "M1 — substitute the point", max: 1, points: ["Substituted \\( (1,\\ 2) \\) into all terms of their integral"] },
+                { label: "A1 — final equation", max: 1, points: ["\\( y = 2x + 2x^2 - x^3 - 1 \\), written as \\( y = \\ldots \\)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

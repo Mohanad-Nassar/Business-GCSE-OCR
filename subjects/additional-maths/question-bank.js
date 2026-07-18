@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-18T05:31:30Z · 1725 questions
+// Generated: 2026-07-18T05:45:35Z · 1901 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -684,16 +684,16 @@ window.QUESTION_BANK = [
   "question": "To simplify \\( a^m \\times a^n \\) you ___B1___ the indices, and to simplify \\( a^m \\div a^n \\) you ___B2___ them.",
   "blankOptions": {
    "B1": [
+    "power",
+    "variable",
     "add",
-    "multiply",
-    "0",
     "solve"
    ],
    "B2": [
     "subtract",
-    "variable",
-    "1",
-    "divide"
+    "power",
+    "unknown",
+    "0"
    ]
   },
   "key": {
@@ -713,10 +713,10 @@ window.QUESTION_BANK = [
   "question": "The rule \\( (a^m)^n \\) tells you to ___B1___ the two indices together.",
   "blankOptions": {
    "B1": [
-    "subtract",
     "multiply",
-    "solve",
-    "unknown"
+    "1",
+    "add",
+    "constant"
    ]
   },
   "key": {
@@ -735,10 +735,10 @@ window.QUESTION_BANK = [
   "question": "For any non-zero base, \\( a^0 \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "solve",
-    "divide",
+    "identity",
     "1",
-    "variable"
+    "divide",
+    "multiply"
    ]
   },
   "key": {
@@ -757,9 +757,9 @@ window.QUESTION_BANK = [
   "question": "A negative index means take the ___B1___, so \\( a^{-n} \\) becomes a fraction.",
   "blankOptions": {
    "B1": [
-    "solve",
+    "power",
     "index",
-    "all",
+    "nth",
     "reciprocal"
    ]
   },
@@ -779,15 +779,15 @@ window.QUESTION_BANK = [
   "question": "In the term \\( 4x^3 \\), the number \\( 4 \\) is the ___B1___ and the number \\( 3 \\) is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "solve",
-    "constant",
+    "nth",
+    "subtract",
     "coefficient",
-    "term"
+    "1"
    ],
    "B2": [
-    "identity",
-    "term",
+    "constant",
     "index",
+    "nth",
     "reciprocal"
    ]
   },
@@ -808,15 +808,15 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) means the statement is an ___B1___, which is true for ___B2___ values of the variable.",
   "blankOptions": {
    "B1": [
-    "power",
-    "subtract",
-    "unknown",
-    "identity"
+    "constant",
+    "term",
+    "identity",
+    "1"
    ],
    "B2": [
-    "index",
-    "coefficient",
+    "nth",
     "unknown",
+    "constant",
     "all"
    ]
   },
@@ -837,10 +837,10 @@ window.QUESTION_BANK = [
   "question": "In \\( a^{1/n} \\) the fraction \\( \\frac{1}{n} \\) tells you to take the ___B1___ root of \\( a \\).",
   "blankOptions": {
    "B1": [
-    "power",
-    "constant",
+    "solve",
+    "reciprocal",
     "nth",
-    "1"
+    "term"
    ]
   },
   "key": {
@@ -859,16 +859,16 @@ window.QUESTION_BANK = [
   "question": "In an equation you solve to find the value of the ___B1___, whereas in an expression there is no equals sign to ___B2___.",
   "blankOptions": {
    "B1": [
-    "1",
+    "nth",
+    "constant",
     "unknown",
-    "all",
-    "index"
+    "1"
    ],
    "B2": [
-    "reciprocal",
-    "identity",
+    "variable",
     "solve",
-    "coefficient"
+    "coefficient",
+    "reciprocal"
    ]
   },
   "key": {
@@ -1835,9 +1835,9 @@ window.QUESTION_BANK = [
   "question": "To simplify a surd, take out the largest perfect ___B1___ factor.",
   "blankOptions": {
    "B1": [
-    "like",
-    "expand",
-    "3",
+    "factorise",
+    "unlike",
+    "cube",
     "square"
    ]
   },
@@ -1857,10 +1857,10 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sqrt{12} = 2\\sqrt{3} \\) we used the fact that \\( 12 = 4 \\times 3 \\) and \\( \\sqrt{4} = \\) ___B1___.",
   "blankOptions": {
    "B1": [
-    "2",
-    "factorise",
+    "cube",
     "square",
-    "(x-1)(x+1)"
+    "(x-1)(x+1)",
+    "2"
    ]
   },
   "key": {
@@ -1879,10 +1879,10 @@ window.QUESTION_BANK = [
   "question": "You can only add or subtract surds when they are ___B1___ surds (the same number under the root).",
   "blankOptions": {
    "B1": [
-    "reciprocal",
+    "square",
+    "like",
     "factorise",
-    "calculator",
-    "like"
+    "cube"
    ]
   },
   "key": {
@@ -1901,10 +1901,10 @@ window.QUESTION_BANK = [
   "question": "To rationalise \\( \\frac{1}{2+\\sqrt{3}} \\) you multiply by its ___B1___, which is \\( 2-\\sqrt{3} \\).",
   "blankOptions": {
    "B1": [
-    "factorise",
+    "calculator",
     "conjugate",
-    "(x-1)(x+1)",
-    "calculator"
+    "reciprocal",
+    "square"
    ]
   },
   "key": {
@@ -1923,10 +1923,10 @@ window.QUESTION_BANK = [
   "question": "Multiplying \\( (2+\\sqrt{3})(2-\\sqrt{3}) \\) gives the whole number ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
-    "conjugate",
-    "factorise",
-    "2"
+    "3",
+    "(x-1)(x+1)",
+    "cube",
+    "1"
    ]
   },
   "key": {
@@ -1945,10 +1945,10 @@ window.QUESTION_BANK = [
   "question": "To simplify an algebraic fraction you first ___B1___ the top and bottom, then cancel common factors.",
   "blankOptions": {
    "B1": [
-    "like",
     "cube",
-    "calculator",
-    "factorise"
+    "factorise",
+    "expand",
+    "calculator"
    ]
   },
   "key": {
@@ -1967,9 +1967,9 @@ window.QUESTION_BANK = [
   "question": "To add \\( \\frac{1}{x-1} \\) and \\( \\frac{2}{x+1} \\) you write them over the common denominator ___B1___.",
   "blankOptions": {
    "B1": [
-    "factorise",
-    "reciprocal",
-    "unlike",
+    "square",
+    "calculator",
+    "expand",
     "(x-1)(x+1)"
    ]
   },
@@ -1989,10 +1989,10 @@ window.QUESTION_BANK = [
   "question": "The instruction 'show detailed reasoning' means a ___B1___ answer with no working scores zero.",
   "blankOptions": {
    "B1": [
-    "exact",
+    "square",
     "calculator",
     "unlike",
-    "conjugate"
+    "expand"
    ]
   },
   "key": {
@@ -2878,16 +2878,16 @@ window.QUESTION_BANK = [
   "question": "In the quadratic formula \\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\), the term before the \\( \\pm \\) sign is ___B1___ and the denominator is ___B2___.",
   "blankOptions": {
    "B1": [
-    "discriminant",
-    "4ac",
-    "-b",
-    "exact"
+    "half",
+    "-p",
+    "q",
+    "-b"
    ],
    "B2": [
-    "negative",
-    "square",
-    "2a",
-    "4ac"
+    "-p",
+    "4ac",
+    "discriminant",
+    "2a"
    ]
   },
   "key": {
@@ -2907,16 +2907,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + bx \\), take ___B1___ the coefficient of \\( x \\) and then ___B2___ it.",
   "blankOptions": {
    "B1": [
-    "2a",
     "negative",
+    "-b",
     "half",
-    "double"
+    "discriminant"
    ],
    "B2": [
-    "square",
-    "add",
-    "q",
-    "negative"
+    "negative",
+    "2a",
+    "both",
+    "square"
    ]
   },
   "key": {
@@ -2936,16 +2936,16 @@ window.QUESTION_BANK = [
   "question": "To complete the square on \\( x^2 + 6x - 11 \\), the number inside the bracket \\( (x + a)^2 \\) is ___B1___ and the number subtracted at the end is ___B2___.",
   "blankOptions": {
    "B1": [
-    "4ac",
-    "3",
-    "exact",
-    "-b"
+    "square",
+    "discriminant",
+    "half",
+    "3"
    ],
    "B2": [
-    "double",
-    "both",
-    "20",
-    "-b"
+    "discriminant",
+    "half",
+    "negative",
+    "20"
    ]
   },
   "key": {
@@ -2965,10 +2965,10 @@ window.QUESTION_BANK = [
   "question": "The expression \\( b^2 - 4ac \\) is called the ___B1___.",
   "blankOptions": {
    "B1": [
-    "both",
-    "discriminant",
+    "half",
+    "4ac",
     "exact",
-    "-p"
+    "discriminant"
    ]
   },
   "key": {
@@ -2987,10 +2987,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, a quadratic has no real roots.",
   "blankOptions": {
    "B1": [
-    "negative",
-    "both",
+    "square",
     "discriminant",
-    "4ac"
+    "negative",
+    "both"
    ]
   },
   "key": {
@@ -3009,14 +3009,14 @@ window.QUESTION_BANK = [
   "question": "For \\( a(x+p)^2 + q \\) with \\( a > 0 \\), the minimum value is ___B1___ and it occurs when \\( x \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "square",
+    "20",
     "q",
-    "half",
-    "discriminant"
+    "4ac",
+    "2a"
    ],
    "B2": [
     "-p",
-    "3",
+    "4ac",
     "negative",
     "20"
    ]
@@ -3038,10 +3038,10 @@ window.QUESTION_BANK = [
   "question": "When you take the square root of both sides you must write \\( \\pm \\) to get ___B1___ roots.",
   "blankOptions": {
    "B1": [
+    "square",
+    "4ac",
     "both",
-    "3",
-    "-b",
-    "-p"
+    "2a"
    ]
   },
   "key": {
@@ -3060,10 +3060,10 @@ window.QUESTION_BANK = [
   "question": "A command word telling you to leave surds rather than round is ___B1___.",
   "blankOptions": {
    "B1": [
-    "both",
-    "q",
-    "double",
-    "exact"
+    "discriminant",
+    "exact",
+    "-b",
+    "4ac"
    ]
   },
   "key": {
@@ -4021,10 +4021,10 @@ window.QUESTION_BANK = [
   "question": "When you multiply or divide an inequality by a negative number you must ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
+    "keeps",
+    "and",
     "reverse",
-    "-2",
-    "open",
-    "and"
+    "add"
    ]
   },
   "key": {
@@ -4043,10 +4043,10 @@ window.QUESTION_BANK = [
   "question": "Adding or subtracting the same quantity from both sides ___B1___ the direction of the inequality sign.",
   "blankOptions": {
    "B1": [
-    "add",
     "keeps",
-    "outside",
-    "flip"
+    "closed",
+    "or",
+    "3"
    ]
   },
   "key": {
@@ -4065,10 +4065,10 @@ window.QUESTION_BANK = [
   "question": "To solve a quadratic inequality, first rearrange it so that one side equals ___B1___, then factorise.",
   "blankOptions": {
    "B1": [
-    "-2",
-    "zero",
-    "3",
-    "or"
+    "add",
+    "keeps",
+    "or",
+    "zero"
    ]
   },
   "key": {
@@ -4087,10 +4087,10 @@ window.QUESTION_BANK = [
   "question": "The quadratic \\( x^2 - x - 6 \\) factorises to \\( (x-3)(x+2) \\), so its critical values are \\( 3 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
+    "closed",
     "flip",
-    "outside",
     "-2",
-    "between"
+    "open"
    ]
   },
   "key": {
@@ -4109,10 +4109,10 @@ window.QUESTION_BANK = [
   "question": "For an upward-opening parabola, \\( ax^2 + bx + c < 0 \\) is satisfied ___B1___ the two critical values.",
   "blankOptions": {
    "B1": [
+    "zero",
+    "add",
     "between",
-    "or",
-    "closed",
-    "zero"
+    "reverse"
    ]
   },
   "key": {
@@ -4132,9 +4132,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "outside",
-    "reverse",
-    "zero",
-    "and"
+    "between",
+    "keeps",
+    "3"
    ]
   },
   "key": {
@@ -4153,10 +4153,10 @@ window.QUESTION_BANK = [
   "question": "A strict inequality such as \\( < \\) or \\( > \\) is shown on a number line with an ___B1___ circle.",
   "blankOptions": {
    "B1": [
-    "outside",
+    "3",
     "open",
-    "reverse",
-    "add"
+    "-2",
+    "between"
    ]
   },
   "key": {
@@ -4175,10 +4175,10 @@ window.QUESTION_BANK = [
   "question": "The solution to \\( x^2 > 9 \\) is \\( x < -3 \\) ___B1___ \\( x > 3 \\).",
   "blankOptions": {
    "B1": [
+    "flip",
+    "add",
     "keeps",
-    "or",
-    "open",
-    "closed"
+    "or"
    ]
   },
   "key": {
@@ -5048,10 +5048,10 @@ window.QUESTION_BANK = [
   "question": "A polynomial written with its powers going from highest to lowest is in ___B1___ order.",
   "blankOptions": {
    "B1": [
-    "zero",
-    "sign",
+    "14",
     "degree",
-    "descending"
+    "descending",
+    "coefficient"
    ]
   },
   "key": {
@@ -5070,16 +5070,16 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ of a polynomial is the highest power of the variable, and the number multiplying a power of \\( x \\) is its ___B2___.",
   "blankOptions": {
    "B1": [
-    "term",
-    "sign",
     "degree",
-    "quotient"
+    "dividend",
+    "quotient",
+    "sign"
    ],
    "B2": [
-    "sign",
+    "zero",
+    "dividend",
     "coefficient",
-    "factor",
-    "term"
+    "descending"
    ]
   },
   "key": {
@@ -5099,10 +5099,10 @@ window.QUESTION_BANK = [
   "question": "To subtract one polynomial from another you must change the ___B1___ of every term in the second bracket.",
   "blankOptions": {
    "B1": [
-    "ascending",
+    "14",
     "sign",
-    "term",
-    "dividend"
+    "ascending",
+    "factor"
    ]
   },
   "key": {
@@ -5121,16 +5121,16 @@ window.QUESTION_BANK = [
   "question": "In long division the expression built up on top is the ___B1___ and the value left over at the end is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "descending",
-    "ascending",
     "quotient",
-    "factor"
+    "term",
+    "ascending",
+    "14"
    ],
    "B2": [
-    "coefficient",
-    "constant",
     "remainder",
-    "ascending"
+    "dividend",
+    "coefficient",
+    "factor"
    ]
   },
   "key": {
@@ -5150,10 +5150,10 @@ window.QUESTION_BANK = [
   "question": "When \\( x^3 + 2x^2 - 5x + 8 \\) is divided by \\( x + 3 \\), the quotient is \\( x^2 - x - 2 \\) and the remainder is ___B1___.",
   "blankOptions": {
    "B1": [
-    "coefficient",
-    "placeholder",
     "14",
-    "term"
+    "descending",
+    "constant",
+    "ascending"
    ]
   },
   "key": {
@@ -5172,10 +5172,10 @@ window.QUESTION_BANK = [
   "question": "When a polynomial is divided by \\( x - a \\) and the remainder is ___B1___, then \\( x - a \\) is a factor.",
   "blankOptions": {
    "B1": [
-    "factor",
-    "dividend",
-    "sign",
-    "zero"
+    "ascending",
+    "zero",
+    "term",
+    "coefficient"
    ]
   },
   "key": {
@@ -5194,10 +5194,10 @@ window.QUESTION_BANK = [
   "question": "When dividing, insert a ___B1___ (a term with coefficient 0) for any missing power so the columns stay lined up.",
   "blankOptions": {
    "B1": [
-    "placeholder",
+    "term",
+    "quotient",
     "zero",
-    "coefficient",
-    "14"
+    "placeholder"
    ]
   },
   "key": {
@@ -6101,9 +6101,9 @@ window.QUESTION_BANK = [
   "question": "The factor theorem states that if \\( \\text{f}(a) \\) equals ___B1___, then \\( (x - a) \\) is a factor of \\( \\text{f}(x) \\).",
   "blankOptions": {
    "B1": [
+    "factor",
+    "a",
     "0",
-    "multiples",
-    "is",
     "quadratic"
    ]
   },
@@ -6123,7 +6123,7 @@ window.QUESTION_BANK = [
   "question": "If \\( (x - 4) \\) is a factor of \\( \\text{f}(x) \\), then \\( \\text{f}(4) \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "factors",
+    "linear",
     "0",
     "is",
     "root"
@@ -6145,10 +6145,10 @@ window.QUESTION_BANK = [
   "question": "To find a whole-number factor of a cubic, test the ___B1___ of the constant term.",
   "blankOptions": {
    "B1": [
-    "factor",
-    "1/2",
+    "a",
+    "quadratic",
     "factors",
-    "linear"
+    "1/2"
    ]
   },
   "key": {
@@ -6167,9 +6167,9 @@ window.QUESTION_BANK = [
   "question": "To test whether \\( (2x - 1) \\) is a factor of \\( \\text{f}(x) \\), work out f of ___B1___.",
   "blankOptions": {
    "B1": [
-    "linear",
     "0",
-    "a",
+    "1",
+    "linear",
     "1/2"
    ]
   },
@@ -6189,16 +6189,16 @@ window.QUESTION_BANK = [
   "question": "The factor theorem finds ___B1___ factors of a polynomial; the remainder theorem is ___B2___ on this specification.",
   "blankOptions": {
    "B1": [
-    "1",
-    "2",
+    "factor",
     "linear",
-    "root"
+    "a",
+    "3/2"
    ],
    "B2": [
+    "quadratic",
+    "a",
     "not",
-    "0",
-    "2",
-    "root"
+    "is"
    ]
   },
   "key": {
@@ -6218,10 +6218,10 @@ window.QUESTION_BANK = [
   "question": "After factorising, you solve \\( \\text{f}(x) = 0 \\) by setting each ___B1___ equal to zero.",
   "blankOptions": {
    "B1": [
-    "not",
-    "is",
     "factor",
-    "root"
+    "multiples",
+    "a",
+    "1"
    ]
   },
   "key": {
@@ -6240,10 +6240,10 @@ window.QUESTION_BANK = [
   "question": "For \\( 2x^3 - x^2 - 7x + 6 \\), testing gives \\( \\text{f}(1) = 0 \\), so (x − ___B1___) is a factor.",
   "blankOptions": {
    "B1": [
+    "is",
+    "quadratic",
     "linear",
-    "1/2",
-    "1",
-    "is"
+    "1"
    ]
   },
   "key": {
@@ -7165,10 +7165,10 @@ window.QUESTION_BANK = [
   "question": "The first step in modelling a worded problem is to define the ___B1___ and state what it represents.",
   "blankOptions": {
    "B1": [
-    "variable",
-    "16",
-    "substitution",
-    "unknown"
+    "unknown",
+    "plus",
+    "n+2",
+    "minus"
    ]
   },
   "key": {
@@ -7187,9 +7187,9 @@ window.QUESTION_BANK = [
   "question": "When a quadratic equation for a length gives a negative root, you must ___B1___ it, because a length cannot be negative.",
   "blankOptions": {
    "B1": [
+    "substitution",
+    "16",
     "reject",
-    "1",
-    "n+2",
     "n+3"
    ]
   },
@@ -7210,9 +7210,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "substitution",
-    "accept",
-    "variable",
-    "unknown"
+    "minus",
+    "elimination",
+    "accept"
    ]
   },
   "key": {
@@ -7231,10 +7231,10 @@ window.QUESTION_BANK = [
   "question": "In the boat problem the two roots were 1 and \\( -16 \\); the current speed must be positive, so the answer is ___B1___ km/h.",
   "blankOptions": {
    "B1": [
-    "reject",
-    "1",
-    "accept",
-    "n+3"
+    "16",
+    "plus",
+    "minus",
+    "1"
    ]
   },
   "key": {
@@ -7253,10 +7253,10 @@ window.QUESTION_BANK = [
   "question": "A final answer in a real context should always be stated with its ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
-    "plus",
-    "elimination",
-    "units"
+    "n+2",
+    "units",
+    "variable",
+    "n+3"
    ]
   },
   "key": {
@@ -7275,10 +7275,10 @@ window.QUESTION_BANK = [
   "question": "The phrase \"5 more than a number \\( x \\)\" translates to \\( x \\) ___B1___ 5.",
   "blankOptions": {
    "B1": [
-    "n+2",
-    "variable",
-    "units",
-    "plus"
+    "plus",
+    "2n",
+    "substitution",
+    "n+2"
    ]
   },
   "key": {
@@ -7297,10 +7297,10 @@ window.QUESTION_BANK = [
   "question": "Three consecutive integers can be written as \\( n \\), \\( n+1 \\) and ___B1___.",
   "blankOptions": {
    "B1": [
-    "16",
-    "plus",
+    "n+3",
+    "accept",
     "n+2",
-    "substitution"
+    "units"
    ]
   },
   "key": {
@@ -8151,10 +8151,10 @@ window.QUESTION_BANK = [
   "question": "A rule that gives each term of a sequence from earlier terms is called a ___B1___ relationship.",
   "blankOptions": {
    "B1": [
-    "one",
-    "recurrence",
+    "1.03",
     "geometric",
-    "added"
+    "recurrence",
+    "subtracted"
    ]
   },
   "key": {
@@ -8173,10 +8173,10 @@ window.QUESTION_BANK = [
   "question": "As well as the rule, you need a ___B1___ value before you can generate the sequence.",
   "blankOptions": {
    "B1": [
-    "0.15",
-    "0.85",
-    "divided",
-    "starting"
+    "starting",
+    "1.03",
+    "one",
+    "added"
    ]
   },
   "key": {
@@ -8195,10 +8195,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = x_n + a \\) the fixed number \\( a \\) is ___B1___ to each term, giving an arithmetic sequence.",
   "blankOptions": {
    "B1": [
-    "two",
+    "subtracted",
     "added",
-    "starting",
-    "recurrence"
+    "7",
+    "one"
    ]
   },
   "key": {
@@ -8217,10 +8217,10 @@ window.QUESTION_BANK = [
   "question": "In \\( x_{n+1} = a x_n \\) each term is ___B1___ by \\( a \\), giving a geometric sequence.",
   "blankOptions": {
    "B1": [
-    "two",
+    "multiplied",
     "added",
-    "1.03",
-    "multiplied"
+    "subtracted",
+    "divided"
    ]
   },
   "key": {
@@ -8239,10 +8239,10 @@ window.QUESTION_BANK = [
   "question": "A second-order rule such as \\( x_{n+2} = x_{n+1} + x_n \\) needs ___B1___ starting values.",
   "blankOptions": {
    "B1": [
-    "recurrence",
-    "geometric",
+    "11",
+    "7",
     "two",
-    "0.15"
+    "added"
    ]
   },
   "key": {
@@ -8261,10 +8261,10 @@ window.QUESTION_BANK = [
   "question": "Compound interest of 3% per year gives \\( x_{n+1} = k x_n \\) where the multiplier \\( k \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "1.3",
+    "1.03",
     "0.85",
-    "multiplied",
-    "1.03"
+    "starting",
+    "recurrence"
    ]
   },
   "key": {
@@ -8283,10 +8283,10 @@ window.QUESTION_BANK = [
   "question": "An asset that loses 15% of its value each year has multiplier ___B1___.",
   "blankOptions": {
    "B1": [
-    "11",
     "0.85",
     "subtracted",
-    "recurrence"
+    "added",
+    "multiplied"
    ]
   },
   "key": {
@@ -8305,16 +8305,16 @@ window.QUESTION_BANK = [
   "question": "For \\( x_{n+1} = x_n + 4 \\) with \\( x_1 = 3 \\), the second term is ___B1___ and the third term is ___B2___.",
   "blankOptions": {
    "B1": [
+    "starting",
     "7",
-    "one",
-    "two",
+    "1.3",
     "subtracted"
    ],
    "B2": [
-    "0.15",
-    "subtracted",
-    "0.85",
-    "11"
+    "1.3",
+    "11",
+    "recurrence",
+    "starting"
    ]
   },
   "key": {
@@ -9204,10 +9204,10 @@ window.QUESTION_BANK = [
   "question": "The distance between two points comes from ___B1___ theorem, taking the square root of the sum of the squared gaps.",
   "blankOptions": {
    "B1": [
-    "average",
-    "slope",
+    "Pythagoras",
     "y",
-    "Pythagoras"
+    "subtracting",
+    "-1"
    ]
   },
   "key": {
@@ -9226,9 +9226,9 @@ window.QUESTION_BANK = [
   "question": "To find the midpoint you ___B1___ the two \\( x \\)-coordinates and do the same to the \\( y \\)-coordinates.",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "Pythagoras",
-    "subtracting",
+    "1",
+    "intercept",
+    "parallel",
     "average"
    ]
   },
@@ -9249,9 +9249,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "equal",
-    "parallel",
-    "slope",
-    "1"
+    "midpoint",
+    "gradient",
+    "average"
    ]
   },
   "key": {
@@ -9270,10 +9270,10 @@ window.QUESTION_BANK = [
   "question": "For two perpendicular lines the product of their gradients is ___B1___.",
   "blankOptions": {
    "B1": [
-    "Pythagoras",
-    "gradient",
-    "subtracting",
-    "-1"
+    "parallel",
+    "-1",
+    "midpoint",
+    "negative reciprocal"
    ]
   },
   "key": {
@@ -9293,15 +9293,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "midpoint",
-    "x",
-    "average",
+    "y",
+    "slope",
     "intercept"
    ],
    "B2": [
-    "Pythagoras",
-    "parallel",
+    "average",
     "negative reciprocal",
-    "slope"
+    "parallel",
+    "y"
    ]
   },
   "key": {
@@ -9321,15 +9321,15 @@ window.QUESTION_BANK = [
   "question": "In the equation \\( y = mx + c \\), the letter \\( m \\) is the ___B1___ and \\( c \\) is the \\( y \\)-___B2___.",
   "blankOptions": {
    "B1": [
+    "Pythagoras",
+    "point-gradient",
     "gradient",
-    "1",
-    "x",
-    "parallel"
+    "-1"
    ],
    "B2": [
-    "equal",
-    "average",
-    "reciprocal",
+    "point-gradient",
+    "negative reciprocal",
+    "subtracting",
     "intercept"
    ]
   },
@@ -9350,10 +9350,10 @@ window.QUESTION_BANK = [
   "question": "The gradient of a line is the change in \\( y \\) divided by the change in ___B1___.",
   "blankOptions": {
    "B1": [
-    "intercept",
-    "parallel",
+    "midpoint",
+    "slope",
     "x",
-    "-1"
+    "gradient"
    ]
   },
   "key": {
@@ -9372,10 +9372,10 @@ window.QUESTION_BANK = [
   "question": "The form \\( y - y_1 = m(x - x_1) \\) is called the ___B1___ form of a line.",
   "blankOptions": {
    "B1": [
+    "1",
     "point-gradient",
-    "reciprocal",
-    "y",
-    "midpoint"
+    "slope",
+    "parallel"
    ]
   },
   "key": {
@@ -10409,16 +10409,16 @@ window.QUESTION_BANK = [
   "question": "The general equation of a circle with centre \\( (a,\\ b) \\) and radius \\( r \\) is \\( (x-a)^2 + (y-b)^2 = r^2 \\). For \\( (x-3)^2 + (y+2)^2 = 25 \\), the centre is ___B1___ and the radius is ___B2___.",
   "blankOptions": {
    "B1": [
-    "half",
+    "double",
+    "tangent",
     "(3, -2)",
-    "normal",
-    "linear"
+    "negative reciprocal"
    ],
    "B2": [
-    "quadratic",
-    "25",
     "5",
-    "positive"
+    "substitute",
+    "negative reciprocal",
+    "gradient"
    ]
   },
   "key": {
@@ -10438,10 +10438,10 @@ window.QUESTION_BANK = [
   "question": "To find the centre and radius from the expanded form \\( x^2 + y^2 + 2gx + 2fy + c = 0 \\), you complete the ___B1___ in \\( x \\) and in \\( y \\) separately.",
   "blankOptions": {
    "B1": [
-    "double",
     "square",
-    "midpoint",
-    "zero"
+    "factorise",
+    "positive",
+    "double"
    ]
   },
   "key": {
@@ -10460,15 +10460,15 @@ window.QUESTION_BANK = [
   "question": "At the point of contact, the radius is ___B1___ to the tangent, so the tangent gradient is the ___B2___ of the radius gradient.",
   "blankOptions": {
    "B1": [
-    "(-3, 2)",
-    "factorise",
+    "substitute",
     "perpendicular",
-    "half"
+    "midpoint",
+    "quadratic"
    ],
    "B2": [
-    "(3, -2)",
-    "normal",
-    "factorise",
+    "double",
+    "quadratic",
+    "reciprocal",
     "negative reciprocal"
    ]
   },
@@ -10489,10 +10489,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ to a circle at a point always passes through the centre of the circle.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
     "normal",
-    "positive",
-    "quadratic"
+    "square",
+    "half",
+    "5"
    ]
   },
   "key": {
@@ -10511,16 +10511,16 @@ window.QUESTION_BANK = [
   "question": "To test where a line meets a circle, ___B1___ the line into the circle equation to obtain a ___B2___ equation.",
   "blankOptions": {
    "B1": [
-    "negative",
-    "(3, -2)",
+    "midpoint",
     "substitute",
-    "linear"
+    "5",
+    "negative"
    ],
    "B2": [
-    "tangent",
-    "negative reciprocal",
-    "square",
-    "quadratic"
+    "(-3, 2)",
+    "normal",
+    "quadratic",
+    "negative"
    ]
   },
   "key": {
@@ -10540,10 +10540,10 @@ window.QUESTION_BANK = [
   "question": "A line is a tangent to a circle exactly when the discriminant of that quadratic equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "perpendicular",
-    "zero",
-    "factorise",
-    "negative reciprocal"
+    "square",
+    "substitute",
+    "linear",
+    "zero"
    ]
   },
   "key": {
@@ -10562,10 +10562,10 @@ window.QUESTION_BANK = [
   "question": "If the discriminant is ___B1___, the line misses the circle completely.",
   "blankOptions": {
    "B1": [
+    "25",
     "negative",
-    "tangent",
-    "double",
-    "perpendicular"
+    "(3, -2)",
+    "midpoint"
    ]
   },
   "key": {
@@ -10584,16 +10584,16 @@ window.QUESTION_BANK = [
   "question": "Given the two ends of a diameter, the centre is the ___B1___ of the endpoints and the radius is ___B2___ the diameter.",
   "blankOptions": {
    "B1": [
-    "reciprocal",
-    "substitute",
-    "midpoint",
-    "factorise"
+    "gradient",
+    "parallel",
+    "linear",
+    "midpoint"
    ],
    "B2": [
-    "gradient",
     "half",
-    "perpendicular",
-    "square"
+    "negative reciprocal",
+    "gradient",
+    "tangent"
    ]
   },
   "key": {
@@ -11522,16 +11522,16 @@ window.QUESTION_BANK = [
   "question": "A graph drawn with only its main features, not to scale, is called a ___B1___; an accurate one worked out on a grid is a ___B2___.",
   "blankOptions": {
    "B1": [
-    "parabola",
-    "cross",
+    "downwards",
+    "360",
     "sketch",
-    "roots"
+    "parabola"
    ],
    "B2": [
     "plot",
-    "180",
-    "parabola",
-    "roots"
+    "downwards",
+    "0",
+    "2"
    ]
   },
   "key": {
@@ -11551,16 +11551,16 @@ window.QUESTION_BANK = [
   "question": "For the exponential graph \\( y = k a^x \\) with \\( a > 0 \\), the horizontal asymptote is the line \\( y = \\) ___B1___ and the curve crosses the \\( y \\)-axis at the value ___B2___.",
   "blankOptions": {
    "B1": [
-    "0",
     "upwards",
-    "touch",
-    "2"
+    "0",
+    "360",
+    "parabola"
    ],
    "B2": [
+    "draw",
     "k",
-    "roots",
-    "touch",
-    "180"
+    "2",
+    "touch"
    ]
   },
   "key": {
@@ -11580,16 +11580,16 @@ window.QUESTION_BANK = [
   "question": "A quadratic graph has the shape called a ___B1___; when the \\( x^2 \\) coefficient is positive it opens ___B2___.",
   "blankOptions": {
    "B1": [
-    "parabola",
-    "k",
-    "3",
-    "2"
+    "0",
+    "cross",
+    "draw",
+    "parabola"
    ],
    "B2": [
-    "cross",
     "upwards",
-    "0",
-    "180"
+    "3",
+    "downwards",
+    "cross"
    ]
   },
   "key": {
@@ -11609,16 +11609,16 @@ window.QUESTION_BANK = [
   "question": "The graphs of \\( y = \\sin x \\) and \\( y = \\cos x \\) both repeat every ___B1___ degrees and have amplitude ___B2___.",
   "blankOptions": {
    "B1": [
-    "360",
-    "upwards",
+    "roots",
     "parabola",
-    "plot"
+    "360",
+    "2"
    ],
    "B2": [
-    "2",
     "1",
-    "roots",
-    "plot"
+    "cross",
+    "upwards",
+    "downwards"
    ]
   },
   "key": {
@@ -11638,15 +11638,15 @@ window.QUESTION_BANK = [
   "question": "To find where a curve meets the \\( x \\)-axis you set \\( y = \\) ___B1___ and solve; these values are the ___B2___ of the function.",
   "blankOptions": {
    "B1": [
-    "upwards",
-    "2",
-    "downwards",
-    "0"
+    "0",
+    "plot",
+    "180",
+    "cross"
    ],
    "B2": [
-    "plot",
-    "k",
-    "sketch",
+    "parabola",
+    "3",
+    "1",
     "roots"
    ]
   },
@@ -11667,16 +11667,16 @@ window.QUESTION_BANK = [
   "question": "The cubic \\( y = (x-1)(x+2)(x-4) \\) has ___B1___ real roots; a repeated factor makes the curve ___B2___ the \\( x \\)-axis instead of crossing it.",
   "blankOptions": {
    "B1": [
-    "360",
+    "180",
+    "upwards",
     "3",
-    "k",
-    "cross"
+    "2"
    ],
    "B2": [
-    "touch",
     "0",
-    "downwards",
-    "sketch"
+    "sketch",
+    "touch",
+    "180"
    ]
   },
   "key": {
@@ -11696,10 +11696,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( y = \\tan x \\) has vertical asymptotes and repeats every ___B1___ degrees.",
   "blankOptions": {
    "B1": [
+    "draw",
     "180",
-    "2",
     "1",
-    "sketch"
+    "plot"
    ]
   },
   "key": {
@@ -12644,16 +12644,16 @@ window.QUESTION_BANK = [
   "question": "For a strict inequality you draw the boundary as a ___B1___ line; for \\( \\le \\) or \\( \\ge \\) you draw a ___B2___ line.",
   "blankOptions": {
    "B1": [
+    "equals",
     "dashed",
-    "point",
-    "want",
-    "0"
+    "line",
+    "region"
    ],
    "B2": [
-    "solid",
+    "region",
+    "origin",
     "clear",
-    "wanted",
-    "point"
+    "solid"
    ]
   },
   "key": {
@@ -12673,10 +12673,10 @@ window.QUESTION_BANK = [
   "question": "To decide which side of the line to shade, you substitute a test ___B1___ such as the origin into the inequality.",
   "blankOptions": {
    "B1": [
-    "wanted",
-    "feasible",
     "not",
-    "point"
+    "region",
+    "point",
+    "equals"
    ]
   },
   "key": {
@@ -12695,15 +12695,15 @@ window.QUESTION_BANK = [
   "question": "In the OCR exam you shade the region that is ___B1___ required, leaving the feasible region ___B2___.",
   "blankOptions": {
    "B1": [
-    "curve",
-    "solid",
-    "feasible",
-    "not"
+    "not",
+    "0",
+    "equals",
+    "shade"
    ],
    "B2": [
+    "point",
     "solid",
-    "wanted",
-    "line",
+    "feasible",
     "clear"
    ]
   },
@@ -12724,10 +12724,10 @@ window.QUESTION_BANK = [
   "question": "You cannot make a negative number of items, so a real-world model also needs \\( x \\) and \\( y \\) each to be at least ___B1___.",
   "blankOptions": {
    "B1": [
-    "point",
-    "wanted",
+    "line",
+    "feasible",
     "0",
-    "origin"
+    "dashed"
    ]
   },
   "key": {
@@ -12746,10 +12746,10 @@ window.QUESTION_BANK = [
   "question": "You find the boundary line of an inequality by replacing the inequality sign with an ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "equals",
+    "region",
+    "not",
     "solid",
-    "wanted",
-    "clear"
+    "equals"
    ]
   },
   "key": {
@@ -12768,10 +12768,10 @@ window.QUESTION_BANK = [
   "question": "The single region that satisfies every inequality at once is called the ___B1___ region.",
   "blankOptions": {
    "B1": [
-    "want",
     "feasible",
-    "clear",
-    "0"
+    "origin",
+    "curve",
+    "dashed"
    ]
   },
   "key": {
@@ -12790,9 +12790,9 @@ window.QUESTION_BANK = [
   "question": "If substituting the origin makes the inequality true, the origin lies in the region you ___B1___ (so you do NOT shade it).",
   "blankOptions": {
    "B1": [
-    "solid",
-    "curve",
+    "not",
     "want",
+    "wanted",
     "line"
    ]
   },
@@ -12814,8 +12814,8 @@ window.QUESTION_BANK = [
    "B1": [
     "want",
     "dashed",
-    "0",
-    "equals"
+    "region",
+    "not"
    ]
   },
   "key": {
@@ -13727,9 +13727,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "define",
-    "inequality",
-    "8",
-    "minimised"
+    "non-negativity",
+    "feasible",
+    "simplify"
    ]
   },
   "key": {
@@ -13748,10 +13748,10 @@ window.QUESTION_BANK = [
   "question": "A constraint is a limit in the problem written as a linear ___B1___.",
   "blankOptions": {
    "B1": [
-    "define",
-    "8",
-    "inequality",
-    "greater than or equal to"
+    "simplify",
+    "minimised",
+    "equals",
+    "inequality"
    ]
   },
   "key": {
@@ -13770,16 +13770,16 @@ window.QUESTION_BANK = [
   "question": "The phrase 'at least' translates to the ___B1___ sign, while 'no more than' translates to the ___B2___ sign.",
   "blankOptions": {
    "B1": [
-    "feasible",
-    "non-negativity",
+    "inequality",
+    "maximised",
     "greater than or equal to",
-    "8"
+    "constraint"
    ],
    "B2": [
-    "less than or equal to",
-    "non-negativity",
+    "define",
+    "maximised",
     "draw",
-    "60"
+    "less than or equal to"
    ]
   },
   "key": {
@@ -13799,10 +13799,10 @@ window.QUESTION_BANK = [
   "question": "Because you cannot make a negative quantity, an LP model includes the ___B1___ constraints x is greater than or equal to 0 and y is greater than or equal to 0.",
   "blankOptions": {
    "B1": [
-    "constraint",
-    "inequality",
+    "8",
     "non-negativity",
-    "maximised"
+    "greater than or equal to",
+    "simplify"
    ]
   },
   "key": {
@@ -13821,10 +13821,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ function is the quantity, such as profit or cost, that you want to maximise or minimise.",
   "blankOptions": {
    "B1": [
-    "constraint",
-    "simplify",
     "greater than or equal to",
-    "objective"
+    "objective",
+    "equals",
+    "draw"
    ]
   },
   "key": {
@@ -13843,10 +13843,10 @@ window.QUESTION_BANK = [
   "question": "You can ___B1___ a constraint such as 6x + 4y is at most 240 by dividing every term by 2, giving 3x + 2y at most 120.",
   "blankOptions": {
    "B1": [
-    "simplify",
-    "constraint",
-    "feasible",
-    "less than or equal to"
+    "60",
+    "minimised",
+    "non-negativity",
+    "simplify"
    ]
   },
   "key": {
@@ -13865,16 +13865,16 @@ window.QUESTION_BANK = [
   "question": "Profit of £28 per train and £60 per aeroplane gives the objective P = 28x + ___B1___ y, which is to be ___B2___.",
   "blankOptions": {
    "B1": [
-    "feasible",
-    "minimised",
     "60",
-    "constraint"
+    "greater than or equal to",
+    "non-negativity",
+    "draw"
    ],
    "B2": [
-    "feasible",
-    "non-negativity",
-    "maximised",
-    "objective"
+    "constraint",
+    "less than or equal to",
+    "equals",
+    "maximised"
    ]
   },
   "key": {
@@ -13894,10 +13894,10 @@ window.QUESTION_BANK = [
   "question": "Unlike a constraint, an objective function contains no ___B1___ sign.",
   "blankOptions": {
    "B1": [
-    "equals",
-    "greater than or equal to",
+    "minimised",
     "non-negativity",
-    "inequality"
+    "inequality",
+    "simplify"
    ]
   },
   "key": {
@@ -14995,16 +14995,16 @@ window.QUESTION_BANK = [
   "question": "In OCR linear programming you shade the region that does ___B1___ satisfy the constraints, so the feasible region is left ___B2___.",
   "blankOptions": {
    "B1": [
-    "constraint",
-    "whole",
-    "3.8",
+    "greater",
+    "integer",
+    "2.5",
     "not"
    ],
    "B2": [
-    "centre",
-    "integers",
-    "unshaded",
-    "5"
+    "shaded",
+    "increases",
+    "5",
+    "unshaded"
    ]
   },
   "key": {
@@ -15024,10 +15024,10 @@ window.QUESTION_BANK = [
   "question": "The optimum value of a linear objective always lies at a ___B1___ of the feasible region, never inside it.",
   "blankOptions": {
    "B1": [
-    "edge",
+    "2.5",
     "vertex",
-    "whole",
-    "does"
+    "not",
+    "increases"
    ]
   },
   "key": {
@@ -15046,15 +15046,15 @@ window.QUESTION_BANK = [
   "question": "To find the optimum you can test each ___B1___ in the objective, or slide the ___B2___ line to its extreme position.",
   "blankOptions": {
    "B1": [
-    "integer",
-    "less",
     "does",
-    "vertex"
+    "edge",
+    "vertex",
+    "centre"
    ],
    "B2": [
-    "increases",
-    "not",
+    "does",
     "edge",
+    "3.8",
     "objective"
    ]
   },
@@ -15075,16 +15075,16 @@ window.QUESTION_BANK = [
   "question": "The boundary line \\( 2x + y = 5 \\) has \\( y \\)-intercept ___B1___ and \\( x \\)-intercept ___B2___.",
   "blankOptions": {
    "B1": [
-    "greater",
-    "3.8",
+    "unshaded",
+    "not",
     "5",
-    "constraint"
+    "objective"
    ],
    "B2": [
-    "objective",
     "not",
     "2.5",
-    "3.8"
+    "objective",
+    "integers"
    ]
   },
   "key": {
@@ -15104,10 +15104,10 @@ window.QUESTION_BANK = [
   "question": "Optima in LP need not be whole numbers; assuming that they must be ___B1___ is a common examiner-reported error.",
   "blankOptions": {
    "B1": [
+    "decreases",
     "integers",
-    "3.8",
-    "edge",
-    "whole"
+    "vertex",
+    "shaded"
    ]
   },
   "key": {
@@ -15126,10 +15126,10 @@ window.QUESTION_BANK = [
   "question": "If the context can only take whole items, check the feasible ___B1___ points nearest the optimum vertex.",
   "blankOptions": {
    "B1": [
-    "integer",
     "greater",
-    "integers",
-    "decreases"
+    "integer",
+    "edge",
+    "whole"
    ]
   },
   "key": {
@@ -15148,10 +15148,10 @@ window.QUESTION_BANK = [
   "question": "The words 'no more than' mean the total must be ___B1___ than or equal to the limit.",
   "blankOptions": {
    "B1": [
+    "vertex",
     "greater",
-    "decreases",
     "less",
-    "whole"
+    "integer"
    ]
   },
   "key": {
@@ -15170,10 +15170,10 @@ window.QUESTION_BANK = [
   "question": "To maximise an objective, slide the objective line in the direction that ___B1___ its value; to minimise, slide the opposite way.",
   "blankOptions": {
    "B1": [
-    "decreases",
-    "does",
-    "integers",
-    "increases"
+    "increases",
+    "5",
+    "not",
+    "edge"
    ]
   },
   "key": {
@@ -16084,16 +16084,16 @@ window.QUESTION_BANK = [
   "question": "On the unit circle the point at angle \\( \\theta \\) is \\( (\\cos\\theta,\\ \\sin\\theta) \\), so \\( \\cos\\theta \\) is the ___B1___ coordinate and \\( \\sin\\theta \\) is the ___B2___ coordinate.",
   "blankOptions": {
    "B1": [
-    "x",
-    "first",
-    "-1",
-    "360"
-   ],
-   "B2": [
     "45",
     "90",
+    "360",
+    "x"
+   ],
+   "B2": [
     "y",
-    "2"
+    "first",
+    "-1",
+    "30"
    ]
   },
   "key": {
@@ -16114,15 +16114,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "fourth",
-    "y",
-    "30",
+    "90",
+    "1",
     "360"
    ],
    "B2": [
-    "0",
+    "intercepts",
+    "90",
     "180",
-    "y",
-    "second"
+    "asymptotes"
    ]
   },
   "key": {
@@ -16142,16 +16142,16 @@ window.QUESTION_BANK = [
   "question": "The maximum value of \\( \\sin\\theta \\) is ___B1___ and its minimum value is ___B2___.",
   "blankOptions": {
    "B1": [
-    "30",
-    "third",
-    "1",
-    "second"
+    "180",
+    "0",
+    "second",
+    "1"
    ],
    "B2": [
-    "x",
-    "0",
     "-1",
-    "third"
+    "1/2",
+    "30",
+    "2"
    ]
   },
   "key": {
@@ -16172,15 +16172,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "180",
-    "first",
     "second",
-    "x"
+    "y",
+    "2"
    ],
    "B2": [
-    "third",
-    "1/2",
     "x",
-    "180"
+    "0",
+    "third",
+    "y"
    ]
   },
   "key": {
@@ -16201,15 +16201,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "1/2",
-    "2",
-    "intercepts",
+    "30",
+    "90",
     "-1"
    ],
    "B2": [
-    "x",
+    "first",
     "1/2",
-    "30",
-    "90"
+    "90",
+    "0"
    ]
   },
   "key": {
@@ -16229,10 +16229,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( \\tan\\theta \\) has vertical ___B1___ at \\( 90^\\circ \\) and \\( 270^\\circ \\).",
   "blankOptions": {
    "B1": [
-    "0",
-    "30",
-    "asymptotes",
-    "360"
+    "-1",
+    "third",
+    "90",
+    "asymptotes"
    ]
   },
   "key": {
@@ -16251,10 +16251,10 @@ window.QUESTION_BANK = [
   "question": "Because \\( \\sin(180^\\circ - \\theta) = \\sin\\theta \\), the angle \\( 150^\\circ \\) has the same sine as ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "30",
-    "180",
-    "intercepts",
-    "asymptotes"
+    "360",
+    "asymptotes",
+    "second",
+    "30"
    ]
   },
   "key": {
@@ -16273,10 +16273,10 @@ window.QUESTION_BANK = [
   "question": "The exact value of \\( \\tan 45^\\circ \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "third",
-    "intercepts",
+    "30",
     "1",
-    "45"
+    "45",
+    "asymptotes"
    ]
   },
   "key": {
@@ -17203,9 +17203,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "opposite",
-    "SSS",
-    "non-included",
-    "2bc"
+    "excluded",
+    "2ab",
+    "adjacent"
    ]
   },
   "key": {
@@ -17224,15 +17224,15 @@ window.QUESTION_BANK = [
   "question": "You use the ___B1___ rule when you know two sides and the angle between them (SAS), and the ___B2___ rule when you know two angles and a side.",
   "blankOptions": {
    "B1": [
-    "non-included",
+    "included",
     "cosine",
-    "2ab",
-    "SSS"
+    "provided",
+    "adjacent"
    ],
    "B2": [
-    "2ab",
+    "excluded",
     "2bc",
-    "246.8",
+    "adjacent",
     "sine"
    ]
   },
@@ -17253,10 +17253,10 @@ window.QUESTION_BANK = [
   "question": "In the rearranged cosine rule \\( \\cos A = \\frac{b^2 + c^2 - a^2}{2bc} \\), the denominator is ___B1___.",
   "blankOptions": {
    "B1": [
-    "excluded",
+    "sine",
     "2bc",
-    "memorised",
-    "SAS"
+    "246.8",
+    "opposite"
    ]
   },
   "key": {
@@ -17275,10 +17275,10 @@ window.QUESTION_BANK = [
   "question": "The area of a triangle equals \\( \\frac{1}{2}ab\\sin C \\), where C is the ___B1___ angle between sides a and b.",
   "blankOptions": {
    "B1": [
+    "sine",
+    "memorised",
     "included",
-    "cosine",
-    "SSS",
-    "adjacent"
+    "cosine"
    ]
   },
   "key": {
@@ -17298,9 +17298,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "SAS",
-    "included",
-    "memorised",
-    "113.2"
+    "113.2",
+    "non-included",
+    "included"
    ]
   },
   "key": {
@@ -17319,10 +17319,10 @@ window.QUESTION_BANK = [
   "question": "The ambiguous case can occur when you are given two sides and a ___B1___ angle (the SSA situation).",
   "blankOptions": {
    "B1": [
+    "memorised",
     "non-included",
-    "SAS",
-    "adjacent",
-    "246.8"
+    "excluded",
+    "SAS"
    ]
   },
   "key": {
@@ -17341,10 +17341,10 @@ window.QUESTION_BANK = [
   "question": "The sine rule, cosine rule and area rule must all be ___B1___ because they are not on the formula sheet.",
   "blankOptions": {
    "B1": [
-    "excluded",
-    "non-included",
+    "2bc",
+    "opposite",
     "memorised",
-    "113.2"
+    "2ab"
    ]
   },
   "key": {
@@ -17363,10 +17363,10 @@ window.QUESTION_BANK = [
   "question": "A triangle in which all three sides are known is an ___B1___ situation, so you use the cosine rule.",
   "blankOptions": {
    "B1": [
-    "opposite",
-    "memorised",
+    "excluded",
     "SSS",
-    "adjacent"
+    "2ab",
+    "non-included"
    ]
   },
   "key": {
@@ -18273,10 +18273,10 @@ window.QUESTION_BANK = [
   "question": "The symbol \\( \\equiv \\) marks an identity, which is true for ___B1___ value of \\( \\theta \\).",
   "blankOptions": {
    "B1": [
-    "one",
-    "two",
     "every",
-    "exact"
+    "two",
+    "±",
+    "some"
    ]
   },
   "key": {
@@ -18295,9 +18295,9 @@ window.QUESTION_BANK = [
   "question": "Both trig identities must be ___B1___, because they are not printed on the exam formula sheet.",
   "blankOptions": {
    "B1": [
-    "one",
     "ratio",
-    "two",
+    "negative",
+    "angle",
     "memorised"
    ]
   },
@@ -18317,10 +18317,10 @@ window.QUESTION_BANK = [
   "question": "Finding another ratio needs a square root, which introduces a ___B1___ sign; the quadrant then decides which one to keep.",
   "blankOptions": {
    "B1": [
+    "exact",
+    "two",
     "some",
-    "±",
-    "one",
-    "exact"
+    "±"
    ]
   },
   "key": {
@@ -18339,10 +18339,10 @@ window.QUESTION_BANK = [
   "question": "In the third quadrant, only \\( \\tan\\theta \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "angle",
-    "ratio",
+    "one",
+    "positive",
     "±",
-    "positive"
+    "two"
    ]
   },
   "key": {
@@ -18361,10 +18361,10 @@ window.QUESTION_BANK = [
   "question": "When a question says 'exact', leave your answer as a surd or fraction, never a ___B1___.",
   "blankOptions": {
    "B1": [
-    "two",
-    "decimal",
     "memorised",
-    "ratio"
+    "decimal",
+    "±",
+    "positive"
    ]
   },
   "key": {
@@ -18383,10 +18383,10 @@ window.QUESTION_BANK = [
   "question": "To prove an identity you work on ___B1___ side at a time and finish with a concluding statement.",
   "blankOptions": {
    "B1": [
-    "±",
+    "memorised",
     "one",
     "every",
-    "two"
+    "some"
    ]
   },
   "key": {
@@ -18405,9 +18405,9 @@ window.QUESTION_BANK = [
   "question": "In \\( \\sin^2\\theta \\) you square the ___B1___, not the angle.",
   "blankOptions": {
    "B1": [
-    "decimal",
-    "some",
-    "two",
+    "negative",
+    "±",
+    "memorised",
     "ratio"
    ]
   },
@@ -19350,9 +19350,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "principal",
-    "90",
     "exact",
-    "decimal"
+    "detailed",
+    "sin^2"
    ]
   },
   "key": {
@@ -19371,9 +19371,9 @@ window.QUESTION_BANK = [
   "question": "For \\( \\sin\\theta = k \\), if the first solution is \\( \\alpha \\) the second is 180 minus ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "180",
     "alpha",
-    "720",
+    "sin^2",
+    "exact",
     "90"
    ]
   },
@@ -19394,9 +19394,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "sin^2",
-    "360",
+    "decimal",
     "detailed",
-    "principal"
+    "360"
    ]
   },
   "key": {
@@ -19415,10 +19415,10 @@ window.QUESTION_BANK = [
   "question": "The tangent graph repeats every ___B1___ degrees, so its second solution is \\( \\alpha \\) plus that many degrees.",
   "blankOptions": {
    "B1": [
-    "180",
+    "detailed",
     "pairs",
-    "alpha",
-    "decimal"
+    "180",
+    "360"
    ]
   },
   "key": {
@@ -19437,10 +19437,10 @@ window.QUESTION_BANK = [
   "question": "To solve an equation in \\( 2\\theta \\) for \\( 0^\\circ \\le \\theta \\le 360^\\circ \\), first solve for \\( 2\\theta \\) over the interval 0 to ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "360",
-    "720",
-    "pairs",
-    "principal"
+    "90",
+    "decimal",
+    "sin^2",
+    "720"
    ]
   },
   "key": {
@@ -19459,10 +19459,10 @@ window.QUESTION_BANK = [
   "question": "To turn \\( 12\\cos^2\\theta + \\sin\\theta = 11 \\) into a quadratic, replace \\( \\cos^2\\theta \\) with 1 minus ___B1___.",
   "blankOptions": {
    "B1": [
-    "decimal",
     "pairs",
     "sin^2",
-    "detailed"
+    "alpha",
+    "principal"
    ]
   },
   "key": {
@@ -19481,10 +19481,10 @@ window.QUESTION_BANK = [
   "question": "A command word that means \"leave surds, not decimals\" is ___B1___; a decimal answer then scores zero.",
   "blankOptions": {
    "B1": [
+    "90",
     "360",
     "exact",
-    "principal",
-    "180"
+    "detailed"
    ]
   },
   "key": {
@@ -19503,10 +19503,10 @@ window.QUESTION_BANK = [
   "question": "Solutions of \\( \\sin\\theta = k \\) and \\( \\cos\\theta = k \\) come in ___B1___ across a full \\( 360^\\circ \\), so an odd count usually signals a slip.",
   "blankOptions": {
    "B1": [
-    "90",
+    "sin^2",
     "pairs",
-    "180",
-    "cos^2"
+    "decimal",
+    "alpha"
    ]
   },
   "key": {
@@ -20445,15 +20445,15 @@ window.QUESTION_BANK = [
   "question": "In a 3D problem the first step is to identify the correct right-angled ___B1___ lying in one flat ___B2___ (surface).",
   "blankOptions": {
    "B1": [
-    "sine",
+    "three",
     "triangle",
     "adjacent",
     "cosine"
    ],
    "B2": [
-    "clockwise",
+    "foot",
     "cosine",
-    "vertical",
+    "sine",
     "plane"
    ]
   },
@@ -20474,16 +20474,16 @@ window.QUESTION_BANK = [
   "question": "The angle between a line and a plane is found by dropping a ___B1___ from the line down to the plane; the angle is then measured at the ___B2___ of that perpendicular.",
   "blankOptions": {
    "B1": [
-    "opposite",
-    "vertical",
+    "three",
     "perpendicular",
-    "adjacent"
+    "slope",
+    "hypotenuse"
    ],
    "B2": [
+    "sine",
+    "plane",
     "foot",
-    "hypotenuse",
-    "240",
-    "clockwise"
+    "vertical"
    ]
   },
   "key": {
@@ -20503,16 +20503,16 @@ window.QUESTION_BANK = [
   "question": "For a path going up a slope, the angle with the horizontal has the vertical height as the ___B1___ side and the horizontal distance as the ___B2___ side.",
   "blankOptions": {
    "B1": [
-    "perpendicular",
     "opposite",
-    "cosine",
-    "foot"
+    "clockwise",
+    "sine",
+    "slope"
    ],
    "B2": [
-    "hypotenuse",
-    "perpendicular",
+    "adjacent",
+    "sine",
     "240",
-    "adjacent"
+    "three"
    ]
   },
   "key": {
@@ -20532,10 +20532,10 @@ window.QUESTION_BANK = [
   "question": "The steepest line that can be drawn on a sloping face is called the line of greatest ___B1___.",
   "blankOptions": {
    "B1": [
-    "clockwise",
-    "sine",
-    "plane",
-    "slope"
+    "slope",
+    "vertical",
+    "foot",
+    "three"
    ]
   },
   "key": {
@@ -20555,15 +20555,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "clockwise",
-    "slope",
-    "adjacent",
-    "cosine"
+    "perpendicular",
+    "plane",
+    "triangle"
    ],
    "B2": [
-    "triangle",
     "three",
-    "slope",
-    "plane"
+    "foot",
+    "vertical",
+    "240"
    ]
   },
   "key": {
@@ -20583,10 +20583,10 @@ window.QUESTION_BANK = [
   "question": "If the bearing of B from A is 060 degrees, then the bearing of A from B is ___B1___ degrees.",
   "blankOptions": {
    "B1": [
-    "sine",
-    "hypotenuse",
     "slope",
-    "240"
+    "240",
+    "foot",
+    "adjacent"
    ]
   },
   "key": {
@@ -20605,9 +20605,9 @@ window.QUESTION_BANK = [
   "question": "When a right-angled triangle can be solved with SOH-CAH-TOA, you should not overcomplicate it with the ___B1___ rule.",
   "blankOptions": {
    "B1": [
-    "vertical",
-    "three",
-    "adjacent",
+    "foot",
+    "slope",
+    "plane",
     "sine"
    ]
   },
@@ -21555,10 +21555,10 @@ window.QUESTION_BANK = [
   "question": "When you make a sequence of independent choices, the total number of outcomes is found by ___B1___ the number of options at each stage.",
   "blankOptions": {
    "B1": [
-    "always",
-    "multiplying",
+    "n!",
     "not",
-    "r!"
+    "multiplying",
+    "1"
    ]
   },
   "key": {
@@ -21577,16 +21577,16 @@ window.QUESTION_BANK = [
   "question": "The product \\( n \\times (n-1) \\times \\dots \\times 2 \\times 1 \\) is called n ___B1___, and by definition \\( 0! \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
-    "n-r",
-    "multiplying",
+    "r!",
     "factorial",
+    "permutation",
     "order"
    ],
    "B2": [
     "dividing",
-    "n!",
-    "order",
-    "1"
+    "1",
+    "r!",
+    "n+1"
    ]
   },
   "key": {
@@ -21606,16 +21606,16 @@ window.QUESTION_BANK = [
   "question": "In a permutation the ___B1___ of the objects matters, but in a combination it does ___B2___.",
   "blankOptions": {
    "B1": [
-    "0",
+    "multiplying",
     "order",
-    "1",
-    "n!"
+    "n-r",
+    "combination"
    ],
    "B2": [
-    "r!",
-    "0",
+    "not",
     "factorial",
-    "not"
+    "n-r",
+    "1"
    ]
   },
   "key": {
@@ -21635,10 +21635,10 @@ window.QUESTION_BANK = [
   "question": "In the permutation formula \\( {}^nP_r = \\frac{n!}{(n-r)!} \\), the denominator is the factorial of ___B1___.",
   "blankOptions": {
    "B1": [
-    "r!",
-    "n-r",
     "adding",
-    "multiplying"
+    "factorial",
+    "order",
+    "n-r"
    ]
   },
   "key": {
@@ -21657,10 +21657,10 @@ window.QUESTION_BANK = [
   "question": "Compared with \\( {}^nP_r \\), the combination \\( {}^nC_r \\) divides by an extra ___B1___ to cancel the repeated orderings.",
   "blankOptions": {
    "B1": [
-    "0",
-    "multiplying",
-    "r!",
-    "combination"
+    "n!",
+    "n-1",
+    "combination",
+    "r!"
    ]
   },
   "key": {
@@ -21679,10 +21679,10 @@ window.QUESTION_BANK = [
   "question": "The number of distinct ways to seat n people around a circular table is ( ___B1___ )! because rotations are the same arrangement.",
   "blankOptions": {
    "B1": [
-    "dividing",
-    "n+1",
+    "order",
     "n-1",
-    "always"
+    "n!",
+    "not"
    ]
   },
   "key": {
@@ -21701,10 +21701,10 @@ window.QUESTION_BANK = [
   "question": "Selecting a team of 4 from a squad of 11, where order does not matter, is counted with a ___B1___.",
   "blankOptions": {
    "B1": [
-    "1",
-    "0",
-    "combination",
-    "n!"
+    "permutation",
+    "n-r",
+    "r!",
+    "combination"
    ]
   },
   "key": {
@@ -21724,9 +21724,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "permutation",
-    "multiplying",
-    "n-r",
-    "0"
+    "always",
+    "factorial",
+    "combination"
    ]
   },
   "key": {
@@ -22653,10 +22653,10 @@ window.QUESTION_BANK = [
   "question": "The expansion of \\( (a+b)^n \\) for a positive integer \\( n \\) has ___B1___ terms.",
   "blankOptions": {
    "B1": [
-    "n-r",
-    "2n",
+    "memorised",
     "n+1",
-    "4"
+    "4",
+    "1"
    ]
   },
   "key": {
@@ -22675,16 +22675,16 @@ window.QUESTION_BANK = [
   "question": "In the general term \\( {}^nC_r\\, a^{n-r} b^r \\), the power of \\( a \\) is ___B1___ and the power of \\( b \\) is ___B2___.",
   "blankOptions": {
    "B1": [
-    "n+1",
-    "3",
+    "4",
+    "n",
     "n-r",
-    "n"
+    "Pascal's"
    ],
    "B2": [
+    "2n",
     "r",
-    "n",
-    "Pascal's",
-    "2n"
+    "given",
+    "n-1"
    ]
   },
   "key": {
@@ -22705,9 +22705,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "Pascal's",
-    "0",
-    "given",
-    "n"
+    "n-r",
+    "n-1",
+    "r"
    ]
   },
   "key": {
@@ -22726,10 +22726,10 @@ window.QUESTION_BANK = [
   "question": "The binomial coefficient \\( {}^nC_r \\) and the binomial series are ___B1___ on the exam formula sheet, so you need not memorise them.",
   "blankOptions": {
    "B1": [
-    "n-r",
     "provided",
-    "4",
-    "given"
+    "2n",
+    "given",
+    "Pascal's"
    ]
   },
   "key": {
@@ -22748,10 +22748,10 @@ window.QUESTION_BANK = [
   "question": "A term that is independent of \\( x \\) has \\( x \\) raised to the power ___B1___.",
   "blankOptions": {
    "B1": [
-    "r",
-    "given",
+    "n-1",
     "0",
-    "3"
+    "n",
+    "4"
    ]
   },
   "key": {
@@ -22770,10 +22770,10 @@ window.QUESTION_BANK = [
   "question": "In the expansion of \\( \\left(x + \\frac{1}{x}\\right)^8 \\) the constant term occurs when \\( r \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "0",
+    "n+1",
+    "4",
     "2n",
-    "Pascal's",
-    "4"
+    "r"
    ]
   },
   "key": {
@@ -22792,10 +22792,10 @@ window.QUESTION_BANK = [
   "question": "When expanding \\( (2+3x)^5 \\) the general term \\( {}^5C_r\\, 2^{5-r}(3x)^r \\) means the \\( 3 \\) must be raised to the power ___B1___.",
   "blankOptions": {
    "B1": [
-    "Pascal's",
+    "2n",
     "r",
-    "n+1",
-    "provided"
+    "3",
+    "0"
    ]
   },
   "key": {
@@ -22814,10 +22814,10 @@ window.QUESTION_BANK = [
   "question": "In every term of \\( (a+b)^n \\) the powers of \\( a \\) and \\( b \\) add up to ___B1___.",
   "blankOptions": {
    "B1": [
+    "n+1",
     "n",
-    "4",
-    "given",
-    "0"
+    "3",
+    "memorised"
    ]
   },
   "key": {
@@ -23778,16 +23778,16 @@ window.QUESTION_BANK = [
   "question": "A binomial distribution is written \\( X \\sim B(n,\\ p) \\), where \\( n \\) is the number of ___B1___ and \\( p \\) is the probability of ___B2___ on each one.",
   "blankOptions": {
    "B1": [
-    "1/6",
-    "625/1296",
     "trials",
-    "successes"
+    "n-x",
+    "625/1296",
+    "0.5"
    ],
    "B2": [
-    "failure",
+    "dependent",
     "success",
-    "independent",
-    "671/1296"
+    "n-x",
+    "constant"
    ]
   },
   "key": {
@@ -23807,16 +23807,16 @@ window.QUESTION_BANK = [
   "question": "For a binomial model the trials must be ___B1___ of each other and the probability \\( p \\) must stay ___B2___ throughout.",
   "blankOptions": {
    "B1": [
-    "625/1296",
-    "independent",
-    "failure",
-    "memorised"
+    "1/6",
+    "0.5",
+    "x",
+    "independent"
    ],
    "B2": [
     "constant",
-    "complement",
-    "failure",
-    "1/6"
+    "625/1296",
+    "memorised",
+    "x"
    ]
   },
   "key": {
@@ -23836,10 +23836,10 @@ window.QUESTION_BANK = [
   "question": "The formula \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\) is ___B1___ on the exam formula sheet, so you do not have to memorise it.",
   "blankOptions": {
    "B1": [
-    "dependent",
-    "complement",
     "provided",
-    "success"
+    "625/1296",
+    "dependent",
+    "failure"
    ]
   },
   "key": {
@@ -23858,9 +23858,9 @@ window.QUESTION_BANK = [
   "question": "In \\( P(X=x) = {}^nC_x\\, p^x (1-p)^{n-x} \\), the power of \\( p \\) is the number of successes \\( x \\), and the power of \\( (1-p) \\) is ___B1___.",
   "blankOptions": {
    "B1": [
+    "successes",
+    "complement",
     "failure",
-    "independent",
-    "625/1296",
     "n-x"
    ]
   },
@@ -23880,10 +23880,10 @@ window.QUESTION_BANK = [
   "question": "To find the probability of at least one success you use \\( 1 - P(X=0) \\); this is called using the ___B1___.",
   "blankOptions": {
    "B1": [
-    "memorised",
-    "provided",
-    "625/1296",
-    "complement"
+    "0.5",
+    "complement",
+    "constant",
+    "independent"
    ]
   },
   "key": {
@@ -23902,10 +23902,10 @@ window.QUESTION_BANK = [
   "question": "For four dice, \\( P(\\text{at least one 3}) = 1 - (5/6)^4 \\), which as an exact fraction is ___B1___.",
   "blankOptions": {
    "B1": [
-    "625/1296",
-    "dependent",
-    "memorised",
-    "671/1296"
+    "successes",
+    "independent",
+    "671/1296",
+    "dependent"
    ]
   },
   "key": {
@@ -23924,10 +23924,10 @@ window.QUESTION_BANK = [
   "question": "For a fair coin the probability of a head on a single toss is \\( p \\) = ___B1___.",
   "blankOptions": {
    "B1": [
-    "0.5",
-    "complement",
-    "memorised",
-    "1/6"
+    "successes",
+    "failure",
+    "n-x",
+    "0.5"
    ]
   },
   "key": {
@@ -23946,10 +23946,10 @@ window.QUESTION_BANK = [
   "question": "Selecting items without replacement is not binomial because the trials are not ___B1___.",
   "blankOptions": {
    "B1": [
-    "n-x",
-    "complement",
-    "independent",
-    "trials"
+    "671/1296",
+    "successes",
+    "0.5",
+    "independent"
    ]
   },
   "key": {
@@ -24909,14 +24909,14 @@ window.QUESTION_BANK = [
   "question": "Moving along the branches of a tree diagram you ___B1___ the probabilities; to combine several separate paths you ___B2___ them.",
   "blankOptions": {
    "B1": [
-    "rectangle",
-    "centre",
     "multiply",
-    "union"
+    "circle",
+    "total",
+    "counts"
    ],
    "B2": [
-    "probabilities",
-    "outside",
+    "inside",
+    "centre",
     "counts",
     "add"
    ]
@@ -24938,16 +24938,16 @@ window.QUESTION_BANK = [
   "question": "The people who are in neither set are written ___B1___ the circles but inside the ___B2___.",
   "blankOptions": {
    "B1": [
-    "outward",
-    "same",
-    "multiply",
-    "outside"
+    "outside",
+    "union",
+    "centre",
+    "counts"
    ],
    "B2": [
-    "total",
+    "same",
+    "add",
     "rectangle",
-    "change",
-    "add"
+    "change"
    ]
   },
   "key": {
@@ -24968,15 +24968,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "probabilities",
+    "centre",
     "intersection",
-    "circle",
-    "same"
+    "subtract"
    ],
    "B2": [
-    "rectangle",
-    "counts",
-    "circle",
-    "union"
+    "subtract",
+    "same",
+    "union",
+    "inside"
    ]
   },
   "key": {
@@ -24996,16 +24996,16 @@ window.QUESTION_BANK = [
   "question": "When filling a three-set Venn diagram, start from the ___B1___ where all three sets overlap and work ___B2___.",
   "blankOptions": {
    "B1": [
-    "change",
-    "multiply",
+    "rectangle",
+    "same",
     "centre",
-    "inside"
+    "multiply"
    ],
    "B2": [
-    "intersection",
-    "outward",
-    "add",
-    "same"
+    "same",
+    "total",
+    "counts",
+    "outward"
    ]
   },
   "key": {
@@ -25025,16 +25025,16 @@ window.QUESTION_BANK = [
   "question": "With replacement the probabilities on the second set of branches are the ___B1___ as the first; without replacement they ___B2___.",
   "blankOptions": {
    "B1": [
-    "circle",
     "inside",
-    "union",
-    "same"
+    "same",
+    "outside",
+    "intersection"
    ],
    "B2": [
-    "centre",
     "change",
-    "multiply",
-    "rectangle"
+    "union",
+    "intersection",
+    "outward"
    ]
   },
   "key": {
@@ -25054,10 +25054,10 @@ window.QUESTION_BANK = [
   "question": "In a two-way table, each row and each column must add up to its ___B1___.",
   "blankOptions": {
    "B1": [
+    "same",
+    "inside",
     "total",
-    "change",
-    "probabilities",
-    "subtract"
+    "union"
    ]
   },
   "key": {
@@ -25076,10 +25076,10 @@ window.QUESTION_BANK = [
   "question": "When a Venn question asks 'how many', put ___B1___ (not probabilities) in each region.",
   "blankOptions": {
    "B1": [
-    "counts",
     "centre",
-    "circle",
-    "same"
+    "counts",
+    "change",
+    "intersection"
    ]
   },
   "key": {
@@ -25952,16 +25952,16 @@ window.QUESTION_BANK = [
   "question": "In the exponential function \\( y = k a^x \\), the number \\( a \\) is called the ___B1___, and the value of \\( y \\) when \\( x = 0 \\) is the ___B2___.",
   "blankOptions": {
    "B1": [
-    "decay",
     "base",
-    "touches",
-    "linear"
+    "0.96",
+    "decay",
+    "growth"
    ],
    "B2": [
     "linear",
     "y-intercept",
-    "constant",
-    "a"
+    "growth",
+    "gradient"
    ]
   },
   "key": {
@@ -25981,16 +25981,16 @@ window.QUESTION_BANK = [
   "question": "When \\( a > 1 \\) the graph shows exponential ___B1___; when \\( 0 < a < 1 \\) it shows exponential ___B2___.",
   "blankOptions": {
    "B1": [
-    "rate",
-    "1.04",
+    "base",
+    "gradient",
     "growth",
-    "negative"
+    "constant"
    ],
    "B2": [
-    "decay",
+    "base",
     "linear",
-    "positive",
-    "above"
+    "decay",
+    "negative"
    ]
   },
   "key": {
@@ -26010,16 +26010,16 @@ window.QUESTION_BANK = [
   "question": "The horizontal asymptote of \\( y = k a^x \\) is the line where \\( y \\) equals ___B1___, which the curve approaches but never ___B2___.",
   "blankOptions": {
    "B1": [
-    "negative",
-    "below",
+    "above",
+    "1.04",
     "0",
-    "linear"
+    "a"
    ],
    "B2": [
-    "base",
-    "negative",
     "touches",
-    "0.96"
+    "base",
+    "growth",
+    "below"
    ]
   },
   "key": {
@@ -26039,16 +26039,16 @@ window.QUESTION_BANK = [
   "question": "Since \\( a^x \\) is always positive and \\( k > 0 \\), the value of \\( y \\) is always ___B1___, so the curve stays ___B2___ the \\( x \\)-axis.",
   "blankOptions": {
    "B1": [
-    "gradient",
-    "touches",
-    "linear",
-    "positive"
+    "0.96",
+    "positive",
+    "below",
+    "base"
    ],
    "B2": [
-    "touches",
-    "decay",
     "above",
-    "growth"
+    "y-intercept",
+    "linear",
+    "rate"
    ]
   },
   "key": {
@@ -26068,10 +26068,10 @@ window.QUESTION_BANK = [
   "question": "The graph of \\( y = k a^x \\) always crosses the \\( y \\)-axis at the point whose \\( y \\)-coordinate equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "0.96",
-    "constant",
+    "below",
     "k",
-    "touches"
+    "a",
+    "base"
    ]
   },
   "key": {
@@ -26090,10 +26090,10 @@ window.QUESTION_BANK = [
   "question": "A savings account of £500 growing at 4% each year is modelled by \\( y = 500 \\times a^x \\), where \\( a \\) equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "growth",
-    "1.04",
-    "constant",
-    "crosses"
+    "a",
+    "rate",
+    "linear",
+    "1.04"
    ]
   },
   "key": {
@@ -26112,10 +26112,10 @@ window.QUESTION_BANK = [
   "question": "If \\( a = 1 \\) then \\( a^x = 1 \\) for every \\( x \\), so the graph is a ___B1___ horizontal line.",
   "blankOptions": {
    "B1": [
+    "k",
     "negative",
-    "positive",
     "constant",
-    "crosses"
+    "growth"
    ]
   },
   "key": {
@@ -27074,10 +27074,10 @@ window.QUESTION_BANK = [
   "question": "A logarithm is the inverse of ___B1___: the statement \\( \\log_a x = y \\) means exactly the same as \\( a^y = x \\).",
   "blankOptions": {
    "B1": [
-    "10",
-    "not",
     "exponentiation",
-    "1"
+    "addition",
+    "1",
+    "not"
    ]
   },
   "key": {
@@ -27096,16 +27096,16 @@ window.QUESTION_BANK = [
   "question": "For any valid base, \\( \\log_a 1 \\) equals ___B1___ and \\( \\log_a a \\) equals ___B2___.",
   "blankOptions": {
    "B1": [
+    "index",
     "0",
-    "subtraction",
-    "separate",
-    "power"
+    "multiplication",
+    "separate"
    ],
    "B2": [
-    "logs",
-    "power",
     "1",
-    "addition"
+    "addition",
+    "power",
+    "subtraction"
    ]
   },
   "key": {
@@ -27125,16 +27125,16 @@ window.QUESTION_BANK = [
   "question": "The product law turns a multiplication inside a log into an ___B1___ of two logs; the quotient law turns a division into a ___B2___.",
   "blankOptions": {
    "B1": [
-    "separate",
-    "power",
+    "index",
+    "2",
     "addition",
-    "exponentiation"
+    "0"
    ],
    "B2": [
-    "multiplication",
-    "subtraction",
     "logs",
-    "10"
+    "not",
+    "same",
+    "subtraction"
    ]
   },
   "key": {
@@ -27155,9 +27155,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "power",
-    "index",
     "10",
-    "logs"
+    "subtraction",
+    "1"
    ]
   },
   "key": {
@@ -27176,10 +27176,10 @@ window.QUESTION_BANK = [
   "question": "Writing \\( \\log 4 + \\log 25 \\) as a single number gives \\( \\log 100 \\), which equals ___B1___.",
   "blankOptions": {
    "B1": [
-    "not",
+    "subtraction",
     "2",
-    "index",
-    "1"
+    "power",
+    "addition"
    ]
   },
   "key": {
@@ -27198,10 +27198,10 @@ window.QUESTION_BANK = [
   "question": "To make \\( x \\) the subject of \\( 3^x = 10 \\), take ___B1___ of both sides.",
   "blankOptions": {
    "B1": [
+    "1",
     "logs",
-    "separate",
-    "exponentiation",
-    "index"
+    "index",
+    "subtraction"
    ]
   },
   "key": {
@@ -27220,10 +27220,10 @@ window.QUESTION_BANK = [
   "question": "The expression \\( \\log(x+y) \\) is ___B1___ equal to \\( \\log x + \\log y \\) — a sum inside a single log cannot be split.",
   "blankOptions": {
    "B1": [
+    "exponentiation",
     "not",
-    "2",
     "subtraction",
-    "power"
+    "addition"
    ]
   },
   "key": {
@@ -27242,10 +27242,10 @@ window.QUESTION_BANK = [
   "question": "In the exam, write each log-law step on a ___B1___ line so that partial credit survives an error.",
   "blankOptions": {
    "B1": [
-    "1",
     "separate",
-    "subtraction",
-    "multiplication"
+    "2",
+    "power",
+    "index"
    ]
   },
   "key": {
@@ -28152,22 +28152,22 @@ window.QUESTION_BANK = [
   "question": "To solve \\( a^x = b \\) you take the ___B1___ of both sides. Using the power law this gives \\( x\\log a = \\log b \\), so \\( x \\) equals log ___B2___ divided by log ___B3___.",
   "blankOptions": {
    "B1": [
-    "isolate",
     "logarithm",
-    "first",
-    "exact"
+    "isolate",
+    "half-life",
+    "last"
    ],
    "B2": [
     "b",
-    "first",
-    "subtract",
-    "5"
+    "less",
+    "doubling",
+    "round"
    ],
    "B3": [
-    "half-life",
-    "3.91",
+    "greater",
     "a",
-    "subtract"
+    "1",
+    "3.91"
    ]
   },
   "key": {
@@ -28188,16 +28188,16 @@ window.QUESTION_BANK = [
   "question": "Before solving \\( 5\\times 2^x = 3 \\) it is cleanest to ___B1___ the power by dividing both sides by ___B2___.",
   "blankOptions": {
    "B1": [
+    "greater",
+    "round",
     "isolate",
-    "half-life",
-    "last",
-    "less"
+    "b"
    ],
    "B2": [
+    "last",
+    "logarithm",
     "first",
-    "greater",
-    "5",
-    "last"
+    "5"
    ]
   },
   "key": {
@@ -28217,15 +28217,15 @@ window.QUESTION_BANK = [
   "question": "In the model \\( A = A_0 a^t \\), there is growth when \\( a \\) is ___B1___ than 1 and decay when \\( a \\) lies between 0 and ___B2___.",
   "blankOptions": {
    "B1": [
-    "b",
-    "doubling",
+    "round",
+    "subtract",
     "greater",
-    "half-life"
+    "doubling"
    ],
    "B2": [
-    "3.91",
-    "5",
-    "subtract",
+    "round",
+    "logarithm",
+    "doubling",
     "1"
    ]
   },
@@ -28246,10 +28246,10 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ of a decaying quantity is the time it takes to fall to half its value.",
   "blankOptions": {
    "B1": [
-    "a",
+    "last",
+    "decimal",
     "half-life",
-    "round",
-    "exact"
+    "greater"
    ]
   },
   "key": {
@@ -28268,10 +28268,10 @@ window.QUESTION_BANK = [
   "question": "For a growing quantity, the ___B1___ time is how long it takes to become twice as large.",
   "blankOptions": {
    "B1": [
-    "doubling",
-    "round",
-    "b",
-    "3.91"
+    "first",
+    "decimal",
+    "isolate",
+    "doubling"
    ]
   },
   "key": {
@@ -28291,14 +28291,14 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "a",
-    "first",
+    "decimal",
     "round",
-    "b"
+    "1"
    ],
    "B2": [
-    "3.91",
+    "decimal",
+    "greater",
     "last",
-    "doubling",
     "logarithm"
    ]
   },
@@ -28319,10 +28319,10 @@ window.QUESTION_BANK = [
   "question": "Solving \\( 2^x = 15 \\) gives \\( x = \\frac{\\log 15}{\\log 2} \\), which is ___B1___ to 3 significant figures.",
   "blankOptions": {
    "B1": [
-    "exact",
-    "1",
-    "5",
-    "3.91"
+    "3.91",
+    "a",
+    "half-life",
+    "first"
    ]
   },
   "key": {
@@ -28341,10 +28341,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ tells you to leave the answer as a log or surd rather than a decimal.",
   "blankOptions": {
    "B1": [
-    "last",
+    "greater",
+    "logarithm",
     "1",
-    "exact",
-    "b"
+    "exact"
    ]
   },
   "key": {
@@ -29425,16 +29425,16 @@ window.QUESTION_BANK = [
   "question": "Taking logs of \\( y = ka^x \\) gives \\( \\log y = x\\log a + \\log k \\). Plotting \\( \\log y \\) against \\( x \\), the gradient equals ___B1___ and the intercept equals ___B2___.",
   "blankOptions": {
    "B1": [
+    "m",
+    "antilog",
     "log a",
-    "anti-log",
-    "log x",
-    "intercept"
+    "10"
    ],
    "B2": [
-    "linear",
     "log k",
-    "anti-log",
-    "n"
+    "c",
+    "n",
+    "10"
    ]
   },
   "key": {
@@ -29454,10 +29454,10 @@ window.QUESTION_BANK = [
   "question": "For the power law \\( y = kx^n \\) you take logs of both sides and plot \\( \\log y \\) against ___B1___.",
   "blankOptions": {
    "B1": [
-    "m",
-    "gradient",
-    "antilog",
-    "log x"
+    "c",
+    "log x",
+    "linear",
+    "gradient"
    ]
   },
   "key": {
@@ -29476,10 +29476,10 @@ window.QUESTION_BANK = [
   "question": "The gradient you read off is really \\( \\log a \\), so to recover \\( a \\) you must ___B1___ it, giving \\( a = 10 \\) to that power.",
   "blankOptions": {
    "B1": [
-    "intercept",
-    "antilog",
-    "gradient",
-    "anti-log"
+    "n",
+    "anti-log",
+    "10",
+    "gradient"
    ]
   },
   "key": {
@@ -29498,16 +29498,16 @@ window.QUESTION_BANK = [
   "question": "In the straight-line form \\( Y = mX + c \\), the gradient is the letter ___B1___ and the intercept is the letter ___B2___.",
   "blankOptions": {
    "B1": [
+    "gradient",
+    "log x",
     "m",
-    "intercept",
-    "log k",
-    "hence"
+    "linear"
    ],
    "B2": [
-    "linear",
-    "log k",
+    "antilog",
     "c",
-    "anti-log"
+    "log a",
+    "log k"
    ]
   },
   "key": {
@@ -29529,7 +29529,7 @@ window.QUESTION_BANK = [
    "B1": [
     "linear",
     "hence",
-    "10",
+    "log x",
     "c"
    ]
   },
@@ -29549,10 +29549,10 @@ window.QUESTION_BANK = [
   "question": "For \\( x = ka^n \\) you plot \\( \\log x \\) against \\( n \\); to find \\( a \\) you raise 10 to the power of the ___B1___.",
   "blankOptions": {
    "B1": [
-    "n",
-    "anti-log",
+    "non-linear",
     "gradient",
-    "antilog"
+    "linear",
+    "log k"
    ]
   },
   "key": {
@@ -29571,10 +29571,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ tells you to use your graph, not the calculator's equation solver.",
   "blankOptions": {
    "B1": [
-    "m",
-    "non-linear",
-    "hence",
-    "antilog"
+    "log x",
+    "gradient",
+    "c",
+    "hence"
    ]
   },
   "key": {
@@ -29593,9 +29593,9 @@ window.QUESTION_BANK = [
   "question": "Expanding correctly, \\( \\log(ka^n) = \\log k + n\\log a \\); the power ___B1___ multiplies only the log of \\( a \\).",
   "blankOptions": {
    "B1": [
-    "hence",
-    "log k",
-    "10",
+    "antilog",
+    "non-linear",
+    "m",
     "n"
    ]
   },
@@ -30577,16 +30577,16 @@ window.QUESTION_BANK = [
   "question": "To differentiate a power of \\( x \\), ___B1___ by the power and then ___B2___ the power by 1.",
   "blankOptions": {
    "B1": [
-    "divide",
+    "tangent",
+    "forward",
     "multiply",
-    "central",
-    "tangent"
+    "central"
    ],
    "B2": [
     "reduce",
+    "12x",
     "forward",
-    "rate",
-    "0"
+    "add"
    ]
   },
   "key": {
@@ -30606,9 +30606,9 @@ window.QUESTION_BANK = [
   "question": "The derivative of any constant is ___B1___.",
   "blankOptions": {
    "B1": [
+    "tangent",
     "divide",
-    "forward",
-    "multiply",
+    "central",
     "0"
    ]
   },
@@ -30628,10 +30628,10 @@ window.QUESTION_BANK = [
   "question": "The gradient function measures the ___B1___ of change of \\( y \\) with respect to \\( x \\).",
   "blankOptions": {
    "B1": [
-    "12x",
-    "add",
+    "divide",
+    "backward",
     "rate",
-    "area"
+    "0"
    ]
   },
   "key": {
@@ -30650,10 +30650,10 @@ window.QUESTION_BANK = [
   "question": "The value of \\( \\frac{dy}{dx} \\) at a point equals the gradient of the ___B1___ to the curve there.",
   "blankOptions": {
    "B1": [
-    "backward",
-    "central",
-    "chord",
-    "tangent"
+    "tangent",
+    "area",
+    "value",
+    "reduce"
    ]
   },
   "key": {
@@ -30672,9 +30672,9 @@ window.QUESTION_BANK = [
   "question": "Differentiating \\( 6x^2 \\) gives ___B1___.",
   "blankOptions": {
    "B1": [
+    "tangent",
+    "reduce",
     "0",
-    "rate",
-    "area",
     "12x"
    ]
   },
@@ -30694,10 +30694,10 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ difference uses points on both sides of \\( x \\) and is usually more accurate than a one-sided estimate.",
   "blankOptions": {
    "B1": [
-    "increase",
-    "backward",
-    "central",
-    "divide"
+    "0",
+    "divide",
+    "reduce",
+    "central"
    ]
   },
   "key": {
@@ -30716,10 +30716,10 @@ window.QUESTION_BANK = [
   "question": "As the interval \\( h \\) gets smaller, the gradient of the ___B1___ approaches the gradient of the tangent.",
   "blankOptions": {
    "B1": [
-    "central",
-    "add",
-    "backward",
-    "chord"
+    "area",
+    "chord",
+    "forward",
+    "central"
    ]
   },
   "key": {
@@ -31659,16 +31659,16 @@ window.QUESTION_BANK = [
   "question": "To find a tangent's gradient you first ___B1___ the curve, then substitute the point's ___B2___ into the gradient function.",
   "blankOptions": {
    "B1": [
-    "not",
-    "3x^2",
+    "perpendicular",
     "differentiate",
-    "is"
+    "tangent",
+    "reciprocal"
    ],
    "B2": [
     "x-coordinate",
-    "point",
-    "-1/m",
-    "parallel"
+    "parallel",
+    "reciprocal",
+    "gradient"
    ]
   },
   "key": {
@@ -31688,10 +31688,10 @@ window.QUESTION_BANK = [
   "question": "If the tangent has gradient \\( m \\), the normal has gradient ___B1___.",
   "blankOptions": {
    "B1": [
-    "-1/m",
+    "tangent",
     "point",
-    "y-coordinate",
-    "gradient"
+    "3x^2",
+    "-1/m"
    ]
   },
   "key": {
@@ -31710,9 +31710,9 @@ window.QUESTION_BANK = [
   "question": "The normal to a curve is ___B1___ to the tangent at the same point.",
   "blankOptions": {
    "B1": [
-    "y",
     "perpendicular",
-    "integrate",
+    "reciprocal",
+    "m",
     "tangent"
    ]
   },
@@ -31732,10 +31732,10 @@ window.QUESTION_BANK = [
   "question": "To write the equation you use \\( y - y_1 = m(x - x_1) \\) with the gradient and the ___B1___ of contact.",
   "blankOptions": {
    "B1": [
+    "2x",
+    "perpendicular",
     "y-coordinate",
-    "point",
-    "x-coordinate",
-    "not"
+    "point"
    ]
   },
   "key": {
@@ -31754,10 +31754,10 @@ window.QUESTION_BANK = [
   "question": "Differentiating \\( y = x^3 - 2x + 3 \\) term by term, the derivative of \\( x^3 \\) is ___B1___.",
   "blankOptions": {
    "B1": [
-    "m",
-    "tangent",
     "3x^2",
-    "integrate"
+    "differentiate",
+    "y",
+    "perpendicular"
    ]
   },
   "key": {
@@ -31776,10 +31776,10 @@ window.QUESTION_BANK = [
   "question": "To find where a tangent crosses the \\( x \\)-axis, set ___B1___ equal to zero and solve.",
   "blankOptions": {
    "B1": [
-    "3x^2",
+    "is",
+    "not",
     "y",
-    "reciprocal",
-    "differentiate"
+    "gradient"
    ]
   },
   "key": {
@@ -31798,10 +31798,10 @@ window.QUESTION_BANK = [
   "question": "The gradient function \\( \\frac{dy}{dx} \\) is ___B1___ the equation of the tangent — you must still substitute a point.",
   "blankOptions": {
    "B1": [
-    "differentiate",
-    "gradient",
-    "perpendicular",
-    "not"
+    "integrate",
+    "parallel",
+    "not",
+    "perpendicular"
    ]
   },
   "key": {
@@ -32724,10 +32724,10 @@ window.QUESTION_BANK = [
   "question": "A stationary point occurs where the ___B1___ is zero, that is where \\( \\frac{dy}{dx} = 0 \\).",
   "blankOptions": {
    "B1": [
-    "gradient",
     "not",
-    "intercepts",
-    "pair"
+    "inconclusive",
+    "gradient",
+    "maximum"
    ]
   },
   "key": {
@@ -32746,16 +32746,16 @@ window.QUESTION_BANK = [
   "question": "Using the second derivative: if \\( \\frac{d^2y}{dx^2} > 0 \\) the point is a ___B1___, and if \\( \\frac{d^2y}{dx^2} < 0 \\) it is a ___B2___.",
   "blankOptions": {
    "B1": [
-    "minimum",
     "positive",
-    "gradient",
-    "inconclusive"
+    "behaviour",
+    "intercepts",
+    "minimum"
    ],
    "B2": [
+    "intercepts",
     "maximum",
-    "not",
-    "zero",
-    "determine"
+    "y-coordinate",
+    "not"
    ]
   },
   "key": {
@@ -32775,16 +32775,16 @@ window.QUESTION_BANK = [
   "question": "After solving \\( \\frac{dy}{dx} = 0 \\) for \\( x \\), substitute back to find the ___B1___ and give the answer as a coordinate ___B2___.",
   "blankOptions": {
    "B1": [
-    "behaviour",
-    "y-coordinate",
-    "positive",
-    "determine"
+    "gradient",
+    "inconclusive",
+    "either side",
+    "y-coordinate"
    ],
    "B2": [
+    "maximum",
+    "minimum",
     "pair",
-    "positive",
-    "gradient",
-    "maximum"
+    "determine"
    ]
   },
   "key": {
@@ -32804,10 +32804,10 @@ window.QUESTION_BANK = [
   "question": "The command word ___B1___ means you must justify your answer, not just state it.",
   "blankOptions": {
    "B1": [
-    "pair",
-    "behaviour",
-    "negative",
-    "determine"
+    "determine",
+    "not",
+    "gradient",
+    "y-coordinate"
    ]
   },
   "key": {
@@ -32826,16 +32826,16 @@ window.QUESTION_BANK = [
   "question": "If \\( \\frac{d^2y}{dx^2} = 0 \\) at a stationary point, the second-derivative test is ___B1___, so check the sign of the gradient on ___B2___ of the point.",
   "blankOptions": {
    "B1": [
-    "determine",
+    "y-coordinate",
+    "behaviour",
     "inconclusive",
-    "positive",
-    "maximum"
+    "minimum"
    ],
    "B2": [
-    "pair",
-    "determine",
-    "y-coordinate",
-    "either side"
+    "either side",
+    "maximum",
+    "gradient",
+    "pair"
    ]
   },
   "key": {
@@ -32855,10 +32855,10 @@ window.QUESTION_BANK = [
   "question": "At a stationary point of inflection the gradient is zero but does ___B1___ change sign as you pass through.",
   "blankOptions": {
    "B1": [
+    "not",
+    "pair",
     "maximum",
-    "determine",
-    "positive",
-    "not"
+    "determine"
    ]
   },
   "key": {
@@ -32877,16 +32877,16 @@ window.QUESTION_BANK = [
   "question": "To sketch a cubic you use its stationary points, its ___B1___ with the axes and its long-run ___B2___.",
   "blankOptions": {
    "B1": [
-    "not",
-    "either side",
+    "inconclusive",
+    "y-coordinate",
     "intercepts",
-    "gradient"
+    "zero"
    ],
    "B2": [
+    "determine",
     "behaviour",
-    "inconclusive",
-    "negative",
-    "determine"
+    "either side",
+    "zero"
    ]
   },
   "key": {
@@ -32906,10 +32906,10 @@ window.QUESTION_BANK = [
   "question": "For a positive cubic, as \\( x \\) becomes very large and positive, \\( y \\) becomes very large and ___B1___.",
   "blankOptions": {
    "B1": [
-    "intercepts",
-    "gradient",
+    "either side",
     "positive",
-    "zero"
+    "determine",
+    "negative"
    ]
   },
   "key": {
@@ -33182,6 +33182,3405 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 3,
    "explain": "“'Sketch'” means: Show main features, not to scale"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:exam:756daac8",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "11",
+  "question": "<p>The gradient function of a curve is given by \\( \\frac{dy}{dx} = 4 + 6x - 3x^2 \\) and the curve passes through the point \\( (1,\\ 5) \\).</p>\n              <p>Determine the equation of the curve.</p>",
+  "hint": "Integrate the gradient function (remember \\( +c \\)), then substitute \\( (1,\\ 5) \\) to find \\( c \\).",
+  "starter": "Give your answer as an equation starting \\( y = \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — integrate: powers in at least one term increased by 1 and coefficients adjusted.</li>\n              <li><strong>A1</strong> — correct integral \\( 4x + 3x^2 - x^3 + c \\) (ignore \\( c \\) at this stage).</li>\n              <li><strong>M1</strong> — substitute \\( (1,\\ 5) \\) into their integrated function; \\( c \\) must be included.</li>\n              <li><strong>A1</strong> — \\( y = 4x + 3x^2 - x^3 - 1 \\) (must be seen and must include \\( y = \\)).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The first two marks are for a correct integration carrying a constant; the third for substituting the point into their expression; the fourth for the complete equation written as \\( y = \\ldots \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Answered well by most; very few failed to realise integration was required. The \\( +c \\) was sometimes omitted but often rescued at the substitution stage. The most common lost mark was not writing the final answer as \\( y = \\ldots \\), with some writing \"equation = ...\" or just the expression.</li>\n            </ul></div>",
+   "modelAnswer": "Integrating term by term: \\( y = 4x + \\frac{6x^2}{2} - \\frac{3x^3}{3} + c = 4x + 3x^2 - x^3 + c \\). Substituting \\( (1,\\ 5) \\): \\( 5 = 4 + 3 - 1 + c \\), so \\( c = -1 \\). Therefore \\( y = 4x + 3x^2 - x^3 - 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:exam:76b00d21",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "8",
+  "question": "<p>The gradient function of a curve is given by \\( \\frac{dy}{dx} = 2 + 4x - 3x^2 \\) and the curve passes through the point \\( (1,\\ 2) \\).</p>\n              <p>Determine the equation of the curve.</p>",
+  "hint": "Integrate to get \\( y \\) (include \\( +c \\)), then use \\( (1,\\ 2) \\) to find \\( c \\).",
+  "starter": "Give your answer as an equation starting \\( y = \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — integrate: at least two powers increased by 1.</li>\n              <li><strong>A1</strong> — correct integral including \\( c \\): \\( 2x + 2x^2 - x^3 + c \\).</li>\n              <li><strong>M1</strong> — substitute the correct values in all terms into their integrated function.</li>\n              <li><strong>A1</strong> — \\( y = 2x + 2x^2 - x^3 - 1 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Two marks for a correct integral with a constant, one for substituting the point in all terms, and one for the final equation written as \\( y = \\ldots \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most candidates found the equation by integration and substitution to find the constant. Because the gradient function was given as \\( \\frac{dy}{dx} \\), the answer was expected as \\( y = \\ldots \\); some lost the last mark by not doing so.</li>\n            </ul></div>",
+   "modelAnswer": "Integrating term by term: \\( y = 2x + \\frac{4x^2}{2} - \\frac{3x^3}{3} + c = 2x + 2x^2 - x^3 + c \\). Substituting \\( (1,\\ 2) \\): \\( 2 = 2 + 2 - 1 + c \\), so \\( c = -1 \\). Therefore \\( y = 2x + 2x^2 - x^3 - 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:mcq:79c23b51",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find \\( \\int x^3 \\,dx \\).",
+  "options": [
+   "\\( \\frac{x^4}{4} + c \\)",
+   "\\( \\frac{x^4}{3} + c \\)",
+   "\\( x^4 + c \\)",
+   "\\( 3x^2 + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Increase the power to 4 and divide by 4: \\( \\frac{x^4}{4} + c \\). Dividing by 3 uses the old power; \\( 3x^2 \\) is the derivative, not the integral."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:mcq:e372a986",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find \\( \\int 6x^2 \\,dx \\).",
+  "options": [
+   "\\( 2x^3 + c \\)",
+   "\\( 3x^3 + c \\)",
+   "\\( 6x^3 + c \\)",
+   "\\( 12x + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 6 \\times \\frac{x^3}{3} = 2x^3 \\), so \\( 2x^3 + c \\). \\( 3x^3 \\) comes from dividing by 2 (the old power) instead of 3."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:mcq:155dc8dc",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find \\( \\int 4 \\,dx \\).",
+  "options": [
+   "\\( 4x + c \\)",
+   "\\( 4 + c \\)",
+   "\\( 0 \\)",
+   "\\( 4x \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A constant \\( 4 = 4x^0 \\) integrates to \\( 4x + c \\). Leaving it as \\( 4 \\) forgets to raise the power; \\( 4x \\) forgets the \\( +c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:mcq:aae366d1",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Why must an indefinite integral include a constant of integration?",
+  "options": [
+   "Differentiating any constant gives 0, so infinitely many functions share one gradient function",
+   "Because integration always adds 1",
+   "Because the power always increases by 1",
+   "It is optional and can be left out"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Constants vanish when you differentiate, so integrating cannot recover them; \\( +c \\) covers every possibility."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:mcq:7aeb0343",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find \\( \\int (2x + 5) \\,dx \\).",
+  "options": [
+   "\\( x^2 + 5x + c \\)",
+   "\\( 2x^2 + 5x + c \\)",
+   "\\( x^2 + 5 + c \\)",
+   "\\( 2 + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 2x \\to x^2 \\) and the constant \\( 5 \\to 5x \\). Keeping 5 (not \\( 5x \\)) or not halving the \\( 2x \\) are the usual errors."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:mcq:1a7a11b5",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student integrates \\( \\frac{dy}{dx} = 3x^2 \\) and writes \\( y = x^3 \\). What is missing?",
+  "options": [
+   "The constant of integration, \\( +c \\)",
+   "Nothing — it is complete",
+   "It should be \\( 3x^3 \\)",
+   "It should be divided by 3 again"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The integral of \\( 3x^2 \\) is \\( x^3 + c \\); an indefinite integral must always carry the \\( +c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:mcq:fbf75506",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is the correct rule for \\( \\int k x^n \\,dx \\) (with \\( n \\) a non-negative integer)?",
+  "options": [
+   "\\( \\frac{k x^{n+1}}{n+1} + c \\)",
+   "\\( \\frac{k x^{n-1}}{n-1} + c \\)",
+   "\\( n k x^{n-1} + c \\)",
+   "\\( \\frac{k x^{n}}{n} + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Increase the power by 1 and divide by the new power: \\( \\frac{k x^{n+1}}{n+1} + c \\). Reducing the power is differentiation."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:mcq:7fda8ca9",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "To find the equation of a curve from its gradient function you should:",
+  "options": [
+   "Integrate, then use a known point to find \\( c \\)",
+   "Differentiate the gradient function again",
+   "Substitute \\( x = 0 \\) only",
+   "There is never enough information"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Integrate \\( \\frac{dy}{dx} \\) to get \\( y \\) (with \\( +c \\)), then substitute the given point to find the value of \\( c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:mcq:282c55a0",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find \\( \\int x \\,dx \\).",
+  "options": [
+   "\\( \\frac{x^2}{2} + c \\)",
+   "\\( x^2 + c \\)",
+   "\\( 1 + c \\)",
+   "\\( 2x + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( x = x^1 \\to \\frac{x^2}{2} + c \\). \\( x^2 \\) forgets to divide by 2; \\( 1 \\) and \\( 2x \\) are derivatives, not integrals."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:mcq:219248ea",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the difference between an indefinite and a definite integral?",
+  "options": [
+   "An indefinite integral has no limits and gives a function (\\( +c \\)); a definite integral has limits and gives a number",
+   "They are exactly the same",
+   "A definite integral always includes \\( +c \\)",
+   "An indefinite integral gives a single number"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "No limits → a function with \\( +c \\); limits \\( a \\) and \\( b \\) → a number (the \\( +c \\) cancels)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:mcq:b6b7322c",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A curve has \\( \\frac{dy}{dx} = 4x^3 \\) and passes through the origin \\( (0,\\ 0) \\). Find its equation.",
+  "options": [
+   "\\( y = x^4 \\)",
+   "\\( y = x^4 + c \\)",
+   "\\( y = 12x^2 \\)",
+   "\\( y = 4x^4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( y = x^4 + c \\); substituting \\( (0,0) \\) gives \\( c = 0 \\), so \\( y = x^4 \\). You must use the point to remove \\( c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:mcq:1a711a6c",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Find \\( \\int (6x^2 - 4x + 1) \\,dx \\).",
+  "options": [
+   "\\( 2x^3 - 2x^2 + x + c \\)",
+   "\\( 6x^3 - 4x^2 + x + c \\)",
+   "\\( 12x - 4 + c \\)",
+   "\\( 2x^3 - 2x^2 + 1 + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 6x^2 \\to 2x^3 \\), \\( -4x \\to -2x^2 \\), \\( 1 \\to x \\). \\( 12x - 4 \\) is the derivative; keeping \\( 1 \\) forgets that a constant integrates to a term in \\( x \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:tf:25e4151f",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Integration is the reverse process of differentiation.",
+  "key": {
+   "answer": true,
+   "explain": "Differentiation finds the gradient function; integration works back from it to the original function."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:tf:022b85b9",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\int x^4 \\,dx = 4x^3 + c \\).",
+  "key": {
+   "answer": false,
+   "explain": "\\( 4x^3 \\) is the derivative of \\( x^4 \\). Integrating gives \\( \\frac{x^5}{5} + c \\) — increase the power and divide."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:tf:cf4a20fd",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Every indefinite integral needs a constant of integration \\( +c \\).",
+  "key": {
+   "answer": true,
+   "explain": "Constants vanish on differentiating, so integrating cannot recover them; \\( +c \\) stands for all of them."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:tf:23324a22",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "To integrate \\( x^n \\) you increase the power by 1 and divide by the new power.",
+  "key": {
+   "answer": true,
+   "explain": "\\( \\int x^n \\,dx = \\frac{x^{n+1}}{n+1} + c \\) — the exact reverse of the differentiation rule."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:tf:fd0e50cc",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\int 6x^2 \\,dx = 3x^3 + c \\).",
+  "key": {
+   "answer": false,
+   "explain": "You divide by the new power 3, not the old power 2: \\( 6 \\times \\frac{x^3}{3} = 2x^3 + c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:tf:ff4ce9d2",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A definite integral gives a numerical value, not a function.",
+  "key": {
+   "answer": true,
+   "explain": "A definite integral has limits and evaluates to a number; the \\( +c \\) cancels out."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:tf:1d887673",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "When finding a curve from its gradient function, the final answer can be left as an expression without \\( y = \\).",
+  "key": {
+   "answer": false,
+   "explain": "The question asks for the equation of the curve, so it must be written \\( y = \\ldots \\) — a mark is lost otherwise."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:tf:d45de599",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The integral of the constant 7 with respect to \\( x \\) is \\( 7x + c \\).",
+  "key": {
+   "answer": true,
+   "explain": "A constant \\( 7 = 7x^0 \\) integrates to \\( 7x + c \\); differentiating \\( 7x \\) returns 7."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:learn:2be34fc4",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is integration, and why is it the reverse of differentiation?",
+  "reading": "<p><strong>Integration</strong> is the <strong>reverse process of differentiation</strong>. Differentiation takes \\( y \\) and finds its gradient function \\( \\frac{dy}{dx} \\); integration starts from the gradient function and works back to \\( y \\).</p>\n            <ul>\n              <li>The symbol is \\( \\int \\), and you write \\( \\int y\\,dx \\) to mean \"integrate \\( y \\) with respect to \\( x \\)\". The \\( dx \\) tells you the variable, and it is part of the notation — never leave it out.</li>\n              <li>Because differentiating \\( x^3 \\) gives \\( 3x^2 \\), integrating \\( 3x^2 \\) must give back \\( x^3 \\) (plus a constant — see below).</li>\n              <li>A quick sanity check on any integral: <strong>differentiate your answer</strong>. If you get back what you started with, the integration is right.</li>\n            </ul>\n            <p>In this qualification you only ever integrate <strong>polynomials</strong> — sums of terms \\( kx^n \\) where \\( n \\) is a non-negative whole number. You never integrate a trig, exponential or log function; those are A-level.</p>",
+  "question": "Differentiating \\( x^5 \\) gives \\( 5x^4 \\). So what is \\( \\int 5x^4\\,dx \\)?",
+  "options": [
+   "\\( x^5 + c \\)",
+   "\\( 20x^3 + c \\)",
+   "\\( 5x^5 + c \\)",
+   "\\( x^4 + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Integration reverses differentiation, so integrating \\( 5x^4 \\) takes you back to \\( x^5 \\) (plus a constant of integration)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:learn:79c23b51",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you integrate a power of x?",
+  "reading": "<p>The single rule the whole topic rests on — one you <strong>MUST MEMORISE</strong> (it is <em>not</em> on the formula sheet):</p>\n            <p>\\[ \\int k x^n \\,dx = \\frac{k x^{n+1}}{n+1} + c. \\]</p>\n            <p>In words: <strong>increase the power by 1, then divide by the new power</strong> — and add a constant. (This is the exact opposite of differentiating, where you multiply by the power and reduce it by 1.) Since \\( n \\) is a non-negative integer here, \\( n+1 \\) is never 0, so the division is always safe.</p>\n            <p><strong>Worked example — find \\( \\int 12x^3 \\,dx \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. The power is \\( n = 3 \\). Increase it by 1: \\( x^{3+1} = x^4 \\).</td></tr>\n              <tr><td>2. Divide by the new power, 4: \\( \\frac{12x^4}{4} \\).</td></tr>\n              <tr><td>3. Simplify and add the constant: \\( 3x^4 + c \\).</td></tr>\n              <tr><td>4. So \\[ \\int 12x^3 \\,dx = 3x^4 + c. \\]</td></tr>\n            </table>\n            <p>Check by differentiating: \\( \\frac{d}{dx}(3x^4 + c) = 12x^3 \\). ✓</p>",
+  "question": "Find \\( \\int x^3 \\,dx \\).",
+  "options": [
+   "\\( \\frac{x^4}{4} + c \\)",
+   "\\( \\frac{x^4}{3} + c \\)",
+   "\\( x^4 + c \\)",
+   "\\( 3x^2 + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Increase the power to 4 and divide by 4: \\( \\frac{x^4}{4} + c \\). Dividing by the old power (3) or forgetting to divide are the usual slips."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:learn:7aeb0343",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you integrate a whole polynomial?",
+  "reading": "<p>Integrate a sum <strong>term by term</strong>, applying the rule to each term. Two extra points:</p>\n            <ul>\n              <li>A <strong>number multiplying</strong> \\( x^n \\) stays as a factor — e.g. \\( \\int 6x^2 \\,dx = 6 \\times \\frac{x^3}{3} = 2x^3 + c \\).</li>\n              <li>A <strong>constant term</strong> such as \\( 4 \\) is really \\( 4x^0 \\), so it integrates to \\( 4x \\). (Check: differentiating \\( 4x \\) gives 4.)</li>\n              <li>You only need <strong>one</strong> constant \\( +c \\) at the end for the whole expression, not one per term.</li>\n            </ul>\n            <p><strong>Worked example — find \\( \\int (6x^2 - 10x + 4) \\,dx \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( 6x^2 \\to 6 \\times \\frac{x^3}{3} = 2x^3 \\).</td></tr>\n              <tr><td>2. \\( -10x \\to -10 \\times \\frac{x^2}{2} = -5x^2 \\).</td></tr>\n              <tr><td>3. \\( 4 \\to 4x \\) (the constant becomes a term in \\( x \\)).</td></tr>\n              <tr><td>4. Add the single constant: \\[ \\int (6x^2 - 10x + 4)\\,dx = 2x^3 - 5x^2 + 4x + c. \\]</td></tr>\n            </table>\n            <p>Differentiate to check: \\( \\frac{d}{dx}(2x^3 - 5x^2 + 4x + c) = 6x^2 - 10x + 4 \\). ✓</p>",
+  "question": "Find \\( \\int (2x + 5) \\,dx \\).",
+  "options": [
+   "\\( x^2 + 5x + c \\)",
+   "\\( 2x^2 + 5x + c \\)",
+   "\\( x^2 + 5 + c \\)",
+   "\\( 2 + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 2x \\to x^2 \\) and \\( 5 \\to 5x \\), giving \\( x^2 + 5x + c \\). The constant 5 must become \\( 5x \\), not stay as 5."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:learn:a0993f84",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Why does every indefinite integral need + c?",
+  "reading": "<p>When you differentiate, <strong>any constant disappears</strong> — the derivative of \\( 7 \\), of \\( -3 \\) and of \\( 0 \\) are all \\( 0 \\). So working backwards you cannot know what constant was there.</p>\n            <ul>\n              <li>\\( x^2 + 1 \\), \\( x^2 - 5 \\) and \\( x^2 + 100 \\) all differentiate to \\( 2x \\). Integrating \\( 2x \\) could give <em>any</em> of them.</li>\n              <li>We record this \"unknown constant\" as the <strong>constant of integration</strong>, \\( +c \\). It stands for a whole <strong>family</strong> of parallel curves, all with the same gradient function.</li>\n              <li>An integral written <strong>without limits</strong> is called an <strong>indefinite integral</strong>, and it must <em>always</em> carry \\( +c \\). Dropping it is the most common — and most avoidable — lost mark on this topic.</li>\n            </ul>\n            <p>To pin down which member of the family you want, you need one extra piece of information, such as a point the curve passes through (next card).</p>",
+  "question": "Why must an indefinite integral include \\( +c \\)?",
+  "options": [
+   "The derivative of any constant is 0, so many functions share the same gradient function",
+   "Because integration always adds 1",
+   "Because the power increases by 1",
+   "It is optional and can be left off"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Differentiation erases constants, so integrating cannot recover them — \\( +c \\) represents every possible constant."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:learn:56cbde36",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the equation of a curve from its gradient function?",
+  "reading": "<p>If you are told the gradient function \\( \\frac{dy}{dx} \\) <strong>and</strong> one point the curve passes through, you can find the exact equation:</p>\n            <ol>\n              <li><strong>Integrate</strong> \\( \\frac{dy}{dx} \\) to get \\( y \\) in terms of \\( x \\) — remember \\( +c \\).</li>\n              <li><strong>Substitute</strong> the known point's coordinates and solve for \\( c \\).</li>\n              <li><strong>Write the answer as an equation starting \\( y = \\)</strong> — not just an expression.</li>\n            </ol>\n            <p><strong>Worked example — a curve has \\( \\frac{dy}{dx} = 3x^2 - 4x \\) and passes through \\( (2,\\ 1) \\). Find its equation.</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Integrate: \\( y = \\frac{3x^3}{3} - \\frac{4x^2}{2} + c = x^3 - 2x^2 + c \\).</td></tr>\n              <tr><td>2. Substitute \\( (2,\\ 1) \\): \\( 1 = (2)^3 - 2(2)^2 + c = 8 - 8 + c \\).</td></tr>\n              <tr><td>3. So \\( c = 1 \\).</td></tr>\n              <tr><td>4. The equation is \\[ y = x^3 - 2x^2 + 1. \\]</td></tr>\n            </table>\n            <p>Two marks are routinely lost here: forgetting \\( +c \\) (so you can never find it), and giving the final answer as \\( x^3 - 2x^2 + 1 \\) rather than \\( y = x^3 - 2x^2 + 1 \\). The command word is \"equation\", so it <em>must</em> start \\( y = \\).</p>",
+  "question": "A curve has \\( \\frac{dy}{dx} = 4x^3 \\) and passes through the origin. Find \\( y \\).",
+  "options": [
+   "\\( y = x^4 \\)",
+   "\\( y = x^4 + c \\)",
+   "\\( y = 12x^2 \\)",
+   "\\( y = 4x^4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( y = x^4 + c \\); at \\( (0,0) \\), \\( 0 = 0 + c \\) so \\( c = 0 \\), giving \\( y = x^4 \\). The point is needed to fix the constant."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:learn:625ce32f",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is the difference between an indefinite and a definite integral?",
+  "reading": "<p>The two kinds of integral look similar but answer different questions.</p>\n            <ul>\n              <li>An <strong>indefinite integral</strong> \\( \\int y\\,dx \\) has <strong>no limits</strong>. Its answer is a <strong>function</strong> (plus \\( +c \\)) — for example \\( \\int 2x\\,dx = x^2 + c \\). That is the topic of this page.</li>\n              <li>A <strong>definite integral</strong> \\( \\int_a^b y\\,dx \\) has <strong>limits</strong> \\( a \\) and \\( b \\) written on the sign. Its answer is a single <strong>number</strong>, and the constant \\( +c \\) cancels out, so no \\( +c \\) appears. Definite integrals give areas under curves — that is the next lesson (9.2).</li>\n            </ul>\n            <p>So: <strong>no limits → a function with \\( +c \\); limits → a number, no \\( +c \\).</strong> Knowing which one a question wants tells you whether to expect a formula or a value as your answer.</p>",
+  "question": "Which describes an indefinite integral?",
+  "options": [
+   "No limits; the answer is a function including \\( +c \\)",
+   "Limits given; the answer is a number",
+   "It always equals zero",
+   "It never needs \\( +c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "An indefinite integral has no limits and gives a function plus a constant of integration; a definite integral has limits and gives a number."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:misc:f5558d03",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\int 3x^2 \\,dx = x^3 \\)</p><p><strong>✅ The correct idea:</strong> Every indefinite integral needs the constant of integration. A weak answer stops at \\( x^3 \\); a strong answer writes \\( x^3 + c \\) — and without it you can never find the curve's equation later.</p>",
+  "question": "Find \\( \\int 3x^2 \\,dx \\).",
+  "options": [
+   "\\( x^3 + c \\)",
+   "\\( x^3 \\)",
+   "\\( 6x + c \\)",
+   "\\( \\frac{x^3}{3} + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Integrating \\( 3x^2 \\) gives \\( x^3 \\), and an indefinite integral must include \\( +c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:misc:79c23b51",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\int x^3 \\,dx = \\frac{x^3}{3} + c \\)</p><p><strong>✅ The correct idea:</strong> You must increase the power first. A weak answer divides by the old power 3; a strong answer raises the power to 4 and divides by 4: \\( \\frac{x^4}{4} + c \\).</p>",
+  "question": "Find \\( \\int x^3 \\,dx \\).",
+  "options": [
+   "\\( \\frac{x^4}{4} + c \\)",
+   "\\( \\frac{x^3}{3} + c \\)",
+   "\\( 3x^2 + c \\)",
+   "\\( x^4 + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Increase the power to 4, then divide by 4: \\( \\frac{x^4}{4} + c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:misc:7aeb0343",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\int (2x + 5) \\,dx = x^2 + 5 + c \\)</p><p><strong>✅ The correct idea:</strong> A constant term integrates to a term in \\( x \\). A weak answer keeps the 5; a strong answer writes \\( 5 \\to 5x \\), giving \\( x^2 + 5x + c \\).</p>",
+  "question": "Find \\( \\int (2x + 5) \\,dx \\).",
+  "options": [
+   "\\( x^2 + 5x + c \\)",
+   "\\( x^2 + 5 + c \\)",
+   "\\( 2x^2 + 5x + c \\)",
+   "\\( 2 + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 2x \\to x^2 \\) and \\( 5 \\to 5x \\), so \\( x^2 + 5x + c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:misc:d600bbb7",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Answering 'find the equation of the curve' with \\( x^3 - 2x^2 + 1 \\)</p><p><strong>✅ The correct idea:</strong> The answer must be an equation. A weak answer gives only the expression; a strong answer writes \\( y = x^3 - 2x^2 + 1 \\) — the examiner requires the \\( y = \\).</p>",
+  "question": "How should the equation of a curve be written?",
+  "options": [
+   "Starting with \\( y = \\ldots \\)",
+   "As an expression only",
+   "As \\( \\frac{dy}{dx} = \\ldots \\)",
+   "As a number"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Equation of the curve' means it must be written \\( y = \\ldots \\), not just an expression."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:misc:44b49684",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\int 4x^2 \\,dx = 8x + c \\)</p><p><strong>✅ The correct idea:</strong> This differentiates instead of integrating. A weak answer multiplies by the power and reduces it; a strong answer increases the power and divides: \\( \\frac{4x^3}{3} + c \\).</p>",
+  "question": "Find \\( \\int 4x^2 \\,dx \\).",
+  "options": [
+   "\\( \\frac{4x^3}{3} + c \\)",
+   "\\( 8x + c \\)",
+   "\\( 4x^3 + c \\)",
+   "\\( 2x^3 + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( 4 \\times \\frac{x^3}{3} = \\frac{4x^3}{3} + c \\); \\( 8x \\) is the derivative."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:tips:d09d3675",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Finding a curve: the four-step ladder",
+  "reading": "<p>For \"determine the equation of the curve\" [4], examiners reward four visible steps:</p><p><strong>0 marks:</strong> jump straight to a number, or differentiate by mistake.</p><p><strong>Part marks:</strong> integrate correctly with \\( +c \\) (M1 A1), but forget to use the point, or drop the \\( +c \\) so \\( c \\) cannot be found.</p><p><strong>Full marks:</strong> integrate (with \\( +c \\)), substitute the point to find \\( c \\), then write the final answer as \\( y = \\ldots \\). Show every line so one slip costs one mark, not all four.</p>",
+  "question": "What earns the final mark on 'find the equation of the curve'?",
+  "options": [
+   "Writing the answer as \\( y = \\ldots \\)",
+   "Leaving the answer as an expression",
+   "Giving \\( \\frac{dy}{dx} \\)",
+   "Rounding to 2 d.p."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The last mark is for the complete equation written \\( y = \\ldots \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:tips:0f23bac4",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Never lose the +c mark",
+  "reading": "<p>The \\( +c \\) is worth a mark in its own right and is the key to finding the constant later. Write \\( +c \\) the moment you integrate — before you even substitute the point. If you drop it, you cannot solve for \\( c \\), and you also lose the accuracy mark for a correct integral.</p>",
+  "question": "When should you write \\( +c \\)?",
+  "options": [
+   "As soon as you integrate an indefinite integral",
+   "Only in definite integrals",
+   "Never",
+   "Only at the very end if you remember"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Add \\( +c \\) immediately on integrating; it is required and lets you find the constant from the point."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:tips:b3564486",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Check by differentiating back",
+  "reading": "<p>Integration and differentiation are opposites, so you can check any integral for free: <strong>differentiate your answer and see if you get the integrand back</strong>. For example, if you claim \\( \\int (6x^2 - 10x + 4)\\,dx = 2x^3 - 5x^2 + 4x + c \\), differentiate the right-hand side: \\( 6x^2 - 10x + 4 \\). ✓ It matches, so the integration is correct.</p>",
+  "question": "How can you check an integral quickly?",
+  "options": [
+   "Differentiate your answer and see if it matches the integrand",
+   "Integrate a second time",
+   "Substitute \\( x = 0 \\)",
+   "You cannot check it"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Because integration reverses differentiation, differentiating a correct integral returns the original expression."
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:fib:7243cd70",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Integration is the ___B1___ process of differentiation.",
+  "blankOptions": {
+   "B1": [
+    "c",
+    "reverse",
+    "constant",
+    "divide"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "reverse"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:fib:f21e7d50",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "To integrate a power of \\( x \\), you ___B1___ the power by 1 and then ___B2___ by the new power.",
+  "blankOptions": {
+   "B1": [
+    "c",
+    "increase",
+    "4",
+    "point"
+   ],
+   "B2": [
+    "divide",
+    "+c",
+    "y =",
+    "differentiate"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "increase",
+    "B2": "divide"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:fib:94c99a0e",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "Every indefinite integral must include a ___B1___ of integration, written ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "x =",
+    "constant",
+    "reverse",
+    "definite"
+   ],
+   "B2": [
+    "y =",
+    "decrease",
+    "4x",
+    "+c"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "constant",
+    "B2": "+c"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:fib:c6feecfd",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "To find the equation of a curve you integrate the gradient function and then use a known ___B1___ to find the value of ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "reverse",
+    "point",
+    "increase",
+    "divide"
+   ],
+   "B2": [
+    "+c",
+    "indefinite",
+    "divide",
+    "c"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "point",
+    "B2": "c"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:fib:c77b101b",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "A ___B1___ integral has limits and gives a number, while an ___B2___ integral has no limits and gives a function.",
+  "blankOptions": {
+   "B1": [
+    "increase",
+    "divide",
+    "definite",
+    "c"
+   ],
+   "B2": [
+    "point",
+    "3",
+    "4",
+    "indefinite"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "definite",
+    "B2": "indefinite"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:fib:ae628abd",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The integral of the constant 4 with respect to \\( x \\) is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "4x",
+    "multiply",
+    "c",
+    "reverse"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "4x"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:fib:15600743",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "When you integrate \\( x^2 \\), the new power is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "reverse",
+    "3",
+    "gradient",
+    "point"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "3"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:fib:51516dab",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The final answer to 'determine the equation of the curve' must be written starting with ___B1___, not left as an expression.",
+  "blankOptions": {
+   "B1": [
+    "divide",
+    "y =",
+    "differentiate",
+    "multiply"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "y ="
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:89262696",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int 2x \\,dx \\)”?",
+  "options": [
+   "\\( \\frac{x^4}{4} + c \\)",
+   "No limits; gives a function plus \\( +c \\)",
+   "\\( x^3 + c \\)",
+   "\\( x^2 + c \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\int 2x \\,dx \\)” means: \\( x^2 + c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:c4cbab88",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int 3x^2 \\,dx \\)”?",
+  "options": [
+   "Has limits; evaluates to a number",
+   "\\( x^2 + x + c \\)",
+   "\\( x^3 + c \\)",
+   "\\( x^2 + c \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“\\( \\int 3x^2 \\,dx \\)” means: \\( x^3 + c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:f92fda13",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int x^3 \\,dx \\)”?",
+  "options": [
+   "\\( \\frac{x^2}{2} + c \\)",
+   "\\( \\frac{x^4}{4} + c \\)",
+   "\\( \\frac{k x^{n+1}}{n+1} + c \\)",
+   "Has limits; evaluates to a number"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( \\int x^3 \\,dx \\)” means: \\( \\frac{x^4}{4} + c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:b31acde4",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int 4 \\,dx \\)”?",
+  "options": [
+   "\\( x^2 + x + c \\)",
+   "\\( 4x + c \\)",
+   "\\( x^2 + c \\)",
+   "\\( x^5 + c \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( \\int 4 \\,dx \\)” means: \\( 4x + c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:6214718e",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int 5x^4 \\,dx \\)”?",
+  "options": [
+   "\\( x^5 + c \\)",
+   "\\( x^2 + c \\)",
+   "\\( x^2 + x + c \\)",
+   "Has limits; evaluates to a number"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\int 5x^4 \\,dx \\)” means: \\( x^5 + c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:d1d890de",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int x \\,dx \\)”?",
+  "options": [
+   "\\( 4x + c \\)",
+   "The \\( +c \\), needed because the derivative of a constant is 0",
+   "\\( x^5 + c \\)",
+   "\\( \\frac{x^2}{2} + c \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\int x \\,dx \\)” means: \\( \\frac{x^2}{2} + c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:30b8d491",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int 6x^5 \\,dx \\)”?",
+  "options": [
+   "\\( x^6 + c \\)",
+   "\\( x^2 + x + c \\)",
+   "\\( \\frac{x^2}{2} + c \\)",
+   "\\( \\frac{x^4}{4} + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\int 6x^5 \\,dx \\)” means: \\( x^6 + c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:755b42a6",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int (2x + 1) \\,dx \\)”?",
+  "options": [
+   "\\( x^5 + c \\)",
+   "\\( x^2 + x + c \\)",
+   "The \\( +c \\), needed because the derivative of a constant is 0",
+   "\\( 4x + c \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( \\int (2x + 1) \\,dx \\)” means: \\( x^2 + x + c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:596dcb2d",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int 12x^3 \\,dx \\)”?",
+  "options": [
+   "\\( x^2 + c \\)",
+   "\\( 3x^4 + c \\)",
+   "No limits; gives a function plus \\( +c \\)",
+   "\\( 4x + c \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\\( \\int 12x^3 \\,dx \\)” means: \\( 3x^4 + c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:47d3a53d",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Constant of integration”?",
+  "options": [
+   "\\( x^6 + c \\)",
+   "\\( \\frac{x^4}{4} + c \\)",
+   "\\( 3x^4 + c \\)",
+   "The \\( +c \\), needed because the derivative of a constant is 0"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Constant of integration” means: The \\( +c \\), needed because the derivative of a constant is 0"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:3ebf4b97",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Definite integral”?",
+  "options": [
+   "\\( \\frac{x^2}{2} + c \\)",
+   "\\( x^3 + c \\)",
+   "\\( x^2 + x + c \\)",
+   "Has limits; evaluates to a number"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Definite integral” means: Has limits; evaluates to a number"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:763bbe58",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Indefinite integral”?",
+  "options": [
+   "\\( 3x^4 + c \\)",
+   "\\( x^3 + c \\)",
+   "No limits; gives a function plus \\( +c \\)",
+   "\\( \\frac{x^4}{4} + c \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Indefinite integral” means: No limits; gives a function plus \\( +c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-1-indefinite-integration:match:7cf56727",
+  "pageId": "additional-maths:9-1-indefinite-integration",
+  "pageName": "9.1 Indefinite Integration",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Rule for \\( \\int k x^n \\,dx \\)”?",
+  "options": [
+   "\\( 3x^4 + c \\)",
+   "\\( x^6 + c \\)",
+   "\\( \\frac{x^2}{2} + c \\)",
+   "\\( \\frac{k x^{n+1}}{n+1} + c \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Rule for \\( \\int k x^n \\,dx \\)” means: \\( \\frac{k x^{n+1}}{n+1} + c \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:exam:3c393aca",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": "13 (a)",
+  "question": "<p>Determine the coordinates of the point \\( R \\).</p>",
+  "caseStudy": "<p>In this question you must show detailed reasoning.</p>\n        <p>The point \\( P \\) with coordinates \\( (2,\\ 12) \\) lies on the curve \\( y = 8x - x^2 \\). The tangent to this curve at \\( P \\) meets the \\( y \\)-axis at the point \\( R \\), as shown in the diagram. The origin is \\( O \\).</p>\n        <svg viewBox=\"0 0 360 260\" width=\"100%\" style=\"max-width:400px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Downward parabola y equals 8x minus x squared from the origin O, with the point P at 2, 12 on the rising left side; the tangent at P is a straight line crossing the y-axis at R below P\">\n          <line x1=\"50\" y1=\"30\" x2=\"50\" y2=\"235\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n          <line x1=\"35\" y1=\"220\" x2=\"345\" y2=\"220\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n          <polygon points=\"50,30 46,40 54,40\" fill=\"currentColor\"/>\n          <polygon points=\"345,220 335,216 335,224\" fill=\"currentColor\"/>\n          <polyline points=\"50,220 85,136.9 120,77.5 155,41.9 190,30 225,41.9 260,77.5 295,136.9 330,220\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n          <line x1=\"50\" y1=\"172.5\" x2=\"165\" y2=\"18\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <circle cx=\"120\" cy=\"77.5\" r=\"3.5\" fill=\"currentColor\"/>\n          <circle cx=\"50\" cy=\"172.5\" r=\"3.5\" fill=\"currentColor\"/>\n          <g font-size=\"13\" fill=\"currentColor\">\n            <text x=\"128\" y=\"76\">P</text>\n            <text x=\"36\" y=\"176\" text-anchor=\"end\">R</text>\n            <text x=\"40\" y=\"234\" text-anchor=\"end\">O</text>\n            <text x=\"42\" y=\"34\" text-anchor=\"end\">y</text>\n            <text x=\"343\" y=\"236\" text-anchor=\"end\">x</text>\n          </g>\n        </svg>",
+  "hint": "Differentiate to get the gradient function, evaluate it at \\( x = 2 \\) for the tangent's gradient, form the tangent's equation, then put \\( x = 0 \\).",
+  "starter": "Give \\( R \\) as a coordinate pair \\( (x,\\ y) \\), not just a number.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO1) · Detailed reasoning</h5><ul>\n              <li><strong>M1*</strong> — differentiate: \\( \\frac{dy}{dx} = 8 - 2x \\) (at least one power reduced by 1).</li>\n              <li><strong>A1</strong> — correct gradient function \\( 8 - 2x \\).</li>\n              <li><strong>A1</strong> — gradient at \\( P \\): when \\( x = 2 \\), \\( m = 4 \\).</li>\n              <li><strong>DM1</strong> — equation of the tangent using their \\( m \\): \\( y - 12 = 4(x - 2) \\).</li>\n              <li><strong>A1</strong> — coordinates of \\( R \\) are \\( (0,\\ 4) \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The DM1 depends on the first M1 (a gradient function must have been found). Beware setting the gradient function to 0 and using that as \\( m \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Answered well by the majority. A small number gave \\( R \\) as '4' rather than as coordinates and lost the final A mark. A few misused \\( 8 - 2x \\) — for example taking \\( -2 \\) as the gradient of the tangent.</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\frac{dy}{dx} = 8 - 2x \\); at \\( x = 2 \\), \\( m = 8 - 4 = 4 \\). Tangent: \\( y - 12 = 4(x - 2) \\Rightarrow y = 4x + 4 \\). At \\( x = 0 \\), \\( y = 4 \\), so \\( R = (0,\\ 4) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:exam:cad79fce",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "exam",
+  "type": "written",
+  "marks": 6,
+  "num": "13 (b)",
+  "question": "<p>Determine the exact area of the region \\( OPR \\) that is bounded by the curve from \\( O \\) to \\( P \\), the tangent \\( PR \\) and the \\( y \\)-axis.</p>",
+  "caseStudy": "<p>In this question you must show detailed reasoning.</p>\n        <p>The point \\( P \\) with coordinates \\( (2,\\ 12) \\) lies on the curve \\( y = 8x - x^2 \\). The tangent to this curve at \\( P \\) meets the \\( y \\)-axis at the point \\( R \\), as shown in the diagram. The origin is \\( O \\).</p>\n        <svg viewBox=\"0 0 360 260\" width=\"100%\" style=\"max-width:400px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Downward parabola y equals 8x minus x squared from the origin O, with the point P at 2, 12 on the rising left side; the tangent at P is a straight line crossing the y-axis at R below P\">\n          <line x1=\"50\" y1=\"30\" x2=\"50\" y2=\"235\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n          <line x1=\"35\" y1=\"220\" x2=\"345\" y2=\"220\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n          <polygon points=\"50,30 46,40 54,40\" fill=\"currentColor\"/>\n          <polygon points=\"345,220 335,216 335,224\" fill=\"currentColor\"/>\n          <polyline points=\"50,220 85,136.9 120,77.5 155,41.9 190,30 225,41.9 260,77.5 295,136.9 330,220\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n          <line x1=\"50\" y1=\"172.5\" x2=\"165\" y2=\"18\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <circle cx=\"120\" cy=\"77.5\" r=\"3.5\" fill=\"currentColor\"/>\n          <circle cx=\"50\" cy=\"172.5\" r=\"3.5\" fill=\"currentColor\"/>\n          <g font-size=\"13\" fill=\"currentColor\">\n            <text x=\"128\" y=\"76\">P</text>\n            <text x=\"36\" y=\"176\" text-anchor=\"end\">R</text>\n            <text x=\"40\" y=\"234\" text-anchor=\"end\">O</text>\n            <text x=\"42\" y=\"34\" text-anchor=\"end\">y</text>\n            <text x=\"343\" y=\"236\" text-anchor=\"end\">x</text>\n          </g>\n        </svg>",
+  "hint": "Find the area of the trapezium under the tangent from \\( x = 0 \\) to \\( x = 2 \\), then subtract the area under the curve over the same interval.",
+  "starter": "Give the exact area as a fraction (square units).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 6 marks (AO1/AO3) · Detailed reasoning</h5><ul>\n              <li><strong>M1</strong> — area of the trapezium (or set up by integration).</li>\n              <li><strong>A1</strong> — trapezium area \\( = 2 \\times \\frac{4 + 12}{2} = 16 \\).</li>\n              <li><strong>M1</strong> — integration of the curve (at least one power raised by 1; ignore limits).</li>\n              <li><strong>A1</strong> — area under curve \\( = \\int_0^2 (8x - x^2)\\,dx = \\big[4x^2 - \\tfrac{x^3}{3}\\big]_0^2 = 16 - \\tfrac{8}{3} = \\tfrac{40}{3} \\).</li>\n              <li><strong>M1</strong> — subtract (can be awarded even if the marks above were not).</li>\n              <li><strong>A1</strong> — area \\( OPR = 16 - \\tfrac{40}{3} = \\tfrac{8}{3} \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Equivalent methods score: subtracting the functions before integrating, or making a rectangle and subtracting the curve area and a triangle, all earn the marks.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Many scored highly. A few lost the last mark by giving an approximate (decimal) answer when the question demanded an exact one. A common error was using the wrong limits (such as \\( 8 \\) or \\( 12 \\)).</li>\n            </ul></div>",
+   "modelAnswer": "Trapezium under the tangent: \\( \\frac{4 + 12}{2} \\times 2 = 16 \\). Area under curve: \\( \\int_0^2 (8x - x^2)\\,dx = \\big[4x^2 - \\tfrac{x^3}{3}\\big]_0^2 = 16 - \\tfrac{8}{3} = \\tfrac{40}{3} \\). Area \\( OPR = 16 - \\tfrac{40}{3} = \\tfrac{8}{3} \\) square units."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:exam:23691132",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "10 (a)",
+  "question": "<p>Find the coordinates of the two points of intersection of these curves.</p>",
+  "caseStudy": "<p>In this question you must show detailed reasoning.</p>\n        <p>Two curves have the following equations.</p>\n        <p>\\[ C_1:\\ y = x^2 - 4x + 4 \\]</p>\n        <p>\\[ C_2:\\ y = -x^2 + 8x - 6 \\]</p>",
+  "hint": "Set the two expressions for \\( y \\) equal, rearrange to a single quadratic \\( = 0 \\), solve, then find each \\( y \\).",
+  "starter": "Give both answers as coordinate pairs \\( (x,\\ y) \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO1) · Detailed reasoning</h5><ul>\n              <li><strong>M1</strong> — equate the curves and rearrange to a quadratic: \\( x^2 - 4x + 4 = -x^2 + 8x - 6 \\).</li>\n              <li><strong>A1</strong> — correct three-term quadratic (oe): \\( 2x^2 - 12x + 10 = 0 \\), i.e. \\( x^2 - 6x + 5 = 0 \\).</li>\n              <li><strong>M1</strong> — solve the quadratic: \\( (x - 1)(x - 5) = 0 \\).</li>\n              <li><strong>A1</strong> — both pairs: \\( (1,\\ 1) \\) and \\( (5,\\ 9) \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Full coordinates are needed for the final A1: \\( x = 1,\\ y = 1 \\) and \\( x = 5,\\ y = 9 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>This part was done well, with most candidates giving the coordinates of both intersection points.</li>\n            </ul></div>",
+   "modelAnswer": "\\( x^2 - 4x + 4 = -x^2 + 8x - 6 \\Rightarrow 2x^2 - 12x + 10 = 0 \\Rightarrow x^2 - 6x + 5 = 0 \\Rightarrow (x-1)(x-5) = 0 \\), so \\( x = 1 \\) or \\( x = 5 \\). Then \\( y = 1 \\) and \\( y = 9 \\): points \\( (1,\\ 1) \\) and \\( (5,\\ 9) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:exam:89134cde",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": "10 (b)",
+  "question": "<p>Find the area of the region enclosed by these two curves.</p>",
+  "caseStudy": "<p>In this question you must show detailed reasoning.</p>\n        <p>Two curves have the following equations.</p>\n        <p>\\[ C_1:\\ y = x^2 - 4x + 4 \\]</p>\n        <p>\\[ C_2:\\ y = -x^2 + 8x - 6 \\]</p>",
+  "hint": "Integrate the top curve minus the bottom curve between the intersection \\( x \\)-values \\( 1 \\) and \\( 5 \\).",
+  "starter": "Give the exact area (square units); if you get a negative, take its modulus.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO1/AO3) · Detailed reasoning</h5><ul>\n              <li><strong>M1</strong> — subtract the two curves (in either order).</li>\n              <li><strong>A1</strong> — correct integrand: \\( (-x^2 + 8x - 6) - (x^2 - 4x + 4) = -2x^2 + 12x - 10 \\) (A0 if divided by 2).</li>\n              <li><strong>M1</strong> — integrate (ignore limits): \\( -\\tfrac{2}{3}x^3 + 6x^2 - 10x \\).</li>\n              <li><strong>M1</strong> — substitute the limits from part (a) and use correctly.</li>\n              <li><strong>A1</strong> — area \\( = 104 - \\tfrac{248}{3} = \\tfrac{64}{3} \\) (allow \\( -\\tfrac{64}{3} \\) with the negative sign discarded).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The subtraction can be done before integrating, after integrating, or by finding each area separately.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most knew to find the area under each curve and subtract. Some could not tell which curve was on top and produced a negative value — acceptable only if the negative sign was then discarded, since areas are positive.</li>\n            </ul></div>",
+   "modelAnswer": "\\( \\text{Area} = \\int_1^5 \\big[(-x^2 + 8x - 6) - (x^2 - 4x + 4)\\big]\\,dx = \\int_1^5 (-2x^2 + 12x - 10)\\,dx = \\big[-\\tfrac{2}{3}x^3 + 6x^2 - 10x\\big]_1^5 = 104 - \\tfrac{248}{3} = \\tfrac{64}{3} \\) square units."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:mcq:94258056",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Evaluate \\( \\int_1^3 (2x + 1)\\,dx \\).",
+  "options": [
+   "\\( 10 \\)",
+   "\\( 12 \\)",
+   "\\( 14 \\)",
+   "\\( 8 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\big[x^2 + x\\big]_1^3 = (9+3) - (1+1) = 12 - 2 = 10 \\). Option \\( 12 \\) forgets to subtract the value at the lower limit."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:mcq:9a972a08",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Evaluate \\( \\int_0^2 (3x^2 - 2)\\,dx \\).",
+  "options": [
+   "\\( 4 \\)",
+   "\\( 8 \\)",
+   "\\( 12 \\)",
+   "\\( 6 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\big[x^3 - 2x\\big]_0^2 = (8 - 4) - 0 = 4 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:mcq:4de56e2d",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which integral gives the area between a curve, the \\( x \\)-axis and the ordinates \\( x = a \\) and \\( x = b \\) (curve above the axis)?",
+  "options": [
+   "\\( \\int_a^b y\\,dx \\)",
+   "\\( \\int_a^b x\\,dy \\)",
+   "\\( \\int_y^x a\\,db \\)",
+   "\\( F(a) - F(b) \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Area under a curve is \\( \\int_a^b y\\,dx \\), with the \\( x \\)-values of the ordinates as the limits."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:mcq:0cff2c72",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The area under \\( y = x^2 + 1 \\) between \\( x = 0 \\) and \\( x = 3 \\) is:",
+  "options": [
+   "\\( 12 \\)",
+   "\\( 9 \\)",
+   "\\( 10 \\)",
+   "\\( 30 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\big[\\tfrac{x^3}{3} + x\\big]_0^3 = (9 + 3) - 0 = 12 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:mcq:c9a5c231",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "\\( \\int_{-2}^{2}(x^2 - 4)\\,dx = -\\tfrac{32}{3} \\). The physical area between the curve and the \\( x \\)-axis is:",
+  "options": [
+   "\\( \\tfrac{32}{3} \\)",
+   "\\( -\\tfrac{32}{3} \\)",
+   "\\( 0 \\)",
+   "\\( \\tfrac{64}{3} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The region is below the axis, so the integral is negative; the physical area is its modulus, \\( \\tfrac{32}{3} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:mcq:58d8fe00",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For the area enclosed between two curves, the correct integrand is:",
+  "options": [
+   "top curve \\( - \\) bottom curve",
+   "bottom curve \\( - \\) top curve",
+   "top curve \\( + \\) bottom curve",
+   "the average of the two curves"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Integrate \\( y_{\\text{top}} - y_{\\text{bottom}} \\); the wrong order just gives the negative of the area."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:mcq:ee9c7be2",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Two curves cross at \\( (1,\\ 1) \\) and \\( (5,\\ 9) \\). What limits should you use for the area between them?",
+  "options": [
+   "\\( x = 1 \\) to \\( x = 5 \\)",
+   "\\( x = 1 \\) to \\( x = 9 \\)",
+   "\\( y = 1 \\) to \\( y = 9 \\)",
+   "\\( x = 0 \\) to \\( x = 5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The limits are the \\( x \\)-coordinates of the intersections, \\( 1 \\) and \\( 5 \\). Using \\( 1 \\) and \\( 9 \\) mistakes the \\( y \\)-values for the limits."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:mcq:1aab0863",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is \\( \\int_4^4 (x^3 - 7x)\\,dx \\)?",
+  "options": [
+   "\\( 0 \\)",
+   "\\( 4 \\)",
+   "It cannot be found",
+   "\\( -0 \\) is undefined"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "When the limits are equal, \\( F(4) - F(4) = 0 \\), whatever the function."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:mcq:56f03625",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "To find the area between \\( y = 6 - x^2 \\) and \\( y = 2 \\), the first step is to:",
+  "options": [
+   "Solve \\( 6 - x^2 = 2 \\) to find the intersection \\( x \\)-values",
+   "Integrate \\( 6 - x^2 \\) from 0 to 6",
+   "Add the two equations",
+   "Differentiate both curves"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Solve simultaneously: \\( 6 - x^2 = 2 \\Rightarrow x = \\pm 2 \\); those are the limits."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:mcq:4e24a7db",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Evaluate \\( \\int_1^2 4x^3\\,dx \\).",
+  "options": [
+   "\\( 15 \\)",
+   "\\( 16 \\)",
+   "\\( 12 \\)",
+   "\\( 8 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\big[x^4\\big]_1^2 = 16 - 1 = 15 \\). Option \\( 16 \\) forgets to subtract \\( F(1) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:mcq:4dd89cec",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A region lies partly above and partly below the \\( x \\)-axis. Integrating straight across the whole range gives:",
+  "options": [
+   "Less than the true area, because the parts partly cancel",
+   "Exactly the true area",
+   "Always zero",
+   "Double the true area"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The negative (below-axis) part cancels some of the positive part, so you must split at the roots and add the sizes."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:mcq:91447941",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Between the intersection points, \\( y = x + 2 \\) lies above \\( y = x^2 \\). The area between them is \\( \\int_{-1}^{2}(\\ldots)\\,dx \\) where \\( \\ldots \\) is:",
+  "options": [
+   "\\( (x + 2) - x^2 \\)",
+   "\\( x^2 - (x + 2) \\)",
+   "\\( x^2 + x + 2 \\)",
+   "\\( (x + 2)\\,x^2 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Top minus bottom: the line \\( (x+2) \\) minus the curve \\( x^2 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:tf:f04edbdc",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A definite integral needs a constant of integration \\( +c \\).",
+  "key": {
+   "answer": false,
+   "explain": "The \\( +c \\) appears in \\( F(b) \\) and \\( F(a) \\) and cancels on subtracting, so a definite integral is just \\( F(b) - F(a) \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:tf:bbb716bb",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\int_a^b y\\,dx = F(b) - F(a) \\).",
+  "key": {
+   "answer": true,
+   "explain": "Integrate to \\( F(x) \\), then substitute the upper limit and subtract the lower limit."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:tf:2ab94e68",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "A region lying below the \\( x \\)-axis gives a negative definite integral.",
+  "key": {
+   "answer": true,
+   "explain": "There \\( y \\) is negative, so the integral is negative; take the modulus for a physical area."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:tf:70733303",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The limits of a definite integral for an area are the \\( y \\)-values of the boundaries.",
+  "key": {
+   "answer": false,
+   "explain": "The limits are always \\( x \\)-values — the \\( x \\)-coordinates of the ordinates or intersection points."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:tf:48b93a10",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For the area between two curves you integrate the bottom curve minus the top curve.",
+  "key": {
+   "answer": false,
+   "explain": "It is top minus bottom; the wrong order gives the negative of the area."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:tf:a1263fce",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "\\( \\int_2^2 (x^2 + 5)\\,dx = 0 \\).",
+  "key": {
+   "answer": true,
+   "explain": "Equal limits give \\( F(2) - F(2) = 0 \\) for any function."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:tf:6589934e",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "If a curve is partly above and partly below the axis, a single integral over the whole range gives the true physical area.",
+  "key": {
+   "answer": false,
+   "explain": "The below-axis part is negative and partly cancels the above-axis part, so you must split at the roots and add the sizes."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:tf:9082afd8",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "On an 'exact' question you may give the area as a rounded decimal.",
+  "key": {
+   "answer": false,
+   "explain": "'Exact' requires a fraction or surd; a decimal alone scores no marks."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:learn:9c7fb398",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you evaluate a definite integral?",
+  "reading": "<p>A <strong>definite integral</strong> \\( \\int_a^b y\\,dx \\) has two <strong>limits</strong>: a lower limit \\( a \\) and an upper limit \\( b \\). Unlike an indefinite integral it produces a <em>number</em>, not a function — so there is <strong>no</strong> constant of integration.</p>\n            <ul>\n              <li><strong>Step 1.</strong> Integrate as usual and write the result in square brackets with the limits: \\( \\big[F(x)\\big]_a^b \\).</li>\n              <li><strong>Step 2.</strong> Substitute the limits and subtract: \\[ \\int_a^b y\\,dx = F(b) - F(a). \\] Always <strong>upper minus lower</strong>.</li>\n              <li>The \\( +c \\) is not needed — it would appear in both \\( F(b) \\) and \\( F(a) \\) and cancel.</li>\n            </ul>\n            <p><strong>Worked example — evaluate \\( \\int_1^3 (2x + 1)\\,dx \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Integrate: \\( \\big[x^2 + x\\big]_1^3 \\).</td></tr>\n              <tr><td>2. Upper limit \\( x = 3 \\): \\( 3^2 + 3 = 12 \\).</td></tr>\n              <tr><td>3. Lower limit \\( x = 1 \\): \\( 1^2 + 1 = 2 \\).</td></tr>\n              <tr><td>4. Subtract: \\[ \\int_1^3 (2x+1)\\,dx = 12 - 2 = 10. \\]</td></tr>\n            </table>",
+  "question": "Evaluate \\( \\int_0^2 3x^2\\,dx \\).",
+  "options": [
+   "\\( 8 \\)",
+   "\\( 12 \\)",
+   "\\( 24 \\)",
+   "\\( 4 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\big[x^3\\big]_0^2 = 2^3 - 0^3 = 8 \\). Integrate \\( 3x^2 \\) to \\( x^3 \\), then substitute the limits."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:learn:7d8d3f98",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the area between a curve and the x-axis?",
+  "reading": "<p>The area enclosed by a curve, the \\( x \\)-axis and the two vertical lines (<strong>ordinates</strong>) \\( x = a \\) and \\( x = b \\) is \\[ \\text{Area} = \\int_a^b y\\,dx, \\] provided the curve stays <strong>above</strong> the \\( x \\)-axis between those limits. The limits are always the <strong>\\( x \\)-values</strong> of the boundaries.</p>\n            <p><strong>Worked example — area under \\( y = x^2 + 1 \\) from \\( x = 0 \\) to \\( x = 3 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( \\text{Area} = \\int_0^3 (x^2 + 1)\\,dx = \\big[\\tfrac{x^3}{3} + x\\big]_0^3 \\).</td></tr>\n              <tr><td>2. At \\( x = 3 \\): \\( \\tfrac{27}{3} + 3 = 12 \\).</td></tr>\n              <tr><td>3. At \\( x = 0 \\): \\( 0 + 0 = 0 \\).</td></tr>\n              <tr><td>4. Area \\( = 12 - 0 = 12 \\) square units.</td></tr>\n            </table>\n            <svg viewBox=\"0 0 320 230\" width=\"100%\" style=\"max-width:360px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"Curve y equals x squared plus 1 rising left to right, with the region between the curve, the x-axis and the ordinates x equals 0 and x equals 3 shaded\">\n              <polygon points=\"40,190 40,173 82,169 123,156 165,135 207,105 248,67 290,20 290,190\" fill=\"currentColor\" fill-opacity=\"0.18\"/>\n              <line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"205\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"25\" y1=\"190\" x2=\"305\" y2=\"190\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"40,20 36,30 44,30\" fill=\"currentColor\"/>\n              <polygon points=\"305,190 295,186 295,194\" fill=\"currentColor\"/>\n              <polyline points=\"40,173 82,169 123,156 165,135 207,105 248,67 290,20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <line x1=\"290\" y1=\"185\" x2=\"290\" y2=\"195\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <g font-size=\"12\" fill=\"currentColor\">\n                <text x=\"40\" y=\"204\" text-anchor=\"middle\">0</text>\n                <text x=\"290\" y=\"204\" text-anchor=\"middle\">3</text>\n                <text x=\"34\" y=\"24\" text-anchor=\"end\">y</text>\n                <text x=\"303\" y=\"186\" text-anchor=\"end\">x</text>\n              </g>\n            </svg>\n            <p>Mark the ordinates, shade the strip, integrate between them, and give the answer in square units.</p>",
+  "question": "The area between \\( y = 3x^2 \\), the \\( x \\)-axis and the ordinates \\( x = 1 \\) and \\( x = 2 \\) is:",
+  "options": [
+   "\\( 7 \\)",
+   "\\( 8 \\)",
+   "\\( 9 \\)",
+   "\\( 3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\int_1^2 3x^2\\,dx = \\big[x^3\\big]_1^2 = 8 - 1 = 7 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:learn:e130adaa",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What happens when the region is below the x-axis?",
+  "reading": "<p>Where a curve dips <strong>below</strong> the \\( x \\)-axis, \\( y \\) is negative, so the definite integral comes out <strong>negative</strong>. A physical area cannot be negative — take the <strong>modulus</strong> (drop the sign).</p>\n            <ul>\n              <li>If a region is partly above and partly below the axis, one integral over the whole range gives a <em>partial cancellation</em>, not the true area.</li>\n              <li>Split the range at the <strong>roots</strong> (where \\( y = 0 \\)), work out each piece separately, and add the <em>sizes</em> together.</li>\n            </ul>\n            <p><strong>Worked example — area between \\( y = x^2 - 2x \\) and the \\( x \\)-axis from \\( x = 0 \\) to \\( x = 2 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. \\( \\int_0^2 (x^2 - 2x)\\,dx = \\big[\\tfrac{x^3}{3} - x^2\\big]_0^2 \\).</td></tr>\n              <tr><td>2. At \\( x = 2 \\): \\( \\tfrac{8}{3} - 4 = -\\tfrac{4}{3} \\); at \\( x = 0 \\): \\( 0 \\).</td></tr>\n              <tr><td>3. Integral \\( = -\\tfrac{4}{3} \\) — negative because the curve is below the axis here.</td></tr>\n              <tr><td>4. Physical area \\( = \\left|-\\tfrac{4}{3}\\right| = \\tfrac{4}{3} \\) square units.</td></tr>\n            </table>",
+  "question": "\\( \\int_{-2}^{2}(x^2 - 4)\\,dx = -\\tfrac{32}{3} \\). What is the physical area between the curve and the \\( x \\)-axis?",
+  "options": [
+   "\\( \\tfrac{32}{3} \\)",
+   "\\( -\\tfrac{32}{3} \\)",
+   "\\( 0 \\)",
+   "\\( \\tfrac{16}{3} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The curve is below the axis, so the integral is negative; the physical area is the modulus, \\( \\tfrac{32}{3} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:learn:2b2a3289",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you find the area between two curves?",
+  "reading": "<p>The area <strong>enclosed between two curves</strong> is found by integrating the <strong>difference</strong> of the two functions — <strong>top curve minus bottom curve</strong> — between the \\( x \\)-values where they cross: \\[ \\text{Area} = \\int_a^b \\big(y_{\\text{top}} - y_{\\text{bottom}}\\big)\\,dx. \\]</p>\n            <ul>\n              <li><strong>First</strong> find the limits by solving the two equations <strong>simultaneously</strong> — the \\( x \\)-coordinates of the intersection points are \\( a \\) and \\( b \\).</li>\n              <li>Subtracting top \\( - \\) bottom handles curves below the axis automatically, so you rarely need to take a modulus here.</li>\n            </ul>\n            <p><strong>Worked example — area between the line \\( y = x + 2 \\) and the curve \\( y = x^2 \\):</strong></p>\n            <table class=\"worked\">\n              <tr><td>1. Intersections: \\( x^2 = x + 2 \\Rightarrow x^2 - x - 2 = 0 \\Rightarrow (x-2)(x+1) = 0 \\), so \\( x = -1 \\) and \\( x = 2 \\).</td></tr>\n              <tr><td>2. Between these the line is on top: \\( \\text{Area} = \\int_{-1}^{2}\\big[(x+2) - x^2\\big]\\,dx \\).</td></tr>\n              <tr><td>3. \\( = \\big[\\tfrac{x^2}{2} + 2x - \\tfrac{x^3}{3}\\big]_{-1}^{2} = \\tfrac{10}{3} - \\left(-\\tfrac{7}{6}\\right) \\).</td></tr>\n              <tr><td>4. \\( = \\tfrac{20}{6} + \\tfrac{7}{6} = \\tfrac{27}{6} = \\tfrac{9}{2} \\) square units.</td></tr>\n            </table>\n            <svg viewBox=\"0 0 340 240\" width=\"100%\" style=\"max-width:380px;height:auto;display:block;margin:14px auto\" role=\"img\" aria-label=\"A straight line and an upward parabola crossing at the points minus 1, 1 and 2, 4, with the region enclosed between them shaded\">\n              <polygon points=\"66,164 284,56 248,119 211,164 175,191 139,200 103,191 66,164\" fill=\"currentColor\" fill-opacity=\"0.18\"/>\n              <line x1=\"139\" y1=\"20\" x2=\"139\" y2=\"215\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <line x1=\"20\" y1=\"200\" x2=\"330\" y2=\"200\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n              <polygon points=\"139,20 135,30 143,30\" fill=\"currentColor\"/>\n              <polygon points=\"330,200 320,196 320,204\" fill=\"currentColor\"/>\n              <polyline points=\"30,119 66,164 103,191 139,200 175,191 211,164 248,119 284,56\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"/>\n              <line x1=\"30\" y1=\"182\" x2=\"320\" y2=\"38\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n              <circle cx=\"66\" cy=\"164\" r=\"3.2\" fill=\"currentColor\"/>\n              <circle cx=\"284\" cy=\"56\" r=\"3.2\" fill=\"currentColor\"/>\n              <g font-size=\"12\" fill=\"currentColor\">\n                <text x=\"60\" y=\"178\" text-anchor=\"end\">(-1, 1)</text>\n                <text x=\"290\" y=\"52\">(2, 4)</text>\n                <text x=\"133\" y=\"24\" text-anchor=\"end\">y</text>\n                <text x=\"328\" y=\"196\" text-anchor=\"end\">x</text>\n              </g>\n            </svg>",
+  "question": "To find the area between \\( y = x + 2 \\) and \\( y = x^2 \\), what is the FIRST thing you do?",
+  "options": [
+   "Solve the equations simultaneously to find the limits",
+   "Integrate each curve from 0 to 10",
+   "Add the two functions",
+   "Take the modulus of each curve"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The limits are the \\( x \\)-values where the curves cross, so you solve them simultaneously first."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:learn:aeb944f5",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you avoid the classic area traps?",
+  "reading": "<p>Most lost marks on area questions come from a small set of slips. Guard against each one:</p>\n            <ul>\n              <li><strong>Wrong limits.</strong> The limits are always \\( x \\)-values. Using the <em>\\( y \\)-values</em> of the intersection points (e.g. integrating from \\( 1 \\) to \\( 9 \\) instead of from \\( -1 \\) to \\( 2 \\)) is a frequent error.</li>\n              <li><strong>Sign of the subtraction.</strong> For two curves, use top \\( - \\) bottom. Getting it the wrong way round gives a negative answer; you may quote its modulus, but state that it is an area.</li>\n              <li><strong>Negative \"area\".</strong> A region below the axis gives a negative integral — the physical area is the modulus.</li>\n              <li><strong>Symmetry shortcut.</strong> If a region is symmetric about the \\( y \\)-axis (or another line), you may integrate one half and <strong>double</strong> it — but only when the shape really is symmetric, and the limits must match that half.</li>\n              <li><strong>\"Exact\" is a command word.</strong> Leave the area as a fraction or surd; a rounded decimal scores no marks on an \"exact\" question.</li>\n            </ul>",
+  "question": "A student finds the area between two curves that cross at \\( (-1,\\ 1) \\) and \\( (2,\\ 4) \\), integrating from \\( 1 \\) to \\( 4 \\). What went wrong?",
+  "options": [
+   "They used the y-values as the x-limits",
+   "They forgot the constant of integration",
+   "They should have added the curves",
+   "Nothing — those are the correct limits"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The limits are the \\( x \\)-coordinates \\( -1 \\) and \\( 2 \\); \\( 1 \\) and \\( 4 \\) are the \\( y \\)-values."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:learn:5d9f9591",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Which integration facts must you memorise?",
+  "reading": "<p>Definite-integral area questions rely on a few facts you must <strong>memorise</strong> — none of these is on the formula sheet.</p>\n            <ul>\n              <li><strong>Integrate a power:</strong> \\[ \\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + c \\quad (n \\ne -1). \\]</li>\n              <li><strong>Definite integral:</strong> \\( \\int_a^b y\\,dx = \\big[F(x)\\big]_a^b = F(b) - F(a) \\).</li>\n              <li><strong>Area under a curve:</strong> \\( \\text{Area} = \\int_a^b y\\,dx \\) (above the axis).</li>\n              <li><strong>Area between two curves:</strong> \\( \\int_a^b (y_{\\text{top}} - y_{\\text{bottom}})\\,dx \\).</li>\n              <li>\\( \\int_a^a y\\,dx = 0 \\), and swapping the limits changes the sign.</li>\n            </ul>\n            <p><strong>Guardrail:</strong> in this qualification you only integrate <strong>polynomials</strong> — no trig, exponential or log integration, and \\( n \\) is a whole number.</p>",
+  "question": "What is \\( \\int x^3\\,dx \\)?",
+  "options": [
+   "\\( \\frac{x^4}{4} + c \\)",
+   "\\( 3x^2 + c \\)",
+   "\\( \\frac{x^4}{3} + c \\)",
+   "\\( 4x^4 + c \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Raise the power by one and divide by the new power: \\( \\frac{x^{3+1}}{3+1} = \\frac{x^4}{4} \\), plus \\( c \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:misc:0569b237",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Two curves cross at \\( (1,\\ 1) \\) and \\( (5,\\ 9) \\), so integrate from \\( 1 \\) to \\( 9 \\).</p><p><strong>✅ The correct idea:</strong> The limits are the \\( x \\)-coordinates, \\( 1 \\) and \\( 5 \\). A weak answer uses the \\( y \\)-values \\( 1 \\) and \\( 9 \\) as the x-limits; a strong answer integrates from \\( x = 1 \\) to \\( x = 5 \\).</p>",
+  "question": "Curves meet at \\( (1,\\ 1) \\) and \\( (5,\\ 9) \\). The limits are:",
+  "options": [
+   "\\( x = 1 \\) to \\( x = 5 \\)",
+   "\\( 1 \\) to \\( 9 \\)",
+   "\\( y = 1 \\) to \\( y = 9 \\)",
+   "\\( 0 \\) to \\( 9 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Use the \\( x \\)-coordinates of the intersections, \\( 1 \\) and \\( 5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:misc:3ade309c",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The integral came out as \\( -\\tfrac{32}{3} \\), so the area is \\( -\\tfrac{32}{3} \\).</p><p><strong>✅ The correct idea:</strong> An area cannot be negative. A weak answer gives a negative number as a physical area; a strong answer notes the region is below the axis and takes the modulus, \\( \\tfrac{32}{3} \\).</p>",
+  "question": "An integral for an area gives \\( -\\tfrac{32}{3} \\). The physical area is:",
+  "options": [
+   "\\( \\tfrac{32}{3} \\)",
+   "\\( -\\tfrac{32}{3} \\)",
+   "\\( 0 \\)",
+   "impossible to find"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Take the modulus: \\( \\tfrac{32}{3} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:misc:91a2b608",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For the area between two curves, integrate \\( \\int (y_{\\text{bottom}} - y_{\\text{top}})\\,dx \\).</p><p><strong>✅ The correct idea:</strong> Subtract top minus bottom. A weak answer subtracts the wrong way and gets a negative; a strong answer uses \\( y_{\\text{top}} - y_{\\text{bottom}} \\) (or quotes the modulus and calls it an area).</p>",
+  "question": "The safe integrand for an area between curves is:",
+  "options": [
+   "top \\( - \\) bottom",
+   "bottom \\( - \\) top",
+   "top \\( + \\) bottom",
+   "either, they are equal"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Top minus bottom gives a positive area directly."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:misc:512b1fb6",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> \\( \\int_1^3 (2x+1)\\,dx = 3^2 + 3 = 12 \\).</p><p><strong>✅ The correct idea:</strong> You must subtract the value at the lower limit too. A weak answer stops at \\( F(3) \\); a strong answer computes \\( F(3) - F(1) = 12 - 2 = 10 \\).</p>",
+  "question": "\\( \\int_1^3 (2x+1)\\,dx \\) equals:",
+  "options": [
+   "\\( 10 \\)",
+   "\\( 12 \\)",
+   "\\( 2 \\)",
+   "\\( 14 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( F(3) - F(1) = 12 - 2 = 10 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:misc:daabbf7e",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The exact area is about \\( 1.33 \\).</p><p><strong>✅ The correct idea:</strong> 'Exact' forbids a decimal. A weak answer rounds; a strong answer leaves the fraction, e.g. \\( \\tfrac{4}{3} \\).</p>",
+  "question": "Which is an 'exact' area?",
+  "options": [
+   "\\( \\tfrac{4}{3} \\)",
+   "\\( 1.33 \\)",
+   "\\( 1.3 \\)",
+   "about \\( 1.33 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The fraction \\( \\tfrac{4}{3} \\) is exact; the decimals are not."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:tips:ee956ae8",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Show your working — the exact-area ladder",
+  "reading": "<p><strong>0 marks:</strong> writing \\( 1.33 \\) with no integral shown on an \"exact\" question.</p><p><strong>Partial:</strong> \\( \\int_0^2 (x^2 - 2x)\\,dx = \\big[\\tfrac{x^3}{3} - x^2\\big]_0^2 \\) but the answer left negative or as a decimal.</p><p><strong>Full marks:</strong> the integral in brackets, limits substituted, and the exact area \\( \\tfrac{4}{3} \\) (modulus taken, stated as an area). Each line earns a mark, so a slip costs one mark, not all of them.</p>",
+  "question": "On an 'exact' area question, the safest final answer is:",
+  "options": [
+   "A fraction such as \\( \\tfrac{4}{3} \\), with working shown",
+   "A decimal to 2 d.p.",
+   "Just the rounded number",
+   "The negative integral value"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Exact form with visible working scores the method and accuracy marks."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:tips:fc094027",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — 'Detailed reasoning' — every step must be visible",
+  "reading": "<p>Definite-integral area questions are often flagged <em>\"In this question you must show detailed reasoning.\"</em> A correct answer straight from a calculator's integral function scores <strong>0</strong> — you must show the integration in brackets, the substitution of the limits, and the subtraction. Read the limits off carefully: they are \\( x \\)-values, not \\( y \\)-values.</p>",
+  "question": "On a 'detailed reasoning' area question, a correct answer with no working:",
+  "options": [
+   "Scores no marks — the method must be shown",
+   "Scores full marks if the number is right",
+   "Scores half marks",
+   "Is fine if you used a calculator"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Detailed reasoning requires the full analytical method; a calculator answer alone scores nothing."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:tips:5d31e16d",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Area between two curves — the reliable routine",
+  "reading": "<p>1. Solve the two equations simultaneously to find the intersection \\( x \\)-values — these are your limits. 2. Decide which curve is on top between them. 3. Integrate \\( y_{\\text{top}} - y_{\\text{bottom}} \\) between the limits. 4. Give the exact answer in square units. Getting the subtraction the wrong way round only flips the sign, so if you get a negative, quote its modulus and label it an area.</p>",
+  "question": "The correct order for an area-between-curves question is:",
+  "options": [
+   "Intersections → top minus bottom → integrate between the x-limits",
+   "Integrate first → then find intersections",
+   "Add the curves → integrate → round",
+   "Differentiate → subtract → square-root"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Find the limits from the intersections, then integrate top minus bottom between them."
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:fib:5c6e55fb",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A definite integral \\( \\int_a^b y\\,dx \\) is worked out by finding \\( [F(x)] \\), then calculating \\( F(b) \\) ___B1___ \\( F(a) \\).",
+  "blankOptions": {
+   "B1": [
+    "roots",
+    "plus",
+    "minus",
+    "3"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "minus"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:fib:e941328e",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Unlike an indefinite integral, a definite integral needs no constant of integration, usually written ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "x",
+    "3",
+    "+c",
+    "1"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "+c"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:fib:f90ad587",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The area between a curve, the \\( x \\)-axis and two ordinates uses \\( \\int_a^b y\\,dx \\), where the limits \\( a \\) and \\( b \\) are the ___B1___ values of the ordinates.",
+  "blankOptions": {
+   "B1": [
+    "modulus",
+    "plus",
+    "positive",
+    "x"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "x"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:fib:ed81d5f5",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "If a region lies below the \\( x \\)-axis, the definite integral comes out ___B1___, so for a physical area you take the ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "negative",
+    "y",
+    "intersections",
+    "exact"
+   ],
+   "B2": [
+    "minus",
+    "intersections",
+    "modulus",
+    "positive"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "negative",
+    "B2": "modulus"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:fib:68e12c80",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "To find the area between two curves you integrate the ___B1___ curve minus the ___B2___ curve.",
+  "blankOptions": {
+   "B1": [
+    "modulus",
+    "top",
+    "exact",
+    "y"
+   ],
+   "B2": [
+    "y",
+    "bottom",
+    "intersections",
+    "1"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "top",
+    "B2": "bottom"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:fib:09b44e53",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Before integrating between two curves you must first find their ___B1___, which give the limits.",
+  "blankOptions": {
+   "B1": [
+    "y",
+    "negative",
+    "1",
+    "intersections"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "intersections"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:fib:89921a47",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "A command word telling you to leave an area as a fraction or surd rather than a decimal is ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "plus",
+    "modulus",
+    "minus",
+    "exact"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "exact"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:fib:26a12991",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "In \\( \\int_1^3 (2x+1)\\,dx \\) the lower limit is ___B1___ and the upper limit is ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "1",
+    "+c",
+    "intersections",
+    "minus"
+   ],
+   "B2": [
+    "+c",
+    "3",
+    "top",
+    "y"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "1",
+    "B2": "3"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:match:6aa88d8e",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int_a^b y\\,dx \\)”?",
+  "options": [
+   "Left as a fraction or surd, never a rounded decimal",
+   "Negative integral — take the modulus for a physical area",
+   "\\( \\big[x^2\\big]_1^3 = 8 \\)",
+   "Area between a curve, the \\( x \\)-axis and the ordinates \\( x = a \\) and \\( x = b \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\int_a^b y\\,dx \\)” means: Area between a curve, the \\( x \\)-axis and the ordinates \\( x = a \\) and \\( x = b \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:match:81d4d54c",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\big[F(x)\\big]_a^b \\)”?",
+  "options": [
+   "\\( \\big[x^2\\big]_1^3 = 8 \\)",
+   "\\( \\big[x^3\\big]_0^2 = 8 \\)",
+   "\\( \\int_a^b (y_{\\text{top}} - y_{\\text{bottom}})\\,dx \\) over the intersection limits",
+   "\\( F(b) - F(a) \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\big[F(x)\\big]_a^b \\)” means: \\( F(b) - F(a) \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:match:1174d9a4",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Region below the \\( x \\)-axis”?",
+  "options": [
+   "\\( F(b) - F(a) \\)",
+   "Negative integral — take the modulus for a physical area",
+   "\\( \\tfrac{9}{2} \\)",
+   "\\( \\int_a^b (y_{\\text{top}} - y_{\\text{bottom}})\\,dx \\) over the intersection limits"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Region below the \\( x \\)-axis” means: Negative integral — take the modulus for a physical area"
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:match:44b77b00",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Area between two curves”?",
+  "options": [
+   "Area between a curve, the \\( x \\)-axis and the ordinates \\( x = a \\) and \\( x = b \\)",
+   "\\( \\int_a^b (y_{\\text{top}} - y_{\\text{bottom}})\\,dx \\) over the intersection limits",
+   "\\( \\tfrac{9}{2} \\)",
+   "Not needed — it cancels on subtracting"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Area between two curves” means: \\( \\int_a^b (y_{\\text{top}} - y_{\\text{bottom}})\\,dx \\) over the intersection limits"
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:match:ef9b7640",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “First step for area between two curves”?",
+  "options": [
+   "\\( \\int_a^b (y_{\\text{top}} - y_{\\text{bottom}})\\,dx \\) over the intersection limits",
+   "Solve the curves simultaneously to find the limits",
+   "\\( \\big[x^2\\big]_1^3 = 8 \\)",
+   "\\( \\big[x^3\\big]_0^2 = 8 \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“First step for area between two curves” means: Solve the curves simultaneously to find the limits"
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:match:80664d55",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Constant of integration in a definite integral”?",
+  "options": [
+   "A common error — the limits must be \\( x \\)-values",
+   "Not needed — it cancels on subtracting",
+   "Area between a curve, the \\( x \\)-axis and the ordinates \\( x = a \\) and \\( x = b \\)",
+   "Split at the roots and add the separate areas"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Constant of integration in a definite integral” means: Not needed — it cancels on subtracting"
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:match:d22a5dd3",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int_1^3 2x\\,dx \\)”?",
+  "options": [
+   "Solve the curves simultaneously to find the limits",
+   "\\( F(b) - F(a) \\)",
+   "Area between a curve, the \\( x \\)-axis and the ordinates \\( x = a \\) and \\( x = b \\)",
+   "\\( \\big[x^2\\big]_1^3 = 8 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\int_1^3 2x\\,dx \\)” means: \\( \\big[x^2\\big]_1^3 = 8 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:match:c93a1457",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “'Exact' area”?",
+  "options": [
+   "\\( \\int_a^b (y_{\\text{top}} - y_{\\text{bottom}})\\,dx \\) over the intersection limits",
+   "\\( F(b) - F(a) \\)",
+   "Left as a fraction or surd, never a rounded decimal",
+   "\\( \\big[x^2\\big]_1^3 = 8 \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“'Exact' area” means: Left as a fraction or surd, never a rounded decimal"
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:match:83582c2e",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Using \\( y \\)-values as the limits”?",
+  "options": [
+   "Area between a curve, the \\( x \\)-axis and the ordinates \\( x = a \\) and \\( x = b \\)",
+   "A common error — the limits must be \\( x \\)-values",
+   "Split at the roots and add the separate areas",
+   "\\( \\tfrac{9}{2} \\)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Using \\( y \\)-values as the limits” means: A common error — the limits must be \\( x \\)-values"
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:match:a5ffd341",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int_0^2 3x^2\\,dx \\)”?",
+  "options": [
+   "\\( F(b) - F(a) \\)",
+   "Solve the curves simultaneously to find the limits",
+   "\\( \\tfrac{9}{2} \\)",
+   "\\( \\big[x^3\\big]_0^2 = 8 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“\\( \\int_0^2 3x^2\\,dx \\)” means: \\( \\big[x^3\\big]_0^2 = 8 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:match:27357f9b",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Region partly above and partly below the axis”?",
+  "options": [
+   "Split at the roots and add the separate areas",
+   "\\( \\big[x^2\\big]_1^3 = 8 \\)",
+   "Solve the curves simultaneously to find the limits",
+   "Left as a fraction or surd, never a rounded decimal"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Region partly above and partly below the axis” means: Split at the roots and add the separate areas"
+  }
+ },
+ {
+  "id": "additional-maths:9-2-definite-integrals-and-areas:match:28313e22",
+  "pageId": "additional-maths:9-2-definite-integrals-and-areas",
+  "pageName": "9.2 Definite Integrals and Areas",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\\( \\int_{-1}^{2}\\big((x+2) - x^2\\big)\\,dx \\)”?",
+  "options": [
+   "\\( \\tfrac{9}{2} \\)",
+   "A common error — the limits must be \\( x \\)-values",
+   "Not needed — it cancels on subtracting",
+   "Solve the curves simultaneously to find the limits"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“\\( \\int_{-1}^{2}\\big((x+2) - x^2\\big)\\,dx \\)” means: \\( \\tfrac{9}{2} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:exam:8e62dd8e",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "exam",
+  "type": "written",
+  "marks": 3,
+  "num": "12 (a)",
+  "question": "<p>Using the trapezium rule with 5 strips, find an estimate for the area between the \\( x \\)-axis, the \\( y \\)-axis, this curve and the line \\( x = 5 \\). Give your answer correct to 1 decimal place.</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 12.</strong> The table below gives the coordinates of six points.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">\\( x \\)</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>\n          <tr><td style=\"font-weight:600\">\\( y \\)</td><td>1</td><td>1.13</td><td>1.43</td><td>2.11</td><td>3.69</td><td>7.30</td></tr>\n        </tbody></table>\n        <p>The points are plotted on a grid and a smooth curve is drawn to pass through the points.</p>",
+  "hint": "The strip width is \\( h = \\frac{b-a}{n} = \\frac{5-0}{5} = 1 \\), NOT 5. Add the two end ordinates once and double the four middle ordinates.",
+  "starter": "Write the substituted trapezium-rule formula first, then the value to 1 d.p.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — use of the correct formula (with \\( h = 1 \\)) or adding 5 separate trapezia: \\( A = \\tfrac{1}{2}\\times 1\\times\\big(y_0 + 2(y_1 + y_2 + y_3 + y_4) + y_5\\big) \\).</li>\n              <li><strong>A1</strong> — correct substitutions soi: \\( \\tfrac{1}{2}\\big(1 + 2(1.13 + 1.43 + 2.11 + 3.69) + 7.30\\big) \\).</li>\n              <li><strong>A1</strong> — \\( 12.5 \\) (must be to 1 d.p.).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Using the printed formula OR summing 5 separate trapezia both score. N.B. Use of Simpson's rule is M0. An answer with no working is M0.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Many candidates added 5 separate trapezia rather than use the formula, which is given on the formulae sheet; both are fine. The most significant error was putting \\( h = 5 \\) into the formula — some then reached 60 or more without questioning the size against the original data.</li>\n            </ul></div>",
+   "modelAnswer": "\\( A \\approx \\tfrac{1}{2}\\times 1\\times\\big[(1 + 7.30) + 2(1.13 + 1.43 + 2.11 + 3.69)\\big] = \\tfrac{1}{2}(8.30 + 16.72) = \\tfrac{1}{2}\\times 25.02 = 12.51 = 12.5 \\) (1 d.p.)."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:exam:a21358e4",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "12 (b)(i)",
+  "question": "<p>Calculate an estimate for the rate of change of \\( y \\) with respect to \\( x \\) for this curve when \\( x = 3 \\). Give your answer correct to 1 decimal place.</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 12.</strong> The table below gives the coordinates of six points.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">\\( x \\)</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>\n          <tr><td style=\"font-weight:600\">\\( y \\)</td><td>1</td><td>1.13</td><td>1.43</td><td>2.11</td><td>3.69</td><td>7.30</td></tr>\n        </tbody></table>\n        <p>The points are plotted on a grid and a smooth curve is drawn to pass through the points.</p>",
+  "hint": "The best estimate at \\( x = 3 \\) is the central difference: use the \\( y \\)-values either side, at \\( x = 2 \\) and \\( x = 4 \\), over the total run.",
+  "starter": "State the difference method you use, then give the gradient to 1 d.p.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>\n              <li><strong>M1</strong> — use of the central difference method with \\( h = 1 \\): \\( \\frac{y_4 - y_2}{2} = \\frac{3.69 - 1.43}{2} \\).</li>\n              <li><strong>A1</strong> — \\( 1.1 \\) (accept \\( 1.13 \\); isw).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>The central difference either side of \\( x = 3 \\) gives the best estimate and scores M1 A1. Any other valid difference (forward, backward, or central with \\( h = 2 \\)) scores M1 A0, e.g. forward \\( \\frac{3.69 - 2.11}{1} = 1.58 \\), backward \\( \\frac{2.11 - 1.43}{1} = 0.68 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Most candidates understood how to find an estimate and gained the M1, but did not discern what should be done to obtain the BEST estimate with the data provided (the central difference).</li>\n            </ul></div>",
+   "modelAnswer": "The best estimate uses the values either side of \\( x = 3 \\): \\( \\dfrac{y_4 - y_2}{4 - 2} = \\dfrac{3.69 - 1.43}{2} = \\dfrac{2.26}{2} = 1.13 \\approx 1.1 \\) (1 d.p.)."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:exam:d310a1ad",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "12 (b)(ii)",
+  "question": "<p>Explain how this estimate could be improved.</p>",
+  "caseStudy": "<p><strong>OCR June 2024, Question 12.</strong> The table below gives the coordinates of six points.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">\\( x \\)</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>\n          <tr><td style=\"font-weight:600\">\\( y \\)</td><td>1</td><td>1.13</td><td>1.43</td><td>2.11</td><td>3.69</td><td>7.30</td></tr>\n        </tbody></table>\n        <p>The points are plotted on a grid and a smooth curve is drawn to pass through the points.</p>",
+  "hint": "Think about the data, not the arithmetic — closer readings, not more decimal places.",
+  "starter": "Refer to the spacing of the readings / the strips.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>\n              <li><strong>B1</strong> — collect data for smaller intervals (some reference to the strips or ordinates being closer together, e.g. \"smaller strips\").</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Any answer referring to closer/smaller intervals earns the mark. If M1 A0 was scored in (b)(i), an answer suggesting an improvement on what they have (e.g. use the central difference method) is also accepted.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Some reference to the strips, or ordinates, having to be closer together (or for instance \"smaller strips\") could earn the mark here. Answers of \"more significant figures\" or \"use calculus\" earn nothing.</li>\n            </ul></div>",
+   "modelAnswer": "Collect data at smaller intervals (take readings closer together, i.e. use smaller strips) so the estimate is based on more, finer data points."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:exam:ebfe7440",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "exam",
+  "type": "written",
+  "marks": 2,
+  "num": "11 (a)",
+  "question": "<p>Use these results and the axes above to draw a curve to show how her speed varies with time during these 10 seconds.</p>",
+  "caseStudy": "<p><strong>OCR June 2022, Question 11.</strong> Nina records the speed, \\( v \\text{ m s}^{-1} \\), at which she is travelling in her car \\( t \\) seconds after accelerating from rest. The results are shown in the table below.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">Time (\\( t \\) s)</td><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr>\n          <tr><td style=\"font-weight:600\">Speed (\\( v \\) m s\\( ^{-1} \\))</td><td>0</td><td>6.6</td><td>9.6</td><td>11.7</td><td>13.2</td><td>14.4</td></tr>\n        </tbody></table>\n        <p>The axes below are provided for the graph.</p>\n        <svg viewBox=\"0 0 470 320\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank speed-time grid: horizontal axis t in seconds from 0 to 10, vertical axis v in metres per second from 0 to 16\">\n          <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\">\n            <line x1=\"83\" y1=\"30\" x2=\"83\" y2=\"280\"/><line x1=\"121\" y1=\"30\" x2=\"121\" y2=\"280\"/><line x1=\"159\" y1=\"30\" x2=\"159\" y2=\"280\"/><line x1=\"197\" y1=\"30\" x2=\"197\" y2=\"280\"/><line x1=\"235\" y1=\"30\" x2=\"235\" y2=\"280\"/><line x1=\"273\" y1=\"30\" x2=\"273\" y2=\"280\"/><line x1=\"311\" y1=\"30\" x2=\"311\" y2=\"280\"/><line x1=\"349\" y1=\"30\" x2=\"349\" y2=\"280\"/><line x1=\"387\" y1=\"30\" x2=\"387\" y2=\"280\"/><line x1=\"425\" y1=\"30\" x2=\"425\" y2=\"280\"/>\n            <line x1=\"45\" y1=\"250\" x2=\"430\" y2=\"250\"/><line x1=\"45\" y1=\"220\" x2=\"430\" y2=\"220\"/><line x1=\"45\" y1=\"190\" x2=\"430\" y2=\"190\"/><line x1=\"45\" y1=\"160\" x2=\"430\" y2=\"160\"/><line x1=\"45\" y1=\"130\" x2=\"430\" y2=\"130\"/><line x1=\"45\" y1=\"100\" x2=\"430\" y2=\"100\"/><line x1=\"45\" y1=\"70\" x2=\"430\" y2=\"70\"/><line x1=\"45\" y1=\"40\" x2=\"430\" y2=\"40\"/>\n          </g>\n          <line x1=\"45\" y1=\"280\" x2=\"440\" y2=\"280\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <line x1=\"45\" y1=\"280\" x2=\"45\" y2=\"28\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <polygon points=\"440,280 431,276 431,284\" fill=\"currentColor\"/>\n          <polygon points=\"45,28 41,37 49,37\" fill=\"currentColor\"/>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"45\" y=\"296\">0</text><text x=\"121\" y=\"296\">2</text><text x=\"197\" y=\"296\">4</text><text x=\"273\" y=\"296\">6</text><text x=\"349\" y=\"296\">8</text><text x=\"425\" y=\"296\">10</text>\n            <text x=\"38\" y=\"284\" text-anchor=\"end\">0</text><text x=\"38\" y=\"209\" text-anchor=\"end\">5</text><text x=\"38\" y=\"134\" text-anchor=\"end\">10</text><text x=\"38\" y=\"59\" text-anchor=\"end\">15</text>\n            <text x=\"452\" y=\"284\">t s</text><text x=\"30\" y=\"24\">v m s⁻¹</text>\n          </g>\n        </svg>",
+  "hint": "Do this on paper (or a printout of the grid above): plot the six \\( (t, v) \\) points accurately, then join them with a single smooth curve through the origin.",
+  "starter": "Plot \\( (0,0), (2,6.6), (4,9.6), (6,11.7), (8,13.2), (10,14.4) \\) and join with a smooth curve.",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 2 marks (AO3)</h5><ul>\n              <li><strong>B1</strong> — points seen on a grid with a clear scale (at least one value on each axis); each point plotted within the correct integer range (e.g. \\( 14.4 \\) in \\( [14, 15] \\)).</li>\n              <li><strong>B1</strong> — a smooth curve through \\( (0,0) \\) and \\( (10, 14.4) \\) and at least one other point; the curve must actually be curved in \\( [0, 2] \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>One mark for accurate points, one for a genuinely smooth (curved) line — a series of straight segments does not earn the curve mark.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Generally well done. Marks were lost where points were plotted carelessly or where the \"curve\" was drawn as ruled straight segments between points.</li>\n            </ul></div>",
+   "modelAnswer": "Plot the six points and join them with one smooth, curved line rising from the origin and flattening as it climbs:\n<svg viewBox=\"0 0 470 320\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"Speed-time graph: the six points plotted and joined by a smooth curve rising from the origin at (0,0) to (10,14.4), steep at first then flattening\">\n  <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\">\n    <line x1=\"83\" y1=\"30\" x2=\"83\" y2=\"280\"/><line x1=\"121\" y1=\"30\" x2=\"121\" y2=\"280\"/><line x1=\"159\" y1=\"30\" x2=\"159\" y2=\"280\"/><line x1=\"197\" y1=\"30\" x2=\"197\" y2=\"280\"/><line x1=\"235\" y1=\"30\" x2=\"235\" y2=\"280\"/><line x1=\"273\" y1=\"30\" x2=\"273\" y2=\"280\"/><line x1=\"311\" y1=\"30\" x2=\"311\" y2=\"280\"/><line x1=\"349\" y1=\"30\" x2=\"349\" y2=\"280\"/><line x1=\"387\" y1=\"30\" x2=\"387\" y2=\"280\"/><line x1=\"425\" y1=\"30\" x2=\"425\" y2=\"280\"/>\n    <line x1=\"45\" y1=\"250\" x2=\"430\" y2=\"250\"/><line x1=\"45\" y1=\"220\" x2=\"430\" y2=\"220\"/><line x1=\"45\" y1=\"190\" x2=\"430\" y2=\"190\"/><line x1=\"45\" y1=\"160\" x2=\"430\" y2=\"160\"/><line x1=\"45\" y1=\"130\" x2=\"430\" y2=\"130\"/><line x1=\"45\" y1=\"100\" x2=\"430\" y2=\"100\"/><line x1=\"45\" y1=\"70\" x2=\"430\" y2=\"70\"/><line x1=\"45\" y1=\"40\" x2=\"430\" y2=\"40\"/>\n  </g>\n  <line x1=\"45\" y1=\"280\" x2=\"440\" y2=\"280\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <line x1=\"45\" y1=\"280\" x2=\"45\" y2=\"28\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <polygon points=\"440,280 431,276 431,284\" fill=\"currentColor\"/>\n  <polygon points=\"45,28 41,37 49,37\" fill=\"currentColor\"/>\n  <path d=\"M45,280 Q80,222 121,181 Q159,150 197,136 Q235,114 273,104.5 Q311,89 349,82 Q387,70 425,64\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\"/>\n  <g fill=\"currentColor\">\n    <circle cx=\"45\" cy=\"280\" r=\"3.5\"/><circle cx=\"121\" cy=\"181\" r=\"3.5\"/><circle cx=\"197\" cy=\"136\" r=\"3.5\"/><circle cx=\"273\" cy=\"104.5\" r=\"3.5\"/><circle cx=\"349\" cy=\"82\" r=\"3.5\"/><circle cx=\"425\" cy=\"64\" r=\"3.5\"/>\n  </g>\n  <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n    <text x=\"45\" y=\"296\">0</text><text x=\"121\" y=\"296\">2</text><text x=\"197\" y=\"296\">4</text><text x=\"273\" y=\"296\">6</text><text x=\"349\" y=\"296\">8</text><text x=\"425\" y=\"296\">10</text>\n    <text x=\"38\" y=\"284\" text-anchor=\"end\">0</text><text x=\"38\" y=\"209\" text-anchor=\"end\">5</text><text x=\"38\" y=\"134\" text-anchor=\"end\">10</text><text x=\"38\" y=\"59\" text-anchor=\"end\">15</text>\n    <text x=\"452\" y=\"284\">t s</text><text x=\"30\" y=\"24\">v m s⁻¹</text>\n  </g>\n</svg>"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:exam:9ea1fdb1",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": "11 (b)",
+  "question": "<p>By constructing 5 rectangles of equal width <strong>above</strong> your curve, estimate the distance she has travelled during the first 10 seconds.</p>",
+  "caseStudy": "<p><strong>OCR June 2022, Question 11.</strong> Nina records the speed, \\( v \\text{ m s}^{-1} \\), at which she is travelling in her car \\( t \\) seconds after accelerating from rest. The results are shown in the table below.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">Time (\\( t \\) s)</td><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr>\n          <tr><td style=\"font-weight:600\">Speed (\\( v \\) m s\\( ^{-1} \\))</td><td>0</td><td>6.6</td><td>9.6</td><td>11.7</td><td>13.2</td><td>14.4</td></tr>\n        </tbody></table>\n        <p>The axes below are provided for the graph.</p>\n        <svg viewBox=\"0 0 470 320\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank speed-time grid: horizontal axis t in seconds from 0 to 10, vertical axis v in metres per second from 0 to 16\">\n          <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\">\n            <line x1=\"83\" y1=\"30\" x2=\"83\" y2=\"280\"/><line x1=\"121\" y1=\"30\" x2=\"121\" y2=\"280\"/><line x1=\"159\" y1=\"30\" x2=\"159\" y2=\"280\"/><line x1=\"197\" y1=\"30\" x2=\"197\" y2=\"280\"/><line x1=\"235\" y1=\"30\" x2=\"235\" y2=\"280\"/><line x1=\"273\" y1=\"30\" x2=\"273\" y2=\"280\"/><line x1=\"311\" y1=\"30\" x2=\"311\" y2=\"280\"/><line x1=\"349\" y1=\"30\" x2=\"349\" y2=\"280\"/><line x1=\"387\" y1=\"30\" x2=\"387\" y2=\"280\"/><line x1=\"425\" y1=\"30\" x2=\"425\" y2=\"280\"/>\n            <line x1=\"45\" y1=\"250\" x2=\"430\" y2=\"250\"/><line x1=\"45\" y1=\"220\" x2=\"430\" y2=\"220\"/><line x1=\"45\" y1=\"190\" x2=\"430\" y2=\"190\"/><line x1=\"45\" y1=\"160\" x2=\"430\" y2=\"160\"/><line x1=\"45\" y1=\"130\" x2=\"430\" y2=\"130\"/><line x1=\"45\" y1=\"100\" x2=\"430\" y2=\"100\"/><line x1=\"45\" y1=\"70\" x2=\"430\" y2=\"70\"/><line x1=\"45\" y1=\"40\" x2=\"430\" y2=\"40\"/>\n          </g>\n          <line x1=\"45\" y1=\"280\" x2=\"440\" y2=\"280\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <line x1=\"45\" y1=\"280\" x2=\"45\" y2=\"28\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <polygon points=\"440,280 431,276 431,284\" fill=\"currentColor\"/>\n          <polygon points=\"45,28 41,37 49,37\" fill=\"currentColor\"/>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"45\" y=\"296\">0</text><text x=\"121\" y=\"296\">2</text><text x=\"197\" y=\"296\">4</text><text x=\"273\" y=\"296\">6</text><text x=\"349\" y=\"296\">8</text><text x=\"425\" y=\"296\">10</text>\n            <text x=\"38\" y=\"284\" text-anchor=\"end\">0</text><text x=\"38\" y=\"209\" text-anchor=\"end\">5</text><text x=\"38\" y=\"134\" text-anchor=\"end\">10</text><text x=\"38\" y=\"59\" text-anchor=\"end\">15</text>\n            <text x=\"452\" y=\"284\">t s</text><text x=\"30\" y=\"24\">v m s⁻¹</text>\n          </g>\n        </svg>",
+  "hint": "Distance = area under the speed–time curve. Rectangles ABOVE a rising curve take the higher (right-hand) speed of each 2-second strip, giving an over-estimate. Sum the heights, then multiply by the width 2.",
+  "starter": "Sum the right-hand heights and double (width = 2): distance \\( \\approx 2\\times(\\dots) \\).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO3)</h5><ul>\n              <li><strong>B1</strong> — 5 rectangles seen (as in the diagram; they may be entirely above the curve).</li>\n              <li><strong>M1</strong> — attempt to find the area under the curve using the rectangles.</li>\n              <li><strong>M1</strong> — sum of the heights of the rectangles doubled (width \\( = 2 \\)).</li>\n              <li><strong>A1</strong> — \\( 111 \\) (metres).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Main method: \\( \\text{Distance} = 2(6.6 + 9.6 + 11.7 + 13.2 + 14.4) = 2\\times 55.5 = 111 \\). Alternative (rectangles totally above the curve, heights from the top value): sum of heights \\( = 9.4 + 6.4 + 4.3 + 2.8 + 1.6 = 24.5 \\), area \\( = 2(16\\times 5 - 24.5) = 111 \\).</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>The intended method took each rectangle's height at the right-hand point on the curve, giving tops above the curve and an over-estimate. Some interpreted \"above\" as the rectangle being wholly above the curve (top at 16 or 14.4); this also gives 111, by a longer route.</li>\n            </ul></div>",
+   "modelAnswer": "Each strip is 2 seconds wide; taking the right-hand speed of each strip gives tops above the rising curve (an over-estimate). Distance \\( = \\) area \\( \\approx 2(6.6 + 9.6 + 11.7 + 13.2 + 14.4) = 2\\times 55.5 = 111 \\) m.\n<svg viewBox=\"0 0 470 320\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:10px auto\" role=\"img\" aria-label=\"The speed-time curve with five rectangles of width 2 constructed above it, each using the higher right-hand speed of its strip, giving an over-estimate of the area\">\n  <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\">\n    <line x1=\"83\" y1=\"30\" x2=\"83\" y2=\"280\"/><line x1=\"121\" y1=\"30\" x2=\"121\" y2=\"280\"/><line x1=\"159\" y1=\"30\" x2=\"159\" y2=\"280\"/><line x1=\"197\" y1=\"30\" x2=\"197\" y2=\"280\"/><line x1=\"235\" y1=\"30\" x2=\"235\" y2=\"280\"/><line x1=\"273\" y1=\"30\" x2=\"273\" y2=\"280\"/><line x1=\"311\" y1=\"30\" x2=\"311\" y2=\"280\"/><line x1=\"349\" y1=\"30\" x2=\"349\" y2=\"280\"/><line x1=\"387\" y1=\"30\" x2=\"387\" y2=\"280\"/><line x1=\"425\" y1=\"30\" x2=\"425\" y2=\"280\"/>\n    <line x1=\"45\" y1=\"250\" x2=\"430\" y2=\"250\"/><line x1=\"45\" y1=\"220\" x2=\"430\" y2=\"220\"/><line x1=\"45\" y1=\"190\" x2=\"430\" y2=\"190\"/><line x1=\"45\" y1=\"160\" x2=\"430\" y2=\"160\"/><line x1=\"45\" y1=\"130\" x2=\"430\" y2=\"130\"/><line x1=\"45\" y1=\"100\" x2=\"430\" y2=\"100\"/><line x1=\"45\" y1=\"70\" x2=\"430\" y2=\"70\"/><line x1=\"45\" y1=\"40\" x2=\"430\" y2=\"40\"/>\n  </g>\n  <g fill=\"currentColor\" fill-opacity=\"0.10\" stroke=\"currentColor\" stroke-width=\"1\">\n    <rect x=\"45\" y=\"181\" width=\"76\" height=\"99\"/>\n    <rect x=\"121\" y=\"136\" width=\"76\" height=\"144\"/>\n    <rect x=\"197\" y=\"104.5\" width=\"76\" height=\"175.5\"/>\n    <rect x=\"273\" y=\"82\" width=\"76\" height=\"198\"/>\n    <rect x=\"349\" y=\"64\" width=\"76\" height=\"216\"/>\n  </g>\n  <line x1=\"45\" y1=\"280\" x2=\"440\" y2=\"280\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <line x1=\"45\" y1=\"280\" x2=\"45\" y2=\"28\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n  <polygon points=\"440,280 431,276 431,284\" fill=\"currentColor\"/>\n  <polygon points=\"45,28 41,37 49,37\" fill=\"currentColor\"/>\n  <path d=\"M45,280 Q80,222 121,181 Q159,150 197,136 Q235,114 273,104.5 Q311,89 349,82 Q387,70 425,64\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\"/>\n  <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n    <text x=\"45\" y=\"296\">0</text><text x=\"121\" y=\"296\">2</text><text x=\"197\" y=\"296\">4</text><text x=\"273\" y=\"296\">6</text><text x=\"349\" y=\"296\">8</text><text x=\"425\" y=\"296\">10</text>\n    <text x=\"38\" y=\"284\" text-anchor=\"end\">0</text><text x=\"38\" y=\"209\" text-anchor=\"end\">5</text><text x=\"38\" y=\"134\" text-anchor=\"end\">10</text><text x=\"38\" y=\"59\" text-anchor=\"end\">15</text>\n    <text x=\"452\" y=\"284\">t s</text><text x=\"30\" y=\"24\">v m s⁻¹</text>\n  </g>\n</svg>"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:exam:45d673c7",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "exam",
+  "type": "written",
+  "marks": 1,
+  "num": "11 (c)",
+  "question": "<p>Without doing any further calculations, explain how she could obtain a better estimate of the distance she has travelled.</p>",
+  "caseStudy": "<p><strong>OCR June 2022, Question 11.</strong> Nina records the speed, \\( v \\text{ m s}^{-1} \\), at which she is travelling in her car \\( t \\) seconds after accelerating from rest. The results are shown in the table below.</p>\n        <table class=\"worked\" style=\"text-align:center\"><tbody>\n          <tr><td style=\"font-weight:600\">Time (\\( t \\) s)</td><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr>\n          <tr><td style=\"font-weight:600\">Speed (\\( v \\) m s\\( ^{-1} \\))</td><td>0</td><td>6.6</td><td>9.6</td><td>11.7</td><td>13.2</td><td>14.4</td></tr>\n        </tbody></table>\n        <p>The axes below are provided for the graph.</p>\n        <svg viewBox=\"0 0 470 320\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"Blank speed-time grid: horizontal axis t in seconds from 0 to 10, vertical axis v in metres per second from 0 to 16\">\n          <g stroke=\"currentColor\" stroke-width=\"0.6\" stroke-opacity=\"0.18\">\n            <line x1=\"83\" y1=\"30\" x2=\"83\" y2=\"280\"/><line x1=\"121\" y1=\"30\" x2=\"121\" y2=\"280\"/><line x1=\"159\" y1=\"30\" x2=\"159\" y2=\"280\"/><line x1=\"197\" y1=\"30\" x2=\"197\" y2=\"280\"/><line x1=\"235\" y1=\"30\" x2=\"235\" y2=\"280\"/><line x1=\"273\" y1=\"30\" x2=\"273\" y2=\"280\"/><line x1=\"311\" y1=\"30\" x2=\"311\" y2=\"280\"/><line x1=\"349\" y1=\"30\" x2=\"349\" y2=\"280\"/><line x1=\"387\" y1=\"30\" x2=\"387\" y2=\"280\"/><line x1=\"425\" y1=\"30\" x2=\"425\" y2=\"280\"/>\n            <line x1=\"45\" y1=\"250\" x2=\"430\" y2=\"250\"/><line x1=\"45\" y1=\"220\" x2=\"430\" y2=\"220\"/><line x1=\"45\" y1=\"190\" x2=\"430\" y2=\"190\"/><line x1=\"45\" y1=\"160\" x2=\"430\" y2=\"160\"/><line x1=\"45\" y1=\"130\" x2=\"430\" y2=\"130\"/><line x1=\"45\" y1=\"100\" x2=\"430\" y2=\"100\"/><line x1=\"45\" y1=\"70\" x2=\"430\" y2=\"70\"/><line x1=\"45\" y1=\"40\" x2=\"430\" y2=\"40\"/>\n          </g>\n          <line x1=\"45\" y1=\"280\" x2=\"440\" y2=\"280\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <line x1=\"45\" y1=\"280\" x2=\"45\" y2=\"28\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n          <polygon points=\"440,280 431,276 431,284\" fill=\"currentColor\"/>\n          <polygon points=\"45,28 41,37 49,37\" fill=\"currentColor\"/>\n          <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n            <text x=\"45\" y=\"296\">0</text><text x=\"121\" y=\"296\">2</text><text x=\"197\" y=\"296\">4</text><text x=\"273\" y=\"296\">6</text><text x=\"349\" y=\"296\">8</text><text x=\"425\" y=\"296\">10</text>\n            <text x=\"38\" y=\"284\" text-anchor=\"end\">0</text><text x=\"38\" y=\"209\" text-anchor=\"end\">5</text><text x=\"38\" y=\"134\" text-anchor=\"end\">10</text><text x=\"38\" y=\"59\" text-anchor=\"end\">15</text>\n            <text x=\"452\" y=\"284\">t s</text><text x=\"30\" y=\"24\">v m s⁻¹</text>\n          </g>\n        </svg>",
+  "hint": "The estimate is too big (rectangles above the curve). Think about narrower strips, or combining it with an under-estimate — not more decimal places.",
+  "starter": "State one genuine improvement to the method (not the precision).",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>\n              <li><strong>B1</strong> — more rectangles (narrower strips); OR take the lower set of rectangles and average with this over-estimate; OR use trapezia instead of rectangles.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n              <li>Any one valid improvement to the method earns the mark. \"Find the equation and integrate\" misses the point of an estimate and earns nothing.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>Examiner's Comments</h5><ul>\n              <li>Candidates suggested taking rectangles below the curve to give an under-estimate and averaging, using the trapezium rule, or making the rectangles narrower (readings at \\( t = 1, 3, 5, \\dots \\)). Those who said the equation should be found and integrated missed the point of the estimation.</li>\n            </ul></div>",
+   "modelAnswer": "Use more rectangles of smaller width (take readings at closer time intervals, e.g. every second). Equivalently, take the rectangles below the curve to get an under-estimate and average the two, or use trapezia instead of rectangles."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:mcq:b0fa20d5",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In the trapezium rule, what is the strip width \\( h \\)?",
+  "options": [
+   "\\( \\frac{b-a}{n} \\)",
+   "\\( \\frac{n}{b-a} \\)",
+   "\\( b - a \\)",
+   "\\( \\frac{a+b}{2} \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The interval \\( [a,b] \\) is split into \\( n \\) equal strips, so each has width \\( h = \\frac{b-a}{n} \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:mcq:103e7390",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Estimate the area from the trapezium rule with \\( h = 1 \\), end ordinates \\( 1 \\) and \\( 17 \\) and middle ordinates \\( 2, 5, 10 \\).",
+  "options": [
+   "\\( 26 \\)",
+   "\\( 52 \\)",
+   "\\( 17.5 \\)",
+   "\\( 44 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tfrac{1}{2}\\times 1\\times[(1+17) + 2(2+5+10)] = \\tfrac{1}{2}(18 + 34) = 26 \\). Forgetting to double the middle ordinates gives \\( \\tfrac{1}{2}(18+17) = 17.5 \\); omitting the \\( \\tfrac{1}{2} \\) gives \\( 52 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:mcq:707eb45c",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A student estimates an area from \\( x = 0 \\) to \\( x = 5 \\) using 5 strips but puts \\( h = 5 \\) into the trapezium rule. What have they done wrong?",
+  "options": [
+   "\\( h \\) should be \\( \\frac{5-0}{5} = 1 \\), not \\( 5 \\)",
+   "Nothing — \\( h = 5 \\) is correct",
+   "They should double the end ordinates",
+   "They should have used 4 strips"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( h = \\frac{b-a}{n} = 1 \\). Using \\( h = 5 \\) multiplies the whole answer by 5 and gives an absurdly large area."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:mcq:a8f697b4",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In the trapezium rule, which ordinates are doubled?",
+  "options": [
+   "Every ordinate except the first and last",
+   "Every ordinate including the ends",
+   "Only the first and last",
+   "None of them"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The end ordinates \\( y_0 \\) and \\( y_n \\) are counted once; the middle ordinates \\( y_1, \\dots, y_{n-1} \\) are all doubled."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:mcq:ac0bd72f",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "The trapezium rule is used on a curve that is concave up (bending upwards). The estimate is:",
+  "options": [
+   "Too big (an over-estimate)",
+   "Too small (an under-estimate)",
+   "Exact",
+   "Sometimes over, sometimes under"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The chords lie above a concave-up curve, so the trapezia enclose slightly too much area — an over-estimate."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:mcq:46097fd5",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How can the accuracy of a trapezium-rule estimate be improved?",
+  "options": [
+   "Use more strips (a smaller \\( h \\))",
+   "Give the answer to more significant figures",
+   "Use fewer strips",
+   "Round the ordinates first"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "More strips means thinner ones that hug the curve better; more sig figs is only rounding and does not improve the method."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:mcq:d5debb43",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "For a rising curve, rectangles taken at the LEFT of each strip give:",
+  "options": [
+   "An under-estimate",
+   "An over-estimate",
+   "The exact area",
+   "The same as the trapezium rule"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "On a rising curve the left edge is the lower value, so left-hand rectangles sit below the curve — an under-estimate."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:mcq:8687d185",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "With 6 strips, how many ordinates does the trapezium rule use?",
+  "options": [
+   "\\( 7 \\)",
+   "\\( 6 \\)",
+   "\\( 5 \\)",
+   "\\( 12 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The number of ordinates is always \\( n + 1 \\); with 6 strips that is 7 (\\( y_0 \\) to \\( y_6 \\))."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:mcq:125d7e53",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A candidate answers a trapezium-rule question using Simpson's rule and gets a sensible number. How is it marked?",
+  "options": [
+   "It scores 0 — Simpson's rule is off-specification",
+   "Full marks, since the number is sensible",
+   "Half marks",
+   "Marks only for the final answer"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Simpson's rule is not on the 6993 specification; the 2024 mark scheme states its use scores M0."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:mcq:866ea872",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Using the trapezium rule with the readings \\( y = 0, 6.6, 9.6, 11.7, 13.2, 14.4 \\) and \\( h = 2 \\), the estimated area is closest to:",
+  "options": [
+   "\\( 96.6 \\)",
+   "\\( 55.5 \\)",
+   "\\( 111 \\)",
+   "\\( 48.3 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( \\tfrac{1}{2}\\times 2\\times[(0+14.4) + 2(6.6+9.6+11.7+13.2)] = 14.4 + 82.2 = 96.6 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:mcq:b18475e5",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "A rectangle estimate of a distance comes out at 111 when the speeds in the table are all below 15. The most sensible response is to:",
+  "options": [
+   "Accept it — width 2 over 5 strips of speeds around 10 gives a total near 100",
+   "Reject it as far too large",
+   "Divide it by the number of strips",
+   "Assume \\( h = 5 \\) was needed"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Five strips of width 2 with heights up to ~14 give roughly \\( 2\\times 55 \\approx 110 \\); a sanity check confirms 111 is the right order of size."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:mcq:f364350e",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which of these is the best reason to use the trapezium rule rather than rectangles for the same strips?",
+  "options": [
+   "Sloping chords fit the curve better than flat tops",
+   "It uses fewer ordinates",
+   "It always gives the exact area",
+   "It does not need the value of \\( h \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Trapezia join the points with sloping lines that hug the curve, leaving smaller gaps than flat-topped rectangles."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:tf:3788026b",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The trapezium rule is printed on the exam formula sheet, so you do not have to memorise it.",
+  "key": {
+   "answer": true,
+   "explain": "It is one of the provided formulae, along with the binomial series, the binomial distribution and the kinematics relations — but you must still apply it correctly."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:tf:39b983c3",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For an area from \\( x = 0 \\) to \\( x = 5 \\) using 5 strips, the trapezium rule uses \\( h = 5 \\).",
+  "key": {
+   "answer": false,
+   "explain": "\\( h = \\frac{b-a}{n} = \\frac{5-0}{5} = 1 \\). Using \\( h = 5 \\) is the classic error that inflates the answer fivefold."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:tf:99f37000",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Every ordinate in the trapezium rule is doubled.",
+  "key": {
+   "answer": false,
+   "explain": "Only the middle ordinates are doubled; the two end ordinates \\( y_0 \\) and \\( y_n \\) are counted once."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:tf:67cd1774",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "For a rising curve, left-hand rectangles under-estimate the area.",
+  "key": {
+   "answer": true,
+   "explain": "The left edge of each strip is the lower value, so the rectangles sit below the curve — an under-estimate."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:tf:9deb111b",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The trapezium rule over-estimates the area under a curve that bends upwards (concave up).",
+  "key": {
+   "answer": true,
+   "explain": "The chords lie above a concave-up curve, so the trapezia enclose slightly too much area."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:tf:10591dc5",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "To improve a numerical estimate you should give your answer to more significant figures.",
+  "key": {
+   "answer": false,
+   "explain": "More significant figures is only rounding — the underlying estimate is unchanged. You improve it with more (thinner) strips."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:tf:fe519cfd",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Using Simpson's rule instead of the trapezium rule still earns the marks in 6993.",
+  "key": {
+   "answer": false,
+   "explain": "Simpson's rule is off-specification; the mark scheme awards it 0."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:tf:9de4d417",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "With \\( n \\) strips there are \\( n + 1 \\) ordinates.",
+  "key": {
+   "answer": true,
+   "explain": "You need a \\( y \\)-value at both edges of every strip, and neighbouring strips share an edge, giving \\( n + 1 \\) ordinates in total."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:learn:8ed3aab0",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you estimate an area with rectangle strips?",
+  "reading": "<p>When you cannot integrate a curve — for example you only have a <strong>table of readings</strong>, or the equation is unknown — you can still <strong>estimate</strong> the area underneath it numerically.</p>\n            <p>Split the region between \\( x = a \\) and \\( x = b \\) into \\( n \\) equal <strong>strips</strong>, each of width \\( h = \\frac{b-a}{n} \\). Replace each strip by a <strong>rectangle</strong> whose height is the value of the curve at one edge of the strip — the <strong>left</strong> end, the <strong>right</strong> end, or the <strong>middle</strong> — then add the rectangle areas.</p>\n            <p><strong>Worked example</strong> — estimate the area under the rising curve given by this table, using strips of width \\( h = 1 \\):</p>\n            <table class=\"worked\" style=\"text-align:center\"><tbody>\n              <tr><td style=\"font-weight:600\">\\( x \\)</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>\n              <tr><td style=\"font-weight:600\">\\( y \\)</td><td>2</td><td>4</td><td>7</td><td>12</td></tr>\n            </tbody></table>\n            <table class=\"worked\">\n              <tr><td>1. <strong>Right-hand</strong> rectangles (height = value at the right of each strip): heights \\( 4,\\ 7,\\ 12 \\), so area \\( \\approx 1\\times(4 + 7 + 12) = 23 \\).</td></tr>\n              <tr><td>2. <strong>Left-hand</strong> rectangles (height = value at the left of each strip): heights \\( 2,\\ 4,\\ 7 \\), so area \\( \\approx 1\\times(2 + 4 + 7) = 13 \\).</td></tr>\n            </table>\n            <p>The true area lies <em>between</em> these two estimates. Rectangles are the simplest numerical method, but their flat tops leave big gaps against a curve.</p>",
+  "question": "Using strips of width 1 and the values \\( y = 2, 4, 7, 12 \\), what is the right-hand rectangle estimate?",
+  "options": [
+   "\\( 23 \\)",
+   "\\( 13 \\)",
+   "\\( 25 \\)",
+   "\\( 12 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Right-hand heights are \\( 4, 7, 12 \\) (drop the first value), so \\( 1\\times(4+7+12) = 23 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:learn:b4a8c4ff",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Do rectangle strips over- or under-estimate?",
+  "reading": "<p>Whether a rectangle estimate is too big or too small depends on whether the curve is <strong>rising</strong> or <strong>falling</strong>, because the flat top of each rectangle either pokes above the curve or dips below it.</p>\n            <ul>\n              <li>For a <strong>rising</strong> curve, <strong>right-hand</strong> rectangles have tops <em>above</em> the curve → they give an <strong>over-estimate</strong>; <strong>left-hand</strong> rectangles give an <strong>under-estimate</strong>.</li>\n              <li>For a <strong>falling</strong> curve it is the other way round: right-hand rectangles under-estimate and left-hand rectangles over-estimate.</li>\n              <li><strong>Rectangles entirely above the curve</strong> (taking the higher edge of every strip) always over-estimate; those entirely below always under-estimate.</li>\n            </ul>\n            <p>The 2022 exam asked for rectangles drawn <strong>above</strong> a rising speed–time curve — that is deliberately the <em>over</em>-estimate of the distance. A good check: the exact area must lie between your over- and under-estimates.</p>",
+  "question": "For a curve that is rising, which rectangles give an over-estimate of the area?",
+  "options": [
+   "Right-hand (higher-edge) rectangles",
+   "Left-hand rectangles",
+   "Midpoint rectangles only",
+   "It is never an over-estimate"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "On a rising curve the right edge of each strip is the higher value, so right-hand rectangles poke above the curve and over-estimate."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:learn:dadf9897",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is the trapezium rule and how do you use it?",
+  "reading": "<p>Instead of flat-topped rectangles, join each pair of neighbouring points with a <strong>straight line</strong>. Each strip becomes a <strong>trapezium</strong> that hugs the curve far better, so the estimate is much closer.</p>\n            <p>The <strong>trapezium rule</strong> is <strong>PROVIDED on the exam formula sheet</strong> — you do not memorise it, but you must use it correctly: \\[ \\text{Area} \\approx \\tfrac{1}{2}h\\big[(y_0 + y_n) + 2(y_1 + y_2 + \\dots + y_{n-1})\\big], \\qquad h = \\frac{b-a}{n}. \\] Here \\( y_0 \\) and \\( y_n \\) are the two <strong>end ordinates</strong> (counted once) and \\( y_1, \\dots, y_{n-1} \\) are the <strong>middle ordinates</strong> (all doubled). With \\( n \\) strips there are \\( n+1 \\) ordinates.</p>\n            <svg viewBox=\"0 0 460 280\" width=\"100%\" style=\"max-width:520px;height:auto;display:block;margin:12px auto\" role=\"img\" aria-label=\"A rising curve with four trapezium strips beneath it; the vertical ordinates y0 to y4 are drawn at equal spacing h, and each strip top is a straight chord joining the curve\">\n              <line x1=\"45\" y1=\"230\" x2=\"435\" y2=\"230\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <line x1=\"45\" y1=\"245\" x2=\"45\" y2=\"35\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n              <polygon points=\"435,230 426,226 426,234\" fill=\"currentColor\"/>\n              <polygon points=\"45,35 41,44 49,44\" fill=\"currentColor\"/>\n              <g fill=\"currentColor\" fill-opacity=\"0.10\" stroke=\"currentColor\" stroke-width=\"0.8\" stroke-opacity=\"0.5\">\n                <polygon points=\"70,230 70,195 150,172 150,230\"/>\n                <polygon points=\"150,230 150,172 230,140 230,230\"/>\n                <polygon points=\"230,230 230,140 310,98 310,230\"/>\n                <polygon points=\"310,230 310,98 390,55 390,230\"/>\n              </g>\n              <path d=\"M70,195 Q110,187 150,172 Q190,159 230,140 Q270,122 310,98 Q350,80 390,55\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/>\n              <g stroke=\"currentColor\" stroke-width=\"1.2\">\n                <line x1=\"70\" y1=\"230\" x2=\"70\" y2=\"195\"/><line x1=\"150\" y1=\"230\" x2=\"150\" y2=\"172\"/><line x1=\"230\" y1=\"230\" x2=\"230\" y2=\"140\"/><line x1=\"310\" y1=\"230\" x2=\"310\" y2=\"98\"/><line x1=\"390\" y1=\"230\" x2=\"390\" y2=\"55\"/>\n              </g>\n              <g font-size=\"11\" fill=\"currentColor\" text-anchor=\"middle\">\n                <text x=\"70\" y=\"246\">\\( y_0 \\)</text><text x=\"150\" y=\"246\">\\( y_1 \\)</text><text x=\"230\" y=\"246\">\\( y_2 \\)</text><text x=\"310\" y=\"246\">\\( y_3 \\)</text><text x=\"390\" y=\"246\">\\( y_4 \\)</text>\n                <text x=\"110\" y=\"262\">h</text><text x=\"190\" y=\"262\">h</text><text x=\"270\" y=\"262\">h</text><text x=\"350\" y=\"262\">h</text>\n                <text x=\"70\" y=\"264\">a</text><text x=\"390\" y=\"278\">b</text>\n              </g>\n              <g stroke=\"currentColor\" stroke-width=\"0.7\" stroke-opacity=\"0.6\">\n                <line x1=\"70\" y1=\"254\" x2=\"150\" y2=\"254\"/><line x1=\"150\" y1=\"254\" x2=\"230\" y2=\"254\"/><line x1=\"230\" y1=\"254\" x2=\"310\" y2=\"254\"/><line x1=\"310\" y1=\"254\" x2=\"390\" y2=\"254\"/>\n              </g>\n            </svg>\n            <p><strong>Worked example</strong> — estimate the area under a curve from \\( x = 0 \\) to \\( x = 4 \\) (so \\( h = 1 \\), \\( n = 4 \\)) for the readings below:</p>\n            <table class=\"worked\" style=\"text-align:center\"><tbody>\n              <tr><td style=\"font-weight:600\">\\( x \\)</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>\n              <tr><td style=\"font-weight:600\">\\( y \\)</td><td>1</td><td>2</td><td>5</td><td>10</td><td>17</td></tr>\n            </tbody></table>\n            <table class=\"worked\">\n              <tr><td>1. End ordinates: \\( y_0 + y_4 = 1 + 17 = 18 \\).</td></tr>\n              <tr><td>2. Middle ordinates, doubled: \\( 2(y_1 + y_2 + y_3) = 2(2 + 5 + 10) = 34 \\).</td></tr>\n              <tr><td>3. Apply the rule: \\( \\text{Area} \\approx \\tfrac{1}{2}\\times 1\\times(18 + 34) = \\tfrac{1}{2}\\times 52 = 26 \\).</td></tr>\n            </table>\n            <p>Always write the substituted formula before the number — <strong>an answer with no working scores no marks</strong>.</p>",
+  "question": "With \\( n = 5 \\) strips, how many ordinates (\\( y \\)-values) does the trapezium rule need?",
+  "options": [
+   "\\( 6 \\)",
+   "\\( 5 \\)",
+   "\\( 4 \\)",
+   "\\( 10 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "There is one more ordinate than strips: \\( n+1 = 6 \\), namely \\( y_0 \\) up to \\( y_5 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:learn:ddb5c6c3",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Does the trapezium rule over- or under-estimate?",
+  "reading": "<p>The straight chords that form the tops of the trapezia lie either just above or just below the true curve, depending on the way the curve <strong>bends</strong>.</p>\n            <ul>\n              <li>For a curve that is <strong>concave up</strong> (bending upwards, like \\( y = x^2 \\)), each chord sits <em>above</em> the curve, so the trapezium rule <strong>over-estimates</strong> the area.</li>\n              <li>For a curve that is <strong>concave down</strong> (bending downwards, like \\( y = \\sqrt{x} \\)), each chord sits <em>below</em> the curve, so the trapezium rule <strong>under-estimates</strong> the area.</li>\n            </ul>\n            <p>Check it on the worked example above: \\( y = x^2 + 1 \\) is concave up, and the exact area \\( \\int_0^4 (x^2 + 1)\\,dx = \\tfrac{64}{3} + 4 \\approx 25.3 \\) is a little <em>below</em> the trapezium estimate of \\( 26 \\) — an over-estimate, exactly as predicted.</p>",
+  "question": "The trapezium rule is applied to a curve that is concave up (bending upwards). The estimate is:",
+  "options": [
+   "An over-estimate",
+   "An under-estimate",
+   "Always exact",
+   "Impossible to tell"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "On a concave-up curve the chords lie above the curve, so the trapezia enclose slightly too much area — an over-estimate."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:learn:22df22c5",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do you improve a numerical area estimate?",
+  "reading": "<p>A numerical estimate is only ever approximate. To make it <strong>more accurate</strong> you must make the strips fit the curve better:</p>\n            <ul>\n              <li><strong>Use more strips</strong> — a larger \\( n \\), which means a <strong>smaller</strong> strip width \\( h \\). Thinner strips leave smaller gaps between the chords (or rectangle tops) and the curve. If the data is fixed, this means <strong>collecting readings at smaller intervals</strong>.</li>\n              <li>Averaging an over-estimate with an under-estimate, or moving from rectangles to the <strong>trapezium rule</strong>, also improves the estimate.</li>\n            </ul>\n            <p><strong>What does NOT improve it</strong> — two classic wrong answers examiners see every year:</p>\n            <ul>\n              <li>Giving the answer to <strong>more significant figures</strong>. That is only rounding; the underlying estimate is unchanged, so it is <em>not</em> more accurate.</li>\n              <li>Switching to <strong>calculus / integration</strong>. When the question gives only a table (or asks you to \"estimate\"), integration misses the point — and here the equation is often unknown.</li>\n            </ul>\n            <p>So when a question says <em>\"explain how the estimate could be improved\"</em>, the answer is always <strong>smaller strips / more data points</strong>.</p>",
+  "question": "\"Explain how the estimate could be improved.\" Which is the marks-earning answer?",
+  "options": [
+   "Use more strips (smaller intervals / more data points)",
+   "Give the answer to more significant figures",
+   "Round to 3 decimal places",
+   "Use Simpson's rule from memory"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "More strips (a smaller \\( h \\)) makes the chords hug the curve better; more sig figs is only rounding and earns nothing."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:learn:ade4ba60",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Which formula is provided, and what are the exam traps?",
+  "reading": "<p>Knowing what you must memorise versus what is printed for you is itself an exam skill.</p>\n            <ul>\n              <li>The <strong>trapezium rule is PROVIDED</strong> on the formula sheet (alongside the binomial series, the binomial distribution and the kinematics relations). You still have to read \\( h = \\frac{b-a}{n} \\) correctly and know which ordinates double.</li>\n              <li>The <strong>rectangle method is not a formula</strong> — you simply sum width × height for each strip.</li>\n            </ul>\n            <p><strong>The examiner traps on this topic (2024 report):</strong></p>\n            <ul>\n              <li>Using \\( h = 5 \\) (the last \\( x \\)-value) instead of \\( h = \\frac{b-a}{n} = 1 \\) — this gives a wildly large answer such as 60+.</li>\n              <li>Not <strong>sanity-checking</strong> the size of the answer against the data — a total far bigger than the values in the table should ring alarm bells.</li>\n              <li>Writing the <strong>answer with no working</strong> — this scores <strong>M0</strong> even if the number is right.</li>\n              <li>Using <strong>Simpson's rule</strong> — it is off-specification and scores <strong>0</strong>.</li>\n            </ul>",
+  "question": "For the trapezium rule from \\( x = 0 \\) to \\( x = 5 \\) with 5 strips, what is \\( h \\)?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( 5 \\)",
+   "\\( 0.5 \\)",
+   "\\( 2.5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( h = \\frac{b-a}{n} = \\frac{5-0}{5} = 1 \\). Putting \\( h = 5 \\) is the classic error that inflates the answer."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:misc:30c091e6",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For an area from \\( x = 0 \\) to \\( x = 5 \\) with 5 strips, I put \\( h = 5 \\) into the trapezium rule.</p><p><strong>✅ The correct idea:</strong> \\( h \\) is the strip WIDTH, \\( h = \\frac{b-a}{n} = \\frac{5-0}{5} = 1 \\), not the last \\( x \\)-value. A weak answer uses \\( h = 5 \\) and gets 60+; a strong answer uses \\( h = 1 \\) and sanity-checks the size against the data.</p>",
+  "question": "Area from \\( x = 0 \\) to \\( x = 5 \\) with 5 strips: what is \\( h \\)?",
+  "options": [
+   "\\( 1 \\)",
+   "\\( 5 \\)",
+   "\\( 0.2 \\)",
+   "\\( 2.5 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "\\( h = \\frac{5-0}{5} = 1 \\)."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:misc:2b6ceb3f",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> To improve the estimate I gave my answer to more significant figures.</p><p><strong>✅ The correct idea:</strong> More significant figures is only rounding — the estimate itself is unchanged. A strong answer says use MORE STRIPS (a smaller \\( h \\) / more data points), which makes the chords hug the curve.</p>",
+  "question": "Which genuinely improves a trapezium-rule estimate?",
+  "options": [
+   "More strips (smaller \\( h \\))",
+   "More significant figures",
+   "Fewer strips",
+   "Rounding the ordinates"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Thinner strips reduce the gap between the chords and the curve; extra sig figs do nothing."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:misc:c7e75668",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> I doubled every ordinate, including the first and last, in the trapezium rule.</p><p><strong>✅ The correct idea:</strong> The end ordinates \\( y_0 \\) and \\( y_n \\) are counted ONCE; only the middle ordinates are doubled. A strong answer writes \\( (y_0 + y_n) + 2(y_1 + \\dots + y_{n-1}) \\).</p>",
+  "question": "Which ordinates are NOT doubled?",
+  "options": [
+   "The first and last (\\( y_0 \\) and \\( y_n \\))",
+   "The middle ones",
+   "All of them",
+   "None of them"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Only \\( y_0 \\) and \\( y_n \\) are counted once."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:misc:a2625b0a",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> For a rising curve I said right-hand rectangles UNDER-estimate the area.</p><p><strong>✅ The correct idea:</strong> On a RISING curve the right edge is the HIGHER value, so right-hand rectangles poke above the curve and OVER-estimate. A strong answer states the direction and checks it against a sketch.</p>",
+  "question": "Rising curve, right-hand rectangles:",
+  "options": [
+   "Over-estimate",
+   "Under-estimate",
+   "Exact",
+   "Cannot tell"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The higher right edge makes the rectangles sit above the curve — an over-estimate."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:misc:b642abe2",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> The question said 'estimate', so I found the equation and integrated it.</p><p><strong>✅ The correct idea:</strong> 'Estimate' with only a table of readings wants a NUMERICAL method (rectangles or the trapezium rule). Integration (or Simpson's rule) misses the point and, for Simpson's, scores 0.</p>",
+  "question": "A question gives a table and asks you to 'estimate' the area. You should:",
+  "options": [
+   "Use the trapezium rule or rectangle strips",
+   "Find the equation and integrate",
+   "Use Simpson's rule",
+   "Guess from the largest value"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A numerical method is required — that is the whole point of 'estimate' from a table."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:misc:fe37ad32",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> My trapezium-rule area came out as 62.5 and I wrote it down without a second thought.</p><p><strong>✅ The correct idea:</strong> Always SANITY-CHECK the size against the data. If the ordinates are all around 2–7 over an interval of length 5, an area near 60 is far too big — usually a sign that \\( h = 5 \\) was used instead of \\( h = 1 \\).</p>",
+  "question": "Your estimate is much bigger than the data suggests. First check:",
+  "options": [
+   "Whether you used the correct \\( h = \\frac{b-a}{n} \\)",
+   "Whether you rounded enough",
+   "Whether to add more sig figs",
+   "Whether to use Simpson's rule"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "An oversized answer usually means \\( h \\) was set to the final \\( x \\)-value instead of the strip width."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:tips:53b1a6ca",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Show the substituted formula (no working = M0)",
+  "reading": "<p>The trapezium rule is provided, so examiners expect to see it <strong>substituted</strong>. Write \\( \\tfrac{1}{2}\\times 1\\times[(1+7.30) + 2(1.13+1.43+2.11+3.69)] \\) before the number.</p><p><strong>0 marks:</strong> just \"\\( = 12.5 \\)\". <strong>Full marks:</strong> the formula with correct \\( h \\), the substitution, then \\( 12.5 \\) to 1 d.p. The 2024 scheme states plainly: an answer with no working is M0.</p>",
+  "question": "Why must you write the substituted formula for a trapezium-rule question?",
+  "options": [
+   "An answer with no working scores M0",
+   "It looks neater",
+   "It is not necessary if the answer is right",
+   "To use more space"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The method mark needs the substitution visible; the number alone earns nothing."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:tips:64a2539e",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — Get \\( h \\) right, then sanity-check the size",
+  "reading": "<p>The single most common error is putting \\( h = 5 \\) instead of \\( h = \\frac{b-a}{n} = 1 \\). After you get a number, <strong>compare it to the data</strong>: if the readings are around 1–7 and your area is 60+, something is wrong. This one habit rescues a whole question.</p>",
+  "question": "Your area estimate is 62.5 but the ordinates are all under 8. Most likely you:",
+  "options": [
+   "Used \\( h = 5 \\) instead of \\( h = 1 \\)",
+   "Rounded too early",
+   "Doubled the wrong ordinates",
+   "Used too many strips"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A five-times-too-big answer points straight at \\( h = 5 \\) instead of the strip width 1."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:tips:7722c363",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "explain — \"Explain how to improve the estimate\"",
+  "reading": "<p>This [1]-mark part appears almost every year. The mark is for saying use <strong>more strips / smaller intervals / more data points</strong> (or move rectangles → trapezia, or average an over- and under-estimate).</p><p>It is <strong>never</strong> \"more significant figures\" and <strong>never</strong> \"use calculus / integration\". Those earn nothing.</p>",
+  "question": "\"Explain how the estimate could be improved\" — the safe answer is:",
+  "options": [
+   "Take readings at smaller intervals (more strips)",
+   "Quote more significant figures",
+   "Find the equation and integrate",
+   "Use Simpson's rule"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Smaller intervals / more strips is the marks-earning improvement."
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:fib:dae1f58c",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "In the trapezium rule the whole bracket is multiplied by ___B1___ of \\( h \\), and the strip width is \\( h = \\frac{b-a}{n} \\), where \\( n \\) is the number of ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "quarter",
+    "half",
+    "figures",
+    "5"
+   ],
+   "B2": [
+    "strips",
+    "5",
+    "smaller",
+    "error"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "half",
+    "B2": "strips"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:fib:ad023ac9",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "The two end ordinates \\( y_0 \\) and \\( y_n \\) are counted ___B1___, but every middle ordinate is ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "down",
+    "once",
+    "half",
+    "quarter"
+   ],
+   "B2": [
+    "doubled",
+    "error",
+    "strips",
+    "5"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "once",
+    "B2": "doubled"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:fib:499658e0",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "For a curve that is rising, rectangles taken at the ___B1___ end of each strip give an over-estimate of the area.",
+  "blankOptions": {
+   "B1": [
+    "half",
+    "up",
+    "smaller",
+    "right"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "right"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:fib:15326cdc",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "The trapezium rule over-estimates the area under a curve that is concave ___B1___.",
+  "blankOptions": {
+   "B1": [
+    "error",
+    "doubled",
+    "half",
+    "up"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "up"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:fib:21815b95",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "To improve a numerical area estimate you should use more strips, that is, a ___B1___ value of \\( h \\).",
+  "blankOptions": {
+   "B1": [
+    "twice",
+    "once",
+    "smaller",
+    "up"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "smaller"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:fib:60844b92",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Writing the answer to more significant ___B1___ does NOT make a trapezium-rule estimate more accurate.",
+  "blankOptions": {
+   "B1": [
+    "figures",
+    "twice",
+    "left",
+    "right"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "figures"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:fib:5416a160",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "fib",
+  "type": "fib",
+  "marks": 2,
+  "question": "With 5 strips the trapezium rule needs ___B1___ ordinates, and using \\( h = 5 \\) instead of \\( h = 1 \\) is a common ___B2___.",
+  "blankOptions": {
+   "B1": [
+    "doubled",
+    "6",
+    "right",
+    "figures"
+   ],
+   "B2": [
+    "smaller",
+    "once",
+    "strips",
+    "error"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "6",
+    "B2": "error"
+   }
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:7cf238a7",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Trapezium rule”?",
+  "options": [
+   "\\( n + 1 \\)",
+   "Scores 0 (off-specification)",
+   "Added once (not doubled)",
+   "\\( \\text{Area} \\approx \\tfrac{1}{2}h\\big[(y_0 + y_n) + 2(y_1 + \\dots + y_{n-1})\\big] \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Trapezium rule” means: \\( \\text{Area} \\approx \\tfrac{1}{2}h\\big[(y_0 + y_n) + 2(y_1 + \\dots + y_{n-1})\\big] \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:7dc12e8b",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Strip width \\( h \\)”?",
+  "options": [
+   "Over-estimates the area",
+   "Scores M0 even if correct",
+   "Over-estimate of the area",
+   "\\( \\frac{b-a}{n} \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Strip width \\( h \\)” means: \\( \\frac{b-a}{n} \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:db4f03f4",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “End ordinates \\( y_0, y_n \\)”?",
+  "options": [
+   "All doubled in the formula",
+   "Does NOT improve the accuracy",
+   "Added once (not doubled)",
+   "Over-estimate of the area"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“End ordinates \\( y_0, y_n \\)” means: Added once (not doubled)"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:5fb6c1d3",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Middle ordinates \\( y_1, \\dots, y_{n-1} \\)”?",
+  "options": [
+   "Added once (not doubled)",
+   "Does NOT improve the accuracy",
+   "Under-estimate of the area",
+   "All doubled in the formula"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Middle ordinates \\( y_1, \\dots, y_{n-1} \\)” means: All doubled in the formula"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:f3d03fab",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Number of ordinates with \\( n \\) strips”?",
+  "options": [
+   "Use more strips / smaller \\( h \\)",
+   "Under-estimates the area",
+   "Added once (not doubled)",
+   "\\( n + 1 \\)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Number of ordinates with \\( n \\) strips” means: \\( n + 1 \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:013876d8",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Rising curve, right-hand rectangles”?",
+  "options": [
+   "\\( n + 1 \\)",
+   "Scores 0 (off-specification)",
+   "Over-estimate of the area",
+   "Does NOT improve the accuracy"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Rising curve, right-hand rectangles” means: Over-estimate of the area"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:a3e114c7",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Rising curve, left-hand rectangles”?",
+  "options": [
+   "Scores M0 even if correct",
+   "Under-estimate of the area",
+   "\\( \\frac{b-a}{n} \\)",
+   "Scores 0 (off-specification)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Rising curve, left-hand rectangles” means: Under-estimate of the area"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:4ea02f58",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Trapezium rule on a concave-up curve”?",
+  "options": [
+   "Scores M0 even if correct",
+   "Scores 0 (off-specification)",
+   "Over-estimate of the area",
+   "Over-estimates the area"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“Trapezium rule on a concave-up curve” means: Over-estimates the area"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:0e4edb2d",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Trapezium rule on a concave-down curve”?",
+  "options": [
+   "Under-estimate of the area",
+   "Under-estimates the area",
+   "All doubled in the formula",
+   "Added once (not doubled)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Trapezium rule on a concave-down curve” means: Under-estimates the area"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:058601ad",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Improve a numerical estimate”?",
+  "options": [
+   "Under-estimate of the area",
+   "Use more strips / smaller \\( h \\)",
+   "Added once (not doubled)",
+   "All doubled in the formula"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“Improve a numerical estimate” means: Use more strips / smaller \\( h \\)"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:fea7cd9e",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “\"More significant figures\"”?",
+  "options": [
+   "Over-estimate of the area",
+   "Does NOT improve the accuracy",
+   "Scores M0 even if correct",
+   "Under-estimates the area"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“\"More significant figures\"” means: Does NOT improve the accuracy"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:92016670",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Simpson's rule in a 6993 answer”?",
+  "options": [
+   "Scores 0 (off-specification)",
+   "Scores M0 even if correct",
+   "\\( \\frac{b-a}{n} \\)",
+   "\\( n + 1 \\)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“Simpson's rule in a 6993 answer” means: Scores 0 (off-specification)"
+  }
+ },
+ {
+  "id": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule:match:efdbe36d",
+  "pageId": "additional-maths:9-3-numerical-areas-and-the-trapezium-rule",
+  "pageName": "9.3 Numerical Areas and the Trapezium Rule",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Answer with no working shown”?",
+  "options": [
+   "\\( n + 1 \\)",
+   "Under-estimate of the area",
+   "Scores M0 even if correct",
+   "\\( \\text{Area} \\approx \\tfrac{1}{2}h\\big[(y_0 + y_n) + 2(y_1 + \\dots + y_{n-1})\\big] \\)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Answer with no working shown” means: Scores M0 even if correct"
   }
  }
 ];

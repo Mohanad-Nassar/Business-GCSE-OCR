@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 9. Integration</div>
             <h1>9.3 Numerical Areas and the Trapezium Rule</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,13 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 9.3 Numerical Areas and the Trapezium Rule — placeholder, content not yet written
+    //  DATA: 9.3 Numerical Areas and the Trapezium Rule (NM6, NM7, NM8)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  DOUBLED in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4). Diagrams are
+    //  hand-authored theme-safe inline SVG (currentColor, no fixed fills).
+    //  Exam Qs = OCR June 2024 Q12 (a/b(i)/b(ii), 6 marks) + June 2022 Q11
+    //  (a/b/c, 7 marks). Recomputed by hand: 2024 Q12(a) trapezium = 12.5;
+    //  Q12(b)(i) central difference = 1.1 (accept 1.13); 2022 Q11(b) = 111.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '9-3-numerical-areas-and-the-trapezium-rule',
@@ -266,23 +272,450 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimulus for the two routed exam questions. Inserted RAW (not
+    // sanitised), so data tables and the blank exam grid render here; the SOLVED
+    // overlays live in the modelAnswers (also raw). markScheme is sanitised (SVG
+    // stripped), so it carries the value tables + the tick-the-scheme checklist.
+    const EXAM_CASE_STUDIES = {
+        "q12-2024": `<p><strong>OCR June 2024, Question 12.</strong> The table below gives the coordinates of six points.</p>
+        <table class="worked" style="text-align:center"><tbody>
+          <tr><td style="font-weight:600">\\( x \\)</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+          <tr><td style="font-weight:600">\\( y \\)</td><td>1</td><td>1.13</td><td>1.43</td><td>2.11</td><td>3.69</td><td>7.30</td></tr>
+        </tbody></table>
+        <p>The points are plotted on a grid and a smooth curve is drawn to pass through the points.</p>`,
+        "q11-2022": `<p><strong>OCR June 2022, Question 11.</strong> Nina records the speed, \\( v \\text{ m s}^{-1} \\), at which she is travelling in her car \\( t \\) seconds after accelerating from rest. The results are shown in the table below.</p>
+        <table class="worked" style="text-align:center"><tbody>
+          <tr><td style="font-weight:600">Time (\\( t \\) s)</td><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr>
+          <tr><td style="font-weight:600">Speed (\\( v \\) m s\\( ^{-1} \\))</td><td>0</td><td>6.6</td><td>9.6</td><td>11.7</td><td>13.2</td><td>14.4</td></tr>
+        </tbody></table>
+        <p>The axes below are provided for the graph.</p>
+        <svg viewBox="0 0 470 320" width="100%" style="max-width:520px;height:auto;display:block;margin:12px auto" role="img" aria-label="Blank speed-time grid: horizontal axis t in seconds from 0 to 10, vertical axis v in metres per second from 0 to 16">
+          <g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.18">
+            <line x1="83" y1="30" x2="83" y2="280"/><line x1="121" y1="30" x2="121" y2="280"/><line x1="159" y1="30" x2="159" y2="280"/><line x1="197" y1="30" x2="197" y2="280"/><line x1="235" y1="30" x2="235" y2="280"/><line x1="273" y1="30" x2="273" y2="280"/><line x1="311" y1="30" x2="311" y2="280"/><line x1="349" y1="30" x2="349" y2="280"/><line x1="387" y1="30" x2="387" y2="280"/><line x1="425" y1="30" x2="425" y2="280"/>
+            <line x1="45" y1="250" x2="430" y2="250"/><line x1="45" y1="220" x2="430" y2="220"/><line x1="45" y1="190" x2="430" y2="190"/><line x1="45" y1="160" x2="430" y2="160"/><line x1="45" y1="130" x2="430" y2="130"/><line x1="45" y1="100" x2="430" y2="100"/><line x1="45" y1="70" x2="430" y2="70"/><line x1="45" y1="40" x2="430" y2="40"/>
+          </g>
+          <line x1="45" y1="280" x2="440" y2="280" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="45" y1="280" x2="45" y2="28" stroke="currentColor" stroke-width="1.5"/>
+          <polygon points="440,280 431,276 431,284" fill="currentColor"/>
+          <polygon points="45,28 41,37 49,37" fill="currentColor"/>
+          <g font-size="11" fill="currentColor" text-anchor="middle">
+            <text x="45" y="296">0</text><text x="121" y="296">2</text><text x="197" y="296">4</text><text x="273" y="296">6</text><text x="349" y="296">8</text><text x="425" y="296">10</text>
+            <text x="38" y="284" text-anchor="end">0</text><text x="38" y="209" text-anchor="end">5</text><text x="38" y="134" text-anchor="end">10</text><text x="38" y="59" text-anchor="end">15</text>
+            <text x="452" y="284">t s</text><text x="30" y="24">v m s⁻¹</text>
+          </g>
+        </svg>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>9.3 Numerical Areas and the Trapezium Rule</strong> will appear here soon.</p>`
+            title: "How do you estimate an area with rectangle strips?",
+            tag: "Method",
+            content: `<p>When you cannot integrate a curve — for example you only have a <strong>table of readings</strong>, or the equation is unknown — you can still <strong>estimate</strong> the area underneath it numerically.</p>
+            <p>Split the region between \\( x = a \\) and \\( x = b \\) into \\( n \\) equal <strong>strips</strong>, each of width \\( h = \\frac{b-a}{n} \\). Replace each strip by a <strong>rectangle</strong> whose height is the value of the curve at one edge of the strip — the <strong>left</strong> end, the <strong>right</strong> end, or the <strong>middle</strong> — then add the rectangle areas.</p>
+            <p><strong>Worked example</strong> — estimate the area under the rising curve given by this table, using strips of width \\( h = 1 \\):</p>
+            <table class="worked" style="text-align:center"><tbody>
+              <tr><td style="font-weight:600">\\( x \\)</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+              <tr><td style="font-weight:600">\\( y \\)</td><td>2</td><td>4</td><td>7</td><td>12</td></tr>
+            </tbody></table>
+            <table class="worked">
+              <tr><td>1. <strong>Right-hand</strong> rectangles (height = value at the right of each strip): heights \\( 4,\\ 7,\\ 12 \\), so area \\( \\approx 1\\times(4 + 7 + 12) = 23 \\).</td></tr>
+              <tr><td>2. <strong>Left-hand</strong> rectangles (height = value at the left of each strip): heights \\( 2,\\ 4,\\ 7 \\), so area \\( \\approx 1\\times(2 + 4 + 7) = 13 \\).</td></tr>
+            </table>
+            <p>The true area lies <em>between</em> these two estimates. Rectangles are the simplest numerical method, but their flat tops leave big gaps against a curve.</p>`,
+            readCheck: { q: "Using strips of width 1 and the values \\( y = 2, 4, 7, 12 \\), what is the right-hand rectangle estimate?", opts: ["\\( 23 \\)", "\\( 13 \\)", "\\( 25 \\)", "\\( 12 \\)"], ans: 0, explain: "Right-hand heights are \\( 4, 7, 12 \\) (drop the first value), so \\( 1\\times(4+7+12) = 23 \\)." }
+        },
+        {
+            title: "Do rectangle strips over- or under-estimate?",
+            tag: "Key concept",
+            content: `<p>Whether a rectangle estimate is too big or too small depends on whether the curve is <strong>rising</strong> or <strong>falling</strong>, because the flat top of each rectangle either pokes above the curve or dips below it.</p>
+            <ul>
+              <li>For a <strong>rising</strong> curve, <strong>right-hand</strong> rectangles have tops <em>above</em> the curve → they give an <strong>over-estimate</strong>; <strong>left-hand</strong> rectangles give an <strong>under-estimate</strong>.</li>
+              <li>For a <strong>falling</strong> curve it is the other way round: right-hand rectangles under-estimate and left-hand rectangles over-estimate.</li>
+              <li><strong>Rectangles entirely above the curve</strong> (taking the higher edge of every strip) always over-estimate; those entirely below always under-estimate.</li>
+            </ul>
+            <p>The 2022 exam asked for rectangles drawn <strong>above</strong> a rising speed–time curve — that is deliberately the <em>over</em>-estimate of the distance. A good check: the exact area must lie between your over- and under-estimates.</p>`,
+            readCheck: { q: "For a curve that is rising, which rectangles give an over-estimate of the area?", opts: ["Right-hand (higher-edge) rectangles", "Left-hand rectangles", "Midpoint rectangles only", "It is never an over-estimate"], ans: 0, explain: "On a rising curve the right edge of each strip is the higher value, so right-hand rectangles poke above the curve and over-estimate." }
+        },
+        {
+            title: "What is the trapezium rule and how do you use it?",
+            tag: "Worked example",
+            content: `<p>Instead of flat-topped rectangles, join each pair of neighbouring points with a <strong>straight line</strong>. Each strip becomes a <strong>trapezium</strong> that hugs the curve far better, so the estimate is much closer.</p>
+            <p>The <strong>trapezium rule</strong> is <strong>PROVIDED on the exam formula sheet</strong> — you do not memorise it, but you must use it correctly: \\[ \\text{Area} \\approx \\tfrac{1}{2}h\\big[(y_0 + y_n) + 2(y_1 + y_2 + \\dots + y_{n-1})\\big], \\qquad h = \\frac{b-a}{n}. \\] Here \\( y_0 \\) and \\( y_n \\) are the two <strong>end ordinates</strong> (counted once) and \\( y_1, \\dots, y_{n-1} \\) are the <strong>middle ordinates</strong> (all doubled). With \\( n \\) strips there are \\( n+1 \\) ordinates.</p>
+            <svg viewBox="0 0 460 280" width="100%" style="max-width:520px;height:auto;display:block;margin:12px auto" role="img" aria-label="A rising curve with four trapezium strips beneath it; the vertical ordinates y0 to y4 are drawn at equal spacing h, and each strip top is a straight chord joining the curve">
+              <line x1="45" y1="230" x2="435" y2="230" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="45" y1="245" x2="45" y2="35" stroke="currentColor" stroke-width="1.5"/>
+              <polygon points="435,230 426,226 426,234" fill="currentColor"/>
+              <polygon points="45,35 41,44 49,44" fill="currentColor"/>
+              <g fill="currentColor" fill-opacity="0.10" stroke="currentColor" stroke-width="0.8" stroke-opacity="0.5">
+                <polygon points="70,230 70,195 150,172 150,230"/>
+                <polygon points="150,230 150,172 230,140 230,230"/>
+                <polygon points="230,230 230,140 310,98 310,230"/>
+                <polygon points="310,230 310,98 390,55 390,230"/>
+              </g>
+              <path d="M70,195 Q110,187 150,172 Q190,159 230,140 Q270,122 310,98 Q350,80 390,55" fill="none" stroke="currentColor" stroke-width="2.4"/>
+              <g stroke="currentColor" stroke-width="1.2">
+                <line x1="70" y1="230" x2="70" y2="195"/><line x1="150" y1="230" x2="150" y2="172"/><line x1="230" y1="230" x2="230" y2="140"/><line x1="310" y1="230" x2="310" y2="98"/><line x1="390" y1="230" x2="390" y2="55"/>
+              </g>
+              <g font-size="11" fill="currentColor" text-anchor="middle">
+                <text x="70" y="246">\\( y_0 \\)</text><text x="150" y="246">\\( y_1 \\)</text><text x="230" y="246">\\( y_2 \\)</text><text x="310" y="246">\\( y_3 \\)</text><text x="390" y="246">\\( y_4 \\)</text>
+                <text x="110" y="262">h</text><text x="190" y="262">h</text><text x="270" y="262">h</text><text x="350" y="262">h</text>
+                <text x="70" y="264">a</text><text x="390" y="278">b</text>
+              </g>
+              <g stroke="currentColor" stroke-width="0.7" stroke-opacity="0.6">
+                <line x1="70" y1="254" x2="150" y2="254"/><line x1="150" y1="254" x2="230" y2="254"/><line x1="230" y1="254" x2="310" y2="254"/><line x1="310" y1="254" x2="390" y2="254"/>
+              </g>
+            </svg>
+            <p><strong>Worked example</strong> — estimate the area under a curve from \\( x = 0 \\) to \\( x = 4 \\) (so \\( h = 1 \\), \\( n = 4 \\)) for the readings below:</p>
+            <table class="worked" style="text-align:center"><tbody>
+              <tr><td style="font-weight:600">\\( x \\)</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+              <tr><td style="font-weight:600">\\( y \\)</td><td>1</td><td>2</td><td>5</td><td>10</td><td>17</td></tr>
+            </tbody></table>
+            <table class="worked">
+              <tr><td>1. End ordinates: \\( y_0 + y_4 = 1 + 17 = 18 \\).</td></tr>
+              <tr><td>2. Middle ordinates, doubled: \\( 2(y_1 + y_2 + y_3) = 2(2 + 5 + 10) = 34 \\).</td></tr>
+              <tr><td>3. Apply the rule: \\( \\text{Area} \\approx \\tfrac{1}{2}\\times 1\\times(18 + 34) = \\tfrac{1}{2}\\times 52 = 26 \\).</td></tr>
+            </table>
+            <p>Always write the substituted formula before the number — <strong>an answer with no working scores no marks</strong>.</p>`,
+            readCheck: { q: "With \\( n = 5 \\) strips, how many ordinates (\\( y \\)-values) does the trapezium rule need?", opts: ["\\( 6 \\)", "\\( 5 \\)", "\\( 4 \\)", "\\( 10 \\)"], ans: 0, explain: "There is one more ordinate than strips: \\( n+1 = 6 \\), namely \\( y_0 \\) up to \\( y_5 \\)." }
+        },
+        {
+            title: "Does the trapezium rule over- or under-estimate?",
+            tag: "Key concept",
+            content: `<p>The straight chords that form the tops of the trapezia lie either just above or just below the true curve, depending on the way the curve <strong>bends</strong>.</p>
+            <ul>
+              <li>For a curve that is <strong>concave up</strong> (bending upwards, like \\( y = x^2 \\)), each chord sits <em>above</em> the curve, so the trapezium rule <strong>over-estimates</strong> the area.</li>
+              <li>For a curve that is <strong>concave down</strong> (bending downwards, like \\( y = \\sqrt{x} \\)), each chord sits <em>below</em> the curve, so the trapezium rule <strong>under-estimates</strong> the area.</li>
+            </ul>
+            <p>Check it on the worked example above: \\( y = x^2 + 1 \\) is concave up, and the exact area \\( \\int_0^4 (x^2 + 1)\\,dx = \\tfrac{64}{3} + 4 \\approx 25.3 \\) is a little <em>below</em> the trapezium estimate of \\( 26 \\) — an over-estimate, exactly as predicted.</p>`,
+            readCheck: { q: "The trapezium rule is applied to a curve that is concave up (bending upwards). The estimate is:", opts: ["An over-estimate", "An under-estimate", "Always exact", "Impossible to tell"], ans: 0, explain: "On a concave-up curve the chords lie above the curve, so the trapezia enclose slightly too much area — an over-estimate." }
+        },
+        {
+            title: "How do you improve a numerical area estimate?",
+            tag: "Exam skill",
+            content: `<p>A numerical estimate is only ever approximate. To make it <strong>more accurate</strong> you must make the strips fit the curve better:</p>
+            <ul>
+              <li><strong>Use more strips</strong> — a larger \\( n \\), which means a <strong>smaller</strong> strip width \\( h \\). Thinner strips leave smaller gaps between the chords (or rectangle tops) and the curve. If the data is fixed, this means <strong>collecting readings at smaller intervals</strong>.</li>
+              <li>Averaging an over-estimate with an under-estimate, or moving from rectangles to the <strong>trapezium rule</strong>, also improves the estimate.</li>
+            </ul>
+            <p><strong>What does NOT improve it</strong> — two classic wrong answers examiners see every year:</p>
+            <ul>
+              <li>Giving the answer to <strong>more significant figures</strong>. That is only rounding; the underlying estimate is unchanged, so it is <em>not</em> more accurate.</li>
+              <li>Switching to <strong>calculus / integration</strong>. When the question gives only a table (or asks you to "estimate"), integration misses the point — and here the equation is often unknown.</li>
+            </ul>
+            <p>So when a question says <em>"explain how the estimate could be improved"</em>, the answer is always <strong>smaller strips / more data points</strong>.</p>`,
+            readCheck: { q: "\"Explain how the estimate could be improved.\" Which is the marks-earning answer?", opts: ["Use more strips (smaller intervals / more data points)", "Give the answer to more significant figures", "Round to 3 decimal places", "Use Simpson's rule from memory"], ans: 0, explain: "More strips (a smaller \\( h \\)) makes the chords hug the curve better; more sig figs is only rounding and earns nothing." }
+        },
+        {
+            title: "Which formula is provided, and what are the exam traps?",
+            tag: "Exam skill",
+            content: `<p>Knowing what you must memorise versus what is printed for you is itself an exam skill.</p>
+            <ul>
+              <li>The <strong>trapezium rule is PROVIDED</strong> on the formula sheet (alongside the binomial series, the binomial distribution and the kinematics relations). You still have to read \\( h = \\frac{b-a}{n} \\) correctly and know which ordinates double.</li>
+              <li>The <strong>rectangle method is not a formula</strong> — you simply sum width × height for each strip.</li>
+            </ul>
+            <p><strong>The examiner traps on this topic (2024 report):</strong></p>
+            <ul>
+              <li>Using \\( h = 5 \\) (the last \\( x \\)-value) instead of \\( h = \\frac{b-a}{n} = 1 \\) — this gives a wildly large answer such as 60+.</li>
+              <li>Not <strong>sanity-checking</strong> the size of the answer against the data — a total far bigger than the values in the table should ring alarm bells.</li>
+              <li>Writing the <strong>answer with no working</strong> — this scores <strong>M0</strong> even if the number is right.</li>
+              <li>Using <strong>Simpson's rule</strong> — it is off-specification and scores <strong>0</strong>.</li>
+            </ul>`,
+            readCheck: { q: "For the trapezium rule from \\( x = 0 \\) to \\( x = 5 \\) with 5 strips, what is \\( h \\)?", opts: ["\\( 1 \\)", "\\( 5 \\)", "\\( 0.5 \\)", "\\( 2.5 \\)"], ans: 0, explain: "\\( h = \\frac{b-a}{n} = \\frac{5-0}{5} = 1 \\). Putting \\( h = 5 \\) is the classic error that inflates the answer." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "In the trapezium rule, what is the strip width \\( h \\)?", opts: ["\\( \\frac{b-a}{n} \\)", "\\( \\frac{n}{b-a} \\)", "\\( b - a \\)", "\\( \\frac{a+b}{2} \\)"], ans: 0, explain: "The interval \\( [a,b] \\) is split into \\( n \\) equal strips, so each has width \\( h = \\frac{b-a}{n} \\)." },
+        { q: "Estimate the area from the trapezium rule with \\( h = 1 \\), end ordinates \\( 1 \\) and \\( 17 \\) and middle ordinates \\( 2, 5, 10 \\).", opts: ["\\( 26 \\)", "\\( 52 \\)", "\\( 17.5 \\)", "\\( 44 \\)"], ans: 0, explain: "\\( \\tfrac{1}{2}\\times 1\\times[(1+17) + 2(2+5+10)] = \\tfrac{1}{2}(18 + 34) = 26 \\). Forgetting to double the middle ordinates gives \\( \\tfrac{1}{2}(18+17) = 17.5 \\); omitting the \\( \\tfrac{1}{2} \\) gives \\( 52 \\)." },
+        { q: "A student estimates an area from \\( x = 0 \\) to \\( x = 5 \\) using 5 strips but puts \\( h = 5 \\) into the trapezium rule. What have they done wrong?", opts: ["\\( h \\) should be \\( \\frac{5-0}{5} = 1 \\), not \\( 5 \\)", "Nothing — \\( h = 5 \\) is correct", "They should double the end ordinates", "They should have used 4 strips"], ans: 0, explain: "\\( h = \\frac{b-a}{n} = 1 \\). Using \\( h = 5 \\) multiplies the whole answer by 5 and gives an absurdly large area." },
+        { q: "In the trapezium rule, which ordinates are doubled?", opts: ["Every ordinate except the first and last", "Every ordinate including the ends", "Only the first and last", "None of them"], ans: 0, explain: "The end ordinates \\( y_0 \\) and \\( y_n \\) are counted once; the middle ordinates \\( y_1, \\dots, y_{n-1} \\) are all doubled." },
+        { q: "The trapezium rule is used on a curve that is concave up (bending upwards). The estimate is:", opts: ["Too big (an over-estimate)", "Too small (an under-estimate)", "Exact", "Sometimes over, sometimes under"], ans: 0, explain: "The chords lie above a concave-up curve, so the trapezia enclose slightly too much area — an over-estimate." },
+        { q: "How can the accuracy of a trapezium-rule estimate be improved?", opts: ["Use more strips (a smaller \\( h \\))", "Give the answer to more significant figures", "Use fewer strips", "Round the ordinates first"], ans: 0, explain: "More strips means thinner ones that hug the curve better; more sig figs is only rounding and does not improve the method." },
+        { q: "For a rising curve, rectangles taken at the LEFT of each strip give:", opts: ["An under-estimate", "An over-estimate", "The exact area", "The same as the trapezium rule"], ans: 0, explain: "On a rising curve the left edge is the lower value, so left-hand rectangles sit below the curve — an under-estimate." },
+        { q: "With 6 strips, how many ordinates does the trapezium rule use?", opts: ["\\( 7 \\)", "\\( 6 \\)", "\\( 5 \\)", "\\( 12 \\)"], ans: 0, explain: "The number of ordinates is always \\( n + 1 \\); with 6 strips that is 7 (\\( y_0 \\) to \\( y_6 \\))." },
+        { q: "A candidate answers a trapezium-rule question using Simpson's rule and gets a sensible number. How is it marked?", opts: ["It scores 0 — Simpson's rule is off-specification", "Full marks, since the number is sensible", "Half marks", "Marks only for the final answer"], ans: 0, explain: "Simpson's rule is not on the 6993 specification; the 2024 mark scheme states its use scores M0." },
+        { q: "Using the trapezium rule with the readings \\( y = 0, 6.6, 9.6, 11.7, 13.2, 14.4 \\) and \\( h = 2 \\), the estimated area is closest to:", opts: ["\\( 96.6 \\)", "\\( 55.5 \\)", "\\( 111 \\)", "\\( 48.3 \\)"], ans: 0, explain: "\\( \\tfrac{1}{2}\\times 2\\times[(0+14.4) + 2(6.6+9.6+11.7+13.2)] = 14.4 + 82.2 = 96.6 \\)." },
+        { q: "A rectangle estimate of a distance comes out at 111 when the speeds in the table are all below 15. The most sensible response is to:", opts: ["Accept it — width 2 over 5 strips of speeds around 10 gives a total near 100", "Reject it as far too large", "Divide it by the number of strips", "Assume \\( h = 5 \\) was needed"], ans: 0, explain: "Five strips of width 2 with heights up to ~14 give roughly \\( 2\\times 55 \\approx 110 \\); a sanity check confirms 111 is the right order of size." },
+        { q: "Which of these is the best reason to use the trapezium rule rather than rectangles for the same strips?", opts: ["Sloping chords fit the curve better than flat tops", "It uses fewer ordinates", "It always gives the exact area", "It does not need the value of \\( h \\)"], ans: 0, explain: "Trapezia join the points with sloping lines that hug the curve, leaving smaller gaps than flat-topped rectangles." }
+    ];
+
+    const matchData = [
+        { term: "Trapezium rule", def: "\\( \\text{Area} \\approx \\tfrac{1}{2}h\\big[(y_0 + y_n) + 2(y_1 + \\dots + y_{n-1})\\big] \\)" },
+        { term: "Strip width \\( h \\)", def: "\\( \\frac{b-a}{n} \\)" },
+        { term: "End ordinates \\( y_0, y_n \\)", def: "Added once (not doubled)" },
+        { term: "Middle ordinates \\( y_1, \\dots, y_{n-1} \\)", def: "All doubled in the formula" },
+        { term: "Number of ordinates with \\( n \\) strips", def: "\\( n + 1 \\)" },
+        { term: "Rising curve, right-hand rectangles", def: "Over-estimate of the area" },
+        { term: "Rising curve, left-hand rectangles", def: "Under-estimate of the area" },
+        { term: "Trapezium rule on a concave-up curve", def: "Over-estimates the area" },
+        { term: "Trapezium rule on a concave-down curve", def: "Under-estimates the area" },
+        { term: "Improve a numerical estimate", def: "Use more strips / smaller \\( h \\)" },
+        { term: "\"More significant figures\"", def: "Does NOT improve the accuracy" },
+        { term: "Simpson's rule in a 6993 answer", def: "Scores 0 (off-specification)" },
+        { term: "Answer with no working shown", def: "Scores M0 even if correct" }
+    ];
+
+    // FIB blanks sit in PLAIN TEXT only, never inside a \( \) region (§8.4 Rule 3b).
+    const fibData = [
+        { display: "In the trapezium rule the whole bracket is multiplied by ___B1___ of \\( h \\), and the strip width is \\( h = \\frac{b-a}{n} \\), where \\( n \\) is the number of ___B2___.", blanks: { B1: "half", B2: "strips" } },
+        { display: "The two end ordinates \\( y_0 \\) and \\( y_n \\) are counted ___B1___, but every middle ordinate is ___B2___.", blanks: { B1: "once", B2: "doubled" } },
+        { display: "For a curve that is rising, rectangles taken at the ___B1___ end of each strip give an over-estimate of the area.", blanks: { B1: "right" } },
+        { display: "The trapezium rule over-estimates the area under a curve that is concave ___B1___.", blanks: { B1: "up" } },
+        { display: "To improve a numerical area estimate you should use more strips, that is, a ___B1___ value of \\( h \\).", blanks: { B1: "smaller" } },
+        { display: "Writing the answer to more significant ___B1___ does NOT make a trapezium-rule estimate more accurate.", blanks: { B1: "figures" } },
+        { display: "With 5 strips the trapezium rule needs ___B1___ ordinates, and using \\( h = 5 \\) instead of \\( h = 1 \\) is a common ___B2___.", blanks: { B1: "6", B2: "error" } }
+    ];
+
+    const fibWords = ["half", "strips", "once", "doubled", "right", "up", "smaller", "figures", "6", "error", "left", "down", "larger", "twice", "quarter", "5"];
+
+    const tfData = [
+        { statement: "The trapezium rule is printed on the exam formula sheet, so you do not have to memorise it.", answer: true, explanation: "It is one of the provided formulae, along with the binomial series, the binomial distribution and the kinematics relations — but you must still apply it correctly." },
+        { statement: "For an area from \\( x = 0 \\) to \\( x = 5 \\) using 5 strips, the trapezium rule uses \\( h = 5 \\).", answer: false, explanation: "\\( h = \\frac{b-a}{n} = \\frac{5-0}{5} = 1 \\). Using \\( h = 5 \\) is the classic error that inflates the answer fivefold." },
+        { statement: "Every ordinate in the trapezium rule is doubled.", answer: false, explanation: "Only the middle ordinates are doubled; the two end ordinates \\( y_0 \\) and \\( y_n \\) are counted once." },
+        { statement: "For a rising curve, left-hand rectangles under-estimate the area.", answer: true, explanation: "The left edge of each strip is the lower value, so the rectangles sit below the curve — an under-estimate." },
+        { statement: "The trapezium rule over-estimates the area under a curve that bends upwards (concave up).", answer: true, explanation: "The chords lie above a concave-up curve, so the trapezia enclose slightly too much area." },
+        { statement: "To improve a numerical estimate you should give your answer to more significant figures.", answer: false, explanation: "More significant figures is only rounding — the underlying estimate is unchanged. You improve it with more (thinner) strips." },
+        { statement: "Using Simpson's rule instead of the trapezium rule still earns the marks in 6993.", answer: false, explanation: "Simpson's rule is off-specification; the mark scheme awards it 0." },
+        { statement: "With \\( n \\) strips there are \\( n + 1 \\) ordinates.", answer: true, explanation: "You need a \\( y \\)-value at both edges of every strip, and neighbouring strips share an edge, giving \\( n + 1 \\) ordinates in total." }
+    ];
+
+    const miscData = [
+        { wrong: "For an area from \\( x = 0 \\) to \\( x = 5 \\) with 5 strips, I put \\( h = 5 \\) into the trapezium rule.", correct: "\\( h \\) is the strip WIDTH, \\( h = \\frac{b-a}{n} = \\frac{5-0}{5} = 1 \\), not the last \\( x \\)-value. A weak answer uses \\( h = 5 \\) and gets 60+; a strong answer uses \\( h = 1 \\) and sanity-checks the size against the data.", readCheck: { q: "Area from \\( x = 0 \\) to \\( x = 5 \\) with 5 strips: what is \\( h \\)?", opts: ["\\( 1 \\)", "\\( 5 \\)", "\\( 0.2 \\)", "\\( 2.5 \\)"], ans: 0, explain: "\\( h = \\frac{5-0}{5} = 1 \\)." } },
+        { wrong: "To improve the estimate I gave my answer to more significant figures.", correct: "More significant figures is only rounding — the estimate itself is unchanged. A strong answer says use MORE STRIPS (a smaller \\( h \\) / more data points), which makes the chords hug the curve.", readCheck: { q: "Which genuinely improves a trapezium-rule estimate?", opts: ["More strips (smaller \\( h \\))", "More significant figures", "Fewer strips", "Rounding the ordinates"], ans: 0, explain: "Thinner strips reduce the gap between the chords and the curve; extra sig figs do nothing." } },
+        { wrong: "I doubled every ordinate, including the first and last, in the trapezium rule.", correct: "The end ordinates \\( y_0 \\) and \\( y_n \\) are counted ONCE; only the middle ordinates are doubled. A strong answer writes \\( (y_0 + y_n) + 2(y_1 + \\dots + y_{n-1}) \\).", readCheck: { q: "Which ordinates are NOT doubled?", opts: ["The first and last (\\( y_0 \\) and \\( y_n \\))", "The middle ones", "All of them", "None of them"], ans: 0, explain: "Only \\( y_0 \\) and \\( y_n \\) are counted once." } },
+        { wrong: "For a rising curve I said right-hand rectangles UNDER-estimate the area.", correct: "On a RISING curve the right edge is the HIGHER value, so right-hand rectangles poke above the curve and OVER-estimate. A strong answer states the direction and checks it against a sketch.", readCheck: { q: "Rising curve, right-hand rectangles:", opts: ["Over-estimate", "Under-estimate", "Exact", "Cannot tell"], ans: 0, explain: "The higher right edge makes the rectangles sit above the curve — an over-estimate." } },
+        { wrong: "The question said 'estimate', so I found the equation and integrated it.", correct: "'Estimate' with only a table of readings wants a NUMERICAL method (rectangles or the trapezium rule). Integration (or Simpson's rule) misses the point and, for Simpson's, scores 0.", readCheck: { q: "A question gives a table and asks you to 'estimate' the area. You should:", opts: ["Use the trapezium rule or rectangle strips", "Find the equation and integrate", "Use Simpson's rule", "Guess from the largest value"], ans: 0, explain: "A numerical method is required — that is the whole point of 'estimate' from a table." } },
+        { wrong: "My trapezium-rule area came out as 62.5 and I wrote it down without a second thought.", correct: "Always SANITY-CHECK the size against the data. If the ordinates are all around 2–7 over an interval of length 5, an area near 60 is far too big — usually a sign that \\( h = 5 \\) was used instead of \\( h = 1 \\).", readCheck: { q: "Your estimate is much bigger than the data suggests. First check:", opts: ["Whether you used the correct \\( h = \\frac{b-a}{n} \\)", "Whether you rounded enough", "Whether to add more sig figs", "Whether to use Simpson's rule"], ans: 0, explain: "An oversized answer usually means \\( h \\) was set to the final \\( x \\)-value instead of the strip width." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Show the substituted formula (no working = M0)", pills: ["working", "M0", "show substitution"], content: `<p>The trapezium rule is provided, so examiners expect to see it <strong>substituted</strong>. Write \\( \\tfrac{1}{2}\\times 1\\times[(1+7.30) + 2(1.13+1.43+2.11+3.69)] \\) before the number.</p><p><strong>0 marks:</strong> just "\\( = 12.5 \\)". <strong>Full marks:</strong> the formula with correct \\( h \\), the substitution, then \\( 12.5 \\) to 1 d.p. The 2024 scheme states plainly: an answer with no working is M0.</p>`, readCheck: { q: "Why must you write the substituted formula for a trapezium-rule question?", opts: ["An answer with no working scores M0", "It looks neater", "It is not necessary if the answer is right", "To use more space"], ans: 0, explain: "The method mark needs the substitution visible; the number alone earns nothing." } },
+        { type: "explain", title: "Get \\( h \\) right, then sanity-check the size", pills: ["h = (b−a)/n", "sanity check"], content: `<p>The single most common error is putting \\( h = 5 \\) instead of \\( h = \\frac{b-a}{n} = 1 \\). After you get a number, <strong>compare it to the data</strong>: if the readings are around 1–7 and your area is 60+, something is wrong. This one habit rescues a whole question.</p>`, readCheck: { q: "Your area estimate is 62.5 but the ordinates are all under 8. Most likely you:", opts: ["Used \\( h = 5 \\) instead of \\( h = 1 \\)", "Rounded too early", "Doubled the wrong ordinates", "Used too many strips"], ans: 0, explain: "A five-times-too-big answer points straight at \\( h = 5 \\) instead of the strip width 1." } },
+        { type: "explain", title: "\"Explain how to improve the estimate\"", pills: ["improve", "smaller strips", "not sig figs"], content: `<p>This [1]-mark part appears almost every year. The mark is for saying use <strong>more strips / smaller intervals / more data points</strong> (or move rectangles → trapezia, or average an over- and under-estimate).</p><p>It is <strong>never</strong> "more significant figures" and <strong>never</strong> "use calculus / integration". Those earn nothing.</p>`, readCheck: { q: "\"Explain how the estimate could be improved\" — the safe answer is:", opts: ["Take readings at smaller intervals (more strips)", "Quote more significant figures", "Find the equation and integrate", "Use Simpson's rule"], ans: 0, explain: "Smaller intervals / more strips is the marks-earning improvement." } }
+    ];
+
+    const flashcards = [
+        { term: "Trapezium rule", def: "\\( \\text{Area} \\approx \\tfrac{1}{2}h[(y_0 + y_n) + 2(y_1 + \\dots + y_{n-1})] \\) — provided on the sheet." },
+        { term: "Strip width \\( h \\)", def: "\\( h = \\frac{b-a}{n} \\), where \\( n \\) is the number of strips." },
+        { term: "Number of ordinates", def: "With \\( n \\) strips there are \\( n + 1 \\) ordinates (\\( y_0 \\) to \\( y_n \\))." },
+        { term: "End ordinates \\( y_0, y_n \\)", def: "Counted once — never doubled." },
+        { term: "Middle ordinates", def: "\\( y_1, \\dots, y_{n-1} \\); every one is doubled." },
+        { term: "Rectangle strips", def: "Area estimate: sum of width × height for each strip." },
+        { term: "Left-hand rectangles (rising curve)", def: "Sit below the curve → under-estimate." },
+        { term: "Right-hand rectangles (rising curve)", def: "Poke above the curve → over-estimate." },
+        { term: "Trapezium rule: concave up", def: "Chords lie above the curve → over-estimate." },
+        { term: "Trapezium rule: concave down", def: "Chords lie below the curve → under-estimate." },
+        { term: "Improve the estimate", def: "More strips / smaller \\( h \\) / more data points." },
+        { term: "\"More significant figures\"", def: "Only rounding — does NOT improve accuracy." },
+        { term: "Simpson's rule", def: "Off-specification in 6993 — scores 0." },
+        { term: "Sanity check", def: "Compare the estimate to the size of the data; huge answers usually mean wrong \\( h \\)." },
+        { term: "Provided vs memorise", def: "Trapezium rule is provided; the rectangle method is not a formula." },
+        { term: "Ordinate", def: "A \\( y \\)-value read from the curve at a strip boundary." }
+    ];
+
+    // Exam questions authored with format OMITTED (§6.2 FORMAT NOTE, ADM-A): every
+    // written part routes to the proven `lines` self-mark tick panel. The two SKETCH
+    // parts (2022 Q11 a/b) use the overlay pattern (§6.1): the solved SVG overlay is in
+    // the modelAnswer (rendered raw), the blank grid is in the case study, and the
+    // grouped markPoints ARE the mark-scheme feature checklist the student ticks.
+    // 2024 Q12(b)(i) is the central-difference gradient estimate that shares this
+    // question with the trapezium part; recorded here (not on 8.1, which carries 2022 Q14).
+    const examQuestions = [
+        {
+            num: "12 (a)",
+            marks: 3,
+            year: "2024",
+            type: "written",
+            caseId: "q12-2024",
+            question: `<p>Using the trapezium rule with 5 strips, find an estimate for the area between the \\( x \\)-axis, the \\( y \\)-axis, this curve and the line \\( x = 5 \\). Give your answer correct to 1 decimal place.</p>`,
+            hint: "The strip width is \\( h = \\frac{b-a}{n} = \\frac{5-0}{5} = 1 \\), NOT 5. Add the two end ordinates once and double the four middle ordinates.",
+            starter: "Write the substituted trapezium-rule formula first, then the value to 1 d.p.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 3 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — use of the correct formula (with \\( h = 1 \\)) or adding 5 separate trapezia: \\( A = \\tfrac{1}{2}\\times 1\\times\\big(y_0 + 2(y_1 + y_2 + y_3 + y_4) + y_5\\big) \\).</li>
+              <li><strong>A1</strong> — correct substitutions soi: \\( \\tfrac{1}{2}\\big(1 + 2(1.13 + 1.43 + 2.11 + 3.69) + 7.30\\big) \\).</li>
+              <li><strong>A1</strong> — \\( 12.5 \\) (must be to 1 d.p.).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Using the printed formula OR summing 5 separate trapezia both score. N.B. Use of Simpson's rule is M0. An answer with no working is M0.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Many candidates added 5 separate trapezia rather than use the formula, which is given on the formulae sheet; both are fine. The most significant error was putting \\( h = 5 \\) into the formula — some then reached 60 or more without questioning the size against the original data.</li>
+            </ul></div>`,
+            modelAnswer: `\\( A \\approx \\tfrac{1}{2}\\times 1\\times\\big[(1 + 7.30) + 2(1.13 + 1.43 + 2.11 + 3.69)\\big] = \\tfrac{1}{2}(8.30 + 16.72) = \\tfrac{1}{2}\\times 25.02 = 12.51 = 12.5 \\) (1 d.p.).`,
+            markPoints: { note: "Award each mark for the step shown; no working means no method mark.", groups: [
+                { label: "M1 — correct method", max: 1, points: ["Used the trapezium rule with \\( h = 1 \\) (or added 5 separate trapezia) — Simpson's rule scores 0"] },
+                { label: "A1 — correct substitution", max: 1, points: ["\\( \\tfrac{1}{2}\\big(1 + 2(1.13+1.43+2.11+3.69) + 7.30\\big) \\) seen"] },
+                { label: "A1 — answer to 1 d.p.", max: 1, points: ["\\( 12.5 \\) (to 1 decimal place)"] }
+            ] }
+        },
+        {
+            num: "12 (b)(i)",
+            marks: 2,
+            year: "2024",
+            type: "written",
+            caseId: "q12-2024",
+            question: `<p>Calculate an estimate for the rate of change of \\( y \\) with respect to \\( x \\) for this curve when \\( x = 3 \\). Give your answer correct to 1 decimal place.</p>`,
+            hint: "The best estimate at \\( x = 3 \\) is the central difference: use the \\( y \\)-values either side, at \\( x = 2 \\) and \\( x = 4 \\), over the total run.",
+            starter: "State the difference method you use, then give the gradient to 1 d.p.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO1)</h5><ul>
+              <li><strong>M1</strong> — use of the central difference method with \\( h = 1 \\): \\( \\frac{y_4 - y_2}{2} = \\frac{3.69 - 1.43}{2} \\).</li>
+              <li><strong>A1</strong> — \\( 1.1 \\) (accept \\( 1.13 \\); isw).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The central difference either side of \\( x = 3 \\) gives the best estimate and scores M1 A1. Any other valid difference (forward, backward, or central with \\( h = 2 \\)) scores M1 A0, e.g. forward \\( \\frac{3.69 - 2.11}{1} = 1.58 \\), backward \\( \\frac{2.11 - 1.43}{1} = 0.68 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most candidates understood how to find an estimate and gained the M1, but did not discern what should be done to obtain the BEST estimate with the data provided (the central difference).</li>
+            </ul></div>`,
+            modelAnswer: `The best estimate uses the values either side of \\( x = 3 \\): \\( \\dfrac{y_4 - y_2}{4 - 2} = \\dfrac{3.69 - 1.43}{2} = \\dfrac{2.26}{2} = 1.13 \\approx 1.1 \\) (1 d.p.).`,
+            markPoints: { note: "The A mark needs the central difference for the best estimate.", groups: [
+                { label: "M1 — a valid difference method", max: 1, points: ["Formed a gradient estimate from the \\( y \\)-values, e.g. \\( \\frac{y_4 - y_2}{2} \\) (any valid forward/backward/central difference)"] },
+                { label: "A1 — central difference value", max: 1, points: ["\\( 1.1 \\) (or \\( 1.13 \\)) from the central difference \\( \\frac{3.69 - 1.43}{2} \\)"] }
+            ] }
+        },
+        {
+            num: "12 (b)(ii)",
+            marks: 1,
+            year: "2024",
+            type: "written",
+            caseId: "q12-2024",
+            question: `<p>Explain how this estimate could be improved.</p>`,
+            hint: "Think about the data, not the arithmetic — closer readings, not more decimal places.",
+            starter: "Refer to the spacing of the readings / the strips.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>
+              <li><strong>B1</strong> — collect data for smaller intervals (some reference to the strips or ordinates being closer together, e.g. "smaller strips").</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Any answer referring to closer/smaller intervals earns the mark. If M1 A0 was scored in (b)(i), an answer suggesting an improvement on what they have (e.g. use the central difference method) is also accepted.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Some reference to the strips, or ordinates, having to be closer together (or for instance "smaller strips") could earn the mark here. Answers of "more significant figures" or "use calculus" earn nothing.</li>
+            </ul></div>`,
+            modelAnswer: `Collect data at smaller intervals (take readings closer together, i.e. use smaller strips) so the estimate is based on more, finer data points.`,
+            markPoints: { note: "One mark for referring to smaller/closer intervals.", groups: [
+                { label: "B1 — improvement", max: 1, points: ["Collect data for smaller intervals / closer readings / smaller strips (NOT more significant figures, NOT calculus)"] }
+            ] }
+        },
+        {
+            num: "11 (a)",
+            marks: 2,
+            year: "2022",
+            type: "written",
+            caseId: "q11-2022",
+            question: `<p>Use these results and the axes above to draw a curve to show how her speed varies with time during these 10 seconds.</p>`,
+            hint: "Do this on paper (or a printout of the grid above): plot the six \\( (t, v) \\) points accurately, then join them with a single smooth curve through the origin.",
+            starter: "Plot \\( (0,0), (2,6.6), (4,9.6), (6,11.7), (8,13.2), (10,14.4) \\) and join with a smooth curve.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 2 marks (AO3)</h5><ul>
+              <li><strong>B1</strong> — points seen on a grid with a clear scale (at least one value on each axis); each point plotted within the correct integer range (e.g. \\( 14.4 \\) in \\( [14, 15] \\)).</li>
+              <li><strong>B1</strong> — a smooth curve through \\( (0,0) \\) and \\( (10, 14.4) \\) and at least one other point; the curve must actually be curved in \\( [0, 2] \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>One mark for accurate points, one for a genuinely smooth (curved) line — a series of straight segments does not earn the curve mark.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Generally well done. Marks were lost where points were plotted carelessly or where the "curve" was drawn as ruled straight segments between points.</li>
+            </ul></div>`,
+            modelAnswer: `Plot the six points and join them with one smooth, curved line rising from the origin and flattening as it climbs:
+<svg viewBox="0 0 470 320" width="100%" style="max-width:520px;height:auto;display:block;margin:10px auto" role="img" aria-label="Speed-time graph: the six points plotted and joined by a smooth curve rising from the origin at (0,0) to (10,14.4), steep at first then flattening">
+  <g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.18">
+    <line x1="83" y1="30" x2="83" y2="280"/><line x1="121" y1="30" x2="121" y2="280"/><line x1="159" y1="30" x2="159" y2="280"/><line x1="197" y1="30" x2="197" y2="280"/><line x1="235" y1="30" x2="235" y2="280"/><line x1="273" y1="30" x2="273" y2="280"/><line x1="311" y1="30" x2="311" y2="280"/><line x1="349" y1="30" x2="349" y2="280"/><line x1="387" y1="30" x2="387" y2="280"/><line x1="425" y1="30" x2="425" y2="280"/>
+    <line x1="45" y1="250" x2="430" y2="250"/><line x1="45" y1="220" x2="430" y2="220"/><line x1="45" y1="190" x2="430" y2="190"/><line x1="45" y1="160" x2="430" y2="160"/><line x1="45" y1="130" x2="430" y2="130"/><line x1="45" y1="100" x2="430" y2="100"/><line x1="45" y1="70" x2="430" y2="70"/><line x1="45" y1="40" x2="430" y2="40"/>
+  </g>
+  <line x1="45" y1="280" x2="440" y2="280" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="45" y1="280" x2="45" y2="28" stroke="currentColor" stroke-width="1.5"/>
+  <polygon points="440,280 431,276 431,284" fill="currentColor"/>
+  <polygon points="45,28 41,37 49,37" fill="currentColor"/>
+  <path d="M45,280 Q80,222 121,181 Q159,150 197,136 Q235,114 273,104.5 Q311,89 349,82 Q387,70 425,64" fill="none" stroke="currentColor" stroke-width="2.6"/>
+  <g fill="currentColor">
+    <circle cx="45" cy="280" r="3.5"/><circle cx="121" cy="181" r="3.5"/><circle cx="197" cy="136" r="3.5"/><circle cx="273" cy="104.5" r="3.5"/><circle cx="349" cy="82" r="3.5"/><circle cx="425" cy="64" r="3.5"/>
+  </g>
+  <g font-size="11" fill="currentColor" text-anchor="middle">
+    <text x="45" y="296">0</text><text x="121" y="296">2</text><text x="197" y="296">4</text><text x="273" y="296">6</text><text x="349" y="296">8</text><text x="425" y="296">10</text>
+    <text x="38" y="284" text-anchor="end">0</text><text x="38" y="209" text-anchor="end">5</text><text x="38" y="134" text-anchor="end">10</text><text x="38" y="59" text-anchor="end">15</text>
+    <text x="452" y="284">t s</text><text x="30" y="24">v m s⁻¹</text>
+  </g>
+</svg>`,
+            markPoints: { note: "Tick each feature you achieved on your own paper plot (the checklist is the OCR mark scheme).", groups: [
+                { label: "B1 — points plotted", max: 1, points: ["All six \\( (t, v) \\) points plotted accurately on a scaled grid, e.g. \\( 14.4 \\) in the range \\( [14, 15] \\)"] },
+                { label: "B1 — smooth curve", max: 1, points: ["A single smooth curve through \\( (0,0) \\) and \\( (10, 14.4) \\), genuinely curved (not ruled straight segments)"] }
+            ] }
+        },
+        {
+            num: "11 (b)",
+            marks: 4,
+            year: "2022",
+            type: "written",
+            caseId: "q11-2022",
+            question: `<p>By constructing 5 rectangles of equal width <strong>above</strong> your curve, estimate the distance she has travelled during the first 10 seconds.</p>`,
+            hint: "Distance = area under the speed–time curve. Rectangles ABOVE a rising curve take the higher (right-hand) speed of each 2-second strip, giving an over-estimate. Sum the heights, then multiply by the width 2.",
+            starter: "Sum the right-hand heights and double (width = 2): distance \\( \\approx 2\\times(\\dots) \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3)</h5><ul>
+              <li><strong>B1</strong> — 5 rectangles seen (as in the diagram; they may be entirely above the curve).</li>
+              <li><strong>M1</strong> — attempt to find the area under the curve using the rectangles.</li>
+              <li><strong>M1</strong> — sum of the heights of the rectangles doubled (width \\( = 2 \\)).</li>
+              <li><strong>A1</strong> — \\( 111 \\) (metres).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Main method: \\( \\text{Distance} = 2(6.6 + 9.6 + 11.7 + 13.2 + 14.4) = 2\\times 55.5 = 111 \\). Alternative (rectangles totally above the curve, heights from the top value): sum of heights \\( = 9.4 + 6.4 + 4.3 + 2.8 + 1.6 = 24.5 \\), area \\( = 2(16\\times 5 - 24.5) = 111 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>The intended method took each rectangle's height at the right-hand point on the curve, giving tops above the curve and an over-estimate. Some interpreted "above" as the rectangle being wholly above the curve (top at 16 or 14.4); this also gives 111, by a longer route.</li>
+            </ul></div>`,
+            modelAnswer: `Each strip is 2 seconds wide; taking the right-hand speed of each strip gives tops above the rising curve (an over-estimate). Distance \\( = \\) area \\( \\approx 2(6.6 + 9.6 + 11.7 + 13.2 + 14.4) = 2\\times 55.5 = 111 \\) m.
+<svg viewBox="0 0 470 320" width="100%" style="max-width:520px;height:auto;display:block;margin:10px auto" role="img" aria-label="The speed-time curve with five rectangles of width 2 constructed above it, each using the higher right-hand speed of its strip, giving an over-estimate of the area">
+  <g stroke="currentColor" stroke-width="0.6" stroke-opacity="0.18">
+    <line x1="83" y1="30" x2="83" y2="280"/><line x1="121" y1="30" x2="121" y2="280"/><line x1="159" y1="30" x2="159" y2="280"/><line x1="197" y1="30" x2="197" y2="280"/><line x1="235" y1="30" x2="235" y2="280"/><line x1="273" y1="30" x2="273" y2="280"/><line x1="311" y1="30" x2="311" y2="280"/><line x1="349" y1="30" x2="349" y2="280"/><line x1="387" y1="30" x2="387" y2="280"/><line x1="425" y1="30" x2="425" y2="280"/>
+    <line x1="45" y1="250" x2="430" y2="250"/><line x1="45" y1="220" x2="430" y2="220"/><line x1="45" y1="190" x2="430" y2="190"/><line x1="45" y1="160" x2="430" y2="160"/><line x1="45" y1="130" x2="430" y2="130"/><line x1="45" y1="100" x2="430" y2="100"/><line x1="45" y1="70" x2="430" y2="70"/><line x1="45" y1="40" x2="430" y2="40"/>
+  </g>
+  <g fill="currentColor" fill-opacity="0.10" stroke="currentColor" stroke-width="1">
+    <rect x="45" y="181" width="76" height="99"/>
+    <rect x="121" y="136" width="76" height="144"/>
+    <rect x="197" y="104.5" width="76" height="175.5"/>
+    <rect x="273" y="82" width="76" height="198"/>
+    <rect x="349" y="64" width="76" height="216"/>
+  </g>
+  <line x1="45" y1="280" x2="440" y2="280" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="45" y1="280" x2="45" y2="28" stroke="currentColor" stroke-width="1.5"/>
+  <polygon points="440,280 431,276 431,284" fill="currentColor"/>
+  <polygon points="45,28 41,37 49,37" fill="currentColor"/>
+  <path d="M45,280 Q80,222 121,181 Q159,150 197,136 Q235,114 273,104.5 Q311,89 349,82 Q387,70 425,64" fill="none" stroke="currentColor" stroke-width="2.6"/>
+  <g font-size="11" fill="currentColor" text-anchor="middle">
+    <text x="45" y="296">0</text><text x="121" y="296">2</text><text x="197" y="296">4</text><text x="273" y="296">6</text><text x="349" y="296">8</text><text x="425" y="296">10</text>
+    <text x="38" y="284" text-anchor="end">0</text><text x="38" y="209" text-anchor="end">5</text><text x="38" y="134" text-anchor="end">10</text><text x="38" y="59" text-anchor="end">15</text>
+    <text x="452" y="284">t s</text><text x="30" y="24">v m s⁻¹</text>
+  </g>
+</svg>`,
+            markPoints: { note: "Tick each mark-scheme feature you achieved on your paper (5 rectangles above the curve).", groups: [
+                { label: "B1 — 5 rectangles drawn", max: 1, points: ["Five equal-width rectangles constructed above the curve"] },
+                { label: "M1 — attempt the area", max: 1, points: ["Attempted the area under the curve from the rectangles"] },
+                { label: "M1 — sum of heights doubled", max: 1, points: ["Summed the rectangle heights and multiplied by the width 2, e.g. \\( 2(6.6+9.6+11.7+13.2+14.4) \\)"] },
+                { label: "A1 — answer", max: 1, points: ["\\( 111 \\) (metres)"] }
+            ] }
+        },
+        {
+            num: "11 (c)",
+            marks: 1,
+            year: "2022",
+            type: "written",
+            caseId: "q11-2022",
+            question: `<p>Without doing any further calculations, explain how she could obtain a better estimate of the distance she has travelled.</p>`,
+            hint: "The estimate is too big (rectangles above the curve). Think about narrower strips, or combining it with an under-estimate — not more decimal places.",
+            starter: "State one genuine improvement to the method (not the precision).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark (AO2)</h5><ul>
+              <li><strong>B1</strong> — more rectangles (narrower strips); OR take the lower set of rectangles and average with this over-estimate; OR use trapezia instead of rectangles.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Any one valid improvement to the method earns the mark. "Find the equation and integrate" misses the point of an estimate and earns nothing.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Candidates suggested taking rectangles below the curve to give an under-estimate and averaging, using the trapezium rule, or making the rectangles narrower (readings at \\( t = 1, 3, 5, \\dots \\)). Those who said the equation should be found and integrated missed the point of the estimation.</li>
+            </ul></div>`,
+            modelAnswer: `Use more rectangles of smaller width (take readings at closer time intervals, e.g. every second). Equivalently, take the rectangles below the curve to get an under-estimate and average the two, or use trapezia instead of rectangles.`,
+            markPoints: { note: "One mark for any valid method improvement.", groups: [
+                { label: "B1 — better estimate", max: 1, points: ["More/narrower rectangles, OR average with an under-estimate, OR use trapezia (NOT more significant figures, NOT 'find the equation and integrate')"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>

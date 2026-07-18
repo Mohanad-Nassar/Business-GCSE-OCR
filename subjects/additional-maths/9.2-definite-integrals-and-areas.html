@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR Level 3 FSMQ Additional Mathematics — Paper 1 · 9. Integration</div>
             <h1>9.2 Definite Integrals and Areas</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,10 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 9.2 Definite Integrals and Areas — placeholder, content not yet written
+    //  DATA: 9.2 Definite Integrals and Areas (CA11, CA12, CA13)
+    //  Maths renders via KaTeX — all LaTeX uses \( \) / \[ \] with backslashes
+    //  doubled in this JS source (ADDMATHS-CONTENT-PLAN.md §8.4).
+    //  Exam Qs = 2023 Q13 (a,b) and 2022 Q10 (a,b).
     // ══════════════════════════════════════
     const pageMeta = {
             id: '9-2-definite-integrals-and-areas',
@@ -266,23 +269,373 @@
             subject: 'additional-maths',
         };
 
+    // Shared stimulus for the exam parts (see examQuestions).
+    // Skipped/relocated: no other current-spec definite-integral-area question is
+    // routed here — 9.1 holds indefinite integration, 9.3 the trapezium rule.
+    const EXAM_CASE_STUDIES = {
+        "q13-2023": `<p>In this question you must show detailed reasoning.</p>
+        <p>The point \\( P \\) with coordinates \\( (2,\\ 12) \\) lies on the curve \\( y = 8x - x^2 \\). The tangent to this curve at \\( P \\) meets the \\( y \\)-axis at the point \\( R \\), as shown in the diagram. The origin is \\( O \\).</p>
+        <svg viewBox="0 0 360 260" width="100%" style="max-width:400px;height:auto;display:block;margin:12px auto" role="img" aria-label="Downward parabola y equals 8x minus x squared from the origin O, with the point P at 2, 12 on the rising left side; the tangent at P is a straight line crossing the y-axis at R below P">
+          <line x1="50" y1="30" x2="50" y2="235" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="35" y1="220" x2="345" y2="220" stroke="currentColor" stroke-width="1.4"/>
+          <polygon points="50,30 46,40 54,40" fill="currentColor"/>
+          <polygon points="345,220 335,216 335,224" fill="currentColor"/>
+          <polyline points="50,220 85,136.9 120,77.5 155,41.9 190,30 225,41.9 260,77.5 295,136.9 330,220" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <line x1="50" y1="172.5" x2="165" y2="18" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="120" cy="77.5" r="3.5" fill="currentColor"/>
+          <circle cx="50" cy="172.5" r="3.5" fill="currentColor"/>
+          <g font-size="13" fill="currentColor">
+            <text x="128" y="76">P</text>
+            <text x="36" y="176" text-anchor="end">R</text>
+            <text x="40" y="234" text-anchor="end">O</text>
+            <text x="42" y="34" text-anchor="end">y</text>
+            <text x="343" y="236" text-anchor="end">x</text>
+          </g>
+        </svg>`,
+        "q10-2022": `<p>In this question you must show detailed reasoning.</p>
+        <p>Two curves have the following equations.</p>
+        <p>\\[ C_1:\\ y = x^2 - 4x + 4 \\]</p>
+        <p>\\[ C_2:\\ y = -x^2 + 8x - 6 \\]</p>`
+    };
+
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>9.2 Definite Integrals and Areas</strong> will appear here soon.</p>`
+            title: "How do you evaluate a definite integral?",
+            tag: "Key concept",
+            content: `<p>A <strong>definite integral</strong> \\( \\int_a^b y\\,dx \\) has two <strong>limits</strong>: a lower limit \\( a \\) and an upper limit \\( b \\). Unlike an indefinite integral it produces a <em>number</em>, not a function — so there is <strong>no</strong> constant of integration.</p>
+            <ul>
+              <li><strong>Step 1.</strong> Integrate as usual and write the result in square brackets with the limits: \\( \\big[F(x)\\big]_a^b \\).</li>
+              <li><strong>Step 2.</strong> Substitute the limits and subtract: \\[ \\int_a^b y\\,dx = F(b) - F(a). \\] Always <strong>upper minus lower</strong>.</li>
+              <li>The \\( +c \\) is not needed — it would appear in both \\( F(b) \\) and \\( F(a) \\) and cancel.</li>
+            </ul>
+            <p><strong>Worked example — evaluate \\( \\int_1^3 (2x + 1)\\,dx \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Integrate: \\( \\big[x^2 + x\\big]_1^3 \\).</td></tr>
+              <tr><td>2. Upper limit \\( x = 3 \\): \\( 3^2 + 3 = 12 \\).</td></tr>
+              <tr><td>3. Lower limit \\( x = 1 \\): \\( 1^2 + 1 = 2 \\).</td></tr>
+              <tr><td>4. Subtract: \\[ \\int_1^3 (2x+1)\\,dx = 12 - 2 = 10. \\]</td></tr>
+            </table>`,
+            readCheck: { q: "Evaluate \\( \\int_0^2 3x^2\\,dx \\).", opts: ["\\( 8 \\)", "\\( 12 \\)", "\\( 24 \\)", "\\( 4 \\)"], ans: 0, explain: "\\( \\big[x^3\\big]_0^2 = 2^3 - 0^3 = 8 \\). Integrate \\( 3x^2 \\) to \\( x^3 \\), then substitute the limits." }
+        },
+        {
+            title: "How do you find the area between a curve and the x-axis?",
+            tag: "Method",
+            content: `<p>The area enclosed by a curve, the \\( x \\)-axis and the two vertical lines (<strong>ordinates</strong>) \\( x = a \\) and \\( x = b \\) is \\[ \\text{Area} = \\int_a^b y\\,dx, \\] provided the curve stays <strong>above</strong> the \\( x \\)-axis between those limits. The limits are always the <strong>\\( x \\)-values</strong> of the boundaries.</p>
+            <p><strong>Worked example — area under \\( y = x^2 + 1 \\) from \\( x = 0 \\) to \\( x = 3 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( \\text{Area} = \\int_0^3 (x^2 + 1)\\,dx = \\big[\\tfrac{x^3}{3} + x\\big]_0^3 \\).</td></tr>
+              <tr><td>2. At \\( x = 3 \\): \\( \\tfrac{27}{3} + 3 = 12 \\).</td></tr>
+              <tr><td>3. At \\( x = 0 \\): \\( 0 + 0 = 0 \\).</td></tr>
+              <tr><td>4. Area \\( = 12 - 0 = 12 \\) square units.</td></tr>
+            </table>
+            <svg viewBox="0 0 320 230" width="100%" style="max-width:360px;height:auto;display:block;margin:14px auto" role="img" aria-label="Curve y equals x squared plus 1 rising left to right, with the region between the curve, the x-axis and the ordinates x equals 0 and x equals 3 shaded">
+              <polygon points="40,190 40,173 82,169 123,156 165,135 207,105 248,67 290,20 290,190" fill="currentColor" fill-opacity="0.18"/>
+              <line x1="40" y1="20" x2="40" y2="205" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="25" y1="190" x2="305" y2="190" stroke="currentColor" stroke-width="1.4"/>
+              <polygon points="40,20 36,30 44,30" fill="currentColor"/>
+              <polygon points="305,190 295,186 295,194" fill="currentColor"/>
+              <polyline points="40,173 82,169 123,156 165,135 207,105 248,67 290,20" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <line x1="290" y1="185" x2="290" y2="195" stroke="currentColor" stroke-width="1.4"/>
+              <g font-size="12" fill="currentColor">
+                <text x="40" y="204" text-anchor="middle">0</text>
+                <text x="290" y="204" text-anchor="middle">3</text>
+                <text x="34" y="24" text-anchor="end">y</text>
+                <text x="303" y="186" text-anchor="end">x</text>
+              </g>
+            </svg>
+            <p>Mark the ordinates, shade the strip, integrate between them, and give the answer in square units.</p>`,
+            readCheck: { q: "The area between \\( y = 3x^2 \\), the \\( x \\)-axis and the ordinates \\( x = 1 \\) and \\( x = 2 \\) is:", opts: ["\\( 7 \\)", "\\( 8 \\)", "\\( 9 \\)", "\\( 3 \\)"], ans: 0, explain: "\\( \\int_1^2 3x^2\\,dx = \\big[x^3\\big]_1^2 = 8 - 1 = 7 \\)." }
+        },
+        {
+            title: "What happens when the region is below the x-axis?",
+            tag: "Common error",
+            content: `<p>Where a curve dips <strong>below</strong> the \\( x \\)-axis, \\( y \\) is negative, so the definite integral comes out <strong>negative</strong>. A physical area cannot be negative — take the <strong>modulus</strong> (drop the sign).</p>
+            <ul>
+              <li>If a region is partly above and partly below the axis, one integral over the whole range gives a <em>partial cancellation</em>, not the true area.</li>
+              <li>Split the range at the <strong>roots</strong> (where \\( y = 0 \\)), work out each piece separately, and add the <em>sizes</em> together.</li>
+            </ul>
+            <p><strong>Worked example — area between \\( y = x^2 - 2x \\) and the \\( x \\)-axis from \\( x = 0 \\) to \\( x = 2 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. \\( \\int_0^2 (x^2 - 2x)\\,dx = \\big[\\tfrac{x^3}{3} - x^2\\big]_0^2 \\).</td></tr>
+              <tr><td>2. At \\( x = 2 \\): \\( \\tfrac{8}{3} - 4 = -\\tfrac{4}{3} \\); at \\( x = 0 \\): \\( 0 \\).</td></tr>
+              <tr><td>3. Integral \\( = -\\tfrac{4}{3} \\) — negative because the curve is below the axis here.</td></tr>
+              <tr><td>4. Physical area \\( = \\left|-\\tfrac{4}{3}\\right| = \\tfrac{4}{3} \\) square units.</td></tr>
+            </table>`,
+            readCheck: { q: "\\( \\int_{-2}^{2}(x^2 - 4)\\,dx = -\\tfrac{32}{3} \\). What is the physical area between the curve and the \\( x \\)-axis?", opts: ["\\( \\tfrac{32}{3} \\)", "\\( -\\tfrac{32}{3} \\)", "\\( 0 \\)", "\\( \\tfrac{16}{3} \\)"], ans: 0, explain: "The curve is below the axis, so the integral is negative; the physical area is the modulus, \\( \\tfrac{32}{3} \\)." }
+        },
+        {
+            title: "How do you find the area between two curves?",
+            tag: "Method",
+            content: `<p>The area <strong>enclosed between two curves</strong> is found by integrating the <strong>difference</strong> of the two functions — <strong>top curve minus bottom curve</strong> — between the \\( x \\)-values where they cross: \\[ \\text{Area} = \\int_a^b \\big(y_{\\text{top}} - y_{\\text{bottom}}\\big)\\,dx. \\]</p>
+            <ul>
+              <li><strong>First</strong> find the limits by solving the two equations <strong>simultaneously</strong> — the \\( x \\)-coordinates of the intersection points are \\( a \\) and \\( b \\).</li>
+              <li>Subtracting top \\( - \\) bottom handles curves below the axis automatically, so you rarely need to take a modulus here.</li>
+            </ul>
+            <p><strong>Worked example — area between the line \\( y = x + 2 \\) and the curve \\( y = x^2 \\):</strong></p>
+            <table class="worked">
+              <tr><td>1. Intersections: \\( x^2 = x + 2 \\Rightarrow x^2 - x - 2 = 0 \\Rightarrow (x-2)(x+1) = 0 \\), so \\( x = -1 \\) and \\( x = 2 \\).</td></tr>
+              <tr><td>2. Between these the line is on top: \\( \\text{Area} = \\int_{-1}^{2}\\big[(x+2) - x^2\\big]\\,dx \\).</td></tr>
+              <tr><td>3. \\( = \\big[\\tfrac{x^2}{2} + 2x - \\tfrac{x^3}{3}\\big]_{-1}^{2} = \\tfrac{10}{3} - \\left(-\\tfrac{7}{6}\\right) \\).</td></tr>
+              <tr><td>4. \\( = \\tfrac{20}{6} + \\tfrac{7}{6} = \\tfrac{27}{6} = \\tfrac{9}{2} \\) square units.</td></tr>
+            </table>
+            <svg viewBox="0 0 340 240" width="100%" style="max-width:380px;height:auto;display:block;margin:14px auto" role="img" aria-label="A straight line and an upward parabola crossing at the points minus 1, 1 and 2, 4, with the region enclosed between them shaded">
+              <polygon points="66,164 284,56 248,119 211,164 175,191 139,200 103,191 66,164" fill="currentColor" fill-opacity="0.18"/>
+              <line x1="139" y1="20" x2="139" y2="215" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="20" y1="200" x2="330" y2="200" stroke="currentColor" stroke-width="1.4"/>
+              <polygon points="139,20 135,30 143,30" fill="currentColor"/>
+              <polygon points="330,200 320,196 320,204" fill="currentColor"/>
+              <polyline points="30,119 66,164 103,191 139,200 175,191 211,164 248,119 284,56" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <line x1="30" y1="182" x2="320" y2="38" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="66" cy="164" r="3.2" fill="currentColor"/>
+              <circle cx="284" cy="56" r="3.2" fill="currentColor"/>
+              <g font-size="12" fill="currentColor">
+                <text x="60" y="178" text-anchor="end">(-1, 1)</text>
+                <text x="290" y="52">(2, 4)</text>
+                <text x="133" y="24" text-anchor="end">y</text>
+                <text x="328" y="196" text-anchor="end">x</text>
+              </g>
+            </svg>`,
+            readCheck: { q: "To find the area between \\( y = x + 2 \\) and \\( y = x^2 \\), what is the FIRST thing you do?", opts: ["Solve the equations simultaneously to find the limits", "Integrate each curve from 0 to 10", "Add the two functions", "Take the modulus of each curve"], ans: 0, explain: "The limits are the \\( x \\)-values where the curves cross, so you solve them simultaneously first." }
+        },
+        {
+            title: "How do you avoid the classic area traps?",
+            tag: "Exam skill",
+            content: `<p>Most lost marks on area questions come from a small set of slips. Guard against each one:</p>
+            <ul>
+              <li><strong>Wrong limits.</strong> The limits are always \\( x \\)-values. Using the <em>\\( y \\)-values</em> of the intersection points (e.g. integrating from \\( 1 \\) to \\( 9 \\) instead of from \\( -1 \\) to \\( 2 \\)) is a frequent error.</li>
+              <li><strong>Sign of the subtraction.</strong> For two curves, use top \\( - \\) bottom. Getting it the wrong way round gives a negative answer; you may quote its modulus, but state that it is an area.</li>
+              <li><strong>Negative "area".</strong> A region below the axis gives a negative integral — the physical area is the modulus.</li>
+              <li><strong>Symmetry shortcut.</strong> If a region is symmetric about the \\( y \\)-axis (or another line), you may integrate one half and <strong>double</strong> it — but only when the shape really is symmetric, and the limits must match that half.</li>
+              <li><strong>"Exact" is a command word.</strong> Leave the area as a fraction or surd; a rounded decimal scores no marks on an "exact" question.</li>
+            </ul>`,
+            readCheck: { q: "A student finds the area between two curves that cross at \\( (-1,\\ 1) \\) and \\( (2,\\ 4) \\), integrating from \\( 1 \\) to \\( 4 \\). What went wrong?", opts: ["They used the y-values as the x-limits", "They forgot the constant of integration", "They should have added the curves", "Nothing — those are the correct limits"], ans: 0, explain: "The limits are the \\( x \\)-coordinates \\( -1 \\) and \\( 2 \\); \\( 1 \\) and \\( 4 \\) are the \\( y \\)-values." }
+        },
+        {
+            title: "Which integration facts must you memorise?",
+            tag: "Key concept",
+            content: `<p>Definite-integral area questions rely on a few facts you must <strong>memorise</strong> — none of these is on the formula sheet.</p>
+            <ul>
+              <li><strong>Integrate a power:</strong> \\[ \\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + c \\quad (n \\ne -1). \\]</li>
+              <li><strong>Definite integral:</strong> \\( \\int_a^b y\\,dx = \\big[F(x)\\big]_a^b = F(b) - F(a) \\).</li>
+              <li><strong>Area under a curve:</strong> \\( \\text{Area} = \\int_a^b y\\,dx \\) (above the axis).</li>
+              <li><strong>Area between two curves:</strong> \\( \\int_a^b (y_{\\text{top}} - y_{\\text{bottom}})\\,dx \\).</li>
+              <li>\\( \\int_a^a y\\,dx = 0 \\), and swapping the limits changes the sign.</li>
+            </ul>
+            <p><strong>Guardrail:</strong> in this qualification you only integrate <strong>polynomials</strong> — no trig, exponential or log integration, and \\( n \\) is a whole number.</p>`,
+            readCheck: { q: "What is \\( \\int x^3\\,dx \\)?", opts: ["\\( \\frac{x^4}{4} + c \\)", "\\( 3x^2 + c \\)", "\\( \\frac{x^4}{3} + c \\)", "\\( 4x^4 + c \\)"], ans: 0, explain: "Raise the power by one and divide by the new power: \\( \\frac{x^{3+1}}{3+1} = \\frac{x^4}{4} \\), plus \\( c \\)." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: "Evaluate \\( \\int_1^3 (2x + 1)\\,dx \\).", opts: ["\\( 10 \\)", "\\( 12 \\)", "\\( 14 \\)", "\\( 8 \\)"], ans: 0, explain: "\\( \\big[x^2 + x\\big]_1^3 = (9+3) - (1+1) = 12 - 2 = 10 \\). Option \\( 12 \\) forgets to subtract the value at the lower limit." },
+        { q: "Evaluate \\( \\int_0^2 (3x^2 - 2)\\,dx \\).", opts: ["\\( 4 \\)", "\\( 8 \\)", "\\( 12 \\)", "\\( 6 \\)"], ans: 0, explain: "\\( \\big[x^3 - 2x\\big]_0^2 = (8 - 4) - 0 = 4 \\)." },
+        { q: "Which integral gives the area between a curve, the \\( x \\)-axis and the ordinates \\( x = a \\) and \\( x = b \\) (curve above the axis)?", opts: ["\\( \\int_a^b y\\,dx \\)", "\\( \\int_a^b x\\,dy \\)", "\\( \\int_y^x a\\,db \\)", "\\( F(a) - F(b) \\)"], ans: 0, explain: "Area under a curve is \\( \\int_a^b y\\,dx \\), with the \\( x \\)-values of the ordinates as the limits." },
+        { q: "The area under \\( y = x^2 + 1 \\) between \\( x = 0 \\) and \\( x = 3 \\) is:", opts: ["\\( 12 \\)", "\\( 9 \\)", "\\( 10 \\)", "\\( 30 \\)"], ans: 0, explain: "\\( \\big[\\tfrac{x^3}{3} + x\\big]_0^3 = (9 + 3) - 0 = 12 \\)." },
+        { q: "\\( \\int_{-2}^{2}(x^2 - 4)\\,dx = -\\tfrac{32}{3} \\). The physical area between the curve and the \\( x \\)-axis is:", opts: ["\\( \\tfrac{32}{3} \\)", "\\( -\\tfrac{32}{3} \\)", "\\( 0 \\)", "\\( \\tfrac{64}{3} \\)"], ans: 0, explain: "The region is below the axis, so the integral is negative; the physical area is its modulus, \\( \\tfrac{32}{3} \\)." },
+        { q: "For the area enclosed between two curves, the correct integrand is:", opts: ["top curve \\( - \\) bottom curve", "bottom curve \\( - \\) top curve", "top curve \\( + \\) bottom curve", "the average of the two curves"], ans: 0, explain: "Integrate \\( y_{\\text{top}} - y_{\\text{bottom}} \\); the wrong order just gives the negative of the area." },
+        { q: "Two curves cross at \\( (1,\\ 1) \\) and \\( (5,\\ 9) \\). What limits should you use for the area between them?", opts: ["\\( x = 1 \\) to \\( x = 5 \\)", "\\( x = 1 \\) to \\( x = 9 \\)", "\\( y = 1 \\) to \\( y = 9 \\)", "\\( x = 0 \\) to \\( x = 5 \\)"], ans: 0, explain: "The limits are the \\( x \\)-coordinates of the intersections, \\( 1 \\) and \\( 5 \\). Using \\( 1 \\) and \\( 9 \\) mistakes the \\( y \\)-values for the limits." },
+        { q: "What is \\( \\int_4^4 (x^3 - 7x)\\,dx \\)?", opts: ["\\( 0 \\)", "\\( 4 \\)", "It cannot be found", "\\( -0 \\) is undefined"], ans: 0, explain: "When the limits are equal, \\( F(4) - F(4) = 0 \\), whatever the function." },
+        { q: "To find the area between \\( y = 6 - x^2 \\) and \\( y = 2 \\), the first step is to:", opts: ["Solve \\( 6 - x^2 = 2 \\) to find the intersection \\( x \\)-values", "Integrate \\( 6 - x^2 \\) from 0 to 6", "Add the two equations", "Differentiate both curves"], ans: 0, explain: "Solve simultaneously: \\( 6 - x^2 = 2 \\Rightarrow x = \\pm 2 \\); those are the limits." },
+        { q: "Evaluate \\( \\int_1^2 4x^3\\,dx \\).", opts: ["\\( 15 \\)", "\\( 16 \\)", "\\( 12 \\)", "\\( 8 \\)"], ans: 0, explain: "\\( \\big[x^4\\big]_1^2 = 16 - 1 = 15 \\). Option \\( 16 \\) forgets to subtract \\( F(1) \\)." },
+        { q: "A region lies partly above and partly below the \\( x \\)-axis. Integrating straight across the whole range gives:", opts: ["Less than the true area, because the parts partly cancel", "Exactly the true area", "Always zero", "Double the true area"], ans: 0, explain: "The negative (below-axis) part cancels some of the positive part, so you must split at the roots and add the sizes." },
+        { q: "Between the intersection points, \\( y = x + 2 \\) lies above \\( y = x^2 \\). The area between them is \\( \\int_{-1}^{2}(\\ldots)\\,dx \\) where \\( \\ldots \\) is:", opts: ["\\( (x + 2) - x^2 \\)", "\\( x^2 - (x + 2) \\)", "\\( x^2 + x + 2 \\)", "\\( (x + 2)\\,x^2 \\)"], ans: 0, explain: "Top minus bottom: the line \\( (x+2) \\) minus the curve \\( x^2 \\)." }
+    ];
+
+    const matchData = [
+        { term: "\\( \\int_a^b y\\,dx \\)", def: "Area between a curve, the \\( x \\)-axis and the ordinates \\( x = a \\) and \\( x = b \\)" },
+        { term: "\\( \\big[F(x)\\big]_a^b \\)", def: "\\( F(b) - F(a) \\)" },
+        { term: "Region below the \\( x \\)-axis", def: "Negative integral — take the modulus for a physical area" },
+        { term: "Area between two curves", def: "\\( \\int_a^b (y_{\\text{top}} - y_{\\text{bottom}})\\,dx \\) over the intersection limits" },
+        { term: "First step for area between two curves", def: "Solve the curves simultaneously to find the limits" },
+        { term: "Constant of integration in a definite integral", def: "Not needed — it cancels on subtracting" },
+        { term: "\\( \\int_1^3 2x\\,dx \\)", def: "\\( \\big[x^2\\big]_1^3 = 8 \\)" },
+        { term: "'Exact' area", def: "Left as a fraction or surd, never a rounded decimal" },
+        { term: "Using \\( y \\)-values as the limits", def: "A common error — the limits must be \\( x \\)-values" },
+        { term: "\\( \\int_0^2 3x^2\\,dx \\)", def: "\\( \\big[x^3\\big]_0^2 = 8 \\)" },
+        { term: "Region partly above and partly below the axis", def: "Split at the roots and add the separate areas" },
+        { term: "\\( \\int_{-1}^{2}\\big((x+2) - x^2\\big)\\,dx \\)", def: "\\( \\tfrac{9}{2} \\)" }
+    ];
+
+    // FIB blanks sit in PLAIN TEXT, never inside \( \) (§8.4 Rule 3b). Every \( \) is a
+    // complete expression; answers are plain text/number so server equality works.
+    const fibData = [
+        { display: "A definite integral \\( \\int_a^b y\\,dx \\) is worked out by finding \\( [F(x)] \\), then calculating \\( F(b) \\) ___B1___ \\( F(a) \\).", blanks: { B1: "minus" } },
+        { display: "Unlike an indefinite integral, a definite integral needs no constant of integration, usually written ___B1___.", blanks: { B1: "+c" } },
+        { display: "The area between a curve, the \\( x \\)-axis and two ordinates uses \\( \\int_a^b y\\,dx \\), where the limits \\( a \\) and \\( b \\) are the ___B1___ values of the ordinates.", blanks: { B1: "x" } },
+        { display: "If a region lies below the \\( x \\)-axis, the definite integral comes out ___B1___, so for a physical area you take the ___B2___.", blanks: { B1: "negative", B2: "modulus" } },
+        { display: "To find the area between two curves you integrate the ___B1___ curve minus the ___B2___ curve.", blanks: { B1: "top", B2: "bottom" } },
+        { display: "Before integrating between two curves you must first find their ___B1___, which give the limits.", blanks: { B1: "intersections" } },
+        { display: "A command word telling you to leave an area as a fraction or surd rather than a decimal is ___B1___.", blanks: { B1: "exact" } },
+        { display: "In \\( \\int_1^3 (2x+1)\\,dx \\) the lower limit is ___B1___ and the upper limit is ___B2___.", blanks: { B1: "1", B2: "3" } }
+    ];
+
+    const fibWords = ["minus", "plus", "+c", "x", "y", "negative", "positive", "modulus", "top", "bottom", "intersections", "roots", "exact", "1", "3"];
+
+    const tfData = [
+        { statement: "A definite integral needs a constant of integration \\( +c \\).", answer: false, explanation: "The \\( +c \\) appears in \\( F(b) \\) and \\( F(a) \\) and cancels on subtracting, so a definite integral is just \\( F(b) - F(a) \\)." },
+        { statement: "\\( \\int_a^b y\\,dx = F(b) - F(a) \\).", answer: true, explanation: "Integrate to \\( F(x) \\), then substitute the upper limit and subtract the lower limit." },
+        { statement: "A region lying below the \\( x \\)-axis gives a negative definite integral.", answer: true, explanation: "There \\( y \\) is negative, so the integral is negative; take the modulus for a physical area." },
+        { statement: "The limits of a definite integral for an area are the \\( y \\)-values of the boundaries.", answer: false, explanation: "The limits are always \\( x \\)-values — the \\( x \\)-coordinates of the ordinates or intersection points." },
+        { statement: "For the area between two curves you integrate the bottom curve minus the top curve.", answer: false, explanation: "It is top minus bottom; the wrong order gives the negative of the area." },
+        { statement: "\\( \\int_2^2 (x^2 + 5)\\,dx = 0 \\).", answer: true, explanation: "Equal limits give \\( F(2) - F(2) = 0 \\) for any function." },
+        { statement: "If a curve is partly above and partly below the axis, a single integral over the whole range gives the true physical area.", answer: false, explanation: "The below-axis part is negative and partly cancels the above-axis part, so you must split at the roots and add the sizes." },
+        { statement: "On an 'exact' question you may give the area as a rounded decimal.", answer: false, explanation: "'Exact' requires a fraction or surd; a decimal alone scores no marks." }
+    ];
+
+    const miscData = [
+        { wrong: "Two curves cross at \\( (1,\\ 1) \\) and \\( (5,\\ 9) \\), so integrate from \\( 1 \\) to \\( 9 \\).", correct: "The limits are the \\( x \\)-coordinates, \\( 1 \\) and \\( 5 \\). A weak answer uses the \\( y \\)-values \\( 1 \\) and \\( 9 \\) as the x-limits; a strong answer integrates from \\( x = 1 \\) to \\( x = 5 \\).", readCheck: { q: "Curves meet at \\( (1,\\ 1) \\) and \\( (5,\\ 9) \\). The limits are:", opts: ["\\( x = 1 \\) to \\( x = 5 \\)", "\\( 1 \\) to \\( 9 \\)", "\\( y = 1 \\) to \\( y = 9 \\)", "\\( 0 \\) to \\( 9 \\)"], ans: 0, explain: "Use the \\( x \\)-coordinates of the intersections, \\( 1 \\) and \\( 5 \\)." } },
+        { wrong: "The integral came out as \\( -\\tfrac{32}{3} \\), so the area is \\( -\\tfrac{32}{3} \\).", correct: "An area cannot be negative. A weak answer gives a negative number as a physical area; a strong answer notes the region is below the axis and takes the modulus, \\( \\tfrac{32}{3} \\).", readCheck: { q: "An integral for an area gives \\( -\\tfrac{32}{3} \\). The physical area is:", opts: ["\\( \\tfrac{32}{3} \\)", "\\( -\\tfrac{32}{3} \\)", "\\( 0 \\)", "impossible to find"], ans: 0, explain: "Take the modulus: \\( \\tfrac{32}{3} \\)." } },
+        { wrong: "For the area between two curves, integrate \\( \\int (y_{\\text{bottom}} - y_{\\text{top}})\\,dx \\).", correct: "Subtract top minus bottom. A weak answer subtracts the wrong way and gets a negative; a strong answer uses \\( y_{\\text{top}} - y_{\\text{bottom}} \\) (or quotes the modulus and calls it an area).", readCheck: { q: "The safe integrand for an area between curves is:", opts: ["top \\( - \\) bottom", "bottom \\( - \\) top", "top \\( + \\) bottom", "either, they are equal"], ans: 0, explain: "Top minus bottom gives a positive area directly." } },
+        { wrong: "\\( \\int_1^3 (2x+1)\\,dx = 3^2 + 3 = 12 \\).", correct: "You must subtract the value at the lower limit too. A weak answer stops at \\( F(3) \\); a strong answer computes \\( F(3) - F(1) = 12 - 2 = 10 \\).", readCheck: { q: "\\( \\int_1^3 (2x+1)\\,dx \\) equals:", opts: ["\\( 10 \\)", "\\( 12 \\)", "\\( 2 \\)", "\\( 14 \\)"], ans: 0, explain: "\\( F(3) - F(1) = 12 - 2 = 10 \\)." } },
+        { wrong: "The exact area is about \\( 1.33 \\).", correct: "'Exact' forbids a decimal. A weak answer rounds; a strong answer leaves the fraction, e.g. \\( \\tfrac{4}{3} \\).", readCheck: { q: "Which is an 'exact' area?", opts: ["\\( \\tfrac{4}{3} \\)", "\\( 1.33 \\)", "\\( 1.3 \\)", "about \\( 1.33 \\)"], ans: 0, explain: "The fraction \\( \\tfrac{4}{3} \\) is exact; the decimals are not." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Show your working — the exact-area ladder", pills: ["working", "exact", "M & A marks"], content: `<p><strong>0 marks:</strong> writing \\( 1.33 \\) with no integral shown on an "exact" question.</p><p><strong>Partial:</strong> \\( \\int_0^2 (x^2 - 2x)\\,dx = \\big[\\tfrac{x^3}{3} - x^2\\big]_0^2 \\) but the answer left negative or as a decimal.</p><p><strong>Full marks:</strong> the integral in brackets, limits substituted, and the exact area \\( \\tfrac{4}{3} \\) (modulus taken, stated as an area). Each line earns a mark, so a slip costs one mark, not all of them.</p>`, readCheck: { q: "On an 'exact' area question, the safest final answer is:", opts: ["A fraction such as \\( \\tfrac{4}{3} \\), with working shown", "A decimal to 2 d.p.", "Just the rounded number", "The negative integral value"], ans: 0, explain: "Exact form with visible working scores the method and accuracy marks." } },
+        { type: "explain", title: "'Detailed reasoning' — every step must be visible", pills: ["detailed reasoning", "no calculator shortcut"], content: `<p>Definite-integral area questions are often flagged <em>"In this question you must show detailed reasoning."</em> A correct answer straight from a calculator's integral function scores <strong>0</strong> — you must show the integration in brackets, the substitution of the limits, and the subtraction. Read the limits off carefully: they are \\( x \\)-values, not \\( y \\)-values.</p>`, readCheck: { q: "On a 'detailed reasoning' area question, a correct answer with no working:", opts: ["Scores no marks — the method must be shown", "Scores full marks if the number is right", "Scores half marks", "Is fine if you used a calculator"], ans: 0, explain: "Detailed reasoning requires the full analytical method; a calculator answer alone scores nothing." } },
+        { type: "tip", title: "Area between two curves — the reliable routine", pills: ["intersections", "top − bottom", "limits"], content: `<p>1. Solve the two equations simultaneously to find the intersection \\( x \\)-values — these are your limits. 2. Decide which curve is on top between them. 3. Integrate \\( y_{\\text{top}} - y_{\\text{bottom}} \\) between the limits. 4. Give the exact answer in square units. Getting the subtraction the wrong way round only flips the sign, so if you get a negative, quote its modulus and label it an area.</p>`, readCheck: { q: "The correct order for an area-between-curves question is:", opts: ["Intersections → top minus bottom → integrate between the x-limits", "Integrate first → then find intersections", "Add the curves → integrate → round", "Differentiate → subtract → square-root"], ans: 0, explain: "Find the limits from the intersections, then integrate top minus bottom between them." } }
+    ];
+
+    const flashcards = [
+        { term: "Definite integral", def: "\\( \\int_a^b y\\,dx = \\big[F(x)\\big]_a^b = F(b) - F(a) \\); a number, no \\( +c \\)." },
+        { term: "Limits of a definite integral", def: "The lower value \\( a \\) and upper value \\( b \\); always \\( x \\)-values." },
+        { term: "Area under a curve", def: "\\( \\int_a^b y\\,dx \\) between two ordinates, curve above the \\( x \\)-axis." },
+        { term: "Ordinate", def: "A vertical boundary line \\( x = a \\) or \\( x = b \\) of a region." },
+        { term: "Area below the \\( x \\)-axis", def: "Integral is negative; the physical area is its modulus." },
+        { term: "Splitting at the roots", def: "For a region crossing the axis, integrate each piece and add the sizes." },
+        { term: "Area between two curves", def: "\\( \\int_a^b (y_{\\text{top}} - y_{\\text{bottom}})\\,dx \\) over the intersection limits." },
+        { term: "Intersection limits", def: "The \\( x \\)-coordinates where the two curves cross." },
+        { term: "Integrating a power", def: "\\( \\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + c \\), for \\( n \\ne -1 \\)." },
+        { term: "\\( \\int_a^a y\\,dx \\)", def: "Equals \\( 0 \\) — the limits are equal." },
+        { term: "Swapping the limits", def: "Changes the sign: \\( \\int_a^b = -\\int_b^a \\)." },
+        { term: "'Exact' area", def: "Left as a fraction or surd, never a rounded decimal." },
+        { term: "Top minus bottom", def: "The correct order for the integrand between two curves." },
+        { term: "Symmetry shortcut", def: "For a symmetric region, integrate one half and double it." },
+        { term: "Calculus guardrail (6993)", def: "Only polynomials are integrated — no trig, exp or log; \\( n \\) a whole number." }
+    ];
+
+    const examQuestions = [
+        {
+            num: "13 (a)",
+            marks: 5,
+            type: "written",
+            caseId: "q13-2023",
+            question: `<p>Determine the coordinates of the point \\( R \\).</p>`,
+            hint: "Differentiate to get the gradient function, evaluate it at \\( x = 2 \\) for the tangent's gradient, form the tangent's equation, then put \\( x = 0 \\).",
+            starter: "Give \\( R \\) as a coordinate pair \\( (x,\\ y) \\), not just a number.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO1) · Detailed reasoning</h5><ul>
+              <li><strong>M1*</strong> — differentiate: \\( \\frac{dy}{dx} = 8 - 2x \\) (at least one power reduced by 1).</li>
+              <li><strong>A1</strong> — correct gradient function \\( 8 - 2x \\).</li>
+              <li><strong>A1</strong> — gradient at \\( P \\): when \\( x = 2 \\), \\( m = 4 \\).</li>
+              <li><strong>DM1</strong> — equation of the tangent using their \\( m \\): \\( y - 12 = 4(x - 2) \\).</li>
+              <li><strong>A1</strong> — coordinates of \\( R \\) are \\( (0,\\ 4) \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The DM1 depends on the first M1 (a gradient function must have been found). Beware setting the gradient function to 0 and using that as \\( m \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Answered well by the majority. A small number gave \\( R \\) as '4' rather than as coordinates and lost the final A mark. A few misused \\( 8 - 2x \\) — for example taking \\( -2 \\) as the gradient of the tangent.</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\frac{dy}{dx} = 8 - 2x \\); at \\( x = 2 \\), \\( m = 8 - 4 = 4 \\). Tangent: \\( y - 12 = 4(x - 2) \\Rightarrow y = 4x + 4 \\). At \\( x = 0 \\), \\( y = 4 \\), so \\( R = (0,\\ 4) \\).",
+            markPoints: { note: "Award each mark for the step shown; give the answer as a coordinate pair.", groups: [
+                { label: "M1* — differentiate", max: 1, points: ["Differentiated \\( 8x - x^2 \\) (at least one power reduced by 1)"] },
+                { label: "A1 — gradient function", max: 1, points: ["\\( \\frac{dy}{dx} = 8 - 2x \\)"] },
+                { label: "A1 — gradient at P", max: 1, points: ["When \\( x = 2 \\), \\( m = 4 \\)"] },
+                { label: "DM1 — tangent equation", max: 1, points: ["Formed \\( y - 12 = 4(x - 2) \\) using their \\( m \\)"] },
+                { label: "A1 — coordinates of R", max: 1, points: ["\\( R = (0,\\ 4) \\) as a coordinate pair"] }
+            ] }
+        },
+        {
+            num: "13 (b)",
+            marks: 6,
+            type: "written",
+            caseId: "q13-2023",
+            question: `<p>Determine the exact area of the region \\( OPR \\) that is bounded by the curve from \\( O \\) to \\( P \\), the tangent \\( PR \\) and the \\( y \\)-axis.</p>`,
+            hint: "Find the area of the trapezium under the tangent from \\( x = 0 \\) to \\( x = 2 \\), then subtract the area under the curve over the same interval.",
+            starter: "Give the exact area as a fraction (square units).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 6 marks (AO1/AO3) · Detailed reasoning</h5><ul>
+              <li><strong>M1</strong> — area of the trapezium (or set up by integration).</li>
+              <li><strong>A1</strong> — trapezium area \\( = 2 \\times \\frac{4 + 12}{2} = 16 \\).</li>
+              <li><strong>M1</strong> — integration of the curve (at least one power raised by 1; ignore limits).</li>
+              <li><strong>A1</strong> — area under curve \\( = \\int_0^2 (8x - x^2)\\,dx = \\big[4x^2 - \\tfrac{x^3}{3}\\big]_0^2 = 16 - \\tfrac{8}{3} = \\tfrac{40}{3} \\).</li>
+              <li><strong>M1</strong> — subtract (can be awarded even if the marks above were not).</li>
+              <li><strong>A1</strong> — area \\( OPR = 16 - \\tfrac{40}{3} = \\tfrac{8}{3} \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Equivalent methods score: subtracting the functions before integrating, or making a rectangle and subtracting the curve area and a triangle, all earn the marks.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Many scored highly. A few lost the last mark by giving an approximate (decimal) answer when the question demanded an exact one. A common error was using the wrong limits (such as \\( 8 \\) or \\( 12 \\)).</li>
+            </ul></div>`,
+            modelAnswer: "Trapezium under the tangent: \\( \\frac{4 + 12}{2} \\times 2 = 16 \\). Area under curve: \\( \\int_0^2 (8x - x^2)\\,dx = \\big[4x^2 - \\tfrac{x^3}{3}\\big]_0^2 = 16 - \\tfrac{8}{3} = \\tfrac{40}{3} \\). Area \\( OPR = 16 - \\tfrac{40}{3} = \\tfrac{8}{3} \\) square units.",
+            markPoints: { note: "Both accuracy marks require exact fractions, not decimals.", groups: [
+                { label: "M1 — trapezium set up", max: 1, points: ["Found the trapezium area (or set up by integration)"] },
+                { label: "A1 — trapezium value", max: 1, points: ["Trapezium \\( = 16 \\)"] },
+                { label: "M1 — integrate the curve", max: 1, points: ["Integrated \\( 8x - x^2 \\) (at least one power raised by 1)"] },
+                { label: "A1 — area under curve", max: 1, points: ["\\( \\int_0^2 (8x - x^2)\\,dx = \\tfrac{40}{3} \\)"] },
+                { label: "M1 — subtract", max: 1, points: ["Subtracted the curve area from the trapezium"] },
+                { label: "A1 — exact area", max: 1, points: ["Area \\( OPR = \\tfrac{8}{3} \\) (exact)"] }
+            ] }
+        },
+        {
+            num: "10 (a)",
+            marks: 4,
+            type: "written",
+            caseId: "q10-2022",
+            question: `<p>Find the coordinates of the two points of intersection of these curves.</p>`,
+            hint: "Set the two expressions for \\( y \\) equal, rearrange to a single quadratic \\( = 0 \\), solve, then find each \\( y \\).",
+            starter: "Give both answers as coordinate pairs \\( (x,\\ y) \\).",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO1) · Detailed reasoning</h5><ul>
+              <li><strong>M1</strong> — equate the curves and rearrange to a quadratic: \\( x^2 - 4x + 4 = -x^2 + 8x - 6 \\).</li>
+              <li><strong>A1</strong> — correct three-term quadratic (oe): \\( 2x^2 - 12x + 10 = 0 \\), i.e. \\( x^2 - 6x + 5 = 0 \\).</li>
+              <li><strong>M1</strong> — solve the quadratic: \\( (x - 1)(x - 5) = 0 \\).</li>
+              <li><strong>A1</strong> — both pairs: \\( (1,\\ 1) \\) and \\( (5,\\ 9) \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>Full coordinates are needed for the final A1: \\( x = 1,\\ y = 1 \\) and \\( x = 5,\\ y = 9 \\).</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>This part was done well, with most candidates giving the coordinates of both intersection points.</li>
+            </ul></div>`,
+            modelAnswer: "\\( x^2 - 4x + 4 = -x^2 + 8x - 6 \\Rightarrow 2x^2 - 12x + 10 = 0 \\Rightarrow x^2 - 6x + 5 = 0 \\Rightarrow (x-1)(x-5) = 0 \\), so \\( x = 1 \\) or \\( x = 5 \\). Then \\( y = 1 \\) and \\( y = 9 \\): points \\( (1,\\ 1) \\) and \\( (5,\\ 9) \\).",
+            markPoints: { note: "Give both intersections as full coordinate pairs.", groups: [
+                { label: "M1 — equate and rearrange", max: 1, points: ["Equated the curves and rearranged towards a quadratic"] },
+                { label: "A1 — correct quadratic", max: 1, points: ["\\( 2x^2 - 12x + 10 = 0 \\) or \\( x^2 - 6x + 5 = 0 \\)"] },
+                { label: "M1 — solve", max: 1, points: ["Solved to \\( x = 1 \\) and \\( x = 5 \\)"] },
+                { label: "A1 — both pairs", max: 1, points: ["\\( (1,\\ 1) \\) and \\( (5,\\ 9) \\)"] }
+            ] }
+        },
+        {
+            num: "10 (b)",
+            marks: 5,
+            type: "written",
+            caseId: "q10-2022",
+            question: `<p>Find the area of the region enclosed by these two curves.</p>`,
+            hint: "Integrate the top curve minus the bottom curve between the intersection \\( x \\)-values \\( 1 \\) and \\( 5 \\).",
+            starter: "Give the exact area (square units); if you get a negative, take its modulus.",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO1/AO3) · Detailed reasoning</h5><ul>
+              <li><strong>M1</strong> — subtract the two curves (in either order).</li>
+              <li><strong>A1</strong> — correct integrand: \\( (-x^2 + 8x - 6) - (x^2 - 4x + 4) = -2x^2 + 12x - 10 \\) (A0 if divided by 2).</li>
+              <li><strong>M1</strong> — integrate (ignore limits): \\( -\\tfrac{2}{3}x^3 + 6x^2 - 10x \\).</li>
+              <li><strong>M1</strong> — substitute the limits from part (a) and use correctly.</li>
+              <li><strong>A1</strong> — area \\( = 104 - \\tfrac{248}{3} = \\tfrac{64}{3} \\) (allow \\( -\\tfrac{64}{3} \\) with the negative sign discarded).</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+              <li>The subtraction can be done before integrating, after integrating, or by finding each area separately.</li>
+            </ul></div>
+            <div class="marks-section"><h5>Examiner's Comments</h5><ul>
+              <li>Most knew to find the area under each curve and subtract. Some could not tell which curve was on top and produced a negative value — acceptable only if the negative sign was then discarded, since areas are positive.</li>
+            </ul></div>`,
+            modelAnswer: "\\( \\text{Area} = \\int_1^5 \\big[(-x^2 + 8x - 6) - (x^2 - 4x + 4)\\big]\\,dx = \\int_1^5 (-2x^2 + 12x - 10)\\,dx = \\big[-\\tfrac{2}{3}x^3 + 6x^2 - 10x\\big]_1^5 = 104 - \\tfrac{248}{3} = \\tfrac{64}{3} \\) square units.",
+            markPoints: { note: "The final A1 requires the exact positive area \\( \\tfrac{64}{3} \\).", groups: [
+                { label: "M1 — subtract the curves", max: 1, points: ["Subtracted one curve from the other (either order)"] },
+                { label: "A1 — correct integrand", max: 1, points: ["\\( -2x^2 + 12x - 10 \\) (not halved)"] },
+                { label: "M1 — integrate", max: 1, points: ["\\( -\\tfrac{2}{3}x^3 + 6x^2 - 10x \\)"] },
+                { label: "M1 — apply limits", max: 1, points: ["Substituted the limits \\( 1 \\) and \\( 5 \\) correctly"] },
+                { label: "A1 — exact area", max: 1, points: ["Area \\( = \\tfrac{64}{3} \\) (positive, exact)"] }
+            ] }
+        }
+    ];
 </script>
     <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />
     <script src="/vendor/katex/katex.min.js"></script>
