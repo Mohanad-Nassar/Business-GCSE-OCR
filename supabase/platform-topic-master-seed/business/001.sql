@@ -4,7 +4,7 @@
 -- Run every part, in order, AFTER supabase/subjects-v2-s5-master-content.sql.
 -- Seeds the master `sections` that 'Make a copy' pre-fills a fork with.
 -- Safe to re-run (upserts by (subject_slug, topic_slug)).
--- Generated: 2026-07-17T07:44:35Z
+-- Generated: 2026-07-17T08:05:28Z
 -- ══════════════════════════════════════════════════════════════
 insert into platform_topic_master (subject_slug, topic_slug, page_name, sections)
 values

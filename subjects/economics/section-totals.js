@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-17T06:46:07Z
+// Generated: 2026-07-17T08:05:28Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "economics:1-1-main-economic-groups-and-factors-of-production": {

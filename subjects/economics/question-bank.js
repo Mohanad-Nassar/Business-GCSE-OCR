@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-17T06:46:07Z · 1912 questions
+// Generated: 2026-07-17T08:05:28Z · 1912 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -919,22 +919,22 @@ window.QUESTION_BANK = [
   "question": "The three main economic groups are _____, _____ and the _____.",
   "blankOptions": {
    "B1": [
-    "rent",
+    "labour",
     "consumers",
-    "enterprise",
-    "profit"
+    "profit",
+    "interdependent"
    ],
    "B2": [
-    "capital",
+    "rent",
     "producers",
-    "land",
-    "enterprise"
+    "capital",
+    "interdependent"
    ],
    "B3": [
+    "enterprise",
     "interest",
     "government",
-    "profit",
-    "rent"
+    "wages"
    ]
   },
   "key": {
@@ -956,27 +956,27 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "government",
-    "interest",
+    "profit",
     "land",
-    "rent"
+    "interest"
    ],
    "B2": [
-    "rent",
-    "consumers",
-    "interdependent",
+    "wages",
+    "profit",
+    "government",
     "labour"
    ],
    "B3": [
-    "interest",
+    "producers",
+    "rent",
     "consumers",
-    "capital",
-    "profit"
+    "capital"
    ],
    "B4": [
+    "enterprise",
     "consumers",
     "interest",
-    "interdependent",
-    "enterprise"
+    "profit"
    ]
   },
   "key": {
@@ -999,27 +999,27 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "government",
-    "rent",
     "labour",
-    "capital"
+    "enterprise",
+    "rent"
    ],
    "B2": [
-    "government",
+    "interdependent",
+    "land",
     "wages",
-    "producers",
-    "enterprise"
+    "producers"
    ],
    "B3": [
-    "capital",
-    "enterprise",
+    "producers",
     "interest",
-    "labour"
+    "capital",
+    "government"
    ],
    "B4": [
     "producers",
+    "enterprise",
     "interdependent",
-    "profit",
-    "land"
+    "profit"
    ]
   },
   "key": {
@@ -1041,10 +1041,10 @@ window.QUESTION_BANK = [
   "question": "Because the actions of the three economic groups affect each other, we say they are _____.",
   "blankOptions": {
    "B1": [
-    "consumers",
-    "government",
-    "profit",
-    "interdependent"
+    "producers",
+    "interest",
+    "interdependent",
+    "consumers"
    ]
   },
   "key": {
@@ -2521,16 +2521,16 @@ window.QUESTION_BANK = [
   "question": "Needs are the things required to _____, while wants are effectively _____.",
   "blankOptions": {
    "B1": [
-    "scarce",
+    "what",
     "environmental",
     "survive",
     "mixed"
    ],
    "B2": [
+    "environmental",
     "unlimited",
-    "scarce",
-    "how",
-    "whom"
+    "whom",
+    "what"
    ]
   },
   "key": {
@@ -2550,10 +2550,10 @@ window.QUESTION_BANK = [
   "question": "The basic economic problem is how best to satisfy unlimited wants with _____ resources.",
   "blankOptions": {
    "B1": [
-    "whom",
     "unlimited",
-    "alternative",
-    "scarce"
+    "scarce",
+    "what",
+    "how"
    ]
   },
   "key": {
@@ -2572,22 +2572,22 @@ window.QUESTION_BANK = [
   "question": "Every economy must answer three questions: _____ to produce, _____ to produce it, and for _____ to produce it.",
   "blankOptions": {
    "B1": [
-    "what",
-    "alternative",
+    "scarce",
     "social",
-    "unlimited"
+    "alternative",
+    "what"
    ],
    "B2": [
-    "unlimited",
-    "survive",
     "how",
-    "mixed"
+    "mixed",
+    "social",
+    "scarce"
    ],
    "B3": [
-    "social",
+    "survive",
+    "whom",
     "mixed",
-    "environmental",
-    "whom"
+    "unlimited"
    ]
   },
   "key": {
@@ -2608,10 +2608,10 @@ window.QUESTION_BANK = [
   "question": "Opportunity cost is the next best _____ given up when making a choice.",
   "blankOptions": {
    "B1": [
-    "survive",
-    "alternative",
-    "environmental",
-    "whom"
+    "social",
+    "what",
+    "scarce",
+    "alternative"
    ]
   },
   "key": {
@@ -2630,16 +2630,16 @@ window.QUESTION_BANK = [
   "question": "The three types of sustainability are economic, _____ and _____.",
   "blankOptions": {
    "B1": [
-    "alternative",
+    "scarce",
     "social",
-    "whom",
-    "mixed"
+    "survive",
+    "how"
    ],
    "B2": [
+    "whom",
     "environmental",
-    "how",
-    "alternative",
-    "scarce"
+    "survive",
+    "what"
    ]
   },
   "key": {
@@ -2659,10 +2659,10 @@ window.QUESTION_BANK = [
   "question": "Countries like the UK and China are both _____ economies, sitting between the market and planned extremes.",
   "blankOptions": {
    "B1": [
-    "mixed",
-    "whom",
-    "scarce",
-    "alternative"
+    "unlimited",
+    "what",
+    "social",
+    "mixed"
    ]
   },
   "key": {
@@ -4400,16 +4400,16 @@ window.QUESTION_BANK = [
   "question": "A market brings together _____ and _____ to exchange goods and services.",
   "blankOptions": {
    "B1": [
-    "buyers",
-    "tertiary",
-    "product",
-    "factor"
+    "secondary",
+    "supplied",
+    "factor",
+    "buyers"
    ],
    "B2": [
-    "intangible",
+    "primary",
+    "tertiary",
     "sellers",
-    "secondary",
-    "factor"
+    "derived"
    ]
   },
   "key": {
@@ -4429,22 +4429,22 @@ window.QUESTION_BANK = [
   "question": "The _____ sector extracts natural resources, the _____ sector manufactures goods, and the _____ sector provides services.",
   "blankOptions": {
    "B1": [
-    "sellers",
-    "factor",
+    "intangible",
     "primary",
+    "tangible",
     "supplied"
    ],
    "B2": [
-    "tangible",
-    "sellers",
     "derived",
-    "secondary"
+    "supplied",
+    "secondary",
+    "tangible"
    ],
    "B3": [
-    "tangible",
-    "product",
+    "buyers",
+    "intangible",
     "tertiary",
-    "sellers"
+    "tangible"
    ]
   },
   "key": {
@@ -4465,16 +4465,16 @@ window.QUESTION_BANK = [
   "question": "Goods are _____ — you can touch them — while services are _____.",
   "blankOptions": {
    "B1": [
-    "derived",
+    "sellers",
     "product",
     "tangible",
-    "buyers"
+    "tertiary"
    ],
    "B2": [
-    "supplied",
-    "secondary",
-    "tertiary",
-    "intangible"
+    "sellers",
+    "primary",
+    "intangible",
+    "tertiary"
    ]
   },
   "key": {
@@ -4494,16 +4494,16 @@ window.QUESTION_BANK = [
   "question": "Labour is bought and sold in the _____ market, while finished goods are sold in the _____ market.",
   "blankOptions": {
    "B1": [
-    "factor",
+    "primary",
     "derived",
-    "intangible",
-    "buyers"
+    "factor",
+    "tertiary"
    ],
    "B2": [
     "secondary",
-    "product",
-    "derived",
-    "tangible"
+    "intangible",
+    "buyers",
+    "product"
    ]
   },
   "key": {
@@ -4523,10 +4523,10 @@ window.QUESTION_BANK = [
   "question": "Demand for workers is a _____ demand, because it comes from demand for the products they make.",
   "blankOptions": {
    "B1": [
-    "buyers",
-    "tangible",
-    "derived",
-    "tertiary"
+    "product",
+    "factor",
+    "secondary",
+    "derived"
    ]
   },
   "key": {
@@ -4545,10 +4545,10 @@ window.QUESTION_BANK = [
   "question": "At the equilibrium price, quantity demanded equals quantity _____.",
   "blankOptions": {
    "B1": [
+    "tangible",
     "supplied",
-    "sellers",
-    "intangible",
-    "secondary"
+    "buyers",
+    "tertiary"
    ]
   },
   "key": {
@@ -6452,16 +6452,16 @@ window.QUESTION_BANK = [
   "question": "Demand is the willingness and ___B1___ of consumers to buy a good at a given ___B2___ in a given period of time.",
   "blankOptions": {
    "B1": [
-    "substitute",
-    "supply",
-    "complement",
-    "ability"
+    "elastic",
+    "revenue",
+    "ability",
+    "movement"
    ],
    "B2": [
+    "inelastic",
     "price",
-    "revenue",
-    "willingness",
-    "supply"
+    "complement",
+    "profit"
    ]
   },
   "key": {
@@ -6481,16 +6481,16 @@ window.QUESTION_BANK = [
   "question": "A change in the price of the good itself causes a ___B1___ along the demand curve. A change in any other factor causes a ___B2___ of the whole curve.",
   "blankOptions": {
    "B1": [
-    "adding",
-    "profit",
-    "ability",
-    "movement"
+    "willingness",
+    "movement",
+    "supply",
+    "revenue"
    ],
    "B2": [
-    "adding",
     "shift",
-    "price",
-    "willingness"
+    "ability",
+    "substitute",
+    "elastic"
    ]
   },
   "key": {
@@ -6510,16 +6510,16 @@ window.QUESTION_BANK = [
   "question": "Market demand is found by ___B1___ together all the individual demands. The demand for workers is called ___B2___ demand because it comes from demand for the products they make.",
   "blankOptions": {
    "B1": [
-    "adding",
-    "shift",
     "elastic",
-    "supply"
+    "adding",
+    "price",
+    "ability"
    ],
    "B2": [
-    "supply",
     "derived",
-    "willingness",
-    "price"
+    "shift",
+    "complement",
+    "ability"
    ]
   },
   "key": {
@@ -6540,15 +6540,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "derived",
+    "adding",
     "price",
-    "supply",
-    "shift"
+    "movement"
    ],
    "B2": [
-    "substitute",
-    "supply",
-    "willingness",
-    "elastic"
+    "elastic",
+    "inelastic",
+    "complement",
+    "revenue"
    ]
   },
   "key": {
@@ -6568,16 +6568,16 @@ window.QUESTION_BANK = [
   "question": "If demand is price inelastic, a business can raise its price and total ___B1___ will rise. Governments tax goods like fuel and cigarettes because demand for them is ___B2___.",
   "blankOptions": {
    "B1": [
+    "elastic",
+    "complement",
     "revenue",
-    "substitute",
-    "willingness",
-    "profit"
+    "price"
    ],
    "B2": [
+    "derived",
+    "movement",
     "adding",
-    "inelastic",
-    "willingness",
-    "shift"
+    "inelastic"
    ]
   },
   "key": {
@@ -6597,16 +6597,16 @@ window.QUESTION_BANK = [
   "question": "A rise in the price of a ___B1___ (like apples for plums) shifts demand for the other good to the right. A rise in the price of a ___B2___ (like games consoles for games) shifts it to the left.",
   "blankOptions": {
    "B1": [
-    "inelastic",
+    "substitute",
+    "willingness",
     "adding",
-    "ability",
-    "substitute"
+    "shift"
    ],
    "B2": [
-    "elastic",
-    "derived",
-    "revenue",
-    "complement"
+    "inelastic",
+    "ability",
+    "complement",
+    "willingness"
    ]
   },
   "key": {
@@ -8262,16 +8262,16 @@ window.QUESTION_BANK = [
   "question": "Supply is the amount producers are willing and ___B1___ to sell at a given ___B2___ in a given time period.",
   "blankOptions": {
    "B1": [
-    "right",
-    "expansion",
+    "inelastic",
+    "origin",
     "supplied",
     "able"
    ],
    "B2": [
-    "price",
-    "unitary",
     "rises",
-    "elastic"
+    "left",
+    "contraction",
+    "price"
    ]
   },
   "key": {
@@ -8291,16 +8291,16 @@ window.QUESTION_BANK = [
   "question": "The law of supply: as price rises, quantity supplied ___B1___. The movement up the supply curve caused by a price rise is called an ___B2___ of supply.",
   "blankOptions": {
    "B1": [
-    "rises",
-    "supplied",
-    "demand",
-    "origin"
+    "price",
+    "unitary",
+    "inelastic",
+    "rises"
    ],
    "B2": [
+    "unitary",
     "elastic",
-    "expansion",
-    "left",
-    "demand"
+    "demand",
+    "expansion"
    ]
   },
   "key": {
@@ -8320,15 +8320,15 @@ window.QUESTION_BANK = [
   "question": "Higher taxes raise firms' costs and shift the supply curve to the ___B1___. Subsidies lower costs and shift it to the ___B2___.",
   "blankOptions": {
    "B1": [
+    "unitary",
+    "demand",
     "left",
-    "supplied",
-    "origin",
-    "rises"
+    "elastic"
    ],
    "B2": [
-    "supplied",
-    "demand",
     "unitary",
+    "contraction",
+    "expansion",
     "right"
    ]
   },
@@ -8349,16 +8349,16 @@ window.QUESTION_BANK = [
   "question": "PES = percentage change in quantity ___B1___ ÷ percentage change in ___B2___. The answer is always positive.",
   "blankOptions": {
    "B1": [
-    "supplied",
-    "elastic",
-    "origin",
-    "rises"
+    "contraction",
+    "expansion",
+    "demand",
+    "supplied"
    ],
    "B2": [
-    "elastic",
-    "unitary",
+    "falls",
     "price",
-    "inelastic"
+    "contraction",
+    "right"
    ]
   },
   "key": {
@@ -8378,15 +8378,15 @@ window.QUESTION_BANK = [
   "question": "Any straight-line supply curve that passes through the ___B1___ has ___B2___ price elasticity of supply, whatever its slope.",
   "blankOptions": {
    "B1": [
-    "inelastic",
-    "left",
-    "expansion",
-    "origin"
+    "supplied",
+    "able",
+    "origin",
+    "elastic"
    ],
    "B2": [
+    "inelastic",
+    "right",
     "left",
-    "elastic",
-    "supplied",
     "unitary"
    ]
   },
@@ -8407,16 +8407,16 @@ window.QUESTION_BANK = [
   "question": "A movement along the supply curve can only be caused by a shift of the ___B1___ curve changing the price. A venue with fixed seating has perfectly ___B2___ supply.",
   "blankOptions": {
    "B1": [
-    "unitary",
     "demand",
+    "contraction",
     "left",
-    "able"
+    "price"
    ],
    "B2": [
-    "expansion",
-    "elastic",
+    "inelastic",
+    "left",
     "unitary",
-    "inelastic"
+    "falls"
    ]
   },
   "key": {
@@ -10164,15 +10164,15 @@ window.QUESTION_BANK = [
   "question": "At the equilibrium price, quantity ___B1___ exactly equals quantity ___B2___ — the market clears.",
   "blankOptions": {
    "B1": [
-    "rise",
+    "extent",
     "rationing",
-    "supply",
-    "demanded"
+    "demanded",
+    "supply"
    ],
    "B2": [
-    "supplied",
     "extent",
     "worth",
+    "supplied",
     "demand"
    ]
   },
@@ -10193,16 +10193,16 @@ window.QUESTION_BANK = [
   "question": "If the price is set above equilibrium there is excess ___B1___, so the price ___B2___ until the market clears.",
   "blankOptions": {
    "B1": [
-    "quantity",
-    "supply",
-    "rise",
-    "extent"
+    "rises",
+    "rationing",
+    "equilibrium",
+    "supply"
    ],
    "B2": [
+    "signalling",
     "falls",
-    "profit",
-    "rationing",
-    "signalling"
+    "worth",
+    "rise"
    ]
   },
   "key": {
@@ -10223,15 +10223,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "demand",
-    "supply",
-    "equilibrium",
-    "demanded"
+    "profit",
+    "rise",
+    "signalling"
    ],
    "B2": [
+    "supplied",
     "rises",
-    "rationing",
-    "equilibrium",
-    "falls"
+    "falls",
+    "worth"
    ]
   },
   "key": {
@@ -10251,16 +10251,16 @@ window.QUESTION_BANK = [
   "question": "When demand shifts right, both equilibrium price and quantity ___B1___. When supply shifts right, price falls but quantity ___B2___.",
   "blankOptions": {
    "B1": [
-    "demanded",
     "rise",
+    "equilibrium",
     "demand",
-    "extent"
+    "profit"
    ],
    "B2": [
-    "rationing",
-    "equilibrium",
-    "rises",
-    "demand"
+    "demand",
+    "worth",
+    "extent",
+    "rises"
    ]
   },
   "key": {
@@ -10280,16 +10280,16 @@ window.QUESTION_BANK = [
   "question": "Prices changing to show where resources are needed is the ___B1___ role of price. A rising price choking off demand for a scarce good is the ___B2___ role.",
   "blankOptions": {
    "B1": [
-    "demanded",
+    "profit",
+    "supply",
     "signalling",
-    "supplied",
-    "worth"
+    "demanded"
    ],
    "B2": [
     "rationing",
-    "rise",
-    "supply",
-    "demand"
+    "equilibrium",
+    "supplied",
+    "worth"
    ]
   },
   "key": {
@@ -10309,16 +10309,16 @@ window.QUESTION_BANK = [
   "question": "Price is the money needed to buy a product; ___B1___ is how much a person values it. Elasticity changes the ___B2___ of a price movement, never its direction.",
   "blankOptions": {
    "B1": [
+    "rationing",
     "worth",
-    "profit",
-    "quantity",
-    "supply"
+    "demanded",
+    "quantity"
    ],
    "B2": [
-    "rationing",
-    "supply",
     "extent",
-    "demand"
+    "rise",
+    "rationing",
+    "demanded"
    ]
   },
   "key": {
@@ -12005,16 +12005,16 @@ window.QUESTION_BANK = [
   "question": "Competition is the ___B1___ between firms operating in the same market. Firms compete to enter a market, survive, gain customers and make a ___B2___.",
   "blankOptions": {
    "B1": [
-    "prices",
+    "power",
+    "rise",
     "rivalry",
-    "efficient",
-    "power"
+    "prices"
    ],
    "B2": [
+    "efficient",
     "profit",
-    "small",
-    "entry",
-    "collusion"
+    "one",
+    "rise"
    ]
   },
   "key": {
@@ -12034,16 +12034,16 @@ window.QUESTION_BANK = [
   "question": "A true monopoly has only ___B1___ seller, while a firm with over 25% market share has monopoly ___B2___.",
   "blankOptions": {
    "B1": [
-    "entry",
-    "one",
+    "small",
     "left",
-    "many"
+    "one",
+    "leader"
    ],
    "B2": [
-    "power",
     "small",
-    "leader",
-    "rivalry"
+    "efficient",
+    "left",
+    "power"
    ]
   },
   "key": {
@@ -12063,16 +12063,16 @@ window.QUESTION_BANK = [
   "question": "In an oligopoly, a ___B1___ number of large firms supply most of the market, and there are barriers to ___B2___ such as heavy advertising.",
   "blankOptions": {
    "B1": [
-    "rivalry",
+    "one",
+    "collusion",
     "small",
-    "efficient",
-    "fall"
+    "efficient"
    ],
    "B2": [
-    "entry",
-    "profit",
+    "one",
     "fall",
-    "collusion"
+    "entry",
+    "left"
    ]
   },
   "key": {
@@ -12094,14 +12094,14 @@ window.QUESTION_BANK = [
    "B1": [
     "prices",
     "fall",
-    "efficient",
-    "many"
+    "rivalry",
+    "profit"
    ],
    "B2": [
-    "rise",
-    "one",
     "left",
-    "many"
+    "profit",
+    "small",
+    "entry"
    ]
   },
   "key": {
@@ -12121,16 +12121,16 @@ window.QUESTION_BANK = [
   "question": "Firms agreeing to keep prices artificially high is called ___B1___ and is illegal. A product sold at little or no profit to attract customers is a loss ___B2___.",
   "blankOptions": {
    "B1": [
-    "collusion",
-    "one",
-    "profit",
-    "left"
+    "small",
+    "efficient",
+    "entry",
+    "collusion"
    ],
    "B2": [
+    "one",
     "leader",
-    "prices",
     "efficient",
-    "entry"
+    "left"
    ]
   },
   "key": {
@@ -12150,16 +12150,16 @@ window.QUESTION_BANK = [
   "question": "Competitive markets are the most ___B1___ market structure; monopolies are generally the least. Advertising and R&D costs explain why competition does not always cut ___B2___.",
   "blankOptions": {
    "B1": [
-    "profit",
-    "left",
-    "one",
-    "efficient"
+    "efficient",
+    "rise",
+    "rivalry",
+    "power"
    ],
    "B2": [
-    "left",
+    "small",
+    "prices",
     "collusion",
-    "leader",
-    "prices"
+    "power"
    ]
   },
   "key": {
@@ -14104,15 +14104,15 @@ window.QUESTION_BANK = [
   "question": "Production is the total ___B1___ of goods and services in a given time period; productivity is output per unit of ___B2___.",
   "blankOptions": {
    "B1": [
-    "intangible",
-    "total",
-    "revenue",
-    "output"
+    "output",
+    "external",
+    "diseconomies",
+    "revenue"
    ],
    "B2": [
     "profit",
-    "external",
     "diseconomies",
+    "purchasing",
     "input"
    ]
   },
@@ -14133,15 +14133,15 @@ window.QUESTION_BANK = [
   "question": "Total cost = ___B1___ costs plus variable costs. Average cost = total cost divided by ___B2___.",
   "blankOptions": {
    "B1": [
-    "revenue",
-    "cost",
+    "government",
     "fixed",
-    "profit"
+    "external",
+    "output"
    ],
    "B2": [
+    "government",
+    "total",
     "quantity",
-    "average",
-    "purchasing",
     "external"
    ]
   },
@@ -14162,16 +14162,16 @@ window.QUESTION_BANK = [
   "question": "Total revenue = price × quantity. Profit = total revenue minus total ___B1___ — and revenue is NOT the same as ___B2___.",
   "blankOptions": {
    "B1": [
+    "external",
     "cost",
-    "output",
-    "average",
-    "purchasing"
+    "fixed",
+    "input"
    ],
    "B2": [
-    "profit",
-    "intangible",
     "quantity",
-    "average"
+    "profit",
+    "purchasing",
+    "diseconomies"
    ]
   },
   "key": {
@@ -14192,15 +14192,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "purchasing",
-    "average",
     "external",
-    "profit"
+    "average",
+    "input"
    ],
    "B2": [
-    "input",
     "diseconomies",
-    "purchasing",
-    "cost"
+    "fixed",
+    "profit",
+    "input"
    ]
   },
   "key": {
@@ -14220,16 +14220,16 @@ window.QUESTION_BANK = [
   "question": "Producers can be individuals, firms or the ___B1___, which produces services like health and education. Services differ from goods because they are ___B2___.",
   "blankOptions": {
    "B1": [
-    "external",
-    "average",
-    "fixed",
-    "government"
+    "government",
+    "cost",
+    "purchasing",
+    "average"
    ],
    "B2": [
-    "profit",
-    "output",
     "intangible",
-    "average"
+    "input",
+    "fixed",
+    "revenue"
    ]
   },
   "key": {
@@ -14249,16 +14249,16 @@ window.QUESTION_BANK = [
   "question": "Bulk-buying is a ___B1___ economy of scale; better local roads are an ___B2___ economy of scale, available to all firms in the area.",
   "blankOptions": {
    "B1": [
+    "average",
     "government",
-    "total",
-    "quantity",
+    "cost",
     "purchasing"
    ],
    "B2": [
     "output",
-    "input",
-    "external",
-    "total"
+    "intangible",
+    "diseconomies",
+    "external"
    ]
   },
   "key": {
@@ -15812,15 +15812,15 @@ window.QUESTION_BANK = [
   "question": "In the labour market, ___B1___ demand labour and ___B2___ supply it — the reverse of a goods market.",
   "blankOptions": {
    "B1": [
-    "firms",
     "move",
-    "product",
-    "rises"
+    "firms",
+    "rises",
+    "demand"
    ],
    "B2": [
-    "households",
-    "product",
     "immobility",
+    "rises",
+    "households",
     "supply"
    ]
   },
@@ -15842,15 +15842,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "demand",
+    "immobility",
     "derived",
-    "rises",
-    "move"
+    "gross"
    ],
    "B2": [
-    "rises",
+    "supply",
+    "households",
     "product",
-    "immobility",
-    "households"
+    "demand"
    ]
   },
   "key": {
@@ -15870,16 +15870,16 @@ window.QUESTION_BANK = [
   "question": "When the supply of labour shifts right, the equilibrium wage ___B1___ but the number employed ___B2___.",
   "blankOptions": {
    "B1": [
-    "supply",
     "falls",
+    "net",
     "gross",
     "firms"
    ],
    "B2": [
-    "inelastic",
+    "move",
+    "demand",
     "rises",
-    "net",
-    "demand"
+    "immobility"
    ]
   },
   "key": {
@@ -15899,16 +15899,16 @@ window.QUESTION_BANK = [
   "question": "Scarce, skilled workers have an ___B1___ supply, so they earn ___B2___ wages than workers whose skills many people have.",
   "blankOptions": {
    "B1": [
-    "rises",
+    "derived",
+    "product",
     "inelastic",
-    "supply",
-    "immobility"
+    "households"
    ],
    "B2": [
+    "product",
     "derived",
-    "gross",
-    "rises",
-    "higher"
+    "higher",
+    "rises"
    ]
   },
   "key": {
@@ -15928,16 +15928,16 @@ window.QUESTION_BANK = [
   "question": "___B1___ pay is total earnings before deductions; ___B2___ pay is take-home pay after income tax, NI and pension are removed.",
   "blankOptions": {
    "B1": [
-    "demand",
+    "falls",
     "higher",
-    "move",
-    "gross"
+    "gross",
+    "households"
    ],
    "B2": [
     "net",
+    "product",
     "rises",
-    "demand",
-    "higher"
+    "move"
    ]
   },
   "key": {
@@ -15957,16 +15957,16 @@ window.QUESTION_BANK = [
   "question": "Occupational ___B1___ means a worker's skills do not transfer to a new job; geographical immobility means they cannot or will not ___B2___.",
   "blankOptions": {
    "B1": [
-    "immobility",
-    "supply",
-    "households",
-    "gross"
+    "higher",
+    "demand",
+    "firms",
+    "immobility"
    ],
    "B2": [
-    "higher",
-    "move",
-    "firms",
-    "net"
+    "inelastic",
+    "derived",
+    "product",
+    "move"
    ]
   },
   "key": {
@@ -17639,16 +17639,16 @@ window.QUESTION_BANK = [
   "question": "Money is anything generally accepted as a means of ___B1___ for goods and services; a credit card is not money because it only ___B2___ money held elsewhere.",
   "blankOptions": {
    "B1": [
+    "fall",
+    "banknotes",
     "payment",
-    "2100",
-    "mortgage",
-    "fall"
+    "building"
    ],
    "B2": [
+    "2100",
+    "saving",
     "accesses",
-    "premium",
-    "fall",
-    "banknotes"
+    "premium"
    ]
   },
   "key": {
@@ -17668,16 +17668,16 @@ window.QUESTION_BANK = [
   "question": "Barter suffers from the double ___B1___ of wants, which money removes by acting as a ___B2___ of exchange.",
   "blankOptions": {
    "B1": [
-    "bank",
-    "2100",
+    "rise",
+    "accesses",
     "coincidence",
-    "rise"
+    "2100"
    ],
    "B2": [
+    "saving",
+    "accesses",
     "medium",
-    "premium",
-    "2100",
-    "rise"
+    "2100"
    ]
   },
   "key": {
@@ -17697,16 +17697,16 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ society is a mutual owned by its members, while a commercial ___B2___ is owned by shareholders.",
   "blankOptions": {
    "B1": [
-    "mortgage",
+    "premium",
+    "banknotes",
     "100",
-    "building",
-    "accesses"
+    "building"
    ],
    "B2": [
     "bank",
-    "medium",
-    "payment",
-    "coincidence"
+    "fall",
+    "2100",
+    "premium"
    ]
   },
   "key": {
@@ -17726,16 +17726,16 @@ window.QUESTION_BANK = [
   "question": "The Bank of England issues ___B1___ and sets the ___B2___ rate.",
   "blankOptions": {
    "B1": [
-    "medium",
-    "saving",
+    "2100",
+    "fall",
     "banknotes",
-    "mortgage"
+    "payment"
    ],
    "B2": [
-    "bank",
-    "building",
-    "premium",
-    "2100"
+    "mortgage",
+    "payment",
+    "rise",
+    "bank"
    ]
   },
   "key": {
@@ -17755,16 +17755,16 @@ window.QUESTION_BANK = [
   "question": "When interest rates ___B1___, saving becomes more rewarding and borrowing tends to ___B2___.",
   "blankOptions": {
    "B1": [
-    "bank",
-    "100",
-    "payment",
+    "banknotes",
+    "building",
+    "2100",
     "rise"
    ],
    "B2": [
+    "accesses",
+    "mortgage",
     "saving",
-    "banknotes",
-    "fall",
-    "100"
+    "fall"
    ]
   },
   "key": {
@@ -17785,15 +17785,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "100",
-    "premium",
-    "banknotes",
-    "medium"
+    "rise",
+    "bank",
+    "saving"
    ],
    "B2": [
-    "mortgage",
+    "coincidence",
     "2100",
-    "saving",
-    "banknotes"
+    "banknotes",
+    "saving"
    ]
   },
   "key": {
@@ -19432,16 +19432,16 @@ window.QUESTION_BANK = [
   "question": "Economic growth is the growth over time of ___B1___, usually measured as the annual percentage change in ___B2___ GDP.",
   "blankOptions": {
    "B1": [
-    "revenue",
-    "capital",
-    "negative",
-    "GDP"
+    "recession",
+    "capita",
+    "GDP",
+    "inflation"
    ],
    "B2": [
-    "revenue",
-    "growing",
-    "nominal",
-    "real"
+    "real",
+    "capita",
+    "capital",
+    "recession"
    ]
   },
   "key": {
@@ -19461,16 +19461,16 @@ window.QUESTION_BANK = [
   "question": "GDP per ___B1___ is GDP divided by the ___B2___, which makes it a better guide to average living standards.",
   "blankOptions": {
    "B1": [
-    "GDP",
-    "inflation",
-    "human",
-    "capita"
+    "nominal",
+    "capita",
+    "capacity",
+    "revenue"
    ],
    "B2": [
-    "recession",
-    "capital",
+    "growing",
+    "GDP",
     "population",
-    "nominal"
+    "revenue"
    ]
   },
   "key": {
@@ -19490,16 +19490,16 @@ window.QUESTION_BANK = [
   "question": "If a growth rate is positive but falling, the economy is still ___B1___ — only a ___B2___ figure means output actually fell.",
   "blankOptions": {
    "B1": [
-    "human",
-    "inflation",
     "growing",
-    "recession"
+    "inflation",
+    "real",
+    "population"
    ],
    "B2": [
+    "recession",
     "negative",
-    "revenue",
-    "GDP",
-    "capital"
+    "real",
+    "capita"
    ]
   },
   "key": {
@@ -19519,16 +19519,16 @@ window.QUESTION_BANK = [
   "question": "In economics, investment means spending on ___B1___ equipment, which raises the economy's future productive ___B2___.",
   "blankOptions": {
    "B1": [
-    "growing",
+    "revenue",
     "capital",
-    "human",
-    "negative"
+    "real",
+    "population"
    ],
    "B2": [
     "capita",
-    "GDP",
-    "capacity",
-    "revenue"
+    "productive",
+    "revenue",
+    "capacity"
    ]
   },
   "key": {
@@ -19548,16 +19548,16 @@ window.QUESTION_BANK = [
   "question": "Education and training raise ___B1___ capital, so workers become more ___B2___ and total output rises.",
   "blankOptions": {
    "B1": [
-    "GDP",
-    "human",
     "capital",
-    "negative"
+    "human",
+    "capita",
+    "GDP"
    ],
    "B2": [
     "negative",
-    "productive",
-    "capita",
-    "recession"
+    "inflation",
+    "revenue",
+    "productive"
    ]
   },
   "key": {
@@ -19577,16 +19577,16 @@ window.QUESTION_BANK = [
   "question": "A cost of growth is ___B1___ externalities such as pollution, while a benefit is higher tax ___B2___ to fund public services.",
   "blankOptions": {
    "B1": [
+    "human",
     "negative",
-    "population",
-    "real",
-    "productive"
+    "nominal",
+    "real"
    ],
    "B2": [
-    "real",
-    "human",
     "revenue",
-    "productive"
+    "capital",
+    "GDP",
+    "recession"
    ]
   },
   "key": {
@@ -21308,16 +21308,16 @@ window.QUESTION_BANK = [
   "question": "Unemployment means being ___B1___ and able to work but unable to find a ___B2___.",
   "blankOptions": {
    "B1": [
-    "seasonal",
-    "deficit",
-    "willing",
-    "Cyclical"
+    "workforce",
+    "Cyclical",
+    "rate",
+    "willing"
    ],
    "B2": [
-    "Survey",
     "demand",
-    "seasonal",
-    "job"
+    "falls",
+    "job",
+    "Frictional"
    ]
   },
   "key": {
@@ -21337,16 +21337,16 @@ window.QUESTION_BANK = [
   "question": "The unemployment ___B1___ is the number unemployed divided by the ___B2___, multiplied by 100.",
   "blankOptions": {
    "B1": [
+    "rises",
     "rate",
-    "falls",
-    "job",
-    "rises"
+    "Frictional",
+    "demand"
    ],
    "B2": [
-    "Frictional",
-    "falls",
-    "workforce",
-    "willing"
+    "claimant",
+    "deficit",
+    "Survey",
+    "workforce"
    ]
   },
   "key": {
@@ -21366,16 +21366,16 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ count measures those receiving benefits, while the Labour Force ___B2___ asks a sample of households.",
   "blankOptions": {
    "B1": [
-    "willing",
+    "Frictional",
+    "rises",
     "claimant",
-    "job",
-    "seasonal"
+    "Cyclical"
    ],
    "B2": [
-    "deficit",
-    "Cyclical",
+    "demand",
     "Survey",
-    "seasonal"
+    "seasonal",
+    "willing"
    ]
   },
   "key": {
@@ -21395,16 +21395,16 @@ window.QUESTION_BANK = [
   "question": "___B1___ unemployment is the short gap between jobs, while ___B2___ unemployment follows a permanent decline in an industry.",
   "blankOptions": {
    "B1": [
-    "claimant",
-    "willing",
-    "Frictional",
-    "seasonal"
+    "rises",
+    "demand",
+    "Survey",
+    "Frictional"
    ],
    "B2": [
-    "job",
-    "falls",
+    "deficit",
+    "claimant",
     "structural",
-    "deficit"
+    "rises"
    ]
   },
   "key": {
@@ -21424,16 +21424,16 @@ window.QUESTION_BANK = [
   "question": "___B1___ unemployment is caused by a fall in ___B2___ across the whole economy.",
   "blankOptions": {
    "B1": [
-    "deficit",
-    "structural",
+    "seasonal",
     "Cyclical",
+    "claimant",
     "willing"
    ],
    "B2": [
+    "deficit",
+    "demand",
     "seasonal",
-    "structural",
-    "rate",
-    "demand"
+    "rises"
    ]
   },
   "key": {
@@ -21453,16 +21453,16 @@ window.QUESTION_BANK = [
   "question": "When unemployment rises the government suffers a double hit: tax revenue ___B1___ while benefit spending ___B2___.",
   "blankOptions": {
    "B1": [
-    "claimant",
+    "deficit",
+    "job",
     "falls",
-    "Cyclical",
-    "willing"
+    "structural"
    ],
    "B2": [
-    "Survey",
-    "claimant",
-    "workforce",
-    "rises"
+    "deficit",
+    "Cyclical",
+    "rises",
+    "Frictional"
    ]
   },
   "key": {
@@ -22793,16 +22793,16 @@ window.QUESTION_BANK = [
   "question": "Income is a ___B1___ of money received over time, while wealth is a ___B2___ of assets owned at a point in time.",
   "blankOptions": {
    "B1": [
-    "relative",
-    "income",
-    "interest",
-    "flow"
+    "dividends",
+    "progressive",
+    "flow",
+    "Inheritance"
    ],
    "B2": [
-    "Absolute",
     "stock",
-    "progressive",
-    "on"
+    "Absolute",
+    "rent",
+    "interest"
    ]
   },
   "key": {
@@ -22822,16 +22822,16 @@ window.QUESTION_BANK = [
   "question": "In the UK, ___B1___ is distributed even more unequally than income — the top 10% hold over ___B2___% of it.",
   "blankOptions": {
    "B1": [
-    "dividends",
-    "Inheritance",
+    "relative",
+    "on",
     "wealth",
-    "regressive"
+    "rent"
    ],
    "B2": [
-    "income",
+    "dividends",
+    "Absolute",
     "48.5",
-    "relative",
-    "interest"
+    "on"
    ]
   },
   "key": {
@@ -22851,15 +22851,15 @@ window.QUESTION_BANK = [
   "question": "___B1___ poverty means lacking basic necessities, while ___B2___ poverty means having less than 60% of median income.",
   "blankOptions": {
    "B1": [
-    "progressive",
+    "rent",
     "flow",
-    "Inheritance",
+    "wealth",
     "Absolute"
    ],
    "B2": [
     "dividends",
-    "stock",
-    "regressive",
+    "48.5",
+    "flow",
     "relative"
    ]
   },
@@ -22880,16 +22880,16 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ tax charges a higher rate on higher incomes, while VAT is ___B2___ because it takes a bigger share of a low income.",
   "blankOptions": {
    "B1": [
+    "interest",
+    "flow",
     "progressive",
-    "relative",
-    "Inheritance",
-    "interest"
+    "rent"
    ],
    "B2": [
-    "interest",
+    "regressive",
     "48.5",
-    "Inheritance",
-    "regressive"
+    "rent",
+    "Inheritance"
    ]
   },
   "key": {
@@ -22909,16 +22909,16 @@ window.QUESTION_BANK = [
   "question": "___B1___ perpetuates wealth inequality across generations, because those with assets have more to pass ___B2___.",
   "blankOptions": {
    "B1": [
-    "wealth",
-    "progressive",
+    "Inheritance",
     "dividends",
-    "Inheritance"
+    "interest",
+    "relative"
    ],
    "B2": [
+    "dividends",
+    "stock",
     "on",
-    "48.5",
-    "wealth",
-    "dividends"
+    "relative"
    ]
   },
   "key": {
@@ -22938,16 +22938,16 @@ window.QUESTION_BANK = [
   "question": "Wealth generates income through ___B1___ on savings and ___B2___ from property, so asset owners gain twice.",
   "blankOptions": {
    "B1": [
-    "interest",
-    "on",
-    "stock",
-    "relative"
+    "flow",
+    "48.5",
+    "relative",
+    "interest"
    ],
    "B2": [
-    "progressive",
     "rent",
-    "dividends",
-    "48.5"
+    "Absolute",
+    "progressive",
+    "dividends"
    ]
   },
   "key": {
@@ -24508,16 +24508,16 @@ window.QUESTION_BANK = [
   "question": "Inflation is a sustained rise in the ___B1___ price level, which means the ___B2___ power of money falls.",
   "blankOptions": {
    "B1": [
-    "Demand",
-    "real",
-    "-1",
-    "general"
+    "Index",
+    "general",
+    "nominal",
+    "negative"
    ],
    "B2": [
-    "Index",
+    "minus",
     "purchasing",
-    "cost",
-    "minus"
+    "Demand",
+    "stability"
    ]
   },
   "key": {
@@ -24537,16 +24537,16 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ value has not been adjusted for inflation, while a ___B2___ value has.",
   "blankOptions": {
    "B1": [
+    "stability",
     "negative",
-    "-1",
     "Demand",
     "nominal"
    ],
    "B2": [
-    "real",
-    "Index",
+    "Demand",
+    "purchasing",
     "minus",
-    "general"
+    "real"
    ]
   },
   "key": {
@@ -24566,16 +24566,16 @@ window.QUESTION_BANK = [
   "question": "Inflation is measured by the Consumer Price ___B1___, which surveys a weighted ___B2___ of goods and services.",
   "blankOptions": {
    "B1": [
-    "minus",
     "Index",
-    "rising",
-    "negative"
+    "stability",
+    "Demand",
+    "real"
    ],
    "B2": [
-    "purchasing",
-    "nominal",
+    "basket",
     "stability",
-    "basket"
+    "real",
+    "cost"
    ]
   },
   "key": {
@@ -24595,16 +24595,16 @@ window.QUESTION_BANK = [
   "question": "___B1___-pull inflation comes from excess demand, while ___B2___-push inflation comes from rising costs of production.",
   "blankOptions": {
    "B1": [
-    "Demand",
     "stability",
-    "nominal",
-    "real"
+    "weighting",
+    "Demand",
+    "Index"
    ],
    "B2": [
-    "cost",
-    "negative",
+    "rising",
     "stability",
-    "basket"
+    "basket",
+    "cost"
    ]
   },
   "key": {
@@ -24624,16 +24624,16 @@ window.QUESTION_BANK = [
   "question": "The real interest rate equals the nominal rate ___B1___ the rate of inflation, so 1.6% with 2.6% inflation gives ___B2___%.",
   "blankOptions": {
    "B1": [
+    "minus",
     "stability",
     "Demand",
-    "minus",
     "nominal"
    ],
    "B2": [
-    "real",
-    "Demand",
-    "rising",
-    "-1"
+    "stability",
+    "-1",
+    "Index",
+    "nominal"
    ]
   },
   "key": {
@@ -24653,15 +24653,15 @@ window.QUESTION_BANK = [
   "question": "If the inflation rate is falling but still positive, prices are still ___B1___ — only a ___B2___ rate makes the price level fall.",
   "blankOptions": {
    "B1": [
-    "rising",
-    "cost",
-    "basket",
-    "minus"
+    "weighting",
+    "nominal",
+    "purchasing",
+    "rising"
    ],
    "B2": [
-    "negative",
-    "weighting",
     "general",
+    "negative",
+    "nominal",
     "stability"
    ]
   },
@@ -26427,16 +26427,16 @@ window.QUESTION_BANK = [
   "question": "Fiscal policy is the government's choices about ___B1___ and ___B2___.",
   "blankOptions": {
    "B1": [
-    "left",
+    "cutting",
     "taxation",
-    "multiplier",
-    "deficit"
+    "borrowed",
+    "left"
    ],
    "B2": [
-    "cutting",
-    "left",
+    "imports",
+    "multiplier",
     "spending",
-    "borrowed"
+    "positive"
    ]
   },
   "key": {
@@ -26456,16 +26456,16 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ tax is charged on income or wealth, while an ___B2___ tax is charged on spending.",
   "blankOptions": {
    "B1": [
-    "cutting",
     "taxation",
     "direct",
-    "spending"
+    "cutting",
+    "multiplier"
    ],
    "B2": [
+    "surplus",
+    "imports",
     "indirect",
-    "borrowed",
-    "save",
-    "left"
+    "spending"
    ]
   },
   "key": {
@@ -26485,16 +26485,16 @@ window.QUESTION_BANK = [
   "question": "A budget ___B1___ means spending exceeds tax revenue, so the gap must be ___B2___.",
   "blankOptions": {
    "B1": [
-    "multiplier",
-    "left",
+    "deficit",
     "negative",
-    "deficit"
+    "indirect",
+    "imports"
    ],
    "B2": [
+    "imports",
     "surplus",
-    "spending",
     "borrowed",
-    "positive"
+    "cutting"
    ]
   },
   "key": {
@@ -26514,16 +26514,16 @@ window.QUESTION_BANK = [
   "question": "An indirect tax on petrol shifts the supply curve ___B1___, raising price and ___B2___ the quantity sold.",
   "blankOptions": {
    "B1": [
-    "indirect",
-    "positive",
+    "taxation",
+    "imports",
     "left",
-    "save"
+    "multiplier"
    ],
    "B2": [
-    "cutting",
+    "surplus",
     "imports",
-    "positive",
-    "save"
+    "deficit",
+    "cutting"
    ]
   },
   "key": {
@@ -26543,15 +26543,15 @@ window.QUESTION_BANK = [
   "question": "Government spending becomes income for other firms, who spend again — the ___B1___ effect. Excise duties target goods with ___B2___ externalities.",
   "blankOptions": {
    "B1": [
+    "surplus",
+    "indirect",
     "multiplier",
-    "deficit",
-    "spending",
-    "surplus"
+    "imports"
    ],
    "B2": [
-    "imports",
+    "borrowed",
+    "surplus",
     "spending",
-    "save",
     "negative"
    ]
   },
@@ -26572,16 +26572,16 @@ window.QUESTION_BANK = [
   "question": "A tax cut may not raise demand if households ___B1___ the money instead of spending it, or spend it on ___B2___.",
   "blankOptions": {
    "B1": [
-    "surplus",
+    "positive",
     "indirect",
-    "multiplier",
-    "save"
+    "save",
+    "taxation"
    ],
    "B2": [
     "imports",
-    "direct",
     "cutting",
-    "deficit"
+    "surplus",
+    "negative"
    ]
   },
   "key": {
@@ -27884,16 +27884,16 @@ window.QUESTION_BANK = [
   "question": "Monetary policy is set independently of the ___B1___ by the Bank of England's ___B2___.",
   "blankOptions": {
    "B1": [
-    "unemployment",
-    "government",
-    "depreciate",
-    "fiscal"
+    "expensive",
+    "rewarding",
+    "cheaper",
+    "government"
    ],
    "B2": [
-    "depreciate",
     "MPC",
-    "expensive",
-    "unemployment"
+    "Quantitative",
+    "increase",
+    "high"
    ]
   },
   "key": {
@@ -27913,16 +27913,16 @@ window.QUESTION_BANK = [
   "question": "The UK's inflation target is ___B1___%, with a margin of ___B2___% either way.",
   "blankOptions": {
    "B1": [
-    "low",
-    "appreciate",
+    "cheaper",
     "2",
-    "rewarding"
+    "MPC",
+    "increase"
    ],
    "B2": [
     "1",
-    "low",
-    "rewarding",
-    "expensive"
+    "fiscal",
+    "expensive",
+    "increase"
    ]
   },
   "key": {
@@ -27942,16 +27942,16 @@ window.QUESTION_BANK = [
   "question": "When the base rate rises, borrowing becomes more ___B1___ and saving becomes more ___B2___.",
   "blankOptions": {
    "B1": [
-    "dearer",
-    "expensive",
     "fiscal",
-    "MPC"
+    "expensive",
+    "increase",
+    "1"
    ],
    "B2": [
+    "rewarding",
+    "increase",
     "dearer",
-    "government",
-    "2",
-    "rewarding"
+    "depreciate"
    ]
   },
   "key": {
@@ -27971,16 +27971,16 @@ window.QUESTION_BANK = [
   "question": "Higher UK interest rates tend to make the pound ___B1___, which makes imports ___B2___.",
   "blankOptions": {
    "B1": [
-    "depreciate",
-    "appreciate",
     "increase",
+    "MPC",
+    "appreciate",
     "2"
    ],
    "B2": [
-    "2",
-    "increase",
-    "expensive",
-    "cheaper"
+    "high",
+    "Quantitative",
+    "cheaper",
+    "rewarding"
    ]
   },
   "key": {
@@ -28000,16 +28000,16 @@ window.QUESTION_BANK = [
   "question": "___B1___ easing is used when interest rates are already very ___B2___ and cutting them further would have little effect.",
   "blankOptions": {
    "B1": [
-    "MPC",
+    "depreciate",
     "Quantitative",
-    "1",
-    "appreciate"
+    "MPC",
+    "cheaper"
    ],
    "B2": [
-    "depreciate",
-    "appreciate",
+    "high",
     "low",
-    "government"
+    "dearer",
+    "MPC"
    ]
   },
   "key": {
@@ -28029,16 +28029,16 @@ window.QUESTION_BANK = [
   "question": "A cut in interest rates tends to ___B1___ consumer spending, which can help reduce ___B2___.",
   "blankOptions": {
    "B1": [
-    "increase",
-    "Quantitative",
-    "cheaper",
-    "expensive"
+    "MPC",
+    "high",
+    "appreciate",
+    "increase"
    ],
    "B2": [
-    "2",
     "unemployment",
-    "high",
-    "rewarding"
+    "low",
+    "appreciate",
+    "MPC"
    ]
   },
   "key": {
@@ -29228,16 +29228,16 @@ window.QUESTION_BANK = [
   "question": "Supply-side policies aim to increase an economy's ___B1___ capacity, rather than managing ___B2___.",
   "blankOptions": {
    "B1": [
-    "monetary",
-    "private",
+    "inflation",
+    "Privatisation",
     "productive",
-    "corporation"
+    "income"
    ],
    "B2": [
-    "corporation",
+    "cost",
     "demand",
-    "inflationary",
-    "supply"
+    "corporation",
+    "contradiction"
    ]
   },
   "key": {
@@ -29257,16 +29257,16 @@ window.QUESTION_BANK = [
   "question": "Lower ___B1___ tax gives workers an incentive to work, while lower ___B2___ tax lets firms keep more profit to invest.",
   "blankOptions": {
    "B1": [
+    "inflationary",
+    "supply",
     "income",
-    "contradiction",
-    "monetary",
-    "demand"
+    "cost"
    ],
    "B2": [
-    "public",
-    "supply",
+    "inflationary",
     "demand",
-    "corporation"
+    "corporation",
+    "opportunity"
    ]
   },
   "key": {
@@ -29286,16 +29286,16 @@ window.QUESTION_BANK = [
   "question": "___B1___ occurs when a state-owned organisation is sold into the ___B2___ sector.",
   "blankOptions": {
    "B1": [
+    "corporation",
+    "contradiction",
     "Privatisation",
-    "opportunity",
-    "productive",
-    "inflation"
+    "public"
    ],
    "B2": [
-    "cost",
-    "inflation",
+    "private",
+    "public",
     "opportunity",
-    "private"
+    "income"
    ]
   },
   "key": {
@@ -29315,16 +29315,16 @@ window.QUESTION_BANK = [
   "question": "Increased productive capacity leads to an increase in ___B1___, which lowers costs and reduces ___B2___ pressure.",
   "blankOptions": {
    "B1": [
-    "contradiction",
-    "cost",
-    "supply",
-    "inflation"
+    "opportunity",
+    "private",
+    "income",
+    "supply"
    ],
    "B2": [
-    "monetary",
     "inflationary",
-    "contradiction",
-    "demand"
+    "demand",
+    "public",
+    "monetary"
    ]
   },
   "key": {
@@ -29344,16 +29344,16 @@ window.QUESTION_BANK = [
   "question": "A cut in direct taxes can increase incentives to work, but by raising disposable income it could also lead to rising ___B1___ — a direct ___B2___ with the aim of price stability.",
   "blankOptions": {
    "B1": [
-    "private",
-    "supply",
-    "Privatisation",
-    "inflation"
+    "inflation",
+    "cost",
+    "corporation",
+    "supply"
    ],
    "B2": [
+    "monetary",
     "private",
-    "opportunity",
     "contradiction",
-    "inflationary"
+    "supply"
    ]
   },
   "key": {
@@ -29373,16 +29373,16 @@ window.QUESTION_BANK = [
   "question": "Every pound the government spends on supply-side policy has an ___B1___ ___B2___ — money that could have funded something else.",
   "blankOptions": {
    "B1": [
-    "inflationary",
-    "productive",
     "opportunity",
-    "corporation"
+    "corporation",
+    "public",
+    "monetary"
    ],
    "B2": [
-    "private",
-    "contradiction",
     "cost",
-    "Privatisation"
+    "inflation",
+    "Privatisation",
+    "private"
    ]
   },
   "key": {
@@ -30898,16 +30898,16 @@ window.QUESTION_BANK = [
   "question": "An externality is a cost or benefit that falls on a ___B1___ party, and is not reflected in the market ___B2___.",
   "blankOptions": {
    "B1": [
-    "supply",
-    "another",
+    "demand",
     "third",
-    "tax"
+    "paying",
+    "right"
    ],
    "B2": [
-    "paying",
-    "left",
     "price",
-    "alternative"
+    "right",
+    "another",
+    "left"
    ]
   },
   "key": {
@@ -30927,16 +30927,16 @@ window.QUESTION_BANK = [
   "question": "When ___B1___ cost is greater than ___B2___ cost, an economic activity creates a negative externality.",
   "blankOptions": {
    "B1": [
+    "alternative",
     "another",
-    "demand",
     "social",
-    "free-rider"
+    "paying"
    ],
    "B2": [
     "private",
-    "subsidy",
-    "left",
-    "right"
+    "alternative",
+    "right",
+    "tax"
    ]
   },
   "key": {
@@ -30956,16 +30956,16 @@ window.QUESTION_BANK = [
   "question": "An indirect tax raises a firm's costs, so the ___B1___ curve shifts ___B2___, raising price and cutting quantity.",
   "blankOptions": {
    "B1": [
-    "demand",
-    "supply",
+    "free-rider",
+    "alternative",
     "private",
-    "free-rider"
+    "supply"
    ],
    "B2": [
-    "subsidy",
+    "left",
     "free-rider",
-    "private",
-    "left"
+    "subsidy",
+    "social"
    ]
   },
   "key": {
@@ -30985,16 +30985,16 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ is money paid to a producer to lower costs and increase ___B2___.",
   "blankOptions": {
    "B1": [
-    "subsidy",
-    "private",
+    "social",
     "right",
-    "price"
+    "subsidy",
+    "paying"
    ],
    "B2": [
-    "right",
-    "alternative",
+    "another",
     "supply",
-    "private"
+    "private",
+    "tax"
    ]
   },
   "key": {
@@ -31014,16 +31014,16 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ problem means people can benefit from a good without ___B2___ for it, so firms cannot profit from supplying it.",
   "blankOptions": {
    "B1": [
-    "another",
+    "right",
     "third",
     "free-rider",
-    "left"
+    "private"
    ],
    "B2": [
-    "left",
-    "third",
-    "right",
-    "paying"
+    "paying",
+    "social",
+    "price",
+    "demand"
    ]
   },
   "key": {
@@ -31043,16 +31043,16 @@ window.QUESTION_BANK = [
   "question": "Opportunity cost is the next best ___B1___ given up when the government spends money on one policy instead of ___B2___.",
   "blankOptions": {
    "B1": [
-    "demand",
-    "paying",
+    "third",
+    "right",
     "alternative",
     "social"
    ],
    "B2": [
     "another",
-    "free-rider",
-    "left",
-    "right"
+    "social",
+    "right",
+    "free-rider"
    ]
   },
   "key": {
@@ -32298,16 +32298,16 @@ window.QUESTION_BANK = [
   "question": "International trade is the exchange of goods and ___B1___ across national ___B2___.",
   "blankOptions": {
    "B1": [
-    "inside",
-    "lowers",
+    "20",
     "services",
-    "tariff"
+    "40",
+    "raises"
    ],
    "B2": [
-    "goods",
-    "imports",
-    "borders",
-    "20"
+    "20",
+    "quota",
+    "outside",
+    "borders"
    ]
   },
   "key": {
@@ -32327,16 +32327,16 @@ window.QUESTION_BANK = [
   "question": "A country's ___B1___ are goods and services sold abroad, while its ___B2___ are goods and services bought from abroad.",
   "blankOptions": {
    "B1": [
-    "raises",
+    "lowers",
+    "40",
     "exports",
-    "borders",
-    "tariff"
+    "raises"
    ],
    "B2": [
+    "reliance",
+    "raises",
     "imports",
-    "outside",
-    "goods",
-    "raises"
+    "tariff"
    ]
   },
   "key": {
@@ -32356,16 +32356,16 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ is a tax charged on imported goods, while a ___B2___ is a limit on the quantity that can be imported.",
   "blankOptions": {
    "B1": [
-    "outside",
-    "services",
+    "raises",
     "tariff",
-    "imports"
+    "40",
+    "reliance"
    ],
    "B2": [
     "quota",
-    "services",
-    "borders",
-    "imports"
+    "reliance",
+    "40",
+    "outside"
    ]
   },
   "key": {
@@ -32385,16 +32385,16 @@ window.QUESTION_BANK = [
   "question": "As a firm sells into larger export markets and raises output, it can benefit from ___B1___ of scale, which ___B2___ its average costs.",
   "blankOptions": {
    "B1": [
+    "goods",
     "economies",
-    "20",
-    "tariff",
-    "raises"
+    "borders",
+    "exports"
    ],
    "B2": [
-    "tariffs",
-    "quota",
-    "imports",
-    "lowers"
+    "tariff",
+    "exports",
+    "lowers",
+    "40"
    ]
   },
   "key": {
@@ -32414,15 +32414,15 @@ window.QUESTION_BANK = [
   "question": "A free trade agreement removes ___B1___ and quotas between its members, but each member can still make its own deals with countries ___B2___ the agreement.",
   "blankOptions": {
    "B1": [
-    "inside",
-    "exports",
+    "economies",
+    "quota",
     "tariffs",
-    "tariff"
+    "raises"
    ],
    "B2": [
-    "tariff",
-    "economies",
     "20",
+    "borders",
+    "quota",
     "outside"
    ]
   },
@@ -32443,16 +32443,16 @@ window.QUESTION_BANK = [
   "question": "Around ___B1___% of Ivory Coast's export revenue comes from cocoa products, showing the risk of over-___B2___ on a narrow range of exports.",
   "blankOptions": {
    "B1": [
-    "services",
+    "borders",
     "20",
-    "economies",
-    "40"
+    "40",
+    "goods"
    ],
    "B2": [
-    "tariff",
-    "services",
-    "tariffs",
-    "reliance"
+    "reliance",
+    "quota",
+    "exports",
+    "tariffs"
    ]
   },
   "key": {
@@ -34042,16 +34042,16 @@ window.QUESTION_BANK = [
   "question": "The balance of payments records all financial transactions between a country and the ___B1___ of the world. At GCSE the focus is the ___B2___ account.",
   "blankOptions": {
    "B1": [
-    "financial",
-    "persistent",
+    "falling",
     "rest",
-    "deficit"
+    "income",
+    "productivity"
    ],
    "B2": [
-    "current",
-    "GDP",
     "persistent",
-    "falling"
+    "current",
+    "improve",
+    "income"
    ]
   },
   "key": {
@@ -34071,16 +34071,16 @@ window.QUESTION_BANK = [
   "question": "The current account has four components: trade in goods, trade in services, ___B1___ flows and ___B2___.",
   "blankOptions": {
    "B1": [
-    "income",
-    "GDP",
     "persistent",
-    "rest"
+    "income",
+    "deficit",
+    "financial"
    ],
    "B2": [
-    "persistent",
-    "financial",
-    "transfers",
-    "rest"
+    "improve",
+    "productivity",
+    "falling",
+    "transfers"
    ]
   },
   "key": {
@@ -34100,16 +34100,16 @@ window.QUESTION_BANK = [
   "question": "A current account ___B1___ means more money flows out than in, while a ___B2___ means more money flows in than out.",
   "blankOptions": {
    "B1": [
-    "transfers",
-    "persistent",
+    "improve",
     "deficit",
-    "GDP"
+    "productivity",
+    "falling"
    ],
    "B2": [
     "surplus",
-    "rest",
-    "falling",
-    "GDP"
+    "GDP",
+    "transfers",
+    "falling"
    ]
   },
   "key": {
@@ -34129,16 +34129,16 @@ window.QUESTION_BANK = [
   "question": "The UK runs a large ___B1___ on trade in goods but a ___B2___ on trade in services.",
   "blankOptions": {
    "B1": [
-    "transfers",
-    "current",
+    "GDP",
+    "income",
     "deficit",
-    "persistent"
+    "falling"
    ],
    "B2": [
-    "financial",
-    "persistent",
     "surplus",
-    "rest"
+    "GDP",
+    "income",
+    "persistent"
    ]
   },
   "key": {
@@ -34158,16 +34158,16 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ exchange rate makes exports cheaper and imports dearer, which tends to ___B2___ the current account balance.",
   "blankOptions": {
    "B1": [
-    "persistent",
-    "current",
-    "GDP",
-    "falling"
-   ],
-   "B2": [
+    "falling",
     "deficit",
     "rest",
-    "income",
-    "improve"
+    "current"
+   ],
+   "B2": [
+    "GDP",
+    "rest",
+    "improve",
+    "surplus"
    ]
   },
   "key": {
@@ -34187,16 +34187,16 @@ window.QUESTION_BANK = [
   "question": "How serious a deficit is depends on its cause, its size relative to ___B1___, and whether it is short-term or ___B2___.",
   "blankOptions": {
    "B1": [
+    "financial",
     "GDP",
-    "deficit",
-    "income",
-    "productivity"
+    "improve",
+    "income"
    ],
    "B2": [
-    "persistent",
-    "transfers",
-    "income",
-    "financial"
+    "surplus",
+    "productivity",
+    "financial",
+    "persistent"
    ]
   },
   "key": {
@@ -35646,16 +35646,16 @@ window.QUESTION_BANK = [
   "question": "A ___B1___ in the exchange rate means the pound is worth more, while a ___B2___ means it is worth less.",
   "blankOptions": {
    "B1": [
-    "more expensive",
-    "depreciation",
+    "appreciation",
+    "demand",
     "rise",
-    "appreciate"
+    "revaluation"
    ],
    "B2": [
-    "fall",
-    "demand",
-    "more expensive",
-    "revaluation"
+    "cheaper",
+    "appreciation",
+    "depreciate",
+    "fall"
    ]
   },
   "key": {
@@ -35675,16 +35675,16 @@ window.QUESTION_BANK = [
   "question": "The exchange rate is determined by the ___B1___ for and ___B2___ of a currency on foreign exchange markets.",
   "blankOptions": {
    "B1": [
-    "more expensive",
-    "depreciation",
+    "revaluation",
     "devaluation",
-    "demand"
+    "demand",
+    "depreciation"
    ],
    "B2": [
-    "supply",
-    "fall",
-    "depreciate",
-    "cheaper"
+    "appreciate",
+    "appreciation",
+    "cheaper",
+    "supply"
    ]
   },
   "key": {
@@ -35705,15 +35705,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "demand",
-    "depreciate",
     "appreciation",
+    "rise",
     "depreciation"
    ],
    "B2": [
-    "appreciate",
+    "more expensive",
     "supply",
     "devaluation",
-    "appreciation"
+    "depreciate"
    ]
   },
   "key": {
@@ -35733,16 +35733,16 @@ window.QUESTION_BANK = [
   "question": "A rise in the exchange rate is also called ___B1___; a fall is also called ___B2___.",
   "blankOptions": {
    "B1": [
+    "fall",
+    "more expensive",
     "appreciation",
-    "demand",
-    "rise",
-    "appreciate"
+    "demand"
    ],
    "B2": [
-    "revaluation",
-    "depreciate",
-    "demand",
-    "depreciation"
+    "fall",
+    "rise",
+    "depreciation",
+    "devaluation"
    ]
   },
   "key": {
@@ -35762,16 +35762,16 @@ window.QUESTION_BANK = [
   "question": "Higher UK interest rates relative to overseas tend to make the pound ___B1___, because foreign savers ___B2___ pounds to earn the better return.",
   "blankOptions": {
    "B1": [
-    "revaluation",
-    "supply",
+    "appreciation",
     "appreciate",
-    "depreciate"
+    "depreciation",
+    "cheaper"
    ],
    "B2": [
-    "appreciation",
-    "demand",
-    "devaluation",
-    "cheaper"
+    "revaluation",
+    "fall",
+    "supply",
+    "demand"
    ]
   },
   "key": {
@@ -35791,16 +35791,16 @@ window.QUESTION_BANK = [
   "question": "A depreciation makes UK exports ___B1___ for foreign buyers but makes imported raw materials ___B2___ for UK firms.",
   "blankOptions": {
    "B1": [
-    "cheaper",
-    "revaluation",
+    "appreciation",
     "demand",
-    "fall"
+    "supply",
+    "cheaper"
    ],
    "B2": [
-    "supply",
+    "revaluation",
     "more expensive",
-    "rise",
-    "fall"
+    "demand",
+    "appreciation"
    ]
   },
   "key": {
@@ -37405,16 +37405,16 @@ window.QUESTION_BANK = [
   "question": "Globalisation is the growing ___B1___ and interdependence of the world's ___B2___.",
   "blankOptions": {
    "B1": [
+    "trade",
+    "capital",
     "interconnectedness",
-    "Containerisation",
-    "inflation",
-    "Index"
+    "brain"
    ],
    "B2": [
+    "driving",
+    "demand",
     "economies",
-    "Containerisation",
-    "skilled",
-    "Index"
+    "inflation"
    ]
   },
   "key": {
@@ -37434,16 +37434,16 @@ window.QUESTION_BANK = [
   "question": "___B1___ of shipping — moving standard-size containers between ships, trains and trucks — is probably the single biggest ___B2___ factor of globalisation.",
   "blankOptions": {
    "B1": [
-    "brain",
-    "Containerisation",
+    "trade",
+    "inequality",
     "demand",
-    "inequality"
+    "Containerisation"
    ],
    "B2": [
-    "tariffs",
     "driving",
     "inflation",
-    "interconnectedness"
+    "Index",
+    "economies"
    ]
   },
   "key": {
@@ -37464,15 +37464,15 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "Index",
-    "inequality",
-    "driving",
-    "Containerisation"
+    "tariffs",
+    "demand",
+    "skilled"
    ],
    "B2": [
+    "brain",
     "education",
-    "trade",
-    "tariffs",
-    "economies"
+    "Containerisation",
+    "trade"
    ]
   },
   "key": {
@@ -37492,16 +37492,16 @@ window.QUESTION_BANK = [
   "question": "A large gap between a country's HDI and its Inequality-adjusted HDI shows a high level of ___B1___ in income, health or ___B2___.",
   "blankOptions": {
    "B1": [
-    "skilled",
+    "tariffs",
+    "inequality",
     "Containerisation",
-    "economies",
-    "inequality"
+    "brain"
    ],
    "B2": [
-    "interconnectedness",
-    "education",
     "Containerisation",
-    "Index"
+    "inflation",
+    "Index",
+    "education"
    ]
   },
   "key": {
@@ -37521,15 +37521,15 @@ window.QUESTION_BANK = [
   "question": "The ___B1___ drain describes skilled workers migrating abroad, making it harder for producers in a less developed country to hire ___B2___ labour.",
   "blankOptions": {
    "B1": [
-    "inequality",
-    "tariffs",
+    "inflation",
+    "demand",
     "brain",
-    "inflation"
+    "education"
    ],
    "B2": [
-    "inflation",
-    "trade",
+    "driving",
     "skilled",
+    "inequality",
     "demand"
    ]
   },
@@ -37550,13 +37550,13 @@ window.QUESTION_BANK = [
   "question": "If supply cannot keep pace with rising demand from globalisation, the result is likely to be ___B1___-pull ___B2___.",
   "blankOptions": {
    "B1": [
-    "brain",
+    "capital",
+    "trade",
     "driving",
-    "demand",
-    "education"
+    "demand"
    ],
    "B2": [
-    "education",
+    "interconnectedness",
     "inflation",
     "trade",
     "skilled"

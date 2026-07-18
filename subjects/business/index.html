@@ -144,16 +144,17 @@
     }
 
     .hero-nav {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 2;
       display: flex;
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
       justify-content: flex-end;
+      margin-bottom: 22px;
     }
+
+    /* Header is deliberately just the 🔔 bell + account menu. The sound toggle
+       lives inside that menu, and the tour-replay button isn't surfaced here. */
+    .hero-nav > .gam-sound-btn, .hero-nav > .gcse-tour-replay { display: none !important; }
 
     .hero-nav a,
     .hero-nav button {
@@ -615,8 +616,6 @@
   <header class="hero">
     <div class="hero-inner">
       <nav class="hero-nav" aria-label="Site">
-        <a href="/hub.html">🏠 <span>All Subjects</span></a>
-        <a href="/dashboard.html?subject=business">📊 <span>My Progress</span></a>
         <span id="accountBar" style="display:inline-flex;align-items:center;gap:10px;"></span>
       </nav>
       <div class="hero-eyebrow">
