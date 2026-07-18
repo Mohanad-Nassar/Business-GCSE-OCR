@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-18T23:01:36Z
+// Generated: 2026-07-18T23:09:24Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "spanish:p-1-spanish-sounds-and-the-alphabet": {
@@ -196,6 +196,17 @@ window.SECTION_TOTALS = {
   "flashcards": 18
  },
  "spanish:5-2-festivals-and-traditions": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:6-1-celebrities-influencers-and-fame": {
   "exam": 2,
   "mcq": 10,
   "tf": 8,

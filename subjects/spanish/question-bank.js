@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-18T23:01:36Z · 954 questions
+// Generated: 2026-07-18T23:09:24Z · 1007 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -636,10 +636,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘five’ is _____. <span data-say=\"cinco\" data-listen>cinco</span>",
   "blankOptions": {
    "B1": [
-    "it",
-    "second",
-    "throaty",
-    "cinco"
+    "ñ",
+    "cinco",
+    "ñan",
+    "second"
    ]
   },
   "key": {
@@ -659,9 +659,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "ñan",
-    "cinco",
     "ñ",
-    "it"
+    "cinco",
+    "second"
    ]
   },
   "key": {
@@ -680,9 +680,9 @@ window.QUESTION_BANK = [
   "question": "To keep a hard g before i, we write gu_____arra. <span data-say=\"guitarra\" data-listen>guitarra</span>",
   "blankOptions": {
    "B1": [
-    "soft",
     "second",
-    "ñ",
+    "cinco",
+    "ñan",
     "it"
    ]
   },
@@ -702,10 +702,10 @@ window.QUESTION_BANK = [
   "question": "c before e or i sounds _____. (hard or soft?)",
   "blankOptions": {
    "B1": [
-    "it",
-    "ñ",
-    "ñan",
-    "soft"
+    "throaty",
+    "soft",
+    "second",
+    "ñ"
    ]
   },
   "key": {
@@ -724,10 +724,10 @@ window.QUESTION_BANK = [
   "question": "Words ending in a vowel, n or s stress the _____-to-last syllable. (which one?)",
   "blankOptions": {
    "B1": [
-    "throaty",
-    "ñ",
-    "it",
-    "second"
+    "ñan",
+    "second",
+    "soft",
+    "throaty"
    ]
   },
   "key": {
@@ -746,9 +746,9 @@ window.QUESTION_BANK = [
   "question": "The extra Spanish letter is _____. (its symbol)",
   "blankOptions": {
    "B1": [
-    "ñ",
     "second",
-    "throaty",
+    "ñ",
+    "soft",
     "it"
    ]
   },
@@ -769,8 +769,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "throaty",
-    "second",
     "ñ",
+    "second",
     "ñan"
    ]
   },
@@ -1638,10 +1638,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘street’ is _____. <span data-say=\"calle\" data-listen>calle</span>",
   "blankOptions": {
    "B1": [
-    "calle",
-    "loch",
     "verde",
-    "y"
+    "y",
+    "rolled",
+    "calle"
    ]
   },
   "key": {
@@ -1660,10 +1660,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘birthday’, with its ‘ny’ sound, is cumplea_____. <span data-say=\"cumpleaños\" data-listen>cumpleaños</span>",
   "blankOptions": {
    "B1": [
-    "loch",
     "calle",
-    "verde",
-    "ños"
+    "y",
+    "ños",
+    "rolled"
    ]
   },
   "key": {
@@ -1682,8 +1682,8 @@ window.QUESTION_BANK = [
   "question": "ll sounds like the English letter _____. (which one?)",
   "blankOptions": {
    "B1": [
-    "loch",
     "tap",
+    "rolled",
     "ños",
     "y"
    ]
@@ -1704,10 +1704,10 @@ window.QUESTION_BANK = [
   "question": "j is pronounced from the back of the throat, like the Scottish word ‘_____’.",
   "blankOptions": {
    "B1": [
-    "ños",
-    "rolled",
-    "loch",
-    "tap"
+    "y",
+    "tap",
+    "verde",
+    "loch"
    ]
   },
   "key": {
@@ -1726,10 +1726,10 @@ window.QUESTION_BANK = [
   "question": "A single r between vowels, as in ‘pero’, is a quick _____. (tap or roll?)",
   "blankOptions": {
    "B1": [
-    "tap",
-    "verde",
     "rolled",
-    "ños"
+    "loch",
+    "y",
+    "tap"
    ]
   },
   "key": {
@@ -1749,9 +1749,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "rolled",
-    "calle",
     "y",
-    "tap"
+    "ños",
+    "verde"
    ]
   },
   "key": {
@@ -1770,10 +1770,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘green’ is _____. <span data-say=\"verde\" data-listen>verde</span>",
   "blankOptions": {
    "B1": [
-    "verde",
     "ños",
-    "calle",
-    "tap"
+    "verde",
+    "rolled",
+    "calle"
    ]
   },
   "key": {
@@ -2640,10 +2640,10 @@ window.QUESTION_BANK = [
   "question": "_____ problema es muy grande. <span data-say=\"El problema es muy grande.\" data-listen>El problema es muy grande.</span>",
   "blankOptions": {
    "B1": [
-    "del",
-    "unas",
+    "El",
     "mano",
-    "El"
+    "La",
+    "al"
    ]
   },
   "key": {
@@ -2662,10 +2662,10 @@ window.QUESTION_BANK = [
   "question": "Voy _____ colegio a las ocho. <span data-say=\"Voy al colegio a las ocho.\" data-listen>Voy al colegio a las ocho.</span>",
   "blankOptions": {
    "B1": [
-    "lápices",
-    "mano",
     "al",
-    "del"
+    "El",
+    "del",
+    "mano"
    ]
   },
   "key": {
@@ -2684,10 +2684,10 @@ window.QUESTION_BANK = [
   "question": "Tengo _____ preguntas sobre la tarea. <span data-say=\"Tengo unas preguntas sobre la tarea.\" data-listen>Tengo unas preguntas sobre la tarea.</span>",
   "blankOptions": {
    "B1": [
-    "lápices",
-    "al",
+    "mano",
     "unas",
-    "del"
+    "lápices",
+    "La"
    ]
   },
   "key": {
@@ -2707,9 +2707,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "La",
-    "unas",
-    "al",
-    "lápices"
+    "lápices",
+    "del",
+    "El"
    ]
   },
   "key": {
@@ -2728,10 +2728,10 @@ window.QUESTION_BANK = [
   "question": "_____ ciudad tiene mucha información. <span data-say=\"La ciudad tiene mucha información.\" data-listen>La ciudad tiene mucha información.</span>",
   "blankOptions": {
    "B1": [
+    "La",
+    "al",
     "El",
-    "mano",
-    "del",
-    "La"
+    "del"
    ]
   },
   "key": {
@@ -2750,10 +2750,10 @@ window.QUESTION_BANK = [
   "question": "Salgo _____ gimnasio después de las clases. <span data-say=\"Salgo del gimnasio después de las clases.\" data-listen>Salgo del gimnasio después de las clases.</span>",
   "blankOptions": {
    "B1": [
+    "El",
     "del",
-    "unas",
-    "mano",
-    "El"
+    "al",
+    "La"
    ]
   },
   "key": {
@@ -2772,9 +2772,9 @@ window.QUESTION_BANK = [
   "question": "Escucha y escribe la palabra que falta: Me duele la _____. <span data-say=\"la mano\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "del",
+    "El",
     "mano",
-    "La",
+    "al",
     "unas"
    ]
   },
@@ -3642,9 +3642,9 @@ window.QUESTION_BANK = [
   "question": "Mi hermana es muy _____. (tall, feminine)",
   "blankOptions": {
    "B1": [
-    "negro",
-    "nuestra",
     "alta",
+    "interesantes",
+    "negro",
     "mayor"
    ]
   },
@@ -3664,10 +3664,10 @@ window.QUESTION_BANK = [
   "question": "Los libros son muy _____. (interesting, plural)",
   "blankOptions": {
    "B1": [
-    "azul",
+    "interesantes",
     "nuestra",
-    "alta",
-    "interesantes"
+    "azul",
+    "alta"
    ]
   },
   "key": {
@@ -3686,10 +3686,10 @@ window.QUESTION_BANK = [
   "question": "Tengo un perro _____. (black, masculine)",
   "blankOptions": {
    "B1": [
-    "negro",
     "interesantes",
-    "alta",
-    "estos"
+    "mayor",
+    "negro",
+    "nuestra"
    ]
   },
   "key": {
@@ -3708,10 +3708,10 @@ window.QUESTION_BANK = [
   "question": "Es una camisa _____. <span data-say=\"Es una camisa azul.\" data-listen>Es una camisa azul.</span>",
   "blankOptions": {
    "B1": [
-    "interesantes",
-    "azul",
+    "negro",
     "alta",
-    "nuestra"
+    "mayor",
+    "azul"
    ]
   },
   "key": {
@@ -3730,10 +3730,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ es más alto que yo. (older)",
   "blankOptions": {
    "B1": [
+    "estos",
     "negro",
-    "mayor",
-    "alta",
-    "estos"
+    "nuestra",
+    "mayor"
    ]
   },
   "key": {
@@ -3752,10 +3752,10 @@ window.QUESTION_BANK = [
   "question": "Quiero comprar _____ zapatos negros. (these, masculine plural)",
   "blankOptions": {
    "B1": [
+    "mayor",
     "interesantes",
     "negro",
-    "estos",
-    "alta"
+    "estos"
    ]
   },
   "key": {
@@ -3774,9 +3774,9 @@ window.QUESTION_BANK = [
   "question": "En _____ casa vivimos con mis abuelos. (our, feminine singular)",
   "blankOptions": {
    "B1": [
-    "azul",
-    "negro",
+    "mayor",
     "alta",
+    "interesantes",
     "nuestra"
    ]
   },
@@ -4645,10 +4645,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ a las siete. <span data-say=\"Me levanto a las siete.\" data-listen>Me levanto a las siete.</span>",
   "blankOptions": {
    "B1": [
+    "levanto",
     "gusta",
-    "puedo",
-    "duerme",
-    "levanto"
+    "deberes",
+    "puedo"
    ]
   },
   "key": {
@@ -4667,10 +4667,10 @@ window.QUESTION_BANK = [
   "question": "No _____ salir porque tengo que estudiar. <span data-say=\"No puedo salir porque tengo que estudiar.\" data-listen>No puedo salir porque tengo que estudiar.</span>",
   "blankOptions": {
    "B1": [
-    "Tengo",
+    "duerme",
     "deberes",
-    "puedo",
-    "duerme"
+    "Estoy",
+    "puedo"
    ]
   },
   "key": {
@@ -4689,10 +4689,10 @@ window.QUESTION_BANK = [
   "question": "Voy a hacer mis _____. <span data-say=\"Voy a hacer mis deberes esta tarde.\" data-listen>Voy a hacer mis deberes esta tarde.</span>",
   "blankOptions": {
    "B1": [
-    "levanto",
-    "gusta",
-    "deberes",
-    "puedo"
+    "puedo",
+    "duerme",
+    "Tengo",
+    "deberes"
    ]
   },
   "key": {
@@ -4711,10 +4711,10 @@ window.QUESTION_BANK = [
   "question": "_____ cansado porque no duermo bien. (temporary state — estar)",
   "blankOptions": {
    "B1": [
+    "Estoy",
     "levanto",
-    "Tengo",
-    "duerme",
-    "Estoy"
+    "puedo",
+    "gusta"
    ]
   },
   "key": {
@@ -4733,10 +4733,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ el fútbol. (I like — singular subject)",
   "blankOptions": {
    "B1": [
-    "levanto",
+    "duerme",
+    "puedo",
     "deberes",
-    "gusta",
-    "duerme"
+    "gusta"
    ]
   },
   "key": {
@@ -4756,8 +4756,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "Tengo",
-    "levanto",
-    "duerme",
+    "gusta",
+    "Estoy",
     "deberes"
    ]
   },
@@ -4777,9 +4777,9 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ mucho por las noches. (o→ue stem-change: dormir)",
   "blankOptions": {
    "B1": [
-    "duerme",
-    "Estoy",
+    "Tengo",
     "levanto",
+    "duerme",
     "puedo"
    ]
   },
@@ -5647,10 +5647,10 @@ window.QUESTION_BANK = [
   "question": "Ayer, yo _____ (hablar) con mi profesora sobre el examen. <span data-say=\"Ayer, yo hablé con mi profesora sobre el examen.\" data-listen>Ayer, yo hablé con mi profesora sobre el examen.</span>",
   "blankOptions": {
    "B1": [
+    "he comido",
     "vivía",
     "hablé",
-    "fuimos",
-    "estuve"
+    "levantaba"
    ]
   },
   "key": {
@@ -5670,9 +5670,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "fuimos",
-    "levantaba",
     "hablé",
-    "vivía"
+    "he comido",
+    "levantaba"
    ]
   },
   "key": {
@@ -5692,8 +5692,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "hablé",
-    "levantaba",
-    "fuimos",
+    "llegó",
+    "estuve",
     "vivía"
    ]
   },
@@ -5713,10 +5713,10 @@ window.QUESTION_BANK = [
   "question": "Normalmente, mi madre se _____ (levantarse) a las seis. (imperfect — a repeated habit)",
   "blankOptions": {
    "B1": [
-    "hablé",
+    "fuimos",
+    "llegó",
     "levantaba",
-    "he comido",
-    "fuimos"
+    "estuve"
    ]
   },
   "key": {
@@ -5735,10 +5735,10 @@ window.QUESTION_BANK = [
   "question": "Mientras yo cocinaba, mi hermano _____ (llegar) a casa. (the interrupting single event — preterite)",
   "blankOptions": {
    "B1": [
-    "hablé",
+    "he comido",
+    "vivía",
     "llegó",
-    "levantaba",
-    "estuve"
+    "levantaba"
    ]
   },
   "key": {
@@ -5757,10 +5757,10 @@ window.QUESTION_BANK = [
   "question": "Escucha y completa: Ayer _____ en el parque toda la tarde. <span data-say=\"Ayer estuve en el parque toda la tarde.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "vivía",
-    "estuve",
     "llegó",
-    "he comido"
+    "vivía",
+    "levantaba",
+    "estuve"
    ]
   },
   "key": {
@@ -5779,10 +5779,10 @@ window.QUESTION_BANK = [
   "question": "Higher: Nunca _____ (comer) paella antes. (perfect tense — haber + participle)",
   "blankOptions": {
    "B1": [
-    "levantaba",
-    "llegó",
+    "fuimos",
+    "vivía",
     "he comido",
-    "estuve"
+    "hablé"
    ]
   },
   "key": {
@@ -6649,9 +6649,9 @@ window.QUESTION_BANK = [
   "question": "Yo _____ a estudiar esta noche. <span data-say=\"Yo voy a estudiar esta noche.\" data-listen>Yo voy a estudiar esta noche.</span>",
   "blankOptions": {
    "B1": [
-    "gustaría",
+    "estudies",
+    "haré",
     "compraríamos",
-    "tendrá",
     "voy"
    ]
   },
@@ -6671,10 +6671,10 @@ window.QUESTION_BANK = [
   "question": "Mañana, ella _____ que trabajar. <span data-say=\"Mañana, ella tendrá que trabajar.\" data-listen>Mañana, ella tendrá que trabajar.</span>",
   "blankOptions": {
    "B1": [
-    "estudies",
-    "tendrá",
     "viviré",
-    "compraríamos"
+    "compraríamos",
+    "voy",
+    "tendrá"
    ]
   },
   "key": {
@@ -6693,10 +6693,10 @@ window.QUESTION_BANK = [
   "question": "El año que viene, (yo) _____ en Madrid. (I will live — vivir)",
   "blankOptions": {
    "B1": [
-    "tendrá",
-    "compraríamos",
-    "viviré",
-    "gustaría"
+    "voy",
+    "gustaría",
+    "estudies",
+    "viviré"
    ]
   },
   "key": {
@@ -6715,10 +6715,10 @@ window.QUESTION_BANK = [
   "question": "Con más dinero, (nosotros) _____ una casa grande. (we would buy — comprar)",
   "blankOptions": {
    "B1": [
-    "haré",
+    "estudies",
     "compraríamos",
     "viviré",
-    "estudies"
+    "gustaría"
    ]
   },
   "key": {
@@ -6737,10 +6737,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ viajar a Japón algún día. (I would like)",
   "blankOptions": {
    "B1": [
-    "estudies",
-    "gustaría",
     "viviré",
-    "compraríamos"
+    "tendrá",
+    "gustaría",
+    "haré"
    ]
   },
   "key": {
@@ -6759,10 +6759,10 @@ window.QUESTION_BANK = [
   "question": "_____ los deberes antes de salir. (I will do — hacer, yo)",
   "blankOptions": {
    "B1": [
-    "haré",
-    "compraríamos",
     "tendrá",
-    "viviré"
+    "gustaría",
+    "voy",
+    "haré"
    ]
   },
   "key": {
@@ -6781,10 +6781,10 @@ window.QUESTION_BANK = [
   "question": "Es importante que (tú) _____ mucho para el examen. (present subjunctive of estudiar)",
   "blankOptions": {
    "B1": [
-    "gustaría",
-    "compraríamos",
     "estudies",
-    "tendrá"
+    "viviré",
+    "voy",
+    "gustaría"
    ]
   },
   "key": {
@@ -7651,10 +7651,10 @@ window.QUESTION_BANK = [
   "question": "¿Tienes el libro? Sí, _____ tengo. (it — masculine, direct object pronoun)",
   "blankOptions": {
    "B1": [
-    "además",
     "que",
-    "nada",
-    "lo"
+    "además",
+    "lo",
+    "me"
    ]
   },
   "key": {
@@ -7673,10 +7673,10 @@ window.QUESTION_BANK = [
   "question": "No veo _____. <span data-say=\"No veo nada.\" data-listen>No veo nada.</span>",
   "blankOptions": {
    "B1": [
-    "porque",
-    "lo",
     "nada",
-    "nunca"
+    "nunca",
+    "lo",
+    "porque"
    ]
   },
   "key": {
@@ -7696,8 +7696,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "me",
-    "nunca",
-    "nada",
+    "lo",
+    "que",
     "porque"
    ]
   },
@@ -7717,10 +7717,10 @@ window.QUESTION_BANK = [
   "question": "(Yo) _____ levanto a las siete. (myself — reflexive pronoun)",
   "blankOptions": {
    "B1": [
-    "nada",
+    "nunca",
     "me",
-    "que",
-    "además"
+    "porque",
+    "nada"
    ]
   },
   "key": {
@@ -7739,9 +7739,9 @@ window.QUESTION_BANK = [
   "question": "La chica _____ vive aquí es mi amiga. (who/that)",
   "blankOptions": {
    "B1": [
-    "lo",
+    "me",
     "además",
-    "nunca",
+    "porque",
     "que"
    ]
   },
@@ -7761,10 +7761,10 @@ window.QUESTION_BANK = [
   "question": "No voy _____ al gimnasio los domingos. (never)",
   "blankOptions": {
    "B1": [
-    "lo",
+    "que",
     "porque",
-    "nunca",
-    "me"
+    "nada",
+    "nunca"
    ]
   },
   "key": {
@@ -7783,10 +7783,10 @@ window.QUESTION_BANK = [
   "question": "Juego al fútbol y, _____, hago natación. (also/furthermore)",
   "blankOptions": {
    "B1": [
-    "nada",
     "además",
-    "lo",
-    "que"
+    "que",
+    "nada",
+    "porque"
    ]
   },
   "key": {
@@ -8655,8 +8655,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "único",
+    "lleva",
     "llamo",
-    "Mis",
     "Tengo"
    ]
   },
@@ -8677,9 +8677,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "Mis",
-    "llamo",
-    "castaño",
-    "marrones"
+    "Tengo",
+    "único",
+    "castaño"
    ]
   },
   "key": {
@@ -8698,10 +8698,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano mayor _____ gafas. <span data-say=\"Mi hermano mayor lleva gafas.\" data-listen>Mi hermano mayor lleva gafas.</span>",
   "blankOptions": {
    "B1": [
-    "llamo",
+    "Tengo",
     "Mis",
-    "castaño",
-    "lleva"
+    "lleva",
+    "único"
    ]
   },
   "key": {
@@ -8720,8 +8720,8 @@ window.QUESTION_BANK = [
   "question": "Tengo los ojos _____. (brown — plural agreement!)",
   "blankOptions": {
    "B1": [
-    "Tengo",
     "marrones",
+    "castaño",
     "llamo",
     "único"
    ]
@@ -8742,10 +8742,10 @@ window.QUESTION_BANK = [
   "question": "_____ hermanos son altos. (my — more than one)",
   "blankOptions": {
    "B1": [
-    "castaño",
+    "llamo",
+    "Mis",
     "marrones",
-    "lleva",
-    "Mis"
+    "castaño"
    ]
   },
   "key": {
@@ -8765,8 +8765,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "Mis",
-    "lleva",
-    "castaño",
+    "marrones",
+    "llamo",
     "único"
    ]
   },
@@ -8786,10 +8786,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ Ana y vivo en Madrid. (my name is)",
   "blankOptions": {
    "B1": [
-    "marrones",
+    "llamo",
     "lleva",
-    "Tengo",
-    "llamo"
+    "único",
+    "marrones"
    ]
   },
   "key": {
@@ -9657,10 +9657,10 @@ window.QUESTION_BANK = [
   "question": "Me llevo bien _____ mis padres. <span data-say=\"Me llevo bien con mis padres.\" data-listen>Me llevo bien con mis padres.</span>",
   "blankOptions": {
    "B1": [
-    "que",
     "con",
-    "trabajadora",
-    "abuela"
+    "abuela",
+    "llevo",
+    "gracioso"
    ]
   },
   "key": {
@@ -9679,10 +9679,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano es muy _____. <span data-say=\"Mi hermano es muy gracioso.\" data-listen>Mi hermano es muy gracioso.</span>",
   "blankOptions": {
    "B1": [
-    "trabajadora",
-    "que",
     "abuela",
-    "gracioso"
+    "gracioso",
+    "llevo",
+    "trabajadora"
    ]
   },
   "key": {
@@ -9702,9 +9702,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "que",
-    "cariñosa",
     "abuela",
-    "con"
+    "cariñosa",
+    "trabajadora"
    ]
   },
   "key": {
@@ -9723,10 +9723,10 @@ window.QUESTION_BANK = [
   "question": "Mi madre es muy _____. (affectionate — she is female!)",
   "blankOptions": {
    "B1": [
-    "trabajadora",
+    "gracioso",
+    "cariñosa",
     "con",
-    "llevo",
-    "cariñosa"
+    "trabajadora"
    ]
   },
   "key": {
@@ -9745,10 +9745,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ mal con mi hermano. (I get on badly — reflexive)",
   "blankOptions": {
    "B1": [
+    "con",
+    "gracioso",
     "trabajadora",
-    "que",
-    "llevo",
-    "cariñosa"
+    "llevo"
    ]
   },
   "key": {
@@ -9767,10 +9767,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana es más habladora _____ yo. (than)",
   "blankOptions": {
    "B1": [
-    "abuela",
     "que",
-    "trabajadora",
-    "cariñosa"
+    "cariñosa",
+    "llevo",
+    "abuela"
    ]
   },
   "key": {
@@ -9789,10 +9789,10 @@ window.QUESTION_BANK = [
   "question": "Admiro a mi abuela porque es muy _____. (hard-working, female)",
   "blankOptions": {
    "B1": [
-    "con",
-    "trabajadora",
-    "llevo",
-    "cariñosa"
+    "abuela",
+    "que",
+    "gracioso",
+    "trabajadora"
    ]
   },
   "key": {
@@ -10660,10 +10660,10 @@ window.QUESTION_BANK = [
   "question": "Se _____ comer más fruta. <span data-say=\"Se debe comer más fruta.\" data-listen>Se debe comer más fruta.</span>",
   "blankOptions": {
    "B1": [
-    "debe",
-    "gustan",
-    "equilibrada",
-    "evitar"
+    "azúcar",
+    "porque",
+    "evitar",
+    "debe"
    ]
   },
   "key": {
@@ -10682,10 +10682,10 @@ window.QUESTION_BANK = [
   "question": "Voy a _____ la comida rápida. <span data-say=\"Voy a evitar la comida rápida.\" data-listen>Voy a evitar la comida rápida.</span>",
   "blankOptions": {
    "B1": [
-    "gustan",
     "evitar",
     "debe",
-    "porque"
+    "equilibrada",
+    "gustan"
    ]
   },
   "key": {
@@ -10704,10 +10704,10 @@ window.QUESTION_BANK = [
   "question": "Hay que beber mucha _____. <span data-say=\"Hay que beber mucha agua.\" data-listen>Hay que beber mucha agua.</span>",
   "blankOptions": {
    "B1": [
-    "agua",
+    "debe",
     "azúcar",
-    "equilibrada",
-    "gustan"
+    "gustan",
+    "agua"
    ]
   },
   "key": {
@@ -10726,10 +10726,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ las verduras. (I like vegetables — plural!)",
   "blankOptions": {
    "B1": [
-    "gustan",
     "azúcar",
-    "equilibrada",
-    "agua"
+    "agua",
+    "gustan",
+    "debe"
    ]
   },
   "key": {
@@ -10748,10 +10748,10 @@ window.QUESTION_BANK = [
   "question": "Como una dieta _____. (balanced)",
   "blankOptions": {
    "B1": [
-    "gustan",
+    "evitar",
     "agua",
-    "azúcar",
-    "equilibrada"
+    "equilibrada",
+    "porque"
    ]
   },
   "key": {
@@ -10770,10 +10770,10 @@ window.QUESTION_BANK = [
   "question": "No se debe comer demasiado _____. (sugar)",
   "blankOptions": {
    "B1": [
+    "agua",
     "porque",
     "azúcar",
-    "evitar",
-    "debe"
+    "equilibrada"
    ]
   },
   "key": {
@@ -10792,10 +10792,10 @@ window.QUESTION_BANK = [
   "question": "Prefiero el pescado _____ es bueno para la salud. (because)",
   "blankOptions": {
    "B1": [
-    "porque",
+    "gustan",
     "evitar",
-    "debe",
-    "gustan"
+    "agua",
+    "porque"
    ]
   },
   "key": {
@@ -11663,10 +11663,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ la cabeza. <span data-say=\"Me duele la cabeza.\" data-listen>Me duele la cabeza.</span>",
   "blankOptions": {
    "B1": [
-    "dejar",
-    "duele",
     "ejercicio",
-    "cansado"
+    "acuesto",
+    "duele",
+    "duelen"
    ]
   },
   "key": {
@@ -11686,9 +11686,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "fumar",
-    "ejercicio",
-    "dejar",
-    "duele"
+    "acuesto",
+    "duele",
+    "dejar"
    ]
   },
   "key": {
@@ -11707,10 +11707,10 @@ window.QUESTION_BANK = [
   "question": "Para estar en forma, hay que hacer _____. <span data-say=\"Para estar en forma, hay que hacer ejercicio.\" data-listen>Para estar en forma, hay que hacer ejercicio.</span>",
   "blankOptions": {
    "B1": [
-    "ejercicio",
     "duele",
-    "cansado",
-    "dejar"
+    "fumar",
+    "acuesto",
+    "ejercicio"
    ]
   },
   "key": {
@@ -11729,10 +11729,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ los pies. (my feet hurt — plural!)",
   "blankOptions": {
    "B1": [
-    "duelen",
-    "dejar",
+    "fumar",
     "duele",
-    "ejercicio"
+    "cansado",
+    "duelen"
    ]
   },
   "key": {
@@ -11751,10 +11751,10 @@ window.QUESTION_BANK = [
   "question": "Estoy muy _____ porque no duermo bien. (tired)",
   "blankOptions": {
    "B1": [
-    "ejercicio",
     "cansado",
-    "dejar",
-    "duele"
+    "fumar",
+    "acuesto",
+    "dejar"
    ]
   },
   "key": {
@@ -11773,10 +11773,10 @@ window.QUESTION_BANK = [
   "question": "Voy a _____ de fumar. (to stop)",
   "blankOptions": {
    "B1": [
-    "acuesto",
-    "duele",
+    "dejar",
+    "cansado",
     "duelen",
-    "dejar"
+    "ejercicio"
    ]
   },
   "key": {
@@ -11795,10 +11795,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ temprano para dormir ocho horas. (I go to bed — reflexive)",
   "blankOptions": {
    "B1": [
-    "acuesto",
+    "duelen",
+    "cansado",
     "duele",
-    "dejar",
-    "fumar"
+    "acuesto"
    ]
   },
   "key": {
@@ -12666,10 +12666,10 @@ window.QUESTION_BANK = [
   "question": "Mi asignatura _____ es el español. <span data-say=\"Mi asignatura preferida es el español.\" data-listen>Mi asignatura preferida es el español.</span>",
   "blankOptions": {
    "B1": [
-    "empiezan",
     "preferida",
-    "biblioteca",
-    "deberes"
+    "ciencias",
+    "empiezan",
+    "biblioteca"
    ]
   },
   "key": {
@@ -12688,10 +12688,10 @@ window.QUESTION_BANK = [
   "question": "Las clases _____ a las nueve. <span data-say=\"Las clases empiezan a las nueve.\" data-listen>Las clases empiezan a las nueve.</span>",
   "blankOptions": {
    "B1": [
-    "móvil",
+    "biblioteca",
+    "ciencias",
     "empiezan",
-    "informática",
-    "ciencias"
+    "informática"
    ]
   },
   "key": {
@@ -12710,10 +12710,10 @@ window.QUESTION_BANK = [
   "question": "Se me da bien la _____. <span data-say=\"Se me da bien la informática.\" data-listen>Se me da bien la informática.</span>",
   "blankOptions": {
    "B1": [
-    "informática",
-    "empiezan",
     "ciencias",
-    "móvil"
+    "empiezan",
+    "deberes",
+    "informática"
    ]
   },
   "key": {
@@ -12732,9 +12732,9 @@ window.QUESTION_BANK = [
   "question": "Me gustan las _____. (science)",
   "blankOptions": {
    "B1": [
-    "biblioteca",
     "ciencias",
     "móvil",
+    "preferida",
     "empiezan"
    ]
   },
@@ -12754,10 +12754,10 @@ window.QUESTION_BANK = [
   "question": "Está prohibido usar el _____. (mobile phone)",
   "blankOptions": {
    "B1": [
-    "deberes",
+    "informática",
     "móvil",
-    "biblioteca",
-    "informática"
+    "deberes",
+    "preferida"
    ]
   },
   "key": {
@@ -12776,10 +12776,10 @@ window.QUESTION_BANK = [
   "question": "Hago los _____ después de las clases. (homework)",
   "blankOptions": {
    "B1": [
-    "informática",
-    "biblioteca",
-    "preferida",
-    "deberes"
+    "ciencias",
+    "deberes",
+    "móvil",
+    "informática"
    ]
   },
   "key": {
@@ -12798,10 +12798,10 @@ window.QUESTION_BANK = [
   "question": "En mi instituto hay una _____ grande. (library)",
   "blankOptions": {
    "B1": [
+    "biblioteca",
+    "empiezan",
     "móvil",
-    "ciencias",
-    "preferida",
-    "biblioteca"
+    "preferida"
    ]
   },
   "key": {
@@ -13669,10 +13669,10 @@ window.QUESTION_BANK = [
   "question": "Quiero _____ médica. <span data-say=\"Quiero ser médica.\" data-listen>Quiero ser médica.</span>",
   "blankOptions": {
    "B1": [
-    "ser",
+    "ganar",
+    "aprendizaje",
     "gustaría",
-    "ayudar",
-    "estudiando"
+    "ser"
    ]
   },
   "key": {
@@ -13691,10 +13691,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ ser abogado porque me interesa la ley. (would like)",
   "blankOptions": {
    "B1": [
-    "ganar",
+    "sea",
     "ayudar",
-    "gustaría",
-    "sea"
+    "aprendizaje",
+    "gustaría"
    ]
   },
   "key": {
@@ -13713,10 +13713,10 @@ window.QUESTION_BANK = [
   "question": "Voy a seguir _____ en la universidad. (studying)",
   "blankOptions": {
    "B1": [
-    "sea",
     "estudiando",
-    "aprendizaje",
-    "ayudar"
+    "ser",
+    "ganar",
+    "sea"
    ]
   },
   "key": {
@@ -13735,9 +13735,9 @@ window.QUESTION_BANK = [
   "question": "Quiero hacer un _____ en vez de ir a la universidad. (apprenticeship)",
   "blankOptions": {
    "B1": [
-    "ser",
-    "estudiando",
+    "ayudar",
     "aprendizaje",
+    "ganar",
     "gustaría"
    ]
   },
@@ -13757,10 +13757,10 @@ window.QUESTION_BANK = [
   "question": "Trabajo mucho para _____ dinero. (to earn)",
   "blankOptions": {
    "B1": [
-    "ganar",
     "gustaría",
+    "sea",
     "estudiando",
-    "sea"
+    "ganar"
    ]
   },
   "key": {
@@ -13779,10 +13779,10 @@ window.QUESTION_BANK = [
   "question": "Cuando _____ mayor, quiero ser dentista. <span data-say=\"Cuando sea mayor, quiero ser dentista.\" data-listen>Cuando sea mayor, quiero ser dentista.</span>",
   "blankOptions": {
    "B1": [
-    "gustaría",
-    "ayudar",
+    "sea",
+    "estudiando",
     "aprendizaje",
-    "sea"
+    "ser"
    ]
   },
   "key": {
@@ -13801,10 +13801,10 @@ window.QUESTION_BANK = [
   "question": "Para _____ a la gente, quiero ser enfermera. (to help)",
   "blankOptions": {
    "B1": [
-    "ganar",
-    "aprendizaje",
     "ser",
-    "ayudar"
+    "ganar",
+    "ayudar",
+    "gustaría"
    ]
   },
   "key": {
@@ -14672,10 +14672,10 @@ window.QUESTION_BANK = [
   "question": "Juego al _____ con mi equipo. <span data-say=\"Juego al fútbol con mi equipo.\" data-listen>Juego al fútbol con mi equipo.</span>",
   "blankOptions": {
    "B1": [
-    "fútbol",
-    "jugar",
     "coleccionar",
-    "jugué"
+    "fútbol",
+    "fiestas",
+    "jugar"
    ]
   },
   "key": {
@@ -14694,10 +14694,10 @@ window.QUESTION_BANK = [
   "question": "Mi afición es _____ sellos. (to collect)",
   "blankOptions": {
    "B1": [
-    "salir",
     "jugar",
-    "coleccionar",
-    "fiestas"
+    "quedo",
+    "fútbol",
+    "coleccionar"
    ]
   },
   "key": {
@@ -14716,10 +14716,10 @@ window.QUESTION_BANK = [
   "question": "Me gusta _____ al baloncesto. (to play — infinitive after gustar)",
   "blankOptions": {
    "B1": [
-    "jugar",
     "fiestas",
-    "jugué",
-    "fútbol"
+    "jugar",
+    "quedo",
+    "jugué"
    ]
   },
   "key": {
@@ -14738,10 +14738,10 @@ window.QUESTION_BANK = [
   "question": "Normalmente _____ con mis amigos los sábados. (to meet up — yo form)",
   "blankOptions": {
    "B1": [
-    "quedo",
+    "coleccionar",
     "salir",
     "fútbol",
-    "jugué"
+    "quedo"
    ]
   },
   "key": {
@@ -14760,10 +14760,10 @@ window.QUESTION_BANK = [
   "question": "El fin de semana pasado _____ al tenis. (I played — preterite)",
   "blankOptions": {
    "B1": [
+    "jugar",
     "jugué",
-    "coleccionar",
     "salir",
-    "quedo"
+    "coleccionar"
    ]
   },
   "key": {
@@ -14782,10 +14782,10 @@ window.QUESTION_BANK = [
   "question": "Nunca voy a _____. (parties)",
   "blankOptions": {
    "B1": [
-    "jugué",
+    "quedo",
     "fiestas",
-    "fútbol",
-    "coleccionar"
+    "coleccionar",
+    "jugar"
    ]
   },
   "key": {
@@ -14804,10 +14804,10 @@ window.QUESTION_BANK = [
   "question": "Suelo _____ los sábados por la noche. (to go out — infinitive after soler) <span class=\"tier-h\">H</span>",
   "blankOptions": {
    "B1": [
-    "fiestas",
     "salir",
-    "coleccionar",
-    "jugar"
+    "jugar",
+    "fútbol",
+    "fiestas"
    ]
   },
   "key": {
@@ -15675,10 +15675,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ mucho la música pop. <span data-say=\"Me encanta mucho la música pop.\" data-listen>Me encanta mucho la música pop.</span>",
   "blankOptions": {
    "B1": [
-    "encanta",
     "descargué",
-    "leo",
-    "guitarra"
+    "guitarra",
+    "encanta",
+    "leer"
    ]
   },
   "key": {
@@ -15698,9 +15698,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "encanta",
-    "guitarra",
-    "vi",
-    "gustan"
+    "descargué",
+    "gustan",
+    "guitarra"
    ]
   },
   "key": {
@@ -15719,10 +15719,10 @@ window.QUESTION_BANK = [
   "question": "Ayer _____ una película de terror con mis amigos. (preterite of ver)",
   "blankOptions": {
    "B1": [
-    "gustan",
-    "leer",
     "vi",
-    "guitarra"
+    "guitarra",
+    "gustan",
+    "descargué"
    ]
   },
   "key": {
@@ -15741,9 +15741,9 @@ window.QUESTION_BANK = [
   "question": "Toco la _____ en un grupo de música. (guitar)",
   "blankOptions": {
    "B1": [
+    "leer",
+    "descargué",
     "guitarra",
-    "encanta",
-    "vi",
     "gustan"
    ]
   },
@@ -15763,10 +15763,10 @@ window.QUESTION_BANK = [
   "question": "Cada noche, _____ una novela antes de dormir. <span data-say=\"Cada noche, leo una novela antes de dormir.\" data-listen>Cada noche, leo una novela antes de dormir.</span>",
   "blankOptions": {
    "B1": [
-    "descargué",
-    "leo",
+    "guitarra",
+    "vi",
     "gustan",
-    "encanta"
+    "leo"
    ]
   },
   "key": {
@@ -15785,10 +15785,10 @@ window.QUESTION_BANK = [
   "question": "Se debe _____ más para mejorar el vocabulario. (to read)",
   "blankOptions": {
    "B1": [
+    "leo",
+    "encanta",
     "gustan",
-    "guitarra",
-    "leer",
-    "descargué"
+    "leer"
    ]
   },
   "key": {
@@ -15807,10 +15807,10 @@ window.QUESTION_BANK = [
   "question": "Ayer _____ una canción nueva en mi móvil. <span data-say=\"Ayer descargué una canción nueva en mi móvil.\" data-listen>Ayer descargué una canción nueva en mi móvil.</span>",
   "blankOptions": {
    "B1": [
-    "leo",
-    "leer",
+    "guitarra",
     "descargué",
-    "guitarra"
+    "leer",
+    "gustan"
    ]
   },
   "key": {
@@ -16678,10 +16678,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ a las siete. <span data-say=\"Me levanto a las siete.\" data-listen>Me levanto a las siete.</span>",
   "blankOptions": {
    "B1": [
-    "levanto",
     "Después",
-    "fría",
-    "cena"
+    "acostaba",
+    "cena",
+    "levanto"
    ]
   },
   "key": {
@@ -16700,10 +16700,10 @@ window.QUESTION_BANK = [
   "question": "En España, se _____ muy tarde, normalmente a las diez. <span data-say=\"En España, se cena muy tarde, normalmente a las diez.\" data-listen>En España, se cena muy tarde, normalmente a las diez.</span>",
   "blankOptions": {
    "B1": [
-    "cena",
     "jamón",
     "fría",
-    "acostaba"
+    "Después",
+    "cena"
    ]
   },
   "key": {
@@ -16722,10 +16722,10 @@ window.QUESTION_BANK = [
   "question": "El gazpacho es una sopa de tomate que se come _____. (cold)",
   "blankOptions": {
    "B1": [
+    "acostaba",
     "cena",
     "fría",
-    "desayuno",
-    "acostaba"
+    "jamón"
    ]
   },
   "key": {
@@ -16744,10 +16744,10 @@ window.QUESTION_BANK = [
   "question": "Todos los días me ducho y _____ antes de ir al instituto. (I have breakfast)",
   "blankOptions": {
    "B1": [
-    "cena",
+    "fría",
+    "levanto",
     "desayuno",
-    "jamón",
-    "Después"
+    "cena"
    ]
   },
   "key": {
@@ -16766,10 +16766,10 @@ window.QUESTION_BANK = [
   "question": "_____ del instituto, hago los deberes y ceno con mi familia. (afterwards)",
   "blankOptions": {
    "B1": [
-    "acostaba",
-    "Después",
-    "levanto",
-    "desayuno"
+    "fría",
+    "jamón",
+    "desayuno",
+    "Después"
    ]
   },
   "key": {
@@ -16788,10 +16788,10 @@ window.QUESTION_BANK = [
   "question": "De pequeño, me _____ muy temprano, pero ahora me acuesto más tarde. (used to go to bed)",
   "blankOptions": {
    "B1": [
-    "acostaba",
     "desayuno",
-    "fría",
-    "jamón"
+    "acostaba",
+    "levanto",
+    "fría"
    ]
   },
   "key": {
@@ -16810,10 +16810,10 @@ window.QUESTION_BANK = [
   "question": "Muchas familias españolas comen _____ con pan y aceite de oliva. (ham)",
   "blankOptions": {
    "B1": [
-    "desayuno",
-    "Después",
+    "fría",
     "jamón",
-    "cena"
+    "desayuno",
+    "Después"
    ]
   },
   "key": {
@@ -17681,10 +17681,10 @@ window.QUESTION_BANK = [
   "question": "Celebramos la _____ con mi familia el 24 de diciembre. <span data-say=\"Celebramos la Nochebuena con mi familia el 24 de diciembre.\" data-listen>Celebramos la Nochebuena con mi familia el 24 de diciembre.</span>",
   "blankOptions": {
    "B1": [
-    "reúne",
     "disfrazamos",
+    "fuegos",
     "Nochebuena",
-    "Reyes"
+    "pasé"
    ]
   },
   "key": {
@@ -17703,10 +17703,10 @@ window.QUESTION_BANK = [
   "question": "El seis de enero celebramos el día de los _____ Magos. (Three Kings)",
   "blankOptions": {
    "B1": [
-    "solíamos",
-    "Nochebuena",
     "disfrazamos",
-    "Reyes"
+    "Reyes",
+    "fuegos",
+    "reúne"
    ]
   },
   "key": {
@@ -17725,10 +17725,10 @@ window.QUESTION_BANK = [
   "question": "En Navidad, toda la familia se _____ en casa de mis abuelos. (reunirse)",
   "blankOptions": {
    "B1": [
-    "Reyes",
+    "pasé",
     "reúne",
-    "solíamos",
-    "Nochebuena"
+    "fuegos",
+    "solíamos"
    ]
   },
   "key": {
@@ -17747,10 +17747,10 @@ window.QUESTION_BANK = [
   "question": "Vemos los _____ artificiales a medianoche en Nochevieja. (fireworks)",
   "blankOptions": {
    "B1": [
+    "Nochebuena",
+    "Reyes",
     "fuegos",
-    "pasé",
-    "reúne",
-    "Nochebuena"
+    "pasé"
    ]
   },
   "key": {
@@ -17771,8 +17771,8 @@ window.QUESTION_BANK = [
    "B1": [
     "solíamos",
     "disfrazamos",
-    "Nochebuena",
-    "fuegos"
+    "pasé",
+    "Nochebuena"
    ]
   },
   "key": {
@@ -17791,10 +17791,10 @@ window.QUESTION_BANK = [
   "question": "El año pasado, lo _____ genial en la fiesta de cumpleaños. <span data-say=\"El año pasado, lo pasé genial en la fiesta de cumpleaños.\" data-listen>El año pasado, lo pasé genial en la fiesta de cumpleaños.</span>",
   "blankOptions": {
    "B1": [
-    "disfrazamos",
-    "pasé",
     "fuegos",
-    "Reyes"
+    "reúne",
+    "pasé",
+    "disfrazamos"
    ]
   },
   "key": {
@@ -17813,10 +17813,10 @@ window.QUESTION_BANK = [
   "question": "Cuando éramos pequeños, _____ ir a ver la procesión de Semana Santa. (soler, imperfect)",
   "blankOptions": {
    "B1": [
-    "disfrazamos",
+    "Reyes",
+    "solíamos",
     "Nochebuena",
-    "reúne",
-    "solíamos"
+    "reúne"
    ]
   },
   "key": {
@@ -18051,6 +18051,1009 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 3,
    "explain": "“solemos reunirnos” means: we usually get together"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:exam:89979afd",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": 1,
+  "question": "Read what Sofía says. Answer <strong>in English</strong>.<br>(a) Who is Sofía's idol and what does she do? (1)<br>(b) Give <strong>one</strong> reason Sofía admires her. (1)<br>(c) Name <strong>one</strong> disadvantage of fame mentioned. (1)<br>(d) Why doesn't Sofía want to be famous? (1)",
+  "caseStudy": "<p><strong>Lee lo que dice Sofía.</strong></p>\n        <p><em>\"Mi ídolo es Rosalía, una cantante española. La admiro mucho porque tiene mucho éxito, pero también ayuda a la gente y da dinero a organizaciones benéficas. Creo que es un buen modelo a seguir. Sin embargo, pienso que la fama tiene desventajas: los famosos pierden la privacidad y sienten mucha presión. En mi opinión, no me gustaría ser famosa porque prefiero mi vida tranquila.\"</em></p>",
+  "hint": "Find the profession after ‘una cantante española’, the reasons after ‘porque’, the disadvantages after ‘desventajas’, and the final reason after the last ‘porque’.",
+  "starter": "(a) Her idol is… (b) She admires her because… (c) One disadvantage is… (d) She doesn't want to be famous because…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>\n                <li><strong>(a)</strong> Rosalía / a (Spanish) singer <em>(1)</em>.</li>\n                <li><strong>(b)</strong> she is successful / she helps people / she gives money to charities (ANY ONE) <em>(1)</em>.</li>\n                <li><strong>(c)</strong> losing privacy / feeling a lot of pressure (ANY ONE) <em>(1)</em>.</li>\n                <li><strong>(d)</strong> she prefers her quiet/calm life <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>\n            </ul></div>",
+   "modelAnswer": "(a) Rosalía, a Spanish singer. (b) She is successful (or: she helps people / gives money to charities). (c) Losing your privacy (or: feeling a lot of pressure). (d) Because she prefers her quiet/calm life."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:exam:b4e14798",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": 2,
+  "question": "Translate these sentences <strong>into Spanish</strong>.<br>(a) In my opinion, she is a good role model. <br>(b) I don't think fame is easy. <br>(c) Footballers earn a lot of money because they have a lot of success.",
+  "hint": "‘In my opinion’ = En mi opinión… ‘I don't think’ (negative opinion) needs the SUBJUNCTIVE: No creo que… sea… ‘have a lot of success’ = tienen mucho éxito.",
+  "starter": "(a) En mi opinión… (b) No creo que… (c) Los futbolistas ganan… porque…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>\n                <li><strong>(a)</strong> En mi opinión, es un buen modelo a seguir. <em>(1)</em></li>\n                <li><strong>(b)</strong> No creo que la fama sea fácil. <em>(1)</em></li>\n                <li><strong>(c)</strong> Los futbolistas ganan mucho dinero <em>(1)</em> porque <em>(1)</em> tienen mucho éxito <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Accept minor accent errors. ‘No creo que la fama sea fácil’ must use the subjunctive ‘sea’, not ‘es’.</li>\n            </ul></div>",
+   "modelAnswer": "(a) En mi opinión, es un buen modelo a seguir. (b) No creo que la fama sea fácil. (c) Los futbolistas ganan mucho dinero porque tienen mucho éxito."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:c609d3a2",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Mi ídolo es una cantante.\" data-listen></span><br>Listen. What does the speaker say?",
+  "options": [
+   "Her idol is a singer",
+   "Her idol is a famous footballer",
+   "Her idol is a very rich actress",
+   "Her idol used to be a singer"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘Mi ídolo es una cantante’ = my idol is a singer. The traps swap the profession or add untrue extra detail (very rich, used to be)."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:553d208e",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Sigo a muchos famosos en las redes sociales.\" data-listen></span><br>Listen. What does she say?",
+  "options": [
+   "She follows lots of celebrities on social media",
+   "She never follows any celebrities on social media at all",
+   "She used to follow one celebrity online",
+   "She only follows one influencer nowadays"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘sigo a muchos famosos en las redes sociales’ = I follow lots of celebrities on social media. B reverses it with ‘nunca’; C/D change the quantity and the tense."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:31bd8de0",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘tener éxito’ mean?",
+  "options": [
+   "to be successful",
+   "to have an exit nearby",
+   "to feel very tired",
+   "to lose all your money"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "tener éxito = to be successful / have success. It is a classic false-friend trap — ‘éxito’ looks like ‘exit’ but does not mean that."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:7b391494",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Creo que Rosalía ___ un buen modelo a seguir.’",
+  "options": [
+   "es",
+   "sea",
+   "está",
+   "fue"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A POSITIVE opinion (creo que) takes the ordinary indicative → es. ‘sea’ (subjunctive) is only needed after a NEGATIVE opinion like ‘no creo que’."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:080941d7",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Higher: complete: ‘No creo que la fama ___ fácil.’",
+  "options": [
+   "sea",
+   "es",
+   "será",
+   "era"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "After the NEGATIVE opinion ‘no creo que’, Spanish needs the SUBJUNCTIVE → sea, not the indicative ‘es’."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:964b15bb",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘perder la privacidad’ mean?",
+  "options": [
+   "to lose your privacy",
+   "to win a privacy prize",
+   "to protect your privacy well",
+   "to share your privacy online"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "perder la privacidad = to lose your privacy, a key disadvantage of fame. The other options invert or misdirect the meaning."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:29984d77",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Los famosos sienten mucha presión.\" data-listen></span><br>Listen. What is being described?",
+  "options": [
+   "Celebrities feel a lot of pressure",
+   "Celebrities never feel any pressure",
+   "Celebrities enjoy a little pressure",
+   "Celebrities used to feel pressure"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘sienten mucha presión’ = they feel a lot of pressure. B reverses it with ‘nunca’; C weakens ‘mucha’ to ‘a little’; D changes the tense."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:0fe33484",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence uses ‘seguir a’ correctly?",
+  "options": [
+   "Sigo a mi cantante favorita en Instagram.",
+   "Sigo mi cantante favorita en Instagram.",
+   "Sigo de mi cantante favorita en Instagram.",
+   "Soy sigo mi cantante favorita en Instagram."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "seguir a + a person needs the personal ‘a’: sigo A mi cantante favorita. B drops the ‘a’; C/D use the wrong preposition or an extra verb."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:5e809e69",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How do you say ‘more famous than’?",
+  "options": [
+   "más famoso que",
+   "más famoso como",
+   "tan famoso que",
+   "el más famoso"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Comparative ‘more … than’ = más + adjective + QUE. ‘como’ means ‘as’; ‘tan…que’ is a different structure; ‘el más’ is the superlative."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:09ddb7f9",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence combines an OPINION with a REASON (porque)?",
+  "options": [
+   "Creo que es un buen modelo a seguir porque ayuda a mucha gente.",
+   "Es muy famosa y tiene mucho dinero y mucho éxito todo el tiempo.",
+   "Pienso que es famosa.",
+   "Ayuda a la gente."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Only option A has an opinion phrase (creo que) AND a reason (porque). B is just a longer list of facts with no opinion phrase or reason at all."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:4550d6ee",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘la fama’ means ‘the family’.",
+  "key": {
+   "answer": false,
+   "explain": "la fama = fame; la familia = family — similar spelling, different meaning."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:b20d4b3d",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘seguir a’ + a person needs the personal ‘a’.",
+  "key": {
+   "answer": true,
+   "explain": "Sigo A mi cantante favorita — the personal ‘a’ is required before a person."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:64034a34",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "After ‘creo que’ (a positive opinion), Spanish uses the ordinary indicative: creo que es…",
+  "key": {
+   "answer": true,
+   "explain": "Positive opinions keep the indicative; only a NEGATIVE opinion triggers the subjunctive."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:cca034d9",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "After ‘no creo que’ (a negative opinion), Spanish uses the subjunctive: no creo que sea…",
+  "key": {
+   "answer": true,
+   "explain": "H: no creo que + subjunctive (sea), not the indicative (es)."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:a2f54f84",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘tener éxito’ means ‘to have an exit’.",
+  "key": {
+   "answer": false,
+   "explain": "False friend! tener éxito means to be successful."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:8e3dbd0d",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘más famoso que’ means ‘as famous as’.",
+  "key": {
+   "answer": false,
+   "explain": "más…que = more…than. ‘As…as’ would be tan…como."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:45c2173d",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Giving money to charity is an example of using fame in a positive way.",
+  "key": {
+   "answer": true,
+   "explain": "dar dinero a organizaciones benéficas is a classic advantage of fame."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:4bdc7d20",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Losing your privacy is listed as an ADVANTAGE of being famous.",
+  "key": {
+   "answer": false,
+   "explain": "Losing your privacy (perder la privacidad) is a DISADVANTAGE, not an advantage."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:learn:af1c8352",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Who and what is famous? (fame vocabulary)",
+  "reading": "<p>The key noun is <span data-say=\"la fama\">la fama</span> (fame). Someone who has it is <span data-say=\"famoso\">famoso</span> / <span data-say=\"famosa\">famosa</span> (famous). Tap 🔊 to hear the core vocabulary.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la estrella\">la estrella</span></td><td>the star (celebrity)</td><td><span data-say=\"el cantante\">el cantante / la cantante</span></td><td>singer</td></tr>\n              <tr><td><span data-say=\"el actor\">el actor</span></td><td>actor</td><td><span data-say=\"la actriz\">la actriz</span></td><td>actress</td></tr>\n              <tr><td><span data-say=\"el futbolista\">el futbolista / la futbolista</span></td><td>footballer</td><td><span data-say=\"el influencer\">el influencer / la influencer</span></td><td>influencer</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Mi ídolo es una cantante muy famosa.\">Mi ídolo es una cantante muy famosa.</span> — <em>My idol is a very famous singer.</em></p>",
+  "question": "What does ‘la estrella’ mean in this context?",
+  "options": [
+   "the (celebrity) star",
+   "the actual night sky",
+   "a type of award ceremony",
+   "a person who dislikes fame"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la estrella = the star, meaning a famous celebrity — not a star in the sky."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:learn:acc9136a",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Social media and success",
+  "reading": "<p>Fame today is closely linked to <span data-say=\"las redes sociales\">las redes sociales</span> (social media). To follow someone, use <strong>seguir a</strong> — always with the personal <strong>a</strong> before a person.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"seguir a\">seguir a (alguien)</span></td><td>to follow (someone)</td><td><span data-say=\"el seguidor\">el seguidor / la seguidora</span></td><td>follower</td></tr>\n              <tr><td><span data-say=\"tener éxito\">tener éxito</span></td><td>to be successful</td><td><span data-say=\"el éxito\">el éxito</span></td><td>success</td></tr>\n              <tr><td><span data-say=\"ser rico\">ser rico / rica</span></td><td>to be rich</td><td><span data-say=\"ganar mucho dinero\">ganar mucho dinero</span></td><td>to earn a lot of money</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Sigo a mi cantante favorita porque tiene mucho éxito.\">Sigo a mi cantante favorita porque tiene mucho éxito.</span> — <em>I follow my favourite singer because she is very successful.</em></p>",
+  "question": "‘tener éxito’ is a false friend. What does it actually mean?",
+  "options": [
+   "to be successful",
+   "to have an exit",
+   "to lose all your money",
+   "to feel very tired"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "tener éxito = to be successful. It looks like the English word ‘exit’ but does not mean that at all."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:learn:65fbed73",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I give an opinion about a celebrity?",
+  "reading": "<p>Start an opinion with a set phrase, then give a <strong>reason</strong> with <span data-say=\"porque\">porque</span>:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"creo que\">creo que…</span></td><td>I think that…</td><td><span data-say=\"pienso que\">pienso que…</span></td><td>I think that…</td></tr>\n              <tr><td><span data-say=\"en mi opinión\">en mi opinión…</span></td><td>in my opinion…</td><td><span data-say=\"me parece que\">me parece que…</span></td><td>it seems to me that…</td></tr>\n            </table>\n            <p>Role-model vocabulary: <span data-say=\"mi ídolo\">mi ídolo</span> (my idol), <span data-say=\"admirar\">admirar</span> (to admire), <span data-say=\"respetar\">respetar</span> (to respect), and <span data-say=\"un buen modelo a seguir\">un buen modelo a seguir</span> / <span data-say=\"un mal modelo a seguir\">un mal modelo a seguir</span> (a good / bad role model).</p>\n            <p>Example: <span data-say=\"Creo que es un buen modelo a seguir porque ayuda a mucha gente.\">Creo que es un buen modelo a seguir porque ayuda a mucha gente.</span></p>",
+  "question": "Which word introduces the REASON in an opinion sentence?",
+  "options": [
+   "porque (because)",
+   "sin embargo (however)",
+   "cuando (when)",
+   "donde (where)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "porque = because, introducing the reason after an opinion phrase like ‘creo que’. ‘sin embargo’ is a genuine trap — it also links ideas, but it means ‘however’, not ‘because’."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:learn:bc6b6229",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "The advantages of fame",
+  "reading": "<p>Famous people can use their platform positively:</p>\n            <ul>\n              <li><span data-say=\"la ventaja\">la ventaja</span> — the advantage</li>\n              <li><span data-say=\"ayudar a la gente\">ayudar a la gente</span> — to help people</li>\n              <li><span data-say=\"dar dinero a organizaciones benéficas\">dar dinero a organizaciones benéficas</span> — to give money to charities</li>\n              <li><span data-say=\"ser una buena influencia\">ser una buena influencia</span> — to be a good influence</li>\n            </ul>\n            <p>Example: <span data-say=\"Una ventaja de la fama es que puedes ayudar a la gente y dar dinero a organizaciones benéficas.\">Una ventaja de la fama es que puedes ayudar a la gente y dar dinero a organizaciones benéficas.</span></p>",
+  "question": "‘dar dinero a organizaciones benéficas’ means…",
+  "options": [
+   "to give money to charities",
+   "to borrow money from a bank",
+   "to earn money from adverts",
+   "to spend money on clothes"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "dar dinero a organizaciones benéficas = to give money to charities — a common advantage of fame in exam answers."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:learn:251b8286",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "The disadvantages of fame",
+  "reading": "<p>Exam answers should also weigh up the negatives — <span data-say=\"la desventaja\">la desventaja</span> (the disadvantage):</p>\n            <ul>\n              <li><span data-say=\"perder la privacidad\">perder la privacidad</span> — to lose your privacy</li>\n              <li><span data-say=\"sentir mucha presión\">sentir mucha presión</span> — to feel a lot of pressure</li>\n              <li><span data-say=\"ser una mala influencia\">ser una mala influencia</span> — to be a bad influence</li>\n            </ul>\n            <p>Example: <span data-say=\"Sin embargo, los famosos pierden la privacidad y sienten mucha presión.\">Sin embargo, los famosos pierden la privacidad y sienten mucha presión.</span> — <em>However, celebrities lose their privacy and feel a lot of pressure.</em></p>",
+  "question": "What is ‘sentir mucha presión’ describing?",
+  "options": [
+   "feeling a lot of pressure",
+   "feeling completely relaxed",
+   "earning a lot of money",
+   "losing a lot of followers"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "sentir mucha presión = to feel a lot of pressure, a key disadvantage of fame."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:learn:279709f8",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Higher: the subjunctive and comparatives",
+  "reading": "<p><span class=\"tier-h\">H</span> After a <strong>POSITIVE</strong> opinion, Spanish uses the normal indicative: <span data-say=\"Creo que es un buen modelo a seguir.\">Creo que es un buen modelo a seguir.</span></p>\n            <p><span class=\"tier-h\">H</span> But after a <strong>NEGATIVE</strong> opinion (<em>no creo que…</em>), Spanish switches to the <strong>subjunctive</strong>:</p>\n            <ul>\n              <li><span data-say=\"No creo que sea un buen modelo a seguir.\">No creo que sea un buen modelo a seguir.</span> <span class=\"tier-h\">H</span> — I don’t think he/she is a good role model.</li>\n              <li><span data-say=\"No creo que la fama sea fácil.\">No creo que la fama sea fácil.</span> <span class=\"tier-h\">H</span> — I don’t think fame is easy.</li>\n            </ul>\n            <p>Comparatives use <strong>más… que</strong> (more… than):</p>\n            <p><span data-say=\"Es más famoso que su hermano.\">Es más famoso que su hermano.</span> — <em>He is more famous than his brother.</em></p>",
+  "question": "Which sentence correctly uses the subjunctive after a NEGATIVE opinion?",
+  "options": [
+   "No creo que sea un buen modelo a seguir.",
+   "No creo que es un buen modelo a seguir de verdad.",
+   "Creo que sea un buen modelo a seguir.",
+   "No creo un buen modelo a seguir."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "no creo que + subjunctive → sea. Option B wrongly uses the indicative ‘es’ (plus ‘de verdad’, really); C uses the subjunctive after a POSITIVE opinion by mistake."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:misc:139c3465",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Sigo mi cantante favorita.</p><p><strong>✅ The correct idea:</strong> Sigo a mi cantante favorita.</p>",
+  "question": "What is missing from ‘Sigo mi cantante favorita’?",
+  "options": [
+   "the personal ‘a’ before a person",
+   "an accent on the word ‘cantante’",
+   "the article ‘la’ before ‘cantante’",
+   "the reflexive pronoun ‘me’"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "seguir a + a person always needs the personal ‘a’: sigo A mi cantante favorita."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:misc:fae57f79",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Creo que es un modelo a seguir bueno.</p><p><strong>✅ The correct idea:</strong> Creo que es un buen modelo a seguir.</p>",
+  "question": "Why does ‘bueno’ change to ‘buen’ here?",
+  "options": [
+   "‘bueno’ shortens to ‘buen’ before a masculine singular noun",
+   "‘bueno’ is always spelt ‘buen’ in Spanish",
+   "‘modelo’ is actually a feminine noun, so the adjective form has to change here",
+   "adjectives always go after the noun in Spanish"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "bueno shortens to buen directly before a masculine singular noun (un buen modelo), unlike most adjectives which follow the noun. ‘modelo’ is in fact masculine, which is what makes option C a real trap."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:misc:e49ff8e5",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> No creo que es un buen modelo a seguir.</p><p><strong>✅ The correct idea:</strong> No creo que sea un buen modelo a seguir.</p>",
+  "question": "Why is ‘No creo que es…’ wrong at Higher tier?",
+  "options": [
+   "a negative opinion (no creo que) always needs the verb in the subjunctive, here ‘sea’",
+   "‘es’ should always become ‘está’ after the word ‘que’, whatever the opinion happens to be",
+   "the sentence needs the word ‘porque’ added",
+   "‘creo’ should be ‘creí’ (past tense)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "H: no creo que + SUBJUNCTIVE (sea). Using the indicative ‘es’ after a negative opinion is the classic Higher-tier error."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:misc:c367fbef",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Tiene mucho éxito. (I understand this as ‘has many exits’)</p><p><strong>✅ The correct idea:</strong> Tiene mucho éxito. (= is very successful)</p>",
+  "question": "What does ‘éxito’ really mean here?",
+  "options": [
+   "success",
+   "an exit from a building",
+   "money or riches",
+   "fame on social media only"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "éxito = success (false friend with English ‘exit’, which in Spanish is ‘la salida’)."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:misc:fa3b994d",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Es más famoso como su hermano.</p><p><strong>✅ The correct idea:</strong> Es más famoso que su hermano.</p>",
+  "question": "Which linking word completes a comparative (‘more…than’)?",
+  "options": [
+   "que",
+   "como",
+   "cuando",
+   "donde"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "más + adjective + QUE = more…than. ‘como’ (as) is used in a different structure (tan…como)."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tips:24e9d884",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 1 — Dictation (listening)",
+  "reading": "Celebrity-culture sentences reuse chunks you know: ‘creo que…’, ‘sigo a…’, ‘tiene éxito’. Listen for whether an opinion is positive (creo que + indicative) or negative (no creo que + subjunctive) — the verb ending changes.",
+  "question": "You hear ‘…no creo que sea…’. What form is ‘sea’?",
+  "options": [
+   "the subjunctive, after a negative opinion",
+   "just the ordinary present tense, nothing special",
+   "a completed past-tense action",
+   "a direct command"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘sea’ is the subjunctive form of ser, triggered by the negative opinion ‘no creo que’."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tips:b1143425",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 3 — Reading &amp; translation into English",
+  "reading": "Watch the false friends: ‘éxito’ = success, not exit; ‘privacidad’ = privacy. Keep translations natural: ‘she loses her privacy’, not a word-for-word rendering.",
+  "question": "‘Los famosos pierden la privacidad y sienten mucha presión’ =",
+  "options": [
+   "Celebrities lose their privacy and feel a lot of pressure",
+   "Celebrities carefully protect their privacy and feel very relaxed",
+   "Celebrities earn a lot of money and gain many followers",
+   "Celebrities admire their idols and respect their fans"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "pierden la privacidad = lose their privacy; sienten mucha presión = feel a lot of pressure."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tips:2f1a4fab",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "evaluate — Paper 4 — Writing &amp; translation into Spanish",
+  "reading": "Combine an opinion, a reason and a weighed-up view: ‘Creo que es un buen modelo a seguir porque ayuda a la gente, pero no creo que la fama sea fácil.’ At Higher, the subjunctive after a negative opinion is a strong feature to include.",
+  "question": "Which answer reaches the top band?",
+  "options": [
+   "Creo que es un buen modelo a seguir porque ayuda a la gente, pero no creo que la fama sea fácil",
+   "Es famosa y muy famosa y increíblemente famosa y tiene mucho dinero y mucho éxito todo el tiempo sin parar nunca",
+   "Es famosa",
+   "Tiene éxito"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "It links a positive opinion with a reason AND a Higher-tier subjunctive clause — range and accuracy beats a rambling, repetitive list of adjectives."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:a9d2137f",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Mi ídolo es una _____. <span data-say=\"Mi ídolo es una cantante.\" data-listen>Mi ídolo es una cantante.</span>",
+  "blankOptions": {
+   "B1": [
+    "cantante",
+    "privacidad",
+    "es",
+    "sea"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "cantante"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:3b1b2b30",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Los famosos _____ mucha presión. <span data-say=\"Los famosos sienten mucha presión.\" data-listen>Los famosos sienten mucha presión.</span>",
+  "blankOptions": {
+   "B1": [
+    "a",
+    "benéficas",
+    "sienten",
+    "es"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "sienten"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:1fd039f6",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Sigo _____ mi cantante favorita en Instagram. (the personal preposition before a person)",
+  "blankOptions": {
+   "B1": [
+    "sea",
+    "benéficas",
+    "privacidad",
+    "a"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "a"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:b9d5b949",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Creo que _____ un buen modelo a seguir. (to be — present tense, positive opinion)",
+  "blankOptions": {
+   "B1": [
+    "benéficas",
+    "privacidad",
+    "cantante",
+    "es"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "es"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:a956e7d7",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "No creo que la fama _____ fácil. (H — to be, subjunctive after a negative opinion)",
+  "blankOptions": {
+   "B1": [
+    "cantante",
+    "sea",
+    "a",
+    "es"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "sea"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:855f2bd7",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Los famosos pierden la _____. (privacy)",
+  "blankOptions": {
+   "B1": [
+    "benéficas",
+    "sienten",
+    "cantante",
+    "privacidad"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "privacidad"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:f96020f1",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Da dinero a organizaciones _____. (charitable)",
+  "blankOptions": {
+   "B1": [
+    "cantante",
+    "benéficas",
+    "sienten",
+    "a"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "benéficas"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:5b0dcdcf",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “famoso / famosa”?",
+  "options": [
+   "to be successful",
+   "famous",
+   "to give money to charities",
+   "singer"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“famoso / famosa” means: famous"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:2eb40a54",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la fama”?",
+  "options": [
+   "fame",
+   "singer",
+   "actor / actress",
+   "social media"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la fama” means: fame"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:01c9b411",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la estrella”?",
+  "options": [
+   "my idol",
+   "footballer",
+   "to be successful",
+   "the star (celebrity)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“la estrella” means: the star (celebrity)"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:1a362f9c",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el/la cantante”?",
+  "options": [
+   "actor / actress",
+   "singer",
+   "to follow (someone)",
+   "my idol"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el/la cantante” means: singer"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:00c193a9",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el actor / la actriz”?",
+  "options": [
+   "singer",
+   "follower",
+   "actor / actress",
+   "social media"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el actor / la actriz” means: actor / actress"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:f7ae672d",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el/la futbolista”?",
+  "options": [
+   "the star (celebrity)",
+   "footballer",
+   "my idol",
+   "famous"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el/la futbolista” means: footballer"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:8203159a",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “las redes sociales”?",
+  "options": [
+   "social media",
+   "famous",
+   "follower",
+   "actor / actress"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“las redes sociales” means: social media"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:d192457c",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “seguir a (alguien)”?",
+  "options": [
+   "follower",
+   "my idol",
+   "to give money to charities",
+   "to follow (someone)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“seguir a (alguien)” means: to follow (someone)"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:3e3aca64",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el/la seguidor(a)”?",
+  "options": [
+   "actor / actress",
+   "to give money to charities",
+   "follower",
+   "to follow (someone)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el/la seguidor(a)” means: follower"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:740f102e",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “tener éxito”?",
+  "options": [
+   "to give money to charities",
+   "to follow (someone)",
+   "to be successful",
+   "footballer"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“tener éxito” means: to be successful"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:4fed1138",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “mi ídolo”?",
+  "options": [
+   "my idol",
+   "to be successful",
+   "to follow (someone)",
+   "the star (celebrity)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“mi ídolo” means: my idol"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:364b5467",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “dar dinero a organizaciones benéficas”?",
+  "options": [
+   "fame",
+   "to follow (someone)",
+   "footballer",
+   "to give money to charities"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“dar dinero a organizaciones benéficas” means: to give money to charities"
   }
  }
 ];
