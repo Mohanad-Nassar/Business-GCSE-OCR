@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-18T16:24:22Z · 636 questions
+// Generated: 2026-07-18T22:38:56Z · 742 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -636,10 +636,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘five’ is _____. <span data-say=\"cinco\" data-listen>cinco</span>",
   "blankOptions": {
    "B1": [
-    "cinco",
-    "ñan",
+    "throaty",
     "soft",
-    "ñ"
+    "second",
+    "cinco"
    ]
   },
   "key": {
@@ -658,10 +658,10 @@ window.QUESTION_BANK = [
   "question": "The ‘ny’ sound word for ‘tomorrow’ is ma_____a. <span data-say=\"mañana\" data-listen>mañana</span>",
   "blankOptions": {
    "B1": [
-    "soft",
-    "throaty",
-    "it",
-    "ñan"
+    "ñan",
+    "cinco",
+    "ñ",
+    "second"
    ]
   },
   "key": {
@@ -680,10 +680,10 @@ window.QUESTION_BANK = [
   "question": "To keep a hard g before i, we write gu_____arra. <span data-say=\"guitarra\" data-listen>guitarra</span>",
   "blankOptions": {
    "B1": [
-    "it",
-    "second",
-    "ñan",
-    "soft"
+    "cinco",
+    "ñ",
+    "throaty",
+    "it"
    ]
   },
   "key": {
@@ -702,10 +702,10 @@ window.QUESTION_BANK = [
   "question": "c before e or i sounds _____. (hard or soft?)",
   "blankOptions": {
    "B1": [
-    "soft",
-    "throaty",
+    "ñ",
     "it",
-    "second"
+    "soft",
+    "ñan"
    ]
   },
   "key": {
@@ -725,9 +725,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "ñan",
-    "throaty",
-    "second",
-    "it"
+    "it",
+    "soft",
+    "second"
    ]
   },
   "key": {
@@ -746,9 +746,9 @@ window.QUESTION_BANK = [
   "question": "The extra Spanish letter is _____. (its symbol)",
   "blankOptions": {
    "B1": [
-    "throaty",
-    "second",
+    "soft",
     "ñan",
+    "cinco",
     "ñ"
    ]
   },
@@ -768,10 +768,10 @@ window.QUESTION_BANK = [
   "question": "g before e or i is _____. (hard or throaty?)",
   "blankOptions": {
    "B1": [
-    "throaty",
     "ñan",
-    "soft",
-    "second"
+    "throaty",
+    "it",
+    "soft"
    ]
   },
   "key": {
@@ -1638,10 +1638,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘street’ is _____. <span data-say=\"calle\" data-listen>calle</span>",
   "blankOptions": {
    "B1": [
-    "calle",
-    "ños",
-    "y",
-    "loch"
+    "loch",
+    "tap",
+    "rolled",
+    "calle"
    ]
   },
   "key": {
@@ -1660,8 +1660,8 @@ window.QUESTION_BANK = [
   "question": "The word for ‘birthday’, with its ‘ny’ sound, is cumplea_____. <span data-say=\"cumpleaños\" data-listen>cumpleaños</span>",
   "blankOptions": {
    "B1": [
-    "ños",
     "loch",
+    "ños",
     "rolled",
     "tap"
    ]
@@ -1682,10 +1682,10 @@ window.QUESTION_BANK = [
   "question": "ll sounds like the English letter _____. (which one?)",
   "blankOptions": {
    "B1": [
-    "verde",
+    "tap",
     "rolled",
-    "y",
-    "calle"
+    "calle",
+    "y"
    ]
   },
   "key": {
@@ -1704,10 +1704,10 @@ window.QUESTION_BANK = [
   "question": "j is pronounced from the back of the throat, like the Scottish word ‘_____’.",
   "blankOptions": {
    "B1": [
+    "ños",
     "rolled",
-    "tap",
-    "calle",
-    "loch"
+    "loch",
+    "verde"
    ]
   },
   "key": {
@@ -1726,10 +1726,10 @@ window.QUESTION_BANK = [
   "question": "A single r between vowels, as in ‘pero’, is a quick _____. (tap or roll?)",
   "blankOptions": {
    "B1": [
-    "rolled",
     "calle",
-    "verde",
-    "tap"
+    "tap",
+    "loch",
+    "y"
    ]
   },
   "key": {
@@ -1749,9 +1749,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "tap",
-    "calle",
-    "rolled",
-    "verde"
+    "y",
+    "ños",
+    "rolled"
    ]
   },
   "key": {
@@ -1770,10 +1770,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘green’ is _____. <span data-say=\"verde\" data-listen>verde</span>",
   "blankOptions": {
    "B1": [
-    "calle",
-    "ños",
     "verde",
-    "tap"
+    "loch",
+    "y",
+    "rolled"
    ]
   },
   "key": {
@@ -2640,10 +2640,10 @@ window.QUESTION_BANK = [
   "question": "_____ problema es muy grande. <span data-say=\"El problema es muy grande.\" data-listen>El problema es muy grande.</span>",
   "blankOptions": {
    "B1": [
-    "La",
-    "del",
-    "mano",
-    "El"
+    "unas",
+    "El",
+    "lápices",
+    "al"
    ]
   },
   "key": {
@@ -2662,10 +2662,10 @@ window.QUESTION_BANK = [
   "question": "Voy _____ colegio a las ocho. <span data-say=\"Voy al colegio a las ocho.\" data-listen>Voy al colegio a las ocho.</span>",
   "blankOptions": {
    "B1": [
-    "del",
-    "al",
+    "El",
     "La",
-    "lápices"
+    "mano",
+    "al"
    ]
   },
   "key": {
@@ -2685,9 +2685,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "del",
-    "al",
+    "mano",
     "unas",
-    "lápices"
+    "al"
    ]
   },
   "key": {
@@ -2706,10 +2706,10 @@ window.QUESTION_BANK = [
   "question": "Necesito dos _____ nuevos para el examen. <span data-say=\"Necesito dos lápices nuevos para el examen.\" data-listen>Necesito dos lápices nuevos para el examen.</span>",
   "blankOptions": {
    "B1": [
-    "lápices",
+    "El",
     "del",
-    "unas",
-    "al"
+    "mano",
+    "lápices"
    ]
   },
   "key": {
@@ -2728,10 +2728,10 @@ window.QUESTION_BANK = [
   "question": "_____ ciudad tiene mucha información. <span data-say=\"La ciudad tiene mucha información.\" data-listen>La ciudad tiene mucha información.</span>",
   "blankOptions": {
    "B1": [
+    "La",
     "al",
-    "unas",
-    "del",
-    "La"
+    "mano",
+    "unas"
    ]
   },
   "key": {
@@ -2750,10 +2750,10 @@ window.QUESTION_BANK = [
   "question": "Salgo _____ gimnasio después de las clases. <span data-say=\"Salgo del gimnasio después de las clases.\" data-listen>Salgo del gimnasio después de las clases.</span>",
   "blankOptions": {
    "B1": [
-    "al",
-    "unas",
+    "El",
     "mano",
-    "del"
+    "del",
+    "al"
    ]
   },
   "key": {
@@ -2772,10 +2772,10 @@ window.QUESTION_BANK = [
   "question": "Escucha y escribe la palabra que falta: Me duele la _____. <span data-say=\"la mano\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "al",
     "La",
-    "mano",
-    "El"
+    "al",
+    "El",
+    "mano"
    ]
   },
   "key": {
@@ -3642,10 +3642,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana es muy _____. (tall, feminine)",
   "blankOptions": {
    "B1": [
-    "negro",
-    "interesantes",
-    "mayor",
-    "alta"
+    "azul",
+    "alta",
+    "estos",
+    "negro"
    ]
   },
   "key": {
@@ -3664,10 +3664,10 @@ window.QUESTION_BANK = [
   "question": "Los libros son muy _____. (interesting, plural)",
   "blankOptions": {
    "B1": [
-    "mayor",
-    "negro",
     "interesantes",
-    "azul"
+    "azul",
+    "estos",
+    "nuestra"
    ]
   },
   "key": {
@@ -3686,10 +3686,10 @@ window.QUESTION_BANK = [
   "question": "Tengo un perro _____. (black, masculine)",
   "blankOptions": {
    "B1": [
-    "nuestra",
     "negro",
     "estos",
-    "mayor"
+    "alta",
+    "interesantes"
    ]
   },
   "key": {
@@ -3708,10 +3708,10 @@ window.QUESTION_BANK = [
   "question": "Es una camisa _____. <span data-say=\"Es una camisa azul.\" data-listen>Es una camisa azul.</span>",
   "blankOptions": {
    "B1": [
-    "estos",
+    "mayor",
     "negro",
     "azul",
-    "interesantes"
+    "nuestra"
    ]
   },
   "key": {
@@ -3730,10 +3730,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ es más alto que yo. (older)",
   "blankOptions": {
    "B1": [
-    "mayor",
     "negro",
+    "mayor",
     "interesantes",
-    "nuestra"
+    "estos"
    ]
   },
   "key": {
@@ -3752,10 +3752,10 @@ window.QUESTION_BANK = [
   "question": "Quiero comprar _____ zapatos negros. (these, masculine plural)",
   "blankOptions": {
    "B1": [
+    "alta",
+    "estos",
     "azul",
-    "nuestra",
-    "interesantes",
-    "estos"
+    "mayor"
    ]
   },
   "key": {
@@ -3774,10 +3774,10 @@ window.QUESTION_BANK = [
   "question": "En _____ casa vivimos con mis abuelos. (our, feminine singular)",
   "blankOptions": {
    "B1": [
+    "nuestra",
     "estos",
-    "interesantes",
-    "azul",
-    "nuestra"
+    "alta",
+    "mayor"
    ]
   },
   "key": {
@@ -4645,10 +4645,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ a las siete. <span data-say=\"Me levanto a las siete.\" data-listen>Me levanto a las siete.</span>",
   "blankOptions": {
    "B1": [
-    "gusta",
+    "puedo",
     "deberes",
-    "levanto",
-    "puedo"
+    "gusta",
+    "levanto"
    ]
   },
   "key": {
@@ -4667,10 +4667,10 @@ window.QUESTION_BANK = [
   "question": "No _____ salir porque tengo que estudiar. <span data-say=\"No puedo salir porque tengo que estudiar.\" data-listen>No puedo salir porque tengo que estudiar.</span>",
   "blankOptions": {
    "B1": [
-    "puedo",
-    "Tengo",
+    "Estoy",
+    "duerme",
     "gusta",
-    "duerme"
+    "puedo"
    ]
   },
   "key": {
@@ -4689,8 +4689,8 @@ window.QUESTION_BANK = [
   "question": "Voy a hacer mis _____. <span data-say=\"Voy a hacer mis deberes esta tarde.\" data-listen>Voy a hacer mis deberes esta tarde.</span>",
   "blankOptions": {
    "B1": [
-    "levanto",
     "puedo",
+    "Tengo",
     "deberes",
     "Estoy"
    ]
@@ -4711,10 +4711,10 @@ window.QUESTION_BANK = [
   "question": "_____ cansado porque no duermo bien. (temporary state — estar)",
   "blankOptions": {
    "B1": [
-    "duerme",
-    "Estoy",
-    "gusta",
-    "Tengo"
+    "deberes",
+    "puedo",
+    "levanto",
+    "Estoy"
    ]
   },
   "key": {
@@ -4733,9 +4733,9 @@ window.QUESTION_BANK = [
   "question": "Me _____ el fútbol. (I like — singular subject)",
   "blankOptions": {
    "B1": [
-    "Tengo",
     "puedo",
-    "duerme",
+    "levanto",
+    "Estoy",
     "gusta"
    ]
   },
@@ -4756,8 +4756,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "Tengo",
-    "levanto",
-    "Estoy",
+    "gusta",
+    "puedo",
     "duerme"
    ]
   },
@@ -4777,10 +4777,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ mucho por las noches. (o→ue stem-change: dormir)",
   "blankOptions": {
    "B1": [
-    "deberes",
     "duerme",
     "Tengo",
-    "gusta"
+    "deberes",
+    "Estoy"
    ]
   },
   "key": {
@@ -5647,9 +5647,9 @@ window.QUESTION_BANK = [
   "question": "Ayer, yo _____ (hablar) con mi profesora sobre el examen. <span data-say=\"Ayer, yo hablé con mi profesora sobre el examen.\" data-listen>Ayer, yo hablé con mi profesora sobre el examen.</span>",
   "blankOptions": {
    "B1": [
-    "fuimos",
-    "levantaba",
+    "estuve",
     "hablé",
+    "fuimos",
     "he comido"
    ]
   },
@@ -5669,10 +5669,10 @@ window.QUESTION_BANK = [
   "question": "El año pasado, nosotros _____ (ir) de vacaciones a Francia. <span data-say=\"El año pasado, nosotros fuimos de vacaciones a Francia.\" data-listen>El año pasado, nosotros fuimos de vacaciones a Francia.</span>",
   "blankOptions": {
    "B1": [
-    "fuimos",
-    "he comido",
     "estuve",
-    "llegó"
+    "vivía",
+    "llegó",
+    "fuimos"
    ]
   },
   "key": {
@@ -5691,10 +5691,10 @@ window.QUESTION_BANK = [
   "question": "De pequeño, yo _____ (vivir) en Sevilla con mis abuelos. (imperfect — describes a past state)",
   "blankOptions": {
    "B1": [
-    "fuimos",
-    "estuve",
+    "he comido",
     "vivía",
-    "levantaba"
+    "estuve",
+    "fuimos"
    ]
   },
   "key": {
@@ -5713,9 +5713,9 @@ window.QUESTION_BANK = [
   "question": "Normalmente, mi madre se _____ (levantarse) a las seis. (imperfect — a repeated habit)",
   "blankOptions": {
    "B1": [
-    "levantaba",
-    "fuimos",
+    "he comido",
     "hablé",
+    "levantaba",
     "vivía"
    ]
   },
@@ -5735,10 +5735,10 @@ window.QUESTION_BANK = [
   "question": "Mientras yo cocinaba, mi hermano _____ (llegar) a casa. (the interrupting single event — preterite)",
   "blankOptions": {
    "B1": [
+    "fuimos",
     "estuve",
-    "hablé",
-    "levantaba",
-    "llegó"
+    "llegó",
+    "vivía"
    ]
   },
   "key": {
@@ -5757,10 +5757,10 @@ window.QUESTION_BANK = [
   "question": "Escucha y completa: Ayer _____ en el parque toda la tarde. <span data-say=\"Ayer estuve en el parque toda la tarde.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "estuve",
-    "levantaba",
+    "vivía",
+    "llegó",
     "fuimos",
-    "vivía"
+    "estuve"
    ]
   },
   "key": {
@@ -5779,10 +5779,10 @@ window.QUESTION_BANK = [
   "question": "Higher: Nunca _____ (comer) paella antes. (perfect tense — haber + participle)",
   "blankOptions": {
    "B1": [
-    "fuimos",
     "estuve",
     "he comido",
-    "vivía"
+    "levantaba",
+    "fuimos"
    ]
   },
   "key": {
@@ -6649,10 +6649,10 @@ window.QUESTION_BANK = [
   "question": "Yo _____ a estudiar esta noche. <span data-say=\"Yo voy a estudiar esta noche.\" data-listen>Yo voy a estudiar esta noche.</span>",
   "blankOptions": {
    "B1": [
-    "compraríamos",
-    "haré",
-    "tendrá",
-    "voy"
+    "gustaría",
+    "viviré",
+    "voy",
+    "haré"
    ]
   },
   "key": {
@@ -6671,10 +6671,10 @@ window.QUESTION_BANK = [
   "question": "Mañana, ella _____ que trabajar. <span data-say=\"Mañana, ella tendrá que trabajar.\" data-listen>Mañana, ella tendrá que trabajar.</span>",
   "blankOptions": {
    "B1": [
-    "voy",
-    "haré",
     "tendrá",
-    "gustaría"
+    "voy",
+    "gustaría",
+    "haré"
    ]
   },
   "key": {
@@ -6694,9 +6694,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "tendrá",
-    "estudies",
-    "viviré",
-    "voy"
+    "voy",
+    "compraríamos",
+    "viviré"
    ]
   },
   "key": {
@@ -6715,10 +6715,10 @@ window.QUESTION_BANK = [
   "question": "Con más dinero, (nosotros) _____ una casa grande. (we would buy — comprar)",
   "blankOptions": {
    "B1": [
-    "compraríamos",
-    "gustaría",
     "haré",
-    "estudies"
+    "viviré",
+    "estudies",
+    "compraríamos"
    ]
   },
   "key": {
@@ -6737,10 +6737,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ viajar a Japón algún día. (I would like)",
   "blankOptions": {
    "B1": [
-    "estudies",
+    "tendrá",
     "gustaría",
     "haré",
-    "tendrá"
+    "compraríamos"
    ]
   },
   "key": {
@@ -6759,10 +6759,10 @@ window.QUESTION_BANK = [
   "question": "_____ los deberes antes de salir. (I will do — hacer, yo)",
   "blankOptions": {
    "B1": [
-    "compraríamos",
     "haré",
     "tendrá",
-    "estudies"
+    "estudies",
+    "gustaría"
    ]
   },
   "key": {
@@ -6782,9 +6782,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "estudies",
-    "compraríamos",
     "voy",
-    "gustaría"
+    "haré",
+    "viviré"
    ]
   },
   "key": {
@@ -7652,9 +7652,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "porque",
-    "lo",
-    "además",
-    "nunca"
+    "que",
+    "nada",
+    "lo"
    ]
   },
   "key": {
@@ -7674,9 +7674,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "que",
-    "lo",
+    "porque",
     "nada",
-    "porque"
+    "nunca"
    ]
   },
   "key": {
@@ -7695,10 +7695,10 @@ window.QUESTION_BANK = [
   "question": "Voy a hacer más ejercicio, _____ es bueno para la salud. (because)",
   "blankOptions": {
    "B1": [
-    "nada",
+    "me",
     "que",
-    "nunca",
-    "porque"
+    "porque",
+    "nada"
    ]
   },
   "key": {
@@ -7717,10 +7717,10 @@ window.QUESTION_BANK = [
   "question": "(Yo) _____ levanto a las siete. (myself — reflexive pronoun)",
   "blankOptions": {
    "B1": [
+    "porque",
     "me",
-    "nunca",
-    "lo",
-    "que"
+    "además",
+    "lo"
    ]
   },
   "key": {
@@ -7739,10 +7739,10 @@ window.QUESTION_BANK = [
   "question": "La chica _____ vive aquí es mi amiga. (who/that)",
   "blankOptions": {
    "B1": [
-    "lo",
-    "porque",
+    "que",
     "me",
-    "que"
+    "además",
+    "nada"
    ]
   },
   "key": {
@@ -7761,10 +7761,10 @@ window.QUESTION_BANK = [
   "question": "No voy _____ al gimnasio los domingos. (never)",
   "blankOptions": {
    "B1": [
-    "me",
-    "que",
+    "nunca",
     "lo",
-    "nunca"
+    "que",
+    "porque"
    ]
   },
   "key": {
@@ -7784,9 +7784,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "nada",
-    "me",
     "además",
-    "porque"
+    "porque",
+    "que"
    ]
   },
   "key": {
@@ -8654,10 +8654,10 @@ window.QUESTION_BANK = [
   "question": "_____ quince años. <span data-say=\"Tengo quince años.\" data-listen>Tengo quince años.</span>",
   "blankOptions": {
    "B1": [
+    "llamo",
+    "marrones",
     "único",
-    "Tengo",
-    "Mis",
-    "llamo"
+    "Tengo"
    ]
   },
   "key": {
@@ -8676,10 +8676,10 @@ window.QUESTION_BANK = [
   "question": "Tengo el pelo largo y _____. <span data-say=\"Tengo el pelo largo y castaño.\" data-listen>Tengo el pelo largo y castaño.</span>",
   "blankOptions": {
    "B1": [
-    "marrones",
-    "Tengo",
-    "lleva",
-    "castaño"
+    "llamo",
+    "único",
+    "castaño",
+    "Mis"
    ]
   },
   "key": {
@@ -8698,10 +8698,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano mayor _____ gafas. <span data-say=\"Mi hermano mayor lleva gafas.\" data-listen>Mi hermano mayor lleva gafas.</span>",
   "blankOptions": {
    "B1": [
-    "Mis",
-    "marrones",
+    "único",
     "lleva",
-    "único"
+    "castaño",
+    "llamo"
    ]
   },
   "key": {
@@ -8720,10 +8720,10 @@ window.QUESTION_BANK = [
   "question": "Tengo los ojos _____. (brown — plural agreement!)",
   "blankOptions": {
    "B1": [
+    "marrones",
+    "Mis",
     "único",
-    "llamo",
-    "Tengo",
-    "marrones"
+    "Tengo"
    ]
   },
   "key": {
@@ -8742,10 +8742,10 @@ window.QUESTION_BANK = [
   "question": "_____ hermanos son altos. (my — more than one)",
   "blankOptions": {
    "B1": [
-    "marrones",
-    "castaño",
     "Mis",
-    "Tengo"
+    "marrones",
+    "llamo",
+    "único"
    ]
   },
   "key": {
@@ -8764,9 +8764,9 @@ window.QUESTION_BANK = [
   "question": "Soy hijo _____. (only child)",
   "blankOptions": {
    "B1": [
+    "lleva",
+    "castaño",
     "llamo",
-    "marrones",
-    "Mis",
     "único"
    ]
   },
@@ -8786,10 +8786,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ Ana y vivo en Madrid. (my name is)",
   "blankOptions": {
    "B1": [
-    "Tengo",
+    "Mis",
+    "llamo",
     "marrones",
-    "lleva",
-    "llamo"
+    "lleva"
    ]
   },
   "key": {
@@ -9657,10 +9657,10 @@ window.QUESTION_BANK = [
   "question": "Me llevo bien _____ mis padres. <span data-say=\"Me llevo bien con mis padres.\" data-listen>Me llevo bien con mis padres.</span>",
   "blankOptions": {
    "B1": [
-    "abuela",
-    "gracioso",
+    "trabajadora",
     "con",
-    "llevo"
+    "abuela",
+    "cariñosa"
    ]
   },
   "key": {
@@ -9679,10 +9679,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano es muy _____. <span data-say=\"Mi hermano es muy gracioso.\" data-listen>Mi hermano es muy gracioso.</span>",
   "blankOptions": {
    "B1": [
-    "abuela",
-    "que",
+    "con",
     "gracioso",
-    "con"
+    "que",
+    "llevo"
    ]
   },
   "key": {
@@ -9701,10 +9701,10 @@ window.QUESTION_BANK = [
   "question": "Mi modelo a seguir es mi _____. <span data-say=\"Mi modelo a seguir es mi abuela.\" data-listen>Mi modelo a seguir es mi abuela.</span>",
   "blankOptions": {
    "B1": [
-    "abuela",
-    "llevo",
     "con",
-    "gracioso"
+    "que",
+    "llevo",
+    "abuela"
    ]
   },
   "key": {
@@ -9723,10 +9723,10 @@ window.QUESTION_BANK = [
   "question": "Mi madre es muy _____. (affectionate — she is female!)",
   "blankOptions": {
    "B1": [
-    "gracioso",
     "cariñosa",
-    "trabajadora",
-    "que"
+    "que",
+    "gracioso",
+    "con"
    ]
   },
   "key": {
@@ -9745,9 +9745,9 @@ window.QUESTION_BANK = [
   "question": "Me _____ mal con mi hermano. (I get on badly — reflexive)",
   "blankOptions": {
    "B1": [
-    "trabajadora",
-    "llevo",
     "gracioso",
+    "con",
+    "llevo",
     "que"
    ]
   },
@@ -9767,10 +9767,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana es más habladora _____ yo. (than)",
   "blankOptions": {
    "B1": [
-    "que",
-    "con",
     "abuela",
-    "llevo"
+    "que",
+    "llevo",
+    "gracioso"
    ]
   },
   "key": {
@@ -9789,10 +9789,10 @@ window.QUESTION_BANK = [
   "question": "Admiro a mi abuela porque es muy _____. (hard-working, female)",
   "blankOptions": {
    "B1": [
-    "con",
+    "abuela",
     "trabajadora",
-    "llevo",
-    "abuela"
+    "gracioso",
+    "cariñosa"
    ]
   },
   "key": {
@@ -10660,10 +10660,10 @@ window.QUESTION_BANK = [
   "question": "Se _____ comer más fruta. <span data-say=\"Se debe comer más fruta.\" data-listen>Se debe comer más fruta.</span>",
   "blankOptions": {
    "B1": [
-    "porque",
+    "debe",
+    "equilibrada",
     "agua",
-    "evitar",
-    "debe"
+    "evitar"
    ]
   },
   "key": {
@@ -10682,8 +10682,8 @@ window.QUESTION_BANK = [
   "question": "Voy a _____ la comida rápida. <span data-say=\"Voy a evitar la comida rápida.\" data-listen>Voy a evitar la comida rápida.</span>",
   "blankOptions": {
    "B1": [
-    "equilibrada",
-    "gustan",
+    "agua",
+    "debe",
     "azúcar",
     "evitar"
    ]
@@ -10704,10 +10704,10 @@ window.QUESTION_BANK = [
   "question": "Hay que beber mucha _____. <span data-say=\"Hay que beber mucha agua.\" data-listen>Hay que beber mucha agua.</span>",
   "blankOptions": {
    "B1": [
+    "evitar",
+    "equilibrada",
     "debe",
-    "porque",
-    "agua",
-    "equilibrada"
+    "agua"
    ]
   },
   "key": {
@@ -10726,10 +10726,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ las verduras. (I like vegetables — plural!)",
   "blankOptions": {
    "B1": [
-    "evitar",
-    "azúcar",
-    "equilibrada",
-    "gustan"
+    "debe",
+    "agua",
+    "gustan",
+    "evitar"
    ]
   },
   "key": {
@@ -10748,10 +10748,10 @@ window.QUESTION_BANK = [
   "question": "Como una dieta _____. (balanced)",
   "blankOptions": {
    "B1": [
+    "debe",
+    "equilibrada",
     "agua",
-    "porque",
-    "azúcar",
-    "equilibrada"
+    "porque"
    ]
   },
   "key": {
@@ -10770,10 +10770,10 @@ window.QUESTION_BANK = [
   "question": "No se debe comer demasiado _____. (sugar)",
   "blankOptions": {
    "B1": [
+    "gustan",
     "agua",
     "porque",
-    "azúcar",
-    "debe"
+    "azúcar"
    ]
   },
   "key": {
@@ -10792,10 +10792,10 @@ window.QUESTION_BANK = [
   "question": "Prefiero el pescado _____ es bueno para la salud. (because)",
   "blankOptions": {
    "B1": [
-    "equilibrada",
-    "debe",
+    "porque",
+    "azúcar",
     "gustan",
-    "porque"
+    "evitar"
    ]
   },
   "key": {
@@ -11663,10 +11663,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ la cabeza. <span data-say=\"Me duele la cabeza.\" data-listen>Me duele la cabeza.</span>",
   "blankOptions": {
    "B1": [
+    "duele",
+    "duelen",
     "ejercicio",
-    "acuesto",
-    "fumar",
-    "duele"
+    "fumar"
    ]
   },
   "key": {
@@ -11685,10 +11685,10 @@ window.QUESTION_BANK = [
   "question": "No se debe _____ porque es malo para la salud. <span data-say=\"No se debe fumar porque es malo para la salud.\" data-listen>No se debe fumar porque es malo para la salud.</span>",
   "blankOptions": {
    "B1": [
-    "duele",
-    "duelen",
+    "cansado",
     "fumar",
-    "ejercicio"
+    "duelen",
+    "acuesto"
    ]
   },
   "key": {
@@ -11707,10 +11707,10 @@ window.QUESTION_BANK = [
   "question": "Para estar en forma, hay que hacer _____. <span data-say=\"Para estar en forma, hay que hacer ejercicio.\" data-listen>Para estar en forma, hay que hacer ejercicio.</span>",
   "blankOptions": {
    "B1": [
-    "duele",
+    "fumar",
+    "ejercicio",
     "duelen",
-    "acuesto",
-    "ejercicio"
+    "duele"
    ]
   },
   "key": {
@@ -11731,8 +11731,8 @@ window.QUESTION_BANK = [
    "B1": [
     "duelen",
     "acuesto",
-    "cansado",
-    "dejar"
+    "fumar",
+    "ejercicio"
    ]
   },
   "key": {
@@ -11751,10 +11751,10 @@ window.QUESTION_BANK = [
   "question": "Estoy muy _____ porque no duermo bien. (tired)",
   "blankOptions": {
    "B1": [
+    "ejercicio",
     "duele",
-    "dejar",
-    "cansado",
-    "fumar"
+    "fumar",
+    "cansado"
    ]
   },
   "key": {
@@ -11774,9 +11774,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "dejar",
-    "fumar",
-    "ejercicio",
-    "cansado"
+    "duele",
+    "cansado",
+    "acuesto"
    ]
   },
   "key": {
@@ -11795,9 +11795,9 @@ window.QUESTION_BANK = [
   "question": "Me _____ temprano para dormir ocho horas. (I go to bed — reflexive)",
   "blankOptions": {
    "B1": [
-    "ejercicio",
-    "duelen",
-    "duele",
+    "fumar",
+    "cansado",
+    "dejar",
     "acuesto"
    ]
   },
@@ -12033,6 +12033,2012 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "“malo para la salud” means: bad for your health"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:exam:61b6bb77",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": 1,
+  "question": "Read what Carlos says. Answer <strong>in English</strong>.<br>(a) Name <strong>one</strong> facility at his school. (1)<br>(b) What is his favourite subject? (1)<br>(c) Give <strong>one</strong> reason he likes it. (1)<br>(d) Why does he dislike maths? (1)<br>(e) Name <strong>one</strong> school rule mentioned. (1)",
+  "caseStudy": "<p><strong>Lee lo que dice Carlos.</strong></p>\n        <p><em>\"Estudio en un instituto grande donde hay una biblioteca fantástica y dos laboratorios de ciencias. Mi asignatura preferida es la informática porque se me da muy bien y es útil para el futuro. Sin embargo, no me gustan nada las matemáticas porque son muy difíciles. Las clases empiezan a las nueve y terminan a las tres y media. En mi instituto está prohibido usar el móvil en clase, y hay que llevar uniforme todos los días.\"</em></p>",
+  "hint": "Find the facilities after ‘donde hay’, the favourite subject after ‘preferida es’, the reason after ‘porque’, the maths complaint after ‘porque son’, and the rule after ‘está prohibido’ or ‘hay que’.",
+  "starter": "(a) There is a… (b) His favourite subject is… (c) Because… (d) Because… (e) Students must / must not…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO3 Reading)</h5><ul>\n                <li><strong>(a)</strong> a library / two science labs (ANY ONE) <em>(1)</em>.</li>\n                <li><strong>(b)</strong> ICT / computing <em>(1)</em>.</li>\n                <li><strong>(c)</strong> (because) he is good at it / it is useful for the future (ANY ONE) <em>(1)</em>.</li>\n                <li><strong>(d)</strong> (because) it is very difficult <em>(1)</em>.</li>\n                <li><strong>(e)</strong> no mobile phones in class / must wear uniform every day (ANY ONE) <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>\n            </ul></div>",
+   "modelAnswer": "(a) A library (or two science labs). (b) ICT / computing. (c) Because he is good at it (or it is useful for the future). (d) Because it is very difficult. (e) No mobile phones in class (or must wear uniform every day)."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:exam:1dd83970",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": 2,
+  "question": "Translate these sentences <strong>into Spanish</strong>.<br>(a) My favourite subject is Spanish. <br>(b) I am very good at science. <br>(c) Lessons start at nine and it is forbidden to use mobile phones.",
+  "hint": "‘My favourite subject is’ = Mi asignatura preferida es… ‘I am very good at’ = Se me da(n) muy bien… (check the agreement!). ‘it is forbidden to’ = está prohibido + infinitive.",
+  "starter": "(a) Mi asignatura preferida es… (b) Se me… (c) Las clases… y está prohibido…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>\n                <li><strong>(a)</strong> Mi asignatura preferida es el español. <em>(1)</em></li>\n                <li><strong>(b)</strong> Se me dan muy bien las ciencias. <em>(1)</em></li>\n                <li><strong>(c)</strong> Las clases empiezan a las nueve <em>(1)</em> y <em>(1)</em> está prohibido usar el móvil <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Accept minor accent errors. ‘Se me dan bien las ciencias’ must use the plural ‘dan’ to agree with ‘las ciencias’.</li>\n            </ul></div>",
+   "modelAnswer": "(a) Mi asignatura preferida es el español. (b) Se me dan muy bien las ciencias. (c) Las clases empiezan a las nueve y está prohibido usar el móvil."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:52026bae",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Mi asignatura preferida es el inglés.\" data-listen></span><br>Listen. What is the person’s favourite subject?",
+  "options": [
+   "English",
+   "History and English together",
+   "Geography, not English at all",
+   "English was their least favourite subject"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘mi asignatura preferida es el inglés’ = my favourite subject is English. The traps add a subject, negate it, or reverse the meaning."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:6e077aa9",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Se me da muy bien la informática.\" data-listen></span><br>Listen. What does the speaker say?",
+  "options": [
+   "I am very good at ICT",
+   "I am actually quite bad at ICT",
+   "ICT is very boring to me",
+   "I stopped studying ICT last year"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘se me da muy bien’ = I am very good at (it). Trap B flips bien→mal in meaning; C and D change the whole claim."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:0c6f0a8c",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which subject is described as ‘las ciencias’?",
+  "options": [
+   "science",
+   "history",
+   "art",
+   "technology, in general"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "las ciencias = science. ‘technology’ is a plausible STEM-subject trap of similar length."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:e270584b",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Me ___ las matemáticas.’ (I like maths)",
+  "options": [
+   "gustan",
+   "gusta",
+   "gustaba mucho",
+   "gustando siempre"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘las matemáticas’ is plural, so the verb must be plural → gustan. C and D use the wrong tense/form entirely."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:e39da7fa",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How do you say ‘I am bad at art’?",
+  "options": [
+   "Se me da mal el dibujo",
+   "Se me da bien el dibujo",
+   "Me gusta mucho el dibujo",
+   "No estudio el dibujo este año"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "se me da mal = I am bad at (it). B flips mal→bien; C and D avoid the target structure entirely."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:d09c3829",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence means ‘Maths is more difficult than art’?",
+  "options": [
+   "Las matemáticas son más difíciles que el dibujo",
+   "Las matemáticas son menos difíciles que el dibujo",
+   "El dibujo es más difícil que las matemáticas",
+   "Las matemáticas son tan difíciles como el dibujo"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "más difíciles que = more difficult than. B swaps más→menos; C swaps the subjects around; D uses ‘as … as’."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:cc461744",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Where would you go to borrow a book at school?",
+  "options": [
+   "a la biblioteca",
+   "al comedor a comer algo",
+   "al gimnasio para hacer deporte",
+   "al laboratorio de ciencias"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la biblioteca = the library, where books are borrowed. The others are real school places used as traps."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:31b6c651",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘no se debe usar el móvil’ mean?",
+  "options": [
+   "you must not use your mobile phone",
+   "you must always use your mobile phone",
+   "you may use your mobile phone at recreo",
+   "mobile phones are only allowed in the library"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘no se debe’ = one must not. Trap B removes the ‘no’; C and D invent exceptions that aren’t stated."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:65115aee",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is the Higher-tier way to say ‘it is forbidden to eat in class’?",
+  "options": [
+   "Está prohibido comer en clase",
+   "Se puede comer en clase sin ningún problema",
+   "Hay que comer siempre en el aula",
+   "Está prohibido comer en el comedor"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "está prohibido + infinitive = it is forbidden to. B says it IS allowed; C says you must eat; D changes the location."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:486e7732",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Las clases empiezan a las nueve.\" data-listen></span><br>Listen. What time do lessons start?",
+  "options": [
+   "at nine o’clock",
+   "at half past nine",
+   "at three o’clock instead",
+   "lessons have already finished for today"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘empiezan a las nueve’ = they start at nine. The traps shift the time or claim the opposite event."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:8b90523d",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Me gustan las matemáticas’ is correct because ‘matemáticas’ is plural.",
+  "key": {
+   "answer": true,
+   "explain": "gustar agrees with what is liked; a plural subject needs ‘gustan’."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:b0093f5c",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘El instituto’ means a university institute for adults.",
+  "key": {
+   "answer": false,
+   "explain": "False friend! el instituto = a secondary school."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:7b818a99",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Se me da bien’ means ‘I am good at’ something.",
+  "key": {
+   "answer": true,
+   "explain": "se me da bien = I am good at it (literally ‘it gives itself well to me’)."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:937658b2",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Los deberes’ means ‘the duties of a teacher’.",
+  "key": {
+   "answer": false,
+   "explain": "False friend! los deberes = homework, not job duties."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:81d6ea08",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Está prohibido’ is always followed by an infinitive verb.",
+  "key": {
+   "answer": true,
+   "explain": "está prohibido comer / llevar / usar — always an infinitive."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:18d22ce1",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘El aula’ means ‘the hall’, not ‘the classroom’.",
+  "key": {
+   "answer": false,
+   "explain": "el aula = the classroom. ‘the hall’ would be el pasillo or el salón de actos."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:3f64a375",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Comparatives use ‘más + adjective + que’ to say ‘more … than’.",
+  "key": {
+   "answer": true,
+   "explain": "más difícil que = more difficult than."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:068aee43",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘El recreo’ is when students can go outside to the patio.",
+  "key": {
+   "answer": true,
+   "explain": "el recreo = break time, often spent in el patio."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:learn:f8840dae",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What subjects do I study? (las asignaturas)",
+  "reading": "<p>School subjects are <span data-say=\"las asignaturas\">las asignaturas</span>. Most take a definite article, and some are plural. Tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"las matemáticas\">las matemáticas</span></td><td>maths</td><td><span data-say=\"la historia\">la historia</span></td><td>history</td></tr>\n              <tr><td><span data-say=\"la geografía\">la geografía</span></td><td>geography</td><td><span data-say=\"las ciencias\">las ciencias</span></td><td>science</td></tr>\n              <tr><td><span data-say=\"el inglés\">el inglés</span></td><td>English</td><td><span data-say=\"el español\">el español</span></td><td>Spanish</td></tr>\n              <tr><td><span data-say=\"la educación física\">la educación física</span></td><td>PE</td><td><span data-say=\"el dibujo\">el dibujo</span></td><td>art</td></tr>\n              <tr><td><span data-say=\"la música\">la música</span></td><td>music</td><td><span data-say=\"la informática\">la informática</span></td><td>ICT / computing</td></tr>\n              <tr><td><span data-say=\"la tecnología\">la tecnología</span></td><td>technology</td><td>&nbsp;</td><td>&nbsp;</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Estudio matemáticas, inglés y ciencias en el instituto.\">Estudio matemáticas, inglés y ciencias en el instituto.</span> — <em>I study maths, English and science at school.</em></p>",
+  "question": "Which subject is ‘la informática’?",
+  "options": [
+   "ICT / computing",
+   "religious education, taught weekly",
+   "physical education outdoors",
+   "modern foreign languages generally"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la informática = ICT / computing. The traps swap in other named subjects that sound plausible."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:learn:596e9df3",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I give an opinion on a subject?",
+  "reading": "<p><span data-say=\"me gusta\">me gusta</span> (I like) agrees with a singular subject; <span data-say=\"me gustan\">me gustan</span> agrees with a plural subject like <span data-say=\"las matemáticas\">las matemáticas</span> or <span data-say=\"las ciencias\">las ciencias</span> — exactly like ‘gustar’ works elsewhere.</p>\n            <ul>\n              <li><span data-say=\"Me gusta el español porque es interesante.\">Me gusta el español porque es interesante.</span> (I like Spanish because it’s interesting.)</li>\n              <li><span data-say=\"Me gustan las ciencias porque son útiles.\">Me gustan las ciencias porque son útiles.</span> (I like science because it’s useful.)</li>\n            </ul>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"mi asignatura preferida es\">mi asignatura preferida es</span></td><td>my favourite subject is</td></tr>\n              <tr><td><span data-say=\"se me da bien\">se me da bien</span></td><td>I am good at (it)</td></tr>\n              <tr><td><span data-say=\"se me da mal\">se me da mal</span></td><td>I am bad at (it)</td></tr>\n              <tr><td><span data-say=\"es útil\">es útil</span> / <span data-say=\"es aburrido\">es aburrido</span></td><td>it’s useful / it’s boring</td></tr>\n            </table>",
+  "question": "Why is it ‘me gustan las ciencias’ and not ‘me gusta las ciencias’?",
+  "options": [
+   "‘las ciencias’ is plural, so the verb is plural",
+   "‘ciencias’ is one of the few masculine subject nouns",
+   "it describes something that will happen in the future",
+   "‘gustar’ never changes its form for any subject"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Like elsewhere, gustar agrees with what is liked; ‘las ciencias’ is plural → gustan."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:learn:05d308d9",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I compare subjects?",
+  "reading": "<p>Use <strong>más / menos + adjective + que</strong> to compare, and <span data-say=\"prefiero\">prefiero</span> (I prefer) to state a preference directly. The adjective agrees in number with the subject.</p>\n            <ul>\n              <li><span data-say=\"Las matemáticas son más difíciles que el dibujo.\">Las matemáticas son más difíciles que el dibujo.</span> (Maths is more difficult than art.)</li>\n              <li><span data-say=\"La educación física es menos aburrida que la historia.\">La educación física es menos aburrida que la historia.</span> <span class=\"tier-h\">H</span> (PE is less boring than history.)</li>\n              <li><span data-say=\"Prefiero la música a la tecnología porque soy creativo.\">Prefiero la música a la tecnología porque soy creativo.</span></li>\n            </ul>",
+  "question": "What does ‘más difícil que’ mean?",
+  "options": [
+   "more difficult than",
+   "less difficult than, in fact easier",
+   "exactly as difficult as",
+   "the single most difficult subject of all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "más + adjective + que = more … than. ‘menos … que’ would mean less; ‘tan … como’ would mean as … as."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:learn:82fc2bc3",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is my school like? (el instituto)",
+  "reading": "<p>The school is <span data-say=\"el instituto\">el instituto</span>. Key places on site — tap 🔊 to hear each one:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el aula\">el aula</span></td><td>the classroom</td><td><span data-say=\"el laboratorio\">el laboratorio</span></td><td>the lab</td></tr>\n              <tr><td><span data-say=\"la biblioteca\">la biblioteca</span></td><td>the library</td><td><span data-say=\"el comedor\">el comedor</span></td><td>the canteen</td></tr>\n              <tr><td><span data-say=\"el patio\">el patio</span></td><td>the playground</td><td><span data-say=\"el gimnasio\">el gimnasio</span></td><td>the gym</td></tr>\n            </table>\n            <p>Example: <span data-say=\"En mi instituto hay una biblioteca grande y dos laboratorios.\">En mi instituto hay una biblioteca grande y dos laboratorios.</span></p>",
+  "question": "Which place is ‘el comedor’?",
+  "options": [
+   "the canteen",
+   "the school library building",
+   "an ordinary classroom",
+   "the outdoor sports field"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el comedor = the canteen, where students eat lunch."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:learn:2b56fedd",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is a typical school day like?",
+  "reading": "<p>Talking about your <span data-say=\"el horario\">el horario</span> (timetable) and school day:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"empezar\">empezar</span></td><td>to start</td><td><span data-say=\"terminar\">terminar</span></td><td>to finish</td></tr>\n              <tr><td><span data-say=\"el recreo\">el recreo</span></td><td>break time</td><td><span data-say=\"los deberes\">los deberes</span></td><td>homework</td></tr>\n              <tr><td><span data-say=\"llevar uniforme\">llevar uniforme</span></td><td>to wear (a) uniform</td><td>&nbsp;</td><td>&nbsp;</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Las clases empiezan a las nueve y terminan a las tres y media.\">Las clases empiezan a las nueve y terminan a las tres y media.</span> — <em>Lessons start at nine and finish at half past three.</em></p>\n            <p>Also: <span data-say=\"Hago los deberes después de las clases.\">Hago los deberes después de las clases.</span></p>",
+  "question": "What does ‘los deberes’ mean?",
+  "options": [
+   "homework",
+   "the printed weekly timetable",
+   "morning break time",
+   "the compulsory uniform"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "los deberes = homework. A common false-friend trap is thinking it means ‘duties’."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:learn:00d0da52",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Higher: teachers and school rules",
+  "reading": "<p><span class=\"tier-h\">H</span> The teacher is <span data-say=\"el profesor\">el profesor</span> / <span data-say=\"la profesora\">la profesora</span>. School rules (<span data-say=\"las normas\">las normas</span>) use impersonal structures followed by an infinitive:</p>\n            <ul>\n              <li><span data-say=\"se debe llevar uniforme\">se debe llevar uniforme</span> — one must wear uniform</li>\n              <li><span data-say=\"no se debe usar el móvil\">no se debe usar el móvil</span> — one must not use a mobile phone</li>\n              <li><span data-say=\"está prohibido comer en clase\">está prohibido comer en clase</span> <span class=\"tier-h\">H</span> — it is forbidden to eat in class</li>\n              <li><strong>hay que</strong> + infinitive — you have to (do something), e.g. respect the teachers</li>\n            </ul>\n            <p>Example: <span data-say=\"En mi instituto está prohibido llevar joyas y hay que respetar a los profesores.\">En mi instituto está prohibido llevar joyas y hay que respetar a los profesores.</span></p>",
+  "question": "What follows ‘está prohibido’, ‘se debe’ and ‘hay que’?",
+  "options": [
+   "an infinitive (comer, llevar, respetar…)",
+   "a verb conjugated in the preterite past tense",
+   "an adjective that must agree",
+   "a plural noun used on its own"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "All three rule structures are followed by an infinitive."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:misc:184073f5",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Me gusta las matemáticas.</p><p><strong>✅ The correct idea:</strong> Me gustan las matemáticas.</p>",
+  "question": "Why is ‘Me gusta las matemáticas’ wrong?",
+  "options": [
+   "‘las matemáticas’ is plural, so it must be ‘gustan’",
+   "‘matemáticas’ needs a written accent on the first syllable",
+   "the pronoun should be ‘te’, not ‘me’",
+   "‘gustar’ should never be used with school subjects"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "gustar agrees with what is liked; a plural subject needs the plural verb form."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:misc:567abf88",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> ‘El colegio’ significa ‘the college’ (una universidad).</p><p><strong>✅ The correct idea:</strong> ‘El colegio’ significa ‘the school’.</p>",
+  "question": "What does ‘el colegio’ mean?",
+  "options": [
+   "a school",
+   "a university college for adults",
+   "a public library building",
+   "an after-school sports club"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "False friend! el colegio = a school (often primary), not an English ‘college’."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:misc:83fb9e5c",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> ‘Asistir a clase’ significa ‘to assist in class’ (ayudar).</p><p><strong>✅ The correct idea:</strong> ‘Asistir a clase’ significa ‘to attend class’.</p>",
+  "question": "What does ‘asistir a clase’ actually mean?",
+  "options": [
+   "to attend class",
+   "to assist or help in class",
+   "to skip class deliberately",
+   "to teach a class"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "False friend! asistir = to attend, not to assist. ‘Ayudar’ is the verb for ‘to help’."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:misc:b37adeec",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Se me da bien las matemáticas.</p><p><strong>✅ The correct idea:</strong> Se me dan bien las matemáticas.</p>",
+  "question": "Why is it ‘se me dan bien’, not ‘se me da bien’, here?",
+  "options": [
+   "‘las matemáticas’ is plural, so ‘dar’ agrees as ‘dan’",
+   "‘dar’ must always be written as ‘dan’, whatever the subject happens to be",
+   "‘matemáticas’ is treated as a masculine noun here",
+   "it is describing a completed past action, not now"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Just like gustar, ‘se me da/dan bien’ agrees with the subject: plural subject → dan."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:misc:89e379a3",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> El profesora es simpática.</p><p><strong>✅ The correct idea:</strong> La profesora es simpática.</p>",
+  "question": "What is wrong with ‘El profesora es simpática’?",
+  "options": [
+   "the article should be feminine ‘la’, matching profesora",
+   "‘profesora’ should always come before the article, not after it",
+   "nothing at all — the sentence is already completely correct",
+   "‘simpática’ should not end in a final letter ‘a’"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "profesora is feminine, so it needs the feminine article ‘la’, not ‘el’."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tips:0b2d1b0e",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 1 — Listening for agreement",
+  "reading": "Opinion sentences reuse chunks you know: ‘me gusta(n)…’, ‘se me da(n) bien…’. Listen closely for the -n ending — it tells you whether the subject being discussed is singular (el inglés) or plural (las matemáticas).",
+  "question": "You hear ‘…me gustan…’. What does that tell you?",
+  "options": [
+   "the subject being liked is plural",
+   "the subject being liked is definitely singular",
+   "the speaker dislikes the subject",
+   "it is describing a future plan"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The -n ending of ‘gustan’ signals a plural subject (las ciencias, las matemáticas…)."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tips:3eae0452",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 3 — Translation into English",
+  "reading": "Watch the false friends: ‘el colegio’ = a school (not ‘college’), ‘los deberes’ = homework (not ‘duties’), ‘asistir’ = to attend (not ‘to assist’). Keep ‘se me da bien’ natural: ‘I am good at it’, not a literal word-for-word translation.",
+  "question": "‘Asisto al colegio y se me da bien la informática’ means…",
+  "options": [
+   "I attend school and I am good at ICT",
+   "I assist at university and I dislike ICT",
+   "I skip school because ICT is too hard",
+   "I teach ICT at my local college"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "asistir = to attend; el colegio = school; se me da bien = I am good at."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tips:2f1a4fab",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "evaluate — Paper 4 — Writing & translation into Spanish",
+  "reading": "Combine an opinion, a reason and a comparison for the top band: ‘Mi asignatura preferida es la informática porque se me da bien y es más útil que la historia.’ At Higher, add a school rule with ‘está prohibido’ or ‘hay que’.",
+  "question": "Which answer reaches the top band?",
+  "options": [
+   "Mi asignatura preferida es la informática porque se me da bien y es muy útil para el futuro",
+   "Me gusta todo y no me gusta nada, es difícil y fácil a la vez, sin explicar nunca claramente por qué",
+   "Me gusta el instituto",
+   "Estudio mucho"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "It links an opinion, a reason and a justification with connectives — range and accuracy, not just length."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:2e833a69",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Mi asignatura _____ es el español. <span data-say=\"Mi asignatura preferida es el español.\" data-listen>Mi asignatura preferida es el español.</span>",
+  "blankOptions": {
+   "B1": [
+    "ciencias",
+    "preferida",
+    "empiezan",
+    "informática"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "preferida"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:7ab6056b",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Las clases _____ a las nueve. <span data-say=\"Las clases empiezan a las nueve.\" data-listen>Las clases empiezan a las nueve.</span>",
+  "blankOptions": {
+   "B1": [
+    "empiezan",
+    "biblioteca",
+    "ciencias",
+    "deberes"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "empiezan"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:2af77e04",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Se me da bien la _____. <span data-say=\"Se me da bien la informática.\" data-listen>Se me da bien la informática.</span>",
+  "blankOptions": {
+   "B1": [
+    "informática",
+    "preferida",
+    "ciencias",
+    "móvil"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "informática"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:94f9471d",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Me gustan las _____. (science)",
+  "blankOptions": {
+   "B1": [
+    "móvil",
+    "deberes",
+    "empiezan",
+    "ciencias"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "ciencias"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:479ee40a",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Está prohibido usar el _____. (mobile phone)",
+  "blankOptions": {
+   "B1": [
+    "deberes",
+    "preferida",
+    "empiezan",
+    "móvil"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "móvil"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:b0b26699",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Hago los _____ después de las clases. (homework)",
+  "blankOptions": {
+   "B1": [
+    "empiezan",
+    "deberes",
+    "ciencias",
+    "informática"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "deberes"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:a6ab9127",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "En mi instituto hay una _____ grande. (library)",
+  "blankOptions": {
+   "B1": [
+    "deberes",
+    "preferida",
+    "móvil",
+    "biblioteca"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "biblioteca"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:e0b645bf",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “las matemáticas”?",
+  "options": [
+   "it is forbidden (to)",
+   "maths",
+   "the lab",
+   "the school"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“las matemáticas” means: maths"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:aaff9cfd",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la educación física”?",
+  "options": [
+   "the lab",
+   "PE",
+   "my favourite subject is",
+   "the school"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la educación física” means: PE"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:3cecc5cf",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “mi asignatura preferida es”?",
+  "options": [
+   "maths",
+   "the library",
+   "I am good at (it)",
+   "my favourite subject is"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“mi asignatura preferida es” means: my favourite subject is"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:6416f129",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “se me da bien”?",
+  "options": [
+   "break time",
+   "the school",
+   "I am good at (it)",
+   "PE"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“se me da bien” means: I am good at (it)"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:19785e06",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el instituto”?",
+  "options": [
+   "it is forbidden (to)",
+   "the school",
+   "the library",
+   "the classroom"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el instituto” means: the school"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:0540e9e1",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el aula”?",
+  "options": [
+   "the library",
+   "the classroom",
+   "the school",
+   "maths"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el aula” means: the classroom"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:3c550bf8",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el laboratorio”?",
+  "options": [
+   "PE",
+   "the library",
+   "my favourite subject is",
+   "the lab"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el laboratorio” means: the lab"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:eacd552a",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la biblioteca”?",
+  "options": [
+   "the teacher",
+   "it is forbidden (to)",
+   "the library",
+   "homework"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la biblioteca” means: the library"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:daaa26be",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el recreo”?",
+  "options": [
+   "my favourite subject is",
+   "the library",
+   "break time",
+   "the school"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el recreo” means: break time"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:9b10900d",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “los deberes”?",
+  "options": [
+   "homework",
+   "my favourite subject is",
+   "the school",
+   "the library"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“los deberes” means: homework"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:b6009104",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el profesor / la profesora”?",
+  "options": [
+   "the teacher",
+   "the school",
+   "the library",
+   "maths"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el profesor / la profesora” means: the teacher"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:27862ae0",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “está prohibido”?",
+  "options": [
+   "the school",
+   "the classroom",
+   "it is forbidden (to)",
+   "I am good at (it)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“está prohibido” means: it is forbidden (to)"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:exam:3ffc63cf",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": 1,
+  "question": "Read what Carlos says. Answer <strong>in English</strong>.<br>(a) What job would Carlos like to do, and why? (2)<br>(b) What does Carlos want to do after school, according to the text? (1)<br>(c) Why does his sister prefer to do an apprenticeship? (1)",
+  "caseStudy": "<p><strong>Lee lo que dice Carlos.</strong></p>\n        <p><em>\"En el futuro, me gustaría ser ingeniero porque me interesa mucho la tecnología. El año que viene voy a seguir estudiando en el instituto para sacar buenas notas en mis exámenes. Después, quiero ir a la universidad, pero mi hermana prefiere hacer un aprendizaje porque quiere ganar dinero rápido. Cuando sea mayor, espero trabajar en el extranjero para viajar por el mundo.\"</em></p>",
+  "hint": "Find the job after ‘me gustaría ser’, the reason after ‘porque’, his plan after ‘quiero’, and his sister's reason after ‘porque quiere’.",
+  "starter": "(a) He would like to be a/an … because … (b) He wants to … (c) Because she wants to …",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>\n                <li><strong>(a)</strong> engineer <em>(1)</em> + because he is (very) interested in technology <em>(1)</em>.</li>\n                <li><strong>(b)</strong> go to university <em>(1)</em>.</li>\n                <li><strong>(c)</strong> (because) she wants to earn money quickly <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>\n            </ul></div>",
+   "modelAnswer": "(a) Engineer, because he is very interested in technology. (b) Go to university. (c) Because she wants to earn money quickly."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:exam:a79eeb3b",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": 2,
+  "question": "Translate these sentences <strong>into Spanish</strong>.<br>(a) I want to be a nurse. <br>(b) I would like to study at university. <br>(c) When I am older, I am going to travel to earn money.",
+  "hint": "‘I want to be’ = Quiero ser (no article). ‘I would like to’ = Me gustaría + infinitive. ‘When I am older’ (future) = Cuando sea mayor + subjunctive.",
+  "starter": "(a) Quiero ser… (b) Me gustaría… (c) Cuando sea mayor, voy a…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>\n                <li><strong>(a)</strong> Quiero ser enfermera. <em>(1)</em></li>\n                <li><strong>(b)</strong> Me gustaría estudiar en la universidad. <em>(1)</em></li>\n                <li><strong>(c)</strong> Cuando sea mayor <em>(1)</em>, voy a viajar <em>(1)</em> para ganar dinero <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Accept minor accent errors. ‘Cuando sea mayor’ must use the subjunctive ‘sea’.</li>\n            </ul></div>",
+   "modelAnswer": "(a) Quiero ser enfermera. (b) Me gustaría estudiar en la universidad. (c) Cuando sea mayor, voy a viajar para ganar dinero."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:d98cc439",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Quiero ser médica.\" data-listen></span><br>Listen. What is the ambition?",
+  "options": [
+   "To become a doctor",
+   "To become a lawyer",
+   "To become an engineer",
+   "To become a nurse"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘quiero ser médica’ = I want to be a doctor. All four are plausible jobs — you must catch médica specifically."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:7bcc5a7d",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Voy a hacer un aprendizaje.\" data-listen></span><br>Listen. What is the plan?",
+  "options": [
+   "To do an apprenticeship after school",
+   "To go to a big university to study law",
+   "To pass all of this year's exams",
+   "To travel around Europe for a year"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘voy a hacer un aprendizaje’ = I’m going to do an apprenticeship. Every option is a real future-plan phrase — listen for the specific verb."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:a0825329",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"No quiero ir a la universidad.\" data-listen></span><br>Listen. Which is correct?",
+  "options": [
+   "I don't want to go to university",
+   "I want to go to university",
+   "I don't want to do an apprenticeship",
+   "I have already finished university"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘No quiero ir a la universidad’ = I don't want to go to university. Distractors flip the negative or swap the destination."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:ed4ec93f",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How do you say ‘I would like to be an engineer’?",
+  "options": [
+   "Me gustaría ser ingeniera",
+   "Me gustaría ser una ingeniera",
+   "Quiero ser ingeniera ya",
+   "Me gusta ser ingeniera"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘me gustaría’ = I would like (conditional). ‘una’ is the article error again; ‘me gusta’ is wrongly present tense."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:5078b4d3",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Quiero ser abogado porque ___ la ley.’",
+  "options": [
+   "me interesa",
+   "me interesan",
+   "me gusta",
+   "me gustan"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "interesar works like gustar: singular subject (la ley) → interesa. A plural verb or the wrong verb (gustar) are common slips."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:88f45848",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence uses ‘para + infinitive’ correctly for a reason?",
+  "options": [
+   "Trabajo mucho para ganar dinero",
+   "Trabajo mucho para gano dinero",
+   "Trabajo mucho porque ganar dinero",
+   "Trabajo mucho para dinero"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "para + infinitive (para ganar dinero). Conjugating after para, using porque with an infinitive, or dropping the verb are the classic slips."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:40756fee",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘Voy a seguir estudiando’ means…",
+  "options": [
+   "I am going to continue studying",
+   "I have already stopped studying",
+   "I want to start studying again",
+   "I used to study a long time ago"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘voy a seguir estudiando’ = I'm going to continue studying — a near-future plan, not a past or a stop."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:9393cbbf",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which shows the correct feminine form of ‘hairdresser’?",
+  "options": [
+   "la peluquera",
+   "la peluquero",
+   "el peluquera",
+   "las peluquero"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "-ero → -era for feminine: la peluquera. Forgetting the ending change or mixing up articles are common."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:d71a4fb4",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Higher: complete ‘Cuando ___ mayor, quiero ser dentista.’",
+  "options": [
+   "sea",
+   "soy",
+   "era",
+   "seré"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "cuando + present subjunctive (sea) for future time. soy/era/seré are all real tense-confusion errors here."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:669e8c25",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How do you say ‘I want to earn money to travel’?",
+  "options": [
+   "Quiero ganar dinero para viajar",
+   "Quiero ganar dinero porque viajar",
+   "Quiero ganar dinero para viajo",
+   "Quiero gano dinero para viajar"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "para + infinitive (para viajar). ‘porque’ + infinitive, a conjugated verb after ‘para’, or a double-conjugated ‘quiero gano’ are the traps."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:9f995ae9",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Soy profesor’ does not need an article before the job.",
+  "key": {
+   "answer": true,
+   "explain": "ser + job drops the article in Spanish: soy profesor, not soy un profesor."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:d73ac35a",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘la dependienta’ means a male shop assistant.",
+  "key": {
+   "answer": false,
+   "explain": "la dependienta is female; el dependiente is the male form."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:47a3caa8",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘me gustaría’ is the conditional form meaning ‘I would like’.",
+  "key": {
+   "answer": true,
+   "explain": "me gustaría ser = I would like to be — conditional tense."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:643578c4",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "After ‘para’, you use a verb conjugated for ‘yo’.",
+  "key": {
+   "answer": false,
+   "explain": "para is followed by the infinitive: para ganar dinero, not para gano dinero."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:eb0676a0",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘sacar buenas notas’ means ‘to get good marks’.",
+  "key": {
+   "answer": true,
+   "explain": "sacar buenas notas = to get good marks/grades."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:fffb87bc",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘cuando sea mayor’ uses the present subjunctive because it refers to future time.",
+  "key": {
+   "answer": true,
+   "explain": "cuando + subjunctive (sea) is required for a future time clause — a Higher-tier feature."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:b03da5fa",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘hacer un aprendizaje’ means ‘to go to university’.",
+  "key": {
+   "answer": false,
+   "explain": "hacer un aprendizaje = to do an apprenticeship, the vocational alternative to university."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:1d37fa90",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘porque me interesa’ is followed by an infinitive, just like ‘para’.",
+  "key": {
+   "answer": false,
+   "explain": "porque is followed by a full clause with a conjugated verb, not an infinitive."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:learn:45a82b7e",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I say what job someone does?",
+  "reading": "<p>The key structure is <strong>ser + job</strong> — and Spanish drops the article: <span data-say=\"Soy profesor.\">Soy profesor.</span> (I am a teacher), NOT “soy un profesor”.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el médico\">el médico</span></td><td>doctor (m)</td><td><span data-say=\"la médica\">la médica</span></td><td>doctor (f)</td></tr>\n              <tr><td><span data-say=\"el profesor\">el profesor</span></td><td>teacher (m)</td><td><span data-say=\"la profesora\">la profesora</span></td><td>teacher (f)</td></tr>\n              <tr><td><span data-say=\"el abogado\">el abogado</span></td><td>lawyer (m)</td><td><span data-say=\"la abogada\">la abogada</span></td><td>lawyer (f)</td></tr>\n              <tr><td><span data-say=\"el ingeniero\">el ingeniero</span></td><td>engineer (m)</td><td><span data-say=\"la ingeniera\">la ingeniera</span></td><td>engineer (f)</td></tr>\n              <tr><td><span data-say=\"el enfermero\">el enfermero</span></td><td>nurse (m)</td><td><span data-say=\"la enfermera\">la enfermera</span></td><td>nurse (f)</td></tr>\n            </table>\n            <p>Model: <span data-say=\"Mi madre es ingeniera y mi padre es enfermero.\">Mi madre es ingeniera y mi padre es enfermero.</span> — My mum is an engineer and my dad is a nurse.</p>",
+  "question": "Which sentence follows the Spanish rule for stating a job?",
+  "options": [
+   "Soy profesor",
+   "Soy un profesor",
+   "Soy profesor bueno",
+   "Trabajo profesor"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "ser + job takes NO article: Soy profesor. Adding ‘un’ (a false transfer from English) or misplacing the adjective are the common errors."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:learn:5ef9a6d7",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "More jobs — masculine and feminine endings",
+  "reading": "<p>More jobs on the wordlist. Notice the feminine pattern <strong>-ero → -era</strong>:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el dependiente\">el dependiente</span></td><td>shop assistant (m)</td><td><span data-say=\"la dependienta\">la dependienta</span></td><td>shop assistant (f)</td></tr>\n              <tr><td><span data-say=\"el camarero\">el camarero</span></td><td>waiter</td><td><span data-say=\"la camarera\">la camarera</span></td><td>waitress</td></tr>\n              <tr><td><span data-say=\"el mecánico\">el mecánico</span></td><td>mechanic (m)</td><td><span data-say=\"la mecánica\">la mecánica</span></td><td>mechanic (f)</td></tr>\n              <tr><td><span data-say=\"el peluquero\">el peluquero</span></td><td>hairdresser (m)</td><td><span data-say=\"la peluquera\">la peluquera</span></td><td>hairdresser (f)</td></tr>\n              <tr><td><span data-say=\"el hombre de negocios\">el hombre de negocios</span></td><td>businessman</td><td><span data-say=\"la mujer de negocios\">la mujer de negocios</span></td><td>businesswoman</td></tr>\n            </table>\n            <p>Also useful: <span data-say=\"el trabajo\">el trabajo</span> (job/work) and <span data-say=\"la profesión\">la profesión</span> (profession). Example: <span data-say=\"Mi hermana es dependienta y trabaja en una tienda.\">Mi hermana es dependienta y trabaja en una tienda.</span></p>",
+  "question": "Which pair correctly shows the masculine and feminine forms of ‘hairdresser’?",
+  "options": [
+   "el peluquero / la peluquera",
+   "el peluquero / la peluquero",
+   "el peluquera / la peluquero",
+   "el peluquero / el peluquera"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Feminine -ero jobs change to -era: el peluquero → la peluquera. Forgetting the ending or mixing up ‘el/la’ are the traps here."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:learn:83f90ea7",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about my ambitions?",
+  "reading": "<p>Three levels of certainty for future ambitions — all followed by ser/estudiar with NO article after ser:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"quiero ser\">quiero ser</span></td><td>I want to be</td></tr>\n              <tr><td><span data-say=\"me gustaría ser\">me gustaría ser</span></td><td>I would like to be</td></tr>\n              <tr><td><span data-say=\"voy a estudiar\">voy a estudiar</span></td><td>I am going to study</td></tr>\n              <tr><td><span data-say=\"en el futuro\">en el futuro</span></td><td>in the future</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Quiero ser médica en el futuro.\">Quiero ser médica en el futuro.</span> — I want to be a doctor in the future.</p>\n            <p>Another: <span data-say=\"Me gustaría ser abogado porque me interesa la ley.\">Me gustaría ser abogado porque me interesa la ley.</span></p>",
+  "question": "Which sentence correctly expresses an ambition?",
+  "options": [
+   "Quiero ser médica",
+   "Quiero ser una médica",
+   "Quiero ser médica bien",
+   "Quiero a ser médica"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "quiero ser + job, with no article and no extra preposition. ‘una’, a stray adjective, or an unwanted ‘a’ are all real slips."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:learn:f5217b48",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about further study?",
+  "reading": "<p>Two routes after school — academic or vocational:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la universidad\">la universidad</span></td><td>university</td></tr>\n              <tr><td><span data-say=\"seguir estudiando\">seguir estudiando</span></td><td>to continue studying</td></tr>\n              <tr><td><span data-say=\"hacer un aprendizaje\">hacer un aprendizaje</span></td><td>to do an apprenticeship</td></tr>\n              <tr><td><span data-say=\"sacar buenas notas\">sacar buenas notas</span></td><td>to get good marks</td></tr>\n              <tr><td><span data-say=\"aprobar los exámenes\">aprobar los exámenes</span></td><td>to pass the exams</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Voy a seguir estudiando en la universidad si apruebo los exámenes.\">Voy a seguir estudiando en la universidad si apruebo los exámenes.</span></p>\n            <p>Or a vocational route: <span data-say=\"Prefiero hacer un aprendizaje en vez de ir a la universidad.\">Prefiero hacer un aprendizaje en vez de ir a la universidad.</span></p>",
+  "question": "What does ‘hacer un aprendizaje’ mean?",
+  "options": [
+   "to do an apprenticeship after school",
+   "to keep on studying at the same school",
+   "to pass all of this year's exams",
+   "to get the best possible marks"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "hacer un aprendizaje = to do an apprenticeship (a vocational route). Confusing it with ‘seguir estudiando’ (to continue studying) is the classic trap."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:learn:ad0a7c61",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I give reasons for my choice?",
+  "reading": "<p>Give reasons with <strong>porque</strong> (because + clause) or <strong>para</strong> (in order to + infinitive):</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"porque me interesa\">porque me interesa</span></td><td>because it interests me</td></tr>\n              <tr><td><span data-say=\"para ganar dinero\">para ganar dinero</span></td><td>in order to earn money</td></tr>\n              <tr><td><span data-say=\"para ayudar a la gente\">para ayudar a la gente</span></td><td>in order to help people</td></tr>\n              <tr><td><span data-say=\"para viajar\">para viajar</span></td><td>in order to travel</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Quiero ser médica porque me interesa la ciencia y para ayudar a la gente.\">Quiero ser médica porque me interesa la ciencia y para ayudar a la gente.</span></p>",
+  "question": "After ‘para’, what form of the verb do you use?",
+  "options": [
+   "the infinitive (ganar, viajar, ayudar)",
+   "a present-tense verb conjugated for ‘yo’",
+   "the past participle (ganado, viajado)",
+   "the present subjunctive form of the verb"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "para + infinitive: para ganar dinero. Conjugating the verb after para (e.g. ‘para gano dinero’) is a very common error."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:learn:e4aa7aa2",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Higher: cuando + present subjunctive",
+  "reading": "<p><span class=\"tier-h\">H</span> For a future idea with <strong>cuando</strong> (when), Spanish uses the <strong>present subjunctive</strong>, not the present indicative:</p>\n            <ul>\n              <li><span data-say=\"cuando sea mayor\">cuando sea mayor</span> — when I am older</li>\n              <li><span data-say=\"Cuando sea mayor, quiero ser abogada.\">Cuando sea mayor, quiero ser abogada.</span> <span class=\"tier-h\">H</span></li>\n            </ul>\n            <p>Compare: <span data-say=\"Cuando soy mayor\">Cuando soy mayor</span> (present indicative) is WRONG for a future idea — examiners reward <span data-say=\"sea\">sea</span> here.</p>\n            <p>Combine with a reason for the top band: <span data-say=\"Cuando sea mayor, me gustaría trabajar en el extranjero para viajar y ganar dinero.\">Cuando sea mayor, me gustaría trabajar en el extranjero para viajar y ganar dinero.</span> <span class=\"tier-h\">H</span></p>",
+  "question": "Which is correct for a future idea with ‘cuando’?",
+  "options": [
+   "Cuando sea mayor, quiero ser médica",
+   "Cuando soy mayor, quiero ser médica",
+   "Cuando era mayor, quiero ser médica",
+   "Cuando seré mayor, quiero ser médica"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "cuando + present subjunctive (sea) for future time clauses. soy = present indicative, era = imperfect, seré wrongly duplicates the future — all real learner slips."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:misc:391c40fd",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Soy un profesor.</p><p><strong>✅ The correct idea:</strong> Soy profesor.</p>",
+  "question": "Why is ‘un’ wrong here?",
+  "options": [
+   "ser + job drops the article in Spanish",
+   "‘profesor’ needs a feminine ending instead",
+   "the verb should be ‘estoy’, not ‘soy’, here",
+   "‘un’ should come after the noun"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Spanish never uses an article between ser and an unmodified job: soy profesor."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:misc:75cafd1e",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> La dependiente trabaja en la tienda.</p><p><strong>✅ The correct idea:</strong> La dependienta trabaja en la tienda.</p>",
+  "question": "What's wrong with ‘la dependiente’?",
+  "options": [
+   "the feminine form is ‘la dependienta’, not ‘la dependiente’",
+   "‘dependiente’ should never follow the article ‘la’ at all, ever",
+   "‘tienda’ should be spelt ‘tiendo’ instead",
+   "the verb ‘trabaja’ is spelt wrong here"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "dependiente/dependienta is an irregular feminine pattern — it doesn't just drop the -e."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:misc:88a1e97b",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Trabajo para gano dinero.</p><p><strong>✅ The correct idea:</strong> Trabajo para ganar dinero.</p>",
+  "question": "Why is ‘para gano’ incorrect?",
+  "options": [
+   "‘para’ must be followed by an infinitive (ganar)",
+   "‘gano’ should be ‘ganamos’ to agree with ‘trabajo’",
+   "‘para’ should simply be replaced with ‘porque’",
+   "the sentence needs an extra ‘un’ before ‘dinero’"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "para always takes the infinitive, never a conjugated verb form."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:misc:84639f9e",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Cuando soy mayor, quiero ser dentista.</p><p><strong>✅ The correct idea:</strong> Cuando sea mayor, quiero ser dentista.</p>",
+  "question": "Why does the Higher answer need ‘sea’, not ‘soy’?",
+  "options": [
+   "‘cuando’ + future time needs the present subjunctive",
+   "‘soy’ is actually a plural verb form here",
+   "‘dentista’ must agree in gender with ‘soy’",
+   "‘cuando’ is only ever correctly used with the past tense"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A future-time clause with cuando triggers the present subjunctive: cuando sea mayor."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:misc:3e4d8caa",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Me gusta ser ingeniera.</p><p><strong>✅ The correct idea:</strong> Me gustaría ser ingeniera.</p>",
+  "question": "What's the error in using ‘me gusta’ for an ambition?",
+  "options": [
+   "‘me gusta’ is present tense; ‘I would like’ needs the conditional ‘me gustaría’",
+   "‘me gusta’ should agree with a plural noun such as ‘las ingenieras’ in this exact case",
+   "‘ingeniera’ needs the indefinite article ‘una’ placed before it",
+   "‘ser’ should be ‘estar’ here"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘me gusta’ says what you like now, not what you would like to become — that needs the conditional me gustaría."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tips:cb403af6",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 1 — Listening for job vocabulary",
+  "reading": "Job vocabulary is everywhere in Paper 1. Listen for the ending of the job noun (-o masculine, -a feminine: ingeniero/ingeniera) and for whether the tense is quiero ser (ambition), soy (current job) or voy a (near-future plan).",
+  "question": "You hear ‘Quiero ser ingeniera’. What does this tell you?",
+  "options": [
+   "The speaker (female) wants to be an engineer",
+   "The speaker (male) wants to be an engineer instead",
+   "The speaker (female) wants to be a teacher one day",
+   "The speaker (male) already works as an engineer eventually"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘ingeniera’ (-a ending) signals a female speaker; ‘quiero ser’ = I want to be (an ambition, not a current job)."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tips:2e7784b4",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 3 — Reading: ser without an article",
+  "reading": "When you read ‘Mi hermano es mecánico’ or ‘Quiero ser abogada’, translate naturally into English WITH ‘a’/‘an’ — Spanish drops the article, English needs it. Don't be thrown by the missing ‘un/una’.",
+  "question": "How should you translate ‘Mi hermano es mecánico’?",
+  "options": [
+   "My brother is a mechanic",
+   "My brother is mechanic",
+   "My brother is the mechanic",
+   "My brothers are mechanics"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Spanish drops the article (es mecánico); English needs ‘a mechanic’. Omitting ‘a’, adding ‘the’, or making it plural are the traps."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tips:2f1a4fab",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "evaluate — Paper 4 — Writing & speaking: giving reasons",
+  "reading": "Top-band answers combine an ambition, a reason and a time phrase: ‘Cuando sea mayor, me gustaría ser abogada porque me interesa la justicia.’ At Higher, cuando + subjunctive and a clear reason clause both show range.",
+  "question": "Which answer reaches the top band?",
+  "options": [
+   "Cuando sea mayor, me gustaría ser abogada porque me interesa la justicia",
+   "Quiero ser abogada porque me interesa la abogada y la abogada y la abogada",
+   "Voy a ser abogada un día quizás en el futuro tal vez algún día",
+   "Me gustaría ser abogada"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "It combines cuando + subjunctive, an ambition and a genuine reason. Repetition without added meaning, vague hedging, or a bare statement don't reach the top band."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:0317b424",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Quiero _____ médica. <span data-say=\"Quiero ser médica.\" data-listen>Quiero ser médica.</span>",
+  "blankOptions": {
+   "B1": [
+    "ganar",
+    "estudiando",
+    "ayudar",
+    "ser"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "ser"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:f15d3a18",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Me _____ ser abogado porque me interesa la ley. (would like)",
+  "blankOptions": {
+   "B1": [
+    "aprendizaje",
+    "estudiando",
+    "ser",
+    "gustaría"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "gustaría"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:8052e942",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Voy a seguir _____ en la universidad. (studying)",
+  "blankOptions": {
+   "B1": [
+    "estudiando",
+    "gustaría",
+    "ser",
+    "ganar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "estudiando"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:b35eaaf1",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Quiero hacer un _____ en vez de ir a la universidad. (apprenticeship)",
+  "blankOptions": {
+   "B1": [
+    "ayudar",
+    "sea",
+    "estudiando",
+    "aprendizaje"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "aprendizaje"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:e8d35a2c",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Trabajo mucho para _____ dinero. (to earn)",
+  "blankOptions": {
+   "B1": [
+    "gustaría",
+    "aprendizaje",
+    "ganar",
+    "ayudar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "ganar"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:3ad1f9e9",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Cuando _____ mayor, quiero ser dentista. <span data-say=\"Cuando sea mayor, quiero ser dentista.\" data-listen>Cuando sea mayor, quiero ser dentista.</span>",
+  "blankOptions": {
+   "B1": [
+    "sea",
+    "ganar",
+    "estudiando",
+    "ayudar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "sea"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:8902ef70",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Para _____ a la gente, quiero ser enfermera. (to help)",
+  "blankOptions": {
+   "B1": [
+    "aprendizaje",
+    "ayudar",
+    "estudiando",
+    "ser"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "ayudar"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:d3162e45",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “quiero ser”?",
+  "options": [
+   "in order to earn money",
+   "I want to be",
+   "I am going to study",
+   "in the future"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“quiero ser” means: I want to be"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:7b68fa7c",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “me gustaría ser”?",
+  "options": [
+   "because it interests me",
+   "to do an apprenticeship",
+   "I would like to be",
+   "I am going to study"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“me gustaría ser” means: I would like to be"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:9eb4f340",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “voy a estudiar”?",
+  "options": [
+   "I would like to be",
+   "when I am older",
+   "I am going to study",
+   "to get good marks"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“voy a estudiar” means: I am going to study"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:16238675",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “en el futuro”?",
+  "options": [
+   "I want to be",
+   "because it interests me",
+   "in the future",
+   "I am going to study"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“en el futuro” means: in the future"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:f0fcaaa6",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la universidad”?",
+  "options": [
+   "because it interests me",
+   "to continue studying",
+   "university",
+   "when I am older"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la universidad” means: university"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:b9379597",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “seguir estudiando”?",
+  "options": [
+   "to pass the exams",
+   "university",
+   "to continue studying",
+   "when I am older"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“seguir estudiando” means: to continue studying"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:099a6590",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “hacer un aprendizaje”?",
+  "options": [
+   "I would like to be",
+   "university",
+   "to continue studying",
+   "to do an apprenticeship"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“hacer un aprendizaje” means: to do an apprenticeship"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:e36a7d30",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “sacar buenas notas”?",
+  "options": [
+   "when I am older",
+   "to get good marks",
+   "to do an apprenticeship",
+   "university"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“sacar buenas notas” means: to get good marks"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:cb4bdb7d",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “aprobar los exámenes”?",
+  "options": [
+   "to pass the exams",
+   "to get good marks",
+   "to do an apprenticeship",
+   "I am going to study"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“aprobar los exámenes” means: to pass the exams"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:820ba9aa",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “porque me interesa”?",
+  "options": [
+   "because it interests me",
+   "to do an apprenticeship",
+   "I am going to study",
+   "to continue studying"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“porque me interesa” means: because it interests me"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:ac0b4f4b",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “para ganar dinero”?",
+  "options": [
+   "to get good marks",
+   "in order to earn money",
+   "to continue studying",
+   "I would like to be"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“para ganar dinero” means: in order to earn money"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:ec679653",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “cuando sea mayor”?",
+  "options": [
+   "to pass the exams",
+   "I am going to study",
+   "to do an apprenticeship",
+   "when I am older"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“cuando sea mayor” means: when I am older"
   }
  }
 ];

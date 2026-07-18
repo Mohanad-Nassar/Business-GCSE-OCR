@@ -123,15 +123,13 @@
           "id": "3-1-school-life-and-subjects",
           "name": "3.1 School Life and Subjects",
           "sub": "Education and Work",
-          "file": "3.1-school-life-and-subjects.html",
-          "noQuestions": true
+          "file": "3.1-school-life-and-subjects.html"
         },
         {
           "id": "3-2-future-study-jobs-and-ambitions",
           "name": "3.2 Future Study, Jobs and Ambitions",
           "sub": "Education and Work",
-          "file": "3.2-future-study-jobs-and-ambitions.html",
-          "noQuestions": true
+          "file": "3.2-future-study-jobs-and-ambitions.html"
         }
       ]
     },

@@ -2,7 +2,7 @@
 // SUBJECTS REGISTRY — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py from every
 // subjects/*/subject.json manifest header.
-// Generated: 2026-07-18T16:24:22Z
+// Generated: 2026-07-18T22:38:56Z
 // ══════════════════════════════════════════════════════════════
 window.SUBJECTS = [
  {
