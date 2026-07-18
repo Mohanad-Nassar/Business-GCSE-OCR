@@ -69,18 +69,22 @@
     '7-1-exponential-functions': [{ tool: 'graph-explorer', config: { modes: ['exponential'] } }],
     '8-1-the-gradient-function': [{ tool: 'graph-explorer', config: { modes: ['chord-tangent'] } }],
     '9-2-definite-integrals-and-areas': [{ tool: 'graph-explorer', config: { modes: ['integral-area'] } }],
+    '4-1-inequalities-in-two-variables': [{ tool: 'lp-builder' }],
+    '4-3-solving-lp-problems-graphically': [{ tool: 'lp-builder' }],
   };
 
   // module file per tool id (several ids may share one file)
   const TOOL_FILES = {
     'maths-drills': 'tools/maths-drills.js',
     'graph-explorer': 'tools/graph-explorer.js',
+    'lp-builder': 'tools/lp-builder.js',
   };
 
   // Launcher card copy (shown before the module is loaded).
   const CARD_META = {
     'maths-drills': { icon: '🔢', title: 'Maths Drills', blurb: 'Infinite practice: expand, factorise, complete the square, surds and index laws — with worked solutions.' },
     'graph-explorer': { icon: '📈', title: 'Graph Explorer', blurb: 'Drag the sliders and watch the graph move — see how each coefficient changes the curve.' },
+    'lp-builder': { icon: '📐', title: 'LP Builder', blurb: 'Shade the feasible region, then read off the vertex that optimises the objective.' },
   };
 
   // `pageMeta` is declared `const` in each topic page's inline <script>, so it's
