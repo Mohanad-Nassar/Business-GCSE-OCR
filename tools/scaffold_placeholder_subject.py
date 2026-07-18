@@ -177,7 +177,7 @@ SUBJECTS = {
         "header": {
             "slug": "additional-maths", "name": "FSMQ Additional Mathematics",
             "key_stage": "ks4", "level": "Level 3", "exam_board": "OCR",
-            "spec_code": "6993", "exam_date": "2026-06-15",
+            "spec_code": "6993", "exam_date": "2027-06-09",  # PROVISIONAL — confirm 2027 timetable
             "colour": "#5a4bc4", "icon": "\U0001F4D0",
         },
         "units": [
@@ -239,6 +239,75 @@ SUBJECTS = {
             ("11", "Exam Preparation", "Paper 1 · Additional Mathematics", [
                 ("Command Words and Detailed Reasoning", "11.1-command-words-and-detailed-reasoning.html"),
                 ("Synoptic and Unstructured Problems", "11.2-synoptic-and-unstructured-problems.html"),
+            ]),
+        ],
+    },
+    "spanish": {
+        # AQA GCSE Spanish (8692) — SPANISH-CONTENT-PLAN.md §3. 12 groups / ~34 pages.
+        # Group ids are P/G/1..9/X (Phonics, Grammar Toolkit, 9 theme-topics, Exam Skills);
+        # explicit dotted "<group>.<lesson>-slug.html" filenames like CS/Add Maths.
+        # ⚠ Running the scaffolder writes PLACEHOLDER pages — it will overwrite the
+        # hand-built pilot 2.1-food-drink-and-a-balanced-diet.html, so preserve/re-apply
+        # that page after any scaffold (SPANISH-CONTENT-PLAN §9 ES-0).
+        "header": {
+            "slug": "spanish", "name": "GCSE Spanish",
+            "key_stage": "ks4", "level": "GCSE", "exam_board": "AQA",
+            "spec_code": "8692", "exam_date": "2026-06-08",
+            "colour": "#d6455d", "icon": "\U0001F1EA\U0001F1F8",
+        },
+        "units": [
+            ("P", "Phonics & Sound-Symbol", "Phonics", [
+                ("Spanish Sounds and the Alphabet", "P.1-spanish-sounds-and-the-alphabet.html"),
+                ("Tricky Letters: ll, ch, ñ, j, h, r, v", "P.2-tricky-letters-ll-ch-n-j-h-r-v.html"),
+            ]),
+            ("G", "Grammar Toolkit", "Grammar Toolkit", [
+                ("Nouns, Articles and Gender", "G.1-nouns-articles-and-gender.html"),
+                ("Adjectives and Agreement", "G.2-adjectives-and-agreement.html"),
+                ("Present Tense and Key Irregulars", "G.3-present-tense-and-key-irregulars.html"),
+                ("Talking About the Past", "G.4-talking-about-the-past.html"),
+                ("Future, Conditional and More Tenses", "G.5-future-conditional-and-more-tenses.html"),
+                ("Pronouns, Negatives and Connectors", "G.6-pronouns-negatives-and-connectors.html"),
+            ]),
+            ("1", "Identity and Relationships", "Theme 1 · People and lifestyle", [
+                ("Me, My Family and Friends", "1.1-me-my-family-and-friends.html"),
+                ("Relationships and Role Models", "1.2-relationships-and-role-models.html"),
+            ]),
+            ("2", "Healthy Living & Lifestyle", "Theme 1 · People and lifestyle", [
+                ("Food, Drink and a Balanced Diet", "2.1-food-drink-and-a-balanced-diet.html"),
+                ("Exercise, Health Problems and Advice", "2.2-exercise-health-problems-and-advice.html"),
+            ]),
+            ("3", "Education and Work", "Theme 1 · People and lifestyle", [
+                ("School Life and Subjects", "3.1-school-life-and-subjects.html"),
+                ("Future Study, Jobs and Ambitions", "3.2-future-study-jobs-and-ambitions.html"),
+            ]),
+            ("4", "Free-Time Activities", "Theme 2 · Popular culture", [
+                ("Sport, Hobbies and Going Out", "4.1-sport-hobbies-and-going-out.html"),
+                ("Music, TV, Film and Reading", "4.2-music-tv-film-and-reading.html"),
+            ]),
+            ("5", "Customs, Festivals and Celebrations", "Theme 2 · Popular culture", [
+                ("Food Customs and Daily Life", "5.1-food-customs-and-daily-life.html"),
+                ("Festivals and Traditions", "5.2-festivals-and-traditions.html"),
+            ]),
+            ("6", "Celebrity Culture", "Theme 2 · Popular culture", [
+                ("Celebrities, Influencers and Fame", "6.1-celebrities-influencers-and-fame.html"),
+            ]),
+            ("7", "Travel and Tourism", "Theme 3 · Communication and the world", [
+                ("Holidays, Transport and Places", "7.1-holidays-transport-and-places.html"),
+                ("My Region and Places of Interest", "7.2-my-region-and-places-of-interest.html"),
+            ]),
+            ("8", "Media and Technology", "Theme 3 · Communication and the world", [
+                ("Technology in Everyday Life", "8.1-technology-in-everyday-life.html"),
+                ("Social Media and Online Safety", "8.2-social-media-and-online-safety.html"),
+            ]),
+            ("9", "Environment and Where People Live", "Theme 3 · Communication and the world", [
+                ("My Town, Home and Local Area", "9.1-my-town-home-and-local-area.html"),
+                ("The Environment and Global Issues", "9.2-the-environment-and-global-issues.html"),
+            ]),
+            ("X", "Exam Skills", "Exam Skills", [
+                ("Listening and Dictation", "X.1-listening-and-dictation.html"),
+                ("Reading and Translation into English", "X.2-reading-and-translation-into-english.html"),
+                ("Speaking: Read-Aloud and Photo Card", "X.3-speaking-read-aloud-and-photo-card.html"),
+                ("Writing and Translation into Spanish", "X.4-writing-and-translation-into-spanish.html"),
             ]),
         ],
     },
@@ -883,11 +952,12 @@ def scaffold_subject(slug, force_pages=False):
             if page_path.exists() and not force_pages:
                 skipped += 1
                 continue
+            board = manifest.get("exam_board", "OCR")
             if group["sub"].startswith("Unit "):
-                badge = f"OCR {manifest['level']} {manifest['name'].replace('GCSE ', '')} — Unit {group['sub'].split(' ')[-1]}: {unit_title_by_group[group['id']]}"
+                badge = f"{board} {manifest['level']} {manifest['name'].replace('GCSE ', '')} — Unit {group['sub'].split(' ')[-1]}: {unit_title_by_group[group['id']]}"
             else:
                 # CS-style paper-labelled groups: "… — Paper 1 · 1.1 Systems Architecture"
-                badge = f"OCR {manifest['level']} {manifest['name'].replace('GCSE ', '')} — {group['sub'].split(' · ')[0]} · {group['title']}"
+                badge = f"{board} {manifest['level']} {manifest['name'].replace('GCSE ', '')} — {group['sub'].split(' · ')[0]} · {group['title']}"
             html = PAGE_TEMPLATE.format(
                 title_tag=page["name"], badge=badge, h1=page["name"],
                 page_id=page["id"], slug=slug,
@@ -900,12 +970,19 @@ def scaffold_subject(slug, force_pages=False):
                 # keyed by q.format via script.js's _epUseWidget seam). Other subjects
                 # get nothing (empty string).
                 mathrender_include=(
-                    '\n    <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />'
-                    '\n    <script src="/vendor/katex/katex.min.js"></script>'
-                    '\n    <script src="/vendor/katex/contrib/auto-render.min.js"></script>'
-                    '\n    <script src="/math-render.js"></script>'
-                    '\n    <script src="/cs-lab/exam-widgets.js"></script>'
-                    if slug == "additional-maths" else ""),
+                    ('\n    <link rel="stylesheet" href="/vendor/katex/katex.min.css" data-katex />'
+                     '\n    <script src="/vendor/katex/katex.min.js"></script>'
+                     '\n    <script src="/vendor/katex/contrib/auto-render.min.js"></script>'
+                     '\n    <script src="/math-render.js"></script>'
+                     '\n    <script src="/cs-lab/exam-widgets.js"></script>')
+                    if slug == "additional-maths" else
+                    # Spanish pages get output-voice TTS (/speech.js, self-installs the
+                    # 🔊 buttons + speed/voice panel + tab observer, SPANISH-CONTENT-PLAN
+                    # §8.1) and the shared tick-the-mark-scheme self-mark panel. Both load
+                    # BEFORE /script.js. Zero vendor bytes / no CSP change.
+                    ('\n    <script src="/speech.js"></script>'
+                     '\n    <script src="/cs-lab/exam-widgets.js"></script>')
+                    if slug == "spanish" else ""),
                 # CS pages get the Practice Lab framework + the exam-widget
                 # registry (CS-CONTENT-PLAN §7/§7.3); both self-noop when a
                 # page has nothing for them. Widgets load as normal scripts so

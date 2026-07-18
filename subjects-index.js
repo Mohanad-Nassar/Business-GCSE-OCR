@@ -2,7 +2,7 @@
 // SUBJECTS REGISTRY — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py from every
 // subjects/*/subject.json manifest header.
-// Generated: 2026-07-18T09:11:09Z
+// Generated: 2026-07-18T10:22:47Z
 // ══════════════════════════════════════════════════════════════
 window.SUBJECTS = [
  {
@@ -14,7 +14,7 @@ window.SUBJECTS = [
   "level": "Level 3",
   "examBoard": "OCR",
   "specCode": "6993",
-  "examDate": "2026-06-15"
+  "examDate": "2027-06-09"
  },
  {
   "slug": "business",

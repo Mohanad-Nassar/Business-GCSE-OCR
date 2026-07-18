@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-18T09:11:09Z
+// Generated: 2026-07-18T10:22:47Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "additional-maths:1-1-notation-functions-and-indices": {
