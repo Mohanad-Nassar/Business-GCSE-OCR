@@ -151,10 +151,12 @@
       + '.say-btn--muted{opacity:.45;cursor:not-allowed}'
       + '.say-hidden{font-style:italic;color:var(--mid,#5e6b82)}'
       + '.say-hidden::after{content:"🎧 escucha";font-style:normal;font-size:.85em;color:var(--mid,#5e6b82);margin-left:2px}'
-      + '#ttsControls{position:fixed;left:16px;bottom:16px;z-index:50;font-family:inherit}'
-      + '#ttsToggle{width:46px;height:46px;border-radius:50%;border:1px solid var(--line,#d9dee8);background:var(--card,#fff);color:var(--ink,#172033);font-size:20px;cursor:pointer;box-shadow:0 6px 18px rgba(20,30,55,.18)}'
+      // Sits to the RIGHT of the theme switcher (#gcseThemeBtn at left:16px), so the two
+      // settings controls never overlap. High z-index so it is never buried by page chrome.
+      + '#ttsControls{position:fixed;left:72px;bottom:16px;z-index:9984;font-family:inherit}'
+      + '#ttsToggle{height:46px;padding:0 15px;border-radius:23px;border:1px solid var(--line,#d9dee8);background:var(--card,#fff);color:var(--ink,#172033);font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 6px 18px rgba(20,30,55,.18);display:inline-flex;align-items:center;gap:7px;white-space:nowrap}'
       + '#ttsToggle:hover{transform:translateY(-1px)}'
-      + '#ttsPanel{position:absolute;left:0;bottom:56px;width:250px;background:var(--card,#fff);color:var(--ink,#172033);border:1px solid var(--line,#d9dee8);border-radius:14px;box-shadow:0 14px 40px rgba(20,30,55,.22);padding:14px;display:none}'
+      + '#ttsPanel{position:absolute;left:0;bottom:56px;width:260px;background:var(--card,#fff);color:var(--ink,#172033);border:1px solid var(--line,#d9dee8);border-radius:14px;box-shadow:0 14px 40px rgba(20,30,55,.22);padding:14px;display:none}'
       + '#ttsPanel.open{display:block}'
       + '#ttsPanel h4{margin:0 0 10px;font-size:14px;letter-spacing:.02em}'
       + '#ttsPanel label{display:block;font-size:12px;font-weight:600;color:var(--mid,#5e6b82);margin:10px 0 4px}'
@@ -175,7 +177,7 @@
     var wrap = document.createElement('div');
     wrap.id = 'ttsControls';
     wrap.innerHTML =
-      '<button id="ttsToggle" type="button" title="Audio settings" aria-label="Audio settings">🔊</button>' +
+      '<button id="ttsToggle" type="button" title="Audio settings — speed &amp; voice" aria-label="Audio settings: speed and voice">🔊 Audio</button>' +
       '<div id="ttsPanel" role="dialog" aria-label="Audio settings">' +
         '<h4>🔊 Audio <span id="ttsRateVal"></span></h4>' +
         '<label for="ttsRate">Speed</label>' +
@@ -207,24 +209,26 @@
     });
 
     function fillVoices() {
-      var vs = spanishVoices();
-      voiceSel.innerHTML = '<option value="">System default (recommended)</option>';
-      vs.forEach(function (v) {
+      var all = SUPPORTED ? (synth.getVoices() || []) : [];
+      var isEs = function (v) { return (v.lang || '').toLowerCase().indexOf('es') === 0; };
+      var es = all.filter(isEs);
+      var other = all.filter(function (v) { return !isEs(v); });
+      voiceSel.innerHTML = '<option value="">Default Spanish voice</option>';
+      function addOpt(v, spanish) {
         var o = document.createElement('option');
         o.value = v.voiceURI || v.name;
-        o.textContent = v.name + ' — ' + v.lang;
+        o.textContent = (spanish ? '🇪🇸 ' : '') + v.name + ' — ' + v.lang;
         voiceSel.appendChild(o);
-      });
+      }
+      es.forEach(function (v) { addOpt(v, true); });        // Spanish voices first
+      other.forEach(function (v) { addOpt(v, false); });    // then any others, so switching always works
       voiceSel.value = getVoicePref();
-      if (vs.length <= 1) {
-        // one or zero Spanish voices installed — hide the picker, keep the note
-        voiceSel.style.display = 'none';
-        voiceNote.textContent = vs.length === 1
-          ? 'Using the only Spanish voice on this device: ' + vs[0].name + '.'
-          : 'No Spanish voice found; using the browser default. Install a Spanish voice in your OS for best pronunciation.';
+      if (!all.length) {
+        voiceNote.textContent = 'No voices detected yet — reopen this panel, or add a Spanish voice in your device settings.';
+      } else if (es.length) {
+        voiceNote.textContent = es.length + ' Spanish voice' + (es.length > 1 ? 's' : '') + ' (🇪🇸) available. Pick es-ES for Spain.';
       } else {
-        voiceSel.style.display = '';
-        voiceNote.textContent = vs.length + ' Spanish voices available. Pick es-ES for Spain.';
+        voiceNote.textContent = 'No dedicated Spanish voice on this device — install one in your OS for the best pronunciation.';
       }
     }
     voiceSel.addEventListener('change', function () {
