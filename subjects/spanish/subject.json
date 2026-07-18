@@ -163,15 +163,13 @@
           "id": "5-1-food-customs-and-daily-life",
           "name": "5.1 Food Customs and Daily Life",
           "sub": "Customs, Festivals and Celebrations",
-          "file": "5.1-food-customs-and-daily-life.html",
-          "noQuestions": true
+          "file": "5.1-food-customs-and-daily-life.html"
         },
         {
           "id": "5-2-festivals-and-traditions",
           "name": "5.2 Festivals and Traditions",
           "sub": "Customs, Festivals and Celebrations",
-          "file": "5.2-festivals-and-traditions.html",
-          "noQuestions": true
+          "file": "5.2-festivals-and-traditions.html"
         }
       ]
     },

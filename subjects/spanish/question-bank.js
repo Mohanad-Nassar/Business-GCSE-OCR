@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-18T22:52:13Z · 848 questions
+// Generated: 2026-07-18T23:01:36Z · 954 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -636,9 +636,9 @@ window.QUESTION_BANK = [
   "question": "The word for ‘five’ is _____. <span data-say=\"cinco\" data-listen>cinco</span>",
   "blankOptions": {
    "B1": [
+    "it",
     "second",
-    "ñ",
-    "ñan",
+    "throaty",
     "cinco"
    ]
   },
@@ -658,10 +658,10 @@ window.QUESTION_BANK = [
   "question": "The ‘ny’ sound word for ‘tomorrow’ is ma_____a. <span data-say=\"mañana\" data-listen>mañana</span>",
   "blankOptions": {
    "B1": [
-    "second",
-    "soft",
     "ñan",
-    "cinco"
+    "cinco",
+    "ñ",
+    "it"
    ]
   },
   "key": {
@@ -680,10 +680,10 @@ window.QUESTION_BANK = [
   "question": "To keep a hard g before i, we write gu_____arra. <span data-say=\"guitarra\" data-listen>guitarra</span>",
   "blankOptions": {
    "B1": [
-    "ñan",
+    "soft",
     "second",
-    "it",
-    "soft"
+    "ñ",
+    "it"
    ]
   },
   "key": {
@@ -702,9 +702,9 @@ window.QUESTION_BANK = [
   "question": "c before e or i sounds _____. (hard or soft?)",
   "blankOptions": {
    "B1": [
-    "ñ",
-    "cinco",
     "it",
+    "ñ",
+    "ñan",
     "soft"
    ]
   },
@@ -724,10 +724,10 @@ window.QUESTION_BANK = [
   "question": "Words ending in a vowel, n or s stress the _____-to-last syllable. (which one?)",
   "blankOptions": {
    "B1": [
+    "throaty",
     "ñ",
-    "soft",
-    "second",
-    "throaty"
+    "it",
+    "second"
    ]
   },
   "key": {
@@ -746,10 +746,10 @@ window.QUESTION_BANK = [
   "question": "The extra Spanish letter is _____. (its symbol)",
   "blankOptions": {
    "B1": [
+    "ñ",
     "second",
-    "cinco",
     "throaty",
-    "ñ"
+    "it"
    ]
   },
   "key": {
@@ -768,10 +768,10 @@ window.QUESTION_BANK = [
   "question": "g before e or i is _____. (hard or throaty?)",
   "blankOptions": {
    "B1": [
-    "it",
+    "throaty",
+    "second",
     "ñ",
-    "cinco",
-    "throaty"
+    "ñan"
    ]
   },
   "key": {
@@ -1639,9 +1639,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "calle",
-    "rolled",
-    "y",
-    "loch"
+    "loch",
+    "verde",
+    "y"
    ]
   },
   "key": {
@@ -1660,10 +1660,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘birthday’, with its ‘ny’ sound, is cumplea_____. <span data-say=\"cumpleaños\" data-listen>cumpleaños</span>",
   "blankOptions": {
    "B1": [
-    "tap",
-    "ños",
+    "loch",
+    "calle",
     "verde",
-    "rolled"
+    "ños"
    ]
   },
   "key": {
@@ -1682,10 +1682,10 @@ window.QUESTION_BANK = [
   "question": "ll sounds like the English letter _____. (which one?)",
   "blankOptions": {
    "B1": [
-    "y",
-    "tap",
     "loch",
-    "rolled"
+    "tap",
+    "ños",
+    "y"
    ]
   },
   "key": {
@@ -1704,10 +1704,10 @@ window.QUESTION_BANK = [
   "question": "j is pronounced from the back of the throat, like the Scottish word ‘_____’.",
   "blankOptions": {
    "B1": [
-    "tap",
-    "loch",
     "ños",
-    "rolled"
+    "rolled",
+    "loch",
+    "tap"
    ]
   },
   "key": {
@@ -1727,8 +1727,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "tap",
-    "loch",
     "verde",
+    "rolled",
     "ños"
    ]
   },
@@ -1748,10 +1748,10 @@ window.QUESTION_BANK = [
   "question": "‘perro’ has a strongly _____ r. (tap or roll?)",
   "blankOptions": {
    "B1": [
-    "tap",
     "rolled",
-    "ños",
-    "verde"
+    "calle",
+    "y",
+    "tap"
    ]
   },
   "key": {
@@ -1770,10 +1770,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘green’ is _____. <span data-say=\"verde\" data-listen>verde</span>",
   "blankOptions": {
    "B1": [
+    "verde",
     "ños",
-    "tap",
     "calle",
-    "verde"
+    "tap"
    ]
   },
   "key": {
@@ -2640,10 +2640,10 @@ window.QUESTION_BANK = [
   "question": "_____ problema es muy grande. <span data-say=\"El problema es muy grande.\" data-listen>El problema es muy grande.</span>",
   "blankOptions": {
    "B1": [
-    "La",
-    "al",
-    "El",
-    "del"
+    "del",
+    "unas",
+    "mano",
+    "El"
    ]
   },
   "key": {
@@ -2662,10 +2662,10 @@ window.QUESTION_BANK = [
   "question": "Voy _____ colegio a las ocho. <span data-say=\"Voy al colegio a las ocho.\" data-listen>Voy al colegio a las ocho.</span>",
   "blankOptions": {
    "B1": [
-    "unas",
+    "lápices",
     "mano",
     "al",
-    "El"
+    "del"
    ]
   },
   "key": {
@@ -2684,10 +2684,10 @@ window.QUESTION_BANK = [
   "question": "Tengo _____ preguntas sobre la tarea. <span data-say=\"Tengo unas preguntas sobre la tarea.\" data-listen>Tengo unas preguntas sobre la tarea.</span>",
   "blankOptions": {
    "B1": [
-    "mano",
-    "del",
-    "El",
-    "unas"
+    "lápices",
+    "al",
+    "unas",
+    "del"
    ]
   },
   "key": {
@@ -2706,10 +2706,10 @@ window.QUESTION_BANK = [
   "question": "Necesito dos _____ nuevos para el examen. <span data-say=\"Necesito dos lápices nuevos para el examen.\" data-listen>Necesito dos lápices nuevos para el examen.</span>",
   "blankOptions": {
    "B1": [
-    "lápices",
     "La",
-    "El",
-    "unas"
+    "unas",
+    "al",
+    "lápices"
    ]
   },
   "key": {
@@ -2728,10 +2728,10 @@ window.QUESTION_BANK = [
   "question": "_____ ciudad tiene mucha información. <span data-say=\"La ciudad tiene mucha información.\" data-listen>La ciudad tiene mucha información.</span>",
   "blankOptions": {
    "B1": [
-    "unas",
-    "La",
+    "El",
     "mano",
-    "lápices"
+    "del",
+    "La"
    ]
   },
   "key": {
@@ -2750,10 +2750,10 @@ window.QUESTION_BANK = [
   "question": "Salgo _____ gimnasio después de las clases. <span data-say=\"Salgo del gimnasio después de las clases.\" data-listen>Salgo del gimnasio después de las clases.</span>",
   "blankOptions": {
    "B1": [
-    "La",
     "del",
-    "El",
-    "unas"
+    "unas",
+    "mano",
+    "El"
    ]
   },
   "key": {
@@ -2772,10 +2772,10 @@ window.QUESTION_BANK = [
   "question": "Escucha y escribe la palabra que falta: Me duele la _____. <span data-say=\"la mano\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "al",
+    "del",
+    "mano",
     "La",
-    "unas",
-    "mano"
+    "unas"
    ]
   },
   "key": {
@@ -3642,10 +3642,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana es muy _____. (tall, feminine)",
   "blankOptions": {
    "B1": [
-    "interesantes",
-    "alta",
     "negro",
-    "estos"
+    "nuestra",
+    "alta",
+    "mayor"
    ]
   },
   "key": {
@@ -3664,10 +3664,10 @@ window.QUESTION_BANK = [
   "question": "Los libros son muy _____. (interesting, plural)",
   "blankOptions": {
    "B1": [
+    "azul",
     "nuestra",
-    "estos",
-    "interesantes",
-    "mayor"
+    "alta",
+    "interesantes"
    ]
   },
   "key": {
@@ -3686,10 +3686,10 @@ window.QUESTION_BANK = [
   "question": "Tengo un perro _____. (black, masculine)",
   "blankOptions": {
    "B1": [
-    "nuestra",
-    "alta",
+    "negro",
     "interesantes",
-    "negro"
+    "alta",
+    "estos"
    ]
   },
   "key": {
@@ -3708,10 +3708,10 @@ window.QUESTION_BANK = [
   "question": "Es una camisa _____. <span data-say=\"Es una camisa azul.\" data-listen>Es una camisa azul.</span>",
   "blankOptions": {
    "B1": [
-    "mayor",
-    "alta",
+    "interesantes",
     "azul",
-    "estos"
+    "alta",
+    "nuestra"
    ]
   },
   "key": {
@@ -3730,10 +3730,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ es más alto que yo. (older)",
   "blankOptions": {
    "B1": [
-    "interesantes",
-    "mayor",
     "negro",
-    "nuestra"
+    "mayor",
+    "alta",
+    "estos"
    ]
   },
   "key": {
@@ -3753,9 +3753,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "interesantes",
-    "azul",
+    "negro",
     "estos",
-    "nuestra"
+    "alta"
    ]
   },
   "key": {
@@ -3774,10 +3774,10 @@ window.QUESTION_BANK = [
   "question": "En _____ casa vivimos con mis abuelos. (our, feminine singular)",
   "blankOptions": {
    "B1": [
-    "mayor",
-    "nuestra",
+    "azul",
     "negro",
-    "estos"
+    "alta",
+    "nuestra"
    ]
   },
   "key": {
@@ -4645,10 +4645,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ a las siete. <span data-say=\"Me levanto a las siete.\" data-listen>Me levanto a las siete.</span>",
   "blankOptions": {
    "B1": [
-    "levanto",
+    "gusta",
+    "puedo",
     "duerme",
-    "Tengo",
-    "Estoy"
+    "levanto"
    ]
   },
   "key": {
@@ -4667,10 +4667,10 @@ window.QUESTION_BANK = [
   "question": "No _____ salir porque tengo que estudiar. <span data-say=\"No puedo salir porque tengo que estudiar.\" data-listen>No puedo salir porque tengo que estudiar.</span>",
   "blankOptions": {
    "B1": [
-    "levanto",
-    "puedo",
+    "Tengo",
     "deberes",
-    "Tengo"
+    "puedo",
+    "duerme"
    ]
   },
   "key": {
@@ -4689,9 +4689,9 @@ window.QUESTION_BANK = [
   "question": "Voy a hacer mis _____. <span data-say=\"Voy a hacer mis deberes esta tarde.\" data-listen>Voy a hacer mis deberes esta tarde.</span>",
   "blankOptions": {
    "B1": [
-    "deberes",
-    "Tengo",
+    "levanto",
     "gusta",
+    "deberes",
     "puedo"
    ]
   },
@@ -4711,10 +4711,10 @@ window.QUESTION_BANK = [
   "question": "_____ cansado porque no duermo bien. (temporary state — estar)",
   "blankOptions": {
    "B1": [
-    "Estoy",
-    "deberes",
-    "puedo",
-    "levanto"
+    "levanto",
+    "Tengo",
+    "duerme",
+    "Estoy"
    ]
   },
   "key": {
@@ -4734,9 +4734,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "levanto",
-    "Estoy",
+    "deberes",
     "gusta",
-    "Tengo"
+    "duerme"
    ]
   },
   "key": {
@@ -4755,10 +4755,10 @@ window.QUESTION_BANK = [
   "question": "_____ quince años. (age — with tener)",
   "blankOptions": {
    "B1": [
-    "levanto",
     "Tengo",
-    "gusta",
-    "Estoy"
+    "levanto",
+    "duerme",
+    "deberes"
    ]
   },
   "key": {
@@ -4777,10 +4777,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ mucho por las noches. (o→ue stem-change: dormir)",
   "blankOptions": {
    "B1": [
-    "puedo",
-    "levanto",
     "duerme",
-    "gusta"
+    "Estoy",
+    "levanto",
+    "puedo"
    ]
   },
   "key": {
@@ -5647,10 +5647,10 @@ window.QUESTION_BANK = [
   "question": "Ayer, yo _____ (hablar) con mi profesora sobre el examen. <span data-say=\"Ayer, yo hablé con mi profesora sobre el examen.\" data-listen>Ayer, yo hablé con mi profesora sobre el examen.</span>",
   "blankOptions": {
    "B1": [
+    "vivía",
+    "hablé",
     "fuimos",
-    "levantaba",
-    "llegó",
-    "hablé"
+    "estuve"
    ]
   },
   "key": {
@@ -5669,10 +5669,10 @@ window.QUESTION_BANK = [
   "question": "El año pasado, nosotros _____ (ir) de vacaciones a Francia. <span data-say=\"El año pasado, nosotros fuimos de vacaciones a Francia.\" data-listen>El año pasado, nosotros fuimos de vacaciones a Francia.</span>",
   "blankOptions": {
    "B1": [
-    "llegó",
     "fuimos",
-    "vivía",
-    "hablé"
+    "levantaba",
+    "hablé",
+    "vivía"
    ]
   },
   "key": {
@@ -5691,9 +5691,9 @@ window.QUESTION_BANK = [
   "question": "De pequeño, yo _____ (vivir) en Sevilla con mis abuelos. (imperfect — describes a past state)",
   "blankOptions": {
    "B1": [
-    "estuve",
-    "he comido",
+    "hablé",
     "levantaba",
+    "fuimos",
     "vivía"
    ]
   },
@@ -5714,9 +5714,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "hablé",
-    "fuimos",
     "levantaba",
-    "estuve"
+    "he comido",
+    "fuimos"
    ]
   },
   "key": {
@@ -5735,10 +5735,10 @@ window.QUESTION_BANK = [
   "question": "Mientras yo cocinaba, mi hermano _____ (llegar) a casa. (the interrupting single event — preterite)",
   "blankOptions": {
    "B1": [
-    "estuve",
+    "hablé",
     "llegó",
-    "fuimos",
-    "he comido"
+    "levantaba",
+    "estuve"
    ]
   },
   "key": {
@@ -5757,10 +5757,10 @@ window.QUESTION_BANK = [
   "question": "Escucha y completa: Ayer _____ en el parque toda la tarde. <span data-say=\"Ayer estuve en el parque toda la tarde.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "llegó",
-    "fuimos",
+    "vivía",
     "estuve",
-    "vivía"
+    "llegó",
+    "he comido"
    ]
   },
   "key": {
@@ -5779,10 +5779,10 @@ window.QUESTION_BANK = [
   "question": "Higher: Nunca _____ (comer) paella antes. (perfect tense — haber + participle)",
   "blankOptions": {
    "B1": [
+    "levantaba",
+    "llegó",
     "he comido",
-    "hablé",
-    "estuve",
-    "levantaba"
+    "estuve"
    ]
   },
   "key": {
@@ -6649,10 +6649,10 @@ window.QUESTION_BANK = [
   "question": "Yo _____ a estudiar esta noche. <span data-say=\"Yo voy a estudiar esta noche.\" data-listen>Yo voy a estudiar esta noche.</span>",
   "blankOptions": {
    "B1": [
-    "voy",
-    "viviré",
-    "estudies",
-    "compraríamos"
+    "gustaría",
+    "compraríamos",
+    "tendrá",
+    "voy"
    ]
   },
   "key": {
@@ -6671,10 +6671,10 @@ window.QUESTION_BANK = [
   "question": "Mañana, ella _____ que trabajar. <span data-say=\"Mañana, ella tendrá que trabajar.\" data-listen>Mañana, ella tendrá que trabajar.</span>",
   "blankOptions": {
    "B1": [
-    "haré",
-    "compraríamos",
+    "estudies",
     "tendrá",
-    "voy"
+    "viviré",
+    "compraríamos"
    ]
   },
   "key": {
@@ -6693,10 +6693,10 @@ window.QUESTION_BANK = [
   "question": "El año que viene, (yo) _____ en Madrid. (I will live — vivir)",
   "blankOptions": {
    "B1": [
-    "voy",
+    "tendrá",
+    "compraríamos",
     "viviré",
-    "estudies",
-    "tendrá"
+    "gustaría"
    ]
   },
   "key": {
@@ -6716,9 +6716,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "haré",
-    "voy",
-    "tendrá",
-    "compraríamos"
+    "compraríamos",
+    "viviré",
+    "estudies"
    ]
   },
   "key": {
@@ -6737,9 +6737,9 @@ window.QUESTION_BANK = [
   "question": "Me _____ viajar a Japón algún día. (I would like)",
   "blankOptions": {
    "B1": [
-    "voy",
+    "estudies",
     "gustaría",
-    "haré",
+    "viviré",
     "compraríamos"
    ]
   },
@@ -6759,10 +6759,10 @@ window.QUESTION_BANK = [
   "question": "_____ los deberes antes de salir. (I will do — hacer, yo)",
   "blankOptions": {
    "B1": [
-    "tendrá",
-    "voy",
     "haré",
-    "gustaría"
+    "compraríamos",
+    "tendrá",
+    "viviré"
    ]
   },
   "key": {
@@ -6781,9 +6781,9 @@ window.QUESTION_BANK = [
   "question": "Es importante que (tú) _____ mucho para el examen. (present subjunctive of estudiar)",
   "blankOptions": {
    "B1": [
-    "estudies",
+    "gustaría",
     "compraríamos",
-    "viviré",
+    "estudies",
     "tendrá"
    ]
   },
@@ -7651,8 +7651,8 @@ window.QUESTION_BANK = [
   "question": "¿Tienes el libro? Sí, _____ tengo. (it — masculine, direct object pronoun)",
   "blankOptions": {
    "B1": [
+    "además",
     "que",
-    "nunca",
     "nada",
     "lo"
    ]
@@ -7673,10 +7673,10 @@ window.QUESTION_BANK = [
   "question": "No veo _____. <span data-say=\"No veo nada.\" data-listen>No veo nada.</span>",
   "blankOptions": {
    "B1": [
+    "porque",
     "lo",
-    "que",
-    "me",
-    "nada"
+    "nada",
+    "nunca"
    ]
   },
   "key": {
@@ -7695,10 +7695,10 @@ window.QUESTION_BANK = [
   "question": "Voy a hacer más ejercicio, _____ es bueno para la salud. (because)",
   "blankOptions": {
    "B1": [
-    "porque",
-    "que",
-    "lo",
-    "nada"
+    "me",
+    "nunca",
+    "nada",
+    "porque"
    ]
   },
   "key": {
@@ -7717,10 +7717,10 @@ window.QUESTION_BANK = [
   "question": "(Yo) _____ levanto a las siete. (myself — reflexive pronoun)",
   "blankOptions": {
    "B1": [
-    "además",
-    "me",
     "nada",
-    "porque"
+    "me",
+    "que",
+    "además"
    ]
   },
   "key": {
@@ -7739,10 +7739,10 @@ window.QUESTION_BANK = [
   "question": "La chica _____ vive aquí es mi amiga. (who/that)",
   "blankOptions": {
    "B1": [
-    "me",
-    "que",
+    "lo",
+    "además",
     "nunca",
-    "nada"
+    "que"
    ]
   },
   "key": {
@@ -7761,8 +7761,8 @@ window.QUESTION_BANK = [
   "question": "No voy _____ al gimnasio los domingos. (never)",
   "blankOptions": {
    "B1": [
-    "que",
     "lo",
+    "porque",
     "nunca",
     "me"
    ]
@@ -7783,10 +7783,10 @@ window.QUESTION_BANK = [
   "question": "Juego al fútbol y, _____, hago natación. (also/furthermore)",
   "blankOptions": {
    "B1": [
-    "nunca",
     "nada",
     "además",
-    "porque"
+    "lo",
+    "que"
    ]
   },
   "key": {
@@ -8654,9 +8654,9 @@ window.QUESTION_BANK = [
   "question": "_____ quince años. <span data-say=\"Tengo quince años.\" data-listen>Tengo quince años.</span>",
   "blankOptions": {
    "B1": [
+    "único",
+    "llamo",
     "Mis",
-    "marrones",
-    "castaño",
     "Tengo"
    ]
   },
@@ -8676,10 +8676,10 @@ window.QUESTION_BANK = [
   "question": "Tengo el pelo largo y _____. <span data-say=\"Tengo el pelo largo y castaño.\" data-listen>Tengo el pelo largo y castaño.</span>",
   "blankOptions": {
    "B1": [
-    "Tengo",
-    "marrones",
+    "Mis",
+    "llamo",
     "castaño",
-    "Mis"
+    "marrones"
    ]
   },
   "key": {
@@ -8699,8 +8699,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "llamo",
-    "marrones",
     "Mis",
+    "castaño",
     "lleva"
    ]
   },
@@ -8720,10 +8720,10 @@ window.QUESTION_BANK = [
   "question": "Tengo los ojos _____. (brown — plural agreement!)",
   "blankOptions": {
    "B1": [
-    "único",
-    "Mis",
-    "lleva",
-    "marrones"
+    "Tengo",
+    "marrones",
+    "llamo",
+    "único"
    ]
   },
   "key": {
@@ -8742,10 +8742,10 @@ window.QUESTION_BANK = [
   "question": "_____ hermanos son altos. (my — more than one)",
   "blankOptions": {
    "B1": [
-    "Mis",
+    "castaño",
+    "marrones",
     "lleva",
-    "Tengo",
-    "castaño"
+    "Mis"
    ]
   },
   "key": {
@@ -8764,10 +8764,10 @@ window.QUESTION_BANK = [
   "question": "Soy hijo _____. (only child)",
   "blankOptions": {
    "B1": [
-    "único",
-    "Tengo",
     "Mis",
-    "llamo"
+    "lleva",
+    "castaño",
+    "único"
    ]
   },
   "key": {
@@ -8786,10 +8786,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ Ana y vivo en Madrid. (my name is)",
   "blankOptions": {
    "B1": [
-    "único",
-    "llamo",
-    "castaño",
-    "lleva"
+    "marrones",
+    "lleva",
+    "Tengo",
+    "llamo"
    ]
   },
   "key": {
@@ -9657,10 +9657,10 @@ window.QUESTION_BANK = [
   "question": "Me llevo bien _____ mis padres. <span data-say=\"Me llevo bien con mis padres.\" data-listen>Me llevo bien con mis padres.</span>",
   "blankOptions": {
    "B1": [
-    "con",
-    "gracioso",
     "que",
-    "llevo"
+    "con",
+    "trabajadora",
+    "abuela"
    ]
   },
   "key": {
@@ -9681,7 +9681,7 @@ window.QUESTION_BANK = [
    "B1": [
     "trabajadora",
     "que",
-    "cariñosa",
+    "abuela",
     "gracioso"
    ]
   },
@@ -9701,9 +9701,9 @@ window.QUESTION_BANK = [
   "question": "Mi modelo a seguir es mi _____. <span data-say=\"Mi modelo a seguir es mi abuela.\" data-listen>Mi modelo a seguir es mi abuela.</span>",
   "blankOptions": {
    "B1": [
-    "abuela",
-    "gracioso",
     "que",
+    "cariñosa",
+    "abuela",
     "con"
    ]
   },
@@ -9724,7 +9724,7 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "trabajadora",
-    "abuela",
+    "con",
     "llevo",
     "cariñosa"
    ]
@@ -9745,10 +9745,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ mal con mi hermano. (I get on badly — reflexive)",
   "blankOptions": {
    "B1": [
+    "trabajadora",
+    "que",
     "llevo",
-    "gracioso",
-    "abuela",
-    "que"
+    "cariñosa"
    ]
   },
   "key": {
@@ -9767,10 +9767,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana es más habladora _____ yo. (than)",
   "blankOptions": {
    "B1": [
-    "con",
+    "abuela",
     "que",
-    "gracioso",
-    "trabajadora"
+    "trabajadora",
+    "cariñosa"
    ]
   },
   "key": {
@@ -9789,10 +9789,10 @@ window.QUESTION_BANK = [
   "question": "Admiro a mi abuela porque es muy _____. (hard-working, female)",
   "blankOptions": {
    "B1": [
+    "con",
     "trabajadora",
-    "gracioso",
     "llevo",
-    "con"
+    "cariñosa"
    ]
   },
   "key": {
@@ -10660,10 +10660,10 @@ window.QUESTION_BANK = [
   "question": "Se _____ comer más fruta. <span data-say=\"Se debe comer más fruta.\" data-listen>Se debe comer más fruta.</span>",
   "blankOptions": {
    "B1": [
-    "agua",
-    "azúcar",
     "debe",
-    "gustan"
+    "gustan",
+    "equilibrada",
+    "evitar"
    ]
   },
   "key": {
@@ -10682,10 +10682,10 @@ window.QUESTION_BANK = [
   "question": "Voy a _____ la comida rápida. <span data-say=\"Voy a evitar la comida rápida.\" data-listen>Voy a evitar la comida rápida.</span>",
   "blankOptions": {
    "B1": [
-    "azúcar",
+    "gustan",
     "evitar",
-    "equilibrada",
-    "gustan"
+    "debe",
+    "porque"
    ]
   },
   "key": {
@@ -10704,10 +10704,10 @@ window.QUESTION_BANK = [
   "question": "Hay que beber mucha _____. <span data-say=\"Hay que beber mucha agua.\" data-listen>Hay que beber mucha agua.</span>",
   "blankOptions": {
    "B1": [
+    "agua",
+    "azúcar",
     "equilibrada",
-    "evitar",
-    "gustan",
-    "agua"
+    "gustan"
    ]
   },
   "key": {
@@ -10726,10 +10726,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ las verduras. (I like vegetables — plural!)",
   "blankOptions": {
    "B1": [
-    "equilibrada",
-    "porque",
     "gustan",
-    "debe"
+    "azúcar",
+    "equilibrada",
+    "agua"
    ]
   },
   "key": {
@@ -10748,8 +10748,8 @@ window.QUESTION_BANK = [
   "question": "Como una dieta _____. (balanced)",
   "blankOptions": {
    "B1": [
-    "porque",
-    "evitar",
+    "gustan",
+    "agua",
     "azúcar",
     "equilibrada"
    ]
@@ -10770,10 +10770,10 @@ window.QUESTION_BANK = [
   "question": "No se debe comer demasiado _____. (sugar)",
   "blankOptions": {
    "B1": [
+    "porque",
     "azúcar",
-    "debe",
     "evitar",
-    "gustan"
+    "debe"
    ]
   },
   "key": {
@@ -10793,9 +10793,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "porque",
-    "azúcar",
-    "equilibrada",
-    "debe"
+    "evitar",
+    "debe",
+    "gustan"
    ]
   },
   "key": {
@@ -11663,10 +11663,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ la cabeza. <span data-say=\"Me duele la cabeza.\" data-listen>Me duele la cabeza.</span>",
   "blankOptions": {
    "B1": [
+    "dejar",
     "duele",
-    "duelen",
-    "cansado",
-    "fumar"
+    "ejercicio",
+    "cansado"
    ]
   },
   "key": {
@@ -11686,8 +11686,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "fumar",
-    "duelen",
-    "acuesto",
+    "ejercicio",
+    "dejar",
     "duele"
    ]
   },
@@ -11707,10 +11707,10 @@ window.QUESTION_BANK = [
   "question": "Para estar en forma, hay que hacer _____. <span data-say=\"Para estar en forma, hay que hacer ejercicio.\" data-listen>Para estar en forma, hay que hacer ejercicio.</span>",
   "blankOptions": {
    "B1": [
-    "cansado",
     "ejercicio",
-    "duelen",
-    "fumar"
+    "duele",
+    "cansado",
+    "dejar"
    ]
   },
   "key": {
@@ -11730,7 +11730,7 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "duelen",
-    "acuesto",
+    "dejar",
     "duele",
     "ejercicio"
    ]
@@ -11751,10 +11751,10 @@ window.QUESTION_BANK = [
   "question": "Estoy muy _____ porque no duermo bien. (tired)",
   "blankOptions": {
    "B1": [
-    "duele",
+    "ejercicio",
     "cansado",
-    "acuesto",
-    "fumar"
+    "dejar",
+    "duele"
    ]
   },
   "key": {
@@ -11773,10 +11773,10 @@ window.QUESTION_BANK = [
   "question": "Voy a _____ de fumar. (to stop)",
   "blankOptions": {
    "B1": [
-    "ejercicio",
-    "dejar",
-    "fumar",
-    "duele"
+    "acuesto",
+    "duele",
+    "duelen",
+    "dejar"
    ]
   },
   "key": {
@@ -11796,9 +11796,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "acuesto",
-    "duelen",
-    "cansado",
-    "ejercicio"
+    "duele",
+    "dejar",
+    "fumar"
    ]
   },
   "key": {
@@ -12667,9 +12667,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "empiezan",
-    "biblioteca",
     "preferida",
-    "informática"
+    "biblioteca",
+    "deberes"
    ]
   },
   "key": {
@@ -12688,10 +12688,10 @@ window.QUESTION_BANK = [
   "question": "Las clases _____ a las nueve. <span data-say=\"Las clases empiezan a las nueve.\" data-listen>Las clases empiezan a las nueve.</span>",
   "blankOptions": {
    "B1": [
-    "deberes",
-    "informática",
+    "móvil",
     "empiezan",
-    "biblioteca"
+    "informática",
+    "ciencias"
    ]
   },
   "key": {
@@ -12710,10 +12710,10 @@ window.QUESTION_BANK = [
   "question": "Se me da bien la _____. <span data-say=\"Se me da bien la informática.\" data-listen>Se me da bien la informática.</span>",
   "blankOptions": {
    "B1": [
-    "ciencias",
-    "preferida",
     "informática",
-    "empiezan"
+    "empiezan",
+    "ciencias",
+    "móvil"
    ]
   },
   "key": {
@@ -12732,9 +12732,9 @@ window.QUESTION_BANK = [
   "question": "Me gustan las _____. (science)",
   "blankOptions": {
    "B1": [
-    "preferida",
+    "biblioteca",
     "ciencias",
-    "informática",
+    "móvil",
     "empiezan"
    ]
   },
@@ -12754,10 +12754,10 @@ window.QUESTION_BANK = [
   "question": "Está prohibido usar el _____. (mobile phone)",
   "blankOptions": {
    "B1": [
-    "ciencias",
     "deberes",
+    "móvil",
     "biblioteca",
-    "móvil"
+    "informática"
    ]
   },
   "key": {
@@ -12776,10 +12776,10 @@ window.QUESTION_BANK = [
   "question": "Hago los _____ después de las clases. (homework)",
   "blankOptions": {
    "B1": [
+    "informática",
     "biblioteca",
-    "deberes",
-    "móvil",
-    "ciencias"
+    "preferida",
+    "deberes"
    ]
   },
   "key": {
@@ -12798,10 +12798,10 @@ window.QUESTION_BANK = [
   "question": "En mi instituto hay una _____ grande. (library)",
   "blankOptions": {
    "B1": [
-    "deberes",
     "móvil",
-    "biblioteca",
-    "empiezan"
+    "ciencias",
+    "preferida",
+    "biblioteca"
    ]
   },
   "key": {
@@ -13669,10 +13669,10 @@ window.QUESTION_BANK = [
   "question": "Quiero _____ médica. <span data-say=\"Quiero ser médica.\" data-listen>Quiero ser médica.</span>",
   "blankOptions": {
    "B1": [
-    "ayudar",
-    "ganar",
     "ser",
-    "sea"
+    "gustaría",
+    "ayudar",
+    "estudiando"
    ]
   },
   "key": {
@@ -13691,9 +13691,9 @@ window.QUESTION_BANK = [
   "question": "Me _____ ser abogado porque me interesa la ley. (would like)",
   "blankOptions": {
    "B1": [
-    "gustaría",
+    "ganar",
     "ayudar",
-    "aprendizaje",
+    "gustaría",
     "sea"
    ]
   },
@@ -13713,10 +13713,10 @@ window.QUESTION_BANK = [
   "question": "Voy a seguir _____ en la universidad. (studying)",
   "blankOptions": {
    "B1": [
-    "ganar",
+    "sea",
     "estudiando",
-    "ayudar",
-    "aprendizaje"
+    "aprendizaje",
+    "ayudar"
    ]
   },
   "key": {
@@ -13735,10 +13735,10 @@ window.QUESTION_BANK = [
   "question": "Quiero hacer un _____ en vez de ir a la universidad. (apprenticeship)",
   "blankOptions": {
    "B1": [
-    "gustaría",
-    "aprendizaje",
     "ser",
-    "ayudar"
+    "estudiando",
+    "aprendizaje",
+    "gustaría"
    ]
   },
   "key": {
@@ -13758,9 +13758,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "ganar",
+    "gustaría",
     "estudiando",
-    "aprendizaje",
-    "gustaría"
+    "sea"
    ]
   },
   "key": {
@@ -13779,10 +13779,10 @@ window.QUESTION_BANK = [
   "question": "Cuando _____ mayor, quiero ser dentista. <span data-say=\"Cuando sea mayor, quiero ser dentista.\" data-listen>Cuando sea mayor, quiero ser dentista.</span>",
   "blankOptions": {
    "B1": [
-    "sea",
-    "estudiando",
-    "ganar",
-    "gustaría"
+    "gustaría",
+    "ayudar",
+    "aprendizaje",
+    "sea"
    ]
   },
   "key": {
@@ -13803,8 +13803,8 @@ window.QUESTION_BANK = [
    "B1": [
     "ganar",
     "aprendizaje",
-    "ayudar",
-    "gustaría"
+    "ser",
+    "ayudar"
    ]
   },
   "key": {
@@ -14674,8 +14674,8 @@ window.QUESTION_BANK = [
    "B1": [
     "fútbol",
     "jugar",
-    "jugué",
-    "fiestas"
+    "coleccionar",
+    "jugué"
    ]
   },
   "key": {
@@ -14695,9 +14695,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "salir",
-    "fiestas",
     "jugar",
-    "coleccionar"
+    "coleccionar",
+    "fiestas"
    ]
   },
   "key": {
@@ -14718,8 +14718,8 @@ window.QUESTION_BANK = [
    "B1": [
     "jugar",
     "fiestas",
-    "salir",
-    "coleccionar"
+    "jugué",
+    "fútbol"
    ]
   },
   "key": {
@@ -14738,10 +14738,10 @@ window.QUESTION_BANK = [
   "question": "Normalmente _____ con mis amigos los sábados. (to meet up — yo form)",
   "blankOptions": {
    "B1": [
-    "coleccionar",
-    "fútbol",
+    "quedo",
     "salir",
-    "quedo"
+    "fútbol",
+    "jugué"
    ]
   },
   "key": {
@@ -14760,10 +14760,10 @@ window.QUESTION_BANK = [
   "question": "El fin de semana pasado _____ al tenis. (I played — preterite)",
   "blankOptions": {
    "B1": [
-    "fiestas",
     "jugué",
-    "jugar",
-    "salir"
+    "coleccionar",
+    "salir",
+    "quedo"
    ]
   },
   "key": {
@@ -14782,10 +14782,10 @@ window.QUESTION_BANK = [
   "question": "Nunca voy a _____. (parties)",
   "blankOptions": {
    "B1": [
-    "fiestas",
     "jugué",
-    "coleccionar",
-    "salir"
+    "fiestas",
+    "fútbol",
+    "coleccionar"
    ]
   },
   "key": {
@@ -14804,10 +14804,10 @@ window.QUESTION_BANK = [
   "question": "Suelo _____ los sábados por la noche. (to go out — infinitive after soler) <span class=\"tier-h\">H</span>",
   "blankOptions": {
    "B1": [
+    "fiestas",
     "salir",
-    "fútbol",
-    "quedo",
-    "coleccionar"
+    "coleccionar",
+    "jugar"
    ]
   },
   "key": {
@@ -15675,10 +15675,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ mucho la música pop. <span data-say=\"Me encanta mucho la música pop.\" data-listen>Me encanta mucho la música pop.</span>",
   "blankOptions": {
    "B1": [
-    "leo",
-    "guitarra",
     "encanta",
-    "gustan"
+    "descargué",
+    "leo",
+    "guitarra"
    ]
   },
   "key": {
@@ -15697,10 +15697,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ las películas de acción porque son emocionantes. (plural gustar)",
   "blankOptions": {
    "B1": [
-    "leo",
-    "gustan",
     "encanta",
-    "descargué"
+    "guitarra",
+    "vi",
+    "gustan"
    ]
   },
   "key": {
@@ -15719,10 +15719,10 @@ window.QUESTION_BANK = [
   "question": "Ayer _____ una película de terror con mis amigos. (preterite of ver)",
   "blankOptions": {
    "B1": [
+    "gustan",
+    "leer",
     "vi",
-    "descargué",
-    "encanta",
-    "leo"
+    "guitarra"
    ]
   },
   "key": {
@@ -15743,8 +15743,8 @@ window.QUESTION_BANK = [
    "B1": [
     "guitarra",
     "encanta",
-    "leer",
-    "leo"
+    "vi",
+    "gustan"
    ]
   },
   "key": {
@@ -15763,10 +15763,10 @@ window.QUESTION_BANK = [
   "question": "Cada noche, _____ una novela antes de dormir. <span data-say=\"Cada noche, leo una novela antes de dormir.\" data-listen>Cada noche, leo una novela antes de dormir.</span>",
   "blankOptions": {
    "B1": [
+    "descargué",
     "leo",
-    "leer",
     "gustan",
-    "vi"
+    "encanta"
    ]
   },
   "key": {
@@ -15785,10 +15785,10 @@ window.QUESTION_BANK = [
   "question": "Se debe _____ más para mejorar el vocabulario. (to read)",
   "blankOptions": {
    "B1": [
-    "descargué",
     "gustan",
+    "guitarra",
     "leer",
-    "encanta"
+    "descargué"
    ]
   },
   "key": {
@@ -15807,9 +15807,9 @@ window.QUESTION_BANK = [
   "question": "Ayer _____ una canción nueva en mi móvil. <span data-say=\"Ayer descargué una canción nueva en mi móvil.\" data-listen>Ayer descargué una canción nueva en mi móvil.</span>",
   "blankOptions": {
    "B1": [
-    "descargué",
+    "leo",
     "leer",
-    "encanta",
+    "descargué",
     "guitarra"
    ]
   },
@@ -16045,6 +16045,2012 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 2,
    "explain": "“lo que más me gusta” means: what I like most"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:exam:1b44291f",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": 1,
+  "question": "Read what Carlos says. Answer <strong>in English</strong>.<br>(a) What time does Carlos get up? (1)<br>(b) What is his favourite dish and why? (1)<br>(c) What time is dinner in his house? (1)<br>(d) How has his bedtime changed since he was a child? (1)",
+  "caseStudy": "<p><strong>Lee lo que dice Carlos.</strong></p>\n        <p><em>\"Normalmente me levanto a las siete y desayuno pan con aceite de oliva. Como a las dos — mi plato favorito es la tortilla de patatas porque es muy rica. Por la tarde meriendo algo pequeño y luego hago los deberes. En mi casa se cena bastante tarde, casi siempre a las diez, y después me acuesto. De pequeño me acostaba mucho más temprano, sobre las ocho y media, pero ahora prefiero acostarme tarde.\"</em></p>",
+  "hint": "Find the time after ‘me levanto’, the dish after ‘mi plato favorito es’, the time after ‘se cena’, and compare ‘de pequeño’ with ‘ahora’.",
+  "starter": "(a) He gets up… (b) His favourite dish is… because… (c) Dinner is at… (d) As a child he…, but now he…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>\n                <li><strong>(a)</strong> (at) seven (o'clock) <em>(1)</em>.</li>\n                <li><strong>(b)</strong> Spanish omelette / tortilla de patatas, because it is (very) tasty <em>(1)</em>.</li>\n                <li><strong>(c)</strong> (at) ten (o'clock) <em>(1)</em>.</li>\n                <li><strong>(d)</strong> he used to go to bed earlier (around half past eight) / now he goes to bed later <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>\n            </ul></div>",
+   "modelAnswer": "(a) At seven o'clock. (b) Spanish omelette, because it is very tasty. (c) At ten o'clock. (d) He used to go to bed earlier (around half past eight) but now he prefers to go to bed later."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:exam:4aa274c7",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": 2,
+  "question": "Translate these sentences <strong>into Spanish</strong>.<br>(a) I get up at seven. <br>(b) In Spain, people have dinner late. <br>(c) I like the omelette because it is very tasty.",
+  "hint": "‘I get up’ = reflexive (me levanto). ‘People have dinner’ = impersonal se (se cena). ‘I like’ = me gusta + noun.",
+  "starter": "(a) Me levanto… (b) En España, se cena… (c) Me gusta… porque…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>\n                <li><strong>(a)</strong> Me levanto a las siete. <em>(1)</em></li>\n                <li><strong>(b)</strong> En España, se cena tarde. <em>(1)</em></li>\n                <li><strong>(c)</strong> Me gusta la tortilla <em>(1)</em> porque <em>(1)</em> es muy rica <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Accept minor accent errors. ‘Me levanto’ must keep the reflexive pronoun ‘me’.</li>\n            </ul></div>",
+   "modelAnswer": "(a) Me levanto a las siete. (b) En España, se cena tarde. (c) Me gusta la tortilla porque es muy rica."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:mcq:3aa92d9d",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Desayuno a las siete y media.\" data-listen></span><br>Listen. What time is breakfast?",
+  "options": [
+   "Half past seven",
+   "Seven o'clock exactly",
+   "Half past eight",
+   "A quarter past seven"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘a las siete y media’ = at half past seven. The traps swap the hour or the minutes."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:mcq:96383f6a",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Nos levantamos muy temprano los lunes.\" data-listen></span><br>Listen. What happens on Mondays?",
+  "options": [
+   "We get up very early",
+   "We go to bed very early",
+   "We get up quite late",
+   "They get up very early"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘nos levantamos temprano’ = we get up early. B swaps the reflexive verb; C reverses ‘temprano’; D changes the subject."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:mcq:c320f367",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘la merienda’ mean?",
+  "options": [
+   "a light snack in the afternoon",
+   "the biggest meal of the whole day",
+   "a formal three-course dinner",
+   "a hot drink taken before bedtime"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la merienda = a light afternoon snack, between comida and cena."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:mcq:8342e92c",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which food is ‘el aceite de oliva’?",
+  "options": [
+   "olive oil",
+   "cold tomato soup",
+   "cured ham on bread",
+   "a rice dish with seafood"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el aceite de oliva = olive oil, used in almost every Spanish dish."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:mcq:b0d87f44",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Todos los días (yo) ___ a las siete.’",
+  "options": [
+   "me levanto",
+   "levanto",
+   "se levanta",
+   "levantarse"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘yo’ needs the reflexive pronoun ‘me’: me levanto. B drops the pronoun, C is ‘he/she’, D is the infinitive."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:mcq:d6cc557d",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does the impersonal ‘se’ mean in ‘en España se cena tarde’?",
+  "options": [
+   "people in general have dinner",
+   "she is having dinner by herself",
+   "you personally must eat now",
+   "dinner was cancelled today"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Impersonal se describes what people generally do: se cena = people have dinner. It is not the reflexive ‘herself’."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:mcq:4e0e98dd",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence correctly uses a reflexive verb?",
+  "options": [
+   "Me acuesto a las diez",
+   "Acuesto a las diez cada noche",
+   "Yo acuesto muy tarde siempre",
+   "Se acuesto a las diez"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "acostarse is reflexive: (yo) me acuesto. B drops ‘me’, C/D use the wrong pronoun form."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:mcq:beae3138",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘El gazpacho’ often surprises students because…",
+  "options": [
+   "it is a soup that is served cold",
+   "it is actually a type of sweet dessert",
+   "it contains no vegetables at all",
+   "it is only ever eaten at breakfast"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "gazpacho is a cold tomato soup — students often assume soup must be hot."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:mcq:6e02eeab",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘first’, used to start a routine paragraph?",
+  "options": [
+   "primero",
+   "después",
+   "normalmente",
+   "todos los días"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "primero = first; después = afterwards; normalmente = normally; todos los días = every day."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:mcq:2d30d19b",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘De pequeño, me acostaba temprano’ describes…",
+  "options": [
+   "a habit from the past, using the imperfect tense",
+   "something that is happening right at this very moment",
+   "a plan for tomorrow, using the near future",
+   "an instruction telling someone what to do"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘de pequeño’ + the imperfect (me acostaba) describes a repeated childhood habit."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tf:b0e7434c",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘La merienda’ is a light snack eaten in the afternoon.",
+  "key": {
+   "answer": true,
+   "explain": "Correct — la merienda comes between la comida and la cena."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tf:2660f4ab",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "In Spain, ‘la cena’ usually happens earlier than in the UK.",
+  "key": {
+   "answer": false,
+   "explain": "The opposite is true — Spanish dinner (la cena) is usually much later, often around ten."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tf:a405eae0",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘El gazpacho’ is normally served hot.",
+  "key": {
+   "answer": false,
+   "explain": "Gazpacho is a cold tomato soup, typically eaten in summer."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tf:117a4d14",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Levantarse’ is a reflexive verb, so ‘I get up’ is ‘me levanto’.",
+  "key": {
+   "answer": true,
+   "explain": "Reflexive: me levanto, te levantas, se levanta."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tf:5ab62b98",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The impersonal ‘se’ (as in ‘se cena tarde’) describes what people in general do.",
+  "key": {
+   "answer": true,
+   "explain": "se cena tarde = people (in general) have dinner late."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tf:335e1325",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Por la mañana’ means ‘at night’.",
+  "key": {
+   "answer": false,
+   "explain": "por la mañana = in the morning; por la noche = at night."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tf:0db9784a",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘De pequeño me acostaba temprano’ uses the imperfect tense for a past habit.",
+  "key": {
+   "answer": true,
+   "explain": "de pequeño signals a repeated past habit → the imperfect (me acostaba)."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tf:3a20a715",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘El aceite de oliva’ means ‘orange juice’.",
+  "key": {
+   "answer": false,
+   "explain": "el aceite de oliva = olive oil. Orange juice is el zumo de naranja."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:learn:47ea7af7",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about mealtimes?",
+  "reading": "<p>Spanish families usually eat three main meals, plus a light snack in the afternoon. Tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el desayuno\">el desayuno</span></td><td>breakfast</td><td><span data-say=\"la comida\">la comida</span></td><td>lunch</td></tr>\n              <tr><td><span data-say=\"la merienda\">la merienda</span></td><td>afternoon snack</td><td><span data-say=\"la cena\">la cena</span></td><td>dinner</td></tr>\n              <tr><td><span data-say=\"desayunar\">desayunar</span></td><td>to have breakfast</td><td><span data-say=\"cenar\">cenar</span></td><td>to have dinner</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"En España, se cena muy tarde, normalmente a las diez de la noche.\">En España, se cena muy tarde, normalmente a las diez de la noche.</span> — <em>In Spain, people have dinner very late, usually at ten at night.</em></p>",
+  "question": "What is ‘la merienda’?",
+  "options": [
+   "a light snack eaten in the afternoon",
+   "the main hot meal of the day",
+   "a big hot meal that is eaten very late at night",
+   "a small coffee before breakfast"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la merienda = a light afternoon snack, eaten between la comida and la cena."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:learn:690f047d",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What is typical Spanish food?",
+  "reading": "<p>Some dishes come up again and again in reading and listening exams:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la tortilla de patatas\">la tortilla de patatas</span></td><td>Spanish omelette</td><td><span data-say=\"la paella\">la paella</span></td><td>paella (rice dish)</td></tr>\n              <tr><td><span data-say=\"las tapas\">las tapas</span></td><td>small shared dishes</td><td><span data-say=\"el gazpacho\">el gazpacho</span></td><td>cold tomato soup</td></tr>\n              <tr><td><span data-say=\"el jamón\">el jamón</span></td><td>ham</td><td><span data-say=\"el pan\">el pan</span></td><td>bread</td></tr>\n            </table>\n            <p><span data-say=\"el aceite de oliva\">el aceite de oliva</span> (olive oil) is used in almost everything. Model sentence: <span data-say=\"Me gusta mucho la tortilla porque es muy rica.\">Me gusta mucho la tortilla porque es muy rica.</span> — <em>I really like the omelette because it is very tasty.</em></p>",
+  "question": "‘El gazpacho’ is best described as…",
+  "options": [
+   "a cold tomato soup",
+   "a hot meat stew served in winter",
+   "a type of sweet dessert pastry",
+   "a hot spicy rice dish with chicken"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el gazpacho = a cold tomato soup, typically eaten in summer. Students often wrongly assume all soup is hot."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:learn:6ceef5ba",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I describe my daily routine?",
+  "reading": "<p>Routine verbs are <strong>reflexive</strong> — the action is done to yourself, so they need <strong>me / te / se</strong>.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"levantarse\">levantarse</span> → <span data-say=\"me levanto\">me levanto</span></td><td>to get up → I get up</td></tr>\n              <tr><td><span data-say=\"ducharse\">ducharse</span> → <span data-say=\"me ducho\">me ducho</span></td><td>to shower → I shower</td></tr>\n              <tr><td><span data-say=\"vestirse\">vestirse</span> → <span data-say=\"me visto\">me visto</span></td><td>to get dressed → I get dressed</td></tr>\n              <tr><td><span data-say=\"acostarse\">acostarse</span> → <span data-say=\"me acuesto\">me acuesto</span></td><td>to go to bed → I go to bed</td></tr>\n            </table>\n            <p>After breakfast: <span data-say=\"voy al instituto\">voy al instituto</span> (I go to school); after school: <span data-say=\"vuelvo a casa\">vuelvo a casa</span> (I return home). Many Spaniards also have <span data-say=\"la siesta\">la siesta</span> — a short afternoon rest.</p>\n            <p>Model sentence: <span data-say=\"Todos los días me levanto, me ducho y desayuno antes de ir al instituto.\">Todos los días me levanto, me ducho y desayuno antes de ir al instituto.</span></p>",
+  "question": "Why does ‘levantarse’ become ‘me levanto’ for ‘I get up’?",
+  "options": [
+   "it is reflexive, so it needs a pronoun (me/te/se)",
+   "all -arse verbs drop the final -o in the present tense",
+   "‘levanto’ on its own already means ‘I get up’",
+   "the pronoun ‘me’ is only used with irregular verbs"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Reflexive verbs take a matching pronoun: (yo) me levanto, (tú) te levantas, (él/ella) se levanta."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:learn:8812cefd",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I sequence my day with time phrases?",
+  "reading": "<p>Use clock times and sequencing words to build a full routine paragraph.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"por la mañana\">por la mañana</span></td><td>in the morning</td><td><span data-say=\"por la tarde\">por la tarde</span></td><td>in the afternoon</td></tr>\n              <tr><td><span data-say=\"por la noche\">por la noche</span></td><td>at night</td><td><span data-say=\"todos los días\">todos los días</span></td><td>every day</td></tr>\n              <tr><td><span data-say=\"primero\">primero</span></td><td>first</td><td><span data-say=\"luego\">luego</span></td><td>then</td></tr>\n              <tr><td><span data-say=\"después\">después</span></td><td>afterwards</td><td><span data-say=\"normalmente\">normalmente</span></td><td>normally</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Normalmente me levanto a las siete, luego desayuno y después voy al instituto.\">Normalmente me levanto a las siete, luego desayuno y después voy al instituto.</span></p>",
+  "question": "Which word means ‘afterwards / after that’?",
+  "options": [
+   "después",
+   "primero",
+   "normalmente",
+   "todos los días"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "después = afterwards; primero = first; normalmente = normally; todos los días = every day."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:learn:c94664d9",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do Spanish and British customs compare?",
+  "reading": "<p>Use the <strong>impersonal se</strong> to describe what ‘people’ or ‘one’ generally does — perfect for comparing countries.</p>\n            <ul>\n              <li><span data-say=\"en España se cena tarde\">en España se cena tarde</span> — in Spain, people have dinner late</li>\n              <li><span data-say=\"en el Reino Unido se cena más temprano\">en el Reino Unido se cena más temprano</span> — in the UK, people have dinner earlier</li>\n            </ul>\n            <p>Compare with <span data-say=\"diferente\">diferente</span> (different) and <span data-say=\"parecido\">parecido</span> (similar): <span data-say=\"En mi opinión, las costumbres son bastante diferentes.\">En mi opinión, las costumbres son bastante diferentes.</span></p>",
+  "question": "What does ‘se cena’ mean in ‘en España se cena tarde’?",
+  "options": [
+   "people (in general) have dinner",
+   "she personally is having dinner right now",
+   "you must have dinner immediately",
+   "dinner has already finished"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The impersonal se + verb describes what people in general do — se cena = people have dinner / one has dinner."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:learn:27fd843b",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Higher: a fuller routine and past habits",
+  "reading": "<p><span class=\"tier-h\">H</span> For the top band, link several reflexive actions in order and add an opinion:</p>\n            <p><span data-say=\"Después de desayunar, me visto rápidamente y salgo de casa a las ocho.\">Después de desayunar, me visto rápidamente y salgo de casa a las ocho.</span> <span class=\"tier-h\">H</span></p>\n            <p>To describe a <strong>past habit</strong> (what you used to do), use the <strong>imperfect tense</strong>: <span data-say=\"de pequeño\">de pequeño</span> (as a child) + <span data-say=\"me acostaba temprano\">me acostaba temprano</span> (I used to go to bed early).</p>\n            <p>Example: <span data-say=\"De pequeño, me acostaba muy temprano, pero ahora me acuesto mucho más tarde.\">De pequeño, me acostaba muy temprano, pero ahora me acuesto mucho más tarde.</span> <span class=\"tier-h\">H</span> — <em>As a child, I used to go to bed very early, but now I go to bed much later.</em></p>",
+  "question": "What tense is ‘me acostaba’ in ‘de pequeño me acostaba temprano’?",
+  "options": [
+   "the imperfect tense, for a past habit",
+   "the present tense, for something happening now",
+   "the near future, for an upcoming plan",
+   "a direct command telling someone what to do"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘de pequeño’ signals a repeated past habit, so the imperfect (me acostaba) is used, not the present (me acuesto)."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:misc:aeb4de87",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Levanto a las siete.</p><p><strong>✅ The correct idea:</strong> Me levanto a las siete.</p>",
+  "question": "What is missing from ‘Levanto a las siete’?",
+  "options": [
+   "the reflexive pronoun ‘me’ (me levanto)",
+   "an accent on the word ‘siete’",
+   "the definite article ‘la’ before the word ‘siete’",
+   "the word ‘hay’ at the start"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "levantarse is reflexive; you must include me/te/se — me levanto."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:misc:73cc570d",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> En España se cena temprano.</p><p><strong>✅ The correct idea:</strong> En España se cena tarde.</p>",
+  "question": "Why is ‘se cena temprano’ wrong for Spain?",
+  "options": [
+   "Spanish dinner is usually late, not early",
+   "‘temprano’ is not a real Spanish word",
+   "‘cena’ should be ‘cenar’ in this sentence",
+   "the impersonal se cannot be used with cenar"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Spanish dinner customs are usually much later than in the UK — se cena tarde, not temprano."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:misc:c9a4e4e9",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> El gazpacho se come caliente.</p><p><strong>✅ The correct idea:</strong> El gazpacho se come frío.</p>",
+  "question": "What mistake is in ‘El gazpacho se come caliente’?",
+  "options": [
+   "gazpacho is a soup eaten cold, not hot",
+   "‘caliente’ is spelt incorrectly",
+   "gazpacho is a drink, not a food",
+   "the verb ‘comer’ cannot be used with soup"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Gazpacho is famously served cold — caliente (hot) is the opposite of the truth."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:misc:3c15d2ef",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Me acuesto temprano cada noche, sin excepción, siempre a la misma hora exacta.</p><p><strong>✅ The correct idea:</strong> Me acuesto temprano.</p>",
+  "question": "What is the real problem with the ‘wrong’ version here?",
+  "options": [
+   "it is unnecessarily long and repeats the same idea three times",
+   "it uses the wrong reflexive pronoun for the subject of the sentence",
+   "‘temprano’ should be replaced with ‘tarde’",
+   "it is missing the verb completely"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The grammar is fine, but padding a sentence with repeated ideas does not add marks — clear, accurate Spanish does."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:misc:367b1be7",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> La merienda es la comida principal del día.</p><p><strong>✅ The correct idea:</strong> La comida es la comida principal del día.</p>",
+  "question": "Why is calling ‘la merienda’ the main meal wrong?",
+  "options": [
+   "la merienda is only a light afternoon snack",
+   "‘merienda’ actually means breakfast, not a snack",
+   "Spanish people never eat a main meal at midday",
+   "‘principal’ is the wrong word for ‘main’"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la merienda is a light snack — la comida (lunch) is the main hot meal of the day in Spain."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tips:2c80b0ff",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 1 — Dictation (listening)",
+  "reading": "Mealtime and routine sentences reuse chunks you know: ‘me levanto…’, ‘se cena…’, ‘desayuno a las…’. Listen carefully for the clock time and for whether the verb has a reflexive pronoun (me/se) or not.",
+  "question": "You hear ‘se cena a las diez’. What should you write down?",
+  "options": [
+   "se cena a las diez",
+   "me ceno a las diez",
+   "cena a la diez y media",
+   "se cenó a las diez"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Dictation needs the exact impersonal form and time heard: se cena a las diez."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tips:85b7c2f6",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 3 — Reading comprehension",
+  "reading": "Watch for the impersonal ‘se’ (se cena, se come) when comparing Spanish and British customs, and don’t confuse ‘la comida’ (lunch) with ‘la merienda’ (a small afternoon snack) or ‘la cena’ (dinner).",
+  "question": "‘En España se come a las dos y se cena a las diez’ means…",
+  "options": [
+   "people eat lunch at two and dinner at ten",
+   "people only eat once, at two in the afternoon",
+   "breakfast is at two and lunch is at ten",
+   "nobody eats dinner in Spain at all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "se come = people have lunch; se cena = people have dinner — at the times given."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tips:2f1a4fab",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "evaluate — Paper 4 — Writing & translation into Spanish",
+  "reading": "Combine routine, time phrases, food opinions and a past-habit comparison: ‘Normalmente me levanto a las siete, pero de pequeño me levantaba mucho más tarde.’ At Higher, always try to add the imperfect for extra range.",
+  "question": "Which answer reaches the top band?",
+  "options": [
+   "Normalmente ceno a las nueve, pero de pequeño cenaba mucho antes",
+   "Como",
+   "Ceno ceno ceno todos los días sin parar nunca jamás en toda mi vida",
+   "Me gusta"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "It links a present routine with a contrasting past habit (imperfect) — range and accuracy, not just length."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:fib:fa4a9595",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Me _____ a las siete. <span data-say=\"Me levanto a las siete.\" data-listen>Me levanto a las siete.</span>",
+  "blankOptions": {
+   "B1": [
+    "levanto",
+    "Después",
+    "fría",
+    "cena"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "levanto"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:fib:66a38852",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "En España, se _____ muy tarde, normalmente a las diez. <span data-say=\"En España, se cena muy tarde, normalmente a las diez.\" data-listen>En España, se cena muy tarde, normalmente a las diez.</span>",
+  "blankOptions": {
+   "B1": [
+    "cena",
+    "jamón",
+    "fría",
+    "acostaba"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "cena"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:fib:d0563208",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El gazpacho es una sopa de tomate que se come _____. (cold)",
+  "blankOptions": {
+   "B1": [
+    "cena",
+    "fría",
+    "desayuno",
+    "acostaba"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "fría"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:fib:65d3a0d8",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Todos los días me ducho y _____ antes de ir al instituto. (I have breakfast)",
+  "blankOptions": {
+   "B1": [
+    "cena",
+    "desayuno",
+    "jamón",
+    "Después"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "desayuno"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:fib:be20ab74",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "_____ del instituto, hago los deberes y ceno con mi familia. (afterwards)",
+  "blankOptions": {
+   "B1": [
+    "acostaba",
+    "Después",
+    "levanto",
+    "desayuno"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "Después"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:fib:4de03963",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "De pequeño, me _____ muy temprano, pero ahora me acuesto más tarde. (used to go to bed)",
+  "blankOptions": {
+   "B1": [
+    "acostaba",
+    "desayuno",
+    "fría",
+    "jamón"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "acostaba"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:fib:1c6dd2fe",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Muchas familias españolas comen _____ con pan y aceite de oliva. (ham)",
+  "blankOptions": {
+   "B1": [
+    "desayuno",
+    "Después",
+    "jamón",
+    "cena"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "jamón"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:ac1523a5",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el desayuno”?",
+  "options": [
+   "breakfast",
+   "every day",
+   "Spanish omelette",
+   "I get up"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el desayuno” means: breakfast"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:329055a7",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la merienda”?",
+  "options": [
+   "I shower",
+   "I go to bed",
+   "as a child",
+   "afternoon snack"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“la merienda” means: afternoon snack"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:2e6a703d",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la cena”?",
+  "options": [
+   "small shared dishes",
+   "dinner",
+   "breakfast",
+   "Spanish omelette"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la cena” means: dinner"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:8c0e177d",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la tortilla de patatas”?",
+  "options": [
+   "Spanish omelette",
+   "afternoon snack",
+   "as a child",
+   "breakfast"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la tortilla de patatas” means: Spanish omelette"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:d7162b22",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “las tapas”?",
+  "options": [
+   "cold tomato soup",
+   "in the morning",
+   "small shared dishes",
+   "Spanish omelette"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“las tapas” means: small shared dishes"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:6c2d64d4",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el gazpacho”?",
+  "options": [
+   "every day",
+   "cold tomato soup",
+   "afternoon snack",
+   "I go to bed"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el gazpacho” means: cold tomato soup"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:f72a8792",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “me levanto”?",
+  "options": [
+   "small shared dishes",
+   "as a child",
+   "dinner",
+   "I get up"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“me levanto” means: I get up"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:d93f0ebf",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “me ducho”?",
+  "options": [
+   "cold tomato soup",
+   "I shower",
+   "I get up",
+   "Spanish omelette"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“me ducho” means: I shower"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:1809822c",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “me acuesto”?",
+  "options": [
+   "as a child",
+   "I shower",
+   "breakfast",
+   "I go to bed"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“me acuesto” means: I go to bed"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:d3417378",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “por la mañana”?",
+  "options": [
+   "Spanish omelette",
+   "dinner",
+   "in the morning",
+   "every day"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“por la mañana” means: in the morning"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:c91096be",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “todos los días”?",
+  "options": [
+   "I shower",
+   "every day",
+   "Spanish omelette",
+   "small shared dishes"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“todos los días” means: every day"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:19f3a65b",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “de pequeño”?",
+  "options": [
+   "I go to bed",
+   "I shower",
+   "as a child",
+   "every day"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“de pequeño” means: as a child"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:exam:b1717b1c",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "exam",
+  "type": "written",
+  "marks": 4,
+  "num": 1,
+  "question": "Read what Pablo says. Answer <strong>in English</strong>.<br>(a) What does Pablo's family usually do at Christmas? (1)<br>(b) Where did he go last year, and for what festival? (1)<br>(c) Name <strong>one</strong> thing he saw or ate there. (1)<br>(d) What is he going to do next year? (1)",
+  "caseStudy": "<p><strong>Lee lo que dice Pablo.</strong></p>\n        <p><em>\"Todos los años mi familia y yo solemos celebrar la Navidad juntos, pero el año pasado fue diferente porque fuimos a Sevilla para las fiestas de Semana Santa. Vimos las procesiones por las calles y comimos mucho turrón. Normalmente nos disfrazamos para el carnaval en febrero, pero ese año no pudimos porque estábamos de viaje. Lo pasé genial y el año que viene voy a volver a Sevilla para la Feria de Abril.\"</em></p>",
+  "hint": "Find the habit after ‘todos los años’, the place and festival after ‘fuimos a’, a detail after ‘vimos’ or ‘comimos’, and the plan after ‘voy a’.",
+  "starter": "(a) They usually… (b) He went to… (c) He… (d) He is going to…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>\n                <li><strong>(a)</strong> celebrate Christmas together (as a family) <em>(1)</em>.</li>\n                <li><strong>(b)</strong> Sevilla, for (the festivities of) Semana Santa / Holy Week <em>(1)</em>.</li>\n                <li><strong>(c)</strong> the processions in the streets / (he ate) a lot of turrón (ANY ONE) <em>(1)</em>.</li>\n                <li><strong>(d)</strong> go back to Sevilla for the Feria de Abril <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>\n            </ul></div>",
+   "modelAnswer": "(a) They usually celebrate Christmas together. (b) He went to Sevilla for Semana Santa (Holy Week). (c) He saw the processions in the streets (or: he ate a lot of turrón). (d) He is going to go back to Sevilla for the Feria de Abril."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:exam:921c4a7d",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "exam",
+  "type": "written",
+  "marks": 5,
+  "num": 2,
+  "question": "Translate these sentences <strong>into Spanish</strong>.<br>(a) We celebrate Christmas with the family. <br>(b) Last year we danced all night. <br>(c) I am going to dress up as a superhero for the carnival.",
+  "hint": "‘We celebrate’ = present tense (celebramos). ‘Last year we danced’ = preterite (bailamos). ‘I am going to dress up’ = voy a disfrazarme (reflexive).",
+  "starter": "(a) Celebramos… (b) El año pasado… (c) Voy a…",
+  "key": {
+   "markScheme": "<div class=\"marks-section\"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>\n                <li><strong>(a)</strong> Celebramos la Navidad con la familia. <em>(1)</em></li>\n                <li><strong>(b)</strong> El año pasado bailamos toda la noche. <em>(1)</em></li>\n                <li><strong>(c)</strong> Voy a disfrazarme <em>(1)</em> de superhéroe <em>(1)</em> para el carnaval <em>(1)</em>.</li>\n            </ul></div>\n            <div class=\"marks-section\"><h5>How the marks are given</h5><ul>\n                <li>Accept minor accent errors. Part (b) must use the preterite ‘bailamos’, not the present.</li>\n            </ul></div>",
+   "modelAnswer": "(a) Celebramos la Navidad con la familia. (b) El año pasado bailamos toda la noche. (c) Voy a disfrazarme de superhéroe para el carnaval."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:mcq:6d781d4e",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Celebramos la Navidad en familia.\" data-listen></span><br>Listen. What does this mean?",
+  "options": [
+   "We celebrate Christmas with family",
+   "We celebrated Christmas with family last year",
+   "We used to celebrate Christmas with family",
+   "We are going to celebrate Christmas with family"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘celebramos la Navidad en familia’ is present tense: we celebrate. The traps add a past-time marker, an imperfect meaning, or a future plan."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:mcq:e44ffa7d",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Nos disfrazamos y vamos a la procesión.\" data-listen></span><br>Listen. What does this mean?",
+  "options": [
+   "We dress up in costumes and go to the procession",
+   "We get dressed up and go to see the fireworks",
+   "We used to dress up and go to processions every year",
+   "They dress up and go to the procession"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘nos disfrazamos’ (reflexive, present) = we dress up; ‘la procesión’ = the procession, not fireworks. Trap D swaps ‘nos’ for ‘they’."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:mcq:075640a0",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘El año pasado, mi familia y yo ___ la Navidad en casa de mis abuelos.’",
+  "options": [
+   "celebramos",
+   "celebrábamos",
+   "celebra",
+   "vamos a celebrar"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘el año pasado’ = a completed past event → preterite ‘celebramos’. B is imperfect, C is 3rd person singular, D is a future plan."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:mcq:af7a6423",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Normalmente, mi familia ___ reunirse en Nochebuena.’",
+  "options": [
+   "suele",
+   "solía",
+   "solemos",
+   "sueles"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘mi familia’ is 3rd person singular → suele. ‘solía’ is imperfect (used to), ‘solemos’/‘sueles’ do not agree with ‘mi familia’."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:mcq:8afc01b4",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence means ‘The family gets together on Christmas Eve’?",
+  "options": [
+   "La familia se reúne en Nochebuena.",
+   "La familia se reunió en Nochebuena.",
+   "La familia reúne en Nochebuena.",
+   "La familia se reúne en Nochevieja."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Present reflexive ‘se reúne’ + ‘Nochebuena’. B is preterite, C drops the reflexive ‘se’, D swaps to New Year's Eve."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:mcq:b108d603",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘Los Reyes Magos’ celebrates…",
+  "options": [
+   "the Three Kings' arrival with gifts (6 Jan)",
+   "the King and Queen of Spain's official wedding anniversary",
+   "the crowning of a brand new king somewhere in Spain",
+   "New Year's Eve, celebrated with a royal television speech"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Los Reyes Magos (6 January) is when the Three Kings bring gifts to children in Spain — not the King and Queen of Spain, a new coronation, or Nochevieja."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:mcq:b0a48447",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Fuimos a ver los fuegos artificiales y lo pasamos genial.\" data-listen></span><br>Listen. What does this mean?",
+  "options": [
+   "We went to see the fireworks and had a great time",
+   "We go to see the fireworks every year and have a great time",
+   "We are going to see the fireworks and will have a great time",
+   "We used to go and see the fireworks and always had a good time"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘fuimos’ (preterite of ir) + ‘lo pasamos genial’ = we went and had a great time — a single past event, not a habit or future plan."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:mcq:e40517dd",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "La Tomatina takes place in which month, and what happens?",
+  "options": [
+   "August — people throw tomatoes in Buñol",
+   "July — people run in front of bulls through the streets of Pamplona",
+   "March — people burn giant sculptures in the city of Valencia",
+   "November — people visit graves to remember the dead in Mexico"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "La Tomatina is a tomato fight in Buñol in August. B describes San Fermín, C describes Las Fallas, D describes el Día de los Muertos."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:mcq:0eff57e9",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Este año, los niños ___ de superhéroes para el carnaval.’",
+  "options": [
+   "se disfrazan",
+   "disfrazan",
+   "se disfrazaron",
+   "se disfrazaban"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "disfrazarse is reflexive, present tense → se disfrazan. B drops ‘se’, C is preterite, D is imperfect."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:mcq:bd0e785d",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How do you say ‘We ate together and danced all night’?",
+  "options": [
+   "Comimos juntos y bailamos toda la noche.",
+   "Comemos juntos y bailamos toda la noche.",
+   "Comíamos juntos y bailábamos toda la noche.",
+   "Vamos a comer juntos y a bailar toda la noche."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A completed one-off past event needs the preterite: comimos, bailamos. B is present, C is imperfect (used to), D is a future plan."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tf:d248eb41",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Los Reyes Magos’ is celebrated on 6th January.",
+  "key": {
+   "answer": true,
+   "explain": "6 January — Epiphany, when the Three Kings bring presents in Spain."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tf:ff921a3a",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘La Tomatina’ takes place in Pamplona.",
+  "key": {
+   "answer": false,
+   "explain": "La Tomatina is in Buñol; Pamplona hosts San Fermín (the running of the bulls)."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tf:7ac27f17",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Reunirse’ is reflexive, so ‘the family gets together’ is ‘la familia se reúne’.",
+  "key": {
+   "answer": true,
+   "explain": "Reflexive verbs need me/te/se — se reúne."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tf:87450426",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The preterite tense is used to describe what usually happens every year.",
+  "key": {
+   "answer": false,
+   "explain": "Habitual actions use soler/imperfect; the preterite is for one completed past event."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tf:cb5e7ad7",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘El Día de los Muertos’ is a Mexican celebration.",
+  "key": {
+   "answer": true,
+   "explain": "El Día de los Muertos (1–2 November) is celebrated across Mexico."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tf:bfd2887a",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Lo pasé genial’ means ‘I had a great time’.",
+  "key": {
+   "answer": true,
+   "explain": "pasarlo genial/bien = to have a great/good time."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tf:20e23ecc",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Vamos a celebrar la Navidad juntos’ describes something that already happened.",
+  "key": {
+   "answer": false,
+   "explain": "‘vamos a’ + infinitive is a future plan, not a completed past event."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tf:431ec471",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "San Fermín is famous for the running of the bulls in Pamplona.",
+  "key": {
+   "answer": true,
+   "explain": "San Fermín (July) in Pamplona is famous for el encierro, the running of the bulls."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:learn:fe5d548a",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about festivals and special days?",
+  "reading": "<p>The key verb is <span data-say=\"celebrar\">celebrar</span> (to celebrate). Here is the core festival vocabulary — tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la fiesta\">la fiesta</span></td><td>the party / festival</td><td><span data-say=\"el festival\">el festival</span></td><td>the festival</td></tr>\n              <tr><td><span data-say=\"la Navidad\">la Navidad</span></td><td>Christmas</td><td><span data-say=\"la Nochebuena\">la Nochebuena</span></td><td>Christmas Eve</td></tr>\n              <tr><td><span data-say=\"el Año Nuevo\">el Año Nuevo</span></td><td>New Year</td><td><span data-say=\"los Reyes Magos\">los Reyes Magos</span></td><td>the Three Kings (6 Jan)</td></tr>\n              <tr><td><span data-say=\"la Semana Santa\">la Semana Santa</span></td><td>Holy Week</td><td><span data-say=\"el cumpleaños\">el cumpleaños</span></td><td>birthday</td></tr>\n              <tr><td><span data-say=\"Feliz Navidad\">Feliz Navidad</span></td><td>Merry Christmas</td><td><span data-say=\"Feliz Año Nuevo\">Feliz Año Nuevo</span></td><td>Happy New Year</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Celebramos la Navidad con toda la familia.\">Celebramos la Navidad con toda la familia.</span> — <em>We celebrate Christmas with the whole family.</em></p>",
+  "question": "What is ‘la Nochebuena’?",
+  "options": [
+   "Christmas Eve",
+   "New Year's Eve",
+   "the night of the Three Kings",
+   "a birthday party at night"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la Nochebuena = Christmas Eve (24 December); la Nochevieja is New Year's Eve — a common mix-up."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:learn:c048758e",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about celebrating together?",
+  "reading": "<p>Celebrations centre on family and food. Key phrases:</p>\n            <ul>\n              <li><span data-say=\"la familia se reúne\">la familia se reúne</span> — the family gets together (reflexive!)</li>\n              <li><span data-say=\"los regalos\">los regalos</span> — the presents; <span data-say=\"regalar\">regalar</span> — to give (as a present)</li>\n              <li><span data-say=\"cenar juntos\">cenar juntos</span> — to have dinner together</li>\n              <li><span data-say=\"bailar\">bailar</span> — to dance; <span data-say=\"los fuegos artificiales\">los fuegos artificiales</span> — fireworks</li>\n            </ul>\n            <p>Example: <span data-say=\"En Nochevieja, vemos los fuegos artificiales y bailamos toda la noche.\">En Nochevieja, vemos los fuegos artificiales y bailamos toda la noche.</span> — <em>On New Year's Eve, we watch the fireworks and dance all night.</em></p>",
+  "question": "Why does ‘reunirse’ need ‘se’ in ‘la familia se reúne’?",
+  "options": [
+   "it is reflexive — the family gathers itself",
+   "‘se’ makes the whole verb negative instead",
+   "‘se’ shows the action has already finished",
+   "‘se’ is only ever used before certain plural nouns"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "reunirse is reflexive: la familia se reúne = the family gets (itself) together."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:learn:481f9a0f",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about costumes, processions and famous fiestas?",
+  "reading": "<p>Some celebrations involve costumes and processions:</p>\n            <ul>\n              <li><span data-say=\"disfrazarse\">disfrazarse</span> — to dress up / wear a costume; <span data-say=\"el disfraz\">el disfraz</span> — the costume</li>\n              <li><span data-say=\"la procesión\">la procesión</span> — the procession; <span data-say=\"el encierro\">el encierro</span> — the running of the bulls</li>\n            </ul>\n            <p>Famous Spanish and Hispanic festivals:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"Las Fallas\">Las Fallas</span></td><td>Valencia, March — giant sculptures are burned</td></tr>\n              <tr><td><span data-say=\"La Tomatina\">La Tomatina</span></td><td>Buñol, August — a huge tomato fight</td></tr>\n              <tr><td><span data-say=\"San Fermín\">San Fermín</span></td><td>Pamplona, July — the running of the bulls</td></tr>\n              <tr><td><span data-say=\"el Día de los Muertos\">el Día de los Muertos</span></td><td>Mexico, 1–2 November — remembering the dead</td></tr>\n            </table>\n            <p><span data-say=\"En Semana Santa hay procesiones grandes por las calles.\">En Semana Santa hay procesiones grandes por las calles.</span></p>",
+  "question": "Where does ‘La Tomatina’ take place?",
+  "options": [
+   "Buñol",
+   "Pamplona",
+   "Valencia",
+   "Sevilla"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "La Tomatina (the tomato fight) is in Buñol; Pamplona hosts San Fermín and Valencia hosts Las Fallas."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:learn:14c0d6a7",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I say what happened at a festival? (preterite)",
+  "reading": "<p>Use the <strong>preterite</strong> for a completed action at a specific past festival — what happened once:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"celebramos\">celebramos</span></td><td>we celebrated</td><td><span data-say=\"fui\">fui</span></td><td>I went</td></tr>\n              <tr><td><span data-say=\"comimos\">comimos</span></td><td>we ate</td><td><span data-say=\"bailamos\">bailamos</span></td><td>we danced</td></tr>\n              <tr><td><span data-say=\"lo pasé bien\">lo pasé bien</span></td><td>I had a good time</td><td><span data-say=\"lo pasé genial\">lo pasé genial</span></td><td>I had a great time</td></tr>\n            </table>\n            <p>Example: <span data-say=\"El año pasado celebramos la Navidad en casa de mis abuelos y lo pasé genial.\">El año pasado celebramos la Navidad en casa de mis abuelos y lo pasé genial.</span> — <em>Last year we celebrated Christmas at my grandparents' house and I had a great time.</em></p>",
+  "question": "Which time phrase signals you need the PRETERITE, not the present?",
+  "options": [
+   "el año pasado (last year)",
+   "normalmente (normally)",
+   "todos los años (every year)",
+   "los domingos (on Sundays)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘el año pasado’ points to one completed past event → preterite. The others signal habitual, repeated actions."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:learn:8939c0eb",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I say what usually happens? (imperfect / soler)",
+  "reading": "<p>For habits and things that happened <strong>repeatedly</strong>, use <strong>soler</strong> + infinitive or the imperfect tense:</p>\n            <ul>\n              <li><span data-say=\"solemos reunirnos\">solemos reunirnos</span> — we usually get together (present habit)</li>\n              <li><span data-say=\"solíamos ir\">solíamos ir</span> — we used to go (past habit) <span class=\"tier-h\">H</span></li>\n              <li><span data-say=\"normalmente celebramos\">normalmente celebramos</span> — we normally celebrate</li>\n              <li><span data-say=\"todos los años\">todos los años</span> — every year</li>\n            </ul>\n            <p>Example: <span data-say=\"Cuando era niño, solíamos ir a ver los fuegos artificiales cada Año Nuevo.\">Cuando era niño, solíamos ir a ver los fuegos artificiales cada Año Nuevo.</span> — <em>When I was a child, we used to go and see the fireworks every New Year.</em></p>",
+  "question": "‘Solíamos ir a ver los fuegos artificiales’ describes…",
+  "options": [
+   "a repeated habit in the past",
+   "one single event that just happened",
+   "something that will happen next year",
+   "an order someone gave you"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "soler in the imperfect (solíamos) + infinitive = used to do something repeatedly."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:learn:f6bb96ce",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Higher: combining preterite and imperfect",
+  "reading": "<p><span class=\"tier-h\">H</span> The strongest Higher-tier answers <strong>combine</strong> the imperfect (background/description) with the preterite (the event that interrupted it):</p>\n            <ul>\n              <li><span data-say=\"Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme.\">Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme.</span> <span class=\"tier-h\">H</span></li>\n              <li><span data-say=\"Hacía mucho calor durante La Tomatina cuando alguien me tiró un tomate.\">Hacía mucho calor durante La Tomatina cuando alguien me tiró un tomate.</span> <span class=\"tier-h\">H</span></li>\n            </ul>\n            <p>Pattern: <strong>imperfect</strong> (era / estaba / hacía…) sets the scene, <strong>preterite</strong> (preparó / tiró…) is the action that happened.</p>",
+  "question": "In ‘Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme’, which verb is the PRETERITE?",
+  "options": [
+   "preparó",
+   "era",
+   "estaba",
+   "preparaba"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘preparó’ is the single completed action (preterite); ‘era’ and ‘estaba’ are imperfect, setting the scene, and ‘preparaba’ would be the imperfect of the same verb."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:misc:ed344569",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Yo celebro la Navidad el año pasado.</p><p><strong>✅ The correct idea:</strong> Yo celebré la Navidad el año pasado.</p>",
+  "question": "Why is ‘celebro’ wrong with ‘el año pasado’?",
+  "options": [
+   "‘el año pasado’ needs the preterite, celebré",
+   "‘celebro’ should always be conjugated in the plural",
+   "‘Navidad’ needs a capital C written at the end",
+   "the sentence is missing the linking word ‘que’"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A specific past time phrase like ‘el año pasado’ requires the preterite: celebré."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:misc:a59bc7c2",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> La familia reúne en Nochebuena.</p><p><strong>✅ The correct idea:</strong> La familia se reúne en Nochebuena.</p>",
+  "question": "What is missing from ‘La familia reúne en Nochebuena’?",
+  "options": [
+   "the reflexive pronoun ‘se’ (se reúne)",
+   "the definite article before ‘familia’",
+   "an accent on the word ‘familia’",
+   "the word ‘mucho’ at the end"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "reunirse is reflexive — you need ‘se’: la familia se reúne."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:misc:bb416a03",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> La Tomatina es en Pamplona.</p><p><strong>✅ The correct idea:</strong> La Tomatina es en Buñol.</p>",
+  "question": "Why is ‘La Tomatina es en Pamplona’ wrong?",
+  "options": [
+   "La Tomatina is actually held in Buñol, not Pamplona",
+   "‘Tomatina’ should really be spelt ‘Tomatino’ instead",
+   "Pamplona does not exist as a real city in Spain",
+   "‘es’ should be replaced with ‘está’ in this sentence"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "La Tomatina (the tomato fight) is in Buñol; Pamplona is famous for San Fermín instead."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:misc:c021499e",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Los Reyes Magos es el 25 de diciembre.</p><p><strong>✅ The correct idea:</strong> Los Reyes Magos es el 6 de enero.</p>",
+  "question": "Why is ‘el 25 de diciembre’ the wrong date here?",
+  "options": [
+   "that is Christmas Day — Los Reyes Magos is 6 January",
+   "Los Reyes Magos does not actually have any fixed date at all",
+   "25 December really is the correct date for this festival",
+   "dates are never mentioned together with festival names"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "25 December is Christmas Day (la Navidad); Los Reyes Magos is celebrated on 6 January."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:misc:88b677ef",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Ayer, solemos reunirnos en casa de mi abuela.</p><p><strong>✅ The correct idea:</strong> Ayer, nos reunimos en casa de mi abuela.</p>",
+  "question": "Why doesn't ‘solemos’ work with ‘ayer’ (yesterday)?",
+  "options": [
+   "‘ayer’ names one day, so it needs the preterite instead",
+   "‘solemos’ is simply spelt incorrectly in this whole sentence",
+   "‘ayer’ must always be placed at the very end of a sentence",
+   "‘reunirnos’ is not actually a real Spanish verb at all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "soler + present describes a habit, but ‘ayer’ points to a single completed day — use the preterite instead."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tips:57742b6d",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 1 — Listening for tense and dates",
+  "reading": "Festival questions often hinge on a single tense marker or date. For -ar verbs like ‘celebramos’, present and preterite can look identical, so listen for time phrases like ‘el año pasado’ or ‘normalmente’ around the verb, and note exact dates (6 de enero vs 25 de diciembre).",
+  "question": "You hear ‘normalmente’ before a verb about a festival. What does that signal?",
+  "options": [
+   "a habitual action, not a one-off past event",
+   "a completed action that only ever happened once",
+   "a plan for something in the future",
+   "a mistake accidentally made by the speaker"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘normalmente’ signals a habitual/repeated action — pair it with soler or the present, not the preterite."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tips:72d2f2ad",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "tip — Paper 3 — Reading & translation into English",
+  "reading": "Watch for reflexive verbs (la familia se reúne) and false festival-date traps. Keep translations natural: ‘lo pasé genial’ = ‘I had a great time’, not a stiff word-for-word translation.",
+  "question": "How should you translate ‘Nos disfrazamos para el carnaval’?",
+  "options": [
+   "We dress up in costumes for the carnival",
+   "We watch other people dress up for the carnival",
+   "We used to dress up for the carnival every year",
+   "We are going to dress up for the carnival"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘nos disfrazamos’ is present tense: we dress up (ourselves)."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tips:3d842968",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tips",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "evaluate — Paper 4 — Writing & translation into Spanish (Higher)",
+  "reading": "For the strongest answers, mix tenses: describe a past festival with the preterite for what happened (celebramos, fuimos, bailamos) and the imperfect for background description (era Navidad, hacía frío, toda la familia estaba en casa).",
+  "question": "Which sentence reaches the top band for describing a past festival?",
+  "options": [
+   "Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme",
+   "Navidad es muy buena y me gusta mucho la Navidad todos los años",
+   "Celebramos la Navidad y también nos gusta mucho el Año Nuevo",
+   "Hay una fiesta muy grande, bonita y tradicional en mi ciudad todos los años sin falta"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "It combines the imperfect (era, estaba) with the preterite (preparó) — the Higher-tier marker examiners reward, not just present-tense opinions."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:fib:7f8fb291",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Celebramos la _____ con mi familia el 24 de diciembre. <span data-say=\"Celebramos la Nochebuena con mi familia el 24 de diciembre.\" data-listen>Celebramos la Nochebuena con mi familia el 24 de diciembre.</span>",
+  "blankOptions": {
+   "B1": [
+    "reúne",
+    "disfrazamos",
+    "Nochebuena",
+    "Reyes"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "Nochebuena"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:fib:c77b0c48",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El seis de enero celebramos el día de los _____ Magos. (Three Kings)",
+  "blankOptions": {
+   "B1": [
+    "solíamos",
+    "Nochebuena",
+    "disfrazamos",
+    "Reyes"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "Reyes"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:fib:18cce42a",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "En Navidad, toda la familia se _____ en casa de mis abuelos. (reunirse)",
+  "blankOptions": {
+   "B1": [
+    "Reyes",
+    "reúne",
+    "solíamos",
+    "Nochebuena"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "reúne"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:fib:a5c14c80",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Vemos los _____ artificiales a medianoche en Nochevieja. (fireworks)",
+  "blankOptions": {
+   "B1": [
+    "fuegos",
+    "pasé",
+    "reúne",
+    "Nochebuena"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "fuegos"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:fib:8f85d2ec",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Para Halloween, nos _____ de personajes de miedo. (disfrazarse — we dress up)",
+  "blankOptions": {
+   "B1": [
+    "solíamos",
+    "disfrazamos",
+    "Nochebuena",
+    "fuegos"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "disfrazamos"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:fib:02815016",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El año pasado, lo _____ genial en la fiesta de cumpleaños. <span data-say=\"El año pasado, lo pasé genial en la fiesta de cumpleaños.\" data-listen>El año pasado, lo pasé genial en la fiesta de cumpleaños.</span>",
+  "blankOptions": {
+   "B1": [
+    "disfrazamos",
+    "pasé",
+    "fuegos",
+    "Reyes"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "pasé"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:fib:917e1c94",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Cuando éramos pequeños, _____ ir a ver la procesión de Semana Santa. (soler, imperfect)",
+  "blankOptions": {
+   "B1": [
+    "disfrazamos",
+    "Nochebuena",
+    "reúne",
+    "solíamos"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "solíamos"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:e493ca20",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la fiesta”?",
+  "options": [
+   "the party / festival",
+   "Christmas Eve",
+   "Holy Week",
+   "birthday"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la fiesta” means: the party / festival"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:0146a263",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “celebrar”?",
+  "options": [
+   "the Three Kings",
+   "to dress up / wear a costume",
+   "the family gets together",
+   "to celebrate"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“celebrar” means: to celebrate"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:d087c02c",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la Nochebuena”?",
+  "options": [
+   "to celebrate",
+   "Christmas Eve",
+   "fireworks",
+   "the family gets together"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la Nochebuena” means: Christmas Eve"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:911e05db",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “los Reyes Magos”?",
+  "options": [
+   "the Three Kings",
+   "to dress up / wear a costume",
+   "Christmas Eve",
+   "to celebrate"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“los Reyes Magos” means: the Three Kings"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:90e49e3a",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la Semana Santa”?",
+  "options": [
+   "fireworks",
+   "Christmas Eve",
+   "the party / festival",
+   "Holy Week"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“la Semana Santa” means: Holy Week"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:5ad717fb",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el cumpleaños”?",
+  "options": [
+   "I had a great time",
+   "birthday",
+   "we usually get together",
+   "the family gets together"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el cumpleaños” means: birthday"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:9b14a42d",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la familia se reúne”?",
+  "options": [
+   "I had a great time",
+   "fireworks",
+   "the family gets together",
+   "to celebrate"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la familia se reúne” means: the family gets together"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:5a56907c",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “los fuegos artificiales”?",
+  "options": [
+   "fireworks",
+   "birthday",
+   "to dress up / wear a costume",
+   "the procession"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“los fuegos artificiales” means: fireworks"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:19eb82df",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “disfrazarse”?",
+  "options": [
+   "Holy Week",
+   "to dress up / wear a costume",
+   "the family gets together",
+   "I had a great time"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“disfrazarse” means: to dress up / wear a costume"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:632e9da2",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la procesión”?",
+  "options": [
+   "the Three Kings",
+   "the procession",
+   "the party / festival",
+   "we usually get together"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la procesión” means: the procession"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:2550a5ea",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “lo pasé genial”?",
+  "options": [
+   "I had a great time",
+   "we usually get together",
+   "to dress up / wear a costume",
+   "Holy Week"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“lo pasé genial” means: I had a great time"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:885348cd",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “solemos reunirnos”?",
+  "options": [
+   "the procession",
+   "I had a great time",
+   "fireworks",
+   "we usually get together"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“solemos reunirnos” means: we usually get together"
   }
  }
 ];
