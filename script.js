@@ -1686,17 +1686,33 @@ function updateMCQProgress() {
     }
 }
 
+// Deterministic per-question option shuffle so the correct answer isn't always in
+// the same slot (authors tend to put it first). The order is STABLE for a given
+// question (seeded by its stable id), so it never re-jumbles on rebuild/reload, and
+// data-oi always carries the ORIGINAL option index — grading and saved answers key on
+// data-oi, so persistence/grading are unchanged; only the display order differs.
+// Buttons must therefore be located by data-oi, never by DOM position (_optBtn).
+function _hashStr(s) { let h = 2166136261 >>> 0; s = String(s); for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function _shuffledIndices(n, seedStr) {
+    const idx = Array.from({ length: n }, (_, i) => i);
+    let seed = _hashStr(seedStr) || 1;
+    const rnd = () => { seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = (t + Math.imul(t ^ t >>> 7, 61 | t)) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+    for (let i = n - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); const tmp = idx[i]; idx[i] = idx[j]; idx[j] = tmp; }
+    return idx;
+}
+function _optBtn(block, oi) { return block.querySelector('.opt-btn[data-oi="' + oi + '"]'); }
+
 function applyMCQAnswered(block, qi, chosenOi) {
     block.dataset.answered = 1;
     block.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
     const fb = document.getElementById(`qfb-${qi}`);
     if (chosenOi === mcqData[qi].ans) {
-        block.querySelectorAll('.opt-btn')[chosenOi].classList.add('correct');
+        _optBtn(block, chosenOi).classList.add('correct');
         fb.textContent = '✓ Correct! ' + mcqData[qi].explain;
         fb.className = 'q-feedback show ok';
     } else {
-        block.querySelectorAll('.opt-btn')[chosenOi].classList.add('wrong');
-        block.querySelectorAll('.opt-btn')[mcqData[qi].ans].classList.add('correct');
+        _optBtn(block, chosenOi).classList.add('wrong');
+        _optBtn(block, mcqData[qi].ans).classList.add('correct');
         fb.textContent = '✗ ' + mcqData[qi].explain;
         fb.className = 'q-feedback show no';
     }
@@ -1737,7 +1753,7 @@ function buildMCQLocal(retryOnly = false) {
         const block = document.createElement('div');
         block.className = 'q-block';
         block.innerHTML = `<div class="q-num">QUESTION ${qi + 1}</div><div class="q-text">${q.q}</div>
-<div class="options">${q.opts.map((o, oi) => `<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${o}</button>`).join('')}</div>
+<div class="options">${_shuffledIndices(q.opts.length, key).map(oi => `<button class="opt-btn" data-qi="${qi}" data-oi="${oi}">${q.opts[oi]}</button>`).join('')}</div>
 <div class="q-feedback" id="qfb-${qi}"></div>`;
         wrap.appendChild(block);
 
@@ -1845,12 +1861,13 @@ function _applyMCQServerAnswered(block, chosenOi, correct, correctOi, explain) {
     const btns = block.querySelectorAll('.opt-btn');
     btns.forEach(b => b.disabled = true);
     const fb = document.getElementById(block.dataset.fbId);
+    const chosenBtn = _optBtn(block, chosenOi), correctBtn = correctOi != null ? _optBtn(block, correctOi) : null;
     if (correct) {
-        if (btns[chosenOi]) btns[chosenOi].classList.add('correct');
+        if (chosenBtn) chosenBtn.classList.add('correct');
         if (fb) { fb.textContent = '✓ Correct! ' + (explain || ''); fb.className = 'q-feedback show ok'; }
     } else {
-        if (btns[chosenOi]) btns[chosenOi].classList.add('wrong');
-        if (correctOi != null && btns[correctOi]) btns[correctOi].classList.add('correct');
+        if (chosenBtn) chosenBtn.classList.add('wrong');
+        if (correctBtn) correctBtn.classList.add('correct');
         if (fb) { fb.textContent = '✗ ' + (explain || ''); fb.className = 'q-feedback show no'; }
     }
     if (fb && typeof renderMathIn === 'function') renderMathIn(fb);
@@ -1881,8 +1898,8 @@ function _renderMCQServer(wrap, rows, retryOnly) {
         // (bank content is authored by the build pipeline / sanitised custom-bank).
         block.innerHTML = '<div class="q-num">QUESTION ' + (qi + 1) + '</div>'
             + '<div class="q-text">' + _sgEsc(snap.question || '') + '</div>'
-            + '<div class="options">' + opts.map((o, oi) =>
-                '<button class="opt-btn" data-key="' + encodeURIComponent(key) + '" data-oi="' + oi + '">' + _sgEsc(o) + '</button>').join('')
+            + '<div class="options">' + _shuffledIndices(opts.length, key).map(oi =>
+                '<button class="opt-btn" data-key="' + encodeURIComponent(key) + '" data-oi="' + oi + '">' + _sgEsc(opts[oi]) + '</button>').join('')
             + '</div><div class="q-feedback" id="qfb-sg-' + qi + '"></div>';
         wrap.appendChild(block);
         if (answered) _applyMCQServerAnswered(block, prior.oi, prior.correct, prior.answer, prior.explain);
@@ -3399,6 +3416,13 @@ function renderFC() {
     if (typeof renderMathIn === 'function') {
         renderMathIn(termEl);
         renderMathIn(document.getElementById('fcDef'));
+    }
+    // Spanish flashcards: speak the front. Guarded — no-op unless /speech.js is loaded
+    // (Spanish pages) and the card supplies a `say` string. Re-armed every render.
+    if (typeof enhanceAudio === 'function' && fc.say) {
+        termEl.setAttribute('data-say', fc.say);
+        termEl.removeAttribute('data-say-done');
+        enhanceAudio(termEl);
     }
     document.getElementById('fcProgress').textContent = `Card ${fcIndex + 1} of ${activeDeck.length}`;
     document.getElementById('flashcard').classList.remove('flipped');
