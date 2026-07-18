@@ -150,10 +150,12 @@
     const overflow = sum > 255;
     const result8 = toBinary8(sum & 0xFF);
     return {
-      prompt: 'Add these two 8-bit binary numbers: ' + groupBits(toBinary8(a)) + ' + ' + groupBits(toBinary8(b)),
+      prompt: 'Add these two 8-bit binary numbers, laid out just like on paper.',
+      opA: toBinary8(a),
+      opB: toBinary8(b),
       fields: [
         {
-          id: 'result', label: '8-bit result', kind: 'text', placeholder: 'e.g. 10110010',
+          id: 'result', label: '8-bit result', kind: 'digitgrid',
           check: raw => normBinary(raw) === result8, correctDisplay: groupBits(result8),
         },
         {
@@ -427,7 +429,20 @@
       '.cslab-drills-mcq.incorrect button.selected{border-color:#c0392b;box-shadow:0 0 0 1px #c0392b}' +
       '.cslab-drills-btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}' +
       '.cslab-drills-working{margin-top:12px;padding:10px 12px;background:var(--cream);border:1px solid var(--border);border-radius:8px;font-size:14px;color:var(--ink)}' +
-      '.cslab-drills-score{font-size:16px;font-weight:600;margin-bottom:12px}';
+      '.cslab-drills-score{font-size:16px;font-weight:600;margin-bottom:12px}' +
+      '.cslab-drills-addgrid{display:inline-flex;flex-direction:column;gap:2px;font-family:"DM Mono","Consolas",monospace}' +
+      '.cslab-drills-carrytoggle{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--mid);margin-bottom:6px;cursor:pointer;font-family:inherit}' +
+      '.cslab-drills-addgrid-row{display:flex;gap:2px}' +
+      '.cslab-drills-addgrid-oprow{display:flex;align-items:center;gap:6px}' +
+      '.cslab-drills-addgrid-plus{font-size:16px;font-weight:700;color:var(--mid);width:14px;text-align:center;flex:none}' +
+      '.cslab-drills-addgrid-cell{width:28px;height:32px;box-sizing:border-box;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:15px;font-family:inherit;text-align:center;padding:0}' +
+      '.cslab-drills-addgrid-cell-fixed{background:var(--cream);color:var(--ink)}' +
+      '.cslab-drills-addgrid-cell-input{background:var(--card-bg);color:var(--ink);border-radius:4px}' +
+      '.cslab-drills-addgrid-cell-input:focus{outline:2px solid var(--accent);border-color:var(--accent)}' +
+      '.cslab-drills-addgrid-carry .cslab-drills-addgrid-cell{border-style:dashed;color:var(--mid);height:26px}' +
+      '.cslab-drills-addgrid-rule{border-top:2px solid var(--ink);width:238px;margin:2px 0}' +
+      '.cslab-drills-addgrid-answer.correct .cslab-drills-addgrid-cell-input{border-color:var(--success);box-shadow:0 0 0 1px var(--success)}' +
+      '.cslab-drills-addgrid-answer.incorrect .cslab-drills-addgrid-cell-input{border-color:#c0392b;box-shadow:0 0 0 1px #c0392b}';
     document.head.appendChild(style);
   }
 
@@ -492,6 +507,101 @@
       });
     }
 
+    // One bordered-cell row of the paper-style addition layout. Fixed rows
+    // (the two operands) render read-only spans from `fixedValues`;
+    // editable rows (the scratch carry row, the answer row) render
+    // single-character inputs with 0/1-only filtering and auto-advance —
+    // same look as the exam paper's digit boxes.
+    function buildBitRow(name, count, editable, fixedValues) {
+      const row = document.createElement('div');
+      row.className = 'cslab-drills-addgrid-row';
+      const cells = [];
+      for (let i = 0; i < count; i++) {
+        let cell;
+        if (editable) {
+          cell = document.createElement('input');
+          cell.type = 'text';
+          cell.maxLength = 1;
+          cell.inputMode = 'numeric';
+          cell.autocomplete = 'off';
+          cell.className = 'cslab-drills-addgrid-cell cslab-drills-addgrid-cell-input';
+          cell.setAttribute('aria-label', name + ' bit ' + (i + 1));
+          cell.addEventListener('input', () => {
+            cell.value = cell.value.replace(/[^01]/g, '').slice(-1);
+            if (cell.value && cells[i + 1]) cells[i + 1].focus();
+          });
+          cell.addEventListener('keydown', e => {
+            if (e.key === 'Backspace' && !cell.value && cells[i - 1]) cells[i - 1].focus();
+          });
+        } else {
+          cell = document.createElement('span');
+          cell.className = 'cslab-drills-addgrid-cell cslab-drills-addgrid-cell-fixed';
+          cell.textContent = (fixedValues && fixedValues[i]) || '0';
+        }
+        cells.push(cell);
+        row.appendChild(cell);
+      }
+      return {
+        el: row,
+        cells: cells,
+        getValue: editable ? () => cells.map(c => c.value || '').join('') : undefined,
+      };
+    }
+
+    // Paper-style column addition: optional scratch carry row (not marked),
+    // the two operands stacked with a '+', a rule, then 8 answer boxes —
+    // replaces the old single text input for the 'addition' drill mode.
+    function buildAdditionGrid(container, q) {
+      const gridWrap = document.createElement('div');
+      gridWrap.className = 'cslab-drills-addgrid';
+
+      const carryToggleRow = document.createElement('label');
+      carryToggleRow.className = 'cslab-drills-carrytoggle';
+      const carryCb = document.createElement('input');
+      carryCb.type = 'checkbox';
+      carryCb.checked = !!ctx.store.get('showCarryRow', false);
+      const carrySpan = document.createElement('span');
+      carrySpan.textContent = 'Show a carry row for your own working (not marked)';
+      carryToggleRow.appendChild(carryCb);
+      carryToggleRow.appendChild(carrySpan);
+      gridWrap.appendChild(carryToggleRow);
+
+      const carryRow = buildBitRow('carry', 8, true);
+      carryRow.el.classList.add('cslab-drills-addgrid-carry');
+      carryRow.el.style.display = carryCb.checked ? '' : 'none';
+      gridWrap.appendChild(carryRow.el);
+      carryCb.addEventListener('change', () => {
+        ctx.store.set('showCarryRow', carryCb.checked);
+        carryRow.el.style.display = carryCb.checked ? '' : 'none';
+      });
+
+      gridWrap.appendChild(buildBitRow('opA', 8, false, q.opA.split('')).el);
+
+      const opBRowWrap = document.createElement('div');
+      opBRowWrap.className = 'cslab-drills-addgrid-oprow';
+      const plusSign = document.createElement('span');
+      plusSign.className = 'cslab-drills-addgrid-plus';
+      plusSign.textContent = '+';
+      opBRowWrap.appendChild(plusSign);
+      opBRowWrap.appendChild(buildBitRow('opB', 8, false, q.opB.split('')).el);
+      gridWrap.appendChild(opBRowWrap);
+
+      const rule = document.createElement('div');
+      rule.className = 'cslab-drills-addgrid-rule';
+      gridWrap.appendChild(rule);
+
+      const answerRow = buildBitRow('answer', 8, true);
+      answerRow.el.classList.add('cslab-drills-addgrid-answer');
+      gridWrap.appendChild(answerRow.el);
+
+      container.appendChild(gridWrap);
+
+      return {
+        get: answerRow.getValue,
+        el: answerRow.el,
+      };
+    }
+
     function renderQuestion() {
       body.innerHTML = '';
       if (round.index >= round.total) { renderRoundDone(); return; }
@@ -522,7 +632,9 @@
         label.textContent = f.label;
         row.appendChild(label);
 
-        if (f.kind === 'mcq') {
+        if (f.kind === 'digitgrid') {
+          fieldEls[f.id] = buildAdditionGrid(row, q);
+        } else if (f.kind === 'mcq') {
           const group = document.createElement('div');
           group.className = 'cslab-drills-mcq';
           let selected = null;

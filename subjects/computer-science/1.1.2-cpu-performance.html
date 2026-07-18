@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.1 Systems Architecture</div>
             <h1>1.1.2 CPU Performance</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.1.2 CPU Performance — placeholder, content not yet written
+    //  DATA: 1.1.2 CPU Performance
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-1-2-cpu-performance',
@@ -268,21 +268,898 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.1.2 CPU Performance</strong> will appear here soon.</p>`
+            title: "What actually makes a CPU fast?",
+            tag: "Key concept",
+            content: `<h4>The three characteristics you must know</h4>
+<ul>
+<li>OCR only ever asks about <strong>three</strong> characteristics of the CPU itself:</li>
+<li><strong>Clock speed</strong> — how many fetch–execute cycles it can run each second.</li>
+<li><strong>Cache size</strong> — how much very fast memory sits inside the CPU.</li>
+<li><strong>Number of cores</strong> — how many processing units the CPU has.</li>
+<li>Learn those three as a set. A question worth 3 marks that says "give three characteristics of a CPU that affect its performance" is asking for exactly this list.</li>
+</ul>
+<h4>Say the whole phrase, every time</h4>
+<ul>
+<li>The single most expensive mistake on this topic is writing half the term. <strong>"Clock" is not an answer — "clock speed" is.</strong> <strong>"Cores" is not an answer — "number of cores" is.</strong> "Cache" on its own is not an answer — "cache size" is.</li>
+<li>Why? Because a characteristic must be something that can be <em>measured or changed</em>. Every CPU has a clock and has cores; what differs between CPUs is the <strong>speed</strong> of the clock and the <strong>number</strong> of cores.</li>
+</ul>
+<h4>The CPU isn't the whole story</h4>
+<ul>
+<li>Other parts of the computer also affect how fast it feels: <strong>RAM</strong>, <strong>secondary storage</strong> (an SSD instead of a hard disk drive), and the <strong>graphics card (GPU)</strong>.</li>
+<li>Keep these in a separate mental box. If a question says "characteristics of <em>the CPU</em>", RAM scores nothing. If it says "other parts that could improve performance", RAM/SSD/GPU are exactly what's wanted.</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks for three characteristics of a CPU that affect performance. Which answer would score full marks?",
+                opts: ["Clock, cache and cores, without stating speed, size or number", "Clock speed, cache size, number of cores", "RAM capacity, SSD storage space, graphics card power", "Processing speed, internal memory, power consumption"],
+                ans: 1,
+                explain: "The three characteristics must be stated in full — it is the clock SPEED, the cache SIZE and the NUMBER of cores that vary between CPUs. RAM/SSD/GPU are other parts of the computer, not characteristics of the CPU."
+            }
+        },
+        {
+            title: "Clock speed — how many cycles per second?",
+            tag: "Key concept",
+            content: `<h4>What clock speed actually measures</h4>
+<ul>
+<li>The CPU has a <strong>clock</strong> that "ticks" at a fixed rate. On each tick the CPU carries out one <strong>fetch–execute cycle</strong>.</li>
+<li><strong>Clock speed is the number of fetch–execute cycles the CPU can carry out per second.</strong> It is measured in <strong>hertz (Hz)</strong>: 1 Hz = 1 cycle per second.</li>
+<li><strong>GHz (gigahertz) = billions of cycles per second.</strong> So a <strong>3.8 GHz</strong> processor performs about <strong>3.8 billion fetch–execute cycles every second</strong> (3,800,000,000).</li>
+</ul>
+<h4>The exam translation you must be able to do</h4>
+<ul>
+<li>"Describe what is meant by a clock speed of 3.8 GHz" wants <strong>two</strong> things: what clock speed <em>is</em> (cycles/instructions per second), and the <strong>number</strong> (3.8 billion per second).</li>
+<li>Notice the phrase <strong>"per second"</strong>. "It can process 3.8 billion instructions" means nothing without a time frame — and it will not be credited.</li>
+</ul>
+<h4>Higher clock speed → better performance</h4>
+<ul>
+<li>More cycles per second means more instructions executed per second, so programs run faster.</li>
+<li>Everyday example: a 3.2 GHz CPU gets through more work each second than a 1.2 GHz CPU, so the same program finishes sooner.</li>
+</ul>
+<h4>One core does one instruction at a time</h4>
+<ul>
+<li>A common misunderstanding: clock speed is <em>not</em> "how many instructions it does at once". A single core executes <strong>one instruction at a time</strong> — it just does them extremely quickly, one after another.</li>
+<li>Doing things genuinely <em>at the same time</em> is what extra cores are for (next card but one).</li>
+</ul>`,
+            readCheck: {
+                q: "Which answer best describes a clock speed of 2.5 GHz?",
+                opts: ["The computer is 2.5 times faster than normal", "It can carry out 2.5 billion fetch–execute cycles per second", "It can process 2.5 billion instructions all at exactly the same moment", "It has 2.5 GB of cache memory built into the CPU"],
+                ans: 1,
+                explain: "Clock speed = fetch–execute cycles per second, and 'giga' means billion — so 2.5 GHz is 2.5 billion cycles every second. Not 'at the same time': one core handles one instruction at a time."
+            }
+        },
+        {
+            title: "Cache size — a small, fast shortcut",
+            tag: "Key concept",
+            content: `<h4>A quick recap of what cache is</h4>
+<ul>
+<li><strong>Cache</strong> is a small amount of <strong>very fast memory inside the CPU</strong>. It stores the instructions and data that are <strong>used most frequently</strong> (or are about to be used next).</li>
+<li>The point of it: fetching something from cache is <strong>much faster than fetching it from RAM</strong>. Less waiting = more work done.</li>
+</ul>
+<h4>Why a BIGGER cache improves performance</h4>
+<ul>
+<li>A bigger cache can hold <strong>more</strong> of those frequently used instructions and data.</li>
+<li>So the CPU finds what it needs in cache more often, and has to go out to the slower RAM less often.</li>
+<li>Less time waiting for RAM → the CPU spends more of its time actually processing → better performance. A computer with 512 KB of cache will generally outperform an identical one with 64 KB.</li>
+</ul>
+<h4>The chain the examiner wants</h4>
+<ul>
+<li>Never stop at "cache is faster than RAM" — <em>faster at what?</em> That alone earns nothing. Build the chain:</li>
+<li><strong>Cache stores frequently used instructions → these can be accessed faster than from RAM → so more cache means the CPU waits less and performance improves.</strong></li>
+</ul>
+<h4>The clever extra: more isn't infinitely better</h4>
+<ul>
+<li>Cache is expensive, and a very large cache takes <strong>longer to search</strong> — so beyond a point, extra cache stops helping and can even slow things slightly.</li>
+<li>This is a genuinely creditworthy point in the mark scheme, and it's the sort of nuance that separates a top answer.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does a computer with 512 KB of cache usually outperform an identical one with 64 KB?",
+                opts: ["Cache is directly faster than RAM, which alone speeds up every calculation", "More frequently used instructions fit in cache, so the CPU fetches from RAM less often", "A bigger cache increases the CPU's clock speed, so more cycles run every second", "A bigger cache permanently stores the user's files, so nothing needs to reload from disk"],
+                ans: 1,
+                explain: "The mark comes from the CHAIN: more cache holds more frequently used instructions → fewer trips to slower RAM → less waiting → better performance. 'Cache is faster than RAM' on its own is not enough — faster at what?"
+            }
+        },
+        {
+            title: "Number of cores — doing things at the same time",
+            tag: "Key concept",
+            content: `<h4>What a core is</h4>
+<ul>
+<li>A <strong>core</strong> is a complete processing unit — it can run its own fetch–execute cycle. A <strong>dual core</strong> CPU has 2; a <strong>quad core</strong> has 4.</li>
+<li>Each core can execute <strong>a separate instruction at the same time</strong> as the others. This is called <strong>parallel processing</strong>.</li>
+</ul>
+<h4>Why more cores can improve performance</h4>
+<ul>
+<li>Work can be <strong>split between the cores</strong> and processed simultaneously, so more instructions are completed in the same period of time.</li>
+<li>It also makes <strong>multitasking</strong> smoother — one core can handle your game while another handles the music playing in the background.</li>
+</ul>
+<h4>The three words that earn the mark: "at the same time"</h4>
+<ul>
+<li>Examiners are strict here. "A dual core can run twice as many instructions" is <strong>not</strong> enough — that could just be a faster clock.</li>
+<li>You must say the cores act <strong>simultaneously</strong>: <em>each core can execute a separate instruction at the same time.</em> That is the idea being tested.</li>
+</ul>
+<h4>Why twice the cores ≠ twice the speed</h4>
+<ul>
+<li><strong>Some tasks cannot be split.</strong> If a job must be done in order — step 2 needs the answer from step 1 — extra cores sit idle.</li>
+<li><strong>Software must be written to use multiple cores.</strong> Older programs designed for one core get no benefit from three spare ones.</li>
+<li>So a quad core is <em>not</em> automatically twice as fast as a dual core. This exact claim is a favourite exam question.</li>
+</ul>`,
+            readCheck: {
+                q: "Which explanation of dual-core performance would earn the mark?",
+                opts: ["It can run exactly twice as many instructions every single second", "Each core can execute a separate instruction at the same time", "It automatically doubles the CPU's clock speed to run faster", "It gives the CPU twice as much cache to store instructions in"],
+                ans: 1,
+                explain: "The creditworthy idea is simultaneous execution — parallel processing. 'Twice as many instructions per second' is refused because a faster clock could achieve that; it misses the 'at the same time' point entirely."
+            }
+        },
+        {
+            title: "Putting the three together (and why it's never simple)",
+            tag: "Exam skill",
+            content: `<h4>Comparing two CPU specifications</h4>
+<ul>
+<li>Exam questions love giving you two spec boxes and asking which is faster, and why. The trick: <strong>the winner is rarely ahead on everything.</strong></li>
+<li>Worked example — Computer 1: 1 GHz, 4 cores. Computer 2: 1.4 GHz, 2 cores. Which runs a 3D flight simulator better?</li>
+<li>Computer 1, <strong>because it has more cores</strong>. A flight simulator is exactly the kind of demanding software written to split work across cores — so four cores working simultaneously beat a slightly faster clock on two.</li>
+<li>Notice what a full answer does: it names the characteristic that <em>differs and matters</em>, and links it to the task.</li>
+</ul>
+<h4>The characteristics interact</h4>
+<ul>
+<li>A high clock speed with a tiny cache means the CPU is fast but keeps waiting for RAM.</li>
+<li>Lots of cores with software that can't use them is wasted silicon.</li>
+<li>That's why the spec says you must understand the effect of these characteristics <strong>individually and in combination</strong>.</li>
+</ul>
+<h4>How to improve a computer's performance (a whole-machine view)</h4>
+<ul>
+<li><strong>Increase the clock speed</strong> → more FE cycles per second → faster response, smoother action.</li>
+<li><strong>Add more cores</strong> → more tasks run simultaneously → better for software written for multi-core.</li>
+<li><strong>Increase cache size</strong> → more frequently used instructions held close to the CPU → faster access.</li>
+<li><strong>Add a better graphics card</strong> → takes graphics work off the CPU → improves speed and image quality.</li>
+<li><strong>Swap an HDD for an SSD</strong> → much faster read/write → programs and files load quicker.</li>
+<li>Each one only earns full marks when you say <strong>how</strong> it improves performance, not just that it does.</li>
+</ul>`,
+            readCheck: {
+                q: "Computer A: 1 GHz, 4 cores. Computer B: 1.4 GHz, 2 cores. Both have 2 MB cache. Why might A run a demanding 3D game better?",
+                opts: ["It has a higher clock speed than Computer B, so each instruction runs faster", "It has more cores, so more of the work can be processed at the same time", "It has a bigger cache than Computer B, so it fetches from RAM less often", "It has more RAM installed than Computer B, so more of the game loads at once"],
+                ans: 1,
+                explain: "A's only advantage is its core count — and demanding software like a 3D game is usually written to split work across cores, so four working simultaneously outweigh B's slightly faster clock."
+            }
+        },
+        {
+            title: "RAM, virtual memory and why upgrading RAM helps",
+            tag: "Real world",
+            content: `<h4>RAM is not a CPU characteristic — but it does affect performance</h4>
+<ul>
+<li>Exam questions on this topic often drift into RAM, because it is one of the "other parts" that changes how fast a computer feels. Know the difference between the two ideas.</li>
+<li><strong>RAM</strong> holds the programs and data that are <strong>currently running</strong>. The CPU fetches instructions from RAM.</li>
+</ul>
+<h4>Why more RAM improves performance</h4>
+<ul>
+<li><strong>More programs/data can be held in RAM at once</strong>, so more can run at the same time and they respond faster.</li>
+<li>It allows more memory-hungry software (video editing, 3D games) to run properly.</li>
+<li>Crucially: it <strong>reduces the use of virtual memory</strong>. When RAM fills up, the computer starts using space on the <strong>secondary storage</strong> as overflow — and that is far slower to access. Less swapping = a noticeably faster machine.</li>
+</ul>
+<h4>The RAM vs ROM difference (a guaranteed exam pair)</h4>
+<ul>
+<li><strong>Volatility:</strong> RAM is <strong>volatile</strong> (contents lost when power is off); ROM is <strong>non-volatile</strong> (contents kept).</li>
+<li><strong>Contents:</strong> RAM stores currently running programs, data and the OS; ROM stores the <strong>boot-up instructions</strong> (the BIOS).</li>
+<li><strong>Changeability:</strong> RAM can be written to and changed constantly; ROM normally cannot be changed.</li>
+<li>When asked for a <em>difference</em>, write <strong>both sides in the same space</strong>: "RAM is volatile, whereas ROM is non-volatile." Describing only RAM in box 1 and only ROM in box 2 is the classic way to lose these marks.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does adding more RAM usually make a computer feel faster?",
+                opts: ["It increases the CPU's clock speed, so more cycles are completed each second", "More running programs fit in RAM, so less virtual memory is used", "It adds more processing cores to the CPU, enabling parallel execution of tasks", "It permanently stores more files and programs even when the power is switched off"],
+                ans: 1,
+                explain: "More RAM means more currently running programs and data fit in fast memory, so the computer swaps out to virtual memory (on much slower secondary storage) far less often."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which three characteristics of a CPU affect its performance?",
+            opts: ["Clock speed, cache size, number of cores", "RAM, ROM, cache", "Clock speed, RAM size, hard drive size", "Number of cores, screen size, graphics card"],
+            ans: 0,
+            explain: "Those are the only three the specification asks about. RAM, storage and the graphics card affect the computer's performance, but they are not characteristics of the CPU itself."
+        },
+        {
+            q: "Clock speed is measured in hertz. What does 1 Hz mean?",
+            opts: ["One instruction stored in cache", "One fetch–execute cycle per second", "One billion fetch–execute cycles per second", "One core completing an instruction"],
+            ans: 1,
+            explain: "1 Hz = one cycle per second. So gigahertz (GHz) means billions of fetch–execute cycles every second."
+        },
+        {
+            q: "A CPU has a clock speed of 3.8 GHz. How many fetch–execute cycles is that per second?",
+            opts: ["3.8 thousand", "3.8 million", "3.8 billion", "3.8 trillion"],
+            ans: 2,
+            explain: "Giga means billion, so 3.8 GHz = 3.8 billion (3,800,000,000) cycles every second."
+        },
+        {
+            q: "Why is 'it can process 3.8 billion instructions' NOT a full answer for what 3.8 GHz means?",
+            opts: ["The number is wrong — giga means million, not billion", "It leaves out the time frame — it must be per second", "It should say 'data' instead of 'instructions', since the CPU processes data", "GHz measures the size of the cache, not the number of instructions"],
+            ans: 1,
+            explain: "Without 'per second' the statement means nothing — 3.8 billion instructions over what period? Examiners refuse answers with no time frame."
+        },
+        {
+            q: "What does cache store?",
+            opts: ["All of the user's saved files and folders", "The instructions and data used most frequently", "The boot-up instructions used to start the computer", "A complete copy of everything currently running"],
+            ans: 1,
+            explain: "Cache holds frequently (or recently, or next-to-be) used instructions and data, right inside the CPU, so they can be fetched without going out to slower RAM."
+        },
+        {
+            q: "Why does increasing the cache size usually improve performance?",
+            opts: ["It raises the CPU's clock speed, so more cycles happen every second", "More frequently used instructions sit closer to the CPU, so RAM is used less often", "It adds an extra processing core, so two separate instructions can run at exactly the same time", "It increases the amount of RAM installed inside the computer"],
+            ans: 1,
+            explain: "A bigger cache holds more of what the CPU keeps reaching for, so there are fewer slow trips out to RAM and less waiting."
+        },
+        {
+            q: "Which statement about a very large cache is TRUE?",
+            opts: ["More cache always improves performance without any limit whatsoever", "Beyond a point, extra cache helps less because it takes longer to search", "Cache size has no effect on performance, only clock speed and cores matter", "A large cache completely replaces the need for RAM in a modern computer"],
+            ans: 1,
+            explain: "Cache is expensive and a very large cache takes longer to search through, so the benefit tails off — a genuinely creditworthy point in the mark scheme."
+        },
+        {
+            q: "What is a core?",
+            opts: ["A block of cache memory used to store frequently accessed instructions", "A processing unit that can run its own fetch–execute cycle", "The internal clock inside the CPU that controls its cycle timing", "A type of RAM used to temporarily hold currently running programs"],
+            ans: 1,
+            explain: "Each core is a complete processing unit, so a dual-core CPU can execute two separate instructions at the same time."
+        },
+        {
+            q: "A dual-core processor may improve performance because...",
+            opts: ["it runs exactly twice as many instructions in every single second", "each core can execute a separate instruction at the same time", "it automatically doubles the clock speed of the entire processor", "it removes the need for any cache memory inside the CPU"],
+            ans: 1,
+            explain: "The creditworthy idea is parallel processing — the cores working simultaneously. 'Twice as many instructions per second' is refused because a faster clock could do that too."
+        },
+        {
+            q: "Alicia says a quad-core computer must run twice as fast as a dual-core one. Why is she not always right?",
+            opts: ["Quad-core processors have no cache memory built into them at all", "Some tasks cannot be split across cores, and software must be written to use them", "Four cores will always run slower than two, whatever the software", "Clock speed makes no difference to performance at all, only the number of cores matters"],
+            ans: 1,
+            explain: "Extra cores only help when the work can actually be divided and the software is written for multiple cores. Clock speed, cache and RAM differences matter too."
+        },
+        {
+            q: "Computer 1: 1 GHz, 4 cores. Computer 2: 1.4 GHz, 2 cores (same cache). Why might Computer 1 run a 3D flight simulator faster?",
+            opts: ["It has a higher clock speed than Computer 2, so instructions run faster", "It has more cache than Computer 2, so it fetches from RAM less often", "It has more cores, so more work can be processed at the same time", "It has more RAM installed than Computer 2, so more can be loaded at once"],
+            ans: 2,
+            explain: "Core count is Computer 1's only advantage — and demanding software like a flight simulator is written to split work across cores, outweighing the slightly faster clock."
+        },
+        {
+            q: "Which of these is NOT a characteristic of the CPU, but WOULD improve a computer's performance?",
+            opts: ["Increasing the CPU's cache size", "Increasing the CPU's clock speed", "Adding more cores to the CPU", "Upgrading the amount of RAM"],
+            ans: 3,
+            explain: "RAM is one of the 'other parts' of the computer. It improves performance (less reliance on slow virtual memory) but it is not a characteristic of the CPU."
+        }
+    ];
+
+    const matchData = [
+        { term: "Clock speed", def: "The number of fetch–execute cycles the CPU carries out per second" },
+        { term: "Hertz (Hz)", def: "The unit of clock speed — one cycle per second" },
+        { term: "Gigahertz (GHz)", def: "Billions of fetch–execute cycles per second" },
+        { term: "Cache", def: "Small, very fast memory inside the CPU holding frequently used instructions and data" },
+        { term: "Bigger cache size", def: "More frequently used instructions held close to the CPU, so fewer slow trips to RAM" },
+        { term: "Core", def: "A processing unit that can run its own fetch–execute cycle" },
+        { term: "Dual core", def: "A CPU with two cores, able to execute two instructions at the same time" },
+        { term: "Parallel processing", def: "Several cores each executing a separate instruction simultaneously" },
+        { term: "Multitasking", def: "Running more than one program at once, made smoother by extra cores" },
+        { term: "Why more cores isn't always faster", def: "Some tasks cannot be split, and software must be written to use them" },
+        { term: "RAM", def: "Volatile memory holding the programs and data currently running" },
+        { term: "ROM", def: "Non-volatile memory holding the boot-up instructions (BIOS)" },
+        { term: "Virtual memory", def: "Space on secondary storage used as overflow when RAM is full — much slower to access" },
+        { term: "Upgrading to an SSD", def: "Faster read/write speeds than a hard disk drive, so programs load quicker" }
+    ];
+
+    const fibData = [
+        {
+            display: "The three characteristics of a CPU that affect performance are clock _____, cache _____ and the number of _____.",
+            blanks: { B1: "speed", B2: "size", B3: "cores" }
+        },
+        {
+            display: "Clock speed is the number of fetch–execute _____ carried out per _____.",
+            blanks: { B1: "cycles", B2: "second" }
+        },
+        {
+            display: "A clock speed of 3.8 GHz means about 3.8 _____ cycles every second.",
+            blanks: { B1: "billion" }
+        },
+        {
+            display: "Cache stores the instructions and data that are used most _____, and it can be accessed faster than _____.",
+            blanks: { B1: "frequently", B2: "RAM" }
+        },
+        {
+            display: "Each core can execute a separate instruction at the same _____ — this is called _____ processing.",
+            blanks: { B1: "time", B2: "parallel" }
+        },
+        {
+            display: "Doubling the cores does not double the speed, because some tasks cannot be _____ and the _____ must be written to use several cores.",
+            blanks: { B1: "split", B2: "software" }
+        },
+        {
+            display: "RAM is _____, whereas ROM is non-volatile and stores the _____ instructions.",
+            blanks: { B1: "volatile", B2: "boot-up" }
+        },
+        {
+            display: "Adding more RAM improves performance because the computer relies less on _____ memory, which is stored on much slower secondary storage.",
+            blanks: { B1: "virtual" }
+        }
+    ];
+    const fibWords = ["speed", "size", "cores", "cycles", "second", "billion", "frequently", "RAM", "time", "parallel", "split", "software", "volatile", "boot-up", "virtual"];
+    const tfData = [
+        {
+            statement: "Writing 'clock' as a characteristic of the CPU is enough to earn the mark.",
+            answer: false,
+            explanation: "It must be 'clock speed'. Every CPU has a clock — what varies, and what affects performance, is how fast it ticks. The same applies to 'cores' (say 'number of cores') and 'cache' (say 'cache size')."
+        },
+        {
+            statement: "A clock speed of 2 GHz means the CPU carries out 2 billion fetch–execute cycles per second.",
+            answer: true,
+            explanation: "Correct — giga means billion, and hertz means cycles per second."
+        },
+        {
+            statement: "A single core can execute several instructions at exactly the same time.",
+            answer: false,
+            explanation: "One core handles one instruction at a time — it is simply very fast. Executing instructions genuinely simultaneously is what extra cores provide."
+        },
+        {
+            statement: "A quad-core processor always runs twice as fast as a dual-core processor.",
+            answer: false,
+            explanation: "Only if the work can be split and the software is written to use four cores. Clock speed, cache and RAM also differ between machines — this exact claim is a favourite exam question."
+        },
+        {
+            statement: "Cache can be accessed faster than RAM.",
+            answer: true,
+            explanation: "True — but on its own that sentence earns nothing in an exam. You must add what it leads to: fewer slow trips to RAM, so the CPU waits less and performance improves."
+        },
+        {
+            statement: "Increasing cache size improves performance without limit — the more the better, always.",
+            answer: false,
+            explanation: "Beyond a point the benefit tails off: a very large cache takes longer to search, and cache is expensive. Recognising that limit is a creditworthy point."
+        },
+        {
+            statement: "RAM is volatile and ROM is non-volatile.",
+            answer: true,
+            explanation: "Correct — RAM loses its contents when the power goes off; ROM keeps the boot-up instructions permanently."
+        },
+        {
+            statement: "Adding more RAM helps because it reduces how much the computer has to use virtual memory.",
+            answer: true,
+            explanation: "Yes — when RAM fills up the computer overflows onto secondary storage (virtual memory), which is far slower. More RAM means less of that swapping."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Listing 'clock', 'cache' and 'cores' as the three characteristics of a CPU.",
+            correct: "Each one is missing the part that actually varies. It is the clock <strong>speed</strong>, the cache <strong>size</strong> and the <strong>number of</strong> cores. Real candidates lost marks here for exactly this: writing 'clock' or 'core' without saying speed or number is too ambiguous to credit. Three words cost three marks.",
+            readCheck: {
+                q: "Which list would score all 3 marks?",
+                opts: ["Clock, cache and cores, missing the qualifying words", "Clock speed, cache size, number of cores", "Processing speed, internal memory, number of processors", "The CPU, RAM and ROM inside the computer"],
+                ans: 1,
+                explain: "The characteristic must be the measurable quantity — speed of the clock, size of the cache, number of the cores."
+            }
+        },
+        {
+            wrong: "'A dual core processor is better because it can run twice as many instructions per second.'",
+            correct: "This is refused, because a faster clock speed could achieve the very same thing — so the sentence doesn't show you understand cores at all. The mark needs the words <strong>at the same time</strong>: each core can execute a separate instruction simultaneously. Weak: 'more processes run per second.' Strong: 'each of the two cores can process a different instruction at the same time.'",
+            readCheck: {
+                q: "Why is 'it runs more instructions per second' refused as an explanation of dual-core benefit?",
+                opts: ["It is factually wrong, since dual cores never increase throughput", "A faster clock speed could also do that — it doesn't show understanding of cores", "It should say 'per minute' rather than 'per second', since that's how exams phrase timing", "Cores don't affect how many instructions a CPU can process"],
+                ans: 1,
+                explain: "The examiner needs evidence you understand parallel processing specifically, and only 'at the same time' shows that."
+            }
+        },
+        {
+            wrong: "Explaining cache with 'cache is faster than RAM' and stopping there.",
+            correct: "Faster at <em>what</em>? That question is exactly why this scores zero. Also refused: simply defining cache as 'fast memory close to the CPU'. Build the full chain instead: <strong>cache stores frequently used instructions → they can be accessed faster than from RAM → so more cache means less waiting and better CPU performance.</strong> Many candidates got the first link and stopped; the marks are in the last one.",
+            readCheck: {
+                q: "Which answer completes the chain properly?",
+                opts: ["Cache is fast memory located near the CPU, and simply being near the CPU is what improves performance, regardless of what it stores", "Cache is faster than RAM, so replacing all of a computer's RAM with cache would make it run instructions with no waiting at all", "Cache holds frequently used instructions, which are fetched faster than from RAM, so the CPU waits less and performance improves", "Cache stores the boot-up instructions needed to start the computer, in the same way that ROM stores the BIOS permanently"],
+                ans: 2,
+                explain: "Only the third links what cache stores → why that's quicker → what it does for performance. The others either overstate what mere proximity to the CPU does, misapply the idea (cache can't simply replace RAM), or describe something cache doesn't store."
+            }
+        },
+        {
+            wrong: "'A clock speed of 3.8 GHz means the computer is fast' — or 'it can process 3.8 billion instructions'.",
+            correct: "The first just repeats the question ('fast' is not a measurement) and is explicitly not credited. The second forgets the <strong>time frame</strong> — 3.8 billion instructions over what period? A full answer has both halves: <strong>clock speed is the number of fetch–execute cycles per second</strong>, and <strong>3.8 GHz = 3.8 billion cycles every second</strong>. A further trap: it is not the number of instructions done <em>at a time</em> — one core does one instruction at a time.",
+            readCheck: {
+                q: "Which is a full 2-mark answer for 'describe what is meant by a clock speed of 3.8 GHz'?",
+                opts: ["The computer is very fast and can run any modern piece of software smoothly", "It performs 3.8 billion instructions in total, however long the program actually takes to run", "It is the number of fetch–execute cycles per second — 3.8 billion of them every second", "It can do 3.8 billion instructions at exactly the same time, using multiple cores"],
+                ans: 2,
+                explain: "Two marks, two halves: what clock speed measures (cycles per second) and the translation of the number (3.8 billion per second)."
+            }
+        },
+        {
+            wrong: "For 'describe two differences between RAM and ROM', writing everything about RAM in box 1 and everything about ROM in box 2.",
+            correct: "A <strong>difference</strong> needs both sides in the <em>same</em> space: 'RAM is volatile, whereas ROM is non-volatile.' Candidates who described RAM fully in the first box and ROM fully in the second gave two descriptions, not two differences — and lost marks for it. Each difference space is marked as its own pair: 1 mark for the RAM side, 1 for the ROM side.",
+            readCheck: {
+                q: "Which is properly written as ONE difference?",
+                opts: ["Difference 1: RAM is volatile. Difference 2: ROM stores the BIOS.", "Difference 1: RAM is volatile, whereas ROM is non-volatile.", "Difference 1: RAM is memory. Difference 2: ROM is memory.", "Difference 1: RAM is fast."],
+                ans: 1,
+                explain: "One difference = both sides, contrasted, in the same answer space. The others give one side only, or two unrelated descriptions."
+            }
+        },
+        {
+            wrong: "When asked how to improve a computer's performance, suggesting a touchscreen, a printer, or a bigger hard drive.",
+            correct: "Peripherals don't make the processor work faster, and extra <em>storage space</em> is not extra speed — candidates genuinely lost marks for both. Stick to changes that affect processing: increase the <strong>clock speed</strong>, add <strong>cores</strong>, increase <strong>cache</strong>, fit a better <strong>graphics card</strong>, or swap an HDD for an <strong>SSD</strong> (faster read/write). And always say <strong>how</strong> the change improves performance — naming it alone is only half the mark.",
+            readCheck: {
+                q: "Which suggestion would earn marks for improving performance?",
+                opts: ["Add a touchscreen, which lets the user interact with the screen directly and quickly", "Add a printer so the computer can produce paper copies of documents", "Replace the hard disk drive with an SSD, which has faster read/write speeds", "Buy a bigger monitor so more windows can be seen on the screen at once"],
+                ans: 2,
+                explain: "An SSD genuinely speeds up loading. Peripherals like touchscreens, printers and monitors change how you interact with the computer, not how fast it processes."
+            }
+        }
+    ];
+    const examTips = [
+        {
+            type: "explain",
+            title: "2-mark 'explain' questions: the …which means… chain",
+            pills: ["AO1b", "AO2", "2 marks", "Point + development"],
+            content: `<p>Almost every 2-mark explain on this topic is marked as <strong>point + development</strong>: 1 mark for identifying the right thing, 1 mark for the consequence you link to it. Here is the same answer to <em>"Explain one reason why the cache size affects the performance of the CPU"</em> at every level:</p>
+
+<p><strong>❌ 0 marks:</strong> "Cache is fast memory close to the CPU."</p>
+<ul>
+<li>A definition, not a reason. Explicitly not creditworthy — the question asked about <em>performance</em>.</li>
+</ul>
+
+<p><strong>❌ 0 marks:</strong> "Cache is faster than RAM."</p>
+<ul>
+<li>Faster at <em>what</em>? The examiner's own objection. Nothing is linked to performance.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "Data can be transferred faster from cache."</p>
+<ul>
+<li>A correct identification — but the chain stops before it reaches performance.</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "Data is transferred faster from cache than from RAM <strong>(1)</strong>, <strong>which means</strong> the CPU spends less time waiting and works more efficiently <strong>(1)</strong>."</p>
+
+<p><strong>The pattern for every 2-marker here:</strong> name the thing → "…which means…" → the effect on performance. If your answer has no linking phrase, you are probably on 1 mark.</p>`,
+            readCheck: {
+                q: "You've written 'a bigger cache stores more frequently used instructions'. What must you add for the second mark?",
+                opts: ["The price of cache, since more expensive components always perform better", "The consequence — the CPU fetches from RAM less often, so performance improves", "The name of the CPU, so the examiner knows exactly which model you mean", "How many cores it has, since that is a completely separate CPU characteristic from cache"],
+                ans: 1,
+                explain: "The second mark is always the development: the effect your point has on performance. Use 'which means…' to force yourself to write it."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "The 6-mark levelled question (marked with a *)",
+            pills: ["6 marks", "QWC assessed", "3 bands"],
+            content: `<p>A question like <em>"*Identify the changes and explain how these changes would improve performance"</em> is <strong>not</strong> point-marked — it is placed in a <strong>band</strong>, and your spelling, grammar and use of technical terms count.</p>
+
+<p><strong>The three bands, in plain terms:</strong></p>
+<ul>
+<li><strong>Low (1–2):</strong> upgrades are named, with little or no explanation of how they help. Points poorly expressed or not linked to the context.</li>
+<li><strong>Mid (3–4):</strong> upgrades identified, but <em>how</em> they improve performance is weak or thin.</li>
+<li><strong>High (5–6):</strong> <strong>several</strong> upgrades, each with a <strong>detailed explanation</strong> of its impact on <em>this</em> computer, written accurately with correct technical terms.</li>
+</ul>
+
+<p><strong>How to land in the top band — a repeatable structure.</strong> For each upgrade write two sentences:</p>
+<ul>
+<li><em>Upgrade:</em> "Increase the clock speed." <em>Impact:</em> "This runs more fetch–execute cycles per second, so the computer responds faster and is less likely to freeze."</li>
+<li><em>Upgrade:</em> "Increase the cache size." <em>Impact:</em> "More frequently used instructions are stored close to the CPU, so it fetches from slower RAM less often."</li>
+<li><em>Upgrade:</em> "Replace the hard disk drive with an SSD." <em>Impact:</em> "Read and write speeds are much faster, so programs and files load more quickly."</li>
+</ul>
+
+<p><strong>Three traps that cost real marks:</strong></p>
+<ul>
+<li><strong>Answering the previous question again.</strong> If an earlier part was about upgrading RAM, do not re-explain RAM here — that earns nothing.</li>
+<li><strong>Suggesting things that don't affect performance</strong> — a touchscreen, a printer, a bigger monitor.</li>
+<li><strong>Naming without explaining.</strong> A list of five upgrades with no "how" sits in the low band; two upgrades explained well beat five listed.</li>
+</ul>`,
+            readCheck: {
+                q: "A student lists six upgrades but explains none of them. Which band is that?",
+                opts: ["High (5–6) — they identified lots of upgrades, which is what matters most", "Mid (3–4) — several upgrades are identified, each with at least a brief attempt at explaining them", "Low (1–2) — upgrades named with little or no explanation of how they improve performance", "Full marks — every upgrade correctly named earns the maximum available"],
+                ans: 2,
+                explain: "The band descriptors reward DETAILED EXPLANATION of impact, not the number of items. A long unexplained list is the definition of the low band."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "The 8-mark 'Discuss' — the one extended response on Paper 1",
+            pills: ["8 marks", "AO3", "3 bands", "~10–12 min"],
+            content: `<p>Paper 1 has exactly one of these. On this topic it looks like: <em>"Discuss the impact of people wanting to upgrade to the latest smartphone"</em>, with bullets suggesting you consider <strong>stakeholders, technology, ethical issues and environmental issues</strong>.</p>
+
+<p><strong>Those bullets are the plan — use all of them.</strong> The top band explicitly requires "reference to the impact on <strong>all</strong> areas". Missing one caps you.</p>
+
+<p><strong>What each band needs:</strong></p>
+<ul>
+<li><strong>Band 1 (1–2):</strong> basic knowledge, unsupported assertions, unstructured.</li>
+<li><strong>Band 2 (3–5):</strong> reasonable knowledge applied to the context, but underdeveloped and one or two areas missed.</li>
+<li><strong>Band 3 (6–8):</strong> thorough and detailed; applied <strong>consistently</strong> to the context; <strong>weighs up both sides</strong>; a well-developed, logically structured line of reasoning.</li>
+</ul>
+
+<p><strong>A structure that reaches band 3:</strong></p>
+<ul>
+<li>Take each bullet in turn and make a <strong>chain</strong>: point → effect → consequence. E.g. <em>Environmental:</em> "Phones are replaced while still working <strong>→</strong> they go to landfill as e-waste, often shipped abroad <strong>→</strong> toxic materials leak into the ground and precious metals are wasted."</li>
+<li><strong>Weigh both sides.</strong> Upgrading isn't purely bad: manufacturers and phone shops gain business, and newer technology can be more efficient. A one-sided answer cannot reach the top band.</li>
+<li><strong>Finish with a short conclusion</strong> that actually judges the issue, rather than restating your points.</li>
+</ul>
+
+<p><strong>Timing:</strong> around 10–12 minutes. Spend the first minute jotting one idea under each of the four bullets — that plan is what produces the "logically structured" reasoning the band demands.</p>`,
+            readCheck: {
+                q: "An answer covers environmental impact in brilliant detail and ignores the other three bullets. What limits the mark?",
+                opts: ["Nothing — depth on one bullet is all that the mark scheme actually requires", "The top band needs the impact on ALL the areas, weighed on both sides", "It should have been longer, since length alone determines the band awarded", "Environmental issues are not creditworthy in this particular exam question"],
+                ans: 1,
+                explain: "Band 3 requires thorough coverage across the areas AND weighing both sides. Brilliant depth on one bullet is a band 2 answer at best."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Three CPU characteristics", def: "Clock speed, cache size, number of cores" },
+        { term: "Clock speed", def: "The number of fetch–execute cycles carried out per second" },
+        { term: "Hertz (Hz)", def: "One cycle per second" },
+        { term: "GHz", def: "Gigahertz — billions of cycles per second" },
+        { term: "3.8 GHz means", def: "About 3.8 billion fetch–execute cycles every second" },
+        { term: "Effect of higher clock speed", def: "More cycles per second, so more instructions executed per second" },
+        { term: "Cache", def: "Small, very fast memory inside the CPU for frequently used instructions and data" },
+        { term: "Effect of bigger cache", def: "More frequent instructions held close to the CPU, so fewer slow fetches from RAM" },
+        { term: "Cache limit", def: "Too much cache takes longer to search, so the benefit tails off" },
+        { term: "Core", def: "A processing unit that can run its own fetch–execute cycle" },
+        { term: "Parallel processing", def: "Each core executing a separate instruction at the same time" },
+        { term: "Effect of more cores", def: "Work can be split and processed simultaneously; better multitasking" },
+        { term: "Why more cores ≠ more speed", def: "Some tasks can't be split, and software must be written for multi-core" },
+        { term: "Other parts affecting performance", def: "RAM, secondary storage (SSD vs HDD), graphics card (GPU)" },
+        { term: "Why more RAM helps", def: "More running programs fit in RAM, so less use of slow virtual memory" },
+        { term: "Virtual memory", def: "Secondary storage used as overflow when RAM is full — much slower" },
+        { term: "RAM vs ROM", def: "RAM is volatile and holds running programs; ROM is non-volatile and holds boot-up instructions" },
+        { term: "SSD upgrade", def: "Faster read/write than an HDD, so programs and files load quicker" }
+    ];
+    // ── WHY THIS PAGE HAS 35 OF THE PDF'S 54 MARKS (do not "fix" this) ──
+    // CS resources/ExamquestionsNew/1.1.2-cpu-performance.pdf is compiled by
+    // TOPIC, and ExamBuilder puts the same question under every topic it
+    // touches — so three of its questions are duplicates, not omissions:
+    //   • Q3 (i/ii/iii, 9 marks — Kerry: "CPU stands for…", dual core, cache)
+    //     is WORD-FOR-WORD 1.1.1's Q8(i/ii/iii), already live there.
+    //   • Q8 (a/b, 5 marks — Dipesh: CPU+RAM together, purpose of cache)
+    //     is WORD-FOR-WORD 1.1.1's Q11(a/b), already live there.
+    //   • Q7 (a/b/c, 5 marks — Ann/Fig.1) repeats Q2 (a/b/c) of THIS PDF
+    //     almost verbatim; only Q2 is kept.
+    // Each question therefore lives on exactly ONE page: showing a student the
+    // identical question on two topics reads as a bug, and it would duplicate
+    // rows in the bank (Daily Revise, tasks, worksheets all draw from it).
+    // Q3(ii)/(iii) and Q8(b) arguably belong on THIS page rather than 1.1.1 —
+    // but 1.1.1 is live and owner-approved, so they were left where they are.
+    // RULE FOR EVERY FUTURE TOPIC: diff your PDF's questions against the
+    // already-live pages BEFORE transcribing (CS-CONTENT-PLAN.md §6.2).
+    const EXAM_CASE_STUDIES = {
+        "fig1-cpus": `<p><strong>Fig. 1</strong> — the specification of two CPUs:</p><table><tr><th>Computer 1</th><th>Computer 2</th></tr><tr><td>Clock Speed: 1 GHz</td><td>Clock Speed: 1.4 GHz</td></tr><tr><td>Cache size: 2 MB</td><td>Cache size: 2 MB</td></tr><tr><td>Number of Cores: 4</td><td>Number of Cores: 2</td></tr></table>`,
+        "quinn-fig4": `<p><strong>Fig. 4</strong> — Quinn's current computer specification:</p><ul><li>1.5 GHz Dual Core Processor</li><li>1GB RAM</li><li>100GB Hard Drive</li><li>64KB Cache</li><li>Touchscreen</li><li>Integrated camera and speakers</li><li>2 × USB 3.0 ports</li><li>2 × USB 2.0 ports</li><li>Blu-ray drive</li><li>2GB Graphics Card</li></ul>`
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            stubs: ["1", "2", "3"],
+            question: `<p>A computer has a Central Processing Unit (CPU).</p><p>Give <strong>three</strong> characteristics of a CPU that can affect its performance.</p>`,
+            hint: "Write each one in full — the measurable part matters. One-word answers like 'clock' or 'cores' are too ambiguous to credit.",
+            starter: "1: … | 2: … | 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark each to max 3)</h5>
+<ul>
+<li>Clock speed</li>
+<li>Cache size</li>
+<li>Number of cores</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>'clock' 'cache' 'speed' 'cores' on its own is NE (not enough).</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates were often able to identify at least one characteristic of a CPU, most commonly the clock speed and number of cores. Some responses were not precise enough as to the characteristics, for example stating 'clock' or 'core' without reference to the speed of the clock, or the number of cores, which were too ambiguous.</p>
+</div>`,
+            modelAnswer: "1: Clock speed\n\n2: Cache size\n\n3: Number of cores"
+        },
+        {
+            num: "Q2(a)",
+            marks: 1,
+            type: "written",
+            caseId: "fig1-cpus",
+            lines: 2,
+            question: `<p>The specification of two CPUs is shown in Fig. 1.</p><p>When running a 3D flight simulator, Computer 1 is likely to run faster than Computer 2.</p><p>Using the information in Fig. 1, identify <strong>one</strong> reason for this.</p>`,
+            hint: "Compare the two spec boxes and find the ONLY thing Computer 1 is ahead on.",
+            starter: "Computer 1 has…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2 1a)</h5>
+<ul>
+<li>It has more cores.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Although Computer 1 has a lower clock speed than the CPU in Computer 2 it has more cores, which means that it can be faster than Computer 2.</li>
+<li>Any answer relating to splitting a program into processes that be carried out consecutively will be accepted.</li>
+</ul>
+</div>`,
+            modelAnswer: "Computer 1 has more cores (4 rather than 2), so more of the flight simulator's work can be processed at the same time."
+        },
+        {
+            num: "Q2(b)",
+            marks: 2,
+            type: "written",
+            caseId: "fig1-cpus",
+            stubs: ["1", "2"],
+            question: `<p>Identify <strong>two</strong> other parts of a computer that are not in Fig. 1, which could improve the performance of the computers.</p>`,
+            hint: "Fig. 1 only lists CPU characteristics — so name components elsewhere in the machine that still affect speed.",
+            starter: "1: … | 2: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2 1a)</h5>
+<ul>
+<li>RAM</li>
+<li>SSD</li>
+<li>HDD</li>
+<li>Graphics card (GPU)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Marks can be awarded for other appropriate responses, e.g. Motherboard, Sound card.</li>
+</ul>
+</div>`,
+            modelAnswer: "1: RAM\n\n2: Graphics card (GPU)"
+        },
+        {
+            num: "Q2(c)",
+            marks: 2,
+            type: "written",
+            caseId: "fig1-cpus",
+            question: `<p>Explain <strong>one</strong> reason why the cache size affects the performance of the CPU.</p>`,
+            hint: "Point + development. Identify what cache does for the CPU, then say 'which means…' and finish the chain with the effect on performance.",
+            starter: "Data can be transferred faster from cache than from RAM, which means…",
+            markPoints: {
+                note: "This is marked as a point plus its development: 1 mark for a correct identification, 1 mark for the explanation you link to it.",
+                groups: [
+                    {
+                        label: "Your reason", max: 2, points: [
+                            { text: "Identified a correct point — e.g. data is transferred faster from cache // it is faster to transfer to and from cache than to and from RAM", marks: 1 },
+                            { text: "Explained the consequence for the CPU — e.g. …which makes the CPU more efficient / it waits less (NOT just “cache is faster than RAM”)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2 1a)</h5>
+<ul>
+<li>data is transferred faster (1)… …which makes a CPU more efficient (1)</li>
+<li>It is faster to transfer to and from cache (1)… …than transferring to and from RAM (1).</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark to be awarded for each correct identification and 1 mark to be awarded for the associated explanation to a maximum of 2 marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "Instructions and data can be transferred to the CPU faster from cache than from RAM, which means the CPU spends less time waiting and works more efficiently."
+        },
+        {
+            num: "Q4(a)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>The CPU has a clock speed of 3.8 GHz.</p><p>Describe what is meant by a clock speed of 3.8 GHz.</p>`,
+            hint: "Two halves for two marks: what clock speed measures, and what the number 3.8 GHz actually translates to. Don't forget 'per second'.",
+            starter: "Clock speed is the number of…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1 1b, AO2 1a) — 1 mark per bullet to max 2</h5>
+<ul>
+<li>The number of FDE cycles run per given time/second // the frequency that the clock 'ticks'</li>
+<li>3.8 billion cycles/instructions …</li>
+<li>…per second</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not award: how fast the computer is // speed of CPU</li>
+<li>3.8 = 3,800,000,000</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was answered well with many candidates able to demonstrate an understanding of the clock speed of a computer. Fewer candidates correctly translated the 3.8 GHz into the correct number of instructions/FDE cycles performed. Less able candidates did not identify an appropriate time frame, for example 'the number of instructions it can process' has a different meaning to 'the number of instructions it can process per second'. Another common misconception was it is the number of instructions it can perform at a time, a processor can only perform one instruction at a time.</p>
+</div>`,
+            modelAnswer: "Clock speed is the number of fetch–execute cycles the CPU carries out per second.\n\n3.8 GHz means it carries out about 3.8 billion (3,800,000,000) of those cycles every second."
+        },
+        {
+            num: "Q4(b)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Alicia says:</p><p>"My computer has a quad-core processor, so it will run twice as fast as a computer with a dual-core processor".</p><p>Explain why this statement is not always true.</p>`,
+            hint: "Three marks = three distinct reasons. Think about the tasks, the software, and the OTHER characteristics that differ between two machines.",
+            starter: "The statement is not always true because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (AO1 1b, AO2 2b) — 1 mark per bullet to max 3, e.g.</h5>
+<ul>
+<li>Software may be designed to run on 1 core and not multiple cores // depends on the task(s) …some tasks cannot be split across cores</li>
+<li>Clock speed also affects speed // dual core may have a faster clock speed // quad-core may have slower clock speed …so one task may be run faster/slower</li>
+<li>RAM size also affects speed // Quad-core may have less RAM // amount of VM being used</li>
+<li>Cache size also affects speed // Quad-core may have less cache</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Allow marks for other components that could affect the speed e.g. secondary storage access speed, onboard GPU.</li>
+<li>Award description of concurrent processing.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Most candidates were able to identify other features that could also have an impact on the speed of the computer such as the processor speed, amount of RAM etc. The more able candidates were also able to identify that the tasks being performed will also impact on the speed, for example how software may not be optimised for quad-core, or that a process may have to wait for a different process to finish execution before it can be processed.</p>
+</div>`,
+            modelAnswer: "Some tasks cannot be split across cores, and software must be written to use multiple cores — otherwise the extra cores are not used.\n\nThe dual-core computer may have a faster clock speed, so it runs a single task more quickly.\n\nThe quad-core computer may have less RAM or less cache, both of which also affect performance."
+        },
+        {
+            num: "Q5(a)",
+            marks: 2,
+            type: "written",
+            caseId: "quinn-fig4",
+            question: `<p>Quinn's current computer specification is shown in Fig. 4.</p><p>Describe the benefits of a dual core processor over a single core processor.</p>`,
+            hint: "You must give the splitting/multitasking idea FIRST — 'it is faster' only earns a mark once you've said what makes it faster.",
+            starter: "Tasks can be split between the two processors, so…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (2 from)</h5>
+<ul>
+<li>Tasks can split between the processors… …tasks / processes / software / can be processed faster …more processes completed per second</li>
+<li>Allows multitasking // Run more than one process / task / instruction / data at a time / per clock cycle… … tasks / processes / software / can be processed faster …more processes completed per second</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>MUST have given splitting tasks, or multi-tasking to allow speed.</li>
+<li>Faster can only be given a mark if the first bullet(s) have been given.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was answered fairly well, candidates were able to express that two processes could be carried out at once, and they then often got a second mark for identifying that this made it faster. Some candidates could not clearly express what was being processed, or simply stated that it was faster which was insufficient as the actual processes are not carried out faster, it is faster because it is completing two processes at the same time.</p>
+</div>`,
+            modelAnswer: "Tasks can be split between the two cores, so two processes can be carried out at the same time.\n\nThis means more processes are completed per second, and the computer can multitask more smoothly."
+        },
+        {
+            num: "Q5(b)(i)",
+            marks: 4,
+            type: "written",
+            caseId: "quinn-fig4",
+            stubs: ["Difference 1", "Difference 2"],
+            question: `<p>Quinn is considering upgrading the RAM.</p><p>Describe <strong>two</strong> differences between RAM and ROM.</p>`,
+            hint: "Write BOTH sides of each difference in the same space — 'RAM is volatile, whereas ROM is non-volatile'. Describing only RAM in box 1 and only ROM in box 2 loses marks.",
+            starter: "Difference 1: RAM …, whereas ROM … | Difference 2: RAM …, whereas ROM …",
+            markPoints: {
+                note: "Each difference is marked as its own PAIR: 1 mark for the RAM side and 1 mark for the ROM side of that same difference. Mark your two difference spaces separately — a box that describes only one side scores 1, not 2.",
+                groups: [
+                    {
+                        label: "Your first difference", max: 2, points: [
+                            { text: "Gave the RAM side (e.g. RAM is volatile / stores currently running instructions, programs, applications, OS or data / can be changed)", marks: 1 },
+                            { text: "Gave the matching ROM side of the SAME difference (e.g. ROM is non-volatile / stores boot-up instructions or BIOS / normally cannot be changed)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your second difference", max: 2, points: [
+                            { text: "Gave the RAM side of a DIFFERENT difference", marks: 1 },
+                            { text: "Gave the matching ROM side of that second difference", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (Max 2 per difference, 1 for RAM, 1 for ROM) e.g.</h5>
+<ul>
+<li>RAM is volatile / ROM is non-volatile</li>
+<li>RAM stores currently running instructions / programs / applications / OS / data — ROM stores boot-up instructions / bios</li>
+<li>RAM can be changed / ROM (normally) cannot be changed</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not allow e.g. "ROM is not…" for the 2nd mark.</li>
+<li>Mark in pairs.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was answered well, with candidates able to express the differences between RAM and ROM, although many candidates gave a full description of one in the first difference space, and a full description of the second in the second difference space. Candidates should be writing both sides of the difference in the given space. Some candidates only gave one side of the difference, or did not full describe both sides.</p>
+</div>`,
+            modelAnswer: "Difference 1: RAM is volatile, so it loses its contents when the power is turned off, whereas ROM is non-volatile and keeps its contents.\n\nDifference 2: RAM stores the programs and data currently running, whereas ROM stores the boot-up instructions (the BIOS)."
+        },
+        {
+            num: "Q5(b)(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "quinn-fig4",
+            question: `<p>Quinn has decided to upgrade the RAM on his computer. Explain why this would improve the computer's performance.</p>`,
+            hint: "Look at Quinn's spec — he only has 1GB of RAM. Think about what happens when RAM fills up, and what the computer has to use instead.",
+            starter: "With more RAM, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (2 from)</h5>
+<ul>
+<li>More instructions / programs / applications can run at the same time / be held in RAM</li>
+<li>Open software faster / respond faster</li>
+<li>More memory space for current programs</li>
+<li>Run more memory intensive programs / relevant example e.g. computer games / graphic rendering</li>
+<li>reduces use of Virtual Memory …..less use of hard drive which is slower to access</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates were able to identify that virtual memory would be relied on less. Fewer candidates could identify that more programs could be open at once, a common error was that the computer could store more data or more programs which was referring to secondary storage.</p>
+</div>`,
+            modelAnswer: "With more RAM, more programs and data can be held in memory at the same time, so more can run at once and they respond faster.\n\nIt also reduces the use of virtual memory, so the computer relies less on the hard drive, which is much slower to access."
+        },
+        {
+            num: "Q5(b)(iii)*",
+            marks: 6,
+            type: "written",
+            format: "banded",
+            caseId: "quinn-fig4",
+            question: `<p>*After upgrading the RAM, Quinn could make further changes to improve his computer's performance.</p><p>Identify the changes and explain how these changes would improve performance.</p><p><em>The quality of your written communication will be assessed in your answer.</em></p>`,
+            hint: "Several upgrades, each with a detailed 'how'. Don't re-explain RAM (that was the last question), and avoid peripherals like touchscreens — they don't affect performance.",
+            starter: "One change Quinn could make is… This would improve performance because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (levelled, QWC assessed) — indicative content</h5>
+<ul>
+<li><strong>Increase processor clock speed</strong> — Run more FE cycles per second; Faster response; Smoother actions; Less likely to freeze</li>
+<li><strong>Add more cores</strong> — Run more tasks simultaneously; Better performance for programs that are programmed for multi-core systems, e.g. new computer games</li>
+<li><strong>Increase cache size</strong> — Cache stores frequently used instructions / programs / data; Can store more so increase access speed to more frequently used instructions / programs / data</li>
+<li><strong>New graphics card</strong> — Can carry out more processes for CPU; Can improve speed and quality of graphics</li>
+<li><strong>Change hard disk drive to SSD</strong> — faster read / write speed</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given — levels of response</h5>
+<ul>
+<li><strong>High Level Response (5–6):</strong> Several upgrades are identified and there is a detailed explanation of how each of these will impact the computer given in the example. There will be few if any errors in spelling, grammar and punctuation. Technical terms will be used appropriately and correctly.</li>
+<li><strong>Medium Level Response (3–4):</strong> Upgrades are identified, although how these would improve the performance may be weak. There may be occasional errors in spelling, grammar and punctuation. Technical terms will be mainly correct.</li>
+<li><strong>Low Level Response (1–2):</strong> There is an attempt to identify upgrades that could be made. There may be little or no explanation of how these improve performance. The points are poorly expressed or are not related to the context. There is limited, if any, use of technical terms. Errors in grammar, punctuation and spelling may be intrusive.</li>
+<li>Allow defragmentation and reducing the read time for the hard disk.</li>
+<li>Do not allow hard drive if referring to secondary storage size, allow for increasing amount of VM.</li>
+<li>Do not allow: Increasing RAM; Upgrading components that do not affect performance (e.g. peripherals).</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was answered well by the majority of candidates, who were able to give a structured response. Most candidates could identify a number of different improvements that could be made. A small number of candidates did not answer the question, and gave a description of how RAM improvers the computer, repeating their response to Q.6(b)(ii). Some candidates described hardware that would not affect the performance, such as using a touch screen and adding a printer.</p>
+</div>`,
+            modelAnswer: "Quinn could increase the processor's clock speed. This would run more fetch–execute cycles every second, so the computer responds faster and is less likely to freeze.\n\nHe could increase the cache size from 64KB. Cache stores the instructions used most frequently, so a larger cache means more of them are held close to the CPU and fetched without waiting for RAM.\n\nHe could replace the 100GB hard drive with an SSD. An SSD has much faster read and write speeds, so programs and files load more quickly.\n\nHe could also add more cores, allowing more tasks to be processed at the same time — although this only helps for software written for multi-core systems."
+        },
+        {
+            num: "Q6",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: "",
+            question: `<p>Even though the computer devices they own still work, people often want to buy the most up-to-date models, such as the latest smartphone.</p><p>Discuss the impact of people wanting to upgrade to the latest smartphone.</p><p>In your answer you might consider the impact on:</p><ul><li>stakeholders</li><li>technology</li><li>ethical issues</li><li>environmental issues</li></ul>`,
+            hint: "Use all four bullets as your plan — the top band needs all the areas AND both sides weighed. Make chains: point → effect → consequence. Spend about 10–12 minutes.",
+            starter: "One impact on stakeholders is… This means… As a result…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (levelled) — indicative content</h5>
+<p>The following is indicative of possible factors/evidence that candidates may refer to but is not prescriptive or exhaustive:</p>
+<ul>
+<li><strong>Stakeholders</strong> — Can adversely affect people in this country and abroad: health issues; financially; socially; culturally. The phone manufacturers. The phone shops/networks.</li>
+<li><strong>Technology</strong> — The type of devices that are disposed of; Modern phones poorly designed for durability; Phones hardware not upgradeable/replaceable; Proprietary technology used by some manufacturers.</li>
+<li><strong>Environmental</strong> — Reference to e-waste (people dispose of their devices in landfill even if they are in good working order); Some equipment is also sent abroad to be disposed of; Leads to excessive landfill (in this country and/or abroad, e.g. Africa and Asia); Toxic waste released into land, ground water, air; Waste of resources — precious metals in phones.</li>
+<li><strong>Ethical Issues</strong> — Contributes to ill health; Contributes to the digital divide; Contributes to social divide; Problem of confidential data stored on the devices; Puts social pressure on parents to pay for their children to upgrade; Puts social pressure on the public to upgrade; Can lead to bullying of those who cannot afford the latest technology; Phone manufacturers intentionally designing fragile phones so they need to be replaced more often; High cost of new devices.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given — levels of response</h5>
+<ul>
+<li><strong>Mark Band 3 — High Level (6–8 marks):</strong> The candidate demonstrates a thorough knowledge and understanding of a wide range of considerations in relation to the question; the material is generally accurate and detailed. The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation. The candidate is able to weigh up both sides of the discussion and includes reference to the impact on all areas showing thorough recognition of influencing factors. There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.</li>
+<li><strong>Mark Band 2 — Mid Level (3–5 marks):</strong> The candidate demonstrates reasonable knowledge and understanding of a range of considerations in relation to the question; the material is generally accurate but at times underdeveloped. The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation. The candidate makes a reasonable attempt to discuss the impact on most areas, showing reasonable recognition of influencing factors. There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.</li>
+<li><strong>Mark Band 1 — Low Level (1–2 marks):</strong> The candidate demonstrates a basic knowledge of considerations with limited understanding shown; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided. The candidate provides nothing more than an unsupported assertion. The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.</li>
+<li><strong>0 marks:</strong> No attempt to answer the question or response is not worthy of credit.</li>
+</ul>
+</div>`,
+            modelAnswer: "Stakeholders: phone manufacturers and networks benefit financially from frequent upgrades, but consumers are affected too — the high cost of new devices puts financial and social pressure on families, and those who cannot afford the latest model can face bullying.\n\nTechnology: many modern phones are poorly designed for durability and their hardware cannot be upgraded or replaced, so the only option is to buy a new device. Some manufacturers use proprietary technology, which locks users in further.\n\nEthical: constant upgrading widens the digital divide between those who can and cannot afford new technology, and old devices often still hold confidential data. Some argue manufacturers deliberately design phones with short lifespans.\n\nEnvironmental: working phones are thrown away, creating e-waste that goes to landfill here or is shipped abroad to countries in Africa and Asia. Toxic materials leak into land, groundwater and air, and precious metals inside the phones are wasted.\n\nOn balance, while the industry and its customers gain from newer, more capable technology, the environmental and ethical costs of replacing working devices are severe — and they fall hardest on people who did not choose the upgrade cycle."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>
@@ -293,6 +1170,9 @@
 <script src="/notifications-shared.js"></script>
 <script src="/onboarding-tour.js"></script>
 <script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
 <script src="/cs-lab/cs-lab.js" defer></script>
 </body>
 

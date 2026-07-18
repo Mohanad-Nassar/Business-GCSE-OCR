@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.2 Memory and Storage</div>
             <h1>1.2.2 Secondary Storage</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.2.2 Secondary Storage — placeholder, content not yet written
+    //  DATA: 1.2.2 Secondary Storage
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-2-2-secondary-storage',
@@ -268,21 +268,951 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.2.2 Secondary Storage</strong> will appear here soon.</p>`
+            title: "Why does a computer need secondary storage?",
+            tag: "Key concept",
+            content: `<h4>RAM alone isn't enough</h4>
+<ul>
+<li><strong>RAM (primary storage) is volatile</strong> — everything held in it disappears the moment the power is switched off. If a computer only had RAM, every file, app and setting would vanish every time it was turned off.</li>
+<li><strong>Secondary storage is non-volatile</strong> — data written to it stays there permanently, whether the power is on or off, until it is deliberately changed or deleted.</li>
+</ul>
+<h4>What actually needs to be kept</h4>
+<ul>
+<li>The <strong>operating system</strong> itself, so the computer can start up again.</li>
+<li><strong>Installed software/apps</strong>, so they don't need reinstalling every session.</li>
+<li><strong>The user's own files</strong> — documents, photos, videos, saved games — anything created or downloaded that must still be there tomorrow.</li>
+<li>Everyday example: a game you install on a laptop is still there the next morning only because it was written to secondary storage, not RAM.</li>
+</ul>
+<h4>Answering "why does it need secondary storage?"</h4>
+<ul>
+<li>Exam questions want TWO things: a specific example of what is stored, and the reason it must survive being switched off (non-volatile, permanent storage).</li>
+<li>"So it can store things" on its own repeats the question and earns nothing — name what, and say why it must last.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does a computer need secondary storage as well as RAM?",
+                opts: ["Because RAM is too slow to run modern software without another device to help it", "Because RAM is volatile, so anything kept must survive the power being switched off", "Because secondary storage takes over some of the processor's own calculations to speed it up", "Because RAM cannot be written to, so all new data must be saved somewhere else instead"],
+                ans: 1,
+                explain: "RAM loses everything when the power goes off. Secondary storage is non-volatile, so the OS, apps and files can still be there next time the device is switched on."
+            }
+        },
+        {
+            title: "The three families of secondary storage",
+            tag: "Key concept",
+            content: `<h4>Three technologies, one job</h4>
+<ul>
+<li>Every secondary storage device belongs to one of three families. The exam only needs you to know WHICH family a device belongs to and how it compares — not how the technology works inside.</li>
+<li><strong>Magnetic storage</strong> — stores data by magnetising tiny areas of a spinning disk or a length of tape. Example: a <strong>hard disk drive (HDD)</strong>.</li>
+<li><strong>Optical storage</strong> — stores data as a pattern read by a laser. Example: a <strong>CD, DVD or Blu-ray disc</strong>.</li>
+<li><strong>Solid-state storage</strong> — stores data electronically in flash memory chips, with <strong>no moving parts</strong>. Example: an <strong>SSD</strong>, a <strong>USB memory stick</strong>, or an <strong>SD memory card</strong>.</li>
+</ul>
+<h4>Device vs type — a real exam trap</h4>
+<ul>
+<li>A <strong>type</strong> is the family (magnetic / optical / solid-state). A <strong>device</strong> is the actual product (hard disk drive, DVD, SSD, USB stick).</li>
+<li>If a question asks for a <em>device</em>, "magnetic" on its own is not enough — you must name an actual device. If a question asks for a <em>type</em>, naming a specific device instead of the family is marked down too. Read the question carefully and answer with the right one.</li>
+</ul>
+<h4>What you don't need to know (NR)</h4>
+<ul>
+<li>The specification does not require the <strong>internal component parts</strong> of each medium — you don't need to explain how magnetism flips a bit, how a laser reads a pit, or how a flash memory cell traps a charge. Focus entirely on comparing the devices, not building them.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is a solid-state storage device?",
+                opts: ["Hard disk drive, commonly found inside older desktop computers and servers", "DVD or Blu-ray disc, commonly used to distribute films and software", "USB memory stick, commonly carried in a pocket or bag between computers", "Magnetic tape, commonly used for large-scale backup archives"],
+                ans: 2,
+                explain: "A USB memory stick stores data electronically in flash memory with no moving parts, which makes it solid-state. The hard disk drive is magnetic; the DVD and Blu-ray disc are optical."
+            }
+        },
+        {
+            title: "How do you judge which device suits a scenario?",
+            tag: "Exam skill",
+            content: `<h4>The six factors you must know</h4>
+<ul>
+<li>Every "choose a suitable device" question is judged against the SAME six factors. Learn them as a set:</li>
+<li><strong>Capacity</strong> — how much data the device can hold.</li>
+<li><strong>Speed</strong> — how quickly data can be read from or written to the device.</li>
+<li><strong>Portability</strong> — how easily the device can be physically carried and used with different computers.</li>
+<li><strong>Durability</strong> — how well the device survives physical damage, such as being dropped, knocked, or used in extreme conditions.</li>
+<li><strong>Reliability</strong> — how consistently the device keeps working over time without failing or corrupting data, even if it's never mishandled.</li>
+<li><strong>Cost</strong> — the price of the device, usually compared <strong>per gigabyte</strong> so devices of different sizes can be compared fairly.</li>
+</ul>
+<table><tr><th>Factor</th><th>Magnetic (HDD)</th><th>Optical (DVD/BD)</th><th>Solid-state (SSD/USB)</th></tr>
+<tr><td>Capacity</td><td>Very high</td><td>Low</td><td>High</td></tr>
+<tr><td>Speed</td><td>Medium</td><td>Slowest</td><td>Fastest</td></tr>
+<tr><td>Portability</td><td>Low</td><td>High</td><td>High</td></tr>
+<tr><td>Durability</td><td>Low (moving parts)</td><td>Medium (scratches)</td><td>High (no moving parts)</td></tr>
+<tr><td>Reliability</td><td>Good if undisturbed</td><td>Degrades over time</td><td>Very good</td></tr>
+<tr><td>Cost per GB</td><td>Lowest</td><td>Low per disc</td><td>Highest</td></tr>
+</table>
+<h4>Durability vs reliability — don't merge these</h4>
+<ul>
+<li>They sound similar but test different things. Durability = survives being dropped or knocked. Reliability = keeps working correctly over time, even sitting still. A device can be durable but unreliable (survives drops, occasionally corrupts a file) — or reliable but not durable (never fails on a desk, but cracks the moment it's dropped).</li>
+</ul>
+<h4>Turning a scenario into an answer</h4>
+<ul>
+<li>Read the scenario for clue words and match them to a factor: "carried around" → portability; "dropped" or "outdoors" → durability; "large HD files" → capacity; "must feel responsive" → speed; "on a tight budget" → cost.</li>
+<li>Worked example: a field researcher needs a device to carry between remote sites that might get knocked in a backpack. <strong>Solid-state</strong> fits, because it has no moving parts, so it survives being knocked far better than a magnetic drive (<strong>durability</strong>), and it's small and light to carry (<strong>portability</strong>).</li>
+<li>Full marks always needs: ONE chosen type, then two or more reasons that are actually about THAT type, linked to THAT scenario — not a generic list of pros and cons for every storage family.</li>
+</ul>`,
+            readCheck: {
+                q: "A tablet aimed at young children needs a secondary storage device that will keep working if it's dropped. Which factor matters most here?",
+                opts: ["Cost", "Capacity", "Durability", "Portability"],
+                ans: 2,
+                explain: "Surviving being dropped is a durability question — how well the device withstands physical damage."
+            }
+        },
+        {
+            title: "Magnetic storage — hard disk drives",
+            tag: "Comparison",
+            content: `<h4>The strengths</h4>
+<ul>
+<li><strong>Capacity — very high.</strong> Magnetic hard disk drives are available in huge capacities (multiple terabytes) relatively cheaply, which makes them ideal for storing large amounts of data.</li>
+<li><strong>Cost — the lowest cost per gigabyte</strong> of the three families. This is the cheapest way to store a large amount of data.</li>
+</ul>
+<h4>The weaknesses</h4>
+<ul>
+<li><strong>Speed — slower</strong> than solid-state, because data has to be physically located by a moving read/write head on a spinning disk.</li>
+<li><strong>Durability — lower.</strong> The moving parts (a spinning disk and a read/write head) can be damaged if the drive is dropped or knocked, especially while it's running.</li>
+<li><strong>Portability — lower.</strong> Magnetic drives are usually built into a machine that stays in one place, rather than being carried around.</li>
+</ul>
+<h4>When magnetic storage is the right answer</h4>
+<ul>
+<li>Whenever a scenario describes a device that <strong>stays in one place</strong> and needs to store <strong>a very large amount of data as cheaply as possible</strong> — a desktop PC, a server, or a smart TV that sits on a shelf.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is a magnetic hard disk drive often chosen for a device that never moves and needs to store a lot of data cheaply?",
+                opts: ["It has the fastest access speed of the three storage families available", "It has very high capacity at a low cost per gigabyte, suiting data that just sits still", "It has no moving parts, so it survives being dropped or knocked without damage", "It is the smallest and lightest of the three storage families, ideal for carrying around daily"],
+                ans: 1,
+                explain: "Magnetic storage's strengths are high capacity and low cost per GB. Its weakness — lower durability from moving parts — stops mattering as much if the device is never moved."
+            }
+        },
+        {
+            title: "Optical storage — CDs, DVDs and Blu-ray discs",
+            tag: "Comparison",
+            content: `<h4>The strengths</h4>
+<ul>
+<li><strong>Cost — very cheap to produce</strong>, which makes optical discs ideal for distributing thousands or millions of identical copies of software, music or films.</li>
+<li><strong>Portability — high.</strong> Discs are small, thin and light, and can be played in any compatible drive.</li>
+</ul>
+<h4>The weaknesses</h4>
+<ul>
+<li><strong>Capacity — much lower</strong> than magnetic or solid-state storage. A CD holds around 700 MB, a DVD around 4.7 GB, and a Blu-ray disc up to around 50 GB — far less than a modern hard disk drive or SSD.</li>
+<li><strong>Speed — the slowest</strong> of the three families to read and write.</li>
+<li><strong>Durability/reliability — discs can be scratched</strong>, and their data layer can degrade over time (sometimes called "disc rot"), so they're not the best choice for long-term, heavily-used storage.</li>
+</ul>
+<h4>When optical storage is the right answer</h4>
+<ul>
+<li>Whenever a scenario is about <strong>distributing many identical, cheap copies</strong> of something — a film studio releasing a movie, a magazine giving away a cover-mounted disc, or software being sold in a shop.</li>
+</ul>`,
+            readCheck: {
+                q: "A film studio wants to release millions of identical, cheap copies of a new movie to be sold in shops. Which storage technology best fits this?",
+                opts: ["Magnetic hard disk drives", "Optical discs", "Solid-state drives", "RAM"],
+                ans: 1,
+                explain: "Optical discs are very cheap to mass-produce, which makes them the natural fit for distributing huge numbers of identical copies, even though their capacity and speed are lower than the alternatives."
+            }
+        },
+        {
+            title: "Solid-state storage — SSDs, USB sticks and memory cards",
+            tag: "Comparison",
+            content: `<h4>The strengths</h4>
+<ul>
+<li><strong>Speed — the fastest</strong> of the three families, because there's nothing physically moving to locate the data.</li>
+<li><strong>Durability — the highest.</strong> With no moving parts, solid-state devices survive being dropped or knocked far better than a magnetic drive.</li>
+<li><strong>Portability — high.</strong> USB sticks and memory cards are small, light and robust enough to fit in a pocket.</li>
+<li>Other genuine advantages: they run <strong>silently</strong>, produce <strong>less heat</strong>, and use <strong>less power</strong> than magnetic drives.</li>
+</ul>
+<h4>The weakness</h4>
+<ul>
+<li><strong>Cost — usually more expensive per gigabyte</strong> than magnetic storage, especially at very large capacities (though the gap keeps narrowing).</li>
+</ul>
+<h4>When solid-state storage is the right answer</h4>
+<ul>
+<li>Whenever a scenario needs a device that is <strong>moved around</strong>, must <strong>feel fast and responsive</strong>, or has to <strong>survive rough handling</strong> — a laptop that travels with its owner, a smartphone, a camera, or a rugged tablet used by young children.</li>
+</ul>`,
+            readCheck: {
+                q: "A photographer needs a memory card to carry between locations that will keep working if it's dropped in a camera bag. Which technology fits best?",
+                opts: ["Magnetic hard disk drive", "Optical disc", "Solid-state storage", "Either magnetic or optical — they are equally durable"],
+                ans: 2,
+                explain: "Solid-state storage has no moving parts, so it is far more durable when knocked or dropped, and it's small and light to carry — exactly what a portable memory card needs."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Why does a computer need secondary storage as well as RAM?",
+            opts: ["Because RAM is too slow to be useful without extra hardware assisting it", "Because RAM is volatile, so anything that must be kept has to survive being switched off", "Because secondary storage makes the CPU carry out instructions more quickly", "Because RAM can only hold a very small number of files compared to secondary storage devices"],
+            ans: 1,
+            explain: "RAM is volatile — its contents are lost when the power goes off. Secondary storage is non-volatile, so the OS, apps and files survive being switched off."
+        },
+        {
+            q: "Which secondary storage technology has no moving parts?",
+            opts: ["Magnetic", "Optical", "Solid-state", "All three have moving parts"],
+            ans: 2,
+            explain: "Solid-state devices store data electronically in flash memory chips — there is nothing spinning or moving inside."
+        },
+        {
+            q: "A hard disk drive is an example of which storage technology?",
+            opts: ["Optical", "Solid-state", "Magnetic", "Primary"],
+            ans: 2,
+            explain: "A hard disk drive stores data by magnetising tiny areas of a spinning disk, which makes it magnetic storage."
+        },
+        {
+            q: "A DVD is an example of which storage technology?",
+            opts: ["Magnetic", "Optical", "Solid-state", "Primary"],
+            ans: 1,
+            explain: "DVDs, CDs and Blu-ray discs store data as a pattern read by a laser, which makes them optical storage."
+        },
+        {
+            q: "A film studio wants to distribute millions of identical, cheap copies of a new movie to shops. Which storage technology suits this best?",
+            opts: ["Magnetic hard disk drives", "Optical discs", "Solid-state drives", "RAM"],
+            ans: 1,
+            explain: "Optical discs are very cheap to mass-produce, which is exactly what large-scale, low-cost distribution needs — even though their capacity and speed are lower."
+        },
+        {
+            q: "A photographer needs a device to carry between locations that will keep working if it's dropped in a camera bag. Which technology is the best fit?",
+            opts: ["Magnetic hard disk drive", "Optical disc", "Solid-state drive", "Either magnetic or optical — they are equally durable"],
+            ans: 2,
+            explain: "Solid-state storage has no moving parts, so it survives being knocked or dropped far better than magnetic storage, and it's small and light to carry."
+        },
+        {
+            q: "Which factor describes how much data a storage device can hold?",
+            opts: ["Speed", "Capacity", "Portability", "Reliability"],
+            ans: 1,
+            explain: "Capacity is how much data a device can store."
+        },
+        {
+            q: "Which factor describes how quickly data can be read from or written to a device?",
+            opts: ["Capacity", "Cost", "Speed", "Durability"],
+            ans: 2,
+            explain: "Speed is how quickly data can be transferred to or from the device."
+        },
+        {
+            q: "Which factor is being tested when a device is dropped repeatedly to see if it survives?",
+            opts: ["Reliability", "Durability", "Portability", "Cost"],
+            ans: 1,
+            explain: "Durability is how well a device withstands physical damage such as drops and knocks."
+        },
+        {
+            q: "Which factor is being tested when a device is left running for a year to see how often it fails or corrupts files, even without being dropped?",
+            opts: ["Durability", "Portability", "Reliability", "Capacity"],
+            ans: 2,
+            explain: "Reliability is how consistently a device keeps working correctly over time — a separate idea from surviving physical damage."
+        },
+        {
+            q: "Which statement comparing an SSD to a magnetic hard disk drive is TRUE?",
+            opts: ["The SSD is usually slower to access data but cheaper to buy per gigabyte", "The SSD is usually faster to access data but more expensive per gigabyte", "The SSD always has a lower storage capacity than any hard disk drive", "The hard disk drive has no moving parts, unlike the SSD"],
+            ans: 1,
+            explain: "SSDs have no moving parts, so they access data faster, but they typically cost more per gigabyte than magnetic storage."
+        },
+        {
+            q: "A company's server stores a huge, rarely-accessed archive and must keep the cost as low as possible. Which type of storage is the best fit?",
+            opts: ["Solid-state, because it is the fastest of the three storage families to access", "Optical, because a single disc can hold more data than a magnetic hard disk drive", "Magnetic, because it offers very high capacity at a low cost per gigabyte", "None of these — only RAM should ever be used for long-term company archives"],
+            ans: 2,
+            explain: "For a huge, cheap, rarely-moved archive, magnetic storage's high capacity and low cost per GB make it the natural fit — speed matters less if the data is rarely accessed."
+        }
+    ];
+
+    const matchData = [
+        { term: "Capacity", def: "How much data a storage device can hold" },
+        { term: "Speed", def: "How quickly data can be read from or written to a device" },
+        { term: "Portability", def: "How easily a device can be physically carried and used with different computers" },
+        { term: "Durability", def: "How well a device withstands physical damage, such as being dropped or knocked" },
+        { term: "Reliability", def: "How consistently a device keeps working over time without failing or corrupting data" },
+        { term: "Cost", def: "The price of a device, usually compared per gigabyte so different sizes can be compared fairly" },
+        { term: "Non-volatile storage", def: "Keeps its data even when the power is switched off" },
+        { term: "Magnetic storage", def: "Stores data by magnetising areas of a spinning disk or a length of tape" },
+        { term: "Optical storage", def: "Stores data as a pattern read by a laser, e.g. on a CD or DVD" },
+        { term: "Solid-state storage", def: "Stores data electronically in flash memory chips, with no moving parts" },
+        { term: "Magnetic hard disk drive", def: "Fits a desktop PC or server that never moves and needs huge capacity as cheaply as possible" },
+        { term: "Optical disc (DVD/Blu-ray)", def: "Fits distributing millions of identical, cheap copies of a film or piece of software" },
+        { term: "Solid-state drive (SSD)", def: "Fits a laptop that must boot up and load programs quickly" },
+        { term: "USB memory stick or SD card", def: "Fits a device that gets carried between locations and dropped often" }
+    ];
+
+    const fibData = [
+        {
+            display: "Secondary storage is _____, meaning it keeps its data even when the power is switched off.",
+            blanks: { B1: "non-volatile" }
+        },
+        {
+            display: "Hard disk drives store data using _____ storage technology.",
+            blanks: { B1: "magnetic" }
+        },
+        {
+            display: "CDs, DVDs and Blu-ray discs use _____ storage, read by a laser.",
+            blanks: { B1: "optical" }
+        },
+        {
+            display: "SSDs and USB memory sticks use _____ storage, which has no moving parts.",
+            blanks: { B1: "solid-state" }
+        },
+        {
+            display: "The six factors used to judge a storage device are capacity, speed, portability, durability, _____ and cost.",
+            blanks: { B1: "reliability" }
+        },
+        {
+            display: "How much data a device can hold is called its _____.",
+            blanks: { B1: "capacity" }
+        },
+        {
+            display: "Compared to a magnetic hard drive, a solid-state drive is usually _____ to access but _____ per gigabyte to buy.",
+            blanks: { B1: "faster", B2: "costlier" }
+        },
+        {
+            display: "Optical discs are cheap to produce, which makes them well suited to _____ software or films to many customers.",
+            blanks: { B1: "distributing" }
+        }
+    ];
+    const fibWords = ["non-volatile", "magnetic", "optical", "solid-state", "reliability", "capacity", "faster", "costlier", "distributing"];
+    const tfData = [
+        {
+            statement: "RAM counts as a type of secondary storage.",
+            answer: false,
+            explanation: "RAM is primary storage. Secondary storage is a completely separate category — hard disk drives, SSDs, optical discs, USB sticks and memory cards."
+        },
+        {
+            statement: "Secondary storage is non-volatile, meaning it keeps its data when the power is switched off.",
+            answer: true,
+            explanation: "Correct — that permanence is exactly why the operating system, apps and files can still be there next time the device is turned on."
+        },
+        {
+            statement: "Solid-state storage devices contain moving parts, just like magnetic hard disk drives.",
+            answer: false,
+            explanation: "SSDs and USB sticks store data electronically in flash memory chips — there is nothing spinning or moving inside them, which is exactly why they are more durable."
+        },
+        {
+            statement: "A single optical disc typically holds far less data than a modern magnetic hard disk drive.",
+            answer: true,
+            explanation: "Correct — a Blu-ray disc holds around 50 GB at most, while hard disk drives are commonly sold in multiple-terabyte capacities."
+        },
+        {
+            statement: "Solid-state drives are generally more durable than magnetic hard disk drives because they have no moving parts to damage if the device is knocked.",
+            answer: true,
+            explanation: "Correct — without a spinning disk or moving read/write head, there is far less that can be damaged by a knock or a drop."
+        },
+        {
+            statement: "Solid-state storage is always the cheapest option per gigabyte.",
+            answer: false,
+            explanation: "Magnetic storage is usually the cheapest per gigabyte for very large capacities; solid-state typically costs more per GB, even though prices are falling."
+        },
+        {
+            statement: "Durability and reliability mean exactly the same thing.",
+            answer: false,
+            explanation: "Durability is about surviving physical damage (drops, knocks); reliability is about the device working consistently over time without failing or corrupting data, even if it is never dropped."
+        },
+        {
+            statement: "If a question asks for a secondary storage device, naming a type such as 'magnetic' instead of a specific device like 'hard disk drive' is enough to earn the mark.",
+            answer: false,
+            explanation: "Real exam answers were marked down for this. A type (magnetic/optical/solid-state) is a category, not a device. If the question asks for a device, name an actual product such as a hard disk drive, SSD, DVD or USB memory stick."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "'Secondary storage is only needed as a backup, in case something goes wrong.'",
+            correct: "This was a genuine misconception examiners saw in real answers. Secondary storage isn't an emergency spare copy — it's where the operating system, apps and files live permanently, all the time, in normal everyday use. Without it, nothing would still be there the next time the device is switched on.",
+            readCheck: {
+                q: "Why is 'it's needed as a backup' not a full answer for why a device needs secondary storage?",
+                opts: ["Backups are actually stored in RAM, so secondary storage doesn't need to be mentioned in the answer at all", "It undersells the everyday role — the OS, apps and files live there permanently, not just for backup", "Secondary storage can't actually hold backup copies of any files or programs", "It's actually a complete and correct answer that earns full marks either way"],
+                ans: 1,
+                explain: "Secondary storage's main job is everyday, permanent storage of the OS, apps and files — not just insurance against failure."
+            }
+        },
+        {
+            wrong: "'Secondary storage is only used when RAM gets full' — treating secondary storage in general as the same thing as virtual memory.",
+            correct: "This mixes up two different ideas. Virtual memory is a specific technique where RAM overflows onto secondary storage when RAM is nearly full — that's a narrower topic (1.2.1). Secondary storage's main job is much broader: it stores the OS, apps and every file permanently, all the time, whether or not RAM is full.",
+            readCheck: {
+                q: "Which statement correctly separates secondary storage from virtual memory?",
+                opts: ["They are the same thing, and exam answers can use either term to mean exactly the same idea", "Secondary storage holds data permanently; virtual memory just uses it as overflow when RAM is nearly full", "Virtual memory only exists on solid-state drives, and can never be used with a magnetic hard disk drive at all", "Secondary storage is only ever used once RAM has become completely full and cannot accept any more data"],
+                ans: 1,
+                explain: "Secondary storage is used constantly for permanent storage. Virtual memory is one specific, narrower use of it that only kicks in when RAM is nearly full."
+            }
+        },
+        {
+            wrong: "Naming a TYPE of storage (e.g. 'magnetic') when the question asks for a DEVICE.",
+            correct: "Real candidates lost marks for exactly this. A type is a category — magnetic, optical or solid-state. A device is an actual product — a hard disk drive, an SSD, a DVD, a USB memory stick. If the question says 'device', name the device; if it says 'type', name the type. The other direction catches people too: naming a specific device when a question explicitly asks for a type is also marked down.",
+            readCheck: {
+                q: "A question asks 'give one example of a secondary storage device'. Which answer is correct?",
+                opts: ["Magnetic storage", "Solid-state storage", "Hard disk drive", "Optical storage"],
+                ans: 2,
+                explain: "The question asks for a device (an actual product), not a type (a category). 'Hard disk drive' is a device; the others are types."
+            }
+        },
+        {
+            wrong: "'RAM' or 'ROM' given as an answer to a secondary storage question.",
+            correct: "RAM and ROM are always primary storage — never secondary storage, no matter how the question is worded. Real candidates who wrote RAM or ROM as their secondary storage device scored zero. Keep the two categories completely separate.",
+            readCheck: {
+                q: "Which of these could correctly be given as an example of secondary storage?",
+                opts: ["RAM, since it also stores data while the computer is switched on", "ROM, since it also stores data permanently inside the computer's own chips", "A solid-state drive (SSD), since it is a genuine secondary storage device", "Cache, since it also holds data the processor is currently using"],
+                ans: 2,
+                explain: "RAM, ROM and cache are all primary storage. An SSD is a secondary storage device."
+            }
+        },
+        {
+            wrong: "Justifying a choice of device with generic pros and cons of BOTH magnetic AND solid-state storage, instead of committing to one.",
+            correct: "The mark scheme requires you to pick ONE type first, then give reasons that support that specific choice for that specific scenario. Hedging with 'magnetic is cheap but solid-state is fast' doesn't commit to an answer and loses marks — and reasons that don't match your chosen type score nothing, even if they're true statements about the other type.",
+            readCheck: {
+                q: "Why does listing pros of BOTH magnetic and solid-state storage lose marks in a 'justify your choice' question?",
+                opts: ["Because mark schemes never award any marks for cost or capacity, only ever for speed-related reasons", "Because the question needs ONE committed choice, with reasons that all match that same chosen type", "Because magnetic and solid-state storage are actually the exact same technology", "Because listing pros of both types is always worth full marks anyway"],
+                ans: 1,
+                explain: "Justification must match your chosen type. A hedged, two-sided answer doesn't commit to a choice, so the reasons can't be credited against it."
+            }
+        },
+        {
+            wrong: "Durability and reliability are treated as the same idea.",
+            correct: "They test different things. Durability is about surviving physical punishment — drops, knocks, extreme temperatures. Reliability is about the device working consistently over time without failing or corrupting data, even if it's never mishandled. A device can be one without being the other, so keep them as separate factors when you justify a choice.",
+            readCheck: {
+                q: "A device survives being dropped repeatedly but occasionally corrupts files even when it's never been knocked. Which factor is the problem?",
+                opts: ["Durability", "Capacity", "Reliability", "Portability"],
+                ans: 2,
+                explain: "The device is durable (it survives drops) but not reliable (it fails on its own, without being mishandled)."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "The 2-mark 'why does it need secondary storage' ladder",
+            pills: ["AO1b", "AO2", "2 marks", "Example + reason"],
+            content: `<p>A question like "State, using an example, why the [device] needs secondary storage" is marked as an example plus its reason — 1 mark for a correct example of what's stored, 1 mark for the actual reason it must be kept. Watch this answer move up the ladder:</p>
+
+<p><strong>❌ 0 marks:</strong> "So it can store things."</p>
+<ul>
+<li>No example, and "store things" just repeats the question without saying WHY.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "So it can store the operating system."</p>
+<ul>
+<li>A correct example — but no reason has been given for why it needs to be on secondary storage rather than RAM.</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "So it can store the operating system, which needs to stay on the device permanently, even when it is switched off."</p>
+
+<p><strong>The pattern for every question shaped like this:</strong> name something specific that is stored → say why it needs to survive being switched off (or why it's too big or too permanent for RAM alone).</p>`,
+            readCheck: {
+                q: "You've written 'so it can store apps'. What must you add for the second mark?",
+                opts: ["The exact brand name and model number of the storage device that the apps happen to be installed on", "A reason why apps must survive the power being switched off, since they are needed permanently", "The exact price that the storage device originally cost when it was first purchased new", "A description of exactly how quickly the apps load once they have finally been opened"],
+                ans: 1,
+                explain: "The second mark is always the reason: apps must persist even when the power is off, which is exactly what non-volatile secondary storage provides."
+            }
+        },
+        {
+            type: "explain",
+            title: "The 4-mark 'identify a type and justify' ladder",
+            pills: ["AO2", "4 marks", "Type + justification", "Match your reasons to your type"],
+            content: `<p>The most common exam question on this topic is shaped like: "Identify an appropriate type of secondary storage for [scenario]. Justify your choice." It always needs TWO things in the right order: a type, then reasons that genuinely apply to THAT type in THIS scenario.</p>
+
+<p><strong>❌ 0 marks:</strong> "A hard drive, because storage is good."</p>
+<ul>
+<li>Names a specific device rather than a type, and "storage is good" isn't a reason at all.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "Solid state, because it's the best kind of storage."</p>
+<ul>
+<li>A valid type — but "best kind" isn't linked to anything about THIS scenario, so no justification marks are earned.</li>
+</ul>
+
+<p><strong>⚠️ 2 marks:</strong> "Solid state, because it's fast and doesn't have moving parts."</p>
+<ul>
+<li>Two genuine solid-state facts, but neither is connected to the actual scenario — a strong answer explains WHY speed or durability matters HERE.</li>
+</ul>
+
+<p><strong>✅ Full marks (typical shape):</strong> "Solid state, because it has no moving parts so it won't be damaged if the device is knocked or moved <strong>(1)</strong>, it has fast data access so the device stays responsive <strong>(1)</strong>, it runs quietly and produces little heat, which suits a device that's on constantly <strong>(1)</strong>, and its capacity is high enough for the files involved <strong>(1)</strong>."</p>
+
+<p>Two rules that catch real candidates out: name a TYPE first (magnetic/optical/solid-state), not a brand or model — and make sure every justification point clearly matches the type you chose. Some mark schemes even give a mark just for a valid type; others put all the marks into the justification and simply use your stated type to decide which list of reasons applies to you. Either way, get the type right first.</p>`,
+            readCheck: {
+                q: "You justify 'solid state' using 'it's cheap and it's the newest technology.' Why does this earn few or no marks?",
+                opts: ["Because 'the newest technology' is always automatically awarded marks in every single OCR mark scheme", "Neither reason is genuine: 'newest' isn't a real factor, and it isn't usually the cheapest option", "The answer given is simply too short to be marked at all, regardless of what it says", "You must always choose magnetic storage over solid state for every single scenario"],
+                ans: 1,
+                explain: "Justification marks need genuine factors (capacity/speed/portability/durability/reliability/cost) linked to the scenario. 'Newest' isn't one of the six factors, and solid-state usually costs MORE per GB, not less."
+            }
+        },
+        {
+            type: "tip",
+            title: "Reading a scenario for the right factor",
+            pills: ["Exam skill", "All 6 factors", "Scenario clues"],
+            content: `<p>Before you write anything, scan the scenario for clue words and match them to one of the six factors — capacity, speed, portability, durability, reliability, cost.</p>
+<ul>
+<li><strong>"carried around" / "moved between locations" / "fits in a bag"</strong> → portability (and often durability too).</li>
+<li><strong>"dropped" / "knocked" / "rough handling" / "outdoors"</strong> → durability.</li>
+<li><strong>"large files" / "high-definition" / "years of data"</strong> → capacity.</li>
+<li><strong>"responsive" / "loads quickly" / "no delay"</strong> → speed.</li>
+<li><strong>"budget" / "affordable" / "large numbers of them are needed"</strong> → cost.</li>
+<li><strong>"must not lose data" / "used constantly for years"</strong> → reliability.</li>
+</ul>
+<p>Most 4-mark justify questions want you to spot two or three of these clues and build a reason around each — not to recite a generic list of pros and cons for every storage type. If the scenario doesn't mention movement at all, don't spend a mark on portability; if it says nothing about cost, don't invent a cost point.</p>`,
+            readCheck: {
+                q: "A scenario says a device will 'sit inside a desktop PC on an office desk and store years of company records.' Which factors are the strongest clues here?",
+                opts: ["Portability and durability", "Capacity and cost", "Speed only", "Durability only"],
+                ans: 1,
+                explain: "'Years of company records' points to capacity, and a device that just sits on a desk being stored cheaply points to cost — portability and durability barely matter here."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Secondary storage", def: "Storage that is non-volatile: it keeps data permanently, even when the power is off" },
+        { term: "Non-volatile", def: "Data is not lost when the power supply is turned off" },
+        { term: "Magnetic storage", def: "Stores data by magnetising areas of a disk or tape, e.g. a hard disk drive" },
+        { term: "Optical storage", def: "Stores data as a pattern read by a laser, e.g. CD, DVD, Blu-ray disc" },
+        { term: "Solid-state storage", def: "Stores data electronically in flash memory chips, with no moving parts" },
+        { term: "Hard disk drive (HDD)", def: "A common magnetic secondary storage device" },
+        { term: "SSD (solid-state drive)", def: "A fast, durable solid-state secondary storage device with no moving parts" },
+        { term: "Capacity", def: "How much data a storage device can hold" },
+        { term: "Speed", def: "How quickly data can be read from or written to a device" },
+        { term: "Portability", def: "How easily a device can be carried and used with different computers" },
+        { term: "Durability", def: "How well a device survives physical damage such as being dropped" },
+        { term: "Reliability", def: "How consistently a device works over time without failing or corrupting data" },
+        { term: "Cost", def: "The price of a device, often compared per gigabyte" },
+        { term: "Cost per gigabyte", def: "A fairer way to compare storage cost across devices of different sizes" },
+        { term: "Magnetic hard drive's strength", def: "Very high capacity at low cost per gigabyte" },
+        { term: "Magnetic hard drive's weakness", def: "Moving parts make it less durable and slower than solid-state" },
+        { term: "Optical disc's strength", def: "Very cheap to produce and distribute in bulk" },
+        { term: "Solid-state's strength", def: "Fast, durable and portable, with no moving parts to fail" }
+    ];
+
+    // ── WHY THIS PAGE DOES NOT INCLUDE EVERY SECONDARY-STORAGE-ADJACENT
+    // QUESTION FROM ITS SOURCE PAPERS (do not "fix" this) ──
+    // Per CS-CONTENT-PLAN.md §6.2, each question lives on exactly ONE page.
+    // Sourced from 2022/2023 Paper 1 (question papers + mark schemes +
+    // examiner reports in CS resources/Full exam papers/, gitignored) and the
+    // verified 2024 mock (mock-papers/2024-paper1.js):
+    //   • 2024 mock Q5a(i) [tick-box sampling] and Q5a(ii) [bit depth] are
+    //     about SOUND, not secondary storage devices — that's 1.2.7's page.
+    //   • 2024 mock Q5b(iii) [tick smallest capacity] and Q5b(iv) [MB→GB
+    //     calculation] are pure unit-conversion/capacity-calculation
+    //     questions with no device-choice content — left for 1.2.3 (Units).
+    //   • 2022 Paper 1 Q7(a)(i) [RAM vs ROM] and Q7(a)(ii) [RAM examples] are
+    //     primary storage — 1.2.1's page.
+    //   • 2023 Paper 1 Q5(a)(i) [explain why a computer needs BOTH primary
+    //     AND secondary storage, 2 marks] sits on the primary/secondary
+    //     boundary. Left for 1.2.1, since it pairs naturally with that page's
+    //     "why computers need primary storage" scope and 1.2.2's own "need"
+    //     bullet is separately covered by 2022 Q7(b)(i) below.
+    //   • 2023 Paper 1 Q5(a)(iii) [Virtual Memory true/false table] is
+    //     1.2.1's virtual-memory scope.
+    // Only the genuinely device/type-choice and "why secondary storage"
+    // questions are transcribed onto THIS page below.
+    const EXAM_CASE_STUDIES = {
+        "smart-tv": `<p>A smart television allows the user to search the Internet and watch videos online.</p><p>The smart television has secondary storage.</p>`,
+        "library-pc": `<p>A public library has several PCs available for anyone to use to browse the internet and write documents. During an upcoming open day, the library wants to hand out a promotional disc to hundreds of visitors, containing a demo of educational software.</p>`,
+        "bootable-usb": `<p>A computing technician has created a bootable installer for a new operating system. She uses it to install the same operating system onto many different desktop computers in a school's IT suite, one after another.</p>`,
+        "data-centre-archive": `<p>A cloud storage company runs a data centre that permanently archives billions of customer files. Once a file has been stored for 30 days, it is very rarely opened again. The data centre's storage devices are installed in racks and never move once fitted.</p>`,
+        "photographer-backup": `<p>A wildlife photographer spends several days at a time in remote locations, photographing animals in extreme weather. Every evening she backs up that day's memory cards onto a portable storage device, often working in dusty or damp conditions.</p>`,
+        "delivery-fleet": `<p>A logistics company is fitting a dashcam to every van in its delivery fleet. Each dashcam records continuous video while the van is being driven and must keep working despite constant vibration from the road.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "2022 Q7(b)(i)",
+            marks: 2,
+            type: "written",
+            caseId: "smart-tv",
+            question: `<p>State, using an example, why the smart television needs secondary storage.</p>`,
+            hint: "Give ONE concrete example of what's stored (the OS, an app, a recorded show) AND the reason it must survive being switched off — both halves are needed for 2 marks.",
+            starter: "For example, [something specific] needs to be stored, because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark each to max 2)</h5>
+<ul>
+<li>1 mark for example, e.g. the OS, web browser software, recorded show, user preferences</li>
+<li>1 mark for: to store data once the computer is turned off / permanently // for non-volatile storage</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Allow 2 marks by example, e.g. "To install software that will not be lost when the TV is turned off" gets 1 mark for software and 1 mark for not being lost when turned off.</li>
+<li>Do not award brand names without exemplification.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was answered well by many candidates. Many candidates correctly identified an example, most commonly downloaded videos, the operating system, or applications. Fewer were able to expand this as to why, for example stating that it was needed for the computer to work.</p>
+<p><strong>Misconception:</strong> a common misunderstanding was that it is needed as a backup for when the television fails.</p>
+</div>`,
+            modelAnswer: "For example, the operating system needs to be stored on the smart TV's secondary storage, because it must remain there permanently even when the television is switched off — RAM alone would lose this data every time the power is cut."
+        },
+        {
+            num: "2023 Q5(a)(ii)",
+            marks: 2,
+            type: "written",
+            stubs: ["Secondary storage device", "Example data"],
+            question: `<p>An artist has a computer that they use to create images.</p><p>Give one example of a secondary storage device that the artist's computer will have, and an example of the data that will be stored on it.</p>`,
+            hint: "Name an actual DEVICE (e.g. a hard drive or SSD), not just a type (e.g. 'magnetic') — and give data that would genuinely be created or used by an artist.",
+            starter: "Device: … | Example data: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark for device, 1 mark for data)</h5>
+<ul>
+<li>Hard drive // SSD // USB (memory) stick // Flash memory card // CD // DVD, etc.</li>
+<li>e.g. Images created // documents // software // files // data moved from RAM to virtual memory</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Allow any secondary device. Benefit of the doubt for "optical disc".</li>
+<li>Question asks for device, not type of device — magnetic/optical/solid state alone is not enough.</li>
+<li>Award the example even if it is stored on an incorrect secondary storage device.</li>
+<li>USB on its own is not enough.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates were required to identify a secondary storage device. Some responses identified a type of storage media (for example magnetic) instead of identifying a device (for example hard drive). Some responses gave RAM or ROM as a secondary storage device. These responses were incorrect.</p>
+<p>The example data varied but many responses were able to identify the storage of files, the images or software.</p>
+</div>`,
+            modelAnswer: "Device: SSD (solid-state drive)\n\nExample data: The image files the artist has created."
+        },
+        {
+            num: "2022 Q7(b)(ii)",
+            marks: 4,
+            type: "written",
+            caseId: "smart-tv",
+            stubs: ["Secondary storage type", "Justification"],
+            question: `<p>Identify one appropriate type of secondary storage for the smart television. Justify your choice.</p>`,
+            hint: "Name a TYPE (magnetic or solid state — optical isn't suitable here) first, then give reasons that only make sense for that type in a television that mostly stays in one place.",
+            starter: "Type: … | Justification: …",
+            markPoints: {
+                note: "1 mark for a correctly chosen type; 1 mark per justification point that genuinely matches that type, up to a max of 3. Justification must match the chosen type — reasons for the wrong type earn nothing.",
+                groups: [
+                    {
+                        label: "Your storage type", max: 1, points: [
+                            { text: "Named an appropriate type — magnetic OR solid state (an optical type is not appropriate here and cannot be awarded)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your justification", max: 3, points: [
+                            { text: "Gave a capacity reason matching your type (e.g. large storage capacity for storing software/videos/HD content)", marks: 1 },
+                            { text: "Gave a reason linked to the TV not being moved (e.g. magnetic: durability/portability isn't required because it stays still; solid state: durable/robust if it ever IS moved)", marks: 1 },
+                            { text: "Gave a cost reason matching your type (e.g. low cost to purchase, so the TV is cheaper to manufacture/buy)", marks: 1 },
+                            { text: "Gave another correct reason matching your type (e.g. solid state: fast data access makes the TV more responsive / runs quieter / produces less heat / uses less energy / compact; magnetic: the device is small enough to fit inside the TV / longevity and reliability)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for choice of magnetic or solid state; 1 mark per bullet to max 3 for justification) e.g.</h5>
+<ul>
+<li><strong>Magnetic:</strong> large storage capacity … for storing software/videos/HD; television unlikely to be moved … therefore durability/portability not required; cost to purchase is low … so the TV will be cheaper to manufacture/purchase; device will fit in a TV // device is small; longevity // reliable.</li>
+<li><strong>Solid state:</strong> large storage capacity … for storing software/videos/HD; television may be moved … therefore durable/robust/portable; fast data access … television will be more responsive; cost to purchase is low … so the TV is not too expensive to manufacture/purchase; run quieter; produce less heat; use less energy; compact // lightweight … so TV can be made smaller/lighter.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not award a specific device, e.g. hard disk — the question asks for a type. Follow-through is allowed for justification, to max 3. If both a device and a type are given, award, e.g. solid state drive, SSD, magnetic hard disk drive.</li>
+<li>Mark the first secondary storage type given.</li>
+<li>If no secondary storage type is given, read the justification for a type — do not award the type mark, but mark the justification (max 3).</li>
+<li>Justification must match the choice.</li>
+<li>If the type is inappropriate, e.g. optical, do not award.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Many candidates were able to correctly justify their choice of secondary storage. A few candidates gave a type of storage, instead giving a specific device such as a hard drive. There were some good examples of application in responses. For example, expanding the feature of high capacity to the need to download high-definition movies which can take up large amounts of storage. Another application commonly given was the need for a responsive television which was provided by the fast data access speeds.</p>
+</div>`,
+            modelAnswer: "Type: Solid state\n\nJustification: A solid-state drive has no moving parts, so it won't be damaged if the television is knocked or moved. It also has fast data access, which keeps the television responsive when loading apps or streaming video, and it runs quietly and produces little heat, which suits a device that's switched on for long periods."
+        },
+        {
+            num: "Q5b(i)",
+            marks: 4,
+            type: "written",
+            question: `<p>The musician has run out of storage space on their secondary storage device and needs to buy a replacement. Identify whether the musician should buy a magnetic secondary storage device or a solid state secondary storage device for their computer. Justify your choice.</p>`,
+            hint: "Pick a type first, then give up to 4 justification points that only make sense for the type you picked (not a generic list of pros and cons of both).",
+            starter: "Type: … Justification: …",
+            stubs: ["Type", "Justification"],
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (no mark for type; 1 mark each point matching the type, max 4)</h5><ul>
+<li><strong>Magnetic e.g.</strong> usually cheaper cost to purchase per unit of data; sufficient/good durability for what is needed (e.g. computer unlikely to move regularly); sufficient/fast speed of access, no significant delays storing/reading data; (long-term) reliable/longevity, unlikely to need replacing/break from over-use; high capacity, e.g. large sound files or higher bit depth.</li>
+<li><strong>Solid state e.g.</strong> cost often equates to magnetic per quantity, not expensive per unit of data; durable/robust, no moving parts, so the computer can be moved without risk of losing data; fast speed of access, no significant delays; high capacity, nearly the same/higher capacity than magnetic; small in physical size/portable; produces less sound when running; requires little/less power so running costs are reduced; drives do not get fragmented files/need defragging.</li>
+</ul></div><div class="marks-section"><h5>How the marks are given</h5><ul>
+<li>MP1 needs to be cost per unit, e.g. "it costs less per GB than other storage types" — not just "it is cheap to buy".</li>
+<li>Allow the reverse argument for each, e.g. for magnetic: "magnetic is not as robust but the computer will not be moved" gets 1 mark for not moving and 1 mark for solid state's robustness not being required.</li>
+<li>If no type is given on line 1, read the answer to look for a type and then award justification. If no type is identified anywhere in the answer, 0 marks.</li>
+</ul></div>`,
+            modelAnswer: "Type: Solid state\n\nJustification: Solid state drives have no moving parts, so they are more durable if the musician's computer gets knocked or moved. They also have fast access speeds, so there are no delays loading or saving large sound files, and they run silently, which matters when recording audio."
+        },
+        {
+            num: "Q5b(ii)",
+            marks: 1,
+            type: "written",
+            question: `<p>Identify one other type of secondary storage.</p>`,
+            hint: "Name a storage TYPE (a category), not a brand or a specific device model.",
+            starter: "…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 1 mark</h5><ul>
+<li><strong>Optical</strong></li>
+</ul></div><div class="marks-section"><h5>How the marks are given</h5><ul>
+<li>BOD "optic". Do not award an example of optical storage (e.g. "DVD") in place of the type.</li>
+</ul></div>`,
+            modelAnswer: "Optical storage."
+        },
+        {
+            num: "S1",
+            marks: 1,
+            type: "mcq",
+            caseId: "library-pc",
+            question: `<p>Refer to the library's open day promotional disc described above.</p><p>Which type of secondary storage is most suitable for producing hundreds of cheap, identical copies of the demo to give away?</p>`,
+            options: [
+                "Magnetic storage, because hard disk drives are the cheapest way of all to store any amount of data",
+                "Optical storage, because discs are very cheap to mass-produce identical copies of",
+                "Solid-state storage, because USB sticks have no moving parts and are extremely fast to access",
+                "Primary storage, because RAM can be copied and given away at almost no cost per copy"
+            ],
+            answer: 1,
+            hint: "Think about which factor matters most for handing out hundreds of cheap, identical copies — not overall capacity or access speed.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>Optical storage, because discs are very cheap to mass-produce identical copies of — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; there is no credit for a plausible-sounding reason attached to the wrong type.</li>
+</ul>
+</div>`,
+            modelAnswer: "Optical storage, because discs are very cheap to mass-produce identical copies of."
+        },
+        {
+            num: "S2",
+            marks: 1,
+            type: "mcq",
+            caseId: "bootable-usb",
+            question: `<p>Refer to the technician's bootable installer described above.</p><p>The technician says her installer is stored on "a solid-state device". Which statement about this description is correct?</p>`,
+            options: [
+                "'Solid-state' names the TYPE of storage technology being used; 'USB memory stick' or 'SSD' would be an example of the actual DEVICE",
+                "'Solid-state' is a brand name used by only one specific manufacturer of USB memory sticks and SSDs",
+                "'Solid-state' and a specific device such as a USB memory stick always mean exactly the same single thing, so either word can always be used interchangeably in any answer",
+                "'Solid-state' actually describes a type of primary storage rather than a type of secondary storage device"
+            ],
+            answer: 0,
+            hint: "A TYPE is the family (magnetic/optical/solid-state). A DEVICE is the actual product (USB stick, SSD, HDD, DVD). Which one is 'solid-state'?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>'Solid-state' names the type; a USB memory stick/SSD would be the device — CAO</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores.</li>
+</ul>
+</div>`,
+            modelAnswer: "'Solid-state' names the type of storage technology; 'USB memory stick' or 'SSD' would be the specific device."
+        },
+        {
+            num: "S3",
+            marks: 2,
+            type: "written",
+            question: `<p>Describe how a magnetic hard disk drive stores data.</p>`,
+            hint: "Think about what physically changes on the disk itself, and how that pattern is then read back.",
+            starter: "A magnetic hard disk drive stores data by…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark each)</h5>
+<ul>
+<li>Data is stored by magnetising tiny areas of a spinning disk (platter)</li>
+<li>A moving read/write head detects (or changes) the magnetised pattern to read (or write) the data</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept "magnetic field" for "magnetised".</li>
+<li>Do not accept a description of use instead of mechanism, e.g. "it stores files", without reference to magnetising the disk.</li>
+</ul>
+</div>`,
+            modelAnswer: "A magnetic hard disk drive stores data by magnetising tiny areas of a spinning disk called a platter. A moving read/write head detects the pattern of magnetised areas to read the data, or changes them to write new data."
+        },
+        {
+            num: "S4",
+            marks: 2,
+            type: "written",
+            question: `<p>Describe how a DVD stores data.</p>`,
+            hint: "Think about the physical pattern on the disc's surface, and what device reads that pattern.",
+            starter: "A DVD stores data as…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark each)</h5>
+<ul>
+<li>Data is stored as a pattern of tiny pits and flat areas (lands) on the disc's surface</li>
+<li>A laser reads the disc, detecting how light reflects differently off the pits and the lands</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept "bumps"/"dents" for pits.</li>
+<li>The second mark must reference a laser specifically, not just "a sensor".</li>
+</ul>
+</div>`,
+            modelAnswer: "A DVD stores data as a pattern of tiny pits and flat areas, called lands, on its surface. A laser reads the disc by detecting how light reflects differently off the pits compared to the lands."
+        },
+        {
+            num: "S5",
+            marks: 2,
+            type: "written",
+            question: `<p>Describe how a solid-state drive (SSD) stores data.</p>`,
+            hint: "Think about what an SSD is made of inside, and what it does NOT have compared to a hard disk drive.",
+            starter: "An SSD stores data by…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark each)</h5>
+<ul>
+<li>Data is stored electronically in flash memory cells/chips</li>
+<li>The SSD has no moving parts, unlike a magnetic hard disk drive</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept "chips"/"transistors" for flash memory cells.</li>
+<li>"No moving parts" must be stated explicitly for the second mark, not just implied.</li>
+</ul>
+</div>`,
+            modelAnswer: "An SSD stores data electronically in flash memory cells. Unlike a magnetic hard disk drive, it has no moving parts."
+        },
+        {
+            num: "S6",
+            marks: 3,
+            type: "written",
+            caseId: "data-centre-archive",
+            stubs: ["Why this is misleading", "Cheaper type for the data centre"],
+            question: `<p>Refer to the data centre described above.</p><p>A new employee says the data centre should avoid magnetic storage because "one large hard disk drive costs more money to buy than one small USB stick." Explain why comparing the price of individual devices like this is misleading, and state which type of storage is actually cheaper for the data centre's needs.</p>`,
+            hint: "Cost should be compared per gigabyte of storage, not per device — a bigger device naturally costs more to buy even if it works out cheaper for the amount of data it holds.",
+            starter: "This is misleading because…, so the cheaper type for the data centre is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point to max 3)</h5>
+<ul>
+<li>Cost should be compared per gigabyte / per unit of storage, not by the price of a single whole device</li>
+<li>A large hard disk drive stores far more data than a small USB stick, so its higher price does not mean it is more expensive per gigabyte</li>
+<li>Magnetic storage is actually cheaper for the data centre, since it has the lowest cost per gigabyte at very large capacities</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not award simply restating that "the employee is wrong" without an explanation referencing cost per gigabyte/unit of storage.</li>
+<li>Allow reversed reasoning that reaches the same conclusion via capacity, e.g. discussing how much data each device holds for its price.</li>
+</ul>
+</div>`,
+            modelAnswer: "Comparing the price of one device to another isn't a fair comparison, because cost should be measured per gigabyte, not per whole device. A large hard disk drive holds far more data than a small USB stick, so even though it costs more to buy, it is cheaper per gigabyte. For the data centre's huge archive, magnetic storage is actually the cheaper option, because it has the lowest cost per gigabyte at very large capacities."
+        },
+        {
+            num: "S7",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            question: `<p>The table has four statements about secondary storage. Tick (✓) <strong>one</strong> box in each row to show which type of storage technology the statement describes.</p>`,
+            grid: {
+                cols: ["Magnetic", "Optical", "Solid-state"],
+                rows: [
+                    { label: "Stores data by magnetising tiny areas of a spinning disk", correct: [0] },
+                    { label: "Stores data as a pattern of pits and lands, read by a laser", correct: [1] },
+                    { label: "Has no moving parts, so it is highly resistant to being dropped or knocked", correct: [2] },
+                    { label: "Usually has the lowest cost per gigabyte at very high capacities", correct: [0] }
+                ]
+            },
+            hint: "Match each statement to exactly one type — this table has one correct answer per row, not several.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each correctly ticked row)</h5>
+<ul>
+<li>Magnetises tiny areas of a spinning disk: <strong>Magnetic</strong></li>
+<li>Pattern of pits and lands, read by a laser: <strong>Optical</strong></li>
+<li>No moving parts, resistant to being dropped: <strong>Solid-state</strong></li>
+<li>Lowest cost per gigabyte at very high capacities: <strong>Magnetic</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>If more than one box is ticked in a row, 0 marks for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1 (magnetises areas of a spinning disk): Magnetic.\nRow 2 (pits and lands read by a laser): Optical.\nRow 3 (no moving parts, resistant to drops): Solid-state.\nRow 4 (lowest cost per gigabyte at high capacities): Magnetic."
+        },
+        {
+            num: "S8",
+            marks: 6,
+            type: "written",
+            caseId: "photographer-backup",
+            stubs: ["Factor 1", "Factor 2", "Factor 3"],
+            question: `<p>Refer to the wildlife photographer described above.</p><p>Explain why solid-state storage is generally more suitable than magnetic storage for the portable device she uses to back up her memory cards in the field. Refer to <strong>at least three</strong> different factors in your answer.</p>`,
+            hint: "Pick three different factors (e.g. durability, portability, speed, reliability) and for each one, explain WHY it matters specifically for working in remote, rough field conditions — a bare list of facts about solid-state storage isn't enough on its own.",
+            starter: "One reason solid-state storage suits the photographer's field backups is…",
+            markPoints: {
+                note: "One mark for correctly identifying a genuine reason solid-state suits the scenario, plus one mark for linking that reason specifically to the photographer's remote/rough field conditions — up to three factors, each worth up to 2 marks.",
+                groups: [
+                    {
+                        label: "Your first factor", max: 2, points: [
+                            { text: "Identifies a genuine solid-state advantage over magnetic storage (e.g. no moving parts/durability, portability, speed, reliability) — NOT cost, since solid-state usually costs more per gigabyte", marks: 1 },
+                            { text: "Links that advantage specifically to the photographer's situation (e.g. survives being knocked/dusty/damp conditions in the field, small enough to carry between remote sites, fast enough to back up a full day's photos before power runs out)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your second factor", max: 2, points: [
+                            { text: "Identifies a DIFFERENT genuine solid-state advantage over magnetic storage from your first factor", marks: 1 },
+                            { text: "Links that second advantage specifically to the photographer's field conditions", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your third factor", max: 2, points: [
+                            { text: "Identifies a THIRD different genuine solid-state advantage over magnetic storage", marks: 1 },
+                            { text: "Links that third advantage specifically to the photographer's field conditions", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (1 mark for a valid factor, 1 mark for linking it to the scenario, per factor, up to 3 factors)</h5>
+<ul>
+<li><strong>Durability</strong> — no moving parts, so it survives being dropped/knocked/exposed to dust or damp in the field without losing photos</li>
+<li><strong>Portability</strong> — small and light, so it is easy to carry between remote locations with limited luggage space</li>
+<li><strong>Speed</strong> — fast data access, so a full day's memory cards can be backed up quickly each evening without wasting limited battery/generator time</li>
+<li><strong>Reliability</strong> — works consistently without corrupting files, so irreplaceable wildlife photos, taken once and never repeatable, are not lost</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not credit cost as an advantage — solid-state usually costs more per gigabyte than magnetic storage, so it would not support this argument.</li>
+<li>Each factor needs both the fact AND a link to the field-backup scenario for 2 marks; a fact alone scores 1.</li>
+<li>Award a maximum of 3 factors (6 marks); do not credit a repeated 4th idea.</li>
+</ul>
+</div>`,
+            modelAnswer: "Solid-state storage has no moving parts, so it is far more durable than magnetic storage — it can survive being dropped, knocked or exposed to dust and damp around a campfire without losing the day's photos.\n\nIt is also small and light, which matters because the photographer has limited space to carry equipment between remote locations for several days at a time.\n\nFinally, solid-state storage has fast data access, so a full day's memory cards can be backed up quickly each evening without wasting limited battery power — important when there's no mains electricity nearby to recharge devices."
+        },
+        {
+            num: "S9",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseId: "delivery-fleet",
+            question: `<p>Refer to the delivery fleet described above.</p><p>The logistics company is deciding whether to fit magnetic hard disk drives or solid-state drives inside the dashcams in its delivery vans.</p><p>Discuss which type of secondary storage the company should choose for the dashcams.</p><p>In your answer you might consider:</p><ul><li>how each type of storage works</li><li>the effect of vibration and constant use inside a moving vehicle</li><li>the capacity needed to record continuous video</li><li>the cost of fitting the chosen storage across the whole fleet</li></ul>`,
+            hint: "Use all four bullets as your plan. Explain the mechanism, weigh durability against constant vibration, weigh capacity for continuous recording, then weigh the cost of your choice ACROSS THE WHOLE FLEET (not just one van) for a top-band answer.",
+            starter: "Given that dashcams in a moving vehicle experience constant vibration, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (levelled) — indicative content</h5>
+<p>The following is indicative of possible factors/evidence that candidates may refer to but is not prescriptive or exhaustive:</p>
+<ul>
+<li><strong>How each type works</strong> — magnetic storage stores data by magnetising areas of a spinning disk, read by a moving head; solid-state storage stores data electronically in flash memory chips, with no moving parts.</li>
+<li><strong>Effect of vibration/constant use</strong> — a dashcam sits inside a vehicle that is constantly moving and vibrating while driving; a magnetic drive's spinning disk and moving read/write head are more likely to be damaged or fail under constant vibration; solid-state has no moving parts, so it is far more durable in this environment and less likely to corrupt or lose footage.</li>
+<li><strong>Capacity for continuous recording</strong> — continuous video recording, especially if overwriting older footage in a loop, needs reasonably high capacity, but not as much as long-term archival; both technologies can offer enough capacity for this; solid-state capacities are now high enough for continuous dashcam footage without being excessive.</li>
+<li><strong>Cost across the fleet</strong> — solid-state usually costs more per gigabyte than magnetic storage; fitting one to every van in a large fleet multiplies this extra cost significantly, which the company must weigh against the reduced risk of a device failing on the road; magnetic storage is cheaper across a large fleet but carries a higher risk of failure/data loss from vibration, potentially losing footage needed as evidence after an incident.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given — levels of response</h5>
+<ul>
+<li><strong>Mark Band 3 — High Level (6–8 marks):</strong> Thorough knowledge and understanding of magnetic and solid-state storage, applied directly and consistently to the dashcam/fleet context. The response weighs up both sides (durability/reliability under vibration against cost across the whole fleet) and covers all four bullet areas with clear, logically structured reasoning, reaching a justified conclusion.</li>
+<li><strong>Mark Band 2 — Mid Level (3–5 marks):</strong> Reasonable knowledge of magnetic and solid-state storage, generally accurate but at times underdeveloped or only partly applied to the vehicle context. Most of the four areas are addressed, with some structure, though the discussion may not fully weigh both sides or reach a clear conclusion.</li>
+<li><strong>Mark Band 1 — Low Level (1–2 marks):</strong> Basic knowledge with limited understanding shown; the material may contain inaccuracies or barely refer to the dashcam/fleet context. Little more than an unsupported assertion, e.g. "solid-state is better" with no working explanation of why.</li>
+<li><strong>0 marks:</strong> No attempt to answer the question or response is not worthy of credit.</li>
+</ul>
+</div>`,
+            modelAnswer: "Magnetic storage works by magnetising tiny areas of a spinning disk, read by a moving read/write head, while solid-state storage stores data electronically in flash memory chips with no moving parts at all.\n\nBecause a dashcam sits inside a vehicle that is constantly vibrating and moving while it's driven, this difference matters a lot: a magnetic drive's spinning disk and moving head are far more likely to be damaged or to fail under that constant vibration, which could mean losing footage exactly when it's needed most, such as after an accident. Solid-state storage has no moving parts, so it copes with vibration far better and is much less likely to corrupt or lose footage.\n\nFor capacity, continuous video recording needs a reasonably large amount of storage, especially if it loops and overwrites older footage, but modern solid-state drives now offer enough capacity for this without needing the very largest capacities magnetic storage can reach.\n\nHowever, solid-state storage usually costs more per gigabyte than magnetic storage, and fitting every van in a large delivery fleet with solid-state drives would multiply that extra cost considerably. On balance, the risk of losing evidence footage from a failed magnetic drive under constant vibration is a serious drawback for a fleet dashcam, so the company should choose solid-state storage despite the higher cost, because reliability in this vibrating environment matters more than saving money per device."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>
@@ -293,6 +1223,9 @@
 <script src="/notifications-shared.js"></script>
 <script src="/onboarding-tour.js"></script>
 <script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
 <script src="/cs-lab/cs-lab.js" defer></script>
 </body>
 

@@ -229,19 +229,11 @@
     const wrap = el('div', 'cslab-msim-fde');
     wrap.appendChild(el('p', 'cslab-msim-fde-intro',
       'A tiny 3-instruction program adds two numbers together and stores the result. Press Step to walk through fetch, decode and execute — the parts of the CPU being used light up at each stage.'));
-    wrap.appendChild(ctx.ui.el(fdeSvgMarkup()));
 
-    const legend = el('ul', 'cslab-msim-legend');
-    FDE_LEGEND.forEach(([abbr, name, desc]) => {
-      const li = global.document.createElement('li');
-      const strong = global.document.createElement('strong');
-      strong.textContent = abbr + ' (' + name + ')';
-      li.appendChild(strong);
-      li.appendChild(global.document.createTextNode(' — ' + desc));
-      legend.appendChild(li);
-    });
-    wrap.appendChild(legend);
-
+    // Controls + the step readout sit directly under the intro, ABOVE the
+    // diagram: the CPU diagram is tall, so with the buttons underneath it the
+    // student had to scroll down to press Step and back up to watch the parts
+    // light up. Keeping them here means the whole cycle stays in view.
     const controls = el('div', 'cslab-msim-controls');
     const stepBtn = ctx.ui.btn('Step ▶');
     const autoBtn = ctx.ui.btn('Auto-play', 'secondary');
@@ -256,6 +248,19 @@
     const caption = el('p', 'cslab-msim-caption');
     caption.setAttribute('aria-live', 'polite');
     wrap.appendChild(caption);
+
+    wrap.appendChild(ctx.ui.el(fdeSvgMarkup()));
+
+    const legend = el('ul', 'cslab-msim-legend');
+    FDE_LEGEND.forEach(([abbr, name, desc]) => {
+      const li = global.document.createElement('li');
+      const strong = global.document.createElement('strong');
+      strong.textContent = abbr + ' (' + name + ')';
+      li.appendChild(strong);
+      li.appendChild(global.document.createTextNode(' — ' + desc));
+      legend.appendChild(li);
+    });
+    wrap.appendChild(legend);
     el0.appendChild(wrap);
 
     function stopAuto() {
@@ -268,7 +273,9 @@
         setFdeRegDisplay(wrap, { pc: 0, mar: null, mdr: null, acc: null });
         setFdeRam(wrap, 3, '(empty — the result goes here)');
         progress.textContent = 'Ready — press Step to fetch the first instruction.';
-        caption.textContent = '';
+        // Placeholder rather than '': the caption sits above the diagram now,
+        // where an empty bordered box would just look broken on first load.
+        caption.textContent = 'Each stage is explained here as you step through the cycle.';
         stepBtn.disabled = false;
         return;
       }

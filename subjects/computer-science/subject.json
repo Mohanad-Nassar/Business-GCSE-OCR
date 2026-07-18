@@ -25,15 +25,13 @@
           "id": "1-1-2-cpu-performance",
           "name": "1.1.2 CPU Performance",
           "sub": "Systems Architecture",
-          "file": "1.1.2-cpu-performance.html",
-          "noQuestions": true
+          "file": "1.1.2-cpu-performance.html"
         },
         {
           "id": "1-1-3-embedded-systems",
           "name": "1.1.3 Embedded Systems",
           "sub": "Systems Architecture",
-          "file": "1.1.3-embedded-systems.html",
-          "noQuestions": true
+          "file": "1.1.3-embedded-systems.html"
         }
       ]
     },
@@ -47,22 +45,19 @@
           "id": "1-2-1-primary-storage-memory",
           "name": "1.2.1 Primary Storage (Memory)",
           "sub": "Memory and Storage",
-          "file": "1.2.1-primary-storage-memory.html",
-          "noQuestions": true
+          "file": "1.2.1-primary-storage-memory.html"
         },
         {
           "id": "1-2-2-secondary-storage",
           "name": "1.2.2 Secondary Storage",
           "sub": "Memory and Storage",
-          "file": "1.2.2-secondary-storage.html",
-          "noQuestions": true
+          "file": "1.2.2-secondary-storage.html"
         },
         {
           "id": "1-2-3-units",
           "name": "1.2.3 Units",
           "sub": "Memory and Storage",
-          "file": "1.2.3-units.html",
-          "noQuestions": true
+          "file": "1.2.3-units.html"
         },
         {
           "id": "1-2-4-data-storage-numbers",

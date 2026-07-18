@@ -47,6 +47,78 @@
     return circuit.gates.filter(g => g.output !== circuit.output).map(g => g.output);
   }
 
+  // ── Draw-the-circuit marking (T-CS-Logic mode 3) ──────────────────
+  // A student-built circuit can be wired in ANY order (a later-placed gate
+  // may feed an earlier one), unlike the hand-authored CIRCUITS below which
+  // are already listed topologically — so evaluation here resolves each
+  // signal on demand (with a cycle guard) instead of assuming array order.
+  // Missing/incomplete wiring resolves to `undefined`, which simply fails
+  // to equal 0/1 later rather than crashing.
+  function evalCircuitSafe(circuit, inputValues) {
+    const signals = Object.assign({}, inputValues);
+    const gateByOutput = {};
+    circuit.gates.forEach(function (g) { gateByOutput[g.output] = g; });
+    const resolving = {};
+
+    function resolve(id) {
+      if (Object.prototype.hasOwnProperty.call(signals, id)) return signals[id];
+      if (resolving[id]) return undefined; // cycle guard — never resolves cleanly
+      const g = gateByOutput[id];
+      if (!g) return undefined; // referenced but never placed/wired
+      resolving[id] = true;
+      const vals = g.inputs.map(function (srcId) {
+        return srcId === null || srcId === undefined ? undefined : resolve(srcId);
+      });
+      resolving[id] = false;
+      const out = vals.every(function (v) { return v === 0 || v === 1; }) ? gateEval(g.type, vals) : undefined;
+      signals[id] = out;
+      return out;
+    }
+
+    circuit.gates.forEach(function (g) { resolve(g.output); });
+    return signals;
+  }
+
+  // Brute-force truth-table equivalence over every input combination — a
+  // student circuit wired completely differently from the model answer
+  // still counts as correct if it produces the same output for every
+  // possible input, exactly like the real "logically correct" mark scheme
+  // rule. Requires both circuits to share the same set of input letters.
+  function circuitsEquivalent(a, b) {
+    const aInputs = a.inputs.slice().sort();
+    const bInputs = b.inputs.slice().sort();
+    if (aInputs.length !== bInputs.length) return false;
+    for (let i = 0; i < aInputs.length; i++) if (aInputs[i] !== bInputs[i]) return false;
+    const n = a.inputs.length;
+    for (let mask = 0; mask < (1 << n); mask++) {
+      const inputValues = {};
+      a.inputs.forEach(function (letter, i) { inputValues[letter] = (mask >> (n - 1 - i)) & 1; });
+      const outA = evalCircuitSafe(a, inputValues)[a.output];
+      const outB = evalCircuitSafe(b, inputValues)[b.output];
+      if (outA !== outB) return false;
+    }
+    return true;
+  }
+
+  // OCR's real "draw the circuit" mark schemes accept any logically
+  // correct circuit but cap it at max 2 (of 3) if it uses more or fewer
+  // gates than the minimal/expected circuit ("max 2 if extra/missing
+  // gates").
+  function gradeDrawChallenge(studentCircuit, targetCircuit) {
+    const correct = circuitsEquivalent(studentCircuit, targetCircuit);
+    const gateCountMatches = studentCircuit.gates.length === targetCircuit.gates.length;
+    const maxMarks = 3;
+    const marks = !correct ? 0 : (gateCountMatches ? maxMarks : 2);
+    return {
+      correct: correct,
+      gateCountMatches: gateCountMatches,
+      marks: marks,
+      maxMarks: maxMarks,
+      studentGateCount: studentCircuit.gates.length,
+      targetGateCount: targetCircuit.gates.length,
+    };
+  }
+
   // ── circuit registry ─────────────────────────────────────────────
   const CIRCUITS = {
     'and2': { label: 'AND', inputs: ['A', 'B'], gates: [{ type: 'AND', inputs: ['A', 'B'], output: 'Q' }], output: 'Q' },
@@ -84,6 +156,17 @@
   };
   const PLAYGROUND_IDS = ['and2', 'or2', 'not1', 'a-and-notb', 'ab-or-c', 'not-a-or-b', 'ab-or-notc'];
   const CHALLENGE_IDS = ['and2', 'or2', 'not1', 'a-and-notb', 'not-a-or-b', 'not-a-and-b', 'ab-or-c', 'ab-or-notc'];
+  // Draw-the-circuit mode (2024 paper style: "draw a circuit for P = …"),
+  // easy → hard, reusing the same CIRCUITS registry as the model answers.
+  const DRAW_CHALLENGE_IDS = ['not1', 'and2', 'a-and-notb', 'not-a-or-b', 'ab-or-c', 'ab-or-notc'];
+  const DRAW_EXPR_LABELS = {
+    'not1': 'P = NOT A',
+    'and2': 'P = A AND B',
+    'a-and-notb': 'P = A AND (NOT B)',
+    'not-a-or-b': 'P = NOT (A OR B)',
+    'ab-or-c': 'P = (A AND B) OR C',
+    'ab-or-notc': 'P = (A AND B) OR (NOT C)',
+  };
 
   // ── generic layered layout (depth = column, fan-out is always 1 here) ──
   function layoutCircuit(circuit) {
@@ -273,7 +356,24 @@
       '.cslab-logic-fixed{color:var(--mid);background:var(--cream)}' +
       '.cslab-logic-cell{width:34px;height:30px;border:1px solid var(--border);border-radius:6px;background:var(--card-bg);color:var(--ink);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer}' +
       '.cslab-logic-cell.correct{border-color:var(--success);box-shadow:0 0 0 1px var(--success)}' +
-      '.cslab-logic-cell.incorrect{border-color:#c0392b;box-shadow:0 0 0 1px #c0392b}';
+      '.cslab-logic-cell.incorrect{border-color:#c0392b;box-shadow:0 0 0 1px #c0392b}' +
+      '.cslab-logic-draw-instructions{color:var(--mid);font-size:13px;margin:0 0 12px}' +
+      '.cslab-logic-draw-palette{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}' +
+      '.cslab-logic-draw-gatebtn{min-height:44px;padding:8px 16px;border-radius:8px;border:1px solid var(--border);background:var(--card-bg);color:var(--ink);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer}' +
+      '.cslab-logic-draw-gatebtn:hover{border-color:var(--accent);color:var(--accent)}' +
+      '.cslab-logic-draw-canvas{overflow-x:auto}' +
+      '.cslab-logic-draw-status{font-size:13px;color:var(--mid);min-height:18px;margin:8px 0}' +
+      '.cslab-logic-draw-gatelabel{font-size:10px;fill:var(--mid);text-anchor:middle;font-family:inherit}' +
+      '.cslab-logic-draw-pin{cursor:pointer}' +
+      '.cslab-logic-draw-pinhit{fill:transparent}' +
+      '.cslab-logic-draw-pindot{fill:var(--card-bg);stroke:var(--mid);stroke-width:2}' +
+      '.cslab-logic-draw-pin-out .cslab-logic-draw-pindot{stroke:var(--accent)}' +
+      '.cslab-logic-draw-pin.armed .cslab-logic-draw-pindot{fill:var(--accent);stroke:var(--accent)}' +
+      '.cslab-logic-draw-pin-in-filled .cslab-logic-draw-pindot{fill:var(--success);stroke:var(--success)}' +
+      '.cslab-logic-draw-pin-in-empty .cslab-logic-draw-pindot{stroke:#c0392b;stroke-dasharray:3 2}' +
+      '.cslab-logic-draw-remove{cursor:pointer}' +
+      '.cslab-logic-draw-remove text{fill:var(--mid);font-size:13px;font-weight:700}' +
+      '.cslab-logic-draw-remove:hover text{fill:#c0392b}';
     document.head.appendChild(style);
   }
 
@@ -520,6 +620,343 @@
     selectChallenge(CHALLENGE_IDS[0]);
   }
 
+  // ── Mode 3: Draw the circuit ────────────────────────────────────
+  // The 2024 paper asks students to DRAW a circuit for a given Boolean
+  // expression. The student places gates from a palette into a single
+  // canvas column, then wires it up by tapping an output pin (an input
+  // letter, or a gate's own output) followed by the input pin it should
+  // connect to. Any circuit that is logically equivalent to the target
+  // passes — a differently-wired-but-correct circuit is still correct,
+  // exactly like the real "logically correct" mark scheme rule — but
+  // (also exactly like the real mark scheme) using more or fewer gates
+  // than the model answer caps the mark at 2/3 instead of 3/3.
+
+  const DRAW_COL_W = 150, DRAW_ROW_H = 64, DRAW_GATE_W = 62, DRAW_GATE_H = 40, DRAW_MARGIN_X = 50, DRAW_MARGIN_Y = 24;
+
+  function drawSlotCountFor(type) { return type === 'NOT' ? 1 : 2; }
+
+  function markDrawSolved(ctx, challengeId) {
+    const list = ctx.store.get('drawSolved', []);
+    if (list.indexOf(challengeId) === -1) {
+      list.push(challengeId);
+      ctx.store.set('drawSolved', list);
+    }
+  }
+
+  function addSvgPin(svg, x, y, cls, onClick) {
+    const g = document.createElementNS(SVG_NS, 'g');
+    g.setAttribute('class', 'cslab-logic-draw-pin ' + cls);
+    const hit = document.createElementNS(SVG_NS, 'circle');
+    hit.setAttribute('cx', x); hit.setAttribute('cy', y); hit.setAttribute('r', 16);
+    hit.setAttribute('class', 'cslab-logic-draw-pinhit');
+    const dot = document.createElementNS(SVG_NS, 'circle');
+    dot.setAttribute('cx', x); dot.setAttribute('cy', y); dot.setAttribute('r', 6);
+    dot.setAttribute('class', 'cslab-logic-draw-pindot');
+    g.appendChild(hit);
+    g.appendChild(dot);
+    if (onClick) g.addEventListener('click', onClick);
+    svg.appendChild(g);
+    return g;
+  }
+
+  function addSvgRemove(svg, x, y, onClick) {
+    const g = document.createElementNS(SVG_NS, 'g');
+    g.setAttribute('class', 'cslab-logic-draw-remove');
+    const hit = document.createElementNS(SVG_NS, 'circle');
+    hit.setAttribute('cx', x); hit.setAttribute('cy', y); hit.setAttribute('r', 14);
+    hit.setAttribute('class', 'cslab-logic-draw-pinhit');
+    const txt = document.createElementNS(SVG_NS, 'text');
+    txt.setAttribute('x', x); txt.setAttribute('y', y + 4);
+    txt.setAttribute('text-anchor', 'middle');
+    txt.textContent = '✕';
+    g.appendChild(hit);
+    g.appendChild(txt);
+    g.addEventListener('click', onClick);
+    svg.appendChild(g);
+  }
+
+  function mountDrawChallenge(container, ctx, challengeId, onSolved) {
+    container.innerHTML = '';
+    const target = CIRCUITS[challengeId];
+    const exprLabel = DRAW_EXPR_LABELS[challengeId];
+
+    const head = document.createElement('p');
+    head.className = 'cslab-logic-challenge-title';
+    head.textContent = 'Build a circuit for: ' + exprLabel;
+    container.appendChild(head);
+
+    container.appendChild((function () {
+      const p = document.createElement('p');
+      p.className = 'cslab-logic-draw-instructions';
+      p.textContent = "Tap a gate below to add it to your circuit, then wire it up: tap an output pin (an input letter, or a gate's right-hand pin), then tap the input pin you want to connect it to. Finish by wiring something into P on the right.";
+      return p;
+    })());
+
+    const palette = document.createElement('div');
+    palette.className = 'cslab-logic-draw-palette';
+    container.appendChild(palette);
+
+    const canvasWrap = document.createElement('div');
+    canvasWrap.className = 'cslab-logic-diagram cslab-logic-draw-canvas';
+    container.appendChild(canvasWrap);
+
+    const statusEl = document.createElement('p');
+    statusEl.className = 'cslab-logic-draw-status';
+    container.appendChild(statusEl);
+
+    const feedback = document.createElement('div');
+    feedback.className = 'cslab-feedback';
+    container.appendChild(feedback);
+
+    const btnRow = document.createElement('div');
+    btnRow.className = 'cslab-drills-btnrow';
+    const checkBtn = CsLab.ui.btn('Check my circuit');
+    const resetBtn = CsLab.ui.btn('Reset', 'secondary');
+    const revealBtn = CsLab.ui.btn('Reveal a model answer', 'secondary');
+    revealBtn.style.display = 'none';
+    btnRow.appendChild(checkBtn);
+    btnRow.appendChild(resetBtn);
+    btnRow.appendChild(revealBtn);
+    container.appendChild(btnRow);
+
+    // ── state ──
+    let gates = [];       // { id:'G1', type:'AND'|'OR'|'NOT', inputs:[srcId|null, ...] }
+    let outputSrc = null;  // srcId wired into the final P terminal
+    let armed = null;      // srcId currently armed for wiring, or null
+    let nextGateNum = 1;
+    let fails = 0;
+    let solved = false;
+
+    ['AND', 'OR', 'NOT'].forEach(function (type) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'cslab-logic-draw-gatebtn';
+      b.textContent = '+ ' + type;
+      b.addEventListener('click', function () { addGate(type); });
+      palette.appendChild(b);
+    });
+
+    function addGate(type) {
+      if (solved) return;
+      gates.push({ id: 'G' + (nextGateNum++), type: type, inputs: new Array(drawSlotCountFor(type)).fill(null) });
+      render();
+    }
+
+    function removeGate(id) {
+      if (solved) return;
+      gates = gates.filter(function (g) { return g.id !== id; });
+      gates.forEach(function (g) { g.inputs = g.inputs.map(function (src) { return src === id ? null : src; }); });
+      if (outputSrc === id) outputSrc = null;
+      if (armed === id) armed = null;
+      render();
+    }
+
+    function arm(srcId) {
+      if (solved) return;
+      armed = (armed === srcId) ? null : srcId;
+      render();
+    }
+
+    function wireInto(gateId, slotIndex) {
+      if (solved || armed === null || armed === gateId) return;
+      const g = gates.filter(function (x) { return x.id === gateId; })[0];
+      g.inputs[slotIndex] = armed;
+      armed = null;
+      render();
+    }
+
+    function wireIntoOutput() {
+      if (solved || armed === null) return;
+      outputSrc = armed;
+      armed = null;
+      render();
+    }
+
+    function resetAll() {
+      gates = []; outputSrc = null; armed = null; nextGateNum = 1; fails = 0; solved = false;
+      revealBtn.style.display = 'none';
+      revealBtn.disabled = false;
+      checkBtn.disabled = false;
+      feedback.textContent = '';
+      feedback.className = 'cslab-feedback';
+      render();
+    }
+    resetBtn.addEventListener('click', resetAll);
+
+    function buildStudentCircuit() {
+      return {
+        inputs: target.inputs,
+        gates: gates.map(function (g) { return { type: g.type, inputs: g.inputs.slice(), output: g.id }; }),
+        output: outputSrc,
+      };
+    }
+
+    function isComplete() {
+      if (outputSrc === null) return false;
+      return gates.every(function (g) { return g.inputs.every(function (src) { return src !== null; }); });
+    }
+
+    checkBtn.addEventListener('click', function () {
+      if (solved) return;
+      if (!gates.length || !isComplete()) {
+        CsLab.ui.feedback(feedback, false, 'Add at least one gate and wire up every input (including P) before checking.');
+        return;
+      }
+      const result = gradeDrawChallenge(buildStudentCircuit(), target);
+      if (result.correct && result.gateCountMatches) {
+        solved = true;
+        checkBtn.disabled = true;
+        revealBtn.style.display = 'none';
+        CsLab.ui.feedback(feedback, true, '✓ Logically correct AND built with the minimal number of gates — full marks: ' + result.marks + '/' + result.maxMarks + '.');
+        markDrawSolved(ctx, challengeId);
+        if (onSolved) onSolved();
+        ctx.complete({ drawChallenge: challengeId, marks: result.marks });
+      } else if (result.correct) {
+        solved = true;
+        checkBtn.disabled = true;
+        revealBtn.style.display = 'none';
+        CsLab.ui.feedback(feedback, true, '✓ Logically correct — but you used ' + result.studentGateCount +
+          (result.studentGateCount === 1 ? ' gate' : ' gates') + ' where the model answer uses ' + result.targetGateCount +
+          '. Real exam mark schemes cap circuits like this at ' + result.marks + '/' + result.maxMarks + ' ("max 2 if extra/missing gates").');
+        markDrawSolved(ctx, challengeId);
+        if (onSolved) onSolved();
+        ctx.complete({ drawChallenge: challengeId, marks: result.marks });
+      } else {
+        fails += 1;
+        CsLab.ui.feedback(feedback, false, "Not quite — that circuit doesn't match " + exprLabel + ' on every input combination. Try again.' +
+          (fails >= 2 ? ' You can reveal a model answer below.' : ''));
+        if (fails >= 2) revealBtn.style.display = '';
+      }
+      render();
+    });
+
+    revealBtn.addEventListener('click', function () {
+      gates = target.gates.map(function (g) { return { id: g.output, type: g.type, inputs: g.inputs.slice() }; });
+      nextGateNum = gates.length + 1;
+      outputSrc = target.output;
+      armed = null;
+      CsLab.ui.feedback(feedback, true, 'Model answer revealed — study the wiring, then press Reset to try your own.');
+      checkBtn.disabled = true;
+      revealBtn.disabled = true;
+      render();
+    });
+
+    function sourcePin(id, gatePins, inputPins) { return inputPins[id] || (gatePins[id] && gatePins[id].out); }
+
+    function render() {
+      canvasWrap.innerHTML = '';
+      const rows = Math.max(target.inputs.length, gates.length, 1);
+      const width = DRAW_MARGIN_X * 2 + DRAW_COL_W * 2 + 40;
+      const height = DRAW_MARGIN_Y * 2 + Math.max(rows - 1, 0) * DRAW_ROW_H + DRAW_GATE_H;
+
+      const svg = document.createElementNS(SVG_NS, 'svg');
+      svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+      svg.setAttribute('width', '100%');
+      svg.setAttribute('height', Math.min(height, 320));
+      svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+      svg.classList.add('cslab-logic-svg');
+
+      const inputPins = {};
+      target.inputs.forEach(function (letter, i) {
+        const x = DRAW_MARGIN_X, y = DRAW_MARGIN_Y + i * DRAW_ROW_H + DRAW_GATE_H / 2;
+        inputPins[letter] = { x: x, y: y };
+        const label = document.createElementNS(SVG_NS, 'text');
+        label.setAttribute('x', x - 14);
+        label.setAttribute('y', y + 5);
+        label.setAttribute('text-anchor', 'end');
+        label.setAttribute('class', 'cslab-logic-label');
+        label.textContent = letter;
+        svg.appendChild(label);
+        addSvgPin(svg, x, y, 'cslab-logic-draw-pin-out' + (armed === letter ? ' armed' : ''), function () { arm(letter); });
+      });
+
+      const gatePins = {};
+      gates.forEach(function (g, i) {
+        const gx = DRAW_MARGIN_X + DRAW_COL_W;
+        const gy = DRAW_MARGIN_Y + i * DRAW_ROW_H;
+        const drawn = drawGateShape(svg, g.type, gx, gy, DRAW_GATE_W, DRAW_GATE_H);
+        gatePins[g.id] = drawn;
+
+        const gLabel = document.createElementNS(SVG_NS, 'text');
+        gLabel.setAttribute('x', gx + DRAW_GATE_W / 2);
+        gLabel.setAttribute('y', gy - 6);
+        gLabel.setAttribute('text-anchor', 'middle');
+        gLabel.setAttribute('class', 'cslab-logic-draw-gatelabel');
+        gLabel.textContent = g.id;
+        svg.appendChild(gLabel);
+
+        if (!solved) addSvgRemove(svg, gx + DRAW_GATE_W + 14, gy + DRAW_GATE_H / 2, function () { removeGate(g.id); });
+
+        addSvgPin(svg, drawn.out.x, drawn.out.y, 'cslab-logic-draw-pin-out' + (armed === g.id ? ' armed' : ''), function () { arm(g.id); });
+        drawn.in.forEach(function (pin, slotIdx) {
+          const filled = g.inputs[slotIdx] !== null;
+          addSvgPin(svg, pin.x, pin.y, filled ? 'cslab-logic-draw-pin-in-filled' : 'cslab-logic-draw-pin-in-empty', function () { wireInto(g.id, slotIdx); });
+        });
+      });
+
+      const pX = DRAW_MARGIN_X + DRAW_COL_W * 2, pY = DRAW_MARGIN_Y + DRAW_GATE_H / 2;
+      const pLabel = document.createElementNS(SVG_NS, 'text');
+      pLabel.setAttribute('x', pX + 16);
+      pLabel.setAttribute('y', pY + 5);
+      pLabel.setAttribute('class', 'cslab-logic-label');
+      pLabel.textContent = 'P';
+      svg.appendChild(pLabel);
+      addSvgPin(svg, pX, pY, outputSrc !== null ? 'cslab-logic-draw-pin-in-filled' : 'cslab-logic-draw-pin-in-empty', wireIntoOutput);
+
+      gates.forEach(function (g) {
+        g.inputs.forEach(function (src, slotIdx) {
+          if (src === null) return;
+          const from = sourcePin(src, gatePins, inputPins);
+          const to = gatePins[g.id].in[slotIdx];
+          if (from && to) drawOrthogonalWire(svg, from, to);
+        });
+      });
+      if (outputSrc !== null) {
+        const from = sourcePin(outputSrc, gatePins, inputPins);
+        if (from) drawOrthogonalWire(svg, from, { x: pX, y: pY });
+      }
+
+      canvasWrap.appendChild(svg);
+
+      if (solved) statusEl.textContent = 'Solved — press Reset to try again, or pick another challenge above.';
+      else if (armed !== null) statusEl.textContent = 'Now tap the input pin (dashed circle) you want to wire ' + armed + ' into.';
+      else statusEl.textContent = "Tap an output pin to start a wire, then tap the input pin to connect it to.";
+    }
+
+    render();
+  }
+
+  function mountDrawChallenges(container, ctx) {
+    container.innerHTML = '';
+    const picker = document.createElement('div');
+    picker.className = 'cslab-logic-challengelist';
+    const stage = document.createElement('div');
+    stage.className = 'cslab-logic-stage';
+    container.appendChild(picker);
+    container.appendChild(stage);
+
+    function solvedList() { return ctx.store.get('drawSolved', []); }
+
+    function refreshPicker(activeId) {
+      picker.innerHTML = '';
+      DRAW_CHALLENGE_IDS.forEach(function (id, i) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'cslab-logic-challenge-btn' + (id === activeId ? ' active' : '') + (solvedList().indexOf(id) !== -1 ? ' done' : '');
+        b.textContent = (i + 1) + '. ' + DRAW_EXPR_LABELS[id];
+        b.addEventListener('click', function () { selectChallenge(id); });
+        picker.appendChild(b);
+      });
+    }
+
+    function selectChallenge(id) {
+      refreshPicker(id);
+      mountDrawChallenge(stage, ctx, id, function () { refreshPicker(id); });
+    }
+
+    selectChallenge(DRAW_CHALLENGE_IDS[0]);
+  }
+
   // ── top-level mount ───────────────────────────────────────────────
   function mount(el, ctx) {
     injectStyles();
@@ -536,6 +973,7 @@
     const MODES = [
       { id: 'playground', label: 'Playground', run: mountPlayground },
       { id: 'challenges', label: 'Truth-table challenges', run: mountChallenges },
+      { id: 'draw', label: 'Draw the circuit', run: mountDrawChallenges },
     ];
 
     function selectMode(mode) {
@@ -561,6 +999,9 @@
 
   // ── Node test hook (never runs in the browser) ──────────────────
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { gateEval, evalCircuit, fullTruthTable, intermediateIds, layoutCircuit, CIRCUITS, PLAYGROUND_IDS, CHALLENGE_IDS };
+    module.exports = {
+      gateEval, evalCircuit, fullTruthTable, intermediateIds, layoutCircuit, CIRCUITS, PLAYGROUND_IDS, CHALLENGE_IDS,
+      evalCircuitSafe, circuitsEquivalent, gradeDrawChallenge, DRAW_CHALLENGE_IDS, DRAW_EXPR_LABELS,
+    };
   }
 })();

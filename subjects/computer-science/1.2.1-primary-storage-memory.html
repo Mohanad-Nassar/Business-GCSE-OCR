@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.2 Memory and Storage</div>
             <h1>1.2.1 Primary Storage (Memory)</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.2.1 Primary Storage (Memory) — placeholder, content not yet written
+    //  DATA: 1.2.1 Primary Storage (Memory)
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-2-1-primary-storage-memory',
@@ -268,21 +268,964 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.2.1 Primary Storage (Memory)</strong> will appear here soon.</p>`
+            title: "Why does a computer need primary storage?",
+            tag: "Key concept",
+            content: `<h4>Why can't the CPU just use secondary storage?</h4>
+<ul>
+<li>A computer's <strong>secondary storage</strong> — its SSD or hard drive — holds files and programs <em>permanently</em>, but it is far too <strong>slow</strong> for the CPU to work from directly.</li>
+<li><strong>Primary storage</strong> is the memory the CPU is wired to and can access almost instantly. Before any program can run, it must first be <strong>loaded</strong> from secondary storage into primary storage.</li>
+<li>Everyday example: double-clicking a game icon doesn't run the game straight off the hard drive — it copies the game's code and data into RAM first, which is why there's a short pause while it "loads".</li>
+</ul>
+<h4>Two very different jobs</h4>
+<ul>
+<li>Primary storage actually covers <strong>two</strong> different types of memory with opposite jobs: <strong>RAM</strong>, which holds whatever is currently running, and <strong>ROM</strong>, which holds the fixed instructions needed to start the computer up.</li>
+<li>Both sit inside primary storage because both must be instantly accessible to the CPU — but what they store, and whether they can be changed, are completely different (next two cards).</li>
+</ul>`,
+            readCheck: {
+                q: "Why can't a program run directly from an SSD or hard drive?",
+                opts: ["Secondary storage can only hold data files, never the actual program code itself, so there is nothing to load", "Secondary storage is far too slow for the CPU to access directly, so the program is loaded into RAM first", "The CPU has no physical connection to secondary storage, so data cannot move between them at all", "Programs are always stored permanently in ROM instead of on secondary storage"],
+                ans: 1,
+                explain: "Secondary storage is permanent but slow. The CPU needs data at the speed of primary storage, so programs are loaded into RAM before they run."
+            }
+        },
+        {
+            title: "RAM — the computer's working memory",
+            tag: "Key concept",
+            content: `<h4>What RAM actually holds</h4>
+<ul>
+<li><strong>RAM (Random Access Memory)</strong> holds the programs, data and parts of the operating system that are <strong>currently running</strong>. As soon as you open an app, its code and data are copied into RAM.</li>
+<li>RAM is <strong>volatile</strong> — everything inside it is <strong>lost the instant the power is switched off</strong>. That's why unsaved work disappears if a computer suddenly loses power.</li>
+</ul>
+<h4>RAM can be read AND written</h4>
+<ul>
+<li>Unlike ROM, the CPU can both <strong>read from</strong> and <strong>write to</strong> RAM constantly — that's essential, because the contents of RAM change every fraction of a second as programs run.</li>
+<li>Everyday example: typing this sentence changes the contents of RAM instantly; nothing is written to the hard drive until you actually save.</li>
+</ul>
+<h4>Why the amount of RAM matters</h4>
+<ul>
+<li>RAM has a fixed, limited size. The more RAM a computer has, the more programs and data it can hold <strong>at once</strong> without running out of space — which is exactly the problem virtual memory exists to solve (later card).</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is true about RAM?",
+                opts: ["It is non-volatile, and keeps all of its contents safely even when the power is switched off", "It is volatile, and holds the programs and data currently in use", "It can only be read from by the CPU, and can never be written to at all", "It stores the fixed instructions that start the computer up when it is switched on"],
+                ans: 1,
+                explain: "RAM is volatile — its contents vanish without power — and it holds whatever is currently running, not permanent files (that's secondary storage) or start-up instructions (that's ROM)."
+            }
+        },
+        {
+            title: "ROM — the permanent, unchanging instructions",
+            tag: "Key concept",
+            content: `<h4>What ROM actually holds</h4>
+<ul>
+<li><strong>ROM (Read Only Memory)</strong> stores the <strong>boot-up instructions</strong> — the very first program a computer runs the moment it is switched on, sometimes called the <strong>bootstrap program</strong>. Its job is to start loading the operating system from secondary storage into RAM.</li>
+<li>ROM is <strong>non-volatile</strong> — its contents <strong>survive</strong> the power being switched off. That's essential: the computer needs those instructions to be there, unchanged, every single time it starts.</li>
+</ul>
+<h4>Why "read only"?</h4>
+<ul>
+<li>ROM <strong>normally cannot be changed</strong> once it is set. The CPU can read from it, but not write new data to it.</li>
+<li>This is a deliberate design choice, not a limitation: if the boot-up instructions could be casually overwritten — by a virus, a bug, or a power cut mid-write — the computer might never start again.</li>
+</ul>
+<h4>ROM is not "extra storage"</h4>
+<ul>
+<li>ROM is tiny and dedicated to one job. It never stores your files, photos or installed apps — that is secondary storage's job.</li>
+</ul>`,
+            readCheck: {
+                q: "Why must ROM be non-volatile?",
+                opts: ["So it can permanently store all of the user's saved files, documents and photos", "So the boot-up instructions needed to start the computer are always there, even after a power cut", "Because ROM is significantly faster to access than RAM for the CPU to use", "Because the entire operating system runs directly from ROM the whole time the computer is switched on"],
+                ans: 1,
+                explain: "The bootstrap/boot-up instructions in ROM must survive every power-off so the computer can always start up and begin loading the operating system."
+            }
+        },
+        {
+            title: "RAM vs ROM — the three differences",
+            tag: "Comparison",
+            content: `<h4>The three differences examiners ask for</h4>
+<table><tr><th></th><th>RAM</th><th>ROM</th></tr>
+<tr><td><strong>Volatility</strong></td><td>Volatile — loses contents when power is off</td><td>Non-volatile — keeps contents when power is off</td></tr>
+<tr><td><strong>Contents</strong></td><td>Currently running programs, data and parts of the OS</td><td>The boot-up (bootstrap) instructions</td></tr>
+<tr><td><strong>Changeability</strong></td><td>Can be written to and changed constantly</td><td>Normally cannot be changed</td></tr>
+</table>
+<h4>Answer BOTH sides, in the same space</h4>
+<ul>
+<li>A "state the difference" question is only worth full marks when you write <strong>both</strong> halves together: <em>"RAM is volatile, whereas ROM is non-volatile."</em></li>
+<li>Writing everything about RAM first and everything about ROM afterwards, in separate sentences, is marked as <strong>two descriptions</strong>, not one difference — and it is a genuine, common way to lose the mark.</li>
+</ul>`,
+            readCheck: {
+                q: "Which answer correctly states ONE difference between RAM and ROM?",
+                opts: ["RAM stores the programs and data that are currently running on the computer.", "ROM is non-volatile, so it does not need power to keep its contents safe.", "RAM is volatile, whereas ROM is non-volatile.", "RAM and ROM are both examples of memory used inside every modern computer."],
+                ans: 2,
+                explain: "A difference needs both sides contrasted together in the same sentence. The first two options only describe one side each; the last isn't a difference at all."
+            }
+        },
+        {
+            title: "Virtual memory — borrowing space from secondary storage",
+            tag: "Key concept",
+            content: `<h4>The problem virtual memory solves</h4>
+<ul>
+<li>RAM is fast, but it is also limited in size and expensive. Sometimes a computer needs to run more programs and data <strong>at once</strong> than will physically fit in RAM.</li>
+<li><strong>Virtual memory</strong> is the operating system's solution: it <strong>partitions a section of secondary storage</strong> to act as an overflow extension of RAM.</li>
+</ul>
+<h4>How data moves between RAM and virtual memory</h4>
+<ul>
+<li>When RAM is <strong>full, or nearly full</strong>, the operating system moves data that <strong>isn't currently needed</strong> out of RAM and into virtual memory on secondary storage. This frees up space in RAM for whatever needs to run right now.</li>
+<li>When that data is needed again, it is transferred <strong>back</strong> from virtual memory into RAM. Virtual memory is a two-way system — data does not stay there forever.</li>
+<li>Everyday example: with many browser tabs and apps open at once, an older, untouched tab may be swapped out to virtual memory; switching back to it feels briefly slower while it's swapped back into RAM.</li>
+</ul>
+<h4>The trade-off: it's much slower</h4>
+<ul>
+<li>Secondary storage is dramatically slower to access than RAM. Using virtual memory heavily makes a computer feel sluggish, because the CPU keeps waiting for data to be swapped in and out.</li>
+<li>This is exactly why <strong>adding more RAM</strong> improves performance — it reduces how often the computer has to fall back on slow virtual memory.</li>
+</ul>`,
+            readCheck: {
+                q: "When does the operating system start using virtual memory?",
+                opts: ["As soon as the computer is switched on", "When RAM is full or nearly full", "When ROM is full", "Whenever a file is saved"],
+                ans: 1,
+                explain: "Virtual memory is overflow space used specifically when RAM is running out — not something used constantly by default."
+            }
+        },
+        {
+            title: "Cache and the memory hierarchy",
+            tag: "Comparison",
+            content: `<h4>Where cache fits</h4>
+<ul>
+<li><strong>Cache</strong> is a small amount of very fast memory built into the CPU. It stores the instructions and data used <strong>most frequently</strong>, so the CPU can fetch them without the delay of going all the way out to RAM.</li>
+<li>Cache sits <strong>between the CPU and RAM</strong> in terms of both speed and size: faster and smaller than RAM, but slower and bigger than the CPU's own registers.</li>
+</ul>
+<h4>The memory hierarchy</h4>
+<ul>
+<li>Every layer of storage trades <strong>speed</strong> against <strong>capacity and cost</strong>. Moving down the hierarchy, each layer gets <strong>slower, bigger and cheaper per byte</strong>:</li>
+</ul>
+<svg viewBox="0 0 480 230" width="100%" height="230" role="img" aria-label="Memory hierarchy diagram, fastest and smallest at the top narrowing down to slowest and largest at the bottom: registers, cache, RAM, secondary storage">
+<rect x="160" y="10" width="160" height="42" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="240" y="36" text-anchor="middle" fill="currentColor" font-size="14">Registers</text>
+<rect x="130" y="62" width="220" height="42" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="240" y="88" text-anchor="middle" fill="currentColor" font-size="14">Cache</text>
+<rect x="90" y="114" width="300" height="42" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="240" y="140" text-anchor="middle" fill="currentColor" font-size="14">RAM (primary storage)</text>
+<rect x="30" y="166" width="420" height="42" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="240" y="192" text-anchor="middle" fill="currentColor" font-size="14">Secondary storage</text>
+<text x="10" y="20" fill="currentColor" font-size="11">faster</text>
+<text x="10" y="215" fill="currentColor" font-size="11">bigger &amp; cheaper</text>
+<line x1="10" y1="28" x2="10" y2="200" stroke="currentColor" stroke-width="1"/>
+</svg>
+<ul>
+<li><strong>Registers</strong> (inside the CPU) — tiny, fastest of all, hold the data being processed right now.</li>
+<li><strong>Cache</strong> — very fast, small, holds frequently used instructions and data.</li>
+<li><strong>RAM (primary storage)</strong> — fast, holds everything currently running.</li>
+<li><strong>Secondary storage</strong> — slow, but huge and permanent; also where virtual memory lives.</li>
+</ul>`,
+            readCheck: {
+                q: "Put these in order from fastest to slowest to access.",
+                opts: ["Registers, cache, RAM, secondary storage", "Cache, registers, secondary storage, RAM", "RAM, cache, registers, secondary storage", "Secondary storage, cache, RAM, registers"],
+                ans: 0,
+                explain: "Registers (inside the CPU) are fastest, then cache, then RAM, then secondary storage — each step down trades speed for more (cheaper) capacity."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Why can't the CPU run a program directly from secondary storage?",
+            opts: ["Secondary storage only stores files, never the program code itself, so there is nothing to run directly", "Secondary storage is far slower to access than RAM, so the program is loaded into RAM first", "Secondary storage is a type of ROM, and ROM cannot be used to run user programs directly", "The operating system automatically deletes a program from secondary storage as soon as it starts running"],
+            ans: 1,
+            explain: "Secondary storage is permanent but too slow for the CPU to use directly, so a program's code and data are loaded into RAM before it can run."
+        },
+        {
+            q: "Which best describes RAM?",
+            opts: ["Non-volatile memory that permanently stores the boot-up instructions needed to start the computer", "Volatile memory that holds the programs, data and parts of the OS currently in use", "A type of secondary storage device used to store the user's files and programs permanently", "Memory built into the CPU that can never be written to once it has been manufactured"],
+            ans: 1,
+            explain: "RAM holds whatever is currently running and is volatile — it loses its contents when the power is off."
+        },
+        {
+            q: "Which best describes ROM?",
+            opts: ["Volatile memory that loses all of its contents every time the computer is switched off", "Non-volatile memory that stores the boot-up instructions and normally cannot be changed", "Memory used to store the user's saved documents and files permanently, even after the power is off", "A partitioned section of secondary storage used as overflow space when RAM is full"],
+            ans: 1,
+            explain: "ROM is non-volatile and holds the fixed boot-up instructions the computer needs every time it starts."
+        },
+        {
+            q: "What happens to the contents of RAM when the power is turned off?",
+            opts: ["They are saved automatically to ROM", "They are lost", "They are compressed", "Nothing changes"],
+            ans: 1,
+            explain: "RAM is volatile, so everything in it disappears the instant power is removed."
+        },
+        {
+            q: "A smart TV stores its start-up instructions somewhere that must survive being switched off and can't normally be altered. Which type of memory is this?",
+            opts: ["RAM", "ROM", "Virtual memory", "Cache"],
+            ans: 1,
+            explain: "Instructions that must survive power-off and stay fixed are stored in ROM, which is non-volatile and normally unchangeable."
+        },
+        {
+            q: "Which of these would normally be found in RAM while a computer is running?",
+            opts: ["The washing machine's control program (embedded in ROM)", "The document currently open in a word processor", "A file saved permanently on the hard drive but not open", "The manufacturer's original factory boot settings"],
+            ans: 1,
+            explain: "RAM holds what's currently in use — an open document — not permanently stored, unopened files or fixed boot instructions."
+        },
+        {
+            q: "Why does a computer use virtual memory?",
+            opts: ["To physically increase the amount of RAM chips fitted inside the computer", "To give the CPU a small, extremely fast store for its most frequently used instructions", "To act as extra space when RAM is full or nearly full, using secondary storage", "To replace the boot-up instructions normally held in ROM when the computer starts"],
+            ans: 2,
+            explain: "Virtual memory is overflow space on secondary storage, used when RAM runs low — it doesn't physically enlarge RAM."
+        },
+        {
+            q: "Where does virtual memory physically exist?",
+            opts: ["Inside the CPU, alongside the registers used to hold data being processed", "In a partitioned section of secondary storage, such as part of the hard drive or SSD", "Inside ROM, alongside the fixed boot-up instructions the computer needs every time it starts", "In the cache, next to the frequently used instructions and data stored there"],
+            ans: 1,
+            explain: "Virtual memory is a section of secondary storage (e.g. the SSD or hard drive) set aside to act as overflow for RAM."
+        },
+        {
+            q: "When RAM starts to fill up, what does the operating system do?",
+            opts: ["Permanently deletes whichever files it judges to be the least important, to free up space in RAM", "Moves data that isn't currently needed out of RAM into virtual memory on secondary storage", "Increases the CPU's clock speed so it can process the backlog of data more quickly", "Copies the extra data into ROM, since ROM has spare capacity to hold it temporarily"],
+            ans: 1,
+            explain: "Data not currently needed is swapped out of RAM into virtual memory, freeing up space for what's needed right now."
+        },
+        {
+            q: "Why can heavy use of virtual memory make a computer feel slower?",
+            opts: ["Storing data in virtual memory uses noticeably more electricity than storing the same data in RAM", "Secondary storage is much slower to access than RAM, so swapping data in and out takes time", "Virtual memory permanently deletes any data that gets swapped out of RAM into it", "Using virtual memory automatically reduces the CPU's clock speed while it is active"],
+            ans: 1,
+            explain: "Every swap in or out of virtual memory means waiting on secondary storage, which is far slower than RAM."
+        },
+        {
+            q: "What is cache, and where does it sit in the memory hierarchy?",
+            opts: ["The largest, slowest type of storage in the computer, used to hold permanent files", "A small, very fast store inside the CPU that sits between the CPU and RAM", "A partitioned section of secondary storage used as overflow space when RAM runs low", "The same non-volatile memory as ROM, just given a different name by manufacturers"],
+            ans: 1,
+            explain: "Cache is small, very fast memory inside the CPU that holds frequently used instructions and data — faster than RAM, but smaller."
+        },
+        {
+            q: "Put these in order from FASTEST to SLOWEST to access:",
+            opts: ["Registers, cache, RAM, secondary storage", "Secondary storage, RAM, cache, registers", "RAM, registers, secondary storage, cache", "Cache, secondary storage, RAM, registers"],
+            ans: 0,
+            explain: "Registers are fastest (inside the CPU), then cache, then RAM, then secondary storage, which is slowest but has by far the most capacity."
+        }
+    ];
+
+    const matchData = [
+        { term: "Primary storage", def: "Memory directly accessible to the CPU, needed to run any program or instruction" },
+        { term: "Secondary storage", def: "Storage that holds data and programs permanently, but is too slow for the CPU to use directly" },
+        { term: "RAM (Random Access Memory)", def: "Volatile memory holding the programs, data and OS currently running" },
+        { term: "ROM (Read Only Memory)", def: "Non-volatile memory holding the boot-up instructions, which normally cannot be changed" },
+        { term: "Volatile", def: "Loses its contents when the power is turned off" },
+        { term: "Non-volatile", def: "Keeps its contents even when the power is turned off" },
+        { term: "Boot-up (bootstrap) instructions", def: "The first program run when a computer is switched on, stored in ROM" },
+        { term: "Virtual memory", def: "A section of secondary storage used as overflow when RAM is full or nearly full" },
+        { term: "Why virtual memory is needed", def: "RAM is limited in size, but a computer may need to run more than it can hold at once" },
+        { term: "Moving data into virtual memory", def: "Data not currently needed is transferred from RAM to secondary storage to free up space" },
+        { term: "Moving data back from virtual memory", def: "Data is transferred back into RAM when it is needed again" },
+        { term: "Effect of heavy virtual memory use", def: "The computer slows down noticeably, because secondary storage is much slower to access than RAM" },
+        { term: "Cache", def: "Small, very fast memory inside the CPU, storing frequently used instructions and data" },
+        { term: "Memory hierarchy (fastest to slowest)", def: "Registers, then cache, then RAM, then secondary storage" }
+    ];
+
+    const fibData = [
+        {
+            display: "RAM is _____, so its contents are lost the moment the power is switched off.",
+            blanks: { B1: "volatile" }
+        },
+        {
+            display: "ROM is _____, so its contents survive being switched off and normally cannot be changed.",
+            blanks: { B1: "non-volatile" }
+        },
+        {
+            display: "ROM stores the _____ instructions that run the moment a computer is switched on.",
+            blanks: { B1: "boot-up" }
+        },
+        {
+            display: "Before the CPU can run a program, it must be loaded from secondary storage into _____.",
+            blanks: { B1: "RAM" }
+        },
+        {
+            display: "A section of secondary storage acts as _____ memory when RAM is full or nearly full.",
+            blanks: { B1: "virtual" }
+        },
+        {
+            display: "Data that is moved out of RAM into virtual memory is brought back in again when it is next _____.",
+            blanks: { B1: "needed" }
+        },
+        {
+            display: "The small, very fast store inside the CPU that holds frequently used data is called the _____.",
+            blanks: { B1: "cache" }
+        },
+        {
+            display: "From fastest to slowest to access: registers, cache, RAM, then _____ storage.",
+            blanks: { B1: "secondary" }
+        }
+    ];
+    const fibWords = ["volatile", "non-volatile", "boot-up", "RAM", "virtual", "needed", "cache", "secondary"];
+    const tfData = [
+        {
+            statement: "RAM is non-volatile, so it keeps its contents when the power is off.",
+            answer: false,
+            explanation: "RAM is volatile — it is ROM that is non-volatile. Everything in RAM is lost the instant the power is removed."
+        },
+        {
+            statement: "ROM normally cannot be changed once the computer is manufactured.",
+            answer: true,
+            explanation: "Correct — ROM is read-only. This is deliberate: it protects the boot-up instructions the computer relies on every time it starts."
+        },
+        {
+            statement: "A computer could run all its programs directly from secondary storage without ever using RAM.",
+            answer: false,
+            explanation: "Secondary storage is far too slow for the CPU to use directly. Programs must be loaded into RAM before they can run."
+        },
+        {
+            statement: "Virtual memory is a section of secondary storage used as overflow when RAM is nearly full.",
+            answer: true,
+            explanation: "Correct — the operating system partitions part of secondary storage to act as extra space for RAM when it's running low."
+        },
+        {
+            statement: "Once data is swapped out of RAM into virtual memory, it stays there permanently and never returns.",
+            answer: false,
+            explanation: "Virtual memory is two-way. Data is transferred back into RAM whenever it is needed again."
+        },
+        {
+            statement: "Cache sits between the CPU and RAM, storing frequently used instructions and data.",
+            answer: true,
+            explanation: "Correct — cache is faster and smaller than RAM, and holds the instructions/data the CPU keeps reaching for."
+        },
+        {
+            statement: "Using a lot of virtual memory usually makes a computer run faster.",
+            answer: false,
+            explanation: "The opposite — secondary storage is far slower than RAM, so heavy swapping in and out of virtual memory slows the computer down."
+        },
+        {
+            statement: "The instructions that start a computer up (the bootstrap program) are stored in ROM.",
+            answer: true,
+            explanation: "Correct — ROM's whole job is to hold these boot-up instructions safely, unchanged, across every power-off."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "'RAM is just extra storage space, like a bigger hard drive.'",
+            correct: "RAM and secondary storage do completely different jobs. RAM is <strong>temporary working memory</strong> — it loses everything when the power is off, and only holds what's <em>currently</em> running. A hard drive or SSD stores files <strong>permanently</strong>. Wanting to store more photos and documents needs more secondary storage, not more RAM.",
+            readCheck: {
+                q: "A student wants to permanently store thousands more photos. What should they upgrade?",
+                opts: ["RAM, since more working memory helps programs run more smoothly", "ROM, since it can be reprogrammed to hold extra file storage", "Secondary storage, since it stores files permanently in large amounts", "Cache, since it can be expanded to hold as many extra photo files as needed"],
+                ans: 2,
+                explain: "Permanent files need more secondary storage. RAM is temporary working memory and is lost when the power is off."
+            }
+        },
+        {
+            wrong: "'The computer can run programs directly from the SSD or hard drive without needing RAM.'",
+            correct: "The CPU cannot work directly with secondary storage — it is far too slow. Every program's code and data must first be <strong>loaded into RAM</strong>, which the CPU can access almost instantly. That loading pause is exactly what you see when an app or game first opens.",
+            readCheck: {
+                q: "Why does an app take a moment to 'load' when you open it?",
+                opts: ["It is being installed onto the computer for the very first time", "Its code and data are being copied from secondary storage into RAM", "It is checking an online server for the latest software updates", "The instructions stored in ROM are being rewritten to match the app"],
+                ans: 1,
+                explain: "The CPU needs the app in RAM before it can run it, since secondary storage is too slow to use directly."
+            }
+        },
+        {
+            wrong: "'ROM can be freely rewritten by the user, just like RAM.'",
+            correct: "ROM normally <strong>cannot</strong> be changed once it is set. That's the entire point — the boot-up instructions must be there, exactly the same, every single time the computer starts. RAM is the one that is constantly read and written to as programs run.",
+            readCheck: {
+                q: "Why is ROM designed so it normally cannot be changed?",
+                opts: ["To save money during manufacturing, since fixed memory chips are cheaper to produce", "So the boot-up instructions are always intact and reliable, even after a power cut or a fault", "Because ROM physically has no spare capacity left for any new data to ever be written into it at all", "Because the entire operating system is permanently stored and run from inside ROM"],
+                ans: 1,
+                explain: "If the boot-up instructions could be casually overwritten, the computer might fail to start at all — so ROM is fixed by design."
+            }
+        },
+        {
+            wrong: "'Virtual memory makes the computer's RAM permanently bigger.'",
+            correct: "Virtual memory does not create more real RAM. It is <strong>slow overflow space on secondary storage</strong>, used temporarily to hold data that isn't needed right now. Because secondary storage is much slower than RAM, relying on virtual memory a lot makes a computer feel sluggish, not faster.",
+            readCheck: {
+                q: "What is virtual memory actually made from?",
+                opts: ["Extra RAM chips that are physically fitted inside the CPU itself", "A partitioned section of secondary storage, such as the hard drive", "A dedicated partition of ROM set aside for temporary overflow data", "The CPU's cache memory, temporarily repurposed for overflow storage"],
+                ans: 1,
+                explain: "Virtual memory is space borrowed from secondary storage — it doesn't physically add RAM to the computer."
+            }
+        },
+        {
+            wrong: "'Once data is swapped into virtual memory, it stays there and never returns to RAM.'",
+            correct: "Virtual memory works <strong>both ways</strong>. Data is moved out of RAM into virtual memory to free up space, and moved <strong>back</strong> into RAM whenever it's needed again — that back-and-forth is exactly why heavy use of virtual memory slows a computer down.",
+            readCheck: {
+                q: "What happens when data that has been swapped into virtual memory is needed again?",
+                opts: ["Nothing — it stays in virtual memory permanently", "It is transferred back into RAM", "It is deleted and reloaded from ROM", "The CPU reads it directly from secondary storage without using RAM"],
+                ans: 1,
+                explain: "Virtual memory is a two-way system: data is swapped back into RAM as soon as it's needed again."
+            }
+        },
+        {
+            wrong: "For 'state the difference between RAM and ROM', writing everything about RAM first, then everything about ROM afterwards, as two separate points.",
+            correct: "A <strong>difference</strong> needs both sides written together in the <em>same</em> answer space: 'RAM is volatile, whereas ROM is non-volatile.' Describing RAM fully and then describing ROM fully is marked as two separate descriptions, not one difference — real candidates lost marks for exactly this pattern, and others lost the mark by describing what RAM/ROM are <em>used for</em> rather than a fundamental difference between them.",
+            readCheck: {
+                q: "Which is properly written as ONE difference between RAM and ROM?",
+                opts: ["RAM stores currently running programs. ROM stores boot-up instructions.", "RAM is volatile, whereas ROM is non-volatile.", "RAM is fast.", "ROM is used to start the computer."],
+                ans: 1,
+                explain: "One difference = both sides, directly contrasted, in the same sentence. The others give only one side, or describe use rather than a fundamental difference."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "1-mark 'state the difference' — both sides, one sentence",
+            pills: ["AO1", "1 mark", "State"],
+            content: `<p>When OCR asks you to <strong>state the difference</strong> between RAM and ROM, the mark is only released when your answer contrasts <strong>both sides together</strong>. Here's the same idea at every level:</p>
+
+<p><strong>❌ 0 marks:</strong> "RAM is volatile."</p>
+<ul>
+<li>True, but it's only half a difference. On its own this doesn't say what ROM does differently.</li>
+</ul>
+
+<p><strong>❌ 0 marks (real candidate pattern):</strong> "RAM stores the currently running programs. ROM stores the boot-up instructions."</p>
+<ul>
+<li>This describes what each one is <em>used for</em>, not a fundamental difference — and each sentence stands alone rather than being contrasted, so it reads as two descriptions, not one difference.</li>
+</ul>
+
+<p><strong>✅ 1 mark:</strong> "RAM is volatile, <strong>whereas</strong> ROM is non-volatile."</p>
+<ul>
+<li>Both sides, one sentence, one direct contrast. "Whereas" (or "but"/"while") is doing the work here — it forces you to say both halves.</li>
+</ul>
+
+<p><strong>The pattern for every 1-mark difference:</strong> "[RAM] is ___, whereas [ROM] is ___." If your sentence could be true without mentioning the other one at all, it isn't a difference yet.</p>`,
+            readCheck: {
+                q: "Which answer would score the mark for 'state the difference between RAM and ROM'?",
+                opts: ["ROM is non-volatile, so its contents survive a power cut.", "RAM is volatile, whereas ROM is non-volatile.", "RAM stores the operating system, while ROM stores the BIOS setup.", "RAM and ROM are both essential types of computer memory."],
+                ans: 1,
+                explain: "Only the second option contrasts both sides in one sentence. The others give one side only, describe use rather than a difference, or aren't a difference at all."
+            }
+        },
+        {
+            type: "explain",
+            title: "2-mark 'explain why both are needed' — two separate reasons",
+            pills: ["AO2", "2 marks", "Explain"],
+            content: `<p>"Explain why a computer needs both primary <strong>and</strong> secondary storage" [2] is marked as <strong>two separate 1-mark reasons</strong> — one for primary, one for secondary. It is NOT a point-plus-development chain; you need to earn each side on its own.</p>
+
+<p><strong>❌ 0/2:</strong> "Primary storage stores data and secondary storage stores files."</p>
+<ul>
+<li>This says <em>what</em> they store, not <em>why</em> each is needed — the examiner's own note is explicit that this question is not about what they store.</li>
+</ul>
+
+<p><strong>⚠️ 1/2:</strong> "A computer needs primary storage so the processor can access the data and instructions it's currently using."</p>
+<ul>
+<li>A correct, creditworthy reason for primary — but nothing has been said about secondary storage yet, so only 1 mark is available.</li>
+</ul>
+
+<p><strong>✅ 2/2:</strong> "Primary storage is needed so the processor can access the data, instructions and software it's currently using <strong>(1)</strong>. Secondary storage is needed to store the user's files and programs long-term, so they aren't lost when the power is turned off <strong>(1)</strong>."</p>
+
+<p><strong>The trap examiners flagged:</strong> a common misconception is that secondary storage is "only used as a backup", or is "used when primary storage is full" — neither is the real reason. Secondary storage's job is <strong>long-term, permanent</strong> storage of files, independent of how full RAM is.</p>`,
+            readCheck: {
+                q: "A student writes a strong reason for needing primary storage, but says nothing about secondary storage. What mark do they get?",
+                opts: ["0 out of 2", "1 out of 2 — each side is worth its own mark", "2 out of 2, because primary is the harder half", "It depends on word count"],
+                ans: 1,
+                explain: "The two marks are independent — one for a correct reason for primary storage, one for a correct reason for secondary storage. Only covering one side caps you at 1."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "The virtual memory True/False table — precision matters",
+            pills: ["4 marks", "Tick + correct", "Precision"],
+            content: `<p>A common 4-mark format gives four statements about virtual memory and asks you to tick the ones that are <strong>true</strong>, and <strong>rewrite</strong> the false ones to make them true — one mark per row.</p>
+
+<p><strong>What real candidates got right and wrong on this exact question:</strong></p>
+<ul>
+<li>Almost everyone correctly spotted "VM is needed when RAM is full, or nearly full" as <strong>true</strong> — that's the easy row.</li>
+<li>"A section of primary storage is partitioned to act as virtual memory" was usually corrected well, to <strong>secondary</strong> storage.</li>
+<li>"Data from ROM is transferred into VM" was sometimes corrected to RAM — but sometimes wrongly changed to "secondary storage" instead, which misses the point (data moves <em>from RAM</em>, not from secondary storage, into virtual memory).</li>
+<li>"Data from VM is transferred back to secondary storage when needed" was frequently corrected to just "<strong>primary storage</strong>" — and that was <strong>not precise enough</strong>. Primary storage includes ROM and cache as well as RAM; the mark scheme specifically wants <strong>RAM</strong> named.</li>
+</ul>
+
+<p><strong>The rule this teaches:</strong> when you correct a VM statement, name <strong>RAM</strong> and <strong>secondary storage</strong> specifically — never the vaguer "primary storage" — because virtual memory is defined as data moving between RAM and secondary storage, not primary storage in general.</p>`,
+            readCheck: {
+                q: "A student corrects 'Data from VM is transferred back to secondary storage when needed' by writing 'transferred back to primary storage'. Why does this not score the mark?",
+                opts: ["It should have been left uncorrected, since the original statement was already true", "'Primary storage' is too vague — it includes ROM and cache, not just RAM", "The word order in the correction is wrong and needs to be rearranged", "Virtual memory never transfers any data back into RAM once it has been swapped out"],
+                ans: 1,
+                explain: "The precise correction is RAM, not the broader term 'primary storage', which also covers ROM and cache and so doesn't accurately describe how VM works."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Primary storage", def: "Memory directly accessible to the CPU — needed to run any program or instruction" },
+        { term: "Secondary storage", def: "Permanent storage for files and programs, too slow for the CPU to use directly" },
+        { term: "RAM", def: "Volatile memory holding the programs, data and OS currently running" },
+        { term: "ROM", def: "Non-volatile memory holding the boot-up instructions, normally unchangeable" },
+        { term: "Volatile", def: "Loses its contents when the power is turned off" },
+        { term: "Non-volatile", def: "Keeps its contents even when the power is turned off" },
+        { term: "Boot-up (bootstrap) instructions", def: "The first program run when a computer starts, stored in ROM" },
+        { term: "Why programs must load into RAM", def: "The CPU can't work directly with secondary storage — it's too slow" },
+        { term: "Virtual memory", def: "A partitioned section of secondary storage used as overflow for RAM" },
+        { term: "Why virtual memory is needed", def: "RAM is limited in size but a computer may need to run more than it can hold" },
+        { term: "Paging out", def: "Moving data not currently needed from RAM into virtual memory to free up space" },
+        { term: "Paging back in", def: "Moving data from virtual memory back into RAM when it's needed again" },
+        { term: "Effect of heavy virtual memory use", def: "The computer slows down, since secondary storage is much slower than RAM" },
+        { term: "Cache", def: "Small, very fast memory inside the CPU holding frequently used instructions and data" },
+        { term: "Memory hierarchy order", def: "Registers → cache → RAM → secondary storage (fastest to slowest)" },
+        { term: "RAM vs ROM: changeability", def: "RAM can be written to constantly; ROM normally cannot be changed" },
+        { term: "RAM vs ROM: contents", def: "RAM holds what's currently running; ROM holds the fixed boot-up instructions" },
+        { term: "Register", def: "Tiny, extremely fast storage location inside the CPU itself" }
+    ];
+    // ── WHY THIS PAGE ONLY HAS PART OF EACH SOURCE QUESTION (do not "fix" this) ──
+    // This topic has no ExamBuilder compilation PDF, so questions were sourced
+    // from the FULL past papers (CS resources/Full exam papers/). Two questions
+    // span both 1.2.1 and 1.2.2, and only the 1.2.1 parts are transcribed here:
+    //   • 2022 Paper 1 Q7(b) (i/ii, 6 marks — smart TV secondary storage device
+    //     choice) belongs to 1.2.2 (secondary storage), not here.
+    //   • 2023 Paper 1 Q5(a)(ii) (2 marks — artist's secondary storage device +
+    //     example data) also belongs to 1.2.2, not here.
+    // RULE FOR EVERY FUTURE TOPIC: diff your source against the sibling pages'
+    // scope BEFORE transcribing (CS-CONTENT-PLAN.md §6.2).
+    const EXAM_CASE_STUDIES = {
+        "smart-tv": `<p>A smart television allows the user to search the Internet and watch videos online.</p><p>The smart television has both RAM and ROM.</p>`,
+        "artist-computer": `<p>An artist has a computer that they use to create images. Their computer has both hardware and software.</p><p>The hardware includes primary and secondary storage.</p>`,
+        "console-64": `<p>A games console has 8GB of RAM built in. When the console is switched on, it runs a start-up program stored in its ROM before loading the console's operating system.</p><p>Players can install and run several games and apps on the console.</p>`,
+        "weather-station": `<p>A school has installed an automatic weather station on its roof. The weather station is a small embedded computer that measures temperature, rainfall and wind speed every minute, and sends the readings to the school's server.</p><p>The weather station has both RAM and ROM.</p>`,
+        "video-editing-pc": `<p>A student uses a desktop PC to edit video footage for a media studies project. The PC has 16GB of RAM, and the video-editing software often has several large video files open at once.</p>`,
+        "school-laptop": `<p>A school issues laptops to students for use in lessons. Some of the laptops have 4GB of RAM, while others have 8GB of RAM.</p><p>Students often have several applications and browser tabs open at the same time during a lesson.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "Q7(a)(i)",
+            marks: 1,
+            type: "written",
+            caseId: "smart-tv",
+            question: `<p>State the difference between RAM and ROM.</p>`,
+            hint: "This is asking for a DIFFERENCE — write both sides in one sentence: 'RAM is ___, whereas ROM is ___.' Naming only one side is not enough.",
+            starter: "RAM is …, whereas ROM is …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>ROM is non-volatile, RAM is volatile // by description</li>
+<li>Content of ROM cannot (usually) be changed, content of RAM can be changed</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Read the whole answer.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was answered well, with many candidates correctly identifying that RAM is volatile and ROM is non-volatile. When a difference is required, candidates must make sure they are giving both sides of the difference — "RAM is volatile" is not enough on its own. Some candidates gave the purpose of RAM and ROM; this is a difference in use, not a fundamental difference between the two.</p>
+</div>`,
+            modelAnswer: "RAM is volatile, whereas ROM is non-volatile — RAM loses its contents when the power is off, but ROM keeps them."
+        },
+        {
+            num: "Q7(a)(ii)",
+            marks: 2,
+            type: "written",
+            caseId: "smart-tv",
+            stubs: ["1", "2"],
+            question: `<p>Give <strong>two</strong> examples of data that the smart television could store in RAM.</p>`,
+            hint: "Think about what's ACTIVE right now — the programme currently being watched, data being buffered, the button just pressed — not the app or the OS as a whole (that's spread across RAM and secondary storage).",
+            starter: "1: … | 2: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark each to max 2), e.g.</h5>
+<ul>
+<li>Web browser/application that is running</li>
+<li>(Parts of the) operating system currently running</li>
+<li>Current video/film/TV programme being watched</li>
+<li>Data being downloaded/buffered</li>
+<li>Button pressed by the user</li>
+<li>Current volume</li>
+<li>Current channel being watched</li>
+<li>Source being watched (e.g. HDMI1)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Allow anything reasonable but it must be clearly RAM, e.g. not just "stores the software/OS" (this is secondary storage).</li>
+<li>Do not award brand names without exemplification.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Some candidates found this question challenging. Many responses were generic applications such as "a streaming service" or "a TV programme" — a TV programme will not be stored in RAM in its entirety, but the parts currently or about to be watched would be. Likewise, an application in its entirety will not be stored in RAM, but the parts being used will be. The most commonly correct responses were the recording currently being watched, the data received from the remote control, and the websites being accessed.</p>
+</div>`,
+            modelAnswer: "1: The TV programme currently being watched (or about to be watched)\n\n2: Data being downloaded or buffered while streaming"
+        },
+        {
+            num: "Q5(a)(i)",
+            marks: 2,
+            type: "written",
+            caseId: "artist-computer",
+            stubs: ["Primary storage", "Secondary storage"],
+            question: `<p>Explain why a computer needs both primary <strong>and</strong> secondary storage.</p>`,
+            hint: "Two separate reasons — one for WHY primary storage is needed, one for WHY secondary storage is needed. The question is asking why they're needed, not what they store.",
+            starter: "Primary storage is needed because…, and secondary storage is needed because…",
+            markPoints: {
+                note: "One mark for a correct reason primary storage is needed, one mark for a correct reason secondary storage is needed — you must cover both sides to reach full marks.",
+                groups: [
+                    {
+                        label: "Your reason for primary storage", max: 1, points: [
+                            { text: "Gives a correct reason primary storage is needed — e.g. to store (active) data/instructions/software the processor needs to access, or without it the computer couldn't start up/work", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your reason for secondary storage", max: 1, points: [
+                            { text: "Gives a correct reason secondary storage is needed — e.g. to store data/files long-term/permanently, so they aren't lost when the power is off (NOT just 'to back up data')", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark each)</h5>
+<ul>
+<li><strong>Primary</strong> — to store (active) data/instructions/software/OS that the processor needs to access // without primary the computer won't be able to start up/work // (ROM) so the start-up instructions are not deleted when the computer turns off // (RAM) to store the currently running data/software/instructions // (Cache) to store frequently used data/instructions</li>
+<li><strong>Secondary</strong> — to store data/files long-term/permanently // without secondary the user's files will not be stored when the power is turned off // store data not currently being used</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>The question is not asking what they store, but WHY they are needed.</li>
+<li>Secondary storage: not "to backup data" without reference to long-term/permanence.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Some candidates found this question challenging and often gave examples of each type of storage instead of answering why both are required. Some candidates were able to accurately describe the purpose of primary storage as storing currently running data and software.</p>
+<p><strong>Misconception:</strong> a common misconception was that secondary storage is used when primary storage is full, or that it is only used as a backup.</p>
+</div>`,
+            modelAnswer: "Primary storage (RAM) is needed to hold the data, instructions and software the processor is currently using, so the CPU can access them directly and quickly.\n\nSecondary storage is needed to store the user's files and programs long-term/permanently, so they are not lost when the power is turned off."
+        },
+        {
+            num: "Q5(a)(iii)",
+            marks: 4,
+            type: "written",
+            format: "tableFill",
+            caseId: "artist-computer",
+            question: `<p>The computer has Virtual Memory (VM).</p><p>The table has four statements about VM. Not all of the statements are correct.</p><p>Tick (✓) the <strong>True</strong> column for the statements that are correct.</p><p>Re-write any statement that is incorrect by changing it to make it true.</p>`,
+            hint: "One row is true as it stands. For the other three, be precise: SECONDARY storage (not primary) in row 1, and RAM (not just 'primary storage') in rows 2 and 4 — 'primary storage' also includes ROM and cache, so it isn't precise enough.",
+            starter: "Row 1: False — … | Row 2: False — … | Row 3: True | Row 4: False — …",
+            table: {
+                headers: ["Statement", "True (✓) or your correction"],
+                rows: [
+                    ["A section of primary storage is partitioned to act as virtual memory", null],
+                    ["Data from ROM is transferred into VM", null],
+                    ["VM is needed when RAM is full, or nearly full", null],
+                    ["Data from VM is transferred back to secondary storage when needed", null]
+                ],
+                openChoice: true
+            },
+            markPoints: {
+                note: "One mark per row: tick TRUE rows as they are, or correct FALSE rows precisely. 'Primary storage' is not an accepted correction where the scheme wants RAM specifically.",
+                groups: [
+                    { label: "Row 1", max: 1, points: [{ text: "Marked FALSE and corrected to: a section of SECONDARY storage (accept HDD/SSD) is partitioned to act as virtual memory", marks: 1 }] },
+                    { label: "Row 2", max: 1, points: [{ text: "Marked FALSE and corrected to: data from RAM (not 'primary storage') is transferred into VM", marks: 1 }] },
+                    { label: "Row 3", max: 1, points: [{ text: "Marked TRUE, with no correction needed", marks: 1 }] },
+                    { label: "Row 4", max: 1, points: [{ text: "Marked FALSE and corrected to: data from VM is transferred back to RAM (not 'primary storage') when needed", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Row 1 — False: a section of <strong>secondary</strong> storage is partitioned to act as virtual memory</li>
+<li>Row 2 — False: data from <strong>RAM</strong> is transferred into VM</li>
+<li>Row 3 — True</li>
+<li>Row 4 — False: data from VM is transferred back to <strong>RAM</strong> when needed</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Allow a description of the error in place of a full rewrite, e.g. row 1: "primary should be secondary".</li>
+<li>Accept HDD/SSD for secondary storage in row 1.</li>
+<li>Do not accept "primary storage" for RAM in rows 2 and 4.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>In this question candidates needed to consider each statement, identify whether it was true or false, and if it was false, re-write it to make it true. Candidates commonly identified the third statement as being true. The first statement was often correctly altered to identify that secondary storage was used. The second statement was sometimes changed correctly to RAM, but at other times was changed to secondary storage. The final statement was often changed to "primary storage", which was not enough, because primary storage would include ROM and cache and so is not precise enough to describe how VM works.</p>
+</div>`,
+            modelAnswer: "Row 1: False — a section of SECONDARY storage is partitioned to act as virtual memory.\n\nRow 2: False — data from RAM is transferred into VM.\n\nRow 3: True.\n\nRow 4: False — data from VM is transferred back to RAM when needed."
+        },
+        {
+            num: "P1",
+            marks: 1,
+            type: "mcq",
+            caseId: "console-64",
+            question: `<p>Refer to the games console described above.</p><p>The ROM inside the console stores a short program that runs automatically the moment the console is switched on, before the console's operating system has loaded.</p><p>What is the correct term for this ROM-stored, start-up program?</p>`,
+            options: [
+                "The boot-up (bootstrap) program",
+                "A temporary save file that is automatically created the first time a new game is installed",
+                "The console's virtual memory partition",
+                "A firmware update that is downloaded from the internet each time the console starts"
+            ],
+            answer: 0,
+            hint: "This is the fixed program ROM's whole job is to store — the one instruction set that starts the computer up before anything else can run.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>The boot-up (bootstrap) program — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; there is no credit for a partial or vague description.</li>
+</ul>
+</div>`,
+            modelAnswer: "The boot-up (bootstrap) program."
+        },
+        {
+            num: "P2",
+            marks: 1,
+            type: "written",
+            caseId: "weather-station",
+            question: `<p>State why the weather station's processor needs to load its measurement program into RAM, rather than running it directly from its permanent storage.</p>`,
+            hint: "Think about speed — one type of storage is far too slow for the processor to use directly.",
+            starter: "The processor needs RAM because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>Permanent/secondary storage is too slow for the processor to access directly, so the program must be loaded into RAM // RAM can be accessed (almost) instantly by the processor</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any answer that correctly identifies the speed difference between the two types of storage.</li>
+<li>Do not accept "RAM is bigger" or "RAM never loses data" — RAM is volatile, and size is not the reason given here.</li>
+</ul>
+</div>`,
+            modelAnswer: "Because permanent storage is far too slow for the processor to use directly — the program has to be loaded into RAM, which the processor can access almost instantly."
+        },
+        {
+            num: "P3",
+            marks: 2,
+            type: "written",
+            caseId: "video-editing-pc",
+            stubs: ["What happens", "Why"],
+            question: `<p>While the student is editing a video, the PC's power is suddenly cut and the PC switches off without warning.</p><p>Describe what happens to the unsaved edits in the video project, and explain why this happens.</p>`,
+            hint: "Two things to cover: WHAT happens to the unsaved edits, and WHY — one particular property of RAM is the reason.",
+            starter: "What happens: … Why: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark for what happens, 1 mark for why)</h5>
+<ul>
+<li>The unsaved edits are lost // deleted (1)</li>
+<li>Because RAM is volatile, so its contents are lost when the power is removed (1)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept "the project reverts to the last save" as equivalent to "lost".</li>
+<li>The reason must reference volatility/loss of power specifically, not a vague "RAM stopped working".</li>
+</ul>
+</div>`,
+            modelAnswer: "The unsaved edits to the video project are lost. This happens because RAM is volatile, so everything held in it disappears the instant the power is removed — the project reverts to whatever was last saved to secondary storage."
+        },
+        {
+            num: "P4",
+            marks: 2,
+            type: "written",
+            caseId: "weather-station",
+            stubs: ["1", "2"],
+            question: `<p>Give <strong>two</strong> examples of data that would be held in the weather station's RAM while it is running.</p>`,
+            hint: "Think about what's happening RIGHT NOW — the reading just taken, the measurement being sent — not data that has already been saved permanently.",
+            starter: "1: … | 2: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark each to max 2), e.g.</h5>
+<ul>
+<li>The temperature/rainfall/wind speed reading currently being measured</li>
+<li>The reading currently being prepared/sent to the school's server</li>
+<li>(Parts of) the operating system/monitoring program currently running</li>
+<li>The time the next reading is due to be taken</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Allow anything reasonable that is clearly data in current use, not data already stored permanently on the server.</li>
+</ul>
+</div>`,
+            modelAnswer: "1: The temperature (or rainfall/wind speed) reading currently being measured\n\n2: The reading that is currently being prepared to send to the school's server"
+        },
+        {
+            num: "P5",
+            marks: 1,
+            type: "mcq",
+            caseId: "school-laptop",
+            question: `<p>One of the 4GB laptops starts to run out of RAM during a lesson, so the operating system creates some virtual memory.</p><p>Where does this virtual memory actually exist?</p>`,
+            options: [
+                "In a partitioned section of the laptop's secondary storage, such as its SSD",
+                "Inside the laptop's ROM chip, alongside the boot-up instructions",
+                "Inside the CPU itself, in the same physical chip as the cache",
+                "In a temporary area of RAM that is set aside and hidden from other programs"
+            ],
+            answer: 0,
+            hint: "Virtual memory is not extra RAM — it's borrowed space from somewhere else in the computer, somewhere with plenty of spare capacity.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>In a partitioned section of the laptop's secondary storage — CAO</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores.</li>
+</ul>
+</div>`,
+            modelAnswer: "In a partitioned section of the laptop's secondary storage (e.g. its SSD)."
+        },
+        {
+            num: "P6",
+            marks: 3,
+            type: "written",
+            caseId: "console-64",
+            question: `<p>A player installs several new games, and the console's 8GB of RAM becomes full while multiple games and apps are open at once.</p><p>Explain how virtual memory allows the console to keep running in this situation.</p>`,
+            hint: "Walk through it as a sequence: what triggers it, what moves where, and what happens when that data is needed again.",
+            starter: "When RAM becomes full, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point to max 3)</h5>
+<ul>
+<li>RAM being full/nearly full triggers the operating system to act</li>
+<li>Data/instructions that are not currently needed are moved out of RAM into virtual memory on secondary storage, freeing up space in RAM</li>
+<li>This frees enough space in RAM for the game/app that needs to run right now</li>
+<li>That data is transferred back into RAM again when it is next needed</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award any 3 of the points above.</li>
+<li>Do not accept "RAM gets bigger" — virtual memory does not physically increase RAM.</li>
+</ul>
+</div>`,
+            modelAnswer: "When RAM becomes full, the operating system moves data and instructions that aren't currently needed out of RAM into virtual memory, which is a section of secondary storage. This frees up enough space in RAM for the games/apps that are actually being used right now. When the swapped-out data is needed again, it is transferred back into RAM."
+        },
+        {
+            num: "P7",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseId: "weather-station",
+            question: `<p>The table has four statements about the weather station's memory. Tick (✓) <strong>one</strong> box in each row to show which component the statement describes.</p>`,
+            grid: {
+                cols: ["RAM", "ROM", "Virtual memory", "Cache"],
+                rows: [
+                    { label: "Non-volatile — stores the boot-up instructions", correct: [1] },
+                    { label: "Volatile — holds the readings currently being processed", correct: [0] },
+                    { label: "A section of secondary storage used as overflow when RAM is nearly full", correct: [2] },
+                    { label: "Small and extremely fast, built into the processor to store frequently used data", correct: [3] }
+                ]
+            },
+            hint: "Match each statement to exactly one component — this table has one correct answer per row, not several.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each correctly ticked row)</h5>
+<ul>
+<li>Non-volatile, stores the boot-up instructions: <strong>ROM</strong></li>
+<li>Volatile, holds the readings currently being processed: <strong>RAM</strong></li>
+<li>Overflow section of secondary storage when RAM is nearly full: <strong>Virtual memory</strong></li>
+<li>Small, extremely fast, built into the processor: <strong>Cache</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>If more than one box is ticked in a row, 0 marks for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1 (non-volatile, boot-up instructions): ROM.\nRow 2 (volatile, holds readings currently being processed): RAM.\nRow 3 (overflow on secondary storage when RAM is nearly full): Virtual memory.\nRow 4 (small, fast, built into the processor): Cache."
+        },
+        {
+            num: "P8",
+            marks: 4,
+            type: "written",
+            caseId: "school-laptop",
+            question: `<p>A student notices that one of the 4GB laptops feels slow and laggy when they have many browser tabs and apps open at once during a lesson.</p><p>Explain, in terms of RAM and virtual memory, why this happens.</p>`,
+            hint: "Build a chain: what state is RAM in → what the operating system does about it → what has to happen when an old tab is clicked on again → why that specific step is slow.",
+            starter: "With many tabs and apps open, RAM becomes…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per point to max 4)</h5>
+<ul>
+<li>RAM becomes full or nearly full because so many tabs/apps are open at once</li>
+<li>The operating system moves data/tabs that aren't currently being used out of RAM into virtual memory on secondary storage</li>
+<li>When the student switches back to one of those tabs, its data has to be transferred back into RAM</li>
+<li>This transfer is slow because secondary storage is much slower to access than RAM, which is why the laptop feels laggy</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not accept "the laptop is old" or "too many tabs use up the internet" — the explanation must be in terms of RAM/virtual memory.</li>
+</ul>
+</div>`,
+            modelAnswer: "With many tabs and apps open, the laptop's 4GB of RAM becomes full or nearly full. The operating system responds by moving the data for tabs that aren't currently being looked at out of RAM and into virtual memory on secondary storage, to free up space. When the student clicks back onto one of those tabs, its data has to be transferred back into RAM before it can be used again. Because secondary storage is much slower to access than RAM, this back-and-forth transfer is what makes the laptop feel slow and laggy."
+        },
+        {
+            num: "P9",
+            marks: 6,
+            type: "written",
+            caseId: "video-editing-pc",
+            question: `<p>The PC's 16GB of RAM sometimes fills up when several large video files are open in the editing software at once, so the operating system uses virtual memory.</p><p>Explain how virtual memory allows the PC to keep working in this situation, <strong>and</strong> explain why relying on virtual memory heavily can make the video-editing software feel slow to use.</p>`,
+            hint: "Two halves, three marks each: first explain the MECHANISM of virtual memory (what moves, where, and back again), then explain the PERFORMANCE cost (why the swap itself takes time).",
+            starter: "Virtual memory helps because… However, relying on it heavily is slow because…",
+            markPoints: {
+                note: "Two groups: up to 3 marks for explaining how virtual memory keeps the PC working, and up to 3 marks for explaining why heavy use of it slows video editing down.",
+                groups: [
+                    {
+                        label: "How virtual memory keeps the PC working", max: 3, points: [
+                            { text: "Identifies virtual memory as a partitioned section of secondary storage used as overflow for RAM", marks: 1 },
+                            { text: "Explains that data/video footage not currently needed is moved out of RAM into virtual memory, freeing space in RAM", marks: 1 },
+                            { text: "Explains that this data is transferred back into RAM again when it is next needed", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Why heavy use of virtual memory slows editing down", max: 3, points: [
+                            { text: "States that secondary storage is much slower to access than RAM", marks: 1 },
+                            { text: "Explains that the software/CPU has to wait while data is swapped in and out of virtual memory", marks: 1 },
+                            { text: "Links this to the context — repeatedly swapping large video files causes noticeable lag/stutter/freezing while editing", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (1 mark per point to max 3 in each half)</h5>
+<ul>
+<li><strong>How VM keeps the PC working (max 3)</strong> — virtual memory is a partitioned section of secondary storage used as overflow for RAM; footage not currently needed is moved out of RAM into virtual memory, freeing space; that data is transferred back into RAM when it is next needed</li>
+<li><strong>Why heavy use slows editing (max 3)</strong> — secondary storage is much slower to access than RAM; the software/CPU has to wait while data is swapped in and out; repeatedly swapping large video files causes noticeable lag/stutter while editing</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award up to 3 marks in each half independently — a strong answer on only one half is capped at 3.</li>
+<li>Do not accept "the PC needs more RAM" alone as an explanation of the slowdown — the point must describe the swapping mechanism.</li>
+</ul>
+</div>`,
+            modelAnswer: "Virtual memory is a partitioned section of the PC's secondary storage that acts as overflow for RAM. When the 16GB of RAM fills up, footage that isn't currently being worked on is moved out of RAM into virtual memory, freeing up space for the footage that is active. When that footage is needed again, it is transferred back into RAM.\n\nHowever, relying on this heavily slows the software down, because secondary storage is much slower to access than RAM. Every time data has to be swapped in or out, the software has to wait for that slow transfer to finish — with several large video files being swapped repeatedly, this causes noticeable lag, stuttering or freezing while editing."
+        },
+        {
+            num: "P10",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseId: "school-laptop",
+            question: `<p>The school is deciding whether to buy new laptops with 4GB of RAM, which are cheaper, or 8GB of RAM, which cost more.</p><p>Discuss the impact that the amount of RAM in the school's laptops could have on students' experience of using multiple applications during lessons.</p><p>In your answer you might consider:</p><ul><li>how RAM and virtual memory work</li><li>the effect on performance</li><li>the effect on students' learning</li><li>the cost to the school</li></ul>`,
+            hint: "Use all four bullets as your plan. Explain the mechanism (RAM full → virtual memory → slower), then follow it through to a REAL consequence for a lesson, and weigh the RAM cost against that consequence for a top-band answer.",
+            starter: "With only 4GB of RAM, students who open several applications at once will find that…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (levelled) — indicative content</h5>
+<p>The following is indicative of possible factors/evidence that candidates may refer to but is not prescriptive or exhaustive:</p>
+<ul>
+<li><strong>How RAM/virtual memory work</strong> — RAM holds the data/instructions currently in use; with less RAM (4GB) it fills up sooner when several applications/tabs are open; the operating system then relies on virtual memory, swapping data out to (and back from) secondary storage more often.</li>
+<li><strong>Effect on performance</strong> — 8GB of RAM can hold more open applications at once without needing virtual memory, so it stays responsive; 4GB laptops will lag, freeze briefly or respond slowly as data is swapped in and out of the much slower secondary storage; the more applications open at once, the more noticeable this becomes.</li>
+<li><strong>Effect on students' learning</strong> — lag/freezing during a lesson can interrupt a student's work, waste lesson time, and cause frustration; students on 4GB laptops may be forced to keep fewer tabs/programs open at once, limiting what tasks they can do compared to peers on 8GB devices.</li>
+<li><strong>Cost to the school</strong> — 4GB laptops are cheaper, allowing the school to buy more devices or spend the savings elsewhere; 8GB laptops cost more per device, so the school may afford fewer of them or have to prioritise which students/subjects get them.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given — levels of response</h5>
+<ul>
+<li><strong>Mark Band 3 — High Level (6–8 marks):</strong> Thorough knowledge and understanding of RAM/virtual memory, applied directly and consistently to the school laptop context. The response weighs up both sides (performance/learning impact against cost) and covers all four areas from the bullet list with clear, logically structured reasoning.</li>
+<li><strong>Mark Band 2 — Mid Level (3–5 marks):</strong> Reasonable knowledge of RAM/virtual memory, generally accurate but at times underdeveloped or only partly applied to the context. Most of the four areas are addressed, with some structure, though the discussion may not fully weigh both sides.</li>
+<li><strong>Mark Band 1 — Low Level (1–2 marks):</strong> Basic knowledge with limited understanding shown; the material may contain inaccuracies or barely refer to the laptop context. Little more than an unsupported assertion, e.g. "4GB is worse than 8GB" with no working explanation of why.</li>
+<li><strong>0 marks:</strong> No attempt to answer the question or response is not worthy of credit.</li>
+</ul>
+</div>`,
+            modelAnswer: "With only 4GB of RAM, students who open several applications at once will find that RAM fills up much sooner than on an 8GB laptop. Once RAM is nearly full, the operating system starts using virtual memory, moving data that isn't currently needed out of RAM and into a partitioned area of secondary storage, and moving it back again whenever it's next needed.\n\nBecause secondary storage is far slower to access than RAM, this swapping makes the 4GB laptops noticeably laggier — programs take longer to respond, and switching back to an app that was swapped out can cause a brief freeze. On the 8GB laptops, more applications can stay in RAM at once, so this happens far less often and the laptop stays responsive.\n\nFor students, this can mean lost lesson time, frustration, and having to keep fewer tabs or programs open than classmates on 8GB devices, which could limit what tasks they can complete in a lesson.\n\nHowever, 4GB laptops are cheaper, so the school could buy more devices for the same budget, or spend the savings on other resources. On balance, the extra 4GB is likely to noticeably improve the day-to-day experience of using multiple applications, but the school has to weigh that benefit against being able to afford fewer laptops overall."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>
@@ -293,6 +1236,9 @@
 <script src="/notifications-shared.js"></script>
 <script src="/onboarding-tour.js"></script>
 <script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
 <script src="/cs-lab/cs-lab.js" defer></script>
 </body>
 

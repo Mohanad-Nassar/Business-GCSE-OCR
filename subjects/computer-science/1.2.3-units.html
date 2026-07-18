@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.2 Memory and Storage</div>
             <h1>1.2.3 Units</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.2.3 Units — placeholder, content not yet written
+    //  DATA: 1.2.3 Units
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-2-3-units',
@@ -268,21 +268,1001 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.2.3 Units</strong> will appear here soon.</p>`
+            title: "Why must computer data be stored in binary?",
+            tag: "Key concept",
+            content: `<h4>The real reason — switches, not simplicity</h4>
+<ul>
+<li>Every value inside a computer — a number, a letter, a photo, a song — is ultimately stored as <strong>binary digits (bits)</strong>: 0s and 1s.</li>
+<li>The reason is physical, not a design choice made for convenience. Computers are built from millions of tiny electronic <strong>switches (transistors)</strong> that can only be in one of <strong>two states</strong>: <strong>on</strong> or <strong>off</strong>. "On" naturally represents 1; "off" represents 0.</li>
+<li>There is no reliable third or fourth state for a switch to sit in, so binary is the only form of data the hardware can physically represent. It isn't that binary is "easier" — it's the only option.</li>
+</ul>
+<h4>The building blocks, smallest to largest</h4>
+<ul>
+<li>A single <strong>bit</strong> is the smallest unit of data a computer can store — it holds exactly one 0 or one 1.</li>
+<li>A <strong>nibble</strong> is <strong>4 bits</strong>.</li>
+<li>A <strong>byte</strong> is <strong>8 bits</strong> — two nibbles. Almost every calculation in this topic ends with converting your answer into bytes (or a unit built from bytes).</li>
+</ul>
+<h4>Why the exam keeps coming back to this</h4>
+<ul>
+<li>OCR's papers on this topic are <strong>non-calculator</strong>, so really they are testing whether you know the chain bit → nibble → byte → kilobyte… well enough to convert cleanly in your head, not whether you can do long division.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is data stored in binary inside a computer?",
+                opts: ["Because binary numbers are quicker for programmers to type out", "Because computers are built from switches that can only be on or off", "Because binary numbers always take up less storage space than denary", "Because early computer designers agreed on it as a shared standard"],
+                ans: 1,
+                explain: "It comes down to hardware, not convenience: a transistor can only be on or off, giving exactly two states — 1 and 0. There is no natural third state to build a switch around."
+            }
+        },
+        {
+            title: "The unit ladder: bit → nibble → byte → KB → MB → GB → TB → PB",
+            tag: "Key concept",
+            content: `<h4>Learn the ladder as one climbing sequence</h4>
+<table>
+<tr><th>Unit</th><th>Size</th></tr>
+<tr><td>Nibble</td><td>4 bits</td></tr>
+<tr><td>Byte</td><td>8 bits</td></tr>
+<tr><td>Kilobyte (KB)</td><td>1,000 bytes</td></tr>
+<tr><td>Megabyte (MB)</td><td>1,000 kilobytes</td></tr>
+<tr><td>Gigabyte (GB)</td><td>1,000 megabytes</td></tr>
+<tr><td>Terabyte (TB)</td><td>1,000 gigabytes</td></tr>
+<tr><td>Petabyte (PB)</td><td>1,000 terabytes</td></tr>
+</table>
+<h4>The step is always ×1,000</h4>
+<ul>
+<li>From kilobyte upwards, every step up the ladder is the same: <strong>multiply by 1,000</strong> to go up a unit, <strong>divide by 1,000</strong> to go down.</li>
+<li>So 3 kilobytes = 3,000 bytes; 2,000 megabytes = 2 gigabytes; 2,000 terabytes = 2 petabytes.</li>
+<li>Real candidates find the far ends of the ladder hardest — converting straight from terabytes to petabytes is where marks are most often lost, because it feels like "too big a number" to trust. Do the same ×1,000 / ÷1,000 step anyway.</li>
+</ul>
+<h4>The one exception you should know about</h4>
+<ul>
+<li>Some computer scientists instead treat each step as <strong>×1,024</strong> (because 1,024 = 2<sup>10</sup>, a "round number" in binary), which is technically how your operating system often reports file sizes.</li>
+<li>OCR's specification uses the <strong>1,000× convention</strong> for this course, and that is what you should use by default. Mark schemes have occasionally also accepted an equivalent answer worked out using 1,024 — but 1,000 is the one to reach for first, and it produces far cleaner numbers on a non-calculator paper.</li>
+</ul>`,
+            readCheck: {
+                q: "Using the specification's ×1,000 convention, how many kilobytes are in 5 megabytes?",
+                opts: ["500 KB", "5,000 KB", "50,000 KB", "5 KB"],
+                ans: 1,
+                explain: "One megabyte is 1,000 kilobytes, so 5 megabytes is 5 × 1,000 = 5,000 kilobytes."
+            }
+        },
+        {
+            title: "Comparing file sizes and calculating storage capacity",
+            tag: "Calculation",
+            content: `<h4>Rule one: convert to the SAME unit before you compare</h4>
+<ul>
+<li>Exam questions love mixing units on purpose — "which is bigger, 2,300 KB or 200 MB?" You cannot compare the numbers 2,300 and 200 directly; you must convert them onto the same ladder step first.</li>
+<li>2,300 KB ÷ 1,000 = 2.3 MB. Now compare 2.3 MB against 200 MB — 200 MB is far bigger, even though "2,300" looked like the larger number.</li>
+<li>The trap only works if you compare the raw numbers without converting. Always ask "same unit?" before you tick an answer.</li>
+</ul>
+<h4>Worked example: calculating how much storage you need</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>A school stores 500 student photos, each averaging 4 MB. Find the TOTAL size in MB.</td><td>500 × 4 = 2,000 MB</td></tr>
+<tr><td>2</td><td>Convert MB into GB by dividing by 1,000 (the next step up the ladder).</td><td>2,000 ÷ 1,000 = 2 GB</td></tr>
+<tr><td>3</td><td>State the answer in the unit the question asked for, with working shown.</td><td>2 GB</td></tr>
+</table>
+<h4>The "own-figure" rule</h4>
+<ul>
+<li>OCR's calculation questions usually give <strong>one mark for the correct final answer</strong> and a <strong>separate mark for showing valid working</strong> (e.g. the multiplication and the division step). If your working is sound but you slip on the arithmetic, you can still pick up the working mark — so always write every step down, even on a non-calculator paper.</li>
+</ul>`,
+            readCheck: {
+                q: "A phone stores 200 songs averaging 5 MB each. What is the total storage needed, in GB?",
+                opts: ["1 GB", "0.1 GB", "10 GB", "100 GB"],
+                ans: 0,
+                explain: "200 × 5 = 1,000 MB. 1,000 MB ÷ 1,000 = 1 GB."
+            }
+        },
+        {
+            title: "Worked example: calculating a sound file's size",
+            tag: "Worked example",
+            content: `<h4>The formula</h4>
+<ul>
+<li><strong>File size (bits) = sample rate (Hz) × duration (seconds) × bit depth (bits per sample)</strong></li>
+<li><strong>Sample rate</strong> is how many samples of the sound wave are taken every second, measured in <strong>hertz (Hz)</strong>.</li>
+<li><strong>Bit depth</strong> is how many bits are used to store the value of each sample. A bigger bit depth records the sound wave's height more precisely.</li>
+</ul>
+<h4>Worked example</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>A 4-second recording is sampled at 10,000 Hz with an 8-bit depth. Multiply sample rate × duration × bit depth.</td><td>10,000 × 4 × 8 = 320,000 bits</td></tr>
+<tr><td>2</td><td>Always answer a file-size formula in BITS first, then convert. Divide by 8 to get bytes.</td><td>320,000 ÷ 8 = 40,000 bytes</td></tr>
+<tr><td>3</td><td>Convert bytes into a sensible unit by dividing by 1,000.</td><td>40,000 ÷ 1,000 = 40 KB</td></tr>
+</table>
+<h4>What increases the file size?</h4>
+<ul>
+<li>Increasing <strong>any</strong> of the three factors increases the file size: a <strong>higher sample rate</strong>, a <strong>longer duration</strong>, or a <strong>greater bit depth</strong> all mean more bits are stored.</li>
+<li>Sample rate and bit depth also affect <strong>quality</strong> — more samples and a more precise value per sample both make the digital copy closer to the original analogue sound wave.</li>
+</ul>`,
+            readCheck: {
+                q: "A sound is recorded for 2 seconds at a sample rate of 5,000 Hz with a bit depth of 8 bits. What is the file size in KB?",
+                opts: ["10 KB", "80 KB", "1 KB", "800 KB"],
+                ans: 0,
+                explain: "5,000 × 2 × 8 = 80,000 bits. 80,000 ÷ 8 = 10,000 bytes. 10,000 ÷ 1,000 = 10 KB."
+            }
+        },
+        {
+            title: "Worked example: calculating an image file's size",
+            tag: "Worked example",
+            content: `<h4>The formula</h4>
+<ul>
+<li><strong>File size (bits) = colour depth (bits per pixel) × height (pixels) × width (pixels)</strong></li>
+<li>An image is made of a grid of <strong>pixels</strong>. Each pixel stores a binary code for its colour — the number of bits used for that code is the <strong>colour depth</strong>.</li>
+<li><strong>Resolution</strong> is the number of pixels that make up the image (height × width) — more pixels means more detail, but also a bigger file.</li>
+</ul>
+<h4>Worked example</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>An image is 100 pixels tall and 200 pixels wide, with a colour depth of 8 bits. Multiply colour depth × height × width.</td><td>8 × 100 × 200 = 160,000 bits</td></tr>
+<tr><td>2</td><td>Convert bits into bytes by dividing by 8.</td><td>160,000 ÷ 8 = 20,000 bytes</td></tr>
+<tr><td>3</td><td>Convert bytes into a sensible unit by dividing by 1,000.</td><td>20,000 ÷ 1,000 = 20 KB</td></tr>
+</table>
+<h4>Quality vs file size — always a trade-off</h4>
+<ul>
+<li>A <strong>higher colour depth</strong> allows more possible colours per pixel (better quality) but stores more bits per pixel (bigger file).</li>
+<li>A <strong>higher resolution</strong> (more pixels) shows more detail but multiplies the file size directly — doubling both height and width roughly quadruples the file size.</li>
+<li><strong>Metadata</strong> (extra information stored with the image, such as its dimensions, the date it was taken or the camera used) adds a small amount on top of the pixel data itself.</li>
+</ul>`,
+            readCheck: {
+                q: "An image is 50 pixels tall and 100 pixels wide, with a colour depth of 8 bits. What is the file size in bytes?",
+                opts: ["5,000 bytes", "40,000 bytes", "1,250 bytes", "800 bytes"],
+                ans: 0,
+                explain: "8 × 50 × 100 = 40,000 bits. 40,000 ÷ 8 = 5,000 bytes."
+            }
+        },
+        {
+            title: "Worked example: calculating a text file's size",
+            tag: "Worked example",
+            content: `<h4>The formula</h4>
+<ul>
+<li><strong>File size (bits) = bits per character × number of characters</strong></li>
+<li>Every character in a text file (a letter, digit, space or punctuation mark) is stored as a binary code. The number of bits used for each character is given to you in the question — always use THAT number, not one you remember from elsewhere.</li>
+</ul>
+<h4>Worked example</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>A document has 500 characters, stored using 8 bits per character. Multiply bits per character × number of characters.</td><td>8 × 500 = 4,000 bits</td></tr>
+<tr><td>2</td><td>Convert bits into bytes by dividing by 8.</td><td>4,000 ÷ 8 = 500 bytes</td></tr>
+<tr><td>3</td><td>State the answer in the unit asked for (bytes here — the number is too small to need converting further).</td><td>500 bytes</td></tr>
+</table>
+<h4>The pattern across all three formulas</h4>
+<ul>
+<li>Notice all three file-size formulas share the same shape: a <strong>"per unit" factor</strong> (bits per sample / bits per pixel / bits per character) multiplied by <strong>however many of that unit there are</strong> (samples taken / pixels in the image / characters in the file).</li>
+<li>Work in <strong>bits first</strong>, every time — then convert (÷8 for bytes, ÷1,000 per step after that) into whatever unit the question wants.</li>
+</ul>`,
+            readCheck: {
+                q: "A text file has 1,000 characters stored at 8 bits per character. What is the file size in KB?",
+                opts: ["1 KB", "8 KB", "0.1 KB", "125 KB"],
+                ans: 0,
+                explain: "8 × 1,000 = 8,000 bits. 8,000 ÷ 8 = 1,000 bytes. 1,000 ÷ 1,000 = 1 KB."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "What is a nibble?",
+            opts: ["2 bits", "4 bits", "8 bits", "16 bits"],
+            ans: 1,
+            explain: "A nibble is 4 bits — half of a byte."
+        },
+        {
+            q: "How many bits make up a byte?",
+            opts: ["4", "8", "10", "16"],
+            ans: 1,
+            explain: "A byte is 8 bits, or two nibbles."
+        },
+        {
+            q: "Using the specification's ×1,000 convention, which unit comes immediately after the megabyte on the ladder?",
+            opts: ["Kilobyte", "Terabyte", "Gigabyte", "Petabyte"],
+            ans: 2,
+            explain: "The ladder runs bit → nibble → byte → kilobyte → megabyte → gigabyte → terabyte → petabyte."
+        },
+        {
+            q: "Using the ×1,000 convention, how many bytes are in 3 kilobytes?",
+            opts: ["30", "300", "3,000", "30,000"],
+            ans: 2,
+            explain: "1 kilobyte = 1,000 bytes, so 3 kilobytes = 3 × 1,000 = 3,000 bytes."
+        },
+        {
+            q: "Using the ×1,000 convention, how many megabytes are in 2 gigabytes?",
+            opts: ["20", "200", "2,000", "20,000"],
+            ans: 2,
+            explain: "1 gigabyte = 1,000 megabytes, so 2 gigabytes = 2 × 1,000 = 2,000 megabytes."
+        },
+        {
+            q: "Why must a computer store all of its data as binary?",
+            opts: ["Binary is quicker for a programmer to type than denary", "Its hardware is built from switches that can only be on or off", "Binary numbers use noticeably fewer digits than denary numbers do", "Binary makes every file automatically smaller and quicker to load"],
+            ans: 1,
+            explain: "A transistor only has two physical states — on and off — so binary (0/1) is the only form of data the hardware can represent."
+        },
+        {
+            q: "A sound is recorded for 3 seconds at a sample rate of 20,000 Hz with an 8-bit depth. What is its file size in KB?",
+            opts: ["60 KB", "6 KB", "48 KB", "480 KB"],
+            ans: 0,
+            explain: "20,000 × 3 × 8 = 480,000 bits. 480,000 ÷ 8 = 60,000 bytes. 60,000 ÷ 1,000 = 60 KB."
+        },
+        {
+            q: "An image is 100 pixels tall and 100 pixels wide, with a colour depth of 4 bits. What is its file size in bytes?",
+            opts: ["5,000 bytes", "40,000 bytes", "1,250 bytes", "10,000 bytes"],
+            ans: 0,
+            explain: "4 × 100 × 100 = 40,000 bits. 40,000 ÷ 8 = 5,000 bytes."
+        },
+        {
+            q: "A text file has 2,000 characters stored at 8 bits per character. What is its file size in KB?",
+            opts: ["2 KB", "16 KB", "0.2 KB", "250 KB"],
+            ans: 0,
+            explain: "8 × 2,000 = 16,000 bits. 16,000 ÷ 8 = 2,000 bytes. 2,000 ÷ 1,000 = 2 KB."
+        },
+        {
+            q: "Which of these file sizes is the LARGEST?",
+            opts: ["150,000 KB", "140 MB", "0.2 GB", "0.00013 TB"],
+            ans: 2,
+            explain: "Converting everything to MB: 150,000 KB = 150 MB; 140 MB; 0.2 GB = 200 MB; 0.00013 TB = 130 MB. 0.2 GB is the largest at 200 MB."
+        },
+        {
+            q: "Which value have some OCR mark schemes also accepted as an alternative to ×1,000 when converting between units such as KB and MB?",
+            opts: ["100", "500", "1,024", "10,000"],
+            ans: 2,
+            explain: "1,024 = 2 to the power 10, a value that fits neatly into binary. It is occasionally accepted as an alternative, but ×1,000 is the specification's default and gives cleaner working."
+        },
+        {
+            q: "A memory card holds 16 GB. Each photo is 2 MB. Roughly how many photos will fit?",
+            opts: ["80", "800", "8,000", "80,000"],
+            ans: 2,
+            explain: "16 GB = 16,000 MB. 16,000 ÷ 2 = 8,000 photos."
+        }
+    ];
+
+    const matchData = [
+        { term: "Bit", def: "The smallest unit of data a computer can store — a single 0 or 1" },
+        { term: "Nibble", def: "4 bits" },
+        { term: "Byte", def: "8 bits, or two nibbles" },
+        { term: "Kilobyte (KB)", def: "1,000 bytes" },
+        { term: "Megabyte (MB)", def: "1,000 kilobytes" },
+        { term: "Gigabyte (GB)", def: "1,000 megabytes" },
+        { term: "Terabyte (TB)", def: "1,000 gigabytes" },
+        { term: "Petabyte (PB)", def: "1,000 terabytes" },
+        { term: "Why data must be binary", def: "Computers are built from switches (transistors) that can only be on or off" },
+        { term: "Sample rate", def: "The number of samples taken of a sound wave each second, measured in Hz" },
+        { term: "Bit depth (sound)", def: "The number of bits used to store the value of each sound sample" },
+        { term: "Colour depth", def: "The number of bits used to store the colour of each pixel in an image" },
+        { term: "Resolution", def: "The number of pixels that make up an image (height × width)" },
+        { term: "Capacity", def: "The total amount of data a storage device can hold" }
+    ];
+
+    const fibData = [
+        {
+            display: "A _____ is the smallest unit of data a computer can store, and it can only hold the value 0 or 1.",
+            blanks: { B1: "bit" }
+        },
+        {
+            display: "A nibble is made up of _____ bits, and a byte is made up of _____ bits.",
+            blanks: { B1: "4", B2: "8" }
+        },
+        {
+            display: "Computers store data in binary because they are built from millions of tiny _____ that can only be on or off.",
+            blanks: { B1: "switches" }
+        },
+        {
+            display: "Going up the unit ladder from kilobyte to petabyte, each step is _____ times bigger than the one before.",
+            blanks: { B1: "1000" }
+        },
+        {
+            display: "The formula for a sound file's size is sample rate × duration × _____.",
+            blanks: { B1: "bit depth" }
+        },
+        {
+            display: "The formula for an image file's size is colour depth × height × _____.",
+            blanks: { B1: "width" }
+        },
+        {
+            display: "The formula for a text file's size is bits per character × number of _____.",
+            blanks: { B1: "characters" }
+        },
+        {
+            display: "A file-size calculation should always be worked out in _____ first, then converted into the unit the question asks for.",
+            blanks: { B1: "bits" }
+        }
+    ];
+    const fibWords = ["bit", "4", "8", "switches", "1000", "bit depth", "width", "characters", "bits"];
+
+    const tfData = [
+        {
+            statement: "A byte is made up of 4 bits.",
+            answer: false,
+            explanation: "4 bits is a nibble. A byte is 8 bits — two nibbles."
+        },
+        {
+            statement: "Using the specification's convention, 1 kilobyte is equal to 1,000 bytes.",
+            answer: true,
+            explanation: "Correct — OCR's default step between units on this course is ×1,000."
+        },
+        {
+            statement: "A megabyte is larger than a gigabyte.",
+            answer: false,
+            explanation: "The opposite is true: 1 gigabyte = 1,000 megabytes, so a gigabyte is far larger."
+        },
+        {
+            statement: "Binary is used in computers because it is easier for programmers to type only two digits.",
+            answer: false,
+            explanation: "The real reason is hardware, not typing convenience: a transistor can only be on or off, giving exactly two physical states."
+        },
+        {
+            statement: "The image file-size formula multiplies colour depth by the image's height and width in pixels.",
+            answer: true,
+            explanation: "Correct — file size (bits) = colour depth × height × width."
+        },
+        {
+            statement: "The sound file-size formula does not need to know how long the recording lasts.",
+            answer: false,
+            explanation: "Duration is one of the three factors: file size (bits) = sample rate × duration × bit depth. Leaving it out gives the wrong answer."
+        },
+        {
+            statement: "Some OCR mark schemes have also accepted answers calculated using 1,024 instead of 1,000.",
+            answer: true,
+            explanation: "True — 1,000 is the specification's default and gives cleaner non-calculator arithmetic, but 1,024 (2 to the power 10) has occasionally been accepted as an alternative."
+        },
+        {
+            statement: "Before comparing or adding file sizes, you should convert every value onto the same unit.",
+            answer: true,
+            explanation: "Correct — comparing '2,300 KB' with '200 MB' directly is meaningless until both are written in the same unit."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Mixing up nibble and byte — remembering a byte as 4 bits.",
+            correct: "A <strong>nibble</strong> is 4 bits; a <strong>byte</strong> is 8 bits (two nibbles). If you always picture a nibble as \"half a byte\", the two stay locked together and you cannot swap them by accident.",
+            readCheck: {
+                q: "Which pairing is correct?",
+                opts: ["Nibble = 8 bits, byte = 4 bits", "Nibble = 4 bits, byte = 8 bits", "Nibble = 2 bits, byte = 4 bits", "Nibble and byte are the same size"],
+                ans: 1,
+                explain: "A nibble is 4 bits and a byte is 8 bits — a byte is exactly two nibbles."
+            }
+        },
+        {
+            wrong: "Comparing file sizes written in different units without converting them onto the same unit first, and assuming the bigger-looking number wins — e.g. thinking 2,300 KB must be more than 200 MB because 2,300 is a bigger number than 200.",
+            correct: "You cannot compare the raw digits when the units are different. Convert both figures onto the same unit first: 2,300 KB ÷ 1,000 = <strong>2.3 MB</strong>, which is far smaller than <strong>200 MB</strong>. Always ask \"are these in the same unit?\" before deciding which is bigger.",
+            readCheck: {
+                q: "Which is actually larger: 2,300 KB or 200 MB?",
+                opts: ["2,300 KB, since 2,300 is a bigger raw number than 200", "200 MB, because 2,300 KB only converts to 2.3 MB", "The two values are exactly equal in size", "It cannot be worked out without a calculator"],
+                ans: 1,
+                explain: "2,300 KB = 2.3 MB, which is much smaller than 200 MB. Converting to the same unit is the only safe way to compare."
+            }
+        },
+        {
+            wrong: "Believing the smallest whole number that can be stored in 8 bits is 1.",
+            correct: "It is <strong>0</strong> (represented as 00000000). Every bit can be 0, and a computer does not skip zero — it is a perfectly normal value to store, and often the smallest one available.",
+            readCheck: {
+                q: "What is the smallest whole number that can be stored in 8 bits?",
+                opts: ["0", "1", "8", "255"],
+                ans: 0,
+                explain: "00000000 represents 0, which is a valid value 8 bits can store — and the smallest one."
+            }
+        },
+        {
+            wrong: "Finishing a file-size calculation and leaving the answer in bits, even though the question asked for the size in KB or MB.",
+            correct: "The three formulas always give you an answer in <strong>bits</strong> first — that is only the first step. You must then divide by 8 to reach bytes, and keep dividing by 1,000 for each unit up the ladder until you reach the unit the question actually asked for.",
+            readCheck: {
+                q: "A calculation using the sound formula gives 80,000 bits. The question asks for the answer in KB. What should you do next?",
+                opts: ["Write down 80,000 as the final answer, already correct in KB", "Divide by 8 to get bytes, then divide by 1,000 to get KB", "Multiply the bits total by 8 to reach bytes", "Divide the whole bits total by 1,000 only, then stop working"],
+                ans: 1,
+                explain: "80,000 bits ÷ 8 = 10,000 bytes, then ÷ 1,000 = 10 KB. Both conversion steps are needed to reach the unit asked for."
+            }
+        },
+        {
+            wrong: "Believing binary is used in computers simply because it is a simpler or more convenient choice.",
+            correct: "It is not a preference — it is forced by the hardware. A computer is built from millions of transistors, and a transistor can only physically be <strong>on</strong> or <strong>off</strong>. Binary (1 and 0) is the only representation that fits that hardware.",
+            readCheck: {
+                q: "Why can't a computer use denary (0–9) internally instead of binary?",
+                opts: ["Denary would make written programs far too easy to read", "Its switches (transistors) can only be in one of two physical states", "Denary numbers always take up noticeably more space than binary ones", "It could, but no manufacturer has ever built one"],
+                ans: 1,
+                explain: "The hardware itself only has two physical states available, so only a two-value (binary) system can be represented directly."
+            }
+        },
+        {
+            wrong: "Assuming every unit conversion on this course must use ×1,024, and getting messy, error-prone arithmetic on a non-calculator paper as a result.",
+            correct: "Reach for <strong>×1,000</strong> first — it is this specification's convention and produces clean numbers you can do in your head (exactly what a non-calculator paper needs). 1,024 is only occasionally accepted as an alternative, not the expected method.",
+            readCheck: {
+                q: "On a non-calculator OCR paper, which conversion factor should you use by default between KB, MB, GB etc.?",
+                opts: ["1,000", "1,024", "1,000 for KB→MB only, then 1,024 after that", "Either — the exam always accepts both with no working shown"],
+                ans: 0,
+                explain: "1,000 is the specification's default convention and gives clean non-calculator arithmetic; 1,024 has only occasionally been accepted as an alternative."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "Show-your-working ladder: the 2-mark capacity calculation",
+            pills: ["AO2", "2 marks", "Working + answer", "Own-figure rule"],
+            content: `<p>A typical question: <em>"500 photos average 4 MB each. Calculate an estimate of the storage space in GB that the 500 files will require. Show your working out."</em> [2 marks] Here is the same answer at every level:</p>
+
+<p><strong>❌ 0 marks:</strong> "2 GB"</p>
+<ul>
+<li>No working shown. Even a correct final answer with nothing behind it risks losing the working mark entirely if it happens to be wrong.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "500 × 4 = 2000 MB"</p>
+<ul>
+<li>Valid working is shown (1 mark) but the answer was never converted into GB and stated as a final answer — the second mark is for the CONVERTED answer in the unit asked for.</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "500 × 4 = 2000 MB <strong>(1)</strong>. 2000 ÷ 1000 = 2 GB <strong>(1)</strong>."</p>
+
+<p><strong>Why this matters even if your arithmetic slips:</strong> OCR marks the WORKING and the ANSWER as separate marks. If you multiply correctly but make a small slip converting units, you keep the working mark — but only if you actually wrote the working down. On a non-calculator paper, always show every step.</p>`,
+            readCheck: {
+                q: "You calculate 500 × 4 = 2000 MB correctly, but then wrongly divide by 100 instead of 1,000 and write '20 GB'. What mark do you get out of 2?",
+                opts: ["0, because the final stated answer is wrong", "1 — the working mark for the correct multiplication step", "2, since your working clearly shows you understood the method", "It depends entirely on which calculator you used"],
+                ans: 1,
+                explain: "The multiplication step (500 × 4 = 2000 MB) is valid working, so it earns the working mark even though the final conversion — and therefore the answer mark — was wrong."
+            }
+        },
+        {
+            type: "tip",
+            title: "Comparing file sizes without a calculator: convert first, always",
+            pills: ["AO1", "1 mark", "Tick one box", "Strategy"],
+            content: `<p>Whenever a question gives you file sizes in different units and asks which is biggest, smallest, or equal, the trap is comparing the raw numbers before converting.</p>
+
+<p><strong>The three-step method:</strong></p>
+<ul>
+<li><strong>1. Pick ONE unit</strong> to convert everything into — usually whichever unit most of the options are already close to.</li>
+<li><strong>2. Convert every option</strong> using ×1,000 / ÷1,000 per step, writing the converted value next to each option.</li>
+<li><strong>3. Compare the converted values</strong>, not the original numbers.</li>
+</ul>
+
+<p><strong>Worked example — which of these is equal to 3 MB?</strong></p>
+<ul>
+<li>3,000 KB → ÷1,000... wait, KB→MB is ÷1,000, so 3,000 ÷ 1,000 = <strong>3 MB</strong>. Equal.</li>
+<li>0.003 GB → ×1,000 to get MB: 0.003 × 1,000 = <strong>3 MB</strong>. Also equal!</li>
+<li>Both convert to exactly 3 MB — a reminder that more than one option can be correct in a "tick two boxes" style question, and that the trick is almost always hiding an equivalent value in a different unit.</li>
+</ul>`,
+            readCheck: {
+                q: "A question gives four file sizes in four different units and asks you to tick the largest. What should you do FIRST?",
+                opts: ["Tick whichever of the four raw numbers looks the biggest", "Convert every option into the same unit before comparing", "Add all four of the given numbers together", "Assume the very first option is a decoy"],
+                ans: 1,
+                explain: "Raw numbers in different units cannot be compared directly — converting everything onto the same unit first is the only reliable method."
+            }
+        },
+        {
+            type: "explain",
+            title: "Tick-one-box unit questions: what the 1 mark actually needs",
+            pills: ["AO1", "1 mark", "MCQ", "Elimination"],
+            content: `<p>Single tick-box questions on this topic are worth only 1 mark, but they are rarely a lucky guess — three of the four options are usually wrong for a specific, checkable reason.</p>
+
+<p><strong>❌ Common wrong pick:</strong> choosing an option because it "sounds right" or uses a familiar-looking number, without actually converting or checking it.</p>
+
+<p><strong>✅ The reliable method:</strong> work out (or convert) EVERY option before you tick anything, and eliminate the ones you can prove are wrong. For a "which statement about binary is true" style question, check each statement against something you know for certain — e.g. a binary digit can only ever be 0 or 1, so any statement mentioning a third digit value is automatically false.</p>
+
+<p><strong>One tick only.</strong> Every mark scheme on this topic states that ticking two or more boxes scores zero, even if one of them is correct — so if you are unsure, commit to your best-evidenced single answer rather than hedging.</p>`,
+            readCheck: {
+                q: "You are fairly confident the answer is box 3, but tick box 1 as well just in case. What mark do you get?",
+                opts: ["1 mark, since box 3 is the box that was actually correct", "0 marks — two or more ticks always scores zero on these questions", "0.5 marks awarded automatically as partial credit", "It depends entirely on which of the two ticked boxes the examiner prefers"],
+                ans: 1,
+                explain: "OCR's mark schemes for single tick-box questions award 0 marks the moment two or more boxes are ticked, regardless of whether the correct box is among them."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Bit", def: "The smallest unit of data a computer can store — a single 0 or 1" },
+        { term: "Nibble", def: "4 bits" },
+        { term: "Byte", def: "8 bits, or two nibbles" },
+        { term: "Kilobyte (KB)", def: "1,000 bytes" },
+        { term: "Megabyte (MB)", def: "1,000 kilobytes" },
+        { term: "Gigabyte (GB)", def: "1,000 megabytes" },
+        { term: "Terabyte (TB)", def: "1,000 gigabytes" },
+        { term: "Petabyte (PB)", def: "1,000 terabytes" },
+        { term: "Why binary is used", def: "Computer hardware is built from switches (transistors) that can only be on or off" },
+        { term: "1,000 vs 1,024", def: "This course uses ×1,000 by default; 1,024 (2^10) is occasionally accepted as an alternative" },
+        { term: "Sample rate", def: "The number of samples taken of a sound wave each second, measured in Hz" },
+        { term: "Bit depth", def: "The number of bits used to store each sound sample (or each pixel's colour)" },
+        { term: "Colour depth", def: "The number of bits used to store the colour of one pixel" },
+        { term: "Resolution", def: "The number of pixels making up an image — height × width" },
+        { term: "Sound file-size formula", def: "Sample rate × duration (seconds) × bit depth" },
+        { term: "Image file-size formula", def: "Colour depth × height (pixels) × width (pixels)" },
+        { term: "Text file-size formula", def: "Bits per character × number of characters" },
+        { term: "Capacity calculation method", def: "Work out the total in bits first, then divide by 8 for bytes and by 1,000 per unit after that" }
+    ];
+    // ── WHY THIS PAGE HAS ONLY 9 MARKS OF REAL EXAM QUESTIONS (do not "fix" this) ──
+    // No ExamBuilder topic PDF exists for 1.2.3 — its questions were sourced
+    // directly from the 2022/2023/2024 full past papers (CS resources/Full
+    // exam papers/), taking ONLY the parts that are genuinely unit/capacity
+    // skill (bit/nibble/byte/KB…PB, comparing/converting file sizes, capacity
+    // calculations). Everything else on those papers' Q1s belongs to a
+    // DIFFERENT page and was deliberately left out:
+    //   • 2022 Q1(b)/(c)/(d)/(e)/(f) — denary/binary/hex conversion, unique
+    //     values from n bits, binary shifts — all 1.2.4 (Numbers), not here.
+    //   • 2023 Q1(b) — denary/8-bit-binary/hex table — 1.2.4 (Numbers).
+    //   • 2023 Q1(e)/(f) — binary addition, binary shift — 1.2.4 (Numbers).
+    //   • 2024 mock Q1(b) (the "smallest/largest denary from n bits… colour
+    //     depth of 7 bits… bits for 150 characters" table) LOOKED like a
+    //     units question but on inspection is range/representable-values
+    //     content for 1.2.4 (Numbers) / 1.2.5 (Characters) / 1.2.6 (Images) —
+    //     NOT taken here despite being suggested as a candidate; flagged back
+    //     for whoever builds those pages.
+    //   • 2024 mock Q5(b)(i)/(ii)/(iii) — magnetic vs solid-state device
+    //     choice, "identify another storage type" — 1.2.2 (Secondary
+    //     storage). Q5(b)(iii) ("tick the smallest capacity", 2.1GB/300MB/
+    //     200,000KB/0.0021TB) is genuinely a units-comparison skill sitting
+    //     inside a 1.2.2-flavoured scenario — deliberately left unclaimed
+    //     here rather than risk duplicating it with 1.2.2's build; the
+    //     coordinator should assign it to whichever page is built second.
+    // RULE FOR EVERY FUTURE TOPIC: diff your source questions against the
+    // Appendix B scope line-by-line, not just by keyword — a "file size"
+    // or "bits" question is not automatically 1.2.3 (CS-CONTENT-PLAN.md §6.2).
+    //
+    // ── U1–U9: original clean-room questions (2026-07-17) ──
+    // Written from scratch against the §1.2.3 spec scope, NOT transcribed
+    // from any past paper — extends the 5 real past-paper questions above
+    // with fresh scenarios/numbers to reach comprehensive coverage (unit
+    // ladder + conversions, why-binary, all three file-size formulas,
+    // capacity/how-many-fit calculations, an auto-marked conversion table,
+    // and an 8-mark banded discussion). See docs/SELF-MARK-POINTS-AUTHORING.md
+    // for the markPoints convention used on the calculation questions.
+    const EXAM_CASE_STUDIES = {
+        "drone-camera": `<p>A hobbyist company builds small camera drones. Each drone has an onboard camera that captures aerial photos during a flight, storing them directly onto a removable memory card fitted inside the drone.</p><p>The drone's flight computer also runs a program that controls the propellers and camera automatically during flight.</p>`,
+        "sensor-log": `<p>A school's environment club has fitted sensors around the school field that record data such as temperature and humidity. A pupil manually copies each reading into a spreadsheet as a short line of text, ready to be analysed later.</p>`,
+        "retro-sprite": `<p>An indie developer is creating a retro-style video game. Every character and object in the game is drawn as a small, blocky sprite — a tiny bitmap image made up of a grid of coloured pixels, deliberately kept small to match the game's old-school look.</p>`,
+        "podcast-studio": `<p>A podcast host records episodes using a laptop and uploads the finished audio files to an online hosting service, which gives every free account a limited amount of storage space.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "2022 Q1(a)",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Computers represent data in binary form.</p><p>Tick (✓) <strong>one</strong> box in each row to identify the binary unit equivalent of each of the given file sizes.</p>`,
+            grid: {
+                cols: ["2 megabytes", "2 petabytes", "2 kilobytes", "2 bytes", "2 gigabytes"],
+                rows: [
+                    { label: "2000 bytes", correct: [2] },
+                    { label: "2000 terabytes", correct: [1] },
+                    { label: "16 bits", correct: [3] },
+                    { label: "4 nibbles", correct: [3] }
+                ]
+            },
+            hint: "Work out each file size using ×1,000 steps (bytes→KB→MB→GB→TB→PB), then find the matching column. Two different rows can share the same correct column.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>2000 bytes → <strong>2 kilobytes</strong></li>
+<li>2000 terabytes → <strong>2 petabytes</strong></li>
+<li>16 bits → <strong>2 bytes</strong></li>
+<li>4 nibbles → <strong>2 bytes</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates needed to calculate each file size into a different binary unit to identify which is the equivalent. This question was often answered well by candidates who were able to accurately identify the equivalent binary units. Most commonly accurate were the 200 bytes into kilobytes and 16 bits into 2 bytes. Fewer candidates converted 2000 terabytes into 2 petabytes.</p>
+</div>`,
+            modelAnswer: "Row 1 (2000 bytes): 2 kilobytes.\nRow 2 (2000 terabytes): 2 petabytes.\nRow 3 (16 bits): 2 bytes.\nRow 4 (4 nibbles): 2 bytes."
+        },
+        {
+            num: "2023 Q1(a)",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Computers represent data in binary form.</p><p>Tick (✓) <strong>one</strong> box to identify the statement about binary that is true.</p>`,
+            options: ["Binary digits can only be the values 0, 1 and 2", "The left-most bit of a binary integer has the smallest value", "Binary is used because computers are made of switches that can only be on or off", "The smallest whole number that can be stored in 8 bits is the number 1"],
+            answer: 2,
+            hint: "Each of the three wrong statements is wrong for a specific, checkable reason — test each one rather than guessing which 'feels' right.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>Binary is used because computers are made of switches that can only be on or off</strong> (box 3)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept cross or other indication as long as clear which one they intend.</li>
+<li>2+ ticks = 0 marks.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question required candidates to identify the true statement. Many responses identified that the third statement was true. Statement 1 was incorrect because binary digits cannot include the value 2. Statement 2 was incorrect because the left-most bit is the largest value. Statement 4 was most commonly given as an incorrect choice, the smallest whole number that can be stored in 8 bits is the number 0, not the number 1.</p>
+</div>`,
+            modelAnswer: "Binary is used because computers are made of switches that can only be on or off."
+        },
+        {
+            num: "2023 Q1(c)",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick (✓) <strong>one</strong> box to identify the largest file size.</p>`,
+            options: ["2 000 000 bytes", "2300 KB", "200 MB", "0.1 GB"],
+            answer: 2,
+            hint: "Convert every option into the same unit (try MB) before comparing.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>200MB</strong> (box 3)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept cross or other indication as long as clear which one they intend.</li>
+<li>2+ ticks = 0 marks.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>There were a range of responses given by candidates. Many candidates identified 200MB as the correct response. 2300 KB was commonly given as an incorrect response.</p>
+</div>`,
+            modelAnswer: "200 MB."
+        },
+        {
+            num: "2023 Q1(d)",
+            marks: 1,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick (✓) <strong>two</strong> boxes to identify the two file sizes that are equal to each other.</p>`,
+            grid: {
+                cols: ["4 500 000 bytes", "450 KB", "4.5 MB", "0.45 GB"],
+                rows: [
+                    { label: "Tick two", correct: [0, 2] }
+                ]
+            },
+            hint: "Convert every option into the same unit before comparing — exactly two of the four will match.",
+            starter: "… and … are equal",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark for both boxes</h5>
+<ul>
+<li><strong>4 500 000 bytes</strong> (box 1)</li>
+<li><strong>4.5 MB</strong> (box 3)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept cross or other indication as long as clear which one they intend.</li>
+<li>1/3+ ticks = 0 marks.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question required candidates to work out which of the two file sizes were the same. Candidates had to tick two boxes. Many candidates identified the two correct answers. Correct responses often had working at the side of the answer. There was a range of incorrect answers given where different combinations were selected.</p>
+</div>`,
+            modelAnswer: "4 500 000 bytes and 4.5 MB are equal (4 500 000 ÷ 1 000 000 = 4.5)."
+        },
+        {
+            num: "2024 Q5(b)(iv)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>The musician’s recordings have an average (mean) file size of 3 MB. The musician has 1000 recordings.</p><p>Calculate an estimate of the storage space in GB that the 1000 files will require, assuming they are each 3 MB in size. Show your working out.</p>`,
+            hint: "Total size in MB first (3 × 1000), then convert MB to GB (÷ 1000) — show both steps as your working.",
+            starter: "Working: 3 × 1000 = … MB, ÷ 1000 = … GB. Answer: … GB",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for the answer <strong>3 GB</strong>.</li>
+<li>1 mark for working, e.g. 3 × 1000 ÷ 1000, or 3 × 1000, or 3000 ÷ 1000, or 3 ÷ 1000, or 0.003 × 1000.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Allow 2.9296875 (or an approximation) if dividing by 1024.</li>
+<li>Allow addition of metadata, e.g. 10% added — can be awarded for both the working and the answer mark.</li>
+<li>Not all of the working needs to be correct to get the working mark. Ignore mentions of MB/GB in the working.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: 3 MB × 1000 recordings = 3000 MB; 3000 MB ÷ 1000 = 3 GB. Answer: 3 GB"
+        },
+        {
+            num: "U1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Which list shows these four units in order from SMALLEST to LARGEST?</p>`,
+            options: [
+                "byte, bit, nibble, kilobyte",
+                "nibble, byte, bit, kilobyte",
+                "bit, nibble, byte, kilobyte",
+                "kilobyte, byte, nibble, bit"
+            ],
+            answer: 2,
+            hint: "Start from the smallest possible unit — the one that holds a single 0 or 1 — and climb the ladder one step at a time.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>bit, nibble, byte, kilobyte — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; there is no credit for a partially correct order.</li>
+</ul>
+</div>`,
+            modelAnswer: "bit, nibble, byte, kilobyte."
+        },
+        {
+            num: "U2",
+            marks: 1,
+            type: "written",
+            caseId: "drone-camera",
+            question: `<p>The drone's camera converts each photo directly into binary before storing it on the memory card. State why this data must be stored using binary (1s and 0s), rather than any other number system.</p>`,
+            hint: "Think about the physical hardware, not convenience — what are the only two states a switch inside a chip can be in?",
+            starter: "The data must be binary because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>Computer/memory hardware is built from millions of tiny electronic components (transistors/switches) that can only be in one of two physical states — on or off — so only binary (two-value) data can be represented directly // there is no reliable third or fourth physical state to represent extra digits</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any answer that correctly links binary to the two physical states of the hardware.</li>
+<li>Do not accept "binary is simpler/easier for programmers" or "it saves space" — neither is the real reason.</li>
+</ul>
+</div>`,
+            modelAnswer: "Because the drone's memory chips (and the rest of its hardware) are built from millions of tiny electronic switches that can only be in one of two physical states — on or off. There is no reliable third state, so binary (1s and 0s) is the only form of data those switches can represent directly."
+        },
+        {
+            num: "U3",
+            marks: 2,
+            type: "written",
+            caseId: "sensor-log",
+            question: `<p>Each sensor reading is logged into the spreadsheet as a 25-character line of text, using 8 bits to store each character. Calculate the storage space, in bytes, needed for one logged reading. Show your working.</p>`,
+            hint: "Use the text file-size formula: bits per character × number of characters. Work the answer out in bits first, then convert to bytes.",
+            starter: "Working: 8 × 25 = … bits, ÷ 8 = … bytes. Answer: … bytes",
+            markPoints: {
+                note: "One mark for valid working, one mark for the correct final answer — the answer mark follows through from your own working even if it isn't 25 bytes.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Shows valid working using bits per character × number of characters (8 × 25 = 200 bits), or an equivalent correct method", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "Gives the correct final answer of 25 bytes (accept a value that correctly follows through from their own working)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working, e.g. 8 × 25 = 200 (bits) // 200 ÷ 8</li>
+<li>1 mark for the answer: 25 bytes</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any correct method that reaches bits first, then converts to bytes by dividing by 8.</li>
+<li>Award the working mark even if the final answer is wrong, provided the method shown is valid.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: 8 bits × 25 characters = 200 bits. 200 ÷ 8 = 25 bytes. Answer: 25 bytes"
+        },
+        {
+            num: "U4",
+            marks: 4,
+            type: "written",
+            caseId: "retro-sprite",
+            question: `<p>A sprite is 16 pixels tall and 16 pixels wide, using a colour depth of 4 bits per pixel. The developer wants every sprite file to be under 200 bytes.</p><p>Calculate the sprite's file size in bytes, and state whether it is within the developer's 200-byte budget. Show your working, including how much spare capacity (in bytes) is left if it is within budget.</p>`,
+            hint: "Use the image formula: colour depth × height × width, in bits first — then convert to bytes before comparing to the 200-byte budget.",
+            starter: "Working: 4 × 16 × 16 = … bits, ÷ 8 = … bytes. Compared to 200 bytes: … Spare capacity: … bytes",
+            markPoints: {
+                note: "Two groups: up to 2 marks for the working that reaches a file size in bytes, and up to 2 marks for correctly using that figure to judge the budget — the second group follows through from your own answer above, even if it isn't 128 bytes.",
+                groups: [
+                    {
+                        label: "Your working", max: 2, points: [
+                            { text: "Correctly multiplies colour depth × height × width (4 × 16 × 16 = 1024 bits)", marks: 1 },
+                            { text: "Correctly converts the bits total into bytes by dividing by 8", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer and comparison", max: 2, points: [
+                            { text: "States the correct file size as 128 bytes (or the value that correctly follows through from their own working above)", marks: 1 },
+                            { text: "Correctly states the sprite is within the 200-byte budget AND gives the correct spare capacity (200 minus their file size = 72 bytes, or the correctly follow-through value)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark for working: 4 × 16 × 16 = 1024 (bits)</li>
+<li>1 mark for working: 1024 ÷ 8 = 128 (bytes)</li>
+<li>1 mark for the answer: 128 bytes</li>
+<li>1 mark for stating the sprite is within budget with the correct spare capacity: 200 − 128 = 72 bytes</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Own-figure/follow-through applies to the last two marks — if an earlier step is wrong, the comparison and spare-capacity marks can still be awarded using the candidate's own (wrong) file size, provided the method used is correct.</li>
+<li>Do not award the spare-capacity mark if the within/over budget conclusion is missing or wrong.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: 4 × 16 × 16 = 1024 bits. 1024 ÷ 8 = 128 bytes. The sprite is 128 bytes, which is within the developer's 200-byte budget, leaving 200 − 128 = 72 bytes of spare capacity."
+        },
+        {
+            num: "U5",
+            marks: 4,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>Complete the table by converting each given value into the unit requested. Use the specification's ×1,000 convention.</p>`,
+            table: {
+                headers: ["Convert this value...", "Your answer"],
+                rows: [
+                    ["3 nibbles → how many bits?", null],
+                    ["5,000 bytes → how many kilobytes?", null],
+                    ["2 gigabytes → how many megabytes?", null],
+                    ["0.5 terabytes → how many gigabytes?", null]
+                ]
+            },
+            answers: {
+                "0,1": ["12"],
+                "1,1": ["5", "5kb", "5 kb"],
+                "2,1": ["2000", "2000mb", "2000 mb"],
+                "3,1": ["500", "500gb", "500 gb"]
+            },
+            hint: "Nibble → bits doesn't use the ×1,000 rule (a nibble is 4 bits) — every other row does.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>3 nibbles = 12 bits</li>
+<li>5,000 bytes = 5 kilobytes</li>
+<li>2 gigabytes = 2,000 megabytes</li>
+<li>0.5 terabytes = 500 gigabytes</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept the numeric value with or without the unit written alongside it.</li>
+<li>Each row is marked independently.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1: 12 bits. Row 2: 5 kilobytes. Row 3: 2,000 megabytes. Row 4: 500 gigabytes."
+        },
+        {
+            num: "U6",
+            marks: 1,
+            type: "mcq",
+            caseId: "podcast-studio",
+            question: `<p>The podcast host records a short clip lasting 30 seconds at a sample rate of 8,000 Hz, using an 8-bit depth. What is the resulting file size, in kilobytes, using the specification's ×1,000 convention?</p>`,
+            options: ["240 KB", "24 KB", "2,400 KB", "1,920 KB"],
+            answer: 0,
+            hint: "Use the sound formula (sample rate × duration × bit depth) to get bits first, then divide by 8 for bytes and by 1,000 for kilobytes.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>240 KB — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores. Working: 8,000 × 30 × 8 = 1,920,000 bits ÷ 8 = 240,000 bytes ÷ 1,000 = 240 KB.</li>
+</ul>
+</div>`,
+            modelAnswer: "240 KB (8,000 × 30 × 8 = 1,920,000 bits; ÷8 = 240,000 bytes; ÷1,000 = 240 KB)."
+        },
+        {
+            num: "U7",
+            marks: 6,
+            type: "written",
+            caseId: "podcast-studio",
+            question: `<p>The podcast host uploads finished episodes to a hosting service that gives free accounts 2 GB of storage. Each episode is recorded at a sample rate of 16,000 Hz, with an 8-bit depth, and lasts 600 seconds (10 minutes). The host wants to upload 4 episodes recorded this way.</p><p>Calculate whether all 4 episodes will fit within the 2 GB of free storage, showing your full working and stating how much spare capacity (in MB) is left if they do fit.</p>`,
+            hint: "Work in stages: one episode's size in bits → bytes → MB, then multiply by 4 episodes, then compare the total to 2 GB converted into MB.",
+            starter: "One episode: 16,000 × 600 × 8 = … bits, ÷ 8 = … bytes, ÷ 1,000 ÷ 1,000 = … MB. Four episodes: … × 4 = … MB. 2 GB = … MB. Spare: … MB",
+            markPoints: {
+                note: "Two groups: up to 3 marks for correctly finding the size of ONE episode in MB, and up to 3 marks for scaling that up to 4 episodes and reaching a correct conclusion — the second group follows through from your own episode size, even if it isn't 9.6 MB.",
+                groups: [
+                    {
+                        label: "Working: size of one episode", max: 3, points: [
+                            { text: "Correctly multiplies sample rate × duration × bit depth (16,000 × 600 × 8 = 76,800,000 bits)", marks: 1 },
+                            { text: "Correctly converts the bits total into bytes by dividing by 8 (76,800,000 ÷ 8 = 9,600,000 bytes)", marks: 1 },
+                            { text: "Correctly converts bytes into MB using two ÷1,000 steps (9,600,000 ÷ 1,000 ÷ 1,000 = 9.6 MB, or via KB)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Working: four episodes and conclusion", max: 3, points: [
+                            { text: "Correctly multiplies their one-episode MB figure by 4 episodes (9.6 × 4 = 38.4 MB, or the correctly follow-through value)", marks: 1 },
+                            { text: "Correctly converts 2 GB into MB for a fair comparison (2 GB = 2,000 MB)", marks: 1 },
+                            { text: "Gives the correct conclusion that the episodes fit, with the correct spare capacity in MB (2,000 minus their total = 1,961.6 MB, or the correctly follow-through value)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks</h5>
+<ul>
+<li>1 mark: 16,000 × 600 × 8 = 76,800,000 (bits)</li>
+<li>1 mark: 76,800,000 ÷ 8 = 9,600,000 (bytes)</li>
+<li>1 mark: 9,600,000 ÷ 1,000 ÷ 1,000 = 9.6 (MB)</li>
+<li>1 mark: 9.6 × 4 = 38.4 (MB, for all four episodes)</li>
+<li>1 mark: 2 GB converted to 2,000 MB</li>
+<li>1 mark: correct conclusion — the episodes fit, with 2,000 − 38.4 = 1,961.6 MB spare</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Own-figure/follow-through applies throughout: each step's mark can be awarded using the candidate's own value carried forward from an earlier (even incorrect) step, provided the method used at that step is correct.</li>
+<li>The final conclusion mark requires both a correct fit/no-fit statement AND a spare-capacity figure consistent with their own total.</li>
+</ul>
+</div>`,
+            modelAnswer: "One episode: 16,000 × 600 × 8 = 76,800,000 bits. 76,800,000 ÷ 8 = 9,600,000 bytes. 9,600,000 ÷ 1,000 ÷ 1,000 = 9.6 MB.\n\nFour episodes: 9.6 × 4 = 38.4 MB. 2 GB = 2,000 MB.\n\nSince 38.4 MB is far less than 2,000 MB, all four episodes will fit, with 2,000 − 38.4 = 1,961.6 MB of spare capacity remaining."
+        },
+        {
+            num: "U8",
+            marks: 3,
+            type: "written",
+            caseId: "retro-sprite",
+            question: `<p>Describe how increasing the colour depth used for a sprite, and increasing its resolution, would each affect the sprite's file size and its visual quality.</p>`,
+            hint: "Two separate factors to describe — colour depth and resolution — linking each one back to both file size AND quality.",
+            starter: "A higher colour depth would… A higher resolution would…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point to max 3)</h5>
+<ul>
+<li>A higher colour depth stores more bits per pixel, increasing the file size, but allows more possible colours per pixel (better/richer quality)</li>
+<li>A higher resolution (more pixels) increases the file size, because there is more pixel data to store, but shows more visual detail (better quality)</li>
+<li>Both a higher colour depth and a higher resolution increase file size — a real trade-off against visual quality, which matters for a retro-style game where sprites are deliberately kept small</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per point to a maximum of 3.</li>
+<li>Full marks needs both colour depth and resolution addressed, plus a valid comment on the size/quality trade-off (or an equally strong development of one factor).</li>
+</ul>
+</div>`,
+            modelAnswer: "A higher colour depth means more bits are used to store each pixel's colour, which increases the file size — but it also allows more possible colours, giving a richer, higher-quality image. A higher resolution means the sprite is made of more pixels, so there is more data to store (a bigger file), but it shows finer detail. Because retro-style games deliberately want tiny sprite files, a real trade-off exists between using a higher colour depth/resolution for better quality and keeping files small."
+        },
+        {
+            num: "U9",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseId: "drone-camera",
+            question: `<p>The drone company is trying to decide on camera settings for a new model. Setting A uses a high resolution and high colour depth, producing the best-quality photos but larger files. Setting B uses a lower resolution and lower colour depth, producing smaller files but lower-quality photos.</p><p>Discuss the impact that choosing between Setting A and Setting B could have on a single flight, during which the drone's memory card has a fixed, limited capacity.</p><p>In your answer you might consider:</p><ul><li>how colour depth and resolution affect file size</li><li>the effect on how many photos can be stored on the memory card during one flight</li><li>the effect on the usefulness of the photos once the drone lands</li><li>which setting you would recommend, and why</li></ul>`,
+            hint: "Use all four bullets as your plan. Explain the mechanism (bigger files → fewer photos fit), follow it through to a REAL consequence of the flight, and weigh photo quality against photo quantity for a top-band answer.",
+            starter: "With Setting A, each photo file will be…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (levelled) — indicative content</h5>
+<p>The following is indicative of possible factors/evidence that candidates may refer to but is not prescriptive or exhaustive:</p>
+<ul>
+<li><strong>How colour depth/resolution affect file size</strong> — Setting A's higher colour depth stores more bits per pixel, and its higher resolution means more pixels overall; both increase file size (bits = colour depth × height × width). Setting B's lower values mean a smaller file size per photo.</li>
+<li><strong>Effect on how many photos fit</strong> — the memory card's capacity is fixed, so larger Setting A photos mean fewer photos can be stored during one flight; Setting B's smaller photos mean many more can be stored before the card fills up.</li>
+<li><strong>Effect on the usefulness of the photos</strong> — Setting A's higher quality/detail may matter for close inspection or publication, but running out of card space mid-flight could mean missing important later photos; Setting B captures more of the flight but each photo shows less fine detail, which may not be good enough for the drone's purpose.</li>
+<li><strong>Recommendation</strong> — the better choice depends on the drone's actual task: Setting A suits short flights needing a few high-quality images, Setting B suits long flights needing continuous coverage where running out of storage would be worse than lower detail.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given — levels of response</h5>
+<ul>
+<li><strong>Mark Band 3 — High Level (6–8 marks):</strong> Thorough knowledge and understanding of colour depth, resolution and file-size capacity, applied directly and consistently to the drone context. The response weighs up both settings (quality against quantity/storage) and covers all four areas from the bullet list with clear, logically structured reasoning, ending in a justified recommendation.</li>
+<li><strong>Mark Band 2 — Mid Level (3–5 marks):</strong> Reasonable knowledge, generally accurate but at times underdeveloped or only partly applied to the drone context. Most of the four areas are addressed, with some structure, though the discussion may not fully weigh both settings or the recommendation may be unjustified.</li>
+<li><strong>Mark Band 1 — Low Level (1–2 marks):</strong> Basic knowledge with limited understanding shown; the material may contain inaccuracies or barely refer to the drone context. Little more than an unsupported assertion, e.g. "Setting A is better" with no working explanation of why.</li>
+<li><strong>0 marks:</strong> No attempt to answer the question or response is not worthy of credit.</li>
+</ul>
+</div>`,
+            modelAnswer: "With Setting A, each photo file will be larger, because both a higher colour depth (more bits per pixel) and a higher resolution (more pixels) increase the number of bits that have to be stored per photo. With Setting B, each photo file will be much smaller, since fewer bits are used per pixel and there are fewer pixels overall.\n\nBecause the memory card has a fixed, limited capacity, this directly affects how many photos can be captured during a single flight: Setting A will fill the card after relatively few photos, while Setting B allows far more photos to be stored before the card is full.\n\nThis has a real effect once the drone lands: Setting A's photos will show more fine detail, which matters if the images need close inspection, but the drone risks running out of storage and missing photos later in the flight. Setting B's photos will show less detail but allow continuous coverage of the whole flight without running out of space.\n\nOn balance, Setting A is the better choice for a short flight where a small number of high-quality images matter most, while Setting B is better for a long flight where capturing the whole mission without running out of storage is more important than the fine detail of each individual photo."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>
@@ -293,6 +1273,9 @@
 <script src="/notifications-shared.js"></script>
 <script src="/onboarding-tour.js"></script>
 <script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
 <script src="/cs-lab/cs-lab.js" defer></script>
 </body>
 

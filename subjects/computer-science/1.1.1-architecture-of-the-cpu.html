@@ -288,7 +288,7 @@
 </ul>`,
             readCheck: {
                 q: "Which of these best states the PURPOSE of the CPU?",
-                opts: ["It fetches, decodes and executes instructions", "It stores all the user's files and programs", "It connects the computer to the internet", "It displays images on the screen"],
+                opts: ["It fetches, decodes and executes instructions", "It permanently stores all the user's files and programs", "It connects the whole computer to the internet", "It displays moving images on the screen"],
                 ans: 0,
                 explain: "The CPU is the processor — it works through program instructions using the fetch–decode–execute cycle. Storing files is the job of storage, not the CPU."
             }
@@ -313,7 +313,7 @@
 </ul>`,
             readCheck: {
                 q: "During the fetch–decode–execute cycle, what does the program counter do?",
-                opts: ["It stores the data fetched from memory", "It increments so it always holds the address of the next instruction", "It counts how many programs are open", "It performs the calculations"],
+                opts: ["It stores the actual data that has just been fetched from memory", "It increments each cycle to point to the next instruction", "It counts how many programs are currently open and running", "It performs the CPU's mathematical calculations"],
                 ans: 1,
                 explain: "The program counter holds the ADDRESS of the next instruction and increments each cycle. It never counts programs — that's the classic trap."
             }
@@ -389,7 +389,7 @@
 </ul>`,
             readCheck: {
                 q: "Why does cache memory speed up the CPU?",
-                opts: ["It adds more storage space for the user's files", "It stores frequently used instructions that can be accessed faster than fetching them from RAM", "It permanently stores the operating system", "It increases the clock speed of the CPU"],
+                opts: ["It adds extra long-term storage space for the user's own files", "It holds frequently used instructions, which load faster than from RAM", "It permanently stores a full backup copy of the entire operating system", "It physically increases the CPU's underlying clock speed"],
                 ans: 1,
                 explain: "Cache holds the instructions and data the CPU uses most, inside the CPU itself — so they can be accessed far faster than going out to RAM. It doesn't change the clock speed or store files."
             }
@@ -399,7 +399,7 @@
     const mcqData = [
         {
             q: "What is the purpose of the CPU?",
-            opts: ["To provide power to the computer", "To display graphics on the monitor", "To fetch, decode and execute instructions", "To store the user's documents"],
+            opts: ["To supply power to every other component in the case", "To render and display graphics on the monitor", "To fetch, decode and execute instructions", "To permanently store the user's files and documents"],
             ans: 2,
             explain: "The CPU processes instructions by running the fetch–decode–execute cycle continuously. Storage, power and display are handled by other components."
         },
@@ -417,13 +417,13 @@
         },
         {
             q: "Which CPU component decodes instructions and coordinates the actions of the processor?",
-            opts: ["The ALU", "The control unit", "The MDR", "The accumulator"],
+            opts: ["The ALU, which carries out calculations", "The control unit", "The MDR, which holds fetched data", "The accumulator, which stores results"],
             ans: 1,
             explain: "The control unit decodes each instruction and sends signals to synchronise and direct the other components. Remember: it directs the work, the ALU does the maths."
         },
         {
             q: "What does the program counter store?",
-            opts: ["The data fetched from memory", "The address of the next instruction to be fetched", "The result of the last calculation", "The number of programs currently running"],
+            opts: ["The actual data that was just fetched from memory", "The address of the next instruction to fetch", "The result of the most recent ALU calculation", "The number of programs currently open and running"],
             ans: 1,
             explain: "The PC stores the ADDRESS of the next instruction and increments each cycle. It counts nothing — despite the name."
         },
@@ -447,25 +447,25 @@
         },
         {
             q: "What is cache?",
-            opts: ["Slow memory outside the CPU used for long-term storage", "A register that stores one address", "The part of the CPU that performs calculations", "A small amount of fast memory inside the CPU storing frequently used instructions"],
+            opts: ["Slow, large-capacity memory outside the CPU, used for long-term file storage and backups", "A single register that stores one memory address for the CPU", "The part of the CPU that performs all calculations and logic", "Small, very fast memory inside the CPU holding frequently used instructions"],
             ans: 3,
             explain: "Cache is small, very fast memory inside the CPU holding frequently used instructions and data — so the CPU avoids waiting for RAM."
         },
         {
             q: "A register is best described as...",
-            opts: ["A small, very fast storage location inside the CPU holding one piece of data or one address", "A large memory store for running programs", "A unit that decodes instructions", "A type of secondary storage"],
+            opts: ["A tiny, very fast CPU storage location holding one value or address", "A large area of memory used to hold currently running programs and their data", "A processing unit that decodes and interprets program instructions", "A type of secondary storage used to store files permanently"],
             ans: 0,
             explain: "Registers are tiny storage locations inside the CPU — each holds a single value or address the CPU is using right now."
         },
         {
             q: "During one fetch–execute cycle, which of these events happens?",
-            opts: ["The program counter is incremented", "The RAM is wiped clean", "The operating system restarts", "The hard drive is defragmented"],
+            opts: ["The program counter is incremented", "Every byte of RAM is cleared and reset", "The entire operating system reboots", "The hard drive is automatically defragmented"],
             ans: 0,
             explain: "Each cycle: an instruction is fetched, decoded, executed — and the program counter increments so the CPU knows where the next instruction is."
         },
         {
             q: "Why can the CPU access an instruction in cache faster than the same instruction in RAM?",
-            opts: ["Cache is bigger than RAM", "Cache is inside (or right next to) the CPU, so there is less distance and delay", "RAM only works when the computer is off", "Cache instructions are pre-executed"],
+            opts: ["Cache has a much larger storage capacity than RAM", "Cache sits inside the CPU, so data travels a much shorter distance", "RAM only stores data while the computer is switched off", "Instructions stored in cache have already been executed once in advance"],
             ans: 1,
             explain: "Cache sits inside the CPU and is built from faster memory, so frequently used instructions don't have to make the slower trip from RAM."
         }
@@ -567,7 +567,7 @@
             correct: "The program counter stores the ADDRESS of the next instruction to be fetched from memory, and it increments during each fetch–execute cycle. It is a signpost, not a tally. If your answer to any PC question doesn't contain the word 'address', it is almost certainly wrong.",
             readCheck: {
                 q: "Which answer would earn the mark for 'state the purpose of the program counter'?",
-                opts: ["It stores the address of the next instruction to be fetched", "It counts the number of fetch–execute cycles", "It counts the programs that are open", "It stores the instructions that are running"],
+                opts: ["It stores the address of the next instruction to fetch", "It counts the total number of fetch–execute cycles completed", "It counts how many programs are currently open", "It stores every instruction that is currently running"],
                 ans: 0,
                 explain: "Only the address answer scores. Counting programs or cycles is the classic misconception, and 'stores the instructions' confuses the PC with the MDR."
             }
@@ -577,9 +577,9 @@
             correct: "The control unit DECODES instructions and sends signals to coordinate and synchronise the rest of the processor — it directs the fetch–execute cycle but doesn't do the calculations. Weak answer: 'the CU sends signals to components' (what for?). Strong answer: 'the CU decodes instructions and sends signals to coordinate the flow of data through the processor.' Say what the signals achieve.",
             readCheck: {
                 q: "Which is the BEST description of the control unit?",
-                opts: ["It performs the mathematical operations", "It sends signals to components", "It decodes instructions and coordinates the actions of the processor", "It stores frequently used instructions"],
+                opts: ["It performs all the CPU's mathematical operations directly", "It sends signals to synchronise the other components", "It decodes instructions and coordinates the processor", "It permanently stores the most frequently used program instructions"],
                 ans: 2,
-                explain: "Option B is the trap — it's true but incomplete, because it doesn't say what the signals do. The full answer names decoding AND coordination."
+                explain: "Option B is the trap — it's true but incomplete, because it only covers coordination and leaves out decoding. The full answer names decoding AND coordination."
             }
         },
         {
@@ -587,7 +587,7 @@
             correct: "Registers STORE; they don't fetch, take or retrieve. Mark schemes explicitly refuse purposes written as actions. Level 0: 'the MAR fetches data'. Level 1: 'the MAR stores an address'. Full marks: 'the MAR stores the address of the data or instruction that is to be fetched from, or written to, memory.' Always start a register's purpose with 'stores...'.",
             readCheck: {
                 q: "A question asks for the purpose of the MDR. Which answer style earns the mark?",
-                opts: ["\"The MDR stores the data or instruction fetched from memory\"", "\"The MDR moves data around the CPU\"", "\"The MDR is a register in the CPU\"", "\"The MDR fetches the data from RAM\""],
+                opts: ["\"The MDR stores the data fetched from memory\"", "\"The MDR actively moves data around the CPU\"", "\"The MDR is just a general register in the CPU\"", "\"The MDR actively fetches data from RAM\""],
                 ans: 0,
                 explain: "Registers store. Answers built on fetches/moves/takes describe actions the register doesn't perform, and 'it is a register' just restates the question."
             }
@@ -597,7 +597,7 @@
             correct: "The address/data split is the whole game: PC and MAR store ADDRESSES (locations in memory); MDR and accumulator store DATA (the instruction/data itself, or a result). A typical error chain in table questions: writing MAR where PC belongs, then 'using up' MDR on the next row too. Check the definition for the word 'address' before you commit a register name.",
             readCheck: {
                 q: "A definition in an exam table reads: 'Stores the address of the next instruction to be fetched. Increments during each cycle.' Which register is it?",
-                opts: ["Program counter", "MAR", "MDR", "Accumulator"],
+                opts: ["Program counter (PC)", "MAR (Memory Address Register)", "MDR (Memory Data Register)", "Accumulator (ACC)"],
                 ans: 0,
                 explain: "'Address of the NEXT INSTRUCTION' plus 'increments' can only be the program counter. The MAR stores the address currently being fetched from — no incrementing."
             }
@@ -607,7 +607,7 @@
             correct: "The mark is for the idea of the cores working AT THE SAME TIME: each core can execute a separate instruction (or a different part of the program) simultaneously — that's parallel processing. 'It runs more instructions per second' on its own could just describe a faster clock. And be ready for the twist: some software can't be split across cores, so performance doesn't always double.",
             readCheck: {
                 q: "Which sentence correctly explains why a dual-core CPU can improve performance?",
-                opts: ["\"Two cores mean twice the cache\"", "\"It can run more instructions per second\"", "\"Each core can execute a different instruction at the same time\"", "\"Two cores double the clock speed\""],
+                opts: ["\"Having two cores automatically doubles the cache size\"", "\"It can process more instructions every single second\"", "\"Each core runs a separate instruction simultaneously\"", "\"Two cores always double the CPU's clock speed\""],
                 ans: 2,
                 explain: "The winning idea is simultaneous execution — parallel processing. Doubling clock speed or cache isn't what a second core does, and 'more instructions per second' misses the 'at the same time' requirement."
             }
@@ -646,7 +646,7 @@
 </ul>`,
             readCheck: {
                 q: "Why does \"the MAR fetches data from memory\" score 0?",
-                opts: ["The MAR doesn't exist", "It's too short", "A register's purpose is to STORE — describing it as performing an action is wrong", "MAR should be written in full"],
+                opts: ["The MAR does not actually exist as a real CPU register", "The answer given is simply too short for the mark", "Registers STORE data — describing them as performing an action is wrong", "Register names must always be spelled out in full rather than abbreviated like MAR"],
                 ans: 2,
                 explain: "Registers are storage locations. The fetching is done by the CPU as a whole during the cycle — the register just holds the address or data involved."
             }
@@ -675,7 +675,7 @@
 </ul>`,
             readCheck: {
                 q: "\"More cache improves performance\" scores 1 out of 2. What's missing?",
-                opts: ["The brand of CPU", "A diagram", "The exact size of the cache in GB", "The chain: cache stores frequently used instructions which are accessed faster than from RAM"],
+                opts: ["The specific brand and full model name of the CPU", "A fully labelled diagram showing every one of the CPU's components", "The precise size of the cache, given exactly in megabytes or gigabytes", "The chain: cache stores instructions accessible faster than RAM"],
                 ans: 3,
                 explain: "The second mark is for developing the point: WHAT cache stores and WHY that speeds things up (faster access than RAM). Assertions about performance without the mechanism stay on 1 mark."
             }
@@ -708,7 +708,7 @@
 </ul>`,
             readCheck: {
                 q: "In a tick-grid question, a student ticks the two correct boxes in a row PLUS one extra box. What happens?",
-                opts: ["The examiner ignores the extra tick", "They get 2 out of 3 for the row", "They score 0 for that row — extra ticks void it", "They lose 1 mark from their total"],
+                opts: ["The examiner simply ignores the extra tick mark", "They still receive partial credit of 2 out of 3 for the row", "They score 0 for that row — extra ticks void it", "They simply lose 1 mark from their overall total"],
                 ans: 2,
                 explain: "Rows are all-or-nothing: right ticks with any extra tick scores 0 for that row. Tick with intent, not with hope."
             }
@@ -814,6 +814,23 @@
             question: `<p>Complete the table by writing the name of <strong>two</strong> registers used in the fetch-execute cycle and the purpose of each register.</p><table><tr><th>Register</th><th>Purpose</th></tr><tr><td>(1)</td><td>(2)</td></tr><tr><td>(3)</td><td>(4)</td></tr></table>`,
             hint: "1 mark per register name, 1 per matching purpose. PC and MAR store ADDRESSES; MDR stores the DATA/INSTRUCTION; the accumulator stores RESULTS.",
             starter: "Register 1: … — Purpose: Stores… | Register 2: … — Purpose: Stores…",
+            markPoints: {
+                note: "You gave two registers, and each one is marked on its own: 1 mark for the name, 1 more for a purpose that matches THAT register. Mark your first register, then your second. (If a register name is wrong, its purpose earns nothing.)",
+                groups: [
+                    {
+                        label: "Your first register", max: 2, points: [
+                            { text: "Named a register used in the fetch–execute cycle — PC, MAR, MDR or Accumulator (also accept CIR / IR)", marks: 1 },
+                            { text: "Gave a purpose that correctly matches that register (it must say what it STORES — not an action like “fetches”, “takes” or “retrieves”)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your second register", max: 2, points: [
+                            { text: "Named a DIFFERENT register used in the fetch–execute cycle", marks: 1 },
+                            { text: "Gave a purpose that correctly matches that second register", marks: 1 }
+                        ]
+                    }
+                ]
+            },
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 4 marks (1 for naming each register, 1 for each matching purpose)</h5>
 <ul>
@@ -945,7 +962,13 @@
             type: "written",
             format: "matchLine",
             caseStudy: "",
-            question: `<p>Draw <strong>one</strong> line from each part of the processor to its correct definition.</p><p><strong>Part of the processor:</strong></p><ul><li>Control Unit (CU)</li><li>Cache</li><li>Arithmetic Logic Unit (ALU)</li><li>Register</li></ul><p><strong>Definitions:</strong></p><ul><li><strong>A</strong> — Performs mathematical operations</li><li><strong>B</strong> — Sends signals to direct the operations</li><li><strong>C</strong> — Keeps the clock in sync</li><li><strong>D</strong> — A small piece of memory inside the processor that can hold one instruction or address</li><li><strong>E</strong> — High speed memory inside the processor that stores recently used instructions</li></ul><p>(There are more definitions than parts — one definition is not used.)</p>`,
+            question: `<p>Draw <strong>one</strong> line from each part of the processor to its correct definition.</p><p>(There are more definitions than parts — one definition is not used.)</p>`,
+            match: {
+                left: ["Control Unit (CU)", "Cache", "Arithmetic Logic Unit (ALU)", "Register"],
+                right: ["Performs mathematical operations", "Sends signals to direct the operations", "Keeps the clock in sync", "A small piece of memory inside the processor that can hold one instruction or address", "High speed memory inside the processor that stores recently used instructions"],
+                answer: { "0": 1, "1": 4, "2": 0, "3": 3 },
+                decoys: [2]
+            },
             hint: "One line from each part, exactly. There are five definitions for four parts, so one is a decoy — watch for the plausible-sounding one about the clock.",
             starter: "CU → …, Cache → …, ALU → …, Register → …",
             markScheme: `<div class="marks-section">
@@ -972,7 +995,16 @@
             type: "written",
             format: "tickGrid",
             caseStudy: "",
-            question: `<p>The table has five components of a computer, and four statements.</p><p>Tick (✓) <strong>one or more</strong> boxes in each row to identify which component(s) each statement describes.</p><table><tr><th>Statement</th><th>MAR</th><th>MDR</th><th>Cache</th><th>Program Counter</th><th>RAM</th></tr><tr><td>It stores a single address</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>It stores frequently used instructions</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>It is a register</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>It stores all currently running data and instructions</td><td></td><td></td><td></td><td></td><td></td></tr></table>`,
+            question: `<p>The table has five components of a computer, and four statements.</p><p>Tick (✓) <strong>one or more</strong> boxes in each row to identify which component(s) each statement describes.</p>`,
+            grid: {
+                cols: ["MAR", "MDR", "Cache", "Program Counter", "RAM"],
+                rows: [
+                    { label: "It stores a single address", correct: [0, 3] },
+                    { label: "It stores frequently used instructions", correct: [2] },
+                    { label: "It is a register", correct: [0, 1, 3] },
+                    { label: "It stores all currently running data and instructions", correct: [4] }
+                ]
+            },
             hint: "Some rows need more than one tick — but any EXTRA tick voids the whole row. 'A single address' fits exactly two of these; 'a register' fits exactly three.",
             starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
             markScheme: `<div class="marks-section">
@@ -1055,7 +1087,15 @@
             type: "written",
             format: "inlineCloze",
             caseId: "kerry",
-            question: `<p>The following sentences describe the purpose of a CPU.</p><p>Complete the sentences by filling in the missing words.</p><p>CPU stands for <strong>(1)</strong> . It is the part of the computer that fetches and executes the <strong>(2)</strong> that are stored in <strong>(3)</strong> .</p><p>The CPU contains the Arithmetic <strong>(4)</strong> Unit (ALU) and the <strong>(5)</strong> Unit (CU).</p>`,
+            question: `<p>The following sentences describe the purpose of a CPU.</p><p>Complete the sentences by filling in the missing words.</p>`,
+            cloze: `<p>CPU stands for ___1___ . It is the part of the computer that fetches and executes the ___2___ that are stored in ___3___ .</p><p>The CPU contains the Arithmetic ___4___ Unit (ALU) and the ___5___ Unit (CU).</p>`,
+            answers: {
+                "1": ["Central Processing Unit", "central processor unit"],
+                "2": ["instructions"],
+                "3": ["memory", "main memory", "RAM", "registers"],
+                "4": ["Logic", "and Logic", "logical"],
+                "5": ["Control"]
+            },
             hint: "Blank (2) is what the CPU executes — 'data' on its own is too vague. Blank (3) is where running programs live.",
             starter: "(1) … (2) … (3) … (4) … (5) …",
             markScheme: `<div class="marks-section">
@@ -1149,6 +1189,23 @@
             question: `<p>Alicia has designed a computer using Von Neumann architecture.</p><p>Describe the purpose of <strong>two</strong> registers that are used by Von Neumann architecture.</p>`,
             hint: "Name each register AND describe it fully — 'the MAR stores an address' is not enough; say WHICH address. Up to 2 marks per register.",
             starter: "1: The … stores… | 2: The … stores…",
+            markPoints: {
+                note: "Up to 2 marks per register, marked separately. A bare “stores an address” is NOT enough for the description mark — it must say which address or which data.",
+                groups: [
+                    {
+                        label: "Your first register", max: 2, points: [
+                            { text: "Named a von Neumann register — MAR, MDR, PC or Accumulator (also accept CIR / IR)", marks: 1 },
+                            { text: "Described its purpose in full — says WHICH address/data it stores, not just “stores an address”", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your second register", max: 2, points: [
+                            { text: "Named a DIFFERENT von Neumann register", marks: 1 },
+                            { text: "Described that second register's purpose in full", marks: 1 }
+                        ]
+                    }
+                ]
+            },
             markScheme: `<div class="marks-section">
 <h5>Mark Scheme — 4 marks (AO1 1a ×2, AO1 1b ×2) — 1 mark per bullet to max 2 per register</h5>
 <ul>
@@ -1247,6 +1304,9 @@
 <script src="/notifications-shared.js"></script>
 <script src="/onboarding-tour.js"></script>
 <script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
 <script src="/cs-lab/cs-lab.js" defer></script>
 </body>
 

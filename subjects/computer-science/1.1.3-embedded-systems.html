@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.1 Systems Architecture</div>
             <h1>1.1.3 Embedded Systems</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.1.3 Embedded Systems — placeholder, content not yet written
+    //  DATA: 1.1.3 Embedded Systems
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-1-3-embedded-systems',
@@ -268,21 +268,766 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.1.3 Embedded Systems</strong> will appear here soon.</p>`
+            title: "What is an embedded system?",
+            tag: "Key concept",
+            content: `<h4>The definition to learn word-for-word</h4>
+<ul>
+<li><strong>An embedded system is a computer system built into a larger device, dedicated to carrying out one specific task (or a small, limited set of tasks).</strong></li>
+<li>That single sentence has both halves examiners look for: it is <strong>built into</strong> something else, and it has <strong>one specific purpose</strong>.</li>
+<li>The washing machine on your kitchen floor contains a computer. You never think of it as a computer, because it only ever does one job — that's exactly what makes it embedded.</li>
+</ul>
+<h4>Embedded doesn't mean small or simple</h4>
+<ul>
+<li>An engine management system in a car is doing extraordinary work thousands of times a second. It's still embedded, because it is <em>dedicated</em> to that one job inside a larger machine.</li>
+<li>The opposite of "embedded" is not "big" — it's <strong>general purpose</strong>. A laptop is general purpose because you can install anything on it and make it do almost any task.</li>
+</ul>
+<h4>The word "dedicated"</h4>
+<ul>
+<li>You'll see this word all over the mark schemes: <strong>dedicated hardware</strong>, <strong>dedicated microprocessor</strong>, <strong>dedicated to one function</strong>.</li>
+<li>It means "reserved for this one job and nothing else". The microprocessor inside a set of automatic headlights does nothing but check the light level and switch the lights — it will never run a spreadsheet.</li>
+</ul>`,
+            readCheck: {
+                q: "Which is the best definition of an embedded system?",
+                opts: ["Any general-purpose computer that happens to be physically small", "A computer system built into a larger device to perform one specific task", "A computer system that has no screen or keyboard connected to it", "A computer that cannot connect to the internet or download any new software updates"],
+                ans: 1,
+                explain: "Both halves matter: built INTO a larger device, and dedicated to one specific (or limited) task. Size and screens have nothing to do with it — an engine management system is powerful, and plenty of general-purpose computers are small."
+            }
+        },
+        {
+            title: "The characteristics of an embedded system",
+            tag: "Key concept",
+            content: `<h4>The list that earns the marks</h4>
+<ul>
+<li><strong>One specific purpose</strong> — it performs a single task, or only a few limited functions.</li>
+<li><strong>Built into a larger device</strong> — it is part of a bigger machine, not a machine in its own right.</li>
+<li><strong>Dedicated hardware</strong> — its own microprocessor and sensors, used only for this system.</li>
+<li><strong>Hard to change</strong> — the program is usually stored in ROM as <strong>firmware</strong>, so it isn't updated or replaced the way you install apps on a phone.</li>
+<li><strong>Often a control system</strong> — it senses something and responds automatically, without the user telling it to.</li>
+<li><strong>Few components</strong>, all essential to its purpose; typically small, cheap and low-power.</li>
+</ul>
+<h4>Why "it has a microprocessor" alone isn't worth much</h4>
+<ul>
+<li>Every computer has a microprocessor — so that fact doesn't distinguish anything. The creditworthy version is <strong>"it has a <em>dedicated</em> microprocessor"</strong>, i.e. one doing only this job.</li>
+</ul>
+<h4>Firmware — the reason your washing machine has no app store</h4>
+<ul>
+<li><strong>Firmware</strong> is software stored permanently in ROM. It boots instantly, never gets deleted, and normally cannot be changed by the user.</li>
+<li>That's why you can't install a game on your dishwasher: its instructions are fixed in hardware-level storage, not loaded from a disk like on a general-purpose computer.</li>
+</ul>`,
+            readCheck: {
+                q: "Which statement about an embedded system's software is correct?",
+                opts: ["Users install and update apps on it freely, just like on a phone", "Its program is usually firmware stored in ROM and is hard to change", "It has no software at all, only electronic circuits and wires", "It downloads and installs a brand new operating system every time it starts"],
+                ans: 1,
+                explain: "Embedded systems normally run firmware held in ROM — fixed, instant to start, and not something the user updates or replaces."
+            }
+        },
+        {
+            title: "Embedded vs general purpose — the question they always ask",
+            tag: "Exam skill",
+            content: `<h4>The test to apply</h4>
+<ul>
+<li>Ask yourself: <strong>"Can I install whatever I like on it and make it do a completely different job?"</strong></li>
+<li><strong>Yes</strong> → it's a <strong>general-purpose</strong> computer (laptop, desktop, tablet, smartphone).</li>
+<li><strong>No — it does its one job forever</strong> → it's an <strong>embedded system</strong> (smart watch, washing machine, sat nav, microwave).</li>
+</ul>
+<h4>Worked comparison: smart watch vs laptop</h4>
+<ul>
+<li><strong>Smart watch = embedded.</strong> It is not a general-purpose computer: it has limited, dedicated functions; a microprocessor on a single circuit board; a built-in OS that you cannot really change; and few components, all essential to its purpose.</li>
+<li><strong>Laptop = general purpose.</strong> You can install any software you like and use it for any number of tasks; its hardware can be expanded; its OS can be updated or even replaced.</li>
+</ul>
+<h4>Is a tablet an embedded system? (No — and here's the reasoning)</h4>
+<ul>
+<li>A tablet has <strong>multiple functions</strong> and is <strong>general purpose</strong>; an embedded system has one or few.</li>
+<li>A tablet is a <strong>self-contained system</strong>, not part of a larger machine.</li>
+<li>You can <strong>update or install software</strong> on a tablet freely.</li>
+</ul>
+<h4>The nuance that impresses: a phone <em>contains</em> embedded systems</h4>
+<ul>
+<li>A smartphone is a <strong>general-purpose computer</strong> — but the camera-stabilising module and the battery-management chip inside it <em>are</em> embedded systems.</li>
+<li>So the question "is this device an embedded system?" is different from "does this device contain embedded systems?". Read the question carefully.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is a tablet NOT an embedded system?",
+                opts: ["It is too small to contain a full operating system, storage chip or microprocessor", "It is general purpose — it has many functions and you can install new software", "It has a microprocessor, exactly like every embedded system does", "It uses electricity, exactly like every embedded system does too"],
+                ans: 1,
+                explain: "Embedded systems do one dedicated job inside a larger device and can't easily be repurposed. A tablet is a self-contained, general-purpose computer you can install anything on."
+            }
+        },
+        {
+            title: "A range of examples (the spec wants breadth)",
+            tag: "Real world",
+            content: `<h4>Around the house</h4>
+<ul>
+<li><strong>Washing machine</strong> — runs the chosen programme: fill, wash, spin, drain.</li>
+<li><strong>Microwave, dishwasher, fridge/freezer, oven</strong> — each with one job and a control panel.</li>
+<li><strong>Central heating thermostat</strong> — senses temperature, switches the boiler.</li>
+<li><strong>TV remote, printer, digital camera, MP3 player.</strong></li>
+</ul>
+<h4>Inside a car (a favourite exam context)</h4>
+<ul>
+<li><strong>Engine management system</strong>, <strong>anti-lock brakes</strong>, <strong>parking sensors</strong>, <strong>cruise control</strong> (including "follow me" adaptive systems), <strong>automatic lights</strong>, <strong>automatic windscreen wipers</strong>, <strong>climate control</strong>, <strong>sat nav / GPS</strong>, <strong>lane assist</strong>, <strong>auto-park</strong>, <strong>dashcam</strong>.</li>
+<li><strong>Watch the context.</strong> If the question says "in a car", answering "a washing machine" scores nothing — real candidates lost marks doing exactly that.</li>
+</ul>
+<h4>Worn, medical and industrial</h4>
+<ul>
+<li><strong>Smart watch</strong>, <strong>fitness tracker</strong>, <strong>pacemaker</strong>, <strong>insulin pump</strong>.</li>
+<li><strong>Traffic lights</strong>, <strong>manufacturing/robotic equipment</strong>, <strong>vending machines</strong>, <strong>ticket machines</strong>, <strong>lifts</strong>, <strong>security alarms</strong>.</li>
+</ul>
+<h4>Learn three you can always reach for</h4>
+<ul>
+<li>Keep a reliable trio in your head — <strong>washing machine, sat nav, traffic lights</strong> — for any "identify three devices containing embedded systems" question. Then swap them for context-appropriate ones when the question sets a scene.</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks you to identify an embedded system found in a CAR. Which answer earns the mark?",
+                opts: ["A washing machine used to wash clothes at home", "A microwave used to heat and cook food", "The engine management system fitted inside the car", "A desktop computer used for browsing and general office work"],
+                ans: 2,
+                explain: "The context is the car. Washing machines and microwaves are embedded systems, but they're not in a car — candidates genuinely lost this mark by ignoring the scenario."
+            }
+        },
+        {
+            title: "How to answer: apply it, don't define it",
+            tag: "Exam skill",
+            content: `<h4>The single biggest mark-loser on this topic</h4>
+<ul>
+<li>Questions here almost always give you a <strong>scenario</strong> — Ali's tablet, Xander's smart watch, the car's 'Follow Me' system — and ask you to <strong>justify</strong> or <strong>explain</strong>.</li>
+<li>Writing a textbook definition of an embedded system earns <strong>nothing</strong>. The mark scheme is explicit: <em>answers must be applied to the scenario; do not award generic definitions.</em></li>
+</ul>
+<h4>The two-part sentence that always works</h4>
+<ul>
+<li><strong>Feature → applied to this device.</strong></li>
+<li>❌ Generic: "An embedded system has limited functions."</li>
+<li>✅ Applied: "An embedded system has limited functions, <strong>and the smart watch</strong> only tracks time, steps and heart rate — it cannot be used for any task you like."</li>
+<li>Same feature. The second one scores.</li>
+</ul>
+<h4>Don't hand back the question</h4>
+<ul>
+<li>If the question already tells you the system is "built into the car", you cannot earn a mark by saying "it is built into the car". That point is <strong>in the question</strong>, so it shows no knowledge of your own.</li>
+<li>Reach for a different characteristic instead: dedicated microprocessor, limited functions, firmware that can't be changed.</li>
+</ul>
+<h4>Count the marks, make that many points</h4>
+<ul>
+<li>A 3-mark "explain why this is an embedded system" wants <strong>three separate characteristics</strong>. Many candidates give one good point and stop — which caps them at 1.</li>
+<li>Have the list ready: specific purpose · built into a larger device · dedicated hardware/microprocessor · firmware, hard to change · automated control system.</li>
+</ul>`,
+            readCheck: {
+                q: "A 2-mark question asks you to justify why a smart watch is an embedded system. Which answer scores?",
+                opts: ["An embedded system is a computer system that is built into a larger device and performs one specific purpose", "A smart watch is not a general-purpose computer — it has limited, dedicated functions", "Smart watches are small enough to be worn comfortably on a wrist", "It has a microprocessor, which every general-purpose computer also has"],
+                ans: 1,
+                explain: "Only the second applies the feature to THIS device. The first is a textbook definition — explicitly not credited on a justify question — and the last two say nothing that distinguishes an embedded system."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which best defines an embedded system?",
+            opts: ["Any computer that has no physical keyboard attached to it at all", "A computer system built into a larger device to perform one specific task", "A computer that runs on rechargeable batteries instead of mains electricity", "A very small laptop with a stripped-down operating system already installed"],
+            ans: 1,
+            explain: "Two halves: built INTO a larger device, and dedicated to one specific (or limited) task. Size, batteries and keyboards are irrelevant."
+        },
+        {
+            q: "Which of these is an embedded system?",
+            opts: ["A desktop PC with a full operating system used for browsing and office work", "A laptop with a full operating system used for work and browsing", "A washing machine that runs one fixed wash programme automatically", "A tablet with a touchscreen used for apps, browsing and video streaming"],
+            ans: 2,
+            explain: "The washing machine's computer does one job forever. The other three are general-purpose computers you can install any software on."
+        },
+        {
+            q: "Why is a laptop NOT an embedded system?",
+            opts: ["It is too expensive for an average household budget to justify", "It is general purpose — you can install any software you like", "It has a microprocessor, since every modern computer needs one", "It uses an operating system that loads fresh each time it boots"],
+            ans: 1,
+            explain: "General purpose is the opposite of embedded. Having a microprocessor or an OS doesn't decide it — embedded systems have those too."
+        },
+        {
+            q: "An embedded system's program is usually stored as firmware in ROM. What does this mean in practice?",
+            opts: ["The user can install and remove new apps whenever they like", "The instructions are fixed and normally cannot be changed by the user", "The program is deleted permanently every time the power is switched off", "The system needs a hard drive to store its operating system"],
+            ans: 1,
+            explain: "Firmware in ROM is permanent and non-volatile — it starts instantly and the user doesn't update or replace it. That's why there's no app store on your dishwasher."
+        },
+        {
+            q: "Which phrase would actually earn a mark when describing an embedded system?",
+            opts: ["It has a microprocessor, just like any general-purpose computer", "It has a dedicated microprocessor doing only this job", "It is electronic and needs a power supply to work", "It has a circuit board holding its electronic components"],
+            ans: 1,
+            explain: "Every computer has a microprocessor, so that fact distinguishes nothing. 'Dedicated' is the word that carries the meaning."
+        },
+        {
+            q: "A question asks for an embedded system found in a car. Which answer earns the mark?",
+            opts: ["A microwave used to heat food in the kitchen", "A washing machine used to wash clothes at home", "The anti-lock braking system fitted to the car", "A games console used to play video games at home"],
+            ans: 2,
+            explain: "Read the context. The first two ARE embedded systems, but they're not in a car — candidates lost this exact mark in the real exam."
+        },
+        {
+            q: "Ali says his tablet is an embedded system. Which reason shows he is incorrect?",
+            opts: ["Tablets have touchscreens, and touchscreens are only found on embedded systems", "A tablet has multiple functions and is general purpose, unlike an embedded system", "Tablets are portable, and only embedded systems are designed to be portable", "Tablets use rechargeable batteries, whereas embedded systems always run on mains power only"],
+            ans: 1,
+            explain: "The deciding characteristic is purpose: an embedded system does one dedicated job; a tablet does anything you install on it."
+        },
+        {
+            q: "Which statement is TRUE about a smartphone?",
+            opts: ["It is an embedded system, since it only runs the apps that come pre-installed on it", "It is general purpose, but it contains embedded systems inside it", "It contains no embedded systems at all, only general-purpose software", "It is firmware — permanent software stored directly in its ROM chip"],
+            ans: 1,
+            explain: "A neat distinction: the phone itself is a general-purpose computer, but components inside it (battery management, camera stabilisation) are embedded systems."
+        },
+        {
+            q: "Why is a smart watch classed as an embedded system?",
+            opts: ["It is small enough to be worn comfortably on your wrist all day", "It is not a general-purpose computer — it has limited, dedicated functions", "It connects to a phone over Bluetooth to sync data, notifications and health tracking", "It has a touchscreen you can tap and swipe to interact with it"],
+            ans: 1,
+            explain: "Limited, dedicated function is the reason. Size, touchscreens and connectivity say nothing about whether something is embedded."
+        },
+        {
+            q: "Which is a typical characteristic of an embedded system?",
+            opts: ["It can be expanded with new hardware whenever the user wants", "It has few components, all essential to its purpose", "It runs any software the user installs", "It always has a large screen"],
+            ans: 1,
+            explain: "Embedded systems are built with only what the one job needs — few components, dedicated hardware, limited functions."
+        },
+        {
+            q: "A cruise control system keeps a car at a set distance from the car in front, with no driver input. Which characteristic does this best show?",
+            opts: ["It is general purpose, so it could be reprogrammed to do any task", "It is an automated control system with a specific purpose", "It can run any software the driver chooses to install on it", "It has a large amount of storage for the driver's personal files"],
+            ans: 1,
+            explain: "It senses something and responds automatically without the user — an automated control system dedicated to that one task."
+        },
+        {
+            q: "A 3-mark question asks you to explain why a system is embedded. What should your answer contain?",
+            opts: ["One very detailed point about the system's single specific purpose", "Three separate characteristics of embedded systems, each applied to the scenario", "A definition copied word-for-word from the textbook, with no reference to the scenario at all", "A list of other embedded systems found in similar everyday devices"],
+            ans: 1,
+            explain: "Three marks means three distinct points — and each must be applied to the scenario. Real candidates commonly gave one point and stopped."
+        }
+    ];
+
+    const matchData = [
+        { term: "Embedded system", def: "A computer system built into a larger device to perform one specific task" },
+        { term: "General-purpose computer", def: "A computer that can run any software and perform many different tasks" },
+        { term: "Dedicated hardware", def: "Components and a microprocessor reserved for this one system only" },
+        { term: "Firmware", def: "Software stored permanently in ROM that the user normally cannot change" },
+        { term: "Control system", def: "A system that senses something and responds automatically, without the user" },
+        { term: "Washing machine", def: "A household embedded system that runs the selected wash programme" },
+        { term: "Engine management system", def: "An embedded system in a car that controls how the engine runs" },
+        { term: "Sat nav", def: "An embedded system dedicated to navigation" },
+        { term: "Smart watch", def: "A wearable embedded system with limited, dedicated functions" },
+        { term: "Traffic lights", def: "An embedded control system that sequences signals automatically" },
+        { term: "Pacemaker", def: "A medical embedded system dedicated to regulating a heartbeat" },
+        { term: "Tablet", def: "NOT embedded — a self-contained, general-purpose computer" },
+        { term: "Smartphone", def: "General purpose overall, but contains embedded systems inside it" },
+        { term: "Why generic answers fail", def: "Justify questions need the characteristic applied to the device in the scenario" }
+    ];
+
+    const fibData = [
+        {
+            display: "An embedded system is a computer built into a _____ device, dedicated to one _____ task.",
+            blanks: { B1: "larger", B2: "specific" }
+        },
+        {
+            display: "Embedded systems have limited _____ and often use _____ hardware reserved for that one job.",
+            blanks: { B1: "functions", B2: "dedicated" }
+        },
+        {
+            display: "The program of an embedded system is usually stored as _____ in _____, so the user cannot easily change it.",
+            blanks: { B1: "firmware", B2: "ROM" }
+        },
+        {
+            display: "The opposite of an embedded system is a _____ purpose computer, such as a laptop or _____.",
+            blanks: { B1: "general", B2: "tablet" }
+        },
+        {
+            display: "Two household examples of embedded systems are a _____ machine and a _____.",
+            blanks: { B1: "washing", B2: "microwave" }
+        },
+        {
+            display: "In a car, the _____ management system and the automatic _____ are both embedded systems.",
+            blanks: { B1: "engine", B2: "lights" }
+        },
+        {
+            display: "Saying 'it has a microprocessor' earns nothing — you must say it has a _____ microprocessor.",
+            blanks: { B1: "dedicated" }
+        },
+        {
+            display: "On a justify question you must _____ the characteristic to the device in the question — a generic _____ scores nothing.",
+            blanks: { B1: "apply", B2: "definition" }
+        }
+    ];
+    const fibWords = ["larger", "specific", "functions", "dedicated", "firmware", "ROM", "general", "tablet", "washing", "microwave", "engine", "lights", "apply", "definition"];
+    const tfData = [
+        {
+            statement: "An embedded system is any computer that is physically small.",
+            answer: false,
+            explanation: "Size has nothing to do with it. An engine management system is powerful and complex, but it's embedded because it's dedicated to one job inside a larger machine."
+        },
+        {
+            statement: "A washing machine contains an embedded system.",
+            answer: true,
+            explanation: "Correct — a computer built into the machine, doing exactly one job: running the wash programme you selected."
+        },
+        {
+            statement: "A tablet computer is an embedded system because it has a microprocessor and an operating system.",
+            answer: false,
+            explanation: "Both are true of tablets, and neither makes something embedded. A tablet is self-contained, general purpose, and you can install whatever you like on it."
+        },
+        {
+            statement: "The software in an embedded system is usually firmware stored in ROM.",
+            answer: true,
+            explanation: "Yes — fixed, non-volatile, instant to start, and normally not changeable by the user. It's why you can't install apps on a microwave."
+        },
+        {
+            statement: "A smartphone is a general-purpose computer, but it contains embedded systems inside it.",
+            answer: true,
+            explanation: "A neat distinction worth knowing: the phone itself runs anything you install, but its battery-management and camera-stabilisation chips are dedicated embedded systems."
+        },
+        {
+            statement: "Writing 'an embedded system has limited functions' is enough to justify why a smart watch is embedded.",
+            answer: false,
+            explanation: "That's a generic definition, and the mark scheme explicitly refuses those on justify questions. Apply it: '…and the smart watch only tracks time, steps and heart rate'."
+        },
+        {
+            statement: "If a question says a system is 'built into the car', you can earn a mark by saying it is built into the car.",
+            answer: false,
+            explanation: "That point is already in the question, so it shows no knowledge of your own — it is explicitly not awarded. Use a different characteristic instead."
+        },
+        {
+            statement: "Embedded systems are often control systems that respond automatically without the user.",
+            answer: true,
+            explanation: "True — automatic headlights sense the light level and switch on by themselves; cruise control maintains speed and distance with no driver input."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Answering a 'justify' question with a textbook definition: 'An embedded system is built into a larger device and has one purpose.'",
+            correct: "The mark scheme for these questions says it outright: <strong>answers must be applied to the scenario; do not award generic definitions.</strong> Candidates who gave a perfect definition of an embedded system scored zero, because the question asked about <em>this</em> smart watch or <em>this</em> tablet. Use the two-part sentence: <strong>feature → applied to this device.</strong> Weak: 'embedded systems have limited functions.' Strong: 'embedded systems have limited functions, and the smart watch only tracks time, steps and heart rate — it cannot be used for any task you like.'",
+            readCheck: {
+                q: "Why does a flawless definition of an embedded system score 0 on a 'justify your choice' question?",
+                opts: ["Definitions are always wrong on every type of exam question", "The question needs the characteristic applied to the device in the scenario", "It is too short to cover all the required assessment objectives", "Definitions belong only in the conclusion, never at the start of an exam answer"],
+                ans: 1,
+                explain: "Justify and explain questions test application. The knowledge is only creditworthy once it is attached to the device in front of you."
+            }
+        },
+        {
+            wrong: "Giving 'it is built into the car' as a reason why a car system is embedded — when the question already told you it's in the car.",
+            correct: "You cannot earn marks by handing the question back. This point is <strong>in the stem</strong>, so it is explicitly not awarded — real candidates repeated it and got nothing. Reach for a characteristic the question <em>hasn't</em> given you: it has <strong>limited functions</strong> (the system only checks the light level and switches the lights), it has a <strong>dedicated microprocessor</strong>, or its function is <strong>hard to change</strong>.",
+            readCheck: {
+                q: "The question states: 'A car comes with many embedded systems, for example parking sensors.' Which explanation would earn a mark?",
+                opts: ["It is built into the car, exactly as the question already states", "It is part of a larger machine, just like every embedded system is", "It has a dedicated microprocessor that only monitors the sensors", "The car contains it, along with many other embedded systems too"],
+                ans: 2,
+                explain: "The first, second and fourth are all just restating what the question already said. Only the dedicated-microprocessor point adds knowledge of your own."
+            }
+        },
+        {
+            wrong: "For 'identify an embedded system in a car', answering 'a washing machine' or 'a microwave'.",
+            correct: "These <em>are</em> embedded systems — but they are not in a car, and the examiner report notes candidates genuinely gave them and scored nothing. <strong>The context sets the answer.</strong> For a car, use: engine management, anti-lock brakes, parking sensors, cruise control, automatic lights or wipers, climate control, sat nav, lane assist. Always re-read the scenario before you pick your example.",
+            readCheck: {
+                q: "What went wrong when candidates answered 'washing machine' to a question about embedded systems in a car?",
+                opts: ["A washing machine is not an embedded system at all, in any context", "The answer ignored the context — it's valid, just not an example found in a car", "Washing machines have no microprocessor or any dedicated hardware components at all", "The spelling of 'washing machine' was wrong in the candidate's answer"],
+                ans: 1,
+                explain: "The example itself is fine; it just doesn't answer the question that was asked. Context-appropriate examples are the whole point of an applied question."
+            }
+        },
+        {
+            wrong: "Saying 'it has a microprocessor' as a characteristic that makes something embedded.",
+            correct: "Every computer has a microprocessor — a laptop, a games console, a server. So the fact distinguishes nothing and adds no knowledge. The creditworthy version is <strong>'it has a <em>dedicated</em> microprocessor'</strong>, i.e. one doing only this job and nothing else — better still, prove it with an example: 'there is a microprocessor that does nothing but check the light level'.",
+            readCheck: {
+                q: "Which version of the microprocessor point is worth a mark?",
+                opts: ["It has a microprocessor, just like every other type of computer", "It is controlled by electronics, like nearly all modern devices", "It has a dedicated microprocessor that only monitors the light level", "It contains a chip, which almost every modern electronic device also has"],
+                ans: 2,
+                explain: "'Dedicated', ideally with an example of the one job it does, is what shows understanding of an embedded system."
+            }
+        },
+        {
+            wrong: "Answering a 3-mark 'explain why this is an embedded system' with one good point, written at length.",
+            correct: "Three marks means <strong>three separate characteristics</strong>. The examiner report is blunt: most candidates got the 'single purpose' point, some added 'built into a larger system', but <strong>few could produce a third</strong>. Keep the list ready and work down it: <strong>specific purpose · built into a larger device · dedicated hardware/microprocessor · firmware that is hard to change · automated control system</strong>. Three short applied sentences beat one long one every time.",
+            readCheck: {
+                q: "A 3-mark question asks why the 'Follow Me' cruise control is an embedded system. What's the best structure?",
+                opts: ["One very detailed paragraph focused only on its single specific purpose", "Three different characteristics, each linked to the Follow Me system", "A definition of an embedded system copied straight from a textbook", "A list of other cars that also come fitted with cruise control"],
+                ans: 1,
+                explain: "One mark per characteristic, to a maximum of three — so three distinct points, each applied to the system in the question."
+            }
+        },
+        {
+            wrong: "Thinking that because a smartphone runs apps, nothing inside it can be an embedded system.",
+            correct: "Both things are true at once. The <strong>phone as a whole</strong> is a general-purpose computer — you install what you like. But <strong>inside it</strong> sit embedded systems: the battery-management chip, the camera-stabilisation module. So watch the exact wording: <em>'Is this device an embedded system?'</em> and <em>'Does this device contain embedded systems?'</em> have different answers for a phone.",
+            readCheck: {
+                q: "Which statement about a smartphone is correct?",
+                opts: ["It is an embedded system, since every part of it does one fixed job", "It is general purpose overall, but contains embedded systems inside it", "It contains no embedded systems anywhere inside it, only general-purpose software", "It is firmware — instructions stored permanently inside a ROM chip"],
+                ans: 1,
+                explain: "The device itself is general purpose; specific dedicated components inside it are embedded systems. Read whether the question asks 'is' or 'contains'."
+            }
+        }
+    ];
+    const examTips = [
+        {
+            type: "explain",
+            title: "'Justify' and 'explain' questions: from 0 to full marks",
+            pills: ["AO2", "2–3 marks", "Apply it"],
+            content: `<p>Nearly every question on this topic gives you a scenario and asks you to justify or explain. Here is the same answer to <em>"Justify why the smart watch is an example of an embedded system"</em> <strong>[2]</strong> at every level:</p>
+
+<p><strong>❌ 0 marks:</strong> "An embedded system is a computer built into a larger device with one specific purpose."</p>
+<ul>
+<li>A textbook-perfect definition — and worth nothing. The mark scheme says: <em>answers must be applied to the scenario; do not award generic definitions.</em></li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "A smart watch is not a general-purpose computer."</p>
+<ul>
+<li>Applied to the device, so it scores — but it stops there. The second mark needs a development.</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "A smart watch is not a general-purpose computer <strong>(1)</strong>, which means it only has limited, dedicated functions such as tracking your steps and heart rate — you cannot install any software you like on it <strong>(1)</strong>."</p>
+
+<p><strong>The formula:</strong> feature of an embedded system → <em>"…and this device…"</em> → the specific evidence from the scenario.</p>
+
+<p><strong>Bonus technique:</strong> you're also allowed to argue the opposite way — "a laptop <em>is</em> general purpose because you can install any software" — as long as you don't just repeat the same point twice in different words.</p>`,
+            readCheck: {
+                q: "You've written 'a smart watch is not a general-purpose computer'. What earns the second mark?",
+                opts: ["Saying the exact same point again, just phrased in slightly different words", "Adding what its limited, dedicated functions actually are on this device", "Defining an embedded system in general, textbook terms", "Naming a completely different embedded system as an example"],
+                ans: 1,
+                explain: "The second mark is the development: the specific evidence from the scenario that proves your point."
+            }
+        },
+        {
+            type: "tip",
+            title: "Counting the marks — and never repeating the question",
+            pills: ["1–3 marks", "Exam technique"],
+            content: `<p><strong>1. The tariff tells you how many points to make.</strong></p>
+<ul>
+<li><em>"Explain the reasons why the 'Follow Me' system is an example of an embedded system"</em> <strong>[3]</strong> = <strong>three</strong> separate characteristics, each applied.</li>
+<li>The examiner report on this exact question: most candidates got "single purpose", some added "built into the car", but <strong>few managed a third point</strong>. That third mark is sitting there for anyone with the list memorised.</li>
+<li><strong>Your list:</strong> specific purpose · built into a larger device · dedicated hardware / microprocessor · firmware, hard to change · automated control system.</li>
+</ul>
+
+<p><strong>2. Never hand the question back.</strong></p>
+<ul>
+<li>If the stem says "A car comes with many embedded systems…", then <strong>"it is built into the car"</strong> earns nothing — that point is in the question.</li>
+<li>Cross it off your list for that question and use the next characteristic instead.</li>
+</ul>
+
+<p><strong>3. Match the example to the context.</strong></p>
+<ul>
+<li>Asked for an embedded system <strong>in a car</strong>? Engine management, ABS, parking sensors, cruise control, automatic lights or wipers, climate control, sat nav.</li>
+<li>Candidates who wrote "washing machine" or "microwave" for a car question scored zero — right idea, wrong scene.</li>
+</ul>
+
+<p><strong>4. "Identify three devices" = three quick words.</strong></p>
+<ul>
+<li>No explanation needed, no marks for detail — just three valid devices. Keep a reliable trio ready: <strong>washing machine, sat nav, traffic lights</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "A question says: 'Parking sensors are an embedded system in a car. Identify one other embedded system in a car and explain why.' Which explanation is refused?",
+                opts: ["It has a dedicated microprocessor", "It only performs one limited function", "It is built into the car", "The user cannot change what it does"],
+                ans: 2,
+                explain: "'Built into the car' is stated in the question itself, so it cannot earn a mark — it shows no knowledge of your own."
+            }
+        },
+        {
+            type: "tip",
+            title: "The word-bank question: read the sentence, not just the list",
+            pills: ["4 marks", "Complete the paragraph"],
+            content: `<p>This topic often gives a paragraph with gaps and a <strong>bank of terms</strong> — with the warning <em>"Not all terms are used"</em>. Those spare terms are deliberate traps.</p>
+
+<p><strong>How to beat it:</strong></p>
+<ul>
+<li><strong>Read the whole sentence first</strong>, then choose. "Embedded systems have limited ……" — <em>functions</em> fits; <em>applications</em> and <em>range</em> are plausible-looking decoys.</li>
+<li><strong>Watch the grammar.</strong> "built into a …… machine" needs an adjective (<em>larger</em>), not a noun (<em>laptop</em>).</li>
+<li><strong>Use each term once</strong>, and expect several to be left over. If you've used every word, you've made a mistake.</li>
+<li><strong>Do the ones you're sure of first</strong> — eliminating terms makes the harder gaps much easier.</li>
+</ul>
+
+<p><strong>Classic decoy pairs to watch for:</strong></p>
+<ul>
+<li><em>microprocessor</em> vs <em>processor</em> — both look right; the sentence decides.</li>
+<li><em>larger</em> vs <em>smaller</em> — an embedded system is built into a <strong>larger</strong> machine.</li>
+<li><em>functions</em> vs <em>applications</em> — embedded systems have limited <strong>functions</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "In 'They are often built into a …… machine', which term fits and why?",
+                opts: ["laptop — it is a type of general-purpose computing machine, so the word fits grammatically", "larger — the gap needs an adjective, and embedded systems sit inside bigger devices", "smaller — embedded systems are usually physically small in size", "processor — it is simply a computer part found inside a machine"],
+                ans: 1,
+                explain: "Grammar plus meaning: the gap needs an adjective before 'machine', and the whole point of embedded is being built into something LARGER."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Embedded system", def: "A computer system built into a larger device to perform one specific task" },
+        { term: "General-purpose computer", def: "Runs any software and performs many tasks — e.g. laptop, tablet, PC" },
+        { term: "Purpose of an embedded system", def: "To carry out one dedicated function within a larger device" },
+        { term: "Dedicated hardware", def: "Microprocessor and components reserved for this one system only" },
+        { term: "Firmware", def: "Software stored permanently in ROM; normally cannot be changed by the user" },
+        { term: "Why firmware matters", def: "Instructions are fixed, so an embedded system's function is hard to change" },
+        { term: "Control system", def: "Senses something and responds automatically, without user input" },
+        { term: "Typical characteristics", def: "One purpose · built into a larger device · dedicated hardware · firmware · few components" },
+        { term: "Household examples", def: "Washing machine, microwave, dishwasher, thermostat, printer" },
+        { term: "Car examples", def: "Engine management, ABS, parking sensors, cruise control, automatic lights, sat nav" },
+        { term: "Wearable / medical examples", def: "Smart watch, fitness tracker, pacemaker, insulin pump" },
+        { term: "Industrial examples", def: "Traffic lights, manufacturing robots, vending machines, lifts" },
+        { term: "Is a tablet embedded?", def: "No — it is self-contained, general purpose, and software can be installed" },
+        { term: "Is a smart watch embedded?", def: "Yes — limited dedicated functions, built-in OS, few essential components" },
+        { term: "Smartphone nuance", def: "General purpose overall, but contains embedded systems inside it" },
+        { term: "Justify questions", def: "Apply the characteristic to the device — generic definitions score 0" },
+        { term: "Never repeat the question", def: "If the stem says 'built into the car', that point earns no mark" },
+        { term: "3-mark explain", def: "Three separate characteristics, each applied to the scenario" }
+    ];
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A car has a 'Follow Me' system that uses a cruise control feature to allow the car to follow the car in front of it. It will keep the same speed and distance without the driver's intervention. The cruise control system is an example of an embedded system.</p><p>Explain the reasons why the 'Follow Me' system is an example of an embedded system.</p>`,
+            hint: "Three marks means three DIFFERENT characteristics, each applied to the Follow Me system. Most candidates get 'single purpose' and stop — work down your list for the third.",
+            starter: "The Follow Me system is an embedded system because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark each to max 3)</h5>
+<ul>
+<li>Has a specific purpose // it only performs one/limited task // dedicated to the Follow Me system</li>
+<li>Built within a larger device/car</li>
+<li>Dedicated/specific/its own hardware / sensors</li>
+<li>Has a microprocessor</li>
+<li>Built-in operating system/software // software is all in firmware/ROM … it's instructions/operation does not/is hard to change/update</li>
+<li>It is a control system // it is automated</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>MP2 BOD reference to it being 'built into' 'something' reasonable.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question required candidates to apply their understanding of embedded systems to a different system. Candidates were often able to identify the key features of embedded systems that were relevant to this scenario. The most common points being that the system has a single purpose. Some candidates also identified that the system is built within a larger system, being the car. Fewer candidates were able to provide a third point. Those that did most commonly identified the dedicated hardware or gave an example such as the sensors are only providing data for this system.</p>
+</div>`,
+            modelAnswer: "It has one specific purpose — it only keeps the car at a set speed and distance from the car in front, and does nothing else.\n\nIt is built into a larger device: the car itself.\n\nIt has its own dedicated hardware and sensors, which only provide data for this system, and its instructions are held in firmware so they cannot easily be changed."
+        },
+        {
+            num: "Q2",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Example embedded system", "Explanation"],
+            question: `<p>A car comes with many embedded systems, for example parking sensors.</p><p>Identify <strong>one other</strong> embedded system that could be found in a car and explain why this is an embedded system.</p>`,
+            hint: "The example must be in a CAR (a washing machine scores nothing here). And don't say 'it's built into the car' — the question already told you that.",
+            starter: "Example: … | Explanation: …",
+            markPoints: {
+                note: "Marked in two parts: 1 mark for the example itself, then up to 2 for the explanation. Careful — 'built into the car' earns NOTHING because the question already says it, and a purely generic explanation caps you at 1.",
+                groups: [
+                    {
+                        label: "Your example", max: 1, points: [
+                            { text: "Named an embedded system that could reasonably be in a car (e.g. automatic lights, automatic wipers, sat nav/GPS, climate control, lane assist, engine management, auto-park, cruise control, auto-brake, dashcam)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your explanation", max: 2, points: [
+                            { text: "Said it has limited functions — ideally with an example for YOUR system (e.g. it only checks the light level and turns the lights on/off)", marks: 1 },
+                            { text: "Gave a second characteristic applied to your system — a dedicated microprocessor doing only this job, OR that its function is hard to change (e.g. the user cannot make the light system do any other role)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark for example; 1 mark each to max 2 for explanation)</h5>
+<p><strong>1 mark for example, e.g.</strong></p>
+<ul>
+<li>Auto lights</li>
+<li>Auto window wipers</li>
+<li>Sat nav // GPS</li>
+<li>Airconditioning // climate control</li>
+<li>Radio/entertainment/infotainment system/media system</li>
+<li>Lane assist</li>
+<li>Engine management system</li>
+<li>Auto-park</li>
+<li>Cruise control</li>
+<li>Auto-brake</li>
+<li>Follow-me</li>
+<li>Dashcam</li>
+</ul>
+<p><strong>1 mark each to max 2 for explanation:</strong></p>
+<ul>
+<li>Limited functions // by example e.g. the system only checks the light and turns lights on/off</li>
+<li>Dedicated microprocessor // by example e.g. there is a microprocessor that is only checking the lights</li>
+<li>Hard to change function // by example e.g. the user cannot make the light system do any other role</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Allow anything that could be reasonably within a car.</li>
+<li>If example is not clear if it's an embedded system, read explanation for justification e.g. hazard lights – could be embedded if they are activated automatically when the car crashes. Award the example in the explanation if this occurs.</li>
+<li>If justification is generic features of an embedded system max 1 for explanation.</li>
+<li>Do not award 'built into the car/larger machine' because this is in the question.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question required candidates to consider embedded systems within a car. There were a range of possible systems, the most common being GPS or satellite navigation systems. Other common responses included automated lights, automated wipers, and parking sensors. The most common explanation was that the system has a single (or limited) purpose, but few candidates expanded beyond this. Some candidates repeated that it was built into the car but this was provided in the question. Some candidates provided examples of embedded systems such as a washing machine, a microwave and a fridge/freezer. This was not appropriate to the context of the question.</p>
+</div>`,
+            modelAnswer: "Example embedded system: The automatic headlights.\n\nExplanation: The system has only one limited function — it checks the light level outside and switches the headlights on or off. It has its own dedicated microprocessor that does nothing but monitor that sensor, and the driver cannot make the light system perform any other role."
+        },
+        {
+            num: "Q3",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Choice", "Justification"],
+            stubLines: [1, 3], // "Ali is incorrect" is one line; the justification carries all 3 marks
+            question: `<p>Ali's tablet computer has an operating system.</p><p>Ali thinks his tablet is an embedded system.</p><p>State whether Ali is correct or incorrect, justifying your choice.</p>`,
+            hint: "Whichever choice you make, you MUST apply each point to the tablet — a justification with no reference to the tablet caps you at 2 marks.",
+            starter: "Choice: Ali is … | Justification: …",
+            markPoints: {
+                note: "Up to 3 marks, all for the justification. Every point must be applied to THE TABLET — the mark scheme caps you at 2 if there is no application to the tablet.",
+                groups: [
+                    {
+                        label: "Your justification", max: 3, points: [
+                            { text: "Stated a characteristic of embedded systems that decides the case (e.g. an embedded system has one/few functions; is a single chip; is part of a larger system; its software cannot be updated)", marks: 1 },
+                            { text: "Applied that characteristic to the tablet (e.g. …but a tablet has multiple functions / is general purpose / has multiple chips combined / is a self-contained system / you can update its software)", marks: 1 },
+                            { text: "Gave a SECOND developed point, also applied to the tablet", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per bullet to max 3) e.g.</h5>
+<p><strong>Incorrect:</strong></p>
+<ul>
+<li>Embedded system has one/few functions …tablet has multiple functions // tablet is general purpose</li>
+<li>Embedded system is single chip …tablet has multiple chips combined</li>
+<li>Embedded system is part of a larger system … tablet is a self-contained system</li>
+<li>You can update the software</li>
+</ul>
+<p><strong>Correct:</strong></p>
+<ul>
+<li>Embedded system has one/few functions ….the tablet may only be able to perform a small number of tasks …tablet has a specific purpose …tablet's hardware is fixed …does not need/require/allow expansion</li>
+<li>Embedded systems has firmware ..you cannot update the OS in a tablet (usually)</li>
+<li>Embedded system is part of a larger system …tablet may have one microprocessor built into it</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Max 2 if there is no application to the tablet.</li>
+</ul>
+</div>`,
+            modelAnswer: "Choice: Ali is incorrect.\n\nJustification: An embedded system has only one or a few dedicated functions, but a tablet is general purpose and has multiple functions — you can use it for almost any task.\n\nAn embedded system is built into a larger device, whereas the tablet is a self-contained system in its own right.\n\nThe software on an embedded system is firmware and cannot normally be changed, but Ali can install and update software on his tablet whenever he likes."
+        },
+        {
+            num: "Q4",
+            marks: 4,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>The following paragraph describes embedded systems.</p><p>Complete the paragraph by selecting terms from the list and writing them in the correct places. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>Embedded systems have limited ___1___ They are often built into a ___2___ machine. Two examples of embedded systems are a ___3___ and automated ___4___ in a car.</p>`,
+            bank: ["actuator", "applications", "change", "functions", "laptop", "larger", "lights", "microprocessor", "processor", "range", "smaller", "washing machine"],
+            answers: {
+                "1": ["functions"],
+                "2": ["larger"],
+                "3": ["washing machine"],
+                "4": ["lights"]
+            },
+            hint: "Read each whole sentence before choosing. Several terms are deliberate decoys — if you use every word, something has gone wrong.",
+            starter: "(1) … (2) … (3) … (4) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each completed term)</h5>
+<p>Embedded systems have limited <strong>functions</strong>. They are often built into a <strong>larger</strong> machine. Two examples of embedded systems are a <strong>washing machine</strong> and automated <strong>lights</strong> in a car.</p>
+</div>`,
+            modelAnswer: "(1) functions\n(2) larger\n(3) washing machine\n(4) lights"
+        },
+        {
+            num: "Q5(i)",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Xander's tablet computer comes with system software, including an operating system and utility system software.</p><p>Xander also has a smart watch.</p><p>Tick (✓) <strong>one</strong> box to show whether the smart watch or the laptop is an example of an embedded system.</p>`,
+            options: ["Smart watch", "Laptop"],
+            answer: 0,
+            hint: "Which of the two can only ever do its own small set of jobs?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2 1a)</h5>
+<ul>
+<li><strong>Smart watch</strong> — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>This question was answered correctly by the majority of candidates who were able to identify that a smart watch is an example of an embedded system.</p>
+</div>`,
+            modelAnswer: "Smart watch"
+        },
+        {
+            num: "Q5(ii)",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Justify your choice to part (i).</p>`,
+            hint: "Apply it to the smart watch (or say why the laptop is not one) — a generic definition of an embedded system scores nothing here.",
+            starter: "A smart watch is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO2 1b) — 1 mark per bullet for justification to max 2</h5>
+<ul>
+<li>A smart watch is not a general-purpose computer … which means the smart watch has one/limited/specific/dedicated function(s)</li>
+<li>Smart watch has a microprocessor … on a single circuit board</li>
+<li>It is a computer system that is built within the watch</li>
+<li>Runs firmware</li>
+<li>Smart watch has built-in OS // difficult to change/manipulate the OS/function</li>
+<li>Smart watch has few components all essential to its purpose</li>
+<li>Smart watch has specific hardware required to function i.e. speaker/headphones</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Answers must be applied to scenario. Do not award generic definitions.</li>
+<li>Allow opposite reasons for why a laptop is not an embedded system but do not allow repeated points.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Examiner's Comments</h5>
+<p>Candidates were able to gain marks for explaining why a smart watch is an embedded system or why a laptop is not or a combination of the two. The most common answers referred to the limited features of a smart watch, while a laptop is a general-purpose computer that can perform any number of tasks. Some candidates gave a generic definition of an embedded system which was insufficient because the question required candidates to apply their knowledge to the scenario.</p>
+</div>`,
+            modelAnswer: "A smart watch is not a general-purpose computer, which means it has only limited, dedicated functions such as telling the time and tracking your steps.\n\nIts operating system is built in and is difficult to change, whereas a laptop can run any software the user chooses to install."
+        },
+        {
+            num: "Q6(a)",
+            marks: 1,
+            type: "written",
+            caseStudy: "",
+            lines: 2,
+            question: `<p>Gareth's Sat Nav contains an embedded system. Define what is meant by an 'embedded system'.</p>`,
+            hint: "One sentence. The examiner wants the 'built into another device' idea.",
+            starter: "An embedded system is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>A computer system that is built into another device</li>
+</ul>
+</div>`,
+            modelAnswer: "An embedded system is a computer system that is built into another device to carry out one specific task."
+        },
+        {
+            num: "Q6(b)",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            stubs: ["1", "2", "3"],
+            question: `<p>Identify <strong>three</strong> devices, other than a Sat Nav, that contain embedded systems.</p>`,
+            hint: "Three quick answers — no explanation needed, and no marks for detail. Just don't repeat the Sat Nav.",
+            starter: "1: … | 2: … | 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks — three devices from:</h5>
+<ul>
+<li>Dishwasher</li>
+<li>MP3 player</li>
+<li>Washing machine</li>
+<li>Mobile phone</li>
+<li>Manufacturing equipment</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark to be awarded for each correct example identified to a maximum of 3 marks.</li>
+<li>There are many other examples of devices with embedded systems which may be acceptable.</li>
+</ul>
+</div>`,
+            modelAnswer: "1: Washing machine\n\n2: Microwave oven\n\n3: Traffic lights"
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>
@@ -293,6 +1038,9 @@
 <script src="/notifications-shared.js"></script>
 <script src="/onboarding-tour.js"></script>
 <script src="/footer-legal.js"></script>
+<script src="/cs-lab/exam-widgets.js"></script>
+<script src="/cs-lab/exam-widgets-grids.js"></script>
+<script src="/cs-lab/exam-widgets-code.js"></script>
 <script src="/cs-lab/cs-lab.js" defer></script>
 </body>
 

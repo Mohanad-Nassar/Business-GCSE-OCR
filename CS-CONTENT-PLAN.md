@@ -290,6 +290,16 @@ CS-specific elements:
 "predict the output" stems on programming pages (code in the stem as a
 `<pre>` block); distractors = real student errors (off-by-one, MSB/LSB swaps,
 RAM/ROM swaps), never joke options.
+🚩 **The correct option must NOT be the longest** (applies to `mcqData` AND
+every `readCheck`). Students learn "the longest, most detailed answer is
+usually right" and guess instead of thinking — so at least one distractor
+must be as long as or longer than the correct answer, and none should be
+trivially short. Do NOT pad with filler ("...definitely", "...always and in
+all cases") — that is its own tell and reads badly; instead write distractors
+that are genuinely substantive, plausible and *comparable in length*, each a
+real misconception stated in full. `verify-page.js` fails a page whose
+authored MCQ/readCheck has a uniquely-longest correct option. Verbatim exam/
+mock MCQs are EXEMPT (fidelity beats this — never reword a real paper).
 
 **Matching** — beyond term↔definition, use the pairing the topic actually
 needs: threat↔how it works (1.4.1), prevention↔threat it counters (1.4.2),
@@ -359,6 +369,51 @@ forms to interactive widgets without touching page data (widgets key off a
 
 ### 6.2 Authoring rules for `examQuestions`
 
+> 🚩 **COMPLETENESS via ORIGINAL clean-room questions — owner + copyright
+> decision 2026-07-17.** The topic pages must give COMPREHENSIVE exam-practice
+> coverage of every sub-topic — but do this by **authoring ORIGINAL,
+> OCR-J277-style questions from the spec scope**, NOT by bulk-transcribing the
+> `CS resources/ExamquestionsNew/*.pdf` compilations. Reproducing whole OCR
+> papers verbatim into the codebase is wholesale copying of a commercial exam
+> board's IP; the "© OCR — you may photocopy this page" notice is a limited
+> classroom-photocopy permission, not a digital-republication licence we can
+> assume. So: **builders must NOT open/extract/paraphrase the OCR PDFs in
+> `CS resources/` or the verbatim text in `mock-papers/*.js`.** Work only from
+> the spec bullets (Appendix B scope + each page's §-scope) and invent fresh
+> scenarios. Cover every spec point per page with a spread of tariffs/command
+> words (see §5.3 mix). Use clean `num` ids ("P1", "P2", …), original mark
+> schemes, and self-marking `markPoints`; the MCQ not-longest rule APPLIES
+> (these are original, not verbatim). *(Note: the already-built pages
+> 1.1.x/1.2.x still contain owner-supplied verbatim OCR content behind the auth
+> gate — that is the owner's licensed material and is left as-is; new coverage
+> is added as original questions.)*
+>
+> 🚩 **No year badge.** Owner dropped the `q.year` idea 2026-07-17 (the source
+> series isn't reliably knowable and years aren't needed). The renderer still
+> supports an optional `q.year` pill (`.ep-year`) but leave it unset. If a year
+> is ever wanted, it goes in `q.year`, NEVER prefixed to `num`/question text.
+>
+> 🚩 **Mocks → original too (later).** The `mock-papers/*.js` files currently
+> hold owner-supplied verbatim papers; the plan is to move mocks to ORIGINAL
+> full-length practice papers when revisited. Don't generate more verbatim
+> paper reproductions. `node C:\Users\Public\csbuild\consistency.js` remains a
+> useful QA gate for any question that legitimately appears in two places.
+>
+> 🚩 **Answer-box sizing is automatic — don't hand-set it.** A box opens at one
+> line per mark (`linesForBox`): "give three characteristics [3]" with
+> `stubs:['1','2','3']` gives three one-line boxes. Override only when a stub's
+> share is uneven, via `q.stubLines: [1, 3]` (e.g. Choice = 1 line,
+> Justification = 3). Boxes grow as the student types and scroll past 5 lines.
+>
+> 🚩 **BEFORE writing any written-answer question, read
+> `docs/SELF-MARK-POINTS-AUTHORING.md`.** Students self-mark by ticking the
+> scheme's points, so the tick list MUST be able to award exactly `q.marks`
+> for a correct answer. The default (one scheme bullet = 1 mark) is WRONG for
+> compound schemes — "1 for naming each register, 1 for each matching purpose"
+> means each register the student gives is worth 2 marks, so it needs an
+> authored `q.markPoints` with one group per thing the student produced.
+> This applies to Business/Economics too if they adopt tick self-marking.
+
 - Verbatim question text, mark scheme bullets, "How the marks are given" rules,
   and Examiner's Comments go into the same three-section `markScheme` HTML
   pattern as the exemplar (`marks-section` divs: Mark Scheme — N marks (AOx) /
@@ -366,6 +421,11 @@ forms to interactive widgets without touching page data (widgets key off a
   where the PDF has them.
 - `modelAnswer`: write a clean full-marks answer (our own words is fine and
   preferred; short, structured, exactly answers the command word).
+- `markPoints`: REQUIRED whenever the scheme is not plainly 1-mark-per-bullet
+  (see `docs/SELF-MARK-POINTS-AUTHORING.md`). Group by what the STUDENT
+  produced ("Your first register"), cap each group, and make the group maxes
+  sum to `q.marks`. Omit it only for genuine "1 mark per bullet to max N"
+  schemes, where the fallback is already correct.
 - `hint`: one sentence pointing at the trap or the required structure.
   `starter`: opening words or answer scaffold ("A: … B: …").
 - **`format` hint — LOCKED enum.** Add `format` to every non-plain item, using
@@ -382,8 +442,15 @@ forms to interactive widgets without touching page data (widgets key off a
   | Word-bank cloze with distractors | `bankCloze` |
   | 6-mark QWC / 8-mark discuss (banded) | `banded` |
   | Complete/write code | `codeWrite` |
-  | Complete a truth table / trace table | `traceTable` |
-  | Order/sequence steps | `parsons` |
+  | Complete a trace table | `traceTable` |
+  | Complete a truth table | `truthTable` |
+  | Binary column addition (digit grid) | `binaryColumn` |
+  | Fill gaps inside printed code (incl. SQL) | `codeGaps` |
+  | Complete a function between fixed header/footer | `codeFunction` |
+  | Order/sequence steps | `parsons` (not yet implemented as a widget) |
+
+  ('lines' is the implicit default for format-less written questions on CS
+  pages — ruled answer lines + examiner point-tick self-marking.)
 
   Note: the pipeline currently drops unknown fields from bank rows, so `format`
   lives only in the page arrays (which is where CS-B reads it). If CS-D ever
@@ -533,7 +600,34 @@ staging deploy AND on the school network early (R-1) — if the school filter
 blocks jsDelivr, fall back to vendoring pyodide-core under `/vendor/`
 (self-hosted, ~35MB deploy weight — owner decision if triggered).
 
-### 7.3 Phase CS-B — exam-practice widgets (engine work, after CS-0 proves shapes)
+### 7.3 Phase CS-B — exam-practice widgets ✅ BUILT 2026-07-17
+
+**As built:** seam in script.js (`_epUseWidget`/`_epSaveWidgetResult` — inert
+without `format` + the registry, so Business/Economics unchanged); registry +
+'lines'/'banded' widgets in `/cs-lab/exam-widgets.js`; 8 grid formats in
+`exam-widgets-grids.js` (note: `q.answers` lives at the question TOP level;
+`q.table.openChoice: true` → self-mark fallback; cloze uses `___N___` tokens in
+a `q.cloze` HTML string); codeWrite/codeGaps/codeFunction in
+`exam-widgets-code.js` (Python "Test my code" runs the answer through pyworker
+batch mode). Every format falls back to 'lines' + examiner point-tick
+self-marking when its data field is absent. Auto-marked formats apply the real
+paper rules (extra ticks void the row, etc.). Known simplification: traceTable
+marks position-for-position — no wrong-order/follow-through credit
+(conservative under-crediting, documented in the widget).
+**Mock Exams:** `subjects/computer-science/mock-exam.html` + `mock-exam.js`
+(timed paper-faithful runner, schemes suppressed until marking phase,
+print-blank-paper for handwritten mocks, per-section/per-format results,
+state survives leaving the page) + `mock-papers/2024-paper1.js`/`-paper2.js`
+(verbatim June 2024, 80/80 marks each, widget-keyed, hand-checked against the
+mark schemes). 2022+2023 papers/MS/**examiner reports** fetched into the
+gitignored `CS resources/Full exam papers/` (2025 not yet public). Lab
+additions: examiner-trainer + command-words tools (wired into PAGE_TOOLS on
+1.1.1/1.1.2/1.2.1/1.4.1/1.6.1), logic-lab "Draw the circuit" mode, drills
+digit-grid binary addition. Index hero gained a 📝 Mock Exams link (template
+`$mock_link`, CS only). ⚠ The pipeline's JS parser REJECTS numeric object
+keys in page data — always quote them (`"0": 1`).
+
+### (original CS-B sketch, superseded by the as-built notes above)
 
 Upgrades `exampractice` rendering in `script.js` keyed off `format` (§6.2):
 `bankCloze` (dropdown-per-blank with distractors), `inlineCloze`, `tickGrid`
@@ -567,7 +661,7 @@ its exam section is in — partial go-live is the owner's call per page.
 | ID | Scope | Prereqs | Status |
 |---|---|---|---|
 | **CS-0** Walking skeleton | (1) Edit `SUBJECTS["computer-science"]` in `tools/scaffold_placeholder_subject.py` to the §3 tree — 11 units keyed "1.1"…"2.5", explicit `(title, file)` tuples for the dotted filenames, group `sub` labels per §3. (2) Run the scaffolder (rewrites subject.json + index.html, creates the 29 pages). (3) Delete the 11 old placeholder pages. (4) Scoped pipeline run; business/economics files untouched (scoped run) — spot-check counts. (5) Create `.code-block`/`.code-label`/`.code-compare` CSS in `style.css` (all 7 themes incl. both darks). (6) Extend `taskRichText` whitelist with `pre|code` + mono styling; verify a temporary code-stem test item renders on task.html, teacher-worksheets (picker AND print) and daily-revise, then remove it. (7) Build **1.1.1** fully (all 9 tabs incl. 53 marks of exam Qs). (8) ui-reviewer on 1.1.1; owner reviews → recipe LOCKED or tuned | — | 🔄 steps 1–7 done 2026-07-12 (72 bank Qs, 53 rows uploaded; taskRichText+CSS landed; ui-reviewer deferred — no new UI surface on 1.1.1, run it with the first code-block page or Lab tool). AWAITING step 8 owner review |
-| **CS-A-W1** | 1.1.2, 1.1.3 | CS-0 | ⬜ |
+| **CS-A-W1** | 1.1.2 ✅ · 1.1.3 ✅ — both live 2026-07-17 | CS-0 | ✅ (E2 checker pass still due) |
 | **CS-A-W2** | 1.2.1, 1.2.2, 1.2.3 | CS-0; exam PDFs | ⬜ |
 | **CS-A-W3** | 1.2.4–1.2.8 | W2 conventions | ⬜ |
 | **CS-A-W4** | 1.3.1, 1.3.2, 1.4.1, 1.4.2 | CS-0 | ⬜ |
@@ -696,8 +790,8 @@ delegation produces confidently wrong pages.
 | Page | Built | Checked | Exam Qs in | Live (pipeline) |
 |---|---|---|---|---|
 | 1.1.1 CPU architecture | ✅ 2026-07-12 (5 topics · 12 mcq · 8 tf · 7 fib · 13 match · 5 misc · 3 tips · 16 cards) | ⬜ run E2 checker with W1 | ✅ 19 Qs / 53 marks | ✅ uploaded |
-| 1.1.2 CPU performance | ⬜ | ⬜ | ⬜ (PDF ✅) | ⬜ |
-| 1.1.3 Embedded systems | ⬜ | ⬜ | ⬜ (PDF ✅) | ⬜ |
+| 1.1.2 CPU performance | ✅ 2026-07-17 (6 topics · 12 mcq · 8 tf · 8 fib · 14 match · 6 misc · 3 tips · 18 cards) | ⬜ run E2 checker with W1 | ✅ 11 Qs / 35 marks (see note) | ✅ uploaded |
+| 1.1.3 Embedded systems | ✅ 2026-07-17 (5 topics · 12 mcq · 8 tf · 8 fib · 14 match · 6 misc · 3 tips · 18 cards) | ⬜ run E2 checker with W1 | ✅ 8 Qs / 20 marks (full paper, no overlap) | ✅ uploaded |
 | 1.2.1 Primary storage | ⬜ | ⬜ | ⬜ | ⬜ |
 | 1.2.2 Secondary storage | ⬜ | ⬜ | ⬜ | ⬜ |
 | 1.2.3 Units | ⬜ | ⬜ | ⬜ | ⬜ |
@@ -934,8 +1028,14 @@ once `SOURCES` changes).
 
 *Retro log (append one line per delivered wave: what would have made it faster/safer?)*
 
+- **MCQ length-bias sweep (2026-07-17, owner):** 108 of 165 authored MCQs/readChecks had the correct option as the single longest — a real "guess the longest" tell that undermines learning. Root cause is structural: a correct answer written in full is naturally longer than terse wrong ones, so this bias appears by DEFAULT unless authored against. Now a hard gate in verify-page.js + a §5.3 rule, and swept across all 6 built pages by one-agent-per-page (correct answers never touched; distractors rewritten into full plausible misconceptions, not padded). One agent also caught adjacent tells the brief didn't name (the definition embedded only in the correct option; distractors that explain their own wrongness) — worth adding to the rule if it recurs. Lesson: quality rules like this must be BUILT INTO the recipe from page 1, because retrofitting is a whole extra wave.
+
 - **CS-0 (2026-07-12):** Q5's draw-a-line items were an embedded image, not text — PDF text extraction alone wasn't enough; rendering the page to PNG and reading it recovered the item lists. Builders should render any page whose question text looks incomplete. Also: the ExamBuilder mark schemes are per-question and immediately reusable — extraction is fast, don't over-plan it.
 - **CS-C waves 1–2 (2026-07-13):** 6 parallel agents on disjoint new files with a pre-built framework contract = zero collisions and uniformly strong verification; the contract header comment in cs-lab.js did more coordination work than any prompt. The §4.4 scaffolder-reset trap fired FOR REAL mid-build (a template-change re-run silently re-flagged 1.1.1 noQuestions) — the documented rule caught it; never run the scaffolder without diffing subject.json after. Tools holding live resources need lifecycle hooks — added unmount() only after an agent hit the gap; design lifecycle first next time.
 - **Python Lab v2 (2026-07-13):** interactive `input()` in a Pyodide worker genuinely needs SharedArrayBuffer + cross-origin isolation (COOP/COEP) — there is no lighter path for SYNCHRONOUS Python input from a worker; the worker blocks on `Atomics.wait`, main writes the line + `Atomics.notify`. COEP `credentialless` (not `require-corp`) avoids breaking Google Fonts/no-cors subresources; scope the headers to CS pages only so nothing else is touched. Stream stdout with Pyodide `write` (not `batched`) or `input()` prompts (no trailing newline) never appear before the input box. Pause the run-timeout while awaiting input. netlify dev does NOT hot-reload netlify.toml headers — restart + `curl -I` after any header edit. All of this is unit-testable in node (worker protocol, SAB decode with mocked Atomics, PRIMM logic) EXCEPT the real Pyodide+SAB round-trip, which only a browser can confirm.
+- **Answer-box sizing (2026-07-17, owner — took two passes):** on screen a box opens at **one line per mark** (`linesForBox`), grows as the student types, scrolls past 5. "Give three characteristics [3]" = three ONE-line boxes; a 3-mark single box = 3 lines; 8-markers open at the full 5. Override an uneven split with `q.stubLines`. **The first attempt silently failed**: the inline `height` was overridden by `.ep-answer-area { min-height: 120px }` in style.css (min-height always beats height), so every box stayed ~4 lines and my jsdom test — which asserted the *inline style* — passed anyway. Two lessons: (1) `.ep-answer-area` is required for the paste-guard, so any widget using it MUST reset `min-height: 0`; (2) **a headless test that asserts what your code SET, not what the page RENDERS, will happily confirm a bug** — jsdom has no cascade, so CSS-override bugs are invisible to it. Assert the model (`rows`/`_minLines`), and treat "the owner can still see it" as the real test. `q.lines` remains the mock-exam PRINT size, where a full handwriting space IS wanted; code boxes stay taller (algorithms need structure visible).
+- **Reusable verifier (2026-07-17):** `C:\Users\Public\csbuild\verify-page.js <page.html>` structurally checks any CS topic page (counts, readCheck shape, fib blanks vs `_____` vs fibWords, tips pills, exam field completeness, format enum, caseId resolution, mcq option ranges, bankCloze tokens ↔ answers ↔ bank, markPoints maxes summing to the tariff, stray `${`). Run it on every page before go-live; it caught nothing on W1 only because the checks were written from W1's real bugs.
+- **1.1.2 (2026-07-17):** the ExamBuilder topic PDFs **overlap** — 19 of 1.1.2's 54 marks are questions already live verbatim on 1.1.1 (the Kerry cloze = 1.1.1 Q8; Dipesh = 1.1.1 Q11), and Q7 repeats Q2 *within the same PDF*. Decision: keep each question on ONE page (1.1.2 shipped 35 marks of unique questions incl. both extended-response items) rather than show students the same question twice. **Every future topic builder must diff their PDF's questions against already-live pages before transcribing.** Also: Fig. 4 was an embedded image that text extraction dropped silently — rendering the page to PNG recovered it (second time this trap has fired; always render figure pages). Marks that ARE on the wrong page (1.1.1 holds two questions that are really 1.1.2 content) were left alone — 1.1.1 is owner-approved and stable.
+- **CS-B exam widgets + mocks (2026-07-17):** grounding the widget design in a census of the REAL papers changed the priorities completely — ruled-lines prose is 42% of all marks, the flashy grids only ~10%; without the census we'd have built the wrong thing first. Cross-agent data-shape drift happened exactly where predicted (transcriber invented `q.answers` at top level + `openChoice` while the widget builder worked from the brief's nested shapes) — the fix was cheap because BOTH agents were told about each other's outputs in their resume/launch briefs and the grids agent reconciled to the real data itself. Session-limit kills mid-run are survivable: all three agents resumed via SendMessage with full context and finished clean. And the §4.4 scaffolder reset trap fired a THIRD time (index regeneration) — the fix-after-run procedure is now muscle memory, but any future scaffolder change should just stop resetting noQuestions on existing manifest entries.
 - **CS-C first real browser test (2026-07-13):** two coordinator-introduced bugs only surfaced once a human actually clicked through — no amount of unit testing would have caught either. (1) `cs-lab.js` checked `window.pageMeta`, but pages declare `pageMeta` with `const` — a global-scope identifier, never a `window` property. This silently zeroed out the Practice Lab on EVERY page; nothing threw, so nothing failed loudly. Lesson: `typeof x !== 'undefined'` + bare identifier is the correct cross-script-tag pattern on this codebase (script.js already does this at line 4732) — always grep for the existing convention before inventing a new access pattern. (2) pyworker.js only started loading Pyodide on receiving a 'run' message; py-runner.js only ever sends 'run' after receiving 'ready' — a two-file deadlock invisible to both files' own unit tests (each tested its OWN logic correctly in isolation; the bug was purely in the choreography BETWEEN them). Lesson: message-passing protocols between two independently-built files are exactly the seam integration/browser testing exists for — flag them for a live click-through explicitly, don't let "both sides unit-tested" read as "verified". Separately: `netlify dev` does not hot-reload `netlify.toml` headers — a stale dev-server process silently served an old CSP for hours; always confirm header changes with a fresh `curl -I`, not just a file edit.
 

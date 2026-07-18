@@ -54,7 +54,9 @@
 
   // ── Which tools appear on which pages ─────────────────────────
   const PAGE_TOOLS = {
-    '1-1-1-architecture-of-the-cpu': [{ tool: 'fde-sim' }],
+    '1-1-1-architecture-of-the-cpu': [{ tool: 'fde-sim' }, { tool: 'examiner-trainer' }],
+    '1-1-2-cpu-performance': [{ tool: 'examiner-trainer' }, { tool: 'command-words' }],
+    '1-2-1-primary-storage-memory': [{ tool: 'examiner-trainer' }],
     '1-2-2-secondary-storage': [{ tool: 'storage-chooser' }],
     '1-2-3-units': [{ tool: 'drills', config: { modes: ['units', 'filesize'] } }],
     '1-2-4-data-storage-numbers': [{ tool: 'drills', config: { modes: ['bin-den', 'den-bin', 'bin-hex', 'hex-den', 'addition', 'shifts'] } }],
@@ -63,7 +65,8 @@
     '1-2-7-data-storage-sound': [{ tool: 'media-sound' }, { tool: 'drills', config: { modes: ['soundsize'] } }],
     '1-2-8-compression': [{ tool: 'media-compression' }],
     '1-3-1-networks-and-topologies': [{ tool: 'net-builder' }],
-    '1-4-1-threats-to-computer-systems-and-networks': [{ tool: 'threat-defence' }],
+    '1-4-1-threats-to-computer-systems-and-networks': [{ tool: 'threat-defence' }, { tool: 'examiner-trainer' }],
+    '1-6-1-ethical-legal-cultural-and-environmental-impact': [{ tool: 'command-words' }],
     '1-4-2-identifying-and-preventing-vulnerabilities': [{ tool: 'threat-defence', config: { mode: 'defence-first' } }],
     '2-1-2-designing-creating-and-refining-algorithms': [{ tool: 'py-runner' }, { tool: 'trace-table' }, { tool: 'parsons' }, { tool: 'bug-hunt' }, { tool: 'flow-label' }],
     '2-1-3-searching-and-sorting-algorithms': [{ tool: 'sort-visualiser' }, { tool: 'parsons', config: { set: 'sorting' } }],
@@ -96,6 +99,8 @@
     'media-compression': 'tools/media-lab.js',
     'test-data': 'tools/test-data.js',
     'flow-label': 'tools/flow-label.js',
+    'examiner-trainer': 'tools/examiner-trainer.js',
+    'command-words': 'tools/examiner-trainer.js',
   };
 
   // Launcher card copy (shown before the module is loaded).
@@ -118,6 +123,8 @@
     'media-compression': { icon: '🗜️', title: 'Compression Lab', blurb: 'Lossy vs lossless — squeeze a file and see what survives.' },
     'test-data': { icon: '🧪', title: 'Test Data Sorter', blurb: 'Normal, boundary, invalid or erroneous? Classify against the rules.' },
     'flow-label': { icon: '🔀', title: 'Flowchart Symbols', blurb: 'Label the symbols and assemble a working flowchart.' },
+    'examiner-trainer': { icon: '🖊️', title: 'Examiner Trainer', blurb: 'Mark a student’s answer against the real scheme — learn where marks are lost.' },
+    'command-words': { icon: '🗝️', title: 'Command Words', blurb: 'State, describe, explain, discuss — know exactly what each demands.' },
   };
 
   // `pageMeta` is declared `const` in each topic page's inline <script>, so

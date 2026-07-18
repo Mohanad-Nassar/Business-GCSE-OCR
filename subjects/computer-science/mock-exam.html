@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mock Exams – OCR GCSE Computer Science</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+        /* Standalone page (like the teacher pages): style.css turns <body>
+           into a 2-col grid ("sidebar tabbar / sidebar main") at >=900px
+           for topic pages that load script.js's sidebar + tab-bar. This
+           page never injects either, so without this override #mockRoot
+           has no grid-area and gets shoved into a phantom implicit row —
+           undoing that here exactly like teacher-notifications.html does. */
+        html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+        header { grid-area:unset !important; }
+
+        .mx-wrap { max-width: 900px; margin: 0 auto; padding: 26px 24px 80px; }
+        .mx-empty { padding: 40px 20px; text-align: center; color: var(--mid); font-size: 13.5px; }
+
+        /* ── Picker ── */
+        .mx-picker-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 20px; margin-top: 18px; }
+        .mx-paper-card { background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 12px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; }
+        .mx-pc-title { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--ink); }
+        .mx-pc-meta { font-family: 'DM Mono', monospace; font-size: 11.5px; color: var(--mid); display: flex; gap: 14px; flex-wrap: wrap; }
+        .mx-pc-best { font-size: 12.5px; color: var(--success); font-weight: 600; }
+        .mx-pc-progress { font-size: 12px; color: var(--gold); font-weight: 600; }
+        .mx-pc-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+
+        .mx-btn { border: 1.5px solid var(--border); background: var(--cream); border-radius: 7px; padding: 10px 16px; font-family: 'DM Mono', monospace; font-size: 11.5px; letter-spacing: .5px; cursor: pointer; transition: background .15s, border-color .15s; font-weight: 600; color: var(--ink); text-align: center; text-decoration: none; }
+        .mx-btn:hover { background: var(--chrome, var(--ink)); color: var(--chrome-text, var(--paper)); border-color: var(--ink); }
+        .mx-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .mx-btn.primary:hover { filter: brightness(1.12); background: var(--accent); }
+        .mx-btn.wide { width: 100%; }
+        .mx-link-btn { background: none; border: none; color: var(--mid); font-family: 'DM Mono', monospace; font-size: 11px; text-decoration: underline; cursor: pointer; padding: 4px 0; text-align: center; }
+        .mx-link-btn:hover { color: var(--accent); }
+
+        /* ── Sticky exam / marking top bar ── */
+        .mx-topbar { position: sticky; top: 0; z-index: 100; background: var(--chrome, var(--ink)); color: var(--chrome-text, var(--paper)); padding: 12px 22px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; border-bottom: 3px solid var(--accent); margin: -26px -24px 22px; }
+        .mx-tb-title { font-family: 'Playfair Display', serif; font-size: 15px; }
+        .mx-timer { font-family: 'DM Mono', monospace; font-size: 20px; font-weight: 600; letter-spacing: 1px; }
+        .mx-timer.warn { color: #ff9b7a; animation: mxPulse 1s infinite; }
+        @keyframes mxPulse { 50% { opacity: .45; } }
+        .mx-tb-progress { font-family: 'DM Mono', monospace; font-size: 11.5px; color: rgba(255,255,255,.7); }
+        .mx-tb-advisory { font-size: 11px; color: rgba(255,255,255,.55); flex-basis: 100%; }
+        .mx-finish-btn { margin-left: auto; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3); color: var(--chrome-text, var(--paper)); font-family: 'DM Mono', monospace; font-size: 11px; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+        .mx-finish-btn:hover { background: rgba(255,255,255,.22); }
+
+        /* ── Marking banner + live marks bar ── */
+        .mx-markbanner { background: #fdf5df; border: 1.5px solid var(--gold); color: #6a4800; border-radius: 8px; padding: 14px 18px; font-size: 13.5px; margin-bottom: 18px; }
+        .mx-livebar { position: sticky; top: 0; z-index: 99; background: var(--cream); border: 1.5px solid var(--border); border-bottom: 3px solid var(--accent); border-radius: 0 0 10px 10px; padding: 12px 22px; margin: -26px -24px 22px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+        /* ── Exam sections/questions ── */
+        .mx-section { margin-bottom: 30px; }
+        .mx-section-head { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--ink); margin-bottom: 6px; }
+        .mx-preamble { background: var(--cream); border-left: 4px solid var(--accent); border-radius: 0 6px 6px 0; padding: 12px 16px; font-size: 13px; line-height: 1.6; color: var(--ink); margin-bottom: 16px; }
+        .mx-qlist { display: flex; flex-direction: column; gap: 22px; }
+        .mx-scheme-toggle { border-color: var(--accent); color: var(--accent); }
+        .mx-scheme-toggle:hover { background: var(--accent); color: #fff; }
+
+        /* MCQ options selected-but-ungraded (exam phase: no correctness shown) */
+        .mx-opt-selected { border-color: var(--accent) !important; background: color-mix(in srgb, var(--accent) 16%, var(--cream)) !important; font-weight: 600; }
+
+        /* Suppress every widget's own Check/Submit button (and this page's
+           own "Mark scheme" toggle) while the exam clock is running —
+           students answer, but marking/schemes only unlock once time is
+           called. The .cslab-btn selector is the literal class name from
+           the build spec; .mx-scheme-toggle is this page's own control and
+           needs the same treatment or it would leak the scheme mid-paper. */
+        .mock-exam-live .ep-widget .cslab-btn { display: none !important; }
+        .mock-exam-live .mx-scheme-toggle { display: none !important; }
+
+        /* ── Results ── */
+        .mx-results-hero { text-align: center; padding: 30px 20px; background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 12px; margin-bottom: 22px; }
+        .mx-results-score { font-family: 'Playfair Display', serif; font-size: 48px; color: var(--accent); line-height: 1; }
+        .mx-results-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+        .mx-results-table th, .mx-results-table td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+        .mx-results-table th { background: var(--cream); }
+        .mx-results-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+
+        /* ── Print (blank paper) ── */
+        .mx-print-sheet { display: none; }
+        .mx-print-q { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px dashed #999; }
+        .mx-print-qhead { display: flex; justify-content: space-between; font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+        .mx-print-line { border-bottom: 1px solid #000; height: 26px; margin-bottom: 2px; }
+        .mx-print-opt { border: 1px solid #000; border-radius: 4px; padding: 6px 10px; margin-bottom: 6px; font-size: 12.5px; }
+
+        @media print {
+            header, .mx-topbar, .mx-livebar, .mx-markbanner, .no-print, footer, .site-footer { display: none !important; }
+            html, body { background: #fff !important; color: #000 !important; }
+            .mx-wrap { max-width: none !important; padding: 0 !important; margin: 0 !important; }
+            .mx-print-sheet.active { display: block !important; }
+            .mx-print-sheet * { color: #000 !important; }
+        }
+
+        @media (max-width: 700px) {
+            .mx-wrap { padding: 20px 16px 70px; }
+            .mx-topbar, .mx-livebar { margin: -20px -16px 18px; padding: 12px 16px; }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="no-print">
+        <div>
+            <div class="badge">OCR GCSE Computer Science — Mock Exams</div>
+            <h1>Mock Exams</h1>
+            <p>Full past papers under timed conditions, marked against the real scheme.</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <div id="mockRoot"></div>
+
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/cs-lab/exam-widgets-grids.js"></script>
+    <script src="/cs-lab/exam-widgets-code.js"></script>
+    <script src="mock-papers/2024-paper1.js"></script>
+    <script src="mock-papers/2024-paper2.js"></script>
+    <script src="mock-exam.js"></script>
+</body>
+
+</html>
