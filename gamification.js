@@ -21,45 +21,193 @@ const GAMIFICATION_CATEGORY_BONUS = 50;
 const GAMIFICATION_TOPIC_BONUS = 200;
 const GAMIFICATION_CATEGORY_KEYS = ['learn', 'mcq', 'match', 'fib', 'misc', 'tips', 'tf', 'exam'];
 
-// `group` is display-only — it's how badges.html sections the full badge
-// list, so a new group can be added later without restructuring anything.
+// ── Custom badge icons (line-style SVG, 24×24, stroke = currentColor) ──
+// A small cohesive icon set so badges look like a designed game system, not a
+// row of OS emoji. Each value is the inner markup; gamBadgeIconSvg() wraps it.
+// Reused across badges and tinted by rarity via the medallion frame in CSS.
+const GAM_BADGE_ICONS = {
+  flag:     '<path d="M6 21V4M6 4h11l-2 3.5L17 11H6"/>',
+  target:   '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/>',
+  medal:    '<path d="M9 3l3 5.4L15 3"/><path d="M9 3H6l2.9 5.2M15 3h3l-2.9 5.2"/><circle cx="12" cy="15" r="5.5"/><circle cx="12" cy="15" r="1.6"/>',
+  bolt:     '<polygon points="13,2 4,13.5 11,13.5 11,22 20,10 13,10"/>',
+  flame:    '<path d="M12 3c1.5 3 4.5 4.2 4.5 8a4.5 4.5 0 0 1-9 0c0-1.8.8-2.9 1.7-3.8C10 8.6 11 6 12 3z"/>',
+  shield:   '<path d="M12 3l7.5 3v5.2c0 4.6-3.3 7.5-7.5 9-4.2-1.5-7.5-4.4-7.5-9V6z"/>',
+  star:     '<polygon points="12,2.6 14.9,9 21.8,9.6 16.5,14.2 18.2,21 12,17.3 5.8,21 7.5,14.2 2.2,9.6 9.1,9"/>',
+  sparkle:  '<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18.8 15.4l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/>',
+  crown:    '<path d="M4 18.5h16M4.6 18.5l-1-9 4.9 3.8L12 5l3.5 8.3 4.9-3.8-1 9"/>',
+  diamond:  '<path d="M5 4h14l2.6 4.6L12 21 2.4 8.6z"/><path d="M2.4 8.6h19.2M9 4L6 8.6 12 21M15 4l3 4.6"/>',
+  hexagon:  '<polygon points="12,2.6 20.5,7.3 20.5,16.7 12,21.4 3.5,16.7 3.5,7.3"/>',
+  check:    '<circle cx="12" cy="12" r="8.5"/><polyline points="8,12.5 11,15.5 16.5,9.5"/>',
+  book:     '<path d="M6.5 4H17a1.5 1.5 0 0 1 1.5 1.5V20H8a1.5 1.5 0 0 0-1.5 1.5z"/><path d="M6.5 4v17.5M9.5 8.5h6M9.5 11.5h4"/>',
+  calendar: '<rect x="4" y="5.5" width="16" height="14.5" rx="2"/><path d="M4 10h16M8.5 3v4.5M15.5 3v4.5M8 14.5l2 2 3.5-3.5"/>',
+  chart:    '<path d="M4 20h16"/><rect x="5.5" y="12" width="3" height="6"/><rect x="10.5" y="7" width="3" height="11"/><rect x="15.5" y="10" width="3" height="8"/>',
+  trending: '<polyline points="3,16.5 9,10.5 13,14.5 21,6.5"/><polyline points="15,6.5 21,6.5 21,12.5"/>',
+  rocket:   '<path d="M12 3c2.6 2 4 5.2 4 8.4L14 16h-4l-2-4.6C8 8.2 9.4 5 12 3z"/><circle cx="12" cy="9.5" r="1.6"/><path d="M10 16l-2.5 4M14 16l2.5 4M12 16v4"/>',
+  globe:    '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c3 2.6 3 14.4 0 17M12 3.5c-3 2.6-3 14.4 0 17"/>',
+  atom:     '<circle cx="12" cy="12" r="1.8"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/>',
+  key:      '<circle cx="8.5" cy="8.5" r="4.5"/><path d="M11.8 11.8L20 20M16.5 16.5l2-2M18.5 18.5l1.5-1.5"/>',
+  puzzle:   '<path d="M9.5 4.5h5v2.2a1.8 1.8 0 1 0 0 3.6v3.6H11a1.8 1.8 0 1 1-3.6 0H4.9v-3.6h2.2a1.8 1.8 0 1 0 0-3.6z"/>',
+  compass:  '<circle cx="12" cy="12" r="8.5"/><polygon points="15.5,8.5 11,11 8.5,15.5 13,13"/>',
+};
+function gamBadgeIconSvg(name, cls) {
+  const inner = GAM_BADGE_ICONS[name] || GAM_BADGE_ICONS.star;
+  return `<svg class="${cls || 'bdg-glyph'}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
+}
+
+// ── Rarity tiers ── higher = harder/rarer; drives the medallion colour, glow
+// and the "N legendary" breakdown on the badges page. `order` sorts them.
+const GAM_RARITY = {
+  common:    { label: 'Common',    order: 1 },
+  uncommon:  { label: 'Uncommon',  order: 2 },
+  rare:      { label: 'Rare',      order: 3 },
+  epic:      { label: 'Epic',      order: 4 },
+  legendary: { label: 'Legendary', order: 5 },
+  mythic:    { label: 'Mythic',    order: 6 },
+};
+function gamRarityOrder(key) { return (GAM_RARITY[key] && GAM_RARITY[key].order) || 1; }
+
+// `group` sections the list; `rarity` + `svg` drive the look. `icon` (emoji) is
+// kept as a fallback for surfaces that don't render SVG (e.g. the toast).
 const BADGE_DEFS = [
-  { id: 'first-steps',    icon: '🥉', label: 'First Steps',     desc: 'Answer your first question',              group: 'Progress', test: s => s.totalDone >= 1 },
-  { id: 'century',        icon: '💯', label: 'Century',          desc: 'Answer 100 questions',                     group: 'Progress', test: s => s.totalDone >= 100 },
-  { id: 'half-thousand',  icon: '🎓', label: 'Half-Thousand Club',desc: 'Answer 500 questions',                    group: 'Progress', test: s => s.totalDone >= 500 },
-  { id: 'question-machine',icon:'🧠', label: 'Question Machine', desc: 'Answer 1,000 questions',                  group: 'Progress', test: s => s.totalDone >= 1000 },
-  { id: 'relentless',     icon: '🦾', label: 'Relentless',       desc: 'Answer 2,500 questions',                   group: 'Progress', test: s => s.totalDone >= 2500 },
-  { id: 'getting-serious',icon: '🚀', label: 'Getting Serious',  desc: 'Reach 500 XP',                             group: 'Progress', test: s => s.xp >= 500 },
-  { id: 'rising-star',    icon: '⭐', label: 'Rising Star',      desc: 'Reach Level 5',                            group: 'Progress', test: s => s.level >= 5 },
-  { id: 'veteran-scholar',icon: '🎖️', label: 'Veteran Scholar', desc: 'Reach Level 10',                           group: 'Progress', test: s => s.level >= 10 },
-  { id: 'elite-scholar',  icon: '💠', label: 'Elite Scholar',    desc: 'Reach Level 15',                           group: 'Progress', test: s => s.level >= 15 },
-  { id: 'topic-master',   icon: '🏆', label: 'Topic Master',     desc: 'Fully complete one topic',                 group: 'Progress', test: s => s.topicsComplete >= 1 },
-  { id: 'on-a-roll',      icon: '🏅', label: 'On a Roll',        desc: 'Fully complete 5 topics',                  group: 'Progress', test: s => s.topicsComplete >= 5 },
-  { id: 'unit-champion',  icon: '🌟', label: 'Unit Champion',    desc: 'Fully complete every topic in one unit',   group: 'Progress', test: s => s.unitComplete },
-  { id: 'gcse-legend',    icon: '👑', label: 'GCSE Legend',      desc: 'Fully complete every topic',               group: 'Progress', test: s => s.topicsComplete >= s.totalTopics && s.totalTopics > 0 },
-  { id: 'bookworm',       icon: '📚', label: 'Bookworm',         desc: 'Complete Key Learning in 10 topics',       group: 'Categories', test: s => s.byCategory.learn >= 10 },
-  { id: 'quiz-whiz',      icon: '❓', label: 'Quiz Whiz',        desc: 'Complete MCQ Quiz in 10 topics',           group: 'Categories', test: s => s.byCategory.mcq >= 10 },
-  { id: 'match-master',   icon: '🔗', label: 'Match Master',     desc: 'Complete Matching in 10 topics',           group: 'Categories', test: s => s.byCategory.match >= 10 },
-  { id: 'fill-it-in',     icon: '✏️', label: 'Fill It In',       desc: 'Complete Fill the Blanks in 10 topics',    group: 'Categories', test: s => s.byCategory.fib >= 10 },
-  { id: 'myth-buster',    icon: '⚠️', label: 'Myth Buster',      desc: 'Complete Misconceptions in 10 topics',     group: 'Categories', test: s => s.byCategory.misc >= 10 },
-  { id: 'tip-top',        icon: '🎯', label: 'Tip Top',          desc: 'Complete Exam Tips in 10 topics',          group: 'Categories', test: s => s.byCategory.tips >= 10 },
-  { id: 'true-believer',  icon: '✅', label: 'True Believer',    desc: 'Complete True/False in 10 topics',         group: 'Categories', test: s => s.byCategory.tf >= 10 },
-  { id: 'exam-ready',     icon: '📝', label: 'Exam Ready',       desc: 'Complete Exam Practice in 5 topics',       group: 'Categories', test: s => s.byCategory.exam >= 5 },
-  { id: 'on-fire',        icon: '🔥', label: 'On Fire',          desc: '3-day answering streak',                   group: 'Streaks', test: s => s.streak >= 3 },
-  { id: 'unstoppable',    icon: '🔥', label: 'Unstoppable',      desc: '7-day answering streak',                   group: 'Streaks', test: s => s.streak >= 7 },
-  { id: 'two-week-streak',icon: '⚡', label: 'Two-Week Streak',  desc: '14-day answering streak',                  group: 'Streaks', test: s => s.streak >= 14 },
-  { id: 'monthly-streak', icon: '🌋', label: 'Monthly Streak',   desc: '30-day answering streak',                  group: 'Streaks', test: s => s.streak >= 30 },
-  { id: 'century-streak', icon: '💎', label: 'Century Streak',   desc: '100-day answering streak',                 group: 'Streaks', test: s => s.streak >= 100 },
-  { id: 'daily-starter',  icon: '🎯', label: 'Daily Habit',      desc: 'Answer 20 Daily Revise questions correctly', group: 'Daily Revise', test: s => s.drCorrect >= 20 },
-  { id: 'daily-sharp',    icon: '🥈', label: 'Getting Sharp',    desc: 'Master 25 questions in Daily Revise',      group: 'Daily Revise', test: s => s.drMastered >= 25 },
-  { id: 'daily-pro',      icon: '🥇', label: 'Daily Revise Pro', desc: 'Master 100 questions in Daily Revise',     group: 'Daily Revise', test: s => s.drMastered >= 100 },
-  { id: 'first-review',   icon: '🔁', label: 'First Review',     desc: 'Complete your first Review Calendar review', group: 'Review Calendar', test: s => s.reviewsCompleted >= 1 },
-  { id: 'review-regular', icon: '🗓️', label: 'Review Regular',  desc: 'Complete 10 Review Calendar reviews',      group: 'Review Calendar', test: s => s.reviewsCompleted >= 10 },
-  { id: 'retention-master',icon:'🧲', label: 'Retention Master', desc: 'Complete 30 Review Calendar reviews',      group: 'Review Calendar', test: s => s.reviewsCompleted >= 30 },
-  { id: 'leaderboard-top10',icon:'📊', label: 'Top of the Class', desc: 'Reach the top 10 of your class leaderboard', group: 'Leaderboard', test: s => s.lbTop10 },
-  { id: 'leaderboard-podium',icon:'🏅',label: 'Podium Finish',    desc: 'Reach the top 3 of your class leaderboard',  group: 'Leaderboard', test: s => s.lbTop3 },
-  { id: 'leaderboard-first',icon:'👑', label: 'Class Champion',   desc: 'Hit #1 on your class leaderboard',           group: 'Leaderboard', test: s => s.lbFirst },
+  // ── Progress: questions answered ──
+  { id: 'first-steps',    icon: '🥉', svg: 'flag',     rarity: 'common',    label: 'First Steps',       desc: 'Answer your first question',   group: 'Progress', test: s => s.totalDone >= 1 },
+  { id: 'century',        icon: '💯', svg: 'target',   rarity: 'uncommon',  label: 'Century',           desc: 'Answer 100 questions',         group: 'Progress', test: s => s.totalDone >= 100 },
+  { id: 'half-thousand',  icon: '🎓', svg: 'target',   rarity: 'rare',      label: 'Half-Thousand Club',desc: 'Answer 500 questions',         group: 'Progress', test: s => s.totalDone >= 500 },
+  { id: 'question-machine',icon:'🧠', svg: 'bolt',     rarity: 'epic',      label: 'Question Machine',  desc: 'Answer 1,000 questions',       group: 'Progress', test: s => s.totalDone >= 1000 },
+  { id: 'relentless',     icon: '🦾', svg: 'flame',    rarity: 'epic',      label: 'Relentless',        desc: 'Answer 2,500 questions',       group: 'Progress', test: s => s.totalDone >= 2500 },
+  { id: 'iron-mind',      icon: '🛡️', svg: 'shield',   rarity: 'legendary', label: 'Iron Mind',         desc: 'Answer 5,000 questions',       group: 'Progress', test: s => s.totalDone >= 5000 },
+  { id: 'ten-thousand',   icon: '💠', svg: 'diamond',  rarity: 'mythic',    label: 'Ten-Thousand',      desc: 'Answer 10,000 questions',      group: 'Progress', test: s => s.totalDone >= 10000 },
+  // ── XP ──
+  { id: 'getting-serious',icon: '🚀', svg: 'trending', rarity: 'common',    label: 'Getting Serious',   desc: 'Reach 500 XP',                 group: 'XP & Levels', test: s => s.xp >= 500 },
+  { id: 'xp-grinder',     icon: '📈', svg: 'trending', rarity: 'uncommon',  label: 'XP Grinder',        desc: 'Reach 2,000 XP',               group: 'XP & Levels', test: s => s.xp >= 2000 },
+  { id: 'xp-machine',     icon: '⚙️', svg: 'chart',    rarity: 'rare',      label: 'XP Machine',        desc: 'Reach 5,000 XP',               group: 'XP & Levels', test: s => s.xp >= 5000 },
+  { id: 'xp-titan',       icon: '🏋️', svg: 'chart',    rarity: 'epic',      label: 'XP Titan',          desc: 'Reach 10,000 XP',              group: 'XP & Levels', test: s => s.xp >= 10000 },
+  // ── Levels ──
+  { id: 'rising-star',    icon: '⭐', svg: 'star',     rarity: 'uncommon',  label: 'Rising Star',       desc: 'Reach Level 5',                group: 'XP & Levels', test: s => s.level >= 5 },
+  { id: 'veteran-scholar',icon: '🎖️', svg: 'star',     rarity: 'rare',      label: 'Veteran Scholar',   desc: 'Reach Level 10',               group: 'XP & Levels', test: s => s.level >= 10 },
+  { id: 'elite-scholar',  icon: '💠', svg: 'sparkle',  rarity: 'epic',      label: 'Elite Scholar',     desc: 'Reach Level 15',               group: 'XP & Levels', test: s => s.level >= 15 },
+  { id: 'master-scholar', icon: '👑', svg: 'crown',    rarity: 'legendary', label: 'Master Scholar',    desc: 'Reach Level 20',               group: 'XP & Levels', test: s => s.level >= 20 },
+  { id: 'grandmaster',    icon: '♛',  svg: 'crown',    rarity: 'mythic',    label: 'Grandmaster',       desc: 'Reach Level 30',               group: 'XP & Levels', test: s => s.level >= 30 },
+  // ── Topics completed ──
+  { id: 'topic-master',   icon: '🏆', svg: 'check',    rarity: 'common',    label: 'Topic Master',      desc: 'Fully complete one topic',     group: 'Topics', test: s => s.topicsComplete >= 1 },
+  { id: 'on-a-roll',      icon: '🏅', svg: 'check',    rarity: 'uncommon',  label: 'On a Roll',         desc: 'Fully complete 5 topics',      group: 'Topics', test: s => s.topicsComplete >= 5 },
+  { id: 'topic-adept',    icon: '🎯', svg: 'check',    rarity: 'rare',      label: 'Topic Adept',       desc: 'Fully complete 15 topics',     group: 'Topics', test: s => s.topicsComplete >= 15 },
+  { id: 'topic-veteran',  icon: '🗿', svg: 'shield',   rarity: 'epic',      label: 'Topic Veteran',     desc: 'Fully complete 30 topics',     group: 'Topics', test: s => s.topicsComplete >= 30 },
+  { id: 'unit-champion',  icon: '🌟', svg: 'hexagon',  rarity: 'rare',      label: 'Unit Champion',     desc: 'Fully complete every topic in one unit', group: 'Topics', test: s => s.unitComplete },
+  { id: 'gcse-legend',    icon: '👑', svg: 'crown',    rarity: 'legendary', label: 'Course Legend',     desc: 'Fully complete every topic',   group: 'Topics', test: s => s.topicsComplete >= s.totalTopics && s.totalTopics > 0 },
+  // ── Activity categories ──
+  { id: 'bookworm',       icon: '📚', svg: 'book',     rarity: 'uncommon',  label: 'Bookworm',          desc: 'Complete Key Learning in 10 topics',    group: 'Categories', test: s => s.byCategory.learn >= 10 },
+  { id: 'quiz-whiz',      icon: '❓', svg: 'check',    rarity: 'uncommon',  label: 'Quiz Whiz',         desc: 'Complete MCQ Quiz in 10 topics',        group: 'Categories', test: s => s.byCategory.mcq >= 10 },
+  { id: 'match-master',   icon: '🔗', svg: 'puzzle',   rarity: 'uncommon',  label: 'Match Master',      desc: 'Complete Matching in 10 topics',        group: 'Categories', test: s => s.byCategory.match >= 10 },
+  { id: 'fill-it-in',     icon: '✏️', svg: 'book',     rarity: 'uncommon',  label: 'Fill It In',        desc: 'Complete Fill the Blanks in 10 topics', group: 'Categories', test: s => s.byCategory.fib >= 10 },
+  { id: 'myth-buster',    icon: '⚠️', svg: 'shield',   rarity: 'uncommon',  label: 'Myth Buster',       desc: 'Complete Misconceptions in 10 topics',  group: 'Categories', test: s => s.byCategory.misc >= 10 },
+  { id: 'tip-top',        icon: '🎯', svg: 'target',   rarity: 'uncommon',  label: 'Tip Top',           desc: 'Complete Exam Tips in 10 topics',       group: 'Categories', test: s => s.byCategory.tips >= 10 },
+  { id: 'true-believer',  icon: '✅', svg: 'check',    rarity: 'uncommon',  label: 'True Believer',     desc: 'Complete True/False in 10 topics',      group: 'Categories', test: s => s.byCategory.tf >= 10 },
+  { id: 'exam-ready',     icon: '📝', svg: 'sparkle',  rarity: 'rare',      label: 'Exam Ready',        desc: 'Complete Exam Practice in 5 topics',    group: 'Categories', test: s => s.byCategory.exam >= 5 },
+  { id: 'all-rounder',    icon: '🎨', svg: 'sparkle',  rarity: 'rare',      label: 'All-Rounder',       desc: 'Complete every activity type at least once', group: 'Categories', test: s => ['learn','mcq','match','fib','misc','tips','tf','exam'].every(k => (s.byCategory[k] || 0) >= 1) },
+  // ── Streaks ──
+  { id: 'on-fire',        icon: '🔥', svg: 'flame',    rarity: 'common',    label: 'On Fire',           desc: '3-day answering streak',       group: 'Streaks', test: s => s.streak >= 3 },
+  { id: 'unstoppable',    icon: '🔥', svg: 'flame',    rarity: 'uncommon',  label: 'Unstoppable',       desc: '7-day answering streak',       group: 'Streaks', test: s => s.streak >= 7 },
+  { id: 'two-week-streak',icon: '⚡', svg: 'bolt',     rarity: 'rare',      label: 'Two-Week Streak',   desc: '14-day answering streak',      group: 'Streaks', test: s => s.streak >= 14 },
+  { id: 'monthly-streak', icon: '🌋', svg: 'flame',    rarity: 'epic',      label: 'Monthly Streak',    desc: '30-day answering streak',      group: 'Streaks', test: s => s.streak >= 30 },
+  { id: 'century-streak', icon: '💎', svg: 'diamond',  rarity: 'legendary', label: 'Century Streak',    desc: '100-day answering streak',     group: 'Streaks', test: s => s.streak >= 100 },
+  { id: 'eternal-flame',  icon: '☄️', svg: 'flame',    rarity: 'mythic',    label: 'Eternal Flame',     desc: '180-day answering streak',     group: 'Streaks', test: s => s.streak >= 180 },
+  // ── Daily Revise ──
+  { id: 'daily-starter',  icon: '🎯', svg: 'target',   rarity: 'common',    label: 'Daily Habit',       desc: 'Answer 20 Daily Revise questions correctly', group: 'Daily Revise', test: s => s.drCorrect >= 20 },
+  { id: 'daily-sharp',    icon: '🥈', svg: 'medal',    rarity: 'uncommon',  label: 'Getting Sharp',     desc: 'Master 25 questions in Daily Revise',  group: 'Daily Revise', test: s => s.drMastered >= 25 },
+  { id: 'daily-pro',      icon: '🥇', svg: 'medal',    rarity: 'rare',      label: 'Daily Revise Pro',  desc: 'Master 100 questions in Daily Revise', group: 'Daily Revise', test: s => s.drMastered >= 100 },
+  { id: 'daily-master',   icon: '🏆', svg: 'medal',    rarity: 'epic',      label: 'Mastery Machine',   desc: 'Master 500 questions in Daily Revise', group: 'Daily Revise', test: s => s.drMastered >= 500 },
+  // ── Review Calendar ──
+  { id: 'first-review',   icon: '🔁', svg: 'calendar', rarity: 'common',    label: 'First Review',      desc: 'Complete your first Review Calendar review', group: 'Review Calendar', test: s => s.reviewsCompleted >= 1 },
+  { id: 'review-regular', icon: '🗓️', svg: 'calendar', rarity: 'uncommon',  label: 'Review Regular',    desc: 'Complete 10 Review Calendar reviews',  group: 'Review Calendar', test: s => s.reviewsCompleted >= 10 },
+  { id: 'retention-master',icon:'🧲', svg: 'calendar', rarity: 'rare',      label: 'Retention Master',  desc: 'Complete 30 Review Calendar reviews',  group: 'Review Calendar', test: s => s.reviewsCompleted >= 30 },
+  { id: 'retention-legend',icon:'🧠', svg: 'calendar', rarity: 'epic',      label: 'Memory Palace',     desc: 'Complete 100 Review Calendar reviews', group: 'Review Calendar', test: s => s.reviewsCompleted >= 100 },
+  // ── Leaderboard (best-ever tier across subjects) ──
+  { id: 'leaderboard-top10',icon:'📊', svg: 'chart',   rarity: 'rare',      label: 'Top of the Class',  desc: 'Reach the top 10 of your class leaderboard', group: 'Leaderboard', test: s => s.lbTop10 },
+  { id: 'leaderboard-podium',icon:'🏅',svg: 'medal',   rarity: 'epic',      label: 'Podium Finish',     desc: 'Reach the top 3 of your class leaderboard',  group: 'Leaderboard', test: s => s.lbTop3 },
+  { id: 'leaderboard-first',icon:'👑', svg: 'crown',   rarity: 'legendary', label: 'Class Champion',    desc: 'Hit #1 on your class leaderboard',           group: 'Leaderboard', test: s => s.lbFirst },
 ];
+
+// ── Subject-specific badges ── a bespoke, subject-flavoured set for each
+// subject the student is enrolled in (badges.html instantiates them against
+// that subject's own stats, so they only show for subjects the student
+// actually has). Progress-derived only (questions/topics/units/XP) so they
+// need no extra per-subject server round trips. Same rarity tiers as the
+// profile badges; emoji icons. Slugs must match the subject registry.
+// `_sbAll` = every topic in the subject fully complete.
+const _sbAll = s => s.totalTopics > 0 && s.topicsComplete >= s.totalTopics;
+const SUBJECT_BADGE_SETS = {
+  'business': [
+    { id: 'biz-startup',  icon: '🌱', rarity: 'common',    label: 'Startup Founder',   desc: 'Answer your first Business question',   test: s => s.totalDone >= 1 },
+    { id: 'biz-cashflow', icon: '💷', rarity: 'uncommon',  label: 'Cash Flow Positive',desc: 'Answer 100 Business questions',         test: s => s.totalDone >= 100 },
+    { id: 'biz-analyst',  icon: '📊', rarity: 'rare',      label: 'Market Analyst',    desc: 'Fully complete 5 Business topics',      test: s => s.topicsComplete >= 5 },
+    { id: 'biz-ops',      icon: '🏭', rarity: 'rare',      label: 'Operations Manager',desc: 'Complete a whole Business unit',        test: s => s.unitComplete },
+    { id: 'biz-scale',    icon: '📈', rarity: 'epic',      label: 'Scaling Up',        desc: 'Answer 500 Business questions',         test: s => s.totalDone >= 500 },
+    { id: 'biz-boss',     icon: '👔', rarity: 'legendary', label: 'The Big Boss',      desc: 'Fully complete every Business topic',   test: _sbAll },
+    { id: 'biz-mogul',    icon: '🦈', rarity: 'mythic',    label: 'Business Mogul',    desc: 'Complete every topic AND answer 1,000 Business questions', test: s => _sbAll(s) && s.totalDone >= 1000 },
+  ],
+  'computer-science': [
+    { id: 'cs-hello',   icon: '👋', rarity: 'common',    label: 'Hello, World!',  desc: 'Answer your first Computer Science question', test: s => s.totalDone >= 1 },
+    { id: 'cs-binary',  icon: '🔢', rarity: 'uncommon',  label: 'Binary Brain',   desc: 'Answer 100 Computer Science questions',       test: s => s.totalDone >= 100 },
+    { id: 'cs-loop',    icon: '🔁', rarity: 'rare',      label: 'Loop Master',    desc: 'Fully complete 5 Computer Science topics',    test: s => s.topicsComplete >= 5 },
+    { id: 'cs-bug',     icon: '🐛', rarity: 'rare',      label: 'Bug Squasher',   desc: 'Complete a whole Computer Science unit',      test: s => s.unitComplete },
+    { id: 'cs-network', icon: '🌐', rarity: 'epic',      label: 'Network Ninja',  desc: 'Answer 500 Computer Science questions',       test: s => s.totalDone >= 500 },
+    { id: 'cs-root',    icon: '🔓', rarity: 'legendary', label: 'Root Access',    desc: 'Fully complete every Computer Science topic', test: _sbAll },
+    { id: 'cs-sentient',icon: '🤖', rarity: 'mythic',    label: 'Sentient',       desc: 'Complete every topic AND answer 1,000 CS questions', test: s => _sbAll(s) && s.totalDone >= 1000 },
+  ],
+  'economics': [
+    { id: 'eco-trade',  icon: '🪙', rarity: 'common',    label: 'First Trade',        desc: 'Answer your first Economics question', test: s => s.totalDone >= 1 },
+    { id: 'eco-demand', icon: '⚖️', rarity: 'uncommon',  label: 'Supply & Demander',  desc: 'Answer 100 Economics questions',       test: s => s.totalDone >= 100 },
+    { id: 'eco-market', icon: '💹', rarity: 'rare',      label: 'Market Mover',       desc: 'Fully complete 5 Economics topics',    test: s => s.topicsComplete >= 5 },
+    { id: 'eco-bank',   icon: '🏦', rarity: 'rare',      label: 'Central Banker',     desc: 'Complete a whole Economics unit',      test: s => s.unitComplete },
+    { id: 'eco-macro',  icon: '🌍', rarity: 'epic',      label: 'Macro Mind',         desc: 'Answer 500 Economics questions',       test: s => s.totalDone >= 500 },
+    { id: 'eco-hand',   icon: '🎩', rarity: 'legendary', label: 'The Invisible Hand', desc: 'Fully complete every Economics topic', test: _sbAll },
+    { id: 'eco-tycoon', icon: '💰', rarity: 'mythic',    label: 'Tycoon',             desc: 'Complete every topic AND answer 1,000 Economics questions', test: s => _sbAll(s) && s.totalDone >= 1000 },
+  ],
+  'spanish': [
+    { id: 'es-hola',    icon: '👋', rarity: 'common',    label: '¡Hola!',        desc: 'Answer your first Spanish question', test: s => s.totalDone >= 1 },
+    { id: 'es-conv',    icon: '🗣️', rarity: 'uncommon',  label: 'Conversador',   desc: 'Answer 100 Spanish questions',       test: s => s.totalDone >= 100 },
+    { id: 'es-est',     icon: '📖', rarity: 'rare',      label: 'Estudiante',    desc: 'Fully complete 5 Spanish topics',    test: s => s.topicsComplete >= 5 },
+    { id: 'es-fiesta',  icon: '🎉', rarity: 'rare',      label: 'Fiesta Ready',  desc: 'Complete a whole Spanish unit',      test: s => s.unitComplete },
+    { id: 'es-escritor',icon: '✍️', rarity: 'epic',      label: 'Escritor',      desc: 'Answer 500 Spanish questions',       test: s => s.totalDone >= 500 },
+    { id: 'es-fluido',  icon: '🏆', rarity: 'legendary', label: 'Fluidez Total', desc: 'Fully complete every Spanish topic', test: _sbAll },
+    { id: 'es-nativo',  icon: '💃', rarity: 'mythic',    label: 'Casi Nativo',   desc: 'Complete every topic AND answer 1,000 Spanish questions', test: s => _sbAll(s) && s.totalDone >= 1000 },
+  ],
+  'additional-maths': [
+    { id: 'am-first',   icon: '➗', rarity: 'common',    label: 'First Principles', desc: 'Answer your first Additional Maths question', test: s => s.totalDone >= 1 },
+    { id: 'am-surd',    icon: '🧮', rarity: 'uncommon',  label: 'Surd Slayer',      desc: 'Answer 100 Additional Maths questions',       test: s => s.totalDone >= 100 },
+    { id: 'am-trig',    icon: '📐', rarity: 'rare',      label: 'Trig Titan',       desc: 'Fully complete 5 Additional Maths topics',    test: s => s.topicsComplete >= 5 },
+    { id: 'am-calc',    icon: '📈', rarity: 'rare',      label: 'Calculus Cadet',   desc: 'Complete a whole Additional Maths unit',      test: s => s.unitComplete },
+    { id: 'am-vector',  icon: '🔺', rarity: 'epic',      label: 'Vector Voyager',   desc: 'Answer 500 Additional Maths questions',       test: s => s.totalDone >= 500 },
+    { id: 'am-magic',   icon: '🎩', rarity: 'legendary', label: 'Mathemagician',    desc: 'Fully complete every Additional Maths topic', test: _sbAll },
+    { id: 'am-infinity',icon: '♾️', rarity: 'mythic',    label: 'To Infinity',      desc: 'Complete every topic AND answer 1,000 Additional Maths questions', test: s => _sbAll(s) && s.totalDone >= 1000 },
+  ],
+  // Fallback for any other/teacher-authored subject — generic but still tiered.
+  '_default': [
+    { id: 'sub-first',  icon: '🌱', rarity: 'common',    label: 'First Steps',   desc: 'Answer your first question in this subject', test: s => s.totalDone >= 1 },
+    { id: 'sub-100',    icon: '🎯', rarity: 'uncommon',  label: 'Getting Going', desc: 'Answer 100 questions in this subject',       test: s => s.totalDone >= 100 },
+    { id: 'sub-scholar',icon: '📖', rarity: 'rare',      label: 'Subject Scholar',desc: 'Fully complete 5 topics in this subject',   test: s => s.topicsComplete >= 5 },
+    { id: 'sub-unit',   icon: '🧩', rarity: 'rare',      label: 'Unit Master',   desc: 'Complete a whole unit in this subject',      test: s => s.unitComplete },
+    { id: 'sub-power',  icon: '⚡', rarity: 'epic',      label: 'Powerhouse',    desc: 'Answer 500 questions in this subject',       test: s => s.totalDone >= 500 },
+    { id: 'sub-conq',   icon: '👑', rarity: 'legendary', label: 'Conqueror',     desc: 'Fully complete every topic in this subject', test: _sbAll },
+    { id: 'sub-legend', icon: '🌟', rarity: 'mythic',    label: 'Living Legend', desc: 'Complete every topic AND answer 1,000 questions in this subject', test: s => _sbAll(s) && s.totalDone >= 1000 },
+  ],
+};
+function gamSubjectBadgeDefs(slug) {
+  return SUBJECT_BADGE_SETS[slug] || SUBJECT_BADGE_SETS._default;
+}
+
+// Per-subject stats for one subject (uses that subject's page tree from
+// PAGE_GROUPS_ALL; streak/Daily-Revise/review left at 0 since subject badges
+// are progress-derived). Returns null if the subject's tree isn't loaded.
+function gamComputeSubjectStats(slug, progress) {
+  const groups = (window.PAGE_GROUPS_ALL && window.PAGE_GROUPS_ALL[slug]) || null;
+  if (!groups || !groups.length) return null;
+  return computeGamificationStats(progress, 0, { correctCount: 0, masteredCount: 0 }, { completed: 0 }, {}, groups);
+}
+function gamificationSubjectBadgesFor(subjectStats, slug) {
+  return subjectStats ? gamSubjectBadgeDefs(slug).filter(b => b.test(subjectStats)) : [];
+}
 
 function gamificationLevelFromXp(xp) {
   let level = 1, xpForThis = 0;
@@ -83,7 +231,7 @@ function _gamHasGradableContent(pageId) {
 // gamificationRefreshDailyReviseStats()/gamificationRefreshReviewStats();
 // both default to their last-fetched cache so existing call sites that
 // don't pass them keep working unchanged.
-function computeGamificationStats(progress, streak, drStats, reviewStats, lbStats) {
+function computeGamificationStats(progress, streak, drStats, reviewStats, lbStats, pageGroups) {
   drStats = drStats || _gamDrStats;
   reviewStats = reviewStats || _gamReviewStats;
   lbStats = lbStats || _gamLbStats;
@@ -91,7 +239,9 @@ function computeGamificationStats(progress, streak, drStats, reviewStats, lbStat
   const byCategory = {};
   GAMIFICATION_CATEGORY_KEYS.forEach(k => { byCategory[k] = 0; });
 
-  PAGE_GROUPS.forEach(group => {
+  // pageGroups defaults to the page's current subject (window.PAGE_GROUPS);
+  // badges.html passes one subject's tree to compute that subject's own stats.
+  (pageGroups || PAGE_GROUPS).forEach(group => {
     const pages = flatPages(group).filter(p => _gamHasGradableContent(p.id));
     let unitComplete = 0;
     pages.forEach(p => {
@@ -277,6 +427,11 @@ function gamificationShowComboToast(combo) {
 // ── Streak (needs a server round trip — see gamification-functions.sql) ──
 
 let _gamStreak = 0;
+// The best-ever streak and the timestamp of the most recent answered question
+// (all subjects), both from get_my_streak. Used to show "longest ever" and,
+// once a streak has lapsed, "last practised X ago" instead of a bare 0.
+let _gamStreakLongest = 0;
+let _gamStreakLastActive = null;
 // Last Supabase client any gamification refresh was handed — lets the
 // heatmap poller find the client on pages (dashboard, badges) that keep it
 // in a module-local, not a window global. Set by the refreshers below.
@@ -285,15 +440,68 @@ async function gamificationRefreshStreak(client) {
   try {
     if (!client) return 0;
     _gamLastClient = client;
-    const { data, error } = await client.rpc('get_my_streak');
+    // Scope the streak to the current subject (window.SUBJECT set by the
+    // subject loader / page-groups); null on the cross-subject profile view
+    // (badges.html) keeps the all-subjects streak. Falls back to the old
+    // no-arg call if the subject-aware function isn't deployed yet.
+    const p_subject = (window.SUBJECT && window.SUBJECT.slug) || null;
+    let { data, error } = await client.rpc('get_my_streak', { p_subject });
+    if (error) { ({ data, error } = await client.rpc('get_my_streak')); }
     if (!error && data) {
       _gamStreak = data.current || 0;
+      _gamStreakLongest = data.longest || 0;
+      _gamStreakLastActive = data.last_active || null;
       // Repaint the topic/home HUD if one is on this page (no-op elsewhere) —
       // callers like script.js refresh the streak after auth without repainting.
       if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
     }
   } catch (e) {}
   return _gamStreak;
+}
+
+// Human "time ago" label from an ISO timestamp OR a 'YYYY-MM-DD' date string.
+// Day-only inputs (the practice-calendar buckets) are compared as whole UTC
+// days so we never print a misleading "0 hours ago"; timestamps get
+// minute/hour precision. Powers the "last practised …" text on the dashboard
+// heatmap and the teacher dashboard. Returns '' for empty/unparseable input.
+function gamificationAgoLabel(input) {
+  if (!input) return '';
+  const s = String(input);
+  const dateOnly = /^\d{4}-\d{2}-\d{2}$/.test(s);
+  const then = dateOnly ? _gamParseDay(s) : new Date(s);
+  if (isNaN(then.getTime())) return '';
+  const now = new Date();
+  const ago = (n, w) => n + ' ' + w + (n === 1 ? '' : 's') + ' ago';
+  if (dateOnly) {
+    const today = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+    const days = Math.round((today - then.getTime()) / 86400000);
+    if (days <= 0) return 'today';
+    if (days === 1) return 'yesterday';
+    if (days < 7) return ago(days, 'day');
+    if (days < 30) return ago(Math.floor(days / 7), 'week');
+    if (days < 365) return ago(Math.floor(days / 30), 'month');
+    return ago(Math.floor(days / 365), 'year');
+  }
+  const secs = Math.floor((now.getTime() - then.getTime()) / 1000);
+  if (secs < 60) return 'just now';
+  const mins = Math.floor(secs / 60);
+  if (mins < 60) return ago(mins, 'min');
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return ago(hours, 'hour');
+  const days = Math.floor(hours / 24);
+  if (days < 7) return ago(days, 'day');
+  if (days < 30) return ago(Math.floor(days / 7), 'week');
+  if (days < 365) return ago(Math.floor(days / 30), 'month');
+  return ago(Math.floor(days / 365), 'year');
+}
+
+// Most recent 'YYYY-MM-DD' in a practice-calendar array (day strings sort
+// lexically), a fallback source for "last practised" when the streak RPC
+// hasn't been extended with last_active yet.
+function gamificationLastActiveDay(activityDays) {
+  let max = null;
+  (activityDays || []).forEach(r => { if (r && r.day && (!max || r.day > max)) max = r.day; });
+  return max;
 }
 
 // ── Daily Revise lifetime stats (needs a server round trip — see
@@ -308,10 +516,14 @@ async function gamificationRefreshDailyReviseStats(client) {
     _gamLastClient = client;
     const { data: { user } = {} } = await client.auth.getUser();
     if (!user) return _gamDrStats;
-    // daily_revise_stats is one row PER SUBJECT now (PK student_id +
-    // subject_slug) — sum across rows for cross-subject lifetime totals.
-    const { data, error } = await client.from('daily_revise_stats')
+    // daily_revise_stats is one row PER SUBJECT (PK student_id + subject_slug).
+    // Scope to the current subject so its XP folds into that subject's total;
+    // with no subject in context (badges/profile view) sum every subject.
+    const slug = (window.SUBJECT && window.SUBJECT.slug) || null;
+    let query = client.from('daily_revise_stats')
       .select('total_correct, total_mastered').eq('student_id', user.id);
+    if (slug) query = query.eq('subject_slug', slug);
+    const { data, error } = await query;
     if (!error && data) {
       _gamDrStats = {
         correctCount: data.reduce((s, r) => s + (r.total_correct || 0), 0),
@@ -337,8 +549,13 @@ async function gamificationRefreshReviewStats(client) {
     _gamLastClient = client;
     const { data: { user } = {} } = await client.auth.getUser();
     if (!user) return _gamReviewStats;
-    const { data, error } = await client.from('topic_reviews')
+    // Scope completed reviews to the current subject (page ids are
+    // subject-prefixed); no subject in context = every subject.
+    const slug = (window.SUBJECT && window.SUBJECT.slug) || null;
+    let query = client.from('topic_reviews')
       .select('completed_at').eq('student_id', user.id);
+    if (slug) query = query.like('page_id', slug + ':%');
+    const { data, error } = await query;
     if (!error && data) {
       _gamReviewStats = { completed: data.filter(r => r.completed_at).length };
       if (typeof _gamUpdateHud === 'function') _gamUpdateHud();
@@ -1287,6 +1504,9 @@ function _gamInjectHeatStyles() {
     .gam-heat{--gh-cell:12px;--gh-gap:3px;--gh-l0:var(--cream,#ede7d9);--gh-l1:#efd98f;--gh-l2:#e5bf5c;--gh-l3:var(--gold,#d4a843);--gh-l4:#b8860b;font-family:'DM Sans',sans-serif;color:var(--ink,#1a2332);}
     .gam-heat-title{font-family:'Playfair Display',serif;font-weight:700;font-size:15px;margin:0;text-align:center;}
     .gam-heat-hint{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--mid,#5a6e7f);margin:3px 0 12px;text-align:center;}
+    .gam-heat-stats{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:0 0 13px;}
+    .gam-heat-stat{font-family:'DM Mono',monospace;font-size:11px;color:var(--mid,#5a6e7f);background:var(--cream,#ede7d9);border:1px solid var(--border,#c9bfaa);border-radius:99px;padding:4px 11px;white-space:nowrap;}
+    .gam-heat-stat strong{color:var(--ink,#1a2332);font-weight:700;}
     .gam-heat-scroll{overflow-x:auto;overflow-y:hidden;padding-bottom:4px;-webkit-overflow-scrolling:touch;text-align:center;}
     .gam-heat-plot{display:inline-flex;gap:6px;}
     .gam-heat-side{display:flex;flex-direction:column;gap:var(--gh-gap);padding-top:20px;flex-shrink:0;}
@@ -1316,7 +1536,13 @@ function _gamInjectHeatStyles() {
 
 // Renders the GitHub-style heatmap into mountEl. `activityDays` is the raw
 // RPC array; endDate defaults to today, 53 weeks (~12 months) wide.
-function renderStreakHeatmap(mountEl, activityDays) {
+// streakInfo (optional): { current, longest, lastActive } — the numbers from
+// get_my_streak/get_class_streaks. When given, a summary line shows the current
+// and longest streak, plus "last practised X ago" once the current streak has
+// lapsed (so a broken streak still says when they last worked). lastActive may
+// be an ISO timestamp or a 'YYYY-MM-DD' day; it falls back to the most recent
+// day in activityDays when the RPC hasn't been extended with last_active yet.
+function renderStreakHeatmap(mountEl, activityDays, streakInfo) {
   if (!mountEl) return;
   _gamInjectHeatStyles();
   const weeks = 53;
@@ -1368,10 +1594,30 @@ function renderStreakHeatmap(mountEl, activityDays) {
     ? `Every ${window.SUBJECT.name} question you answer lights up a day.`
     : 'Every question you answer — on any subject — lights up a day.';
 
+  // Streak summary: current + longest streak, and "last practised …" once the
+  // current streak has lapsed (current 0). lastActive falls back to the newest
+  // day in the calendar if the RPC didn't supply a timestamp.
+  let summaryHtml = '';
+  if (streakInfo) {
+    const cur = streakInfo.current || 0;
+    const lng = streakInfo.longest || 0;
+    const last = streakInfo.lastActive || gamificationLastActiveDay(activityDays);
+    const parts = [
+      `<span class="gam-heat-stat"><strong>🔥 ${cur}</strong> day streak</span>`,
+      `<span class="gam-heat-stat"><strong>🏆 ${lng}</strong> longest</span>`,
+    ];
+    if (!cur && last) {
+      const ago = gamificationAgoLabel(last);
+      if (ago) parts.push(`<span class="gam-heat-stat">Last practised <strong>${ago}</strong></span>`);
+    }
+    summaryHtml = `<div class="gam-heat-stats">${parts.join('')}</div>`;
+  }
+
   mountEl.innerHTML = `
     <section class="gam-heat" style="--gh-weeks:${weeks}">
       <h3 class="gam-heat-title">📅 Practice calendar</h3>
       <p class="gam-heat-hint">${hintText}</p>
+      ${summaryHtml}
       <div class="gam-heat-scroll">
         <div class="gam-heat-plot" role="img" aria-label="${ariaLabel}">
           <div class="gam-heat-side">${sideHtml}</div>
@@ -1415,13 +1661,20 @@ function _gamHeatmapInit(tries) {
   if (!anchor) return;
   const client = window._gcseSupabaseClient || _gamLastClient;
   if (client) {
-    gamificationRefreshActivityDays(client).then(days => {
+    // Fetch the calendar and the streak numbers together so the summary line
+    // (current/longest/last-practised) renders with the grid in one pass.
+    Promise.all([
+      gamificationRefreshActivityDays(client),
+      gamificationRefreshStreak(client),
+    ]).then(([days]) => {
       if (document.getElementById('gamHeatmapMount')) return;   // already mounted
       const mount = document.createElement('div');
       mount.id = 'gamHeatmapMount';
       mount.className = 'gam-heat-mount ' + anchor.cls;
       anchor.after.parentNode.insertBefore(mount, anchor.after.nextSibling);
-      renderStreakHeatmap(mount, days);
+      renderStreakHeatmap(mount, days, {
+        current: _gamStreak, longest: _gamStreakLongest, lastActive: _gamStreakLastActive,
+      });
     });
     return;
   }

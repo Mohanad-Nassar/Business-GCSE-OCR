@@ -15,7 +15,12 @@
 -- answer was today or yesterday.
 -- ══════════════════════════════════════════════════════════════
 
-create or replace function get_class_streaks(p_class_id uuid) returns jsonb
+-- p_subject scopes every student's streak to ONE subject (its prefixed page
+-- ids, same filter as get_class_activity_days) so the teacher sees the streak
+-- for the class's subject rather than a cross-subject figure; null = every
+-- subject. Dropped-then-recreated because the signature changed.
+drop function if exists get_class_streaks(uuid);
+create or replace function get_class_streaks(p_class_id uuid, p_subject text default null) returns jsonb
 language plpgsql security definer stable set search_path = public as $$
 declare
     v_result jsonb;
@@ -28,7 +33,17 @@ begin
         from class_students cs
         join progress_events pe on pe.student_id = cs.student_id
         where cs.class_id = p_class_id
+          and (p_subject is null or pe.page_id like p_subject || ':%')
         group by cs.student_id, (pe.answered_at at time zone 'utc')::date
+    ), last_seen as (
+        -- Timestamp of each student's most recent answer (subject-scoped) —
+        -- used for the "last practised X ago" display once a streak has lapsed.
+        select cs.student_id, max(pe.answered_at) as last_active
+        from class_students cs
+        join progress_events pe on pe.student_id = cs.student_id
+        where cs.class_id = p_class_id
+          and (p_subject is null or pe.page_id like p_subject || ':%')
+        group by cs.student_id
     ), islands as (
         -- consecutive dates share a group: date minus row_number is constant
         select student_id, d,
@@ -40,9 +55,10 @@ begin
         group by student_id, grp
     )
     select coalesce(jsonb_agg(jsonb_build_object(
-        'student_id', student_id,
-        'longest', longest,
-        'current', current
+        'student_id', s.student_id,
+        'longest', s.longest,
+        'current', s.current,
+        'last_active', ls.last_active
     )), '[]'::jsonb)
     into v_result
     from (
@@ -51,12 +67,13 @@ begin
                coalesce(max(len) filter (where last_d >= current_date - 1), 0) as current
         from lens
         group by student_id
-    ) s;
+    ) s
+    left join last_seen ls on ls.student_id = s.student_id;
 
     return v_result;
 end;
 $$;
-grant execute on function get_class_streaks(uuid) to authenticated;
+grant execute on function get_class_streaks(uuid, text) to authenticated;
 
 -- ── get_class_activity_days(p_class_id, p_subject, p_days) ──
 -- Per-day answer counts for EVERY student in one of the caller's classes, in

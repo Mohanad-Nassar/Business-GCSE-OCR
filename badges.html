@@ -51,38 +51,83 @@
     .muted { color:var(--mid); font-size:12px; }
     .empty { padding:24px; text-align:center; color:var(--mid); font-style:italic; font-size:13px; }
 
+    /* Rarity colour tokens — set on .r-<rarity>, read by medallions/tags/dots. */
+    .r-common    { --rc:#9a9384; --rc2:#6f6a5c; }
+    .r-uncommon  { --rc:#4fa564; --rc2:#2f7a45; }
+    .r-rare      { --rc:#4a86d8; --rc2:#2a5aa8; }
+    .r-epic      { --rc:#9a5cd0; --rc2:#6e34a0; }
+    .r-legendary { --rc:#e6ac2e; --rc2:#b97d0c; }
+    .r-mythic    { --rc:#e5589a; --rc2:#7a5cd0; }
+
     .bdg-summary {
-      display:flex; align-items:center; gap:20px; flex-wrap:wrap;
-      background:var(--card-bg); border:1px solid var(--border); border-radius:12px;
-      padding:18px 22px; margin-bottom:28px;
+      display:flex; align-items:center; gap:16px 22px; flex-wrap:wrap;
+      background:var(--card-bg); border:1px solid var(--border); border-radius:14px;
+      padding:18px 22px; margin-bottom:26px;
     }
     .bdg-summary-level {
       display:flex; flex-direction:column; align-items:center; justify-content:center;
-      width:52px; height:52px; border-radius:50%; flex-shrink:0;
+      width:54px; height:54px; border-radius:50%; flex-shrink:0;
       background:linear-gradient(135deg,#7a5c9e,#4a6fa5); color:#fff;
+      box-shadow:0 4px 14px -3px rgba(122,92,158,.6);
     }
-    .bdg-summary-level b { font-family:'Playfair Display',serif; font-weight:700; font-size:19px; line-height:1; }
+    .bdg-summary-level b { font-family:'Playfair Display',serif; font-weight:700; font-size:20px; line-height:1; }
     .bdg-summary-level span { font-family:'DM Mono',monospace; font-size:7px; letter-spacing:.08em; text-transform:uppercase; opacity:.85; }
+    .bdg-summary-stats { display:flex; flex-direction:column; gap:3px; }
     .bdg-summary-stat { font-family:'DM Mono',monospace; font-size:12.5px; color:var(--mid); }
     .bdg-summary-stat b { color:var(--ink); font-size:15px; }
-    .bdg-summary-count { margin-left:auto; font-family:'Playfair Display',serif; font-weight:700; font-size:20px; color:var(--gold); white-space:nowrap; }
-    .bdg-summary-count small { display:block; font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); font-weight:400; }
+    .bdg-summary-count { text-align:center; }
+    .bdg-summary-count b { font-family:'Playfair Display',serif; font-weight:700; font-size:26px; color:var(--gold); line-height:1; }
+    .bdg-summary-count span { display:block; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.06em; text-transform:uppercase; color:var(--mid); margin-top:2px; }
+    .bdg-legend { display:flex; gap:6px; flex-wrap:wrap; margin-left:auto; }
+    .bdg-legend-chip { display:inline-flex; align-items:center; gap:5px; font-family:'DM Mono',monospace; font-size:10px; color:var(--mid); background:var(--cream); border:1px solid var(--border); border-radius:99px; padding:3px 9px; }
+    .bdg-legend-chip b { color:var(--ink); }
+    .bdg-legend-dot { width:9px; height:9px; border-radius:50%; background:linear-gradient(var(--rc),var(--rc2)); flex-shrink:0; }
 
-    .bdg-group { margin-bottom:30px; }
-    .bdg-group-title {
-      font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-      color:var(--mid); border-bottom:1px solid var(--border); padding-bottom:8px; margin-bottom:14px;
-    }
-    .bdg-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
-    .bdg-card {
-      display:flex; align-items:center; gap:12px; padding:12px 14px;
-      background:var(--cream); border:1.5px solid var(--gold); border-radius:10px;
-    }
-    .bdg-card.locked { border-color:var(--border); opacity:.6; filter:grayscale(.7); }
-    .bdg-icon { font-size:26px; line-height:1; flex-shrink:0; }
-    .bdg-name { font-family:'Playfair Display',serif; font-weight:700; font-size:14px; line-height:1.25; }
-    .bdg-desc { font-size:11.5px; color:var(--mid); line-height:1.4; margin-top:2px; }
-    .bdg-got-chip { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.06em; text-transform:uppercase; color:#2d7a4f; font-weight:700; margin-top:3px; }
+    .bdg-scope-title { font-family:'Playfair Display',serif; font-weight:700; font-size:18px; color:var(--ink); margin:4px 0 16px; }
+    .bdg-scope-title span { font-family:'DM Mono',monospace; font-size:11px; font-weight:400; color:var(--mid); }
+    .bdg-scope-subjects { margin-top:34px; padding-top:24px; border-top:1px solid var(--border); }
+    .bdg-subject-jump { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+    .bdg-jump-chip { font-family:'DM Mono',monospace; font-size:11px; color:var(--ink); text-decoration:none; background:var(--cream); border:1px solid var(--border); border-radius:99px; padding:5px 12px; transition:border-color .15s,color .15s; }
+    .bdg-jump-chip:hover { border-color:var(--accent); color:var(--accent); }
+
+    .bdg-group { margin-bottom:26px; scroll-margin-top:16px; }
+    .bdg-group-head { display:flex; align-items:center; justify-content:space-between; gap:10px; border-bottom:1px solid var(--border); padding-bottom:7px; margin-bottom:14px; }
+    .bdg-group-title { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--mid); display:flex; align-items:center; gap:8px; }
+    .bdg-subj-icon { font-size:16px; }
+    .bdg-group-count { font-family:'DM Mono',monospace; font-size:11px; color:var(--gold); font-weight:600; white-space:nowrap; }
+    .bdg-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(252px,1fr)); gap:12px; }
+
+    .bdg-card { display:flex; align-items:center; gap:13px; padding:13px 15px; border-radius:14px; background:var(--card-bg); border:1px solid var(--border); position:relative; overflow:hidden; }
+    .bdg-card.earned { border-color:color-mix(in srgb, var(--rc) 55%, var(--border)); }
+    .bdg-card.earned::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:linear-gradient(var(--rc),var(--rc2)); }
+    .bdg-card.locked { opacity:.9; }
+
+    /* Emoji in a rarity-coloured medallion (rarity ring keeps the tiers
+       visible; the emoji reads naturally in its own colours). */
+    .bdg-medal { position:relative; width:56px; height:56px; flex-shrink:0; border-radius:15px; display:flex; align-items:center; justify-content:center;
+      background:color-mix(in srgb, var(--rc) 15%, var(--card-bg)); border:2px solid var(--rc);
+      box-shadow:0 3px 12px -5px var(--rc); }
+    .bdg-emoji { font-size:27px; line-height:1; }
+    .bdg-card.r-legendary .bdg-medal { box-shadow:0 4px 18px -3px var(--rc); }
+    .bdg-card.r-mythic .bdg-medal { border-color:transparent;
+      background:
+        linear-gradient(color-mix(in srgb, var(--rc) 15%, var(--card-bg)), color-mix(in srgb, var(--rc) 15%, var(--card-bg))) padding-box,
+        conic-gradient(from 0deg,#e5589a,#e6ac2e,#4fa564,#4a86d8,#9a5cd0,#e5589a) border-box;
+      animation:bdgMythic 7s linear infinite; }
+    @keyframes bdgMythic { to { filter:hue-rotate(360deg); } }
+    .bdg-card.locked .bdg-medal { background:var(--cream); border-color:var(--border); box-shadow:none; }
+    .bdg-card.locked .bdg-emoji { filter:grayscale(1) opacity(.65); }
+
+    .bdg-meta { min-width:0; }
+    .bdg-name { font-family:'Playfair Display',serif; font-weight:700; font-size:14.5px; line-height:1.2; color:var(--ink); }
+    .bdg-card.locked .bdg-name { color:var(--mid); }
+    .bdg-desc { font-size:11.5px; color:var(--mid); line-height:1.4; margin:2px 0 7px; }
+    .bdg-tags { display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .bdg-rarity { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:.08em; text-transform:uppercase; font-weight:600; padding:2px 8px; border-radius:99px; color:#fff; background:linear-gradient(var(--rc),var(--rc2)); }
+    .bdg-card.locked .bdg-rarity { background:none; color:var(--mid); border:1px solid var(--border); }
+    .bdg-got { font-family:'DM Mono',monospace; font-size:8.5px; letter-spacing:.06em; text-transform:uppercase; color:#2d7a4f; font-weight:700; }
+
+    @media (prefers-reduced-motion: reduce) { .bdg-card.r-mythic .bdg-medal { animation:none; } }
   </style>
 </head>
 <body>
@@ -95,9 +140,9 @@
   </nav>
   <div class="header-inner">
     <div>
-      <div class="header-badge">OCR GCSE Business Studies · J204</div>
-      <h1>🏅 Badges</h1>
-      <p>Every badge you can earn across the whole course — keep practising to unlock more.</p>
+      <div class="header-badge">Your achievements</div>
+      <h1>🏅 Badge Collection</h1>
+      <p>Common to Mythic — earn them across every subject, plus a set for each subject you take. Keep practising to unlock more.</p>
     </div>
   </div>
 </header>
