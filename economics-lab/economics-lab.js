@@ -41,9 +41,17 @@
   // pageId → [{ tool, config? }]. Per-page content lives inside each module
   // keyed by pageId; this map only decides which cards a page shows.
   const PAGE_TOOLS = {
-    // Pilot pages (ECONOMICS-INTERACTIVES-PLAN.md build order 1 & 3).
-    '2-4-price': [{ tool: 'supply-demand', config: { scenarios: 'price' } }],
+    // Diagram Lab — the "draw" skill (2.2–2.4) + externality diagrams (3.8).
+    // config.focus restricts the challenge scenarios to that topic's curve/theme.
+    '2-2-demand': [{ tool: 'supply-demand', config: { focus: 'demand' } }],
+    '2-3-supply': [{ tool: 'supply-demand', config: { focus: 'supply' } }],
+    '2-4-price': [{ tool: 'supply-demand', config: { focus: 'all' } }],
+    '3-8-limitations-of-markets': [{ tool: 'supply-demand', config: { focus: 'externalities' } }],
+    // Calculation Lab — the "calculate" bullets. config.modes = that topic's sums.
     '2-6-production': [{ tool: 'calc-drills', config: { modes: ['cost', 'revenue', 'profit'] } }],
+    '2-7-the-labour-market': [{ tool: 'calc-drills', config: { modes: ['pay'] } }],
+    '3-2-low-unemployment': [{ tool: 'calc-drills', config: { modes: ['unemployment'] } }],
+    '3-4-price-stability': [{ tool: 'calc-drills', config: { modes: ['inflation'] } }],
   };
 
   const TOOL_FILES = {

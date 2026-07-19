@@ -90,10 +90,15 @@
     { text: 'A popular health study says blueberries prevent illness, and shoppers want far more of them.', curve: 'demand', dir: 1, note: 'People want more at every price → the <strong>demand</strong> curve shifts <strong>right</strong>.' },
     { text: 'A new machine lets a factory make trainers much more cheaply.', curve: 'supply', dir: 1, note: 'Lower costs let firms supply more at every price → <strong>supply</strong> shifts <strong>right</strong>.' },
     { text: 'A recession cuts household incomes, and people buy less of a normal good like restaurant meals.', curve: 'demand', dir: -1, note: 'Lower incomes cut demand for a normal good → <strong>demand</strong> shifts <strong>left</strong>.' },
-    { text: 'The government puts a new tax on sugary drinks, raising producers’ costs.', curve: 'supply', dir: -1, note: 'A tax raises firms’ costs → they supply less at every price → <strong>supply</strong> shifts <strong>left</strong> (a classic tax diagram).' },
-    { text: 'The government gives solar-panel makers a subsidy that lowers their costs.', curve: 'supply', dir: 1, note: 'A subsidy lowers costs → firms supply more at every price → <strong>supply</strong> shifts <strong>right</strong>.' },
+    { text: 'The government puts a new tax on sugary drinks, raising producers’ costs.', curve: 'supply', dir: -1, theme: 'externality', note: 'A tax raises firms’ costs → they supply less at every price → <strong>supply</strong> shifts <strong>left</strong> (a classic tax diagram).' },
+    { text: 'The government gives solar-panel makers a subsidy that lowers their costs.', curve: 'supply', dir: 1, theme: 'externality', note: 'A subsidy lowers costs → firms supply more at every price → <strong>supply</strong> shifts <strong>right</strong>.' },
     { text: 'A summer heatwave makes ice cream far more popular.', curve: 'demand', dir: 1, note: 'Tastes change towards the good → <strong>demand</strong> shifts <strong>right</strong>.' },
     { text: 'A rival product falls sharply in price, so people switch away from this good.', curve: 'demand', dir: -1, note: 'A cheaper substitute pulls buyers away → <strong>demand</strong> for this good shifts <strong>left</strong>.' },
+    // externality-specific (3.8): a tax to correct a NEGATIVE externality shifts
+    // supply left toward the social optimum; a subsidy for a POSITIVE externality
+    // shifts supply right.
+    { text: 'A factory’s pollution harms local residents, so the government taxes each unit it makes to correct this negative externality.', curve: 'supply', dir: -1, theme: 'externality', note: 'Taxing a negative externality raises the firm’s costs → <strong>supply</strong> shifts <strong>left</strong>, cutting output toward the social optimum.' },
+    { text: 'Flu vaccinations benefit everyone, not just the person vaccinated, so the government subsidises them to correct this positive externality.', curve: 'supply', dir: 1, theme: 'externality', note: 'Subsidising a positive externality lowers costs → <strong>supply</strong> shifts <strong>right</strong>, raising output toward the social optimum.' },
   ];
 
   function fmt1(n) {
@@ -323,14 +328,25 @@
     }
 
     // ── Challenge controls ───────────────────────────────────────
-    let order = SCENARIOS.map((_, i) => i);
+    // Per-page focus (config.focus): 'demand'/'supply' restrict to that curve
+    // (2.2 Demand, 2.3 Supply); 'externalities' to the tax/subsidy set (3.8);
+    // anything else uses all scenarios (2.4 Price, 2.5 Competition).
+    const focus = (ctx.config && ctx.config.focus) || 'all';
+    const pool = (function () {
+      let p = SCENARIOS;
+      if (focus === 'demand') p = SCENARIOS.filter(s => s.curve === 'demand');
+      else if (focus === 'supply') p = SCENARIOS.filter(s => s.curve === 'supply');
+      else if (focus === 'externalities') p = SCENARIOS.filter(s => s.theme === 'externality');
+      return p.length ? p : SCENARIOS;
+    })();
+    let order = pool.map((_, i) => i);
     let ci = 0, correctCount = 0, answered = false;
 
     function buildChallenge() {
       controls.innerHTML = '';
       state.demandShift = 0; state.supplyShift = 0; state.dElast = 'normal'; state.sElast = 'normal';
       answered = false;
-      const sc = SCENARIOS[order[ci]];
+      const sc = pool[order[ci]];
 
       const scEl = ui.el('<div class="ecolab-sd-scenario"><strong>Scenario ' + (ci + 1) + ' of ' + order.length + ':</strong> ' + sc.text + '</div>');
       controls.appendChild(scEl);

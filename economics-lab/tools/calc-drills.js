@@ -32,6 +32,17 @@
     const s = (Number.isInteger(v) ? v.toString() : v.toFixed(2));
     return (neg ? '−£' : '£') + s;
   }
+  function pct(n) {
+    const v = round2(n);
+    return (Number.isInteger(v) ? v.toString() : v.toFixed(2)) + '%';
+  }
+  // Display an answer in its own unit ('£' → money, '%' → percentage).
+  function showAns(value, unit) { return unit === '%' ? pct(value) : money(value); }
+
+  // extra solvers (2.7 pay, 3.2 unemployment, 3.4 inflation)
+  function netPay(gross, incomeTax, ni, pension) { return gross - (incomeTax + ni + pension); }
+  function unemploymentRate(unemployed, employed) { return unemployed / (unemployed + employed) * 100; }
+  function inflatedPrice(price, ratePct) { return price * (1 + ratePct / 100); }
 
   // ── student-input comparison (self-contained; exam-widgets.js is NOT loaded
   //    on economics pages). Strip £/$/€/%/commas/spaces, accept a bare decimal
@@ -57,6 +68,9 @@
     cost: 'Cost (TC & AC)',
     revenue: 'Revenue (TR & AR)',
     profit: 'Profit & loss',
+    pay: 'Gross & net pay',
+    unemployment: 'Unemployment rate',
+    inflation: 'Inflation & prices',
   };
 
   function pick(rng, arr) { return arr[Math.floor(rng() * arr.length)]; }
@@ -64,6 +78,13 @@
   const VC_OPTS = [2, 3, 4, 5, 6];
   const Q_OPTS = [20, 25, 40, 50, 80, 100];
   const P_OPTS = [3, 4, 5, 6, 8, 10];
+  const GROSS_OPTS = [1600, 1800, 2000, 2400, 3000];
+  const TAX_OPTS = [200, 250, 300, 400];
+  const NI_OPTS = [100, 120, 150, 200];
+  const PEN_OPTS = [50, 80, 100, 150];
+  const LF_OPTS = [2000, 2500, 4000, 5000, 8000, 10000]; // labour force
+  const RATE_OPTS = [2, 4, 5, 8, 10];                    // % (unemployment / inflation)
+  const IPRICE_OPTS = [40, 50, 80, 100, 120, 200];
 
   // Returns { prompt, answer, tol, unit, worked } — worked is HTML.
   function makeQuestion(mode, rng) {
@@ -101,6 +122,37 @@
         prompt: 'A firm sells <strong>' + q + ' units</strong> at a <strong>price of ' + money(p) + ' each</strong>. Calculate its <strong>total revenue</strong>.',
         answer: tr, tol: 0.01, unit: '£',
         worked: 'Total revenue = price × quantity<br>= ' + money(p) + ' × ' + q + ' = <strong>' + money(tr) + '</strong>.',
+      };
+    }
+    if (mode === 'pay') {
+      // 2.7: net (take-home) pay = gross − income tax − NI − pension
+      const gross = pick(rng, GROSS_OPTS), tax = pick(rng, TAX_OPTS), ni = pick(rng, NI_OPTS), pen = pick(rng, PEN_OPTS);
+      const net = netPay(gross, tax, ni, pen);
+      return {
+        prompt: 'A worker earns <strong>gross pay of ' + money(gross) + '</strong> a month. Deductions are <strong>income tax ' + money(tax) + '</strong>, <strong>National Insurance ' + money(ni) + '</strong> and a <strong>pension contribution of ' + money(pen) + '</strong>. Calculate their <strong>net (take-home) pay</strong>.',
+        answer: net, tol: 0.01, unit: '£',
+        worked: 'Net pay = gross pay − all deductions<br>= ' + money(gross) + ' − (' + money(tax) + ' + ' + money(ni) + ' + ' + money(pen) + ')<br>= ' + money(gross) + ' − ' + money(tax + ni + pen) + ' = <strong>' + money(net) + '</strong>.<br><em>Gross = before deductions; net = what actually reaches the worker.</em>',
+      };
+    }
+    if (mode === 'unemployment') {
+      // 3.2: unemployment rate = unemployed ÷ labour force × 100 (labour force = employed + unemployed)
+      const lf = pick(rng, LF_OPTS), r = pick(rng, RATE_OPTS);
+      const unemployed = Math.round(lf * r / 100), employed = lf - unemployed;
+      const rate = unemploymentRate(unemployed, employed);
+      return {
+        prompt: 'In a country <strong>' + employed.toLocaleString() + '</strong> people are employed and <strong>' + unemployed.toLocaleString() + '</strong> are unemployed. Calculate the <strong>unemployment rate</strong> (%).',
+        answer: round2(rate), tol: 0.1, unit: '%',
+        worked: 'Unemployment rate = unemployed ÷ labour force × 100<br>Labour force = employed + unemployed = ' + employed.toLocaleString() + ' + ' + unemployed.toLocaleString() + ' = ' + lf.toLocaleString() + '<br>= ' + unemployed.toLocaleString() + ' ÷ ' + lf.toLocaleString() + ' × 100 = <strong>' + pct(rate) + '</strong>.<br><em>The labour force is employed PLUS unemployed — not the whole population.</em>',
+      };
+    }
+    if (mode === 'inflation') {
+      // 3.4: effect of inflation on a price — new price = old × (1 + rate)
+      const price = pick(rng, IPRICE_OPTS), r = pick(rng, RATE_OPTS);
+      const np = inflatedPrice(price, r);
+      return {
+        prompt: 'A good costs <strong>' + money(price) + '</strong>. Over a year inflation is <strong>' + r + '%</strong>. Calculate the good’s <strong>new price</strong> after one year.',
+        answer: round2(np), tol: 0.02, unit: '£',
+        worked: 'New price = old price × (1 + inflation rate)<br>= ' + money(price) + ' × (1 + ' + r + '/100)<br>= ' + money(price) + ' × ' + (1 + r / 100) + ' = <strong>' + money(np) + '</strong>.<br><em>Inflation raises the price level: divide the % by 100, then add 1.</em>',
       };
     }
     // profit (sometimes a loss)
@@ -179,7 +231,7 @@
       input.type = 'text'; input.className = 'ecolab-calc-input'; input.autocomplete = 'off'; input.spellcheck = false;
       input.setAttribute('inputmode', 'text');
       input.setAttribute('aria-label', 'Your answer');
-      input.placeholder = q.isProfit ? 'e.g. £420 or −£50' : 'e.g. £' + '…';
+      input.placeholder = q.unit === '%' ? 'e.g. 5 or 5%' : (q.isProfit ? 'e.g. £420 or −£50' : 'e.g. £…');
       const check = ui.btn('✓ Check');
       row.appendChild(input); row.appendChild(check);
       card.appendChild(row);
@@ -194,7 +246,7 @@
         streak = ok ? streak + 1 : 0;
         refreshStat();
         fb.className = 'ecolab-calc-fb ' + (ok ? 'ok' : 'no');
-        fb.innerHTML = (ok ? '✓ Correct!' : '✗ Not quite — the answer is ' + money(q.answer) + '.') +
+        fb.innerHTML = (ok ? '✓ Correct!' : '✗ Not quite — the answer is ' + showAns(q.answer, q.unit) + '.') +
           '<div class="ecolab-calc-worked">' + q.worked + '</div>';
         const next = ui.btn('Next question →', 'secondary');
         next.addEventListener('click', newQuestion);
@@ -217,6 +269,6 @@
   }
 
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { totalCost, averageCost, totalRevenue, averageRevenue, profit, round2, money, normNum, parseNum, answerCorrect, makeQuestion, MODE_LABELS };
+    module.exports = { totalCost, averageCost, totalRevenue, averageRevenue, profit, netPay, unemploymentRate, inflatedPrice, round2, money, pct, showAns, normNum, parseNum, answerCorrect, makeQuestion, MODE_LABELS };
   }
 })();
