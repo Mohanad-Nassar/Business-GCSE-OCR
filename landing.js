@@ -112,6 +112,23 @@
     }
   }
 
+  // ── Subject Cards Spotlight Glow ──
+  var subjCards = Array.prototype.slice.call(document.querySelectorAll('.subj-card'));
+  if (subjCards.length && !reduced) {
+    var cardsGrid = document.querySelector('.subjects-grid');
+    if (cardsGrid) {
+      cardsGrid.addEventListener('mousemove', function(e) {
+        subjCards.forEach(function(card) {
+          var rect = card.getBoundingClientRect();
+          var x = e.clientX - rect.left;
+          var y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', x + 'px');
+          card.style.setProperty('--mouse-y', y + 'px');
+        });
+      });
+    }
+  }
+
   // ── Hero parallax (transform-only, rAF-throttled) ──
   var plxEls = Array.prototype.slice.call(document.querySelectorAll('[data-plx]'));
   if (plxEls.length && !reduced) {
