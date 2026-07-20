@@ -44,15 +44,38 @@
   window.addEventListener('scroll', onScrollNav, { passive: true });
   onScrollNav();
 
-  // ── Reveal on scroll ──
+  // ── Reveal on scroll & Animate progress bars ──
   var revealEls = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+
+  function triggerInnerAnimations(el) {
+    // Animate CSS progress bars inside revealed elements
+    var bars = el.querySelectorAll('.fv-bar i[data-width]');
+    for (var i = 0; i < bars.length; i++) {
+      if (reduced) {
+        bars[i].style.width = bars[i].getAttribute('data-width');
+        bars[i].style.transition = 'none';
+      } else {
+        // Small delay so the bar animates *after* the card has started revealing
+        (function(bar) {
+          setTimeout(function() {
+            bar.style.width = bar.getAttribute('data-width');
+          }, 300);
+        })(bars[i]);
+      }
+    }
+  }
+
   if (reduced || !('IntersectionObserver' in window)) {
-    revealEls.forEach(function (el) { el.classList.add('rv-in'); });
+    revealEls.forEach(function (el) {
+      el.classList.add('rv-in');
+      triggerInnerAnimations(el);
+    });
   } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) {
           en.target.classList.add('rv-in');
+          triggerInnerAnimations(en.target);
           io.unobserve(en.target);
         }
       });
@@ -105,6 +128,61 @@
     window.addEventListener('scroll', function () {
       if (!ticking) { ticking = true; requestAnimationFrame(applyPlx); }
     }, { passive: true });
+
+    // Interactive 3D tilt on hero stage
+    var heroStage = document.querySelector('.hero-stage');
+    var mockEls = document.querySelectorAll('.mock');
+
+    if (heroStage && mockEls.length) {
+      var tiltTicking = false;
+      var mouseX = 0;
+      var mouseY = 0;
+      var stageRect = null;
+
+      function updateTilt() {
+        tiltTicking = false;
+        if (!stageRect) return;
+
+        // Calculate relative mouse position (-1 to 1)
+        var x = (mouseX - stageRect.left - stageRect.width / 2) / (stageRect.width / 2);
+        var y = (mouseY - stageRect.top - stageRect.height / 2) / (stageRect.height / 2);
+
+        // Clamp values to prevent extreme rotation if mouse goes far outside
+        x = Math.max(-1, Math.min(1, x));
+        y = Math.max(-1, Math.min(1, y));
+
+        mockEls.forEach(function(el, i) {
+          // Adjust strength based on element index for variety
+          var strength = 8 + (i * 2);
+          var rotX = y * -strength;
+          var rotY = x * strength;
+
+          el.style.transform = 'translateY(calc(-1 * var(--float-y, 0px))) rotate(var(--tilt, 0deg)) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
+        });
+      }
+
+      heroStage.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (!stageRect) stageRect = heroStage.getBoundingClientRect();
+
+        if (!tiltTicking) {
+          tiltTicking = true;
+          requestAnimationFrame(updateTilt);
+        }
+      });
+
+      heroStage.addEventListener('mouseleave', function() {
+        mockEls.forEach(function(el) {
+          el.style.transform = ''; // Reset to CSS keyframe animation
+        });
+        stageRect = null;
+      });
+
+      // Update rect on scroll or resize
+      window.addEventListener('scroll', function() { stageRect = null; }, { passive: true });
+      window.addEventListener('resize', function() { stageRect = null; }, { passive: true });
+    }
   }
 
   applyStats();
