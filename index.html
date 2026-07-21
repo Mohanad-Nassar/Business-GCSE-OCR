@@ -69,6 +69,8 @@
 
 <!-- ── HERO ── -->
 <header class="hero">
+  <div class="hero-orb orb-1"></div>
+  <div class="hero-orb orb-2"></div>
   <div>
     <span class="hero-eyebrow mono rv rv-in">GCSE revision, engineered</span>
     <h1 class="rv rv-in">Revision that <span class="hl">comes back</span> until it sticks.</h1>
@@ -76,10 +78,13 @@
       calendar that reschedules every topic after 1 day, 1 week and 4 weeks — with teacher tasks,
       AI-assisted marking and live progress analytics on top.</p>
 
-    <div class="hero-video-wrapper rv rv-in rv-d2" style="margin-top: 20px; margin-bottom: 20px; border-radius: 12px; overflow: hidden; box-shadow: 0 18px 50px rgba(15, 25, 35, .10);">
-      <video autoplay loop muted playsinline style="width: 100%; display: block; max-width: 600px;">
-        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-      </video>
+    <div class="hero-video-wrapper rv rv-in rv-d2" data-plx="0.03" style="margin-top: 24px; margin-bottom: 24px; position: relative; max-width: 600px; border-radius: 16px; box-shadow: 0 18px 50px rgba(15, 25, 35, .10);">
+      <div class="video-glow-border"></div>
+      <div style="border-radius: 12px; overflow: hidden; position: relative; z-index: 1; background: var(--card);">
+        <video autoplay loop muted playsinline style="width: 100%; display: block;">
+          <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+        </video>
+      </div>
     </div>
 
     <div class="hero-ctas rv rv-in rv-d3">
@@ -90,7 +95,7 @@
   </div>
 
   <div class="hero-stage" aria-hidden="true">
-    <div class="mock mock-q" data-plx="-0.06">
+    <div class="mock tilt-card mock-q" data-plx="-0.06">
       <div class="m-label">Daily Revise · Rule of 3</div>
       <div class="m-q">Which factor shifts the demand curve to the right?</div>
       <div class="m-mastery"><i class="on1"></i><i class="on2"></i><i class="on3"></i><i></i></div>
@@ -100,13 +105,13 @@
         <div class="m-opt">A fall in consumer incomes</div>
       </div>
     </div>
-    <div class="mock mock-streak" data-plx="0.05">
+    <div class="mock tilt-card mock-streak" data-plx="0.05">
       <div class="m-label">Your streak</div>
       <div class="m-streak-big">🔥 14 days</div>
       <div class="m-xp"><i></i></div>
       <div class="m-xp-cap">Level 7 · 680 XP to next</div>
     </div>
-    <div class="mock mock-cal" data-plx="0.1">
+    <div class="mock tilt-card mock-cal" data-plx="0.1">
       <div class="m-label">This week</div>
       <div class="m-week">
         <span class="m-day">M</span><span class="m-day">T</span><span class="m-day">W</span>
@@ -143,7 +148,7 @@
   </div>
 
   <div class="frow">
-    <div class="f-visual rv" aria-hidden="true">
+    <div class="f-visual tilt-card rv" aria-hidden="true">
       <div class="fv-row"><span class="fv-pill" style="background:rgba(199,127,31,.14); color:var(--marigold-dark);">🎯 Daily Revise</span></div>
       <div class="fv-line w80"></div>
       <div class="fv-line w60"></div>
@@ -164,7 +169,7 @@
   </div>
 
   <div class="frow">
-    <div class="f-visual rv" aria-hidden="true">
+    <div class="f-visual tilt-card rv" aria-hidden="true">
       <div class="fv-chiprow">
         <span class="fv-chip on">All subjects</span><span class="fv-chip">🔁 Reviews</span><span class="fv-chip on">📋 Tasks</span>
       </div>
@@ -182,7 +187,7 @@
   </div>
 
   <div class="frow">
-    <div class="f-visual rv" aria-hidden="true">
+    <div class="f-visual tilt-card rv" aria-hidden="true">
       <div class="fv-row"><span class="fv-pill" style="background:rgba(45,122,79,.12); color:var(--eco);">✍️ 9-mark answer submitted</span></div>
       <div class="fv-line w80"></div>
       <div class="fv-line w60"></div>
@@ -199,7 +204,7 @@
   </div>
 
   <div class="frow">
-    <div class="f-visual rv" aria-hidden="true">
+    <div class="f-visual tilt-card rv" aria-hidden="true">
       <div class="fv-row"><span style="font-size:26px;">🏅</span><div><b style="font-size:14px;">Badge unlocked — Comeback</b><div style="font-size:12px; color:var(--mid);">Mastered a question you'd got wrong twice</div></div></div>
       <div class="fv-row"><span style="font-size:26px;">🔥</span><div class="fv-bar" style="flex:1"><i style="width:78%; background:linear-gradient(90deg, var(--gold), var(--marigold));"></i></div></div>
       <div class="fv-row"><span style="font-size:26px;">⚡</span><div><b style="font-size:14px;">+10 XP</b> <span style="font-size:12px; color:var(--mid);">every server-verified correct answer</span></div></div>
@@ -214,7 +219,7 @@
   </div>
 
   <div class="frow">
-    <div class="f-visual rv" aria-hidden="true">
+    <div class="f-visual tilt-card rv" aria-hidden="true">
       <div class="fv-row"><span style="font-size:12px; color:var(--mid); min-width:110px;">Class average</span><div class="fv-bar" style="flex:1"><i style="width:64%; background:var(--biz)"></i></div><b style="font-size:12px;">64%</b></div>
       <div class="fv-row"><span style="font-size:12px; color:var(--mid); min-width:110px;">2.3 Supply</span><div class="fv-bar" style="flex:1"><i style="width:41%; background:#c84b31"></i></div><b style="font-size:12px;">41%</b></div>
       <div class="fv-row"><span style="font-size:12px; color:var(--mid); min-width:110px;">🛫 Flight path</span><div class="fv-bar" style="flex:1"><i style="width:82%; background:var(--eco)"></i></div><b style="font-size:12px;">on track</b></div>
@@ -229,7 +234,7 @@
   </div>
 
   <div class="frow">
-    <div class="f-visual rv" aria-hidden="true">
+    <div class="f-visual tilt-card rv" aria-hidden="true">
       <div class="fv-row"><span class="fv-pill" style="background:var(--chrome, var(--ink)); color:#fff;">🔑 K7RQ2WXN</span><span style="font-size:12.5px; color:var(--mid);">join code — one per class</span></div>
       <div class="fv-chiprow"><span class="fv-chip on">📈 Economics</span><span class="fv-chip on">💼 Business</span><span class="fv-chip">💻 Computer Science</span></div>
       <div class="fv-row"><span style="font-size:12.5px; color:var(--mid);">One account, every subject you study.</span></div>

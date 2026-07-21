@@ -99,12 +99,57 @@
       if (y > 900) return; // hero is long gone — stop doing work
       plxEls.forEach(function (el) {
         var f = parseFloat(el.dataset.plx || '0');
-        el.style.setProperty('transform', 'translateY(' + (y * f).toFixed(1) + 'px) rotate(' + (y * f * 0.05).toFixed(2) + 'deg)');
+        // keep translate independent from transform
+        el.style.setProperty('translate', '0 ' + (y * f).toFixed(1) + 'px');
+        el.style.setProperty('--plx-rotate', (y * f * 0.05).toFixed(2) + 'deg');
       });
     }
     window.addEventListener('scroll', function () {
       if (!ticking) { ticking = true; requestAnimationFrame(applyPlx); }
     }, { passive: true });
+  }
+
+  // ── Mouse Spotlight Effect ──
+  var schoolsInner = document.querySelector('.schools-inner');
+  if (schoolsInner && !reduced) {
+    schoolsInner.addEventListener('mousemove', function (e) {
+      var rect = schoolsInner.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      schoolsInner.style.setProperty('--mouse-x', x + 'px');
+      schoolsInner.style.setProperty('--mouse-y', y + 'px');
+    });
+  }
+
+  // ── 3D Tilt Effect ──
+  var tiltEls = Array.prototype.slice.call(document.querySelectorAll('.tilt-card'));
+  if (tiltEls.length && !reduced) {
+    tiltEls.forEach(function (el) {
+      el.addEventListener('mousemove', function (e) {
+        var rect = el.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        var centerX = rect.width / 2;
+        var centerY = rect.height / 2;
+        var rotateX = ((y - centerY) / centerY) * -10;
+        var rotateY = ((x - centerX) / centerX) * 10;
+
+        el.style.setProperty('--tilt-x', rotateX + 'deg');
+        el.style.setProperty('--tilt-y', rotateY + 'deg');
+        el.style.setProperty('--tilt-scale', '1.02');
+        el.style.transition = 'transform 0.1s ease-out';
+        el.style.zIndex = '10';
+        el.classList.add('tilting');
+      });
+      el.addEventListener('mouseleave', function () {
+        el.style.setProperty('--tilt-x', '0deg');
+        el.style.setProperty('--tilt-y', '0deg');
+        el.style.setProperty('--tilt-scale', '1');
+        el.style.transition = 'transform 0.5s ease-out';
+        el.style.zIndex = '';
+        el.classList.remove('tilting');
+      });
+    });
   }
 
   applyStats();
