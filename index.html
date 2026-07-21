@@ -263,9 +263,9 @@
   </div>
   <div class="subjects-grid" id="subjectsGrid">
     <!-- rendered from the live registry; static fallback below -->
-    <div class="subj-card rv" style="--sc:#7a5c9e;"><span class="s-icon">💼</span><h3>Business</h3><div class="s-meta">GCSE</div><p>From enterprise to break-even — with real exam-style practice throughout.</p></div>
-    <div class="subj-card rv rv-d1" style="--sc:#2d7a4f;"><span class="s-icon">📈</span><h3>Economics</h3><div class="s-meta">GCSE</div><p>Markets, money and the global economy, taught for the exam you'll sit.</p></div>
-    <div class="subj-card rv rv-d2" style="--sc:#1a6b6b;"><span class="s-icon">💻</span><h3>Computer Science</h3><div class="s-meta">GCSE</div><p>Systems, networks and computational thinking — growing through the year.</p></div>
+    <div class="subj-card tilt-card rv" style="--sc:#7a5c9e;"><span class="s-icon">💼</span><h3>Business</h3><div class="s-meta">GCSE</div><p>From enterprise to break-even — with real exam-style practice throughout.</p></div>
+    <div class="subj-card tilt-card rv rv-d1" style="--sc:#2d7a4f;"><span class="s-icon">📈</span><h3>Economics</h3><div class="s-meta">GCSE</div><p>Markets, money and the global economy, taught for the exam you'll sit.</p></div>
+    <div class="subj-card tilt-card rv rv-d2" style="--sc:#1a6b6b;"><span class="s-icon">💻</span><h3>Computer Science</h3><div class="s-meta">GCSE</div><p>Systems, networks and computational thinking — growing through the year.</p></div>
   </div>
 </section>
 
@@ -332,7 +332,7 @@
       var delays = ['', ' rv-d1', ' rv-d2', ' rv-d3'];
       document.getElementById('subjectsGrid').innerHTML = subjects.map(function (s, i) {
         var esc = function (t) { return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
-        return '<div class="subj-card rv' + delays[i % delays.length] + '" style="--sc:' + esc(s.colour || '#c77f1f') + ';">' +
+        return '<div class="subj-card tilt-card rv' + delays[i % delays.length] + '" style="--sc:' + esc(s.colour || '#c77f1f') + ';">' +
           '<span class="s-icon">' + esc(s.icon || '📘') + '</span>' +
           '<h3>' + esc(s.name || s.slug) + '</h3>' +
           '<div class="s-meta">' + esc(s.level || 'GCSE') + (s.examBoard ? ' · ' + esc(s.examBoard) : '') + (s.specCode ? ' ' + esc(s.specCode) : '') + '</div>' +
