@@ -44,6 +44,28 @@ body {
 img, svg { max-width: 100%; }
 a { color: inherit; }
 
+.cursor-glow {
+  position: fixed;
+  top: 0; left: 0;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(199, 127, 31, 0.08) 0%, transparent 60%);
+  border-radius: 50%;
+  transform: translate(calc(var(--cursor-x, -500px) - 300px), calc(var(--cursor-y, -500px) - 300px));
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: var(--scroll-p, 0%);
+  background: linear-gradient(90deg, var(--marigold), var(--gold));
+  z-index: 10000;
+  pointer-events: none;
+}
+
 .mono {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
@@ -94,15 +116,16 @@ a { color: inherit; }
   font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px;
   padding: 11px 22px; border-radius: 99px; text-decoration: none; cursor: pointer;
   border: 1.5px solid transparent; transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  transform: translate(var(--magnet-x, 0px), var(--magnet-y, 0px));
 }
 .btn-solid {
   background: linear-gradient(120deg, var(--marigold), var(--marigold-dark));
   color: #fff; box-shadow: 0 8px 22px rgba(199, 127, 31, .35);
   animation: pulse-glow 3s infinite;
 }
-.btn-solid:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(199, 127, 31, .45); }
+.btn-solid:hover { transform: translate(var(--magnet-x, 0px), calc(var(--magnet-y, 0px) - 2px)); box-shadow: 0 12px 28px rgba(199, 127, 31, .45); }
 .btn-ghost { border-color: var(--border); color: var(--ink); background: color-mix(in srgb, var(--card) 55%, transparent); }
-.btn-ghost:hover { border-color: var(--marigold); color: var(--marigold-dark); }
+.btn-ghost:hover { border-color: var(--marigold); color: var(--marigold-dark); transform: translate(var(--magnet-x, 0px), var(--magnet-y, 0px)); }
 .btn-big { padding: 15px 30px; font-size: 15.5px; }
 
 /* ── Hero ── */
@@ -201,6 +224,7 @@ a { color: inherit; }
   will-change: transform;
   animation: floaty 7s ease-in-out infinite;
   transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale3d(var(--tilt-scale, 1), var(--tilt-scale, 1), 1) rotate(calc(var(--tilt, 0deg) + var(--plx-rotate, 0deg)));
+  transform-style: preserve-3d;
 }
 .mock-q { width: min(330px, 78%); top: 6%; left: 4%; z-index: 3; }
 .mock-streak { width: 220px; right: 0; top: 0; z-index: 2; animation-delay: 1.2s; }
@@ -216,6 +240,11 @@ a { color: inherit; }
 /* General tilt card class */
 .tilt-card {
   transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale3d(var(--tilt-scale, 1), var(--tilt-scale, 1), 1);
+  transform-style: preserve-3d;
+}
+
+.mock .m-label, .mock .m-q, .m-opt, .m-streak-big, .m-xp, .m-week {
+  transform: translateZ(20px);
 }
 
 .mock .m-label { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); margin-bottom: 10px; }
@@ -264,7 +293,7 @@ a { color: inherit; }
   display: flex; flex-direction: column; justify-content: center; gap: 12px;
 }
 .f-copy .f-kicker { color: var(--marigold-dark); display: inline-block; margin-bottom: 12px; }
-.f-copy h3 { font-family: 'Playfair Display', serif; font-size: clamp(21px, 2.6vw, 28px); font-weight: 800; margin-bottom: 12px; }
+.f-copy h3 { font-family: 'Playfair Display', serif; font-size: clamp(21px, 2.6vw, 28px); font-weight: 800; margin-bottom: 12px; transform: translateZ(30px); display: inline-block; }
 .f-copy p { color: var(--mid); font-size: 15px; max-width: 46ch; }
 .f-copy ul { margin: 14px 0 0 18px; color: var(--mid); font-size: 14px; display: grid; gap: 7px; }
 .f-copy li strong { color: var(--ink); }
@@ -293,6 +322,7 @@ a { color: inherit; }
   transition: transform .2s ease, box-shadow .2s ease;
 }
 .subj-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: var(--shadow); }
+.subj-card .s-icon, .subj-card h3 { transform: translateZ(30px); display: inline-block; }
 .subj-card .s-icon { font-size: 30px; }
 .subj-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin: 10px 0 4px; }
 .subj-card .s-meta { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--mid); }

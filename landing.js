@@ -91,21 +91,42 @@
 
   // ── Hero parallax (transform-only, rAF-throttled) ──
   var plxEls = Array.prototype.slice.call(document.querySelectorAll('[data-plx]'));
-  if (plxEls.length && !reduced) {
+  var scrollProgress = document.querySelector('.scroll-progress');
+  if (!reduced) {
     var ticking = false;
     function applyPlx() {
       ticking = false;
       var y = window.scrollY;
-      if (y > 900) return; // hero is long gone — stop doing work
-      plxEls.forEach(function (el) {
-        var f = parseFloat(el.dataset.plx || '0');
-        // keep translate independent from transform
-        el.style.setProperty('translate', '0 ' + (y * f).toFixed(1) + 'px');
-        el.style.setProperty('--plx-rotate', (y * f * 0.05).toFixed(2) + 'deg');
-      });
+
+      if (scrollProgress) {
+        var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var p = docHeight > 0 ? (y / docHeight) * 100 : 0;
+        scrollProgress.style.setProperty('--scroll-p', p + '%');
+      }
+
+      if (plxEls.length && y <= 900) {
+        plxEls.forEach(function (el) {
+          var f = parseFloat(el.dataset.plx || '0');
+          // keep translate independent from transform
+          el.style.setProperty('translate', '0 ' + (y * f).toFixed(1) + 'px');
+          el.style.setProperty('--plx-rotate', (y * f * 0.05).toFixed(2) + 'deg');
+        });
+      }
     }
     window.addEventListener('scroll', function () {
       if (!ticking) { ticking = true; requestAnimationFrame(applyPlx); }
+    }, { passive: true });
+
+    // Set initial scroll progress on load
+    applyPlx();
+  }
+
+  // ── Global Cursor Glow ──
+  var cursorGlow = document.querySelector('.cursor-glow');
+  if (cursorGlow && !reduced) {
+    window.addEventListener('mousemove', function (e) {
+      cursorGlow.style.setProperty('--cursor-x', e.clientX + 'px');
+      cursorGlow.style.setProperty('--cursor-y', e.clientY + 'px');
     }, { passive: true });
   }
 
@@ -118,6 +139,24 @@
       var y = e.clientY - rect.top;
       schoolsInner.style.setProperty('--mouse-x', x + 'px');
       schoolsInner.style.setProperty('--mouse-y', y + 'px');
+    });
+  }
+
+  // ── Magnetic Buttons ──
+  var btnEls = Array.prototype.slice.call(document.querySelectorAll('.btn'));
+  if (btnEls.length && !reduced) {
+    btnEls.forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var rect = btn.getBoundingClientRect();
+        var x = e.clientX - rect.left - rect.width / 2;
+        var y = e.clientY - rect.top - rect.height / 2;
+        btn.style.setProperty('--magnet-x', (x * 0.4) + 'px');
+        btn.style.setProperty('--magnet-y', (y * 0.4) + 'px');
+      });
+      btn.addEventListener('mouseleave', function () {
+        btn.style.setProperty('--magnet-x', '0px');
+        btn.style.setProperty('--magnet-y', '0px');
+      });
     });
   }
 
