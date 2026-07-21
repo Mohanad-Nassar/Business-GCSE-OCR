@@ -99,7 +99,7 @@
       if (y > 900) return; // hero is long gone — stop doing work
       plxEls.forEach(function (el) {
         var f = parseFloat(el.dataset.plx || '0');
-        el.style.setProperty('translate', '0 ' + (y * f).toFixed(1) + 'px');
+        el.style.setProperty('transform', 'translateY(' + (y * f).toFixed(1) + 'px) rotate(' + (y * f * 0.05).toFixed(2) + 'deg)');
       });
     }
     window.addEventListener('scroll', function () {

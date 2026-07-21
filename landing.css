@@ -84,6 +84,11 @@ a { color: inherit; }
 .nav-links a { text-decoration: none; font-size: 13.5px; font-weight: 600; color: var(--mid); }
 .nav-links a:hover { color: var(--ink); }
 .nav-cta { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(199, 127, 31, 0.4); }
+  50% { box-shadow: 0 0 30px rgba(199, 127, 31, 0.8); }
+}
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px;
@@ -93,6 +98,7 @@ a { color: inherit; }
 .btn-solid {
   background: linear-gradient(120deg, var(--marigold), var(--marigold-dark));
   color: #fff; box-shadow: 0 8px 22px rgba(199, 127, 31, .35);
+  animation: pulse-glow 3s infinite;
 }
 .btn-solid:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(199, 127, 31, .45); }
 .btn-ghost { border-color: var(--border); color: var(--ink); background: color-mix(in srgb, var(--card) 55%, transparent); }
@@ -220,7 +226,7 @@ a { color: inherit; }
   border-radius: var(--radius); padding: 26px 24px; box-shadow: 0 10px 30px rgba(15, 25, 35, .06);
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.subj-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.subj-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: var(--shadow); }
 .subj-card .s-icon { font-size: 30px; }
 .subj-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin: 10px 0 4px; }
 .subj-card .s-meta { font-family: 'DM Mono', monospace; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--mid); }
