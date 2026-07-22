@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.2 Memory and Storage</div>
             <h1>1.2.6 Data Storage: Images</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.2.6 Data Storage: Images — placeholder, content not yet written
+    //  DATA: 1.2.6 Data Storage: Images
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-2-6-data-storage-images',
@@ -268,21 +268,970 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.2.6 Data Storage: Images</strong> will appear here soon.</p>`
+            title: "How is a bitmap image stored as binary?",
+            tag: "Key concept",
+            content: `<h4>Pixels: the grid that makes up a bitmap image</h4>
+<ul>
+<li>A <strong>bitmap image</strong> is made up of a grid of tiny coloured dots called <strong>pixels</strong> ("picture elements"). Zoom in far enough on any digital photo or icon and you can see the individual pixels that make it up.</li>
+<li>Every pixel stores a <strong>binary code</strong> that represents its own colour. The whole image is stored as one long sequence of these binary codes, one pixel after another.</li>
+<li>To display the image again, the software reads the binary codes back out in the same order and colours in each pixel accordingly — rebuilding the original grid.</li>
+</ul>
+<h4>A simple example: a 1-bit (monochrome) pixel grid</h4>
+<ul>
+<li>With a <strong>colour depth of just 1 bit</strong>, each pixel can only be one of <strong>two</strong> colours — shown below as a filled square (storing 1) or an outlined square (storing 0). This 5×5 grid stores a simple plus-sign shape this way:</li>
+</ul>
+<svg viewBox="0 0 172 172" width="180" height="180" role="img" aria-label="A 5 by 5 grid of pixels forming a plus-sign shape, where filled squares are pixels storing binary value 1 and outlined squares are pixels storing binary value 0">
+<rect x="2" y="2" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="36" y="2" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="70" y="2" width="30" height="30" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+<rect x="104" y="2" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="138" y="2" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="2" y="36" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="36" y="36" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="70" y="36" width="30" height="30" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+<rect x="104" y="36" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="138" y="36" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="2" y="70" width="30" height="30" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+<rect x="36" y="70" width="30" height="30" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+<rect x="70" y="70" width="30" height="30" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+<rect x="104" y="70" width="30" height="30" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+<rect x="138" y="70" width="30" height="30" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+<rect x="2" y="104" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="36" y="104" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="70" y="104" width="30" height="30" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+<rect x="104" y="104" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="138" y="104" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="2" y="138" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="36" y="138" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="70" y="138" width="30" height="30" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+<rect x="104" y="138" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+<rect x="138" y="138" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/>
+</svg>
+<p>Reading the middle row left to right gives the binary pattern <strong>1 1 1 1 1</strong> — five pixels, five bits. A real photograph works exactly the same way, just with a much bigger grid and many more bits stored per pixel.</p>
+<h4>Why the grid order matters</h4>
+<ul>
+<li>Every pixel's binary code must be stored in the <strong>same fixed order</strong> (usually left-to-right, top-to-bottom) so the software knows exactly which code belongs to which position in the grid. Get the order wrong and the picture is scrambled, even if every individual colour code is correct.</li>
+</ul>`,
+            readCheck: {
+                q: "What is a pixel?",
+                opts: ["The smallest single point of colour that makes up a bitmap image", "The total number of pixels used to measure an image's resolution", "A unit used to measure how much free storage space is left on a device", "The file extension used to identify which image format has been used"],
+                ans: 0,
+                explain: "A bitmap image is built from a grid of pixels — each pixel is the smallest single point of colour in that grid, storing a binary code for its own colour."
+            }
+        },
+        {
+            title: "What is colour depth, and how many colours can it represent?",
+            tag: "Calculation",
+            content: `<h4>Colour depth: bits per pixel</h4>
+<ul>
+<li><strong>Colour depth</strong> is the number of <strong>bits</strong> used to store the colour of a <strong>single pixel</strong>. A bigger colour depth means more bits are spent describing each pixel's colour.</li>
+<li>Because each extra bit doubles the number of different binary codes available, the number of possible colours a colour depth of <strong>n</strong> bits can represent is <strong>2<sup>n</sup></strong>.</li>
+</ul>
+<table>
+<tr><th>Colour depth</th><th>Calculation</th><th>Possible colours</th></tr>
+<tr><td>1 bit</td><td>2<sup>1</sup></td><td>2 (e.g. black and white)</td></tr>
+<tr><td>2 bits</td><td>2<sup>2</sup></td><td>4</td></tr>
+<tr><td>4 bits</td><td>2<sup>4</sup></td><td>16</td></tr>
+<tr><td>8 bits</td><td>2<sup>8</sup></td><td>256</td></tr>
+<tr><td>24 bits</td><td>2<sup>24</sup></td><td>16,777,216 ("true colour")</td></tr>
+</table>
+<h4>Worked example: finding the minimum colour depth needed</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>A designer needs each pixel to display at least 16 different colours. Try increasing colour depths and calculate 2 to the power of n until it reaches 16.</td><td>2<sup>4</sup> = 16</td></tr>
+<tr><td>2</td><td>State the minimum colour depth needed.</td><td>4 bits</td></tr>
+</table>
+<h4>Why this matters for the exam</h4>
+<ul>
+<li>You may be asked to go either direction: calculate <strong>how many colours</strong> a given colour depth allows (2<sup>n</sup>), or work out the <strong>minimum colour depth</strong> needed for a target number of colours (find the smallest n where 2<sup>n</sup> is big enough).</li>
+</ul>`,
+            readCheck: {
+                q: "A retro game uses a colour depth of 5 bits per pixel. How many different colours can each pixel display?",
+                opts: ["16", "32", "64", "10"],
+                ans: 1,
+                explain: "2 to the power of the colour depth gives the number of possible colours: 2 to the power of 5 = 32."
+            }
+        },
+        {
+            title: "What is resolution, and how does it affect an image?",
+            tag: "Key concept",
+            content: `<h4>Resolution: the total pixel count</h4>
+<ul>
+<li><strong>Resolution</strong> is the total number of pixels that make up an image, found by multiplying its <strong>width</strong> (in pixels) by its <strong>height</strong> (in pixels).</li>
+<li>A higher resolution means the image is made up of <strong>more</strong>, smaller pixels — so it can show finer detail. A lower resolution means fewer, larger pixels, which can make the image look blocky when it is enlarged.</li>
+</ul>
+<h4>Worked example</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>An image is 150 pixels wide and 100 pixels tall. Multiply width × height.</td><td>150 × 100 = 15,000 pixels</td></tr>
+<tr><td>2</td><td>State the resolution.</td><td>15,000 pixels</td></tr>
+</table>
+<h4>Resolution is not the same as colour depth</h4>
+<ul>
+<li>These two terms are easy to mix up, but they describe completely different things: <strong>resolution</strong> is HOW MANY pixels there are; <strong>colour depth</strong> is how many BITS are used for each individual pixel's colour. An image can have a high resolution with a low colour depth (lots of pixels, few colours), or the other way round.</li>
+</ul>`,
+            readCheck: {
+                q: "An image measures 150 pixels wide and 100 pixels tall. What is its resolution (total number of pixels)?",
+                opts: ["15,000 pixels", "1,500 pixels", "25,000 pixels", "150,000 pixels"],
+                ans: 0,
+                explain: "Resolution = width × height = 150 × 100 = 15,000 pixels."
+            }
+        },
+        {
+            title: "Quality vs file size: the trade-off from colour depth and resolution",
+            tag: "Comparison",
+            content: `<h4>Both factors push quality and file size the same way</h4>
+<ul>
+<li>Increasing <strong>colour depth</strong> allows more possible colours per pixel, giving smoother, more realistic colour — but it means more bits are stored for every single pixel, so the file gets <strong>bigger</strong>.</li>
+<li>Increasing <strong>resolution</strong> shows more fine detail, because there are more pixels in the grid — but there is also more pixel data to store overall, so the file gets <strong>bigger</strong> too.</li>
+<li>There is no way to improve quality using either factor without also increasing the file size — it is always a trade-off.</li>
+</ul>
+<h4>Worked example: doubling resolution</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>An image is 100 × 100 pixels with an 8-bit colour depth. Find the file size in bits, then bytes, then KB.</td><td>8 × 100 × 100 = 80,000 bits → 10,000 bytes → 10 KB</td></tr>
+<tr><td>2</td><td>Double BOTH the height and width to 200 × 200 pixels, keeping the colour depth the same. Recalculate.</td><td>8 × 200 × 200 = 320,000 bits → 40,000 bytes → 40 KB</td></tr>
+<tr><td>3</td><td>Compare the two file sizes.</td><td>40 KB is 4× the original 10 KB</td></tr>
+</table>
+<h4>Why doubling resolution QUADRUPLES the file size</h4>
+<ul>
+<li>Doubling both height and width doesn't just double the pixel count — it multiplies it by <strong>2 × 2 = 4</strong>, because BOTH dimensions have doubled. This is a common trap: many students expect doubling resolution to double the file size, when it actually roughly quadruples it (when both height and width are doubled).</li>
+</ul>`,
+            readCheck: {
+                q: "An image's file size is 10 KB. If you double BOTH its height and width in pixels, keeping the colour depth the same, what is its new approximate file size?",
+                opts: ["20 KB", "40 KB", "10 KB", "80 KB"],
+                ans: 1,
+                explain: "Doubling both dimensions multiplies the pixel count by 2 × 2 = 4, so the file size roughly quadruples: 10 KB × 4 = 40 KB."
+            }
+        },
+        {
+            title: "Metadata: why is extra information stored with an image file?",
+            tag: "Key concept",
+            content: `<h4>What is metadata?</h4>
+<ul>
+<li><strong>Metadata</strong> is extra information stored alongside an image's pixel data, describing the image itself rather than being part of the picture. Typical metadata for an image file includes its <strong>width</strong>, <strong>height</strong>, <strong>colour depth</strong> and <strong>file type</strong> (the image format used).</li>
+</ul>
+<h4>Why metadata is essential, not optional</h4>
+<ul>
+<li>Without knowing the <strong>width</strong>, the software reading the file would have no way to tell where one row of pixels ends and the next one begins — the pixel data is really just one long string of bits with no natural breaks.</li>
+<li>Without knowing the <strong>colour depth</strong>, the software would not know how many bits to read for each individual pixel's colour code, so it could not correctly split the pixel data into separate pixels at all.</li>
+<li>Without the <strong>file type</strong>, the software would not know which set of rules to use to interpret the stored bits in the first place.</li>
+<li>In short: the raw pixel data on its own is meaningless without the metadata needed to correctly reconstruct it back into a grid.</li>
+</ul>
+<h4>Metadata adds to the file size</h4>
+<ul>
+<li>Because metadata is extra information on top of the pixel data, a real image file is always <strong>slightly bigger</strong> than the size given by colour depth × height × width alone. Exam calculations usually ignore this small extra amount unless a question specifically tells you to include it.</li>
+</ul>`,
+            readCheck: {
+                q: "Which piece of information is stored as part of an image file's metadata?",
+                opts: ["The width and height of the image, in pixels", "The exact colour value of every single pixel in the image", "The name of the software currently being used to view the file", "The total amount of free storage space left on the device"],
+                ans: 0,
+                explain: "Metadata describes the image itself — such as its width, height, colour depth and file type — so the software can correctly rebuild the pixel grid. The pixel colour values are the picture data itself, not metadata."
+            }
+        },
+        {
+            title: "Worked example: calculating an image file's size",
+            tag: "Worked example",
+            content: `<h4>The formula</h4>
+<ul>
+<li><strong>File size (bits) = colour depth (bits per pixel) × height (pixels) × width (pixels)</strong></li>
+<li>Always calculate the answer in <strong>bits</strong> first, then convert into whatever unit the question actually asks for.</li>
+</ul>
+<h4>Worked example</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>An image is 60 pixels tall and 50 pixels wide, with a colour depth of 8 bits. Multiply colour depth × height × width.</td><td>8 × 60 × 50 = 24,000 bits</td></tr>
+<tr><td>2</td><td>Convert bits into bytes by dividing by 8.</td><td>24,000 ÷ 8 = 3,000 bytes</td></tr>
+<tr><td>3</td><td>Convert bytes into a sensible unit by dividing by 1,000.</td><td>3,000 ÷ 1,000 = 3 KB</td></tr>
+</table>
+<h4>Show every step, every time</h4>
+<ul>
+<li>OCR-style marking usually splits calculation marks between the <strong>working</strong> and the <strong>final answer</strong> — so writing down all three steps (multiply, then ÷8, then ÷1,000) protects your marks even if you slip on the arithmetic somewhere along the way.</li>
+<li>Remember the real file will be a little bigger than this because of <strong>metadata</strong> — but unless a question tells you to include it, calculate using colour depth × height × width alone.</li>
+</ul>`,
+            readCheck: {
+                q: "An image is 40 pixels tall and 25 pixels wide, with a colour depth of 8 bits. What is its file size in bytes?",
+                opts: ["1,000 bytes", "8,000 bytes", "125 bytes", "10,000 bytes"],
+                ans: 0,
+                explain: "8 × 40 × 25 = 8,000 bits. 8,000 ÷ 8 = 1,000 bytes."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "What is a pixel?",
+            opts: ["The smallest single point of colour in a bitmap image's grid", "The total amount of storage space an image file takes up on a disk", "A unit used to measure how fast a graphics card can render images", "The file extension that identifies which image format has been used"],
+            ans: 0,
+            explain: "A bitmap image is built from a grid of pixels — each pixel is the smallest single point of colour in that grid."
+        },
+        {
+            q: "What does 'colour depth' measure?",
+            opts: ["The number of bits used to store the colour of one pixel", "The number of pixels that make up the width of an image", "The number of separate image files a memory card can hold", "The number of colours a printer can physically produce"],
+            ans: 0,
+            explain: "Colour depth is the number of bits allocated to store each individual pixel's colour value."
+        },
+        {
+            q: "What does 'resolution' measure in a bitmap image?",
+            opts: ["The total number of pixels that make up the image (width × height)", "The number of bits that are used to store the colour value of a single individual pixel", "The physical size of the screen the image is being viewed on", "The amount of compression that has been applied to the file"],
+            ans: 0,
+            explain: "Resolution is the total number of pixels in the image, found by multiplying its width in pixels by its height in pixels."
+        },
+        {
+            q: "A pixel is stored using a colour depth of 3 bits. How many different colours can that pixel display?",
+            opts: ["6", "8", "3", "9"],
+            ans: 1,
+            explain: "2 to the power of the colour depth gives the number of possible colours: 2 to the power of 3 = 8."
+        },
+        {
+            q: "An image uses a colour depth of 7 bits per pixel. How many different colours can each pixel represent?",
+            opts: ["128", "64", "256", "14"],
+            ans: 0,
+            explain: "2 to the power of 7 = 128. A common mistake is confusing this with the previous or next power of 2 (2 to the power of 6 = 64, 2 to the power of 8 = 256)."
+        },
+        {
+            q: "Which calculation correctly finds an image's total resolution?",
+            opts: ["Multiply the image's height in pixels by its width in pixels", "Multiply the colour depth by the total number of pixels contained in just one single row of the image", "Divide the file size in bits by the colour depth used for each pixel", "Add the image's height in pixels to its width in pixels"],
+            ans: 0,
+            explain: "Resolution = height (pixels) × width (pixels) — the total count of pixels in the grid."
+        },
+        {
+            q: "Increasing an image's colour depth, with resolution unchanged, has what effect?",
+            opts: ["More possible colours per pixel and a larger file size", "More possible colours per pixel and a smaller file size", "More pixels in the image and a larger file size", "Fewer possible colours per pixel and no change in file size"],
+            ans: 0,
+            explain: "A higher colour depth stores more bits per pixel, so more colours can be represented — but more bits also means a bigger file."
+        },
+        {
+            q: "Increasing an image's resolution, with colour depth unchanged, has what effect?",
+            opts: ["More pixels showing finer detail, and a larger file size", "Fewer pixels showing finer detail, and a smaller file size", "The same number of pixels, but each one stores more colours", "No change occurs to either the file size or the level of detail shown"],
+            ans: 0,
+            explain: "A higher resolution means more pixels are stored, showing more detail — but also increasing the file size, since there is more pixel data to store."
+        },
+        {
+            q: "An icon is 30 pixels wide and 20 pixels tall, with a colour depth of 8 bits. What is its file size in bytes?",
+            opts: ["600 bytes", "4,800 bytes", "2,400 bytes", "75 bytes"],
+            ans: 0,
+            explain: "8 × 30 × 20 = 4,800 bits. 4,800 ÷ 8 = 600 bytes."
+        },
+        {
+            q: "A photo has a resolution of 200 × 100 pixels and a colour depth of 4 bits. What is its file size in KB?",
+            opts: ["10 KB", "80 KB", "1.25 KB", "20 KB"],
+            ans: 0,
+            explain: "4 × 200 × 100 = 80,000 bits. 80,000 ÷ 8 = 10,000 bytes. 10,000 ÷ 1,000 = 10 KB."
+        },
+        {
+            q: "Which of these is stored as metadata alongside an image's pixel data, rather than being part of the pixel data itself?",
+            opts: ["The image's width and height in pixels", "The exact binary colour code of the very first pixel", "The exact binary colour code of the very last pixel", "The binary colour codes of every pixel in the middle row"],
+            ans: 0,
+            explain: "Metadata stores information ABOUT the image (like its width and height) — the pixel data itself is the actual grid of colour values, stored separately."
+        },
+        {
+            q: "Which statement about metadata and file size is correct?",
+            opts: ["Real image files are usually a little bigger than the pixel data alone", "Metadata replaces the need to store any of the image's pixel data, shrinking the overall file size a great deal", "Metadata is only ever added to a file when the colour depth used is above 8 bits per pixel", "Storing metadata alongside an image removes any need to know its colour depth afterwards"],
+            ans: 0,
+            explain: "Metadata (width, height, colour depth, file type, etc.) is extra information stored on top of the pixel data, so real files are a little larger than colour depth × height × width alone suggests."
+        }
+    ];
+
+    const matchData = [
+        { term: "Pixel", def: "The smallest single point of colour in a bitmap image" },
+        { term: "Colour depth", def: "The number of bits used to store one pixel's colour" },
+        { term: "Resolution", def: "The total number of pixels that make up an image (height × width)" },
+        { term: "Metadata", def: "Extra information stored with an image, such as width, height, colour depth and file type" },
+        { term: "2 to the power of n rule", def: "The formula for how many colours a colour depth of n bits can represent" },
+        { term: "1-bit colour depth", def: "Represents exactly 2 colours" },
+        { term: "8-bit colour depth", def: "Represents 256 colours" },
+        { term: "Image file-size formula", def: "Colour depth × height (pixels) × width (pixels)" },
+        { term: "Effect of higher colour depth on quality", def: "More possible colours per pixel, so smoother colour gradients" },
+        { term: "Effect of higher colour depth on file size", def: "More bits stored per pixel, so a bigger file" },
+        { term: "Effect of higher resolution on quality", def: "More pixels, so finer visible detail" },
+        { term: "Effect of higher resolution on file size", def: "More pixel data stored overall, so a bigger file" },
+        { term: "Converting bits to bytes", def: "Divide the total number of bits by 8" },
+        { term: "Why real files are bigger than the raw pixel-data calculation", def: "Because metadata is stored alongside the pixel data" }
+    ];
+
+    const fibData = [
+        {
+            display: "A bitmap image is made up of a grid of _____, each one storing a binary colour value.",
+            blanks: { B1: "pixels" }
+        },
+        {
+            display: "The number of bits used to store the colour of a single pixel is called the _____.",
+            blanks: { B1: "colour depth" }
+        },
+        {
+            display: "A colour depth of 5 bits can represent _____ different colours (2 to the power of 5).",
+            blanks: { B1: "32" }
+        },
+        {
+            display: "Resolution is calculated by multiplying an image's width in pixels by its _____ in pixels.",
+            blanks: { B1: "height" }
+        },
+        {
+            display: "The formula for an image's file size in bits is colour depth × height × _____.",
+            blanks: { B1: "width" }
+        },
+        {
+            display: "To convert an image's file size from bits into bytes, you divide by _____.",
+            blanks: { B1: "8" }
+        },
+        {
+            display: "Metadata stored with an image includes its width, height, colour depth and file _____.",
+            blanks: { B1: "type" }
+        },
+        {
+            display: "Doubling both the height and width of an image roughly _____ its file size.",
+            blanks: { B1: "quadruples" }
+        }
+    ];
+    const fibWords = ["pixels", "colour depth", "32", "height", "width", "8", "type", "quadruples"];
+
+    const tfData = [
+        {
+            statement: "A bitmap image is made up of a grid of pixels.",
+            answer: true,
+            explanation: "Correct — every bitmap image is a grid of pixels, each storing a binary colour value."
+        },
+        {
+            statement: "Colour depth is the number of pixels that make up an image's width.",
+            answer: false,
+            explanation: "That describes part of resolution, not colour depth. Colour depth is the number of BITS used to store one pixel's colour."
+        },
+        {
+            statement: "A colour depth of 4 bits can represent 16 different colours.",
+            answer: true,
+            explanation: "Correct — 2 to the power of 4 = 16."
+        },
+        {
+            statement: "Increasing an image's resolution, with colour depth unchanged, increases its file size.",
+            answer: true,
+            explanation: "Correct — more pixels means more pixel data to store, so the file size increases."
+        },
+        {
+            statement: "More pixels in an image always produces better quality, with no other consequence to consider.",
+            answer: false,
+            explanation: "More pixels usually does improve detail, but it isn't consequence-free — more pixels also means a bigger file size, which is why 'more pixels = better, full stop' is a common misconception."
+        },
+        {
+            statement: "The formula for an image's file size in bits is colour depth × height × width.",
+            answer: true,
+            explanation: "Correct — file size (bits) = colour depth × height × width."
+        },
+        {
+            statement: "A file-size calculation for an image should be left in bits as the final answer, even if the question asks for KB.",
+            answer: false,
+            explanation: "The formula gives bits first, but that is only the first step — you must convert (÷8 for bytes, ÷1,000 per unit after that) into whatever unit the question actually asks for."
+        },
+        {
+            statement: "Metadata is not needed to correctly reconstruct an image from its stored binary data.",
+            answer: false,
+            explanation: "Metadata (such as width, height and colour depth) is essential — without it, software could not correctly split the raw pixel data back into the right grid."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Believing that more pixels always means a better image, without thinking about the resulting file size.",
+            correct: "More pixels (a higher resolution) does usually improve detail — but it also increases the <strong>file size</strong>, because there is more pixel data to store. Quality and file size always move together, so \"more pixels is always simply better\" ignores the real storage cost.",
+            readCheck: {
+                q: "Is it true that increasing resolution improves an image with no downside at all?",
+                opts: ["No — it also increases the file size, since more pixel data has to be stored", "Yes — resolution has no effect at all on an image's file size, it only ever affects quality", "No — increasing resolution actually makes an image lower quality", "Yes — but only for images using a colour depth below 8 bits"],
+                ans: 0,
+                explain: "A higher resolution means more pixels, which means more pixel data to store — so the file size also increases. There is always a trade-off."
+            }
+        },
+        {
+            wrong: "Thinking a colour depth of n bits gives n possible colours — e.g. assuming 4 bits means 4 colours.",
+            correct: "It is <strong>2 to the power of n</strong>, not n. A colour depth of 4 bits gives 2<sup>4</sup> = <strong>16</strong> possible colours, not 4. Each extra bit DOUBLES the number of colours available, rather than adding a fixed amount.",
+            readCheck: {
+                q: "A colour depth of 4 bits is used. How many different colours can each pixel represent?",
+                opts: ["4", "8", "16", "20"],
+                ans: 2,
+                explain: "2 to the power of 4 = 16, not 4. Colour depth and number of colours are related by 2 to the power of n, not a simple multiplication."
+            }
+        },
+        {
+            wrong: "Confusing colour depth with resolution — describing colour depth as 'the number of pixels in the image'.",
+            correct: "<strong>Colour depth</strong> is the number of bits used for ONE pixel's colour. <strong>Resolution</strong> is the total number of pixels in the whole image (height × width). They are independent — an image can have a high resolution with a low colour depth, or the other way round.",
+            readCheck: {
+                q: "Which statement correctly distinguishes colour depth from resolution?",
+                opts: ["Colour depth is bits per pixel; resolution is the total number of pixels in the image", "Colour depth and resolution both measure exactly the same thing", "Resolution is bits per pixel; colour depth is the total number of pixels in the image instead", "Colour depth measures screen size; resolution measures file type"],
+                ans: 0,
+                explain: "Colour depth = bits used per pixel's colour. Resolution = total pixel count (height × width). They are two separate, independent properties of an image."
+            }
+        },
+        {
+            wrong: "Leaving a file-size calculation answer in bits, because the multiplication already produced 'a number' that looks like an answer.",
+            correct: "Colour depth × height × width always gives the answer in <strong>bits</strong> first — that is only the first step. You must then divide by 8 to reach bytes, and keep dividing by 1,000 for each unit up the ladder until you reach the unit the question actually asked for.",
+            readCheck: {
+                q: "A calculation gives 24,000 bits, and the question asks for the answer in KB. What should you do next?",
+                opts: ["Divide by 8 to get bytes, then divide by 1,000 to get KB", "Write down 24,000 as the final answer, already correct in KB", "Multiply the bits total by 8 to reach bytes", "Divide the bits total by 1,000 only, then stop working"],
+                ans: 0,
+                explain: "24,000 bits ÷ 8 = 3,000 bytes, then ÷ 1,000 = 3 KB. Both conversion steps are needed to reach the unit asked for."
+            }
+        },
+        {
+            wrong: "Assuming doubling an image's resolution (both height and width) only doubles the file size.",
+            correct: "Doubling BOTH height and width multiplies the total pixel count by <strong>2 × 2 = 4</strong>, not 2 — so the file size roughly QUADRUPLES, not doubles. Only doubling a single dimension (just the width, say) would double the pixel count.",
+            readCheck: {
+                q: "An 8-bit image is 50 × 50 pixels. Both its height and width are doubled to 100 × 100 pixels. What happens to the file size?",
+                opts: ["It roughly doubles", "It roughly quadruples", "It stays exactly the same", "It is cut roughly in half"],
+                ans: 1,
+                explain: "Doubling both dimensions multiplies the pixel count by 2 × 2 = 4, so the file size roughly quadruples, not doubles."
+            }
+        },
+        {
+            wrong: "Thinking metadata is optional extra information that could be deleted without affecting how the image displays.",
+            correct: "Metadata (especially the <strong>width</strong>, <strong>height</strong> and <strong>colour depth</strong>) is required to correctly decode the pixel data. Without it, the software has no way to know where one row of pixels ends or how many bits belong to each pixel — the raw data becomes meaningless.",
+            readCheck: {
+                q: "What would happen if an image file's metadata (width, height, colour depth) were removed, leaving only the raw pixel data?",
+                opts: ["The software could no longer correctly rebuild the pixel grid from the data", "Nothing at all — the image would carry on displaying exactly as it did before, with no problems", "The file size would increase to compensate", "The image would automatically display in black and white"],
+                ans: 0,
+                explain: "Without metadata like width and colour depth, software cannot tell where rows of pixels begin and end, or how many bits belong to each pixel — so it cannot correctly reconstruct the image."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "Show-your-working ladder: the image file-size calculation",
+            pills: ["AO2", "2 marks", "Working + answer", "Own-figure rule"],
+            content: `<p>A typical question: <em>"A photo is 40 pixels wide and 30 pixels tall, with a colour depth of 8 bits per pixel. Calculate the file size in bytes. Show your working."</em> [2 marks] Here is the same answer at every level:</p>
+
+<p><strong>❌ 0 marks:</strong> "1,200 bytes"</p>
+<ul>
+<li>No working shown. Even a correct final answer with nothing behind it risks losing the working mark entirely if it happens to be wrong.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "8 × 40 × 30 = 9,600"</p>
+<ul>
+<li>Valid working is shown (1 mark), but the answer was never converted into bytes and stated as a final answer — the second mark is for the CONVERTED answer in the unit asked for.</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "8 × 40 × 30 = 9,600 bits <strong>(1)</strong>. 9,600 ÷ 8 = 1,200 bytes <strong>(1)</strong>."</p>
+
+<p><strong>Why this matters even if your arithmetic slips:</strong> OCR-style marking separates the WORKING mark from the ANSWER mark. If your method is correct but you slip on the final division, you can still keep the working mark — but only if you actually wrote the working down.</p>`,
+            readCheck: {
+                q: "You calculate 8 × 40 × 30 = 9,600 correctly, but then wrongly divide by 100 instead of 8 and write '96 bytes'. What mark do you get out of 2?",
+                opts: ["0, because the final stated answer is wrong", "1 — the working mark for the correct multiplication step", "2, since your working clearly shows you understood the method", "It depends entirely on which calculator you used"],
+                ans: 1,
+                explain: "The multiplication step (8 × 40 × 30 = 9,600 bits) is valid working, so it earns the working mark even though the final conversion — and therefore the answer mark — was wrong."
+            }
+        },
+        {
+            type: "tip",
+            title: "2 to the power of n colours: don't just double the colour depth",
+            pills: ["AO1", "1–2 marks", "Calculation", "Strategy"],
+            content: `<p>Colour depth questions trip students up in one of two directions — going from colour depth to colours, or colours back to colour depth. Both need the SAME rule: <strong>2 to the power of the colour depth</strong>, never the colour depth multiplied by 2.</p>
+
+<p><strong>Direction 1 — colour depth → number of colours:</strong> raise 2 to the power of the given colour depth. A colour depth of 5 bits gives 2<sup>5</sup> = 32 colours, NOT 5 × 2 = 10.</p>
+
+<p><strong>Direction 2 — number of colours → minimum colour depth:</strong> try increasing colour depths and calculate 2<sup>n</sup> for each one until the result is big enough. Needing at least 100 colours? 2<sup>6</sup> = 64 (too few), 2<sup>7</sup> = 128 (enough) — so the minimum colour depth is 7 bits.</p>
+
+<p><strong>The trap to avoid:</strong> confusing colour depth (bits per pixel) with resolution (number of pixels). "How many colours" is always a colour depth question; "how many pixels" is always a resolution question — they never use the same formula.</p>`,
+            readCheck: {
+                q: "A colour depth of 4 bits is doubled to a colour depth of 8 bits. What happens to the number of possible colours?",
+                opts: ["It rises from 16 to 256, not simply doubling to 32", "It exactly doubles, rising from 16 to 32", "It stays exactly the same at 16 colours", "It rises to 64 colours only, since 8 multiplied by 4 equals 32 which is then halved"],
+                ans: 0,
+                explain: "2 to the power of 4 = 16 and 2 to the power of 8 = 256. Doubling the colour depth does not double the number of colours — it multiplies it by a far bigger factor."
+            }
+        },
+        {
+            type: "explain",
+            title: "Command-word ladder: 'state' vs 'explain' for the quality/size trade-off",
+            pills: ["AO1/AO2", "2–4 marks", "Command words", "Development chain"],
+            content: `<p>The same underlying knowledge — that increasing colour depth or resolution affects both quality and file size — is tested at very different tariffs depending on the command word used.</p>
+
+<p><strong>"State" (1–2 marks):</strong> a single, direct fact is enough. <em>"State the effect of increasing an image's colour depth on its file size."</em> → "It increases the file size." One clear statement, no reasoning required.</p>
+
+<p><strong>"Explain" (3–4 marks):</strong> needs the full <em>point → …which means… → consequence</em> chain, not just the fact. <em>"Explain the effect of increasing an image's colour depth."</em></p>
+<ul>
+<li><strong>Point:</strong> "A higher colour depth uses more bits to store each pixel's colour…"</li>
+<li><strong>…which means…:</strong> "…so more possible colours can be represented per pixel, giving smoother, more realistic colour…"</li>
+<li><strong>…but the consequence is…:</strong> "…while also increasing the overall file size, because more bits are stored for every single pixel in the image."</li>
+</ul>
+
+<p><strong>Why the chain matters:</strong> a bare "state" answer scores 0 on an "explain" question, because it stops after the first link — the examiner is specifically paying for the "…which means…" development, not just the initial fact.</p>`,
+            readCheck: {
+                q: "A 3-mark 'explain' question asks about the effect of increasing resolution. A student writes only 'It makes the file size bigger.' How many of the 3 marks would this likely earn?",
+                opts: ["Likely just 1 mark — a bare statement with no development chain", "All 3 marks, since the key fact given is completely correct", "0 marks, because the statement given is factually wrong", "2 marks, for correctly identifying file size as the affected factor"],
+                ans: 0,
+                explain: "An 'explain' question needs the point developed with a 'which means...' chain (more pixels → more detail, but also more data to store). A bare fact with no development usually only reaches the first mark."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Pixel", def: "The smallest single point of colour that makes up a bitmap image" },
+        { term: "Bitmap image", def: "An image made of a grid of pixels, each pixel storing a binary colour value" },
+        { term: "Colour depth", def: "The number of bits used to store the colour of a single pixel" },
+        { term: "2 to the power of n rule", def: "A colour depth of n bits can represent 2 to the power of n different colours" },
+        { term: "Resolution", def: "The total number of pixels that make up an image — its height × width" },
+        { term: "Effect of higher colour depth", def: "More possible colours per pixel (better quality) but more bits stored per pixel (bigger file)" },
+        { term: "Effect of higher resolution", def: "More pixels showing finer detail (better quality) but more pixel data stored (bigger file)" },
+        { term: "Image file-size formula", def: "Colour depth × height (pixels) × width (pixels), giving the size in bits" },
+        { term: "Metadata", def: "Extra information stored with an image, such as its width, height, colour depth and file type" },
+        { term: "Why metadata is needed", def: "Software needs it to know how to split the binary data back into the correct grid of pixels" },
+        { term: "Converting bits to bytes", def: "Divide the number of bits by 8" },
+        { term: "Converting bytes to kilobytes", def: "Divide the number of bytes by 1,000 (this specification's convention)" },
+        { term: "Real file size vs raw pixel data", def: "A real image file is slightly bigger than colour depth × height × width because metadata is stored too" },
+        { term: "Doubling both height and width", def: "Roughly quadruples the file size, since the total number of pixels increases four-fold" },
+        { term: "Minimum colour depth for N colours", def: "The smallest n where 2 to the power of n is at least N" },
+        { term: "1-bit colour depth", def: "Can represent only 2 colours (2 to the power of 1) — e.g. black and white with no shades" },
+        { term: "8-bit colour depth", def: "Can represent 256 colours (2 to the power of 8)" }
+    ];
+
+    // ── I1–I14: original clean-room questions (2026-07-19) ──
+    // Written from scratch against the §1.2.6 spec scope (pixels/bitmap
+    // representation, colour depth + 2^n colours, resolution, the quality/
+    // file-size trade-off, metadata, and the image file-size formula), NOT
+    // transcribed from any past paper or ExamBuilder PDF — no exam PDF exists
+    // for this page (CS-CONTENT-PLAN.md §6.2's 2026-07-17 clean-room rule).
+    // All scenarios, numbers and mark schemes are original. See
+    // docs/SELF-MARK-POINTS-AUTHORING.md for the markPoints convention used
+    // throughout the calculation questions.
+    const EXAM_CASE_STUDIES = {
+        "icon-studio": `<p>A small design studio creates icon packs for mobile apps. Each icon is a small bitmap image, made from a grid of pixels, designed to display clearly even at a very small size on a phone's screen.</p>`,
+        "id-photos": `<p>A school photographs every student for their ID badge. Each photo is saved as a bitmap image and stored on the school's server alongside information about the photo itself.</p>`,
+        "satellite-scan": `<p>A satellite company captures photographs of farmland to help farmers monitor their crops. Each photograph is stored as a bitmap image in the satellite's onboard memory before being transmitted back down to Earth.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "I1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick (✓) <strong>one</strong> box to identify the correct definition of an image's <strong>colour depth</strong>.</p>`,
+            options: ["The number of bits used to store the colour of a single pixel", "The total number of pixels that make up the width of the image", "The number of separate colours a printer can physically produce", "The number of bytes needed to store the whole image file"],
+            answer: 0,
+            hint: "Colour depth is about ONE pixel's storage, not the whole image or a printer.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>The number of bits used to store the colour of a single pixel</strong> — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept cross or other indication as long as it is clear which one box is intended.</li>
+<li>2+ ticks = 0 marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "The number of bits used to store the colour of a single pixel."
+        },
+        {
+            num: "I2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>A pixel is stored using a colour depth of 6 bits. Tick (✓) <strong>one</strong> box to identify how many different colours that pixel can display.</p>`,
+            options: ["64", "12", "36", "32"],
+            answer: 0,
+            hint: "Use 2 to the power of the colour depth, not the colour depth multiplied by 2.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>64</strong> — CAO. Working: 2 to the power of 6 = 64.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; there is no credit for a value calculated using the wrong method.</li>
+</ul>
+</div>`,
+            modelAnswer: "64 (2 to the power of 6 = 64)."
+        },
+        {
+            num: "I3",
+            marks: 1,
+            type: "written",
+            caseStudy: "",
+            question: `<p>State what is meant by the term <strong>resolution</strong> when describing a bitmap image.</p>`,
+            hint: "Answer in terms of pixels, not physical screen size.",
+            starter: "Resolution is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>The total number of pixels that make up the image (accept width × height, or "how many pixels wide by how many pixels tall")</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not accept a description of colour depth or a physical screen size instead of pixel count.</li>
+</ul>
+</div>`,
+            modelAnswer: "The total number of pixels that make up the image, found by multiplying its width in pixels by its height in pixels."
+        },
+        {
+            num: "I4",
+            marks: 3,
+            type: "written",
+            caseId: "icon-studio",
+            question: `<p>Describe how one of the studio's icons is represented and stored as binary data.</p>`,
+            hint: "Work through the chain: what makes up the grid, what each part of the grid stores, and what decides how many bits that is.",
+            starter: "The icon is made up of…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point to max 3)</h5>
+<ul>
+<li>The icon is made up of a grid of pixels</li>
+<li>Each pixel stores a binary code representing its own colour</li>
+<li>The number of bits used to store each pixel's colour is set by the icon's colour depth</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per point to a maximum of 3. Accept any equivalent correct wording.</li>
+</ul>
+</div>`,
+            modelAnswer: "The icon is made up of a grid of pixels. Each pixel stores a binary code representing its own colour. The number of bits used to store each pixel's colour is set by the icon's colour depth."
+        },
+        {
+            num: "I5",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>A postage-stamp icon is 20 pixels wide and 20 pixels tall, using a colour depth of 8 bits. Tick (✓) <strong>one</strong> box to identify its file size in bytes.</p>`,
+            options: ["400 bytes", "3,200 bytes", "1,600 bytes", "50 bytes"],
+            answer: 0,
+            hint: "Work out bits first (8 × 20 × 20), then divide by 8 to reach bytes.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>400 bytes</strong> — CAO. Working: 8 × 20 × 20 = 3,200 bits; 3,200 ÷ 8 = 400 bytes.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores.</li>
+</ul>
+</div>`,
+            modelAnswer: "400 bytes (8 × 20 × 20 = 3,200 bits; 3,200 ÷ 8 = 400 bytes)."
+        },
+        {
+            num: "I6",
+            marks: 2,
+            type: "written",
+            caseId: "id-photos",
+            question: `<p>Each ID photo is 60 pixels wide and 40 pixels tall, saved with a colour depth of 8 bits. Calculate the file size of one photo in bytes. Show your working.</p>`,
+            hint: "Use colour depth × height × width to get bits first, then divide by 8 for bytes.",
+            starter: "Working: 8 × 60 × 40 = … bits, ÷ 8 = … bytes. Answer: … bytes",
+            markPoints: {
+                note: "One mark for valid working, one mark for the correct final answer — the answer mark follows through from your own working even if it isn't 2,400 bytes.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Shows valid working using colour depth × height × width (8 × 60 × 40 = 19,200 bits), or an equivalent correct method", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "Gives the correct final answer of 2,400 bytes (accept a value that correctly follows through from their own working)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working, e.g. 8 × 60 × 40 = 19,200 (bits)</li>
+<li>1 mark for the answer: 2,400 bytes</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any correct method that reaches bits first, then converts to bytes by dividing by 8.</li>
+<li>Award the working mark even if the final answer is wrong, provided the method shown is valid.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: 8 × 60 × 40 = 19,200 bits. 19,200 ÷ 8 = 2,400 bytes. Answer: 2,400 bytes"
+        },
+        {
+            num: "I7",
+            marks: 4,
+            type: "written",
+            caseId: "id-photos",
+            question: `<p>The school wants to store the SAME photo but at a higher colour depth of 24 bits (to capture true colour), keeping the resolution the same (60 × 40 pixels).</p><p>Calculate the new file size in KB, and state how many times bigger it is than the original 8-bit photo, which was 2,400 bytes. Show your working.</p>`,
+            hint: "Find the new file size the same way as before (colour depth × height × width, then ÷8 and ÷1,000), then compare your new KB figure to the original 2.4 KB.",
+            starter: "Working: 24 × 60 × 40 = … bits, ÷ 8 = … bytes, ÷ 1,000 = … KB. Compared to 2.4 KB, this is … times bigger.",
+            markPoints: {
+                note: "Two groups: up to 2 marks for the working that reaches a file size in KB, and up to 2 marks for correctly comparing that figure to the original 2.4 KB — the second group follows through from your own answer above, even if it isn't 7.2 KB.",
+                groups: [
+                    {
+                        label: "Your working", max: 2, points: [
+                            { text: "Correctly multiplies colour depth × height × width (24 × 60 × 40 = 57,600 bits)", marks: 1 },
+                            { text: "Correctly converts the bits total into bytes then KB (57,600 ÷ 8 = 7,200 bytes; 7,200 ÷ 1,000 = 7.2 KB)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer and comparison", max: 2, points: [
+                            { text: "States the correct file size as 7.2 KB (or the value that correctly follows through from their own working above)", marks: 1 },
+                            { text: "Correctly compares their new file size to the original 2.4 KB and states it is 3 times bigger (or the correctly follow-through ratio)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark: 24 × 60 × 40 = 57,600 (bits)</li>
+<li>1 mark: 57,600 ÷ 8 = 7,200 (bytes); 7,200 ÷ 1,000 = 7.2 (KB)</li>
+<li>1 mark for the answer: 7.2 KB</li>
+<li>1 mark: correctly states this is 3 times bigger than the original 2.4 KB (7.2 ÷ 2.4 = 3)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Own-figure/follow-through applies to the comparison mark — it can be awarded using the candidate's own file-size figure, provided the comparison method is correct.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: 24 × 60 × 40 = 57,600 bits. 57,600 ÷ 8 = 7,200 bytes. 7,200 ÷ 1,000 = 7.2 KB. The original 8-bit photo was 2,400 bytes = 2.4 KB, so the new photo (7.2 KB) is 7.2 ÷ 2.4 = 3 times bigger."
+        },
+        {
+            num: "I8",
+            marks: 4,
+            type: "written",
+            caseId: "icon-studio",
+            question: `<p>Describe how increasing the colour depth used for one of the studio's icons, and increasing its resolution, would each affect the icon's file size and its visual quality.</p>`,
+            hint: "Two separate factors — colour depth and resolution — and for EACH one you need both its effect on file size AND its effect on quality.",
+            starter: "A higher colour depth would… A higher resolution would…",
+            markPoints: {
+                note: "Two groups: up to 2 marks for colour depth (file size effect + quality effect) and up to 2 marks for resolution (file size effect + quality effect).",
+                groups: [
+                    {
+                        label: "Colour depth", max: 2, points: [
+                            { text: "States a higher colour depth increases the file size (more bits stored per pixel)", marks: 1 },
+                            { text: "States a higher colour depth improves quality (more possible colours per pixel)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Resolution", max: 2, points: [
+                            { text: "States a higher resolution increases the file size (more pixel data stored overall)", marks: 1 },
+                            { text: "States a higher resolution improves quality (more pixels show finer detail)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark: higher colour depth increases file size (more bits per pixel)</li>
+<li>1 mark: higher colour depth improves quality (more possible colours per pixel)</li>
+<li>1 mark: higher resolution increases file size (more pixel data overall)</li>
+<li>1 mark: higher resolution improves quality (more pixels, finer detail)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Full marks needs both colour depth and resolution addressed, with both the file-size effect AND the quality effect given for each.</li>
+</ul>
+</div>`,
+            modelAnswer: "A higher colour depth means more bits are used to store each pixel's colour, increasing the file size, but it allows more possible colours per pixel, giving richer quality. A higher resolution means the icon is made of more pixels, increasing the file size because there is more pixel data to store, but it shows finer visual detail."
+        },
+        {
+            num: "I9",
+            marks: 1,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A camera sensor uses a colour depth of 6 bits per pixel. Calculate the number of different colours each pixel can display.</p>`,
+            hint: "2 to the power of the colour depth.",
+            starter: "Number of colours = …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>64 (2 to the power of 6) — CAO</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct value scores; no credit for a value found using the wrong method.</li>
+</ul>
+</div>`,
+            modelAnswer: "64 (2 to the power of 6 = 64)."
+        },
+        {
+            num: "I10",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A designer needs each pixel in a new icon format to be able to display AT LEAST 100 different colours. Calculate the minimum colour depth, in bits, needed to achieve this. Show your working.</p>`,
+            hint: "Try increasing colour depths and calculate 2 to the power of n for each one until the result is at least 100.",
+            starter: "2 to the power of 6 = …, 2 to the power of 7 = … Minimum colour depth = … bits",
+            markPoints: {
+                note: "One mark for valid working testing powers of 2 to find the first that reaches at least 100, one mark for the correct final answer.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Shows valid working calculating powers of 2 to find the smallest that reaches at least 100 (e.g. 2 to the power of 6 = 64 too few, 2 to the power of 7 = 128 enough)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "States the minimum colour depth as 7 bits (accept a value that correctly follows through from their own working)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working, e.g. 2 to the power of 6 = 64 (too few), 2 to the power of 7 = 128 (enough)</li>
+<li>1 mark for the answer: 7 bits</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award the working mark for any method that correctly tests powers of 2 against the 100-colour target, even if the final answer is wrong.</li>
+</ul>
+</div>`,
+            modelAnswer: "2 to the power of 6 = 64, which is fewer than 100. 2 to the power of 7 = 128, which is at least 100. Minimum colour depth = 7 bits."
+        },
+        {
+            num: "I11",
+            marks: 4,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>Complete the table by calculating the number of different colours that each colour depth can represent.</p>`,
+            table: {
+                headers: ["Colour depth (bits per pixel)", "Number of possible colours (2 to the power of n)"],
+                rows: [
+                    ["1-bit", null],
+                    ["3-bit", null],
+                    ["5-bit", null],
+                    ["10-bit", null]
+                ]
+            },
+            answers: {
+                "0,1": ["2"],
+                "1,1": ["8"],
+                "2,1": ["32"],
+                "3,1": ["1024", "1,024"]
+            },
+            hint: "Work out 2 to the power of each colour depth given in the left-hand column.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>1-bit = 2 colours</li>
+<li>3-bit = 8 colours</li>
+<li>5-bit = 32 colours</li>
+<li>10-bit = 1,024 colours</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept the numeric value with or without a comma.</li>
+<li>Each row is marked independently.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1 (1-bit): 2. Row 2 (3-bit): 8. Row 3 (5-bit): 32. Row 4 (10-bit): 1,024."
+        },
+        {
+            num: "I12",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick (✓) <strong>one</strong> box in each row to identify the file size, in bytes, of the image described.</p>`,
+            grid: {
+                cols: ["1,000 bytes", "2,000 bytes", "4,000 bytes", "8,000 bytes", "16,000 bytes"],
+                rows: [
+                    { label: "Colour depth 8 bits, 10 pixels tall × 100 pixels wide", correct: [0] },
+                    { label: "Colour depth 8 bits, 20 pixels tall × 100 pixels wide", correct: [1] },
+                    { label: "Colour depth 4 bits, 20 pixels tall × 100 pixels wide", correct: [0] },
+                    { label: "Colour depth 16 bits, 20 pixels tall × 100 pixels wide", correct: [2] }
+                ]
+            },
+            hint: "Work out colour depth × height × width in bits for each row, then divide by 8 to reach bytes, before matching to a column. Two different rows can share the same correct column.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Row 1 (8-bit, 10 × 100): 8 × 10 × 100 = 8,000 bits = <strong>1,000 bytes</strong></li>
+<li>Row 2 (8-bit, 20 × 100): 8 × 20 × 100 = 16,000 bits = <strong>2,000 bytes</strong></li>
+<li>Row 3 (4-bit, 20 × 100): 4 × 20 × 100 = 8,000 bits = <strong>1,000 bytes</strong></li>
+<li>Row 4 (16-bit, 20 × 100): 16 × 20 × 100 = 32,000 bits = <strong>4,000 bytes</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Two different rows can share the same correct column (rows 1 and 3 are both 1,000 bytes).</li>
+<li>Extra ticks in a row score 0 for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1: 1,000 bytes. Row 2: 2,000 bytes. Row 3: 1,000 bytes. Row 4: 4,000 bytes."
+        },
+        {
+            num: "I13",
+            marks: 2,
+            type: "written",
+            caseId: "satellite-scan",
+            question: `<p>Explain why the satellite's image files need to store metadata (such as width, height and colour depth) alongside the pixel data, rather than just the pixel data on its own.</p>`,
+            hint: "Think about what the receiving software would be missing if it only had one long string of pixel bits with no extra information.",
+            starter: "Without metadata, the software receiving the image would not know…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point to max 2)</h5>
+<ul>
+<li>Without the width, the software could not tell where one row of pixels ends and the next begins, so it couldn't correctly rebuild the grid</li>
+<li>Without the colour depth, the software would not know how many bits represent each pixel's colour, so it couldn't correctly split the data into individual pixels</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per valid point to a maximum of 2. Accept an equivalent point about the file type telling the software which rules to use to decode the data.</li>
+</ul>
+</div>`,
+            modelAnswer: "Without the width stored as metadata, the software could not tell where one row of pixels ends and the next begins, so it couldn't correctly arrange the bits back into a grid. Without the colour depth, it would not know how many bits represent each individual pixel's colour, so it couldn't correctly split the pixel data apart at all."
+        },
+        {
+            num: "I14",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseId: "satellite-scan",
+            question: `<p>The satellite company is deciding on the camera settings to use for an upcoming mission. Setting A uses a high resolution and high colour depth, producing very detailed, true-colour images but large files. Setting B uses a lower resolution and lower colour depth, producing smaller files but less detailed images.</p><p>Discuss the effect that choosing between Setting A and Setting B could have on a single mission, during which the satellite's onboard memory has a fixed, limited capacity.</p><p>In your answer you might consider:</p><ul><li>how colour depth and resolution affect file size</li><li>the effect on how many images can be stored during one mission</li><li>the effect on how useful the images are to farmers once downloaded</li><li>which setting you would recommend, and why</li></ul>`,
+            hint: "Use all four bullets as your plan. Explain the mechanism (bigger files → fewer images fit), follow it through to a REAL consequence of the mission, and weigh image quality against image quantity for a top-band answer.",
+            starter: "With Setting A, each image file will be…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (levelled) — indicative content</h5>
+<p>The following is indicative of possible factors/evidence that candidates may refer to but is not prescriptive or exhaustive:</p>
+<ul>
+<li><strong>How colour depth/resolution affect file size</strong> — Setting A's higher colour depth stores more bits per pixel, and its higher resolution means more pixels overall; both increase file size (bits = colour depth × height × width). Setting B's lower values mean a smaller file size per image.</li>
+<li><strong>Effect on how many images fit</strong> — the satellite's onboard memory has a fixed capacity, so larger Setting A images mean fewer images can be stored during one mission; Setting B's smaller images mean many more can be stored before the memory fills up.</li>
+<li><strong>Effect on the usefulness of the images</strong> — Setting A's higher quality/detail may let farmers spot small problems in their crops clearly, but running out of memory mid-mission could mean missing important later images of other fields; Setting B captures more of the mission but each image shows less fine detail, which may not be good enough to spot small crop problems.</li>
+<li><strong>Recommendation</strong> — the better choice depends on the mission's actual purpose: Setting A suits a short mission needing a few highly detailed images, Setting B suits a long mission needing continuous coverage where running out of storage would be worse than lower detail.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given — levels of response</h5>
+<ul>
+<li><strong>Mark Band 3 — High Level (6–8 marks):</strong> Thorough knowledge and understanding of colour depth, resolution and file-size capacity, applied directly and consistently to the satellite context. The response weighs up both settings (quality against quantity/storage) and covers all four areas from the bullet list with clear, logically structured reasoning, ending in a justified recommendation.</li>
+<li><strong>Mark Band 2 — Mid Level (3–5 marks):</strong> Reasonable knowledge, generally accurate but at times underdeveloped or only partly applied to the satellite context. Most of the four areas are addressed, with some structure, though the discussion may not fully weigh both settings or the recommendation may be unjustified.</li>
+<li><strong>Mark Band 1 — Low Level (1–2 marks):</strong> Basic knowledge with limited understanding shown; the material may contain inaccuracies or barely refer to the satellite context. Little more than an unsupported assertion, e.g. "Setting A is better" with no working explanation of why.</li>
+<li><strong>0 marks:</strong> No attempt to answer the question or response is not worthy of credit.</li>
+</ul>
+</div>`,
+            modelAnswer: "With Setting A, each image file will be larger, because both a higher colour depth (more bits per pixel) and a higher resolution (more pixels) increase the number of bits that have to be stored per image. With Setting B, each image file will be much smaller, since fewer bits are used per pixel and there are fewer pixels overall.\n\nBecause the satellite's onboard memory has a fixed, limited capacity, this directly affects how many images can be captured during a single mission: Setting A will fill the memory after relatively few images, while Setting B allows far more images to be stored before it is full.\n\nThis has a real effect once the images are downloaded: Setting A's images will show more fine detail, which matters for spotting small problems in crops, but the satellite risks running out of storage and missing images of other fields later in the mission. Setting B's images will show less detail but allow continuous coverage of the whole mission area without running out of space.\n\nOn balance, Setting A is the better choice for a short mission monitoring a small, important area closely, while Setting B is better for a long mission where capturing the whole area without running out of storage matters more than the fine detail of each individual image."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

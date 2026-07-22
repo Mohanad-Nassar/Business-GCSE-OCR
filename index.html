@@ -55,16 +55,21 @@
 <!-- ── NAV ── -->
 <nav class="nav" aria-label="Site">
   <a class="nav-logo" href="/">Vidya<em>.</em></a>
-  <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#subjects">Subjects</a>
-    <a href="#schools">For schools</a>
-    <a href="#faq">FAQ</a>
+  <div class="nav-menu" id="navPanel">
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#subjects">Subjects</a>
+      <a href="#schools">For schools</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="/login.html" id="navLoginLink">Log in</a>
+      <a class="btn btn-solid" href="/signup.html">Get started</a>
+    </div>
   </div>
-  <div class="nav-cta">
-    <a class="btn btn-ghost" href="/login.html" id="navLoginLink">Log in</a>
-    <a class="btn btn-solid" href="/signup.html">Get started</a>
-  </div>
+  <button class="nav-burger" id="navBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navPanel">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ── HERO ── -->
@@ -83,7 +88,8 @@
   </div>
 
   <div class="hero-stage" aria-hidden="true">
-    <div class="mock mock-q" data-plx="-0.06">
+    <div class="hero-glass" data-plx="0.04">
+      <span class="hg-badge"><span>🔥</span> 14-day streak</span>
       <div class="m-label">Daily Revise · Rule of 3</div>
       <div class="m-q">Which factor shifts the demand curve to the right?</div>
       <div class="m-mastery"><i class="on1"></i><i class="on2"></i><i class="on3"></i><i></i></div>
@@ -92,25 +98,9 @@
         <div class="m-opt sel">A successful advertising campaign</div>
         <div class="m-opt">A fall in consumer incomes</div>
       </div>
-    </div>
-    <div class="mock mock-streak" data-plx="0.05">
-      <div class="m-label">Your streak</div>
-      <div class="m-streak-big">🔥 14 days</div>
-      <div class="m-xp"><i></i></div>
-      <div class="m-xp-cap">Level 7 · 680 XP to next</div>
-    </div>
-    <div class="mock mock-cal" data-plx="0.1">
-      <div class="m-label">This week</div>
-      <div class="m-week">
-        <span class="m-day">M</span><span class="m-day">T</span><span class="m-day">W</span>
-        <span class="m-day">T</span><span class="m-day">F</span><span class="m-day">S</span><span class="m-day">S</span>
-        <div class="m-cell"><span class="m-chip rev">1.2 review</span></div>
-        <div class="m-cell"></div>
-        <div class="m-cell"><span class="m-chip task">Task due</span></div>
-        <div class="m-cell"><span class="m-chip rev">2.1 review</span></div>
-        <div class="m-cell"></div>
-        <div class="m-cell"><span class="m-chip rev">2.4 review</span><span class="m-chip task">Quiz</span></div>
-        <div class="m-cell"></div>
+      <div class="hg-foot">
+        <span class="hg-foot-item">✅ Server-graded</span>
+        <span class="hg-foot-item">🔁 Reviews at 1·7·28 days</span>
       </div>
     </div>
   </div>
@@ -123,6 +113,60 @@
     <div class="rv rv-d1"><div class="stat-num" data-stat="subjects" data-count="3">3</div><div class="stat-cap">GCSE subjects</div></div>
     <div class="rv rv-d2"><div class="stat-num" data-count="9">9</div><div class="stat-cap">activity types per topic</div></div>
     <div class="rv rv-d3"><div class="stat-num">1·7·28</div><div class="stat-cap">days — the review cycle that beats forgetting</div></div>
+  </div>
+</section>
+
+<!-- ── MARQUEE TICKER ── -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Spaced repetition <b>✦</b></span><span>AI-assisted marking <b>✦</b></span><span>Daily retrieval <b>✦</b></span><span>Teacher analytics <b>✦</b></span><span>9 activity types <b>✦</b></span><span>OCR &amp; AQA aligned <b>✦</b></span><span>Class leaderboards <b>✦</b></span><span>Server-verified scoring <b>✦</b></span>
+    <span>Spaced repetition <b>✦</b></span><span>AI-assisted marking <b>✦</b></span><span>Daily retrieval <b>✦</b></span><span>Teacher analytics <b>✦</b></span><span>9 activity types <b>✦</b></span><span>OCR &amp; AQA aligned <b>✦</b></span><span>Class leaderboards <b>✦</b></span><span>Server-verified scoring <b>✦</b></span>
+  </div>
+</div>
+
+<!-- ── NINE WAYS TO LEARN ── -->
+<section class="ways" id="activities">
+  <div class="sec-head tight rv">
+    <span class="mono eyebrow">Nine ways to learn</span>
+    <h2>Every topic, nine ways deeper</h2>
+    <p>No two topics are the same — so neither are the activities. Each one attacks the material from a different angle, and everything you practise is scheduled to come back.</p>
+  </div>
+  <div class="ways-grid">
+    <div class="way rv" style="--chip:#c77f1f;"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span><h3>Key Learning</h3><p>Core notes and concepts, laid out for the exam.</p></div>
+    <div class="way rv rv-d1" style="--chip:#2d7a4f;"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg></span><h3>MCQ Quiz</h3><p>Multiple choice, graded on the server.</p></div>
+    <div class="way rv rv-d2" style="--chip:#7a5c9e;"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg></span><h3>Matching</h3><p>Pair terms with their definitions.</p></div>
+    <div class="way rv" style="--chip:#1a6b6b;"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span><h3>Fill the Blanks</h3><p>Recall the right word in context.</p></div>
+    <div class="way rv rv-d1" style="--chip:#c84b31;"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span><h3>Misconceptions</h3><p>Spot and fix the errors everyone makes.</p></div>
+    <div class="way rv rv-d2" style="--chip:#d4a843;"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/></svg></span><h3>Exam Tips</h3><p>Command words and mark-scheme insight.</p></div>
+    <div class="way rv" style="--chip:#d6455d;"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span><h3>Flashcards</h3><p>Flip through and self-assess.</p></div>
+    <div class="way rv rv-d1" style="--chip:#5a4bc4;"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="16" cy="12" r="3"/></svg></span><h3>True / False</h3><p>Rapid-fire recall checks.</p></div>
+    <div class="way rv rv-d2" style="--chip:#a5680f;"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span><h3>Exam Practice</h3><p>Case studies, hints and mark schemes.</p></div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="how" id="how">
+  <div class="sec-head tight rv">
+    <span class="mono eyebrow">How it works</span>
+    <h2>Three steps to revision that sticks</h2>
+    <p>No timetables to build, no willpower required — Vidya turns every topic into a loop of learning, practice and spaced review.</p>
+  </div>
+  <div class="how-grid">
+    <div class="step rv">
+      <span class="icon-chip" style="--chip:#c77f1f;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span>
+      <div class="step-n">01</div><h3>Pick a topic</h3>
+      <p>Choose any topic in any of your subjects — or follow the one your teacher has set.</p>
+    </div>
+    <div class="step rv rv-d1">
+      <span class="icon-chip" style="--chip:#2d7a4f;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span>
+      <div class="step-n">02</div><h3>Practise nine ways</h3>
+      <p>Learn it, quiz it, match it, write it — nine activities that hit the material from every angle.</p>
+    </div>
+    <div class="step rv rv-d2">
+      <span class="icon-chip" style="--chip:#1a6b6b;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg></span>
+      <div class="step-n">03</div><h3>Review on the calendar</h3>
+      <p>Each topic comes back after 1 day, 1 week and 4 weeks — right before you'd forget it.</p>
+    </div>
   </div>
 </section>
 
@@ -237,6 +281,16 @@
   </div>
 </main>
 
+<!-- ── MEET YOUR GUIDES ── -->
+<section class="guides" id="guides">
+  <div class="sec-head tight rv">
+    <span class="mono eyebrow">Meet your guides</span>
+    <h2>Pick a guide to cheer you on</h2>
+    <p>Earn coins as you revise and unlock a cast of characters, each with their own personality — your companion for the long haul to the exam.</p>
+  </div>
+  <div class="guides-grid" id="guidesGrid" aria-label="A selection of unlockable guide characters"><!-- rendered from avatar.js --></div>
+</section>
+
 <!-- ── SUBJECTS ── -->
 <section class="subjects" id="subjects">
   <div class="sec-head rv">
@@ -272,6 +326,21 @@
   </div>
 </section>
 
+<!-- ── TRUST & SAFETY ── -->
+<section class="trust" id="trust">
+  <div class="sec-head tight rv">
+    <span class="mono eyebrow">Trust &amp; safety</span>
+    <h2>Every score is verified. Every school is walled.</h2>
+    <p>Built by teachers, engineered for schools — the boring, important things done properly.</p>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-card rv"><span class="icon-chip" style="--chip:#2d7a4f;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Server-verified scoring</h3><p>Answers are graded on the server — the correct answer never reaches the browser before you submit.</p></div>
+    <div class="trust-card rv rv-d1"><span class="icon-chip" style="--chip:#7a5c9e;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><h3>Multi-tenant isolation</h3><p>Every school's data is walled off from every other, enforced at the database with row-level security.</p></div>
+    <div class="trust-card rv rv-d2"><span class="icon-chip" style="--chip:#1a6b6b;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3"/><path d="m9 14 2 2 4-4"/></svg></span><h3>Compliance ready</h3><p>Privacy, cookie controls and the Children's Code — the safeguarding paperwork is in place.</p></div>
+    <div class="trust-card rv rv-d3"><span class="icon-chip" style="--chip:#c77f1f;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" x2="22" y1="2" y2="22"/></svg></span><h3>Content protected</h3><p>Lessons are locked to enrolled students; question banks and answer keys stay server-side.</p></div>
+  </div>
+</section>
+
 <!-- ── FAQ ── -->
 <section class="faq" id="faq">
   <div class="sec-head rv">
@@ -295,37 +364,60 @@
 
 <footer class="landing-foot">
   <div id="footerLegalMount"></div>
-  <p class="disclaimer">Designed to support OCR GCSE specifications (J204 Business, J205 Economics, J277 Computer Science).
-    Not endorsed by or affiliated with OCR.</p>
+  <p class="disclaimer">Designed to support OCR (J204 Business, J205 Economics, J277 Computer Science,
+    6993 Additional Maths) and AQA (8692 Spanish) specifications. Not endorsed by or affiliated with OCR or AQA.</p>
 </footer>
 
 <script src="/subjects-index.js"></script>
 <script src="/page-groups-all.js"></script>
+<script src="/avatar.js"></script>
 <script>
-  // Render the subjects grid from the live registry (falls back to the
-  // static cards above if the generated file is missing).
+  // Render the subjects grid + the "meet your guides" cast from the live
+  // registries / avatar.js (both graceful: static fallbacks stay on failure).
   (function () {
+    var esc = function (t) { return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+    var delays = ['', ' rv-d1', ' rv-d2', ' rv-d3'];
+
+    // ── Subjects (all five, enriched cards) ──
     try {
       var subjects = window.SUBJECTS || [];
-      if (!subjects.length) return;
       var blurbs = {
         business: 'From enterprise to break-even — with real exam-style practice throughout.',
         economics: 'Markets, money and the global economy, taught for the exam you\'ll sit.',
         'computer-science': 'Systems, networks and computational thinking — growing through the year.',
+        'additional-maths': 'Algebra to calculus — the FSMQ that stretches your strongest mathematicians.',
+        spanish: 'Speaking, listening, reading and writing — with audio and a forgiving grader.',
       };
-      var delays = ['', ' rv-d1', ' rv-d2', ' rv-d3'];
-      document.getElementById('subjectsGrid').innerHTML = subjects.map(function (s, i) {
-        var esc = function (t) { return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+      if (subjects.length) document.getElementById('subjectsGrid').innerHTML = subjects.map(function (s, i) {
         return '<div class="subj-card rv' + delays[i % delays.length] + '" style="--sc:' + esc(s.colour || '#c77f1f') + ';">' +
-          '<span class="s-icon">' + esc(s.icon || '📘') + '</span>' +
+          '<div class="s-top"><span class="s-icon">' + esc(s.icon || '📘') + '</span><span class="s-live">Live</span></div>' +
           '<h3>' + esc(s.name || s.slug) + '</h3>' +
           '<div class="s-meta">' + esc(s.level || 'GCSE') + (s.examBoard ? ' · ' + esc(s.examBoard) : '') + (s.specCode ? ' ' + esc(s.specCode) : '') + '</div>' +
-          '<p>' + (blurbs[s.slug] || 'Interactive topics, quizzes, flashcards and exam practice.') + '</p></div>';
+          '<p>' + (blurbs[s.slug] || 'Interactive topics, quizzes, flashcards and exam practice.') + '</p>' +
+          '<a class="s-explore" href="/signup.html">Explore topics <span aria-hidden="true">→</span></a></div>';
       }).join('');
     } catch (e) { /* static fallback stays */ }
+
+    // ── Guides (a curated slice of the real avatar.js cast) ──
+    try {
+      var grid = document.getElementById('guidesGrid');
+      if (grid && window.VidyaAvatar) {
+        var GUIDES = ['vesper', 'ember', 'orion', 'kitsu', 'wisp', 'byte', 'geode', 'nova'];
+        grid.innerHTML = GUIDES.filter(function (id) { return VidyaAvatar.has(id); }).map(function (id, i) {
+          var lore = VidyaAvatar.lore(id) || {};
+          var name = id.charAt(0).toUpperCase() + id.slice(1);
+          return '<div class="guide rv ' + delays[i % delays.length].trim() + '" style="--gc:' + VidyaAvatar.defaultAccent(id) + ';">' +
+            '<div class="guide-art">' + VidyaAvatar.compose({ character: id }, { size: 100 }) + '</div>' +
+            '<div class="g-arch">' + esc(lore.archetype || '') + '</div>' +
+            '<div class="g-name">' + esc(name) + '</div>' +
+            '<div class="g-line">' + esc(lore.tagline || '') + '</div></div>';
+        }).join('');
+      }
+    } catch (e) { /* guides section just stays empty on failure */ }
   })();
 </script>
 <script src="landing.js"></script>
+<script src="landing-guide.js"></script>
 <script src="footer-legal.js"></script>
 </body>
 </html>

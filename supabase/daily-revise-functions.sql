@@ -252,6 +252,7 @@ declare
     v_next_due   timestamptz;
     v_cap        int;
     v_today      bigint;
+    v_first_mastery boolean;
 begin
     if v_uid is null then raise exception 'not authenticated'; end if;
 
@@ -336,30 +337,51 @@ begin
     insert into progress_events (student_id, page_id, section, question_id, answer, is_correct)
     values (v_uid, v_row.page_id, 'daily-revise', p_question_key, p_answer, v_is_correct);
 
-    -- Lifetime, monotonically-increasing stats — feeds this activity into
-    -- the student's total XP and the two Daily-Revise badges (gamification.js).
-    -- total_mastered increments only on the transition INTO mastery (3), not
-    -- every time an already-mastered question is somehow re-answered.
-    -- One row per (student, subject) — attributed to the question's own
-    -- subject_slug; XP/badge readers sum a student's rows for the
-    -- cross-subject total.
+    -- FIRST-EVER mastery gate (anti-forgery — [[architecture-scale-security]] §1:
+    -- "forged mastery silently corrupts the learning signal"). total_mastered and
+    -- mastery_events are DURABLE reward signals feeding XP, the Mastery leaderboard
+    -- and the coin economy (supabase/rewards-store.sql), so they must fire exactly
+    -- ONCE per question per student, EVER. The old guard (v_new_count = 3 and
+    -- v_old_count < 3) re-fired every time a mastered question was reset to 0 and
+    -- re-mastered, so a scripted client could farm mastery — and thus coins / XP /
+    -- rank — without limit. mastery_events is the permanent "ever mastered" log, so
+    -- the absence of a row for this (student, question) is the authority on
+    -- first-ever. mastery_count itself is deliberately left free to reset on a wrong
+    -- answer: a genuinely forgotten question SHOULD re-surface for review, so only
+    -- the durable counters are made once-per-lifetime, not the spaced schedule.
+    -- (A determined student can still see an answer they've attempted and master it
+    -- once trivially — explicitly OUT OF SCOPE per §1 — but they can no longer
+    -- inflate the count past the number of distinct questions that exist.)
+    v_first_mastery := (v_new_count = 3 and v_old_count < 3);
+    if v_first_mastery then
+        begin
+            v_first_mastery := not exists (
+                select 1 from mastery_events
+                where student_id = v_uid and question_key = p_question_key);
+        exception when undefined_table then
+            v_first_mastery := true;   -- pre-leaderboard install: no events table to dedupe against
+        end;
+    end if;
+
+    -- Lifetime, monotonically-increasing stats — feeds this activity into the
+    -- student's total XP and the two Daily-Revise badges (gamification.js). One
+    -- row per (student, subject), attributed to the question's own subject_slug;
+    -- XP/badge/coin readers sum a student's rows for the cross-subject total.
     insert into daily_revise_stats (student_id, subject_slug, total_correct, total_mastered, updated_at)
     values (v_uid, v_row.subject_slug,
                     case when v_is_correct then 1 else 0 end,
-                    case when v_new_count = 3 and v_old_count < 3 then 1 else 0 end, now())
+                    case when v_first_mastery then 1 else 0 end, now())
     on conflict (student_id, subject_slug) do update
         set total_correct  = daily_revise_stats.total_correct + excluded.total_correct,
             total_mastered = daily_revise_stats.total_mastered + excluded.total_mastered,
             updated_at     = now();
 
-    -- Timestamped first-mastery log, written ONLY on the transition INTO
-    -- mastery (same guard as total_mastered above). daily_revise_stats is a
-    -- running counter with no history, so it can't answer "how many mastered
-    -- in the last 7 days" — mastery_events (leaderboard.sql) can, and that's
-    -- what powers the windowed Mastery leaderboard. Defensive: if leaderboard.sql
-    -- hasn't been run yet the table is absent, and grading must still succeed —
-    -- same undefined_table fallback used for platform_settings above.
-    if v_new_count = 3 and v_old_count < 3 then
+    -- Timestamped, append-only first-mastery log (leaderboard.sql) — powers the
+    -- windowed Mastery leaderboard and the coin earning target (rewards-store.sql).
+    -- Written once per question, ever (same first-mastery gate as total_mastered).
+    -- Defensive: if leaderboard.sql hasn't been run the table is absent, and
+    -- grading must still succeed — same undefined_table fallback used above.
+    if v_first_mastery then
         begin
             insert into mastery_events (student_id, subject_slug, question_key, page_id)
             values (v_uid, v_row.subject_slug, p_question_key, v_row.page_id);

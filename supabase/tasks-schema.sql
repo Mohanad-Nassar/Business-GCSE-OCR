@@ -461,6 +461,22 @@ begin
       and q.id = a.task_question_id
       and q.qtype in ('mcq', 'tf', 'fib', 'numeric');
 
+    -- Homework counts as showing up: log one progress_event per ANSWERED
+    -- question so task work feeds the practice heatmap and the day-streak,
+    -- exactly like topic / Daily-Revise / Review practice. It deliberately
+    -- does NOT touch progress_summary, so XP, levels and topic-completion
+    -- stay tied to the student's own practice and teacher-set homework can't
+    -- inflate the leaderboard. page_id comes from the question's own topic,
+    -- so it lands in the right subject. Unanswered (blank) rows are skipped —
+    -- opening a task without answering isn't "showing up". Written answers
+    -- are logged with is_correct null until a teacher/AI marks them.
+    insert into progress_events (student_id, page_id, section, question_id, answer, is_correct)
+    select v_uid, q.page_id, 'task', q.question_key, a.answer, a.is_correct
+    from task_answers a
+    join task_questions q on q.id = a.task_question_id
+    where a.attempt_id = p_attempt_id
+      and a.answer is not null;
+
     update task_attempts att
     set status             = 'submitted',
         submitted_at       = now(),

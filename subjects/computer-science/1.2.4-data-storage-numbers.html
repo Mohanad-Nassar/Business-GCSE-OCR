@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.2 Memory and Storage</div>
             <h1>1.2.4 Data Storage: Numbers</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.2.4 Data Storage: Numbers — placeholder, content not yet written
+    //  DATA: 1.2.4 Data Storage: Numbers
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-2-4-data-storage-numbers',
@@ -268,21 +268,976 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.2.4 Data Storage: Numbers</strong> will appear here soon.</p>`
+            title: "How do you convert between denary and 8-bit binary?",
+            tag: "Calculation",
+            content: `<h4>The 8-bit place-value ladder</h4>
+<ul>
+<li>Every position in an <strong>8-bit binary number</strong> stands for a fixed <strong>place value</strong>, exactly like the columns in a denary number stand for units, tens and hundreds.</li>
+<li>The eight place values, left to right, are always the same: <strong>128, 64, 32, 16, 8, 4, 2, 1</strong>.</li>
+<li>The left-most bit is called the <strong>most significant bit (MSB)</strong> — it carries the largest place value (128). The right-most bit is the <strong>least significant bit (LSB)</strong> — it carries the smallest place value (1).</li>
+</ul>
+<table>
+<tr><th>Place value</th><td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td></tr>
+</table>
+<h4>How do you convert denary to binary?</h4>
+<ul>
+<li>Starting from the largest place value (128), ask "does this fit into my number?" If yes, write a <strong>1</strong> and subtract it; if no, write a <strong>0</strong> and move on. Repeat all the way down to the 1s column.</li>
+<li>Always write the result as a full <strong>8 digits</strong>, adding leading zeros (<strong>padding</strong>) if the number doesn't need every place — e.g. the 5-digit result 11010 must be padded to 00011010 to be a correctly-formatted 8-bit answer.</li>
+</ul>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>Convert denary 172. Find which place values from 128, 64, 32, 16, 8, 4, 2, 1 add up to 172.</td><td>128 + 32 + 8 + 4 = 172</td></tr>
+<tr><td>2</td><td>Write a 1 under every place value used, and a 0 under every place value not used.</td><td>1 0 1 0 1 1 0 0</td></tr>
+<tr><td>3</td><td>Read the 8 digits left to right as the final answer.</td><td>10101100</td></tr>
+</table>
+<h4>How do you convert binary to denary?</h4>
+<ul>
+<li>Do the reverse: line up the place values above each bit, then <strong>add together only the place values where there's a 1</strong> — ignore every position that holds a 0.</li>
+<li>Example: 01011001 has 1s in the 64, 16, 8 and 1 columns, so 64 + 16 + 8 + 1 = <strong>89</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the 8-bit binary number 01011001 in denary?",
+                opts: ["89", "91", "93", "85"],
+                ans: 0,
+                explain: "The 1s sit in place values 64, 16, 8 and 1: 64 + 16 + 8 + 1 = 89."
+            }
+        },
+        {
+            title: "How do you add two 8-bit binary numbers, and what is overflow?",
+            tag: "Calculation",
+            content: `<h4>Adding binary numbers, column by column</h4>
+<ul>
+<li>Binary addition works exactly like denary column addition, except every column can only hold a 0 or a 1 — so whenever a column's total reaches <strong>2</strong>, you write down the remainder and <strong>carry a 1</strong> into the next column left, exactly like carrying a ten in a denary sum.</li>
+<li>The four rules you need: 0+0=0, 0+1=1, 1+1=10 (write 0, carry 1), 1+1+1(carried)=11 (write 1, carry 1).</li>
+</ul>
+<pre class="code-block">  01001101   (77)
++ 00100011   (35)
+-----------
+  01110000   (112)</pre>
+<h4>What is overflow, and why does it happen?</h4>
+<ul>
+<li>An 8-bit register can only ever store the denary values <strong>0 to 255</strong>. If the TRUE result of an addition needs a 9th bit to be represented correctly, that extra bit has nowhere to go — this is called <strong>overflow</strong>.</li>
+<li>You can spot it two ways: the denary sum of the two original numbers is <strong>greater than 255</strong>, OR there is a <strong>carry left over out of the left-most (128) column</strong> once the addition finishes.</li>
+<li>When overflow happens, the 8 bits that ARE stored no longer represent the correct value — the result is simply wrong unless that extra bit is kept somewhere (e.g. a bigger register).</li>
+</ul>
+<pre class="code-block">  11001000   (200)
++ 01100100   (100)
+-----------
+1 00101100   (true result needs 9 bits: 300)</pre>
+<p>Only the right-hand 8 bits (00101100 = 44) can actually be stored in an 8-bit register — the leading 1 is lost, so the stored value (44) is not the true sum (300). That mismatch is overflow.</p>`,
+            readCheck: {
+                q: "Two 8-bit binary numbers are added and the true denary sum is 300. What happens when this is stored in an 8-bit register?",
+                opts: ["An overflow error occurs, since 300 needs more than 8 bits to be stored correctly", "The register automatically resizes itself to become a full 9-bit register instead", "The computer rounds 300 down to the nearest value that is under 256", "Nothing unusual happens at all, because 300 fits comfortably into one byte"],
+                ans: 0,
+                explain: "8 bits can only store 0–255, so a true result of 300 needs a 9th bit — that's overflow. Only the low 8 bits are actually stored, giving the wrong value."
+            }
+        },
+        {
+            title: "How do you convert between denary and 2-digit hexadecimal?",
+            tag: "Calculation",
+            content: `<h4>What is hexadecimal?</h4>
+<ul>
+<li><strong>Hexadecimal (hex)</strong> is a base-16 number system. It needs 16 different digits for each position — the familiar 0-9, then the letters <strong>A, B, C, D, E, F</strong> standing for the values 10-15.</li>
+<li>Any whole number from 0 to 255 can be written using exactly <strong>2 hexadecimal digits</strong> (00 to FF).</li>
+</ul>
+<table>
+<tr><th>Hex digit</th><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td></tr>
+<tr><th>Value</th><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td></tr>
+</table>
+<h4>Denary → hex</h4>
+<ul>
+<li>Divide the denary number by 16. The <strong>whole-number answer</strong> becomes the first hex digit; the <strong>remainder</strong> becomes the second hex digit (converting either one to a letter if it's 10 or more).</li>
+</ul>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>Convert denary 219 to hex. Divide by 16.</td><td>219 ÷ 16 = 13 remainder 11</td></tr>
+<tr><td>2</td><td>Convert each part to a hex digit (13 → D, 11 → B).</td><td>D, B</td></tr>
+<tr><td>3</td><td>Write the two digits together as the final answer.</td><td>DB</td></tr>
+</table>
+<h4>Hex → denary</h4>
+<ul>
+<li>Reverse the process: multiply the FIRST hex digit's value by 16, then add the SECOND hex digit's value.</li>
+<li>Example: hex <strong>2F</strong> → (2 × 16) + 15 = 32 + 15 = <strong>47</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the hexadecimal value 5A in denary?",
+                opts: ["90", "85", "80", "95"],
+                ans: 0,
+                explain: "(5 × 16) + 10 = 80 + 10 = 90."
+            }
+        },
+        {
+            title: "How do you convert between binary and hexadecimal?",
+            tag: "Calculation",
+            content: `<h4>Why nibbles are the key</h4>
+<ul>
+<li>A <strong>nibble</strong> (4 bits) can represent exactly 16 different values (0000 to 1111) — precisely matching the 16 possible hexadecimal digits (0-F). That's why hex conversion always works in groups of 4 bits.</li>
+<li>An 8-bit binary number splits into exactly <strong>two nibbles</strong>, and each nibble converts to <strong>one</strong> hex digit.</li>
+</ul>
+<h4>Binary → hex</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>Split 11010110 into two 4-bit nibbles.</td><td>1101 | 0110</td></tr>
+<tr><td>2</td><td>Convert each nibble to denary, then to a hex digit (8+4+1=13→D; 4+2=6→6).</td><td>D, 6</td></tr>
+<tr><td>3</td><td>Write the two hex digits together.</td><td>D6</td></tr>
+</table>
+<h4>Hex → binary</h4>
+<ul>
+<li>Reverse it: convert each hex digit into its own 4-bit nibble, then join the two nibbles together to make the full byte.</li>
+<li>Example: hex <strong>9F</strong> → 9 = 1001, F = 1111 → joined = <strong>10011111</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the 8-bit binary equivalent of hexadecimal C4?",
+                opts: ["11000100", "11000010", "10000100", "11010100"],
+                ans: 0,
+                explain: "C = 1100, 4 = 0100 — joined together that's 11000100."
+            }
+        },
+        {
+            title: "What effect do logical binary shifts have?",
+            tag: "Calculation",
+            content: `<h4>What is a logical shift?</h4>
+<ul>
+<li>A <strong>logical shift</strong> moves every bit in a binary number a set number of places to the <strong>left</strong> or <strong>right</strong>. Whatever gap is left behind is always filled with <strong>0</strong>s.</li>
+<li>A <strong>left shift</strong> by n places has the mathematical effect of <strong>multiplying</strong> the original value by 2ⁿ.</li>
+<li>A <strong>right shift</strong> by n places has the effect of <strong>dividing</strong> the original value by 2ⁿ (any remainder is simply lost, since binary can't show a fraction this way).</li>
+</ul>
+<pre class="code-block">00001011  (11)  shift LEFT 2 places
+00101100  (44)  → 11 × 2² = 11 × 4 = 44</pre>
+<h4>Bits shifted off the end are lost</h4>
+<ul>
+<li>Whatever bit gets pushed off the left-hand or right-hand end of the register is <strong>discarded completely</strong> — it does NOT wrap around to the other side (that's a different operation, called a rotate, which isn't on this specification).</li>
+<li>If a shifted-off bit was a <strong>1</strong>, the ×2ⁿ / ÷2ⁿ rule stops giving the true mathematical answer, because real information has been thrown away — this can produce <strong>inaccurate results or overflow-like data loss</strong>.</li>
+</ul>
+<pre class="code-block">11100000  (224)  shift LEFT 2 places
+10000000  (128)  ← the two leading 1s are lost, so this is NOT 224 × 4 (896)</pre>`,
+            readCheck: {
+                q: "An 8-bit binary number is shifted 1 place right using a logical shift. What fills the empty bit position that is created?",
+                opts: ["A 0", "A 1", "Whatever bit was shifted off the opposite end", "Nothing — no gap is created by a logical shift"],
+                ans: 0,
+                explain: "Logical shifts always fill the vacated position with a 0 — the bit shifted off the far end is simply lost, not wrapped around."
+            }
+        },
+        {
+            title: "Why do computer scientists use hexadecimal at all?",
+            tag: "Real world",
+            content: `<h4>Hexadecimal is a shorthand for binary, nothing more</h4>
+<ul>
+<li>Computers still store and process everything in pure <strong>binary</strong> — hexadecimal is never actually stored inside the hardware. It exists purely so that <strong>humans</strong> find binary values easier to work with on paper or on screen.</li>
+<li>Because 4 bits map exactly onto 1 hex digit, a full byte that would need <strong>8 binary digits</strong> to write out can instead be written using just <strong>2 hexadecimal digits</strong> — a much more compact shorthand.</li>
+</ul>
+<h4>Where this actually matters</h4>
+<ul>
+<li>Long strings of 0s and 1s are very easy to <strong>miscount or mistype</strong> by hand. Hex shortens the string, so there is far less to transcribe — and far less room for error.</li>
+<li>Hex shows up constantly in real computing: <strong>memory addresses</strong>, <strong>MAC addresses</strong>, and <strong>colour codes</strong> in web design (e.g. #FF00FF) are all just binary values written in a form that's quicker for a person to read and communicate.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the main reason hexadecimal is used instead of binary when a person reads or writes a value by hand?",
+                opts: ["It gives a shorter, compact way to represent the same binary value, cutting down on transcription errors", "Hexadecimal numbers use noticeably less electricity for a processor to calculate with", "The computer's memory physically stores and processes every byte as 2 hexadecimal digits, never as 8 individual binary bits", "Hexadecimal is simply an older number system that predates binary in computing history"],
+                ans: 0,
+                explain: "Hex is purely a human-readable shorthand for binary — 2 hex digits instead of 8 bits — making values easier and safer to read, write and copy by hand. The hardware itself still only ever stores binary."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "What is the largest denary value that can be stored using 8 bits?",
+            opts: ["255", "256", "128", "199"],
+            ans: 0,
+            explain: "8 bits give 2⁸ = 256 different values counted from 0, so the largest is 255."
+        },
+        {
+            q: "What is the 8-bit binary number 01101011 in denary?",
+            opts: ["107", "111", "103", "123"],
+            ans: 0,
+            explain: "The 1s sit in place values 64, 32, 8, 2 and 1: 64+32+8+2+1 = 107."
+        },
+        {
+            q: "What is denary 137 written as an 8-bit binary number?",
+            opts: ["10001001", "10010001", "10001010", "01001001"],
+            ans: 0,
+            explain: "137 = 128 + 8 + 1, so a 1 goes in the 128, 8 and 1 columns only: 10001001."
+        },
+        {
+            q: "A register needs to store the denary value 9. Which 8-bit binary number correctly represents this, with leading zeros added?",
+            opts: ["00001001", "00000101", "00010001", "10000001"],
+            ans: 0,
+            explain: "9 = 8 + 1, giving binary 1001 — padded out to a full 8 digits, that's 00001001."
+        },
+        {
+            q: "Which term describes the LEFT-most bit of an 8-bit binary number, the one carrying the largest place value?",
+            opts: ["Most significant bit (MSB)", "Least significant bit (LSB)", "Overflow bit", "Carry bit"],
+            ans: 0,
+            explain: "The left-most bit carries the biggest place value (128) and is called the most significant bit; the right-most bit (value 1) is the least significant bit."
+        },
+        {
+            q: "What is hexadecimal 3C in denary?",
+            opts: ["60", "48", "54", "63"],
+            ans: 0,
+            explain: "(3 × 16) + 12 = 48 + 12 = 60."
+        },
+        {
+            q: "What is denary 58 written as a 2-digit hexadecimal number?",
+            opts: ["3A", "2E", "4A", "3F"],
+            ans: 0,
+            explain: "58 ÷ 16 = 3 remainder 10. 3 stays as 3, and 10 becomes A, giving 3A."
+        },
+        {
+            q: "What is binary 11110000 written as a 2-digit hexadecimal number?",
+            opts: ["F0", "0F", "FF", "E0"],
+            ans: 0,
+            explain: "Split into nibbles: 1111 = F, 0000 = 0, giving F0."
+        },
+        {
+            q: "What is hexadecimal B2 written as an 8-bit binary number?",
+            opts: ["10110010", "10100010", "11010010", "10110100"],
+            ans: 0,
+            explain: "B = 1011, 2 = 0010 — joined together that's 10110010."
+        },
+        {
+            q: "The 8-bit register values 210 and 90 are added together. What is the correct term for the error that occurs, since 210 + 90 exceeds 255?",
+            opts: ["Overflow", "Underflow", "Rounding error", "Register mismatch"],
+            ans: 0,
+            explain: "210 + 90 = 300, which needs 9 bits to store correctly — an 8-bit register can't hold it, so an overflow error occurs."
+        },
+        {
+            q: "A value in an 8-bit register undergoes a logical LEFT shift of 3 places, and no 1-bits are lost off the end. What is the effect on the stored value?",
+            opts: ["It is multiplied by 8", "It is divided by 8", "It is multiplied by 3", "It stays exactly the same value"],
+            ans: 0,
+            explain: "Each place shifted left doubles the value, so shifting left 3 places multiplies it by 2³ = 8 (as long as no significant bits are lost off the end)."
+        },
+        {
+            q: "A logical RIGHT shift of 2 places is performed on an 8-bit value, and the two right-most bits shifted off are both 1s. What happens to those two bits?",
+            opts: ["They are permanently lost, so the result is no longer an exact ÷4 of the value", "They move around and reappear as the new left-most bits at the opposite end of the register", "They are stored separately by the CPU so no data is actually lost", "They cause the shift operation to fail and return an error message"],
+            ans: 0,
+            explain: "A logical shift simply discards any bit pushed off the end — it does not wrap around. If those lost bits were 1s, the result is no longer an exact division by 4."
+        }
+    ];
+
+    const matchData = [
+        { term: "MSB (most significant bit)", def: "The left-most bit in a binary number — it carries the largest place value" },
+        { term: "LSB (least significant bit)", def: "The right-most bit in a binary number — it carries the smallest place value (1)" },
+        { term: "Nibble", def: "4 bits — exactly enough to represent one hexadecimal digit (0-F)" },
+        { term: "Byte", def: "8 bits — can always be written as exactly 2 hexadecimal digits" },
+        { term: "Denary", def: "The everyday base-10 number system, using the digits 0-9" },
+        { term: "Binary", def: "The base-2 number system used by computer hardware, using only 0 and 1" },
+        { term: "Hexadecimal", def: "The base-16 number system, using digits 0-9 and letters A-F" },
+        { term: "8-bit place value ladder", def: "128, 64, 32, 16, 8, 4, 2, 1 — the value of each bit position" },
+        { term: "Overflow", def: "An error that occurs when a calculation's true result needs more bits than are available to store it" },
+        { term: "Carry", def: "The extra 1 passed into the next column when a binary addition column totals 2 or more" },
+        { term: "Padding", def: "Adding leading zeros so a binary number fills the full number of bits required" },
+        { term: "Logical shift", def: "Moving every bit in a binary number left or right by a set number of places, filling the gap with 0s" },
+        { term: "Effect of a logical LEFT shift", def: "Multiplies the original value by 2 for every place shifted" },
+        { term: "Effect of a logical RIGHT shift", def: "Divides the original value by 2 for every place shifted, losing any remainder" }
+    ];
+
+    const fibData = [
+        {
+            display: "In an 8-bit binary number, the left-most bit is called the _____, and the right-most bit is called the _____.",
+            blanks: { B1: "MSB", B2: "LSB" }
+        },
+        {
+            display: "Hexadecimal is a base-16 number system, so it uses _____ different digits in total: 0-9 and then A-F.",
+            blanks: { B1: "16" }
+        },
+        {
+            display: "Each hexadecimal digit represents exactly one _____, a group of 4 bits.",
+            blanks: { B1: "nibble" }
+        },
+        {
+            display: "An overflow error happens when the true result of a binary addition needs _____ than 8 bits to be stored correctly.",
+            blanks: { B1: "more" }
+        },
+        {
+            display: "A logical shift LEFT by one place has the effect of _____ the original value by 2.",
+            blanks: { B1: "multiplying" }
+        },
+        {
+            display: "A logical shift RIGHT by one place has the effect of _____ the original value by 2.",
+            blanks: { B1: "dividing" }
+        },
+        {
+            display: "Bits that are pushed off the end of a register during a logical shift are simply _____, not moved to the other end.",
+            blanks: { B1: "lost" }
+        },
+        {
+            display: "Hexadecimal is mainly used because it gives a _____ way of writing binary values that is easier for humans to read and copy.",
+            blanks: { B1: "compact" }
+        }
+    ];
+    const fibWords = ["MSB", "LSB", "16", "nibble", "more", "multiplying", "dividing", "lost", "compact"];
+
+    const tfData = [
+        {
+            statement: "The largest denary value that can be stored using 8 bits is 255.",
+            answer: true,
+            explanation: "Correct — 8 bits give 2⁸ = 256 possible values, counted from 0, so the highest is 255."
+        },
+        {
+            statement: "Hexadecimal digits run from 0-9 and then continue upward as G, H, I, J, K and L.",
+            answer: false,
+            explanation: "Hexadecimal only needs 16 digits in total: 0-9, then the letters A-F (representing 10-15). There is no G digit in hexadecimal."
+        },
+        {
+            statement: "The most significant bit (MSB) of an 8-bit binary number is the right-most bit.",
+            answer: false,
+            explanation: "The opposite is true — the MSB is the LEFT-most bit, carrying the largest place value (128). The right-most bit (value 1) is the least significant bit (LSB)."
+        },
+        {
+            statement: "A logical left shift by 3 places multiplies the original value by 8, provided no significant bits are lost.",
+            answer: true,
+            explanation: "Correct — each place shifted left doubles the value, so 3 places gives 2³ = 8 times the original value."
+        },
+        {
+            statement: "When a bit is shifted off the end of a register during a logical shift, it wraps around and reappears at the opposite end.",
+            answer: false,
+            explanation: "A logical shift simply discards the bit that is pushed off the end — it is lost completely. Wrapping a bit to the other side is a different operation (a rotate), not a logical shift."
+        },
+        {
+            statement: "Overflow can occur when adding two 8-bit binary numbers if their true denary sum is greater than 255.",
+            answer: true,
+            explanation: "Correct — an 8-bit register can only store values from 0 to 255, so any true sum above 255 needs a 9th bit, which causes overflow."
+        },
+        {
+            statement: "Every possible byte (8 bits) can always be represented using exactly 2 hexadecimal digits.",
+            answer: true,
+            explanation: "Correct — a byte splits into exactly two 4-bit nibbles, and each nibble maps onto exactly one hexadecimal digit (0-F)."
+        },
+        {
+            statement: "Hexadecimal is used because computers internally store and process data as hexadecimal digits rather than binary.",
+            answer: false,
+            explanation: "Computer hardware always stores and processes data in pure binary. Hexadecimal is purely a shorthand that humans use when reading or writing binary values — it is never actually stored that way inside the machine."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking hexadecimal digits carry on past 9 as two-character numbers like '10', '11', '12'.",
+            correct: "Hexadecimal only has <strong>16</strong> single-character digits in total. After 9 it switches to letters: <strong>A</strong> (10) through to <strong>F</strong> (15) — never a two-digit number like '10' in a single hex position.",
+            readCheck: {
+                q: "What single hexadecimal digit represents the denary value 13?",
+                opts: ["D", "C", "E", "B"],
+                ans: 0,
+                explain: "A=10, B=11, C=12, D=13, E=14, F=15 — so 13 is represented by the digit D."
+            }
+        },
+        {
+            wrong: "Believing the MSB (most significant bit) is the right-most bit of a binary number, since it 'looks' like the last one written.",
+            correct: "The MSB is actually the <strong>left-most</strong> bit — it carries the largest place value (128 in an 8-bit number). The right-most bit, carrying the smallest place value (1), is the LSB.",
+            readCheck: {
+                q: "Which place value does the most significant bit (MSB) of an 8-bit number carry?",
+                opts: ["128", "256", "64", "16"],
+                ans: 0,
+                explain: "The MSB is the left-most bit, which always carries the largest place value in the number — 128 in an 8-bit binary number."
+            }
+        },
+        {
+            wrong: "Assuming a bit that gets shifted off the end of a register during a logical shift wraps around to reappear at the other end.",
+            correct: "A logical shift simply <strong>discards</strong> any bit pushed off the end — it is gone completely. Making a bit reappear at the other side is a different operation entirely (a rotate), not a logical shift.",
+            readCheck: {
+                q: "During a logical shift, what happens to a bit that is pushed off the end of the register?",
+                opts: ["It is discarded completely and cannot be recovered", "It reappears at the opposite end of the register", "It is stored temporarily in a separate carry bit", "It causes the whole shift operation to be cancelled"],
+                ans: 0,
+                explain: "A logical shift throws away any bit pushed off the end — nothing is kept or wrapped around."
+            }
+        },
+        {
+            wrong: "Assuming an overflow error will automatically show up as an obvious error message as soon as it happens.",
+            correct: "Overflow usually happens <strong>silently</strong> — the register simply stores the wrong, truncated value instead of the true result. Unless a program is specifically written to check for overflow, nothing will visibly alert you that anything went wrong.",
+            readCheck: {
+                q: "What normally happens when an 8-bit addition overflows, if the program does not check for it?",
+                opts: ["The register silently stores an incorrect, truncated value with no visible warning", "The computer automatically displays an on-screen overflow error message and halts the program", "The addition is cancelled and no result is stored anywhere at all", "The two 8-bit registers are automatically merged into one 16-bit register"],
+                ans: 0,
+                explain: "Without a specific check written into the program, an overflow simply produces a wrong stored value — there's no automatic warning."
+            }
+        },
+        {
+            wrong: "Believing hexadecimal makes a computer's calculations run faster, or that data is actually stored as hex inside the processor.",
+            correct: "Hardware always stores and calculates using pure <strong>binary</strong> — hexadecimal never physically exists inside the machine. It is only ever used as a shorthand for humans reading or writing binary values on paper or on screen.",
+            readCheck: {
+                q: "Why doesn't using hexadecimal make a computer's own calculations run any faster?",
+                opts: ["Because the hardware only ever stores and processes data in binary, never hexadecimal", "Because hexadecimal numbers are actually larger in size than equivalent binary numbers", "Because most modern processors do not support hexadecimal arithmetic at all", "Because converting to hexadecimal always introduces small rounding errors"],
+                ans: 0,
+                explain: "Hexadecimal is purely a human-readable shorthand — the hardware itself always stores and works with binary, so hex cannot change how fast it calculates."
+            }
+        },
+        {
+            wrong: "Applying the ×2ⁿ / ÷2ⁿ shift rule automatically, without checking whether any significant (1) bits were actually shifted off the end.",
+            correct: "The ×2ⁿ / ÷2ⁿ rule only gives the TRUE result when no 1-bits are lost off the end. If a 1-bit IS shifted off — especially during a left shift of a large value — the stored result no longer matches what ×2ⁿ would predict, because real information has been thrown away.",
+            readCheck: {
+                q: "When does the 'left shift = multiply by 2ⁿ' rule stop giving the mathematically correct answer?",
+                opts: ["When a 1-bit is shifted off the left-hand end of the register and lost", "Whenever the shift is performed by more than one binary place at a single time", "Whenever the original value happens to be an even number", "It always gives the correct answer, with no exceptions at all"],
+                ans: 0,
+                explain: "If a 1-bit is pushed off the end during the shift, that information is lost — the stored result is then smaller than the true ×2ⁿ value would be."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "Show-your-working ladder: the 2-mark conversion question",
+            pills: ["AO2", "2 marks", "Working + answer", "Own-figure rule"],
+            content: `<p>A typical question: <em>"Convert denary 91 to a 2-digit hexadecimal number. Show your working."</em> [2 marks] Here is the same answer at every level:</p>
+
+<p><strong>❌ 0 marks:</strong> "5B"</p>
+<ul>
+<li>No working shown. Even a correct final answer with nothing behind it risks losing the working mark entirely if a small mistake creeps in.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "91 ÷ 16 = 5 remainder 11"</p>
+<ul>
+<li>Valid working is shown (1 mark) but the digits were never actually converted into the final hex answer and stated — the second mark is for the CONVERTED final answer.</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "91 ÷ 16 = 5 remainder 11 <strong>(1)</strong>. 5 stays as 5, 11 becomes B, so the answer is 5B <strong>(1)</strong>."</p>
+
+<p><strong>Why this matters even if your arithmetic slips:</strong> marking splits the WORKING and the ANSWER into separate marks. If your division is correct but you mislabel a remainder as the wrong letter, you keep the working mark — but only if you actually wrote the working down.</p>`,
+            readCheck: {
+                q: "You correctly work out 91 ÷ 16 = 5 remainder 11, but then wrongly write the final answer as '511' instead of '5B'. What mark do you get out of 2?",
+                opts: ["0, because the final answer written down is wrong", "1 — the working mark for the correct division step", "2, because the working clearly shows the right method throughout", "It depends entirely on whether a calculator was used"],
+                ans: 1,
+                explain: "The division step (91 ÷ 16 = 5 remainder 11) is valid working, so it earns the working mark even though the final answer was never correctly converted into hex — so the answer mark is lost."
+            }
+        },
+        {
+            type: "tip",
+            title: "Binary addition & overflow: the checklist to work through",
+            pills: ["AO2", "2-3 marks", "Working", "Carries"],
+            content: `<p>Whenever a question asks you to add two 8-bit binary numbers, work through this checklist before you write your final answer:</p>
+<ul>
+<li><strong>1. Add column by column from the RIGHT.</strong> Show every carry — even a 0+0 column is worth writing out, to prove you worked through it methodically.</li>
+<li><strong>2. Check the left-most (128) column for a leftover carry.</strong> If there's a carry left over once you've finished that column, that's your signal overflow has occurred.</li>
+<li><strong>3. State your answer as a full 8 digits</strong> (or 9, if you're specifically asked to show the overflow bit) — never drop leading zeros.</li>
+<li><strong>4. If asked to explain overflow</strong>, don't just say "the numbers were too big" — say WHY: the true result needs more than 8 bits, and an 8-bit register has nowhere to put that extra bit.</li>
+</ul>
+<p><strong>Common way to lose marks:</strong> getting every carry right, but then writing "300" or another denary figure as the final answer instead of the required binary string — always re-read what format the question actually wants.</p>`,
+            readCheck: {
+                q: "You correctly add two 8-bit binary numbers and get every carry right, but then write your final answer in denary instead of binary. What is the most likely outcome?",
+                opts: ["You lose the answer mark, because the question specifically asked for a binary result", "You are automatically awarded both marks anyway, since your arithmetic was entirely correct", "You lose all marks, including the working mark, because the format is wrong", "You gain an extra mark for showing you can convert between formats"],
+                ans: 0,
+                explain: "Working is credited separately from the final answer — but the answer still has to be given in the format the question asked for, so writing denary instead of binary loses the answer mark."
+            }
+        },
+        {
+            type: "explain",
+            title: "Binary shift questions: perform AND state, every time",
+            pills: ["AO1", "AO2", "2-3 marks", "Two-part answer"],
+            content: `<p>Shift questions almost always ask for TWO things, and it's easy to only give one of them.</p>
+
+<p><strong>❌ Partial answer:</strong> "01011100"</p>
+<ul>
+<li>A correct shifted binary result is given, but the question also asked you to STATE the mathematical effect (e.g. "multiplies by 4"), which is missing entirely.</li>
+</ul>
+
+<p><strong>⚠️ The other half missing:</strong> "Multiplies the value by 4"</p>
+<ul>
+<li>States the effect correctly, but never actually performs the shift and writes the resulting binary number.</li>
+</ul>
+
+<p><strong>✅ Full answer:</strong> "00010111 shifted left 2 places = 01011100. This multiplies the original value by 2² = 4."</p>
+
+<p><strong>Watch for bit loss:</strong> if any 1-bit gets pushed off the end during the shift, add a sentence noting this — e.g. "the left-most 1 is lost during this shift, so the result is no longer an exact ×4 of the original value." That observation is specifically credited.</p>`,
+            readCheck: {
+                q: "A question asks you to perform a logical right shift AND state its effect, worth 2 marks. You correctly write the new 8-bit binary number but don't mention the ÷2/÷4 effect at all. What mark do you most likely get?",
+                opts: ["1 out of 2 — the shift itself is correct but the effect was never stated", "2 out of 2, since performing the shift correctly implies you understood the effect", "0 out of 2, because both parts of a two-part question must be attempted together", "It depends entirely on how neatly the binary digits were written"],
+                ans: 0,
+                explain: "The two parts are marked separately — a correct shifted value earns its own mark even if the effect statement is missing, but the effect mark itself is lost."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Bit", def: "A single 0 or 1 — the smallest unit of binary data" },
+        { term: "Nibble", def: "4 bits — maps exactly onto one hexadecimal digit (0-F)" },
+        { term: "Byte", def: "8 bits — can always be written as exactly 2 hex digits" },
+        { term: "MSB (most significant bit)", def: "The left-most bit of a binary number — carries the largest place value" },
+        { term: "LSB (least significant bit)", def: "The right-most bit of a binary number — carries the smallest place value (1)" },
+        { term: "8-bit place value ladder", def: "128, 64, 32, 16, 8, 4, 2, 1 — left to right" },
+        { term: "Padding", def: "Adding leading zeros so a binary number fills the full number of bits required" },
+        { term: "Range of an 8-bit unsigned number", def: "0 to 255 (256 possible values in total)" },
+        { term: "Carry (binary addition)", def: "The extra 1 passed into the next column left when a column totals 2 or more" },
+        { term: "Overflow", def: "An error where a calculation's true result needs more bits than the register has available" },
+        { term: "Hexadecimal", def: "A base-16 number system using digits 0-9 and letters A-F (values 10-15)" },
+        { term: "Range of a 2-digit hex number", def: "00 to FF, equivalent to denary 0-255" },
+        { term: "Denary → hex method", def: "Divide by 16 — the whole-number answer is the first digit, the remainder is the second" },
+        { term: "Binary → hex method", def: "Split into two 4-bit nibbles and convert each nibble to its own hex digit" },
+        { term: "Logical shift", def: "Moves every bit left or right by a set number of places, filling the gap with 0s" },
+        { term: "Effect of a logical left shift", def: "Multiplies the original value by 2 for every place shifted" },
+        { term: "Effect of a logical right shift", def: "Divides the original value by 2 for every place shifted; any remainder is lost" },
+        { term: "Why hexadecimal is used", def: "It's a compact, human-readable shorthand for binary — the hardware itself still only stores binary" }
+    ];
+
+    // ── N1–N14: original clean-room questions (2026-07-19) ──
+    // Written from scratch against the §1.2.4 spec scope (denary/binary/hex
+    // conversion, binary addition + overflow, binary shifts, why hex is
+    // used), NOT transcribed from any past paper or ExamBuilder PDF — see
+    // CS-CONTENT-PLAN.md §6.2's 2026-07-17 clean-room rule. All scenarios,
+    // numbers and mark schemes are original. See
+    // docs/SELF-MARK-POINTS-AUTHORING.md for the markPoints convention used
+    // throughout the calculation questions.
+    const EXAM_CASE_STUDIES = {
+        "byte-register": `<p>A simple 8-bit microcontroller stores every value it works with — sensor readings, counters, and the results of calculations — inside 8-bit registers. Each register can hold any whole denary number from 0 to 255, represented internally in pure binary.</p>`,
+        "colour-picker": `<p>A graphic designer uses an image-editing program that lets her choose colours using 2-digit hexadecimal codes. Behind the scenes, the software converts every hex code she enters into an 8-bit binary value before storing it as part of the image file.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "N1",
+            marks: 2,
+            type: "written",
+            caseId: "byte-register",
+            question: `<p>One of the microcontroller's registers needs to store the denary value 45.</p><p>Convert denary 45 into an 8-bit binary number, padding with leading zeros if needed. Show your working.</p>`,
+            hint: "Work down the place-value ladder (128, 64, 32, 16, 8, 4, 2, 1), writing a 1 wherever a place value fits into 45 and subtracting it, then 0 everywhere else. Pad your final answer out to a full 8 digits.",
+            starter: "Working: 45 = … + … + … Answer: … (8 digits)",
+            markPoints: {
+                note: "One mark for valid working showing which place values were used, one mark for the correct final 8-digit answer — the answer mark follows through from your own working even if it isn't 00101101.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Shows valid working identifying which place values from 128, 64, 32, 16, 8, 4, 2, 1 sum to 45 (32+8+4+1), or an equivalent correct method", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "Gives the correct final answer 00101101, written as a full 8 digits including any leading zeros (accept a value that correctly follows through from their own working)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working, e.g. 45 = 32 + 8 + 4 + 1</li>
+<li>1 mark for the answer: 00101101</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any correct method that clearly shows which place values were used.</li>
+<li>The answer must be given as a full 8 digits, including leading zeros — 101101 alone would not score the answer mark.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: 45 = 32 + 8 + 4 + 1. Writing a 1 in the 32, 8, 4 and 1 columns and 0 everywhere else gives 00101101. Answer: 00101101"
+        },
+        {
+            num: "N2",
+            marks: 2,
+            type: "written",
+            caseId: "byte-register",
+            question: `<p>Another register currently holds the 8-bit binary value 10011101.</p><p>Convert this binary value into denary. Show your working.</p>`,
+            hint: "Write out the place value above each bit (128, 64, 32, 16, 8, 4, 2, 1) and add together only the place values where there's a 1.",
+            starter: "Working: 10011101 = … + … + … + … Answer: …",
+            markPoints: {
+                note: "One mark for valid working adding the correct place values, one mark for the correct final answer — the answer mark follows through from your own working even if it isn't 157.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Shows valid working adding the place values where the bit is 1 (128+16+8+4+1), or an equivalent correct method", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "Gives the correct final answer of 157 (accept a value that correctly follows through from their own working)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working, e.g. 128+16+8+4+1</li>
+<li>1 mark for the answer: 157</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award the working mark even if the final total is wrong, provided the method (adding place values where the bit is 1) is valid.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: the 1s sit in the 128, 16, 8, 4 and 1 columns. 128 + 16 + 8 + 4 + 1 = 157. Answer: 157"
+        },
+        {
+            num: "N3",
+            marks: 2,
+            type: "written",
+            caseId: "colour-picker",
+            question: `<p>One of the colours the designer wants to use has denary value 183 (out of 0-255) for its red component.</p><p>Convert denary 183 into a 2-digit hexadecimal number. Show your working.</p>`,
+            hint: "Divide 183 by 16. The whole-number part of the answer is the first hex digit; the remainder is the second hex digit (convert to a letter if it's 10 or higher).",
+            starter: "Working: 183 ÷ 16 = … remainder … Answer: …",
+            markPoints: {
+                note: "One mark for valid working (the division and remainder), one mark for the correct final 2-digit hex answer.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Shows valid working: 183 ÷ 16 = 11 remainder 7, or an equivalent correct method", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "Gives the correct final answer B7, with both digits correctly converted (accept a value that correctly follows through from their own working)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working, e.g. 183 ÷ 16 = 11 remainder 7</li>
+<li>1 mark for the answer: B7</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept the letter B written as an 11, provided the final 2-character hex answer is also given correctly.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: 183 ÷ 16 = 11 remainder 7. 11 becomes the hex digit B, and 7 stays as 7. Answer: B7"
+        },
+        {
+            num: "N4",
+            marks: 2,
+            type: "written",
+            caseId: "colour-picker",
+            question: `<p>The designer types the hexadecimal code 4C into the colour picker for the blue component.</p><p>Convert hexadecimal 4C into denary. Show your working.</p>`,
+            hint: "Multiply the value of the FIRST hex digit by 16, then add the value of the SECOND hex digit.",
+            starter: "Working: (4 × 16) + … = … Answer: …",
+            markPoints: {
+                note: "One mark for valid working, one mark for the correct final denary answer.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Shows valid working: (4 × 16) + 12, or an equivalent correct method", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "Gives the correct final answer 76 (accept a value that correctly follows through from their own working)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working, e.g. (4 × 16) + 12</li>
+<li>1 mark for the answer: 76</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award the working mark even if the final total is wrong, provided the method (first digit × 16, plus second digit) is valid.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: 4 = 4, C = 12. (4 × 16) + 12 = 64 + 12 = 76. Answer: 76"
+        },
+        {
+            num: "N5",
+            marks: 2,
+            type: "written",
+            caseId: "byte-register",
+            question: `<p>A calculation leaves the binary value 01111010 stored in a register.</p><p>Convert this 8-bit binary number into a 2-digit hexadecimal number by splitting it into nibbles. Show your working.</p>`,
+            hint: "Split the 8 bits into two 4-bit nibbles first, then convert EACH nibble separately into its own single hex digit.",
+            starter: "Working: 0111 = … , 1010 = … Answer: …",
+            markPoints: {
+                note: "One mark for valid working splitting into nibbles and converting each one, one mark for the correct final 2-digit hex answer.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Splits the byte into the two nibbles 0111 and 1010 and correctly converts at least one of them (0111 = 7, 1010 = A)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "Gives the correct final answer 7A, with both nibbles correctly converted (accept a value that correctly follows through from their own working)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working: 0111 = 7, 1010 = A</li>
+<li>1 mark for the answer: 7A</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not award the answer mark if the nibbles are converted in the wrong order (e.g. A7 instead of 7A).</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: split into nibbles 0111 and 1010. 0111 = 7, 1010 = A (10). Answer: 7A"
+        },
+        {
+            num: "N6",
+            marks: 2,
+            type: "written",
+            caseId: "colour-picker",
+            question: `<p>The designer types the hexadecimal code E3 into the colour picker for the green component.</p><p>Convert hexadecimal E3 into an 8-bit binary number using nibbles. Show your working.</p>`,
+            hint: "Convert EACH hex digit into its own separate 4-bit nibble, then join the two nibbles together to make the full 8-bit answer.",
+            starter: "Working: E = … , 3 = … Answer: …",
+            markPoints: {
+                note: "One mark for valid working converting each hex digit into its own nibble, one mark for the correct final 8-digit binary answer.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Correctly converts at least one hex digit into its 4-bit nibble (E = 1110, 3 = 0011)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "Gives the correct final answer 11100011, with the two nibbles joined in the correct order (accept a value that correctly follows through from their own working)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working: E = 1110, 3 = 0011</li>
+<li>1 mark for the answer: 11100011</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not award the answer mark if the nibbles are joined in the wrong order.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: E = 1110, 3 = 0011. Joined together: 11100011. Answer: 11100011"
+        },
+        {
+            num: "N7",
+            marks: 4,
+            type: "written",
+            format: "tableFill",
+            caseId: "byte-register",
+            question: `<p>Complete the table by converting each given value into the two missing representations.</p>`,
+            table: {
+                headers: ["Denary", "8-bit Binary", "2-digit Hex"],
+                rows: [
+                    ["91", null, null],
+                    [null, "11000110", null]
+                ]
+            },
+            answers: {
+                "0,1": ["01011011"],
+                "0,2": ["5B"],
+                "1,0": ["198"],
+                "1,2": ["C6"]
+            },
+            hint: "Convert one row at a time. Use the place-value ladder for binary, and split into nibbles for hex.",
+            starter: "Row 1: … , … | Row 2: … , …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark each)</h5>
+<ul>
+<li>Row 1 (91): binary 01011011, hex 5B</li>
+<li>Row 2 (11000110): denary 198, hex C6</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each cell is marked independently.</li>
+<li>Accept binary answers with or without leading-zero padding shown, provided the value is correct.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1: 91 = 01011011 = 5B. Row 2: 11000110 = 198 = C6."
+        },
+        {
+            num: "N8",
+            marks: 2,
+            type: "written",
+            format: "binaryColumn",
+            caseId: "byte-register",
+            question: `<p>Add these two 8-bit binary numbers using binary addition. Show your working out.</p><pre>  01001101
++ 00100011</pre>`,
+            hint: "Add column by column from the right, carrying a 1 into the next column whenever a column totals 2 or more.",
+            starter: "Working: carries shown above each column … Answer: …",
+            binary: { a: "01001101", b: "00100011", bits: 8, answer: "01110000" },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for correct working (carries shown correctly).</li>
+<li>1 mark for the answer 01110000.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Do not award the working mark for converting each number to denary and adding them together instead of adding in binary.</li>
+<li>Carries must be on the correct columns but may be shown above, below or to the side of the sum.</li>
+</ul>
+</div>`,
+            modelAnswer: "01001101 + 00100011, with carries generated in the four right-most columns = 01110000"
+        },
+        {
+            num: "N9",
+            marks: 3,
+            type: "written",
+            format: "binaryColumn",
+            caseId: "byte-register",
+            question: `<p>Two 8-bit registers hold the values 200 and 100. Add these two 8-bit binary numbers together, showing your working out. If the true result needs a 9th bit, write it in the left-most box provided and indicate that overflow has occurred.</p><pre>  11001000
++ 01100100</pre>`,
+            hint: "Add column by column from the right. Once you reach the left-most (128) column, check whether there's a carry left over — if there is, that extra bit goes in the 9th box and overflow has occurred.",
+            starter: "Working: carries shown above each column … Answer (9 digits): … Overflow: …",
+            binary: { a: "11001000", b: "01100100", bits: 8, answer: "100101100", askOverflow: true, overflow: true },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>1 mark for correct working (carries shown correctly).</li>
+<li>1 mark for the answer 100101100 (9 digits, including the overflow bit).</li>
+<li>1 mark for correctly identifying that overflow HAS occurred.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>200 + 100 = 300, which needs 9 bits to store correctly — the true sum will not fit in a single 8-bit register.</li>
+<li>Do not award the working mark for converting each number to denary and adding them together instead of adding in binary.</li>
+</ul>
+</div>`,
+            modelAnswer: "11001000 + 01100100 = 100101100 (9 bits). Since the true sum, 300, needs a 9th bit, an 8-bit register cannot store the correct result — overflow has occurred."
+        },
+        {
+            num: "N10",
+            marks: 2,
+            type: "written",
+            caseId: "byte-register",
+            question: `<p>Using your answer to the previous question, explain why an overflow error has occurred when adding these two register values (200 and 100) together.</p>`,
+            hint: "Think about the maximum value an 8-bit register can actually hold, and where the extra bit from the addition has to go.",
+            starter: "An overflow error has occurred because…",
+            markPoints: [
+                { text: "States that the true denary result of the addition (300) is greater than 255, the largest value an 8-bit register can store", marks: 1 },
+                { text: "States that the calculation produces a carry out of the left-most (128) bit / needs a 9th bit, which the 8-bit register has no space for", marks: 1 }
+            ],
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>The true result of the addition, 300, is greater than 255 — the largest denary value an 8-bit register can store</li>
+<li>The addition produces a carry out of the left-most (128) column / needs a 9th bit, and the 8-bit register has nowhere to store it</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept either point made in the student's own words, provided it correctly links the register's 8-bit limit to the size of the true result.</li>
+</ul>
+</div>`,
+            modelAnswer: "An overflow error has occurred because the true result of the addition, 300, is greater than 255 — the largest denary value that an 8-bit register can hold. The calculation produces a carry out of the left-most (128) column, meaning a 9th bit would be needed to store the correct answer, and the 8-bit register has no space for it."
+        },
+        {
+            num: "N11",
+            marks: 2,
+            type: "written",
+            caseId: "byte-register",
+            question: `<p>A register holds the 8-bit binary value 00010110.</p><p>Perform a logical left shift of 1 place on this value, and state the mathematical effect this shift has on the original value.</p>`,
+            hint: "Shift every bit one place to the left, filling the new right-hand gap with a 0. Then state what a shift of 1 place to the left always does to a value mathematically.",
+            starter: "Shifted value: … Effect: …",
+            markPoints: [
+                { text: "Gives the correct shifted 8-bit value, 00101100", marks: 1 },
+                { text: "States that the effect is to multiply the original value by 2", marks: 1 }
+            ],
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for the shifted value: 00101100</li>
+<li>1 mark for stating the effect: multiplies the original value by 2</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept "×2" or "doubles the value" as equivalent to "multiplies by 2".</li>
+</ul>
+</div>`,
+            modelAnswer: "00010110 shifted left 1 place = 00101100. This multiplies the original value (22) by 2, giving 44."
+        },
+        {
+            num: "N12",
+            marks: 3,
+            type: "written",
+            caseId: "byte-register",
+            question: `<p>A register holds the 8-bit binary value 11010011.</p><p>Perform a logical right shift of 3 places on this value, state the mathematical effect this type of shift has, and explain what happens to the bits that are shifted off the end.</p>`,
+            hint: "Shift every bit three places to the right, filling the new left-hand gaps with 0s — the three right-most bits are pushed off the end. State the ÷2ⁿ effect, then explain what becomes of those lost bits.",
+            starter: "Shifted value: … Effect: … The bits shifted off are…",
+            markPoints: [
+                { text: "Gives the correct shifted 8-bit value, 00011010", marks: 1 },
+                { text: "States that the effect is to divide the original value by 8 (2 to the power 3)", marks: 1 },
+                { text: "Explains that the 3 bits shifted off the right-hand end (011) are permanently lost/discarded, so the result no longer represents an exact division", marks: 1 }
+            ],
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>1 mark for the shifted value: 00011010</li>
+<li>1 mark for stating the effect: divides the original value by 8 (2³)</li>
+<li>1 mark for explaining that the bits shifted off the end (011) are lost/discarded and cannot be recovered, so the exact remainder of the division is not represented</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept "÷8" as equivalent to "divides by 8".</li>
+<li>The final mark requires the idea that the lost bits represent information that cannot be recovered, not simply that "some bits changed".</li>
+</ul>
+</div>`,
+            modelAnswer: "11010011 shifted right 3 places = 00011010. This divides the original value (211) by 8 (2³), giving 26. The 3 right-most bits (011) are shifted off the end and permanently lost — they represented the remainder of the division, so this information cannot be recovered."
+        },
+        {
+            num: "N13",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Which of these is the main reason hexadecimal is used when writing down binary values by hand?</p>`,
+            options: ["It gives a much shorter way to write the same value, cutting down transcription errors", "It allows a computer's processor to calculate noticeably faster than working in pure binary", "It is the number system that a computer's memory actually stores every value in", "It removes the need for a computer to ever convert a value back into binary"],
+            answer: 0,
+            hint: "Think about who hexadecimal shorthand is actually FOR — the hardware, or the person reading and writing the value.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>It gives a much shorter way to write the same value, cutting down transcription errors</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores. The other three options wrongly suggest hex changes how the hardware itself works — it is purely a human-facing shorthand for binary.</li>
+</ul>
+</div>`,
+            modelAnswer: "It gives a much shorter way to write the same value, cutting down transcription errors."
+        },
+        {
+            num: "N14",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Which of these is NOT a valid hexadecimal digit?</p>`,
+            options: ["G", "9", "C", "2"],
+            answer: 0,
+            hint: "Hexadecimal only ever uses 16 digits in total: 0-9, then the letters A through F.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>G</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores. Hexadecimal digits run from 0-9 and then A-F only; G is not a valid hexadecimal digit.</li>
+</ul>
+</div>`,
+            modelAnswer: "G — hexadecimal digits only go up to F (representing 15)."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

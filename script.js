@@ -1517,7 +1517,9 @@ function markLearnRead(card, idx, silent = false) {
     card.dataset.read = '1';
     learnRead++;
     if (!silent) ProgressStore.save(getPageId(), 'learn', learnRead, topics.length);
-    if (!silent) ProgressStore.saveAnswers(getPageId(), 'learn', idx, true);
+    // Ticking a card "read" is progress, not an answered question — see the
+    // countsAsQuestion note on saveAnswers (a check-up question saves twice).
+    if (!silent) ProgressStore.saveAnswers(getPageId(), 'learn', idx, true, { countsAsQuestion: false });
     const badge = document.createElement('span');
     badge.className = 'read-badge';
     badge.textContent = '✓ Read';
@@ -1767,20 +1769,31 @@ function buildMCQLocal(retryOnly = false) {
     document.getElementById('mcqScore').textContent = mcqScore;
     document.getElementById('mcqTotal').textContent = mcqTotal;
 
-    wrap.addEventListener('click', e => {
-        if (!e.target.classList.contains('opt-btn')) return;
-        const qi = +e.target.dataset.qi, oi = +e.target.dataset.oi;
-        const block = e.target.closest('.q-block');
-        if (block.dataset.answered) return;
-        applyMCQAnswered(block, qi, oi);
-        mcqTotal++;
-        if (oi === mcqData[qi].ans) mcqScore++;
-        document.getElementById('mcqScore').textContent = mcqScore;
-        document.getElementById('mcqTotal').textContent = mcqTotal;
-        updateMCQProgress();
-        ProgressStore.save(getPageId(), 'mcq', mcqScore, mcqData.length);
-        ProgressStore.saveAnswers(getPageId(), 'mcq', _stableQi(mcqData, qi), { oi, correct: oi === mcqData[qi].ans });
-    });
+    // Bind ONCE. buildMCQLocal runs on boot AND on every rebuild (redo-wrong,
+    // reset, and as the fallback when the server bank has no rows), and `wrap`
+    // survives those rebuilds — so without this guard each rebuild stacked
+    // another identical listener and a single click counted the answer twice
+    // (double daily-goal bump AND a duplicate progress_events write). The
+    // server-mode handler already guards this way via dataset.sgBound.
+    // mcqData/mcqScore are module-scope, so the one retained listener always
+    // sees the current question set.
+    if (!wrap.dataset.localBound) {
+        wrap.dataset.localBound = '1';
+        wrap.addEventListener('click', e => {
+            if (!e.target.classList.contains('opt-btn')) return;
+            const qi = +e.target.dataset.qi, oi = +e.target.dataset.oi;
+            const block = e.target.closest('.q-block');
+            if (block.dataset.answered) return;
+            applyMCQAnswered(block, qi, oi);
+            mcqTotal++;
+            if (oi === mcqData[qi].ans) mcqScore++;
+            document.getElementById('mcqScore').textContent = mcqScore;
+            document.getElementById('mcqTotal').textContent = mcqTotal;
+            updateMCQProgress();
+            ProgressStore.save(getPageId(), 'mcq', mcqScore, mcqData.length);
+            ProgressStore.saveAnswers(getPageId(), 'mcq', _stableQi(mcqData, qi), { oi, correct: oi === mcqData[qi].ans });
+        });
+    }
     injectMCQProgressBar();
     updateProgressBar('mcq', mcqScore, mcqData.length);
     ProgressStore.saveTotal(getPageId(), 'mcq', mcqData.length);
@@ -1788,6 +1801,9 @@ function buildMCQLocal(retryOnly = false) {
     if (mcqTotal > 0 && (ProgressStore.get(getPageId(), 'mcq').done || 0) !== mcqScore) {
         ProgressStore.save(getPageId(), 'mcq', mcqScore, mcqData.length);
     }
+    // Mathify freshly-built questions. Boot renders the whole body once, but
+    // rebuilds (redo-wrong / reset) re-inject raw \(…\) that must be rendered here.
+    if (typeof renderMathIn === 'function') renderMathIn(wrap);
 }
 function resetMCQ() {
     mcqScore = 0; mcqTotal = 0;
@@ -3616,20 +3632,25 @@ function buildTFLocal(retryOnly = false) {
     document.getElementById('tfScore').textContent = tfScore;
     document.getElementById('tfTotal').textContent = tfTotal;
 
-    wrap.addEventListener('click', e => {
-        const btn = e.target.closest('.tf-btn'); if (!btn) return;
-        const i = +btn.dataset.i; const card = btn.closest('.tf-card');
-        if (card.dataset.answered) return;
-        const chosenVal = btn.dataset.val === 'true';
-        const correct = applyTFAnswered(card, i, chosenVal);
-        tfTotal++;
-        if (correct) tfScore++;
-        document.getElementById('tfScore').textContent = tfScore;
-        document.getElementById('tfTotal').textContent = tfTotal;
-        updateTFProgress();
-        ProgressStore.save(getPageId(), 'tf', tfScore, tfData.length);
-        ProgressStore.saveAnswers(getPageId(), 'tf', _stableQi(tfData, i), { val: chosenVal, correct });
-    });
+    // Bind ONCE — same stacked-listener bug as buildMCQLocal above (rebuilds
+    // kept re-adding this handler, so one click counted twice).
+    if (!wrap.dataset.localBound) {
+        wrap.dataset.localBound = '1';
+        wrap.addEventListener('click', e => {
+            const btn = e.target.closest('.tf-btn'); if (!btn) return;
+            const i = +btn.dataset.i; const card = btn.closest('.tf-card');
+            if (card.dataset.answered) return;
+            const chosenVal = btn.dataset.val === 'true';
+            const correct = applyTFAnswered(card, i, chosenVal);
+            tfTotal++;
+            if (correct) tfScore++;
+            document.getElementById('tfScore').textContent = tfScore;
+            document.getElementById('tfTotal').textContent = tfTotal;
+            updateTFProgress();
+            ProgressStore.save(getPageId(), 'tf', tfScore, tfData.length);
+            ProgressStore.saveAnswers(getPageId(), 'tf', _stableQi(tfData, i), { val: chosenVal, correct });
+        });
+    }
     injectTFProgressBar();
     updateProgressBar('tf', tfScore, tfData.length);
     ProgressStore.saveTotal(getPageId(), 'tf', tfData.length);
@@ -3637,6 +3658,9 @@ function buildTFLocal(retryOnly = false) {
     if (tfTotal > 0 && (ProgressStore.get(getPageId(), 'tf').done || 0) !== tfScore) {
         ProgressStore.save(getPageId(), 'tf', tfScore, tfData.length);
     }
+    // Mathify freshly-built statements. Boot renders the whole body once, but
+    // rebuilds (redo-wrong / reset) re-inject raw \(…\) that must be rendered here.
+    if (typeof renderMathIn === 'function') renderMathIn(wrap);
 }
 function resetTF() {
     tfScore = 0; tfTotal = 0;
@@ -3833,7 +3857,7 @@ function markMiscRead(card, idx = -1, silent = false) {
     miscRead++;
     if (!silent) {
         ProgressStore.save(getPageId(), 'misc', miscRead, miscData.length);
-        if (idx >= 0) ProgressStore.saveAnswers(getPageId(), 'misc', idx, true);
+        if (idx >= 0) ProgressStore.saveAnswers(getPageId(), 'misc', idx, true, { countsAsQuestion: false });
     }
     const badge = document.createElement('div');
     badge.className = 'read-badge misc-read-badge';
@@ -3898,7 +3922,7 @@ function markTipRead(card, idx = -1, silent = false) {
     tipsRead++;
     if (!silent) {
         ProgressStore.save(getPageId(), 'tips', tipsRead, examTips.length);
-        if (idx >= 0) ProgressStore.saveAnswers(getPageId(), 'tips', idx, true);
+        if (idx >= 0) ProgressStore.saveAnswers(getPageId(), 'tips', idx, true, { countsAsQuestion: false });
     }
     const badge = document.createElement('span');
     badge.className = 'read-badge';
@@ -4320,12 +4344,30 @@ function _epLockSelfPanel(panel, mark, max) {
 }
 
 // ── SCROLL TO TOP ──
+// Right-column widgets on this page (this button + #lessonPill) used to
+// coordinate their positions via hardcoded pixel guesses about each other's
+// width/offset. Measuring #lessonPill's real rect instead means either one
+// can change size without silently knocking the other off-column.
+function alignToLessonPillColumn(el, fallbackRight) {
+    const pill = document.getElementById('lessonPill');
+    function place() {
+        const r = pill ? pill.getBoundingClientRect() : null;
+        const w = el.getBoundingClientRect().width || el.offsetWidth;
+        if (!r || !r.width || !w) { el.style.right = fallbackRight + 'px'; return; }
+        const center = window.innerWidth - (r.left + r.width / 2);
+        el.style.right = Math.max(0, Math.round(center - w / 2)) + 'px';
+    }
+    place();
+    window.addEventListener('resize', place);
+}
+
 function initScrollToTop() {
     const btn = document.createElement('button');
     btn.innerHTML = '↑'; btn.className = 'scroll-to-top';
     btn.title = 'Back to top';
     btn.setAttribute('aria-label', 'Back to top');
     document.body.appendChild(btn);
+    alignToLessonPillColumn(btn, 24);
     window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 300));
     btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
@@ -4810,7 +4852,9 @@ function injectDrawerStyles() {
     s.id = 'lessonDrawerStyles';
     s.textContent = `
         #lessonPill {
-            position: fixed; right: 24px; bottom: 82px;
+            /* Vertically centred on the right edge, sharing the same column as
+               the buddy + back-to-top button below it (they used to collide). */
+            position: fixed; right: 30px; top: 50%; transform: translateY(-50%);
             z-index: 300;
             width: 48px; height: 48px;
             background: ${T.surface2};
@@ -4822,7 +4866,7 @@ function injectDrawerStyles() {
             transition: transform .15s, background .2s, border-color .2s;
             box-shadow: 0 6px 18px rgba(0,0,0,.22);
         }
-        #lessonPill:hover { background: ${T.surface}; border-color: ${T.accent}; transform: scale(1.08); }
+        #lessonPill:hover { background: ${T.surface}; border-color: ${T.accent}; transform: translateY(-50%) scale(1.08); }
         #lessonPill .pill-label {
             position: absolute;
             width: 1px; height: 1px;
@@ -4830,7 +4874,7 @@ function injectDrawerStyles() {
             white-space: nowrap;
         }
         @media (max-width: 640px) {
-            #lessonPill { right: 16px; bottom: 70px; width: 44px; height: 44px; }
+            #lessonPill { right: 22px; width: 44px; height: 44px; }
         }
         #lessonDrawerOverlay {
             position: fixed; inset: 0;
@@ -5336,7 +5380,12 @@ const ProgressStore = (() => {
     }
 
     // Save individual answer choices (for per-question restore on reload)
-    function saveAnswers(pageId, section, idx, val) {
+    // opts.countsAsQuestion === false marks this write as a PROGRESS MARKER
+    // (e.g. a Key Learning card ticked "read"), not a question the student
+    // answered. It still saves and mirrors to the server — it just doesn't
+    // advance the daily-goal counter, which otherwise counted a single
+    // check-up question twice: once for the card, once for the answer.
+    function saveAnswers(pageId, section, idx, val, opts) {
         if (!pageId) return;
         const key = `${pageId}__answers__${section}`;
         const existing = _backend.get(key) || {};
@@ -5358,7 +5407,7 @@ const ProgressStore = (() => {
                 total: typeof summary.total === 'number' ? summary.total : null,
             });
         }
-        if (typeof gamificationOnAnswer === 'function') gamificationOnAnswer(isCorrect, section);
+        if (typeof gamificationOnAnswer === 'function') gamificationOnAnswer(isCorrect, section, opts);
     }
 
     function getAnswers(pageId, section) {

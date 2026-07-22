@@ -247,6 +247,18 @@ connections + 1.3.2b protocols and layers") and wait for the owner.
 
 ### 5.3 Tab-by-tab CS guidance
 
+> 🚩 **Tables (owner fix 2026-07-17).** Author teaching tables (character-code
+> tables, unit ladders, worked-example steps, comparison grids) as a PLAIN
+> `<table>` with a `<th>` header row and NO class. style.css now styles every
+> plain table outside the exam tab with a thin bordered grid
+> (`.tab-panel:not(#tab-exampractice) table:not([class])`) — so a bare `<table>`
+> renders correctly with borders/padding/header shading on all pages
+> automatically. Do NOT add inline `border`/`style` or a custom class to
+> teaching tables (a class opts OUT of the shared styling). The exam tab keeps
+> its own table CSS (`.ep-question table`, `.ep-case table`, widget
+> `.csew-grids-table`). Early CS pages (1.2.4/1.2.5) shipped borderless tables
+> before this rule existed — the global CSS retro-fixes them.
+
 **Learn cards (`topics`)** — question-led structure: `<h4>` headings phrased as
 exam-style questions ("What happens at each stage of the fetch–execute cycle?",
 "How do you convert denary to binary?"). Per card: 3–8 bullets per heading,

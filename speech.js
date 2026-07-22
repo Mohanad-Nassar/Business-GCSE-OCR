@@ -242,10 +242,17 @@
   // ---- self-install ----------------------------------------------------------
   function enhanceRoot() {
     var root = document.querySelector('main') || document.body;
-    if (root) enhanceAudio(root);
+    if (!root) return;
+    enhanceAudio(root);
+    // Surface the student Audio panel (speed + voice) only once the page actually
+    // has audible content. Topic pages always have [data-say] in their static
+    // markup, so it appears immediately; the shared activity pages (daily revise,
+    // task, review) render questions asynchronously, so the observer re-runs this
+    // and the panel appears the moment a Spanish question is drawn — and never on
+    // Business/Economics pages, which carry no [data-say] at all.
+    if (document.querySelector('[data-say]')) injectControls();
   }
   function install() {
-    injectControls();
     enhanceRoot();
     var root = document.querySelector('main') || document.body;
     if (root && global.MutationObserver) {

@@ -44,6 +44,34 @@
   window.addEventListener('scroll', onScrollNav, { passive: true });
   onScrollNav();
 
+  // ── Mobile nav (hamburger) ── links + Log in/Get started live in #navPanel,
+  // which collapses into the burger below 900px (see landing.css).
+  var burger = document.getElementById('navBurger');
+  var panel = document.getElementById('navPanel');
+  if (nav && burger) {
+    function closeNav() {
+      nav.classList.remove('nav-open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Open menu');
+    }
+    burger.addEventListener('click', function () {
+      var open = nav.classList.toggle('nav-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    // A tap on any link or button inside the panel closes it.
+    if (panel) panel.addEventListener('click', function (e) {
+      if (e.target.closest('a, button')) closeNav();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeNav(); });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('nav-open') && !nav.contains(e.target)) closeNav();
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900) closeNav();
+    }, { passive: true });
+  }
+
   // ── Reveal on scroll ──
   var revealEls = Array.prototype.slice.call(document.querySelectorAll('.rv'));
   if (reduced || !('IntersectionObserver' in window)) {

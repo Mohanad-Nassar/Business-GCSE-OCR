@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.2 Memory and Storage</div>
             <h1>1.2.5 Data Storage: Characters</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,11 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.2.5 Data Storage: Characters — placeholder, content not yet written
+    //  DATA: 1.2.5 Data Storage: Characters
+    //  Original clean-room content authored from CS-CONTENT-PLAN.md Appendix B
+    //  (OCR J277 §1.2.4 Characters scope). No source PDFs opened for this page.
+    //  All code tables below (SCT-5, Code X) are INVENTED for teaching/practice
+    //  — they are not the real ASCII table.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-2-5-data-storage-characters',
@@ -268,21 +272,973 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.2.5 Data Storage: Characters</strong> will appear here soon.</p>`
+            title: "What is a character set, and why does every character need a unique code?",
+            tag: "Key concept",
+            content: `<h4>Every character needs its own binary code</h4>
+<ul>
+<li>Just like numbers, every <strong>character</strong> a computer can store or display — a letter, a digit, a punctuation mark, even a space — has to be represented using <strong>binary digits (bits)</strong>, because that is the only form of data computer hardware can physically store.</li>
+<li>A <strong>character set</strong> is the collection of characters a computer system can represent. Every character in that set is given its own <strong>unique binary code</strong> — no two characters in the same set share the same code, or the computer would not be able to tell them apart.</li>
+<li>When a computer stores text, it isn't storing the letters themselves — it is storing a sequence of these binary codes, one per character, and looking each one up in the character set whenever it needs to display or process the text.</li>
+</ul>
+<h4>Encoding and decoding</h4>
+<ul>
+<li><strong>Encoding</strong> is converting a character into its binary code, using the character set as a lookup.</li>
+<li><strong>Decoding</strong> is the reverse: converting a binary code back into the character it represents.</li>
+<li>Both directions rely on every device involved using the <strong>same character set</strong>. If a file is encoded with one character set but decoded using a different one, the wrong characters (often strange symbols) can appear on screen.</li>
+</ul>`,
+            readCheck: {
+                q: "What is a character set?",
+                opts: ["A single binary code value that is shared identically between every character a particular display device is able to show", "The collection of characters a computer can represent, where each character has its own unique binary code", "A complete list of every symbol that physically appears on a standard computer keyboard", "The maximum number of characters that are allowed to fit inside one text file"],
+                ans: 1,
+                explain: "A character set is the collection of characters a system can represent, with every character given its own unique binary code so the computer can tell them apart."
+            }
+        },
+        {
+            title: "How many characters can n bits represent — and how few bits do you need?",
+            tag: "Calculation",
+            content: `<h4>The 2ⁿ rule</h4>
+<ul>
+<li>If a character set uses <strong>n bits</strong> for every character's code, the number of <strong>different characters</strong> it can represent is <strong>2 to the power of n (2ⁿ)</strong> — because each of the n bits can independently be 0 or 1.</li>
+<li>This is the same 2ⁿ rule used elsewhere on this course for counting how many different values a binary pattern can represent. It is not a special rule invented just for characters.</li>
+</ul>
+<table>
+<tr><th>Bits (n)</th><th>Characters (2ⁿ)</th></tr>
+<tr><td>1</td><td>2</td></tr>
+<tr><td>2</td><td>4</td></tr>
+<tr><td>3</td><td>8</td></tr>
+<tr><td>4</td><td>16</td></tr>
+<tr><td>5</td><td>32</td></tr>
+<tr><td>6</td><td>64</td></tr>
+<tr><td>7</td><td>128</td></tr>
+<tr><td>8</td><td>256</td></tr>
+</table>
+<h4>Working backwards: how many bits do you need?</h4>
+<ul>
+<li>Exam questions often flip the question around: <em>"a system needs to represent 50 different characters — what is the minimum number of bits per character?"</em></li>
+<li>The method: try increasing values of n in 2ⁿ until the result is <strong>greater than or equal to</strong> the number of characters needed. The FIRST n that works is the minimum.</li>
+</ul>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>A system needs 50 characters. Try n = 5: work out 2⁵.</td><td>32 — too small (32 &lt; 50)</td></tr>
+<tr><td>2</td><td>Try n = 6: work out 2⁶.</td><td>64 — big enough (64 ≥ 50)</td></tr>
+<tr><td>3</td><td>State the minimum n that works.</td><td>6 bits</td></tr>
+</table>`,
+            readCheck: {
+                q: "What is the minimum number of bits needed to represent 200 different characters?",
+                opts: ["7 bits, since 2 to the power of 7 (128) is reasonably close to the target of 200 characters needed", "8 bits, since 2 to the power of 7 (128) is too small but 2 to the power of 8 (256) is enough", "200 bits, using exactly one separate bit for every character that is needed", "100 bits, using exactly half as many bits as the number of characters needed"],
+                ans: 1,
+                explain: "2^7 = 128 is too small (128 < 200). 2^8 = 256 is big enough (256 ≥ 200). So the minimum is 8 bits."
+            }
+        },
+        {
+            title: "ASCII: the standard 7-bit character set",
+            tag: "Key concept",
+            content: `<h4>What ASCII is</h4>
+<ul>
+<li><strong>ASCII</strong> (American Standard Code for Information Interchange) is a standard <strong>7-bit</strong> character set. Using the 2ⁿ rule, 7 bits can represent 2⁷ = <strong>128 different characters</strong>.</li>
+<li>Those 128 characters include the <strong>upper- and lower-case English letters</strong>, the <strong>digits 0–9</strong>, common <strong>punctuation marks</strong> (such as . , ! ?), and a set of <strong>control codes</strong> — non-printable codes that control a device rather than display a symbol (for example, codes that mean "start a new line" or "delete the last character").</li>
+</ul>
+<h4>How ASCII is actually stored</h4>
+<ul>
+<li>Although ASCII itself only needs 7 bits, modern computers store data in whole <strong>bytes (8 bits)</strong>. So an ASCII character is almost always stored using <strong>one byte</strong> per character, with the extra bit either left unused or used for another purpose (such as error-checking).</li>
+<li>This is why exam questions sometimes describe ASCII text as "8 bits per character" in a scenario. Always use the number of bits <strong>given in the question</strong> for any calculation, rather than assuming 7 or 8 from memory.</li>
+</ul>
+<h4>What you are NOT expected to know</h4>
+<ul>
+<li>You do not need to <strong>memorise</strong> the exact binary or denary code for any real ASCII character. Exam questions always give you the character set (real or invented) that you need for a particular task.</li>
+</ul>`,
+            readCheck: {
+                q: "How many characters can the standard 7-bit ASCII character set represent?",
+                opts: ["128 characters, because 2 to the power of 7 equals 128", "256 characters, because one whole byte is made up of 8 bits", "64 characters, because 2 to the power of 6 equals 64", "There is no fixed limit on how many characters ASCII can represent"],
+                ans: 0,
+                explain: "ASCII is a 7-bit character set, and 2^7 = 128, so it can represent 128 different characters."
+            }
+        },
+        {
+            title: "Worked example: encoding and decoding with an invented code table",
+            tag: "Worked example",
+            content: `<h4>An invented character set for practice</h4>
+<p>The table below is a small, <strong>made-up</strong> 5-bit character set — the <strong>Sample Code Table (SCT-5)</strong> — invented for practice on this page. It is <strong>not</strong> the real ASCII code.</p>
+<table>
+<tr><th>Character</th><th>Denary</th><th>5-bit code</th></tr>
+<tr><td>A</td><td>0</td><td>00000</td></tr>
+<tr><td>B</td><td>1</td><td>00001</td></tr>
+<tr><td>C</td><td>2</td><td>00010</td></tr>
+<tr><td>D</td><td>3</td><td>00011</td></tr>
+<tr><td>E</td><td>4</td><td>00100</td></tr>
+<tr><td>…</td><td>…</td><td>…</td></tr>
+<tr><td>P</td><td>15</td><td>01111</td></tr>
+<tr><td>(space)</td><td>16</td><td>10000</td></tr>
+</table>
+<p>SCT-5 defines 20 characters in total (A–P, plus a space, full stop, comma and exclamation mark), assigned <strong>sequentially</strong> starting from denary 0. Since 2⁴ = 16 is too small for 20 characters but 2⁵ = 32 is enough, every code needs <strong>5 bits</strong>.</p>
+<h4>Worked example: encoding a word</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>Encode the word "BE" using SCT-5. Look up B.</td><td>B = denary 1 = 00001</td></tr>
+<tr><td>2</td><td>Look up E.</td><td>E = denary 4 = 00100</td></tr>
+<tr><td>3</td><td>Write the codes in order.</td><td>00001 00100</td></tr>
+</table>
+<h4>Worked example: decoding a binary string</h4>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>Decode 01100 10000. Convert the first code to denary.</td><td>01100 = 12</td></tr>
+<tr><td>2</td><td>Look up denary 12 in the table.</td><td>12 = M</td></tr>
+<tr><td>3</td><td>Convert and look up the second code.</td><td>10000 = 16 = (space)</td></tr>
+</table>`,
+            readCheck: {
+                q: "Using SCT-5 (A=00000, B=00001, C=00010, D=00011…), what is the binary code for the character D?",
+                opts: ["00011, since D is the 4th character in the table, denary 3, one place after C", "00010, the code that is actually used for the earlier character C, not the character D", "00100, the code that comes two full places after C in the table, not the character D", "00001, the code that is actually used for the earlier character B, not the character D"],
+                ans: 0,
+                explain: "D is the 4th character in SCT-5, denary 3, which is 00011 in 5-bit binary."
+            }
+        },
+        {
+            title: "Why character codes are sequential — working out an 'unknown' character logically",
+            tag: "Exam skill",
+            content: `<h4>Codes are assigned in order</h4>
+<ul>
+<li>In ASCII (and in most character sets, including the invented ones on this page), letters and digits are given <strong>sequential</strong> binary codes — the code for the next letter in the alphabet is exactly <strong>one more</strong> than the code for the letter before it.</li>
+<li>This means that if you are given the code for one character, you can work out the code for a nearby character just by counting how many places along the sequence it is. You do not need to memorise every individual code.</li>
+</ul>
+<h4>Worked example: a fixed offset between upper and lower case</h4>
+<p>Suppose a fictional character code, <strong>Code X</strong>, assigns uppercase <strong>A</strong> the denary code <strong>40</strong>, with every following letter one more than the last (B = 41, C = 42, and so on). Lowercase letters use the <strong>same code as the matching uppercase letter, plus a fixed offset of 50</strong>.</p>
+<table>
+<tr><th>Step</th><th>What you do</th><th>Result</th></tr>
+<tr><td>1</td><td>Find the code for uppercase D. Count how many letters after A it is (3), and add to 40.</td><td>40 + 3 = 43</td></tr>
+<tr><td>2</td><td>Find the code for lowercase d. Add the fixed lowercase offset of 50 to uppercase D's code.</td><td>43 + 50 = 93</td></tr>
+</table>
+<h4>Why the exam tests this</h4>
+<ul>
+<li>Questions that give you one or two known codes from a set, then ask for a nearby one, are testing whether you understand that the codes are <strong>sequential</strong> and that related pairs (like upper/lower case) sit a <strong>fixed distance</strong> apart — not whether you have memorised any real code table.</li>
+</ul>`,
+            readCheck: {
+                q: "In a sequential character code, if the letter G has the code 38, what is the most likely code for the letter H (the very next letter)?",
+                opts: ["39, since codes increase by 1 for each next letter", "37, since this mistakenly uses the code that came BEFORE G rather than after it", "76, since this doubles G's code instead of simply adding one for the next letter", "19, since this halves G's code instead of simply adding one for the next letter"],
+                ans: 0,
+                explain: "Sequential codes increase by exactly 1 for each following letter in the alphabet, so H would be 38 + 1 = 39."
+            }
+        },
+        {
+            title: "Unicode: a bigger character set for a multilingual world",
+            tag: "Comparison",
+            content: `<h4>Why ASCII wasn't enough</h4>
+<ul>
+<li>ASCII's 128 characters are enough for basic English text, but nowhere near enough to represent the letters used by <strong>every language in the world</strong> (such as Chinese, Arabic or Greek scripts), or the huge range of <strong>symbols and emoji</strong> used in modern digital communication.</li>
+<li><strong>Unicode</strong> is a much larger character set, designed to solve this problem by using <strong>more bits per character</strong> than ASCII — for example, 16 bits instead of ASCII's 7. Using the 2ⁿ rule, 16 bits can represent 2¹⁶ = 65,536 different characters, far more than ASCII's 128.</li>
+</ul>
+<h4>Unicode stays compatible with ASCII</h4>
+<ul>
+<li>Unicode was deliberately designed so that its <strong>first 128 character codes are identical</strong> to ASCII's 128 codes. This means any text that was valid ASCII is automatically valid Unicode too — older ASCII files do not need to be converted or become unreadable.</li>
+</ul>
+<h4>The storage trade-off</h4>
+<ul>
+<li>Using more bits per character is not free: a Unicode character typically takes up <strong>more storage</strong> than the same character stored in ASCII, because more bits are needed for every single character in the file.</li>
+<li>This means a text file re-encoded from ASCII into Unicode, containing exactly the same characters, will usually become a <strong>larger file</strong>. Representing more possible characters comes at the cost of more bits needed per character.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the main storage trade-off of using Unicode instead of ASCII?",
+                opts: ["Unicode files are always smaller, because Unicode compresses data automatically as it is stored", "Unicode characters typically use more bits, so the same amount of text becomes a larger file", "Unicode removes the need to store any control codes at all, which saves storage space", "Unicode text can only ever be stored using exactly 8 bits per character"],
+                ans: 1,
+                explain: "Unicode characters typically use more bits per character than ASCII, so storing the same text in Unicode usually results in a larger file."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which of these best defines a 'character set'?",
+            opts: ["A single binary code value that is shared identically between every character a particular display device is able to show", "The set of characters a computer can represent, where each character has its own unique binary code", "A complete list of every symbol that physically appears on a standard computer keyboard", "The maximum number of characters that are allowed to fit inside one text file"],
+            ans: 1,
+            explain: "A character set is the set of characters a system can represent, with every character given its own unique binary code."
+        },
+        {
+            q: "How many different characters can be represented using 8 bits?",
+            opts: ["256, since 2 to the power of 8 equals 256", "128, since 2 to the power of 7 equals 128", "64, since 2 to the power of 6 equals 64", "512, since 2 to the power of 9 equals 512"],
+            ans: 0,
+            explain: "2^8 = 256, so 8 bits can represent 256 different characters."
+        },
+        {
+            q: "What is the minimum number of bits needed to represent 100 different characters?",
+            opts: ["7 bits, since 2 to the power of 7 (128) is enough but 2 to the power of 6 (64) is too small", "6 bits, since 100 is fairly close to 2 to the power of 6 (64) and rounds neatly to a whole byte value", "100 bits, using exactly one separate bit for every single character that is needed", "8 bits, chosen simply to match the size of one whole standard byte of memory"],
+            ans: 0,
+            explain: "2^6 = 64 is too small (64 < 100). 2^7 = 128 is big enough (128 ≥ 100). So the minimum is 7 bits."
+        },
+        {
+            q: "The standard ASCII character set is usually described as using how many bits per character?",
+            opts: ["7 bits, giving 2 to the power of 7 (128) possible characters", "8 bits, exactly matching the size of one whole byte", "16 bits, the same as a common Unicode encoding", "4 bits, exactly half of the eight bits used in one standard byte of memory"],
+            ans: 0,
+            explain: "ASCII is a 7-bit character set, giving 2^7 = 128 possible characters."
+        },
+        {
+            q: "How many different characters does the standard 7-bit ASCII character set contain?",
+            opts: ["128 characters, since 2 to the power of 7 equals 128", "256 characters, since one whole byte is made up of 8 bits", "64 characters, since 2 to the power of 6 equals 64", "100 characters, a round number chosen for convenience"],
+            ans: 0,
+            explain: "2^7 = 128, so the standard ASCII character set contains 128 characters."
+        },
+        {
+            q: "ASCII characters are typically stored in modern computer memory using how many bits?",
+            opts: ["8 bits (one byte) per character, even though ASCII itself only needs 7", "7 bits per character, with absolutely no extra bit ever used or reserved for anything else", "16 bits per character, exactly the same as a common Unicode encoding", "4 bits per character, exactly half of one whole byte"],
+            ans: 0,
+            explain: "Although ASCII itself only needs 7 bits, computers store data in whole bytes, so ASCII characters are typically stored using 8 bits (one byte) each."
+        },
+        {
+            q: "A ticket machine uses a fictional code where letter A = 10, and each following letter increases by 1 (B = 11, C = 12, and so on). What code represents the letter D?",
+            opts: ["13, since D is 3 letters after A in the sequence", "12, the code that is actually used for the letter C", "14, the code that comes two places after C", "10, the code that is actually used for the letter A"],
+            ans: 0,
+            explain: "D is 3 letters after A, so its code is 10 + 3 = 13."
+        },
+        {
+            q: "A messaging app needs to display text in English, Japanese and Arabic, plus emoji, within the same message. Which character set is better suited to this task?",
+            opts: ["Unicode, because it uses more bits per character and so can represent far more characters", "ASCII, because its 128 characters already cover every language and every emoji currently in use around the world", "Unicode, because it always uses fewer bits per character than ASCII does", "ASCII, because it was specifically designed for use inside messaging apps"],
+            ans: 0,
+            explain: "Unicode uses more bits per character than ASCII, allowing it to represent the huge range of characters needed for multiple languages and emoji, which ASCII's 128 codes cannot cover."
+        },
+        {
+            q: "A text file is re-encoded so that every character uses 16 bits instead of 8 bits, with no change to the number of characters. What effect does this have on the file's size?",
+            opts: ["The file size roughly doubles, since twice as many bits are stored per character", "The file size stays exactly the same, since the number of characters has not changed", "The file size is roughly halved, since Unicode compresses text as it is stored", "The file becomes exactly sixteen times larger than it was before"],
+            ans: 0,
+            explain: "Doubling the number of bits used per character (from 8 to 16), with the same number of characters, roughly doubles the total number of bits stored — and so roughly doubles the file size."
+        },
+        {
+            q: "Which statement correctly describes the relationship between Unicode and ASCII?",
+            opts: ["Unicode's first 128 character codes are identical to the 128 codes used by ASCII", "Unicode and ASCII are completely unrelated character sets that share no codes at all", "ASCII is simply a shortened, 64-character version of the full Unicode character set", "Unicode replaced ASCII entirely, so ASCII codes are no longer valid anywhere today"],
+            ans: 0,
+            explain: "Unicode was designed so its first 128 codes exactly match ASCII's 128 codes, keeping existing ASCII text valid within Unicode."
+        },
+        {
+            q: "In a sequential character code, character M has the code 01100, and N is the very next character in the set. What binary code represents N?",
+            opts: ["01101, one more than M's own code of 01100", "01011, one less than M's own code of 01100", "01110, two more than M's own code of 01100", "01100, exactly the same code as M itself"],
+            ans: 0,
+            explain: "Sequential codes increase by 1 for the next character in the set, and 01100 (12) + 1 = 01101 (13)."
+        },
+        {
+            q: "A retro games console can only spare 4 bits to store each character's code. What is the maximum number of distinct characters it could support?",
+            opts: ["16 characters, since 2 to the power of 4 equals 16", "4 characters, exactly one for each bit that is available", "8 characters, exactly half of the usual byte-sized total", "32 characters, exactly double the usual estimate given"],
+            ans: 0,
+            explain: "2^4 = 16, so a 4-bit code can support a maximum of 16 distinct characters."
+        }
+    ];
+
+    const matchData = [
+        { term: "Character set", def: "The set of characters a computer can represent, each with a unique binary code" },
+        { term: "Bit", def: "The smallest unit of data a computer can store — a single 0 or 1" },
+        { term: "2ⁿ", def: "The formula for how many different characters n bits can represent" },
+        { term: "Minimum bits for N characters", def: "The smallest n for which 2ⁿ is greater than or equal to N" },
+        { term: "ASCII", def: "A standard 7-bit character set for English letters, digits, punctuation and control codes" },
+        { term: "128", def: "The number of characters the standard ASCII character set can represent" },
+        { term: "Byte storage of ASCII", def: "ASCII characters are typically stored using one byte (8 bits) per character" },
+        { term: "Control code", def: "A non-printable ASCII code that controls a device rather than displaying a symbol" },
+        { term: "Sequential codes", def: "Codes assigned in order, so consecutive characters have consecutive binary values" },
+        { term: "Unicode", def: "A larger character set using more bits per character to represent far more characters" },
+        { term: "Unicode's first 128 codes", def: "Identical to the 128 codes used by ASCII" },
+        { term: "Storage trade-off", def: "More bits per character means more possible characters, but larger file sizes" },
+        { term: "Encoding", def: "Converting a character into its binary code" },
+        { term: "Decoding", def: "Converting a binary code back into the character it represents" }
+    ];
+
+    const fibData = [
+        {
+            display: "A _____ is the set of characters a computer can represent, where each character has its own unique binary code.",
+            blanks: { B1: "character set" }
+        },
+        {
+            display: "Using 7 bits, a character set can represent up to _____ different characters.",
+            blanks: { B1: "128" }
+        },
+        {
+            display: "Using 8 bits, a character set can represent up to _____ different characters.",
+            blanks: { B1: "256" }
+        },
+        {
+            display: "The standard ASCII character set uses _____ bits to represent each character.",
+            blanks: { B1: "7" }
+        },
+        {
+            display: "ASCII characters are commonly stored in computer memory using one _____ (8 bits) per character.",
+            blanks: { B1: "byte" }
+        },
+        {
+            display: "Unicode uses more _____ per character than ASCII, allowing it to represent many more characters.",
+            blanks: { B1: "bits" }
+        },
+        {
+            display: "Unicode's first 128 character codes are identical to those used by _____.",
+            blanks: { B1: "ASCII" }
+        },
+        {
+            display: "Because Unicode characters can use more bits than ASCII characters, text files encoded in Unicode are often _____ in size than the same text encoded in ASCII.",
+            blanks: { B1: "larger" }
+        }
+    ];
+    const fibWords = ["character set", "128", "256", "7", "byte", "bits", "ASCII", "larger"];
+
+    const tfData = [
+        {
+            statement: "A character set is the collection of characters a computer can represent, each with its own unique binary code.",
+            answer: true,
+            explanation: "Correct — that is exactly what a character set is."
+        },
+        {
+            statement: "Using 5 bits, a computer could represent up to 64 different characters.",
+            answer: false,
+            explanation: "5 bits gives 2^5 = 32 different characters, not 64. 64 would need 6 bits (2^6 = 64)."
+        },
+        {
+            statement: "The standard ASCII character set itself uses 8 bits to represent every character.",
+            answer: false,
+            explanation: "ASCII itself is a 7-bit character set (128 characters). It is commonly STORED using 8 bits (one byte), but the code itself only needs 7 bits."
+        },
+        {
+            statement: "ASCII can represent letters, digits, punctuation marks and control codes.",
+            answer: true,
+            explanation: "Correct — ASCII's 128 characters include upper- and lower-case letters, digits 0–9, punctuation marks and non-printable control codes."
+        },
+        {
+            statement: "Because character codes are usually assigned sequentially, the code for a letter is always exactly one more than the code for the letter before it in the alphabet.",
+            answer: true,
+            explanation: "True for sequential character sets like ASCII — consecutive letters have consecutive binary codes."
+        },
+        {
+            statement: "Unicode uses fewer bits per character than ASCII, which is why it can represent more characters.",
+            answer: false,
+            explanation: "The opposite is true: Unicode uses MORE bits per character than ASCII, which is exactly why it can represent far more characters."
+        },
+        {
+            statement: "The first 128 character codes in Unicode are identical to the 128 codes in ASCII.",
+            answer: true,
+            explanation: "Correct — Unicode was deliberately designed this way, so existing ASCII text is automatically valid Unicode text too."
+        },
+        {
+            statement: "Storing text using Unicode instead of ASCII can make a text file larger, because Unicode often uses more bits per character.",
+            answer: true,
+            explanation: "Correct — more bits per character, with the same number of characters, means more bits (and so more storage) are needed overall."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Believing you need to memorise the exact binary or denary code for every real ASCII character.",
+            correct: "OCR does <strong>not</strong> expect you to memorise real ASCII codes — exam questions always give you the character set (or the codes) you need, often an invented one. What you must understand instead is the <em>relationship</em> between bits and how many characters they can represent, and how sequential codes let you work out an 'unknown' character logically.",
+            readCheck: {
+                q: "Which of these does the OCR specification actually require you to know for this topic?",
+                opts: ["The exact real ASCII code number for every single character, memorised completely off by heart", "How the number of bits used relates to the number of characters that can be represented", "The precise binary code used for every emoji defined inside Unicode", "The complete Unicode code for every written language used around the world"],
+                ans: 1,
+                explain: "You are not expected to memorise real codes — you are expected to understand the relationship between bits and representable characters, and how sequential codes work."
+            }
+        },
+        {
+            wrong: "Assuming that using more bits per character makes text look better or higher quality, in the same way that a higher colour depth improves an image.",
+            correct: "Text doesn't have a 'quality' scale the way images and sound do. Using <strong>more bits per character</strong> simply means <strong>more different characters can be represented</strong> — a bigger character set covering more languages, symbols and emoji — it does not make any individual character look sharper or clearer on screen.",
+            readCheck: {
+                q: "What does using MORE bits per character actually give a character set?",
+                opts: ["Sharper, higher-quality looking text displayed on the screen for the user", "The ability to represent a larger number of different characters", "Noticeably faster processing of each individual character by the CPU", "A smaller file size for storing exactly the same amount of text"],
+                ans: 1,
+                explain: "More bits per character means more possible codes, so more different characters can be represented — it has no effect on how 'sharp' text looks."
+            }
+        },
+        {
+            wrong: "Thinking ASCII and Unicode are two totally separate, incompatible systems that cannot be mixed together.",
+            correct: "Unicode was deliberately designed so its <strong>first 128 character codes are identical</strong> to ASCII's 128 codes. This means any valid ASCII text is automatically valid Unicode text too — Unicode extends ASCII rather than replacing it with something incompatible.",
+            readCheck: {
+                q: "How does Unicode relate to the older ASCII character set?",
+                opts: ["They are unrelated systems that were never designed to work together", "Unicode's first 128 codes are identical to the 128 codes used by ASCII", "Unicode completely replaced ASCII, so ASCII text no longer works anywhere", "ASCII is a newer, improved version of Unicode released after it"],
+                ans: 1,
+                explain: "Unicode's first 128 codes exactly match ASCII's, which is why existing ASCII text remains valid Unicode text."
+            }
+        },
+        {
+            wrong: "Believing the 2ⁿ rule for counting representable characters only works for the specific cases of n = 7 or n = 8 bits.",
+            correct: "2ⁿ is a <strong>general rule</strong> that works for any whole number of bits n — 3 bits give 2³ = 8 characters, 5 bits give 2⁵ = 32, and so on. 7 bits (ASCII) and 8 bits (one byte) are simply the two examples that come up most often, not special cases governed by a different rule.",
+            readCheck: {
+                q: "Using the general 2ⁿ rule, how many different characters could a 3-bit character set represent?",
+                opts: ["3 characters, one for every bit that is available", "6 characters, double the number of bits available", "8 characters, since 2 to the power of 3 equals 8", "9 characters, three squared using the number of bits"],
+                ans: 2,
+                explain: "2^3 = 8, so a 3-bit character set can represent 8 different characters."
+            }
+        },
+        {
+            wrong: "When asked for the minimum number of bits needed to represent N characters, using N itself as the number of bits — for example saying '50 characters needs 50 bits'.",
+            correct: "You need the <strong>smallest n</strong> for which 2ⁿ is <strong>greater than or equal to</strong> N — not N itself. For 50 characters: 2⁵ = 32 is too small, but 2⁶ = 64 is enough, so the answer is <strong>6 bits</strong>, not 50 bits.",
+            readCheck: {
+                q: "What is the minimum number of bits needed to represent 20 different characters?",
+                opts: ["20 bits, using exactly one separate bit for every single character that this needs to store", "4 bits, since 2 to the power of 4 (16) is reasonably close to the number 20", "5 bits, since 2 to the power of 4 (16) is too small but 2 to the power of 5 (32) is enough", "6 bits, simply one more than the previous minimum just to be extra safe"],
+                ans: 2,
+                explain: "2^4 = 16 is too small (16 < 20). 2^5 = 32 is enough (32 ≥ 20). So the minimum is 5 bits."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "Show-your-working ladder: the 2-mark 'how many bits' calculation",
+            pills: ["AO2", "2 marks", "Working + answer", "Own-figure rule"],
+            content: `<p>A typical question: <em>"A system needs to represent 40 different characters. Calculate the minimum number of bits required per character. Show your working."</em> [2 marks] Here is the same answer at every level:</p>
+
+<p><strong>❌ 0 marks:</strong> "6"</p>
+<ul>
+<li>No working shown at all. Even a correct final answer with nothing behind it risks losing the working mark entirely if a small slip means the number given is actually wrong.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "2^5 = 32, 2^6 = 64"</p>
+<ul>
+<li>Valid working is shown, testing the powers of 2 against 40 (1 mark) — but no final answer is actually stated, so the second mark for the answer itself is not awarded.</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "2^5 = 32, too small <strong>(1)</strong>. 2^6 = 64, big enough. Minimum = 6 bits <strong>(1)</strong>."</p>
+
+<p><strong>Why this matters even if your arithmetic slips:</strong> OCR-style marking splits the WORKING and the ANSWER into separate marks. If your method (testing powers of 2 against the target number) is correct but you make a small slip in one power of 2, you can still keep the working mark — but only if you actually wrote the working down.</p>`,
+            readCheck: {
+                q: "You correctly show that 2^5 = 32 is too small, but then wrongly calculate 2^6 as 60 instead of 64 and conclude 'minimum = 6 bits'. What mark do you get out of 2?",
+                opts: ["0, because the working used to reach the final answer contained an arithmetic slip", "1, since valid working testing powers of 2 against the target is clearly shown", "2, since the final stated answer of 6 bits happens to still be correct", "It depends entirely on which specific exam paper the question came from"],
+                ans: 1,
+                explain: "Testing powers of 2 against the target number is valid working, so it earns the working mark even though one of the calculated values (2^6 = 60) was arithmetically wrong."
+            }
+        },
+        {
+            type: "tip",
+            title: "Answering tick-one-box ASCII/Unicode fact questions: eliminate, don't guess",
+            pills: ["AO1", "1 mark", "MCQ", "Elimination"],
+            content: `<p>Single tick-box questions about ASCII and Unicode facts are worth only 1 mark, but they are rarely a lucky guess — three of the four options are usually wrong for a specific, checkable reason.</p>
+
+<p><strong>The reliable method:</strong> test EVERY option against something you know for certain before you tick anything:</p>
+<ul>
+<li>Does the option confuse the number of BITS with the number of CHARACTERS (e.g. mixing up "7 bits" with "128 characters")?</li>
+<li>Does the option get the direction of the ASCII/Unicode comparison backwards (saying Unicode uses FEWER bits, when it actually uses more)?</li>
+<li>Does the option claim ASCII and Unicode are unrelated, when Unicode's first 128 codes are actually identical to ASCII's?</li>
+</ul>
+
+<p><strong>One tick only.</strong> As with other tick-one-box questions on this course, ticking two or more boxes scores zero, even if one of them is correct — so commit to your single best-evidenced answer rather than hedging between two options.</p>`,
+            readCheck: {
+                q: "You are fairly confident the answer is option 2, but tick option 4 as well just in case. What mark do you get?",
+                opts: ["1 mark, since option 2 was in fact the option that was correct", "0 marks — ticking two or more boxes always scores zero on these questions", "0.5 marks, awarded automatically for showing genuine uncertainty", "It depends entirely on which of the two ticked options the marker prefers"],
+                ans: 1,
+                explain: "Tick-one-box questions award 0 marks the moment two or more boxes are ticked, regardless of whether the correct option is among them."
+            }
+        },
+        {
+            type: "explain",
+            title: "Command-word ladder: 'explain' the ASCII/Unicode storage trade-off",
+            pills: ["AO1", "4 marks", "Explain", "Point + development"],
+            content: `<p>A typical question: <em>"Explain why choosing to store text using Unicode instead of ASCII could increase the file size."</em> [up to 4 marks] "Explain" needs a point AND a development — "…which means…" — not just a fact on its own.</p>
+
+<p><strong>❌ 0–1 marks:</strong> "Unicode uses more bits."</p>
+<ul>
+<li>A bare fact with no development. It is TRUE, but it does not explain why the file size increases as a result.</li>
+</ul>
+
+<p><strong>⚠️ 2 marks:</strong> "Unicode uses more bits per character than ASCII, which means each character takes up more storage."</p>
+<ul>
+<li>One point developed with "…which means…" — a genuine explanation, but it stops short of a full comparison and a stated consequence for the whole file.</li>
+</ul>
+
+<p><strong>✅ 3–4 marks:</strong> "Unicode uses more bits per character than ASCII (for example 16 bits instead of 7), which means every single character needs more storage space. Because a text file contains many characters, this extra amount per character adds up across the whole file, which means the total file size becomes larger than the same text stored in ASCII."</p>
+
+<p><strong>The pattern:</strong> fact (more bits per character) → development (more storage per character) → consequence (the WHOLE FILE grows, not just one character). Each arrow is worth developing into its own sentence.</p>`,
+            readCheck: {
+                q: "A student writes only 'Unicode uses more bits, so files are bigger' for a 4-mark 'explain' question. Roughly how many marks is this likely to gain?",
+                opts: ["Full marks, since the key fact and its consequence are both technically present", "Only partial marks, since the chain of reasoning is not developed step by step", "Zero marks, since the statement given is factually incorrect", "It cannot be marked at all without a diagram accompanying the answer"],
+                ans: 1,
+                explain: "The statement is correct but underdeveloped — a full-marks 'explain' answer needs each step in the chain (more bits per character → more storage per character → larger overall file) spelled out, not compressed into one bare sentence."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Character set", def: "The set of characters a computer can represent, each with a unique binary code" },
+        { term: "Bit", def: "The smallest unit of data a computer stores, either a 0 or a 1" },
+        { term: "n-bit character set", def: "A character set where each character's code is n bits long" },
+        { term: "2ⁿ", def: "The formula for how many different characters an n-bit code can represent" },
+        { term: "Minimum bits needed", def: "The smallest n for which 2ⁿ is greater than or equal to the number of characters needed" },
+        { term: "ASCII", def: "A standard 7-bit character set representing English letters, digits, punctuation and control codes" },
+        { term: "128", def: "The number of characters the standard ASCII character set can represent" },
+        { term: "Control code", def: "A non-printable ASCII code used to control a device rather than display a symbol" },
+        { term: "Byte storage of ASCII", def: "ASCII characters are commonly stored using one byte (8 bits) per character" },
+        { term: "Sequential character codes", def: "Codes assigned in alphabetical order, so consecutive characters have consecutive binary values" },
+        { term: "Unicode", def: "A larger character set using more bits per character to represent many more characters and languages" },
+        { term: "Unicode compatibility with ASCII", def: "Unicode's first 128 codes are identical to ASCII's, so ASCII text is valid Unicode text" },
+        { term: "Storage trade-off", def: "Using more bits per character represents more possible characters but increases file size" },
+        { term: "Emoji/multilingual support", def: "A key reason Unicode was introduced, since ASCII's 128 codes cannot cover every language and symbol" },
+        { term: "Encoding", def: "Converting a character into its binary code using a character set" },
+        { term: "Decoding", def: "Converting a binary code back into the character it represents using a character set" },
+        { term: "Character", def: "A single letter, digit, punctuation mark or control code stored as a unique binary code" }
+    ];
+    // ── P1–P14: original clean-room questions (2026-07-19) ──
+    // Written from scratch against the CS-CONTENT-PLAN.md Appendix B §1.2.5
+    // (Characters) spec scope — NOT transcribed from any past paper, per the
+    // 2026-07-17 owner decision (CS-CONTENT-PLAN.md §6.2). No OCR PDFs or
+    // mock-papers/*.js were opened while authoring this page. All character
+    // code tables (SCT-5, Code X) are INVENTED for practice and are not the
+    // real ASCII table. See docs/SELF-MARK-POINTS-AUTHORING.md for the
+    // markPoints convention used on the compound-scheme calculation questions.
+    const EXAM_CASE_STUDIES = {
+        "sct5-table": `<p>A student invents a simplified character set for a school project, called the <strong>Sample Code Table (SCT-5)</strong>. It is <strong>not</strong> the real ASCII code — it is a made-up 5-bit set with only 20 characters, used here for practice.</p>
+<table>
+<tr><th>Character</th><th>Denary</th><th>5-bit binary code</th></tr>
+<tr><td>A</td><td>0</td><td>00000</td></tr>
+<tr><td>B</td><td>1</td><td>00001</td></tr>
+<tr><td>C</td><td>2</td><td>00010</td></tr>
+<tr><td>D</td><td>3</td><td>00011</td></tr>
+<tr><td>E</td><td>4</td><td>00100</td></tr>
+<tr><td>F</td><td>5</td><td>00101</td></tr>
+<tr><td>G</td><td>6</td><td>00110</td></tr>
+<tr><td>H</td><td>7</td><td>00111</td></tr>
+<tr><td>I</td><td>8</td><td>01000</td></tr>
+<tr><td>J</td><td>9</td><td>01001</td></tr>
+<tr><td>K</td><td>10</td><td>01010</td></tr>
+<tr><td>L</td><td>11</td><td>01011</td></tr>
+<tr><td>M</td><td>12</td><td>01100</td></tr>
+<tr><td>N</td><td>13</td><td>01101</td></tr>
+<tr><td>O</td><td>14</td><td>01110</td></tr>
+<tr><td>P</td><td>15</td><td>01111</td></tr>
+<tr><td>(space)</td><td>16</td><td>10000</td></tr>
+<tr><td>. (full stop)</td><td>17</td><td>10001</td></tr>
+<tr><td>, (comma)</td><td>18</td><td>10010</td></tr>
+<tr><td>! (exclamation mark)</td><td>19</td><td>10011</td></tr>
+</table>
+<p>The table has 20 characters in total, assigned sequentially starting from denary 0.</p>`,
+        "example-code-x": `<p>A different fictional character code, <strong>Code X</strong>, assigns uppercase letter <strong>A the denary code 40</strong>. Every following letter of the alphabet is given the next code in sequence (B = 41, C = 42, D = 43, and so on). Lowercase letters use the <strong>same code as the matching uppercase letter, plus 50</strong> (so a = 90, b = 91, and so on).</p>`,
+        "messaging-app": `<p>A messaging app is used by people all around the world to send text messages, including messages containing emoji and characters from many different languages, such as Japanese, Arabic and Greek.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "P1",
+            marks: 1,
+            type: "written",
+            caseStudy: "",
+            question: `<p>State what is meant by the term "character set".</p>`,
+            hint: "Your definition should mention both the collection of characters AND that each one has its own code.",
+            starter: "A character set is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>The set/range of characters a computer (system) can represent // recognise, where each character is given its own unique binary code</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any answer that captures BOTH ideas: a defined collection of characters, and each one having a unique code.</li>
+<li>A definition that only says "a list of letters", without mentioning binary codes or uniqueness, does not gain the mark.</li>
+</ul>
+</div>`,
+            modelAnswer: "A character set is the collection of characters that a computer system can represent, where every character in the set is given its own unique binary code."
+        },
+        {
+            num: "P2",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Calculate the number of different characters that can be represented using 6 bits. Show your working.</p>`,
+            hint: "Use the rule: n bits can represent 2 to the power of n different characters.",
+            starter: "Working: 2^6 = 2 × 2 × 2 × 2 × 2 × 2 = … Answer: … characters",
+            markPoints: {
+                note: "One mark for valid working using the 2^n rule, one mark for the correct final answer.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Shows valid working using 2 to the power of 6 (2×2×2×2×2×2), or an equivalent correct method", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "Gives the correct final answer of 64 characters", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working, e.g. 2^6 // 2×2×2×2×2×2</li>
+<li>1 mark for the answer: 64</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any correct method that reaches 2 to the power of 6.</li>
+<li>Award the working mark even if the final answer is wrong, provided the method shown is valid.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: 2^6 = 2 × 2 × 2 × 2 × 2 × 2 = 64. Answer: 64 characters."
+        },
+        {
+            num: "P3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A software company is designing a new fictional character set that must be able to represent 50 different characters. Calculate the minimum number of bits required per character. Show your working.</p>`,
+            hint: "Try increasing values of n in 2^n until the result is greater than or equal to 50 — the first n that works is your answer.",
+            starter: "Working: 2^5 = … (too small/enough?), 2^6 = … (too small/enough?). Answer: … bits",
+            markPoints: {
+                note: "One mark for valid working that tests at least one power of 2 against 50, one mark for the correct final answer.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Shows valid working comparing a power of 2 to 50, e.g. 2^5 = 32 (too small) and/or 2^6 = 64 (big enough)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "Gives the correct final answer of 6 bits", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for valid working, e.g. 2^5 = 32 (too small) and 2^6 = 64 (enough)</li>
+<li>1 mark for the answer: 6 (bits)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any correct method that identifies 6 as the smallest n where 2^n ≥ 50.</li>
+<li>An answer of "50" or "64" instead of "6" does not gain the answer mark.</li>
+</ul>
+</div>`,
+            modelAnswer: "Working: 2^5 = 32, which is too small (32 < 50). 2^6 = 64, which is big enough (64 ≥ 50). Answer: 6 bits."
+        },
+        {
+            num: "P4",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Which of these is the correct number of characters that can be represented by the standard ASCII character set?</p>`,
+            options: ["128", "256", "64", "100"],
+            answer: 0,
+            hint: "ASCII is a 7-bit character set — use the 2^n rule with n = 7.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>128</strong> — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores. 2^7 = 128.</li>
+</ul>
+</div>`,
+            modelAnswer: "128 (2^7 = 128)."
+        },
+        {
+            num: "P5",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>State how many bits the standard ASCII character set uses to represent each character, and state how many bits ASCII characters are typically stored using in modern computer memory.</p>`,
+            hint: "These are two different numbers — one is the size of the ASCII code itself, the other is the size it is usually rounded up to for storage.",
+            starter: "ASCII itself uses … bits per character. In memory, ASCII characters are typically stored using … bits (one byte).",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: ASCII uses <strong>7 bits</strong> per character</li>
+<li>1 mark: ASCII characters are typically stored using <strong>8 bits (one byte)</strong> per character</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both marks are independent — a candidate can gain either mark separately.</li>
+<li>Accept "one byte" as equivalent to "8 bits".</li>
+</ul>
+</div>`,
+            modelAnswer: "ASCII itself uses 7 bits per character (128 possible characters). In computer memory, ASCII characters are typically stored using 8 bits — one byte — per character."
+        },
+        {
+            num: "P6",
+            marks: 2,
+            type: "written",
+            format: "tableFill",
+            caseId: "sct5-table",
+            question: `<p>Using the Sample Code Table above, complete the table by writing the correct 5-bit binary code for each letter.</p>`,
+            table: {
+                headers: ["Letter", "5-bit code"],
+                rows: [
+                    ["B", null],
+                    ["E", null]
+                ]
+            },
+            answers: {
+                "0,1": ["00001"],
+                "1,1": ["00100"]
+            },
+            hint: "Find each letter's row in the Sample Code Table and copy its 5-bit binary code exactly, including any leading zeros.",
+            starter: "Row 1 (B): … | Row 2 (E): …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark for each row)</h5>
+<ul>
+<li>B = 00001</li>
+<li>E = 00100</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently.</li>
+<li>Leading zeros must be included — "1" alone does not gain the mark for B.</li>
+</ul>
+</div>`,
+            modelAnswer: "B = 00001. E = 00100."
+        },
+        {
+            num: "P7",
+            marks: 2,
+            type: "written",
+            caseId: "sct5-table",
+            question: `<p>Using the Sample Code Table above, decode the binary codes <strong>01111</strong> and <strong>10000</strong> into the two characters they represent. Write the two characters in the order given.</p>`,
+            stubs: ["First character (01111)", "Second character (10000)"],
+            hint: "Convert each 5-bit binary code back into a denary number first, then look up which character has that denary code.",
+            starter: "01111 = … in denary = character … . 10000 = … in denary = character …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: 01111 = P</li>
+<li>1 mark: 10000 = (space)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each code is marked independently.</li>
+<li>Accept "space" or a visible blank character for 10000.</li>
+</ul>
+</div>`,
+            modelAnswer: "01111 = 15 in denary = P. 10000 = 16 in denary = a space character."
+        },
+        {
+            num: "P8",
+            marks: 3,
+            type: "written",
+            caseId: "example-code-x",
+            question: `<p>Using Code X described above, calculate the code that represents uppercase <strong>E</strong>, then calculate the code that represents lowercase <strong>e</strong>. Explain the rule you used to work out the lowercase code.</p>`,
+            hint: "Count how many letters after A the target letter is, and add that to 40. Then apply the fixed offset for lowercase letters.",
+            starter: "E is the 5th letter counting from A = 40, so E = 40 + … = … . Lowercase e = … + 50 = … , because …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>1 mark: E = 44</li>
+<li>1 mark: e = 94</li>
+<li>1 mark: explains that lowercase letters use the same code as the matching uppercase letter, plus a fixed offset of 50</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept correct working shown even if the final number is mislabelled, provided the method is clearly the sequential-plus-offset rule.</li>
+<li>The explanation mark requires the idea of a FIXED offset applied to the matching uppercase code, not just "lowercase letters have different codes".</li>
+</ul>
+</div>`,
+            modelAnswer: "E is 4 letters after A, so E = 40 + 4 = 44. Lowercase e uses the same code as uppercase E, plus the fixed offset of 50: e = 44 + 50 = 94. The rule is that each letter's code increases by 1 as you move through the alphabet, and every lowercase letter is the matching uppercase letter's code plus a constant 50."
+        },
+        {
+            num: "P9",
+            marks: 1,
+            type: "mcq",
+            caseId: "sct5-table",
+            question: `<p>Using the Sample Code Table above, character <strong>B</strong> is 00001 and character <strong>C</strong> is 00010. Which binary code represents character <strong>D</strong>?</p>`,
+            options: ["00011", "00100", "00101", "00010"],
+            answer: 0,
+            hint: "D is the very next character after C in the table — its code follows the same sequential pattern.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>00011</strong> — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores. D is denary 3 = 00011.</li>
+</ul>
+</div>`,
+            modelAnswer: "00011 (D is denary 3 in the Sample Code Table)."
+        },
+        {
+            num: "P10",
+            marks: 1,
+            type: "mcq",
+            caseId: "messaging-app",
+            question: `<p>Which of these statements about Unicode is TRUE?</p>`,
+            options: [
+                "Unicode always uses exactly 7 bits per character, the same as standard ASCII",
+                "Unicode's first 128 character codes are identical to the 128 codes used by ASCII",
+                "Unicode can only represent the same characters as ASCII, just arranged differently",
+                "Unicode uses fewer bits per character than ASCII, which is why it needs less storage space"
+            ],
+            answer: 1,
+            hint: "Think about how Unicode was designed to stay compatible with existing ASCII text.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>Unicode's first 128 character codes are identical to the 128 codes used by ASCII</strong> — CAO</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores. Unicode uses MORE bits per character than ASCII, not fewer, and can represent far more characters than ASCII, not the same set.</li>
+</ul>
+</div>`,
+            modelAnswer: "Unicode's first 128 character codes are identical to the 128 codes used by ASCII."
+        },
+        {
+            num: "P11",
+            marks: 4,
+            type: "written",
+            caseId: "messaging-app",
+            question: `<p>Explain why the messaging app's developers chose to use Unicode, rather than ASCII, to store messages sent between users. Explain one disadvantage of this choice, in terms of file size.</p>`,
+            hint: "Cover why 128 ASCII characters is not enough for this app's users, and what using more bits per character costs in storage.",
+            starter: "Unicode was chosen because… A disadvantage of this is…",
+            markPoints: {
+                note: "Two groups: up to 2 marks for explaining why Unicode suits this app, up to 2 marks for explaining the storage disadvantage.",
+                groups: [
+                    {
+                        label: "Why Unicode was chosen", max: 2, points: [
+                            { text: "States that ASCII's 128 characters cannot represent the many different languages/symbols/emoji this international app's users need", marks: 1 },
+                            { text: "States that Unicode uses more bits per character (e.g. 16 bits), allowing it to represent far more characters/languages/emoji than ASCII", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "The disadvantage", max: 2, points: [
+                            { text: "States that Unicode characters typically need more bits/storage per character than ASCII characters", marks: 1 },
+                            { text: "Explains that this means messages/files stored in Unicode take up more storage space than the same text stored in ASCII", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (2 marks per point developed, max 4)</h5>
+<ul>
+<li>ASCII's 128 characters cannot represent the many languages, symbols and emoji the app's international users need</li>
+<li>Unicode uses more bits per character (e.g. 16 bits), so it can represent far more characters, including many different languages and emoji</li>
+<li>Unicode characters typically need more bits/storage than ASCII characters</li>
+<li>This means messages/files stored using Unicode take up more storage space than the same text stored using ASCII</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per point to a maximum of 4; full marks needs both the reason FOR choosing Unicode and the storage disadvantage addressed.</li>
+</ul>
+</div>`,
+            modelAnswer: "Unicode was chosen because ASCII's 128 characters are only enough for English letters, digits and basic punctuation — they cannot represent the many different languages (such as Japanese or Arabic) or emoji that the app's international users need to send. Unicode uses more bits per character (for example 16 bits), which allows it to represent far more characters. A disadvantage of this is that Unicode characters typically take up more storage than ASCII characters, so messages and files stored using Unicode are larger than the same text would be if stored using ASCII."
+        },
+        {
+            num: "P12",
+            marks: 3,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>Complete the passage below about ASCII and Unicode using words from the word bank. Not all words will be used.</p>`,
+            cloze: `<p>The standard ASCII character set uses ___1___ bits to represent each character, giving a maximum of 128 different characters. Unicode uses more bits per character than ASCII — for example, 16 bits — so it can represent characters from many different ___2___ around the world, as well as symbols and emoji. Unicode is designed so that its first 128 character codes are identical to ___3___, which keeps older text readable in a Unicode system.</p>`,
+            bank: ["7", "8", "16", "languages", "numbers", "ASCII", "Unicode", "emoji"],
+            answers: {
+                "1": ["7"],
+                "2": ["languages"],
+                "3": ["ASCII"]
+            },
+            hint: "One blank is a number of bits, one is about countries/languages, and one is the name of the older character set Unicode stays compatible with.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per correct blank)</h5>
+<ul>
+<li>Blank 1: 7</li>
+<li>Blank 2: languages</li>
+<li>Blank 3: ASCII</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each blank is marked independently.</li>
+<li>"8", "16", "numbers", "Unicode" and "emoji" are all distractor words that do not fit these three blanks.</li>
+</ul>
+</div>`,
+            modelAnswer: "Blank 1: 7. Blank 2: languages. Blank 3: ASCII."
+        },
+        {
+            num: "P13",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseId: "sct5-table",
+            question: `<p>Using the Sample Code Table above, tick (✓) <strong>one</strong> box in each row to identify the character represented by each binary code.</p>`,
+            grid: {
+                cols: ["G", "L", ".", "J", "K"],
+                rows: [
+                    { label: "00110", correct: [0] },
+                    { label: "01011", correct: [1] },
+                    { label: "10001", correct: [2] },
+                    { label: "01001", correct: [3] }
+                ]
+            },
+            hint: "Convert each binary code to denary first, then find the matching character in the Sample Code Table.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>00110 → G</li>
+<li>01011 → L</li>
+<li>10001 → . (full stop)</li>
+<li>01001 → J</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently. Extra ticks in a row void that row's mark.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1 (00110): G. Row 2 (01011): L. Row 3 (10001): full stop. Row 4 (01001): J."
+        },
+        {
+            num: "P14",
+            marks: 2,
+            type: "written",
+            caseId: "messaging-app",
+            question: `<p>A message containing only English characters is stored using ASCII at 8 bits per character, and takes up exactly 200 bytes. Calculate the file size, in bytes, if the same message were re-encoded using Unicode at 16 bits per character instead. Show your working.</p>`,
+            hint: "First work out how many characters are in the message using the ASCII figures, then apply the Unicode bits-per-character to that same number of characters.",
+            starter: "Number of characters: 200 bytes × 8 ÷ 8 = … characters. Unicode size: … × 16 = … bits, ÷ 8 = … bytes",
+            markPoints: {
+                note: "One mark for correctly finding the number of characters in the message, one mark for the correct final Unicode file size.",
+                groups: [
+                    {
+                        label: "Your working", max: 1, points: [
+                            { text: "Correctly finds the number of characters in the message using the ASCII figures (200 bytes = 1,600 bits ÷ 8 bits per character = 200 characters)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your answer", max: 1, points: [
+                            { text: "Gives the correct final Unicode file size of 400 bytes (or the value that correctly follows through from their own character count)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: finds 200 characters in the message (200 bytes × 8 = 1,600 bits; 1,600 ÷ 8 = 200 characters)</li>
+<li>1 mark: correct Unicode file size of 400 bytes (200 × 16 = 3,200 bits; 3,200 ÷ 8 = 400 bytes)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>The second mark follows through from the candidate's own character count, even if it is not 200.</li>
+</ul>
+</div>`,
+            modelAnswer: "Number of characters: 200 bytes × 8 = 1,600 bits; 1,600 ÷ 8 bits per character = 200 characters. Unicode size: 200 × 16 = 3,200 bits; 3,200 ÷ 8 = 400 bytes."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>
