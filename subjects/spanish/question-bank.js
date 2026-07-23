@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-23T10:07:35Z · 2155 questions
+// Generated: 2026-07-23T10:13:35Z · 2155 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -636,10 +636,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘five’ is _____. <span data-say=\"cinco\" data-listen>cinco</span>",
   "blankOptions": {
    "B1": [
-    "ñ",
-    "cinco",
     "soft",
-    "throaty"
+    "it",
+    "cinco",
+    "second"
    ]
   },
   "key": {
@@ -658,10 +658,10 @@ window.QUESTION_BANK = [
   "question": "The ‘ny’ sound word for ‘tomorrow’ is ma_____a. <span data-say=\"mañana\" data-listen>mañana</span>",
   "blankOptions": {
    "B1": [
-    "throaty",
+    "soft",
     "ñan",
-    "second",
-    "ñ"
+    "ñ",
+    "cinco"
    ]
   },
   "key": {
@@ -680,9 +680,9 @@ window.QUESTION_BANK = [
   "question": "To keep a hard g before i, we write gu_____arra. <span data-say=\"guitarra\" data-listen>guitarra</span>",
   "blankOptions": {
    "B1": [
-    "ñan",
-    "soft",
     "it",
+    "ñ",
+    "cinco",
     "second"
    ]
   },
@@ -702,10 +702,10 @@ window.QUESTION_BANK = [
   "question": "c before e or i sounds _____. (hard or soft?)",
   "blankOptions": {
    "B1": [
-    "soft",
-    "cinco",
     "ñan",
-    "it"
+    "it",
+    "soft",
+    "throaty"
    ]
   },
   "key": {
@@ -724,10 +724,10 @@ window.QUESTION_BANK = [
   "question": "Words ending in a vowel, n or s stress the _____-to-last syllable. (which one?)",
   "blankOptions": {
    "B1": [
-    "second",
     "throaty",
-    "ñ",
-    "cinco"
+    "it",
+    "soft",
+    "second"
    ]
   },
   "key": {
@@ -746,10 +746,10 @@ window.QUESTION_BANK = [
   "question": "The extra Spanish letter is _____. (its symbol)",
   "blankOptions": {
    "B1": [
-    "second",
-    "soft",
     "ñ",
-    "it"
+    "throaty",
+    "it",
+    "ñan"
    ]
   },
   "key": {
@@ -770,8 +770,8 @@ window.QUESTION_BANK = [
    "B1": [
     "ñan",
     "throaty",
-    "ñ",
-    "cinco"
+    "cinco",
+    "it"
    ]
   },
   "key": {
@@ -1638,10 +1638,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘street’ is _____. <span data-say=\"calle\" data-listen>calle</span>",
   "blankOptions": {
    "B1": [
-    "tap",
-    "y",
     "calle",
-    "loch"
+    "verde",
+    "loch",
+    "tap"
    ]
   },
   "key": {
@@ -1661,9 +1661,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "rolled",
-    "calle",
+    "y",
     "ños",
-    "loch"
+    "verde"
    ]
   },
   "key": {
@@ -1682,10 +1682,10 @@ window.QUESTION_BANK = [
   "question": "ll sounds like the English letter _____. (which one?)",
   "blankOptions": {
    "B1": [
-    "calle",
-    "tap",
     "y",
-    "verde"
+    "loch",
+    "rolled",
+    "ños"
    ]
   },
   "key": {
@@ -1704,10 +1704,10 @@ window.QUESTION_BANK = [
   "question": "j is pronounced from the back of the throat, like the Scottish word ‘_____’.",
   "blankOptions": {
    "B1": [
+    "ños",
+    "calle",
     "tap",
-    "rolled",
-    "loch",
-    "y"
+    "loch"
    ]
   },
   "key": {
@@ -1726,10 +1726,10 @@ window.QUESTION_BANK = [
   "question": "A single r between vowels, as in ‘pero’, is a quick _____. (tap or roll?)",
   "blankOptions": {
    "B1": [
-    "ños",
-    "y",
     "tap",
-    "rolled"
+    "loch",
+    "calle",
+    "y"
    ]
   },
   "key": {
@@ -1748,10 +1748,10 @@ window.QUESTION_BANK = [
   "question": "‘perro’ has a strongly _____ r. (tap or roll?)",
   "blankOptions": {
    "B1": [
+    "y",
     "ños",
     "calle",
-    "rolled",
-    "verde"
+    "rolled"
    ]
   },
   "key": {
@@ -1771,9 +1771,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "y",
-    "ños",
+    "loch",
     "verde",
-    "tap"
+    "rolled"
    ]
   },
   "key": {
@@ -2640,10 +2640,10 @@ window.QUESTION_BANK = [
   "question": "_____ problema es muy grande. <span data-say=\"El problema es muy grande.\" data-listen>El problema es muy grande.</span>",
   "blankOptions": {
    "B1": [
+    "unas",
+    "al",
     "El",
-    "del",
-    "lápices",
-    "mano"
+    "del"
    ]
   },
   "key": {
@@ -2662,9 +2662,9 @@ window.QUESTION_BANK = [
   "question": "Voy _____ colegio a las ocho. <span data-say=\"Voy al colegio a las ocho.\" data-listen>Voy al colegio a las ocho.</span>",
   "blankOptions": {
    "B1": [
-    "del",
-    "mano",
+    "El",
     "al",
+    "unas",
     "La"
    ]
   },
@@ -2685,9 +2685,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "lápices",
-    "unas",
     "El",
-    "del"
+    "del",
+    "unas"
    ]
   },
   "key": {
@@ -2706,10 +2706,10 @@ window.QUESTION_BANK = [
   "question": "Necesito dos _____ nuevos para el examen. <span data-say=\"Necesito dos lápices nuevos para el examen.\" data-listen>Necesito dos lápices nuevos para el examen.</span>",
   "blankOptions": {
    "B1": [
-    "del",
-    "unas",
-    "La",
-    "lápices"
+    "mano",
+    "lápices",
+    "El",
+    "del"
    ]
   },
   "key": {
@@ -2728,10 +2728,10 @@ window.QUESTION_BANK = [
   "question": "_____ ciudad tiene mucha información. <span data-say=\"La ciudad tiene mucha información.\" data-listen>La ciudad tiene mucha información.</span>",
   "blankOptions": {
    "B1": [
+    "La",
+    "El",
     "unas",
-    "mano",
-    "lápices",
-    "La"
+    "lápices"
    ]
   },
   "key": {
@@ -2750,10 +2750,10 @@ window.QUESTION_BANK = [
   "question": "Salgo _____ gimnasio después de las clases. <span data-say=\"Salgo del gimnasio después de las clases.\" data-listen>Salgo del gimnasio después de las clases.</span>",
   "blankOptions": {
    "B1": [
-    "El",
-    "al",
-    "mano",
-    "del"
+    "del",
+    "lápices",
+    "unas",
+    "al"
    ]
   },
   "key": {
@@ -2772,10 +2772,10 @@ window.QUESTION_BANK = [
   "question": "Escucha y escribe la palabra que falta: Me duele la _____. <span data-say=\"la mano\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "del",
     "El",
     "mano",
-    "lápices"
+    "La",
+    "unas"
    ]
   },
   "key": {
@@ -3642,10 +3642,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana es muy _____. (tall, feminine)",
   "blankOptions": {
    "B1": [
+    "azul",
+    "interesantes",
     "alta",
-    "mayor",
-    "nuestra",
-    "estos"
+    "mayor"
    ]
   },
   "key": {
@@ -3664,10 +3664,10 @@ window.QUESTION_BANK = [
   "question": "Los libros son muy _____. (interesting, plural)",
   "blankOptions": {
    "B1": [
-    "estos",
-    "interesantes",
     "azul",
-    "nuestra"
+    "alta",
+    "interesantes",
+    "estos"
    ]
   },
   "key": {
@@ -3686,9 +3686,9 @@ window.QUESTION_BANK = [
   "question": "Tengo un perro _____. (black, masculine)",
   "blankOptions": {
    "B1": [
-    "nuestra",
-    "interesantes",
+    "azul",
     "estos",
+    "mayor",
     "negro"
    ]
   },
@@ -3708,10 +3708,10 @@ window.QUESTION_BANK = [
   "question": "Es una camisa _____. <span data-say=\"Es una camisa azul.\" data-listen>Es una camisa azul.</span>",
   "blankOptions": {
    "B1": [
-    "interesantes",
     "nuestra",
-    "azul",
-    "negro"
+    "estos",
+    "negro",
+    "azul"
    ]
   },
   "key": {
@@ -3731,9 +3731,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "mayor",
-    "negro",
-    "interesantes",
-    "azul"
+    "azul",
+    "alta",
+    "interesantes"
    ]
   },
   "key": {
@@ -3752,10 +3752,10 @@ window.QUESTION_BANK = [
   "question": "Quiero comprar _____ zapatos negros. (these, masculine plural)",
   "blankOptions": {
    "B1": [
+    "estos",
+    "negro",
     "azul",
-    "nuestra",
-    "alta",
-    "estos"
+    "interesantes"
    ]
   },
   "key": {
@@ -3774,9 +3774,9 @@ window.QUESTION_BANK = [
   "question": "En _____ casa vivimos con mis abuelos. (our, feminine singular)",
   "blankOptions": {
    "B1": [
+    "interesantes",
+    "azul",
     "nuestra",
-    "alta",
-    "mayor",
     "negro"
    ]
   },
@@ -4866,10 +4866,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ a las siete. <span data-say=\"Me levanto a las siete.\" data-listen>Me levanto a las siete.</span>",
   "blankOptions": {
    "B1": [
+    "Tengo",
     "Estoy",
-    "Traigo",
     "levanto",
-    "Tengo"
+    "duerme"
    ]
   },
   "key": {
@@ -4888,10 +4888,10 @@ window.QUESTION_BANK = [
   "question": "No _____ salir porque tengo que estudiar. <span data-say=\"No puedo salir porque tengo que estudiar.\" data-listen>No puedo salir porque tengo que estudiar.</span>",
   "blankOptions": {
    "B1": [
-    "puedo",
     "seas",
-    "Tengo",
-    "gusta"
+    "puedo",
+    "gusta",
+    "Traigo"
    ]
   },
   "key": {
@@ -4910,10 +4910,10 @@ window.QUESTION_BANK = [
   "question": "Voy a hacer mis _____. <span data-say=\"Voy a hacer mis deberes esta tarde.\" data-listen>Voy a hacer mis deberes esta tarde.</span>",
   "blankOptions": {
    "B1": [
-    "duerme",
     "Haz",
     "deberes",
-    "levanto"
+    "Tengo",
+    "He"
    ]
   },
   "key": {
@@ -4932,10 +4932,10 @@ window.QUESTION_BANK = [
   "question": "_____ cansado porque no duermo bien. (temporary state — estar)",
   "blankOptions": {
    "B1": [
-    "Haz",
-    "levanto",
-    "Traigo",
-    "Estoy"
+    "He",
+    "puedo",
+    "Estoy",
+    "duerme"
    ]
   },
   "key": {
@@ -4954,10 +4954,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ el fútbol. (I like — singular subject)",
   "blankOptions": {
    "B1": [
-    "levanto",
-    "gusta",
     "Tengo",
-    "Traigo"
+    "seas",
+    "gusta",
+    "duerme"
    ]
   },
   "key": {
@@ -4976,10 +4976,10 @@ window.QUESTION_BANK = [
   "question": "_____ quince años. (age — with tener)",
   "blankOptions": {
    "B1": [
-    "puedo",
     "Tengo",
-    "levanto",
-    "He"
+    "seas",
+    "Estoy",
+    "Traigo"
    ]
   },
   "key": {
@@ -4998,10 +4998,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ mucho por las noches. (o→ue stem-change: dormir)",
   "blankOptions": {
    "B1": [
-    "levanto",
+    "gusta",
     "duerme",
-    "puedo",
-    "gusta"
+    "Estoy",
+    "Haz"
    ]
   },
   "key": {
@@ -5020,10 +5020,10 @@ window.QUESTION_BANK = [
   "question": "¡_____ tus deberes ahora mismo! (tú command — hacer)",
   "blankOptions": {
    "B1": [
-    "duerme",
-    "gusta",
-    "He",
-    "Haz"
+    "Tengo",
+    "Traigo",
+    "Haz",
+    "seas"
    ]
   },
   "key": {
@@ -5042,10 +5042,10 @@ window.QUESTION_BANK = [
   "question": "_____ mi cuaderno a clase todos los días. <span data-say=\"Traigo mi cuaderno a clase todos los días.\" data-listen>Traigo mi cuaderno a clase todos los días.</span>",
   "blankOptions": {
    "B1": [
-    "duerme",
+    "gusta",
+    "deberes",
     "Traigo",
-    "Haz",
-    "levanto"
+    "Haz"
    ]
   },
   "key": {
@@ -5064,10 +5064,10 @@ window.QUESTION_BANK = [
   "question": "Espero que _____ feliz. (that you be — ser, present subjunctive)",
   "blankOptions": {
    "B1": [
+    "He",
     "deberes",
-    "Traigo",
-    "seas",
-    "duerme"
+    "duerme",
+    "seas"
    ]
   },
   "key": {
@@ -5086,10 +5086,10 @@ window.QUESTION_BANK = [
   "question": "_____ dicho la verdad. (present perfect — ‘yo’ form of haber)",
   "blankOptions": {
    "B1": [
-    "Estoy",
-    "puedo",
-    "Traigo",
-    "He"
+    "seas",
+    "gusta",
+    "He",
+    "duerme"
    ]
   },
   "key": {
@@ -6271,10 +6271,10 @@ window.QUESTION_BANK = [
   "question": "Ayer, yo _____ (hablar) con mi profesora sobre el examen. <span data-say=\"Ayer, yo hablé con mi profesora sobre el examen.\" data-listen>Ayer, yo hablé con mi profesora sobre el examen.</span>",
   "blankOptions": {
    "B1": [
-    "estuve",
-    "levantaba",
+    "dieron",
+    "vine",
     "hablé",
-    "vine"
+    "tenías"
    ]
   },
   "key": {
@@ -6293,10 +6293,10 @@ window.QUESTION_BANK = [
   "question": "El año pasado, nosotros _____ (ir) de vacaciones a Francia. <span data-say=\"El año pasado, nosotros fuimos de vacaciones a Francia.\" data-listen>El año pasado, nosotros fuimos de vacaciones a Francia.</span>",
   "blankOptions": {
    "B1": [
-    "tenías",
-    "estuve",
-    "traje",
-    "fuimos"
+    "dije",
+    "fuimos",
+    "llegó",
+    "estuve"
    ]
   },
   "key": {
@@ -6315,10 +6315,10 @@ window.QUESTION_BANK = [
   "question": "De pequeño, yo _____ (vivir) en Sevilla con mis abuelos. (imperfect — describes a past state)",
   "blankOptions": {
    "B1": [
-    "he comido",
-    "estuve",
+    "vine",
+    "llegó",
     "vivía",
-    "llegó"
+    "estuve"
    ]
   },
   "key": {
@@ -6337,10 +6337,10 @@ window.QUESTION_BANK = [
   "question": "Normalmente, mi madre se _____ (levantarse) a las seis. (imperfect — a repeated habit)",
   "blankOptions": {
    "B1": [
-    "levantaba",
+    "hablé",
     "llegó",
     "vine",
-    "he comido"
+    "levantaba"
    ]
   },
   "key": {
@@ -6359,10 +6359,10 @@ window.QUESTION_BANK = [
   "question": "Mientras yo cocinaba, mi hermano _____ (llegar) a casa. (the interrupting single event — preterite)",
   "blankOptions": {
    "B1": [
+    "llegó",
     "traje",
-    "dije",
-    "tenías",
-    "llegó"
+    "estuve",
+    "vine"
    ]
   },
   "key": {
@@ -6381,10 +6381,10 @@ window.QUESTION_BANK = [
   "question": "Escucha y completa: Ayer _____ en el parque toda la tarde. <span data-say=\"Ayer estuve en el parque toda la tarde.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "traje",
-    "vine",
-    "hablé",
-    "estuve"
+    "estuve",
+    "vivía",
+    "llegó",
+    "dieron"
    ]
   },
   "key": {
@@ -6403,9 +6403,9 @@ window.QUESTION_BANK = [
   "question": "Higher: Nunca _____ (comer) paella antes. (perfect tense — haber + participle)",
   "blankOptions": {
    "B1": [
-    "traje",
     "fuimos",
-    "vine",
+    "llegó",
+    "levantaba",
     "he comido"
    ]
   },
@@ -6425,10 +6425,10 @@ window.QUESTION_BANK = [
   "question": "Cuando eras pequeño, ¿tú _____ (tener) miedo de la oscuridad? (imperfect — tú form)",
   "blankOptions": {
    "B1": [
+    "llegó",
     "tenías",
-    "vivía",
-    "estuve",
-    "traje"
+    "he comido",
+    "fuimos"
    ]
   },
   "key": {
@@ -6447,10 +6447,10 @@ window.QUESTION_BANK = [
   "question": "Escucha y completa: Mis amigos me _____ una sorpresa para mi cumpleaños. <span data-say=\"Mis amigos me dieron una sorpresa para mi cumpleaños.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "hablé",
-    "tenías",
+    "vivía",
     "dieron",
-    "vine"
+    "levantaba",
+    "dije"
    ]
   },
   "key": {
@@ -6469,10 +6469,10 @@ window.QUESTION_BANK = [
   "question": "Anoche, yo _____ (venir) tarde a casa después de la fiesta.",
   "blankOptions": {
    "B1": [
-    "estuve",
-    "llegó",
-    "levantaba",
-    "vine"
+    "vine",
+    "fuimos",
+    "tenías",
+    "llegó"
    ]
   },
   "key": {
@@ -6492,9 +6492,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "dije",
-    "levantaba",
-    "dieron",
-    "he comido"
+    "llegó",
+    "hablé",
+    "tenías"
    ]
   },
   "key": {
@@ -6513,10 +6513,10 @@ window.QUESTION_BANK = [
   "question": "Para el picnic, yo _____ (traer) mi propia comida y bebida.",
   "blankOptions": {
    "B1": [
-    "dieron",
-    "traje",
-    "he comido",
-    "estuve"
+    "tenías",
+    "levantaba",
+    "fuimos",
+    "traje"
    ]
   },
   "key": {
@@ -7789,10 +7789,10 @@ window.QUESTION_BANK = [
   "question": "Yo _____ a estudiar esta noche. <span data-say=\"Yo voy a estudiar esta noche.\" data-listen>Yo voy a estudiar esta noche.</span>",
   "blankOptions": {
    "B1": [
-    "viviré",
-    "compraríamos",
     "voy",
-    "gustaría"
+    "gustaría",
+    "pondría",
+    "compraríamos"
    ]
   },
   "key": {
@@ -7811,10 +7811,10 @@ window.QUESTION_BANK = [
   "question": "Mañana, ella _____ que trabajar. <span data-say=\"Mañana, ella tendrá que trabajar.\" data-listen>Mañana, ella tendrá que trabajar.</span>",
   "blankOptions": {
    "B1": [
-    "voy",
-    "estudies",
+    "viviré",
     "tendrá",
-    "querría"
+    "pondría",
+    "compraríamos"
    ]
   },
   "key": {
@@ -7833,10 +7833,10 @@ window.QUESTION_BANK = [
   "question": "El año que viene, (yo) _____ en Madrid. (I will live — vivir)",
   "blankOptions": {
    "B1": [
-    "viviré",
+    "gustaría",
     "voy",
-    "querría",
-    "compraríamos"
+    "viviré",
+    "tendrá"
    ]
   },
   "key": {
@@ -7856,9 +7856,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "pondría",
-    "querría",
     "compraríamos",
-    "viviré"
+    "tendrá",
+    "estudies"
    ]
   },
   "key": {
@@ -7877,10 +7877,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ viajar a Japón algún día. (I would like)",
   "blankOptions": {
    "B1": [
+    "pondría",
     "gustaría",
-    "querría",
-    "viviré",
-    "pondría"
+    "compraríamos",
+    "tendrá"
    ]
   },
   "key": {
@@ -7899,10 +7899,10 @@ window.QUESTION_BANK = [
   "question": "_____ los deberes antes de salir. (I will do — hacer, yo)",
   "blankOptions": {
    "B1": [
-    "gustaría",
-    "compraríamos",
     "haré",
-    "pondría"
+    "viviré",
+    "tendrá",
+    "voy"
    ]
   },
   "key": {
@@ -7921,10 +7921,10 @@ window.QUESTION_BANK = [
   "question": "Es importante que (tú) _____ mucho para el examen. (present subjunctive of estudiar)",
   "blankOptions": {
    "B1": [
-    "pondría",
-    "estudies",
+    "querría",
     "viviré",
-    "gustaría"
+    "estudies",
+    "haré"
    ]
   },
   "key": {
@@ -7943,10 +7943,10 @@ window.QUESTION_BANK = [
   "question": "Yo _____ un café, por favor. (I would like/want — querer, polite)",
   "blankOptions": {
    "B1": [
-    "pondría",
+    "voy",
     "querría",
-    "tendrá",
-    "viviré"
+    "estudies",
+    "tendrá"
    ]
   },
   "key": {
@@ -7965,10 +7965,10 @@ window.QUESTION_BANK = [
   "question": "Con un buen trabajo, (yo) me _____ muy contento. (I would become — ponerse)",
   "blankOptions": {
    "B1": [
-    "tendrá",
-    "querría",
     "pondría",
-    "haré"
+    "querría",
+    "gustaría",
+    "voy"
    ]
   },
   "key": {
@@ -9531,10 +9531,10 @@ window.QUESTION_BANK = [
   "question": "¿Tienes el libro? Sí, _____ tengo. (it — masculine, direct object pronoun)",
   "blankOptions": {
    "B1": [
-    "lo",
-    "sesenta",
     "diecisiete",
-    "nunca"
+    "lo",
+    "porque",
+    "estos"
    ]
   },
   "key": {
@@ -9553,10 +9553,10 @@ window.QUESTION_BANK = [
   "question": "No veo _____. <span data-say=\"No veo nada.\" data-listen>No veo nada.</span>",
   "blankOptions": {
    "B1": [
-    "además",
-    "nada",
-    "porque",
-    "estos"
+    "esas",
+    "novecientas",
+    "estos",
+    "nada"
    ]
   },
   "key": {
@@ -9575,10 +9575,10 @@ window.QUESTION_BANK = [
   "question": "Voy a hacer más ejercicio, _____ es bueno para la salud. (because)",
   "blankOptions": {
    "B1": [
-    "lo",
-    "porque",
     "esas",
-    "nadie"
+    "nunca",
+    "lo",
+    "porque"
    ]
   },
   "key": {
@@ -9597,10 +9597,10 @@ window.QUESTION_BANK = [
   "question": "(Yo) _____ levanto a las siete. (myself — reflexive pronoun)",
   "blankOptions": {
    "B1": [
+    "me",
     "sesenta",
-    "diecisiete",
-    "nada",
-    "me"
+    "doce",
+    "nunca"
    ]
   },
   "key": {
@@ -9619,10 +9619,10 @@ window.QUESTION_BANK = [
   "question": "La chica _____ vive aquí es mi amiga. (who/that)",
   "blankOptions": {
    "B1": [
+    "me",
     "que",
-    "novecientas",
-    "estos",
-    "nunca"
+    "nunca",
+    "estos"
    ]
   },
   "key": {
@@ -9641,9 +9641,9 @@ window.QUESTION_BANK = [
   "question": "No voy _____ al gimnasio los domingos. (never)",
   "blankOptions": {
    "B1": [
-    "diecisiete",
-    "doce",
-    "nadie",
+    "lo",
+    "me",
+    "mil",
     "nunca"
    ]
   },
@@ -9664,9 +9664,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "porque",
-    "que",
-    "sesenta",
-    "además"
+    "además",
+    "nunca",
+    "mil"
    ]
   },
   "key": {
@@ -9685,10 +9685,10 @@ window.QUESTION_BANK = [
   "question": "Dicen que _____ es imposible. (nothing — used alone, no ‘no’ needed)",
   "blankOptions": {
    "B1": [
-    "doce",
     "nada",
-    "nunca",
-    "porque"
+    "además",
+    "doce",
+    "que"
    ]
   },
   "key": {
@@ -9707,10 +9707,10 @@ window.QUESTION_BANK = [
   "question": "Llamé a la puerta, pero _____ contestó. (nobody — used alone, no ‘no’ needed)",
   "blankOptions": {
    "B1": [
-    "mil",
-    "doce",
-    "diecisiete",
-    "nadie"
+    "nada",
+    "nadie",
+    "nunca",
+    "novecientas"
    ]
   },
   "key": {
@@ -9729,9 +9729,9 @@ window.QUESTION_BANK = [
   "question": "Me encantan _____ zapatos nuevos. (these — masculine)",
   "blankOptions": {
    "B1": [
+    "esas",
+    "nadie",
     "nada",
-    "diecisiete",
-    "nunca",
     "estos"
    ]
   },
@@ -9751,10 +9751,10 @@ window.QUESTION_BANK = [
   "question": "No me gustan _____ camisetas. (those — feminine, middle distance)",
   "blankOptions": {
    "B1": [
-    "además",
     "esas",
-    "me",
-    "nadie"
+    "nunca",
+    "nada",
+    "novecientas"
    ]
   },
   "key": {
@@ -9773,10 +9773,10 @@ window.QUESTION_BANK = [
   "question": "El coche cuesta _____ euros. (a thousand)",
   "blankOptions": {
    "B1": [
-    "nadie",
     "mil",
-    "lo",
-    "porque"
+    "diecisiete",
+    "doce",
+    "que"
    ]
   },
   "key": {
@@ -9795,10 +9795,10 @@ window.QUESTION_BANK = [
   "question": "Hay _____ meses en un año. (twelve)",
   "blankOptions": {
    "B1": [
-    "estos",
-    "mil",
-    "esas",
-    "doce"
+    "doce",
+    "nunca",
+    "además",
+    "nada"
    ]
   },
   "key": {
@@ -9817,9 +9817,9 @@ window.QUESTION_BANK = [
   "question": "Mi abuela tiene _____ años. (sixty)",
   "blankOptions": {
    "B1": [
+    "además",
     "nadie",
-    "porque",
-    "mil",
+    "doce",
     "sesenta"
    ]
   },
@@ -9839,10 +9839,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano tiene _____ años. (seventeen)",
   "blankOptions": {
    "B1": [
-    "además",
-    "diecisiete",
-    "novecientas",
-    "doce"
+    "porque",
+    "estos",
+    "doce",
+    "diecisiete"
    ]
   },
   "key": {
@@ -9861,10 +9861,10 @@ window.QUESTION_BANK = [
   "question": "En el pueblo viven _____ personas. (nine hundred — agrees with ‘personas’, feminine)",
   "blankOptions": {
    "B1": [
+    "sesenta",
     "nunca",
-    "me",
-    "novecientas",
-    "nada"
+    "estos",
+    "novecientas"
    ]
   },
   "key": {
@@ -11345,10 +11345,10 @@ window.QUESTION_BANK = [
   "question": "_____ quince años. <span data-say=\"Tengo quince años.\" data-listen>Tengo quince años.</span>",
   "blankOptions": {
    "B1": [
-    "parezco",
-    "tercer",
-    "castaño",
-    "Tengo"
+    "Tengo",
+    "Mis",
+    "lleva",
+    "marrones"
    ]
   },
   "key": {
@@ -11367,10 +11367,10 @@ window.QUESTION_BANK = [
   "question": "Tengo el pelo largo y _____. <span data-say=\"Tengo el pelo largo y castaño.\" data-listen>Tengo el pelo largo y castaño.</span>",
   "blankOptions": {
    "B1": [
-    "llamo",
+    "parezco",
     "castaño",
-    "tercer",
-    "Mis"
+    "único",
+    "anciano"
    ]
   },
   "key": {
@@ -11389,10 +11389,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano mayor _____ gafas. <span data-say=\"Mi hermano mayor lleva gafas.\" data-listen>Mi hermano mayor lleva gafas.</span>",
   "blankOptions": {
    "B1": [
-    "marrones",
-    "llamo",
-    "único",
-    "lleva"
+    "Mis",
+    "lleva",
+    "anciano",
+    "tercer"
    ]
   },
   "key": {
@@ -11411,10 +11411,10 @@ window.QUESTION_BANK = [
   "question": "Tengo los ojos _____. (brown — plural agreement!)",
   "blankOptions": {
    "B1": [
-    "castaño",
-    "parezco",
     "marrones",
-    "lleva"
+    "llamo",
+    "lleva",
+    "tercer"
    ]
   },
   "key": {
@@ -11433,10 +11433,10 @@ window.QUESTION_BANK = [
   "question": "_____ hermanos son altos. (my — more than one)",
   "blankOptions": {
    "B1": [
-    "parezco",
     "castaño",
-    "tercer",
-    "Mis"
+    "lleva",
+    "Mis",
+    "único"
    ]
   },
   "key": {
@@ -11456,8 +11456,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "llamo",
-    "castaño",
     "único",
+    "Mis",
     "tercer"
    ]
   },
@@ -11477,10 +11477,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ Ana y vivo en Madrid. (my name is)",
   "blankOptions": {
    "B1": [
-    "parezco",
-    "Mis",
+    "castaño",
+    "lleva",
     "llamo",
-    "castaño"
+    "anciano"
    ]
   },
   "key": {
@@ -11499,10 +11499,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ mucho a mi madre. <span data-say=\"Me parezco mucho a mi madre.\" data-listen>Me parezco mucho a mi madre.</span>",
   "blankOptions": {
    "B1": [
-    "anciano",
-    "parezco",
-    "tercer",
-    "Mis"
+    "lleva",
+    "marrones",
+    "Mis",
+    "parezco"
    ]
   },
   "key": {
@@ -11521,10 +11521,10 @@ window.QUESTION_BANK = [
   "question": "Soy el _____ hijo de mi familia. (third)",
   "blankOptions": {
    "B1": [
-    "Tengo",
-    "tercer",
-    "llamo",
-    "castaño"
+    "lleva",
+    "anciano",
+    "único",
+    "tercer"
    ]
   },
   "key": {
@@ -11543,10 +11543,10 @@ window.QUESTION_BANK = [
   "question": "Mi abuelo es _____ y tiene el pelo gris. (elderly man)",
   "blankOptions": {
    "B1": [
-    "Tengo",
-    "Mis",
-    "anciano",
-    "llamo"
+    "llamo",
+    "castaño",
+    "parezco",
+    "anciano"
    ]
   },
   "key": {
@@ -12742,10 +12742,10 @@ window.QUESTION_BANK = [
   "question": "Me llevo bien _____ mis padres. <span data-say=\"Me llevo bien con mis padres.\" data-listen>Me llevo bien con mis padres.</span>",
   "blankOptions": {
    "B1": [
-    "gracioso",
-    "nervioso",
+    "abuela",
     "con",
-    "abuela"
+    "gracioso",
+    "llevo"
    ]
   },
   "key": {
@@ -12764,10 +12764,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano es muy _____. <span data-say=\"Mi hermano es muy gracioso.\" data-listen>Mi hermano es muy gracioso.</span>",
   "blankOptions": {
    "B1": [
+    "abuela",
+    "trabajadora",
     "gracioso",
-    "entendemos",
-    "cariñosa",
-    "llevo"
+    "nervioso"
    ]
   },
   "key": {
@@ -12786,10 +12786,10 @@ window.QUESTION_BANK = [
   "question": "Mi modelo a seguir es mi _____. <span data-say=\"Mi modelo a seguir es mi abuela.\" data-listen>Mi modelo a seguir es mi abuela.</span>",
   "blankOptions": {
    "B1": [
-    "con",
-    "que",
-    "abuela",
-    "gracioso"
+    "llevo",
+    "civil",
+    "cariñosa",
+    "abuela"
    ]
   },
   "key": {
@@ -12808,10 +12808,10 @@ window.QUESTION_BANK = [
   "question": "Mi madre es muy _____. (affectionate — she is female!)",
   "blankOptions": {
    "B1": [
-    "entendemos",
-    "nervioso",
-    "que",
-    "cariñosa"
+    "trabajadora",
+    "cariñosa",
+    "gracioso",
+    "que"
    ]
   },
   "key": {
@@ -12830,10 +12830,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ mal con mi hermano. (I get on badly — reflexive)",
   "blankOptions": {
    "B1": [
-    "civil",
-    "nervioso",
+    "entendemos",
     "llevo",
-    "entendemos"
+    "cariñosa",
+    "abuela"
    ]
   },
   "key": {
@@ -12852,10 +12852,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana es más habladora _____ yo. (than)",
   "blankOptions": {
    "B1": [
-    "nervioso",
-    "que",
-    "cariñosa",
-    "gracioso"
+    "civil",
+    "llevo",
+    "trabajadora",
+    "que"
    ]
   },
   "key": {
@@ -12874,10 +12874,10 @@ window.QUESTION_BANK = [
   "question": "Admiro a mi abuela porque es muy _____. (hard-working, female)",
   "blankOptions": {
    "B1": [
-    "abuela",
     "trabajadora",
-    "que",
-    "con"
+    "civil",
+    "cariñosa",
+    "nervioso"
    ]
   },
   "key": {
@@ -12896,10 +12896,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano y yo nos _____ muy bien. <span data-say=\"Mi hermano y yo nos entendemos muy bien.\" data-listen>Mi hermano y yo nos entendemos muy bien.</span>",
   "blankOptions": {
    "B1": [
+    "llevo",
+    "entendemos",
     "civil",
-    "abuela",
-    "trabajadora",
-    "entendemos"
+    "trabajadora"
    ]
   },
   "key": {
@@ -12918,10 +12918,10 @@ window.QUESTION_BANK = [
   "question": "Mis padres tuvieron una boda _____, no religiosa. (civil)",
   "blankOptions": {
    "B1": [
-    "abuela",
-    "nervioso",
+    "entendemos",
+    "gracioso",
     "civil",
-    "cariñosa"
+    "llevo"
    ]
   },
   "key": {
@@ -12940,10 +12940,10 @@ window.QUESTION_BANK = [
   "question": "Estoy muy _____ antes de los exámenes. (nervous)",
   "blankOptions": {
    "B1": [
-    "nervioso",
-    "gracioso",
     "abuela",
-    "que"
+    "nervioso",
+    "que",
+    "trabajadora"
    ]
   },
   "key": {
@@ -14061,10 +14061,10 @@ window.QUESTION_BANK = [
   "question": "Se _____ comer más fruta. <span data-say=\"Se debe comer más fruta.\" data-listen>Se debe comer más fruta.</span>",
   "blankOptions": {
    "B1": [
-    "gustan",
-    "evitar",
-    "agua",
-    "debe"
+    "límite",
+    "porque",
+    "debe",
+    "equilibrada"
    ]
   },
   "key": {
@@ -14084,9 +14084,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "porque",
-    "agua",
     "evitar",
-    "vaso"
+    "vegano",
+    "límite"
    ]
   },
   "key": {
@@ -14105,10 +14105,10 @@ window.QUESTION_BANK = [
   "question": "Hay que beber mucha _____. <span data-say=\"Hay que beber mucha agua.\" data-listen>Hay que beber mucha agua.</span>",
   "blankOptions": {
    "B1": [
-    "vaso",
     "agua",
-    "límite",
-    "evitar"
+    "azúcar",
+    "porque",
+    "vegano"
    ]
   },
   "key": {
@@ -14127,10 +14127,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ las verduras. (I like vegetables — plural!)",
   "blankOptions": {
    "B1": [
-    "límite",
-    "vaso",
-    "gustan",
-    "debe"
+    "porque",
+    "vegano",
+    "equilibrada",
+    "gustan"
    ]
   },
   "key": {
@@ -14149,10 +14149,10 @@ window.QUESTION_BANK = [
   "question": "Como una dieta _____. (balanced)",
   "blankOptions": {
    "B1": [
-    "límite",
-    "equilibrada",
-    "gustan",
-    "agua"
+    "debe",
+    "agua",
+    "vegano",
+    "equilibrada"
    ]
   },
   "key": {
@@ -14171,9 +14171,9 @@ window.QUESTION_BANK = [
   "question": "No se debe comer demasiado _____. (sugar)",
   "blankOptions": {
    "B1": [
-    "porque",
-    "azúcar",
     "equilibrada",
+    "debe",
+    "azúcar",
     "evitar"
    ]
   },
@@ -14193,10 +14193,10 @@ window.QUESTION_BANK = [
   "question": "Prefiero el pescado _____ es bueno para la salud. (because)",
   "blankOptions": {
    "B1": [
+    "equilibrada",
+    "gustan",
     "porque",
-    "límite",
-    "vaso",
-    "debe"
+    "evitar"
    ]
   },
   "key": {
@@ -14215,9 +14215,9 @@ window.QUESTION_BANK = [
   "question": "Bebo un _____ de agua cuando tengo sed. <span data-say=\"Bebo un vaso de agua cuando tengo sed.\" data-listen>Bebo un vaso de agua cuando tengo sed.</span>",
   "blankOptions": {
    "B1": [
+    "agua",
+    "gustan",
     "vaso",
-    "porque",
-    "equilibrada",
     "debe"
    ]
   },
@@ -14237,10 +14237,10 @@ window.QUESTION_BANK = [
   "question": "Soy _____. No como ningún producto animal. (vegan, masculine)",
   "blankOptions": {
    "B1": [
+    "límite",
     "vegano",
-    "agua",
-    "azúcar",
-    "límite"
+    "equilibrada",
+    "porque"
    ]
   },
   "key": {
@@ -14260,9 +14260,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "límite",
-    "gustan",
-    "vaso",
-    "porque"
+    "vegano",
+    "agua",
+    "evitar"
    ]
   },
   "key": {
@@ -15513,10 +15513,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ la cabeza. <span data-say=\"Me duele la cabeza.\" data-listen>Me duele la cabeza.</span>",
   "blankOptions": {
    "B1": [
-    "duelen",
-    "dejar",
     "respirar",
-    "duele"
+    "duele",
+    "acuesto",
+    "duelen"
    ]
   },
   "key": {
@@ -15535,9 +15535,9 @@ window.QUESTION_BANK = [
   "question": "No se debe _____ porque es malo para la salud. <span data-say=\"No se debe fumar porque es malo para la salud.\" data-listen>No se debe fumar porque es malo para la salud.</span>",
   "blankOptions": {
    "B1": [
-    "fumar",
-    "duele",
     "pierna",
+    "dejar",
+    "fumar",
     "acuesto"
    ]
   },
@@ -15557,10 +15557,10 @@ window.QUESTION_BANK = [
   "question": "Para estar en forma, hay que hacer _____. <span data-say=\"Para estar en forma, hay que hacer ejercicio.\" data-listen>Para estar en forma, hay que hacer ejercicio.</span>",
   "blankOptions": {
    "B1": [
-    "duelen",
     "ejercicio",
-    "cansado",
-    "fumar"
+    "duele",
+    "fumar",
+    "pierna"
    ]
   },
   "key": {
@@ -15579,10 +15579,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ los pies. (my feet hurt — plural!)",
   "blankOptions": {
    "B1": [
-    "acuesto",
     "duelen",
-    "duele",
-    "dejar"
+    "pierna",
+    "ejercicio",
+    "respirar"
    ]
   },
   "key": {
@@ -15601,10 +15601,10 @@ window.QUESTION_BANK = [
   "question": "Estoy muy _____ porque no duermo bien. (tired)",
   "blankOptions": {
    "B1": [
-    "acuesto",
-    "fumar",
+    "cansado",
     "dejar",
-    "cansado"
+    "duelen",
+    "fumar"
    ]
   },
   "key": {
@@ -15623,10 +15623,10 @@ window.QUESTION_BANK = [
   "question": "Voy a _____ de fumar. (to stop)",
   "blankOptions": {
    "B1": [
-    "cansado",
+    "ejercicio",
     "acuesto",
     "dejar",
-    "ejercicio"
+    "cansado"
    ]
   },
   "key": {
@@ -15645,10 +15645,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ temprano para dormir ocho horas. (I go to bed — reflexive)",
   "blankOptions": {
    "B1": [
-    "ejercicio",
+    "acuesto",
+    "duele",
     "fumar",
-    "pierna",
-    "acuesto"
+    "duelen"
    ]
   },
   "key": {
@@ -15669,8 +15669,8 @@ window.QUESTION_BANK = [
    "B1": [
     "acuesto",
     "pierna",
-    "dejar",
-    "respirar"
+    "ejercicio",
+    "cansado"
    ]
   },
   "key": {
@@ -15689,10 +15689,10 @@ window.QUESTION_BANK = [
   "question": "Hay que _____ profundamente para relajarse. (to breathe)",
   "blankOptions": {
    "B1": [
-    "pierna",
+    "ejercicio",
+    "respirar",
     "cansado",
-    "duelen",
-    "respirar"
+    "fumar"
    ]
   },
   "key": {
@@ -17125,10 +17125,10 @@ window.QUESTION_BANK = [
   "question": "Mi asignatura _____ es el español. <span data-say=\"Mi asignatura preferida es el español.\" data-listen>Mi asignatura preferida es el español.</span>",
   "blankOptions": {
    "B1": [
+    "móvil",
+    "preferida",
     "obligatorio",
-    "empiezan",
-    "ciencias",
-    "preferida"
+    "informática"
    ]
   },
   "key": {
@@ -17147,10 +17147,10 @@ window.QUESTION_BANK = [
   "question": "Las clases _____ a las nueve. <span data-say=\"Las clases empiezan a las nueve.\" data-listen>Las clases empiezan a las nueve.</span>",
   "blankOptions": {
    "B1": [
-    "móvil",
+    "biblioteca",
     "acoso",
-    "empiezan",
-    "ciencias"
+    "informática",
+    "empiezan"
    ]
   },
   "key": {
@@ -17171,8 +17171,8 @@ window.QUESTION_BANK = [
    "B1": [
     "compañera",
     "informática",
-    "ciencias",
-    "mochila"
+    "deberes",
+    "móvil"
    ]
   },
   "key": {
@@ -17192,9 +17192,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "empiezan",
-    "suspender",
+    "informática",
     "ciencias",
-    "compañera"
+    "móvil"
    ]
   },
   "key": {
@@ -17213,10 +17213,10 @@ window.QUESTION_BANK = [
   "question": "Está prohibido usar el _____. (mobile phone)",
   "blankOptions": {
    "B1": [
-    "empiezan",
-    "biblioteca",
+    "informática",
+    "acoso",
     "móvil",
-    "mochila"
+    "preferida"
    ]
   },
   "key": {
@@ -17235,9 +17235,9 @@ window.QUESTION_BANK = [
   "question": "Hago los _____ después de las clases. (homework)",
   "blankOptions": {
    "B1": [
-    "empiezan",
+    "acoso",
+    "compañera",
     "deberes",
-    "mochila",
     "suspender"
    ]
   },
@@ -17257,10 +17257,10 @@ window.QUESTION_BANK = [
   "question": "En mi instituto hay una _____ grande. (library)",
   "blankOptions": {
    "B1": [
-    "preferida",
-    "biblioteca",
+    "bicicleta",
     "ciencias",
-    "suspender"
+    "empiezan",
+    "biblioteca"
    ]
   },
   "key": {
@@ -17279,9 +17279,9 @@ window.QUESTION_BANK = [
   "question": "Voy al instituto en _____. <span data-say=\"Voy al instituto en bicicleta.\" data-listen>Voy al instituto en bicicleta.</span>",
   "blankOptions": {
    "B1": [
+    "biblioteca",
+    "móvil",
     "mochila",
-    "obligatorio",
-    "preferida",
     "bicicleta"
    ]
   },
@@ -17301,9 +17301,9 @@ window.QUESTION_BANK = [
   "question": "Mi _____ de clase se llama Ana. (classmate, f)",
   "blankOptions": {
    "B1": [
-    "deberes",
-    "biblioteca",
+    "móvil",
     "compañera",
+    "deberes",
     "obligatorio"
    ]
   },
@@ -17323,10 +17323,10 @@ window.QUESTION_BANK = [
   "question": "Si no estudias, puedes _____ el examen. (to fail)",
   "blankOptions": {
    "B1": [
-    "suspender",
-    "mochila",
+    "informática",
     "móvil",
-    "ciencias"
+    "suspender",
+    "biblioteca"
    ]
   },
   "key": {
@@ -17345,9 +17345,9 @@ window.QUESTION_BANK = [
   "question": "Guardo mis bolígrafos en la _____. (backpack)",
   "blankOptions": {
    "B1": [
-    "bicicleta",
-    "acoso",
+    "biblioteca",
     "informática",
+    "preferida",
     "mochila"
    ]
   },
@@ -17367,10 +17367,10 @@ window.QUESTION_BANK = [
   "question": "El uniforme es _____: hay que llevarlo todos los días. (compulsory)",
   "blankOptions": {
    "B1": [
-    "biblioteca",
+    "empiezan",
+    "bicicleta",
     "obligatorio",
-    "ciencias",
-    "acoso"
+    "ciencias"
    ]
   },
   "key": {
@@ -17389,10 +17389,10 @@ window.QUESTION_BANK = [
   "question": "Está muy mal el _____ escolar. (bullying) <span data-say=\"Está muy mal el acoso escolar.\" data-listen>Está muy mal el acoso escolar.</span>",
   "blankOptions": {
    "B1": [
-    "informática",
-    "deberes",
-    "biblioteca",
-    "acoso"
+    "suspender",
+    "ciencias",
+    "acoso",
+    "compañera"
    ]
   },
   "key": {
@@ -18846,10 +18846,10 @@ window.QUESTION_BANK = [
   "question": "Quiero _____ médica. <span data-say=\"Quiero ser médica.\" data-listen>Quiero ser médica.</span>",
   "blankOptions": {
    "B1": [
-    "sea",
-    "igualdad",
-    "estudiando",
-    "ser"
+    "ser",
+    "ganar",
+    "aprendizaje",
+    "ayudar"
    ]
   },
   "key": {
@@ -18868,10 +18868,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ ser abogado porque me interesa la ley. (would like)",
   "blankOptions": {
    "B1": [
-    "gustaría",
-    "firmar",
-    "sea",
-    "estudiando"
+    "ser",
+    "ganar",
+    "igualdad",
+    "gustaría"
    ]
   },
   "key": {
@@ -18890,9 +18890,9 @@ window.QUESTION_BANK = [
   "question": "Voy a seguir _____ en la universidad. (studying)",
   "blankOptions": {
    "B1": [
+    "igualdad",
     "estudiando",
-    "firmar",
-    "solicitar",
+    "aprendizaje",
     "sea"
    ]
   },
@@ -18912,10 +18912,10 @@ window.QUESTION_BANK = [
   "question": "Quiero hacer un _____ en vez de ir a la universidad. (apprenticeship)",
   "blankOptions": {
    "B1": [
+    "sea",
+    "ayudar",
     "aprendizaje",
-    "gustaría",
-    "ser",
-    "estudiando"
+    "solicitar"
    ]
   },
   "key": {
@@ -18935,9 +18935,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "ganar",
-    "sea",
-    "aprendizaje",
-    "estudiando"
+    "ser",
+    "gustaría",
+    "firmar"
    ]
   },
   "key": {
@@ -18956,10 +18956,10 @@ window.QUESTION_BANK = [
   "question": "Cuando _____ mayor, quiero ser dentista. <span data-say=\"Cuando sea mayor, quiero ser dentista.\" data-listen>Cuando sea mayor, quiero ser dentista.</span>",
   "blankOptions": {
    "B1": [
-    "sea",
-    "ganar",
-    "ayudar",
-    "gustaría"
+    "estudiando",
+    "ser",
+    "aprendizaje",
+    "sea"
    ]
   },
   "key": {
@@ -18979,9 +18979,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "ayudar",
-    "aprendizaje",
-    "sea",
-    "tasa"
+    "igualdad",
+    "jefe",
+    "gustaría"
    ]
   },
   "key": {
@@ -19000,10 +19000,10 @@ window.QUESTION_BANK = [
   "question": "Se _____ camarero con experiencia. (wanted/needed) <span data-say=\"Se necesita camarero con experiencia.\" data-listen>Se necesita camarero con experiencia.</span>",
   "blankOptions": {
    "B1": [
-    "jefe",
     "igualdad",
     "necesita",
-    "solicitar"
+    "gustaría",
+    "firmar"
    ]
   },
   "key": {
@@ -19023,9 +19023,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "gustaría",
+    "ser",
     "solicitar",
-    "sea",
-    "tasa"
+    "necesita"
    ]
   },
   "key": {
@@ -19044,10 +19044,10 @@ window.QUESTION_BANK = [
   "question": "Mi _____ trabaja con un equipo de empleados. (boss)",
   "blankOptions": {
    "B1": [
-    "ganar",
     "jefe",
-    "ser",
-    "sea"
+    "ayudar",
+    "solicitar",
+    "ser"
    ]
   },
   "key": {
@@ -19066,10 +19066,10 @@ window.QUESTION_BANK = [
   "question": "El gobierno debe proteger el derecho a la _____. (equality)",
   "blankOptions": {
    "B1": [
-    "ser",
+    "igualdad",
+    "gustaría",
     "ganar",
-    "ayudar",
-    "igualdad"
+    "ayudar"
    ]
   },
   "key": {
@@ -19088,9 +19088,9 @@ window.QUESTION_BANK = [
   "question": "La _____ de paro subió el año pasado. (rate) <span data-say=\"La tasa de paro subió el año pasado.\" data-listen>La tasa de paro subió el año pasado.</span>",
   "blankOptions": {
    "B1": [
-    "igualdad",
-    "aprendizaje",
-    "necesita",
+    "jefe",
+    "ganar",
+    "firmar",
     "tasa"
    ]
   },
@@ -19111,8 +19111,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "firmar",
-    "solicitar",
-    "estudiando",
+    "ser",
+    "igualdad",
     "sea"
    ]
   },
@@ -20406,10 +20406,10 @@ window.QUESTION_BANK = [
   "question": "Juego al _____ con mi equipo. <span data-say=\"Juego al fútbol con mi equipo.\" data-listen>Juego al fútbol con mi equipo.</span>",
   "blankOptions": {
    "B1": [
-    "quedo",
-    "jugué",
+    "gastos",
+    "coleccionar",
     "fútbol",
-    "fiestas"
+    "charlar"
    ]
   },
   "key": {
@@ -20428,10 +20428,10 @@ window.QUESTION_BANK = [
   "question": "Mi afición es _____ sellos. (to collect)",
   "blankOptions": {
    "B1": [
-    "jugar",
-    "charlar",
+    "quedo",
     "coleccionar",
-    "fiestas"
+    "gastos",
+    "fútbol"
    ]
   },
   "key": {
@@ -20450,10 +20450,10 @@ window.QUESTION_BANK = [
   "question": "Me gusta _____ al baloncesto. (to play — infinitive after gustar)",
   "blankOptions": {
    "B1": [
-    "coleccionar",
-    "gastos",
+    "salir",
+    "charlar",
     "jugar",
-    "quedo"
+    "actividad"
    ]
   },
   "key": {
@@ -20472,10 +20472,10 @@ window.QUESTION_BANK = [
   "question": "Normalmente _____ con mis amigos los sábados. (to meet up — yo form)",
   "blankOptions": {
    "B1": [
+    "salir",
+    "jugar",
     "quedo",
-    "charlar",
-    "fiestas",
-    "jugar"
+    "jugué"
    ]
   },
   "key": {
@@ -20494,10 +20494,10 @@ window.QUESTION_BANK = [
   "question": "El fin de semana pasado _____ al tenis. (I played — preterite)",
   "blankOptions": {
    "B1": [
-    "fiestas",
-    "salir",
     "jugué",
-    "actividad"
+    "charlar",
+    "actividad",
+    "gastos"
    ]
   },
   "key": {
@@ -20516,10 +20516,10 @@ window.QUESTION_BANK = [
   "question": "Nunca voy a _____. (parties)",
   "blankOptions": {
    "B1": [
-    "jugué",
-    "quedo",
+    "jugar",
     "fiestas",
-    "charlar"
+    "jugué",
+    "quedo"
    ]
   },
   "key": {
@@ -20538,10 +20538,10 @@ window.QUESTION_BANK = [
   "question": "Suelo _____ los sábados por la noche. (to go out — infinitive after soler) <span class=\"tier-h\">H</span>",
   "blankOptions": {
    "B1": [
-    "fiestas",
     "salir",
-    "charlar",
-    "quedo"
+    "actividad",
+    "gastos",
+    "coleccionar"
    ]
   },
   "key": {
@@ -20560,10 +20560,10 @@ window.QUESTION_BANK = [
   "question": "Me gusta probar una _____ nueva cada mes. (activity)",
   "blankOptions": {
    "B1": [
-    "fútbol",
-    "actividad",
-    "jugar",
-    "fiestas"
+    "gastos",
+    "jugué",
+    "quedo",
+    "actividad"
    ]
   },
   "key": {
@@ -20582,10 +20582,10 @@ window.QUESTION_BANK = [
   "question": "No me gustan mis _____ porque gasto demasiado. (expenses)",
   "blankOptions": {
    "B1": [
-    "actividad",
-    "quedo",
-    "coleccionar",
-    "gastos"
+    "gastos",
+    "salir",
+    "charlar",
+    "quedo"
    ]
   },
   "key": {
@@ -20604,10 +20604,10 @@ window.QUESTION_BANK = [
   "question": "Nos gusta _____ en el parque después del partido. (to chat)",
   "blankOptions": {
    "B1": [
-    "actividad",
-    "coleccionar",
-    "charlar",
-    "jugar"
+    "jugar",
+    "salir",
+    "quedo",
+    "charlar"
    ]
   },
   "key": {
@@ -21687,10 +21687,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ mucho la música pop. <span data-say=\"Me encanta mucho la música pop.\" data-listen>Me encanta mucho la música pop.</span>",
   "blankOptions": {
    "B1": [
-    "vi",
-    "gustan",
+    "Nunca",
+    "leo",
     "encanta",
-    "descargué"
+    "guitarra"
    ]
   },
   "key": {
@@ -21709,10 +21709,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ las películas de acción porque son emocionantes. (plural gustar)",
   "blankOptions": {
    "B1": [
-    "vi",
     "leo",
-    "descargué",
-    "gustan"
+    "gustan",
+    "guitarra",
+    "encanta"
    ]
   },
   "key": {
@@ -21731,10 +21731,10 @@ window.QUESTION_BANK = [
   "question": "Ayer _____ una película de terror con mis amigos. (preterite of ver)",
   "blankOptions": {
    "B1": [
-    "gustan",
-    "encanta",
-    "Nunca",
-    "vi"
+    "vi",
+    "resto",
+    "leer",
+    "guitarra"
    ]
   },
   "key": {
@@ -21753,10 +21753,10 @@ window.QUESTION_BANK = [
   "question": "Toco la _____ en un grupo de música. (guitar)",
   "blankOptions": {
    "B1": [
-    "encanta",
-    "leo",
-    "guitarra",
-    "gustan"
+    "resto",
+    "leer",
+    "distinto",
+    "guitarra"
    ]
   },
   "key": {
@@ -21775,9 +21775,9 @@ window.QUESTION_BANK = [
   "question": "Cada noche, _____ una novela antes de dormir. <span data-say=\"Cada noche, leo una novela antes de dormir.\" data-listen>Cada noche, leo una novela antes de dormir.</span>",
   "blankOptions": {
    "B1": [
-    "guitarra",
+    "Nunca",
     "leo",
-    "resto",
+    "leer",
     "gustan"
    ]
   },
@@ -21797,10 +21797,10 @@ window.QUESTION_BANK = [
   "question": "Se debe _____ más para mejorar el vocabulario. (to read)",
   "blankOptions": {
    "B1": [
-    "encanta",
-    "distinto",
+    "leo",
     "leer",
-    "resto"
+    "vi",
+    "encanta"
    ]
   },
   "key": {
@@ -21819,10 +21819,10 @@ window.QUESTION_BANK = [
   "question": "Ayer _____ una canción nueva en mi móvil. <span data-say=\"Ayer descargué una canción nueva en mi móvil.\" data-listen>Ayer descargué una canción nueva en mi móvil.</span>",
   "blankOptions": {
    "B1": [
-    "gustan",
-    "leer",
+    "guitarra",
     "descargué",
-    "vi"
+    "encanta",
+    "resto"
    ]
   },
   "key": {
@@ -21841,10 +21841,10 @@ window.QUESTION_BANK = [
   "question": "_____ veo telenovelas, prefiero los documentales. (never)",
   "blankOptions": {
    "B1": [
-    "Nunca",
-    "descargué",
-    "encanta",
-    "guitarra"
+    "distinto",
+    "vi",
+    "leo",
+    "Nunca"
    ]
   },
   "key": {
@@ -21863,9 +21863,9 @@ window.QUESTION_BANK = [
   "question": "Cada cantante tiene un estilo _____. (different)",
   "blankOptions": {
    "B1": [
-    "leo",
-    "resto",
-    "descargué",
+    "Nunca",
+    "gustan",
+    "encanta",
     "distinto"
    ]
   },
@@ -21885,10 +21885,10 @@ window.QUESTION_BANK = [
   "question": "Vi el _____ de la temporada en un fin de semana. (the rest)",
   "blankOptions": {
    "B1": [
-    "gustan",
-    "resto",
+    "descargué",
     "leo",
-    "Nunca"
+    "guitarra",
+    "resto"
    ]
   },
   "key": {
@@ -22947,10 +22947,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ a las siete. <span data-say=\"Me levanto a las siete.\" data-listen>Me levanto a las siete.</span>",
   "blankOptions": {
    "B1": [
-    "acostaba",
-    "Después",
     "levanto",
-    "jamón"
+    "caballo",
+    "jamón",
+    "vino"
    ]
   },
   "key": {
@@ -22970,9 +22970,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "cena",
+    "puestos",
     "jamón",
-    "fría",
-    "levanto"
+    "acostaba"
    ]
   },
   "key": {
@@ -22991,10 +22991,10 @@ window.QUESTION_BANK = [
   "question": "El gazpacho es una sopa de tomate que se come _____. (cold)",
   "blankOptions": {
    "B1": [
+    "desayuno",
+    "jamón",
     "fría",
-    "acostaba",
-    "cena",
-    "levanto"
+    "caballo"
    ]
   },
   "key": {
@@ -23013,10 +23013,10 @@ window.QUESTION_BANK = [
   "question": "Todos los días me ducho y _____ antes de ir al instituto. (I have breakfast)",
   "blankOptions": {
    "B1": [
-    "Después",
+    "vino",
+    "desayuno",
     "caballo",
-    "acostaba",
-    "desayuno"
+    "puestos"
    ]
   },
   "key": {
@@ -23035,10 +23035,10 @@ window.QUESTION_BANK = [
   "question": "_____ del instituto, hago los deberes y ceno con mi familia. (afterwards)",
   "blankOptions": {
    "B1": [
-    "jamón",
+    "caballo",
     "Después",
-    "desayuno",
-    "caballo"
+    "fría",
+    "cena"
    ]
   },
   "key": {
@@ -23057,10 +23057,10 @@ window.QUESTION_BANK = [
   "question": "De pequeño, me _____ muy temprano, pero ahora me acuesto más tarde. (used to go to bed)",
   "blankOptions": {
    "B1": [
-    "acostaba",
+    "levanto",
     "caballo",
-    "vino",
-    "Después"
+    "acostaba",
+    "fría"
    ]
   },
   "key": {
@@ -23079,10 +23079,10 @@ window.QUESTION_BANK = [
   "question": "Muchas familias españolas comen _____ con pan y aceite de oliva. (ham)",
   "blankOptions": {
    "B1": [
+    "acostaba",
     "jamón",
-    "fría",
-    "desayuno",
-    "vino"
+    "vino",
+    "cena"
    ]
   },
   "key": {
@@ -23101,10 +23101,10 @@ window.QUESTION_BANK = [
   "question": "En el mercado hay _____ que venden fruta fresca. (market stalls)",
   "blankOptions": {
    "B1": [
-    "acostaba",
-    "jamón",
     "Después",
-    "puestos"
+    "jamón",
+    "puestos",
+    "desayuno"
    ]
   },
   "key": {
@@ -23123,10 +23123,10 @@ window.QUESTION_BANK = [
   "question": "Muchos españoles beben _____ con la comida. (wine)",
   "blankOptions": {
    "B1": [
-    "fría",
-    "jamón",
-    "levanto",
-    "vino"
+    "vino",
+    "acostaba",
+    "caballo",
+    "cena"
    ]
   },
   "key": {
@@ -23147,8 +23147,8 @@ window.QUESTION_BANK = [
    "B1": [
     "puestos",
     "caballo",
-    "cena",
-    "jamón"
+    "acostaba",
+    "cena"
    ]
   },
   "key": {
@@ -24321,10 +24321,10 @@ window.QUESTION_BANK = [
   "question": "Celebramos la _____ con mi familia el 24 de diciembre. <span data-say=\"Celebramos la Nochebuena con mi familia el 24 de diciembre.\" data-listen>Celebramos la Nochebuena con mi familia el 24 de diciembre.</span>",
   "blankOptions": {
    "B1": [
+    "solíamos",
     "disfrazamos",
     "Nochebuena",
-    "pasé",
-    "solíamos"
+    "siglo"
    ]
   },
   "key": {
@@ -24343,10 +24343,10 @@ window.QUESTION_BANK = [
   "question": "El seis de enero celebramos el día de los _____ Magos. (Three Kings)",
   "blankOptions": {
    "B1": [
-    "solíamos",
-    "pinta",
-    "Reyes",
-    "Nochebuena"
+    "disfrazamos",
+    "fuegos",
+    "pasé",
+    "Reyes"
    ]
   },
   "key": {
@@ -24366,9 +24366,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "disfrazamos",
-    "pasé",
     "reúne",
-    "muerte"
+    "muerte",
+    "Reyes"
    ]
   },
   "key": {
@@ -24387,10 +24387,10 @@ window.QUESTION_BANK = [
   "question": "Vemos los _____ artificiales a medianoche en Nochevieja. (fireworks)",
   "blankOptions": {
    "B1": [
-    "fuegos",
+    "siglo",
     "Reyes",
-    "reúne",
-    "pasé"
+    "fuegos",
+    "reúne"
    ]
   },
   "key": {
@@ -24409,10 +24409,10 @@ window.QUESTION_BANK = [
   "question": "Para Halloween, nos _____ de personajes de miedo. (disfrazarse — we dress up)",
   "blankOptions": {
    "B1": [
-    "disfrazamos",
-    "siglo",
+    "pinta",
+    "pasé",
     "reúne",
-    "solíamos"
+    "disfrazamos"
    ]
   },
   "key": {
@@ -24431,10 +24431,10 @@ window.QUESTION_BANK = [
   "question": "El año pasado, lo _____ genial en la fiesta de cumpleaños. <span data-say=\"El año pasado, lo pasé genial en la fiesta de cumpleaños.\" data-listen>El año pasado, lo pasé genial en la fiesta de cumpleaños.</span>",
   "blankOptions": {
    "B1": [
-    "pasé",
+    "Nochebuena",
+    "siglo",
     "reúne",
-    "fuegos",
-    "solíamos"
+    "pasé"
    ]
   },
   "key": {
@@ -24454,9 +24454,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "solíamos",
-    "siglo",
-    "Nochebuena",
-    "muerte"
+    "Reyes",
+    "reúne",
+    "fuegos"
    ]
   },
   "key": {
@@ -24475,10 +24475,10 @@ window.QUESTION_BANK = [
   "question": "Esta tradición tiene más de un _____ de historia. (century)",
   "blankOptions": {
    "B1": [
-    "pinta",
+    "siglo",
     "pasé",
-    "reúne",
-    "siglo"
+    "fuegos",
+    "disfrazamos"
    ]
   },
   "key": {
@@ -24497,9 +24497,9 @@ window.QUESTION_BANK = [
   "question": "El Día de los Muertos honra a los que ya no están, sin miedo a la _____ . (death)",
   "blankOptions": {
    "B1": [
-    "Nochebuena",
     "pasé",
-    "siglo",
+    "Reyes",
+    "Nochebuena",
     "muerte"
    ]
   },
@@ -24519,10 +24519,10 @@ window.QUESTION_BANK = [
   "question": "Durante la fiesta, mucha gente se _____ la cara de colores. (pintarse — paints)",
   "blankOptions": {
    "B1": [
-    "solíamos",
-    "pinta",
-    "Reyes",
-    "reúne"
+    "muerte",
+    "reúne",
+    "pasé",
+    "pinta"
    ]
   },
   "key": {
@@ -25940,10 +25940,10 @@ window.QUESTION_BANK = [
   "question": "Mi ídolo es una _____. <span data-say=\"Mi ídolo es una cantante.\" data-listen>Mi ídolo es una cantante.</span>",
   "blankOptions": {
    "B1": [
-    "llorar",
+    "nombre",
+    "privacidad",
     "cantante",
-    "popular",
-    "marca"
+    "es"
    ]
   },
   "key": {
@@ -25962,10 +25962,10 @@ window.QUESTION_BANK = [
   "question": "Los famosos _____ mucha presión. <span data-say=\"Los famosos sienten mucha presión.\" data-listen>Los famosos sienten mucha presión.</span>",
   "blankOptions": {
    "B1": [
-    "actuación",
-    "miembro",
     "sienten",
-    "benéficas"
+    "popular",
+    "a",
+    "miembro"
    ]
   },
   "key": {
@@ -25984,10 +25984,10 @@ window.QUESTION_BANK = [
   "question": "Sigo _____ mi cantante favorita en Instagram. (the personal preposition before a person)",
   "blankOptions": {
    "B1": [
-    "marca",
-    "a",
+    "nombre",
     "especial",
-    "popular"
+    "miembro",
+    "a"
    ]
   },
   "key": {
@@ -26007,9 +26007,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "es",
-    "premio",
-    "sea",
-    "impuesto"
+    "privacidad",
+    "a",
+    "miembro"
    ]
   },
   "key": {
@@ -26028,10 +26028,10 @@ window.QUESTION_BANK = [
   "question": "No creo que la fama _____ fácil. (H — to be, subjunctive after a negative opinion)",
   "blankOptions": {
    "B1": [
-    "sea",
     "a",
-    "impuesto",
-    "nombre"
+    "juegas",
+    "premio",
+    "sea"
    ]
   },
   "key": {
@@ -26050,10 +26050,10 @@ window.QUESTION_BANK = [
   "question": "Los famosos pierden la _____. (privacy)",
   "blankOptions": {
    "B1": [
-    "premio",
-    "marca",
-    "privacidad",
-    "juegas"
+    "actuación",
+    "benéficas",
+    "sea",
+    "privacidad"
    ]
   },
   "key": {
@@ -26072,10 +26072,10 @@ window.QUESTION_BANK = [
   "question": "Da dinero a organizaciones _____. (charitable)",
   "blankOptions": {
    "B1": [
+    "cantante",
+    "premio",
     "benéficas",
-    "nombre",
-    "sea",
-    "a"
+    "popular"
    ]
   },
   "key": {
@@ -26094,10 +26094,10 @@ window.QUESTION_BANK = [
   "question": "Su _____ artístico es distinto de su identidad legal real. (stage name)",
   "blankOptions": {
    "B1": [
-    "cantante",
+    "especial",
     "nombre",
-    "privacidad",
-    "sienten"
+    "popular",
+    "juegas"
    ]
   },
   "key": {
@@ -26116,10 +26116,10 @@ window.QUESTION_BANK = [
   "question": "Tú _____ un papel muy importante en esta película, ¿verdad? (you play — tú form)",
   "blankOptions": {
    "B1": [
-    "nombre",
-    "especial",
-    "marca",
-    "juegas"
+    "sea",
+    "juegas",
+    "premio",
+    "miembro"
    ]
   },
   "key": {
@@ -26138,9 +26138,9 @@ window.QUESTION_BANK = [
   "question": "Esta estrella tiene un talento muy _____ para la música. (special)",
   "blankOptions": {
    "B1": [
-    "llorar",
-    "benéficas",
+    "impuesto",
     "especial",
+    "actuación",
     "marca"
    ]
   },
@@ -26160,10 +26160,10 @@ window.QUESTION_BANK = [
   "question": "Ella es _____ del grupo desde 2015. (member)",
   "blankOptions": {
    "B1": [
-    "es",
+    "benéficas",
+    "cantante",
     "miembro",
-    "a",
-    "especial"
+    "sea"
    ]
   },
   "key": {
@@ -26182,10 +26182,10 @@ window.QUESTION_BANK = [
   "question": "El actor empezó a _____ durante la entrevista emotiva. (to cry)",
   "blankOptions": {
    "B1": [
-    "popular",
-    "premio",
+    "benéficas",
+    "impuesto",
     "llorar",
-    "sea"
+    "juegas"
    ]
   },
   "key": {
@@ -26204,10 +26204,10 @@ window.QUESTION_BANK = [
   "question": "Los famosos ricos tienen que pagar mucho _____ cada año. (tax)",
   "blankOptions": {
    "B1": [
-    "es",
     "respeto",
     "impuesto",
-    "sea"
+    "popular",
+    "es"
    ]
   },
   "key": {
@@ -26226,10 +26226,10 @@ window.QUESTION_BANK = [
   "question": "Esta cantante es muy _____ entre los jóvenes. (popular)",
   "blankOptions": {
    "B1": [
+    "cantante",
     "benéficas",
-    "popular",
-    "juegas",
-    "llorar"
+    "miembro",
+    "popular"
    ]
   },
   "key": {
@@ -26248,10 +26248,10 @@ window.QUESTION_BANK = [
   "question": "Ganó un _____ importante por su nuevo álbum. (prize)",
   "blankOptions": {
    "B1": [
-    "impuesto",
-    "popular",
-    "llorar",
-    "premio"
+    "es",
+    "premio",
+    "miembro",
+    "llorar"
    ]
   },
   "key": {
@@ -26270,10 +26270,10 @@ window.QUESTION_BANK = [
   "question": "Los fans le tienen mucho _____ a su ídolo. (respect)",
   "blankOptions": {
    "B1": [
-    "respeto",
-    "juegas",
-    "a",
-    "miembro"
+    "actuación",
+    "popular",
+    "miembro",
+    "respeto"
    ]
   },
   "key": {
@@ -26292,10 +26292,10 @@ window.QUESTION_BANK = [
   "question": "El futbolista tiene su propia _____ de ropa deportiva. (brand)",
   "blankOptions": {
    "B1": [
-    "actuación",
+    "miembro",
+    "nombre",
     "marca",
-    "popular",
-    "llorar"
+    "sienten"
    ]
   },
   "key": {
@@ -26314,9 +26314,9 @@ window.QUESTION_BANK = [
   "question": "Todo el público aplaudió su _____ en el concierto. (H — performance)",
   "blankOptions": {
    "B1": [
-    "sienten",
-    "popular",
-    "nombre",
+    "juegas",
+    "especial",
+    "miembro",
     "actuación"
    ]
   },
@@ -27724,10 +27724,10 @@ window.QUESTION_BANK = [
   "question": "El verano pasado _____ a España. <span data-say=\"El verano pasado fui a España.\" data-listen>El verano pasado fui a España.</span>",
   "blankOptions": {
    "B1": [
-    "era",
-    "gustaría",
     "fui",
-    "sacó"
+    "sacó",
+    "reservar",
+    "era"
    ]
   },
   "key": {
@@ -27746,9 +27746,9 @@ window.QUESTION_BANK = [
   "question": "Viajé en _____ porque es más rápido que el autobús. (train)",
   "blankOptions": {
    "B1": [
-    "caro",
-    "octubre",
     "iré",
+    "fui",
+    "era",
     "tren"
    ]
   },
@@ -27768,10 +27768,10 @@ window.QUESTION_BANK = [
   "question": "Voy a _____ una habitación en el hotel. (to book)",
   "blankOptions": {
    "B1": [
-    "gustaría",
+    "octubre",
     "reservar",
-    "iré",
-    "sacó"
+    "caro",
+    "gustaría"
    ]
   },
   "key": {
@@ -27791,9 +27791,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "iré",
-    "gustaría",
     "reservar",
-    "tren"
+    "fui",
+    "sacó"
    ]
   },
   "key": {
@@ -27812,10 +27812,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ fotos de la playa todos los días. <span data-say=\"Mi hermano sacó fotos de la playa todos los días.\" data-listen>Mi hermano sacó fotos de la playa todos los días.</span>",
   "blankOptions": {
    "B1": [
-    "sacó",
-    "caro",
-    "octubre",
-    "tren"
+    "gustaría",
+    "era",
+    "iré",
+    "sacó"
    ]
   },
   "key": {
@@ -27834,10 +27834,10 @@ window.QUESTION_BANK = [
   "question": "Hacía sol y el hotel _____ muy grande. (was — imperfect) <span class=\"tier-h\">H</span>",
   "blankOptions": {
    "B1": [
-    "era",
-    "tren",
+    "gustaría",
+    "sacó",
     "fui",
-    "reservar"
+    "era"
    ]
   },
   "key": {
@@ -27856,10 +27856,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ visitar México algún día. (I would like — conditional) <span class=\"tier-h\">H</span>",
   "blankOptions": {
    "B1": [
+    "tren",
+    "fui",
     "gustaría",
-    "caro",
-    "iré",
-    "tren"
+    "iré"
    ]
   },
   "key": {
@@ -27879,9 +27879,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "octubre",
-    "gustaría",
-    "caro",
-    "tren"
+    "tren",
+    "sacó",
+    "iré"
    ]
   },
   "key": {
@@ -27902,8 +27902,8 @@ window.QUESTION_BANK = [
    "B1": [
     "octubre",
     "caro",
-    "sacó",
-    "iré"
+    "era",
+    "reservar"
    ]
   },
   "key": {
@@ -29065,9 +29065,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "hay",
-    "mitad",
-    "visitar",
-    "llueve"
+    "llueve",
+    "está",
+    "mitad"
    ]
   },
   "key": {
@@ -29087,9 +29087,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "está",
-    "hay",
-    "al lado",
-    "visitar"
+    "llueve",
+    "visitar",
+    "al lado"
    ]
   },
   "key": {
@@ -29108,10 +29108,10 @@ window.QUESTION_BANK = [
   "question": "Mi ciudad _____ muy histórica y turística. (permanent description — ser)",
   "blankOptions": {
    "B1": [
-    "cerca",
-    "hay",
     "es",
-    "llueve"
+    "despacio",
+    "está",
+    "cerca"
    ]
   },
   "key": {
@@ -29130,10 +29130,10 @@ window.QUESTION_BANK = [
   "question": "El parque está _____ de la catedral, muy cerca. (next to)",
   "blankOptions": {
    "B1": [
-    "visitar",
-    "está",
+    "cerca",
+    "al lado",
     "mitad",
-    "al lado"
+    "despacio"
    ]
   },
   "key": {
@@ -29152,10 +29152,10 @@ window.QUESTION_BANK = [
   "question": "En mi región _____ mucho en invierno. (it rains)",
   "blankOptions": {
    "B1": [
+    "llueve",
+    "está",
     "hay",
-    "es",
-    "mitad",
-    "llueve"
+    "visitar"
    ]
   },
   "key": {
@@ -29174,10 +29174,10 @@ window.QUESTION_BANK = [
   "question": "Se puede _____ el castillo los fines de semana. (to visit — infinitive)",
   "blankOptions": {
    "B1": [
-    "despacio",
     "está",
-    "visitar",
-    "al lado"
+    "mitad",
+    "llueve",
+    "visitar"
    ]
   },
   "key": {
@@ -29196,10 +29196,10 @@ window.QUESTION_BANK = [
   "question": "El museo está _____, a diez minutos andando. (close by)",
   "blankOptions": {
    "B1": [
-    "visitar",
-    "hay",
     "cerca",
-    "mitad"
+    "llueve",
+    "está",
+    "visitar"
    ]
   },
   "key": {
@@ -29218,10 +29218,10 @@ window.QUESTION_BANK = [
   "question": "El castillo es de la Edad Media, así que la _____ del pueblo parece muy antigua. (half)",
   "blankOptions": {
    "B1": [
-    "visitar",
+    "mitad",
     "está",
-    "al lado",
-    "mitad"
+    "es",
+    "hay"
    ]
   },
   "key": {
@@ -29240,10 +29240,10 @@ window.QUESTION_BANK = [
   "question": "¿Puede hablar más _____, por favor? (slowly)",
   "blankOptions": {
    "B1": [
+    "hay",
+    "cerca",
     "despacio",
-    "es",
-    "al lado",
-    "está"
+    "llueve"
    ]
   },
   "key": {
@@ -30498,10 +30498,10 @@ window.QUESTION_BANK = [
   "question": "Uso el _____ para navegar por internet. <span data-say=\"Uso el móvil para navegar por internet.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "mensajes",
-    "móvil",
+    "aplicaciones",
+    "beneficio",
     "minuto",
-    "útil"
+    "móvil"
    ]
   },
   "key": {
@@ -30520,10 +30520,10 @@ window.QUESTION_BANK = [
   "question": "Mando _____ a mis amigos todos los días. <span data-say=\"Mando mensajes a mis amigos todos los días.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "minuto",
+    "hacer",
     "mensajes",
-    "retraso",
-    "beneficio"
+    "beneficio",
+    "aplicaciones"
    ]
   },
   "key": {
@@ -30543,9 +30543,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "aplicaciones",
-    "mensajes",
-    "móvil",
-    "beneficio"
+    "cargar",
+    "útil",
+    "Navegar"
    ]
   },
   "key": {
@@ -30564,10 +30564,10 @@ window.QUESTION_BANK = [
   "question": "Uso el ordenador para _____ los deberes. (to do)",
   "blankOptions": {
    "B1": [
-    "minuto",
-    "cargar",
+    "funciona",
+    "aplicaciones",
     "hacer",
-    "mensajes"
+    "Navegar"
    ]
   },
   "key": {
@@ -30586,10 +30586,10 @@ window.QUESTION_BANK = [
   "question": "Internet es muy _____ para buscar información. (useful)",
   "blankOptions": {
    "B1": [
-    "hacer",
     "conectar",
     "útil",
-    "cargar"
+    "Navegar",
+    "minuto"
    ]
   },
   "key": {
@@ -30608,9 +30608,9 @@ window.QUESTION_BANK = [
   "question": "Paso demasiado tiempo en el móvil — ¡soy _____! (addicted)",
   "blankOptions": {
    "B1": [
-    "aplicaciones",
+    "retraso",
+    "conectar",
     "beneficio",
-    "móvil",
     "adicto"
    ]
   },
@@ -30630,10 +30630,10 @@ window.QUESTION_BANK = [
   "question": "_____ por internet es una pérdida de tiempo, en mi opinión. (browsing)",
   "blankOptions": {
    "B1": [
-    "adicto",
-    "cargar",
-    "minuto",
-    "Navegar"
+    "retraso",
+    "Navegar",
+    "móvil",
+    "hacer"
    ]
   },
   "key": {
@@ -30652,10 +30652,10 @@ window.QUESTION_BANK = [
   "question": "Tengo que _____ el móvil porque la batería está baja. (to charge)",
   "blankOptions": {
    "B1": [
-    "minuto",
+    "cargar",
+    "aplicaciones",
     "Navegar",
-    "retraso",
-    "cargar"
+    "beneficio"
    ]
   },
   "key": {
@@ -30674,10 +30674,10 @@ window.QUESTION_BANK = [
   "question": "Mi ordenador no _____ bien hoy. <span data-say=\"Mi ordenador no funciona bien hoy.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "hacer",
     "funciona",
+    "útil",
     "mensajes",
-    "cargar"
+    "minuto"
    ]
   },
   "key": {
@@ -30696,10 +30696,10 @@ window.QUESTION_BANK = [
   "question": "Quiero _____ mi portátil a internet. (to connect)",
   "blankOptions": {
    "B1": [
-    "conectar",
-    "hacer",
-    "funciona",
-    "beneficio"
+    "retraso",
+    "Navegar",
+    "minuto",
+    "conectar"
    ]
   },
   "key": {
@@ -30718,10 +30718,10 @@ window.QUESTION_BANK = [
   "question": "Hay un _____ en la aplicación esta noche. <span data-say=\"Hay un retraso en la aplicación esta noche.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "móvil",
-    "hacer",
-    "beneficio",
-    "retraso"
+    "retraso",
+    "mensajes",
+    "cargar",
+    "Navegar"
    ]
   },
   "key": {
@@ -30740,10 +30740,10 @@ window.QUESTION_BANK = [
   "question": "Solo tengo un _____ para revisar mis mensajes. (minute)",
   "blankOptions": {
    "B1": [
+    "adicto",
     "retraso",
     "minuto",
-    "aplicaciones",
-    "adicto"
+    "mensajes"
    ]
   },
   "key": {
@@ -30762,10 +30762,10 @@ window.QUESTION_BANK = [
   "question": "Un _____ de la tecnología es que puedes aprender cosas nuevas. (benefit)",
   "blankOptions": {
    "B1": [
-    "conectar",
-    "útil",
-    "mensajes",
-    "beneficio"
+    "retraso",
+    "adicto",
+    "beneficio",
+    "minuto"
    ]
   },
   "key": {
@@ -32229,10 +32229,10 @@ window.QUESTION_BANK = [
   "question": "Sigo a mis amigos en las redes _____. <span data-say=\"Sigo a mis amigos en las redes sociales.\" data-listen>Sigo a mis amigos en las redes sociales.</span>",
   "blankOptions": {
    "B1": [
-    "tiempo",
-    "estado",
+    "consecuencia",
+    "usuario",
     "sociales",
-    "usuario"
+    "perfil"
    ]
   },
   "key": {
@@ -32252,9 +32252,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "consecuencia",
-    "emoticón",
-    "compartir",
-    "contraseña"
+    "usuario",
+    "contraseña",
+    "estado"
    ]
   },
   "key": {
@@ -32273,10 +32273,10 @@ window.QUESTION_BANK = [
   "question": "El ciberacoso es un gran _____ en línea. <span data-say=\"El ciberacoso es un gran peligro en línea.\" data-listen>El ciberacoso es un gran peligro en línea.</span>",
   "blankOptions": {
    "B1": [
-    "estado",
-    "contraseña",
+    "tiempo",
     "peligro",
-    "comentar"
+    "cuidado",
+    "sociales"
    ]
   },
   "key": {
@@ -32295,10 +32295,10 @@ window.QUESTION_BANK = [
   "question": "Hay que tener _____ en las redes sociales. (be careful)",
   "blankOptions": {
    "B1": [
-    "contraseña",
+    "sociales",
     "cuidado",
     "perfil",
-    "emoticón"
+    "peligro"
    ]
   },
   "key": {
@@ -32317,10 +32317,10 @@ window.QUESTION_BANK = [
   "question": "Publico muchas fotos en mi _____. (profile)",
   "blankOptions": {
    "B1": [
-    "cuidado",
+    "seguro",
+    "comentar",
     "perfil",
-    "consecuencia",
-    "sociales"
+    "peligro"
    ]
   },
   "key": {
@@ -32339,10 +32339,10 @@ window.QUESTION_BANK = [
   "question": "No se debe _____ datos personales. <span data-say=\"no se debe compartir datos personales\" data-listen></span>",
   "blankOptions": {
    "B1": [
+    "cuidado",
     "compartir",
-    "peligro",
-    "sociales",
-    "emoticón"
+    "seguro",
+    "sociales"
    ]
   },
   "key": {
@@ -32362,8 +32362,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "usuario",
-    "compartir",
-    "seguro",
+    "comentar",
+    "perfil",
     "tiempo"
    ]
   },
@@ -32383,10 +32383,10 @@ window.QUESTION_BANK = [
   "question": "Soy un _____ nuevo en esta aplicación. (user)",
   "blankOptions": {
    "B1": [
-    "sociales",
     "usuario",
-    "cuidado",
-    "consecuencia"
+    "seguro",
+    "tiempo",
+    "emoticón"
    ]
   },
   "key": {
@@ -32405,10 +32405,10 @@ window.QUESTION_BANK = [
   "question": "Me gusta _____ las fotos de mis amigos. (to comment on)",
   "blankOptions": {
    "B1": [
-    "compartir",
-    "comentar",
-    "seguro",
-    "perfil"
+    "peligro",
+    "consecuencia",
+    "emoticón",
+    "comentar"
    ]
   },
   "key": {
@@ -32428,9 +32428,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "estado",
+    "tiempo",
     "cuidado",
-    "usuario",
-    "seguro"
+    "perfil"
    ]
   },
   "key": {
@@ -32450,9 +32450,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "emoticón",
-    "usuario",
-    "peligro",
-    "cuidado"
+    "contraseña",
+    "estado",
+    "peligro"
    ]
   },
   "key": {
@@ -32471,7 +32471,7 @@ window.QUESTION_BANK = [
   "question": "Es importante sentirte _____ en línea. (safe)",
   "blankOptions": {
    "B1": [
-    "usuario",
+    "emoticón",
     "estado",
     "sociales",
     "seguro"
@@ -32493,10 +32493,10 @@ window.QUESTION_BANK = [
   "question": "Compartir tu contraseña puede tener una _____ grave. (consequence)",
   "blankOptions": {
    "B1": [
-    "perfil",
-    "cuidado",
-    "peligro",
-    "consecuencia"
+    "estado",
+    "consecuencia",
+    "comentar",
+    "cuidado"
    ]
   },
   "key": {
@@ -33877,9 +33877,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "hay",
-    "arquitectura",
-    "vivía",
-    "tranquilo"
+    "pintura",
+    "kilómetro",
+    "arquitectura"
    ]
   },
   "key": {
@@ -33898,10 +33898,10 @@ window.QUESTION_BANK = [
   "question": "Mi dormitorio está <span data-say=\"arriba\">arriba</span> y la cocina está _____. (downstairs)",
   "blankOptions": {
    "B1": [
-    "abajo",
-    "tranquilo",
-    "arquitectura",
-    "oro"
+    "kilómetro",
+    "está",
+    "hay",
+    "abajo"
    ]
   },
   "key": {
@@ -33920,10 +33920,10 @@ window.QUESTION_BANK = [
   "question": "En mi pueblo hay un polideportivo y un _____ cerca del ayuntamiento. (shopping centre)",
   "blankOptions": {
    "B1": [
-    "kilómetro",
+    "arquitectura",
     "tranquilo",
     "centro comercial",
-    "hay"
+    "abajo"
    ]
   },
   "key": {
@@ -33942,10 +33942,10 @@ window.QUESTION_BANK = [
   "question": "Se _____ nadar en el polideportivo. (you can — se puede)",
   "blankOptions": {
    "B1": [
-    "abajo",
     "puede",
-    "está",
-    "tranquilo"
+    "oro",
+    "tranquilo",
+    "centro comercial"
    ]
   },
   "key": {
@@ -33964,10 +33964,10 @@ window.QUESTION_BANK = [
   "question": "Mi pueblo es más _____ que la ciudad. (quieter — comparative, H)",
   "blankOptions": {
    "B1": [
-    "centro comercial",
-    "puede",
+    "hay",
+    "kilómetro",
     "tranquilo",
-    "oro"
+    "puede"
    ]
   },
   "key": {
@@ -33986,10 +33986,10 @@ window.QUESTION_BANK = [
   "question": "De niño, _____ en un piso pequeño. (I used to live — imperfect, H)",
   "blankOptions": {
    "B1": [
-    "vivía",
-    "tranquilo",
-    "puede",
-    "oro"
+    "arquitectura",
+    "hay",
+    "kilómetro",
+    "vivía"
    ]
   },
   "key": {
@@ -34008,10 +34008,10 @@ window.QUESTION_BANK = [
   "question": "El parque _____ entre la estación y el centro comercial. (is — estar for location)",
   "blankOptions": {
    "B1": [
-    "abajo",
     "está",
     "kilómetro",
-    "esquina"
+    "tranquilo",
+    "vivía"
    ]
   },
   "key": {
@@ -34030,10 +34030,10 @@ window.QUESTION_BANK = [
   "question": "El anillo de _____ que compré en el mercado es precioso. (gold)",
   "blankOptions": {
    "B1": [
-    "hay",
-    "está",
     "abajo",
-    "oro"
+    "esquina",
+    "oro",
+    "hay"
    ]
   },
   "key": {
@@ -34052,10 +34052,10 @@ window.QUESTION_BANK = [
   "question": "La _____ de la catedral de mi ciudad es de estilo gótico. (architecture)",
   "blankOptions": {
    "B1": [
-    "puede",
-    "tranquilo",
-    "está",
-    "arquitectura"
+    "abajo",
+    "arquitectura",
+    "hay",
+    "tranquilo"
    ]
   },
   "key": {
@@ -34074,10 +34074,10 @@ window.QUESTION_BANK = [
   "question": "Hay una _____ muy bonita en la pared del salón. (painting)",
   "blankOptions": {
    "B1": [
-    "está",
+    "arquitectura",
+    "esquina",
     "pintura",
-    "centro comercial",
-    "hay"
+    "tranquilo"
    ]
   },
   "key": {
@@ -34096,10 +34096,10 @@ window.QUESTION_BANK = [
   "question": "El supermercado está a un _____ de mi casa. (kilometre)",
   "blankOptions": {
    "B1": [
-    "tranquilo",
-    "abajo",
-    "centro comercial",
-    "kilómetro"
+    "está",
+    "vivía",
+    "kilómetro",
+    "hay"
    ]
   },
   "key": {
@@ -34118,10 +34118,10 @@ window.QUESTION_BANK = [
   "question": "Dobla a la izquierda en la _____ y sigue todo recto. (corner)",
   "blankOptions": {
    "B1": [
-    "puede",
-    "kilómetro",
-    "esquina",
-    "centro comercial"
+    "está",
+    "vivía",
+    "pintura",
+    "esquina"
    ]
   },
   "key": {
@@ -35655,10 +35655,10 @@ window.QUESTION_BANK = [
   "question": "Se debe _____ el papel y el vidrio. <span data-say=\"Se debe reciclar el papel y el vidrio.\" data-listen>Se debe reciclar el papel y el vidrio.</span>",
   "blankOptions": {
    "B1": [
+    "ahorrar",
     "cambio",
-    "luces",
     "reciclar",
-    "reciente"
+    "contaminación"
    ]
   },
   "key": {
@@ -35677,10 +35677,10 @@ window.QUESTION_BANK = [
   "question": "Hay que _____ energía en casa. <span data-say=\"Hay que ahorrar energía en casa.\" data-listen>Hay que ahorrar energía en casa.</span>",
   "blankOptions": {
    "B1": [
-    "negar",
+    "cambio",
     "ahorrar",
-    "clave",
-    "reciclemos"
+    "luces",
+    "reciente"
    ]
   },
   "key": {
@@ -35699,10 +35699,10 @@ window.QUESTION_BANK = [
   "question": "El _____ climático es un problema muy grave. <span data-say=\"El cambio climático es un problema muy grave.\" data-listen>El cambio climático es un problema muy grave.</span>",
   "blankOptions": {
    "B1": [
-    "reciclemos",
-    "luchar",
-    "clave",
-    "cambio"
+    "cambio",
+    "planta",
+    "luces",
+    "clave"
    ]
   },
   "key": {
@@ -35721,10 +35721,10 @@ window.QUESTION_BANK = [
   "question": "La _____ del aire es peor en las ciudades grandes. (pollution)",
   "blankOptions": {
    "B1": [
+    "reciclemos",
     "malgastar",
     "contaminación",
-    "clave",
-    "negar"
+    "reciente"
    ]
   },
   "key": {
@@ -35743,10 +35743,10 @@ window.QUESTION_BANK = [
   "question": "Hay que apagar las _____ cuando sales de una habitación. (lights)",
   "blankOptions": {
    "B1": [
-    "cambio",
+    "planta",
     "luces",
-    "reciclemos",
-    "reciente"
+    "negar",
+    "daño"
    ]
   },
   "key": {
@@ -35765,9 +35765,9 @@ window.QUESTION_BANK = [
   "question": "No se debe _____ el agua; es un recurso muy valioso. (waste)",
   "blankOptions": {
    "B1": [
-    "luces",
+    "luchar",
     "malgastar",
-    "reciclemos",
+    "recoger",
     "planta"
    ]
   },
@@ -35788,9 +35788,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "reciclemos",
-    "luchar",
-    "recoger",
-    "clave"
+    "planta",
+    "daño",
+    "luchar"
    ]
   },
   "key": {
@@ -35809,9 +35809,9 @@ window.QUESTION_BANK = [
   "question": "Mi abuela cultiva una _____ de tomates en el jardín. (plant)",
   "blankOptions": {
    "B1": [
-    "clave",
-    "contaminación",
-    "reciclemos",
+    "recoger",
+    "malgastar",
+    "reciente",
     "planta"
    ]
   },
@@ -35831,10 +35831,10 @@ window.QUESTION_BANK = [
   "question": "No se puede _____ que el planeta está en peligro. (deny)",
   "blankOptions": {
    "B1": [
-    "reciclar",
-    "negar",
+    "recoger",
     "luchar",
-    "recoger"
+    "negar",
+    "malgastar"
    ]
   },
   "key": {
@@ -35853,9 +35853,9 @@ window.QUESTION_BANK = [
   "question": "Los voluntarios van a _____ botellas de plástico de la playa este sábado. (collect)",
   "blankOptions": {
    "B1": [
-    "reciente",
+    "reciclar",
     "recoger",
-    "negar",
+    "planta",
     "luchar"
    ]
   },
@@ -35875,10 +35875,10 @@ window.QUESTION_BANK = [
   "question": "Es importante _____ contra la pobreza en todo el mundo. (to fight)",
   "blankOptions": {
    "B1": [
-    "reciclemos",
+    "contaminación",
     "luchar",
-    "luces",
-    "planta"
+    "reciclemos",
+    "negar"
    ]
   },
   "key": {
@@ -35897,10 +35897,10 @@ window.QUESTION_BANK = [
   "question": "La contaminación puede causar mucho _____ a los animales marinos. (damage)",
   "blankOptions": {
    "B1": [
-    "reciclemos",
-    "reciclar",
-    "cambio",
-    "daño"
+    "contaminación",
+    "planta",
+    "daño",
+    "cambio"
    ]
   },
   "key": {
@@ -35919,10 +35919,10 @@ window.QUESTION_BANK = [
   "question": "Según un estudio _____, las temperaturas van a subir dos grados. (recent)",
   "blankOptions": {
    "B1": [
-    "negar",
+    "reciclar",
     "reciente",
     "malgastar",
-    "recoger"
+    "luces"
    ]
   },
   "key": {
@@ -35941,10 +35941,10 @@ window.QUESTION_BANK = [
   "question": "La energía solar es la _____ para reducir la contaminación. (key)",
   "blankOptions": {
    "B1": [
-    "malgastar",
-    "contaminación",
-    "clave",
-    "daño"
+    "planta",
+    "cambio",
+    "reciente",
+    "clave"
    ]
   },
   "key": {
@@ -37363,8 +37363,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "hermano",
-    "zapatos",
-    "grande",
+    "jueves",
+    "español",
     "rizado"
    ]
   },
@@ -37384,10 +37384,10 @@ window.QUESTION_BANK = [
   "question": "Vivo en una casa _____ en las afueras de la ciudad. <span data-say=\"Vivo en una casa grande en las afueras de la ciudad.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "rizado",
-    "hermano",
     "grande",
-    "jueves"
+    "hermano",
+    "zapatos",
+    "español"
    ]
   },
   "key": {
@@ -37406,10 +37406,10 @@ window.QUESTION_BANK = [
   "question": "Compré unos _____ nuevos para el gimnasio. <span data-say=\"Compré unos zapatos nuevos para el gimnasio.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "grande",
-    "hermano",
+    "zapatos",
+    "español",
     "jueves",
-    "zapatos"
+    "hermano"
    ]
   },
   "key": {
@@ -37428,10 +37428,10 @@ window.QUESTION_BANK = [
   "question": "Voy a la piscina todos los _____. <span data-say=\"Voy a la piscina todos los jueves.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "predecir",
     "jueves",
-    "zapatos",
-    "español"
+    "hermano",
+    "grande",
+    "rizado"
    ]
   },
   "key": {
@@ -37450,10 +37450,10 @@ window.QUESTION_BANK = [
   "question": "Tengo un _____ que se llama Pablo. <span data-say=\"Tengo un hermano que se llama Pablo.\" data-listen></span>",
   "blankOptions": {
    "B1": [
+    "español",
     "hermano",
-    "zapatos",
-    "jueves",
-    "grande"
+    "rizado",
+    "zapatos"
    ]
   },
   "key": {
@@ -37472,10 +37472,10 @@ window.QUESTION_BANK = [
   "question": "Estudio _____ en el instituto. <span data-say=\"Estudio español en el instituto.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "español",
-    "hermano",
+    "zapatos",
+    "jueves",
     "grande",
-    "predecir"
+    "español"
    ]
   },
   "key": {
@@ -37495,9 +37495,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "jueves",
-    "hermano",
-    "zapatos",
-    "predecir"
+    "predecir",
+    "español",
+    "grande"
    ]
   },
   "key": {
@@ -38364,10 +38364,10 @@ window.QUESTION_BANK = [
   "question": "<span data-say=\"Fui al cine.\">Fui al cine.</span> = I _____ to the cinema. (pretérito — a completed action)",
   "blankOptions": {
    "B1": [
-    "clothes",
-    "long",
-    "embarazada",
-    "went"
+    "has",
+    "went",
+    "forgot",
+    "embarazada"
    ]
   },
   "key": {
@@ -38386,10 +38386,10 @@ window.QUESTION_BANK = [
   "question": "<span data-say=\"Iba a la playa cada verano.\">Iba a la playa cada verano.</span> = I _____ to go to the beach every summer. (imperfecto — a repeated action)",
   "blankOptions": {
    "B1": [
-    "used",
-    "embarazada",
+    "long",
     "has",
-    "long"
+    "used",
+    "embarazada"
    ]
   },
   "key": {
@@ -38408,10 +38408,10 @@ window.QUESTION_BANK = [
   "question": "<span data-say=\"Está constipado.\">Está constipado.</span> = He _____ a cold. (NOT constipated — false friend!)",
   "blankOptions": {
    "B1": [
-    "embarazada",
-    "forgot",
+    "clothes",
     "has",
-    "went"
+    "went",
+    "forgot"
    ]
   },
   "key": {
@@ -38430,10 +38430,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana está _____. <span data-say=\"Mi hermana está embarazada.\" data-listen>Mi hermana está embarazada.</span>",
   "blankOptions": {
    "B1": [
-    "clothes",
-    "used",
     "embarazada",
-    "has"
+    "has",
+    "went",
+    "used"
    ]
   },
   "key": {
@@ -38453,9 +38453,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "clothes",
-    "forgot",
-    "embarazada",
-    "went"
+    "long",
+    "went",
+    "has"
    ]
   },
   "key": {
@@ -38474,10 +38474,10 @@ window.QUESTION_BANK = [
   "question": "<span data-say=\"Se me olvidó el cumpleaños de mi amigo.\">Se me olvidó el cumpleaños de mi amigo.</span> = I _____ my friend's birthday. (idiom — translate the natural meaning, not word for word)",
   "blankOptions": {
    "B1": [
-    "long",
-    "forgot",
     "clothes",
-    "went"
+    "went",
+    "forgot",
+    "has"
    ]
   },
   "key": {
@@ -38496,10 +38496,10 @@ window.QUESTION_BANK = [
   "question": "<span data-say=\"El texto es largo.\">El texto es largo.</span> In English, 'largo' means _____, not 'large'.",
   "blankOptions": {
    "B1": [
-    "has",
-    "long",
+    "clothes",
+    "went",
     "used",
-    "clothes"
+    "long"
    ]
   },
   "key": {
@@ -39367,9 +39367,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "alta",
-    "porque",
     "hay",
-    "leyendo"
+    "porque",
+    "comiendo"
    ]
   },
   "key": {
@@ -39388,10 +39388,10 @@ window.QUESTION_BANK = [
   "question": "También _____ un perro pequeño en el jardín. <span data-say=\"También veo un perro pequeño en el jardín.\" data-listen>También veo un perro pequeño en el jardín.</span>",
   "blankOptions": {
    "B1": [
+    "hay",
+    "veo",
     "leyendo",
-    "comiendo",
-    "porque",
-    "veo"
+    "comiendo"
    ]
   },
   "key": {
@@ -39410,10 +39410,10 @@ window.QUESTION_BANK = [
   "question": "La familia está _____ en el jardín. <span data-say=\"La familia está comiendo en el jardín.\" data-listen>La familia está comiendo en el jardín.</span>",
   "blankOptions": {
    "B1": [
-    "porque",
+    "veo",
     "alta",
-    "comiendo",
-    "jugando"
+    "jugando",
+    "comiendo"
    ]
   },
   "key": {
@@ -39432,8 +39432,8 @@ window.QUESTION_BANK = [
   "question": "Los niños están _____ al fútbol. <span data-say=\"Los niños están jugando al fútbol.\" data-listen>Los niños están jugando al fútbol.</span>",
   "blankOptions": {
    "B1": [
-    "hay",
-    "veo",
+    "comiendo",
+    "leyendo",
     "jugando",
     "porque"
    ]
@@ -39454,9 +39454,9 @@ window.QUESTION_BANK = [
   "question": "Creo que están felices _____ están de vacaciones. <span data-say=\"Creo que están felices porque están de vacaciones.\" data-listen>Creo que están felices porque están de vacaciones.</span>",
   "blankOptions": {
    "B1": [
-    "hay",
-    "comiendo",
     "porque",
+    "leyendo",
+    "hay",
     "alta"
    ]
   },
@@ -39476,10 +39476,10 @@ window.QUESTION_BANK = [
   "question": "Hay que leer el texto en voz _____. <span data-say=\"Hay que leer el texto en voz alta.\" data-listen>Hay que leer el texto en voz alta.</span>",
   "blankOptions": {
    "B1": [
-    "alta",
-    "leyendo",
     "jugando",
-    "porque"
+    "leyendo",
+    "porque",
+    "alta"
    ]
   },
   "key": {
@@ -39498,10 +39498,10 @@ window.QUESTION_BANK = [
   "question": "El chico está _____ un libro en la foto. <span data-say=\"El chico está leyendo un libro en la foto.\" data-listen>El chico está leyendo un libro en la foto.</span>",
   "blankOptions": {
    "B1": [
-    "comiendo",
-    "alta",
     "leyendo",
-    "jugando"
+    "veo",
+    "jugando",
+    "porque"
    ]
   },
   "key": {
@@ -40368,10 +40368,10 @@ window.QUESTION_BANK = [
   "question": "Hay dos personas en la _____. <span data-say=\"Hay dos personas en la foto.\" data-listen>Hay dos personas en la foto.</span>",
   "blankOptions": {
    "B1": [
-    "foto",
-    "porque",
+    "iré",
     "pero",
-    "fui"
+    "foto",
+    "porque"
    ]
   },
   "key": {
@@ -40390,9 +40390,9 @@ window.QUESTION_BANK = [
   "question": "Me gusta el fútbol, _____ prefiero el baloncesto. (contrast)",
   "blankOptions": {
    "B1": [
-    "fui",
-    "iré",
+    "palabras",
     "pero",
+    "iré",
     "Sin"
    ]
   },
@@ -40412,10 +40412,10 @@ window.QUESTION_BANK = [
   "question": "Es importante hacer ejercicio _____ es bueno para la salud. (reason)",
   "blankOptions": {
    "B1": [
+    "Sin",
+    "foto",
     "iré",
-    "fui",
-    "porque",
-    "Sin"
+    "porque"
    ]
   },
   "key": {
@@ -40435,9 +40435,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "iré",
-    "porque",
-    "pero",
-    "fui"
+    "Sin",
+    "fui",
+    "pero"
    ]
   },
   "key": {
@@ -40456,10 +40456,10 @@ window.QUESTION_BANK = [
   "question": "La traducción debe tener un mínimo de treinta y cinco _____. (words)",
   "blankOptions": {
    "B1": [
+    "porque",
     "pero",
-    "fui",
-    "palabras",
-    "porque"
+    "Sin",
+    "palabras"
    ]
   },
   "key": {
@@ -40479,8 +40479,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "foto",
-    "Sin",
     "palabras",
+    "Sin",
     "porque"
    ]
   },
@@ -40501,9 +40501,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "iré",
-    "Sin",
-    "fui",
-    "foto"
+    "porque",
+    "foto",
+    "Sin"
    ]
   },
   "key": {

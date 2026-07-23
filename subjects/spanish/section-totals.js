@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-23T10:07:35Z
+// Generated: 2026-07-23T10:13:35Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "spanish:p-1-spanish-sounds-and-the-alphabet": {
