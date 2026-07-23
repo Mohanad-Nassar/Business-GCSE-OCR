@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.3 Computer Networks, Connections and Protocols</div>
             <h1>1.3.2 Wired and Wireless Networks, Protocols and Layers</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,11 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.3.2 Wired and Wireless Networks, Protocols and Layers — placeholder, content not yet written
+    //  DATA: 1.3.2 Wired and Wireless Networks, Protocols and Layers
+    //  ORIGINAL clean-room content — all scenarios, company/place names,
+    //  questions and mark schemes authored from the OCR J277 §1.3.2 spec
+    //  scope (CS-CONTENT-PLAN.md Appendix B), NOT transcribed from any
+    //  past paper or ExamBuilder compilation.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-3-2-wired-and-wireless-networks-protocols-and-layers',
@@ -268,21 +272,1250 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.3.2 Wired and Wireless Networks, Protocols and Layers</strong> will appear here soon.</p>`
+            title: "What is Ethernet, and where is it used?",
+            tag: "Real world",
+            content: `<h4>Ethernet: the standard for wired networking</h4>
+<ul>
+<li><strong>Ethernet</strong> is the most widely used standard for connecting devices to a network using cables.</li>
+<li>Ethernet connections normally use <strong>twisted pair copper cable</strong> (fibre-optic cable is sometimes used instead for longer runs, such as a connection between two buildings).</li>
+<li>A device joins the network by plugging an Ethernet cable into its network port and into a switch (or a router with built-in switch ports).</li>
+</ul>
+<h4>Typical uses</h4>
+<ul>
+<li>Ethernet suits devices that stay in one place and need a fast, reliable connection — desktop PCs in a computer suite, servers, and network printers.</li>
+<li>Because the cable carries a dedicated signal straight to that one device, a wired Ethernet connection is not affected by the interference or distance problems that can weaken a wireless connection.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is the most typical use for a wired Ethernet connection?",
+                opts: ["A desktop PC that stays in one fixed place in a school computer suite", "A phone that a student carries around the building all day between lessons", "A laptop being used on a bench outside during an outdoor lesson", "A delivery driver's handheld scanner being used out on their delivery round"],
+                ans: 0,
+                explain: "Ethernet is a wired standard, so it suits fixed devices that stay connected to one cable — not devices that need to move around freely."
+            }
+        },
+        {
+            title: "How do Wi-Fi and Bluetooth differ?",
+            tag: "Comparison",
+            content: `<h4>Wi-Fi — wireless access to a LAN</h4>
+<ul>
+<li><strong>Wi-Fi</strong> lets a device connect wirelessly to a LAN through a <strong>wireless access point (WAP)</strong>, doing the same job wirelessly that an Ethernet cable does for a wired device.</li>
+<li>A single WAP can normally serve many devices at once, and Wi-Fi typically covers a whole room, building or site.</li>
+</ul>
+<h4>Bluetooth — short-range device pairing</h4>
+<ul>
+<li><strong>Bluetooth</strong> creates a short-range wireless connection directly <em>between two nearby devices</em> — no WAP or router is involved at all.</li>
+<li>Typical examples: pairing wireless headphones to a phone, a wireless keyboard to a laptop, or a phone to a car's speaker system.</li>
+<li>Bluetooth's range is much shorter than Wi-Fi's, and it is designed for a small number of devices connecting directly, not for joining a whole LAN.</li>
+</ul>`,
+            readCheck: {
+                q: "A student pairs their wireless earbuds directly with their phone, with no router or access point involved at all. Which technology is this?",
+                opts: ["Bluetooth", "Wi-Fi, connecting through a wireless access point", "Ethernet, using a wireless-enabled cable", "A fibre-optic wireless connection"],
+                ans: 0,
+                explain: "Bluetooth creates a short-range connection directly between two nearby devices without needing a wireless access point — exactly what's being described here."
+            }
+        },
+        {
+            title: "Wired vs wireless: weighing up the trade-offs",
+            tag: "Comparison",
+            content: `<h4>Comparing wired and wireless connections</h4>
+<table>
+<tr><th>Factor</th><th>Wired (e.g. Ethernet)</th><th>Wireless (e.g. Wi-Fi)</th></tr>
+<tr><td>Speed</td><td>Generally faster and more consistent</td><td>Generally slower, and can vary</td></tr>
+<tr><td>Reliability / interference</td><td>Not affected by walls or radio interference</td><td>Can be weakened by walls, distance and other wireless signals</td></tr>
+<tr><td>Security</td><td>Harder to intercept — needs a physical connection to the cable</td><td>Signals travel through the air and can be intercepted by anyone in range</td></tr>
+<tr><td>Mobility</td><td>Device must stay near its cable</td><td>Device can move freely within range</td></tr>
+<tr><td>Cost / installation</td><td>Cabling can be expensive and disruptive to install in an existing building</td><td>Cheaper and quicker to set up, with no cabling needed</td></tr>
+</table>
+<h4>So which is "better"?</h4>
+<ul>
+<li>Neither is better in every situation. A fixed desktop PC in an office usually benefits from a wired connection's speed and security, while a laptop or phone that needs to move around a building needs wireless.</li>
+<li>Most real networks use both: wired connections for fixed, high-demand devices, and wireless for mobile ones.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is a wired connection generally considered more secure than an equivalent wireless connection?",
+                opts: ["Intercepting it needs physical access to the cable, unlike a signal broadcast through the air", "Wired connections automatically encrypt every byte of data, while wireless connections never can", "Wireless signals are physically incapable of carrying any data that a hacker could want", "Wired connections cannot be used by more than one device at the same time"],
+                ans: 0,
+                explain: "A wired signal stays inside the cable, so intercepting it needs a physical connection to that cable. A wireless signal is broadcast through the air and can be picked up by any device in range."
+            }
+        },
+        {
+            title: "How does encryption protect data sent wirelessly?",
+            tag: "Key concept",
+            content: `<h4>What encryption actually does</h4>
+<ul>
+<li><strong>Encryption</strong> means scrambling data into an unreadable form, using a <strong>key</strong>, before it is sent.</li>
+<li>Only a device that has the correct key can unscramble (decrypt) the data back into its original, readable form.</li>
+</ul>
+<h4>Why wireless networks need it</h4>
+<ul>
+<li>Wireless signals travel through the air in every direction, so anyone within range — not just the intended recipient — can potentially pick up (intercept) the data being sent.</li>
+<li>A wired connection is much harder to intercept, since it would need a physical connection to the cable itself.</li>
+</ul>
+<h4>The key exam point</h4>
+<ul>
+<li>Encryption does <strong>NOT</strong> stop data from being intercepted — a nearby device can still pick up the encrypted signal travelling through the air.</li>
+<li>What encryption does is make any intercepted data <strong>unreadable and useless</strong> to whoever intercepted it, unless they also have the correct key.</li>
+</ul>`,
+            readCheck: {
+                q: "A hacker intercepts data being sent over an encrypted wireless network. What is actually true?",
+                opts: ["They have the data, but cannot read it without the correct decryption key", "They cannot have intercepted it at all, since encryption blocks interception completely", "They can read it instantly, since encryption only hides who originally sent it", "Encryption stops the wireless signal from ever leaving the sending device"],
+                ans: 0,
+                explain: "Encryption doesn't stop a wireless signal being intercepted — it just makes the intercepted data meaningless without the correct key to unscramble it."
+            }
+        },
+        {
+            title: "What does an IP address identify?",
+            tag: "Key concept",
+            content: `<h4>What an IP address is for</h4>
+<ul>
+<li>An <strong>IP address</strong> identifies a device on a network (and which network it belongs to), so that data sent across the network reaches the correct destination.</li>
+<li>Every device communicating over a network — including the Internet — needs an IP address.</li>
+</ul>
+<h4>IP addresses can change</h4>
+<ul>
+<li>Unlike some hardware identifiers, an IP address is <strong>assigned by the network</strong> the device is connected to, rather than being fixed permanently to the device itself.</li>
+<li>A device's IP address can change — for example, if it connects to a different network, or if the same network assigns it a new address the next time it connects.</li>
+</ul>`,
+            readCheck: {
+                q: "Which statement correctly describes an IP address?",
+                opts: ["It is assigned by the network a device connects to, and can change between connections", "It is a fixed hardware code that is burned into a device's network card and never changes", "It is a password that must be entered before a device is allowed onto a wireless network", "It is a brand name given by a manufacturer to one specific model of router"],
+                ans: 0,
+                explain: "An IP address is assigned by whichever network a device joins, which is exactly why it can change — that description belongs to a MAC address instead."
+            }
+        },
+        {
+            title: "IPv4 vs IPv6 — two address formats",
+            tag: "Comparison",
+            content: `<h4>IPv4</h4>
+<ul>
+<li>Written as four <strong>denary (decimal)</strong> numbers, each between 0 and 255, separated by dots — for example, 192.168.1.1.</li>
+<li>Each of the four numbers is called an <strong>octet</strong>.</li>
+</ul>
+<h4>IPv6</h4>
+<ul>
+<li>Written as eight groups of <strong>hexadecimal</strong> digits, separated by colons — for example, 2001:0db8:0000:0000:0000:ff00:0042:8329.</li>
+</ul>
+<h4>Why IPv6 exists</h4>
+<ul>
+<li>IPv4 only allows a limited number of unique addresses, and the huge growth in the number of devices connecting to the Internet meant the supply of available IPv4 addresses has been running out.</li>
+<li>IPv6 provides a vastly larger range of possible addresses, so there are enough unique addresses for every device that needs one, now and in future.</li>
+</ul>`,
+            readCheck: {
+                q: "Why was IPv6 introduced alongside IPv4?",
+                opts: ["IPv4 only offers a limited number of unique addresses, and these were running out", "IPv4 addresses were found to be far too easily intercepted on wireless networks", "IPv6 exists purely to make addresses easier for people to memorise and type", "IPv4 stopped working correctly once mobile phones first connected to the Internet"],
+                ans: 0,
+                explain: "IPv4's address space is limited, and the growing number of Internet-connected devices used up the available supply — IPv6 provides a far larger range of addresses instead."
+            }
+        },
+        {
+            title: "What is a MAC address?",
+            tag: "Key concept",
+            content: `<h4>A hardware identifier</h4>
+<ul>
+<li>A <strong>MAC (Media Access Control) address</strong> is a unique identifier assigned to a device's network interface card (NIC).</li>
+<li>It is written in <strong>hexadecimal</strong>, usually shown as six pairs of digits separated by colons or hyphens — for example, 00:1B:44:11:3A:B7.</li>
+</ul>
+<h4>Set once, and never changed</h4>
+<ul>
+<li>A MAC address is <strong>burned into the NIC by its manufacturer</strong> at the point of manufacture — it is not assigned by whichever network the device happens to join.</li>
+<li>This makes a MAC address <strong>unique to that one physical device</strong>, and it stays the same for the device's whole lifetime, unlike an IP address.</li>
+<li>MAC addresses are used to identify devices on a LAN — for example, a switch reads the destination MAC address to work out which device on the LAN to forward data to.</li>
+</ul>`,
+            readCheck: {
+                q: "What is true about a device's MAC address?",
+                opts: ["It is burned into the network interface card by its manufacturer, and never changes", "It is assigned fresh by whichever network the device connects to each time", "It is chosen freely by the user the first time they set up a network connection", "It exists only for wireless devices, since wired devices use their IP address instead"],
+                ans: 0,
+                explain: "A MAC address is fixed permanently by the manufacturer when the network card is made — every networked device, wired or wireless, has one."
+            }
+        },
+        {
+            title: "IP address vs MAC address — the exam's favourite comparison",
+            tag: "Comparison",
+            content: `<h4>Two different addresses, two different jobs</h4>
+<table>
+<tr><th>Feature</th><th>IP address</th><th>MAC address</th></tr>
+<tr><td>Assigned by</td><td>The network the device connects to</td><td>The manufacturer, burned into the NIC</td></tr>
+<tr><td>Can it change?</td><td>Yes — it can change between networks or sessions</td><td>No — it is permanent for the life of the device</td></tr>
+<tr><td>Format</td><td>Denary (IPv4) or hexadecimal (IPv6)</td><td>Hexadecimal</td></tr>
+<tr><td>Main purpose</td><td>Routing data between different networks</td><td>Identifying a specific device on a LAN</td></tr>
+</table>
+<h4>The line examiners look for</h4>
+<ul>
+<li>Say it as a contrast: an IP address is <strong>logical</strong> and can change, because the network assigns it; a MAC address is <strong>physical</strong> and permanent, because the manufacturer burns it into the hardware.</li>
+</ul>`,
+            readCheck: {
+                q: "Which address is assigned by the network a device connects to, meaning it can change?",
+                opts: ["The IP address", "The MAC address", "Both addresses always change together at the same time", "Neither address is ever assigned to a device"],
+                ans: 0,
+                explain: "The IP address is assigned by the network, so it can change — the MAC address is fixed permanently by the manufacturer and never changes."
+            }
+        },
+        {
+            title: "What is a standard, and why do networks need them?",
+            tag: "Key concept",
+            content: `<h4>An agreed specification</h4>
+<ul>
+<li>A <strong>standard</strong> is an agreed set of rules or specifications that hardware and software are designed to follow.</li>
+</ul>
+<h4>Why they matter</h4>
+<ul>
+<li>Without standards, a network card made by one manufacturer might not be able to communicate at all with a switch or router made by a completely different manufacturer.</li>
+<li>Standards mean that hardware and software from <strong>different manufacturers can work together</strong> — a laptop, a router and a web server, all made by entirely different companies, can all communicate because they follow the same agreed standards.</li>
+</ul>`,
+            readCheck: {
+                q: "Why do computer networks rely on agreed standards?",
+                opts: ["So hardware and software made by different manufacturers can work together successfully", "So every network in the whole world is forced to buy its hardware from one single manufacturer", "So a network's speed automatically increases every time a new standard is published", "So governments can charge companies a licence fee before they can sell networking hardware"],
+                ans: 0,
+                explain: "A standard is an agreed specification. Following it means equipment from different manufacturers can still communicate and interoperate successfully."
+            }
+        },
+        {
+            title: "What is a protocol?",
+            tag: "Key concept",
+            content: `<h4>An agreed set of rules for communication</h4>
+<ul>
+<li>A <strong>protocol</strong> is an agreed set of rules that governs how devices communicate with each other — for example, the format the data must be sent in, and how errors are handled.</li>
+<li>Different protocols exist for different jobs on a network — sending a webpage, sending an email, and transferring a file each use different protocols.</li>
+<li>For two devices to communicate successfully, both must be using — and correctly following — the same protocol.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best defines a protocol?",
+                opts: ["An agreed set of rules that governs how devices communicate with each other", "A physical networking device that connects several separate computers together within one single office", "A password that must be entered before a device can join a network", "A brand name that a manufacturer gives to its own range of routers"],
+                ans: 0,
+                explain: "A protocol is a set of communication rules, not a physical device, a password, or a brand name."
+            }
+        },
+        {
+            title: "TCP/IP — how data actually gets across a network",
+            tag: "Key concept",
+            content: `<h4>A suite, not a single protocol</h4>
+<ul>
+<li><strong>TCP/IP</strong> is a <strong>suite (collection) of protocols</strong> that work together — it is not one single protocol.</li>
+</ul>
+<h4>TCP's job</h4>
+<ul>
+<li><strong>TCP (Transmission Control Protocol)</strong> splits data into smaller pieces called <strong>packets</strong> before it is sent.</li>
+<li>At the receiving end, TCP reassembles the packets back into their correct order.</li>
+<li>TCP also checks whether any packets are missing or have arrived corrupted, and requests that they be resent if so.</li>
+</ul>
+<h4>IP's job</h4>
+<ul>
+<li><strong>IP (Internet Protocol)</strong> handles addressing and routing — making sure each packet is sent to the correct IP address and finds its way across the network (or between networks) to its destination.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it inaccurate to describe TCP/IP as a single protocol?",
+                opts: ["It's a suite of protocols, including TCP and IP, that each do a different job", "TCP and IP are actually just two different names for the exact same one protocol", "TCP/IP isn't a protocol of any kind — it is only a type of network cable", "IP handles email while TCP handles web pages, so they can't be one protocol"],
+                ans: 0,
+                explain: "TCP/IP is a suite: TCP handles splitting data into packets and reassembling them, while IP handles addressing and routing those packets — two different jobs working together."
+            }
+        },
+        {
+            title: "Protocols for the web: HTTP, HTTPS and FTP",
+            tag: "Key concept",
+            content: `<h4>HTTP and HTTPS</h4>
+<ul>
+<li><strong>HTTP (HyperText Transfer Protocol)</strong> is used to request and transfer web pages between a web server and a browser.</li>
+<li><strong>HTTPS (HTTP Secure)</strong> does the same job as HTTP, but adds <strong>encryption</strong> — so the data being transferred cannot be read even if it is intercepted. Websites that handle passwords, bank details or online payments should always use HTTPS.</li>
+</ul>
+<h4>FTP</h4>
+<ul>
+<li><strong>FTP (File Transfer Protocol)</strong> is used to transfer files between computers over a network — for example, uploading a website's files onto a web server.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the relationship between HTTP and HTTPS?",
+                opts: ["HTTPS is HTTP with encryption added, for secure data transfer", "HTTPS and HTTP are two completely unrelated protocols with different jobs", "HTTPS completely replaced HTTP, so HTTP is no longer used by any website", "HTTPS is only used for sending email, while HTTP is only used for web pages"],
+                ans: 0,
+                explain: "HTTPS performs the same job as HTTP — requesting and transferring web pages — but adds encryption to protect the data being transferred."
+            }
+        },
+        {
+            title: "Email protocols: SMTP, POP and IMAP",
+            tag: "Comparison",
+            content: `<table>
+<tr><th>Protocol</th><th>Job</th></tr>
+<tr><td>SMTP</td><td>Sends email — from a user to their mail server, and between mail servers</td></tr>
+<tr><td>POP</td><td>Retrieves email from a server, and typically removes it from the server once downloaded</td></tr>
+<tr><td>IMAP</td><td>Retrieves email but keeps it on the server, syncing the same mailbox across multiple devices</td></tr>
+</table>
+<h4>The exam trap</h4>
+<ul>
+<li>SMTP is the only one of the three that <strong>sends</strong> email — POP and IMAP are both about <strong>retrieving</strong> email that has already arrived.</li>
+<li>POP and IMAP are easy to mix up: POP usually removes the message from the server once it has downloaded to one device, while IMAP keeps the message on the server so it stays in sync across a phone, a laptop and a tablet all checking the same account.</li>
+</ul>`,
+            readCheck: {
+                q: "A user wants the same mailbox to stay in sync when they check it from both their phone and their laptop. Which protocol suits this best?",
+                opts: ["IMAP, because it keeps mail on the server and syncs it across every device", "POP, because it downloads a fresh copy of every message to each device it checks", "SMTP, because it is responsible for retrieving mail from a server", "FTP, because it can transfer the same file to more than one device at once"],
+                ans: 0,
+                explain: "IMAP keeps messages on the server and syncs the mailbox across devices, whereas POP typically downloads and removes each message from the server once."
+            }
+        },
+        {
+            title: "Why are networks divided into layers?",
+            tag: "Key concept",
+            content: `<h4>The concept</h4>
+<ul>
+<li>A network's protocols are organised into <strong>layers</strong>. Each layer has its own specific role and its own set of protocols, and handles one part of the overall job of getting data from one device to another.</li>
+<li>Data passes down through the layers on the sending device, across the network, and back up through the matching layers on the receiving device.</li>
+</ul>
+<h4>Benefits of using layers</h4>
+<ul>
+<li><strong>Manageable, self-contained parts:</strong> breaking a complex system into layers makes it far easier to design, understand and build than tackling the whole thing as one enormous system.</li>
+<li><strong>Independent development:</strong> a layer can be updated, redesigned or replaced without needing to change any of the other layers, as long as it still does its job in the same way.</li>
+<li><strong>Standardisation and interoperability:</strong> because each layer follows agreed standards, hardware and software made by different manufacturers can all work together, layer by layer.</li>
+<li><strong>Easier troubleshooting:</strong> if something goes wrong, engineers can test and isolate the fault to one specific layer, rather than searching through the whole system.</li>
+</ul>`,
+            readCheck: {
+                q: "What is one genuine benefit of dividing a network's protocols into layers?",
+                opts: ["Each layer can be developed or changed independently, without redesigning the other layers", "Every single layer must always be built and maintained by the exact same one single manufacturer", "Data no longer needs to pass through every layer at all before reaching its destination", "Layers remove the need for any hardware or software standards to ever be followed"],
+                ans: 0,
+                explain: "Because each layer only depends on the layers around it doing their own job correctly, it can be updated or replaced on its own without needing every other layer to change too."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which type of cable is most commonly used for a wired Ethernet connection?",
+            opts: ["Twisted pair copper cable", "A wireless-only radio antenna cable, since Ethernet never uses physical cabling", "An HDMI cable connecting a monitor to a computer", "A coaxial cable used for a television aerial signal"],
+            ans: 0,
+            explain: "Ethernet connections typically use twisted pair copper cable (fibre for some longer runs); the other options are used for completely different jobs or aren't real Ethernet cabling."
+        },
+        {
+            q: "A shop's Wi-Fi network is encrypted. What does this actually achieve?",
+            opts: ["It stops anyone who intercepts the data from being able to read it, without stopping the interception itself", "It makes the wireless signal completely impossible for any other nearby device to ever detect, pick up or intercept in the first place", "It guarantees that only customers who ask staff for the Wi-Fi password can ever connect a device", "It automatically doubles the amount of bandwidth available to every connected device"],
+            ans: 0,
+            explain: "Encryption scrambles the data using a key. It doesn't stop the signal being intercepted — it stops the intercepted data from being readable without that key."
+        },
+        {
+            q: "Which of these correctly describes an IP address?",
+            opts: ["An address, assigned by the network, that identifies a device so that data reaches it correctly", "A fixed hardware code, burned into a network card, that never changes for the life of the device", "A password required before a device is allowed to join any wireless network", "A brand name given by a manufacturer to one specific model of router"],
+            ans: 0,
+            explain: "An IP address identifies a device and is assigned by the network — the second option actually describes a MAC address instead."
+        },
+        {
+            q: "Why does an IPv6 address use a completely different format from an IPv4 address?",
+            opts: ["IPv4's denary format was running out of unique addresses, so IPv6 uses a far larger hexadecimal format", "IPv6 was designed purely to make network addresses shorter and much quicker for ordinary people to type out", "IPv4 addresses became too easy for hackers to guess correctly, so the format itself had to change", "IPv6 replaced IPv4's format purely to remove the need for DNS to look up any address at all"],
+            ans: 0,
+            explain: "IPv4's four-denary-number format only allows a limited number of unique addresses. IPv6's eight-group hexadecimal format provides a vastly larger address space instead."
+        },
+        {
+            q: "What is true about a device's MAC address?",
+            opts: ["It is burned into the network interface card by its manufacturer and stays fixed for the device's life", "It is assigned freshly by whichever network the device happens to connect to, and can change between different networks", "It is chosen freely by the device's user the first time a network connection is set up", "It only exists for wireless devices, since wired devices are identified by their IP address instead"],
+            ans: 0,
+            explain: "A MAC address is fixed by the manufacturer when the network interface card is made — it does not change when the device joins a different network."
+        },
+        {
+            q: "A technician says a device's IP address can change, but its MAC address cannot. Why is this correct?",
+            opts: ["The IP address is assigned by the network the device joins, while the MAC address is fixed by the manufacturer", "Both addresses are actually fixed completely permanently, so the technician's statement here must be incorrect", "The MAC address only ever applies to a device's very first network connection, then it changes", "IP addresses cannot change once a device has connected to any network for the very first time"],
+            ans: 0,
+            explain: "An IP address is assigned fresh by whichever network a device joins, so it can change. A MAC address is burned in at manufacture and never changes."
+        },
+        {
+            q: "Why do networks rely on agreed standards?",
+            opts: ["So hardware and software made by different manufacturers can work together and communicate", "So that every network in the world must use hardware bought from one single manufacturer", "So that a network's speed automatically increases each time a new standard is published", "So governments can charge a licence fee to any company wanting to sell networking hardware"],
+            ans: 0,
+            explain: "Standards are agreed specifications. Following them lets equipment from completely different manufacturers still communicate and work together successfully."
+        },
+        {
+            q: "What best defines a protocol?",
+            opts: ["An agreed set of rules that governs how devices communicate with each other", "A physical device that connects multiple computers together within one office", "A password that must be entered before a device can join a network", "A brand name that one manufacturer gives to its own range of routers"],
+            ans: 0,
+            explain: "A protocol is a set of communication rules, not a physical device, a password, or a manufacturer's brand name."
+        },
+        {
+            q: "What does TCP do to data before IP routes it across a network?",
+            opts: ["Splits it into packets, then reassembles them in order and requests any lost or corrupted ones again", "Permanently deletes the original data from the sender's device the moment it has finished being sent", "Converts the data into a completely different file format that any device on any network can open", "Physically boosts the strength of a wireless signal so that it is able to travel much further"],
+            ans: 0,
+            explain: "TCP's role is splitting data into packets, reassembling them correctly at the destination, and checking for lost or corrupted packets to be resent."
+        },
+        {
+            q: "A website lets customers pay for goods online. Which protocol should its checkout page use, and why?",
+            opts: ["HTTPS, because it adds encryption to protect the customer's payment data in transit", "FTP, because it was specifically designed to transfer card payment details securely between banks", "SMTP, because it is the protocol responsible for handling secure online payments", "HTTP, because encryption would only slow down how quickly the checkout page loads"],
+            ans: 0,
+            explain: "HTTPS does the same job as HTTP but adds encryption, protecting sensitive data such as payment details from being read if intercepted."
+        },
+        {
+            q: "A user reads the same email account on their phone and their laptop, and every message stays in sync on both devices. Which protocol is most likely retrieving their mail?",
+            opts: ["IMAP, because it keeps messages on the server and syncs them across every device", "POP, because it downloads a separate independent copy of each message to every device", "SMTP, because it is the protocol responsible for retrieving mail from a server", "HTTP, because it is used for retrieving any content stored on any kind of server"],
+            ans: 0,
+            explain: "IMAP keeps mail on the server and keeps every device's view of the mailbox in sync — POP typically downloads and removes each message from the server instead."
+        },
+        {
+            q: "What is one genuine benefit of dividing a network's protocols into layers?",
+            opts: ["Each layer can be developed or changed independently without needing to redesign the other layers", "It removes the need for absolutely any device anywhere on the whole network to ever follow an agreed standard", "It means data no longer needs to travel through more than one single layer to be delivered", "It guarantees that a network's overall bandwidth automatically increases every single year"],
+            ans: 0,
+            explain: "As long as a layer still does its job the same way, it can be updated or replaced on its own — that independence is one of layering's core benefits."
+        }
+    ];
+
+    const matchData = [
+        { term: "Ethernet", def: "The standard used for wired network connections, typically over twisted pair copper cable" },
+        { term: "Bluetooth", def: "Creates a short-range wireless connection directly between two nearby devices" },
+        { term: "Wi-Fi", def: "Lets a device connect wirelessly to a LAN through a wireless access point" },
+        { term: "Encryption", def: "Scrambles data into an unreadable form using a key, so intercepted data cannot be read without it" },
+        { term: "IP address", def: "Identifies a device on a network; assigned by the network, and can change" },
+        { term: "MAC address", def: "A unique hardware identifier, burned into a device's NIC by its manufacturer, that never changes" },
+        { term: "Standard", def: "An agreed set of rules or specifications that lets hardware and software from different manufacturers work together" },
+        { term: "Protocol", def: "An agreed set of rules that governs how devices communicate with each other" },
+        { term: "TCP", def: "Splits data into packets, reassembles them in order, and requests any lost or corrupted packets again" },
+        { term: "IP (Internet Protocol)", def: "Handles the addressing and routing of packets between networks" },
+        { term: "HTTP", def: "Requests and transfers web pages between a browser and a web server" },
+        { term: "HTTPS", def: "The same job as HTTP, but with encryption added to protect the data in transit" },
+        { term: "SMTP", def: "Sends email, from a user to their mail server and between mail servers" },
+        { term: "POP", def: "Retrieves email from a server and typically removes it from the server once downloaded" }
+    ];
+
+    const fibData = [
+        {
+            display: "_____ is the standard most commonly used for wired network connections, usually over twisted pair copper cable.",
+            blanks: { B1: "Ethernet" }
+        },
+        {
+            display: "_____ creates a short-range wireless connection directly between two nearby devices, such as a phone and a wireless speaker.",
+            blanks: { B1: "Bluetooth" }
+        },
+        {
+            display: "Scrambling data into an unreadable form using a key is called _____.",
+            blanks: { B1: "encryption" }
+        },
+        {
+            display: "An IPv4 address is written as four _____ numbers separated by dots.",
+            blanks: { B1: "denary" }
+        },
+        {
+            display: "A _____ address is a unique hardware identifier, burned into a device's network interface card by its manufacturer.",
+            blanks: { B1: "MAC" }
+        },
+        {
+            display: "TCP splits data into smaller pieces called _____ before sending them across a network.",
+            blanks: { B1: "packets" }
+        },
+        {
+            display: "_____ retrieves email from a server but keeps it there, syncing the same mailbox across multiple devices.",
+            blanks: { B1: "IMAP" }
+        },
+        {
+            display: "Dividing a network's protocols into _____ means each one has its own role, and can be developed independently of the others.",
+            blanks: { B1: "layers" }
+        }
+    ];
+    const fibWords = ["Ethernet", "Bluetooth", "encryption", "denary", "MAC", "packets", "IMAP", "layers"];
+
+    const tfData = [
+        {
+            statement: "Bluetooth is designed to create a short-range connection directly between two nearby devices.",
+            answer: true,
+            explanation: "Correct — Bluetooth pairs two devices directly, without needing a wireless access point or router."
+        },
+        {
+            statement: "A wireless access point (WAP) lets wireless devices join the same LAN that wired devices are already connected to.",
+            answer: true,
+            explanation: "Correct — a WAP converts between wired and wireless signals, letting wireless devices join an existing LAN."
+        },
+        {
+            statement: "Encrypting a wireless network stops the data from being intercepted by anyone else.",
+            answer: false,
+            explanation: "Encryption does not stop interception — a wireless signal can still be picked up by any device in range. It makes the intercepted data unreadable without the correct key."
+        },
+        {
+            statement: "An IPv4 address is written as four denary numbers separated by dots.",
+            answer: true,
+            explanation: "Correct — for example, 192.168.1.1. IPv6 addresses use eight groups of hexadecimal digits instead."
+        },
+        {
+            statement: "A device's MAC address can change if the device is moved to a different network.",
+            answer: false,
+            explanation: "A MAC address is burned into the network interface card by its manufacturer and stays the same for the device's whole life — it is the IP address that can change between networks."
+        },
+        {
+            statement: "TCP/IP is a single protocol, rather than a suite of protocols working together.",
+            answer: false,
+            explanation: "TCP/IP is a suite (collection) of protocols, including TCP and IP, which each do a different job."
+        },
+        {
+            statement: "POP typically removes an email from the server once it has been downloaded to a device.",
+            answer: true,
+            explanation: "Correct — this is the key difference from IMAP, which keeps email on the server and syncs it across devices instead."
+        },
+        {
+            statement: "Dividing a network into layers makes it harder to update one part of the system without affecting the rest.",
+            answer: false,
+            explanation: "The opposite is true — layering means a layer can usually be updated or replaced on its own, without needing to redesign the other layers."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Mixing up IP addresses and MAC addresses — being unsure which one 'is the one that changes'.",
+            correct: "It is the <strong>IP address</strong> that can change, since it's assigned by whichever network the device connects to. The <strong>MAC address</strong> is fixed permanently by the manufacturer when the network card is made, and never changes for that device.",
+            readCheck: {
+                q: "Which address is assigned by the network, and can therefore change?",
+                opts: ["The IP address", "The MAC address", "Both addresses change together every time a device connects", "Neither address is ever assigned to a device at all"],
+                ans: 0,
+                explain: "The network assigns the IP address, so it can change. The MAC address is fixed permanently by the manufacturer."
+            }
+        },
+        {
+            wrong: "Thinking SMTP is the protocol used to check an inbox and download new emails.",
+            correct: "SMTP's job is to <strong>send</strong> email — from a user to their mail server, and between mail servers. Retrieving email that has already arrived uses a different protocol: POP or IMAP.",
+            readCheck: {
+                q: "Which protocol is responsible for SENDING an email?",
+                opts: ["SMTP", "POP", "IMAP", "HTTP"],
+                ans: 0,
+                explain: "SMTP sends email. POP and IMAP are both used to retrieve email that has already arrived on a server."
+            }
+        },
+        {
+            wrong: "Assuming POP and IMAP do exactly the same job, since they're both used to 'get your email'.",
+            correct: "Both retrieve email, but differently: POP typically <strong>downloads and removes</strong> the message from the server, so it only exists on the one device it was downloaded to. IMAP <strong>keeps</strong> the message on the server, syncing it across every device that checks the account.",
+            readCheck: {
+                q: "A user wants the same mailbox to stay in sync across their phone and laptop. Which protocol suits this best?",
+                opts: ["IMAP", "POP", "SMTP", "FTP"],
+                ans: 0,
+                explain: "IMAP keeps mail on the server and syncs it across devices, unlike POP, which typically removes each message from the server once downloaded."
+            }
+        },
+        {
+            wrong: "Believing HTTPS is a completely separate protocol from HTTP, unrelated to it.",
+            correct: "HTTPS is simply <strong>HTTP with encryption added</strong>. It does exactly the same job — requesting and transferring web pages — but encrypts the data so it cannot be read if intercepted.",
+            readCheck: {
+                q: "What is the relationship between HTTP and HTTPS?",
+                opts: ["HTTPS is HTTP with encryption added, for secure data transfer", "HTTPS and HTTP are two completely unrelated protocols with different jobs", "HTTPS replaced HTTP entirely, so HTTP is no longer used by any website", "HTTPS is used only for sending email, while HTTP is used only for web pages"],
+                ans: 0,
+                explain: "HTTPS performs HTTP's job with encryption added — it is not a separate, unrelated protocol."
+            }
+        },
+        {
+            wrong: "Believing that encrypting a wireless network stops the data from being intercepted in the first place.",
+            correct: "Encryption does <strong>not</strong> stop data being intercepted — a wireless signal can still be picked up by any device in range. What encryption does is make the intercepted data <strong>unreadable</strong> without the correct key.",
+            readCheck: {
+                q: "A hacker intercepts encrypted data sent over a shop's Wi-Fi. What is true?",
+                opts: ["They have the data, but cannot read it without the correct key", "They cannot have intercepted the data at all, since it was encrypted", "They can read the data instantly, since encryption only hides who sent it", "Encryption prevents the Wi-Fi signal from ever reaching the hacker's device"],
+                ans: 0,
+                explain: "Encryption doesn't prevent interception — it makes the intercepted data meaningless without the decryption key."
+            }
+        },
+        {
+            wrong: "Referring to 'the TCP/IP protocol' as if it were one single protocol.",
+            correct: "TCP/IP is a <strong>suite</strong> — a collection of protocols working together, not one protocol. TCP handles splitting data into packets and reassembling them; IP handles addressing and routing those packets between networks.",
+            readCheck: {
+                q: "Why is it inaccurate to call TCP/IP 'a single protocol'?",
+                opts: ["It's a suite of protocols (including TCP and IP) that each do a different job", "TCP and IP are simply two completely different names used for the exact same one protocol", "TCP/IP is not actually a protocol of any kind, only a cable type", "IP handles email while TCP handles web pages, so they can't be one protocol"],
+                ans: 0,
+                explain: "TCP/IP is a suite made up of separate protocols — TCP and IP — that each do a different job."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "Command-word ladder: a 2-mark 'describe' on POP vs IMAP",
+            pills: ["AO1", "2 marks", "Describe", "Email protocols"],
+            content: `<p>A typical question: <em>"Describe the difference between how POP and IMAP handle an email once it has been retrieved."</em> [2 marks] The same idea, shown at every level:</p>
+
+<p><strong>❌ 0 marks:</strong> "POP and IMAP are both used to get your emails."</p>
+<ul>
+<li>True, but this doesn't describe any DIFFERENCE at all — it just restates what both protocols are broadly for.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "POP deletes the email from the server."</p>
+<ul>
+<li>Correct about POP, but the question asked for a difference — IMAP's contrasting behaviour is missing entirely.</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "POP typically downloads an email and removes it from the server, so it only exists on that one device. IMAP retrieves the email but keeps it on the server, so it stays synced across every device that checks the account."</p>
+
+<p><strong>Why this matters:</strong> "describe the difference" questions on this topic need BOTH sides stated, ideally directly contrasted. Naming only one protocol's behaviour, even correctly, only earns half the marks available.</p>`,
+            readCheck: {
+                q: "A student answers 'Describe the difference between POP and IMAP' by writing only 'POP removes the email from the server'. Why does this likely score half marks?",
+                opts: ["It only describes one side of the difference — IMAP's contrasting behaviour is missing", "It is factually incorrect about what POP actually does to an email once it is downloaded", "It is far too long an answer for a 2-mark question to ever reward fully", "POP and IMAP cannot be compared in an exam answer, only defined separately"],
+                ans: 0,
+                explain: "'Describe the difference' needs both sides — what POP does AND what IMAP does differently — not just one protocol's behaviour on its own."
+            }
+        },
+        {
+            type: "explain",
+            title: "Command-word ladder: a 3-mark 'explain' on why TCP splits data into packets",
+            pills: ["AO1", "3 marks", "Explain", "TCP/IP"],
+            content: `<p>A typical question: <em>"Explain why TCP splits data into packets before sending it across a network."</em> [3 marks] Explain questions need a chain of reasoning, not just a fact.</p>
+
+<p><strong>❌ 0-1 marks:</strong> "TCP splits data into packets."</p>
+<ul>
+<li>This just restates the question — it doesn't explain WHY splitting into packets is useful, so there's very little to credit.</li>
+</ul>
+
+<p><strong>⚠️ 1-2 marks:</strong> "TCP splits data into packets so it can check whether any have gone missing."</p>
+<ul>
+<li>This links splitting to ONE genuine reason (checking for loss), but stops short of a full three-step chain.</li>
+</ul>
+
+<p><strong>✅ 3 marks:</strong> "TCP splits data into smaller packets so that each one can be sent and numbered separately. This means individual packets can be checked for loss or corruption once they arrive. If a packet is missing or corrupted, only that one packet needs to be resent, rather than resending the entire file again from scratch."</p>
+
+<p><strong>Why this matters:</strong> "explain why" questions on TCP/IP are marked as a chain: mechanism → what it allows → the practical benefit. Naming the fact that TCP splits data into packets is only the first link — follow it through to why that actually helps.</p>`,
+            readCheck: {
+                q: "Why does a 3-mark 'explain' question about TCP splitting data into packets need more than the single sentence 'TCP splits data into packets'?",
+                opts: ["It restates the question without explaining WHY splitting the data helps at all", "TCP does not actually split data into packets, so the sentence is factually wrong", "The sentence is too short to fit inside the exam's printed answer box", "Explain questions about TCP/IP are always levelled 6-8 mark questions"],
+                ans: 0,
+                explain: "An 'explain why' answer needs a chain of reasoning — restating the fact from the question doesn't explain the reasoning behind it."
+            }
+        },
+        {
+            type: "tip",
+            title: "The IP-vs-MAC trap: read the command word AND the address type twice",
+            pills: ["AO1", "2-4 marks", "Common trap", "IP vs MAC"],
+            content: `<p>Questions that ask you to explain something about BOTH an IP address and a MAC address in the same answer are a very common trap on this topic — it's easy to accidentally write correct facts about the wrong address.</p>
+
+<p><strong>❌ The trap:</strong> writing "the MAC address is assigned by the network and can change" — this sentence is completely correct, just about the wrong address. It's actually describing an IP address. Marks are lost not because the fact is wrong, but because it's attached to the wrong label.</p>
+
+<p><strong>✅ The reliable method:</strong> use a simple memory device before you write a single word — <strong>"M for MAC = Manufacturer = fixed for life"</strong> and <strong>"I for IP = In the network's hands = can change"</strong>. Say which address you're describing out loud (or underline it) before writing each sentence.</p>
+
+<p><strong>Worked example — "explain why a device's IP address might change, but its MAC address never will":</strong></p>
+<ul>
+<li><strong>IP:</strong> assigned fresh by whichever network the device joins, so a new network (or reconnecting) can give it a different address.</li>
+<li><strong>MAC:</strong> burned into the network interface card by its manufacturer at production, so it stays fixed for the device's entire life regardless of which network it joins.</li>
+</ul>`,
+            readCheck: {
+                q: "A student writes 'the MAC address is assigned by the network and can change' in answer to an IP-vs-MAC question. What has most likely gone wrong?",
+                opts: ["A true fact about an IP address has been attached to the wrong address's label", "The sentence is entirely factually incorrect about both IP and MAC addresses", "MAC addresses genuinely are assigned by the network, so this is actually correct", "The student has confused a MAC address with a wireless access point"],
+                ans: 0,
+                explain: "The fact described — assigned by the network, can change — correctly describes an IP address, not a MAC address. The content is right; it's attached to the wrong term."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Ethernet", def: "The standard used for wired network connections, typically over twisted pair copper cable" },
+        { term: "Bluetooth", def: "A short-range wireless connection directly between two nearby devices, e.g. earbuds to a phone" },
+        { term: "Wi-Fi", def: "Lets a device connect wirelessly to a LAN through a wireless access point (WAP)" },
+        { term: "Encryption", def: "Scrambling data into an unreadable form using a key; doesn't stop interception, but makes intercepted data unreadable" },
+        { term: "IP address", def: "Identifies a device on a network; assigned by the network, and can change" },
+        { term: "IPv4", def: "Written as four denary numbers separated by dots, e.g. 192.168.1.1" },
+        { term: "IPv6", def: "Written as eight groups of hexadecimal digits, introduced because IPv4 addresses were running out" },
+        { term: "MAC address", def: "A unique hardware identifier, burned into a device's NIC by its manufacturer, that never changes" },
+        { term: "Standard", def: "An agreed set of rules/specifications letting hardware and software from different manufacturers work together" },
+        { term: "Protocol", def: "An agreed set of rules that governs how devices communicate with each other" },
+        { term: "TCP", def: "Splits data into packets, reassembles them in order, and requests any lost or corrupted packets again" },
+        { term: "IP (Internet Protocol)", def: "Handles the addressing and routing of packets between networks" },
+        { term: "HTTP", def: "Requests and transfers web pages between a browser and a web server" },
+        { term: "HTTPS", def: "HTTP with encryption added, protecting data such as passwords or payment details in transit" },
+        { term: "SMTP", def: "Sends email, from a user to their mail server and between mail servers" },
+        { term: "POP", def: "Retrieves email from a server, typically removing it from the server once downloaded" },
+        { term: "IMAP", def: "Retrieves email but keeps it on the server, syncing the same mailbox across multiple devices" },
+        { term: "Layers", def: "Dividing a network's protocols so each layer has its own role; allows independent development and standardisation" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-21) ──
+    // Authored from scratch against the §1.3.2 spec scope, using invented
+    // scenarios/organisation names — NOT transcribed from any OCR ExamBuilder
+    // PDF or past paper (CS-CONTENT-PLAN.md §6.2, 2026-07-17 owner decision).
+    const EXAM_CASE_STUDIES = {
+        "northfield-college": `<p>Northfield College has a computer lab with twenty desktop PCs wired into the network, and a library where students and staff connect their own laptops and phones to the college's encrypted Wi-Fi network.</p>`,
+        "meadow-hospital": `<p>Meadow Hospital's IT department manages hundreds of devices — including monitors, scanners and record-keeping terminals — made by many different medical equipment manufacturers, all needing to communicate over the hospital's network.</p>`,
+        "granby-vets": `<p>Granby Veterinary Clinic has three branches. Staff at each branch send booking confirmations and reminder emails to pet owners, and also need to read the same shared inbox from the clinic's computers and from their own phones.</p>`,
+        "petalcare-shop": `<p>PetalCare is an online flower shop. Customers browse its website and enter their card details at the checkout page to pay for their order.</p>`,
+        "riverbend-games": `<p>Riverbend Games is a small games studio releasing a large update file for one of its games, which thousands of players' consoles need to download at once.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "P1",
+            marks: 1,
+            type: "mcq",
+            caseId: "northfield-college",
+            question: `<p>Northfield College's computer lab has twenty desktop PCs that never move. Identify which cable type is most likely used to connect them to the network.</p>`,
+            options: ["Twisted pair copper cable", "A wireless-only radio antenna cable", "An HDMI display cable", "A coaxial television aerial cable"],
+            answer: 0,
+            hint: "Think about the cable type Ethernet connections normally use for fixed, wired devices.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>Twisted pair copper cable — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>The other options are either not genuine Ethernet cabling or are used for a completely different job.</li>
+</ul>
+</div>`,
+            modelAnswer: "Twisted pair copper cable."
+        },
+        {
+            num: "P2",
+            marks: 1,
+            type: "mcq",
+            caseId: "northfield-college",
+            question: `<p>A member of staff at Northfield College pairs their wireless headphones directly with their phone. Identify which wireless technology is being used.</p>`,
+            options: ["Bluetooth", "Wi-Fi, connecting through the college's wireless access points", "Ethernet, using a short wireless-enabled cable", "Fibre-optic wireless transmission between the two devices"],
+            answer: 0,
+            hint: "Think about which wireless technology creates a short-range connection directly between two nearby devices, without needing a WAP.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>Bluetooth — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Wi-Fi involves a wireless access point; the other two options describe technologies that don't apply to this direct device-to-device pairing.</li>
+</ul>
+</div>`,
+            modelAnswer: "Bluetooth."
+        },
+        {
+            num: "P3",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>State which of these best defines what a protocol is on a computer network.</p>`,
+            options: ["An agreed set of rules that allows devices to communicate with each other", "A physical cable that must be plugged into both devices before any data can be sent", "A password that a user types in before being allowed to join a wireless network", "A brand name that a manufacturer gives to one specific model of router or switch"],
+            answer: 0,
+            hint: "Think about communication rules, not physical hardware, passwords or branding.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>An agreed set of rules that allows devices to communicate with each other — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>The other three options describe hardware, security or branding — none of which is what a protocol actually is.</li>
+</ul>
+</div>`,
+            modelAnswer: "An agreed set of rules that allows devices to communicate with each other."
+        },
+        {
+            num: "P4",
+            marks: 1,
+            type: "mcq",
+            caseId: "meadow-hospital",
+            question: `<p>A new scanner at Meadow Hospital is given the address 192.168.4.17 when it joins the hospital's network. Identify which type of address this is.</p>`,
+            options: ["An IPv4 address", "An IPv6 address", "A MAC address", "A protocol standard"],
+            answer: 0,
+            hint: "Count how many numbers there are, and check whether they are written in denary or hexadecimal.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>An IPv4 address — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Four denary numbers separated by dots is the IPv4 format; IPv6 uses eight hexadecimal groups, and a MAC address is written in hexadecimal pairs.</li>
+</ul>
+</div>`,
+            modelAnswer: "An IPv4 address."
+        },
+        {
+            num: "P5",
+            marks: 4,
+            type: "written",
+            format: "tableFill",
+            caseId: "petalcare-shop",
+            question: `<p>PetalCare's website relies on several network protocols to work correctly. Complete the table by giving the purpose of each protocol.</p>`,
+            table: {
+                headers: ["Protocol", "Purpose"],
+                rows: [["HTTP", null], ["HTTPS", null], ["FTP", null], ["SMTP", null]]
+            },
+            answers: {
+                "0,1": ["Requests and transfers web pages", "Requests and transfers web pages between a browser and a web server", "Transfers web pages between a browser and a server"],
+                "1,1": ["HTTP with encryption added", "The same job as HTTP but with encryption added, for secure transfer of data", "Requests and transfers web pages securely, using encryption"],
+                "2,1": ["Transfers files between computers over a network", "Transfers files, e.g. uploading the website's files to a web server"],
+                "3,1": ["Sends email", "Sends email from a user to their mail server, and between mail servers"]
+            },
+            hint: "Match each protocol to the ONE job it actually performs — HTTP and HTTPS are closely related but not identical.",
+            starter: "HTTP: … | HTTPS: … | FTP: … | SMTP: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per row)</h5>
+<ul>
+<li>HTTP → requests and transfers web pages between a browser and a web server</li>
+<li>HTTPS → the same job as HTTP, but with encryption added for secure transfer</li>
+<li>FTP → transfers files between computers over a network</li>
+<li>SMTP → sends email, from a user to their mail server and between mail servers</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently. HTTPS must mention encryption to be distinguished from HTTP; naming "sends email" for SMTP without any further detail is sufficient.</li>
+</ul>
+</div>`,
+            modelAnswer: "HTTP: requests and transfers web pages. HTTPS: the same job as HTTP, but with encryption added for secure transfer. FTP: transfers files between computers over a network. SMTP: sends email, from a user to their mail server and between mail servers."
+        },
+        {
+            num: "P6",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseId: "meadow-hospital",
+            question: `<p>Meadow Hospital's IT team is reviewing device records. Tick (✓) <strong>one</strong> box in each row to identify whether each statement describes an IP address or a MAC address.</p>`,
+            grid: {
+                cols: ["IP address", "MAC address"],
+                rows: [
+                    { label: "This address is burned into the network card by its manufacturer and never changes", correct: [1] },
+                    { label: "This address can change if the device connects to a different network", correct: [0] },
+                    { label: "This address is used to route data between different networks", correct: [0] },
+                    { label: "This address identifies one specific physical device and is always written in hexadecimal", correct: [1] }
+                ]
+            },
+            hint: "Ask whether each statement is about something the manufacturer fixes forever, or something the network assigns and can change.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Burned in by the manufacturer, never changes → <strong>MAC address</strong></li>
+<li>Can change if the device joins a different network → <strong>IP address</strong></li>
+<li>Used to route data between different networks → <strong>IP address</strong></li>
+<li>Identifies one specific device, always hexadecimal → <strong>MAC address</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently. Two ticks in the same row scores 0 for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1 (burned in, never changes): MAC address. Row 2 (can change between networks): IP address. Row 3 (routes between networks): IP address. Row 4 (identifies one device, hexadecimal): MAC address."
+        },
+        {
+            num: "P7",
+            marks: 5,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each protocol to the job it actually performs.</p><p>(There are more job descriptions than protocols — one description is not used.)</p>`,
+            match: {
+                left: ["TCP", "IP", "HTTP", "SMTP", "POP"],
+                right: ["Requests and transfers web pages between a browser and a server", "Splits data into packets, reassembles them, and requests any lost or corrupted ones again", "Handles addressing and routes packets between networks", "Sends email from a user to their mail server", "Retrieves email from a server, typically removing it once downloaded", "Scrambles data into an unreadable form using a key"],
+                answer: { "0": 1, "1": 2, "2": 0, "3": 3, "4": 4 },
+                decoys: [5]
+            },
+            hint: "Match each protocol to what it actually DOES — watch for the description of scrambling data with a key, which belongs to encryption, not to any of these five protocols.",
+            starter: "TCP → …, IP → …, HTTP → …, SMTP → …, POP → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks (1 mark per correct line)</h5>
+<ul>
+<li>TCP → <strong>B</strong> (splits data into packets, reassembles them, and requests any lost or corrupted ones again)</li>
+<li>IP → <strong>C</strong> (handles addressing and routes packets between networks)</li>
+<li>HTTP → <strong>A</strong> (requests and transfers web pages between a browser and a server)</li>
+<li>SMTP → <strong>D</strong> (sends email from a user to their mail server)</li>
+<li>POP → <strong>E</strong> (retrieves email from a server, typically removing it once downloaded)</li>
+<li>F ("scrambles data into an unreadable form using a key") is the unused decoy — that is encryption's job, not any of these five protocols.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Any 2 lines from 1 protocol scores 0 marks for that protocol.</li>
+</ul>
+</div>`,
+            modelAnswer: "TCP: splits data into packets, reassembles them, and requests any lost or corrupted ones again. IP: handles addressing and routes packets between networks. HTTP: requests and transfers web pages. SMTP: sends email from a user to their mail server. POP: retrieves email from a server, typically removing it once downloaded."
+        },
+        {
+            num: "P8",
+            marks: 2,
+            type: "written",
+            caseId: "meadow-hospital",
+            question: `<p>Meadow Hospital's network engineers describe their system as being divided into layers. Describe what is meant by dividing a network's communication into layers.</p>`,
+            hint: "Two separate points: what each layer has of its own, and how data actually moves through them.",
+            starter: "Each layer has… Data passes…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>Each layer has its own specific role, and its own set of protocols</li>
+<li>Data passes down through the layers when it is sent, and back up through the matching layers when it is received</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both points must be present for full marks; simply saying "layers exist" without describing their role or how data moves scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "Each layer of the network has its own specific role and its own set of protocols. Data passes down through the layers on the sending device, across the network, and back up through the matching layers on the receiving device."
+        },
+        {
+            num: "P9",
+            marks: 4,
+            type: "written",
+            caseId: "meadow-hospital",
+            question: `<p>Describe the benefits of using layers in a network like Meadow Hospital's.</p>`,
+            hint: "List up to four distinct benefits — don't repeat the same idea reworded.",
+            starter: "One benefit is… Another benefit is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per benefit, to a maximum of 4)</h5>
+<ul>
+<li>Breaks a complex system into smaller, manageable, self-contained parts</li>
+<li>Each layer can be developed, updated or replaced independently, without needing to change the other layers</li>
+<li>Standardisation within each layer lets hardware and software made by different manufacturers work together</li>
+<li>Makes it easier to identify and fix (troubleshoot) faults, by isolating the problem to one layer</li>
+<li>Hides the complexity of the lower layers from the layers above them</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Any four distinct, genuine benefits from the list (or an equivalent correct benefit) score full marks; repeating the same benefit reworded only counts once.</li>
+</ul>
+</div>`,
+            modelAnswer: "Using layers breaks a complex network system into smaller, manageable, self-contained parts. Each layer can be developed, updated or replaced independently, without needing to change any of the other layers. Because each layer follows agreed standards, hardware and software made by different manufacturers can still work together. It also makes it easier to identify and fix faults, since engineers can isolate a problem to one specific layer."
+        },
+        {
+            num: "P10",
+            marks: 3,
+            type: "written",
+            caseId: "meadow-hospital",
+            question: `<p>Meadow Hospital's equipment is made by many different manufacturers, but it can still all communicate over the same network. Explain how using layers, and the standards followed within them, makes this possible.</p>`,
+            hint: "Build a chain: what each layer follows, then what that lets different manufacturers do.",
+            starter: "Each layer follows… This means…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point, to a maximum of 3)</h5>
+<ul>
+<li>Each layer follows its own agreed standard for the job it does</li>
+<li>This means equipment made by different manufacturers can follow the same rules at that layer</li>
+<li>So hardware and software made by different companies can successfully work together, layer by layer, even though no single company made all of it</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Full marks needs the chain from "standards within a layer" through to "different manufacturers' equipment working together" — naming standards alone is not enough.</li>
+</ul>
+</div>`,
+            modelAnswer: "Each layer of the network follows its own agreed standard for the job it does. Because equipment from different manufacturers all follows the same standard at that layer, hardware and software made by completely different companies can still work together successfully — even though no single manufacturer built the whole hospital network."
+        },
+        {
+            num: "P11",
+            marks: 2,
+            type: "written",
+            caseId: "granby-vets",
+            question: `<p>Describe the difference between how POP and IMAP handle an email once it has been retrieved from Granby Veterinary Clinic's mail server.</p>`,
+            hint: "One protocol typically removes the message from the server; the other keeps it there.",
+            starter: "POP… IMAP…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>POP typically downloads the email and removes it from the server, so it only exists on the one device that downloaded it</li>
+<li>IMAP retrieves the email but keeps it on the server, syncing the same mailbox across every device that checks the account</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both protocols' behaviour must be stated to earn both marks; describing only one protocol earns a maximum of 1.</li>
+</ul>
+</div>`,
+            modelAnswer: "POP typically downloads an email and removes it from the server, so it only exists on the one device it was downloaded to. IMAP retrieves the email but keeps it on the server, syncing the same mailbox across every device that checks the clinic's account."
+        },
+        {
+            num: "P12",
+            marks: 2,
+            type: "written",
+            caseId: "granby-vets",
+            question: `<p>Give the name of the protocol Granby Veterinary Clinic's computers use to send a booking confirmation email, and the name of a protocol used to retrieve email from the server.</p>`,
+            hint: "One protocol only ever sends; the other two only ever retrieve.",
+            starter: "Sending protocol: … Retrieving protocol: …",
+            stubs: ["Protocol for sending an email", "Protocol for retrieving an email"],
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>Sending: SMTP</li>
+<li>Retrieving: POP or IMAP (either is acceptable)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Either POP or IMAP is accepted for the retrieving mark, since both are genuine retrieval protocols.</li>
+</ul>
+</div>`,
+            modelAnswer: "Protocol for sending an email: SMTP. Protocol for retrieving an email: POP (or IMAP)."
+        },
+        {
+            num: "P13",
+            marks: 5,
+            type: "written",
+            caseId: "riverbend-games",
+            question: `<p>Describe how TCP prepares Riverbend Games' large update file to be sent across the network, and how it is put back together correctly at each player's console.</p>`,
+            hint: "Five distinct steps: what happens to the file first, what's added to each piece, how it travels, how it's rebuilt, and what happens if something goes wrong.",
+            starter: "TCP first… Each packet is… At the destination…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks (1 mark per point, to a maximum of 5)</h5>
+<ul>
+<li>TCP splits the large update file into smaller pieces called packets before it is sent</li>
+<li>Each packet is given information (such as its sequence) so it can be identified and put back in order later</li>
+<li>The packets are sent across the network towards the correct destination (using IP for addressing/routing)</li>
+<li>At the receiving console, TCP reassembles the packets back into the correct order to rebuild the original file</li>
+<li>TCP checks whether any packets are missing or arrived corrupted, and requests that they be resent if so</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each of the five steps is credited independently, in any order they are described, provided the overall sequence is logically consistent.</li>
+</ul>
+</div>`,
+            modelAnswer: "TCP first splits the large update file into smaller packets. Each packet is given sequencing information so it can be identified and put back in the right order later. The packets are then sent across the network towards the correct console, with IP handling the addressing and routing. At the receiving console, TCP reassembles the packets back into the correct order to rebuild the original file. Finally, TCP checks whether any packets are missing or corrupted, and requests that they be resent if they are."
+        },
+        {
+            num: "P14",
+            marks: 2,
+            type: "written",
+            caseId: "riverbend-games",
+            question: `<p>Riverbend Games' network engineer describes TCP/IP as "a protocol suite". Define what is meant by a protocol suite, using TCP and IP as your example.</p>`,
+            hint: "First define the general term, then name what TCP and IP each actually do.",
+            starter: "A protocol suite is… For example, TCP… and IP…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>A protocol suite is a collection/group of protocols that work together, rather than a single protocol</li>
+<li>Example: TCP handles splitting data into packets and reassembling them, while IP handles addressing and routing those packets</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>The second mark requires a correct example showing TCP and IP doing two DIFFERENT jobs, not just naming both protocols.</li>
+</ul>
+</div>`,
+            modelAnswer: "A protocol suite is a collection of protocols that work together, rather than being a single protocol on its own. For example, TCP handles splitting data into packets and reassembling them correctly, while IP handles addressing and routing those packets between networks."
+        },
+        {
+            num: "P15",
+            marks: 2,
+            type: "written",
+            caseId: "petalcare-shop",
+            question: `<p>PetalCare's website uses HTTPS rather than HTTP for its checkout page. Describe what HTTPS provides that HTTP does not.</p>`,
+            hint: "Say what HTTPS adds to HTTP, then what that addition actually protects.",
+            starter: "HTTPS is the same as HTTP, but…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>HTTPS performs the same job as HTTP (requesting/transferring web pages) but adds encryption</li>
+<li>This means data such as the customer's card details is scrambled and cannot be read if it is intercepted</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Simply stating "HTTPS is more secure" without mentioning encryption specifically does not earn the first mark.</li>
+</ul>
+</div>`,
+            modelAnswer: "HTTPS performs the same job as HTTP — requesting and transferring web pages — but adds encryption. This means data such as the customer's card details is scrambled into an unreadable form, so it cannot be read even if it is intercepted."
+        },
+        {
+            num: "P16",
+            marks: 1,
+            type: "written",
+            caseId: "petalcare-shop",
+            question: `<p>Give one reason why PetalCare's checkout page should use HTTPS rather than HTTP.</p>`,
+            hint: "Think about what would happen to a customer's card details if the page used HTTP instead.",
+            starter: "One reason is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>Any valid reason, e.g. HTTPS encrypts the data, protecting the customer's card/payment details from being read if intercepted</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any answer that correctly links HTTPS to encryption protecting sensitive customer data.</li>
+</ul>
+</div>`,
+            modelAnswer: "HTTPS encrypts the data sent between the customer's browser and the website, protecting their card details from being read if intercepted."
+        },
+        {
+            num: "P17",
+            marks: 2,
+            type: "written",
+            caseId: "meadow-hospital",
+            question: `<p>Meadow Hospital's IT department is running out of available addresses for its growing number of connected devices, and is planning to introduce IPv6 alongside IPv4. Give two reasons why IPv6 was introduced.</p>`,
+            hint: "Both reasons should relate to the number of available addresses, not to speed or security.",
+            starter: "Reason 1: … Reason 2: …",
+            stubs: ["Reason 1", "Reason 2"],
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per reason, to a maximum of 2)</h5>
+<ul>
+<li>IPv4 only offers a limited number of unique addresses</li>
+<li>The number of devices connecting to networks (and the Internet) has grown hugely, using up the available IPv4 addresses</li>
+<li>IPv6 provides a vastly larger range of possible addresses than IPv4</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Any two of the listed reasons (or an equivalent correct reason) score full marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "Reason 1: IPv4 only allows a limited number of unique addresses. Reason 2: the number of devices connecting to networks has grown so much that the available IPv4 addresses were running out, so IPv6's much larger address range was needed."
+        },
+        {
+            num: "P18",
+            marks: 3,
+            type: "written",
+            caseId: "meadow-hospital",
+            question: `<p>Meadow Hospital's IT team is labelling each device's MAC address as part of a stock check. Describe what a MAC address is, including how it is assigned and its format.</p>`,
+            hint: "Three separate points: who assigns it, what format it's written in, and how unique/permanent it is.",
+            starter: "A MAC address is assigned by… It is written in… It is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point, to a maximum of 3)</h5>
+<ul>
+<li>It is burned into (assigned to) the device's network interface card by its manufacturer, at the point of manufacture</li>
+<li>It is written in hexadecimal</li>
+<li>It is unique to that one physical device, and never changes for the device's whole life</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>All three points are independently creditable; a description that only covers the format, for example, scores a maximum of 1.</li>
+</ul>
+</div>`,
+            modelAnswer: "A MAC address is burned into a device's network interface card by its manufacturer, at the point the card is made. It is written in hexadecimal. It is unique to that one physical device, and it never changes for the device's whole life, unlike an IP address."
+        },
+        {
+            num: "P19",
+            marks: 2,
+            type: "written",
+            caseId: "meadow-hospital",
+            question: `<p>Define the term "MAC address".</p>`,
+            hint: "One part identifies what it is; the other part says how it is given to the device.",
+            starter: "A MAC address is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>A unique identifier (written in hexadecimal) assigned to a device's network interface card</li>
+<li>Burned in by the manufacturer, so it is permanent and cannot be changed</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Naming it as simply "an address for a device" without both the uniqueness/hardware point and the permanence point scores a maximum of 1.</li>
+</ul>
+</div>`,
+            modelAnswer: "A MAC address is a unique identifier, written in hexadecimal, assigned to a device's network interface card. It is burned in by the manufacturer, so it is permanent and cannot be changed."
+        },
+        {
+            num: "P20",
+            marks: 4,
+            type: "written",
+            caseId: "meadow-hospital",
+            question: `<p>A Meadow Hospital technician says: "This scanner's MAC address will never change, but its IP address might." Explain why this statement is correct.</p>`,
+            hint: "Explain the MAC address side fully, then explain the IP address side fully — four separate judgements in total.",
+            starter: "The MAC address never changes because… The IP address might change because…",
+            markPoints: {
+                note: "Two independent explanations, each worth up to 2 marks: the MAC address side (what fixes it + why that means never changing) and the IP address side (what assigns it + why that means it can change).",
+                groups: [
+                    {
+                        label: "Your explanation of the MAC address", max: 2, points: [
+                            { text: "States the MAC address is burned into the scanner's network interface card by its manufacturer", marks: 1 },
+                            { text: "Explains this means it stays fixed for the scanner's whole life, regardless of which network it joins", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your explanation of the IP address", max: 2, points: [
+                            { text: "States the IP address is assigned by whichever network the scanner is connected to", marks: 1 },
+                            { text: "Explains this means it can change if the scanner joins a different network or is reassigned a new address", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (up to 2 for the MAC address, up to 2 for the IP address)</h5>
+<ul>
+<li>MAC: burned into the network interface card by the manufacturer (1) — so it stays fixed for the device's whole life (1)</li>
+<li>IP: assigned by whichever network the device connects to (1) — so it can change between networks or reconnections (1)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each address is marked independently; strong explanation of one side cannot substitute for a missing point on the other.</li>
+</ul>
+</div>`,
+            modelAnswer: "The MAC address is burned into the scanner's network interface card by its manufacturer when it is made, so it stays fixed for the scanner's whole life no matter which network it joins. The IP address, however, is assigned by whichever network the scanner is currently connected to, so it can change if the scanner joins a different network or is given a new address by the same network later."
+        },
+        {
+            num: "P21",
+            marks: 2,
+            type: "written",
+            caseId: "meadow-hospital",
+            question: `<p>Meadow Hospital buys network equipment from several different manufacturers. Explain why agreed standards are important for this equipment to work together.</p>`,
+            hint: "Build a two-step chain: what a standard actually is, then what following it lets different manufacturers do.",
+            starter: "A standard is… This means…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>A standard is an agreed set of rules/specifications that manufacturers design their hardware and software to follow</li>
+<li>Because different manufacturers' equipment all follows the same standard, it can successfully communicate and work together, even though it wasn't all made by the same company</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Simply stating "standards make things work" without explaining the link to different manufacturers scores a maximum of 1.</li>
+</ul>
+</div>`,
+            modelAnswer: "A standard is an agreed set of rules that manufacturers design their equipment to follow. Because Meadow Hospital's equipment, even though bought from several different manufacturers, all follows the same agreed standards, it can successfully communicate and work together on the same network."
+        },
+        {
+            num: "P22",
+            marks: 2,
+            type: "written",
+            caseId: "northfield-college",
+            question: `<p>Describe what happens to data sent over Northfield College's encrypted wireless network.</p>`,
+            hint: "Two points: what happens to the data before it is sent, and what is needed to turn it back into readable form.",
+            starter: "Before being sent, the data is… Only a device with…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>The data is scrambled into an unreadable form, using a key, before it is sent</li>
+<li>Only a device that has the correct key can unscramble (decrypt) it back into readable form</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Simply saying "the data is encrypted" without describing what encryption actually does to the data scores a maximum of 1.</li>
+</ul>
+</div>`,
+            modelAnswer: "Before being sent, the data is scrambled into an unreadable form using a key. Only a device that has the correct key can unscramble (decrypt) the data back into its original, readable form."
+        },
+        {
+            num: "P23",
+            marks: 4,
+            type: "written",
+            caseId: "northfield-college",
+            question: `<p>A student at Northfield College says that because the college's Wi-Fi is encrypted, nobody else can ever access the data being sent over it. Explain why this student is mistaken, and explain what encryption actually achieves instead.</p>`,
+            hint: "Four steps: what can still happen to the signal, why the student's claim is wrong, what encryption does instead, and why that still protects the data.",
+            starter: "Wireless signals can still be… This means the student is wrong because… Instead, encryption…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per point, to a maximum of 4)</h5>
+<ul>
+<li>Wireless signals travel through the air and can still be intercepted by another device within range, even on an encrypted network</li>
+<li>So the student is wrong — encryption does not stop the data being intercepted (accessed) in that sense</li>
+<li>What encryption actually does is scramble the data into an unreadable form, using a key</li>
+<li>This means any intercepted data is unreadable and useless to whoever intercepted it, unless they also have the correct key</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Full marks needs both halves: correctly explaining why the student is wrong AND correctly explaining what encryption does instead.</li>
+</ul>
+</div>`,
+            modelAnswer: "Wireless signals travel through the air, so they can still be picked up (intercepted) by another device within range, even on an encrypted network — the student is wrong that nobody can access the data at all. What encryption actually does is scramble the data into an unreadable form using a key before it is sent. This means that even if the data is intercepted, it is unreadable and useless to whoever intercepted it, unless they also have the correct key to decrypt it."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

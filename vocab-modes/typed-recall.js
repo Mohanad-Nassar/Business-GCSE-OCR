@@ -74,7 +74,11 @@
       awaitingNext = false;
       const w = deck[index];
       const dir = getDir();
-      const promptText = dir === 'es-en' ? w.headword : w.english;
+      // Display uses the simplified gloss (readability fix — teacher feedback:
+      // AQA's own dense person-list glosses were "almost unintelligible");
+      // grading stays on the RAW w.english (fuzzyMatch already strips all
+      // parens anyway, so this is a clarity choice, not a correctness one).
+      const promptText = dir === 'es-en' ? w.headword : ctx.simplifyGloss(w.english);
       const acceptedText = dir === 'es-en' ? w.english : w.headword;
 
       area.innerHTML =
@@ -129,7 +133,7 @@
       } else {
         wrongCount++; combo = 0;
         feedback.className = 'vl-tr-feedback wrong';
-        feedback.textContent = '✗ Not quite — the answer was "' + (getDir() === 'es-en' ? w.english : w.headword) + '".';
+        feedback.textContent = '✗ Not quite — the answer was "' + (getDir() === 'es-en' ? ctx.simplifyGloss(w.english) : w.headword) + '".';
         ctx.ui.playSound('wrong');
       }
       renderStats();

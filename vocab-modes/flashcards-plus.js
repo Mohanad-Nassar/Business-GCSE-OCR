@@ -85,7 +85,7 @@
           '<button type="button" class="vl-fc-say" id="vlFcSay" aria-label="Listen">🔊</button>' +
           '<div class="vl-fc-term">' + esc(w.headword) + '</div>' +
           '<div class="vl-fc-hint">Tap to reveal</div>' +
-          '<div class="vl-fc-def">' + esc(w.english) + '</div>' +
+          '<div class="vl-fc-def">' + esc(ctx.simplifyGloss(w.english)) + '</div>' +
         '</div>' +
         '<div class="vl-fc-nav" id="vlFcNav" style="display:none;">' +
           '<button type="button" class="vl-fc-grade red" data-g="red">😕 Still learning</button>' +

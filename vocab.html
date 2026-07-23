@@ -84,8 +84,12 @@
     .vl-map-bar .seg.amber { background:#e9c46a; }
     .vl-map-bar .seg.green { background:#2d7a4f; }
 
-    /* ── Filters ── */
-    .vl-filters { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:14px; }
+    /* ── Filters: toggle button + sidebar (same pattern as daily-revise.html's
+       question filters — #drFilterToggleBtn/#drFilterPanel/#drFilterBackdrop —
+       reused verbatim here for site-wide consistency) ── */
+    .vl-browse-toolbar { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+    .dr-filter-toggle { background:transparent; border:1px solid var(--border); color:var(--ink); font-family:'DM Mono',monospace; font-size:11.5px; padding:7px 14px; border-radius:7px; cursor:pointer; }
+    .dr-filter-toggle:hover { border-color:var(--accent); color:var(--accent); }
     .vl-pillgroup { display:flex; gap:6px; flex-wrap:wrap; }
     .vl-pill {
       background:var(--cream); border:1.5px solid var(--border); color:var(--mid);
@@ -94,11 +98,25 @@
     }
     .vl-pill:hover { border-color:var(--accent); color:var(--accent); }
     .vl-pill.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+    .vl-filter-label { display:block; font-weight:700; font-size:13px; padding:10px 0 6px; }
+    .vl-filter-label:first-child { padding-top:0; }
     .vl-search {
-      flex: 1 1 180px; min-width:160px; background:var(--cream); border:1.5px solid var(--border);
+      background:var(--cream); border:1.5px solid var(--border);
       border-radius:8px; padding:8px 12px; font-family:'DM Sans',sans-serif; font-size:13px; color:var(--ink);
     }
     .vl-search:focus { outline:none; border-color:var(--accent); }
+
+    /* Sidebar overlay — placed at BODY level (not inside <main>) so a
+       position:fixed descendant is never pinned by a transformed ancestor;
+       same gotcha noted in daily-revise.html. */
+    .filter-backdrop { position:fixed; inset:0; background:rgba(15,25,35,.35); z-index:899; opacity:0; pointer-events:none; transition:opacity .2s ease; }
+    .filter-backdrop.show { opacity:1; pointer-events:auto; }
+    .filter-sidebar { position:fixed; top:0; right:0; height:100vh; width:380px; max-width:92vw; background:var(--card-bg); border-left:1px solid var(--border); box-shadow:-8px 0 30px rgba(0,0,0,.18); z-index:900; padding:20px; overflow-y:auto; transform:translateX(100%); transition:transform .25s ease; display:flex; flex-direction:column; }
+    .filter-sidebar.show { transform:translateX(0); }
+    .filter-sidebar-head { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .filter-sidebar-close { background:none; border:none; font-size:16px; cursor:pointer; color:var(--mid); padding:4px 8px; border-radius:6px; line-height:1; }
+    .filter-sidebar-close:hover { background:var(--cream); color:var(--ink); }
+    .filter-sidebar-foot { margin-top:auto; padding-top:14px; border-top:1px solid var(--border); position:sticky; bottom:-20px; background:var(--card-bg); margin-left:-20px; margin-right:-20px; padding-left:20px; padding-right:20px; padding-bottom:20px; }
 
     /* ── Word grid ── */
     .vl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:10px; margin-top:14px; }
@@ -177,16 +195,37 @@
   <div class="panel" id="vlPlayPanel" style="display:none;">
     <div class="vl-progress-summary" id="vlProgressSummary"></div>
     <div id="vlLauncher">
-      <h2 style="font-family:'Playfair Display',serif; font-size:18px; margin-bottom:14px;">Activities</h2>
+      <div class="vl-browse-toolbar">
+        <h2 style="font-family:'Playfair Display',serif; font-size:18px; margin:0;">Activities</h2>
+        <button type="button" class="dr-filter-toggle" id="vlPlayFilterToggleBtn">🔍 Filters</button>
+        <span class="muted" id="vlPlaySummary"></span>
+      </div>
       <div class="vl-modes" id="vlModeGrid"></div>
     </div>
     <div id="vlMountArea" style="display:none;"></div>
   </div>
 
   <div class="panel" id="vlBrowsePanel" style="display:none;">
+    <div class="vl-browse-toolbar">
+      <button type="button" class="dr-filter-toggle" id="vlFilterToggleBtn">🔍 Filters</button>
+      <span class="muted" id="vlBrowseSummary"></span>
+    </div>
     <div id="vlWordBrowser"></div>
   </div>
 </main>
+
+<!-- Filter sidebar lives at BODY level — see the CSS comment on .filter-backdrop. -->
+<div class="filter-backdrop" id="vlFilterBackdrop"></div>
+<aside class="filter-sidebar" id="vlFilterPanel" aria-label="Word filters">
+  <div class="filter-sidebar-head">
+    <strong style="font-size:13px;">Word filters</strong>
+    <button type="button" class="filter-sidebar-close" id="vlFilterCloseBtn" aria-label="Close">✕</button>
+  </div>
+  <div id="vlFilterBody" style="margin-top:8px;"></div>
+  <div class="filter-sidebar-foot">
+    <button type="button" class="vl-btn" id="vlFilterApplyBtn" style="width:100%;">Update</button>
+  </div>
+</aside>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="tasks-shared.js"></script>

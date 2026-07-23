@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.4 Network Security</div>
             <h1>1.4.2 Identifying and Preventing Vulnerabilities</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.4.2 Identifying and Preventing Vulnerabilities — placeholder, content not yet written
+    //  DATA: 1.4.2 Identifying and Preventing Vulnerabilities
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-4-2-identifying-and-preventing-vulnerabilities',
@@ -268,21 +268,1235 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.4.2 Identifying and Preventing Vulnerabilities</strong> will appear here soon.</p>`
+            title: "Why prevention needs layers",
+            tag: "Key concept",
+            content: `<h4>No single defence stops every threat</h4>
+<ul>
+<li><strong>1.4.1</strong> covered the <strong>threats</strong> (malware, social engineering, brute force, DoS, data interception, SQL injection). This topic covers the <strong>defences</strong> that limit them.</li>
+<li>Each prevention method is good at stopping <strong>particular</strong> threats, but no single method stops them all. For example, a firewall filters network traffic but does nothing about a member of staff being tricked by a phishing phone call.</li>
+<li>So real systems use <strong>several methods together</strong> — often called a "layered" or "defence in depth" approach — so that if one layer is bypassed, others still protect the system.</li>
+</ul>
+<h4>The exam skill</h4>
+<ul>
+<li>The key skill for this topic is matching a <strong>defence to the threat it limits</strong>, and explaining <strong>how</strong> it does so — not just naming methods.</li>
+</ul>`,
+            readCheck: {
+                q: "Why do secure systems usually combine several different prevention methods?",
+                opts: ["Because using more methods always makes a computer run faster over time", "Because no single method stops every threat, so layers cover each other's gaps", "Because the law requires every business to install exactly five security tools", "Because one method is enough on its own if it is the newest one available"],
+                ans: 1,
+                explain: "Each method limits only particular threats, so combining them (defence in depth) means a threat that slips past one layer can still be stopped by another."
+            }
+        },
+        {
+            title: "Penetration testing — what it is",
+            tag: "Key concept",
+            content: `<h4>Attacking your own system, on purpose and with permission</h4>
+<ul>
+<li><strong>Penetration testing</strong> (pen testing) is a deliberate, <strong>authorised</strong> attack on a system, carried out by specialists to find <strong>weaknesses (vulnerabilities)</strong> before a real attacker does.</li>
+<li>The testers try to break in using the same techniques a criminal would, then <strong>report</strong> the weaknesses they found so the organisation can <strong>fix them</strong>.</li>
+<li>The crucial point for the exam: it is <strong>legal and requested by the organisation itself</strong> — the goal is to identify and close gaps, not to cause harm or steal data.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the main purpose of penetration testing?",
+                opts: ["To permanently delete any data that an attacker might one day want to steal from the system", "To find weaknesses in a system so they can be fixed before a real attacker exploits them", "To flood a company's own website with traffic to see how fast it runs", "To replace the need for any anti-malware software on the network"],
+                ans: 1,
+                explain: "Pen testing is an authorised, simulated attack whose whole point is to find and report vulnerabilities so the organisation can close them first."
+            }
+        },
+        {
+            title: "Penetration testing — internal vs external",
+            tag: "Comparison",
+            content: `<h4>Two viewpoints an attack can come from</h4>
+<ul>
+<li><strong>Internal testing</strong> simulates an attacker who already has some <strong>inside access</strong> — for example a disgruntled employee, or someone who has stolen a staff login. It checks how much damage could be done <strong>from inside</strong> the network.</li>
+<li><strong>External testing</strong> simulates an attacker with <strong>no inside knowledge or access</strong>, attacking from <strong>outside</strong> the organisation (over the internet) — testing the defences that face the outside world, such as the firewall.</li>
+<li>Running both gives a fuller picture: some weaknesses only matter to an outsider, others only become dangerous once an attacker is already inside (which is exactly why <strong>user access levels</strong> matter).</li>
+</ul>`,
+            readCheck: {
+                q: "What does internal penetration testing simulate?",
+                opts: ["An attacker who has absolutely no prior knowledge of the system, and no access to any part of it whatsoever", "An attacker who already has some access from inside, such as a rogue employee or stolen login", "A hardware fault inside one of the company's servers", "A power cut affecting the whole building at once"],
+                ans: 1,
+                explain: "Internal testing models a threat from inside the network (e.g. a malicious insider or a stolen account) to see how far that access could reach."
+            }
+        },
+        {
+            title: "Anti-malware software",
+            tag: "Key concept",
+            content: `<h4>Finding and removing malicious software</h4>
+<ul>
+<li><strong>Anti-malware</strong> (including antivirus) software <strong>scans</strong> files and the system, looking for <strong>malware</strong>.</li>
+<li>It recognises known malware by comparing files against a <strong>database of known malware signatures</strong>. When it finds a match, it <strong>quarantines</strong> (isolates) or <strong>removes/deletes</strong> the malicious file.</li>
+<li>It can also run in the background, checking files as they are opened or downloaded and <strong>warning</strong> the user about suspicious ones.</li>
+<li><strong>Why it must be kept up to date:</strong> new malware appears constantly, so the signature database must be updated regularly — out-of-date anti-malware cannot recognise the newest threats.</li>
+</ul>`,
+            readCheck: {
+                q: "Why must anti-malware software be kept up to date?",
+                opts: ["Because updates make the computer's hardware physically last much longer", "Because new malware appears all the time and out-of-date software cannot recognise it", "Because the software stops running completely after exactly one week without an update", "Because updates are the only way to change the desktop background colour"],
+                ans: 1,
+                explain: "Anti-malware spots threats by comparing them against a database of known malware, so it can only catch the latest threats if that database is regularly updated."
+            }
+        },
+        {
+            title: "Firewalls",
+            tag: "Key concept",
+            content: `<h4>A filter between a network and the outside world</h4>
+<ul>
+<li>A <strong>firewall</strong> sits between a device or network and the internet, and <strong>monitors and filters</strong> the <strong>incoming and outgoing</strong> traffic that tries to pass through.</li>
+<li>It checks traffic against a set of <strong>rules</strong>, then <strong>allows</strong> traffic that is permitted and <strong>blocks</strong> traffic that is not — helping to keep out <strong>unauthorised access</strong> and unwanted connections.</li>
+<li>A firewall controls <strong>traffic</strong>; it is <strong>not</strong> the same as anti-malware. It does not scan files for viruses — the two do different jobs and are used together.</li>
+</ul>`,
+            readCheck: {
+                q: "What does a firewall do?",
+                opts: ["It scans all of the files already saved on the computer's hard drive and deletes any viruses that it finds", "It monitors and filters incoming and outgoing network traffic against a set of rules", "It encrypts every document so that it cannot be read without a key", "It makes automatic backup copies of important files onto a second drive"],
+                ans: 1,
+                explain: "A firewall's job is to filter network traffic (in and out) using rules, blocking unauthorised connections — scanning files for viruses is the job of anti-malware."
+            }
+        },
+        {
+            title: "User access levels",
+            tag: "Key concept",
+            content: `<h4>Not everyone should be able to see or change everything</h4>
+<ul>
+<li><strong>User access levels</strong> (permissions) control what each user is allowed to do with data and systems — for example <strong>read-only</strong>, <strong>read and write</strong>, or no access at all.</li>
+<li>Users are given only the access they actually need for their role. A student might read a resource but not edit it; only certain staff can change grades.</li>
+<li><strong>Why it matters:</strong> it prevents accidental or deliberate damage, and it <strong>limits how far an attack can reach</strong> — if one account is compromised, the attacker can only access what that account was allowed to, not the whole system.</li>
+</ul>`,
+            readCheck: {
+                q: "How do user access levels help if an attacker steals one employee's login?",
+                opts: ["They instantly and automatically delete the attacker's own computer from a distance", "They limit the attacker to only what that one account was allowed to access", "They make the stolen password start working for every account in the company", "They guarantee the attacker can never read any file of any kind at all"],
+                ans: 1,
+                explain: "Access levels contain the damage: a compromised account can only reach the data and actions it was permitted, so the attacker cannot automatically reach everything."
+            }
+        },
+        {
+            title: "Passwords — strong passwords",
+            tag: "Key concept",
+            content: `<h4>Making a password hard to guess or crack</h4>
+<ul>
+<li>A <strong>strong password</strong> is <strong>long</strong> and mixes <strong>upper and lower case letters, numbers and symbols</strong>, and is not an obvious word, name or date.</li>
+<li>Each extra character and character type massively increases the number of <strong>possible combinations</strong>, so a <strong>brute-force attack</strong> (trying combinations automatically) takes far longer — often long enough to be impractical.</li>
+<li>Passwords should also be <strong>unique</strong> to each account: if the same password is reused everywhere, one leak exposes every account.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does making a password longer and more varied help protect an account?",
+                opts: ["It makes the whole computer start up and shut down noticeably more quickly each and every morning without fail", "It hugely increases the number of possible combinations, so a brute-force attack takes far longer", "It stops the user from ever forgetting the password again", "It automatically encrypts every file the user owns"],
+                ans: 1,
+                explain: "More length and more character types mean far more possible combinations to try, so an automated brute-force attack takes much longer to succeed."
+            }
+        },
+        {
+            title: "Passwords — extra protection",
+            tag: "Key concept",
+            content: `<h4>Backing up a password with more than just the password</h4>
+<ul>
+<li><strong>Account lockout:</strong> the system locks an account (or adds a delay) after a set number of <strong>failed login attempts</strong>. This directly slows or stops a brute-force attack, which relies on trying many guesses quickly.</li>
+<li><strong>Two-step / two-factor verification (2FA):</strong> as well as the password, the user must provide a second thing — usually a <strong>code sent to a separate device</strong> such as their phone. Even if an attacker steals the password, they still cannot log in without that second factor.</li>
+<li>These protect against the ways a password alone can fail — being guessed, cracked, or even stolen.</li>
+</ul>`,
+            readCheck: {
+                q: "How does two-step (two-factor) verification protect an account even if the password is stolen?",
+                opts: ["It quietly changes the account's password back to the previous one automatically every single night", "The attacker still needs a second factor, such as a code sent to the user's own phone", "It makes the account impossible for the real owner to ever log in to as well", "It hides the account from the internet so no data ever leaves the device"],
+                ans: 1,
+                explain: "2FA requires a second factor the attacker does not have (e.g. a code on the user's phone), so a stolen password on its own is not enough to log in."
+            }
+        },
+        {
+            title: "Encryption — the principle",
+            tag: "Key concept",
+            content: `<h4>Scrambling data so intercepted data is useless</h4>
+<ul>
+<li><strong>Encryption</strong> uses an <strong>algorithm</strong> and a <strong>key</strong> to <strong>scramble</strong> data into a form that cannot be understood.</li>
+<li>Only someone with the correct <strong>key</strong> can <strong>decrypt</strong> it back into the original, readable data.</li>
+<li><strong>What it does and does not do:</strong> encryption does <strong>not stop</strong> data being intercepted or stolen — but if intercepted, the data is <strong>meaningless</strong> to the attacker without the key. This is why it is the main defence against <strong>data interception</strong>, and why it protects data on a lost or stolen device too.</li>
+</ul>`,
+            readCheck: {
+                q: "What does encryption actually achieve if an attacker intercepts the data anyway?",
+                opts: ["It physically prevents the data from ever leaving the sender's own computer in the first place", "The intercepted data is scrambled and meaningless without the correct decryption key", "It automatically reports the attacker's location to the police", "It makes a second, identical copy of the data as a backup"],
+                ans: 1,
+                explain: "Encryption doesn't prevent interception; it makes the intercepted data unreadable, so it is useless to anyone who does not hold the key."
+            }
+        },
+        {
+            title: "Encryption — a Caesar cipher example",
+            tag: "Worked example",
+            content: `<h4>A very simple cipher that shows the idea</h4>
+<ul>
+<li>A <strong>Caesar cipher</strong> is a simple form of encryption: <strong>shift every letter</strong> along the alphabet by a fixed number of places — the number of places is the <strong>key</strong>.</li>
+<li>Example with a key of <strong>1</strong>: A→B, B→C, … so <strong>HELLO</strong> becomes <strong>IFMMP</strong>. To decrypt, shift each letter back by the same key.</li>
+<li>Letters near the end wrap around: with a key of 1, Z→A.</li>
+<li><strong>Why real systems don't use it:</strong> a Caesar cipher is extremely weak — there are only 25 possible shifts, so it can be cracked almost instantly. It is only useful for showing how encryption works; real encryption uses far more complex keys and algorithms.</li>
+</ul>`,
+            readCheck: {
+                q: "Using a Caesar cipher with a key (shift) of 1, what does the word CAT become?",
+                opts: ["DBU", "BZS", "CAT", "EDV"],
+                ans: 0,
+                explain: "Shift each letter forward by 1: C→D, A→B, T→U, giving DBU."
+            }
+        },
+        {
+            title: "Physical security",
+            tag: "Key concept",
+            content: `<h4>Protecting the hardware itself</h4>
+<ul>
+<li>Not every attack happens over a network — some need the attacker to be <strong>physically present</strong>. <strong>Physical security</strong> protects the computers, servers and the rooms they are in.</li>
+<li>Common methods: <strong>locks</strong> on doors and equipment, <strong>keypad / swipe-card / keycard</strong> entry, <strong>biometric</strong> entry (fingerprint or face), <strong>CCTV</strong>, <strong>alarms</strong>, <strong>security staff</strong>, and keeping servers in a <strong>locked server room</strong>.</li>
+<li>This limits threats such as <strong>hardware theft</strong>, tampering, or someone walking up to a machine — and works alongside digital defences, not instead of them.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is an example of physical security?",
+                opts: ["Installing anti-malware software on every computer in the office", "A biometric fingerprint lock on the door of the server room", "Choosing a long, complex password for an online account", "Encrypting the data before it is sent across the network"],
+                ans: 1,
+                explain: "A biometric door lock physically controls who can reach the hardware — the other options are all digital/software measures, not physical security."
+            }
+        },
+        {
+            title: "Network policies & staff training",
+            tag: "Key concept",
+            content: `<h4>The human layer technology can't cover</h4>
+<ul>
+<li>Because people are often the weakest link, organisations use <strong>network / acceptable-use policies</strong>: written rules about passwords, what software may be installed, and how systems may be used.</li>
+<li><strong>Staff training</strong> teaches people to <strong>recognise</strong> phishing emails and other <strong>social engineering</strong> tricks, and to follow procedures such as verifying a caller before sharing information — the one thing a firewall or anti-malware cannot do.</li>
+<li>Sensible policy also includes keeping <strong>backups</strong>, so that if ransomware or another attack does strike, data can be <strong>restored</strong> without paying a ransom.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is staff training an important security measure alongside technical ones?",
+                opts: ["It completely replaces the need for a firewall, anti-malware software and encryption all at the same time", "It helps people recognise social engineering, such as phishing, which technical tools cannot stop", "It makes the office internet connection noticeably faster for everyone", "It is the only way to make backups of important company data"],
+                ans: 1,
+                explain: "Social engineering targets people, not software, so only awareness and training help staff spot and resist it — technical tools can't stop a person being tricked."
+            }
+        },
+        {
+            title: "Matching the defence to the threat",
+            tag: "Exam skill",
+            content: `<h4>The mapping the exam keeps testing</h4>
+<ul>
+<li><strong>Anti-malware</strong> → detects and removes <strong>malware</strong> (viruses, worms, trojans, ransomware, spyware).</li>
+<li><strong>Firewall</strong> → blocks <strong>unauthorised access</strong> and unwanted traffic trying to enter or leave the network.</li>
+<li><strong>Encryption</strong> → makes <strong>intercepted data</strong> unreadable, defeating data interception/theft.</li>
+<li><strong>Strong passwords + account lockout</strong> → defeat <strong>brute-force</strong> attacks.</li>
+<li><strong>Two-step verification</strong> → protects against a <strong>stolen or guessed password</strong>.</li>
+<li><strong>User access levels</strong> → limit the <strong>damage/spread</strong> of a compromised account or a malicious insider.</li>
+<li><strong>Physical security</strong> → stops <strong>theft</strong>, tampering and shouldering by someone physically present.</li>
+<li><strong>Staff training / anti-phishing</strong> → resists <strong>social engineering</strong>.</li>
+<li><strong>Penetration testing</strong> → finds <strong>all kinds of weaknesses</strong> first, so they can be fixed.</li>
+</ul>`,
+            readCheck: {
+                q: "Which prevention method most directly protects against data being read if it is intercepted while travelling across a network?",
+                opts: ["A strong, complex and regularly changed password on the sender's own user account", "Encryption, which scrambles the data so it is unreadable without the key", "A biometric lock on the door of the office", "Anti-malware software scanning the hard drive"],
+                ans: 1,
+                explain: "Encryption is the defence aimed squarely at interception — the data can still be captured, but it is meaningless without the key."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "What is penetration testing?",
+            opts: ["An unauthorised attack carried out by criminals that a company has never agreed to, and cannot see coming or control", "An authorised, simulated attack used to find weaknesses before real attackers do", "A tool that automatically writes strong passwords for every employee", "A backup process that copies data to a second location every night"],
+            ans: 1,
+            explain: "Penetration testing is a deliberate, authorised attack whose purpose is to find and report vulnerabilities so they can be fixed first."
+        },
+        {
+            q: "Which task is carried out by anti-malware software?",
+            opts: ["Filtering the network traffic that passes in and out of the network, according to a set of rules", "Scanning files and removing or quarantining software identified as malicious", "Scrambling data so it cannot be read without the correct key", "Controlling which doors an employee's swipe card can open"],
+            ans: 1,
+            explain: "Anti-malware scans for malware and quarantines/removes it — filtering traffic is a firewall's job and scrambling data is encryption."
+        },
+        {
+            q: "What does a firewall mainly control?",
+            opts: ["The traffic allowed to travel between a network and the internet", "The strength of every password chosen by the company's employees", "The temperature inside the locked server room", "The order in which files are saved onto the hard drive"],
+            ans: 0,
+            explain: "A firewall monitors and filters network traffic against rules, blocking unauthorised connections — it does not manage passwords, cooling or storage."
+        },
+        {
+            q: "A company gives most staff read-only access to the customer records, and only two managers read-and-write access. What kind of security measure is this?",
+            opts: ["Encryption", "User access levels", "A brute-force attack", "Penetration testing"],
+            ans: 1,
+            explain: "Giving different users different rights (read-only vs read-write) is exactly what user access levels (permissions) means."
+        },
+        {
+            q: "Which of these best describes what encryption does to data?",
+            opts: ["It deletes the data so that nobody, including the owner, can ever recover it again", "It scrambles the data so it is meaningless to anyone without the key", "It copies the data to a backup server in a different building", "It makes the data download much faster over the network"],
+            ans: 1,
+            explain: "Encryption uses an algorithm and key to scramble data so that, even if intercepted, it cannot be understood without the correct key."
+        },
+        {
+            q: "A login system locks an account for ten minutes after five wrong passwords in a row. Which attack is this designed to slow down?",
+            opts: ["A phishing email scam", "A brute-force attack", "Data interception and theft", "Shouldering someone"],
+            ans: 1,
+            explain: "Locking the account after repeated failed attempts directly targets brute-force attacks, which depend on trying many password guesses quickly."
+        },
+        {
+            q: "Which measure most directly protects against a social engineering attack such as phishing?",
+            opts: ["Installing a much more powerful and expensive firewall on the company's main office network", "Training staff to recognise and question suspicious messages and requests", "Encrypting all of the files stored on the central server", "Fitting biometric locks to every door in the building"],
+            ans: 1,
+            explain: "Social engineering targets people, so staff training and awareness — not a technical tool — is the defence that actually helps against it."
+        },
+        {
+            q: "Which of the following is an example of physical security?",
+            opts: ["A firewall configured to block all incoming connections from unknown addresses", "A locked server room that can only be entered with a swipe card", "A password policy requiring at least twelve characters", "Anti-malware software set to scan every file automatically"],
+            ans: 1,
+            explain: "A swipe-card-controlled locked room physically restricts access to the hardware — the others are all software or policy measures."
+        },
+        {
+            q: "Using a Caesar cipher with a key (shift) of 3, what does the word DOG become?",
+            opts: ["GRJ", "AKD", "DOG", "HSK"],
+            ans: 0,
+            explain: "Shift each letter forward by 3: D→G, O→R, G→J, giving GRJ."
+        },
+        {
+            q: "Why is two-step (two-factor) verification stronger than a password on its own?",
+            opts: ["It means the user never again has to remember any password, PIN or security question of any kind", "It needs a second factor, such as a phone code, that a password thief would not have", "It automatically makes the password longer every time it is typed", "It hides the login page so that attackers cannot find the website"],
+            ans: 1,
+            explain: "2FA adds a second factor the attacker is unlikely to have, so even a stolen password alone is not enough to get in."
+        },
+        {
+            q: "What is the main reason organisations keep regular backups as part of good security policy?",
+            opts: ["To make the whole network connection run at a noticeably higher speed for every member of staff", "So that data can be restored after an attack such as ransomware, without paying", "To prevent employees from ever choosing a weak password again", "To stop any data from being intercepted while it travels across a network"],
+            ans: 1,
+            explain: "Backups let an organisation recover its data after ransomware or data loss, avoiding paying a ransom — they don't affect speed, passwords or interception."
+        },
+        {
+            q: "Which pairing correctly matches a threat to a method that limits it?",
+            opts: ["Data interception → a biometric lock on the server-room door", "Brute-force attack → strong passwords plus account lockout", "Phishing → encrypting all of the files on the hard drive", "Malware infection → giving every user read-and-write access"],
+            ans: 1,
+            explain: "Strong passwords and account lockout directly defeat brute-force attacks; the other three pair a threat with a method that does not actually address it."
+        }
+    ];
+
+    const matchData = [
+        { term: "Penetration testing", def: "An authorised, simulated attack used to find weaknesses so they can be fixed before a real attacker exploits them" },
+        { term: "Anti-malware software", def: "Scans files, detects malware using a database of known signatures, and quarantines or removes it" },
+        { term: "Firewall", def: "Monitors and filters incoming and outgoing network traffic against a set of rules" },
+        { term: "User access levels", def: "Control what each user may do with data (e.g. read-only or read-write), limiting the reach of any one account" },
+        { term: "Strong password", def: "A long, varied, unique password that greatly increases the combinations a brute-force attack must try" },
+        { term: "Account lockout", def: "Locks an account after a set number of failed logins to slow or stop a brute-force attack" },
+        { term: "Two-step verification", def: "Requires a second factor, such as a code sent to a phone, in addition to the password" },
+        { term: "Encryption", def: "Scrambles data using an algorithm and a key so that, if intercepted, it cannot be understood" },
+        { term: "Caesar cipher", def: "A simple encryption method that shifts each letter along the alphabet by a fixed key" },
+        { term: "Physical security", def: "Protects the hardware itself using locks, keycards, biometrics, CCTV or a locked server room" },
+        { term: "Staff training", def: "Teaches people to recognise phishing and other social engineering so they are not tricked" },
+        { term: "Acceptable-use policy", def: "Written rules setting out how systems, passwords and software may be used in an organisation" }
+    ];
+
+    const fibData = [
+        {
+            display: "_____ testing is an authorised, simulated attack used to find weaknesses in a system before a real attacker does.",
+            blanks: { B1: "penetration" }
+        },
+        {
+            display: "A _____ monitors and filters the traffic passing between a network and the internet, blocking connections that are not allowed.",
+            blanks: { B1: "firewall" }
+        },
+        {
+            display: "Anti-malware software recognises known malware by comparing files against a database of known _____.",
+            blanks: { B1: "signatures" }
+        },
+        {
+            display: "_____ scrambles data using an algorithm and a key, so that intercepted data cannot be understood without the key.",
+            blanks: { B1: "encryption" }
+        },
+        {
+            display: "User access _____ control what each person is allowed to do with data, such as read-only or read-and-write.",
+            blanks: { B1: "levels" }
+        },
+        {
+            display: "Locking an account after several failed login attempts is designed to slow down a _____ attack.",
+            blanks: { B1: "brute-force" }
+        },
+        {
+            display: "Two-step verification asks for a second factor, such as a _____ sent to the user's phone, as well as the password.",
+            blanks: { B1: "code" }
+        },
+        {
+            display: "A Caesar cipher encrypts a message by _____ each letter along the alphabet by a fixed key.",
+            blanks: { B1: "shifting" }
+        }
+    ];
+    const fibWords = ["penetration", "firewall", "signatures", "encryption", "levels", "brute-force", "code", "shifting"];
+
+    const tfData = [
+        {
+            statement: "Penetration testing is carried out with the organisation's permission to find weaknesses before real attackers do.",
+            answer: true,
+            explanation: "Correct — pen testing is an authorised, legal test whose purpose is to identify and report vulnerabilities so they can be fixed."
+        },
+        {
+            statement: "A firewall scans files stored on the hard drive and removes any viruses it finds.",
+            answer: false,
+            explanation: "That is the job of anti-malware software. A firewall filters network traffic; it does not scan files for viruses."
+        },
+        {
+            statement: "Anti-malware software only needs to be installed once and never needs updating.",
+            answer: false,
+            explanation: "New malware appears constantly, so the signature database must be updated regularly, or the software cannot recognise the newest threats."
+        },
+        {
+            statement: "Encryption prevents data from ever being intercepted as it travels across a network.",
+            answer: false,
+            explanation: "Encryption does not stop interception — it makes the intercepted data unreadable without the key, so it is useless to the attacker."
+        },
+        {
+            statement: "Giving users only the access levels they need limits how far a compromised account can reach.",
+            answer: true,
+            explanation: "Correct — if an account is stolen, access levels mean the attacker can only reach what that account was permitted, not the whole system."
+        },
+        {
+            statement: "A longer, more varied password makes a brute-force attack take much longer to succeed.",
+            answer: true,
+            explanation: "Correct — more length and character variety means far more possible combinations to try, so brute force is much slower."
+        },
+        {
+            statement: "A Caesar cipher is strong enough to protect real bank data because it is impossible to crack.",
+            answer: false,
+            explanation: "A Caesar cipher is very weak — there are only 25 possible shifts, so it is cracked almost instantly. It only demonstrates the idea of encryption."
+        },
+        {
+            statement: "Staff training helps protect against social engineering attacks such as phishing.",
+            answer: true,
+            explanation: "Correct — social engineering targets people, so training them to recognise and question suspicious requests is the defence that works."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking a firewall stops viruses and other malware, just like antivirus software does.",
+            correct: "A <strong>firewall</strong> filters network <strong>traffic</strong> against rules — it decides what is allowed in and out of the network. It does <strong>not</strong> scan files for viruses; that is <strong>anti-malware's</strong> job. They do different jobs and are used together.",
+            readCheck: {
+                q: "What is the difference between a firewall and anti-malware software?",
+                opts: ["There is no real difference at all — they are simply two different names for exactly the same program", "A firewall filters network traffic; anti-malware scans files for and removes malware", "A firewall scans files, while anti-malware only controls door locks", "A firewall encrypts data, while anti-malware chooses passwords"],
+                ans: 1,
+                explain: "A firewall controls what traffic may pass in and out of the network; anti-malware scans files and removes malicious ones — two separate roles."
+            }
+        },
+        {
+            wrong: "Believing that encryption stops data from being stolen or intercepted in the first place.",
+            correct: "Encryption does <strong>not</strong> prevent data being intercepted or copied. What it does is <strong>scramble</strong> the data so that, if intercepted, it is <strong>meaningless</strong> without the key. The attacker can still capture it — they just cannot understand it.",
+            readCheck: {
+                q: "If an attacker intercepts encrypted data, what happens?",
+                opts: ["The data is automatically and permanently deleted before the attacker is able to save it anywhere at all", "The attacker captures scrambled data that is meaningless without the decryption key", "The attacker is immediately blocked from the network by the firewall", "The data turns back into plain text as soon as it is intercepted"],
+                ans: 1,
+                explain: "Encryption doesn't block interception; it ensures that intercepted data is unreadable without the key, so it is useless to the attacker."
+            }
+        },
+        {
+            wrong: "Assuming penetration testing is an illegal attack carried out by criminals.",
+            correct: "Penetration testing is <strong>authorised</strong> — the organisation asks for it. Testers use the same techniques as attackers, but the goal is to <strong>find and report weaknesses</strong> so they can be fixed, not to cause harm or steal data.",
+            readCheck: {
+                q: "Why is penetration testing not the same as a criminal attack, even though similar techniques are used?",
+                opts: ["Because penetration testers are never able to actually break into anything at all", "Because it is authorised by the organisation and aims to find and fix weaknesses", "Because it can only ever be done on computers that are switched off", "Because it does not use any real hacking techniques whatsoever"],
+                ans: 1,
+                explain: "The techniques may be similar, but pen testing is requested by the organisation and its purpose is to identify and close vulnerabilities safely."
+            }
+        },
+        {
+            wrong: "Thinking a strong password alone is enough to keep an account completely safe.",
+            correct: "A strong password defeats <strong>guessing and brute force</strong>, but it does nothing if the user is <strong>tricked into revealing it</strong> (phishing), has it captured by a <strong>keylogger</strong>, or is watched typing it (shouldering). That is why <strong>two-step verification</strong> and <strong>staff training</strong> matter too.",
+            readCheck: {
+                q: "Why is a strong password not enough on its own to secure an account?",
+                opts: ["Because even the strongest passwords always stop working completely after just a single day of being used", "Because it can still be phished, keylogged or shoulder-surfed, so extra measures are needed", "Because long passwords are actually easier to guess than short ones", "Because passwords have no effect on brute-force attacks at all"],
+                ans: 1,
+                explain: "A strong password resists guessing, but it can still be stolen or given away, so 2FA and training are needed alongside it."
+            }
+        },
+        {
+            wrong: "Believing physical security has nothing to do with keeping data safe.",
+            correct: "If an attacker can <strong>physically reach</strong> a computer or server, many digital defences can be bypassed — they could <strong>steal the hardware</strong>, tamper with it, or watch someone type a password. <strong>Locks, keycards, biometrics and CCTV</strong> protect against exactly these physical routes to the data.",
+            readCheck: {
+                q: "Why does physical security matter for protecting data?",
+                opts: ["Because software and networks can never actually be attacked in any real way, only the physical hardware can be", "Because someone who can physically reach a machine can steal it or tamper with it", "Because CCTV cameras encrypt all of the company's files automatically", "Because physical locks are the only security a computer ever needs"],
+                ans: 1,
+                explain: "Physical access can defeat digital protections — stolen hardware or a watched password is a real breach, so physical security is part of protecting data."
+            }
+        },
+        {
+            wrong: "Mixing up user access levels with encryption, thinking both simply 'protect the files'.",
+            correct: "They protect files in <strong>different ways</strong>. <strong>Access levels</strong> control <strong>who is allowed</strong> to open or change a file. <strong>Encryption</strong> scrambles the file's <strong>contents</strong> so it is unreadable without a key. A file can use both: only certain users may open it, and it is scrambled if it is stolen.",
+            readCheck: {
+                q: "How do user access levels differ from encryption?",
+                opts: ["They are really two completely identical security measures that simply happen to have two different names", "Access levels control who may use a file; encryption scrambles the file's contents", "Access levels scramble data, while encryption chooses who can log in", "Neither has anything to do with protecting files"],
+                ans: 1,
+                explain: "Access levels decide who is permitted to open or edit data; encryption makes the data itself unreadable without a key — different, complementary protections."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Always name the threat a method stops — and how",
+            pills: ["AO1/AO2", "Key skill", "Defence ↔ threat"],
+            content: `<p>The single most common question style in this topic gives you a threat (or a scenario) and asks for a suitable prevention method. A one-word method name rarely gets full marks — the mark scheme wants the <strong>method + the threat it addresses + how it helps</strong>.</p>
+
+<p><strong>❌ 1 mark:</strong> "Use encryption."</p>
+<p><strong>✅ 2–3 marks:</strong> "Use <strong>encryption</strong> <strong>(method)</strong>, which scrambles the data using a key <strong>(how)</strong>, so that if it is <strong>intercepted</strong> on the network it cannot be understood without the key <strong>(threat addressed)</strong>."</p>
+
+<p><strong>Quick self-check:</strong> for every prevention method you name, silently finish the sentence "…which stops/limits ___ by ___." If you can't, add the detail before moving on.</p>`,
+            readCheck: {
+                q: "A 3-mark question asks how a company could protect data sent over a network. A student just writes 'use encryption'. What is most likely missing?",
+                opts: ["Nothing at all — the phrase 'use encryption' completely answers any 3-mark question on its own", "How encryption works and which threat it addresses (unreadable if intercepted)", "The exact price of encryption software from three different suppliers", "A drawing of the network cables used in the office"],
+                ans: 1,
+                explain: "Naming the method alone is about 1 mark; the extra marks come from explaining how it works and the specific threat (interception) it addresses."
+            }
+        },
+        {
+            type: "explain",
+            title: "Firewall vs anti-malware vs encryption — don't mix them up",
+            pills: ["AO1", "Definitions", "Common trap"],
+            content: `<p>Questions love to check whether you really know which method does which job, because students often blur the three together. Keep them separate:</p>
+<ul>
+<li><strong>Firewall</strong> — filters network <strong>traffic</strong> (what is allowed in/out). Stops unauthorised access.</li>
+<li><strong>Anti-malware</strong> — scans <strong>files</strong> and removes <strong>malware</strong>. Stops viruses, worms, trojans, ransomware, spyware.</li>
+<li><strong>Encryption</strong> — scrambles <strong>data</strong> so intercepted data is unreadable. Stops data interception being useful.</li>
+</ul>
+<p>If a question says "scan and remove a virus" the answer is anti-malware, never a firewall. If it says "so intercepted data can't be read" the answer is encryption, never anti-malware.</p>`,
+            readCheck: {
+                q: "A question asks which method would 'scan the computer and remove a trojan that had been downloaded'. What is the correct method?",
+                opts: ["A firewall, because it automatically blocks every single download coming from the internet", "Anti-malware software, because it scans files and removes malware", "Encryption, because it scrambles the trojan's code", "User access levels, because they stop downloads completely"],
+                ans: 1,
+                explain: "Scanning for and removing malware such as a trojan is anti-malware's job — a firewall filters traffic and encryption scrambles data."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "The structured 'threat + prevention' extended question",
+            pills: ["AO1/AO2", "9 marks", "Structured"],
+            content: `<p>A longer question on this topic often asks you to <strong>identify several threats and describe how each can be prevented</strong> — for example three threats, each with a prevention method, worth several marks in total.</p>
+
+<p><strong>How it is marked:</strong> the marks are split across the threat–prevention <strong>pairs</strong>. For each pair you typically earn marks for (1) naming a valid, <strong>distinct</strong> threat and (2) <strong>describing</strong> a prevention that genuinely addresses <em>that</em> threat.</p>
+
+<p><strong>Where students lose marks:</strong></p>
+<ul>
+<li>Giving three threats but the <strong>same</strong> prevention for all of them (or three preventions that don't match the threats).</li>
+<li>Only <strong>naming</strong> a prevention ("a firewall") instead of <strong>describing</strong> what it does.</li>
+<li>Repeating the same threat twice in slightly different words — each pair must be <strong>different</strong>.</li>
+</ul>
+<p><strong>Safe approach:</strong> pick three clearly different threats (e.g. malware, brute force, data interception) and give each its natural, well-described defence (anti-malware; strong passwords + lockout; encryption).</p>`,
+            readCheck: {
+                q: "On a 'identify three threats and describe how to prevent each' question, what is a common way students lose marks?",
+                opts: ["Choosing three clearly different threats, each one with its own separate matching prevention method", "Naming a prevention without describing it, or repeating the same threat twice", "Writing in full sentences instead of single words", "Describing exactly how each prevention method works in detail"],
+                ans: 1,
+                explain: "Marks come from distinct threat–prevention pairs that are described, so just naming a method or repeating a threat wastes the marks on offer."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Penetration testing", def: "An authorised, simulated attack to find weaknesses before real attackers do" },
+        { term: "Internal pen testing", def: "Simulates an attacker who already has some inside access, e.g. a rogue employee" },
+        { term: "External pen testing", def: "Simulates an attacker with no inside knowledge, attacking from outside the organisation" },
+        { term: "Anti-malware software", def: "Scans files, detects malware by its signature, and quarantines or removes it" },
+        { term: "Malware signature", def: "A known pattern used by anti-malware to recognise a piece of malware" },
+        { term: "Firewall", def: "Monitors and filters incoming and outgoing network traffic against a set of rules" },
+        { term: "User access levels", def: "Permissions (e.g. read-only, read-write) controlling what each user may do with data" },
+        { term: "Strong password", def: "A long, varied, unique password that resists guessing and brute-force attacks" },
+        { term: "Account lockout", def: "Locking an account after a set number of failed logins to slow brute force" },
+        { term: "Two-step verification", def: "Requiring a second factor (e.g. a phone code) as well as the password" },
+        { term: "Encryption", def: "Scrambling data with an algorithm and key so intercepted data is unreadable" },
+        { term: "Decryption key", def: "The key needed to turn encrypted data back into its original readable form" },
+        { term: "Caesar cipher", def: "Simple encryption that shifts each letter along the alphabet by a fixed key" },
+        { term: "Physical security", def: "Locks, keycards, biometrics, CCTV and alarms that protect the hardware itself" },
+        { term: "Biometric entry", def: "Using a fingerprint or face scan to control physical access to a room or device" },
+        { term: "Acceptable-use policy", def: "Written rules on how systems, passwords and software may be used" },
+        { term: "Staff training", def: "Teaching people to recognise phishing and other social engineering attacks" },
+        { term: "Backup", def: "A spare copy of data used to restore it after loss or a ransomware attack" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-23) ──
+    // Written from scratch against the §1.4.2 spec scope (CS-CONTENT-PLAN.md
+    // §6.2 clean-room rule) — NOT transcribed from any OCR ExamBuilder PDF or
+    // past paper. Tariff spread and format mix mirror the profile the owner
+    // supplied from the real papers (structured 9-mark "threat + prevention"
+    // question at the top, no levelled band): 2x1, 2x2, 2x3, 6x4, 1x5, 3x6,
+    // 1x9 = 17 questions / 68 marks. See docs/SELF-MARK-POINTS-AUTHORING.md
+    // for the markPoints convention used on every compound scheme below.
+    const EXAM_CASE_STUDIES = {
+        "medisync": `<p>MediSync is a small private health clinic. Staff log in to a central computer system to view and update patient records, which include names, addresses, medical notes and payment details. Staff and visitors share the same building, and the clinic's server is kept in a cupboard in the reception area.</p>`,
+        "pixelforge": `<p>PixelForge is an online shop selling downloadable games. Customers create an account, save their card details, and buy games through the company's website. Staff work both in the office and from home, connecting to the company systems over the internet.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the security method that monitors and filters the traffic passing between a network and the internet.</p>`,
+            options: ["Encryption", "Firewall", "Anti-malware software", "Penetration testing"],
+            answer: 1,
+            hint: "Focus on the key word 'traffic' — only one of these methods is about what is allowed in and out of the network.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>Firewall</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; 2 or more ticks scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "Firewall."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the security method that scrambles data so that it cannot be understood if it is intercepted.</p>`,
+            options: ["User access levels", "Encryption", "A firewall", "Physical security"],
+            answer: 1,
+            hint: "The clue is 'scrambles data … cannot be understood' — that points to one specific method.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>Encryption</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; 2 or more ticks scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "Encryption."
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Feature 1", "Feature 2"],
+            question: `<p>Give <strong>two</strong> features of a strong password.</p>`,
+            hint: "Think about what makes a password hard to guess or crack — length and the variety of characters used are a good start.",
+            starter: "",
+            markPoints: {
+                note: "1 mark for each valid feature of a strong password, to a maximum of 2. Do not credit two versions of the same idea.",
+                groups: [
+                    { label: "Feature 1", max: 1, points: [{ text: "A valid feature, e.g. it is long / has many characters", marks: 1 }] },
+                    { label: "Feature 2", max: 1, points: [{ text: "A second, different valid feature, e.g. mixes upper and lower case, numbers and symbols / is unique / is not an obvious word, name or date", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark each, max 2)</h5>
+<ul>
+<li>It is long / uses many characters</li>
+<li>It mixes upper and lower case letters, numbers and symbols</li>
+<li>It is unique (not reused on other accounts)</li>
+<li>It is not an obvious word, name or date</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award any two different valid features. Two ways of saying the same thing score 1 mark only.</li>
+</ul>
+</div>`,
+            modelAnswer: "1: It is long, using many characters. 2: It mixes upper and lower case letters, numbers and symbols, so it is not an obvious word."
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Method 1", "Method 2"],
+            question: `<p>Identify <strong>two</strong> methods of physical security a company could use to protect the computers in its office.</p>`,
+            hint: "Physical security is about stopping someone physically reaching the hardware — think doors, entry systems and monitoring.",
+            starter: "",
+            markPoints: {
+                note: "1 mark for each valid physical security method, to a maximum of 2.",
+                groups: [
+                    { label: "Method 1", max: 1, points: [{ text: "A valid physical method, e.g. locks on doors/equipment", marks: 1 }] },
+                    { label: "Method 2", max: 1, points: [{ text: "A second, different valid physical method, e.g. keycard/swipe-card or keypad entry / biometric entry / CCTV / alarms / security staff / locked server room", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark each, max 2)</h5>
+<ul>
+<li>Locks (on doors or equipment)</li>
+<li>Keycard / swipe-card / keypad entry</li>
+<li>Biometric entry (fingerprint or face)</li>
+<li>CCTV</li>
+<li>Alarms</li>
+<li>Security staff / guards</li>
+<li>Locked server room</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award any two different valid physical methods. Do not credit software measures such as passwords or anti-malware.</li>
+</ul>
+</div>`,
+            modelAnswer: "1: A biometric fingerprint lock on the door to the room. 2: CCTV cameras monitoring where the computers are kept."
+        },
+        {
+            num: "Q5",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Describe how anti-malware software helps to protect a computer system.</p>`,
+            hint: "Cover what it does to files, how it recognises malware, and what it does when it finds some — three separate points.",
+            starter: "Anti-malware software…",
+            markPoints: {
+                note: "1 mark per valid point about how anti-malware works, to a maximum of 3.",
+                groups: [
+                    {
+                        label: "How anti-malware protects the system", max: 3, points: [
+                            { text: "Says it scans files / the system looking for malware", marks: 1 },
+                            { text: "Says it recognises known malware by comparing against a database of known signatures", marks: 1 },
+                            { text: "Says it quarantines (isolates) or removes/deletes the malware it finds", marks: 1 },
+                            { text: "Says it must be kept up to date so it can recognise new malware", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point, max 3)</h5>
+<ul>
+<li>Scans files / the system for malware</li>
+<li>Recognises known malware by comparing against a database of known signatures</li>
+<li>Quarantines or removes/deletes any malware it finds</li>
+<li>Must be kept up to date to recognise new malware</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award any three of the above valid points.</li>
+</ul>
+</div>`,
+            modelAnswer: "Anti-malware software scans the files on the system looking for malware. It recognises known malware by comparing files against a database of known signatures, and quarantines or removes anything it identifies as malicious. It must be kept up to date so that it can recognise the newest threats."
+        },
+        {
+            num: "Q6",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>A message is encrypted using a Caesar cipher with a key (shift) of <strong>2</strong>.</p><p>(a) Encrypt the word <strong>CODE</strong> using this cipher. <strong>[2]</strong><br>(b) State <strong>one</strong> reason a Caesar cipher would not be secure enough to protect real data. <strong>[1]</strong></p>`,
+            hint: "For (a), shift each letter forward by 2 places (C→E, and so on). For (b), think about how many different shifts an attacker would have to try.",
+            starter: "(a) …  (b) A Caesar cipher is not secure because…",
+            markPoints: {
+                note: "Up to 2 marks for the correct encrypted word, 1 mark for a valid weakness.",
+                groups: [
+                    {
+                        label: "(a) Encrypting CODE with shift 2", max: 2, points: [
+                            { text: "Correct answer EQFG (all four letters correct)", marks: 2 },
+                            { text: "Partially correct — the method is right (shift of 2) but with one letter wrong", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "(b) Why it is not secure", max: 1, points: [
+                            { text: "A valid weakness, e.g. there are only 25 possible shifts so it can be tried/cracked very quickly / it is easy to break by trying every shift", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>(a) <strong>EQFG</strong> — 2 marks for all correct; 1 mark if the shift-of-2 method is clearly used but one letter is wrong</li>
+<li>(b) 1 mark: only 25 possible shifts, so it can be cracked almost instantly by trying each one (or equivalent)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>(a) C→E, O→Q, D→F, E→G. Accept the answer in lower case.</li>
+<li>(b) Any one valid reason about how easily a Caesar cipher can be broken.</li>
+</ul>
+</div>`,
+            modelAnswer: "(a) EQFG (C→E, O→Q, D→F, E→G). (b) A Caesar cipher has only 25 possible shifts, so an attacker can simply try every one and crack it almost instantly."
+        },
+        {
+            num: "Q7",
+            marks: 4,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>Complete the table by writing one prevention method that would most directly limit each threat. Each method must be different.</p>`,
+            table: {
+                headers: ["Threat", "Prevention method that limits it"],
+                rows: [
+                    ["Malware (e.g. a virus or trojan)", null],
+                    ["Brute-force attack on a login", null],
+                    ["Data interception on a network", null],
+                    ["Social engineering (e.g. phishing)", null]
+                ],
+                openChoice: true
+            },
+            hint: "Match each threat to the method aimed at it: think about what scans files, what defeats guessing, what makes intercepted data useless, and what helps people spot a scam.",
+            starter: "Malware: … | Brute force: … | Interception: … | Phishing: …",
+            markPoints: {
+                note: "1 mark per row for a prevention method that genuinely limits that threat. Do not credit a method that addresses a different row's threat.",
+                groups: [
+                    { label: "Malware", max: 1, points: [{ text: "Anti-malware / antivirus software (accept 'firewall' only if clearly justified as blocking malware traffic)", marks: 1 }] },
+                    { label: "Brute-force attack", max: 1, points: [{ text: "Strong passwords and/or account lockout after failed attempts (accept two-step verification)", marks: 1 }] },
+                    { label: "Data interception", max: 1, points: [{ text: "Encryption", marks: 1 }] },
+                    { label: "Social engineering", max: 1, points: [{ text: "Staff training / awareness (accept clear anti-phishing procedures/policy)", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Malware → anti-malware / antivirus software</li>
+<li>Brute-force attack → strong passwords and/or account lockout (accept two-step verification)</li>
+<li>Data interception → encryption</li>
+<li>Social engineering → staff training / awareness</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked against its own threat. A method that fits a different row does not earn credit in this one.</li>
+</ul>
+</div>`,
+            modelAnswer: "Malware: anti-malware software. Brute-force attack: strong passwords plus account lockout after failed attempts. Data interception: encryption. Social engineering: staff training so employees recognise phishing."
+        },
+        {
+            num: "Q8",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to identify the prevention method that most directly limits each threat.</p>`,
+            grid: {
+                cols: ["Anti-malware", "Encryption", "Account lockout", "Staff training"],
+                rows: [
+                    { label: "A virus attached to a downloaded file", correct: [0] },
+                    { label: "Data being read after interception on public Wi-Fi", correct: [1] },
+                    { label: "Software repeatedly guessing a password at speed", correct: [2] },
+                    { label: "An employee being tricked by a phishing email", correct: [3] }
+                ]
+            },
+            hint: "Each threat has one method aimed squarely at it — what removes malware, what makes intercepted data useless, what stops repeated guessing, and what helps people spot a scam.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Row 1 (virus in a download) → <strong>Anti-malware</strong></li>
+<li>Row 2 (intercepted data being read) → <strong>Encryption</strong></li>
+<li>Row 3 (repeated password guessing) → <strong>Account lockout</strong></li>
+<li>Row 4 (phishing email) → <strong>Staff training</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently; 2+ ticks in a single row scores 0 for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1: Anti-malware. Row 2: Encryption. Row 3: Account lockout. Row 4: Staff training."
+        },
+        {
+            num: "Q9",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each prevention method to the threat it most directly limits.</p><p>(There are more threats than methods — one threat is not used.)</p>`,
+            match: {
+                left: ["Firewall", "Encryption", "Two-step verification", "User access levels"],
+                right: ["Unauthorised access / unwanted traffic entering the network", "Data being understood after it is intercepted", "A stolen password being used to log in", "One compromised account being able to reach the whole system", "A power cut shutting down the office for the afternoon"],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Match each method to the threat it targets. Watch the last option — a power cut is not a security threat any of these methods is designed to prevent.",
+            starter: "Firewall → …, Encryption → …, Two-step verification → …, User access levels → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line)</h5>
+<ul>
+<li>Firewall → <strong>A</strong> (unauthorised access / unwanted traffic entering the network)</li>
+<li>Encryption → <strong>B</strong> (data being understood after it is intercepted)</li>
+<li>Two-step verification → <strong>C</strong> (a stolen password being used to log in)</li>
+<li>User access levels → <strong>D</strong> (one compromised account reaching the whole system)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark per correct line. Two lines from one method score 0 for that method.</li>
+<li>Threat E (a power cut) is a decoy — it is not a method-limited security threat here.</li>
+</ul>
+</div>`,
+            modelAnswer: "Firewall → unauthorised access/unwanted traffic. Encryption → intercepted data being understood. Two-step verification → a stolen password being used to log in. User access levels → one account reaching the whole system."
+        },
+        {
+            num: "Q10",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Explain how giving staff different user access levels helps to protect an organisation's data.</p>`,
+            hint: "Explain what access levels are, then explain the two things they limit — everyday mistakes/misuse, and the reach of a compromised account.",
+            starter: "User access levels mean that…",
+            markPoints: {
+                note: "Two groups: up to 2 marks for what access levels are/do, and up to 2 marks for why this protects the data.",
+                groups: [
+                    {
+                        label: "What access levels do", max: 2, points: [
+                            { text: "Says each user is given only the rights they need, e.g. read-only or read-and-write", marks: 1 },
+                            { text: "Says this controls who can view or change particular data", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Why this protects the data", max: 2, points: [
+                            { text: "Explains it prevents accidental or deliberate changes/damage by people who should not have that access", marks: 1 },
+                            { text: "Explains that if one account is compromised, the attacker can only reach what that account was allowed, limiting the damage", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark: each user is given only the rights they need (e.g. read-only vs read-write)</li>
+<li>1 mark: this controls who can view or change particular data</li>
+<li>1 mark: prevents accidental or deliberate damage by those who should not have access</li>
+<li>1 mark: limits the reach of a compromised account to only what it was permitted</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Full marks needs both what access levels do AND why that protects the data.</li>
+</ul>
+</div>`,
+            modelAnswer: "User access levels mean each member of staff is given only the rights they need, such as read-only or read-and-write access, which controls who can view or change particular data. This prevents people making accidental or deliberate changes to data they should not be able to edit. It also limits the damage if an account is compromised, because the attacker can only reach the data and actions that one account was permitted to use, not the whole system."
+        },
+        {
+            num: "Q11",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Explain how a firewall and anti-malware software protect a computer system in <strong>different</strong> ways.</p>`,
+            hint: "Describe what each one actually acts on — one works on network traffic, the other on files — and the threat each addresses. Make the difference clear.",
+            starter: "A firewall…, whereas anti-malware software…",
+            markPoints: {
+                note: "Two groups, one per method. Each needs what it acts on and the threat it addresses.",
+                groups: [
+                    {
+                        label: "Firewall", max: 2, points: [
+                            { text: "Says a firewall monitors/filters network traffic in and out against rules", marks: 1 },
+                            { text: "Says this blocks unauthorised access / unwanted connections to the network", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Anti-malware", max: 2, points: [
+                            { text: "Says anti-malware scans files/the system for malware", marks: 1 },
+                            { text: "Says it quarantines or removes the malware it finds (e.g. viruses, trojans)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark: a firewall monitors/filters network traffic in and out against rules</li>
+<li>1 mark: this blocks unauthorised access/unwanted connections</li>
+<li>1 mark: anti-malware scans files/the system for malware</li>
+<li>1 mark: it quarantines or removes malware such as viruses and trojans</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>The answer must make clear that a firewall acts on network traffic while anti-malware acts on files/malware — not treat them as the same thing.</li>
+</ul>
+</div>`,
+            modelAnswer: "A firewall monitors and filters the network traffic passing in and out of the network against a set of rules, blocking unauthorised access and unwanted connections. Anti-malware software works differently: it scans the files and the system for malware, then quarantines or removes anything malicious such as a virus or trojan. One controls network traffic; the other finds and removes malicious files."
+        },
+        {
+            num: "Q12",
+            marks: 4,
+            type: "written",
+            caseId: "pixelforge",
+            question: `<p>Staff at PixelForge connect to the company's systems from home over the internet.</p><p>Explain how encryption and two-step verification each help to keep this remote access secure.</p>`,
+            hint: "Take each method in turn: say what it does, and the specific risk of remote access it reduces.",
+            starter: "Encryption helps because…",
+            markPoints: {
+                note: "Two groups, one per method, each linked to the remote-access risk.",
+                groups: [
+                    {
+                        label: "Encryption", max: 2, points: [
+                            { text: "Says encryption scrambles the data sent between home and the company using a key", marks: 1 },
+                            { text: "Says that if the data is intercepted on the internet it cannot be understood without the key", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Two-step verification", max: 2, points: [
+                            { text: "Says it requires a second factor (e.g. a code to the employee's phone) as well as the password", marks: 1 },
+                            { text: "Says that even if a password is stolen or guessed, an attacker still cannot log in without that second factor", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark: encryption scrambles the data sent between home and the company using a key</li>
+<li>1 mark: intercepted data cannot be understood without the key</li>
+<li>1 mark: two-step verification requires a second factor as well as the password</li>
+<li>1 mark: a stolen/guessed password alone is not enough to log in</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each method must be linked to the risk it reduces for remote access, not just defined in isolation.</li>
+</ul>
+</div>`,
+            modelAnswer: "Encryption scrambles the data sent between the employee's home and PixelForge's systems using a key, so that if it is intercepted as it travels across the internet it cannot be understood without that key. Two-step verification requires a second factor as well as the password, such as a code sent to the employee's phone, so even if an attacker steals or guesses the password they still cannot log in without that second factor."
+        },
+        {
+            num: "Q13",
+            marks: 5,
+            type: "written",
+            caseId: "medisync",
+            question: `<p>MediSync keeps its server in a cupboard in the reception area, which staff and visitors share.</p><p>Describe the security risks of storing the server this way, and describe how physical security could reduce them.</p>`,
+            hint: "First explain why the reception location is risky (who can reach it), then give physical security measures and say what each one prevents.",
+            starter: "Keeping the server in reception is risky because…",
+            markPoints: {
+                note: "Up to 2 marks for the risks of the location, up to 3 marks for physical measures that reduce them.",
+                groups: [
+                    {
+                        label: "The risks", max: 2, points: [
+                            { text: "Says visitors/unauthorised people can physically reach the server", marks: 1 },
+                            { text: "Explains a consequence, e.g. the server (and patient data) could be stolen, tampered with, or switched off", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Physical measures that reduce them", max: 3, points: [
+                            { text: "Move the server to a locked room and/or lock the cupboard so only authorised staff can reach it", marks: 1 },
+                            { text: "Control entry, e.g. keycard/keypad or biometric entry to the room", marks: 1 },
+                            { text: "Monitor/deter, e.g. CCTV, alarms, or signing visitors in — with a brief reason why it helps", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks</h5>
+<ul>
+<li>1 mark: visitors/unauthorised people can physically reach the server in reception</li>
+<li>1 mark: consequence — the server or patient data could be stolen, tampered with or switched off</li>
+<li>1 mark: move the server to a locked room / lock the cupboard so only authorised staff can reach it</li>
+<li>1 mark: control entry with keycard/keypad or biometric access</li>
+<li>1 mark: monitor or deter with CCTV, alarms or visitor sign-in</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Credit the risks of the location AND physical measures that clearly reduce them. Digital-only measures (e.g. passwords) are not physical security.</li>
+</ul>
+</div>`,
+            modelAnswer: "Keeping the server in a shared reception cupboard is risky because visitors and other unauthorised people can physically reach it. This means the server, and the patient data on it, could be stolen, tampered with, or simply switched off, causing a serious data breach or loss of access. MediSync could reduce this by moving the server into a locked room that only authorised staff can enter, controlling entry with keycard or biometric access so visitors cannot get in, and adding CCTV and an alarm to deter and detect anyone who tries."
+        },
+        {
+            num: "Q14",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Explain what penetration testing is, and describe how it helps an organisation improve its security.</p>`,
+            hint: "Define it (authorised, simulated attack), then trace what happens: testers find weaknesses, report them, and the organisation fixes them before real attackers strike.",
+            starter: "Penetration testing is…",
+            markPoints: {
+                note: "Two groups: up to 3 marks for what pen testing is, and up to 3 marks for how it improves security.",
+                groups: [
+                    {
+                        label: "What penetration testing is", max: 3, points: [
+                            { text: "Says it is a deliberate, simulated attack on the system", marks: 1 },
+                            { text: "Says it is authorised / requested by the organisation (legal, not a criminal attack)", marks: 1 },
+                            { text: "Says testers use the same techniques a real attacker would", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "How it improves security", max: 3, points: [
+                            { text: "Says it finds/identifies weaknesses (vulnerabilities) in the system", marks: 1 },
+                            { text: "Says the weaknesses are reported back to the organisation", marks: 1 },
+                            { text: "Says the organisation can then fix them before a real attacker exploits them", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks</h5>
+<ul>
+<li>1 mark: a deliberate, simulated attack on the system</li>
+<li>1 mark: authorised/requested by the organisation (legal)</li>
+<li>1 mark: testers use the same techniques a real attacker would</li>
+<li>1 mark: it finds/identifies weaknesses in the system</li>
+<li>1 mark: the weaknesses are reported to the organisation</li>
+<li>1 mark: they can be fixed before a real attacker exploits them</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per distinct valid point across both groups, up to each group maximum.</li>
+</ul>
+</div>`,
+            modelAnswer: "Penetration testing is a deliberate, simulated attack on a system, authorised and requested by the organisation itself, in which specialists use the same techniques a real attacker would. Its purpose is to find weaknesses (vulnerabilities) in the system before a criminal does. The testers report the weaknesses they find back to the organisation, which can then fix them — closing the gaps before a real attacker has the chance to exploit them."
+        },
+        {
+            num: "Q15",
+            marks: 6,
+            type: "written",
+            caseId: "pixelforge",
+            question: `<p>PixelForge is worried about brute-force attacks against its customer login page.</p><p>Explain how PixelForge could reduce the risk of a brute-force attack succeeding, and why each measure helps.</p>`,
+            hint: "Cover more than one measure — strong password rules, account lockout, and two-step verification — and for each explain WHY it makes brute force harder.",
+            starter: "PixelForge could require customers to use strong passwords, which helps because…",
+            markPoints: {
+                note: "Award 1 mark per valid measure and 1 mark per matching explanation, up to the group maxima.",
+                groups: [
+                    {
+                        label: "Strong passwords", max: 2, points: [
+                            { text: "Requires long, varied passwords / enforces a password policy", marks: 1 },
+                            { text: "Explains this greatly increases the number of combinations, so brute force takes far longer", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Account lockout", max: 2, points: [
+                            { text: "Locks the account or adds a delay after a set number of failed attempts", marks: 1 },
+                            { text: "Explains this stops the attacker making many rapid guesses, which brute force relies on", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Two-step verification", max: 2, points: [
+                            { text: "Adds a second factor such as a code to the customer's phone", marks: 1 },
+                            { text: "Explains that even a correctly guessed password is not enough to log in without it", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (max 6 across the measures below)</h5>
+<ul>
+<li>Strong passwords — enforce long, varied passwords; increases combinations so brute force takes far longer</li>
+<li>Account lockout — lock/delay after failed attempts; prevents the rapid repeated guessing brute force needs</li>
+<li>Two-step verification — second factor (e.g. phone code); a guessed password alone still cannot log in</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each measure scores for naming it AND explaining why it makes a brute-force attack harder. A named measure with no explanation scores 1.</li>
+</ul>
+</div>`,
+            modelAnswer: "PixelForge could enforce a strong password policy, requiring long passwords that mix letters, numbers and symbols; this greatly increases the number of possible combinations, so an automated brute-force attack takes far longer to succeed. It could also lock an account, or add a delay, after a set number of failed login attempts, which stops the attacker making the many rapid guesses that brute force depends on. Finally, it could add two-step verification, sending a code to the customer's phone, so that even if the attacker did guess the password they still could not log in without that second factor."
+        },
+        {
+            num: "Q16",
+            marks: 6,
+            type: "written",
+            caseId: "medisync",
+            question: `<p>MediSync stores sensitive patient records. Explain why relying on only <strong>one</strong> security method would not be enough, and describe how using several methods together would better protect the records.</p>`,
+            hint: "Show that different threats need different defences, then describe two or three methods and the different threat each one addresses for MediSync.",
+            starter: "One method alone is not enough because…",
+            markPoints: {
+                note: "Up to 2 marks for the 'why one method isn't enough' argument, and up to 4 marks for describing several methods and the different threats they address (layered defence).",
+                groups: [
+                    {
+                        label: "Why one method is not enough", max: 2, points: [
+                            { text: "Explains that different threats need different defences, so one method leaves gaps", marks: 1 },
+                            { text: "Gives an example gap, e.g. a firewall does nothing about a staff member being phished, or about the server being physically stolen", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "How several methods together help", max: 4, points: [
+                            { text: "Encryption so intercepted or stolen records cannot be read without the key", marks: 1 },
+                            { text: "User access levels so only authorised staff can view/change records, limiting misuse and the reach of a stolen account", marks: 1 },
+                            { text: "Anti-malware and/or a firewall to keep out malware and unauthorised network access", marks: 1 },
+                            { text: "Physical security and/or staff training to protect the server itself and resist social engineering", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks</h5>
+<ul>
+<li>1 mark: different threats need different defences, so one method leaves gaps</li>
+<li>1 mark: a specific example gap (e.g. a firewall does not stop phishing or physical theft)</li>
+<li>1 mark: encryption so stolen/intercepted records are unreadable</li>
+<li>1 mark: user access levels so only authorised staff reach the records</li>
+<li>1 mark: anti-malware and/or firewall against malware and unauthorised access</li>
+<li>1 mark: physical security and/or staff training for the server and against social engineering</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Reward the layered-defence argument: several methods, each addressing a different threat to MediSync's records.</li>
+</ul>
+</div>`,
+            modelAnswer: "One method alone is not enough because different threats need different defences, so a single method always leaves gaps — for example, a firewall filters network traffic but does nothing if a staff member is tricked by a phishing email, or if the server is physically stolen from reception. Using several methods together protects the records much better: encryption means that if records are intercepted or the server is stolen the data cannot be read without the key; user access levels ensure only authorised staff can view or change records, limiting both misuse and the reach of a stolen account; anti-malware and a firewall keep out malware and unauthorised network access; and physical security plus staff training protect the server itself and help staff resist social engineering. Together these layers cover each other's gaps."
+        },
+        {
+            num: "Q17",
+            marks: 9,
+            type: "written",
+            caseId: "pixelforge",
+            stubs: ["Threat 1 + its prevention", "Threat 2 + its prevention", "Threat 3 + its prevention"],
+            question: `<p>PixelForge wants to improve the security of its website and customer accounts.</p><p>Identify <strong>three</strong> different threats PixelForge could face, and for each one describe a prevention method that would limit it. Each threat and prevention must be different.</p>`,
+            hint: "Pick three clearly different threats (for example malware, brute force, and data interception). For each: name the threat, then DESCRIBE a prevention that genuinely limits it — say what the method does, not just its name.",
+            starter: "One threat PixelForge faces is…",
+            markPoints: {
+                note: "Three groups, one per threat–prevention pair. In each group: 1 mark for identifying a valid, DISTINCT threat, and up to 2 marks for describing a prevention that genuinely limits THAT threat. Max 3 per pair, 9 overall. Do not credit the same threat (or the same prevention) twice.",
+                groups: [
+                    {
+                        label: "Threat 1 + its prevention", max: 3, points: [
+                            { text: "Identifies a valid threat (e.g. malware infection)", marks: 1 },
+                            { text: "Names a prevention that genuinely limits that threat (e.g. anti-malware software)", marks: 1 },
+                            { text: "Describes how that prevention works / limits the threat (e.g. scans files and removes malware, kept up to date)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Threat 2 + its prevention", max: 3, points: [
+                            { text: "Identifies a second, different valid threat (e.g. brute-force attack on logins)", marks: 1 },
+                            { text: "Names a prevention that genuinely limits it (e.g. strong passwords + account lockout, or two-step verification)", marks: 1 },
+                            { text: "Describes how it works (e.g. lockout stops rapid repeated guessing; a second factor blocks a stolen password)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Threat 3 + its prevention", max: 3, points: [
+                            { text: "Identifies a third, different valid threat (e.g. data interception, or SQL injection, or phishing)", marks: 1 },
+                            { text: "Names a prevention that genuinely limits it (e.g. encryption; validating input; staff training)", marks: 1 },
+                            { text: "Describes how it works (e.g. encryption makes intercepted data unreadable without the key)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 9 marks (up to 3 for each of three threat–prevention pairs)</h5>
+<p>For EACH of three different threat–prevention pairs:</p>
+<ul>
+<li>1 mark: a valid, distinct threat is identified</li>
+<li>1 mark: a prevention method that genuinely limits that threat is named</li>
+<li>1 mark: how that prevention works / limits the threat is described</li>
+</ul>
+<p>Examples of acceptable pairs:</p>
+<ul>
+<li>Malware → anti-malware software (scans files, removes malware, kept up to date)</li>
+<li>Brute-force attack → strong passwords + account lockout / two-step verification (stops rapid guessing / blocks a stolen password)</li>
+<li>Data interception → encryption (intercepted data is unreadable without the key)</li>
+<li>SQL injection → validating/checking input so malicious code cannot reach the database</li>
+<li>Phishing / social engineering → staff training so employees recognise and question scams</li>
+<li>Unauthorised network access → firewall (filters traffic, blocks unauthorised connections)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each pair is capped at 3 marks. The three threats must be different, and each prevention must genuinely address its own threat.</li>
+<li>Repeating a threat, or giving the same prevention for more than one threat, does not earn the repeated marks.</li>
+<li>Naming a prevention without describing it earns the naming mark only.</li>
+</ul>
+</div>`,
+            modelAnswer: "One threat PixelForge faces is malware, such as a virus or trojan reaching its systems. This can be limited with anti-malware software, which scans files and the system, then quarantines or removes anything malicious, provided it is kept up to date. A second, different threat is a brute-force attack against customer logins. This can be limited by enforcing strong passwords and locking an account after a set number of failed attempts, which stops the attacker making the many rapid guesses brute force relies on. A third threat is data interception, where customer data is captured as it travels across the internet. This can be limited by encryption, which scrambles the data using a key so that, even if it is intercepted, it cannot be understood without that key."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

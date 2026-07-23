@@ -13,6 +13,12 @@
 
   const PAIR_COUNT = 8;
   const BEST_KEY = 'geo_vocablab_match_best';
+  // Module-level (not per-mount closure) so unmount() can reach whichever
+  // round is currently live — only one mode is ever mounted at a time in
+  // vocab.js, so this is safe. Without this, clicking "← All activities"
+  // mid-round (before finish() has a chance to clearInterval) leaves the
+  // 1s tick running forever against a detached DOM node.
+  let activeTimerHandle = null;
   function getBest(n) { try { const m = JSON.parse(localStorage.getItem(BEST_KEY) || '{}'); return m[n] || null; } catch (e) { return null; } }
   function setBest(n, seconds) {
     try {
@@ -55,7 +61,7 @@
     let tiles = [];
     pairs.forEach(w => {
       tiles.push({ wordId: w.id, side: 'es', text: w.headword, matched: false });
-      tiles.push({ wordId: w.id, side: 'en', text: w.english, matched: false });
+      tiles.push({ wordId: w.id, side: 'en', text: ctx.simplifyGloss(w.english), matched: false });
     });
     tiles = shuffleArr(tiles);
 
@@ -63,7 +69,6 @@
     let matchedCount = 0;
     let combo = 0;
     let startedAt = null;
-    let timerHandle = null;
     let finished = false;
 
     el.innerHTML =
@@ -79,7 +84,7 @@
     function startTimerIfNeeded() {
       if (startedAt) return;
       startedAt = Date.now();
-      timerHandle = setInterval(() => {
+      activeTimerHandle = setInterval(() => {
         if (finished) return;
         timerEl.textContent = fmtTime(Math.floor((Date.now() - startedAt) / 1000));
       }, 1000);
@@ -127,7 +132,7 @@
 
     function finish() {
       finished = true;
-      clearInterval(timerHandle);
+      clearInterval(activeTimerHandle);
       const elapsed = Math.floor((Date.now() - startedAt) / 1000);
       const best = getBest(n);
       const isNewBest = best == null || elapsed < best;
@@ -155,6 +160,6 @@
     title: 'Match Attack',
     icon: '🧩',
     mount: mount,
-    unmount() {},
+    unmount() { clearInterval(activeTimerHandle); },
   });
 })();

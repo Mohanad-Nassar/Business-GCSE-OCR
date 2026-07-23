@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.5.1 Operating Systems — placeholder, content not yet written
+    //  DATA: 1.5.1 Operating Systems
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-5-1-operating-systems',
@@ -268,21 +268,991 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.5.1 Operating Systems</strong> will appear here soon.</p>`
+            title: "What is an operating system?",
+            tag: "Key concept",
+            content: `<h4>The software that runs the whole computer</h4>
+<ul>
+<li>An <strong>operating system (OS)</strong> is <strong>system software</strong> that manages the computer's hardware and software and provides a platform (a base) for application software to run on.</li>
+<li>It sits <strong>between the user and applications on one side and the hardware on the other</strong> — when a program wants to save a file or print, it asks the OS, and the OS deals with the hardware.</li>
+<li>It runs <strong>automatically</strong> when the computer starts and works in the background the whole time the computer is on. Examples include Windows, macOS, Linux, Android and iOS.</li>
+</ul>
+<h4>The five functions you must know</h4>
+<ul>
+<li>This topic is really about the <strong>jobs (functions)</strong> an OS does: the <strong>user interface</strong>, <strong>memory management &amp; multitasking</strong>, <strong>peripheral management &amp; drivers</strong>, <strong>user management</strong> and <strong>file management</strong>. The exam skill is knowing what each one does.</li>
+</ul>`,
+            readCheck: {
+                q: "Which statement best describes an operating system?",
+                opts: ["A piece of application software, such as a word processor, that a user chooses to open in order to complete one particular task", "System software that manages the computer's hardware and provides a platform for applications to run on", "A physical hardware component fitted inside the computer's case to make it run more quickly", "A single file that stores all of the user's personal documents, photos and settings together"],
+                ans: 1,
+                explain: "The OS is system software that manages the hardware and provides a platform for applications — it is not an application itself, nor a hardware part."
+            }
+        },
+        {
+            title: "The user interface",
+            tag: "Function",
+            content: `<h4>How the user interacts with the computer</h4>
+<ul>
+<li>One job of the OS is to provide a <strong>user interface</strong> — the means by which a person <strong>interacts</strong> with the computer, giving it instructions and seeing its output.</li>
+<li>A <strong>graphical user interface (GUI)</strong> uses <strong>windows, icons, menus and a pointer</strong> (sometimes called WIMP). It is easy for beginners because you click and tap visible options rather than remembering commands.</li>
+<li>A <strong>command line interface (CLI)</strong> needs the user to <strong>type text commands</strong>. It is harder to learn, but can be faster and more powerful for experienced users.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the main difference between a GUI and a command line interface (CLI)?",
+                opts: ["A GUI uses windows, icons, menus and a pointer, whereas a CLI needs the user to type text commands", "A GUI can only ever be used on a mobile phone or a tablet, while a CLI can only be used on a desktop computer", "A GUI is a piece of hardware, whereas a CLI is a completely separate physical device from it", "A GUI runs without any operating system at all, but a CLI always requires one to be installed"],
+                ans: 0,
+                explain: "A GUI is interacted with visually (windows, icons, menus, pointer); a CLI requires typed text commands — both are just styles of user interface."
+            }
+        },
+        {
+            title: "Memory management",
+            tag: "Function",
+            content: `<h4>Sharing out RAM between programs</h4>
+<ul>
+<li><strong>Memory management</strong> controls how the computer's <strong>main memory (RAM)</strong> is used.</li>
+<li>It <strong>moves programs and data into and out of RAM</strong> as they are needed, and <strong>allocates</strong> (gives out) a share of memory to each running program.</li>
+<li>It keeps each program's memory <strong>separate</strong>, so one program cannot overwrite or interfere with another's data, and <strong>frees up</strong> memory again when a program is closed so it can be reused.</li>
+</ul>`,
+            readCheck: {
+                q: "What does the memory management function of an operating system do?",
+                opts: ["It permanently stores all of the user's saved files and documents on the computer's hard drive", "It allocates RAM to each running program and moves programs and data into and out of memory", "It controls exactly which websites the user is allowed to visit while they are online", "It physically increases the total amount of RAM that is fitted inside the computer"],
+                ans: 1,
+                explain: "Memory management allocates RAM to programs and moves programs/data in and out of memory — it does not deal with permanent storage or add physical RAM."
+            }
+        },
+        {
+            title: "Multitasking",
+            tag: "Function",
+            content: `<h4>Running several programs 'at once'</h4>
+<ul>
+<li><strong>Multitasking</strong> lets the computer <strong>appear</strong> to run several programs at the same time — for example a browser, music player and word processor all open together.</li>
+<li>A single processor can only actually run <strong>one instruction at a time</strong>, so the OS <strong>switches very rapidly between the programs</strong>, giving each a tiny slice of processor time in turn (time-slicing).</li>
+<li>Because the switching happens so fast, it <strong>looks</strong> to the user as though everything is running simultaneously. Multitasking works closely with memory management, which keeps each program's memory separate.</li>
+</ul>`,
+            readCheck: {
+                q: "How does an operating system with a single processor manage to multitask?",
+                opts: ["It genuinely runs every single open program at exactly the same instant, using no switching of any kind at all", "It switches very rapidly between the programs, giving each a small slice of processor time in turn", "It shuts every program except one, and only reopens the others when the user asks for them again", "It permanently splits the processor into several smaller, separate physical processors inside the chip"],
+                ans: 1,
+                explain: "A single processor runs one instruction at a time, so the OS rapidly switches between programs (time-slicing) so they appear to run at once."
+            }
+        },
+        {
+            title: "Peripheral management",
+            tag: "Function",
+            content: `<h4>Controlling the devices connected to the computer</h4>
+<ul>
+<li><strong>Peripheral management</strong> controls communication between the computer and its <strong>peripherals</strong> — input, output and storage devices such as keyboards, printers, monitors and external drives.</li>
+<li>It <strong>manages the transfer of data to and from</strong> these devices, so that each one receives or sends data correctly.</li>
+<li>Because a device (like a printer) is usually much slower than the processor, the OS uses a <strong>buffer</strong> (a small store of data waiting to be processed) and a <strong>queue</strong> so the processor does not have to wait around for the device.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the role of peripheral management in an operating system?",
+                opts: ["It decides exactly which programs are allowed to appear in the computer's start-up menu each and every morning", "It manages communication and the transfer of data between the computer and its connected devices", "It scans every file on the computer for viruses and other kinds of malicious software", "It chooses the strong passwords that each different user of the computer must use to log in"],
+                ans: 1,
+                explain: "Peripheral management handles communication and data transfer between the computer and its peripherals (input, output and storage devices)."
+            }
+        },
+        {
+            title: "Device drivers",
+            tag: "Function",
+            content: `<h4>Software that lets the OS 'talk to' a device</h4>
+<ul>
+<li>A <strong>device driver</strong> is a piece of <strong>software</strong> that lets the operating system <strong>communicate with a specific piece of hardware</strong>, such as a particular printer, graphics card or webcam.</li>
+<li>It <strong>translates</strong> the operating system's general instructions into the exact commands that <strong>that</strong> device understands.</li>
+<li>Each different device needs its <strong>own correct driver</strong>. If a driver is missing or out of date, the device may not work properly — which is why installing a new printer usually means installing its driver too.</li>
+</ul>`,
+            readCheck: {
+                q: "What is a device driver?",
+                opts: ["A physical cable that is used to connect a peripheral device securely to the main computer unit", "Software that allows the operating system to communicate with a specific piece of hardware", "The person whose job it is to install and repair the computers within a large organisation", "A backup copy of the operating system that is used if the main copy ever becomes damaged"],
+                ans: 1,
+                explain: "A driver is software (not a cable or a person) that lets the OS communicate with, and control, a specific hardware device."
+            }
+        },
+        {
+            title: "User management",
+            tag: "Function",
+            content: `<h4>Controlling accounts and who can do what</h4>
+<ul>
+<li><strong>User management</strong> lets the OS support <strong>different user accounts</strong>, each with its own <strong>login</strong> (username and password).</li>
+<li>It keeps each user's <strong>files and settings separate</strong>, so one person's documents and preferences do not mix with another's.</li>
+<li>It sets <strong>access rights (permissions)</strong> — deciding what each user is allowed to see or do — and handles <strong>security</strong>, such as requiring a password to log in. This is how a shared computer can give a teacher more control than a student.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is part of the user management function of an operating system?",
+                opts: ["Moving programs and all of their data into and out of the computer's main memory as they are needed to run", "Setting up user accounts with logins and giving each user their own access rights and permissions", "Sending pages of data to a printer's buffer so they can be printed one after another in order", "Organising the computer's saved files neatly into a structure of named folders and sub-folders"],
+                ans: 1,
+                explain: "User management deals with accounts, logins and access rights. The other options describe memory management, peripheral management and file management."
+            }
+        },
+        {
+            title: "File management",
+            tag: "Function",
+            content: `<h4>Organising the files stored on the computer</h4>
+<ul>
+<li><strong>File management</strong> organises the files stored on the computer into a <strong>structure of folders (directories)</strong> so they can be found again easily.</li>
+<li>It lets the user (and programs) <strong>create, open, save, rename, move, copy and delete</strong> files and folders.</li>
+<li>It keeps track of <strong>where each file is physically stored</strong> on the disk, and can control <strong>who is allowed to access</strong> particular files, working alongside user management.</li>
+</ul>`,
+            readCheck: {
+                q: "What does the file management function of an operating system do?",
+                opts: ["It rapidly switches the single processor between several open programs so they appear to run at once", "It organises files into folders and lets them be created, renamed, moved, copied, opened and deleted", "It translates the operating system's instructions into commands that one specific printer understands", "It shares out the available space in RAM between all of the programs that are currently running"],
+                ans: 1,
+                explain: "File management organises files into folders and handles creating, naming, moving, copying and deleting them. The others describe multitasking, drivers and memory management."
+            }
+        },
+        {
+            title: "Matching the function to the task",
+            tag: "Exam skill",
+            content: `<h4>The mapping the exam keeps testing</h4>
+<p>Questions very often give you a <strong>task</strong> and ask which <strong>function</strong> is responsible. Learn these signature links:</p>
+<ul>
+<li><strong>User interface</strong> → how the user <strong>interacts</strong> with the computer (clicking icons, typing commands).</li>
+<li><strong>Memory management</strong> → moving programs/data in and out of <strong>RAM</strong>; allocating memory.</li>
+<li><strong>Multitasking</strong> → switching between <strong>several open programs</strong> so they appear to run at once.</li>
+<li><strong>Peripheral management</strong> → transferring data <strong>to and from devices</strong>; using buffers.</li>
+<li><strong>Device drivers</strong> → letting the OS <strong>communicate with a specific device</strong> (e.g. installing a printer driver).</li>
+<li><strong>User management</strong> → <strong>accounts</strong>, logins, passwords and <strong>access rights</strong>.</li>
+<li><strong>File management</strong> → organising <strong>files and folders</strong> (create, rename, move, delete).</li>
+</ul>`,
+            readCheck: {
+                q: "A computer is 'transferring data to and from RAM as programs run'. Which operating system function is responsible?",
+                opts: ["File management, because the data being transferred will eventually be saved into a folder somewhere", "Memory management, because it moves programs and data into and out of RAM and allocates memory", "User management, because only a logged-in user is able to run the programs on the computer at all", "Peripheral management, because RAM is a device that is connected to the rest of the computer system"],
+                ans: 1,
+                explain: "Moving programs and data in and out of RAM is the defining task of memory management."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which of the following is an example of an operating system?",
+            opts: ["A spreadsheet program that a user opens whenever they need to work with numbers and charts", "Linux", "A device driver that has been installed so the computer can print to a new office printer", "A backup utility that automatically copies important files to an external drive each night"],
+            ans: 1,
+            explain: "Linux is an operating system. A spreadsheet is application software, and a driver or backup utility is other system software — not the OS itself."
+        },
+        {
+            q: "What is the main purpose of the user interface provided by an operating system?",
+            opts: ["To permanently increase the amount of storage space available on the computer's hard drive", "To provide the means by which a user interacts with the computer and gives it instructions", "To scan the computer for malware and remove any harmful programs that it happens to find", "To keep a spare copy of every file so that nothing is ever lost if the computer breaks down"],
+            ans: 1,
+            explain: "The user interface is how the user interacts with the computer (e.g. a GUI or CLI) — it does not manage storage, malware or backups."
+        },
+        {
+            q: "A single-processor computer has a browser, a game and a music player all open at the same time. Which operating system function makes this possible?",
+            opts: ["File management", "Multitasking", "User management", "Peripheral management"],
+            ans: 1,
+            explain: "Multitasking rapidly switches the processor between the open programs so they appear to run at the same time."
+        },
+        {
+            q: "Which task is carried out by the memory management function?",
+            opts: ["Organising the user's saved documents and photos neatly into a set of clearly named folders", "Allocating space in RAM to each running program and moving data in and out of memory", "Requiring every user to enter a password before they are allowed to log in to the computer", "Sending data to a printer's buffer so that several documents can be printed one after another"],
+            ans: 1,
+            explain: "Allocating RAM and moving data in and out of memory is memory management. The others are file management, user management and peripheral management."
+        },
+        {
+            q: "Why does an operating system need a device driver for a new printer?",
+            opts: ["Because the printer will physically refuse to switch on until a matching driver has been bought", "Because the driver is the software that lets the OS communicate with that specific printer", "Because a driver is the only thing that supplies electrical power to the printer while it runs", "Because without a driver the printer would print every document in completely the wrong order"],
+            ans: 1,
+            explain: "A driver is the software that lets the OS communicate with and control that specific device — it does not supply power or physically switch the printer on."
+        },
+        {
+            q: "On a shared family computer, each person has their own login, their own files and their own settings. Which operating system function provides this?",
+            opts: ["File management", "User management", "Memory management", "Multitasking"],
+            ans: 1,
+            explain: "Separate accounts, logins and settings are provided by user management, which also controls each user's access rights."
+        },
+        {
+            q: "Which of these is a task performed by file management?",
+            opts: ["Switching the processor rapidly between several different programs that the user has opened at once", "Creating, renaming, moving and deleting files within a structure of folders on the computer", "Translating the operating system's instructions into commands a specific graphics card understands", "Deciding how much of the computer's RAM each currently running program is allowed to use"],
+            ans: 1,
+            explain: "Creating, renaming, moving and deleting files in folders is file management. The others describe multitasking, drivers and memory management."
+        },
+        {
+            q: "What does peripheral management use a buffer for?",
+            opts: ["To permanently store all of the user's most important files in case the computer ever breaks down completely", "To temporarily hold data waiting to be sent to a slower device, so the processor need not wait", "To make the processor run at a much higher clock speed than it was originally designed for", "To decide which of the computer's several users is currently allowed to print their documents"],
+            ans: 1,
+            explain: "A buffer temporarily holds data waiting to be processed by a slower peripheral, so the fast processor is not held up waiting for it."
+        },
+        {
+            q: "Which two functions must work together so that several programs can run at once without their data getting mixed up?",
+            opts: ["File management and user management, because both of them deal with keeping things neatly separated", "Memory management and multitasking, because one keeps each program's memory separate as the other switches between them", "Peripheral management and device drivers, because both of them handle the various hardware devices attached to the computer", "The user interface and file management, because both of them are things the user can see on the screen"],
+            ans: 1,
+            explain: "Multitasking switches between programs while memory management keeps each program's memory separate, so their data does not get mixed up."
+        },
+        {
+            q: "A user types text commands to control a computer instead of clicking on icons. Which type of user interface are they using?",
+            opts: ["A graphical user interface (GUI)", "A command line interface (CLI)", "A peripheral management interface", "A file management interface"],
+            ans: 1,
+            explain: "Typing text commands to control the computer is a command line interface (CLI); a GUI is controlled by clicking windows, icons, menus and a pointer."
+        },
+        {
+            q: "Which of the following best describes what a graphical user interface (GUI) uses?",
+            opts: ["Typed text commands that the user has to learn and remember before they can do anything at all", "Windows, icons, menus and a pointer that the user can click on to control the computer", "A single flashing cursor on an otherwise completely blank screen with no other options shown", "A printed paper manual that lists every command the computer is able to understand and carry out"],
+            ans: 1,
+            explain: "A GUI uses windows, icons, menus and a pointer (WIMP). Typed commands describe a CLI, not a GUI."
+        },
+        {
+            q: "Which operating system function is responsible for setting each user's access rights?",
+            opts: ["Memory management", "User management", "File management", "Multitasking"],
+            ans: 1,
+            explain: "Setting access rights and permissions for each account is part of user management."
+        }
+    ];
+
+    const matchData = [
+        { term: "Operating system", def: "System software that manages the hardware and provides a platform for applications to run on" },
+        { term: "User interface", def: "The means by which a user interacts with the computer and gives it instructions" },
+        { term: "GUI", def: "A graphical interface using windows, icons, menus and a pointer (WIMP)" },
+        { term: "Command line interface (CLI)", def: "An interface in which the user types text commands to control the computer" },
+        { term: "Memory management", def: "Allocates RAM to programs and moves programs and data into and out of memory" },
+        { term: "Multitasking", def: "Rapidly switches one processor between several programs so they appear to run at once" },
+        { term: "Peripheral management", def: "Controls communication and the transfer of data between the computer and its devices" },
+        { term: "Device driver", def: "Software that lets the operating system communicate with a specific piece of hardware" },
+        { term: "User management", def: "Provides user accounts, logins, passwords and access rights, keeping users separate" },
+        { term: "File management", def: "Organises files into folders and handles creating, renaming, moving and deleting them" },
+        { term: "Buffer", def: "A temporary store for data waiting to be sent to a slower device such as a printer" },
+        { term: "Access rights", def: "The permissions that decide what a particular user is allowed to see or do" }
+    ];
+
+    const fibData = [
+        {
+            display: "An operating system is _____ software that manages the computer's hardware and provides a platform for applications.",
+            blanks: { B1: "system" }
+        },
+        {
+            display: "A graphical user interface uses windows, icons, menus and a _____ that the user clicks to control the computer.",
+            blanks: { B1: "pointer" }
+        },
+        {
+            display: "Memory management allocates space in _____ to each running program and moves data into and out of it.",
+            blanks: { B1: "RAM" }
+        },
+        {
+            display: "Because one processor runs a single instruction at a time, _____ makes several programs appear to run at once by switching between them.",
+            blanks: { B1: "multitasking" }
+        },
+        {
+            display: "A device _____ is software that lets the operating system communicate with a specific piece of hardware.",
+            blanks: { B1: "driver" }
+        },
+        {
+            display: "Peripheral management uses a _____ to hold data waiting to be sent to a slower device such as a printer.",
+            blanks: { B1: "buffer" }
+        },
+        {
+            display: "_____ management provides separate user accounts, logins and access rights on a shared computer.",
+            blanks: { B1: "user" }
+        },
+        {
+            display: "File management organises files into a structure of _____ so they can be found again easily.",
+            blanks: { B1: "folders" }
+        }
+    ];
+    const fibWords = ["system", "pointer", "RAM", "multitasking", "driver", "buffer", "user", "folders"];
+
+    const tfData = [
+        {
+            statement: "An operating system is an example of application software.",
+            answer: false,
+            explanation: "An operating system is system software. Application software (like a word processor) runs on top of the operating system."
+        },
+        {
+            statement: "A command line interface requires the user to type text commands to control the computer.",
+            answer: true,
+            explanation: "Correct — a CLI is controlled by typed commands, unlike a GUI which uses windows, icons, menus and a pointer."
+        },
+        {
+            statement: "Memory management is responsible for organising the user's saved files into folders.",
+            answer: false,
+            explanation: "That is file management. Memory management deals with RAM — allocating it to programs and moving data in and out of it."
+        },
+        {
+            statement: "During multitasking, a single processor rapidly switches between programs so they appear to run at the same time.",
+            answer: true,
+            explanation: "Correct — one processor runs one instruction at a time, so it time-slices between programs, making them appear simultaneous."
+        },
+        {
+            statement: "A device driver is a physical cable that connects a peripheral to the computer.",
+            answer: false,
+            explanation: "A device driver is software, not hardware. It lets the operating system communicate with a specific device."
+        },
+        {
+            statement: "Peripheral management can use a buffer so the fast processor does not have to wait for a slower device.",
+            answer: true,
+            explanation: "Correct — a buffer temporarily holds data for a slower peripheral, letting the processor carry on with other work."
+        },
+        {
+            statement: "User management is what keeps different users' files and settings separate and controls their access rights.",
+            answer: true,
+            explanation: "Correct — user management provides separate accounts with their own logins, settings and access rights."
+        },
+        {
+            statement: "The user interface is the physical monitor and keyboard attached to the computer.",
+            answer: false,
+            explanation: "The user interface is the software layer (such as a GUI or CLI) through which the user interacts — not the physical hardware itself."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking the operating system is the same thing as the applications, e.g. that a web browser or word processor is part of the OS.",
+            correct: "The <strong>operating system</strong> is <strong>system software</strong> that manages the computer and provides a platform. <strong>Applications</strong> (browser, word processor, games) are separate software that <strong>runs on top of</strong> the OS. The OS is what lets those applications use the hardware.",
+            readCheck: {
+                q: "How is an operating system different from an application such as a web browser?",
+                opts: ["There is no real difference between them, because both of them are simply types of application software", "The OS is system software that manages the computer; applications run on top of the OS", "The OS is a physical hardware component, while an application is a piece of software", "An application manages the hardware, while the operating system is only ever used for browsing the web"],
+                ans: 1,
+                explain: "The OS is system software that manages the machine and provides a platform; applications are separate software that runs on top of it."
+            }
+        },
+        {
+            wrong: "Believing that multitasking means a single processor genuinely runs many programs at exactly the same instant.",
+            correct: "A single processor runs <strong>one instruction at a time</strong>. Multitasking works by <strong>switching very rapidly</strong> between the open programs, giving each a tiny slice of time. It only <strong>appears</strong> simultaneous because the switching is so fast.",
+            readCheck: {
+                q: "Why is it wrong to say a single-processor computer runs all its open programs at exactly the same instant?",
+                opts: ["Because a single processor can only run one instruction at a time, so it must switch rapidly between them", "Because a single-processor computer can never actually have more than one separate program open at the same time at all", "Because programs never actually run on the processor, only ever on the RAM and the hard drive together", "Because the programs are really all run by the user manually, one instruction at a time, using the mouse"],
+                ans: 0,
+                explain: "One processor executes one instruction at a time; multitasking rapidly switches between programs so they only appear to run simultaneously."
+            }
+        },
+        {
+            wrong: "Confusing memory management (RAM) with managing the hard drive or saved files.",
+            correct: "<strong>Memory management</strong> is about <strong>RAM</strong> — allocating it to running programs and moving programs and data in and out of it. Organising <strong>saved files</strong> in folders on storage is <strong>file management</strong>. Keep 'memory = RAM' and 'files = storage' separate.",
+            readCheck: {
+                q: "A question describes 'moving programs and data into and out of RAM'. Which function is this?",
+                opts: ["File management, because anything to do with data on the computer counts as managing its files", "Memory management, because it is specifically about allocating and using RAM (main memory)", "User management, because a user must be logged in before any program can use the RAM at all", "Peripheral management, because RAM is treated as just another peripheral device by the computer"],
+                ans: 1,
+                explain: "Moving programs and data in and out of RAM is memory management; organising saved files on storage is the separate job of file management."
+            }
+        },
+        {
+            wrong: "Thinking a device driver is a physical part of the computer, or the person who installs it.",
+            correct: "A <strong>device driver</strong> is <strong>software</strong>. It lets the operating system <strong>communicate with a specific piece of hardware</strong> by translating the OS's instructions into commands that device understands. It is not a cable, a chip, or a person.",
+            readCheck: {
+                q: "Which statement about a device driver is correct?",
+                opts: ["It is the wire that carries the electrical signal from the computer to a connected peripheral device", "It is software that lets the operating system communicate with a specific piece of hardware", "It is the member of IT staff whose job is to keep all of the school's printers working properly", "It is a small physical chip that must be fitted inside every peripheral before it can be used"],
+                ans: 1,
+                explain: "A driver is software that lets the OS communicate with a specific device — not a cable, a chip or a person."
+            }
+        },
+        {
+            wrong: "Mixing up user management and file management because both 'control access' in some way.",
+            correct: "<strong>User management</strong> is about the <strong>people</strong> — accounts, logins, passwords and each user's access rights. <strong>File management</strong> is about the <strong>files</strong> — organising them into folders and creating, renaming, moving or deleting them. They work together but do different jobs.",
+            readCheck: {
+                q: "Which task belongs to user management rather than file management?",
+                opts: ["Sorting all of the user's saved documents and photographs neatly into a well-organised structure of named folders", "Setting up a new account with a login and giving that user their own access rights and permissions", "Renaming a file from 'draft' to 'final' after the user has finished working on the document", "Deleting an old folder full of files that the user says they no longer need to keep at all"],
+                ans: 1,
+                explain: "Creating accounts and setting access rights is user management; the other three tasks (organising, renaming and deleting files/folders) are file management."
+            }
+        },
+        {
+            wrong: "Assuming the user interface means the physical screen, mouse and keyboard.",
+            correct: "The <strong>user interface</strong> is the <strong>software</strong> layer you interact through — a <strong>GUI</strong> (windows, icons, menus, pointer) or a <strong>CLI</strong> (typed commands). The monitor, mouse and keyboard are the hardware you use to work the interface, but they are not the interface itself.",
+            readCheck: {
+                q: "What is the user interface of an operating system?",
+                opts: ["The physical monitor, keyboard and mouse that are plugged into the computer's main unit by the user", "The software layer, such as a GUI or CLI, through which the user interacts with the computer", "The internal processor that carries out all of the instructions given to the computer by its user", "The broadband router that connects the whole computer to the internet and to other devices nearby"],
+                ans: 1,
+                explain: "The user interface is the software (GUI or CLI) you interact through; the physical devices are hardware used to operate it, not the interface itself."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Match the function to the task — the tick-grid and table skill",
+            pills: ["AO1/AO2", "Key skill", "Function ↔ task"],
+            content: `<p>The most common question style here gives you a <strong>task</strong> and asks which <strong>function</strong> does it — as a tick-one-box grid, or a table you complete. You have to know each function's signature task cold:</p>
+<ul>
+<li>Transfer data to/from <strong>RAM</strong> → <strong>memory management</strong></li>
+<li>Install a printer's <strong>driver</strong> / send data to a device → <strong>peripheral management</strong></li>
+<li>Create a <strong>user account</strong> / set a password → <strong>user management</strong></li>
+<li>Rename or move a <strong>folder</strong> → <strong>file management</strong></li>
+<li>Switch between several <strong>open programs</strong> → <strong>multitasking</strong></li>
+</ul>
+<p><strong>Watch the traps:</strong> "memory" means RAM, not storage — a saved file is <em>file</em> management. And installing a driver is <em>peripheral</em> management, even though the driver itself is software.</p>`,
+            readCheck: {
+                q: "In a tick-grid question, the task is 'renaming a folder'. Which function should you tick?",
+                opts: ["Memory management, because the folder and its contents are stored somewhere in the computer's memory", "File management, because renaming a folder is part of organising files and folders", "User management, because only a logged-in user is able to rename a folder in the first place", "Peripheral management, because the folder has to be shown on the monitor while it is renamed"],
+                ans: 1,
+                explain: "Renaming a folder is organising files and folders, which is file management — 'memory' here would mean RAM, which is not involved."
+            }
+        },
+        {
+            type: "explain",
+            title: "'Identify and describe two functions' — name AND describe",
+            pills: ["AO1", "4–6 marks", "Common structure"],
+            content: `<p>A frequent question asks you to <strong>identify and describe</strong> two (or more) functions of an operating system. The marks split into two halves for each function:</p>
+<ul>
+<li><strong>Identify (1 mark):</strong> name a valid function — e.g. "memory management".</li>
+<li><strong>Describe (1 mark):</strong> say what it actually does — e.g. "it allocates RAM to each running program and moves data in and out of memory".</li>
+</ul>
+<p><strong>❌ Half marks:</strong> just listing "memory management, file management" with no description.</p>
+<p><strong>✅ Full marks:</strong> each function <strong>named</strong> and then <strong>described</strong> with what it does. Pick functions you can clearly describe, and make sure your two functions are genuinely <strong>different</strong> — don't give memory management twice in different words.</p>`,
+            readCheck: {
+                q: "A student answers a 4-mark 'identify and describe two functions' question by writing only 'memory management and file management'. What is missing?",
+                opts: ["Nothing is missing — naming the two functions is enough to earn all four of the available marks", "A description of what each named function actually does, which is where half of the marks are", "The exact year in which each of those two operating system functions was first invented", "A labelled diagram showing the inside of the processor while each function is running"],
+                ans: 1,
+                explain: "Naming the functions earns the 'identify' marks only; the 'describe' marks need you to say what each function does."
+            }
+        },
+        {
+            type: "tip",
+            title: "Don't blur memory, files, drivers and the interface",
+            pills: ["AO1", "Definitions", "Common trap"],
+            content: `<p>Four pairs get mixed up constantly. Keep each one crisp:</p>
+<ul>
+<li><strong>Memory management</strong> = RAM (main memory). <strong>File management</strong> = saved files/folders on storage. "Memory" ≠ "storage".</li>
+<li><strong>Peripheral management</strong> = the OS controlling devices. A <strong>device driver</strong> = the software that lets it talk to one specific device.</li>
+<li><strong>User interface</strong> = the software layer you interact through (GUI/CLI), not the physical screen or keyboard.</li>
+<li><strong>User management</strong> = accounts, logins and access rights (the people). <strong>File management</strong> = the files themselves.</li>
+</ul>
+<p>If a question mentions RAM, think memory management; if it mentions folders, think file management; if it mentions a specific printer or webcam, think drivers/peripheral management.</p>`,
+            readCheck: {
+                q: "A question mentions 'installing the software needed for the computer to use a new webcam'. Which term fits best?",
+                opts: ["Memory management, because the webcam's software will first need to be loaded into the computer's RAM in order to run", "A device driver, because it is the software that lets the OS communicate with that specific webcam", "File management, because the webcam will end up saving its captured video files into a folder", "The user interface, because the user has to click on the webcam's icon before they can use it"],
+                ans: 1,
+                explain: "The software that lets the OS use one specific device (the webcam) is its device driver."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Operating system (OS)", def: "System software that manages the hardware and provides a platform for applications" },
+        { term: "System software", def: "Software that runs and manages the computer itself, e.g. the OS and utilities" },
+        { term: "Application software", def: "Software for user tasks (word processor, browser) that runs on top of the OS" },
+        { term: "User interface", def: "The means by which a user interacts with the computer" },
+        { term: "GUI", def: "Graphical user interface using windows, icons, menus and a pointer (WIMP)" },
+        { term: "Command line interface (CLI)", def: "An interface controlled by typing text commands" },
+        { term: "Memory management", def: "Allocates RAM to programs and moves programs and data in and out of memory" },
+        { term: "Multitasking", def: "Rapidly switching one processor between programs so they appear to run at once" },
+        { term: "Time-slicing", def: "Giving each program a small slice of processor time in turn during multitasking" },
+        { term: "Peripheral management", def: "Controls communication and data transfer between the computer and its devices" },
+        { term: "Buffer", def: "A temporary store for data waiting to be sent to a slower device" },
+        { term: "Device driver", def: "Software that lets the OS communicate with a specific piece of hardware" },
+        { term: "User management", def: "Provides accounts, logins, passwords and access rights, keeping users separate" },
+        { term: "Access rights", def: "Permissions deciding what a particular user is allowed to see or do" },
+        { term: "File management", def: "Organises files into folders and handles creating, renaming, moving and deleting" },
+        { term: "Directory / folder", def: "A named container used to organise files within the file structure" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-23) ──
+    // Written from scratch against the §1.5.1 spec scope (CS-CONTENT-PLAN.md
+    // §6.2 clean-room rule) — NOT transcribed from any OCR ExamBuilder PDF or
+    // past paper. This topic is assessed heavily via function↔task tick-grids
+    // and table completion, plus a word-bank cloze describing the functions;
+    // its extended-prose ceiling is 6 marks ("identify and describe two
+    // functions") — there is NO levelled 8-mark essay (the paper's [8] item is
+    // an 8-blank cloze, reproduced faithfully as bankCloze). Utility software
+    // (system-info/diagnosis/defrag/backup) is 1.5.2 and is NOT covered here.
+    // Spread: 3x1, 3x2, 3x4, 2x5, 1x6, 1x8(cloze) = 14 questions / 49 marks.
+    // See docs/SELF-MARK-POINTS-AUTHORING.md for the markPoints convention.
+    const EXAM_CASE_STUDIES = {
+        "leah": `<p>Leah has a new laptop running an operating system with a graphical user interface. She uses it to run several programs at once, connect a printer, and store her college work in folders.</p>`,
+        "oakwood": `<p>Oakwood Library has computers that are shared by many members of the public. Each person logs in with their own account, and staff accounts can do more than public accounts. The computers store shared resources in a structure of folders.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the operating system function that provides the means by which a user interacts with the computer.</p>`,
+            options: ["Memory management", "The user interface", "File management", "Peripheral management"],
+            answer: 1,
+            hint: "Which function is about how a person gives the computer instructions and sees its output?",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>The user interface</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; 2 or more ticks scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "The user interface."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the operating system function responsible for allocating RAM to programs and moving data into and out of main memory.</p>`,
+            options: ["File management", "Memory management", "User management", "Multitasking"],
+            answer: 1,
+            hint: "The clue is 'RAM' and 'main memory' — only one function is about managing that.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>Memory management</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; 2 or more ticks scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "Memory management."
+        },
+        {
+            num: "Q3",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify which of these is a task performed by file management.</p>`,
+            options: ["Switching the processor between several open programs", "Renaming a folder", "Installing a driver for a new scanner", "Allocating memory to a program"],
+            answer: 1,
+            hint: "File management is about organising files and folders on the computer.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>Renaming a folder</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; 2 or more ticks scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "Renaming a folder."
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Function 1", "Function 2"],
+            question: `<p>State <strong>two</strong> functions of an operating system.</p>`,
+            hint: "Just name two — for example from the user interface, memory management, multitasking, peripheral management, user management or file management.",
+            starter: "",
+            markPoints: {
+                note: "1 mark for each valid operating system function named, to a maximum of 2. The two must be different.",
+                groups: [
+                    { label: "Function 1", max: 1, points: [{ text: "A valid OS function, e.g. user interface / memory management / multitasking", marks: 1 }] },
+                    { label: "Function 2", max: 1, points: [{ text: "A second, different valid OS function, e.g. peripheral management / user management / file management", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark each, max 2)</h5>
+<ul>
+<li>Providing a user interface</li>
+<li>Memory management</li>
+<li>Multitasking</li>
+<li>Peripheral management (and device drivers)</li>
+<li>User management</li>
+<li>File management</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award any two different valid functions. Two ways of naming the same function score 1 mark only.</li>
+</ul>
+</div>`,
+            modelAnswer: "1: Memory management. 2: File management."
+        },
+        {
+            num: "Q5",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Describe what a device driver is and why an operating system needs one.</p>`,
+            hint: "Say what kind of thing a driver is (hardware or software?), and what job it does for a specific device.",
+            starter: "A device driver is…",
+            markPoints: {
+                note: "1 mark for what a driver is, 1 mark for why it is needed.",
+                groups: [
+                    {
+                        label: "Device driver", max: 2, points: [
+                            { text: "Says a device driver is software", marks: 1 },
+                            { text: "Says it lets the operating system communicate with / control a specific piece of hardware", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: a device driver is software</li>
+<li>1 mark: it lets the OS communicate with (or control) a specific piece of hardware</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both marks require the idea of software AND communicating with a specific device.</li>
+</ul>
+</div>`,
+            modelAnswer: "A device driver is software that lets the operating system communicate with, and control, a specific piece of hardware, such as a particular printer. The OS needs the correct driver because without it, it cannot send the right commands to that device."
+        },
+        {
+            num: "Q6",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Describe <strong>one</strong> difference between a graphical user interface (GUI) and a command line interface (CLI).</p>`,
+            hint: "Say how the user controls each one — clicking visible things versus typing something.",
+            starter: "A GUI…, whereas a CLI…",
+            markPoints: {
+                note: "Up to 2 marks: both sides of one clear difference (the GUI side and the CLI side).",
+                groups: [
+                    {
+                        label: "One difference (both sides)", max: 2, points: [
+                            { text: "States that a GUI is controlled visually using windows, icons, menus and a pointer", marks: 1 },
+                            { text: "Contrasts this with a CLI, which is controlled by typing text commands", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: a GUI uses windows, icons, menus and a pointer (clicked/tapped)</li>
+<li>1 mark: a CLI requires the user to type text commands</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both sides of the difference are needed for 2 marks. Accept other valid contrasts (e.g. GUI easier for beginners / CLI faster for experts).</li>
+</ul>
+</div>`,
+            modelAnswer: "A GUI is controlled visually, by clicking on windows, icons and menus with a pointer, whereas a CLI is controlled by typing text commands. This makes a GUI easier for a beginner, while a CLI can be faster for an experienced user."
+        },
+        {
+            num: "Q7",
+            marks: 5,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to identify the operating system function that carries out each task.</p>`,
+            grid: {
+                cols: ["Memory management", "Peripheral management", "User management", "File management", "Multitasking"],
+                rows: [
+                    { label: "Transferring data to and from RAM", correct: [0] },
+                    { label: "Installing the driver for a new printer", correct: [1] },
+                    { label: "Creating a new user account", correct: [2] },
+                    { label: "Renaming a folder", correct: [3] },
+                    { label: "Switching rapidly between two open programs", correct: [4] }
+                ]
+            },
+            hint: "Match each task to its signature function: RAM → memory, a driver/device → peripheral, an account → user, a folder → file, several open programs → multitasking.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: … | Row 5: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks (1 mark for each row)</h5>
+<ul>
+<li>Transferring data to and from RAM → <strong>Memory management</strong></li>
+<li>Installing the driver for a new printer → <strong>Peripheral management</strong></li>
+<li>Creating a new user account → <strong>User management</strong></li>
+<li>Renaming a folder → <strong>File management</strong></li>
+<li>Switching rapidly between two open programs → <strong>Multitasking</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently; 2+ ticks in a single row scores 0 for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1: Memory management. Row 2: Peripheral management. Row 3: User management. Row 4: File management. Row 5: Multitasking."
+        },
+        {
+            num: "Q8",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to identify which operating system function deals with each action.</p>`,
+            grid: {
+                cols: ["Memory management", "Peripheral management", "User management", "File management"],
+                rows: [
+                    { label: "Setting the password needed to log in", correct: [2] },
+                    { label: "Saving a document into the correct folder", correct: [3] },
+                    { label: "Sending data to a printer's buffer", correct: [1] },
+                    { label: "Freeing up RAM when a program is closed", correct: [0] }
+                ]
+            },
+            hint: "Password/login → user; folder → file; buffer/printer → peripheral; RAM → memory.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Setting the password needed to log in → <strong>User management</strong></li>
+<li>Saving a document into the correct folder → <strong>File management</strong></li>
+<li>Sending data to a printer's buffer → <strong>Peripheral management</strong></li>
+<li>Freeing up RAM when a program is closed → <strong>Memory management</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently; 2+ ticks in a single row scores 0 for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1: User management. Row 2: File management. Row 3: Peripheral management. Row 4: Memory management."
+        },
+        {
+            num: "Q9",
+            marks: 8,
+            type: "written",
+            format: "bankCloze",
+            caseStudy: "",
+            question: `<p>The paragraph below describes the functions of an operating system.</p><p>Complete the paragraph by selecting terms from the list and writing them in the correct places. <strong>Not all terms are used.</strong></p>`,
+            cloze: `<p>An operating system is ___1___ software that manages the whole computer. It provides a user ___2___ so a person can interact with the machine. ___3___ management moves programs and data into and out of ___4___ so they can run. ___5___ lets several programs appear to run at the same time on one processor. To communicate with hardware such as a printer, the operating system uses device ___6___. User management controls accounts, passwords and access ___7___, and file management organises files into ___8___.</p>`,
+            bank: ["application", "system", "interface", "hardware", "Memory", "File", "RAM", "ROM", "Multitasking", "Buffering", "drivers", "cables", "rights", "passwords", "folders", "files"],
+            answers: {
+                "1": ["system"],
+                "2": ["interface"],
+                "3": ["Memory"],
+                "4": ["RAM"],
+                "5": ["Multitasking"],
+                "6": ["drivers"],
+                "7": ["rights"],
+                "8": ["folders"]
+            },
+            hint: "Read each whole sentence before choosing. Several terms are deliberate decoys — if you use every word, something has gone wrong.",
+            starter: "(1) … (2) … (3) … (4) … (5) … (6) … (7) … (8) …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (1 mark for each completed term)</h5>
+<p>An operating system is <strong>system</strong> software that manages the whole computer. It provides a user <strong>interface</strong> so a person can interact with the machine. <strong>Memory</strong> management moves programs and data into and out of <strong>RAM</strong> so they can run. <strong>Multitasking</strong> lets several programs appear to run at the same time on one processor. To communicate with hardware such as a printer, the operating system uses device <strong>drivers</strong>. User management controls accounts, passwords and access <strong>rights</strong>, and file management organises files into <strong>folders</strong>.</p>
+</div>`,
+            modelAnswer: "(1) system (2) interface (3) Memory (4) RAM (5) Multitasking (6) drivers (7) rights (8) folders"
+        },
+        {
+            num: "Q10",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Function 1 + description", "Function 2 + description"],
+            question: `<p>Identify and describe <strong>two</strong> functions of an operating system.</p>`,
+            hint: "For each function: name it, then say what it actually does. Choose two different functions you can describe clearly.",
+            starter: "One function is…, which…",
+            markPoints: {
+                note: "Two groups, one per function. In each: 1 mark for naming a valid function, 1 mark for correctly describing what it does. The two functions must be different.",
+                groups: [
+                    {
+                        label: "Function 1 + description", max: 2, points: [
+                            { text: "Names a valid OS function", marks: 1 },
+                            { text: "Correctly describes what that function does", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Function 2 + description", max: 2, points: [
+                            { text: "Names a second, different valid OS function", marks: 1 },
+                            { text: "Correctly describes what that function does", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (2 per function: 1 identify + 1 describe)</h5>
+<ul>
+<li>Memory management — allocates RAM to programs and moves data in and out of memory</li>
+<li>Multitasking — rapidly switches the processor between programs so they appear to run at once</li>
+<li>Peripheral management — controls the transfer of data to and from connected devices</li>
+<li>User management — provides accounts, logins and access rights</li>
+<li>File management — organises files into folders and handles creating, renaming, moving and deleting them</li>
+<li>User interface — provides the means for the user to interact with the computer</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each function scores 1 for being named and 1 for a correct description. Two descriptions of the same function score only one function's marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "One function is memory management, which allocates RAM to each running program and moves programs and data into and out of main memory. Another function is file management, which organises files into a structure of folders and lets the user create, rename, move and delete them."
+        },
+        {
+            num: "Q11",
+            marks: 4,
+            type: "written",
+            caseId: "leah",
+            question: `<p>Leah runs several programs at the same time on her laptop.</p><p>Explain how memory management and multitasking work together to make this possible.</p>`,
+            hint: "Explain what each function does, then how they combine — one keeps the programs' memory apart while the other shares out processor time.",
+            starter: "Multitasking works by…",
+            markPoints: {
+                note: "Two groups, one per function, each with what it does and how it contributes.",
+                groups: [
+                    {
+                        label: "Multitasking", max: 2, points: [
+                            { text: "Says the processor can only run one instruction at a time, so multitasking switches rapidly between the programs", marks: 1 },
+                            { text: "Says this makes the programs appear to run at the same time", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Memory management", max: 2, points: [
+                            { text: "Says memory management allocates a share of RAM to each running program", marks: 1 },
+                            { text: "Says it keeps each program's memory separate so they do not interfere with each other's data", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark: the processor runs one instruction at a time, so multitasking switches rapidly between programs</li>
+<li>1 mark: this makes the programs appear to run at the same time</li>
+<li>1 mark: memory management allocates a share of RAM to each running program</li>
+<li>1 mark: it keeps each program's memory separate so they do not interfere with each other</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Full marks needs both functions explained AND the idea that together they let several programs run without their data clashing.</li>
+</ul>
+</div>`,
+            modelAnswer: "Multitasking works because Leah's processor can only run one instruction at a time, so the operating system switches very rapidly between her open programs, giving each a small slice of processor time. This makes the programs appear to run at the same time. Memory management supports this by allocating a share of RAM to each running program and keeping each program's memory separate, so that while they run together their data does not get mixed up or overwritten."
+        },
+        {
+            num: "Q12",
+            marks: 4,
+            type: "written",
+            caseId: "leah",
+            question: `<p>Leah connects a new printer to her laptop.</p><p>Explain how peripheral management and a device driver allow her laptop to use the printer.</p>`,
+            hint: "Explain what peripheral management does with the data going to the printer, and what job the driver does for that specific printer.",
+            starter: "Peripheral management…",
+            markPoints: {
+                note: "Two groups: peripheral management, and the device driver, each explained.",
+                groups: [
+                    {
+                        label: "Peripheral management", max: 2, points: [
+                            { text: "Says peripheral management controls communication and the transfer of data between the laptop and the printer", marks: 1 },
+                            { text: "Says it can use a buffer/queue so the fast processor does not have to wait for the slower printer", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Device driver", max: 2, points: [
+                            { text: "Says a driver is software that lets the OS communicate with that specific printer", marks: 1 },
+                            { text: "Says it translates the OS's instructions into commands the printer understands, so it must be installed", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark: peripheral management controls communication/data transfer between the laptop and the printer</li>
+<li>1 mark: it can use a buffer/queue so the processor does not wait for the slower printer</li>
+<li>1 mark: a driver is software that lets the OS communicate with that specific printer</li>
+<li>1 mark: it translates the OS's instructions into commands the printer understands</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Credit both the peripheral management role AND the specific job of the driver.</li>
+</ul>
+</div>`,
+            modelAnswer: "Peripheral management controls the communication and transfer of data between Leah's laptop and the printer, and can use a buffer to hold the pages waiting to be printed so that her fast processor does not have to wait for the slower printer. The device driver is the software that lets the operating system communicate with that specific printer, translating the OS's general instructions into the exact commands that printer understands — which is why the driver has to be installed before the printer will work."
+        },
+        {
+            num: "Q13",
+            marks: 5,
+            type: "written",
+            caseId: "oakwood",
+            question: `<p>Oakwood Library's computers are shared by many people, and staff accounts can do more than public accounts.</p><p>Explain how user management and file management help keep the library's computers organised and secure.</p>`,
+            hint: "Cover user management (accounts, logins, access rights) and file management (folders, controlling access), and link each to the shared-computer scenario.",
+            starter: "User management helps because…",
+            markPoints: {
+                note: "Up to 3 marks for user management and up to 3 for file management, linked to the shared library computers (max 5 overall).",
+                groups: [
+                    {
+                        label: "User management", max: 3, points: [
+                            { text: "Says user management gives each person their own account and login", marks: 1 },
+                            { text: "Says it keeps each user's files and settings separate", marks: 1 },
+                            { text: "Says access rights let staff accounts do more than public accounts / control who can do what", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "File management", max: 2, points: [
+                            { text: "Says file management organises files into a structure of folders so they can be found", marks: 1 },
+                            { text: "Says it can control who is allowed to access particular files (with user management), or handles creating, renaming, moving and deleting the shared files", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks</h5>
+<ul>
+<li>1 mark: user management gives each person their own account and login</li>
+<li>1 mark: it keeps each user's files and settings separate</li>
+<li>1 mark: access rights let staff do more than public users / control who can do what</li>
+<li>1 mark: file management organises files into folders so they can be found</li>
+<li>1 mark: file management (with user management) controls access to files / handles create-rename-move-delete</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Reward points from BOTH functions, applied to the shared-computer situation. Max 5.</li>
+</ul>
+</div>`,
+            modelAnswer: "User management gives each library user their own account and login, keeping each person's files and settings separate on the shared computers. It also sets access rights, so staff accounts can do more than public accounts — for example changing settings that the public cannot. File management keeps the library's shared resources organised in a clear structure of folders so they can be found easily, and, working with user management, it can control who is allowed to open or change particular files, as well as handling creating, renaming, moving and deleting them."
+        },
+        {
+            num: "Q14",
+            marks: 6,
+            type: "written",
+            caseId: "leah",
+            question: `<p>Leah uses her laptop to write essays, listen to music and browse the web, often at the same time, saving her work as she goes.</p><p>Explain how <strong>three</strong> functions of the operating system help Leah use her laptop. You should describe a different function each time.</p>`,
+            hint: "Choose three clearly different functions (for example the user interface, multitasking and file management). For each: name it, describe what it does, and link it to something Leah does.",
+            starter: "One function that helps Leah is…",
+            markPoints: {
+                note: "Three groups, one per function. In each: 1 mark for naming/describing the function correctly, and 1 mark for linking it to Leah's use of the laptop. Max 2 per function, 6 overall. The three functions must be different.",
+                groups: [
+                    {
+                        label: "Function 1", max: 2, points: [
+                            { text: "Names and correctly describes a valid OS function", marks: 1 },
+                            { text: "Links it to something Leah does (e.g. the user interface lets her click icons to open programs)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Function 2", max: 2, points: [
+                            { text: "Names and correctly describes a second, different function", marks: 1 },
+                            { text: "Links it to something Leah does (e.g. multitasking lets her run the browser, music and essay together)", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Function 3", max: 2, points: [
+                            { text: "Names and correctly describes a third, different function", marks: 1 },
+                            { text: "Links it to something Leah does (e.g. file management lets her save and organise her essays in folders)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (up to 2 for each of three different functions)</h5>
+<p>For EACH of three different functions:</p>
+<ul>
+<li>1 mark: the function is named and correctly described</li>
+<li>1 mark: it is linked to Leah's use of the laptop</li>
+</ul>
+<p>Examples of acceptable functions and links:</p>
+<ul>
+<li>User interface — its GUI lets Leah click icons and menus to open and control her programs</li>
+<li>Multitasking — lets Leah run her browser, music player and word processor at the same time</li>
+<li>Memory management — allocates RAM to each program so they can all run together</li>
+<li>File management — lets Leah save, name and organise her essays in folders</li>
+<li>Peripheral management / drivers — lets Leah use devices such as a printer or headphones</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each of three DIFFERENT functions can score up to 2 (description + link). Repeating a function does not earn the repeated marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "One function that helps Leah is the user interface: her laptop's graphical user interface lets her click on icons and menus to open and control her programs, instead of typing commands. A second function is multitasking, which lets Leah run her web browser, music player and word processor at the same time by rapidly switching the processor between them so they appear to run together. A third function is file management, which lets Leah save her essays and organise them into folders, then rename, move or delete them later — so she can always find her work again."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

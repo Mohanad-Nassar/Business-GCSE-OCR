@@ -204,14 +204,21 @@ coordinator splits its questions across the four data-storage pages by content
 ### 5.1 Inputs, size caps, volume targets
 
 **Inputs per page:** (a) Appendix B spec coverage for the page (the ONLY
-statement of scope); (b) the exemplar economics page for shapes/voice; (c) the
-page's exam PDF (verbatim material for `examQuestions` only); (d) §5.3 tab
-guidance. Builders do NOT read SaveMyExams/Paul Long/Craig'n'Dave — their
-structural lessons are already baked into this plan (clean-room hygiene).
+statement of scope); (b) the exemplar economics page for shapes/voice; (c) §6
+(exam-question forms + the original-authoring rule — per §6.2, builders do
+NOT open the exam PDFs); (d) §5.3 tab guidance; (e) Appendix A (assessment
+intelligence, so exam tips and misconceptions are accurate, not invented).
+Builders do NOT read SaveMyExams/Paul Long/Craig'n'Dave — their structural
+lessons are already baked into this plan (clean-room hygiene).
 
-**Size caps (D7):** max 7 Learn cards or ~2,500 words of Learn content. If the
-Appendix B scope cannot fit, STOP, report a proposed split (e.g. "1.3.2a
-connections + 1.3.2b protocols and layers") and wait for the owner.
+**Size caps (D7):** max 7 Learn cards or ~2,500 words of Learn content.
+Prefer more, narrower cards over fewer dense ones — split a card the moment
+it covers two distinct sub-ideas or creeps past ~8 bullets, so each card is
+one question-led idea a student can digest in one sitting. If the full
+Appendix B scope still doesn't fit after that, STOP, report a proposed split
+(e.g. "1.3.2a connections + 1.3.2b protocols and layers") and wait for the
+owner — do not cut spec content to make it fit. A topic that comfortably fits
+in one page stays one page.
 
 **Volume targets** (match economics density):
 
@@ -722,8 +729,10 @@ plus `EXAM_CASE_STUDIES` if used), §5.1 targets met or a documented flag;
 esprima/mini-racer harness, or `node --check` on the extracted script);
 (3) structural assertions — every `ans`/`answer` index in range and correct,
 every readCheck has exactly 4 opts, `blanks` keys match each display's `_____`
-count, no backticks/`${` inside content strings, exam `marks` sum matches the
-PDF; (4) no third-party prose outside `examQuestions`, no spec sentences.
+count, no backticks/`${` inside content strings, exam questions are original
+per §6.2 (not transcribed from the PDF) with a tariff spread proportionate to
+the topic's weight in the spec; (4) no third-party prose outside
+`examQuestions`, no spec sentences.
 
 **Coordinator verifies (before commit):** removes `noQuestions`, runs the
 scoped pipeline, checks `section-totals.js` counts match the builder's report,
@@ -999,28 +1008,74 @@ once `SOURCES` changes).
 > Build the topic page `subjects/computer-science/<FILE>` for Vidya (GCSE CS,
 > OCR J277). You own ONLY this file. Do not touch subject.json, shared JS/CSS,
 > other pages, this plan file, or run any build tools. Read first:
-> (1) CS-CONTENT-PLAN.md §4, §5, §6, Appendix B entry for <SPEC REF>, Appendix
-> C; (2) the exemplar `subjects/economics/1.2_The_basic_economic_problem.html`
-> (shapes + voice). The scaffolded page already exists — replace ONLY the data
-> consts (`topics`, `mcqData`, `matchData`, `fibData`, `fibWords`, `tfData`,
-> `miscData`, `examTips`, `flashcards`, `examQuestions`, plus
-> `EXAM_CASE_STUDIES` if needed). Also: change the header `<p>` from
-> "Interactive revision guide · Content coming soon" to "Interactive revision
-> guide" and remove the word "placeholder" from the DATA comment. Do NOT
-> modify `pageMeta` (its id feeds bank ids). Content sources: Appendix B is
-> your entire scope; write all teaching content from understanding in your own
-> words. Exam questions: extract ALL questions + mark schemes + examiner
-> comments from `CS resources/ExamquestionsNew/<FILE base>.pdf` (pymupdf;
-> helper scripts go in a SHORT path like C:\Users\Public\csbuild\, never the
-> repo or the long scratchpad path) and map them per §6.1 with the §6.2
-> `format` enum, verbatim text only inside examQuestions fields. **If that PDF
-> does not exist: set `examQuestions = []`, report "exam PDF pending", and
-> NEVER write exam-style questions from memory or invent "past-paper"
-> material.** Size caps per §5.1 — if scope can't fit, STOP and report a split
-> proposal. Verify per §9.2 BUILDER portion only (parse check + structural
-> assertions — the live page sits behind an auth guard; do not claim
-> browser checks you cannot perform). Report: counts per array, marks total of
-> exam section, flags. "Done except verification" is not done.
+> (1) CS-CONTENT-PLAN.md §4, §5, §6, Appendix A, Appendix B entry for
+> <SPEC REF>, Appendix C; (2) the exemplar
+> `subjects/economics/1.2_The_basic_economic_problem.html` (shapes + voice).
+> The scaffolded page already exists — replace ONLY the data consts (`topics`,
+> `mcqData`, `matchData`, `fibData`, `fibWords`, `tfData`, `miscData`,
+> `examTips`, `flashcards`, `examQuestions`, plus `EXAM_CASE_STUDIES` if
+> needed). Also: change the header `<p>` from "Interactive revision guide ·
+> Content coming soon" to "Interactive revision guide" and remove the word
+> "placeholder" from the DATA comment. Do NOT modify `pageMeta` (its id feeds
+> bank ids).
+>
+> **Coverage — nothing skipped.** Appendix B's entry for <SPEC REF> is your
+> entire scope AND your checklist: every bullet in it must land somewhere in
+> `topics`, `flashcards`, or a practice array. None may be quietly dropped
+> because it's awkward to phrase or doesn't fit a favourite question format.
+> If a bullet genuinely won't fit inside the §5.1 size cap, that's a split
+> trigger (below) — never a reason to cut it.
+>
+> **Own words, always (copyright).** All teaching content — Learn cards,
+> `miscData`, `examTips`, `flashcards` — is written from your own
+> understanding of the spec, never lifted or lightly reworded from the OCR
+> spec text, SaveMyExams, Paul Long, Craig'n'Dave, or any other source (D6,
+> clean-room hygiene).
+>
+> **Exam questions are ORIGINAL, not transcribed (§6.2, 2026-07-17 owner +
+> copyright decision).** Do NOT open, extract, or paraphrase `CS
+> resources/ExamquestionsNew/*.pdf` or `mock-papers/*.js` — reproducing OCR's
+> papers digitally is not covered by the classroom-photocopy notice on those
+> PDFs. Instead, author fresh, OCR-J277-style questions straight from the
+> Appendix B spec scope, with your own scenarios (a real, specific situation
+> per stem, not a generic placeholder) — the goal is COMPREHENSIVE coverage of
+> every sub-topic, not a token one-question set.
+>
+> **Cover the question forms this topic is actually examined in.** Use the
+> §6.1 taxonomy as your menu (MCQ, tick-grid, draw-a-line matching,
+> complete-a-table, cloze / word-bank cloze, identify/state/describe/explain/
+> justify, interpret-a-figure, 6-mark QWC, 8-mark discuss, calculate/convert,
+> write/complete ERL code, truth/trace table, order/sequence). Pick the forms
+> genuinely suited to this spec point — don't force a form that doesn't fit
+> the topic just to tick a box — tag each with the correct `format` value from
+> §6.2's enum, and spread tariffs/command words per §5.3. Every spec bullet
+> should be examined in at least one form somewhere on the page.
+>
+> **Exam tips and misconceptions must be real, not invented.** Every
+> `examTips` ladder and `miscData` entry has to be a genuine J277 convention or
+> a real student trap — check it against Appendix A (AO weighting, command-word
+> meanings, mark-scheme conventions) and the known-trap examples in §5.3, not
+> something that merely sounds plausible. If you're not confident a
+> "misconception" is a real error students make on this topic, leave it out
+> rather than guess.
+>
+> **Smaller cards over dense ones.** Within the §5.1 cap, prefer more, narrow
+> Learn cards to fewer crowded ones — split a card the moment it's carrying two
+> distinct sub-ideas or creeps past ~8 bullets, so each card is one question-led
+> idea a student can digest in one sitting.
+>
+> **If the topic is too big for one page, say so — don't cut content to fit.**
+> If the full Appendix B scope still doesn't fit the size cap after tightening
+> and splitting cards, STOP before writing further arrays and report a
+> proposed split (e.g. "1.3.2a connections + 1.3.2b protocols and layers") for
+> the owner to approve (D7). Don't split a topic that comfortably fits as one
+> page just because it theoretically could be two.
+>
+> Verify per §9.2 BUILDER portion only (parse check + structural assertions —
+> the live page sits behind an auth guard; do not claim browser checks you
+> cannot perform). Report: counts per array, marks total of exam section,
+> every Appendix B bullet and where it landed, and any flags (split proposal,
+> scope doubts). "Done except verification" is not done.
 
 ### E2. Checker (one wave)
 

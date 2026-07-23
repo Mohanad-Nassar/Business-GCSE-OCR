@@ -1,15 +1,14 @@
 // ══════════════════════════════════════════════════════════════
 // VOCAB LAB — controller for vocab.html (AQA GCSE Spanish 8692)
 //
-// Loads subjects/spanish/vocab-bank.js (window.VOCAB_BANK, 2,950 raw rows —
-// see tools/parse_spanish_vocab.py), collapses it into one practice item per
-// headword+pos (the raw bank has a SEPARATE row for a word's Foundation-table
-// printing and its Higher-table printing — "el" appears twice — which would
-// otherwise split one word's mastery progress across two cards), then runs a
-// filter bar + Mastery Map + a launcher of game modes, mirroring the
-// economics-lab.js / maths-lab.js "registry + lazy-load + local store" Lab
-// pattern (adapted: scoped to the whole filtered word set, not one page's
-// PAGE_TOOLS content, so there's no pageMeta/subject gate here).
+// Loads subjects/spanish/vocab-bank.js (window.VOCAB_BANK, 1,750 entries, one
+// row per word — built by tools/build_vocab_bank_by_topic.js from the
+// owner-supplied topic-mapped wordbank, NOT independently PDF-verified; see
+// that build script's header for the known discrepancies against the actual
+// AQA spec). Runs a filter sidebar + Mastery Map + a launcher of game modes,
+// mirroring the economics-lab.js / maths-lab.js "registry + lazy-load + local
+// store" Lab pattern (adapted: scoped to the whole filtered word set, not one
+// page's PAGE_TOOLS content, so there's no pageMeta/subject gate here).
 //
 // Mastery status reuses the flashcard system's own Red/Amber/Green language
 // (script.js markCard) rather than inventing a new one — New/Practising/Known
@@ -54,28 +53,65 @@
     return out.join(' | ');
   }
 
+  // ── Display-only gloss simplifier (teacher feedback: AQA's own glosses are
+  // "so dense they're almost unintelligible", e.g. "me/te/le gustaría" =
+  // "(I, you, she, he, it, you (sing formal)) would like (informal)") ──
+  // PURELY a display transform: fuzzyMatch/splitForms above already strips
+  // all parenthetical content when grading, so this has zero effect on
+  // answer-checking — it only touches what students are SHOWN.
+  //
+  // Verified against the whole 1,750-entry bank before wiring in anywhere:
+  // every leading (...) group that appears was catalogued (26 distinct
+  // combinations), and only genuine subject-pronoun lists are unpacked —
+  // "(financial)", "(to)", "(piece of)" etc are left completely untouched.
+  // This is an allowlist, not a best-effort guess, specifically so a
+  // qualifier can never be misread as a pronoun and mangled.
+  const PERSON_TOKENS = new Set([
+    'I', 'you', 'she', 'he', 'it', 'one', 'we', 'they',
+    'you (sing formal)', 'you (sing informal)', 'you (pl formal)', 'you (pl informal)',
+  ]);
+  function extractLeadingGroup(s) {
+    s = s.trim();
+    if (s[0] !== '(') return null;
+    let depth = 0;
+    for (let i = 0; i < s.length; i++) {
+      if (s[i] === '(') depth++;
+      else if (s[i] === ')') { depth--; if (depth === 0) return { inner: s.slice(1, i), rest: s.slice(i + 1).trim() }; }
+    }
+    return null; // unbalanced parens (a handful of source typos, e.g. a missing opening paren) — leave untouched
+  }
+  function splitTopLevelCommas(s) {
+    const out = []; let depth = 0, cur = '';
+    for (const ch of s) {
+      if (ch === '(') depth++;
+      if (ch === ')') depth--;
+      if (ch === ',' && depth === 0) { out.push(cur.trim()); cur = ''; }
+      else cur += ch;
+    }
+    if (cur.trim()) out.push(cur.trim());
+    return out;
+  }
+  function simplifyClause(clause) {
+    const g = extractLeadingGroup(clause);
+    if (!g) return clause;
+    const tokens = splitTopLevelCommas(g.inner);
+    if (!tokens.length || !tokens.every(t => PERSON_TOKENS.has(t))) return clause;
+    return tokens.join('/') + ' ' + g.rest;
+  }
+  function simplifyGloss(english) {
+    return String(english || '').split('|').map(c => simplifyClause(c.trim())).join(' | ');
+  }
+
+  // subjects/spanish/vocab-bank.js is now built by tools/build_vocab_bank_by_topic.js
+  // from the owner-supplied topic-mapped wordbank — ALREADY one row per word
+  // (unlike the old PDF extraction, which printed a separate row per tier
+  // table and needed merging here). tierLabel/topics/rank arrive pre-computed;
+  // this is a straight passthrough, kept as its own function only so nothing
+  // else in this file has to change shape.
   function buildPracticeSet(bank) {
-    const groups = new Map();
-    bank.forEach(e => {
-      const key = e.pos + '::' + e.headword;
-      let g = groups.get(key);
-      if (!g) {
-        g = { id: e.id, pos: e.pos, headword: e.headword, english: e.english, tiers: new Set(), selection: e.selection, say: e.headword, rank: e.rank };
-        groups.set(key, g);
-      } else if (normKey(e.english) !== normKey(g.english)) {
-        g.english = mergeSenses(g.english, e.english);
-      }
-      if (e.tier === 'F/H') { g.tiers.add('F'); g.tiers.add('H'); } else { g.tiers.add(e.tier); }
-      if (e.selection === 'R') g.selection = 'R'; // R (required) wins if either copy says so
-      // rank is the word's frequency-dictionary rank, not a per-table position —
-      // the Foundation and Higher printings always agree (verified: 0 conflicts
-      // across 1,185 shared headwords), so either copy's value is authoritative.
-      if (g.rank == null && e.rank != null) g.rank = e.rank;
-    });
-    return Array.from(groups.values()).map(g => ({
-      id: g.id, pos: g.pos, headword: g.headword, english: g.english, say: g.say,
-      selection: g.selection, rank: g.rank,
-      tierLabel: (g.tiers.has('F') && g.tiers.has('H')) ? 'Both' : g.tiers.has('H') ? 'Higher' : 'Foundation',
+    return bank.map(e => ({
+      id: e.id, pos: e.pos, headword: e.headword, english: e.english, say: e.headword,
+      selection: e.selection, rank: e.rank, tierLabel: e.tierLabel, topics: e.topics || [],
     }));
   }
 
@@ -210,8 +246,11 @@
     'typed-recall': 'vocab-modes/typed-recall.js',
     'match-attack': 'vocab-modes/match-attack.js',
     'conjugation-drills': 'vocab-modes/conjugation-drills.js',
+    'speed-vocab': 'vocab-modes/speed-vocab.js',
+    'mcq-blitz': 'vocab-modes/mcq-blitz.js',
+    'listen-and-type': 'vocab-modes/listen-and-type.js',
   };
-  const MODE_ORDER = ['flashcards-plus', 'typed-recall', 'match-attack', 'conjugation-drills'];
+  const MODE_ORDER = ['flashcards-plus', 'typed-recall', 'match-attack', 'conjugation-drills', 'speed-vocab', 'mcq-blitz', 'listen-and-type'];
   const _defs = {};
   const _loading = {};
   window.VocabLab = { registerTool(id, def) { _defs[id] = def; }, ui: ui };
@@ -230,7 +269,7 @@
 
   // ── State ────────────────────────────────────────────────────────
   let allWords = [];
-  let filters = { tier: 'all', pos: 'all', status: 'all', freq: 'all', q: '' };
+  let filters = { tier: 'all', pos: 'all', status: 'all', freq: 'all', topic: 'all', q: '' };
   let launcher, mountArea, mountedDef;
 
   // AQA's own selection criteria are frequency-derived (§3.3: "at least 85%
@@ -251,12 +290,22 @@
   function applyFilters() {
     const filtered = allWords.filter(w => {
       if (filters.tier !== 'all') {
-        if (filters.tier === 'foundation' && w.tierLabel === 'Higher') return false;
-        if (filters.tier === 'higher' && w.tierLabel === 'Foundation') return false;
+        // Foundation = everything a Foundation student needs (F + F/H) — a
+        // word shared across both tiers still belongs here.
+        if (filters.tier === 'foundation' && w.tierLabel === 'H') return false;
+        // Higher = ONLY the words that are new/exclusive at Higher tier, not
+        // "everything a Higher student needs" (that's "All tiers" — Higher
+        // already contains Foundation's content by design). This lets a
+        // Higher student who already knows the Foundation set drill just
+        // their extra ~500 words instead of re-seeing the F/H overlap.
+        if (filters.tier === 'higher' && w.tierLabel !== 'H') return false;
       }
       if (filters.pos !== 'all' && posBucket(w.pos) !== filters.pos) return false;
       if (filters.status !== 'all' && status.get(w.id).status !== filters.status) return false;
       if (filters.freq !== 'all' && freqBand(w.rank) !== filters.freq) return false;
+      // A word can belong to several topics (avg ~1.7 each in the source
+      // data) — match if the selected topic is ANY of them, not all.
+      if (filters.topic !== 'all' && !w.topics.includes(filters.topic)) return false;
       if (filters.q) {
         const q = normKey(filters.q);
         if (!normKey(w.headword).includes(q) && !normKey(w.english).includes(q)) return false;
@@ -274,6 +323,17 @@
   }
 
   function statusLabel(s) { return s === 'green' ? 'Known' : s === 'amber' ? 'Practising' : 'New'; }
+
+  // Grouped by the source data's own "theme" field (AQA's 3 themes), plus the
+  // two catch-alls (General = function/grammar words not tied to one topic;
+  // Cultural items = the spec's 20 geography/culture words) — just for a
+  // readable sidebar layout, not a filter distinction of its own.
+  const TOPIC_GROUPS = [
+    { theme: '1. People and lifestyle', topics: ['Identity and relationships with others', 'Education and work', 'Healthy living and lifestyle'] },
+    { theme: '2. Popular culture', topics: ['Celebrity culture', 'Free time activities', 'Customs, festivals and celebrations'] },
+    { theme: '3. Communication and the world around us', topics: ['Media and technology', 'Travel and tourism', 'Environment and we people live'] },
+    { theme: null, topics: ['General', 'Cultural items'] },
+  ];
 
   // Split into two independent renders (Activities tab vs Word Browser tab —
   // see the plan for why: everything used to stack on one panel, so opening
@@ -304,8 +364,28 @@
         '<div class="seg amber" style="width:' + pct(amber) + '%"></div>' +
         '<div class="seg red" style="width:' + pct(red) + '%"></div>' +
       '</div>';
+    updateFilterSummaries();
   }
 
+  // Shared by both the Activities tab's "🔍 Filters" button and the Word
+  // Browser's — same committed `filters`, same count, just two places to see
+  // it (so a student can tell at a glance whether a filter is narrowing what
+  // they're about to practise without switching tabs first).
+  function updateFilterSummaries() {
+    const n = applyFilters().length;
+    const text = n === allWords.length ? allWords.length + ' words' : n + ' of ' + allWords.length + ' words';
+    const playEl = document.getElementById('vlPlaySummary');
+    if (playEl) playEl.textContent = text;
+    const browseEl = document.getElementById('vlBrowseSummary');
+    if (browseEl) browseEl.textContent = text;
+  }
+
+  // Word Browser = just the toolbar (Filters button + "showing X of Y") + the
+  // grid, driven by the COMMITTED `filters`. All the actual controls live in
+  // the filter sidebar (renderFilterSidebar) — same draft-then-commit pattern
+  // as daily-revise.html's question filters: edit freely while the sidebar is
+  // open, nothing takes effect until "Update", closing without it discards
+  // the edits.
   function renderWordBrowser() {
     const panel = document.getElementById('vlWordBrowser');
     if (!panel || !allWords.length) return;
@@ -318,7 +398,7 @@
       return '<div class="vl-word-card">' +
         '<div class="vl-word-head"><span class="vl-word-es">' + esc(w.headword) + '</span>' +
         '<span class="vl-status-chip ' + st + '">' + statusLabel(st) + '</span></div>' +
-        '<div class="vl-word-en">' + esc(w.english) + '</div>' +
+        '<div class="vl-word-en">' + esc(simplifyGloss(w.english)) + '</div>' +
         '<div class="vl-word-meta"><span class="vl-tier-tag">' + w.tierLabel + '</span>' +
         (w.rank != null ? '<span class="vl-tier-tag">#' + w.rank + '</span>' : '') + '</div>' +
         '</div>';
@@ -327,33 +407,43 @@
       ? '<div class="vl-more-note">Showing ' + CAP + ' of ' + filtered.length + ' — narrow the filters or search to see more.</div>'
       : (filtered.length === 0 ? '<div class="empty">No words match these filters.</div>' : '');
 
-    const hadFocus = document.activeElement && document.activeElement.id === 'vlSearch';
-    const caret = hadFocus ? document.activeElement.selectionStart : null;
-
-    panel.innerHTML =
-      '<div class="vl-filters" id="vlFilters">' +
-        pillGroup('tier', [['all', 'All tiers'], ['foundation', 'Foundation'], ['higher', 'Higher']]) +
-        pillGroup('pos', [['all', 'All types'], ['verbs', 'Verbs'], ['nouns', 'Nouns'], ['adjectives', 'Adjectives'], ['idioms', 'Idioms & Phrases'], ['other', 'Other']]) +
-        pillGroup('status', [['all', 'Any status'], ['red', 'New'], ['amber', 'Practising'], ['green', 'Known']]) +
-        pillGroup('freq', [['all', 'Any frequency'], ['core100', 'Core 100'], ['core500', 'Core 500'], ['core1000', 'Core 1000'], ['beyond1000', 'Beyond 1000']]) +
-        '<input type="text" class="vl-search" id="vlSearch" placeholder="Search Spanish or English…" value="' + esc(filters.q) + '"/>' +
-      '</div>' +
-      '<div class="vl-grid">' + wordsHtml + '</div>' + moreNote;
-
-    panel.querySelectorAll('.vl-pill').forEach(b => b.addEventListener('click', () => {
-      filters[b.dataset.group] = b.dataset.val;
-      renderWordBrowser();
-    }));
-    const search = panel.querySelector('#vlSearch');
-    search.addEventListener('input', () => { filters.q = search.value; renderWordBrowser(); });
-    // Preserve focus/caret across re-render (typing triggers a full re-render).
-    if (hadFocus) { search.focus(); search.setSelectionRange(caret, caret); }
+    updateFilterSummaries();
+    panel.innerHTML = '<div class="vl-grid">' + wordsHtml + '</div>' + moreNote;
   }
 
-  function pillGroup(group, opts) {
+  function pillGroup(group, opts, draft) {
     return '<div class="vl-pillgroup">' + opts.map(([val, label]) =>
-      '<button type="button" class="vl-pill' + (filters[group] === val ? ' active' : '') + '" data-group="' + group + '" data-val="' + val + '">' + label + '</button>'
+      '<button type="button" class="vl-pill' + (draft[group] === val ? ' active' : '') + '" data-group="' + group + '" data-val="' + val + '">' + label + '</button>'
     ).join('') + '</div>';
+  }
+
+  let draftFilters = null;
+
+  function renderFilterSidebar() {
+    const body = document.getElementById('vlFilterBody');
+    body.innerHTML =
+      '<label class="vl-filter-label">Tier</label>' +
+      pillGroup('tier', [['all', 'All tiers'], ['foundation', 'Foundation'], ['higher', 'Higher only']], draftFilters) +
+      '<label class="vl-filter-label">Word type</label>' +
+      pillGroup('pos', [['all', 'All types'], ['verbs', 'Verbs'], ['nouns', 'Nouns'], ['adjectives', 'Adjectives'], ['idioms', 'Idioms & Phrases'], ['other', 'Other']], draftFilters) +
+      '<label class="vl-filter-label">Status</label>' +
+      pillGroup('status', [['all', 'Any status'], ['red', 'New'], ['amber', 'Practising'], ['green', 'Known']], draftFilters) +
+      '<label class="vl-filter-label">Frequency</label>' +
+      pillGroup('freq', [['all', 'Any frequency'], ['core100', 'Core 100'], ['core500', 'Core 500'], ['core1000', 'Core 1000'], ['beyond1000', 'Beyond 1000']], draftFilters) +
+      '<label class="vl-filter-label">Topic</label>' +
+      pillGroup('topic', [['all', 'All topics']], draftFilters) +
+      TOPIC_GROUPS.map(g =>
+        (g.theme ? '<div class="muted" style="margin:8px 0 4px;">' + esc(g.theme) + '</div>' : '') +
+        pillGroup('topic', g.topics.map(t => [t, t]), draftFilters)
+      ).join('') +
+      '<label for="vlSearch" class="vl-filter-label">Search</label>' +
+      '<input type="text" class="vl-search" id="vlSearch" placeholder="Search Spanish or English…" value="' + esc(draftFilters.q) + '" style="width:100%;"/>';
+
+    body.querySelectorAll('.vl-pill').forEach(b => b.addEventListener('click', () => {
+      draftFilters[b.dataset.group] = b.dataset.val;
+      renderFilterSidebar();
+    }));
+    body.querySelector('#vlSearch').addEventListener('input', (e) => { draftFilters.q = e.target.value; });
   }
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
@@ -363,7 +453,10 @@
     'flashcards-plus': { icon: '🃏', title: 'Flashcards+', blurb: 'The flashcard system you know — flip, self-grade Red/Amber/Green, with 🔊 audio. New: type your guess before you flip.' },
     'typed-recall': { icon: '⌨️', title: 'Typed Recall', blurb: 'See a word, type the answer — instant checking, no flipping. Fast-paced, builds a streak.' },
     'match-attack': { icon: '🧩', title: 'Match Attack', blurb: 'Flip pairs of tiles to match Spanish with English against the clock. Beat your best time.' },
-    'conjugation-drills': { icon: '🔤', title: 'Conjugation Drills', blurb: 'Infinitive + person → you produce the present-tense form. Regular verbs only — the grammar the exam expects you to work out yourself.' },
+    'conjugation-drills': { icon: '🔤', title: 'Conjugation Drills', blurb: 'Infinitive + person + tense → you produce the form. Present, preterite, or mixed — regular verbs only, with an optional hint.' },
+    'speed-vocab': { icon: '⚡', title: 'Speed Vocab', blurb: '90 seconds, flip as many as you can, self-report Knew it/Didn\'t know. Chase your own best score.' },
+    'mcq-blitz': { icon: '🎯', title: 'MCQ Blitz', blurb: 'Tap the right meaning from 4 options. Fast recognition practice — no typing, no flipping.' },
+    'listen-and-type': { icon: '🎧', title: 'Listen & Type', blurb: 'No text at all — just 🔊 audio. Type the Spanish spelling from what you hear. Ties to the Listening paper.' },
   };
 
   function renderLauncher() {
@@ -416,6 +509,8 @@
         ui: ui,
         fuzzyMatch: fuzzyMatch,
         smartShuffle: smartShuffle,
+        simplifyGloss: simplifyGloss,
+        posBucket: posBucket,
         complete() { renderMasteryAll(); },
       });
     }).catch(err => {
@@ -440,6 +535,26 @@
     if (tab === 'browse') renderWordBrowser();
   }
 
+  // ── Filter sidebar: same draft-then-commit pattern as daily-revise.html's
+  // question filters (#drFilterPanel/#drFilterBackdrop/#drApplyFilterBtn) —
+  // edits only take effect on "Update"; closing via ✕ or the backdrop
+  // discards them (next open re-syncs from the last COMMITTED filters). ──
+  function openFilterSidebar() {
+    draftFilters = Object.assign({}, filters);
+    renderFilterSidebar();
+    document.getElementById('vlFilterPanel').classList.add('show');
+    document.getElementById('vlFilterBackdrop').classList.add('show');
+  }
+  function closeFilterSidebar() {
+    document.getElementById('vlFilterPanel').classList.remove('show');
+    document.getElementById('vlFilterBackdrop').classList.remove('show');
+  }
+  function applyFilterSidebar() {
+    filters = draftFilters;
+    closeFilterSidebar();
+    renderWordBrowser();
+  }
+
   // ── Boot ─────────────────────────────────────────────────────────
   async function init() {
     const auth = await tasksAuthInit('student');
@@ -458,6 +573,11 @@
     document.getElementById('vlPlayPanel').style.display = '';
     document.getElementById('vlTabPlay').addEventListener('click', () => switchTab('play'));
     document.getElementById('vlTabBrowse').addEventListener('click', () => switchTab('browse'));
+    document.getElementById('vlFilterToggleBtn').addEventListener('click', openFilterSidebar);
+    document.getElementById('vlPlayFilterToggleBtn').addEventListener('click', openFilterSidebar);
+    document.getElementById('vlFilterCloseBtn').addEventListener('click', closeFilterSidebar);
+    document.getElementById('vlFilterBackdrop').addEventListener('click', closeFilterSidebar);
+    document.getElementById('vlFilterApplyBtn').addEventListener('click', applyFilterSidebar);
     renderLauncher();
     renderMasteryAll();
   }
@@ -466,6 +586,6 @@
 
   // ── Node export (tests only) ─────────────────────────────────────
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { buildPracticeSet, fuzzyMatch, posBucket, freqBand, normKey, stripAccents, splitForms, mergeSenses, levenshtein1, smartShuffle, status };
+    module.exports = { buildPracticeSet, fuzzyMatch, posBucket, freqBand, normKey, stripAccents, splitForms, mergeSenses, simplifyGloss, levenshtein1, smartShuffle, status };
   }
 })();
