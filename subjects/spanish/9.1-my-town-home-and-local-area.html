@@ -238,6 +238,28 @@
               <li><span data-say="De niño, no había centro comercial en mi barrio.">De niño, no había centro comercial en mi barrio.</span> <span class="tier-h">H</span> — As a child, there wasn’t a shopping centre in my area.</li>
             </ul>`,
             readCheck: { q: "What does ‘Antes vivía en un piso pequeño’ mean?", opts: ["I used to live in a small flat", "I live in a small flat right now", "I am going to live in a small flat", "I would like to live in a small flat"], ans: 0, explain: "vivía is the imperfect tense = I used to live. It describes a past habitual state, not the present or future." }
+        },
+        {
+            title: "How do I ask for and give directions?",
+            tag: "Exam skill",
+            content: `<p>Use <span data-say="la dirección">la dirección</span> (address/direction) to ask the way, <span data-say="cruzar">cruzar</span> (to cross) and <span data-say="el punto">el punto</span> (point) to describe a route, and <span data-say="fuera">fuera</span> (outside) to say where something is.</p>
+            <p><span data-say="Perdón, ¿me puede dar la dirección al ayuntamiento?">— Perdón, ¿me puede dar la dirección al ayuntamiento?</span><br>
+            <span data-say="Sí, claro. Tiene que cruzar la plaza; el punto de información turística está justo fuera de la estación.">— Sí, claro. Tiene que cruzar la plaza; el punto de información turística está justo fuera de la estación.</span><br>
+            <span data-say="Muchas gracias.">— Muchas gracias.</span></p>`,
+            readCheck: { q: "According to the dialogue, where exactly is the tourist information point?", opts: ["just outside the station", "inside the town hall, near the plaza entrance", "opposite the train station main entrance", "next to the shopping centre car park entrance"], ans: 0, explain: "‘fuera de la estación’ = outside the station. The other options invent a different building or location that isn’t in the dialogue." }
+        },
+        {
+            title: "How do I describe my neighbourhood in more detail?",
+            tag: "Exam skill",
+            content: `<p>More vocabulary for describing where you live:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el lugar">el lugar</span></td><td>place</td><td><span data-say="el sitio">el sitio</span></td><td>site / place</td></tr>
+              <tr><td><span data-say="la comunidad">la comunidad</span></td><td>community</td><td><span data-say="el vecino">el vecino / la vecina</span></td><td>neighbour</td></tr>
+              <tr><td><span data-say="la entrada">la entrada</span></td><td>entrance</td><td><span data-say="la pared">la pared</span></td><td>wall</td></tr>
+              <tr><td><span data-say="la piedra">la piedra</span></td><td>stone</td><td><span data-say="el metro">el metro</span></td><td>metre / underground</td></tr>
+            </table>
+            <p>Model paragraph: <span data-say="Vivo en un lugar pequeño, casi como una isla tranquila, en un sitio cerca del río. Es una comunidad muy unida donde los vecinos se ayudan. La entrada de mi casa tiene una pared de piedra, y a diez metros hay una plaza de estilo colonial donde se venden productos locales. El espacio físico del pueblo no es grande — su tamaño es pequeño — y ahora mismo hay obras cerca de la iglesia, que lleva el nombre de un santo; por eso, algunas tiendas están abandonadas temporalmente.">Vivo en un lugar pequeño, casi como una isla tranquila, en un sitio cerca del río. Es una comunidad muy unida donde los vecinos se ayudan. La entrada de mi casa tiene una pared de piedra, y a diez metros hay una plaza de estilo colonial donde se venden productos locales. El espacio físico del pueblo no es grande — su tamaño es pequeño — y ahora mismo hay obras cerca de la iglesia, que lleva el nombre de un santo; por eso, algunas tiendas están abandonadas temporalmente.</span> — <em>I live in a small place, almost like a quiet island, on a site near the river. It's a very close-knit community where the neighbours help each other. My house's entrance has a stone wall, and ten metres away there's a colonial-style square where local products are sold. The physical space of the village isn't big — its size is small — and right now there are roadworks near the church, which is named after a saint; because of this, some shops are temporarily abandoned.</em></p>`,
+            readCheck: { q: "According to the paragraph, why are some shops temporarily closed?", opts: ["because of roadworks near the church", "because the whole community voted to close them down", "because the village is too small to need any shops", "because the neighbours all abandoned the square together"], ans: 0, explain: "‘hay obras cerca de la iglesia… algunas tiendas están abandonadas temporalmente’ = there are roadworks near the church, so some shops are temporarily closed/abandoned." }
         }
     ];
 
@@ -251,7 +273,13 @@
         { q: "‘Antes vivía en un piso pequeño’ is in which tense?", opts: ["the imperfect tense (used to)", "the ordinary present tense (right now)", "the near future (going to)", "a direct command"], ans: 0, explain: "vivía is imperfect, matching ‘antes’ (before/in the past). It is not present, future or a command." },
         { q: "Which word means ‘noisy’?", opts: ["ruidoso", "tranquilo", "limpio", "animado"], ans: 0, explain: "ruidoso = noisy. tranquilo means quiet (the opposite), limpio means clean and animado means lively." },
         { q: "What does ‘en las afueras’ mean?", opts: ["on the outskirts", "in the town centre, near the shops", "next to the station, by the park", "between two shops, near the market"], ans: 0, explain: "en las afueras = on the outskirts. El centro is the town centre — the opposite idea." },
-        { q: "‘No hay’ + a noun means…", opts: ["there isn’t / there aren’t — a negative", "there is definitely one nearby", "you are not allowed to go there at all today", "there won’t be one there next year"], ans: 0, explain: "no hay = there isn’t/aren’t, simply the negative of hay. It does not mean ‘forbidden’, ‘certain’ or change the tense." }
+        { q: "‘No hay’ + a noun means…", opts: ["there isn’t / there aren’t — a negative", "there is definitely one nearby", "you are not allowed to go there at all today", "there won’t be one there next year"], ans: 0, explain: "no hay = there isn’t/aren’t, simply the negative of hay. It does not mean ‘forbidden’, ‘certain’ or change the tense." },
+        { q: "Which word means 'distance'?", opts: ["la distancia", "la velocidad", "la altura", "el ruido"], ans: 0, explain: "la distancia = distance. la velocidad = speed, la altura = height, el ruido = noise — related measurements, but each is different." },
+        { q: "Which word means 'to steal'?", opts: ["robar", "cobrar", "devolver", "cometer"], ans: 0, explain: "robar = to steal. cobrar = to charge/get paid, devolver = to give back, cometer = to commit (e.g. cometer un delito)." },
+        { q: "Which word means 'a crime'?", opts: ["un delito", "un accidente", "una señal", "una venta"], ans: 0, explain: "un delito = a crime. un accidente = an accident, una señal = a sign/signal, una venta = a sale — all things a local news story might mention." },
+        { q: "Which word means 'empty'?", opts: ["vacío", "hermoso", "grande", "pequeño"], ans: 0, explain: "vacío = empty. hermoso = beautiful, grande = big, pequeño = small — all common adjectives for describing a house or place." },
+        { q: "Which word means 'height'?", opts: ["la altura", "el tamaño", "la distancia", "la velocidad"], ans: 0, explain: "la altura = height. el tamaño = size, la distancia = distance, la velocidad = speed — all measurements, but each means something different." },
+        { q: "Which word means 'a sign' or 'a signal'?", opts: ["una señal", "un delito", "un accidente", "una venta"], ans: 0, explain: "una señal = a sign/signal (e.g. a road sign). un delito = a crime, un accidente = an accident, una venta = a sale." }
     ];
 
     const matchData = [
@@ -266,7 +294,29 @@
         { term: "se puede", def: "you can / one can" },
         { term: "tranquilo", def: "quiet" },
         { term: "al lado de", def: "next to" },
-        { term: "en las afueras", def: "on the outskirts" }
+        { term: "en las afueras", def: "on the outskirts" },
+        { term: "las compras", def: "the shopping / purchases" },
+        { term: "la felicidad", def: "happiness" },
+        { term: "el reloj", def: "clock / watch" },
+        { term: "infantil", def: "children's (e.g. parque infantil)" },
+        { term: "el costo", def: "the cost" },
+        { term: "la carretera", def: "the road / highway" },
+        { term: "efectivo", def: "cash" },
+        { term: "la escalera", def: "the stairs" },
+        { term: "los alrededores", def: "the surroundings / outskirts" },
+        { term: "el rincón", def: "the corner / nook" },
+        { term: "detrás", def: "behind" },
+        { term: "la torre", def: "the tower" },
+        { term: "caro", def: "expensive" },
+        { term: "feo", def: "ugly" },
+        { term: "ideal", def: "ideal" },
+        { term: "el aeropuerto", def: "the airport" },
+        { term: "situado", def: "situated / located" },
+        { term: "el ascensor", def: "the lift / elevator" },
+        { term: "la calefacción", def: "the heating" },
+        { term: "el descuento", def: "the discount" },
+        { term: "el supermercado", def: "the supermarket" },
+        { term: "lo siento", def: "I'm sorry" }
     ];
 
     const fibData = [
@@ -276,9 +326,14 @@
         { display: `Se _____ nadar en el polideportivo. (you can — se puede)`, blanks: { B1: "puede" } },
         { display: `Mi pueblo es más _____ que la ciudad. (quieter — comparative, H)`, blanks: { B1: "tranquilo" } },
         { display: `De niño, _____ en un piso pequeño. (I used to live — imperfect, H)`, blanks: { B1: "vivía" } },
-        { display: `El parque _____ entre la estación y el centro comercial. (is — estar for location)`, blanks: { B1: "está" } }
+        { display: `El parque _____ entre la estación y el centro comercial. (is — estar for location)`, blanks: { B1: "está" } },
+        { display: `El anillo de _____ que compré en el mercado es precioso. (gold)`, blanks: { B1: "oro" } },
+        { display: `La _____ de la catedral de mi ciudad es de estilo gótico. (architecture)`, blanks: { B1: "arquitectura" } },
+        { display: `Hay una _____ muy bonita en la pared del salón. (painting)`, blanks: { B1: "pintura" } },
+        { display: `El supermercado está a un _____ de mi casa. (kilometre)`, blanks: { B1: "kilómetro" } },
+        { display: `Dobla a la izquierda en la _____ y sigue todo recto. (corner)`, blanks: { B1: "esquina" } }
     ];
-    const fibWords = ["hay", "abajo", "centro comercial", "puede", "tranquilo", "vivía", "está"];
+    const fibWords = ["hay", "abajo", "centro comercial", "puede", "tranquilo", "vivía", "está", "oro", "arquitectura", "pintura", "kilómetro", "esquina"];
 
     const tfData = [
         { statement: "‘hay’ changes to ‘han’ when you talk about more than one thing.", answer: false, explanation: "hay is invariable — it never changes, whether singular or plural." },
@@ -288,7 +343,11 @@
         { statement: "Comparatives use ‘más / menos + adjective + que’.", answer: true, explanation: "Mi pueblo es más tranquilo QUE la ciudad." },
         { statement: "‘antes vivía’ is in the present tense.", answer: false, explanation: "vivía is the imperfect tense (used to live), not the present." },
         { statement: "‘tranquilo’ and ‘ruidoso’ are opposites.", answer: true, explanation: "tranquilo = quiet, ruidoso = noisy." },
-        { statement: "‘en las afueras’ means ‘in the town centre’.", answer: false, explanation: "en las afueras = on the outskirts; el centro = the town centre." }
+        { statement: "‘en las afueras’ means ‘in the town centre’.", answer: false, explanation: "en las afueras = on the outskirts; el centro = the town centre." },
+        { statement: "‘el vecino’ means ‘the neighbour’.", answer: true, explanation: "el vecino / la vecina = neighbour." },
+        { statement: "‘abandonado’ means ‘brand new’.", answer: false, explanation: "abandonado means abandoned/deserted, not brand new (nuevo)." },
+        { statement: "‘cruzar’ means ‘to cross’.", answer: true, explanation: "cruzar la calle = to cross the street." },
+        { statement: "‘la piedra’ means ‘brick’.", answer: false, explanation: "la piedra means stone; a brick is un ladrillo." }
     ];
 
     const miscData = [
@@ -323,7 +382,70 @@
         { term: "limpio · sucio · animado", def: "clean · dirty · lively", say: "limpio, sucio, animado" },
         { term: "al lado de · enfrente de · entre", def: "next to · opposite · between", say: "al lado de, enfrente de, entre" },
         { term: "cerca de · lejos de · en las afueras (H)", def: "near · far from · on the outskirts", say: "cerca de, lejos de, en las afueras" },
-        { term: "más … que · antes vivía (H)", def: "more … than · I used to live (imperfect)", say: "más tranquilo que, antes vivía" }
+        { term: "más … que · antes vivía (H)", def: "more … than · I used to live (imperfect)", say: "más tranquilo que, antes vivía" },
+        { term: "el lugar · el sitio", def: "the place · the site/place", say: "el lugar, el sitio" },
+        { term: "el punto", def: "the point", say: "el punto" },
+        { term: "las obras", def: "roadworks / building works", say: "las obras" },
+        { term: "gracias", def: "thank you", say: "gracias" },
+        { term: "fuera", def: "outside", say: "fuera" },
+        { term: "el producto", def: "the product", say: "el producto" },
+        { term: "el santo · la santa", def: "the saint", say: "el santo" },
+        { term: "el espacio", def: "the space", say: "el espacio" },
+        { term: "la comunidad", def: "the community", say: "la comunidad" },
+        { term: "el estilo", def: "the style", say: "el estilo" },
+        { term: "el tamaño", def: "the size", say: "el tamaño" },
+        { term: "la dirección", def: "the address / direction", say: "la dirección" },
+        { term: "abandonar", def: "to abandon", say: "abandonar" },
+        { term: "físico", def: "physical", say: "físico" },
+        { term: "la entrada", def: "the entrance", say: "la entrada" },
+        { term: "la piedra", def: "the stone", say: "la piedra" },
+        { term: "la pared", def: "the wall", say: "la pared" },
+        { term: "el metro", def: "the metre / the underground", say: "el metro" },
+        { term: "el vecino · la vecina", def: "the neighbour", say: "el vecino, la vecina" },
+        { term: "la isla", def: "the island", say: "la isla" },
+        { term: "cruzar", def: "to cross", say: "cruzar" },
+        { term: "el oro", def: "gold", say: "el oro" },
+        { term: "la distancia", def: "the distance", say: "la distancia" },
+        { term: "la pintura", def: "the painting / paint", say: "la pintura" },
+        { term: "la altura", def: "the height", say: "la altura" },
+        { term: "hermoso", def: "beautiful", say: "hermoso" },
+        { term: "el ruido", def: "the noise", say: "el ruido" },
+        { term: "la venta", def: "the sale", say: "la venta" },
+        { term: "cobrar", def: "to charge / to get paid", say: "cobrar" },
+        { term: "la velocidad", def: "the speed", say: "la velocidad" },
+        { term: "el hogar", def: "the home", say: "el hogar" },
+        { term: "robar", def: "to steal", say: "robar" },
+        { term: "la señal", def: "the sign / signal", say: "la señal" },
+        { term: "cometer", def: "to commit (e.g. a crime)", say: "cometer" },
+        { term: "devolver", def: "to give back / return", say: "devolver" },
+        { term: "el kilómetro", def: "the kilometre", say: "el kilómetro" },
+        { term: "la esquina", def: "the corner", say: "la esquina" },
+        { term: "vacío", def: "empty", say: "vacío" },
+        { term: "la arquitectura", def: "the architecture", say: "la arquitectura" },
+        { term: "el delito", def: "the crime", say: "el delito" },
+        { term: "el accidente", def: "the accident", say: "el accidente" },
+        { term: "las compras", def: "the shopping / purchases", say: "las compras" },
+        { term: "la felicidad", def: "happiness", say: "la felicidad" },
+        { term: "el reloj", def: "the clock / watch", say: "el reloj" },
+        { term: "infantil", def: "children's (e.g. parque infantil)", say: "infantil" },
+        { term: "el costo", def: "the cost", say: "el costo" },
+        { term: "la carretera", def: "the road / highway", say: "la carretera" },
+        { term: "efectivo", def: "cash", say: "efectivo" },
+        { term: "la escalera", def: "the stairs", say: "la escalera" },
+        { term: "los alrededores", def: "the surroundings / outskirts", say: "los alrededores" },
+        { term: "el rincón", def: "the corner / nook", say: "el rincón" },
+        { term: "detrás", def: "behind", say: "detrás" },
+        { term: "la torre", def: "the tower", say: "la torre" },
+        { term: "caro", def: "expensive", say: "caro" },
+        { term: "feo", def: "ugly", say: "feo" },
+        { term: "ideal", def: "ideal", say: "ideal" },
+        { term: "el aeropuerto", def: "the airport", say: "el aeropuerto" },
+        { term: "situado", def: "situated / located", say: "situado" },
+        { term: "el ascensor", def: "the lift / elevator", say: "el ascensor" },
+        { term: "la calefacción", def: "the heating", say: "la calefacción" },
+        { term: "el descuento", def: "the discount", say: "el descuento" },
+        { term: "el supermercado", def: "the supermarket", say: "el supermercado" },
+        { term: "lo siento", def: "I'm sorry", say: "lo siento" }
     ];
 
     const EXAM_CASE_STUDIES = {

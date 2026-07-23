@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-18T23:34:09Z · 1537 questions
+// Generated: 2026-07-23T10:07:35Z · 2155 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -636,10 +636,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘five’ is _____. <span data-say=\"cinco\" data-listen>cinco</span>",
   "blankOptions": {
    "B1": [
-    "cinco",
-    "it",
     "ñ",
-    "ñan"
+    "cinco",
+    "soft",
+    "throaty"
    ]
   },
   "key": {
@@ -658,10 +658,10 @@ window.QUESTION_BANK = [
   "question": "The ‘ny’ sound word for ‘tomorrow’ is ma_____a. <span data-say=\"mañana\" data-listen>mañana</span>",
   "blankOptions": {
    "B1": [
-    "cinco",
+    "throaty",
     "ñan",
-    "ñ",
-    "it"
+    "second",
+    "ñ"
    ]
   },
   "key": {
@@ -680,9 +680,9 @@ window.QUESTION_BANK = [
   "question": "To keep a hard g before i, we write gu_____arra. <span data-say=\"guitarra\" data-listen>guitarra</span>",
   "blankOptions": {
    "B1": [
-    "ñ",
-    "it",
+    "ñan",
     "soft",
+    "it",
     "second"
    ]
   },
@@ -703,8 +703,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "soft",
+    "cinco",
     "ñan",
-    "second",
     "it"
    ]
   },
@@ -724,10 +724,10 @@ window.QUESTION_BANK = [
   "question": "Words ending in a vowel, n or s stress the _____-to-last syllable. (which one?)",
   "blankOptions": {
    "B1": [
-    "soft",
+    "second",
     "throaty",
-    "ñan",
-    "second"
+    "ñ",
+    "cinco"
    ]
   },
   "key": {
@@ -746,9 +746,9 @@ window.QUESTION_BANK = [
   "question": "The extra Spanish letter is _____. (its symbol)",
   "blankOptions": {
    "B1": [
-    "cinco",
-    "ñ",
     "second",
+    "soft",
+    "ñ",
     "it"
    ]
   },
@@ -768,8 +768,8 @@ window.QUESTION_BANK = [
   "question": "g before e or i is _____. (hard or throaty?)",
   "blankOptions": {
    "B1": [
+    "ñan",
     "throaty",
-    "second",
     "ñ",
     "cinco"
    ]
@@ -1638,8 +1638,8 @@ window.QUESTION_BANK = [
   "question": "The word for ‘street’ is _____. <span data-say=\"calle\" data-listen>calle</span>",
   "blankOptions": {
    "B1": [
-    "y",
     "tap",
+    "y",
     "calle",
     "loch"
    ]
@@ -1661,9 +1661,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "rolled",
+    "calle",
     "ños",
-    "verde",
-    "calle"
+    "loch"
    ]
   },
   "key": {
@@ -1682,10 +1682,10 @@ window.QUESTION_BANK = [
   "question": "ll sounds like the English letter _____. (which one?)",
   "blankOptions": {
    "B1": [
+    "calle",
+    "tap",
     "y",
-    "rolled",
-    "verde",
-    "tap"
+    "verde"
    ]
   },
   "key": {
@@ -1704,10 +1704,10 @@ window.QUESTION_BANK = [
   "question": "j is pronounced from the back of the throat, like the Scottish word ‘_____’.",
   "blankOptions": {
    "B1": [
-    "loch",
-    "y",
+    "tap",
     "rolled",
-    "ños"
+    "loch",
+    "y"
    ]
   },
   "key": {
@@ -1726,10 +1726,10 @@ window.QUESTION_BANK = [
   "question": "A single r between vowels, as in ‘pero’, is a quick _____. (tap or roll?)",
   "blankOptions": {
    "B1": [
-    "rolled",
+    "ños",
+    "y",
     "tap",
-    "loch",
-    "verde"
+    "rolled"
    ]
   },
   "key": {
@@ -1748,10 +1748,10 @@ window.QUESTION_BANK = [
   "question": "‘perro’ has a strongly _____ r. (tap or roll?)",
   "blankOptions": {
    "B1": [
-    "loch",
-    "verde",
+    "ños",
+    "calle",
     "rolled",
-    "y"
+    "verde"
    ]
   },
   "key": {
@@ -1770,10 +1770,10 @@ window.QUESTION_BANK = [
   "question": "The word for ‘green’ is _____. <span data-say=\"verde\" data-listen>verde</span>",
   "blankOptions": {
    "B1": [
-    "loch",
+    "y",
+    "ños",
     "verde",
-    "tap",
-    "y"
+    "tap"
    ]
   },
   "key": {
@@ -2640,10 +2640,10 @@ window.QUESTION_BANK = [
   "question": "_____ problema es muy grande. <span data-say=\"El problema es muy grande.\" data-listen>El problema es muy grande.</span>",
   "blankOptions": {
    "B1": [
-    "mano",
-    "unas",
     "El",
-    "La"
+    "del",
+    "lápices",
+    "mano"
    ]
   },
   "key": {
@@ -2662,10 +2662,10 @@ window.QUESTION_BANK = [
   "question": "Voy _____ colegio a las ocho. <span data-say=\"Voy al colegio a las ocho.\" data-listen>Voy al colegio a las ocho.</span>",
   "blankOptions": {
    "B1": [
-    "al",
     "del",
-    "La",
-    "mano"
+    "mano",
+    "al",
+    "La"
    ]
   },
   "key": {
@@ -2684,10 +2684,10 @@ window.QUESTION_BANK = [
   "question": "Tengo _____ preguntas sobre la tarea. <span data-say=\"Tengo unas preguntas sobre la tarea.\" data-listen>Tengo unas preguntas sobre la tarea.</span>",
   "blankOptions": {
    "B1": [
-    "La",
+    "lápices",
     "unas",
-    "al",
-    "mano"
+    "El",
+    "del"
    ]
   },
   "key": {
@@ -2706,10 +2706,10 @@ window.QUESTION_BANK = [
   "question": "Necesito dos _____ nuevos para el examen. <span data-say=\"Necesito dos lápices nuevos para el examen.\" data-listen>Necesito dos lápices nuevos para el examen.</span>",
   "blankOptions": {
    "B1": [
-    "al",
-    "lápices",
+    "del",
     "unas",
-    "La"
+    "La",
+    "lápices"
    ]
   },
   "key": {
@@ -2728,9 +2728,9 @@ window.QUESTION_BANK = [
   "question": "_____ ciudad tiene mucha información. <span data-say=\"La ciudad tiene mucha información.\" data-listen>La ciudad tiene mucha información.</span>",
   "blankOptions": {
    "B1": [
-    "lápices",
     "unas",
-    "del",
+    "mano",
+    "lápices",
     "La"
    ]
   },
@@ -2750,8 +2750,8 @@ window.QUESTION_BANK = [
   "question": "Salgo _____ gimnasio después de las clases. <span data-say=\"Salgo del gimnasio después de las clases.\" data-listen>Salgo del gimnasio después de las clases.</span>",
   "blankOptions": {
    "B1": [
-    "lápices",
-    "La",
+    "El",
+    "al",
     "mano",
     "del"
    ]
@@ -2772,10 +2772,10 @@ window.QUESTION_BANK = [
   "question": "Escucha y escribe la palabra que falta: Me duele la _____. <span data-say=\"la mano\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "unas",
     "del",
+    "El",
     "mano",
-    "El"
+    "lápices"
    ]
   },
   "key": {
@@ -3642,10 +3642,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana es muy _____. (tall, feminine)",
   "blankOptions": {
    "B1": [
-    "estos",
-    "negro",
-    "interesantes",
-    "alta"
+    "alta",
+    "mayor",
+    "nuestra",
+    "estos"
    ]
   },
   "key": {
@@ -3665,9 +3665,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "estos",
-    "alta",
     "interesantes",
-    "negro"
+    "azul",
+    "nuestra"
    ]
   },
   "key": {
@@ -3686,10 +3686,10 @@ window.QUESTION_BANK = [
   "question": "Tengo un perro _____. (black, masculine)",
   "blankOptions": {
    "B1": [
-    "negro",
-    "mayor",
     "nuestra",
-    "estos"
+    "interesantes",
+    "estos",
+    "negro"
    ]
   },
   "key": {
@@ -3708,10 +3708,10 @@ window.QUESTION_BANK = [
   "question": "Es una camisa _____. <span data-say=\"Es una camisa azul.\" data-listen>Es una camisa azul.</span>",
   "blankOptions": {
    "B1": [
-    "alta",
-    "mayor",
-    "negro",
-    "azul"
+    "interesantes",
+    "nuestra",
+    "azul",
+    "negro"
    ]
   },
   "key": {
@@ -3730,10 +3730,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ es más alto que yo. (older)",
   "blankOptions": {
    "B1": [
+    "mayor",
     "negro",
-    "nuestra",
-    "alta",
-    "mayor"
+    "interesantes",
+    "azul"
    ]
   },
   "key": {
@@ -3753,9 +3753,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "azul",
-    "negro",
-    "estos",
-    "nuestra"
+    "nuestra",
+    "alta",
+    "estos"
    ]
   },
   "key": {
@@ -3774,10 +3774,10 @@ window.QUESTION_BANK = [
   "question": "En _____ casa vivimos con mis abuelos. (our, feminine singular)",
   "blankOptions": {
    "B1": [
-    "estos",
     "nuestra",
+    "alta",
     "mayor",
-    "azul"
+    "negro"
    ]
   },
   "key": {
@@ -4238,6 +4238,120 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:mcq:a4c614e9",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Ojalá que ___ buen tiempo mañana.’ (I hope the weather is good)",
+  "options": [
+   "haga",
+   "hace",
+   "hacer",
+   "hiciera"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘ojalá que’ triggers the present subjunctive: haga. ‘hace’ is a plain statement; ‘hacer’ is the infinitive; ‘hiciera’ is the imperfect subjunctive (past), not present."
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:mcq:60e68f7f",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence correctly tells a friend to ‘put the book on the table’?",
+  "options": [
+   "Pon el libro en la mesa",
+   "Pones el libro en la mesa",
+   "Ponga el libro en la mesa",
+   "Poned el libro en la mesa"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The tú command of poner is irregular: pon. ‘Pones’ is a statement; ‘ponga’ is the usted command; ‘poned’ is the vosotros command."
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:mcq:f580bebe",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"He dicho la verdad.\" data-listen></span><br>Listen. What have they done?",
+  "options": [
+   "told the truth",
+   "asked a question yesterday",
+   "written a long letter",
+   "forgotten the answer completely"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘he dicho la verdad’ = I have told the truth (present perfect + irregular participle dicho). The distractors invent different actions and tenses."
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:mcq:afe4776c",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence means ‘I bring my notebook to class’?",
+  "options": [
+   "Traigo mi cuaderno a clase",
+   "Traes mi cuaderno a clase",
+   "Traje mi cuaderno a clase todos los días",
+   "Traer mi cuaderno a clase"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "traigo is the irregular ‘yo’ present of traer (I bring). ‘traes’ = you bring; ‘traje’ = preterite (past); ‘traer’ alone is the infinitive, not a conjugated verb."
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:mcq:7cfad539",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘No ___ tonto, José.’ (Don’t be silly)",
+  "options": [
+   "seas",
+   "eres",
+   "estás",
+   "eras"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Negative tú commands use the present subjunctive: no seas. ‘Eres/estás’ are indicative statements; ‘eras’ is imperfect (past)."
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:mcq:8ab8d116",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Quiero que ___ a la fiesta conmigo.’ (I want you to go to the party with me)",
+  "options": [
+   "vayas",
+   "vas",
+   "ir",
+   "fuiste"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘querer que’ triggers the present subjunctive: vayas. ‘vas’ is indicative; ‘ir’ is the infinitive; ‘fuiste’ is the preterite (past)."
+  }
+ },
+ {
   "id": "spanish:g-3-present-tense-and-key-irregulars:tf:1807f2d2",
   "pageId": "spanish:g-3-present-tense-and-key-irregulars",
   "pageName": "G.3 Present Tense and Key Irregulars",
@@ -4342,6 +4456,71 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:tf:4bb8e80a",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "The informal (tú) command of ‘venir’ is ‘ven’.",
+  "key": {
+   "answer": true,
+   "explain": "venir has an irregular tú command: ven (not ‘vienes’)."
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:tf:aab8bedc",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Espero que seas feliz’ uses the present subjunctive because it follows ‘espero que’.",
+  "key": {
+   "answer": true,
+   "explain": "Verbs of hope/wish + que trigger the subjunctive: seas."
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:tf:f9a6204b",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘He dicho’ means ‘I will say’.",
+  "key": {
+   "answer": false,
+   "explain": "‘he dicho’ is the present perfect (I have said), not the future (diré)."
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:tf:f80f5d6b",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Traigo’ is the present-tense ‘yo’ form of ‘traer’ (to bring).",
+  "key": {
+   "answer": true,
+   "explain": "traer has an irregular yo-form: traigo (like tengo, hago)."
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:tf:7b65a983",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘¡Basta!’ on its own means ‘Enough!/That’s enough!’",
+  "key": {
+   "answer": true,
+   "explain": "bastar works like gustar — used impersonally. ¡Basta! is the fixed phrase for ‘Enough!’"
+  }
+ },
+ {
   "id": "spanish:g-3-present-tense-and-key-irregulars:learn:e641e534",
   "pageId": "spanish:g-3-present-tense-and-key-irregulars",
   "pageName": "G.3 Present Tense and Key Irregulars",
@@ -4391,7 +4570,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "tener, ir, hacer — three essential irregulars",
-  "reading": "<p>These three verbs appear in almost every exam answer.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"tener\">tener</span></td><td>to have</td><td><span data-say=\"tengo, tienes, tiene, tenemos, tenéis, tienen\">tengo, tienes, tiene…</span></td></tr>\n              <tr><td><span data-say=\"ir\">ir</span></td><td>to go</td><td><span data-say=\"voy, vas, va, vamos, vais, van\">voy, vas, va…</span></td></tr>\n              <tr><td><span data-say=\"hacer\">hacer</span></td><td>to do/make</td><td><span data-say=\"hago, haces, hace, hacemos, hacéis, hacen\">hago, haces, hace…</span></td></tr>\n            </table>\n            <p>Remember <span data-say=\"tener que + infinitivo\">tener que + infinitive</span> (to have to) and <span data-say=\"ir a + infinitivo\">ir a + infinitive</span> (going to, near future): <span data-say=\"Tengo quince años y voy a hacer mis deberes.\">Tengo quince años y voy a hacer mis deberes.</span> — <em>I am fifteen and I am going to do my homework.</em></p>",
+  "reading": "<p>These three verbs appear in almost every exam answer.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"tener\">tener</span></td><td>to have</td><td><span data-say=\"tengo, tienes, tiene, tenemos, tenéis, tienen\">tengo, tienes, tiene…</span></td></tr>\n              <tr><td><span data-say=\"ir\">ir</span></td><td>to go</td><td><span data-say=\"voy, vas, va, vamos, vais, van\">voy, vas, va…</span></td></tr>\n              <tr><td><span data-say=\"hacer\">hacer</span></td><td>to do/make</td><td><span data-say=\"hago, haces, hace, hacemos, hacéis, hacen\">hago, haces, hace…</span></td></tr>\n            </table>\n            <p>Remember <span data-say=\"tener que + infinitivo\">tener que + infinitive</span> (to have to) and <span data-say=\"ir a + infinitivo\">ir a + infinitive</span> (going to, near future): <span data-say=\"Tengo quince años y voy a hacer mis deberes.\">Tengo quince años y voy a hacer mis deberes.</span> — <em>I am fifteen and I am going to do my homework.</em></p>\n            <p>Other everyday verbs share this irregular ‘-go’ yo-form too: <span data-say=\"traer\">traer</span> (to bring) → <span data-say=\"traigo\">traigo</span>. Example: <span data-say=\"Traigo mi cuaderno a clase todos los días.\">Traigo mi cuaderno a clase todos los días.</span> — <em>I bring my notebook to class every day.</em></p>",
   "question": "How do you say ‘I have to study’?",
   "options": [
    "Tengo que estudiar",
@@ -4454,7 +4633,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "gustar-type verbs",
-  "reading": "<p><span class=\"tier-h\">H</span> Verbs like <strong>gustar</strong> (to like) work backwards — the thing liked is the subject, so the verb agrees with IT, not with the person.</p>\n            <ul>\n              <li>ONE thing liked → <span data-say=\"me gusta\">me gusta</span>: <span data-say=\"Me gusta el fútbol.\">Me gusta el fútbol.</span> (I like football.)</li>\n              <li>MORE THAN ONE → <span data-say=\"me gustan\">me gustan</span>: <span data-say=\"Me gustan los deportes.\">Me gustan los deportes.</span> (I like sports.)</li>\n            </ul>\n            <p>Other verbs behaving the same way: <span data-say=\"interesar\">interesar</span> (to interest), <span data-say=\"encantar\">encantar</span> (to love — Me encanta…), <span data-say=\"doler\">doler</span> (to hurt) <span class=\"tier-h\">H</span>.</p>",
+  "reading": "<p><span class=\"tier-h\">H</span> Verbs like <strong>gustar</strong> (to like) work backwards — the thing liked is the subject, so the verb agrees with IT, not with the person.</p>\n            <ul>\n              <li>ONE thing liked → <span data-say=\"me gusta\">me gusta</span>: <span data-say=\"Me gusta el fútbol.\">Me gusta el fútbol.</span> (I like football.)</li>\n              <li>MORE THAN ONE → <span data-say=\"me gustan\">me gustan</span>: <span data-say=\"Me gustan los deportes.\">Me gustan los deportes.</span> (I like sports.)</li>\n            </ul>\n            <p>Other verbs behaving the same way: <span data-say=\"interesar\">interesar</span> (to interest), <span data-say=\"encantar\">encantar</span> (to love — Me encanta…), <span data-say=\"doler\">doler</span> (to hurt) <span class=\"tier-h\">H</span>.</p>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"bastar\">bastar</span> works the same way: <span data-say=\"Basta con estudiar un poco cada día.\">Basta con estudiar un poco cada día.</span> — <em>It’s enough to study a little each day.</em> On its own, <span data-say=\"¡Basta!\">¡Basta!</span> means <em>Enough!/That’s enough!</em></p>",
   "question": "Why is it ‘Me gustan las matemáticas’ and not ‘Me gusta las matemáticas’?",
   "options": [
    "‘las matemáticas’ is plural, so the verb is plural",
@@ -4465,6 +4644,48 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "gustar agrees with the thing liked; ‘las matemáticas’ is plural → gustan (gustar is not always plural)."
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:learn:d847533b",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Telling someone what to do: commands with key irregulars",
+  "reading": "<p><span class=\"tier-h\">H</span> Two irregular command patterns build on verbs you already know. <strong>Informal (tú) commands</strong> tell a friend what to do, and several are irregular: <span data-say=\"haz\">haz</span> (do/make! — hacer), <span data-say=\"pon\">pon</span> (put! — poner), <span data-say=\"ven\">ven</span> (come! — venir).</p>\n            <p>Example: <span data-say=\"¡Haz tus deberes y ven aquí!\">¡Haz tus deberes y ven aquí!</span> — <em>Do your homework and come here!</em></p>\n            <p><strong>Formal commands and wishes</strong> use the present subjunctive, built from the irregular ‘yo’ form: <span data-say=\"sea, seas, sea, seamos, seáis, sean\">sea, seas, sea…</span> (ser), <span data-say=\"haga, hagas, haga, hagamos, hagáis, hagan\">haga, hagas, haga…</span> (hacer), <span data-say=\"vaya, vayas, vaya, vayamos, vayáis, vayan\">vaya, vayas, vaya…</span> (ir), <span data-say=\"venga, vengas, venga, vengamos, vengáis, vengan\">venga, vengas, venga…</span> (venir).</p>\n            <p>Example: <span data-say=\"Espero que seas feliz y que vayas a la fiesta.\">Espero que seas feliz y que vayas a la fiesta.</span> — <em>I hope you are happy and that you go to the party.</em> Formal: <span data-say=\"¡Venga conmigo, señora!\">¡Venga conmigo, señora!</span> — <em>Come with me, madam!</em></p>",
+  "question": "Which sentence correctly tells a friend (tú) to ‘come here’?",
+  "options": [
+   "Ven aquí",
+   "Vienes aquí por favor",
+   "Vengas aquí ahora",
+   "Viene aquí conmigo"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The informal tú command of venir is irregular: ven. ‘Vienes’ is just a present-tense statement, not a command; ‘vengas’ and ‘viene’ use the wrong form."
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:learn:4c2dae5d",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Present perfect: haber + irregular participles",
+  "reading": "<p><span class=\"tier-h\">H</span> The present perfect (‘I have —ed’) uses the PRESENT tense of <span data-say=\"haber\">haber</span> (he, has, ha, hemos, habéis, han) plus a past participle. Several common verbs have an irregular participle to learn by heart.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"he dicho\">he dicho</span></td><td>I have said (decir)</td><td><span data-say=\"he puesto\">he puesto</span></td><td>I have put (poner)</td></tr>\n              <tr><td><span data-say=\"he vuelto\">he vuelto</span></td><td>I have returned (volver)</td><td><span data-say=\"he cubierto\">he cubierto</span></td><td>I have covered (cubrir)</td></tr>\n            </table>\n            <p>Example: <span data-say=\"He dicho la verdad y he vuelto a casa.\">He dicho la verdad y he vuelto a casa.</span> — <em>I have told the truth and I have returned home.</em></p>",
+  "question": "What is the correct present perfect of ‘decir’ (I have said)?",
+  "options": [
+   "He dicho",
+   "He decido",
+   "He deciendo",
+   "Ha dicho ella"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "decir has an irregular participle: dicho, not a regularised ‘decido’/‘deciendo’. ‘Ha dicho ella’ also changes the subject to she."
   }
  },
  {
@@ -4646,9 +4867,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "Estoy",
-    "puedo",
-    "deberes",
-    "levanto"
+    "Traigo",
+    "levanto",
+    "Tengo"
    ]
   },
   "key": {
@@ -4668,9 +4889,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "puedo",
-    "Estoy",
-    "duerme",
-    "levanto"
+    "seas",
+    "Tengo",
+    "gusta"
    ]
   },
   "key": {
@@ -4689,10 +4910,10 @@ window.QUESTION_BANK = [
   "question": "Voy a hacer mis _____. <span data-say=\"Voy a hacer mis deberes esta tarde.\" data-listen>Voy a hacer mis deberes esta tarde.</span>",
   "blankOptions": {
    "B1": [
-    "gusta",
-    "Tengo",
-    "puedo",
-    "deberes"
+    "duerme",
+    "Haz",
+    "deberes",
+    "levanto"
    ]
   },
   "key": {
@@ -4711,10 +4932,10 @@ window.QUESTION_BANK = [
   "question": "_____ cansado porque no duermo bien. (temporary state — estar)",
   "blankOptions": {
    "B1": [
-    "gusta",
+    "Haz",
     "levanto",
-    "Estoy",
-    "deberes"
+    "Traigo",
+    "Estoy"
    ]
   },
   "key": {
@@ -4733,10 +4954,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ el fútbol. (I like — singular subject)",
   "blankOptions": {
    "B1": [
+    "levanto",
     "gusta",
-    "puedo",
-    "deberes",
-    "Estoy"
+    "Tengo",
+    "Traigo"
    ]
   },
   "key": {
@@ -4755,10 +4976,10 @@ window.QUESTION_BANK = [
   "question": "_____ quince años. (age — with tener)",
   "blankOptions": {
    "B1": [
-    "gusta",
-    "duerme",
+    "puedo",
     "Tengo",
-    "levanto"
+    "levanto",
+    "He"
    ]
   },
   "key": {
@@ -4777,15 +4998,103 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ mucho por las noches. (o→ue stem-change: dormir)",
   "blankOptions": {
    "B1": [
-    "deberes",
-    "Estoy",
-    "gusta",
-    "duerme"
+    "levanto",
+    "duerme",
+    "puedo",
+    "gusta"
    ]
   },
   "key": {
    "blanks": {
     "B1": "duerme"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:fib:4fbf2f3d",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "¡_____ tus deberes ahora mismo! (tú command — hacer)",
+  "blankOptions": {
+   "B1": [
+    "duerme",
+    "gusta",
+    "He",
+    "Haz"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "Haz"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:fib:333d756c",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "_____ mi cuaderno a clase todos los días. <span data-say=\"Traigo mi cuaderno a clase todos los días.\" data-listen>Traigo mi cuaderno a clase todos los días.</span>",
+  "blankOptions": {
+   "B1": [
+    "duerme",
+    "Traigo",
+    "Haz",
+    "levanto"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "Traigo"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:fib:dba18c44",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Espero que _____ feliz. (that you be — ser, present subjunctive)",
+  "blankOptions": {
+   "B1": [
+    "deberes",
+    "Traigo",
+    "seas",
+    "duerme"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "seas"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:fib:685c052b",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "_____ dicho la verdad. (present perfect — ‘yo’ form of haber)",
+  "blankOptions": {
+   "B1": [
+    "Estoy",
+    "puedo",
+    "Traigo",
+    "He"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "He"
    }
   }
  },
@@ -4798,10 +5107,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “hablo, hablas, habla…”?",
   "options": [
-   "I am (identity) / I am (temporary state)",
+   "I have to…",
    "I speak, you speak, he/she speaks (-ar pattern)",
-   "I want, I prefer (e → ie)",
-   "he/she/it is in Madrid (location)"
+   "I shower (reflexive)",
+   "I get up (reflexive)"
   ],
   "key": {
    "answer": 1,
@@ -4817,10 +5126,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “soy / estoy”?",
   "options": [
-   "I shower (reflexive)",
-   "I like (singular) / I like (plural)",
+   "do, make! / put! (irregular tú commands)",
+   "I bring (irregular ‘yo’ form of traer)",
    "I am (identity) / I am (temporary state)",
-   "I get up (reflexive)"
+   "(usted) come! / (tú) come! — formal vs informal command"
   ],
   "key": {
    "answer": 2,
@@ -4838,8 +5147,8 @@ window.QUESTION_BANK = [
   "options": [
    "I have to…",
    "I speak, you speak, he/she speaks (-ar pattern)",
-   "I like (singular) / I like (plural)",
-   "I want, I prefer (e → ie)"
+   "I bring (irregular ‘yo’ form of traer)",
+   "I get up (reflexive)"
   ],
   "key": {
    "answer": 0,
@@ -4856,9 +5165,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “voy a + infinitivo”?",
   "options": [
    "I am going to…",
-   "I have to…",
-   "I ask for (e → i)",
-   "he/she/it is in Madrid (location)"
+   "I can, I sleep (o → ue)",
+   "I do, I go, I have (three key irregulars)",
+   "I bring (irregular ‘yo’ form of traer)"
   ],
   "key": {
    "answer": 0,
@@ -4874,9 +5183,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “quiero, prefiero”?",
   "options": [
+   "I do, I go, I have (three key irregulars)",
    "I ask for (e → i)",
-   "he/she/it is in Madrid (location)",
-   "I have to…",
+   "I have returned / I have covered",
    "I want, I prefer (e → ie)"
   ],
   "key": {
@@ -4893,10 +5202,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “puedo, duermo”?",
   "options": [
-   "I want, I prefer (e → ie)",
-   "I am (identity) / I am (temporary state)",
+   "I like (singular) / I like (plural)",
+   "I am going to…",
    "I can, I sleep (o → ue)",
-   "I shower (reflexive)"
+   "I have said / I have put (irregular participles)"
   ],
   "key": {
    "answer": 2,
@@ -4912,13 +5221,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “pido”?",
   "options": [
-   "I ask for (e → i)",
-   "I have to…",
-   "he/she/it is in Madrid (location)",
-   "I can, I sleep (o → ue)"
+   "I want, I prefer (e → ie)",
+   "I do, I go, I have (three key irregulars)",
+   "I am (identity) / I am (temporary state)",
+   "I ask for (e → i)"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“pido” means: I ask for (e → i)"
   }
  },
@@ -4931,10 +5240,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me levanto”?",
   "options": [
-   "I can, I sleep (o → ue)",
+   "(that) you be / don’t be (present subjunctive)",
    "I get up (reflexive)",
-   "I have to…",
-   "I do, I go, I have (three key irregulars)"
+   "I can, I sleep (o → ue)",
+   "Enough!/That’s enough!"
   ],
   "key": {
    "answer": 1,
@@ -4950,10 +5259,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me ducho”?",
   "options": [
-   "I ask for (e → i)",
+   "(usted) come! / (tú) come! — formal vs informal command",
    "I shower (reflexive)",
-   "I am (identity) / I am (temporary state)",
-   "he/she/it is in Madrid (location)"
+   "I am going to…",
+   "I bring (irregular ‘yo’ form of traer)"
   ],
   "key": {
    "answer": 1,
@@ -4969,9 +5278,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me gusta / me gustan”?",
   "options": [
-   "I ask for (e → i)",
-   "he/she/it is in Madrid (location)",
-   "I get up (reflexive)",
+   "(usted) come! / (tú) come! — formal vs informal command",
+   "I have said / I have put (irregular participles)",
+   "do, make! / put! (irregular tú commands)",
    "I like (singular) / I like (plural)"
   ],
   "key": {
@@ -4988,10 +5297,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “está en Madrid”?",
   "options": [
-   "I ask for (e → i)",
-   "I am (identity) / I am (temporary state)",
+   "(that) he/she do / (that) he/she go (present subjunctive)",
+   "I am going to…",
    "he/she/it is in Madrid (location)",
-   "I like (singular) / I like (plural)"
+   "I bring (irregular ‘yo’ form of traer)"
   ],
   "key": {
    "answer": 2,
@@ -5007,14 +5316,166 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “hago, voy, tengo”?",
   "options": [
-   "I am going to…",
+   "I ask for (e → i)",
    "I do, I go, I have (three key irregulars)",
-   "I can, I sleep (o → ue)",
-   "I have to…"
+   "(that) you be / don’t be (present subjunctive)",
+   "I can, I sleep (o → ue)"
   ],
   "key": {
    "answer": 1,
    "explain": "“hago, voy, tengo” means: I do, I go, I have (three key irregulars)"
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:match:2187986b",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “seas / no seas”?",
+  "options": [
+   "I am (identity) / I am (temporary state)",
+   "I have said / I have put (irregular participles)",
+   "I like (singular) / I like (plural)",
+   "(that) you be / don’t be (present subjunctive)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“seas / no seas” means: (that) you be / don’t be (present subjunctive)"
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:match:ee833da2",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “haga / vaya”?",
+  "options": [
+   "(that) he/she do / (that) he/she go (present subjunctive)",
+   "I ask for (e → i)",
+   "I bring (irregular ‘yo’ form of traer)",
+   "I have said / I have put (irregular participles)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“haga / vaya” means: (that) he/she do / (that) he/she go (present subjunctive)"
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:match:49f57325",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “venga / ven”?",
+  "options": [
+   "I like (singular) / I like (plural)",
+   "I have to…",
+   "I can, I sleep (o → ue)",
+   "(usted) come! / (tú) come! — formal vs informal command"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“venga / ven” means: (usted) come! / (tú) come! — formal vs informal command"
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:match:640fa2fd",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “haz / pon”?",
+  "options": [
+   "I speak, you speak, he/she speaks (-ar pattern)",
+   "I have returned / I have covered",
+   "do, make! / put! (irregular tú commands)",
+   "I am going to…"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“haz / pon” means: do, make! / put! (irregular tú commands)"
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:match:aa26748a",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “he dicho / he puesto”?",
+  "options": [
+   "I have said / I have put (irregular participles)",
+   "I do, I go, I have (three key irregulars)",
+   "I have to…",
+   "(usted) come! / (tú) come! — formal vs informal command"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“he dicho / he puesto” means: I have said / I have put (irregular participles)"
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:match:5acfb9d8",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “he vuelto / he cubierto”?",
+  "options": [
+   "I speak, you speak, he/she speaks (-ar pattern)",
+   "he/she/it is in Madrid (location)",
+   "I have returned / I have covered",
+   "I do, I go, I have (three key irregulars)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“he vuelto / he cubierto” means: I have returned / I have covered"
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:match:ca79b658",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “traigo”?",
+  "options": [
+   "do, make! / put! (irregular tú commands)",
+   "(that) he/she do / (that) he/she go (present subjunctive)",
+   "I bring (irregular ‘yo’ form of traer)",
+   "Enough!/That’s enough!"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“traigo” means: I bring (irregular ‘yo’ form of traer)"
+  }
+ },
+ {
+  "id": "spanish:g-3-present-tense-and-key-irregulars:match:c43eb5c0",
+  "pageId": "spanish:g-3-present-tense-and-key-irregulars",
+  "pageName": "G.3 Present Tense and Key Irregulars",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “¡Basta!”?",
+  "options": [
+   "I ask for (e → i)",
+   "I like (singular) / I like (plural)",
+   "(that) you be / don’t be (present subjunctive)",
+   "Enough!/That’s enough!"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“¡Basta!” means: Enough!/That’s enough!"
   }
  },
  {
@@ -5240,6 +5701,101 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:g-4-talking-about-the-past:mcq:42822a10",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: \"Cuando yo era pequeño, ___ (tener) un perro llamado Rex.\"",
+  "options": [
+   "tenía",
+   "tuve",
+   "tengo",
+   "he tenido"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Cuando era pequeño' sets up a description of a past state → imperfect: tenía. 'tuve' is preterite (a single moment of having/receiving), 'tengo' present, 'he tenido' perfect."
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:mcq:e4fe8863",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: \"Cuando ___ (estar) en Madrid, tú visitabas el museo del Prado a menudo.\"",
+  "options": [
+   "estabas",
+   "estuviste",
+   "estás",
+   "has estado"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "estar is regular in the imperfect: estaba (yo/él), estabas (tú) — an ongoing state. 'estuviste' is the preterite tú form (a finished moment), 'estás' present, 'has estado' perfect."
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:mcq:3ac526b6",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Mi madre me dio un regalo y mis amigos me dieron una tarjeta.\" data-listen></span><br>Listen. What happened?",
+  "options": [
+   "My mum gave me a present and my friends gave me a card",
+   "My mum gives me a present every single birthday each year",
+   "My mum will give me a present next Tuesday for my birthday",
+   "My mum used to give me a present every single year"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'dio' and 'dieron' are the él/ella and ellos preterite forms of dar (no accents). The others swap it into present, future or habitual imperfect."
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:mcq:1f5148cd",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: \"Ayer, yo no ___ (poder) terminar los deberes a tiempo.\"",
+  "options": [
+   "pude",
+   "podía",
+   "puedo",
+   "he podido"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "'Ayer' + a single completed action → preterite: pude (I managed to / succeeded in). 'podía' is imperfect (was able to, ongoing), 'puedo' present, 'he podido' perfect."
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:mcq:1ddaed53",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence means \"I found out the truth yesterday\"?",
+  "options": [
+   "Ayer supe la verdad",
+   "Ayer sabía la verdad",
+   "Ayer sé la verdad",
+   "Ayer he sabido la verdad"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "supe (preterite of saber) = 'found out' at a specific moment. 'sabía' (imperfect) = 'knew' as an ongoing state; 'sé' present; 'he sabido' perfect."
+  }
+ },
+ {
   "id": "spanish:g-4-talking-about-the-past:tf:843d7988",
   "pageId": "spanish:g-4-talking-about-the-past",
   "pageName": "G.4 Talking About the Past",
@@ -5344,6 +5900,32 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:g-4-talking-about-the-past:tf:306b6f1b",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "'tenía' can mean both 'I had' and 'he/she had' in the imperfect.",
+  "key": {
+   "answer": true,
+   "explain": "yo and él/ella share identical -ER/-IR imperfect endings: tenía serves both — only context (or a subject pronoun) tells you which."
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:tf:571d8435",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "'dar' takes accented endings in the preterite, just like 'hablar' does.",
+  "key": {
+   "answer": false,
+   "explain": "dar borrows the -ER/-IR preterite endings with NO written accents: di, diste, dio, dimos, disteis, dieron."
+  }
+ },
+ {
   "id": "spanish:g-4-talking-about-the-past:learn:288b4e32",
   "pageId": "spanish:g-4-talking-about-the-past",
   "pageName": "G.4 Talking About the Past",
@@ -5393,7 +5975,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "What are the key irregular preterites?",
-  "reading": "<p>Some very common verbs are IRREGULAR in the preterite — they use different stems and take NO written accent.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"ser\">ser</span> / <span data-say=\"ir\">ir</span></td><td><span data-say=\"fui\">fui</span>, fuiste, <span data-say=\"fue\">fue</span>, fuimos, fuisteis, fueron</td></tr>\n              <tr><td><span data-say=\"hacer\">hacer</span></td><td><span data-say=\"hice\">hice</span>, hiciste, hizo, hicimos</td></tr>\n              <tr><td><span data-say=\"tener\">tener</span></td><td><span data-say=\"tuve\">tuve</span>, tuviste, tuvo, tuvimos</td></tr>\n              <tr><td><span data-say=\"estar\">estar</span></td><td><span data-say=\"estuve\">estuve</span>, estuviste, estuvo, estuvimos</td></tr>\n            </table>\n            <p><strong>ser and ir share IDENTICAL forms</strong> in the preterite — only context tells you which one is meant: <span data-say=\"Fui al cine.\">Fui al cine.</span> (I went) vs <span data-say=\"Fue muy interesante.\">Fue muy interesante.</span> (It was).</p>",
+  "reading": "<p>Some very common verbs are IRREGULAR in the preterite — they use different stems and take NO written accent.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"ser\">ser</span> / <span data-say=\"ir\">ir</span></td><td><span data-say=\"fui\">fui</span>, fuiste, <span data-say=\"fue\">fue</span>, fuimos, fuisteis, fueron</td></tr>\n              <tr><td><span data-say=\"hacer\">hacer</span></td><td><span data-say=\"hice\">hice</span>, hiciste, hizo, hicimos</td></tr>\n              <tr><td><span data-say=\"tener\">tener</span></td><td><span data-say=\"tuve\">tuve</span>, tuviste, tuvo, tuvimos</td></tr>\n              <tr><td><span data-say=\"estar\">estar</span></td><td><span data-say=\"estuve\">estuve</span>, estuviste, estuvo, estuvimos</td></tr>\n            </table>\n            <p><strong>ser and ir share IDENTICAL forms</strong> in the preterite — only context tells you which one is meant: <span data-say=\"Fui al cine.\">Fui al cine.</span> (I went) vs <span data-say=\"Fue muy interesante.\">Fue muy interesante.</span> (It was).</p>\n            <p>More irregular preterite stems worth learning: <span data-say=\"decir\">decir</span> → <span data-say=\"dije\">dije</span>, dijiste, dijo, dijimos, dijisteis, dijeron; <span data-say=\"poder\">poder</span> → <span data-say=\"pude\">pude</span>, pudiste, pudo, pudimos; <span data-say=\"saber\">saber</span> → <span data-say=\"supe\">supe</span>, supiste, supo, supimos; <span data-say=\"querer\">querer</span> → <span data-say=\"quise\">quise</span>, quisiste, quiso, quisimos; <span data-say=\"venir\">venir</span> → <span data-say=\"vine\">vine</span>, viniste, vino, vinimos; <span data-say=\"traer\">traer</span> → <span data-say=\"traje\">traje</span>, trajiste, trajo, trajimos, trajisteis, trajeron.</p>\n            <p>Watch the spelling: verbs with a <strong>-j-</strong> stem (decir, traer, and similar verbs) DROP the <strong>i</strong> in the ellos/ellas ending — <span data-say=\"dijeron\">dijeron</span> and <span data-say=\"trajeron\">trajeron</span>, never \"dijieron\"/\"trajieron\".</p>",
   "question": "'fui' can mean 'I went' OR 'I was', because…",
   "options": [
    "ser and ir share identical preterite forms",
@@ -5467,6 +6049,48 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "Perfect = present of haber + past participle: he comido, ha hecho. estar+gerund is the continuous; -aba builds the imperfect."
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:learn:2fd22e65",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What about the 'tú' and other imperfect forms of tricky verbs?",
+  "reading": "<p>So far you've mostly seen <strong>yo/él</strong> imperfect forms. Listening and speaking tasks often need <strong>tú</strong> too — asking or telling someone what THEY used to do.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"ser\">ser</span></td><td><span data-say=\"era\">era</span> (yo/él)</td><td><span data-say=\"eras\">eras</span> (tú)</td></tr>\n              <tr><td><span data-say=\"ir\">ir</span></td><td><span data-say=\"iba\">iba</span> (yo/él)</td><td><span data-say=\"ibas\">ibas</span> (tú)</td></tr>\n              <tr><td><span data-say=\"ver\">ver</span></td><td><span data-say=\"veía\">veía</span> (yo/él)</td><td><span data-say=\"veías\">veías</span> (tú)</td></tr>\n              <tr><td><span data-say=\"tener\">tener</span></td><td><span data-say=\"tenía\">tenía</span> (yo/él)</td><td><span data-say=\"tenías\">tenías</span> (tú)</td></tr>\n              <tr><td><span data-say=\"estar\">estar</span></td><td>estaba (yo/él)</td><td><span data-say=\"estabas\">estabas</span> (tú)</td></tr>\n            </table>\n            <p><strong>tener</strong> and <strong>estar</strong> are regular in the imperfect — they just add -ía/-ías or -aba/-abas to the stem, unlike ser/ir/ver which change their stem. Example: <span data-say=\"Cuando eras pequeño, ¿tenías miedo de la oscuridad?\">Cuando eras pequeño, ¿tenías miedo de la oscuridad?</span> — <em>When you were little, were you afraid of the dark?</em></p>\n            <p>Another: <span data-say=\"Yo estaba en casa, pero tú estabas en el colegio.\">Yo estaba en casa, pero tú estabas en el colegio.</span> — <em>I was at home, but you were at school.</em></p>",
+  "question": "What is the 'tú' imperfect form of 'tener'?",
+  "options": [
+   "tenías",
+   "tuviste",
+   "tenía",
+   "tienes"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "tener is regular in the imperfect: tenía (yo/él), tenías (tú). 'tuviste' is the preterite tú form; 'tienes' is present."
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:learn:0cce3a41",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How does 'dar' behave in the preterite?",
+  "reading": "<p><span data-say=\"dar\">dar</span> looks like a regular -AR verb, but in the preterite it borrows the -ER/-IR endings — and with NO written accents at all.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td>yo</td><td>di</td><td>nosotros/as</td><td><span data-say=\"dimos\">dimos</span></td></tr>\n              <tr><td>tú</td><td><span data-say=\"diste\">diste</span></td><td>vosotros/as</td><td><span data-say=\"disteis\">disteis</span></td></tr>\n              <tr><td>él/ella/usted</td><td><span data-say=\"dio\">dio</span></td><td>ellos/ellas/ustedes</td><td><span data-say=\"dieron\">dieron</span></td></tr>\n            </table>\n            <p>Example: <span data-say=\"Mi madre me dio un regalo y mis amigos me dieron una tarjeta.\">Mi madre me dio un regalo y mis amigos me dieron una tarjeta.</span> — <em>My mum gave me a present and my friends gave me a card.</em></p>",
+  "question": "Which preterite ending pattern does 'dar' follow?",
+  "options": [
+   "the -ER/-IR endings, but with no written accents",
+   "the regular -AR endings, with accents on yo and él",
+   "the same imperfect endings as hablar (-aba)",
+   "no ending at all — dar stays the same in the past"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "dar is -AR but takes -ER/-IR preterite endings without accents: di, diste, dio, dimos, disteis, dieron."
   }
  },
  {
@@ -5647,10 +6271,10 @@ window.QUESTION_BANK = [
   "question": "Ayer, yo _____ (hablar) con mi profesora sobre el examen. <span data-say=\"Ayer, yo hablé con mi profesora sobre el examen.\" data-listen>Ayer, yo hablé con mi profesora sobre el examen.</span>",
   "blankOptions": {
    "B1": [
-    "fuimos",
-    "hablé",
     "estuve",
-    "llegó"
+    "levantaba",
+    "hablé",
+    "vine"
    ]
   },
   "key": {
@@ -5669,10 +6293,10 @@ window.QUESTION_BANK = [
   "question": "El año pasado, nosotros _____ (ir) de vacaciones a Francia. <span data-say=\"El año pasado, nosotros fuimos de vacaciones a Francia.\" data-listen>El año pasado, nosotros fuimos de vacaciones a Francia.</span>",
   "blankOptions": {
    "B1": [
-    "llegó",
-    "levantaba",
-    "fuimos",
-    "he comido"
+    "tenías",
+    "estuve",
+    "traje",
+    "fuimos"
    ]
   },
   "key": {
@@ -5691,10 +6315,10 @@ window.QUESTION_BANK = [
   "question": "De pequeño, yo _____ (vivir) en Sevilla con mis abuelos. (imperfect — describes a past state)",
   "blankOptions": {
    "B1": [
+    "he comido",
     "estuve",
-    "fuimos",
-    "hablé",
-    "vivía"
+    "vivía",
+    "llegó"
    ]
   },
   "key": {
@@ -5713,10 +6337,10 @@ window.QUESTION_BANK = [
   "question": "Normalmente, mi madre se _____ (levantarse) a las seis. (imperfect — a repeated habit)",
   "blankOptions": {
    "B1": [
-    "he comido",
-    "vivía",
+    "levantaba",
     "llegó",
-    "levantaba"
+    "vine",
+    "he comido"
    ]
   },
   "key": {
@@ -5735,10 +6359,10 @@ window.QUESTION_BANK = [
   "question": "Mientras yo cocinaba, mi hermano _____ (llegar) a casa. (the interrupting single event — preterite)",
   "blankOptions": {
    "B1": [
-    "levantaba",
-    "llegó",
-    "he comido",
-    "estuve"
+    "traje",
+    "dije",
+    "tenías",
+    "llegó"
    ]
   },
   "key": {
@@ -5757,10 +6381,10 @@ window.QUESTION_BANK = [
   "question": "Escucha y completa: Ayer _____ en el parque toda la tarde. <span data-say=\"Ayer estuve en el parque toda la tarde.\" data-listen></span>",
   "blankOptions": {
    "B1": [
+    "traje",
+    "vine",
     "hablé",
-    "he comido",
-    "estuve",
-    "llegó"
+    "estuve"
    ]
   },
   "key": {
@@ -5779,15 +6403,125 @@ window.QUESTION_BANK = [
   "question": "Higher: Nunca _____ (comer) paella antes. (perfect tense — haber + participle)",
   "blankOptions": {
    "B1": [
-    "he comido",
+    "traje",
     "fuimos",
-    "vivía",
-    "hablé"
+    "vine",
+    "he comido"
    ]
   },
   "key": {
    "blanks": {
     "B1": "he comido"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:fib:e9a74894",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Cuando eras pequeño, ¿tú _____ (tener) miedo de la oscuridad? (imperfect — tú form)",
+  "blankOptions": {
+   "B1": [
+    "tenías",
+    "vivía",
+    "estuve",
+    "traje"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "tenías"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:fib:df870117",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Escucha y completa: Mis amigos me _____ una sorpresa para mi cumpleaños. <span data-say=\"Mis amigos me dieron una sorpresa para mi cumpleaños.\" data-listen></span>",
+  "blankOptions": {
+   "B1": [
+    "hablé",
+    "tenías",
+    "dieron",
+    "vine"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "dieron"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:fib:64a369bd",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Anoche, yo _____ (venir) tarde a casa después de la fiesta.",
+  "blankOptions": {
+   "B1": [
+    "estuve",
+    "llegó",
+    "levantaba",
+    "vine"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "vine"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:fib:39d963f2",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Ayer, le _____ (decir) toda la verdad a mi mejor amiga.",
+  "blankOptions": {
+   "B1": [
+    "dije",
+    "levantaba",
+    "dieron",
+    "he comido"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "dije"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:fib:8ed9875a",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Para el picnic, yo _____ (traer) mi propia comida y bebida.",
+  "blankOptions": {
+   "B1": [
+    "dieron",
+    "traje",
+    "he comido",
+    "estuve"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "traje"
    }
   }
  },
@@ -5800,10 +6534,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “hablé”?",
   "options": [
-   "he/she ate",
+   "we lived",
    "I spoke",
-   "I was (description)",
-   "I used to speak"
+   "I said",
+   "I/he/she had (imperfect)"
   ],
   "key": {
    "answer": 1,
@@ -5820,9 +6554,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “comió”?",
   "options": [
    "he/she ate",
-   "I was (description)",
-   "I did / made",
-   "I used to eat / was eating"
+   "I said",
+   "I used to speak",
+   "you used to go"
   ],
   "key": {
    "answer": 0,
@@ -5838,10 +6572,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “vivimos”?",
   "options": [
-   "I was (description)",
-   "I used to speak",
+   "you used to see / watch",
+   "I/he/she had (imperfect)",
    "we lived",
-   "I had"
+   "he/she gave"
   ],
   "key": {
    "answer": 2,
@@ -5857,10 +6591,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “fui”?",
   "options": [
-   "I have eaten",
-   "I had",
+   "I came",
+   "I used to go",
    "I went / I was",
-   "I used to go"
+   "I was (description)"
   ],
   "key": {
    "answer": 2,
@@ -5876,13 +6610,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “hice”?",
   "options": [
-   "he/she ate",
    "I did / made",
-   "I was (place/state)",
-   "I spoke"
+   "we lived",
+   "I wanted / tried to",
+   "you were (tú, description)"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“hice” means: I did / made"
   }
  },
@@ -5895,10 +6629,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “tuve”?",
   "options": [
-   "I used to eat / was eating",
+   "you were (tú, place/state)",
    "I had",
-   "I went / I was",
-   "I was (place/state)"
+   "I used to speak",
+   "you were (tú, description)"
   ],
   "key": {
    "answer": 1,
@@ -5915,9 +6649,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “estuve”?",
   "options": [
    "I was (place/state)",
+   "we lived",
    "he/she ate",
-   "I spoke",
-   "I was (description)"
+   "I said"
   ],
   "key": {
    "answer": 0,
@@ -5933,10 +6667,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “hablaba”?",
   "options": [
-   "I had",
+   "we gave",
    "I used to speak",
-   "I went / I was",
-   "I was (description)"
+   "you were (tú, description)",
+   "I used to eat / was eating"
   ],
   "key": {
    "answer": 1,
@@ -5953,9 +6687,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “comía”?",
   "options": [
    "I used to eat / was eating",
-   "I had",
    "I have eaten",
-   "I was (description)"
+   "you were (tú, description)",
+   "you used to see / watch"
   ],
   "key": {
    "answer": 0,
@@ -5971,13 +6705,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “era”?",
   "options": [
-   "I did / made",
-   "I used to speak",
    "I was (description)",
-   "I spoke"
+   "I used to go",
+   "he/she gave",
+   "you used to go"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“era” means: I was (description)"
   }
  },
@@ -5990,13 +6724,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “iba”?",
   "options": [
-   "we lived",
+   "we gave",
    "I did / made",
-   "I used to go",
-   "I was (place/state)"
+   "I used to eat / was eating",
+   "I used to go"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“iba” means: I used to go"
   }
  },
@@ -6009,14 +6743,337 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “he comido”?",
   "options": [
-   "he/she ate",
+   "I have eaten",
+   "you all gave",
+   "I went / I was",
+   "you were (tú, place/state)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“he comido” means: I have eaten"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:29863ec3",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “eras”?",
+  "options": [
+   "I/he/she had (imperfect)",
    "I used to speak",
-   "I used to go",
-   "I have eaten"
+   "you were (tú, description)",
+   "I had"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“eras” means: you were (tú, description)"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:569eb1ff",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “tenía”?",
+  "options": [
+   "I used to speak",
+   "I/he/she had (imperfect)",
+   "we gave",
+   "you were (tú, description)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“tenía” means: I/he/she had (imperfect)"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:ae815132",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “tenías”?",
+  "options": [
+   "you had / used to have",
+   "he/she gave",
+   "I was (description)",
+   "you were (tú, description)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“tenías” means: you had / used to have"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:85c366cc",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “estabas”?",
+  "options": [
+   "you gave",
+   "I/he/she had (imperfect)",
+   "I had",
+   "you were (tú, place/state)"
   ],
   "key": {
    "answer": 3,
-   "explain": "“he comido” means: I have eaten"
+   "explain": "“estabas” means: you were (tú, place/state)"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:43e1af7f",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “ibas”?",
+  "options": [
+   "we lived",
+   "you used to go",
+   "you had / used to have",
+   "I used to go"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“ibas” means: you used to go"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:65417b09",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “veías”?",
+  "options": [
+   "I found out / knew",
+   "you used to see / watch",
+   "I said",
+   "he/she ate"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“veías” means: you used to see / watch"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:709aa1ff",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “dije”?",
+  "options": [
+   "I said",
+   "I was (description)",
+   "I found out / knew",
+   "you were (tú, description)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“dije” means: I said"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:826fae66",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “pude”?",
+  "options": [
+   "I could / managed to",
+   "I was (description)",
+   "you used to see / watch",
+   "I was (place/state)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“pude” means: I could / managed to"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:43c1bdb7",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “supe”?",
+  "options": [
+   "I could / managed to",
+   "I had",
+   "you were (tú, place/state)",
+   "I found out / knew"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“supe” means: I found out / knew"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:3fca9a96",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “quise”?",
+  "options": [
+   "I used to speak",
+   "I did / made",
+   "I wanted / tried to",
+   "he/she ate"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“quise” means: I wanted / tried to"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:f1d8b1ca",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “vine”?",
+  "options": [
+   "I had",
+   "you were (tú, place/state)",
+   "you all gave",
+   "I came"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“vine” means: I came"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:0751d313",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “traje”?",
+  "options": [
+   "you all gave",
+   "he/she gave",
+   "I brought",
+   "I could / managed to"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“traje” means: I brought"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:bc5dcd14",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “dio”?",
+  "options": [
+   "I used to speak",
+   "I went / I was",
+   "he/she gave",
+   "you used to see / watch"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“dio” means: he/she gave"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:8f8c0712",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “diste”?",
+  "options": [
+   "I used to go",
+   "I spoke",
+   "you gave",
+   "I did / made"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“diste” means: you gave"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:76b26c77",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “dieron”?",
+  "options": [
+   "I did / made",
+   "they gave",
+   "I said",
+   "you gave"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“dieron” means: they gave"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:dc8c3fb4",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “dimos”?",
+  "options": [
+   "you all gave",
+   "we gave",
+   "he/she ate",
+   "I have eaten"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“dimos” means: we gave"
+  }
+ },
+ {
+  "id": "spanish:g-4-talking-about-the-past:match:273bfbc7",
+  "pageId": "spanish:g-4-talking-about-the-past",
+  "pageName": "G.4 Talking About the Past",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “disteis”?",
+  "options": [
+   "you all gave",
+   "you gave",
+   "I was (place/state)",
+   "I did / made"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“disteis” means: you all gave"
   }
  },
  {
@@ -6242,6 +7299,63 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:mcq:759c11be",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Yo ___ el resultado el viernes.’ (I will know)",
+  "options": [
+   "sabré",
+   "sabría",
+   "sé",
+   "supe"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "sabré is the future of saber (I will know) — sabría is the conditional (would know), sé is present, supe is preterite."
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:mcq:472e7c37",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Sin tráfico, habría más tiempo para todo.\" data-listen></span><br>Listen. What does the sentence mean?",
+  "options": [
+   "There would be more time for everything",
+   "There will certainly be more time for everything",
+   "There was more time for everything",
+   "There is more time for everything"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "habría = there would be (impersonal conditional of haber, same family as hay/había/habrá). Trap B adds a false emphasis, C is imperfect (was), D is present (is)."
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:mcq:29edf9d3",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Yo ___ que sí, pero no estoy segura.’ (I would say)",
+  "options": [
+   "diría",
+   "diré",
+   "decía",
+   "dijo"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "diría = would say (conditional of decir). diré is future, decía is imperfect (was saying), dijo is preterite (he/she said) for a different subject."
+  }
+ },
+ {
   "id": "spanish:g-5-future-conditional-and-more-tenses:tf:21667d5d",
   "pageId": "spanish:g-5-future-conditional-and-more-tenses",
   "pageName": "G.5 Future, Conditional and More Tenses",
@@ -6346,6 +7460,32 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:tf:1b0601be",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘saldría’ (I would leave/go out) is built from the same irregular stem as the future ‘saldré’, just with conditional endings.",
+  "key": {
+   "answer": true,
+   "explain": "salir → saldr- is used for BOTH the future (saldré) and the conditional (saldría) — only the endings differ."
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:tf:1491e1f5",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘vendría’ uses a regular conditional stem formed from the whole infinitive ‘venir’, unlike ‘saldría’.",
+  "key": {
+   "answer": false,
+   "explain": "vendría is also IRREGULAR — venir → vendr- (the same irregular stem as the future vendré), not the regular infinitive stem."
+  }
+ },
+ {
   "id": "spanish:g-5-future-conditional-and-more-tenses:learn:8d2f389c",
   "pageId": "spanish:g-5-future-conditional-and-more-tenses",
   "pageName": "G.5 Future, Conditional and More Tenses",
@@ -6395,7 +7535,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Which verbs have an irregular stem in the future?",
-  "reading": "<p>A group of common verbs use a shortened or changed stem before the <strong>same endings</strong> (-é, -ás, -á, -emos, -éis, -án). Learn these:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"tendré\">tendré</span></td><td>I will have (tener)</td><td><span data-say=\"haré\">haré</span></td><td>I will do/make (hacer)</td></tr>\n              <tr><td><span data-say=\"podré\">podré</span></td><td>I will be able to (poder)</td><td><span data-say=\"saldré\">saldré</span></td><td>I will leave (salir)</td></tr>\n              <tr><td><span data-say=\"vendré\">vendré</span></td><td>I will come (venir)</td><td><span data-say=\"diré\">diré</span></td><td>I will say (decir)</td></tr>\n              <tr><td><span data-say=\"querré\">querré</span></td><td>I will want (querer)</td><td><span data-say=\"pondré\">pondré</span></td><td>I will put (poner)</td></tr>\n            </table>\n            <p>Example: <span data-say=\"El sábado, tendré que estudiar pero después saldré con mis amigos.\">El sábado, tendré que estudiar pero después saldré con mis amigos.</span> — <em>On Saturday I will have to study but afterwards I will go out with my friends.</em> Never write “tenerá” — the stem changes to <strong>tendr-</strong> before any future ending.</p>",
+  "reading": "<p>A group of common verbs use a shortened or changed stem before the <strong>same endings</strong> (-é, -ás, -á, -emos, -éis, -án). Learn these:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"tendré\">tendré</span></td><td>I will have (tener)</td><td><span data-say=\"haré\">haré</span></td><td>I will do/make (hacer)</td></tr>\n              <tr><td><span data-say=\"podré\">podré</span></td><td>I will be able to (poder)</td><td><span data-say=\"saldré\">saldré</span></td><td>I will leave (salir)</td></tr>\n              <tr><td><span data-say=\"vendré\">vendré</span></td><td>I will come (venir)</td><td><span data-say=\"diré\">diré</span></td><td>I will say (decir)</td></tr>\n              <tr><td><span data-say=\"querré\">querré</span></td><td>I will want (querer)</td><td><span data-say=\"pondré\">pondré</span></td><td>I will put (poner)</td></tr>\n            </table>\n            <p>Example: <span data-say=\"El sábado, tendré que estudiar pero después saldré con mis amigos.\">El sábado, tendré que estudiar pero después saldré con mis amigos.</span> — <em>On Saturday I will have to study but afterwards I will go out with my friends.</em> Never write “tenerá” — the stem changes to <strong>tendr-</strong> before any future ending.</p>\n            <p>The same pattern applies to <span data-say=\"saber\">saber</span>: <span data-say=\"sabré\">sabré</span> (I will know) uses the stem <strong>sabr-</strong>. Example: <span data-say=\"No sabré la nota hasta el lunes.\">No sabré la nota hasta el lunes.</span> — <em>I won’t know the mark until Monday.</em></p>",
   "question": "Complete: ‘El sábado, ella ___ que estudiar.’ (she will have to)",
   "options": [
    "tendrá",
@@ -6416,7 +7556,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I form the conditional? (would…)",
-  "reading": "<p>The conditional uses the <strong>same stem</strong> as the future (regular = whole infinitive; irregular = the same shortened stem), plus a different set of endings: <strong>-ía, -ías, -ía, -íamos, -íais, -ían</strong>.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"hablaría\">hablaría</span></td><td>I would speak</td><td><span data-say=\"viviríamos\">viviríamos</span></td><td>we would live</td></tr>\n              <tr><td><span data-say=\"tendría\">tendría</span></td><td>I would have</td><td><span data-say=\"haría\">haría</span></td><td>I would do/make</td></tr>\n              <tr><td><span data-say=\"podría\">podría</span></td><td>I would be able to</td><td><span data-say=\"saldrías\">saldrías</span></td><td>you would leave</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Con más dinero, viajaría por el mundo y compraría una casa grande.\">Con más dinero, viajaría por el mundo y compraría una casa grande.</span> — <em>With more money, I would travel the world and buy a big house.</em> Every conditional ending carries a written accent.</p>",
+  "reading": "<p>The conditional uses the <strong>same stem</strong> as the future (regular = whole infinitive; irregular = the same shortened stem), plus a different set of endings: <strong>-ía, -ías, -ía, -íamos, -íais, -ían</strong>.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"hablaría\">hablaría</span></td><td>I would speak</td><td><span data-say=\"viviríamos\">viviríamos</span></td><td>we would live</td></tr>\n              <tr><td><span data-say=\"tendría\">tendría</span></td><td>I would have</td><td><span data-say=\"haría\">haría</span></td><td>I would do/make</td></tr>\n              <tr><td><span data-say=\"podría\">podría</span></td><td>I would be able to</td><td><span data-say=\"saldrías\">saldrías</span></td><td>you would leave</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Con más dinero, viajaría por el mundo y compraría una casa grande.\">Con más dinero, viajaría por el mundo y compraría una casa grande.</span> — <em>With more money, I would travel the world and buy a big house.</em> Every conditional ending carries a written accent.</p>\n            <p>These same irregular stems carry over into the conditional too: <span data-say=\"diría\">diría</span> (would say, decir), <span data-say=\"querría\">querría</span> (would want, querer), <span data-say=\"pondría\">pondría</span> (would put, poner), <span data-say=\"saldría\">saldría</span> (would leave, salir), <span data-say=\"vendría\">vendría</span> (would come, venir) and <span data-say=\"sabría\">sabría</span> (would know, saber). Example: <span data-say=\"Yo diría que sí, pero no sabría explicar por qué.\">Yo diría que sí, pero no sabría explicar por qué.</span> — <em>I would say yes, but I wouldn’t know how to explain why.</em></p>",
   "question": "Complete: ‘Con más tiempo, (yo) ___ más deporte.’ (I would do)",
   "options": [
    "haría",
@@ -6458,7 +7598,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Higher: the perfect, pluperfect and an intro to the subjunctive",
-  "reading": "<p><span class=\"tier-h\">H</span> The <strong>perfect tense</strong> (have/has done) = present of <em>haber</em> + past participle: <span data-say=\"he estudiado\">he estudiado</span> (I have studied), <span data-say=\"ha comido\">ha comido</span> (he/she has eaten).</p>\n            <p>The <strong>pluperfect</strong> (had done) = imperfect of <em>haber</em> + past participle: <span data-say=\"había terminado\">había terminado</span> (I had finished) — used for something that had ALREADY happened before another past event.</p>\n            <p><span class=\"tier-h\">H</span> After certain trigger phrases like <span data-say=\"es importante que\">es importante que</span> (it’s important that) or a future-time <span data-say=\"cuando\">cuando</span> (when), Spanish switches to the <strong>present subjunctive</strong>: <span data-say=\"Es importante que estudies mucho.\">Es importante que estudies mucho.</span> (It’s important that you study a lot.) / <span data-say=\"Cuando llegue a casa, cenaré.\">Cuando llegue a casa, cenaré.</span> (When I get home, I will have dinner.)</p>",
+  "reading": "<p><span class=\"tier-h\">H</span> The <strong>perfect tense</strong> (have/has done) = present of <em>haber</em> + past participle: <span data-say=\"he estudiado\">he estudiado</span> (I have studied), <span data-say=\"ha comido\">ha comido</span> (he/she has eaten).</p>\n            <p>The <strong>pluperfect</strong> (had done) = imperfect of <em>haber</em> + past participle: <span data-say=\"había terminado\">había terminado</span> (I had finished) — used for something that had ALREADY happened before another past event.</p>\n            <p><span class=\"tier-h\">H</span> After certain trigger phrases like <span data-say=\"es importante que\">es importante que</span> (it’s important that) or a future-time <span data-say=\"cuando\">cuando</span> (when), Spanish switches to the <strong>present subjunctive</strong>: <span data-say=\"Es importante que estudies mucho.\">Es importante que estudies mucho.</span> (It’s important that you study a lot.) / <span data-say=\"Cuando llegue a casa, cenaré.\">Cuando llegue a casa, cenaré.</span> (When I get home, I will have dinner.)</p>\n            <p><span class=\"tier-h\">H</span> The <strong>conditional perfect</strong> (would have done) = conditional of <em>haber</em> + past participle: <span data-say=\"habría terminado\">habría terminado</span> (I would have finished) — used for what would have happened under a different past condition: <span data-say=\"Si hubiera estudiado más, habría aprobado el examen.\">Si hubiera estudiado más, habría aprobado el examen.</span> (If I had studied more, I would have passed the exam.)</p>",
   "question": "Which sentence correctly uses the present subjunctive after a trigger phrase?",
   "options": [
    "Es importante que estudies mucho",
@@ -6649,10 +7789,10 @@ window.QUESTION_BANK = [
   "question": "Yo _____ a estudiar esta noche. <span data-say=\"Yo voy a estudiar esta noche.\" data-listen>Yo voy a estudiar esta noche.</span>",
   "blankOptions": {
    "B1": [
-    "gustaría",
+    "viviré",
     "compraríamos",
     "voy",
-    "viviré"
+    "gustaría"
    ]
   },
   "key": {
@@ -6671,10 +7811,10 @@ window.QUESTION_BANK = [
   "question": "Mañana, ella _____ que trabajar. <span data-say=\"Mañana, ella tendrá que trabajar.\" data-listen>Mañana, ella tendrá que trabajar.</span>",
   "blankOptions": {
    "B1": [
-    "compraríamos",
-    "gustaría",
+    "voy",
+    "estudies",
     "tendrá",
-    "voy"
+    "querría"
    ]
   },
   "key": {
@@ -6693,10 +7833,10 @@ window.QUESTION_BANK = [
   "question": "El año que viene, (yo) _____ en Madrid. (I will live — vivir)",
   "blankOptions": {
    "B1": [
-    "estudies",
-    "gustaría",
     "viviré",
-    "haré"
+    "voy",
+    "querría",
+    "compraríamos"
    ]
   },
   "key": {
@@ -6715,10 +7855,10 @@ window.QUESTION_BANK = [
   "question": "Con más dinero, (nosotros) _____ una casa grande. (we would buy — comprar)",
   "blankOptions": {
    "B1": [
-    "voy",
-    "tendrá",
-    "haré",
-    "compraríamos"
+    "pondría",
+    "querría",
+    "compraríamos",
+    "viviré"
    ]
   },
   "key": {
@@ -6737,10 +7877,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ viajar a Japón algún día. (I would like)",
   "blankOptions": {
    "B1": [
-    "viviré",
-    "tendrá",
     "gustaría",
-    "estudies"
+    "querría",
+    "viviré",
+    "pondría"
    ]
   },
   "key": {
@@ -6759,10 +7899,10 @@ window.QUESTION_BANK = [
   "question": "_____ los deberes antes de salir. (I will do — hacer, yo)",
   "blankOptions": {
    "B1": [
-    "estudies",
-    "viviré",
     "gustaría",
-    "haré"
+    "compraríamos",
+    "haré",
+    "pondría"
    ]
   },
   "key": {
@@ -6781,15 +7921,59 @@ window.QUESTION_BANK = [
   "question": "Es importante que (tú) _____ mucho para el examen. (present subjunctive of estudiar)",
   "blankOptions": {
    "B1": [
-    "compraríamos",
-    "gustaría",
+    "pondría",
     "estudies",
-    "voy"
+    "viviré",
+    "gustaría"
    ]
   },
   "key": {
    "blanks": {
     "B1": "estudies"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:fib:b997fb9b",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Yo _____ un café, por favor. (I would like/want — querer, polite)",
+  "blankOptions": {
+   "B1": [
+    "pondría",
+    "querría",
+    "tendrá",
+    "viviré"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "querría"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:fib:9b811a1a",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Con un buen trabajo, (yo) me _____ muy contento. (I would become — ponerse)",
+  "blankOptions": {
+   "B1": [
+    "tendrá",
+    "querría",
+    "pondría",
+    "haré"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "pondría"
    }
   }
  },
@@ -6802,13 +7986,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “voy a estudiar”?",
   "options": [
+   "I would speak",
+   "I would come",
    "I am going to study",
-   "I will have",
-   "it’s important that you study",
-   "I would like"
+   "I will speak"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“voy a estudiar” means: I am going to study"
   }
  },
@@ -6821,9 +8005,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “hablaré”?",
   "options": [
-   "he/she will live",
-   "I will leave / go out",
-   "you will eat",
+   "I will do / make",
+   "I would know",
+   "I will have",
    "I will speak"
   ],
   "key": {
@@ -6840,10 +8024,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “comerás”?",
   "options": [
-   "I will speak",
-   "you will eat",
    "I will have",
-   "I have studied"
+   "you will eat",
+   "I will leave / go out",
+   "I would leave / go out"
   ],
   "key": {
    "answer": 1,
@@ -6860,9 +8044,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “vivirá”?",
   "options": [
    "he/she will live",
-   "I will do / make",
-   "I will leave / go out",
-   "you will eat"
+   "I have studied",
+   "I would know",
+   "I will do / make"
   ],
   "key": {
    "answer": 0,
@@ -6878,10 +8062,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “tendré”?",
   "options": [
-   "I have studied",
+   "I would come",
    "I will have",
-   "you will eat",
-   "I will speak"
+   "I will do / make",
+   "he/she will live"
   ],
   "key": {
    "answer": 1,
@@ -6897,13 +8081,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “haré”?",
   "options": [
-   "I have studied",
-   "I would like",
+   "I would put",
    "I will do / make",
-   "I will leave / go out"
+   "there would be",
+   "I will know"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“haré” means: I will do / make"
   }
  },
@@ -6916,9 +8100,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “podré”?",
   "options": [
-   "I will have",
+   "I have studied",
+   "he/she will live",
    "I will speak",
-   "I am going to study",
    "I will be able to"
   ],
   "key": {
@@ -6935,10 +8119,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “saldré”?",
   "options": [
-   "I will have",
-   "I would speak",
+   "I have studied",
+   "I/he-she would say",
    "I will leave / go out",
-   "he/she will live"
+   "I would speak"
   ],
   "key": {
    "answer": 2,
@@ -6954,9 +8138,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “hablaría”?",
   "options": [
-   "I will have",
-   "I will do / make",
    "I have studied",
+   "it’s important that you study",
+   "I would leave / go out",
    "I would speak"
   ],
   "key": {
@@ -6973,10 +8157,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me gustaría”?",
   "options": [
-   "I will be able to",
-   "I will have",
+   "there would be",
+   "I would speak",
    "I would like",
-   "he/she will live"
+   "I will be able to"
   ],
   "key": {
    "answer": 2,
@@ -6993,9 +8177,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “he estudiado”?",
   "options": [
    "I have studied",
-   "I will have",
-   "I will leave / go out",
-   "it’s important that you study"
+   "I would like",
+   "I/he-she would say",
+   "I would come"
   ],
   "key": {
    "answer": 0,
@@ -7012,13 +8196,165 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “es importante que estudies”?",
   "options": [
    "it’s important that you study",
-   "I will be able to",
-   "I am going to study",
-   "I will speak"
+   "I would know",
+   "I will speak",
+   "you will eat"
   ],
   "key": {
    "answer": 0,
    "explain": "“es importante que estudies” means: it’s important that you study"
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:match:67077e6a",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “sabré”?",
+  "options": [
+   "he/she will live",
+   "I will know",
+   "I would like",
+   "I will speak"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“sabré” means: I will know"
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:match:de47c902",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “sabría”?",
+  "options": [
+   "I would leave / go out",
+   "I will be able to",
+   "I would put",
+   "I would know"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“sabría” means: I would know"
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:match:931dabce",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “habría”?",
+  "options": [
+   "I would know",
+   "he/she will live",
+   "there would be",
+   "I have studied"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“habría” means: there would be"
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:match:4bf27c50",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “diría”?",
+  "options": [
+   "I will be able to",
+   "I will have",
+   "I/he-she would say",
+   "I will know"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“diría” means: I/he-she would say"
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:match:9bd20184",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “querría”?",
+  "options": [
+   "it’s important that you study",
+   "I would want",
+   "I would speak",
+   "I would know"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“querría” means: I would want"
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:match:bfa54717",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “pondría”?",
+  "options": [
+   "there would be",
+   "I have studied",
+   "I will do / make",
+   "I would put"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“pondría” means: I would put"
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:match:d9fc7b7b",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “saldría”?",
+  "options": [
+   "I would like",
+   "I would speak",
+   "I would leave / go out",
+   "I will know"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“saldría” means: I would leave / go out"
+  }
+ },
+ {
+  "id": "spanish:g-5-future-conditional-and-more-tenses:match:a10cfe3e",
+  "pageId": "spanish:g-5-future-conditional-and-more-tenses",
+  "pageName": "G.5 Future, Conditional and More Tenses",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “vendría”?",
+  "options": [
+   "I/he-she would say",
+   "you will eat",
+   "I would come",
+   "I would speak"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“vendría” means: I would come"
   }
  },
  {
@@ -7244,6 +8580,291 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:8383ff7e",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘De todos los coches, ___ más me gusta es éste.’ (the one that)",
+  "options": [
+   "el que",
+   "el cual",
+   "lo que",
+   "el mío"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘el que’ refers back to ‘el coche’ already understood from context. ‘el cual’ is more formal, ‘lo que’ refers to an idea rather than one noun, and ‘el mío’ means ‘mine’."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:90ba497a",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Estudio mucho ___ aprender español.’ (in order to)",
+  "options": [
+   "para",
+   "por",
+   "sin",
+   "desde"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘para + infinitive’ expresses purpose (in order to). ‘por’ often gives a reason/cause instead, ‘sin’ means without, and ‘desde’ means since/from."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:04d32e33",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How do you say ‘another day’ correctly in Spanish?",
+  "options": [
+   "otro día",
+   "un otro día",
+   "otro día más",
+   "el otro día"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Spanish never puts ‘un’ before ‘otro’ (never ‘un otro día’). ‘el otro día’ means ‘the other day’ (a different meaning), and ‘otro día más’ adds an unnecessary ‘more’."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:a8f139bb",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘¿Vas a ir ___ día a España?’ (some day)",
+  "options": [
+   "algún",
+   "alguno",
+   "ninguno",
+   "otro"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘alguno’ shortens to ‘algún’ before a masculine singular noun like ‘día’. ‘ninguno’ means ‘no/not any’ (opposite meaning), and ‘otro’ means ‘another’."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:2bd66818",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Llegó ___ decir nada.’ (without saying anything)",
+  "options": [
+   "sin",
+   "con",
+   "desde",
+   "hasta"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘sin + infinitive’ = without doing something. ‘con’ means with, ‘desde’ means since/from, and ‘hasta’ means until."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:30eb0ebd",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Trabajé ___ las diez de la noche.’ (until)",
+  "options": [
+   "hasta",
+   "desde",
+   "para",
+   "sin"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘hasta’ = until/up to a point in time. ‘desde’ means since/from (the opposite direction), ‘para’ means for/in order to, and ‘sin’ means without."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:32fc6049",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Vuestro coche es azul; ___ es rojo.’ (ours)",
+  "options": [
+   "el nuestro",
+   "el vuestro",
+   "el suyo",
+   "el mío"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘el nuestro’ = ours, matching ‘coche’ (masc.). ‘el vuestro’ would repeat ‘yours’, ‘el suyo’ = his/hers/theirs, and ‘el mío’ = mine."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:1f967bf8",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘that (over there)’, far from both speaker and listener?",
+  "options": [
+   "aquel",
+   "aquellos",
+   "esos",
+   "estos"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘aquel’ = that (over there), far from both people. ‘aquellos’ is the plural form of the same word, ‘esos’ = those (middle distance), and ‘estos’ = these (close)."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:aa729ee4",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘No quiero té, ___ café.’ (but rather)",
+  "options": [
+   "sino",
+   "pero",
+   "aunque",
+   "además"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "After a negative, use ‘sino’ (not ‘pero’) to contrast two things directly. ‘aunque’ means although, and ‘además’ means furthermore."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:919af4d7",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘La empresa para ___ trabajo es española.’ (which — formal, after a preposition)",
+  "options": [
+   "la cual",
+   "que",
+   "quienes",
+   "la que"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "After a preposition, formal Spanish prefers ‘la cual’, agreeing with ‘la empresa’. Bare ‘que’ sounds too casual here, ‘quienes’ is plural and for people, and ‘la que’ is also possible but less common in this formal register."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:277f1ce7",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘¿___ cuesta el billete?’ (how much)",
+  "options": [
+   "cuánto",
+   "cuántos",
+   "cuántas",
+   "cuánta"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘cuánto’ is the default (uninflected) form asking about an amount/price. ‘cuántos/cuántas’ agree with a plural noun, and ‘cuánta’ is feminine singular — none fit here since there's no noun to agree with."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:df82f516",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Tu libro está aquí; ¿dónde está ___?’ (mine)",
+  "options": [
+   "el mío",
+   "el tuyo",
+   "el suyo",
+   "el nuestro"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘el mío’ = mine. ‘el tuyo’ = yours, ‘el suyo’ = his/hers/theirs, and ‘el nuestro’ = ours."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:b04d59e3",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How do you write 21 correctly in Spanish (one word)?",
+  "options": [
+   "veintiuno",
+   "veinte y uno",
+   "veinte uno",
+   "veintiúno"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "21 is written as one word: veintiuno. Writing it as three separate words (‘veinte y uno’) is the old-fashioned style, and ‘veinte uno’ is missing the ‘y’ entirely."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:d529b2f2",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘¿Tienes hermanos? No, no tengo ___.’ (any/none)",
+  "options": [
+   "ninguno",
+   "algunos",
+   "otro más",
+   "todos ellos"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘ninguno’ = none/not any, matching a previously mentioned masc. noun (hermanos). ‘algunos’ = some, ‘otro más’ = one more/another, and ‘todos ellos’ = all of them — the opposite meaning."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:mcq:780fe27a",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How do you say ‘a million euros’ correctly?",
+  "options": [
+   "un millón de euros",
+   "cien mil euros exactos",
+   "un millón euros",
+   "mil euros solamente"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘un millón’ needs ‘de’ before the noun: un millón de euros. Omitting ‘de’ (option 3) is a common mistake. ‘cien mil’ means 100,000, and ‘mil euros solamente’ just means ‘a thousand euros only’."
+  }
+ },
+ {
   "id": "spanish:g-6-pronouns-negatives-and-connectors:tf:e9c5a8d1",
   "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
   "pageName": "G.6 Pronouns, Negatives and Connectors",
@@ -7348,6 +8969,97 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:tf:1c2e380a",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘otro’ can be preceded by ‘un/una’ in Spanish, e.g. ‘un otro día’.",
+  "key": {
+   "answer": false,
+   "explain": "Spanish never uses ‘un/una’ before ‘otro’ — just ‘otro día’."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:tf:c33a302a",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘alguno’ shortens to ‘algún’ before a masculine singular noun.",
+  "key": {
+   "answer": true,
+   "explain": "algún día, algún amigo — the final -o drops before a masc. singular noun."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:tf:1558655d",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘estos’ and ‘esos’ show exactly the same distance from the speaker.",
+  "key": {
+   "answer": false,
+   "explain": "‘estos’ = close to the speaker (these); ‘esos’ = a bit further away (those)."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:tf:02c5f5d0",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘contigo’ is written as two separate words: ‘con tigo’.",
+  "key": {
+   "answer": false,
+   "explain": "‘contigo’ is always one word — it's an irregular contraction of con + ti."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:tf:5147b6f2",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Hundreds like ‘setecientos’ and ‘novecientos’ change to agree with a feminine noun.",
+  "key": {
+   "answer": true,
+   "explain": "setecientas personas, novecientas páginas — hundreds (200+) agree in gender, unlike smaller numbers."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:tf:1589b189",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘mil’ can be written with ‘un’ in front of it, like English ‘a thousand’ → ‘un mil’.",
+  "key": {
+   "answer": false,
+   "explain": "Spanish just says ‘mil’ on its own — never ‘un mil’."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:tf:da4c2718",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘sino’ is used instead of ‘pero’ after a negative, to contrast two things directly.",
+  "key": {
+   "answer": true,
+   "explain": "No es rojo, sino azul — ‘sino’ replaces ‘pero’ after ‘no’ when directly contrasting."
+  }
+ },
+ {
   "id": "spanish:g-6-pronouns-negatives-and-connectors:learn:bf3278c8",
   "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
   "pageName": "G.6 Pronouns, Negatives and Connectors",
@@ -7439,7 +9151,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Negatives: nada, nunca, nadie, ni…ni",
-  "reading": "<p>Spanish uses a <strong>double negative</strong> — ‘no’ plus a negative word: <span data-say=\"no veo nada\">no veo nada</span> (I don’t see anything/I see nothing).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"no...nada\">no … nada</span></td><td>nothing</td></tr>\n              <tr><td><span data-say=\"no...nunca\">no … nunca</span> / <span data-say=\"jamás\">jamás</span></td><td>never</td></tr>\n              <tr><td><span data-say=\"no...nadie\">no … nadie</span></td><td>nobody</td></tr>\n              <tr><td><span data-say=\"no...ni...ni\">no … ni … ni</span></td><td>neither … nor</td></tr>\n            </table>\n            <p>Examples: <span data-say=\"no como nunca carne\">No como nunca carne.</span> (I never eat meat.) <span data-say=\"no hay nadie\">No hay nadie.</span> (There’s nobody.) <span data-say=\"no me gusta ni el fútbol ni el tenis\">No me gusta ni el fútbol ni el tenis.</span> (I like neither football nor tennis.)</p>\n            <p><span class=\"tier-h\">H</span> You can drop ‘no’ if the negative word comes BEFORE the verb: <span data-say=\"nunca voy al gimnasio\">Nunca voy al gimnasio.</span> (I never go to the gym.)</p>",
+  "reading": "<p>Spanish uses a <strong>double negative</strong> — ‘no’ plus a negative word: <span data-say=\"no veo nada\">no veo nada</span> (I don’t see anything/I see nothing).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"no...nada\">no … nada</span></td><td>nothing</td></tr>\n              <tr><td><span data-say=\"no...nunca\">no … nunca</span> / <span data-say=\"jamás\">jamás</span></td><td>never</td></tr>\n              <tr><td><span data-say=\"no...nadie\">no … nadie</span></td><td>nobody</td></tr>\n              <tr><td><span data-say=\"no...ni...ni\">no … ni … ni</span></td><td>neither … nor</td></tr>\n            </table>\n            <p>Examples: <span data-say=\"no como nunca carne\">No como nunca carne.</span> (I never eat meat.) <span data-say=\"no hay nadie\">No hay nadie.</span> (There’s nobody.) <span data-say=\"no me gusta ni el fútbol ni el tenis\">No me gusta ni el fútbol ni el tenis.</span> (I like neither football nor tennis.)</p>\n            <p><span class=\"tier-h\">H</span> You can drop ‘no’ if the negative word comes BEFORE the verb: <span data-say=\"nunca voy al gimnasio\">Nunca voy al gimnasio.</span> (I never go to the gym.)</p>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"nada\">nada</span> and <span data-say=\"nadie\">nadie</span> can also stand ALONE as pronouns, with no ‘no’ at all, when they come before the verb: <span data-say=\"Nada es imposible.\">Nada es imposible.</span> (Nothing is impossible.) <span data-say=\"Nadie lo sabe.\">Nadie lo sabe.</span> (Nobody knows it.)</p>",
   "question": "How do you say ‘I don’t see anything’ correctly in Spanish?",
   "options": [
    "No veo nada.",
@@ -7460,7 +9172,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Connectors and intensifiers",
-  "reading": "<p>Basic connectors join ideas: <span data-say=\"y\">y</span> (and), <span data-say=\"pero\">pero</span> (but), <span data-say=\"porque\">porque</span> (because), <span data-say=\"también\">también</span> (also), <span data-say=\"además\">además</span> (furthermore).</p>\n            <p><span class=\"tier-h\">H</span> For top marks add: <span data-say=\"sin embargo\">sin embargo</span> (however) and <span data-say=\"aunque\">aunque</span> (although) — <span data-say=\"aunque\">aunque</span> introduces a <strong>contrast</strong>, unlike ‘además’ which adds an idea.</p>\n            <p>Intensifiers strengthen or soften an adjective: <span data-say=\"muy\">muy</span> (very), <span data-say=\"bastante\">bastante</span> (quite), <span data-say=\"demasiado\">demasiado</span> (too much/many), <span data-say=\"un poco\">un poco</span> (a bit).</p>\n            <p>Example: <span data-say=\"Me gusta el deporte, pero prefiero la música. Además, toco la guitarra. Sin embargo, no tengo mucho tiempo.\">Me gusta el deporte, pero prefiero la música. Además, toco la guitarra. Sin embargo, no tengo mucho tiempo.</span></p>",
+  "reading": "<p>Basic connectors join ideas: <span data-say=\"y\">y</span> (and), <span data-say=\"pero\">pero</span> (but), <span data-say=\"porque\">porque</span> (because), <span data-say=\"también\">también</span> (also), <span data-say=\"además\">además</span> (furthermore).</p>\n            <p><span class=\"tier-h\">H</span> For top marks add: <span data-say=\"sin embargo\">sin embargo</span> (however) and <span data-say=\"aunque\">aunque</span> (although) — <span data-say=\"aunque\">aunque</span> introduces a <strong>contrast</strong>, unlike ‘además’ which adds an idea.</p>\n            <p>Intensifiers strengthen or soften an adjective: <span data-say=\"muy\">muy</span> (very), <span data-say=\"bastante\">bastante</span> (quite), <span data-say=\"demasiado\">demasiado</span> (too much/many), <span data-say=\"un poco\">un poco</span> (a bit).</p>\n            <p>Example: <span data-say=\"Me gusta el deporte, pero prefiero la música. Además, toco la guitarra. Sin embargo, no tengo mucho tiempo.\">Me gusta el deporte, pero prefiero la música. Además, toco la guitarra. Sin embargo, no tengo mucho tiempo.</span></p>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"sino\">sino</span> means \"but rather\" — use it instead of ‘pero’ after a negative when directly contrasting two things: <span data-say=\"No es rojo, sino azul.\">No es rojo, sino azul.</span> (It's not red, but blue.)</p>",
   "question": "Which connector means ‘although’ and introduces a contrast?",
   "options": [
    "aunque",
@@ -7471,6 +9183,153 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "‘aunque’ (although) signals a contrast; ‘porque’ gives a reason, and ‘también’/‘además’ add extra ideas rather than contrast them."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:learn:617da4e4",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Demonstratives: this/these, that/those, that (over there)",
+  "reading": "<p>Demonstratives show distance from the speaker. Spanish has three \"distances\": close (<span data-say=\"este\">este/esta</span>, this), middle (<span data-say=\"ese\">ese/esa</span>, that), and far (<span data-say=\"aquel\">aquel/aquella</span>, that … over there).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"estos libros\">estos libros</span></td><td>these books (masc., close)</td></tr>\n              <tr><td><span data-say=\"estas casas\">estas casas</span></td><td>these houses (fem., close)</td></tr>\n              <tr><td><span data-say=\"esos zapatos\">esos zapatos</span></td><td>those shoes (masc., middle distance)</td></tr>\n              <tr><td><span data-say=\"esas camisetas\">esas camisetas</span></td><td>those T-shirts (fem., middle distance)</td></tr>\n              <tr><td><span data-say=\"aquel edificio\">aquel edificio</span></td><td>that building over there (masc.)</td></tr>\n              <tr><td><span data-say=\"aquella montaña\">aquella montaña</span></td><td>that mountain over there (fem.)</td></tr>\n              <tr><td><span data-say=\"aquellos años\">aquellos años</span></td><td>those years (long ago/far, masc. pl.) <span class=\"tier-h\">H</span></td></tr>\n              <tr><td><span data-say=\"aquellas fotos\">aquellas fotos</span></td><td>those photos (far, fem. pl.) <span class=\"tier-h\">H</span></td></tr>\n            </table>\n            <p><span class=\"tier-h\">H</span> When the word doesn't point at one specific noun — just an idea or an unknown thing — Spanish uses the neuter forms <span data-say=\"esto\">esto</span> (this) and <span data-say=\"aquello\">aquello</span> (that): <span data-say=\"¿Qué es esto?\">¿Qué es esto?</span> (What is this?) <span data-say=\"Aquello que dijiste me sorprendió.\">Aquello que dijiste me sorprendió.</span> (That thing you said surprised me.)</p>",
+  "question": "Which word means ‘this’ when you aren't pointing at one specific noun, just an idea or unknown thing?",
+  "options": [
+   "esto",
+   "estos",
+   "estas",
+   "aquellos"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘esto’ is the neuter form used for an idea or unknown thing; ‘estos/estas’ agree with a specific masc./fem. noun, and ‘aquellos’ means ‘those’ far away."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:learn:4ffb1ff8",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "More prepositions: para, sin, hasta, desde",
+  "reading": "<p><span data-say=\"para\">para</span> means \"for\" or \"in order to\" — it points to a purpose, destination or recipient: <span data-say=\"Estudio para aprender.\">Estudio para aprender.</span> (I study in order to learn.) <span data-say=\"Este regalo es para ti.\">Este regalo es para ti.</span> (This present is for you.)</p>\n            <p><span data-say=\"sin\">sin</span> means \"without\": <span data-say=\"sin duda\">sin duda</span> (without doubt), <span data-say=\"Salió sin comer.\">Salió sin comer.</span> (He/she left without eating.)</p>\n            <p><span data-say=\"hasta\">hasta</span> means \"until\", \"up to\" or \"even\": <span data-say=\"hasta luego\">hasta luego</span> (see you later), <span data-say=\"Trabajé hasta las diez.\">Trabajé hasta las diez.</span> (I worked until ten.)</p>\n            <p><span data-say=\"desde\">desde</span> means \"from\" or \"since\": <span data-say=\"Vivo aquí desde 2020.\">Vivo aquí desde 2020.</span> (I've lived here since 2020.) <span data-say=\"desde mi casa\">desde mi casa</span> (from my house).</p>",
+  "question": "Which preposition means ‘since’ or ‘from’ (a point in time or place)?",
+  "options": [
+   "desde",
+   "hasta",
+   "sin",
+   "para"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘desde’ = since/from a starting point; ‘hasta’ = until/up to an end point, ‘sin’ = without, and ‘para’ = for/in order to."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:learn:96f5d7b9",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "otro, alguno, ninguno — another, some, none",
+  "reading": "<p><span data-say=\"otro\">otro</span> / otra means \"another\" or \"other\" — unlike English, Spanish never puts ‘un/una’ before it: <span data-say=\"otro día\">otro día</span> (another day), NOT \"un otro día\".</p>\n            <p><span data-say=\"alguno\">alguno</span> shortens to <span data-say=\"algún\">algún</span> before a masculine singular noun: <span data-say=\"algún día\">algún día</span> (some day). As a pronoun it means \"someone/some (of them)\": <span data-say=\"¿Tienes alguna idea? Sí, tengo alguna.\">¿Tienes alguna idea? Sí, tengo alguna.</span> (Do you have an idea? Yes, I have one.)</p>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"ninguno\">ninguno</span> shortens to <span data-say=\"ningún\">ningún</span> before a masculine singular noun and means \"no/not any\": <span data-say=\"No tengo ningún problema.\">No tengo ningún problema.</span> (I don't have any problem.) As a pronoun: <span data-say=\"¿Tienes hermanos? No, no tengo ninguno.\">¿Tienes hermanos? No, no tengo ninguno.</span> (Do you have siblings? No, I don't have any.)</p>",
+  "question": "How do you say ‘I don't have any problem’ correctly?",
+  "options": [
+   "No tengo ningún problema.",
+   "No tengo otro problema.",
+   "Tengo ningún problema.",
+   "No tengo alguno problema."
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘ningún’ shortens before a masc. singular noun and needs ‘no’ before the verb. Option C drops ‘no’, and option D wrongly keeps the full form ‘alguno’ instead of ‘ningún’, giving the wrong meaning too."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:learn:6b7a2632",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Possessive pronouns: el mío, el tuyo, el suyo, el nuestro, el vuestro",
+  "reading": "<p>Possessive pronouns replace \"mi coche\" with just \"mine\" — they agree with the noun they replace in gender and number, and usually take an article (el/la/los/las).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el mío\">el mío</span> / la mía</td><td>mine</td></tr>\n              <tr><td><span data-say=\"el tuyo\">el tuyo</span> / la tuya</td><td>yours (tú)</td></tr>\n              <tr><td><span data-say=\"el suyo\">el suyo</span> / la suya</td><td>his / hers / theirs / yours (usted)</td></tr>\n              <tr><td><span data-say=\"el nuestro\">el nuestro</span> / la nuestra</td><td>ours</td></tr>\n              <tr><td><span data-say=\"el vuestro\">el vuestro</span> / la vuestra</td><td>yours (vosotros)</td></tr>\n            </table>\n            <p>Examples: <span data-say=\"Tu casa es grande; la mía es pequeña.\">Tu casa es grande; la mía es pequeña.</span> (Your house is big; mine is small.) <span data-say=\"Vuestro coche es azul; el nuestro es rojo.\">Vuestro coche es azul; el nuestro es rojo.</span> (Your car is blue; ours is red.)</p>\n            <p><span class=\"tier-h\">H</span> Don't confuse the possessive pronoun (<span data-say=\"el vuestro\">el vuestro</span> = yours) with the possessive determiner <span data-say=\"vuestro coche\">vuestro coche</span> (your car), which goes directly before the noun with no article.</p>",
+  "question": "Which possessive pronoun means ‘mine’, replacing a feminine noun like ‘la casa’?",
+  "options": [
+   "la mía",
+   "el mío",
+   "la tuya",
+   "la nuestra"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘la mía’ agrees with a feminine noun and means ‘mine’. ‘el mío’ is masculine, and ‘la tuya’/‘la nuestra’ mean ‘yours’/‘ours’."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:learn:dff5e7be",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "el que / el cual — advanced relative pronouns",
+  "reading": "<p><span data-say=\"el que\">el que</span> / la que / los que / las que means \"the one(s) who/that\" — it refers back to a person or thing without repeating the noun: <span data-say=\"De todos los libros, el que más me gustó fue éste.\">De todos los libros, el que más me gustó fue éste.</span> (Of all the books, the one I liked most was this one.)</p>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"el cual\">el cual</span> / la cual / los cuales / las cuales is a more formal version of \"que\", used especially straight after a preposition to avoid confusion: <span data-say=\"La empresa para la cual trabajo es española.\">La empresa para la cual trabajo es española.</span> (The company for which I work is Spanish.)</p>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"los demás\">los demás</span> / las demás means \"the others\" or \"the rest\": <span data-say=\"Yo terminé, pero los demás todavía trabajan.\">Yo terminé, pero los demás todavía trabajan.</span> (I finished, but the others are still working.)</p>",
+  "question": "What does ‘los demás’ mean in ‘Yo terminé, pero los demás todavía trabajan’?",
+  "options": [
+   "the others",
+   "everyone, no exceptions",
+   "none of them",
+   "some of them"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘los demás’ = the others/the rest of the group, unlike ‘todos’ (everyone), ‘ninguno’ (none) or ‘algunos’ (some)."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:learn:08ad3130",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Numbers: teens, tens, hundreds and thousands",
+  "reading": "<p>Some higher numbers need extra care with spelling and gender agreement.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"doce\">doce</span></td><td>12 — twelve</td></tr>\n              <tr><td><span data-say=\"diecisiete\">diecisiete</span></td><td>17 — seventeen</td></tr>\n              <tr><td><span data-say=\"diecinueve\">diecinueve</span></td><td>19 — nineteen</td></tr>\n              <tr><td><span data-say=\"veinte\">veinte</span></td><td>20 — twenty (veinti- before 21–29: veintiuno)</td></tr>\n              <tr><td><span data-say=\"sesenta\">sesenta</span></td><td>60 — sixty</td></tr>\n              <tr><td><span data-say=\"setenta\">setenta</span></td><td>70 — seventy</td></tr>\n              <tr><td><span data-say=\"ochenta\">ochenta</span></td><td>80 — eighty</td></tr>\n              <tr><td><span data-say=\"cien, ciento\">cien / ciento</span></td><td>100 — cien alone/before a noun; ciento inside a bigger number (ciento cincuenta = 150)</td></tr>\n              <tr><td><span data-say=\"setecientos\">setecientos</span></td><td>700 — seven hundred (agrees: setecientas personas)</td></tr>\n              <tr><td><span data-say=\"novecientos\">novecientos</span></td><td>900 — nine hundred (agrees: novecientas personas)</td></tr>\n              <tr><td><span data-say=\"mil\">mil</span></td><td>1.000 — a thousand (never \"un mil\")</td></tr>\n              <tr><td><span data-say=\"millón\">millón</span></td><td>1.000.000 — a million (needs \"de\": un millón de euros)</td></tr>\n            </table>\n            <p><span class=\"tier-h\">H</span> Hundreds agree in gender with the noun: <span data-say=\"setecientas personas\">setecientas personas</span> (700 people, fem.) but <span data-say=\"setecientos euros\">setecientos euros</span> (700 euros, masc.).</p>",
+  "question": "Which number word never takes ‘un’ in front of it, unlike English ‘a thousand’?",
+  "options": [
+   "mil",
+   "millón",
+   "ciento",
+   "cien"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Spanish just says ‘mil’ (a/one thousand), never ‘un mil’. ‘millón’ DOES need ‘un’ (un millón), and ‘cien/ciento’ work differently again."
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:learn:a544027d",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Question words and ‘with you’: cuánto, contigo",
+  "reading": "<p><span data-say=\"¿cuánto?\">¿cuánto?</span> / ¿cuánta? / ¿cuántos? / ¿cuántas? means \"how much/how many\" and agrees with the noun: <span data-say=\"¿Cuánto cuesta?\">¿Cuánto cuesta?</span> (How much does it cost?) <span data-say=\"¿Cuántos hermanos tienes?\">¿Cuántos hermanos tienes?</span> (How many siblings do you have?)</p>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"contigo\">contigo</span> is a special contraction of \"con + ti\" meaning \"with you\" (informal singular) — it doesn't follow the usual \"con + pronoun\" pattern: <span data-say=\"¿Puedo ir contigo?\">¿Puedo ir contigo?</span> (Can I go with you?) The equivalent for \"with me\" is <span data-say=\"conmigo\">conmigo</span>.</p>",
+  "question": "How do you say ‘Can I go with you?’ to a friend, using the special contraction for ‘con + ti’?",
+  "options": [
+   "¿Puedo ir contigo?",
+   "¿Puedo ir con tigo?",
+   "¿Puedo ir con tú?",
+   "¿Puedo ir sin ti?"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘con + ti’ contracts irregularly to one word, ‘contigo’. Option B wrongly splits it into two words, option C uses the subject pronoun ‘tú’ instead of ‘ti’, and option D means ‘without you’."
   }
  },
  {
@@ -7579,6 +9438,27 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:misc:98500395",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Voy a leer un otro libro.</p><p><strong>✅ The correct idea:</strong> Voy a leer otro libro.</p>",
+  "question": "Why is ‘un otro libro’ wrong?",
+  "options": [
+   "Spanish never puts ‘un/una’ before ‘otro’ — just ‘otro libro’",
+   "‘otro’ must always come immediately after the noun it describes, never before it",
+   "‘libro’ should be plural in this sentence",
+   "‘un’ should be replaced with ‘el’ before ‘otro’"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘otro’ already means ‘another’, so it never takes ‘un/una’ in front — ‘otro libro’ is correct on its own."
+  }
+ },
+ {
   "id": "spanish:g-6-pronouns-negatives-and-connectors:tips:0f74e702",
   "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
   "pageName": "G.6 Pronouns, Negatives and Connectors",
@@ -7651,10 +9531,10 @@ window.QUESTION_BANK = [
   "question": "¿Tienes el libro? Sí, _____ tengo. (it — masculine, direct object pronoun)",
   "blankOptions": {
    "B1": [
-    "además",
-    "porque",
     "lo",
-    "nada"
+    "sesenta",
+    "diecisiete",
+    "nunca"
    ]
   },
   "key": {
@@ -7673,10 +9553,10 @@ window.QUESTION_BANK = [
   "question": "No veo _____. <span data-say=\"No veo nada.\" data-listen>No veo nada.</span>",
   "blankOptions": {
    "B1": [
-    "que",
-    "nunca",
     "además",
-    "nada"
+    "nada",
+    "porque",
+    "estos"
    ]
   },
   "key": {
@@ -7695,10 +9575,10 @@ window.QUESTION_BANK = [
   "question": "Voy a hacer más ejercicio, _____ es bueno para la salud. (because)",
   "blankOptions": {
    "B1": [
-    "además",
     "lo",
     "porque",
-    "que"
+    "esas",
+    "nadie"
    ]
   },
   "key": {
@@ -7717,10 +9597,10 @@ window.QUESTION_BANK = [
   "question": "(Yo) _____ levanto a las siete. (myself — reflexive pronoun)",
   "blankOptions": {
    "B1": [
+    "sesenta",
+    "diecisiete",
     "nada",
-    "me",
-    "porque",
-    "nunca"
+    "me"
    ]
   },
   "key": {
@@ -7740,8 +9620,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "que",
-    "nada",
-    "lo",
+    "novecientas",
+    "estos",
     "nunca"
    ]
   },
@@ -7761,10 +9641,10 @@ window.QUESTION_BANK = [
   "question": "No voy _____ al gimnasio los domingos. (never)",
   "blankOptions": {
    "B1": [
-    "que",
-    "además",
-    "nunca",
-    "lo"
+    "diecisiete",
+    "doce",
+    "nadie",
+    "nunca"
    ]
   },
   "key": {
@@ -7783,15 +9663,213 @@ window.QUESTION_BANK = [
   "question": "Juego al fútbol y, _____, hago natación. (also/furthermore)",
   "blankOptions": {
    "B1": [
-    "nada",
-    "nunca",
-    "además",
-    "lo"
+    "porque",
+    "que",
+    "sesenta",
+    "además"
    ]
   },
   "key": {
    "blanks": {
     "B1": "además"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:fib:6bd25d10",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Dicen que _____ es imposible. (nothing — used alone, no ‘no’ needed)",
+  "blankOptions": {
+   "B1": [
+    "doce",
+    "nada",
+    "nunca",
+    "porque"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "nada"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:fib:3138cd1d",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Llamé a la puerta, pero _____ contestó. (nobody — used alone, no ‘no’ needed)",
+  "blankOptions": {
+   "B1": [
+    "mil",
+    "doce",
+    "diecisiete",
+    "nadie"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "nadie"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:fib:dcaef8e9",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Me encantan _____ zapatos nuevos. (these — masculine)",
+  "blankOptions": {
+   "B1": [
+    "nada",
+    "diecisiete",
+    "nunca",
+    "estos"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "estos"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:fib:f0c3bba2",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "No me gustan _____ camisetas. (those — feminine, middle distance)",
+  "blankOptions": {
+   "B1": [
+    "además",
+    "esas",
+    "me",
+    "nadie"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "esas"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:fib:7c9e030c",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El coche cuesta _____ euros. (a thousand)",
+  "blankOptions": {
+   "B1": [
+    "nadie",
+    "mil",
+    "lo",
+    "porque"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "mil"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:fib:373537ec",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Hay _____ meses en un año. (twelve)",
+  "blankOptions": {
+   "B1": [
+    "estos",
+    "mil",
+    "esas",
+    "doce"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "doce"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:fib:8bf9aa09",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Mi abuela tiene _____ años. (sixty)",
+  "blankOptions": {
+   "B1": [
+    "nadie",
+    "porque",
+    "mil",
+    "sesenta"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "sesenta"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:fib:2a6e5f35",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Mi hermano tiene _____ años. (seventeen)",
+  "blankOptions": {
+   "B1": [
+    "además",
+    "diecisiete",
+    "novecientas",
+    "doce"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "diecisiete"
+   }
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:fib:b01c40eb",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "En el pueblo viven _____ personas. (nine hundred — agrees with ‘personas’, feminine)",
+  "blankOptions": {
+   "B1": [
+    "nunca",
+    "me",
+    "novecientas",
+    "nada"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "novecientas"
    }
   }
  },
@@ -7804,10 +9882,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “lo”?",
   "options": [
-   "who (after a preposition)",
-   "although",
+   "however",
+   "nobody",
    "him / it (masculine)",
-   "however"
+   "until, up to"
   ],
   "key": {
    "answer": 2,
@@ -7823,13 +9901,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la”?",
   "options": [
-   "nobody",
-   "to/for me · myself (reflexive)",
    "her / it (feminine)",
-   "although"
+   "how much?",
+   "a million",
+   "from, since"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“la” means: her / it (feminine)"
   }
  },
@@ -7842,13 +9920,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me”?",
   "options": [
-   "who (after a preposition)",
-   "nothing",
-   "her / it (feminine)",
-   "to/for me · myself (reflexive)"
+   "to/for me · myself (reflexive)",
+   "how much?",
+   "nobody",
+   "some (any at all)"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“me” means: to/for me · myself (reflexive)"
   }
  },
@@ -7861,9 +9939,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “se”?",
   "options": [
-   "who (after a preposition)",
-   "never",
-   "what, that which",
+   "mine",
+   "with you",
+   "however",
    "himself / herself / themselves"
   ],
   "key": {
@@ -7880,13 +9958,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “que”?",
   "options": [
+   "those",
    "who, that, which",
-   "however",
-   "himself / herself / themselves",
-   "to/for me · myself (reflexive)"
+   "never",
+   "a million"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“que” means: who, that, which"
   }
  },
@@ -7899,13 +9977,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “quien”?",
   "options": [
-   "her / it (feminine)",
+   "ours",
+   "himself / herself / themselves",
    "who (after a preposition)",
-   "who, that, which",
-   "him / it (masculine)"
+   "a million"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“quien” means: who (after a preposition)"
   }
  },
@@ -7918,13 +9996,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “lo que”?",
   "options": [
-   "who, that, which",
-   "however",
    "what, that which",
-   "him / it (masculine)"
+   "a thousand",
+   "nobody",
+   "those"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“lo que” means: what, that which"
   }
  },
@@ -7937,10 +10015,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “no … nada”?",
   "options": [
-   "nobody",
+   "from, since",
    "nothing",
-   "who, that, which",
-   "however"
+   "however",
+   "what, that which"
   ],
   "key": {
    "answer": 1,
@@ -7956,9 +10034,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “no … nunca”?",
   "options": [
-   "although",
-   "however",
-   "him / it (masculine)",
+   "that (over there)",
+   "these",
+   "her / it (feminine)",
    "never"
   ],
   "key": {
@@ -7975,13 +10053,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “no … nadie”?",
   "options": [
+   "for, in order to",
+   "a thousand",
    "nobody",
-   "nothing",
-   "never",
-   "who (after a preposition)"
+   "ours"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“no … nadie” means: nobody"
   }
  },
@@ -7995,9 +10073,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “sin embargo”?",
   "options": [
    "however",
-   "nobody",
+   "these",
    "him / it (masculine)",
-   "who (after a preposition)"
+   "another / other"
   ],
   "key": {
    "answer": 0,
@@ -8013,14 +10091,394 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “aunque”?",
   "options": [
-   "who (after a preposition)",
-   "although",
    "however",
-   "himself / herself / themselves"
+   "although",
+   "another / other",
+   "what, that which"
   ],
   "key": {
    "answer": 1,
    "explain": "“aunque” means: although"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:9a6f44ff",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “otro”?",
+  "options": [
+   "from, since",
+   "that (over there)",
+   "another / other",
+   "who, that, which"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“otro” means: another / other"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:29ec7e85",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “algún / alguno”?",
+  "options": [
+   "some (any at all)",
+   "nobody",
+   "who (after a preposition)",
+   "him / it (masculine)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“algún / alguno” means: some (any at all)"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:29a3d2df",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “ningún / ninguno”?",
+  "options": [
+   "never",
+   "ours",
+   "no / not any",
+   "without"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“ningún / ninguno” means: no / not any"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:c9324fe6",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “para”?",
+  "options": [
+   "with you",
+   "for, in order to",
+   "a thousand",
+   "these"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“para” means: for, in order to"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:76503177",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “sin”?",
+  "options": [
+   "until, up to",
+   "however",
+   "what, that which",
+   "without"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“sin” means: without"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:8b9e06ca",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “hasta”?",
+  "options": [
+   "what, that which",
+   "but rather",
+   "until, up to",
+   "some (any at all)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“hasta” means: until, up to"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:9db13ab0",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “desde”?",
+  "options": [
+   "how much?",
+   "from, since",
+   "the others, the rest",
+   "that (over there)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“desde” means: from, since"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:8a0c13ac",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “estos, estas”?",
+  "options": [
+   "her / it (feminine)",
+   "without",
+   "these",
+   "that (over there)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“estos, estas” means: these"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:c31c7ece",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “esos, esas”?",
+  "options": [
+   "although",
+   "those",
+   "a thousand",
+   "the one who/that"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“esos, esas” means: those"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:623c5498",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “aquel, aquella”?",
+  "options": [
+   "these",
+   "that (over there)",
+   "who, that, which",
+   "some (any at all)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“aquel, aquella” means: that (over there)"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:835aea6d",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el que / la que”?",
+  "options": [
+   "her / it (feminine)",
+   "what, that which",
+   "that (over there)",
+   "the one who/that"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el que / la que” means: the one who/that"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:45da65cf",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el cual / la cual”?",
+  "options": [
+   "who (after a preposition)",
+   "those",
+   "what, that which",
+   "which, who (formal)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el cual / la cual” means: which, who (formal)"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:63da28d2",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “los demás”?",
+  "options": [
+   "for, in order to",
+   "never",
+   "the others, the rest",
+   "which, who (formal)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“los demás” means: the others, the rest"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:e6f9a8a3",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “sino”?",
+  "options": [
+   "from, since",
+   "to/for me · myself (reflexive)",
+   "but rather",
+   "him / it (masculine)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“sino” means: but rather"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:21b74633",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el mío / la mía”?",
+  "options": [
+   "who (after a preposition)",
+   "mine",
+   "some (any at all)",
+   "how much?"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el mío / la mía” means: mine"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:d93156c1",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el nuestro / la nuestra”?",
+  "options": [
+   "himself / herself / themselves",
+   "who (after a preposition)",
+   "ours",
+   "never"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el nuestro / la nuestra” means: ours"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:6b43de05",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “contigo”?",
+  "options": [
+   "with you",
+   "although",
+   "without",
+   "these"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“contigo” means: with you"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:88af131b",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “¿cuánto?”?",
+  "options": [
+   "a thousand",
+   "how much?",
+   "those",
+   "mine"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“¿cuánto?” means: how much?"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:aca19942",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “mil”?",
+  "options": [
+   "a thousand",
+   "no / not any",
+   "for, in order to",
+   "but rather"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“mil” means: a thousand"
+  }
+ },
+ {
+  "id": "spanish:g-6-pronouns-negatives-and-connectors:match:d0f02a7d",
+  "pageId": "spanish:g-6-pronouns-negatives-and-connectors",
+  "pageName": "G.6 Pronouns, Negatives and Connectors",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “millón”?",
+  "options": [
+   "how much?",
+   "never",
+   "with you",
+   "a million"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“millón” means: a million"
   }
  },
  {
@@ -8247,6 +10705,158 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:1-1-me-my-family-and-friends:mcq:495cb59e",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘Vamos juntos al cine esta noche.’ — what does ‘juntos’ mean here?",
+  "options": [
+   "together",
+   "separately, each in a different car",
+   "late, after the film starts",
+   "for free, without paying"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "juntos = together. The distractors describe how or when, not togetherness."
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:mcq:356929b8",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘El señor García es mi profesor de español.’ — what does ‘señor’ mean here?",
+  "options": [
+   "Mr / gentleman",
+   "sir, only used for royalty",
+   "señora's husband, nothing more",
+   "an old-fashioned word for teacher"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "señor = Mr / man, a polite title before a surname."
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:mcq:7d3692c5",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Mi padre trabaja fuera de la ciudad.\" data-listen></span><br>Listen. What is being said about the father?",
+  "options": [
+   "He works outside/away from the city",
+   "He never leaves the house at all",
+   "He works very hard inside the city",
+   "He is currently out of work, unemployed"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "fuera (de) = outside/away from. Distractors invert or change the meaning."
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:mcq:2ee3b257",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How do you say ‘I am the third child’?",
+  "options": [
+   "Soy el tercer hijo",
+   "Soy el tercero hijo",
+   "Soy el hijo tercer",
+   "Soy tercer de hijo"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘tercer’ shortens before a masculine singular noun: el tercer hijo (like ‘primer’, ‘buen’)."
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:mcq:fdff52b6",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘Aquí tienes mis datos personales: nombre, edad y sexo.’ — what are ‘datos personales’?",
+  "options": [
+   "personal details/data",
+   "personal opinions and beliefs",
+   "personal belongings, like a bag",
+   "a personal diary or journal"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "datos personales = personal details/data (name, age, etc.), not opinions or objects."
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:mcq:01833117",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Mi amigo Hans es alemán.\" data-listen></span><br>Listen. Where is Hans from?",
+  "options": [
+   "Germany",
+   "Italy",
+   "Britain",
+   "China"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "alemán = German. The other options are the other nationalities on this page."
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:mcq:ce9af27a",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘Tengo un recuerdo precioso de mi abuela.’ — what is ‘un recuerdo’?",
+  "options": [
+   "a memory",
+   "a present, a gift",
+   "a photograph, nothing more",
+   "a letter or postcard"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "un recuerdo = a memory (also can mean souvenir), not simply a gift or photo."
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:mcq:4bf5cb17",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘Chinese’?",
+  "options": [
+   "chino",
+   "chico",
+   "china (the country only)",
+   "checo"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "chino = Chinese. ‘chico’ = boy; ‘checo’ = Czech — classic mix-ups."
+  }
+ },
+ {
   "id": "spanish:1-1-me-my-family-and-friends:tf:74a7e953",
   "pageId": "spanish:1-1-me-my-family-and-friends",
   "pageName": "1.1 Me, My Family and Friends",
@@ -8348,6 +10958,45 @@ window.QUESTION_BANK = [
   "key": {
    "answer": true,
    "explain": "ser describes what you are like: soy alto/alta."
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:tf:41a09006",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘tercer’ becomes ‘tercero’ before a masculine singular noun.",
+  "key": {
+   "answer": false,
+   "explain": "It's the opposite: ‘tercero’ shortens to ‘tercer’ before a masculine singular noun (el tercer hijo)."
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:tf:96e3aef3",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘madrastra’ means ‘stepmother’.",
+  "key": {
+   "answer": true,
+   "explain": "madrastra = stepmother; padrastro = stepfather."
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:tf:2d1ee208",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "Spanish speakers usually only use one surname, never two.",
+  "key": {
+   "answer": false,
+   "explain": "It's common to use two surnames — father's then mother's, e.g. González Pérez."
   }
  },
  {
@@ -8474,6 +11123,48 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "Relative ‘que’ = who/that; it joins ‘I have a brother’ + ‘he is called Luis’."
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:learn:de46cf3b",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Who else is in my family? Stepfamily, ages and names",
+  "reading": "<p>Family isn't just parents and siblings — here's more people, and how Spanish names work:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la madrastra\">la madrastra</span></td><td>stepmother</td><td><span data-say=\"el padrastro\">el padrastro</span></td><td>stepfather</td></tr>\n              <tr><td><span data-say=\"mamá\">mamá</span></td><td>mum (informal)</td><td><span data-say=\"papá\">papá</span></td><td>dad (informal)</td></tr>\n              <tr><td><span data-say=\"una niña\">una niña</span></td><td>a (young) girl</td><td><span data-say=\"un bebé\">un bebé</span></td><td>a baby</td></tr>\n              <tr><td><span data-say=\"un anciano\">un anciano</span></td><td>an elderly man</td><td><span data-say=\"un adulto\">un adulto</span></td><td>an adult</td></tr>\n              <tr><td><span data-say=\"el nacimiento\">el nacimiento</span></td><td>birth</td><td><span data-say=\"el apellido\">el apellido</span></td><td>surname</td></tr>\n            </table>\n            <p>Spanish speakers often use <strong>two</strong> surnames — father's then mother's: <span data-say=\"Mi apellido es González Pérez.\">Mi apellido es González Pérez.</span> And to say ‘the youngest’ of a group, use <span data-say=\"el menor\">el menor / la menor</span>: <span class=\"tier-h\">H</span> <span data-say=\"Soy la menor de mis hermanos.\">Soy la menor de mis hermanos.</span></p>",
+  "question": "What does ‘mi padrastro’ mean?",
+  "options": [
+   "my stepfather",
+   "my stepmother",
+   "my grandfather",
+   "my father-in-law, my wife's dad"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "padrastro = stepfather; madrastra = stepmother."
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:learn:5f4d921e",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Where is my family from? Nationalities and more appearance",
+  "reading": "<p>Nationality adjectives change for a female (add ‑a) — note the accent often disappears:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"europeo\">europeo / europea</span></td><td>European</td><td><span data-say=\"alemán\">alemán / alemana</span></td><td>German</td></tr>\n              <tr><td><span data-say=\"italiano\">italiano / italiana</span></td><td>Italian</td><td><span data-say=\"británico\">británico / británica</span></td><td>British</td></tr>\n              <tr><td><span data-say=\"chino\">chino / china</span></td><td>Chinese</td><td><span data-say=\"blanco\">blanco / blanca</span></td><td>white</td></tr>\n            </table>\n            <p>More words for describing people:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el pelo gris\">el pelo gris</span></td><td>grey hair</td><td><span data-say=\"un poco gordo\">un poco gordo / gorda</span></td><td>a bit overweight</td></tr>\n              <tr><td><span data-say=\"hermoso\">hermoso / hermosa</span></td><td>beautiful</td><td><span data-say=\"precioso\">precioso / preciosa</span></td><td>beautiful, gorgeous</td></tr>\n              <tr><td><span data-say=\"un tatuaje\">un tatuaje</span></td><td>a tattoo</td><td><span data-say=\"parecerse a\">parecerse a</span></td><td>to look like, resemble</td></tr>\n            </table>\n            <p>Family resemblance: <span data-say=\"Me parezco mucho a mi madre; somos muy semejantes.\">Me parezco mucho a mi madre; somos muy semejantes.</span> = I look a lot like my mother; we are very similar. Forms often ask your <span data-say=\"sexo\">sexo</span> (sex/gender) as well as your name and age.</p>",
+  "question": "What does ‘me parezco a mi padre’ mean?",
+  "options": [
+   "I look like my father",
+   "I disagree with my father",
+   "I live apart from my father",
+   "I get on badly with my father, not well at all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "parecerse a = to look like/resemble. Don't confuse it with ‘discutir’ (to argue) or ‘llevarse mal’ (get on badly)."
   }
  },
  {
@@ -8654,9 +11345,9 @@ window.QUESTION_BANK = [
   "question": "_____ quince años. <span data-say=\"Tengo quince años.\" data-listen>Tengo quince años.</span>",
   "blankOptions": {
    "B1": [
-    "llamo",
-    "Mis",
-    "marrones",
+    "parezco",
+    "tercer",
+    "castaño",
     "Tengo"
    ]
   },
@@ -8676,9 +11367,9 @@ window.QUESTION_BANK = [
   "question": "Tengo el pelo largo y _____. <span data-say=\"Tengo el pelo largo y castaño.\" data-listen>Tengo el pelo largo y castaño.</span>",
   "blankOptions": {
    "B1": [
-    "único",
     "llamo",
     "castaño",
+    "tercer",
     "Mis"
    ]
   },
@@ -8698,10 +11389,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano mayor _____ gafas. <span data-say=\"Mi hermano mayor lleva gafas.\" data-listen>Mi hermano mayor lleva gafas.</span>",
   "blankOptions": {
    "B1": [
-    "Tengo",
+    "marrones",
     "llamo",
-    "lleva",
-    "único"
+    "único",
+    "lleva"
    ]
   },
   "key": {
@@ -8720,10 +11411,10 @@ window.QUESTION_BANK = [
   "question": "Tengo los ojos _____. (brown — plural agreement!)",
   "blankOptions": {
    "B1": [
+    "castaño",
+    "parezco",
     "marrones",
-    "lleva",
-    "único",
-    "Tengo"
+    "lleva"
    ]
   },
   "key": {
@@ -8742,10 +11433,10 @@ window.QUESTION_BANK = [
   "question": "_____ hermanos son altos. (my — more than one)",
   "blankOptions": {
    "B1": [
-    "marrones",
-    "Mis",
-    "único",
-    "castaño"
+    "parezco",
+    "castaño",
+    "tercer",
+    "Mis"
    ]
   },
   "key": {
@@ -8764,10 +11455,10 @@ window.QUESTION_BANK = [
   "question": "Soy hijo _____. (only child)",
   "blankOptions": {
    "B1": [
-    "lleva",
     "llamo",
+    "castaño",
     "único",
-    "castaño"
+    "tercer"
    ]
   },
   "key": {
@@ -8786,15 +11477,81 @@ window.QUESTION_BANK = [
   "question": "Me _____ Ana y vivo en Madrid. (my name is)",
   "blankOptions": {
    "B1": [
-    "lleva",
-    "marrones",
-    "Tengo",
-    "llamo"
+    "parezco",
+    "Mis",
+    "llamo",
+    "castaño"
    ]
   },
   "key": {
    "blanks": {
     "B1": "llamo"
+   }
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:fib:a02ee16e",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Me _____ mucho a mi madre. <span data-say=\"Me parezco mucho a mi madre.\" data-listen>Me parezco mucho a mi madre.</span>",
+  "blankOptions": {
+   "B1": [
+    "anciano",
+    "parezco",
+    "tercer",
+    "Mis"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "parezco"
+   }
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:fib:4b205522",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Soy el _____ hijo de mi familia. (third)",
+  "blankOptions": {
+   "B1": [
+    "Tengo",
+    "tercer",
+    "llamo",
+    "castaño"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "tercer"
+   }
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:fib:ead01d76",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Mi abuelo es _____ y tiene el pelo gris. (elderly man)",
+  "blankOptions": {
+   "B1": [
+    "Tengo",
+    "Mis",
+    "anciano",
+    "llamo"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "anciano"
    }
   }
  },
@@ -8807,10 +11564,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me llamo…”?",
   "options": [
-   "I am from…",
-   "younger sister",
+   "I have blond hair",
+   "apart from, besides",
    "my name is…",
-   "I am … years old"
+   "I am from…"
   ],
   "key": {
    "answer": 2,
@@ -8827,9 +11584,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “tengo… años”?",
   "options": [
    "I am … years old",
-   "my name is…",
-   "younger sister",
-   "I have blue eyes"
+   "I am from…",
+   "impossible",
+   "older brother"
   ],
   "key": {
    "answer": 0,
@@ -8846,9 +11603,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “soy de…”?",
   "options": [
    "I am from…",
-   "I am … years old",
    "I have blue eyes",
-   "younger sister"
+   "younger sister",
+   "apart from, besides"
   ],
   "key": {
    "answer": 0,
@@ -8864,9 +11621,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “tengo el pelo rubio”?",
   "options": [
-   "I have blue eyes",
-   "I wear glasses",
+   "older brother",
    "my (one / more than one)",
+   "Congratulations!",
    "I have blond hair"
   ],
   "key": {
@@ -8883,9 +11640,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “tengo los ojos azules”?",
   "options": [
-   "my (one / more than one)",
-   "cousin",
-   "I am from…",
+   "parents",
+   "apart from, besides",
+   "I wear glasses",
    "I have blue eyes"
   ],
   "key": {
@@ -8902,9 +11659,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “llevo gafas”?",
   "options": [
-   "I have blue eyes",
-   "cousin",
-   "I am from…",
+   "only child",
+   "my (one / more than one)",
+   "parents",
    "I wear glasses"
   ],
   "key": {
@@ -8921,10 +11678,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “los padres”?",
   "options": [
-   "only child",
-   "I am from…",
+   "goodbye",
+   "I wear glasses",
    "parents",
-   "cousin"
+   "busy"
   ],
   "key": {
    "answer": 2,
@@ -8940,13 +11697,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el hermano mayor”?",
   "options": [
-   "younger sister",
-   "I am … years old",
    "older brother",
-   "only child"
+   "apart from, besides",
+   "I have blond hair",
+   "then, so"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“el hermano mayor” means: older brother"
   }
  },
@@ -8960,9 +11717,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “la hermana menor”?",
   "options": [
    "younger sister",
-   "I have blue eyes",
-   "older brother",
-   "cousin"
+   "only child",
+   "apart from, besides",
+   "my (one / more than one)"
   ],
   "key": {
    "answer": 0,
@@ -8978,8 +11735,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “hijo único”?",
   "options": [
-   "I have blue eyes",
-   "cousin",
+   "my (one / more than one)",
+   "busy",
    "my name is…",
    "only child"
   ],
@@ -8997,13 +11754,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “mi / mis”?",
   "options": [
-   "cousin",
    "my (one / more than one)",
-   "I have blue eyes",
-   "I have blond hair"
+   "only child",
+   "older brother",
+   "I wear glasses"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“mi / mis” means: my (one / more than one)"
   }
  },
@@ -9017,13 +11774,165 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “el primo / la prima”?",
   "options": [
    "cousin",
-   "I have blue eyes",
-   "I wear glasses",
+   "only child",
+   "my (one / more than one)",
    "my name is…"
   ],
   "key": {
    "answer": 0,
    "explain": "“el primo / la prima” means: cousin"
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:match:b09e42f5",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “entonces”?",
+  "options": [
+   "impossible",
+   "goodbye",
+   "then, so",
+   "I am from…"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“entonces” means: then, so"
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:match:f737f9cc",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “deseo”?",
+  "options": [
+   "parents",
+   "wish, desire",
+   "my name is…",
+   "(piece of) news"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“deseo” means: wish, desire"
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:match:89fc7da9",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “noticia”?",
+  "options": [
+   "(piece of) news",
+   "I wear glasses",
+   "impossible",
+   "parents"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“noticia” means: (piece of) news"
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:match:7b732767",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “aparte (de)”?",
+  "options": [
+   "I am from…",
+   "I have blue eyes",
+   "apart from, besides",
+   "then, so"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“aparte (de)” means: apart from, besides"
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:match:51a0b094",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “imposible”?",
+  "options": [
+   "younger sister",
+   "impossible",
+   "apart from, besides",
+   "I have blue eyes"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“imposible” means: impossible"
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:match:eb341cd6",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “adiós”?",
+  "options": [
+   "(piece of) news",
+   "I am from…",
+   "younger sister",
+   "goodbye"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“adiós” means: goodbye"
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:match:7d6e9821",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “¡Enhorabuena!”?",
+  "options": [
+   "only child",
+   "Congratulations!",
+   "wish, desire",
+   "(piece of) news"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“¡Enhorabuena!” means: Congratulations!"
+  }
+ },
+ {
+  "id": "spanish:1-1-me-my-family-and-friends:match:d646b687",
+  "pageId": "spanish:1-1-me-my-family-and-friends",
+  "pageName": "1.1 Me, My Family and Friends",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “ocupado”?",
+  "options": [
+   "busy",
+   "goodbye",
+   "my name is…",
+   "I have blond hair"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“ocupado” means: busy"
   }
  },
  {
@@ -9250,6 +12159,101 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:1-2-relationships-and-role-models:mcq:a2b85893",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Mi hermana y yo nos entendemos muy bien.\" data-listen></span><br>Listen. What is being said?",
+  "options": [
+   "My sister and I understand each other very well",
+   "My sister and I never see eye to eye about anything at all",
+   "My sister and I look very alike",
+   "My sister and I live in different countries"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "entenderse = to understand each other/get on. Distractors invert the meaning or change topic."
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:mcq:2ede6b51",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘Mi padre es un poco duro conmigo a veces.’ — what does ‘duro’ mean here?",
+  "options": [
+   "hard, strict",
+   "generous, gives me anything",
+   "funny, always joking around",
+   "absent, never at home"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "duro (describing a person) = hard/strict. Distractors are other personality traits, not synonyms."
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:mcq:289582e6",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘Mis padres tuvieron una boda civil, no religiosa.’ — what is ‘una boda civil’?",
+  "options": [
+   "a civil (non-religious) wedding",
+   "a religious wedding in a church",
+   "a huge, very expensive wedding",
+   "a wedding with no guests at all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "boda civil = civil (non-religious) wedding — the sentence itself contrasts it with ‘religiosa’."
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:mcq:9c8c8d2d",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Estoy muy nervioso antes de los exámenes.\" data-listen></span><br>Listen. How does the speaker feel before exams?",
+  "options": [
+   "very nervous",
+   "extremely relaxed and calm",
+   "rather bored and disinterested",
+   "quite proud and confident"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "nervioso = nervous. The distractors are the opposite feelings."
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:mcq:8cd87f4e",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘Me enamoré de mi mejor amigo el año pasado.’ — what does ‘enamorarse de’ mean?",
+  "options": [
+   "to fall in love with",
+   "to become good friends with",
+   "to have an argument with",
+   "to lose touch with completely"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "enamorarse (de) = to fall in love (with)."
+  }
+ },
+ {
   "id": "spanish:1-2-relationships-and-role-models:tf:02f3474b",
   "pageId": "spanish:1-2-relationships-and-role-models",
   "pageName": "1.2 Relationships and Role Models",
@@ -9351,6 +12355,45 @@ window.QUESTION_BANK = [
   "key": {
    "answer": true,
    "explain": "The imperfect expresses repeated/habitual past actions."
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:tf:9241ad17",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘comprensivo’ means ‘comprehensive’ in English.",
+  "key": {
+   "answer": false,
+   "explain": "False friend! comprensivo = understanding, not ‘comprehensive’."
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:tf:f2cb1a42",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘romper con alguien’ means ‘to break up with someone’.",
+  "key": {
+   "answer": true,
+   "explain": "romper con = to break up with."
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:tf:f9484023",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘duro’ can describe a person who is strict or harsh.",
+  "key": {
+   "answer": true,
+   "explain": "duro, describing a person, means hard/strict — not just physically hard."
   }
  },
  {
@@ -9477,6 +12520,48 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "The imperfect ‘me peleaba’ = ‘I used to fight’; ‘de pequeño’ = when I was little."
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:learn:ab50adaf",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "When things go wrong — conflict, secrets and forgiveness",
+  "reading": "<p>Relationships aren't always easy. More verbs and feelings for when things go wrong:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"romper con\">romper con</span></td><td>to break up with</td><td><span data-say=\"discutir\">discutir</span></td><td>to argue</td></tr>\n              <tr><td><span data-say=\"pegar\">pegar</span></td><td>to hit</td><td><span data-say=\"perdonar\">perdonar</span></td><td>to forgive</td></tr>\n              <tr><td><span data-say=\"un secreto\">un secreto</span></td><td>a secret</td><td><span data-say=\"una mentira\">una mentira</span></td><td>a lie</td></tr>\n              <tr><td><span data-say=\"la vergüenza\">la vergüenza</span></td><td>shame, embarrassment</td><td><span data-say=\"criticar\">criticar</span></td><td>to criticise</td></tr>\n            </table>\n            <p><span data-say=\"Estoy enojado porque mi amigo rompió con su novia y ahora se siente muy solo.\">Estoy enojado porque mi amigo rompió con su novia y ahora se siente muy solo.</span> = I am angry because my friend broke up with his girlfriend and now feels very lonely (<span data-say=\"la soledad\">la soledad</span> = loneliness). <span class=\"tier-h\">H</span> <span data-say=\"Desafortunadamente, no nos hablamos desde entonces.\">Desafortunadamente, no nos hablamos desde entonces.</span> = Unfortunately, we haven't spoken since then.</p>",
+  "question": "What does ‘romper con alguien’ mean?",
+  "options": [
+   "to break up with someone",
+   "to make up with someone again",
+   "to fall in love with someone",
+   "to introduce someone to your family"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "romper con = to break up with. Don't confuse with hacer las paces (to make up) or enamorarse (to fall in love)."
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:learn:447db90a",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "What makes a good role model? Personality, tolerance and feelings",
+  "reading": "<p>More personality words for describing role models — and vocabulary for talking about identity with respect:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"independiente\">independiente</span></td><td>independent</td><td><span data-say=\"capaz\">capaz</span></td><td>capable</td></tr>\n              <tr><td><span data-say=\"sencillo\">sencillo / sencilla</span></td><td>down-to-earth, simple</td><td><span data-say=\"positivo\">positivo / positiva</span></td><td>positive</td></tr>\n              <tr><td><span data-say=\"excelente\">excelente</span></td><td>excellent</td><td><span data-say=\"fiel\">fiel</span></td><td>loyal, faithful</td></tr>\n              <tr><td><span data-say=\"comprensivo\">comprensivo / comprensiva</span></td><td>understanding</td><td><span data-say=\"tolerante\">tolerante</span></td><td>tolerant</td></tr>\n            </table>\n            <p><span data-say=\"Mi modelo a seguir es fiel, comprensiva y siempre positiva. Tiene mucho sentimiento y buen humor.\">Mi modelo a seguir es fiel, comprensiva y siempre positiva. Tiene mucho sentimiento y buen humor.</span> = My role model is loyal, understanding and always positive. She has a lot of feeling and a good sense of humour.</p>\n            <p>Being tolerant means respecting everyone: <span data-say=\"Es importante ser tolerante, sea la persona gay, heterosexual o transgénero.\">Es importante ser tolerante, sea la persona gay, heterosexual o transgénero.</span> = It's important to be tolerant, whether the person is gay, heterosexual or transgender.</p>",
+  "question": "What does ‘comprensivo’ mean?",
+  "options": [
+   "understanding",
+   "complicated, hard to follow",
+   "comprehensive, covering everything",
+   "competitive, always wants to win"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "comprensivo = understanding (a false friend — NOT ‘comprehensive’)."
   }
  },
  {
@@ -9657,10 +12742,10 @@ window.QUESTION_BANK = [
   "question": "Me llevo bien _____ mis padres. <span data-say=\"Me llevo bien con mis padres.\" data-listen>Me llevo bien con mis padres.</span>",
   "blankOptions": {
    "B1": [
-    "cariñosa",
+    "gracioso",
+    "nervioso",
     "con",
-    "abuela",
-    "que"
+    "abuela"
    ]
   },
   "key": {
@@ -9679,10 +12764,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano es muy _____. <span data-say=\"Mi hermano es muy gracioso.\" data-listen>Mi hermano es muy gracioso.</span>",
   "blankOptions": {
    "B1": [
+    "gracioso",
+    "entendemos",
     "cariñosa",
-    "que",
-    "abuela",
-    "gracioso"
+    "llevo"
    ]
   },
   "key": {
@@ -9701,10 +12786,10 @@ window.QUESTION_BANK = [
   "question": "Mi modelo a seguir es mi _____. <span data-say=\"Mi modelo a seguir es mi abuela.\" data-listen>Mi modelo a seguir es mi abuela.</span>",
   "blankOptions": {
    "B1": [
-    "gracioso",
+    "con",
+    "que",
     "abuela",
-    "llevo",
-    "trabajadora"
+    "gracioso"
    ]
   },
   "key": {
@@ -9723,9 +12808,9 @@ window.QUESTION_BANK = [
   "question": "Mi madre es muy _____. (affectionate — she is female!)",
   "blankOptions": {
    "B1": [
-    "gracioso",
-    "llevo",
-    "abuela",
+    "entendemos",
+    "nervioso",
+    "que",
     "cariñosa"
    ]
   },
@@ -9745,10 +12830,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ mal con mi hermano. (I get on badly — reflexive)",
   "blankOptions": {
    "B1": [
+    "civil",
+    "nervioso",
     "llevo",
-    "cariñosa",
-    "abuela",
-    "que"
+    "entendemos"
    ]
   },
   "key": {
@@ -9767,10 +12852,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana es más habladora _____ yo. (than)",
   "blankOptions": {
    "B1": [
-    "cariñosa",
-    "con",
+    "nervioso",
     "que",
-    "abuela"
+    "cariñosa",
+    "gracioso"
    ]
   },
   "key": {
@@ -9789,15 +12874,81 @@ window.QUESTION_BANK = [
   "question": "Admiro a mi abuela porque es muy _____. (hard-working, female)",
   "blankOptions": {
    "B1": [
-    "con",
+    "abuela",
+    "trabajadora",
     "que",
-    "cariñosa",
-    "trabajadora"
+    "con"
    ]
   },
   "key": {
    "blanks": {
     "B1": "trabajadora"
+   }
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:fib:b0d988de",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Mi hermano y yo nos _____ muy bien. <span data-say=\"Mi hermano y yo nos entendemos muy bien.\" data-listen>Mi hermano y yo nos entendemos muy bien.</span>",
+  "blankOptions": {
+   "B1": [
+    "civil",
+    "abuela",
+    "trabajadora",
+    "entendemos"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "entendemos"
+   }
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:fib:3c5741fc",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Mis padres tuvieron una boda _____, no religiosa. (civil)",
+  "blankOptions": {
+   "B1": [
+    "abuela",
+    "nervioso",
+    "civil",
+    "cariñosa"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "civil"
+   }
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:fib:e9bf4d08",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Estoy muy _____ antes de los exámenes. (nervous)",
+  "blankOptions": {
+   "B1": [
+    "nervioso",
+    "gracioso",
+    "abuela",
+    "que"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "nervioso"
    }
   }
  },
@@ -9810,10 +12961,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “los padres”?",
   "options": [
-   "a role model",
+   "nice, friendly",
    "parents",
-   "brother",
-   "affectionate"
+   "affectionate",
+   "hope"
   ],
   "key": {
    "answer": 1,
@@ -9830,9 +12981,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “los abuelos”?",
   "options": [
    "more… than",
-   "a role model",
+   "luck",
    "grandparents",
-   "to support"
+   "nice, friendly"
   ],
   "key": {
    "answer": 2,
@@ -9848,7 +12999,7 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el hermano”?",
   "options": [
-   "funny",
+   "to argue / fight",
    "nice, friendly",
    "grandparents",
    "brother"
@@ -9887,7 +13038,7 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “gracioso”?",
   "options": [
    "funny",
-   "to argue / fight",
+   "useless",
    "a role model",
    "parents"
   ],
@@ -9905,8 +13056,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “cariñoso”?",
   "options": [
+   "hope",
    "I get on well with",
-   "more… than",
    "nice, friendly",
    "affectionate"
   ],
@@ -9924,8 +13075,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “egoísta”?",
   "options": [
-   "to support",
-   "parents",
+   "grandparents",
+   "to hug",
    "brother",
    "selfish"
   ],
@@ -9943,13 +13094,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me llevo bien con”?",
   "options": [
+   "to hug",
+   "luck",
    "I get on well with",
-   "to argue / fight",
-   "selfish",
-   "funny"
+   "selfish"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“me llevo bien con” means: I get on well with"
   }
  },
@@ -9962,7 +13113,7 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “pelearse”?",
   "options": [
-   "affectionate",
+   "attention",
    "selfish",
    "funny",
    "to argue / fight"
@@ -9981,13 +13132,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “apoyar”?",
   "options": [
-   "grandparents",
-   "more… than",
    "to support",
-   "to argue / fight"
+   "brother",
+   "more… than",
+   "attention"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“apoyar” means: to support"
   }
  },
@@ -10000,10 +13151,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “un modelo a seguir”?",
   "options": [
-   "to argue / fight",
+   "I get on well with",
    "a role model",
-   "nice, friendly",
-   "more… than"
+   "to argue / fight",
+   "brother"
   ],
   "key": {
    "answer": 1,
@@ -10019,14 +13170,109 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “más… que”?",
   "options": [
-   "more… than",
-   "a role model",
-   "selfish",
-   "I get on well with"
+   "luck",
+   "I get on well with",
+   "grandparents",
+   "more… than"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“más… que” means: more… than"
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:match:404b76a4",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “atención”?",
+  "options": [
+   "attention",
+   "brother",
+   "parents",
+   "hope"
   ],
   "key": {
    "answer": 0,
-   "explain": "“más… que” means: more… than"
+   "explain": "“atención” means: attention"
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:match:b91a89e0",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “suerte”?",
+  "options": [
+   "grandparents",
+   "useless",
+   "affectionate",
+   "luck"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“suerte” means: luck"
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:match:f257cdee",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “esperanza”?",
+  "options": [
+   "hope",
+   "to hug",
+   "funny",
+   "grandparents"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“esperanza” means: hope"
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:match:0e0c83e3",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “abrazar”?",
+  "options": [
+   "I get on well with",
+   "luck",
+   "to hug",
+   "affectionate"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“abrazar” means: to hug"
+  }
+ },
+ {
+  "id": "spanish:1-2-relationships-and-role-models:match:4cb69db7",
+  "pageId": "spanish:1-2-relationships-and-role-models",
+  "pageName": "1.2 Relationships and Role Models",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “inútil”?",
+  "options": [
+   "funny",
+   "affectionate",
+   "to hug",
+   "useless"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“inútil” means: useless"
   }
  },
  {
@@ -10253,6 +13499,101 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:mcq:6b29a999",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is true about ‘vegano’ and ‘vegetariano’?",
+  "options": [
+   "vegano is stricter than vegetariano",
+   "vegetariano never eats cheese, eggs or milk, only vegano does",
+   "vegano and vegetariano are just two spellings of the same word",
+   "vegetariano is the stricter of the two and avoids all animal products"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "A vegano avoids ALL animal products; a vegetariano may still eat cheese, eggs or milk — the traps swap which one is stricter or claim they are synonyms."
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:mcq:4c62f307",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘un régimen (alimenticio)’ is another way of saying…",
+  "options": [
+   "a diet",
+   "a military base",
+   "a type of exercise",
+   "a medical prescription"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "régimen (alimenticio) = an eating regime/diet. The distractors are false-friend guesses from ‘régimen’ sounding like ‘regiment’ or ‘regimen’ in English."
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:mcq:466c9613",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘el sobrepeso’ means…",
+  "options": [
+   "being overweight",
+   "losing weight quickly",
+   "having a big appetite",
+   "feeling very hungry"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el sobrepeso = being overweight (sobre = over + peso = weight). It is a state, not an action like losing weight or a feeling like hunger."
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:mcq:52c2f355",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘una reacción alérgica a un alimento’ means…",
+  "options": [
+   "an allergic reaction to a food",
+   "a strong preference for a food",
+   "a diet based around one food",
+   "a recipe using a rare food"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "reacción alérgica = allergic reaction; alimento = food. The traps reinterpret ‘reacción’ as a preference or turn ‘alimento’ into a recipe/diet."
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:mcq:9a84a5f4",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence gives good advice about ‘el consumo de azúcar’?",
+  "options": [
+   "Se debe reducir el consumo de azúcar",
+   "Se debe aumentar el consumo de azúcar todos los días",
+   "No importa cuánto azúcar consumas",
+   "El consumo de azúcar no afecta a la salud"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Good advice = reduce sugar consumption. The traps tell you to increase it, ignore it, or claim it has no effect on health."
+  }
+ },
+ {
   "id": "spanish:2-1-food-drink-and-a-balanced-diet:tf:2a8da2c8",
   "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
   "pageName": "2.1 Food, Drink and a Balanced Diet",
@@ -10357,6 +13698,45 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:tf:c0408539",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘vegetariano’ and ‘vegano’ mean exactly the same thing.",
+  "key": {
+   "answer": false,
+   "explain": "A vegano avoids all animal products; a vegetariano may still eat eggs, cheese or milk."
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:tf:3fe172d3",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘el consumo de azúcar’ means ‘sugar consumption’.",
+  "key": {
+   "answer": true,
+   "explain": "consumo = consumption."
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:tf:cbbf8b0a",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘tener sed’ means ‘to be hungry’.",
+  "key": {
+   "answer": false,
+   "explain": "tener sed = to be thirsty; tener hambre = to be hungry."
+  }
+ },
+ {
   "id": "spanish:2-1-food-drink-and-a-balanced-diet:learn:83731027",
   "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
   "pageName": "2.1 Food, Drink and a Balanced Diet",
@@ -10364,7 +13744,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "What food and drink words do I need?",
-  "reading": "<p>Start with the core nouns for <strong>la comida</strong> (food) and <strong>la bebida</strong> (drink). Every Spanish word below is on the AQA list — tap 🔊 to hear it.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la fruta\">la fruta</span></td><td>fruit</td><td><span data-say=\"las verduras\">las verduras</span></td><td>vegetables</td></tr>\n              <tr><td><span data-say=\"la carne\">la carne</span></td><td>meat</td><td><span data-say=\"el pescado\">el pescado</span></td><td>fish</td></tr>\n              <tr><td><span data-say=\"el pan\">el pan</span></td><td>bread</td><td><span data-say=\"el queso\">el queso</span></td><td>cheese</td></tr>\n              <tr><td><span data-say=\"el agua\">el agua</span></td><td>water</td><td><span data-say=\"la leche\">la leche</span></td><td>milk</td></tr>\n              <tr><td><span data-say=\"el azúcar\">el azúcar</span></td><td>sugar</td><td><span data-say=\"la grasa\">la grasa</span></td><td>fat</td></tr>\n            </table>\n            <p>Two useful meal words: <span data-say=\"el desayuno\">el desayuno</span> (breakfast) and <span data-say=\"la cena\">la cena</span> (dinner).</p>",
+  "reading": "<p>Start with the core nouns for <strong>la comida</strong> (food) and <strong>la bebida</strong> (drink). Every Spanish word below is on the AQA list — tap 🔊 to hear it.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la fruta\">la fruta</span></td><td>fruit</td><td><span data-say=\"las verduras\">las verduras</span></td><td>vegetables</td></tr>\n              <tr><td><span data-say=\"la carne\">la carne</span></td><td>meat</td><td><span data-say=\"el pescado\">el pescado</span></td><td>fish</td></tr>\n              <tr><td><span data-say=\"el pan\">el pan</span></td><td>bread</td><td><span data-say=\"el queso\">el queso</span></td><td>cheese</td></tr>\n              <tr><td><span data-say=\"el agua\">el agua</span></td><td>water</td><td><span data-say=\"la leche\">la leche</span></td><td>milk</td></tr>\n              <tr><td><span data-say=\"el azúcar\">el azúcar</span></td><td>sugar</td><td><span data-say=\"la grasa\">la grasa</span></td><td>fat</td></tr>\n            </table>\n            <p>Two useful meal words: <span data-say=\"el desayuno\">el desayuno</span> (breakfast) and <span data-say=\"la cena\">la cena</span> (dinner).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el alimento\">el alimento</span></td><td>food(stuff)</td><td><span data-say=\"el vaso\">el vaso</span></td><td>glass</td></tr>\n              <tr><td><span data-say=\"la botella\">la botella</span></td><td>bottle</td><td><span data-say=\"la sed\">la sed</span></td><td>thirst</td></tr>\n              <tr><td><span data-say=\"vegetariano\">vegetariano / vegetariana</span></td><td>vegetarian</td><td><span data-say=\"vegano\">vegano / vegana</span></td><td>vegan</td></tr>\n            </table>\n            <p>Two more useful words: <span data-say=\"el diente\">el diente</span> (tooth) — <span data-say=\"El azúcar es malo para los dientes.\">El azúcar es malo para los dientes.</span> (Sugar is bad for your teeth) — and <span data-say=\"tener sed\">tener sed</span> (to be thirsty): <span data-say=\"Cuando tengo sed, bebo un vaso de agua.\">Cuando tengo sed, bebo un vaso de agua.</span></p>",
   "question": "Which pair means ‘fruit and vegetables’?",
   "options": [
    "la fruta y las verduras",
@@ -10385,7 +13765,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I describe a balanced diet?",
-  "reading": "<p>The headline phrase is <span data-say=\"una dieta equilibrada\">una dieta equilibrada</span> — <em>a balanced diet</em>. Notice the adjective <strong>equilibrada</strong> agrees with the feminine noun <strong>dieta</strong>.</p>\n            <ul>\n              <li><span data-say=\"sano\">sano</span> / <span data-say=\"saludable\">saludable</span> = healthy</li>\n              <li><span data-say=\"bueno para la salud\">bueno para la salud</span> = good for your health</li>\n              <li><span data-say=\"malo para la salud\">malo para la salud</span> = bad for your health</li>\n            </ul>\n            <p>Model sentence: <span data-say=\"Como una dieta equilibrada porque es buena para la salud.\">Como una dieta equilibrada porque es buena para la salud.</span> — <em>I eat a balanced diet because it is good for your health.</em></p>",
+  "reading": "<p>The headline phrase is <span data-say=\"una dieta equilibrada\">una dieta equilibrada</span> — <em>a balanced diet</em>. Notice the adjective <strong>equilibrada</strong> agrees with the feminine noun <strong>dieta</strong>.</p>\n            <ul>\n              <li><span data-say=\"sano\">sano</span> / <span data-say=\"saludable\">saludable</span> = healthy</li>\n              <li><span data-say=\"bueno para la salud\">bueno para la salud</span> = good for your health</li>\n              <li><span data-say=\"malo para la salud\">malo para la salud</span> = bad for your health</li>\n            </ul>\n            <p>Model sentence: <span data-say=\"Como una dieta equilibrada porque es buena para la salud.\">Como una dieta equilibrada porque es buena para la salud.</span> — <em>I eat a balanced diet because it is good for your health.</em></p>\n            <p>We can also talk about <span data-say=\"nuestra dieta\">nuestra dieta</span> (our diet), and use <span data-say=\"un régimen alimenticio\">un régimen (alimenticio)</span> — <em>a diet / eating regime</em> — as another way to say “diet”. <span data-say=\"Seguir un régimen puede ser complicado al principio.\">Seguir un régimen puede ser complicado al principio.</span> — <em>Following a diet/regime can be complicated at first.</em></p>\n            <p>Doctors recommend reducing <span data-say=\"el consumo de azúcar\">el consumo de azúcar</span> (sugar consumption), because too much can lead to <span data-say=\"el sobrepeso\">el sobrepeso</span> (being overweight). <span data-say=\"Dentro de una dieta equilibrada, se puede comer un poco de chocolate.\">Dentro de una dieta equilibrada, se puede comer un poco de chocolate.</span> — <em>Within a balanced diet, you can eat a little chocolate.</em></p>",
   "question": "Why does ‘equilibrada’ end in ‑a?",
   "options": [
    "It agrees with the feminine noun ‘dieta’",
@@ -10406,7 +13786,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I give advice? (se debe / hay que)",
-  "reading": "<p>To say what people <strong>should</strong> do, use these impersonal structures — each is followed by an <strong>infinitive</strong>:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"se debe\">se debe…</span></td><td>one must / you should…</td></tr>\n              <tr><td><span data-say=\"no se debe\">no se debe…</span></td><td>one must not…</td></tr>\n              <tr><td><span data-say=\"hay que\">hay que…</span></td><td>you have to…</td></tr>\n            </table>\n            <p>Examples:</p>\n            <ul>\n              <li><span data-say=\"Se debe comer más fruta.\">Se debe comer más fruta.</span> — One should eat more fruit.</li>\n              <li><span data-say=\"No se debe comer demasiada grasa.\">No se debe comer demasiada grasa.</span> — One must not eat too much fat.</li>\n              <li><span data-say=\"Hay que beber mucha agua.\">Hay que beber mucha agua.</span> — You have to drink lots of water.</li>\n            </ul>",
+  "reading": "<p>To say what people <strong>should</strong> do, use these impersonal structures — each is followed by an <strong>infinitive</strong>:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"se debe\">se debe…</span></td><td>one must / you should…</td></tr>\n              <tr><td><span data-say=\"no se debe\">no se debe…</span></td><td>one must not…</td></tr>\n              <tr><td><span data-say=\"hay que\">hay que…</span></td><td>you have to…</td></tr>\n            </table>\n            <p>Examples:</p>\n            <ul>\n              <li><span data-say=\"Se debe comer más fruta.\">Se debe comer más fruta.</span> — One should eat more fruit.</li>\n              <li><span data-say=\"No se debe comer demasiada grasa.\">No se debe comer demasiada grasa.</span> — One must not eat too much fat.</li>\n              <li><span data-say=\"Hay que beber mucha agua.\">Hay que beber mucha agua.</span> — You have to drink lots of water.</li>\n            </ul>\n            <p>Advice often mentions a <span data-say=\"el límite\">el límite</span> (limit): <span data-say=\"Hay un límite de azúcar recomendado al día.\">Hay un límite de azúcar recomendado al día.</span> — <em>There is a recommended sugar limit per day.</em> Some people have <span data-say=\"una reacción alérgica\">una reacción alérgica</span> (an allergic reaction) to certain foods, so it is important to check the label.</p>",
   "question": "What kind of word follows ‘se debe’, ‘no se debe’ and ‘hay que’?",
   "options": [
    "an infinitive verb",
@@ -10427,7 +13807,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I say what I am going to change?",
-  "reading": "<p>Use the near future — <strong>voy a</strong> + <strong>infinitive</strong> — to state a plan or intention:</p>\n            <ul>\n              <li><span data-say=\"Voy a comer más verduras.\">Voy a comer más verduras.</span> — I am going to eat more vegetables.</li>\n              <li><span data-say=\"Voy a evitar la comida rápida.\">Voy a evitar la comida rápida.</span> — I am going to avoid fast food.</li>\n              <li><span data-say=\"Voy a beber menos azúcar.\">Voy a beber menos azúcar.</span> — I am going to have less sugar.</li>\n            </ul>\n            <p><strong>evitar</strong> = to avoid, <strong>la comida rápida</strong> = fast food. Add a time phrase to extend: <span data-say=\"todos los días\">todos los días</span> (every day), <span data-say=\"a menudo\">a menudo</span> (often).</p>",
+  "reading": "<p>Use the near future — <strong>voy a</strong> + <strong>infinitive</strong> — to state a plan or intention:</p>\n            <ul>\n              <li><span data-say=\"Voy a comer más verduras.\">Voy a comer más verduras.</span> — I am going to eat more vegetables.</li>\n              <li><span data-say=\"Voy a evitar la comida rápida.\">Voy a evitar la comida rápida.</span> — I am going to avoid fast food.</li>\n              <li><span data-say=\"Voy a beber menos azúcar.\">Voy a beber menos azúcar.</span> — I am going to have less sugar.</li>\n            </ul>\n            <p><strong>evitar</strong> = to avoid, <strong>la comida rápida</strong> = fast food. Add a time phrase to extend: <span data-say=\"todos los días\">todos los días</span> (every day), <span data-say=\"a menudo\">a menudo</span> (often).</p>\n            <p>You can add a month too: <span data-say=\"en mayo\">en mayo</span> (in May), <span data-say=\"en julio\">en julio</span> (in July), <span data-say=\"en noviembre\">en noviembre</span> (in November) — for example: <span data-say=\"En julio como mucha fruta de temporada, pero en noviembre como más sopa.\">En julio como mucha fruta de temporada, pero en noviembre como más sopa.</span> — <em>In July I eat a lot of seasonal fruit, but in November I eat more soup.</em> <span data-say=\"Probablemente voy a comer menos azúcar el año que viene.\">Probablemente voy a comer menos azúcar el año que viene.</span> — <em>I am probably going to eat less sugar next year.</em></p>",
   "question": "How do you say ‘I am going to avoid fast food’?",
   "options": [
    "Voy a evitar la comida rápida",
@@ -10448,7 +13828,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I give opinions and reasons?",
-  "reading": "<p>Opinions lift your mark. Use <strong>gustar</strong>-type verbs and join ideas with connectors:</p>\n            <ul>\n              <li><span data-say=\"Me gusta la fruta.\">Me gusta la fruta.</span> — I like fruit. <em>(singular thing)</em></li>\n              <li><span data-say=\"Me gustan las verduras.\">Me gustan las verduras.</span> — I like vegetables. <em>(plural → gusta<strong>n</strong>)</em></li>\n              <li><span data-say=\"Prefiero el pescado.\">Prefiero el pescado.</span> — I prefer fish.</li>\n            </ul>\n            <p>Connectors: <span data-say=\"porque\">porque</span> (because), <span data-say=\"pero\">pero</span> (but), <span data-say=\"también\">también</span> (also). Example: <span data-say=\"Me gusta la carne, pero no como carne todos los días porque es mala para la salud.\">Me gusta la carne, pero no como carne todos los días porque es mala para la salud.</span></p>",
+  "reading": "<p>Opinions lift your mark. Use <strong>gustar</strong>-type verbs and join ideas with connectors:</p>\n            <ul>\n              <li><span data-say=\"Me gusta la fruta.\">Me gusta la fruta.</span> — I like fruit. <em>(singular thing)</em></li>\n              <li><span data-say=\"Me gustan las verduras.\">Me gustan las verduras.</span> — I like vegetables. <em>(plural → gusta<strong>n</strong>)</em></li>\n              <li><span data-say=\"Prefiero el pescado.\">Prefiero el pescado.</span> — I prefer fish.</li>\n            </ul>\n            <p>Connectors: <span data-say=\"porque\">porque</span> (because), <span data-say=\"pero\">pero</span> (but), <span data-say=\"también\">también</span> (also). Example: <span data-say=\"Me gusta la carne, pero no como carne todos los días porque es mala para la salud.\">Me gusta la carne, pero no como carne todos los días porque es mala para la salud.</span></p>\n            <p><span data-say=\"Es extraño, pero no me gusta la fruta.\">Es extraño, pero no me gusta la fruta.</span> — <em>It’s strange, but I don’t like fruit.</em> In some <span data-say=\"casos\">casos</span> (cases), people prefer <span data-say=\"el segundo plato\">el segundo plato</span> (the second course) to the first. <span data-say=\"En la comida anterior comí demasiada grasa, así que hoy prefiero algo más ligero.\">En la comida anterior comí demasiada grasa, así que hoy prefiero algo más ligero.</span> — <em>In the previous meal I ate too much fat, so today I prefer something lighter.</em></p>",
   "question": "Why is it ‘Me gustan las verduras’ (not ‘gusta’)?",
   "options": [
    "verduras is plural, so the verb agrees",
@@ -10469,7 +13849,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Higher: reach for the top band",
-  "reading": "<p><span class=\"tier-h\">H</span> To push into the higher band, add a <strong>conditional</strong> recommendation and a <strong>concession</strong>:</p>\n            <ul>\n              <li><span data-say=\"Se debería reducir el azúcar.\">Se debería reducir el azúcar.</span> — One <em>should</em> reduce sugar. <span class=\"tier-h\">H</span></li>\n              <li><span data-say=\"Lo más importante es llevar una dieta variada.\">Lo más importante es llevar una dieta variada.</span> — The most important thing is to have a varied diet. <span class=\"tier-h\">H</span></li>\n              <li><span data-say=\"Aunque me gusta el chocolate, intento comer sano.\">Aunque me gusta el chocolate, intento comer sano.</span> — Although I like chocolate, I try to eat healthily. <span class=\"tier-h\">H</span></li>\n            </ul>\n            <p>Aim for: <strong>opinion + reason + connector + a second tense</strong> in one sentence.</p>",
+  "reading": "<p><span class=\"tier-h\">H</span> To push into the higher band, add a <strong>conditional</strong> recommendation and a <strong>concession</strong>:</p>\n            <ul>\n              <li><span data-say=\"Se debería reducir el azúcar.\">Se debería reducir el azúcar.</span> — One <em>should</em> reduce sugar. <span class=\"tier-h\">H</span></li>\n              <li><span data-say=\"Lo más importante es llevar una dieta variada.\">Lo más importante es llevar una dieta variada.</span> — The most important thing is to have a varied diet. <span class=\"tier-h\">H</span></li>\n              <li><span data-say=\"Aunque me gusta el chocolate, intento comer sano.\">Aunque me gusta el chocolate, intento comer sano.</span> — Although I like chocolate, I try to eat healthily. <span class=\"tier-h\">H</span></li>\n            </ul>\n            <p>Aim for: <strong>opinion + reason + connector + a second tense</strong> in one sentence.</p>\n            <p><span class=\"tier-h\">H</span> Compare people’s diets: <span data-say=\"Mi dieta es vegetariana; la suya es vegana.\">Mi dieta es vegetariana; la suya es vegana.</span> — <em>My diet is vegetarian; theirs/his/hers is vegan.</em> <span data-say=\"Claro, cada persona tiene su propia opinión.\">Claro, cada persona tiene su propia opinión.</span> — <em>Of course, everyone has their own opinion.</em> <span data-say=\"Desde mi juventud, intento comer sano, y el aceite de oliva es el tercer ingrediente más importante de mi dieta.\">Desde mi juventud, intento comer sano, y el aceite de oliva es el tercer ingrediente más importante de mi dieta.</span> — <em>Since my youth, I have tried to eat healthily, and olive oil is the third most important ingredient in my diet.</em> <span class=\"tier-h\">H</span></p>",
   "question": "Which sentence shows a typically Higher-tier feature?",
   "options": [
    "Se debería reducir el azúcar",
@@ -10588,6 +13968,27 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:misc:411b3870",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Soy vegano, como queso y huevos.</p><p><strong>✅ The correct idea:</strong> Soy vegetariano, como queso y huevos. (Un vegano no come queso, huevos ni ningún otro producto animal.)</p>",
+  "question": "Why is ‘Soy vegano, como queso y huevos’ a contradiction?",
+  "options": [
+   "a vegano eats no animal products at all, including cheese and eggs",
+   "vegano and vegetariano are simply two different spellings of one word, so they mean exactly the same thing",
+   "cheese and eggs are not animal products",
+   "vegano only refers to not eating meat, cheese is always fine"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "vegano = vegan (zero animal products, including dairy and eggs); vegetariano can still eat cheese and eggs — the two words are not interchangeable."
+  }
+ },
+ {
   "id": "spanish:2-1-food-drink-and-a-balanced-diet:tips:98ed37b5",
   "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
   "pageName": "2.1 Food, Drink and a Balanced Diet",
@@ -10660,9 +14061,9 @@ window.QUESTION_BANK = [
   "question": "Se _____ comer más fruta. <span data-say=\"Se debe comer más fruta.\" data-listen>Se debe comer más fruta.</span>",
   "blankOptions": {
    "B1": [
-    "agua",
-    "evitar",
     "gustan",
+    "evitar",
+    "agua",
     "debe"
    ]
   },
@@ -10682,10 +14083,10 @@ window.QUESTION_BANK = [
   "question": "Voy a _____ la comida rápida. <span data-say=\"Voy a evitar la comida rápida.\" data-listen>Voy a evitar la comida rápida.</span>",
   "blankOptions": {
    "B1": [
-    "debe",
+    "porque",
+    "agua",
     "evitar",
-    "equilibrada",
-    "azúcar"
+    "vaso"
    ]
   },
   "key": {
@@ -10704,10 +14105,10 @@ window.QUESTION_BANK = [
   "question": "Hay que beber mucha _____. <span data-say=\"Hay que beber mucha agua.\" data-listen>Hay que beber mucha agua.</span>",
   "blankOptions": {
    "B1": [
-    "equilibrada",
+    "vaso",
     "agua",
-    "evitar",
-    "debe"
+    "límite",
+    "evitar"
    ]
   },
   "key": {
@@ -10726,10 +14127,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ las verduras. (I like vegetables — plural!)",
   "blankOptions": {
    "B1": [
-    "porque",
-    "equilibrada",
-    "evitar",
-    "gustan"
+    "límite",
+    "vaso",
+    "gustan",
+    "debe"
    ]
   },
   "key": {
@@ -10748,10 +14149,10 @@ window.QUESTION_BANK = [
   "question": "Como una dieta _____. (balanced)",
   "blankOptions": {
    "B1": [
-    "agua",
-    "azúcar",
+    "límite",
     "equilibrada",
-    "debe"
+    "gustan",
+    "agua"
    ]
   },
   "key": {
@@ -10770,10 +14171,10 @@ window.QUESTION_BANK = [
   "question": "No se debe comer demasiado _____. (sugar)",
   "blankOptions": {
    "B1": [
-    "equilibrada",
-    "debe",
+    "porque",
     "azúcar",
-    "porque"
+    "equilibrada",
+    "evitar"
    ]
   },
   "key": {
@@ -10792,15 +14193,81 @@ window.QUESTION_BANK = [
   "question": "Prefiero el pescado _____ es bueno para la salud. (because)",
   "blankOptions": {
    "B1": [
-    "debe",
     "porque",
-    "gustan",
-    "equilibrada"
+    "límite",
+    "vaso",
+    "debe"
    ]
   },
   "key": {
    "blanks": {
     "B1": "porque"
+   }
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:fib:aed7204d",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Bebo un _____ de agua cuando tengo sed. <span data-say=\"Bebo un vaso de agua cuando tengo sed.\" data-listen>Bebo un vaso de agua cuando tengo sed.</span>",
+  "blankOptions": {
+   "B1": [
+    "vaso",
+    "porque",
+    "equilibrada",
+    "debe"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "vaso"
+   }
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:fib:8588dda7",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Soy _____. No como ningún producto animal. (vegan, masculine)",
+  "blankOptions": {
+   "B1": [
+    "vegano",
+    "agua",
+    "azúcar",
+    "límite"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "vegano"
+   }
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:fib:a4913b57",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Hay un _____ de azúcar recomendado al día. (limit)",
+  "blankOptions": {
+   "B1": [
+    "límite",
+    "gustan",
+    "vaso",
+    "porque"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "límite"
    }
   }
  },
@@ -10813,13 +14280,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la fruta”?",
   "options": [
+   "being overweight",
    "fruit",
-   "every day",
-   "sugar",
-   "water"
+   "an allergic reaction",
+   "you have to"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“la fruta” means: fruit"
   }
  },
@@ -10832,13 +14299,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “las verduras”?",
   "options": [
-   "you have to",
-   "to avoid",
-   "water",
-   "vegetables"
+   "glass",
+   "vegetables",
+   "vegan",
+   "limit"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“las verduras” means: vegetables"
   }
  },
@@ -10851,13 +14318,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el pescado”?",
   "options": [
-   "good for your health",
-   "you have to",
-   "fish",
-   "I am going to eat"
+   "a diet / regime",
+   "bottle",
+   "being overweight",
+   "fish"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“el pescado” means: fish"
   }
  },
@@ -10870,13 +14337,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el agua”?",
   "options": [
-   "fruit",
    "water",
-   "sugar",
-   "every day"
+   "fruit",
+   "you have to",
+   "an allergic reaction"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“el agua” means: water"
   }
  },
@@ -10890,9 +14357,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “el azúcar”?",
   "options": [
    "sugar",
-   "a balanced diet",
-   "water",
-   "one should / must"
+   "good for your health",
+   "I am going to eat",
+   "food(stuff)"
   ],
   "key": {
    "answer": 0,
@@ -10908,9 +14375,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “una dieta equilibrada”?",
   "options": [
-   "fish",
-   "every day",
-   "fruit",
+   "one should / must",
+   "vegetables",
+   "tooth",
    "a balanced diet"
   ],
   "key": {
@@ -10927,9 +14394,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “se debe”?",
   "options": [
-   "I am going to eat",
-   "every day",
-   "water",
+   "thirst",
+   "limit",
+   "you have to",
    "one should / must"
   ],
   "key": {
@@ -10947,9 +14414,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “hay que”?",
   "options": [
    "you have to",
-   "water",
    "one should / must",
-   "vegetables"
+   "glass",
+   "water"
   ],
   "key": {
    "answer": 0,
@@ -10965,10 +14432,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “voy a comer”?",
   "options": [
-   "water",
-   "every day",
+   "one should / must",
+   "you have to",
    "I am going to eat",
-   "you have to"
+   "thirst"
   ],
   "key": {
    "answer": 2,
@@ -10984,13 +14451,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “evitar”?",
   "options": [
-   "every day",
-   "a balanced diet",
-   "to avoid",
-   "you have to"
+   "being overweight",
+   "food(stuff)",
+   "an allergic reaction",
+   "to avoid"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“evitar” means: to avoid"
   }
  },
@@ -11003,13 +14470,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “bueno para la salud”?",
   "options": [
-   "every day",
-   "sugar",
-   "good for your health",
-   "one should / must"
+   "being overweight",
+   "to avoid",
+   "a diet / regime",
+   "good for your health"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“bueno para la salud” means: good for your health"
   }
  },
@@ -11022,14 +14489,242 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “todos los días”?",
   "options": [
-   "a balanced diet",
    "good for your health",
-   "to avoid",
+   "consumption",
+   "every day",
+   "limit"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“todos los días” means: every day"
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:match:42af6264",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el alimento”?",
+  "options": [
+   "a diet / regime",
+   "sugar",
+   "food(stuff)",
+   "glass"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el alimento” means: food(stuff)"
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:match:cbf0b83d",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el vaso”?",
+  "options": [
+   "being overweight",
+   "glass",
+   "vegetables",
+   "a balanced diet"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el vaso” means: glass"
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:match:737e85d3",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la botella”?",
+  "options": [
+   "bottle",
+   "an allergic reaction",
+   "good for your health",
    "every day"
   ],
   "key": {
+   "answer": 0,
+   "explain": "“la botella” means: bottle"
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:match:4c214660",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la sed”?",
+  "options": [
+   "vegetables",
+   "thirst",
+   "sugar",
+   "a diet / regime"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la sed” means: thirst"
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:match:487c4d84",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “vegetariano/a”?",
+  "options": [
+   "tooth",
+   "every day",
+   "vegetarian",
+   "I am going to eat"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“vegetariano/a” means: vegetarian"
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:match:ae9e5b3a",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “vegano/a”?",
+  "options": [
+   "bottle",
+   "a diet / regime",
+   "a balanced diet",
+   "vegan"
+  ],
+  "key": {
    "answer": 3,
-   "explain": "“todos los días” means: every day"
+   "explain": "“vegano/a” means: vegan"
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:match:46c6ddd1",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el diente”?",
+  "options": [
+   "good for your health",
+   "tooth",
+   "consumption",
+   "fish"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el diente” means: tooth"
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:match:39129416",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “un régimen”?",
+  "options": [
+   "good for your health",
+   "limit",
+   "being overweight",
+   "a diet / regime"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“un régimen” means: a diet / regime"
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:match:2c816a6d",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el consumo”?",
+  "options": [
+   "thirst",
+   "a diet / regime",
+   "consumption",
+   "fish"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el consumo” means: consumption"
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:match:413b11c5",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el sobrepeso”?",
+  "options": [
+   "vegetables",
+   "being overweight",
+   "sugar",
+   "vegetarian"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el sobrepeso” means: being overweight"
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:match:15580c11",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el límite”?",
+  "options": [
+   "fish",
+   "limit",
+   "water",
+   "food(stuff)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el límite” means: limit"
+  }
+ },
+ {
+  "id": "spanish:2-1-food-drink-and-a-balanced-diet:match:17988e68",
+  "pageId": "spanish:2-1-food-drink-and-a-balanced-diet",
+  "pageName": "2.1 Food, Drink and a Balanced Diet",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “una reacción alérgica”?",
+  "options": [
+   "bottle",
+   "sugar",
+   "you have to",
+   "an allergic reaction"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“una reacción alérgica” means: an allergic reaction"
   }
  },
  {
@@ -11256,6 +14951,101 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:mcq:cdcb04e6",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is TRUE about smoking?",
+  "options": [
+   "Smoking cigarettes increases the risk of cancer",
+   "Smoking cigarettes has no effect on your health at all",
+   "Doctors recommend smoking to relax",
+   "Cigarettes make you stronger and fitter"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "un cigarrillo / fumar is linked to el cáncer. The traps deny any effect, or claim doctors recommend it, or that it helps fitness."
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:mcq:03613f57",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘Hay que cuidar tu salud’ means…",
+  "options": [
+   "You have to look after your health",
+   "You have to ignore your health completely",
+   "You have to visit the doctor every single day",
+   "You have to stop exercising for a while"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "cuidar = to look after / take care of. The traps invert the meaning or add detail never said."
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:mcq:adf8943e",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is the noun that goes with the verb ‘doler’ (to hurt)?",
+  "options": [
+   "el dolor",
+   "el dolido",
+   "el duelo",
+   "el dolorido"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el dolor = pain. ‘el duelo’ (duel/mourning) and ‘dolorido’ (sore, an adjective) are real but different words — classic look-alike traps."
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:mcq:7510ab26",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "‘Mi abuelo se cayó’ means…",
+  "options": [
+   "My grandad fell over",
+   "My grandad is going to fall over",
+   "My grandad never falls over",
+   "My grandad falls over often"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "se cayó is the preterite (past) of caerse. The traps change it to future, or add ‘never’/‘often’ that was never said."
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:mcq:f497828d",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is the best advice to relax?",
+  "options": [
+   "Hay que respirar profundamente",
+   "Hay que respirar lo menos posible",
+   "No se debe respirar durante el ejercicio",
+   "Se debe dejar de respirar un momento"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Good advice: breathe deeply. The traps tell you to breathe as little as possible, not breathe while exercising, or stop breathing."
+  }
+ },
+ {
   "id": "spanish:2-2-exercise-health-problems-and-advice:tf:8ca2465b",
   "pageId": "spanish:2-2-exercise-health-problems-and-advice",
   "pageName": "2.2 Exercise, Health Problems and Advice",
@@ -11360,6 +15150,45 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:tf:783bbc79",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘cuidar’ means ‘to take care of’.",
+  "key": {
+   "answer": true,
+   "explain": "cuidar = to look after / take care of."
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:tf:06b42419",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘la piel’ means ‘the leg’.",
+  "key": {
+   "answer": false,
+   "explain": "la piel = skin; la pierna = leg."
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:tf:b562295c",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘optimista’ describes someone with a negative attitude.",
+  "key": {
+   "answer": false,
+   "explain": "optimista = optimistic — a positive attitude."
+  }
+ },
+ {
   "id": "spanish:2-2-exercise-health-problems-and-advice:learn:6a64d7bc",
   "pageId": "spanish:2-2-exercise-health-problems-and-advice",
   "pageName": "2.2 Exercise, Health Problems and Advice",
@@ -11367,7 +15196,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about exercise and sport?",
-  "reading": "<p>The key verb is <span data-say=\"hacer ejercicio\">hacer ejercicio</span> (to do exercise / to work out). Here is the core vocabulary — tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el deporte\">el deporte</span></td><td>sport</td><td><span data-say=\"correr\">correr</span></td><td>to run</td></tr>\n              <tr><td><span data-say=\"nadar\">nadar</span></td><td>to swim</td><td><span data-say=\"montar en bicicleta\">montar en bicicleta</span></td><td>to cycle</td></tr>\n              <tr><td><span data-say=\"el gimnasio\">el gimnasio</span></td><td>the gym</td><td><span data-say=\"entrenar\">entrenar</span></td><td>to train</td></tr>\n              <tr><td><span data-say=\"estar en forma\">estar en forma</span></td><td>to be fit</td><td><span data-say=\"activo\">activo / activa</span></td><td>active</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Para estar en forma, hago ejercicio tres veces por semana.\">Para estar en forma, hago ejercicio tres veces por semana.</span> — <em>To be fit, I exercise three times a week.</em></p>",
+  "reading": "<p>The key verb is <span data-say=\"hacer ejercicio\">hacer ejercicio</span> (to do exercise / to work out). Here is the core vocabulary — tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el deporte\">el deporte</span></td><td>sport</td><td><span data-say=\"correr\">correr</span></td><td>to run</td></tr>\n              <tr><td><span data-say=\"nadar\">nadar</span></td><td>to swim</td><td><span data-say=\"montar en bicicleta\">montar en bicicleta</span></td><td>to cycle</td></tr>\n              <tr><td><span data-say=\"el gimnasio\">el gimnasio</span></td><td>the gym</td><td><span data-say=\"entrenar\">entrenar</span></td><td>to train</td></tr>\n              <tr><td><span data-say=\"estar en forma\">estar en forma</span></td><td>to be fit</td><td><span data-say=\"activo\">activo / activa</span></td><td>active</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Para estar en forma, hago ejercicio tres veces por semana.\">Para estar en forma, hago ejercicio tres veces por semana.</span> — <em>To be fit, I exercise three times a week.</em></p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"fuerte\">fuerte</span></td><td>strong</td><td><span data-say=\"débil\">débil</span></td><td>weak</td></tr>\n            </table>\n            <p>Walking counts too: <span data-say=\"pasear\">pasear</span> (to walk / stroll) — <span data-say=\"Los fines de semana, paseo con mi perro para hacer ejercicio sin ir al gimnasio.\">Los fines de semana, paseo con mi perro para hacer ejercicio sin ir al gimnasio.</span> — <em>At weekends, I walk with my dog to exercise without going to the gym.</em> Some people check <span data-say=\"el reloj\">el reloj</span> (the clock/watch) to time their run — no importa si corres <span data-say=\"lento\">lento</span> (slowly) al principio.</p>",
   "question": "What does ‘estar en forma’ mean?",
   "options": [
    "to be fit",
@@ -11388,7 +15217,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I say what hurts? (me duele / me duelen)",
-  "reading": "<p>To say something hurts, use <strong>doler</strong> — and it behaves <em>exactly like</em> <strong>gustar</strong>: the verb agrees with the body part, not with you.</p>\n            <ul>\n              <li>ONE thing hurts → <span data-say=\"me duele\">me duele</span>: <span data-say=\"Me duele la cabeza.\">Me duele la cabeza.</span> (My head hurts.)</li>\n              <li>MORE THAN ONE → <span data-say=\"me duelen\">me duelen</span>: <span data-say=\"Me duelen los pies.\">Me duelen los pies.</span> (My feet hurt.)</li>\n            </ul>\n            <p>Body parts (<strong>el cuerpo</strong>):</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la cabeza\">la cabeza</span></td><td>head</td><td><span data-say=\"el estómago\">el estómago</span></td><td>stomach</td></tr>\n              <tr><td><span data-say=\"la garganta\">la garganta</span></td><td>throat</td><td><span data-say=\"la espalda\">la espalda</span></td><td>back</td></tr>\n              <tr><td><span data-say=\"las piernas\">las piernas</span></td><td>legs</td><td><span data-say=\"los ojos\">los ojos</span></td><td>eyes</td></tr>\n            </table>",
+  "reading": "<p>To say something hurts, use <strong>doler</strong> — and it behaves <em>exactly like</em> <strong>gustar</strong>: the verb agrees with the body part, not with you.</p>\n            <ul>\n              <li>ONE thing hurts → <span data-say=\"me duele\">me duele</span>: <span data-say=\"Me duele la cabeza.\">Me duele la cabeza.</span> (My head hurts.)</li>\n              <li>MORE THAN ONE → <span data-say=\"me duelen\">me duelen</span>: <span data-say=\"Me duelen los pies.\">Me duelen los pies.</span> (My feet hurt.)</li>\n            </ul>\n            <p>Body parts (<strong>el cuerpo</strong>):</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la cabeza\">la cabeza</span></td><td>head</td><td><span data-say=\"el estómago\">el estómago</span></td><td>stomach</td></tr>\n              <tr><td><span data-say=\"la garganta\">la garganta</span></td><td>throat</td><td><span data-say=\"la espalda\">la espalda</span></td><td>back</td></tr>\n              <tr><td><span data-say=\"las piernas\">las piernas</span></td><td>legs</td><td><span data-say=\"los ojos\">los ojos</span></td><td>eyes</td></tr>\n              <tr><td><span data-say=\"la boca\">la boca</span></td><td>mouth</td><td><span data-say=\"el brazo\">el brazo</span></td><td>arm</td></tr>\n              <tr><td><span data-say=\"el corazón\">el corazón</span></td><td>heart</td><td><span data-say=\"la pierna\">la pierna</span></td><td>leg (singular)</td></tr>\n              <tr><td><span data-say=\"la piel\">la piel</span></td><td>skin</td><td><span data-say=\"el cerebro\">el cerebro</span></td><td>brain</td></tr>\n            </table>\n            <p><span data-say=\"el dolor\">el dolor</span> (pain) is the noun behind ‘doler’: <span data-say=\"Tengo un dolor de cabeza terrible.\">Tengo un dolor de cabeza terrible.</span> — <em>I have a terrible headache.</em></p>",
   "question": "Why is it ‘Me duelen los pies’ and not ‘Me duele los pies’?",
   "options": [
    "‘los pies’ is plural, so the verb is plural",
@@ -11409,7 +15238,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I describe health problems?",
-  "reading": "<p>Use <strong>estar</strong> (a temporary state) for how you feel:</p>\n            <ul>\n              <li><span data-say=\"estar enfermo\">estar enfermo / enferma</span> — to be ill</li>\n              <li><span data-say=\"estar cansado\">estar cansado / cansada</span> — to be tired</li>\n              <li><span data-say=\"estar resfriado\">estar resfriado / resfriada</span> — to have a cold</li>\n              <li><span data-say=\"el estrés\">el estrés</span> — stress; <span data-say=\"estar estresado\">estar estresado</span> — to be stressed</li>\n            </ul>\n            <p>Example: <span data-say=\"Estoy muy cansado porque no duermo bien.\">Estoy muy cansado porque no duermo bien.</span> — <em>I am very tired because I don’t sleep well.</em></p>",
+  "reading": "<p>Use <strong>estar</strong> (a temporary state) for how you feel:</p>\n            <ul>\n              <li><span data-say=\"estar enfermo\">estar enfermo / enferma</span> — to be ill</li>\n              <li><span data-say=\"estar cansado\">estar cansado / cansada</span> — to be tired</li>\n              <li><span data-say=\"estar resfriado\">estar resfriado / resfriada</span> — to have a cold</li>\n              <li><span data-say=\"el estrés\">el estrés</span> — stress; <span data-say=\"estar estresado\">estar estresado</span> — to be stressed</li>\n            </ul>\n            <p>Example: <span data-say=\"Estoy muy cansado porque no duermo bien.\">Estoy muy cansado porque no duermo bien.</span> — <em>I am very tired because I don’t sleep well.</em></p>\n            <p><span data-say=\"una enfermedad\">una enfermedad</span> (an illness) can be <span data-say=\"serio\">serio / seria</span> (serious) — for example <span data-say=\"el cáncer\">el cáncer</span> (cancer), which is often linked to smoking <span data-say=\"un cigarrillo\">un cigarrillo</span> (a cigarette). Doctors also check <span data-say=\"la sangre\">la sangre</span> (blood): <span data-say=\"El médico me hizo un análisis de sangre porque estaba muy débil.\">El médico me hizo un análisis de sangre porque estaba muy débil.</span> — <em>The doctor did a blood test because I was very weak.</em></p>",
   "question": "Which verb do you use for ‘I am tired’ — a temporary state?",
   "options": [
    "estar → estoy cansado",
@@ -11430,7 +15259,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I give health advice?",
-  "reading": "<p>Reuse the advice structures from 2.1 — each is followed by an <strong>infinitive</strong>:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"se debe descansar\">se debe descansar</span></td><td>one should rest</td></tr>\n              <tr><td><span data-say=\"no se debe fumar\">no se debe fumar</span></td><td>one must not smoke</td></tr>\n              <tr><td><span data-say=\"hay que dormir ocho horas\">hay que dormir ocho horas</span></td><td>you have to sleep eight hours</td></tr>\n              <tr><td><span data-say=\"deberías relajarte\">deberías relajarte</span> <span class=\"tier-h\">H</span></td><td>you should relax</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Para evitar el estrés, se debe descansar y hacer ejercicio.\">Para evitar el estrés, se debe descansar y hacer ejercicio.</span></p>",
+  "reading": "<p>Reuse the advice structures from 2.1 — each is followed by an <strong>infinitive</strong>:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"se debe descansar\">se debe descansar</span></td><td>one should rest</td></tr>\n              <tr><td><span data-say=\"no se debe fumar\">no se debe fumar</span></td><td>one must not smoke</td></tr>\n              <tr><td><span data-say=\"hay que dormir ocho horas\">hay que dormir ocho horas</span></td><td>you have to sleep eight hours</td></tr>\n              <tr><td><span data-say=\"deberías relajarte\">deberías relajarte</span> <span class=\"tier-h\">H</span></td><td>you should relax</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Para evitar el estrés, se debe descansar y hacer ejercicio.\">Para evitar el estrés, se debe descansar y hacer ejercicio.</span></p>\n            <p>The verb <span data-say=\"cuidar\">cuidar</span> (to look after / take care of) is essential: <span data-say=\"Hay que cuidar tu salud y dormir suficiente.\">Hay que cuidar tu salud y dormir suficiente.</span> — <em>You have to look after your health and sleep enough.</em> A good night’s sleep is often the most <span data-say=\"efectivo\">efectivo</span> (effective) remedy, and it helps reduce <span data-say=\"el efecto\">el efecto</span> (the effect) of stress on the body.</p>",
   "question": "What follows ‘se debe’, ‘hay que’ and ‘deberías’?",
   "options": [
    "an infinitive (descansar, dormir…)",
@@ -11451,7 +15280,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about bad habits?",
-  "reading": "<p>Common ‘malos hábitos’ (bad habits) and how to reject them:</p>\n            <ul>\n              <li><span data-say=\"fumar\">fumar</span> — to smoke; <span data-say=\"el tabaco\">el tabaco</span> — tobacco</li>\n              <li><span data-say=\"beber alcohol\">beber alcohol</span> — to drink alcohol; <span data-say=\"las drogas\">las drogas</span> — drugs</li>\n              <li><span data-say=\"dejar de fumar\">dejar de + infinitive</span> — to stop doing something: <span data-say=\"dejar de fumar\">dejar de fumar</span> (to stop smoking)</li>\n            </ul>\n            <p><span data-say=\"No se debe fumar porque es muy malo para la salud.\">No se debe fumar porque es muy malo para la salud.</span></p>",
+  "reading": "<p>Common ‘malos hábitos’ (bad habits) and how to reject them:</p>\n            <ul>\n              <li><span data-say=\"fumar\">fumar</span> — to smoke; <span data-say=\"el tabaco\">el tabaco</span> — tobacco</li>\n              <li><span data-say=\"beber alcohol\">beber alcohol</span> — to drink alcohol; <span data-say=\"las drogas\">las drogas</span> — drugs</li>\n              <li><span data-say=\"dejar de fumar\">dejar de + infinitive</span> — to stop doing something: <span data-say=\"dejar de fumar\">dejar de fumar</span> (to stop smoking)</li>\n            </ul>\n            <p><span data-say=\"No se debe fumar porque es muy malo para la salud.\">No se debe fumar porque es muy malo para la salud.</span></p>\n            <p>Good habits matter too: <span data-say=\"lavarse los dientes\">lavarse los dientes</span> (to brush/wash your teeth) after meals, and <span data-say=\"la risa\">la risa</span> (laughter) — <span data-say=\"Dicen que la risa es la mejor medicina.\">Dicen que la risa es la mejor medicina.</span> — <em>They say laughter is the best medicine.</em> Taking care of your <span data-say=\"la imagen\">la imagen</span> (image) shouldn’t mean unhealthy habits, and the local health centre is normally <span data-say=\"abierto\">abierto</span> (open) every day if you need advice.</p>",
   "question": "‘dejar de fumar’ means…",
   "options": [
    "to stop smoking",
@@ -11472,7 +15301,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Higher: reflexives and future plans",
-  "reading": "<p><span class=\"tier-h\">H</span> Many health verbs are <strong>reflexive</strong> — the action is done to yourself, so they take <strong>me / te / se</strong>:</p>\n            <ul>\n              <li><span data-say=\"relajarse\">relajarse</span> → <span data-say=\"me relajo\">me relajo</span> (I relax)</li>\n              <li><span data-say=\"acostarse\">acostarse</span> → <span data-say=\"me acuesto temprano\">me acuesto temprano</span> (I go to bed early)</li>\n            </ul>\n            <p>Combine with a plan or a conditional for the top band:</p>\n            <ul>\n              <li><span data-say=\"Voy a dejar de fumar y acostarme más temprano.\">Voy a dejar de fumar y acostarme más temprano.</span> <span class=\"tier-h\">H</span></li>\n              <li><span data-say=\"Se debería evitar el estrés para mantenerse sano.\">Se debería evitar el estrés para mantenerse sano.</span> <span class=\"tier-h\">H</span></li>\n            </ul>",
+  "reading": "<p><span class=\"tier-h\">H</span> Many health verbs are <strong>reflexive</strong> — the action is done to yourself, so they take <strong>me / te / se</strong>:</p>\n            <ul>\n              <li><span data-say=\"relajarse\">relajarse</span> → <span data-say=\"me relajo\">me relajo</span> (I relax)</li>\n              <li><span data-say=\"acostarse\">acostarse</span> → <span data-say=\"me acuesto temprano\">me acuesto temprano</span> (I go to bed early)</li>\n            </ul>\n            <p>Combine with a plan or a conditional for the top band:</p>\n            <ul>\n              <li><span data-say=\"Voy a dejar de fumar y acostarme más temprano.\">Voy a dejar de fumar y acostarme más temprano.</span> <span class=\"tier-h\">H</span></li>\n              <li><span data-say=\"Se debería evitar el estrés para mantenerse sano.\">Se debería evitar el estrés para mantenerse sano.</span> <span class=\"tier-h\">H</span></li>\n            </ul>\n            <p><span class=\"tier-h\">H</span> Other useful reflexive/health verbs: <span data-say=\"caerse\">caerse</span> (to fall over) — <span data-say=\"Mi abuelo se cayó y le duele la pierna desde hace una semana.\">Mi abuelo se cayó y le duele la pierna desde hace una semana.</span> — <em>My grandad fell over and his leg has hurt for a week.</em> Don’t forget to <span data-say=\"respirar\">respirar</span> (breathe) deeply to relax. <span data-say=\"la salud mental\">la salud mental</span> (mental health) matters as much as physical health — being <span data-say=\"optimista\">optimista</span> (optimistic) helps, and a <span data-say=\"paciente\">paciente</span> (patient) who stays positive often recovers faster. <span class=\"tier-h\">H</span></p>",
   "question": "Which sentence correctly uses a reflexive verb?",
   "options": [
    "Me acuesto temprano",
@@ -11591,6 +15420,27 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:misc:825bce8a",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Me duele el pie.</p><p><strong>✅ The correct idea:</strong> Me duele la pierna. (el pie = foot; la pierna = leg — different body parts!)</p>",
+  "question": "What’s the difference between ‘el pie’ and ‘la pierna’?",
+  "options": [
+   "el pie = foot, la pierna = leg — they are different body parts",
+   "they are simply two different spellings of the exact same Spanish word for foot",
+   "‘pie’ is only ever used in the plural",
+   "‘pierna’ means ‘shoe’"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el pie = foot; la pierna = leg. Mixing them up is a common GCSE slip."
+  }
+ },
+ {
   "id": "spanish:2-2-exercise-health-problems-and-advice:tips:faad4787",
   "pageId": "spanish:2-2-exercise-health-problems-and-advice",
   "pageName": "2.2 Exercise, Health Problems and Advice",
@@ -11664,8 +15514,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "duelen",
-    "ejercicio",
     "dejar",
+    "respirar",
     "duele"
    ]
   },
@@ -11686,9 +15536,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "fumar",
-    "cansado",
-    "duelen",
-    "ejercicio"
+    "duele",
+    "pierna",
+    "acuesto"
    ]
   },
   "key": {
@@ -11707,10 +15557,10 @@ window.QUESTION_BANK = [
   "question": "Para estar en forma, hay que hacer _____. <span data-say=\"Para estar en forma, hay que hacer ejercicio.\" data-listen>Para estar en forma, hay que hacer ejercicio.</span>",
   "blankOptions": {
    "B1": [
-    "acuesto",
-    "fumar",
+    "duelen",
+    "ejercicio",
     "cansado",
-    "ejercicio"
+    "fumar"
    ]
   },
   "key": {
@@ -11729,10 +15579,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ los pies. (my feet hurt — plural!)",
   "blankOptions": {
    "B1": [
-    "ejercicio",
     "acuesto",
+    "duelen",
     "duele",
-    "duelen"
+    "dejar"
    ]
   },
   "key": {
@@ -11751,10 +15601,10 @@ window.QUESTION_BANK = [
   "question": "Estoy muy _____ porque no duermo bien. (tired)",
   "blankOptions": {
    "B1": [
-    "cansado",
-    "dejar",
+    "acuesto",
     "fumar",
-    "acuesto"
+    "dejar",
+    "cansado"
    ]
   },
   "key": {
@@ -11773,10 +15623,10 @@ window.QUESTION_BANK = [
   "question": "Voy a _____ de fumar. (to stop)",
   "blankOptions": {
    "B1": [
-    "fumar",
+    "cansado",
+    "acuesto",
     "dejar",
-    "duele",
-    "duelen"
+    "ejercicio"
    ]
   },
   "key": {
@@ -11795,15 +15645,59 @@ window.QUESTION_BANK = [
   "question": "Me _____ temprano para dormir ocho horas. (I go to bed — reflexive)",
   "blankOptions": {
    "B1": [
-    "acuesto",
-    "duelen",
-    "dejar",
-    "fumar"
+    "ejercicio",
+    "fumar",
+    "pierna",
+    "acuesto"
    ]
   },
   "key": {
    "blanks": {
     "B1": "acuesto"
+   }
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:fib:53476c91",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Me duele mucho la _____ después de correr. <span data-say=\"Me duele mucho la pierna después de correr.\" data-listen>Me duele mucho la pierna después de correr.</span>",
+  "blankOptions": {
+   "B1": [
+    "acuesto",
+    "pierna",
+    "dejar",
+    "respirar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "pierna"
+   }
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:fib:58579f5f",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Hay que _____ profundamente para relajarse. (to breathe)",
+  "blankOptions": {
+   "B1": [
+    "pierna",
+    "cansado",
+    "duelen",
+    "respirar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "respirar"
    }
   }
  },
@@ -11816,13 +15710,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “hacer ejercicio”?",
   "options": [
-   "my head hurts",
-   "to be fit",
+   "my feet hurt",
    "to do exercise",
-   "throat"
+   "to be fit",
+   "to walk / stroll"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“hacer ejercicio” means: to do exercise"
   }
  },
@@ -11837,8 +15731,8 @@ window.QUESTION_BANK = [
   "options": [
    "to be fit",
    "to do exercise",
-   "to go to bed",
-   "to be tired"
+   "skin",
+   "to relax"
   ],
   "key": {
    "answer": 0,
@@ -11854,13 +15748,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me duele la cabeza”?",
   "options": [
-   "throat",
-   "to be tired",
-   "to do exercise",
-   "my head hurts"
+   "my head hurts",
+   "to stop smoking",
+   "to walk / stroll",
+   "to go to bed"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“me duele la cabeza” means: my head hurts"
   }
  },
@@ -11873,9 +15767,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me duelen los pies”?",
   "options": [
-   "to go to bed",
-   "my head hurts",
-   "one should rest",
+   "an illness",
+   "stress",
+   "pain",
    "my feet hurt"
   ],
   "key": {
@@ -11892,10 +15786,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la garganta”?",
   "options": [
-   "to be fit",
-   "bad for your health",
+   "my feet hurt",
+   "my head hurts",
    "throat",
-   "to relax"
+   "bad for your health"
   ],
   "key": {
    "answer": 2,
@@ -11912,9 +15806,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “estar cansado”?",
   "options": [
    "to be tired",
-   "my head hurts",
-   "to stop smoking",
-   "to be fit"
+   "throat",
+   "to walk / stroll",
+   "heart"
   ],
   "key": {
    "answer": 0,
@@ -11930,10 +15824,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el estrés”?",
   "options": [
-   "my head hurts",
+   "throat",
    "stress",
-   "to do exercise",
-   "bad for your health"
+   "to be fit",
+   "to be tired"
   ],
   "key": {
    "answer": 1,
@@ -11949,9 +15843,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “dejar de fumar”?",
   "options": [
-   "throat",
-   "to be tired",
-   "one should rest",
+   "to go to bed",
+   "bad for your health",
+   "cancer",
    "to stop smoking"
   ],
   "key": {
@@ -11968,13 +15862,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “se debe descansar”?",
   "options": [
-   "my feet hurt",
-   "my head hurts",
+   "to stop smoking",
    "one should rest",
-   "to relax"
+   "to be tired",
+   "to breathe"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“se debe descansar” means: one should rest"
   }
  },
@@ -11987,9 +15881,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “acostarse”?",
   "options": [
-   "my head hurts",
-   "to do exercise",
-   "my feet hurt",
+   "throat",
+   "to be fit",
+   "stress",
    "to go to bed"
   ],
   "key": {
@@ -12007,12 +15901,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “relajarse”?",
   "options": [
    "to do exercise",
-   "stress",
-   "to relax",
-   "to stop smoking"
+   "arm",
+   "to look after / take care of",
+   "to relax"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“relajarse” means: to relax"
   }
  },
@@ -12025,14 +15919,242 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “malo para la salud”?",
   "options": [
+   "to stop smoking",
    "bad for your health",
-   "my feet hurt",
+   "my head hurts",
+   "cancer"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“malo para la salud” means: bad for your health"
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:match:9c0082c8",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la boca”?",
+  "options": [
    "to be fit",
-   "my head hurts"
+   "to walk / stroll",
+   "mouth",
+   "a cigarette"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la boca” means: mouth"
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:match:b68c4528",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el brazo”?",
+  "options": [
+   "one should rest",
+   "blood",
+   "to breathe",
+   "arm"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el brazo” means: arm"
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:match:a218c91e",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el corazón”?",
+  "options": [
+   "a cigarette",
+   "to walk / stroll",
+   "to be fit",
+   "heart"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el corazón” means: heart"
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:match:60d7f9b6",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la sangre”?",
+  "options": [
+   "blood",
+   "skin",
+   "arm",
+   "to be fit"
   ],
   "key": {
    "answer": 0,
-   "explain": "“malo para la salud” means: bad for your health"
+   "explain": "“la sangre” means: blood"
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:match:4829fe32",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el dolor”?",
+  "options": [
+   "throat",
+   "pain",
+   "to walk / stroll",
+   "cancer"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el dolor” means: pain"
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:match:0650bbf1",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “una enfermedad”?",
+  "options": [
+   "stress",
+   "to look after / take care of",
+   "an illness",
+   "to breathe"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“una enfermedad” means: an illness"
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:match:e7ba7de5",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la piel”?",
+  "options": [
+   "stress",
+   "skin",
+   "heart",
+   "to do exercise"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la piel” means: skin"
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:match:a419e1ff",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “cuidar”?",
+  "options": [
+   "my feet hurt",
+   "bad for your health",
+   "heart",
+   "to look after / take care of"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“cuidar” means: to look after / take care of"
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:match:9b8eaf22",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el cáncer”?",
+  "options": [
+   "cancer",
+   "heart",
+   "to be tired",
+   "to stop smoking"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el cáncer” means: cancer"
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:match:c597823d",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “un cigarrillo”?",
+  "options": [
+   "to breathe",
+   "to stop smoking",
+   "blood",
+   "a cigarette"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“un cigarrillo” means: a cigarette"
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:match:525db7f6",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “pasear”?",
+  "options": [
+   "mouth",
+   "pain",
+   "to be tired",
+   "to walk / stroll"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“pasear” means: to walk / stroll"
+  }
+ },
+ {
+  "id": "spanish:2-2-exercise-health-problems-and-advice:match:c221efff",
+  "pageId": "spanish:2-2-exercise-health-problems-and-advice",
+  "pageName": "2.2 Exercise, Health Problems and Advice",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “respirar”?",
+  "options": [
+   "to look after / take care of",
+   "one should rest",
+   "to breathe",
+   "mouth"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“respirar” means: to breathe"
   }
  },
  {
@@ -12259,6 +16381,139 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:213343a4",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Mi compañera y yo tenemos una buena amistad.\" data-listen></span><br>Listen. What does the speaker say?",
+  "options": [
+   "She and her classmate have a good friendship",
+   "She dislikes her classmate a great deal these days",
+   "Her classmate moved to a completely different school",
+   "She is not allowed to talk to her classmate at all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘tenemos una buena amistad’ = we have a good friendship. The traps invent dislike, a move, or a rule that isn't there."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:62e2449a",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which Spanish verb means ‘to fail an exam’?",
+  "options": [
+   "suspender",
+   "aprobar con nota excelente",
+   "repasar todos los apuntes",
+   "merecer una buena nota"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "suspender = to fail (an exam) — a false-friend trap, since it looks like the English ‘suspend’."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:16bf8024",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Si repasas con _____, mereces un buen resultado.’ (effort)",
+  "options": [
+   "esfuerzo",
+   "conocimiento",
+   "silencio",
+   "apoyo"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "esfuerzo = effort, the missing word here. The other nouns are real but don't fit this specific sentence."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:c6148854",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is ‘el acoso escolar’?",
+  "options": [
+   "school bullying",
+   "a strict school uniform policy",
+   "a compulsory Spanish exam",
+   "permission to leave school early"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el acoso (escolar) = (school) bullying, a serious issue. The traps invent unrelated school rules."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:dbe04990",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Voy al instituto en bicicleta.\" data-listen></span><br>Listen. How does the speaker get to school?",
+  "options": [
+   "by bicycle",
+   "by car with their parents",
+   "on foot, always alone",
+   "by school bus every day"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘en bicicleta’ = by bicycle. The traps invent a different, equally plausible way of getting to school."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:8b90ffd7",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which best describes someone who is ‘vago’?",
+  "options": [
+   "lazy, avoiding effort and work",
+   "clever and hard-working always",
+   "strict but fair with everyone",
+   "numerous and full of energy"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "vago = lazy. The traps swap in unrelated positive or unrelated adjectives from this same page."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:mcq:2d01364c",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How would you say ‘Our school has an orchestra’?",
+  "options": [
+   "Nuestra escuela tiene una orquesta",
+   "Nuestro instituto tiene un concurso",
+   "Nuestra escuela tiene una prueba",
+   "Nuestro edificio tiene una recepción"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Nuestra escuela tiene una orquesta = our school has an orchestra. The traps swap in a different, equally long noun."
+  }
+ },
+ {
   "id": "spanish:3-1-school-life-and-subjects:tf:8b90523d",
   "pageId": "spanish:3-1-school-life-and-subjects",
   "pageName": "3.1 School Life and Subjects",
@@ -12360,6 +16615,84 @@ window.QUESTION_BANK = [
   "key": {
    "answer": true,
    "explain": "el recreo = break time, often spent in el patio."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:f559e80c",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘La escuela’ usually means a secondary school for teenagers.",
+  "key": {
+   "answer": false,
+   "explain": "False! la escuela usually means a primary school; el instituto is secondary school."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:3ef2368e",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Suspender un examen’ means to fail it.",
+  "key": {
+   "answer": true,
+   "explain": "suspender = to fail (a false-friend trap, since it looks like the English ‘suspend’)."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:b50a2a6b",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Vago’ and ‘perezoso’ both mean ‘lazy’.",
+  "key": {
+   "answer": true,
+   "explain": "Both vago and perezoso describe a lazy student."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:4fdffa12",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘El acoso’ means friendly teasing that is harmless.",
+  "key": {
+   "answer": false,
+   "explain": "False! el acoso = bullying, a serious problem, not harmless teasing."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:b3eb07f1",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "September (‘septiembre’) is when the Spanish school year usually begins.",
+  "key": {
+   "answer": true,
+   "explain": "septiembre = September, the start of the school year."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:tf:44e49a50",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Estricto’ means relaxed and easy-going.",
+  "key": {
+   "answer": false,
+   "explain": "False! estricto means strict, the opposite of relaxed."
   }
  },
  {
@@ -12489,6 +16822,90 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:3-1-school-life-and-subjects:learn:9abb1ec2",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Who's who at school? (people and friendships)",
+  "reading": "<p>More people you'll meet, plus how to talk about school friendships. <span data-say=\"el señor\">el señor</span> / <span data-say=\"la señora\">la señora</span> go before a surname, like Mr/Mrs — useful for addressing teachers politely.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el compañero\">el compañero</span> / <span data-say=\"la compañera\">la compañera</span></td><td>classmate</td><td><span data-say=\"la amistad\">la amistad</span></td><td>friendship</td></tr>\n              <tr><td><span data-say=\"el alumno\">el alumno</span> / <span data-say=\"la alumna\">la alumna</span></td><td>pupil</td><td><span data-say=\"el estudiante\">el estudiante</span> / <span data-say=\"la estudiante\">la estudiante</span></td><td>student</td></tr>\n              <tr><td><span data-say=\"la autoridad\">la autoridad</span></td><td>authority</td><td><span data-say=\"el edificio\">el edificio</span></td><td>building</td></tr>\n              <tr><td><span data-say=\"la escuela\">la escuela</span></td><td>school (often primary)</td><td><span data-say=\"enseñar\">enseñar</span></td><td>to teach</td></tr>\n            </table>\n            <p>Note: <span data-say=\"la escuela\">la escuela</span> usually means a primary school, while <span data-say=\"el instituto\">el instituto</span> is secondary school — you already know both!</p>\n            <p>Example: <span data-say=\"El señor García enseña historia y siempre respeta a los alumnos.\">El señor García enseña historia y siempre respeta a los alumnos.</span> — Mr García teaches history and always respects the pupils.</p>\n            <p>Also: <span data-say=\"Mi compañera de clase y yo tenemos una buena amistad.\">Mi compañera de clase y yo tenemos una buena amistad.</span> — My classmate and I have a good friendship. <span data-say=\"Mi hermano mayor también fue alumno en este edificio.\">Mi hermano mayor también fue alumno en este edificio.</span> — My older brother was also a pupil in this building.</p>",
+  "question": "Which Spanish word usually means a primary school, unlike ‘el instituto’?",
+  "options": [
+   "la escuela",
+   "el edificio nuevo del centro",
+   "la autoridad del director",
+   "el estudiante universitario"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la escuela usually refers to a primary school; el instituto is secondary school."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:learn:7233cfa0",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "School rules, behaviour and uniform",
+  "reading": "<p>More classroom behaviour and rules — building on <span data-say=\"está prohibido\">está prohibido</span> and <span data-say=\"se debe\">se debe</span> from before.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"permitir\">permitir</span></td><td>to allow</td><td><span data-say=\"la regla\">la regla</span></td><td>the rule</td></tr>\n              <tr><td><span data-say=\"el silencio\">el silencio</span></td><td>silence</td><td><span data-say=\"callarse\">callarse</span></td><td>to be quiet</td></tr>\n              <tr><td><span data-say=\"gritar\">gritar</span></td><td>to shout</td><td><span data-say=\"castigar\">castigar</span></td><td>to punish</td></tr>\n              <tr><td><span data-say=\"estricto\">estricto</span></td><td>strict</td><td><span data-say=\"obligatorio\">obligatorio</span></td><td>compulsory</td></tr>\n              <tr><td><span data-say=\"el pantalón\">el pantalón</span></td><td>trousers</td><td><span data-say=\"la falda\">la falda</span></td><td>skirt</td></tr>\n              <tr><td><span data-say=\"entregar\">entregar</span></td><td>to hand in</td><td><span data-say=\"la culpa\">la culpa</span></td><td>blame, fault</td></tr>\n            </table>\n            <p>Example: <span data-say=\"En mi instituto no se permite gritar en el pasillo; hay que callarse y guardar silencio.\">En mi instituto no se permite gritar en el pasillo; hay que callarse y guardar silencio.</span></p>\n            <p>Uniform rule: <span data-say=\"El uniforme es obligatorio: los chicos llevan pantalón y las chicas pueden llevar falda.\">El uniforme es obligatorio: los chicos llevan pantalón y las chicas pueden llevar falda.</span></p>\n            <p>Homework rule: <span data-say=\"Hay que entregar los deberes a tiempo; si no, el profesor te castiga.\">Hay que entregar los deberes a tiempo; si no, el profesor te castiga.</span> Nadie quiere <span data-say=\"echar la culpa\">echar la culpa</span> (place the blame) a un compañero cuando algo va mal.</p>\n            <p><span class=\"tier-h\">H</span> Two serious problems schools must tackle: <span data-say=\"el acoso\">el acoso</span> (bullying) and <span data-say=\"amenazar\">amenazar</span> (to threaten) — e.g. <span data-say=\"Está muy mal amenazar o acosar a otro alumno.\">Está muy mal amenazar o acosar a otro alumno.</span></p>",
+  "question": "What does ‘el acoso’ mean in a school context?",
+  "options": [
+   "bullying",
+   "a compulsory school rule about uniform",
+   "a strict but fair teacher",
+   "permission to leave class early"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el acoso = bullying, a serious pastoral issue schools must tackle."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:learn:cdb217af",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Succeeding — or struggling — in exams",
+  "reading": "<p>Vocabulary for talking about how well (or badly) things go at school.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el sistema\">el sistema</span></td><td>system</td><td><span data-say=\"el resultado\">el resultado</span></td><td>result</td></tr>\n              <tr><td><span data-say=\"la prueba\">la prueba</span></td><td>test/proof</td><td><span data-say=\"el esfuerzo\">el esfuerzo</span></td><td>effort</td></tr>\n              <tr><td><span data-say=\"el conocimiento\">el conocimiento</span></td><td>knowledge</td><td><span data-say=\"la memoria\">la memoria</span></td><td>memory</td></tr>\n              <tr><td><span data-say=\"el apoyo\">el apoyo</span></td><td>support</td><td><span data-say=\"merecer\">merecer</span></td><td>to deserve</td></tr>\n              <tr><td><span data-say=\"superar\">superar</span></td><td>to pass/overcome</td><td><span data-say=\"suspender\">suspender</span></td><td>to fail (an exam)</td></tr>\n              <tr><td><span data-say=\"repasar\">repasar</span></td><td>to revise</td><td><span data-say=\"la suerte\">la suerte</span></td><td>luck</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Si repasas con esfuerzo, mereces un buen resultado; si no estudias, puedes suspender.\">Si repasas con esfuerzo, mereces un buen resultado; si no estudias, puedes suspender.</span> <span data-say=\"¡Buena suerte en el examen!\">¡Buena suerte en el examen!</span> — Good luck in the exam!</p>\n            <p>Student types: <span data-say=\"listo\">listo</span> (clever), <span data-say=\"tonto\">tonto</span> (silly), <span data-say=\"vago\">vago</span> / <span data-say=\"perezoso\">perezoso</span> (lazy) and <span data-say=\"la inteligencia\">la inteligencia</span> (intelligence).</p>\n            <p>Example: <span data-say=\"Mi compañero es muy listo y tiene mucha inteligencia, pero yo soy un poco vago.\">Mi compañero es muy listo y tiene mucha inteligencia, pero yo soy un poco vago.</span></p>",
+  "question": "What does ‘suspender un examen’ mean?",
+  "options": [
+   "to fail an exam",
+   "to pass an exam with a great result",
+   "to revise thoroughly before an exam",
+   "to deserve extra support in class"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "suspender = to fail (an exam) — a common false-friend trap, since it looks like ‘suspend’."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:learn:b0f49bdd",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "More subjects, the school year and school life",
+  "reading": "<p>A few more useful nouns and adjectives for describing subjects, dates and everyday school life.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el idioma\">el idioma</span></td><td>language</td><td><span data-say=\"el lenguaje\">el lenguaje</span></td><td>language/speech (general)</td></tr>\n              <tr><td><span data-say=\"el castellano\">el castellano</span></td><td>Castilian Spanish</td><td><span data-say=\"la opción\">la opción</span></td><td>option</td></tr>\n              <tr><td><span data-say=\"septiembre\">septiembre</span></td><td>September</td><td><span data-say=\"la economía\">la economía</span></td><td>economics</td></tr>\n              <tr><td><span data-say=\"la mochila\">la mochila</span></td><td>backpack</td><td><span data-say=\"el bolígrafo\">el bolígrafo</span></td><td>pen</td></tr>\n              <tr><td><span data-say=\"la página\">la página</span></td><td>page</td><td><span data-say=\"la lista\">la lista</span></td><td>list</td></tr>\n              <tr><td><span data-say=\"la excursión\">la excursión</span></td><td>school trip</td><td><span data-say=\"la orquesta\">la orquesta</span></td><td>orchestra</td></tr>\n              <tr><td><span data-say=\"el concurso\">el concurso</span></td><td>competition</td><td><span data-say=\"el estadio\">el estadio</span></td><td>stadium</td></tr>\n              <tr><td><span data-say=\"deportivo\">deportivo</span></td><td>sports (adj)</td><td><span data-say=\"la bicicleta\">la bicicleta</span>, <span data-say=\"la bici\">la bici</span></td><td>bicycle</td></tr>\n              <tr><td><span data-say=\"la recepción\">la recepción</span></td><td>reception</td><td><span data-say=\"la puerta\">la puerta</span></td><td>door</td></tr>\n              <tr><td><span data-say=\"la instalación\">la instalación</span></td><td>facility</td><td><span data-say=\"numeroso\">numeroso</span></td><td>numerous</td></tr>\n              <tr><td><span data-say=\"cerrado\">cerrado</span></td><td>closed</td><td><span data-say=\"instalar\">instalar</span></td><td>to install</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Las clases empiezan en septiembre; escojo mis opciones para el próximo curso, como la economía o un segundo idioma.\">Las clases empiezan en septiembre; escojo mis opciones para el próximo curso, como la economía o un segundo idioma.</span></p>\n            <p>Also: <span data-say=\"Voy al instituto en bicicleta y guardo mis bolígrafos en la mochila.\">Voy al instituto en bicicleta y guardo mis bolígrafos en la mochila.</span> <span data-say=\"En clase de informática aprendemos a instalar programas nuevos.\">En clase de informática aprendemos a instalar programas nuevos.</span></p>\n            <p>Extras: <span data-say=\"Nuestra escuela tiene una orquesta y un equipo que gana concursos.\">Nuestra escuela tiene una orquesta y un equipo que gana concursos.</span> <span data-say=\"Cerca del estadio hay instalaciones deportivas numerosas.\">Cerca del estadio hay instalaciones deportivas numerosas.</span></p>\n            <p>On the last day of term there's often an <span data-say=\"excursión\">excursión</span> (school trip) — <span data-say=\"¡Estoy muy emocionado por la excursión!\">¡Estoy muy emocionado por la excursión!</span> (I'm very excited about the trip!) <span data-say=\"Los visitantes esperan en la recepción, cerca de la puerta principal, que está cerrada fuera del horario escolar.\">Los visitantes esperan en la recepción, cerca de la puerta principal, que está cerrada fuera del horario escolar.</span></p>",
+  "question": "When do Spanish school subjects and options for next year usually get chosen, according to this page?",
+  "options": [
+   "around September, when classes start",
+   "only during the summer excursión",
+   "on the very last day of the school year",
+   "the moment you turn eighteen years old"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "septiembre = September, when the school year (and choosing options) begins."
+  }
+ },
+ {
   "id": "spanish:3-1-school-life-and-subjects:misc:184073f5",
   "pageId": "spanish:3-1-school-life-and-subjects",
   "pageName": "3.1 School Life and Subjects",
@@ -12594,6 +17011,48 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:3-1-school-life-and-subjects:misc:42248175",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Soy listo ahora mismo, voy a clase.</p><p><strong>✅ The correct idea:</strong> Estoy listo ahora mismo, voy a clase.</p>",
+  "question": "Why must this sentence use ‘estoy’, not ‘soy’, with ‘listo’ here?",
+  "options": [
+   "‘estar listo’ means ready (temporary); ‘ser listo’ means clever (a trait)",
+   "‘listo’ can only ever be used together with the verb ‘ser’, in every single sentence",
+   "‘listo’ must agree with a plural subject in this exact sentence, according to this rule",
+   "‘ir a clase’ always requires the verb ‘estar’ beforehand, in absolutely every case"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "ser listo = to be clever (a lasting trait); estar listo = to be ready (a temporary state) — a classic ser/estar contrast."
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:misc:e735a58f",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> El acoso es sólo una broma sin importancia.</p><p><strong>✅ The correct idea:</strong> El acoso es un problema serio que hay que denunciar.</p>",
+  "question": "What is wrong with treating ‘el acoso’ as a harmless joke?",
+  "options": [
+   "bullying is a serious issue that should always be reported",
+   "‘acoso’ actually just means a funny nickname between friends",
+   "‘acoso’ is simply another word for a school trip",
+   "nothing — a harmless joke is exactly what ‘acoso’ means"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el acoso = bullying, a serious problem — never a harmless joke."
+  }
+ },
+ {
   "id": "spanish:3-1-school-life-and-subjects:tips:0b2d1b0e",
   "pageId": "spanish:3-1-school-life-and-subjects",
   "pageName": "3.1 School Life and Subjects",
@@ -12666,10 +17125,10 @@ window.QUESTION_BANK = [
   "question": "Mi asignatura _____ es el español. <span data-say=\"Mi asignatura preferida es el español.\" data-listen>Mi asignatura preferida es el español.</span>",
   "blankOptions": {
    "B1": [
-    "preferida",
-    "deberes",
-    "informática",
-    "ciencias"
+    "obligatorio",
+    "empiezan",
+    "ciencias",
+    "preferida"
    ]
   },
   "key": {
@@ -12688,10 +17147,10 @@ window.QUESTION_BANK = [
   "question": "Las clases _____ a las nueve. <span data-say=\"Las clases empiezan a las nueve.\" data-listen>Las clases empiezan a las nueve.</span>",
   "blankOptions": {
    "B1": [
+    "móvil",
+    "acoso",
     "empiezan",
-    "deberes",
-    "informática",
-    "móvil"
+    "ciencias"
    ]
   },
   "key": {
@@ -12710,10 +17169,10 @@ window.QUESTION_BANK = [
   "question": "Se me da bien la _____. <span data-say=\"Se me da bien la informática.\" data-listen>Se me da bien la informática.</span>",
   "blankOptions": {
    "B1": [
+    "compañera",
     "informática",
-    "móvil",
-    "biblioteca",
-    "empiezan"
+    "ciencias",
+    "mochila"
    ]
   },
   "key": {
@@ -12732,10 +17191,10 @@ window.QUESTION_BANK = [
   "question": "Me gustan las _____. (science)",
   "blankOptions": {
    "B1": [
+    "empiezan",
+    "suspender",
     "ciencias",
-    "biblioteca",
-    "deberes",
-    "preferida"
+    "compañera"
    ]
   },
   "key": {
@@ -12754,10 +17213,10 @@ window.QUESTION_BANK = [
   "question": "Está prohibido usar el _____. (mobile phone)",
   "blankOptions": {
    "B1": [
-    "móvil",
-    "informática",
+    "empiezan",
     "biblioteca",
-    "deberes"
+    "móvil",
+    "mochila"
    ]
   },
   "key": {
@@ -12776,10 +17235,10 @@ window.QUESTION_BANK = [
   "question": "Hago los _____ después de las clases. (homework)",
   "blankOptions": {
    "B1": [
-    "ciencias",
-    "móvil",
+    "empiezan",
     "deberes",
-    "informática"
+    "mochila",
+    "suspender"
    ]
   },
   "key": {
@@ -12798,15 +17257,147 @@ window.QUESTION_BANK = [
   "question": "En mi instituto hay una _____ grande. (library)",
   "blankOptions": {
    "B1": [
-    "ciencias",
-    "deberes",
+    "preferida",
     "biblioteca",
-    "móvil"
+    "ciencias",
+    "suspender"
    ]
   },
   "key": {
    "blanks": {
     "B1": "biblioteca"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:d6b700af",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Voy al instituto en _____. <span data-say=\"Voy al instituto en bicicleta.\" data-listen>Voy al instituto en bicicleta.</span>",
+  "blankOptions": {
+   "B1": [
+    "mochila",
+    "obligatorio",
+    "preferida",
+    "bicicleta"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "bicicleta"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:68e50284",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Mi _____ de clase se llama Ana. (classmate, f)",
+  "blankOptions": {
+   "B1": [
+    "deberes",
+    "biblioteca",
+    "compañera",
+    "obligatorio"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "compañera"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:d707ac9a",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Si no estudias, puedes _____ el examen. (to fail)",
+  "blankOptions": {
+   "B1": [
+    "suspender",
+    "mochila",
+    "móvil",
+    "ciencias"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "suspender"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:bedfc506",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Guardo mis bolígrafos en la _____. (backpack)",
+  "blankOptions": {
+   "B1": [
+    "bicicleta",
+    "acoso",
+    "informática",
+    "mochila"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "mochila"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:0131e7ee",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El uniforme es _____: hay que llevarlo todos los días. (compulsory)",
+  "blankOptions": {
+   "B1": [
+    "biblioteca",
+    "obligatorio",
+    "ciencias",
+    "acoso"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "obligatorio"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:fib:bcc884b1",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Está muy mal el _____ escolar. (bullying) <span data-say=\"Está muy mal el acoso escolar.\" data-listen>Está muy mal el acoso escolar.</span>",
+  "blankOptions": {
+   "B1": [
+    "informática",
+    "deberes",
+    "biblioteca",
+    "acoso"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "acoso"
    }
   }
  },
@@ -12819,10 +17410,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “las matemáticas”?",
   "options": [
-   "it is forbidden (to)",
+   "lazy",
    "maths",
-   "the lab",
-   "the school"
+   "Mr / Mrs",
+   "the library"
   ],
   "key": {
    "answer": 1,
@@ -12838,10 +17429,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la educación física”?",
   "options": [
-   "the lab",
+   "Mr / Mrs",
    "PE",
-   "my favourite subject is",
-   "the school"
+   "the school",
+   "break time"
   ],
   "key": {
    "answer": 1,
@@ -12858,8 +17449,8 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “mi asignatura preferida es”?",
   "options": [
    "maths",
-   "the library",
-   "I am good at (it)",
+   "the building",
+   "the classroom",
    "my favourite subject is"
   ],
   "key": {
@@ -12876,10 +17467,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “se me da bien”?",
   "options": [
-   "break time",
-   "the school",
+   "the rule",
+   "the library",
    "I am good at (it)",
-   "PE"
+   "the school"
   ],
   "key": {
    "answer": 2,
@@ -12895,10 +17486,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el instituto”?",
   "options": [
-   "it is forbidden (to)",
+   "backpack",
    "the school",
-   "the library",
-   "the classroom"
+   "the building",
+   "the teacher"
   ],
   "key": {
    "answer": 1,
@@ -12914,9 +17505,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el aula”?",
   "options": [
-   "the library",
+   "friendship",
    "the classroom",
-   "the school",
+   "homework",
    "maths"
   ],
   "key": {
@@ -12933,9 +17524,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el laboratorio”?",
   "options": [
-   "PE",
-   "the library",
-   "my favourite subject is",
+   "I am good at (it)",
+   "friendship",
+   "the classroom",
    "the lab"
   ],
   "key": {
@@ -12952,10 +17543,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la biblioteca”?",
   "options": [
-   "the teacher",
-   "it is forbidden (to)",
+   "to fail (an exam)",
+   "backpack",
    "the library",
-   "homework"
+   "to revise"
   ],
   "key": {
    "answer": 2,
@@ -12971,10 +17562,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el recreo”?",
   "options": [
-   "my favourite subject is",
-   "the library",
+   "the classroom",
+   "the rule",
    "break time",
-   "the school"
+   "the teacher"
   ],
   "key": {
    "answer": 2,
@@ -12991,9 +17582,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “los deberes”?",
   "options": [
    "homework",
-   "my favourite subject is",
-   "the school",
-   "the library"
+   "the classroom",
+   "break time",
+   "to be quiet"
   ],
   "key": {
    "answer": 0,
@@ -13010,8 +17601,8 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “el profesor / la profesora”?",
   "options": [
    "the teacher",
-   "the school",
-   "the library",
+   "homework",
+   "the rule",
    "maths"
   ],
   "key": {
@@ -13028,14 +17619,242 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “está prohibido”?",
   "options": [
-   "the school",
-   "the classroom",
+   "homework",
+   "the teacher",
    "it is forbidden (to)",
-   "I am good at (it)"
+   "the lab"
   ],
   "key": {
    "answer": 2,
    "explain": "“está prohibido” means: it is forbidden (to)"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:ea6d3bfb",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el señor / la señora”?",
+  "options": [
+   "Mr / Mrs",
+   "homework",
+   "the lab",
+   "to revise"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el señor / la señora” means: Mr / Mrs"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:8c38ecf5",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la amistad”?",
+  "options": [
+   "the school",
+   "friendship",
+   "effort",
+   "to fail (an exam)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la amistad” means: friendship"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:dc7ff8b5",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el edificio”?",
+  "options": [
+   "the building",
+   "my favourite subject is",
+   "backpack",
+   "the classroom"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el edificio” means: the building"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:bf8fd58a",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la regla”?",
+  "options": [
+   "it is forbidden (to)",
+   "the rule",
+   "effort",
+   "the teacher"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la regla” means: the rule"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:e11bfed2",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “callarse”?",
+  "options": [
+   "to be quiet",
+   "the teacher",
+   "the lab",
+   "lazy"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“callarse” means: to be quiet"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:04468f41",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “castigar”?",
+  "options": [
+   "effort",
+   "Mr / Mrs",
+   "the teacher",
+   "to punish"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“castigar” means: to punish"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:df52bf23",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el esfuerzo”?",
+  "options": [
+   "to be quiet",
+   "homework",
+   "effort",
+   "I am good at (it)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el esfuerzo” means: effort"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:c089a01c",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “suspender”?",
+  "options": [
+   "my favourite subject is",
+   "to fail (an exam)",
+   "homework",
+   "the classroom"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“suspender” means: to fail (an exam)"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:11f43dd8",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “repasar”?",
+  "options": [
+   "to punish",
+   "the teacher",
+   "backpack",
+   "to revise"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“repasar” means: to revise"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:9ef268ec",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “vago / perezoso”?",
+  "options": [
+   "my favourite subject is",
+   "to revise",
+   "the building",
+   "lazy"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“vago / perezoso” means: lazy"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:2a818f13",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la mochila”?",
+  "options": [
+   "the school",
+   "the rule",
+   "backpack",
+   "friendship"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la mochila” means: backpack"
+  }
+ },
+ {
+  "id": "spanish:3-1-school-life-and-subjects:match:5d2fe1b0",
+  "pageId": "spanish:3-1-school-life-and-subjects",
+  "pageName": "3.1 School Life and Subjects",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “septiembre”?",
+  "options": [
+   "effort",
+   "September",
+   "to revise",
+   "the school"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“septiembre” means: September"
   }
  },
  {
@@ -13262,6 +18081,139 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:6dc42912",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Se necesita camarero con experiencia.\" data-listen></span><br>Listen. What kind of text is this?",
+  "options": [
+   "a job advert looking for a waiter",
+   "a menu at a restaurant",
+   "a complaint from an unhappy customer",
+   "an invitation to a job interview"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘se necesita…’ = wanted/needed — the standard opening of a job advert. The traps name other plausible workplace text types."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:135cdf36",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘entrepreneur’, someone who owns and runs a business?",
+  "options": [
+   "el empresario",
+   "el empleado de la tienda",
+   "el cliente habitual",
+   "el obrero de la fábrica"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el empresario = entrepreneur. The traps name other real jobs from this topic."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:bfda7255",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘El gobierno debe proteger el derecho a la _____ de género.’ (equality)",
+  "options": [
+   "igualdad",
+   "seguridad",
+   "importancia",
+   "confianza"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "igualdad = equality, the missing word. The other nouns are real but don't fit this specific sentence."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:f5793d1c",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘la tasa de paro’ refer to?",
+  "options": [
+   "the unemployment rate",
+   "how many people are on strike",
+   "average annual salary",
+   "the working week's total hours"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la tasa de paro = the unemployment rate. The traps invent other plausible economic statistics."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:4c515670",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘acabo de firmar el contrato’ mean?",
+  "options": [
+   "I have just signed the contract",
+   "I am about to sign the contract soon",
+   "I signed the contract a long time ago",
+   "I refuse to sign the contract at all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "acabar de + infinitive = to have just (done something). The traps shift the timing or the meaning entirely."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:b86ee490",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence means ‘My boss works with a team of employees’?",
+  "options": [
+   "Mi jefe trabaja con un equipo de empleados",
+   "Mi jefe trabaja solo, sin ningún empleado",
+   "Mi empleado trabaja con un equipo de jefes",
+   "Mi cliente trabaja con un equipo de dueños"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "Mi jefe trabaja con un equipo de empleados = my boss works with a team of employees. The traps swap or negate the roles."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:mcq:46773177",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which best completes: ‘Siempre soñé con _____ nuevas medicinas.’ (to research)",
+  "options": [
+   "investigar",
+   "vender a otras empresas",
+   "firmar todos los documentos",
+   "emplear a mucha gente nueva"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "investigar = to research/investigate, the missing verb here. The other verbs are real but don't fit this context."
+  }
+ },
+ {
   "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:9f995ae9",
   "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
   "pageName": "3.2 Future Study, Jobs and Ambitions",
@@ -13366,6 +18318,84 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:8aa15d98",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Se necesita’ at the start of a text usually introduces a job advert.",
+  "key": {
+   "answer": true,
+   "explain": "se necesita = wanted/needed, the standard opening of a Spanish job advert."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:82407870",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘El empresario’ means an ordinary employee with no responsibility.",
+  "key": {
+   "answer": false,
+   "explain": "False! el empresario = entrepreneur/businessman, someone who owns or runs a business."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:f5096795",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘La tasa de paro’ measures the level of unemployment.",
+  "key": {
+   "answer": true,
+   "explain": "la tasa de paro = the unemployment rate, a key economic statistic."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:850394bc",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Acabar de + infinitive’ means to have just done something.",
+  "key": {
+   "answer": true,
+   "explain": "acabar de firmar = to have just signed — a Higher-tier structure for recent past actions."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:a5037e36",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘La huelga’ means a work meeting between colleagues.",
+  "key": {
+   "answer": false,
+   "explain": "False! la huelga = a strike, not a meeting (that would be la reunión)."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:tf:9fc991be",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Laboral’ describes anything related to work.",
+  "key": {
+   "answer": true,
+   "explain": "laboral = work-related, e.g. el mercado laboral (the job market)."
+  }
+ },
+ {
   "id": "spanish:3-2-future-study-jobs-and-ambitions:learn:45a82b7e",
   "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
   "pageName": "3.2 Future Study, Jobs and Ambitions",
@@ -13436,7 +18466,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about further study?",
-  "reading": "<p>Two routes after school — academic or vocational:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la universidad\">la universidad</span></td><td>university</td></tr>\n              <tr><td><span data-say=\"seguir estudiando\">seguir estudiando</span></td><td>to continue studying</td></tr>\n              <tr><td><span data-say=\"hacer un aprendizaje\">hacer un aprendizaje</span></td><td>to do an apprenticeship</td></tr>\n              <tr><td><span data-say=\"sacar buenas notas\">sacar buenas notas</span></td><td>to get good marks</td></tr>\n              <tr><td><span data-say=\"aprobar los exámenes\">aprobar los exámenes</span></td><td>to pass the exams</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Voy a seguir estudiando en la universidad si apruebo los exámenes.\">Voy a seguir estudiando en la universidad si apruebo los exámenes.</span></p>\n            <p>Or a vocational route: <span data-say=\"Prefiero hacer un aprendizaje en vez de ir a la universidad.\">Prefiero hacer un aprendizaje en vez de ir a la universidad.</span></p>",
+  "reading": "<p>Two routes after school — academic or vocational:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la universidad\">la universidad</span></td><td>university</td></tr>\n              <tr><td><span data-say=\"seguir estudiando\">seguir estudiando</span></td><td>to continue studying</td></tr>\n              <tr><td><span data-say=\"hacer un aprendizaje\">hacer un aprendizaje</span></td><td>to do an apprenticeship</td></tr>\n              <tr><td><span data-say=\"sacar buenas notas\">sacar buenas notas</span></td><td>to get good marks</td></tr>\n              <tr><td><span data-say=\"aprobar los exámenes\">aprobar los exámenes</span></td><td>to pass the exams</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Voy a seguir estudiando en la universidad si apruebo los exámenes.\">Voy a seguir estudiando en la universidad si apruebo los exámenes.</span></p>\n            <p>Or a vocational route: <span data-say=\"Prefiero hacer un aprendizaje en vez de ir a la universidad.\">Prefiero hacer un aprendizaje en vez de ir a la universidad.</span></p>\n            <p><span class=\"tier-h\">H</span> In Spain, after the GCSE-equivalent stage, students choose between <span data-say=\"el Bachillerato\">el Bachillerato</span> (two years of academic study, similar to Sixth Form) and vocational training. Studies at university level are <span data-say=\"universitario\">universitarios</span>: <span data-say=\"Después del Bachillerato, quiero hacer estudios universitarios.\">Después del Bachillerato, quiero hacer estudios universitarios.</span></p>",
   "question": "What does ‘hacer un aprendizaje’ mean?",
   "options": [
    "to do an apprenticeship after school",
@@ -13489,6 +18519,111 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "cuando + present subjunctive (sea) for future time clauses. soy = present indicative, era = imperfect, seré wrongly duplicates the future — all real learner slips."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:learn:d269eafd",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Where might I work? Places, sectors and companies",
+  "reading": "<p>Key nouns for talking about businesses, sectors and where people work.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la empresa\">la empresa</span></td><td>company, firm</td><td><span data-say=\"la compañía\">la compañía</span></td><td>company</td></tr>\n              <tr><td><span data-say=\"el negocio\">el negocio</span></td><td>business</td><td><span data-say=\"la oficina\">la oficina</span></td><td>office</td></tr>\n              <tr><td><span data-say=\"el banco\">el banco</span></td><td>bank</td><td><span data-say=\"la fábrica\">la fábrica</span></td><td>factory</td></tr>\n              <tr><td><span data-say=\"el comercio\">el comercio</span></td><td>trade, commerce</td><td><span data-say=\"los servicios\">los servicios</span></td><td>services (sector)</td></tr>\n              <tr><td><span data-say=\"la construcción\">la construcción</span></td><td>construction</td><td><span data-say=\"fabricar\">fabricar</span></td><td>to manufacture</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Mi padre trabaja en una empresa grande; mi madre tiene su propio negocio.\">Mi padre trabaja en una empresa grande; mi madre tiene su propio negocio.</span> — My dad works for a big company; my mum has her own business.</p>\n            <p>The main sectors of the economy are <span data-say=\"la construcción, el comercio y los servicios.\">la construcción, el comercio y los servicios.</span> En la fábrica, <span data-say=\"fabrican coches.\">fabrican coches.</span> — In the factory, they manufacture cars.</p>",
+  "question": "Which word describes ‘the services sector’ of the economy?",
+  "options": [
+   "los servicios",
+   "la construcción de edificios",
+   "el comercio internacional",
+   "una compañía muy pequeña"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "los servicios = services (the services sector). The traps name real, different sectors of the economy."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:learn:1af7b814",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Applying and preparing for a job",
+  "reading": "<p>The language of job adverts and applications — often seen in Paper 3 reading texts.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"se necesita\">se necesita</span></td><td>wanted / needed (job advert)</td><td><span data-say=\"solicitar\">solicitar</span></td><td>to apply for</td></tr>\n              <tr><td><span data-say=\"el título\">el título</span></td><td>qualification, degree</td><td><span data-say=\"la formación\">la formación</span></td><td>training</td></tr>\n              <tr><td><span data-say=\"la oferta\">la oferta</span></td><td>offer</td><td><span data-say=\"el empleo\">el empleo</span></td><td>employment, job</td></tr>\n              <tr><td><span data-say=\"la oportunidad\">la oportunidad</span></td><td>opportunity</td><td><span data-say=\"la selección\">la selección</span></td><td>selection (process)</td></tr>\n              <tr><td><span data-say=\"el documento\">el documento</span></td><td>document</td><td><span data-say=\"la carta\">la carta</span></td><td>letter</td></tr>\n              <tr><td><span data-say=\"el correo electrónico\">el correo electrónico</span></td><td>email</td><td><span data-say=\"la cita\">la cita</span></td><td>appointment</td></tr>\n              <tr><td><span data-say=\"el consejo\">el consejo</span></td><td>advice</td><td><span data-say=\"la emoción\">la emoción</span></td><td>emotion, excitement</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Se necesita camarero con experiencia; hay que solicitar el puesto por correo electrónico y adjuntar tu título.\">Se necesita camarero con experiencia; hay que solicitar el puesto por correo electrónico y adjuntar tu título.</span></p>\n            <p>My first job: <span data-say=\"Mi primer empleo fue una gran oportunidad y sentí mucha emoción cuando conseguí una cita para la entrevista.\">Mi primer empleo fue una gran oportunidad y sentí mucha emoción cuando conseguí una cita para la entrevista.</span> Pedí <span data-say=\"consejo\">consejo</span> a mi profesora antes de enviar los documentos.</p>",
+  "question": "What does ‘se necesita’ mean at the start of a job advert?",
+  "options": [
+   "wanted / needed",
+   "no longer available",
+   "fully qualified only",
+   "for females only, always"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "se necesita = wanted/needed — the standard opening phrase of a Spanish job advert."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:learn:3b573e58",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "People at work",
+  "reading": "<p>More job titles and workplace people, beyond the doctors, teachers and engineers from Topics 1–2.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el jefe\">el jefe</span> / <span data-say=\"la jefa\">la jefa</span></td><td>boss</td><td><span data-say=\"el cliente\">el cliente</span> / <span data-say=\"la clienta\">la clienta</span></td><td>customer</td></tr>\n              <tr><td><span data-say=\"el empleado\">el empleado</span> / <span data-say=\"la empleada\">la empleada</span></td><td>employee</td><td><span data-say=\"el dueño\">el dueño</span> / <span data-say=\"la dueña\">la dueña</span></td><td>owner</td></tr>\n              <tr><td><span data-say=\"el empresario\">el empresario</span> / <span data-say=\"la empresaria\">la empresaria</span></td><td>entrepreneur</td><td><span data-say=\"el obrero\">el obrero</span> / <span data-say=\"la obrera\">la obrera</span></td><td>(manual) worker</td></tr>\n              <tr><td><span data-say=\"el policía\">el policía</span> / <span data-say=\"la policía\">la policía</span></td><td>police officer</td><td><span data-say=\"el soldado\">el soldado</span></td><td>soldier</td></tr>\n              <tr><td><span data-say=\"el periodista\">el periodista</span> / <span data-say=\"la periodista\">la periodista</span></td><td>journalist</td><td><span data-say=\"el secretario\">el secretario</span> / <span data-say=\"la secretaria\">la secretaria</span></td><td>secretary</td></tr>\n              <tr><td><span data-say=\"el científico\">el científico</span> / <span data-say=\"la científica\">la científica</span></td><td>scientist</td><td><span data-say=\"químico\">químico</span></td><td>chemical, chemist</td></tr>\n              <tr><td><span data-say=\"el representante\">el representante</span></td><td>representative</td><td><span data-say=\"el experto\">el experto</span> / <span data-say=\"la experta\">la experta</span></td><td>expert</td></tr>\n              <tr><td><span data-say=\"el cuidador\">el cuidador</span> / <span data-say=\"la cuidadora\">la cuidadora</span></td><td>carer</td><td><span data-say=\"el guía\">el guía</span> / <span data-say=\"la guía\">la guía</span></td><td>guide</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Mi jefe trabaja con un equipo de empleados en una reunión cada lunes.\">Mi jefe trabaja con un equipo de empleados en una reunión cada lunes.</span> — My boss works with a team of employees in a meeting every Monday.</p>\n            <p>More careers: <span data-say=\"El dueño de la empresa es también empresario y diseña una campaña con un experto en diseño.\">El dueño de la empresa es también empresario y diseña una campaña con un experto en diseño.</span> El cliente paga en la <span data-say=\"caja\">caja</span>.</p>",
+  "question": "Which job title means ‘entrepreneur’?",
+  "options": [
+   "el empresario",
+   "el policía municipal",
+   "el periodista deportivo",
+   "el cuidador de niños"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el empresario = entrepreneur/businessman. The traps name other real jobs taught on this page."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:learn:38b3f897",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "The world of work and the economy",
+  "reading": "<p><span class=\"tier-h\">H</span> More abstract nouns and adjectives for discussing jobs, rights and the economy at a higher level.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el gobierno\">el gobierno</span></td><td>government</td><td><span data-say=\"el derecho\">el derecho</span></td><td>right; law (subject)</td></tr>\n              <tr><td><span data-say=\"el salario\">el salario</span></td><td>salary</td><td><span data-say=\"el paro\">el paro</span></td><td>unemployment</td></tr>\n              <tr><td><span data-say=\"la huelga\">la huelga</span></td><td>strike</td><td><span data-say=\"la tasa\">la tasa</span></td><td>rate</td></tr>\n              <tr><td><span data-say=\"laboral\">laboral</span></td><td>work-related</td><td><span data-say=\"la independencia\">la independencia</span></td><td>independence</td></tr>\n              <tr><td><span data-say=\"el adulto\">el adulto</span> / <span data-say=\"la adulta\">la adulta</span></td><td>adult</td><td><span data-say=\"la responsabilidad\">la responsabilidad</span></td><td>responsibility</td></tr>\n              <tr><td><span data-say=\"responsable\">responsable</span></td><td>responsible</td><td><span data-say=\"profesional\">profesional</span></td><td>professional</td></tr>\n              <tr><td><span data-say=\"ambicioso\">ambicioso</span></td><td>ambitious</td><td><span data-say=\"ideal\">ideal</span></td><td>ideal</td></tr>\n              <tr><td><span data-say=\"la importancia\">la importancia</span></td><td>importance</td><td><span data-say=\"el interés\">el interés</span></td><td>interest</td></tr>\n              <tr><td><span data-say=\"la confianza\">la confianza</span></td><td>confidence, trust</td><td><span data-say=\"la igualdad\">la igualdad</span></td><td>equality</td></tr>\n              <tr><td><span data-say=\"el género\">el género</span></td><td>gender</td><td><span data-say=\"económico\">económico</span></td><td>economic</td></tr>\n              <tr><td><span data-say=\"el ejército\">el ejército</span></td><td>army</td><td><span data-say=\"la bolsa\">la bolsa</span></td><td>stock exchange</td></tr>\n              <tr><td><span data-say=\"el aspecto\">el aspecto</span></td><td>aspect</td><td><span data-say=\"la manifestación\">la manifestación</span></td><td>demonstration</td></tr>\n              <tr><td><span data-say=\"la seguridad\">la seguridad</span></td><td>security</td><td>&nbsp;</td><td>&nbsp;</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Cuando sea mayor, quiero un trabajo ambicioso e ideal, con un buen salario y seguridad laboral.\">Cuando sea mayor, quiero un trabajo ambicioso e ideal, con un buen salario y seguridad laboral.</span></p>\n            <p><span class=\"tier-h\">H</span> A serious economic issue: <span data-say=\"la tasa de paro\">la tasa de paro</span> (the unemployment rate) can lead to <span data-say=\"una huelga\">una huelga</span> (a strike) or even <span data-say=\"una manifestación\">una manifestación</span> (a demonstration). <span data-say=\"El gobierno debe proteger el derecho a la igualdad de género en el trabajo.\">El gobierno debe proteger el derecho a la igualdad de género en el trabajo.</span></p>\n            <p>Other useful ideas: <span data-say=\"Un aspecto importante de ser adulto es tener independencia económica y confianza en ti mismo.\">Un aspecto importante de ser adulto es tener independencia económica y confianza en ti mismo.</span> Algunas personas invierten dinero <span data-say=\"en la bolsa\">en la bolsa</span>.</p>",
+  "question": "What does ‘la tasa de paro’ measure?",
+  "options": [
+   "the unemployment rate",
+   "average monthly salary levels",
+   "how many strikes happen",
+   "how many people work part-time"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la tasa de paro = the unemployment rate — a key economic/job-market statistic."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:learn:afd87ad8",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Higher: key verbs for talking about work",
+  "reading": "<p><span class=\"tier-h\">H</span> Verbs that come up again and again when describing careers, achievements and plans.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"conseguir\">conseguir</span></td><td>to get, achieve</td><td><span data-say=\"lograr\">lograr</span></td><td>to achieve</td></tr>\n              <tr><td><span data-say=\"convertirse en\">convertirse en</span></td><td>to become</td><td><span data-say=\"construir\">construir</span></td><td>to build</td></tr>\n              <tr><td><span data-say=\"vender\">vender</span></td><td>to sell</td><td><span data-say=\"servir\">servir</span></td><td>to serve</td></tr>\n              <tr><td><span data-say=\"emplear\">emplear</span></td><td>to employ</td><td><span data-say=\"atender\">atender</span></td><td>to attend to, serve</td></tr>\n              <tr><td><span data-say=\"firmar\">firmar</span></td><td>to sign</td><td><span data-say=\"comunicar\">comunicar</span></td><td>to communicate</td></tr>\n              <tr><td><span data-say=\"investigar\">investigar</span></td><td>to research</td><td><span data-say=\"la investigación\">la investigación</span></td><td>research</td></tr>\n              <tr><td><span data-say=\"soñar con\">soñar con</span></td><td>to dream of</td><td><span data-say=\"reflejar\">reflejar</span></td><td>to reflect</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Trabajé mucho para conseguir mi primer empleo y por fin logré convertirme en enfermera.\">Trabajé mucho para conseguir mi primer empleo y por fin logré convertirme en enfermera.</span></p>\n            <p><span class=\"tier-h\">H</span> A very useful Higher structure is <strong>acabar de + infinitive</strong> (to have just done something): <span data-say=\"Acabo de firmar el contrato.\">Acabo de firmar el contrato.</span> — I have just signed the contract.</p>\n            <p>More examples: <span data-say=\"El empleado tiene que atender a los clientes y comunicar bien con el equipo.\">El empleado tiene que atender a los clientes y comunicar bien con el equipo.</span> <span data-say=\"Siempre soñé con investigar nuevas medicinas.\">Siempre soñé con investigar nuevas medicinas.</span> — I always dreamed of researching new medicines. <span data-say=\"Mi trabajo refleja mis valores.\">Mi trabajo refleja mis valores.</span></p>",
+  "question": "What does ‘acabar de + infinitive’ mean?",
+  "options": [
+   "to have just done something",
+   "to be about to do something soon",
+   "to have finished doing something years ago",
+   "to never have done something at all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "acabar de + infinitive = to have just (done something) — a Higher-tier structure, e.g. acabo de firmar = I've just signed."
   }
  },
  {
@@ -13597,6 +18732,48 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:misc:1e4df857",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> Acabo de firmar significa que voy a firmar pronto.</p><p><strong>✅ The correct idea:</strong> Acabo de firmar significa que ya firmé hace un momento.</p>",
+  "question": "What does ‘acabar de + infinitive’ actually describe?",
+  "options": [
+   "an action that has just happened, a moment ago",
+   "an action that will happen very soon in the future",
+   "an action repeated every single day without fail",
+   "an action that never actually happened at all"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "acabar de + infinitive = to have JUST done something (recent past), not a future plan."
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:misc:438c04d6",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "misc",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Misconception check",
+  "reading": "<p><strong>❌ Common misconception:</strong> La tasa es una bebida caliente que tomamos por la mañana.</p><p><strong>✅ The correct idea:</strong> La tasa es un porcentaje o índice, como la tasa de paro.</p>",
+  "question": "What does ‘la tasa’ mean in an economics context?",
+  "options": [
+   "a rate or percentage, e.g. the unemployment rate",
+   "a hot drink you have first thing every single morning",
+   "a type of school uniform item worn on Fridays only",
+   "a formal letter always sent by a company to a bank"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la tasa = a rate/percentage. It sounds like ‘la taza’ (a cup), a classic homophone trap."
+  }
+ },
+ {
   "id": "spanish:3-2-future-study-jobs-and-ambitions:tips:cb403af6",
   "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
   "pageName": "3.2 Future Study, Jobs and Ambitions",
@@ -13669,10 +18846,10 @@ window.QUESTION_BANK = [
   "question": "Quiero _____ médica. <span data-say=\"Quiero ser médica.\" data-listen>Quiero ser médica.</span>",
   "blankOptions": {
    "B1": [
-    "ayudar",
-    "ser",
     "sea",
-    "aprendizaje"
+    "igualdad",
+    "estudiando",
+    "ser"
    ]
   },
   "key": {
@@ -13691,10 +18868,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ ser abogado porque me interesa la ley. (would like)",
   "blankOptions": {
    "B1": [
-    "ganar",
     "gustaría",
-    "ser",
-    "ayudar"
+    "firmar",
+    "sea",
+    "estudiando"
    ]
   },
   "key": {
@@ -13714,8 +18891,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "estudiando",
-    "ser",
-    "ayudar",
+    "firmar",
+    "solicitar",
     "sea"
    ]
   },
@@ -13735,10 +18912,10 @@ window.QUESTION_BANK = [
   "question": "Quiero hacer un _____ en vez de ir a la universidad. (apprenticeship)",
   "blankOptions": {
    "B1": [
-    "sea",
-    "ser",
     "aprendizaje",
-    "ayudar"
+    "gustaría",
+    "ser",
+    "estudiando"
    ]
   },
   "key": {
@@ -13757,10 +18934,10 @@ window.QUESTION_BANK = [
   "question": "Trabajo mucho para _____ dinero. (to earn)",
   "blankOptions": {
    "B1": [
-    "ser",
-    "aprendizaje",
+    "ganar",
     "sea",
-    "ganar"
+    "aprendizaje",
+    "estudiando"
    ]
   },
   "key": {
@@ -13779,10 +18956,10 @@ window.QUESTION_BANK = [
   "question": "Cuando _____ mayor, quiero ser dentista. <span data-say=\"Cuando sea mayor, quiero ser dentista.\" data-listen>Cuando sea mayor, quiero ser dentista.</span>",
   "blankOptions": {
    "B1": [
-    "gustaría",
-    "estudiando",
+    "sea",
     "ganar",
-    "sea"
+    "ayudar",
+    "gustaría"
    ]
   },
   "key": {
@@ -13801,15 +18978,147 @@ window.QUESTION_BANK = [
   "question": "Para _____ a la gente, quiero ser enfermera. (to help)",
   "blankOptions": {
    "B1": [
-    "aprendizaje",
-    "ser",
     "ayudar",
-    "ganar"
+    "aprendizaje",
+    "sea",
+    "tasa"
    ]
   },
   "key": {
    "blanks": {
     "B1": "ayudar"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:f1b3b1c9",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Se _____ camarero con experiencia. (wanted/needed) <span data-say=\"Se necesita camarero con experiencia.\" data-listen>Se necesita camarero con experiencia.</span>",
+  "blankOptions": {
+   "B1": [
+    "jefe",
+    "igualdad",
+    "necesita",
+    "solicitar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "necesita"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:f97bcd63",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Hay que _____ el puesto por correo electrónico. (to apply for)",
+  "blankOptions": {
+   "B1": [
+    "gustaría",
+    "solicitar",
+    "sea",
+    "tasa"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "solicitar"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:7968309a",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Mi _____ trabaja con un equipo de empleados. (boss)",
+  "blankOptions": {
+   "B1": [
+    "ganar",
+    "jefe",
+    "ser",
+    "sea"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "jefe"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:3e724e64",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El gobierno debe proteger el derecho a la _____. (equality)",
+  "blankOptions": {
+   "B1": [
+    "ser",
+    "ganar",
+    "ayudar",
+    "igualdad"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "igualdad"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:d81369b3",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "La _____ de paro subió el año pasado. (rate) <span data-say=\"La tasa de paro subió el año pasado.\" data-listen>La tasa de paro subió el año pasado.</span>",
+  "blankOptions": {
+   "B1": [
+    "igualdad",
+    "aprendizaje",
+    "necesita",
+    "tasa"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "tasa"
+   }
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:fib:5edb4826",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Acabo de _____ el contrato. (to sign) (H)",
+  "blankOptions": {
+   "B1": [
+    "firmar",
+    "solicitar",
+    "estudiando",
+    "sea"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "firmar"
    }
   }
  },
@@ -13822,10 +19131,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “quiero ser”?",
   "options": [
-   "in order to earn money",
+   "government",
    "I want to be",
-   "I am going to study",
-   "in the future"
+   "university",
+   "to do an apprenticeship"
   ],
   "key": {
    "answer": 1,
@@ -13841,10 +19150,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me gustaría ser”?",
   "options": [
-   "because it interests me",
-   "to do an apprenticeship",
+   "entrepreneur",
+   "to have just (done something)",
    "I would like to be",
-   "I am going to study"
+   "strike"
   ],
   "key": {
    "answer": 2,
@@ -13860,10 +19169,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “voy a estudiar”?",
   "options": [
-   "I would like to be",
-   "when I am older",
+   "university",
+   "in the future",
    "I am going to study",
-   "to get good marks"
+   "factory"
   ],
   "key": {
    "answer": 2,
@@ -13879,10 +19188,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “en el futuro”?",
   "options": [
-   "I want to be",
-   "because it interests me",
+   "I would like to be",
+   "entrepreneur",
    "in the future",
-   "I am going to study"
+   "to do an apprenticeship"
   ],
   "key": {
    "answer": 2,
@@ -13898,13 +19207,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la universidad”?",
   "options": [
-   "because it interests me",
-   "to continue studying",
    "university",
-   "when I am older"
+   "entrepreneur",
+   "because it interests me",
+   "company"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“la universidad” means: university"
   }
  },
@@ -13917,13 +19226,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “seguir estudiando”?",
   "options": [
-   "to pass the exams",
-   "university",
-   "to continue studying",
-   "when I am older"
+   "to apply for",
+   "in order to earn money",
+   "the boss",
+   "to continue studying"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“seguir estudiando” means: to continue studying"
   }
  },
@@ -13936,9 +19245,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “hacer un aprendizaje”?",
   "options": [
-   "I would like to be",
-   "university",
-   "to continue studying",
+   "I am going to study",
+   "in order to earn money",
+   "when I am older",
    "to do an apprenticeship"
   ],
   "key": {
@@ -13955,13 +19264,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “sacar buenas notas”?",
   "options": [
-   "when I am older",
+   "unemployment",
+   "wanted / needed",
    "to get good marks",
-   "to do an apprenticeship",
-   "university"
+   "salary"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“sacar buenas notas” means: to get good marks"
   }
  },
@@ -13975,9 +19284,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “aprobar los exámenes”?",
   "options": [
    "to pass the exams",
-   "to get good marks",
-   "to do an apprenticeship",
-   "I am going to study"
+   "qualification, degree",
+   "factory",
+   "university"
   ],
   "key": {
    "answer": 0,
@@ -13993,13 +19302,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “porque me interesa”?",
   "options": [
+   "wanted / needed",
+   "to have just (done something)",
    "because it interests me",
-   "to do an apprenticeship",
-   "I am going to study",
-   "to continue studying"
+   "university"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“porque me interesa” means: because it interests me"
   }
  },
@@ -14012,10 +19321,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “para ganar dinero”?",
   "options": [
-   "to get good marks",
+   "to apply for",
    "in order to earn money",
-   "to continue studying",
-   "I would like to be"
+   "company",
+   "I am going to study"
   ],
   "key": {
    "answer": 1,
@@ -14031,14 +19340,261 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “cuando sea mayor”?",
   "options": [
-   "to pass the exams",
+   "to have just (done something)",
+   "when I am older",
+   "to get / to achieve",
+   "entrepreneur"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“cuando sea mayor” means: when I am older"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:b9bce835",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la empresa / la compañía”?",
+  "options": [
+   "company",
+   "to get / to achieve",
+   "when I am older",
+   "in the future"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la empresa / la compañía” means: company"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:7632d706",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la fábrica”?",
+  "options": [
+   "to have just (done something)",
+   "qualification, degree",
    "I am going to study",
-   "to do an apprenticeship",
-   "when I am older"
+   "factory"
   ],
   "key": {
    "answer": 3,
-   "explain": "“cuando sea mayor” means: when I am older"
+   "explain": "“la fábrica” means: factory"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:ea34f474",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “se necesita”?",
+  "options": [
+   "strike",
+   "to get good marks",
+   "to pass the exams",
+   "wanted / needed"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“se necesita” means: wanted / needed"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:d0b92453",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “solicitar”?",
+  "options": [
+   "government",
+   "to get good marks",
+   "company",
+   "to apply for"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“solicitar” means: to apply for"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:e439bdd0",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el título”?",
+  "options": [
+   "strike",
+   "to pass the exams",
+   "government",
+   "qualification, degree"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el título” means: qualification, degree"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:7e53ed3c",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el jefe”?",
+  "options": [
+   "to have just (done something)",
+   "the boss",
+   "to pass the exams",
+   "qualification, degree"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el jefe” means: the boss"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:a73018c0",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el empresario”?",
+  "options": [
+   "to continue studying",
+   "company",
+   "entrepreneur",
+   "wanted / needed"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el empresario” means: entrepreneur"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:110380a4",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el gobierno”?",
+  "options": [
+   "qualification, degree",
+   "to continue studying",
+   "government",
+   "when I am older"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el gobierno” means: government"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:35361141",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el salario”?",
+  "options": [
+   "entrepreneur",
+   "wanted / needed",
+   "to do an apprenticeship",
+   "salary"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el salario” means: salary"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:c7b37a69",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el paro”?",
+  "options": [
+   "wanted / needed",
+   "qualification, degree",
+   "unemployment",
+   "when I am older"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el paro” means: unemployment"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:2f96b9ae",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la huelga”?",
+  "options": [
+   "because it interests me",
+   "to have just (done something)",
+   "factory",
+   "strike"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“la huelga” means: strike"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:8b0ba8a8",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “conseguir / lograr”?",
+  "options": [
+   "factory",
+   "to have just (done something)",
+   "because it interests me",
+   "to get / to achieve"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“conseguir / lograr” means: to get / to achieve"
+  }
+ },
+ {
+  "id": "spanish:3-2-future-study-jobs-and-ambitions:match:09f75fd1",
+  "pageId": "spanish:3-2-future-study-jobs-and-ambitions",
+  "pageName": "3.2 Future Study, Jobs and Ambitions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “acabar de + infinitivo (H)”?",
+  "options": [
+   "to apply for",
+   "to have just (done something)",
+   "the boss",
+   "to do an apprenticeship"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“acabar de + infinitivo (H)” means: to have just (done something)"
   }
  },
  {
@@ -14265,6 +19821,82 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:70dc7356",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Mi equipo ganó la copa después de un partido muy justo.\" data-listen></span><br>Listen. What happened?",
+  "options": [
+   "My team won the cup after a very fair match",
+   "My team lost the cup after a very fair match",
+   "My team won the cup after a very unfair match",
+   "My team won a medal after a friendly match"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘ganó la copa’ = won the cup; ‘un partido muy justo’ = a very fair match. Traps flip win/lose, flip fair/unfair, or swap cup→medal."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:294d4235",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "How do you say ‘It cost me a lot of money’?",
+  "options": [
+   "Me costó mucho dinero",
+   "Me costará mucho dinero",
+   "Me cuesta mucho dinero ayer",
+   "Me costaba mucho dinero mañana"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘costó’ is the preterite (a completed cost). B shifts to the future; C and D mix a present/imperfect verb with a past or future time word, which cannot go together."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:95718a78",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘se hizo una herida’ mean?",
+  "options": [
+   "he/she got injured",
+   "he/she felt very happy",
+   "he/she scored a goal",
+   "he/she won the trophy easily"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "hacerse una herida = to get injured/hurt yourself. The distractors describe unrelated, positive match outcomes."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:mcq:c4be9bfb",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence means ‘I like trying new activities’?",
+  "options": [
+   "Me gusta probar actividades nuevas",
+   "Me gusta probar actividades viejas",
+   "No me gusta probar actividades nuevas",
+   "Me gustaba probar actividades nuevas"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "probar actividades nuevas = to try new activities. Traps swap new→old, add a negative, or shift into the imperfect (used to like)."
+  }
+ },
+ {
   "id": "spanish:4-1-sport-hobbies-and-going-out:tf:18ecbc2c",
   "pageId": "spanish:4-1-sport-hobbies-and-going-out",
   "pageName": "4.1 Sport, Hobbies and Going Out",
@@ -14369,6 +20001,45 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tf:d49b1139",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘sentarse’ means ‘to sit down’.",
+  "key": {
+   "answer": true,
+   "explain": "sentarse (reflexive) = to sit down."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tf:c8921d04",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘la cámara’ means ‘the bedroom’.",
+  "key": {
+   "answer": false,
+   "explain": "la cámara = the camera; the bedroom is el dormitorio/la habitación."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:tf:520c44fb",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘gratis’ means the same as ‘caro’ (expensive).",
+  "key": {
+   "answer": false,
+   "explain": "gratis = free (no cost); caro = expensive — opposites."
+  }
+ },
+ {
   "id": "spanish:4-1-sport-hobbies-and-going-out:learn:f6a6420d",
   "pageId": "spanish:4-1-sport-hobbies-and-going-out",
   "pageName": "4.1 Sport, Hobbies and Going Out",
@@ -14397,7 +20068,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about hobbies and free time?",
-  "reading": "<p>Key nouns: <span data-say=\"el tiempo libre\">el tiempo libre</span> (free time), <span data-say=\"el pasatiempo\">el pasatiempo</span> (hobby/pastime), <span data-say=\"la afición\">la afición</span> (hobby/interest).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"coleccionar\">coleccionar</span></td><td>to collect</td><td><span data-say=\"coleccionar sellos\">coleccionar sellos</span></td><td>to collect stamps</td></tr>\n              <tr><td><span data-say=\"cocinar\">cocinar</span></td><td>to cook</td><td><span data-say=\"leer\">leer</span></td><td>to read</td></tr>\n              <tr><td><span data-say=\"tocar un instrumento\">tocar un instrumento</span></td><td>to play an instrument</td><td><span data-say=\"jugar a videojuegos\">jugar a videojuegos</span></td><td>to play video games</td></tr>\n            </table>\n            <p>Example: <span data-say=\"En mi tiempo libre, mi afición es coleccionar sellos.\">En mi tiempo libre, mi afición es coleccionar sellos.</span> — <em>In my free time, my hobby is collecting stamps.</em></p>",
+  "reading": "<p>Key nouns: <span data-say=\"el tiempo libre\">el tiempo libre</span> (free time), <span data-say=\"el pasatiempo\">el pasatiempo</span> (hobby/pastime), <span data-say=\"la afición\">la afición</span> (hobby/interest).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"coleccionar\">coleccionar</span></td><td>to collect</td><td><span data-say=\"coleccionar sellos\">coleccionar sellos</span></td><td>to collect stamps</td></tr>\n              <tr><td><span data-say=\"cocinar\">cocinar</span></td><td>to cook</td><td><span data-say=\"leer\">leer</span></td><td>to read</td></tr>\n              <tr><td><span data-say=\"tocar un instrumento\">tocar un instrumento</span></td><td>to play an instrument</td><td><span data-say=\"jugar a videojuegos\">jugar a videojuegos</span></td><td>to play video games</td></tr>\n            </table>\n            <p>Example: <span data-say=\"En mi tiempo libre, mi afición es coleccionar sellos.\">En mi tiempo libre, mi afición es coleccionar sellos.</span> — <em>In my free time, my hobby is collecting stamps.</em></p>\n            <p>More hobby words: <span data-say=\"la actividad\">la actividad</span> (activity), <span data-say=\"probar\">probar</span> (to try). Example: <span data-say=\"Me gusta probar actividades nuevas, y mi mascota también es parte de mi tiempo libre.\">Me gusta probar actividades nuevas, y mi mascota también es parte de mi tiempo libre.</span> — <em>I like trying new activities, and my pet is also part of my free time.</em></p>",
   "question": "What does ‘el pasatiempo’ mean?",
   "options": [
    "hobby / pastime",
@@ -14439,7 +20110,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about going out with friends?",
-  "reading": "<p>Common ways to talk about going out (<strong>salir</strong>):</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"salir con amigos\">salir con amigos</span></td><td>to go out with friends</td><td><span data-say=\"quedar con\">quedar con</span></td><td>to meet up with</td></tr>\n              <tr><td><span data-say=\"ir al cine\">ir al cine</span></td><td>to go to the cinema</td><td><span data-say=\"ir al parque\">ir al parque</span></td><td>to go to the park</td></tr>\n              <tr><td><span data-say=\"ir a la bolera\">ir a la bolera</span></td><td>to go bowling</td><td><span data-say=\"la fiesta\">la fiesta</span></td><td>the party</td></tr>\n              <tr><td><span data-say=\"bailar\">bailar</span></td><td>to dance</td><td><span data-say=\"dar un paseo\">dar un paseo</span></td><td>to go for a walk</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Normalmente quedo con mis amigos y vamos a la bolera o al cine.\">Normalmente quedo con mis amigos y vamos a la bolera o al cine.</span></p>",
+  "reading": "<p>Common ways to talk about going out (<strong>salir</strong>):</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"salir con amigos\">salir con amigos</span></td><td>to go out with friends</td><td><span data-say=\"quedar con\">quedar con</span></td><td>to meet up with</td></tr>\n              <tr><td><span data-say=\"ir al cine\">ir al cine</span></td><td>to go to the cinema</td><td><span data-say=\"ir al parque\">ir al parque</span></td><td>to go to the park</td></tr>\n              <tr><td><span data-say=\"ir a la bolera\">ir a la bolera</span></td><td>to go bowling</td><td><span data-say=\"la fiesta\">la fiesta</span></td><td>the party</td></tr>\n              <tr><td><span data-say=\"bailar\">bailar</span></td><td>to dance</td><td><span data-say=\"dar un paseo\">dar un paseo</span></td><td>to go for a walk</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Normalmente quedo con mis amigos y vamos a la bolera o al cine.\">Normalmente quedo con mis amigos y vamos a la bolera o al cine.</span></p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la exposición\">la exposición</span></td><td>the exhibition</td><td><span data-say=\"el destino\">el destino</span></td><td>the destination</td></tr>\n              <tr><td><span data-say=\"el parque temático\">el parque temático</span></td><td>the theme park</td><td><span data-say=\"la corrida\">la corrida</span></td><td>the bullfight</td></tr>\n              <tr><td><span data-say=\"tomar el sol\">tomar el sol</span></td><td>to sunbathe</td><td><span data-say=\"sentarse\">sentarse</span></td><td>to sit down</td></tr>\n              <tr><td><span data-say=\"charlar\">charlar</span></td><td>to chat</td><td><span data-say=\"la cámara\">la cámara</span></td><td>the camera</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Nuestro destino favorito es un parque temático donde nos sentamos, tomamos el sol y charlamos, con una cámara para sacar fotos.\">Nuestro destino favorito es un parque temático donde nos sentamos, tomamos el sol y charlamos, con una cámara para sacar fotos.</span> — <em>Our favourite destination is a theme park where we sit down, sunbathe and chat, with a camera to take photos.</em></p>\n            <p>At a restaurant: <span data-say=\"Después de comer, pedimos la cuenta.\">Después de comer, pedimos la cuenta.</span> — <em>After eating, we ask for the bill.</em> <span data-say=\"Aun sin mucho dinero, siempre pasamos un buen rato.\">Aun sin mucho dinero, siempre pasamos un buen rato.</span> — <em>Even without much money, we always have a good time.</em></p>\n            <p><span class=\"tier-h\">H</span> Cultural outing: <span data-say=\"Fuimos a ver una exposición de arte y luego una corrida en la plaza.\">Fuimos a ver una exposición de arte y luego una corrida en la plaza.</span> <span class=\"tier-h\">H</span> — <em>We went to see an art exhibition and then a bullfight in the square.</em></p>",
   "question": "What does ‘quedar con’ mean?",
   "options": [
    "to meet up with (someone)",
@@ -14460,7 +20131,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I say how often I do something?",
-  "reading": "<p>Frequency expressions usually sit at the start or end of the sentence:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"a menudo\">a menudo</span></td><td>often</td><td><span data-say=\"a veces\">a veces</span></td><td>sometimes</td></tr>\n              <tr><td><span data-say=\"todos los días\">todos los días</span></td><td>every day</td><td><span data-say=\"una vez a la semana\">una vez a la semana</span></td><td>once a week</td></tr>\n              <tr><td><span data-say=\"los fines de semana\">los fines de semana</span></td><td>at weekends</td><td><span data-say=\"nunca\">nunca</span></td><td>never</td></tr>\n            </table>\n            <p>Example: <span data-say=\"A menudo salgo con amigos, pero nunca voy a la bolera.\">A menudo salgo con amigos, pero nunca voy a la bolera.</span></p>",
+  "reading": "<p>Frequency expressions usually sit at the start or end of the sentence:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"a menudo\">a menudo</span></td><td>often</td><td><span data-say=\"a veces\">a veces</span></td><td>sometimes</td></tr>\n              <tr><td><span data-say=\"todos los días\">todos los días</span></td><td>every day</td><td><span data-say=\"una vez a la semana\">una vez a la semana</span></td><td>once a week</td></tr>\n              <tr><td><span data-say=\"los fines de semana\">los fines de semana</span></td><td>at weekends</td><td><span data-say=\"nunca\">nunca</span></td><td>never</td></tr>\n            </table>\n            <p>Example: <span data-say=\"A menudo salgo con amigos, pero nunca voy a la bolera.\">A menudo salgo con amigos, pero nunca voy a la bolera.</span></p>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"¿Con qué frecuencia sales con amigos?\">¿Con qué frecuencia sales con amigos?</span> <span class=\"tier-h\">H</span> — <em>How often do you go out with friends?</em> (la frecuencia = frequency)</p>",
   "question": "‘Nunca voy a la bolera’ means…",
   "options": [
    "I never go bowling",
@@ -14492,6 +20163,69 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "jugué is the yo form of the preterite — a single completed action last weekend, signalled by ‘el fin de semana pasado’."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:learn:8f1ccc3f",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about the cost of going out?",
+  "reading": "<p>Talking about money when you go out:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el precio\">el precio</span></td><td>the price</td><td><span data-say=\"costar\">costar</span></td><td>to cost</td></tr>\n              <tr><td><span data-say=\"los gastos\">los gastos</span></td><td>expenses</td><td><span data-say=\"gastar\">gastar</span></td><td>to spend (money)</td></tr>\n              <tr><td><span data-say=\"el euro\">el euro</span></td><td>the euro</td><td><span data-say=\"gratis\">gratis</span></td><td>free (no cost)</td></tr>\n            </table>\n            <p>Example: <span data-say=\"La entrada al parque temático cuesta quince euros, pero para los niños es gratis.\">La entrada al parque temático cuesta quince euros, pero para los niños es gratis.</span> — <em>The entrance to the theme park costs fifteen euros, but for children it's free.</em></p>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"No me gustan mis gastos porque gasto demasiado dinero saliendo con amigos.\">No me gustan mis gastos porque gasto demasiado dinero saliendo con amigos.</span> <span class=\"tier-h\">H</span> — <em>I don't like my expenses because I spend too much money going out with friends.</em></p>",
+  "question": "What does ‘gratis’ mean?",
+  "options": [
+   "free (no cost)",
+   "extremely expensive",
+   "reduced by half price",
+   "completely sold out today"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "gratis = free/no cost. The distractors describe other prices, not the absence of one."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:learn:95edaa64",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Salir a comer: eating out with friends",
+  "reading": "<p>Eating out is part of going out too. Key food nouns:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el bocadillo\">el bocadillo</span></td><td>the sandwich</td><td><span data-say=\"las patatas fritas\">las patatas fritas</span></td><td>chips</td></tr>\n              <tr><td><span data-say=\"la ensalada\">la ensalada</span></td><td>the salad</td><td><span data-say=\"el pollo\">el pollo</span></td><td>the chicken</td></tr>\n              <tr><td><span data-say=\"el arroz\">el arroz</span></td><td>the rice</td><td><span data-say=\"el huevo\">el huevo</span></td><td>the egg</td></tr>\n              <tr><td><span data-say=\"la verdura\">la verdura</span></td><td>vegetables</td><td><span data-say=\"dulce\">dulce</span></td><td>sweet</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Cuando salimos a comer, suelo pedir un bocadillo de pollo con patatas fritas, y de postre algo dulce.\">Cuando salimos a comer, suelo pedir un bocadillo de pollo con patatas fritas, y de postre algo dulce.</span> — <em>When we go out to eat, I usually order a chicken sandwich with chips, and something sweet for dessert.</em></p>\n            <p><span data-say=\"Un plato típico español es la tortilla, hecha con huevo, patatas y a veces verdura.\">Un plato típico español es la tortilla, hecha con huevo, patatas y a veces verdura.</span> — <em>A typical Spanish dish is the tortilla, made with egg, potatoes and sometimes vegetables.</em> <span data-say=\"En algunos restaurantes puedes pedir una gran cantidad de arroz por un precio bajo.\">En algunos restaurantes puedes pedir una gran cantidad de arroz por un precio bajo.</span> <span class=\"tier-h\">H</span> — <em>In some restaurants you can order a large quantity of rice for a low price.</em></p>",
+  "question": "What does ‘un plato típico’ mean?",
+  "options": [
+   "a typical dish",
+   "an unusual foreign dish",
+   "a plate that is very large",
+   "a dish you must never eat"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "un plato típico = a typical dish. The distractors invent meanings ‘típico’ doesn't have."
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:learn:da3c3077",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Matches, feelings and injuries",
+  "reading": "<p>More match-day language: results, feelings, and reasons things happen.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el partido\">el partido</span></td><td>the match</td><td><span data-say=\"la copa\">la copa</span></td><td>the cup/trophy</td></tr>\n              <tr><td><span data-say=\"físico\">físico</span></td><td>physical</td><td><span data-say=\"el peso\">el peso</span></td><td>the weight</td></tr>\n              <tr><td><span data-say=\"acuático\">acuático</span></td><td>aquatic (sport)</td><td><span data-say=\"la herida\">la herida</span></td><td>the injury</td></tr>\n              <tr><td><span data-say=\"duro\">duro</span></td><td>hard/tough</td><td><span data-say=\"entero\">entero</span></td><td>whole/entire</td></tr>\n              <tr><td><span data-say=\"justo\">justo</span></td><td>fair</td><td><span data-say=\"correcto\">correcto</span></td><td>correct</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Vi el partido entero en directo: fue un partido justo, pero mi jugador favorito se hizo una herida y perdió la copa.\">Vi el partido entero en directo: fue un partido justo, pero mi jugador favorito se hizo una herida y perdió la copa.</span> — <em>I watched the whole match live: it was a fair match, but my favourite player got injured and lost the cup.</em></p>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"El entrenamiento físico fue muy duro, y debido a la lluvia, el partido se canceló. Afortunadamente, nadie se enojó.\">El entrenamiento físico fue muy duro, y debido a la lluvia, el partido se canceló. Afortunadamente, nadie se enojó.</span> <span class=\"tier-h\">H</span> — <em>The physical training was very hard, and due to the rain, the match was cancelled. Fortunately, nobody got angry.</em> Hacer ejercicio físico ayuda a controlar el peso.</p>",
+  "question": "What does ‘debido a la lluvia’ mean?",
+  "options": [
+   "due to the rain",
+   "in spite of the rain",
+   "instead of the rain falling",
+   "long before the rain started"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "debido a = due to/because of. The distractors reverse or misplace the cause-and-effect link."
   }
  },
  {
@@ -14675,7 +20409,7 @@ window.QUESTION_BANK = [
     "quedo",
     "jugué",
     "fútbol",
-    "jugar"
+    "fiestas"
    ]
   },
   "key": {
@@ -14694,9 +20428,9 @@ window.QUESTION_BANK = [
   "question": "Mi afición es _____ sellos. (to collect)",
   "blankOptions": {
    "B1": [
+    "jugar",
+    "charlar",
     "coleccionar",
-    "fútbol",
-    "jugué",
     "fiestas"
    ]
   },
@@ -14716,10 +20450,10 @@ window.QUESTION_BANK = [
   "question": "Me gusta _____ al baloncesto. (to play — infinitive after gustar)",
   "blankOptions": {
    "B1": [
-    "jugar",
-    "quedo",
     "coleccionar",
-    "salir"
+    "gastos",
+    "jugar",
+    "quedo"
    ]
   },
   "key": {
@@ -14738,10 +20472,10 @@ window.QUESTION_BANK = [
   "question": "Normalmente _____ con mis amigos los sábados. (to meet up — yo form)",
   "blankOptions": {
    "B1": [
-    "salir",
-    "jugar",
     "quedo",
-    "jugué"
+    "charlar",
+    "fiestas",
+    "jugar"
    ]
   },
   "key": {
@@ -14760,10 +20494,10 @@ window.QUESTION_BANK = [
   "question": "El fin de semana pasado _____ al tenis. (I played — preterite)",
   "blankOptions": {
    "B1": [
+    "fiestas",
+    "salir",
     "jugué",
-    "fútbol",
-    "coleccionar",
-    "quedo"
+    "actividad"
    ]
   },
   "key": {
@@ -14782,10 +20516,10 @@ window.QUESTION_BANK = [
   "question": "Nunca voy a _____. (parties)",
   "blankOptions": {
    "B1": [
-    "fiestas",
-    "fútbol",
     "jugué",
-    "quedo"
+    "quedo",
+    "fiestas",
+    "charlar"
    ]
   },
   "key": {
@@ -14804,15 +20538,81 @@ window.QUESTION_BANK = [
   "question": "Suelo _____ los sábados por la noche. (to go out — infinitive after soler) <span class=\"tier-h\">H</span>",
   "blankOptions": {
    "B1": [
-    "salir",
     "fiestas",
-    "coleccionar",
-    "fútbol"
+    "salir",
+    "charlar",
+    "quedo"
    ]
   },
   "key": {
    "blanks": {
     "B1": "salir"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:fib:5d324379",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Me gusta probar una _____ nueva cada mes. (activity)",
+  "blankOptions": {
+   "B1": [
+    "fútbol",
+    "actividad",
+    "jugar",
+    "fiestas"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "actividad"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:fib:36e6c175",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "No me gustan mis _____ porque gasto demasiado. (expenses)",
+  "blankOptions": {
+   "B1": [
+    "actividad",
+    "quedo",
+    "coleccionar",
+    "gastos"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "gastos"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:fib:b8284b8d",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Nos gusta _____ en el parque después del partido. (to chat)",
+  "blankOptions": {
+   "B1": [
+    "actividad",
+    "coleccionar",
+    "charlar",
+    "jugar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "charlar"
    }
   }
  },
@@ -14825,13 +20625,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “jugar al fútbol”?",
   "options": [
-   "hobby / pastime",
    "to go for a walk",
-   "I usually go out",
-   "to play football"
+   "to play football",
+   "the euro",
+   "I usually go out"
   ],
   "key": {
-   "answer": 3,
+   "answer": 1,
    "explain": "“jugar al fútbol” means: to play football"
   }
  },
@@ -14845,9 +20645,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “hacer natación”?",
   "options": [
    "to do swimming",
-   "I usually go out",
    "to play football",
-   "often"
+   "hobby / pastime",
+   "the euro"
   ],
   "key": {
    "answer": 0,
@@ -14863,8 +20663,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el equipo”?",
   "options": [
-   "free time",
-   "I usually go out",
+   "to meet up with",
+   "the cup / trophy",
    "the team",
    "hobby / pastime"
   ],
@@ -14882,13 +20682,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el tiempo libre”?",
   "options": [
-   "free time",
-   "to do swimming",
-   "to collect stamps",
-   "to go for a walk"
+   "hobby / pastime",
+   "often",
+   "to ask for the bill",
+   "free time"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“el tiempo libre” means: free time"
   }
  },
@@ -14901,8 +20701,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el pasatiempo”?",
   "options": [
-   "to collect stamps",
-   "to go bowling",
+   "often",
+   "the destination",
    "the team",
    "hobby / pastime"
   ],
@@ -14920,13 +20720,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “coleccionar sellos”?",
   "options": [
+   "to go for a walk",
+   "the exhibition",
    "to collect stamps",
-   "free time",
-   "at weekends",
-   "to go for a walk"
+   "to play football"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“coleccionar sellos” means: to collect stamps"
   }
  },
@@ -14939,13 +20739,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “quedar con”?",
   "options": [
-   "the team",
-   "at weekends",
-   "to go bowling",
-   "to meet up with"
+   "hobby / pastime",
+   "the destination",
+   "to meet up with",
+   "to go bowling"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“quedar con” means: to meet up with"
   }
  },
@@ -14959,9 +20759,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “ir a la bolera”?",
   "options": [
    "to go bowling",
-   "at weekends",
-   "the team",
-   "I usually go out"
+   "hobby / pastime",
+   "the cup / trophy",
+   "the destination"
   ],
   "key": {
    "answer": 0,
@@ -14977,10 +20777,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “dar un paseo”?",
   "options": [
-   "free time",
-   "to go for a walk",
    "to meet up with",
-   "I usually go out"
+   "to go for a walk",
+   "the destination",
+   "free time"
   ],
   "key": {
    "answer": 1,
@@ -14996,13 +20796,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “a menudo”?",
   "options": [
-   "often",
    "to play football",
-   "hobby / pastime",
-   "the team"
+   "often",
+   "to go for a walk",
+   "physical exercise"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“a menudo” means: often"
   }
  },
@@ -15015,9 +20815,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “los fines de semana”?",
   "options": [
-   "hobby / pastime",
+   "often",
    "at weekends",
-   "the team",
+   "to collect stamps",
    "to go for a walk"
   ],
   "key": {
@@ -15035,13 +20835,127 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “suelo salir”?",
   "options": [
    "I usually go out",
-   "hobby / pastime",
-   "at weekends",
-   "to do swimming"
+   "often",
+   "the cup / trophy",
+   "the exhibition"
   ],
   "key": {
    "answer": 0,
    "explain": "“suelo salir” means: I usually go out"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:c60ea827",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “pedir la cuenta”?",
+  "options": [
+   "the destination",
+   "to ask for the bill",
+   "to go bowling",
+   "to go for a walk"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“pedir la cuenta” means: to ask for the bill"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:473b0d0d",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el ejercicio físico”?",
+  "options": [
+   "the cup / trophy",
+   "to ask for the bill",
+   "physical exercise",
+   "free time"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el ejercicio físico” means: physical exercise"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:a3d2a2e3",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el destino”?",
+  "options": [
+   "the euro",
+   "the team",
+   "the destination",
+   "the exhibition"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el destino” means: the destination"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:46cba99f",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la exposición”?",
+  "options": [
+   "often",
+   "hobby / pastime",
+   "the destination",
+   "the exhibition"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“la exposición” means: the exhibition"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:cd0c98c1",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el euro”?",
+  "options": [
+   "the euro",
+   "the team",
+   "hobby / pastime",
+   "at weekends"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el euro” means: the euro"
+  }
+ },
+ {
+  "id": "spanish:4-1-sport-hobbies-and-going-out:match:48909667",
+  "pageId": "spanish:4-1-sport-hobbies-and-going-out",
+  "pageName": "4.1 Sport, Hobbies and Going Out",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la copa”?",
+  "options": [
+   "to meet up with",
+   "the cup / trophy",
+   "the exhibition",
+   "to ask for the bill"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la copa” means: the cup / trophy"
   }
  },
  {
@@ -15268,6 +21182,44 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:4-2-music-tv-film-and-reading:mcq:56a5eccb",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence uses the imperfect tense correctly for ‘you used to watch cartoons’?",
+  "options": [
+   "Veías dibujos animados",
+   "Ves dibujos animados",
+   "Viste dibujos animados",
+   "Verás dibujos animados"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘veías’ is the imperfect (tú form) — a repeated past habit. B is present, C is preterite (a single past event), D is future."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:mcq:f4ab1c02",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘mi tema favorito del álbum’ mean?",
+  "options": [
+   "my favourite track on the album",
+   "my favourite singer on the album",
+   "my least favourite track on the album",
+   "my favourite album from last year"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘el tema’ here means the track/song. Traps swap track→singer, add ‘least’, or swap track→album."
+  }
+ },
+ {
   "id": "spanish:4-2-music-tv-film-and-reading:tf:71148e63",
   "pageId": "spanish:4-2-music-tv-film-and-reading",
   "pageName": "4.2 Music, TV, Film and Reading",
@@ -15372,6 +21324,45 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:4-2-music-tv-film-and-reading:tf:5ac271ee",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘la mayoría’ means ‘the majority/most’.",
+  "key": {
+   "answer": true,
+   "explain": "la mayoría = the majority/most (of something)."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tf:c31d77a2",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘aprender’ means ‘to teach’.",
+  "key": {
+   "answer": false,
+   "explain": "aprender = to learn; to teach is enseñar."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:tf:808912c8",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘un artículo’ can mean a magazine or newspaper article.",
+  "key": {
+   "answer": true,
+   "explain": "un artículo = an article (in a magazine, blog or newspaper)."
+  }
+ },
+ {
   "id": "spanish:4-2-music-tv-film-and-reading:learn:dfbe9747",
   "pageId": "spanish:4-2-music-tv-film-and-reading",
   "pageName": "4.2 Music, TV, Film and Reading",
@@ -15379,7 +21370,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about music?",
-  "reading": "<p>The key verb is <span data-say=\"escuchar música\">escuchar música</span> (to listen to music). Here is the core vocabulary — tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la música\">la música</span></td><td>music</td><td><span data-say=\"la canción\">la canción</span></td><td>the song</td></tr>\n              <tr><td><span data-say=\"el cantante\">el cantante / la cantante</span></td><td>the singer</td><td><span data-say=\"el grupo\">el grupo</span></td><td>the band/group</td></tr>\n              <tr><td><span data-say=\"tocar la guitarra\">tocar la guitarra</span></td><td>to play the guitar</td><td><span data-say=\"tocar el piano\">tocar el piano</span></td><td>to play the piano</td></tr>\n              <tr><td><span data-say=\"el concierto\">el concierto</span></td><td>the concert</td><td><span data-say=\"el pop, el rock, el rap\">el pop / el rock / el rap</span></td><td>pop / rock / rap</td></tr>\n            </table>\n            <p>Because <strong>gustar</strong> and <strong>encantar</strong> agree with the noun that follows, watch the plural: <span data-say=\"Me encantan las canciones de mi grupo favorito.\">Me encantan las canciones de mi grupo favorito.</span> — <em>I love the songs of my favourite band.</em> (plural canciones → encantan)</p>",
+  "reading": "<p>The key verb is <span data-say=\"escuchar música\">escuchar música</span> (to listen to music). Here is the core vocabulary — tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la música\">la música</span></td><td>music</td><td><span data-say=\"la canción\">la canción</span></td><td>the song</td></tr>\n              <tr><td><span data-say=\"el cantante\">el cantante / la cantante</span></td><td>the singer</td><td><span data-say=\"el grupo\">el grupo</span></td><td>the band/group</td></tr>\n              <tr><td><span data-say=\"tocar la guitarra\">tocar la guitarra</span></td><td>to play the guitar</td><td><span data-say=\"tocar el piano\">tocar el piano</span></td><td>to play the piano</td></tr>\n              <tr><td><span data-say=\"el concierto\">el concierto</span></td><td>the concert</td><td><span data-say=\"el pop, el rock, el rap\">el pop / el rock / el rap</span></td><td>pop / rock / rap</td></tr>\n            </table>\n            <p>Because <strong>gustar</strong> and <strong>encantar</strong> agree with the noun that follows, watch the plural: <span data-say=\"Me encantan las canciones de mi grupo favorito.\">Me encantan las canciones de mi grupo favorito.</span> — <em>I love the songs of my favourite band.</em> (plural canciones → encantan)</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el teclado\">el teclado</span></td><td>the keyboard</td><td><span data-say=\"el volumen\">el volumen</span></td><td>the volume</td></tr>\n              <tr><td><span data-say=\"el flamenco\">el flamenco</span></td><td>flamenco (music/dance)</td><td><span data-say=\"el tema\">el tema</span></td><td>the track/theme</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Aprendí a tocar el teclado, y mi tema favorito es distinto cada semana.\">Aprendí a tocar el teclado, y mi tema favorito es distinto cada semana.</span> — <em>I learned to play the keyboard, and my favourite track is different every week.</em> <span data-say=\"Tuve la oportunidad de subir el volumen en un concierto de flamenco.\">Tuve la oportunidad de subir el volumen en un concierto de flamenco.</span> — <em>I had the opportunity to turn up the volume at a flamenco concert.</em></p>",
   "question": "Why does the verb end in ‘-an’ in ‘Me encantan las canciones’?",
   "options": [
    "‘las canciones’ is plural, so the verb agrees with it",
@@ -15400,7 +21391,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about TV programmes?",
-  "reading": "<p>The key verb is <span data-say=\"ver la tele\">ver la tele</span> (to watch TV).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la televisión\">la televisión</span></td><td>television</td><td><span data-say=\"el programa\">el programa</span></td><td>the programme</td></tr>\n              <tr><td><span data-say=\"la serie\">la serie</span></td><td>the series</td><td><span data-say=\"las noticias\">las noticias</span></td><td>the news</td></tr>\n              <tr><td><span data-say=\"los dibujos animados\">los dibujos animados</span></td><td>cartoons</td><td><span data-say=\"el actor\">el actor / la actriz</span></td><td>the actor / actress</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Veo la tele todos los días, sobre todo las series.\">Veo la tele todos los días, sobre todo las series.</span> — <em>I watch TV every day, especially series.</em></p>",
+  "reading": "<p>The key verb is <span data-say=\"ver la tele\">ver la tele</span> (to watch TV).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la televisión\">la televisión</span></td><td>television</td><td><span data-say=\"el programa\">el programa</span></td><td>the programme</td></tr>\n              <tr><td><span data-say=\"la serie\">la serie</span></td><td>the series</td><td><span data-say=\"las noticias\">las noticias</span></td><td>the news</td></tr>\n              <tr><td><span data-say=\"los dibujos animados\">los dibujos animados</span></td><td>cartoons</td><td><span data-say=\"el actor\">el actor / la actriz</span></td><td>the actor / actress</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Veo la tele todos los días, sobre todo las series.\">Veo la tele todos los días, sobre todo las series.</span> — <em>I watch TV every day, especially series.</em></p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el documental\">el documental</span></td><td>the documentary</td><td><span data-say=\"la telenovela\">la telenovela</span></td><td>the soap opera</td></tr>\n              <tr><td><span data-say=\"la temporada\">la temporada</span></td><td>the season (of a show)</td><td><span data-say=\"un programa de belleza\">un programa de belleza</span></td><td>a beauty/makeover show</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Nunca veo telenovelas, pero vi el resto de la temporada de un documental sobre un programa de belleza.\">Nunca veo telenovelas, pero vi el resto de la temporada de un documental sobre un programa de belleza.</span> — <em>I never watch soap operas, but I watched the rest of the season of a documentary about a beauty show.</em></p>",
   "question": "What does ‘los dibujos animados’ mean?",
   "options": [
    "cartoons",
@@ -15421,7 +21412,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about films and give opinions?",
-  "reading": "<p>Learn the film genres and reuse the opinion + reason pattern from earlier topics.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la película\">la película</span></td><td>the film</td><td><span data-say=\"una película de terror\">una película de terror</span></td><td>a horror film</td></tr>\n              <tr><td><span data-say=\"una película de acción\">una película de acción</span></td><td>an action film</td><td><span data-say=\"una película de ciencia ficción\">una película de ciencia ficción</span></td><td>a sci-fi film</td></tr>\n              <tr><td><span data-say=\"una comedia\">una comedia</span></td><td>a comedy</td><td><span data-say=\"divertido, emocionante, aburrido, gracioso\">divertido / emocionante / aburrido / gracioso</span></td><td>fun / exciting / boring / funny</td></tr>\n            </table>\n            <p>Example with plural agreement: <span data-say=\"Me gustan las películas de acción porque son emocionantes.\">Me gustan las películas de acción porque son emocionantes.</span> — <em>I like action films because they are exciting.</em></p>",
+  "reading": "<p>Learn the film genres and reuse the opinion + reason pattern from earlier topics.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la película\">la película</span></td><td>the film</td><td><span data-say=\"una película de terror\">una película de terror</span></td><td>a horror film</td></tr>\n              <tr><td><span data-say=\"una película de acción\">una película de acción</span></td><td>an action film</td><td><span data-say=\"una película de ciencia ficción\">una película de ciencia ficción</span></td><td>a sci-fi film</td></tr>\n              <tr><td><span data-say=\"una comedia\">una comedia</span></td><td>a comedy</td><td><span data-say=\"divertido, emocionante, aburrido, gracioso\">divertido / emocionante / aburrido / gracioso</span></td><td>fun / exciting / boring / funny</td></tr>\n            </table>\n            <p>Example with plural agreement: <span data-say=\"Me gustan las películas de acción porque son emocionantes.\">Me gustan las películas de acción porque son emocionantes.</span> — <em>I like action films because they are exciting.</em></p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"una película de aventuras\">una película de aventuras</span></td><td>an adventure film</td><td><span data-say=\"violento, romántico\">violento / romántico</span></td><td>violent / romantic</td></tr>\n              <tr><td><span data-say=\"la escena\">la escena</span></td><td>the scene</td><td><span data-say=\"la risa, reírse\">la risa · reírse</span></td><td>laughter · to laugh</td></tr>\n              <tr><td><span data-say=\"alquilar una película\">alquilar una película</span></td><td>to rent a film</td><td><span data-say=\"el comienzo\">el comienzo</span></td><td>the beginning</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Alquilamos una película de aventuras: el comienzo fue un poco violento, pero también había una escena romántica que nos hizo reírse.\">Alquilamos una película de aventuras: el comienzo fue un poco violento, pero también había una escena romántica que nos hizo reírse.</span> — <em>We rented an adventure film: the beginning was a bit violent, but there was also a romantic scene that made us laugh.</em></p>\n            <p><span data-say=\"No me gustó la risa forzada del actor — la película fue horrible.\">No me gustó la risa forzada del actor — la película fue horrible.</span> — <em>I didn't like the actor's forced laugh — the film was horrible.</em></p>",
   "question": "In ‘Me gustan las películas de acción porque son emocionantes’, why is it ‘gustan’ and not ‘gusta’?",
   "options": [
    "‘las películas de acción’ is plural",
@@ -15442,7 +21433,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about reading?",
-  "reading": "<p>The key verb is <span data-say=\"leer\">leer</span> (to read).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el libro\">el libro</span></td><td>the book</td><td><span data-say=\"la novela\">la novela</span></td><td>the novel</td></tr>\n              <tr><td><span data-say=\"la revista\">la revista</span></td><td>the magazine</td><td><span data-say=\"el periódico\">el periódico</span></td><td>the newspaper</td></tr>\n            </table>\n            <p>Careful with gender: <span data-say=\"la revista\">la revista</span> is feminine, so it is always <strong>la revista</strong>, never <em>el revista</em>. Example: <span data-say=\"Cada noche, leo una novela antes de dormir.\">Cada noche, leo una novela antes de dormir.</span> — <em>Every night, I read a novel before I sleep.</em></p>",
+  "reading": "<p>The key verb is <span data-say=\"leer\">leer</span> (to read).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el libro\">el libro</span></td><td>the book</td><td><span data-say=\"la novela\">la novela</span></td><td>the novel</td></tr>\n              <tr><td><span data-say=\"la revista\">la revista</span></td><td>the magazine</td><td><span data-say=\"el periódico\">el periódico</span></td><td>the newspaper</td></tr>\n            </table>\n            <p>Careful with gender: <span data-say=\"la revista\">la revista</span> is feminine, so it is always <strong>la revista</strong>, never <em>el revista</em>. Example: <span data-say=\"Cada noche, leo una novela antes de dormir.\">Cada noche, leo una novela antes de dormir.</span> — <em>Every night, I read a novel before I sleep.</em></p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el artículo\">el artículo</span></td><td>the article</td><td><span data-say=\"recomendar\">recomendar</span></td><td>to recommend</td></tr>\n              <tr><td><span data-say=\"relajante\">relajante</span></td><td>relaxing</td><td><span data-say=\"tuyo, tuya\">tuyo / tuya</span></td><td>yours</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Te recomiendo este artículo de la revista — trata un asunto muy interesante.\">Te recomiendo este artículo de la revista — trata un asunto muy interesante.</span> — <em>I recommend this magazine article to you — it deals with a very interesting subject.</em> <span data-say=\"Leer una novela es muy relajante. ¿Es tuya esta novela?\">Leer una novela es muy relajante. ¿Es tuya esta novela?</span> — <em>Reading a novel is very relaxing. Is this novel yours?</em></p>",
   "question": "Which article goes with ‘revista’ (magazine)?",
   "options": [
    "la revista — it is feminine",
@@ -15463,7 +21454,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I say what I did yesterday, and talk about going online?",
-  "reading": "<p>Compare a <strong>present-tense habit</strong> with a <strong>preterite</strong> (completed past) action:</p>\n            <ul>\n              <li>habit → <span data-say=\"Veo la tele todos los días.\">Veo la tele todos los días.</span> (I watch TV every day.)</li>\n              <li>preterite → <span data-say=\"Ayer vi una película de terror con mis amigos.\">Ayer vi una película de terror con mis amigos.</span> (Yesterday I watched a horror film with my friends.)</li>\n            </ul>\n            <p>Online/downloading vocabulary:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"descargar\">descargar</span></td><td>to download</td><td><span data-say=\"en línea\">en línea</span></td><td>online</td></tr>\n              <tr><td><span data-say=\"el móvil\">el móvil</span></td><td>the mobile phone</td><td><span data-say=\"Ayer descargué una canción nueva en mi móvil.\">Ayer descargué una canción nueva en mi móvil.</span></td><td>Yesterday I downloaded a new song on my phone.</td></tr>\n            </table>",
+  "reading": "<p>Compare a <strong>present-tense habit</strong> with a <strong>preterite</strong> (completed past) action:</p>\n            <ul>\n              <li>habit → <span data-say=\"Veo la tele todos los días.\">Veo la tele todos los días.</span> (I watch TV every day.)</li>\n              <li>preterite → <span data-say=\"Ayer vi una película de terror con mis amigos.\">Ayer vi una película de terror con mis amigos.</span> (Yesterday I watched a horror film with my friends.)</li>\n            </ul>\n            <p>Online/downloading vocabulary:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"descargar\">descargar</span></td><td>to download</td><td><span data-say=\"en línea\">en línea</span></td><td>online</td></tr>\n              <tr><td><span data-say=\"el móvil\">el móvil</span></td><td>the mobile phone</td><td><span data-say=\"Ayer descargué una canción nueva en mi móvil.\">Ayer descargué una canción nueva en mi móvil.</span></td><td>Yesterday I downloaded a new song on my phone.</td></tr>\n            </table>\n            <p><span class=\"tier-h\">H</span> Comparing a childhood habit with now (imperfect tense): <span data-say=\"De pequeño, veías muchos dibujos animados, pero ya no veo tantos.\">De pequeño, veías muchos dibujos animados, pero ya no veo tantos.</span> <span class=\"tier-h\">H</span> — <em>As a child, you used to watch a lot of cartoons, but I don't watch as many now.</em> (‘bajar’ is another way to say ‘to download’: <span data-say=\"bajar una canción\">bajar una canción</span>.)</p>",
   "question": "Which word tells you the verb must be in the preterite (past)?",
   "options": [
    "ayer (yesterday)",
@@ -15484,7 +21475,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Higher: giving stronger opinions and comparing",
-  "reading": "<p><span class=\"tier-h\">H</span> Use <strong>lo que más me gusta es…</strong> (what I like most is…) to add range:</p>\n            <ul>\n              <li><span data-say=\"Lo que más me gusta es leer novelas.\">Lo que más me gusta es leer novelas.</span> <span class=\"tier-h\">H</span> — What I like most is reading novels.</li>\n            </ul>\n            <p>Use <strong>preferir + a</strong> to compare two things:</p>\n            <ul>\n              <li><span data-say=\"Prefiero la música pop a la clásica.\">Prefiero la música pop a la clásica.</span> <span class=\"tier-h\">H</span> — I prefer pop music to classical music.</li>\n            </ul>",
+  "reading": "<p><span class=\"tier-h\">H</span> Use <strong>lo que más me gusta es…</strong> (what I like most is…) to add range:</p>\n            <ul>\n              <li><span data-say=\"Lo que más me gusta es leer novelas.\">Lo que más me gusta es leer novelas.</span> <span class=\"tier-h\">H</span> — What I like most is reading novels.</li>\n            </ul>\n            <p>Use <strong>preferir + a</strong> to compare two things:</p>\n            <ul>\n              <li><span data-say=\"Prefiero la música pop a la clásica.\">Prefiero la música pop a la clásica.</span> <span class=\"tier-h\">H</span> — I prefer pop music to classical music.</li>\n            </ul>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"La mayoría de mis amigos prefieren el rock clásico, pero vale la pena probar otros estilos.\">La mayoría de mis amigos prefieren el rock clásico, pero vale la pena probar otros estilos.</span> <span class=\"tier-h\">H</span> — <em>Most of my friends prefer classic rock, but it's worth trying other styles.</em></p>",
   "question": "What does ‘Lo que más me gusta es leer novelas’ mean?",
   "options": [
    "What I like most is reading novels",
@@ -15495,6 +21486,27 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "‘lo que más me gusta es…’ = what I like most is…, a Higher-tier structure for a stronger opinion."
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:learn:c6dcd72b",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I talk about the internet and technology?",
+  "reading": "<p>Media today is mostly online. Key words for blogs, channels and devices:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el blog\">el blog</span></td><td>the blog</td><td><span data-say=\"el canal\">el canal</span></td><td>the channel</td></tr>\n              <tr><td><span data-say=\"colgar\">colgar</span></td><td>to post/upload (online)</td><td><span data-say=\"el dispositivo\">el dispositivo</span></td><td>the device</td></tr>\n              <tr><td><span data-say=\"bienvenido\">bienvenido</span></td><td>welcome</td><td><span data-say=\"descargar, en línea\">descargar, en línea</span></td><td>to download, online</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Bienvenidos a mi canal — hoy voy a colgar un vídeo sobre mi blog de música.\">Bienvenidos a mi canal — hoy voy a colgar un vídeo sobre mi blog de música.</span> — <em>Welcome to my channel — today I'm going to post a video about my music blog.</em></p>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"Veo mis series favoritas en cualquier dispositivo, no solo en la tele.\">Veo mis series favoritas en cualquier dispositivo, no solo en la tele.</span> <span class=\"tier-h\">H</span> — <em>I watch my favourite series on any device, not just on the TV.</em></p>",
+  "question": "What does ‘colgar un vídeo’ mean?",
+  "options": [
+   "to post/upload a video",
+   "to delete a video completely",
+   "to watch a video twice",
+   "to hang a poster on the wall"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "colgar (online) = to post/upload. The literal meaning ‘to hang’ is why a poster-on-the-wall trap is included, but online it means upload."
   }
  },
  {
@@ -15676,8 +21688,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "vi",
-    "encanta",
     "gustan",
+    "encanta",
     "descargué"
    ]
   },
@@ -15697,10 +21709,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ las películas de acción porque son emocionantes. (plural gustar)",
   "blankOptions": {
    "B1": [
+    "vi",
+    "leo",
     "descargué",
-    "encanta",
-    "gustan",
-    "leer"
+    "gustan"
    ]
   },
   "key": {
@@ -15719,10 +21731,10 @@ window.QUESTION_BANK = [
   "question": "Ayer _____ una película de terror con mis amigos. (preterite of ver)",
   "blankOptions": {
    "B1": [
-    "vi",
     "gustan",
-    "guitarra",
-    "leo"
+    "encanta",
+    "Nunca",
+    "vi"
    ]
   },
   "key": {
@@ -15741,10 +21753,10 @@ window.QUESTION_BANK = [
   "question": "Toco la _____ en un grupo de música. (guitar)",
   "blankOptions": {
    "B1": [
-    "vi",
+    "encanta",
+    "leo",
     "guitarra",
-    "leer",
-    "leo"
+    "gustan"
    ]
   },
   "key": {
@@ -15763,10 +21775,10 @@ window.QUESTION_BANK = [
   "question": "Cada noche, _____ una novela antes de dormir. <span data-say=\"Cada noche, leo una novela antes de dormir.\" data-listen>Cada noche, leo una novela antes de dormir.</span>",
   "blankOptions": {
    "B1": [
-    "gustan",
-    "encanta",
+    "guitarra",
     "leo",
-    "leer"
+    "resto",
+    "gustan"
    ]
   },
   "key": {
@@ -15785,10 +21797,10 @@ window.QUESTION_BANK = [
   "question": "Se debe _____ más para mejorar el vocabulario. (to read)",
   "blankOptions": {
    "B1": [
-    "leer",
-    "descargué",
     "encanta",
-    "guitarra"
+    "distinto",
+    "leer",
+    "resto"
    ]
   },
   "key": {
@@ -15807,15 +21819,81 @@ window.QUESTION_BANK = [
   "question": "Ayer _____ una canción nueva en mi móvil. <span data-say=\"Ayer descargué una canción nueva en mi móvil.\" data-listen>Ayer descargué una canción nueva en mi móvil.</span>",
   "blankOptions": {
    "B1": [
-    "leo",
-    "encanta",
+    "gustan",
+    "leer",
     "descargué",
-    "guitarra"
+    "vi"
    ]
   },
   "key": {
    "blanks": {
     "B1": "descargué"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:fib:45556f45",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "_____ veo telenovelas, prefiero los documentales. (never)",
+  "blankOptions": {
+   "B1": [
+    "Nunca",
+    "descargué",
+    "encanta",
+    "guitarra"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "Nunca"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:fib:ec4bd8d5",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Cada cantante tiene un estilo _____. (different)",
+  "blankOptions": {
+   "B1": [
+    "leo",
+    "resto",
+    "descargué",
+    "distinto"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "distinto"
+   }
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:fib:8072fd92",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Vi el _____ de la temporada en un fin de semana. (the rest)",
+  "blankOptions": {
+   "B1": [
+    "gustan",
+    "resto",
+    "leo",
+    "Nunca"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "resto"
    }
   }
  },
@@ -15829,8 +21907,8 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “la canción”?",
   "options": [
    "the song",
-   "the news",
-   "the magazine",
+   "to download music",
+   "the channel",
    "cartoons"
   ],
   "key": {
@@ -15847,13 +21925,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el cantante / la cantante”?",
   "options": [
-   "the newspaper",
-   "the singer",
-   "what I like most",
-   "a horror film"
+   "an interesting subject/matter",
+   "the news",
+   "a horror film",
+   "the singer"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“el cantante / la cantante” means: the singer"
   }
  },
@@ -15866,10 +21944,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “tocar la guitarra”?",
   "options": [
-   "the concert",
    "the news",
+   "to download music",
    "to play the guitar",
-   "the newspaper"
+   "to have the opportunity to"
   ],
   "key": {
    "answer": 2,
@@ -15885,13 +21963,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el concierto”?",
   "options": [
-   "the concert",
-   "to download music",
-   "the song",
-   "the newspaper"
+   "the singer",
+   "to watch TV",
+   "an interesting subject/matter",
+   "the concert"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“el concierto” means: the concert"
   }
  },
@@ -15905,9 +21983,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “ver la tele”?",
   "options": [
    "to download music",
-   "the news",
+   "the beginning",
    "to watch TV",
-   "a horror film"
+   "Is this novel yours?"
   ],
   "key": {
    "answer": 2,
@@ -15924,8 +22002,8 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “las noticias”?",
   "options": [
    "the news",
-   "cartoons",
-   "the singer",
+   "to have the opportunity to",
+   "the concert",
    "the magazine"
   ],
   "key": {
@@ -15942,13 +22020,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “los dibujos animados”?",
   "options": [
-   "to download music",
-   "what I like most",
-   "cartoons",
-   "a horror film"
+   "an interesting subject/matter",
+   "the newspaper",
+   "a horror film",
+   "cartoons"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“los dibujos animados” means: cartoons"
   }
  },
@@ -15961,10 +22039,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “una película de terror”?",
   "options": [
-   "to download music",
+   "the magazine",
    "a horror film",
-   "the concert",
-   "what I like most"
+   "to download a song",
+   "to download music"
   ],
   "key": {
    "answer": 1,
@@ -15981,9 +22059,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “la revista”?",
   "options": [
    "the magazine",
-   "to download music",
-   "the singer",
-   "the news"
+   "the concert",
+   "to have the opportunity to",
+   "the channel"
   ],
   "key": {
    "answer": 0,
@@ -15999,13 +22077,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el periódico”?",
   "options": [
+   "the newspaper",
    "the song",
-   "a horror film",
-   "the singer",
-   "the newspaper"
+   "the channel",
+   "to have the opportunity to"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“el periódico” means: the newspaper"
   }
  },
@@ -16018,10 +22096,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “descargar música”?",
   "options": [
-   "the news",
+   "to have the opportunity to",
    "to download music",
-   "the singer",
-   "what I like most"
+   "the concert",
+   "the news"
   ],
   "key": {
    "answer": 1,
@@ -16037,14 +22115,128 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “lo que más me gusta”?",
   "options": [
-   "cartoons",
-   "to watch TV",
+   "an interesting subject/matter",
    "what I like most",
-   "the concert"
+   "the magazine",
+   "the channel"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“lo que más me gusta” means: what I like most"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:edfc8ede",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “tener la oportunidad de”?",
+  "options": [
+   "to have the opportunity to",
+   "to download a song",
+   "the singer",
+   "the newspaper"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“tener la oportunidad de” means: to have the opportunity to"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:3e4ee93f",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “un asunto interesante”?",
+  "options": [
+   "to download music",
+   "what I like most",
+   "an interesting subject/matter",
+   "to play the guitar"
   ],
   "key": {
    "answer": 2,
-   "explain": "“lo que más me gusta” means: what I like most"
+   "explain": "“un asunto interesante” means: an interesting subject/matter"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:45ccb9e0",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el comienzo”?",
+  "options": [
+   "to watch TV",
+   "a horror film",
+   "the beginning",
+   "the newspaper"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el comienzo” means: the beginning"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:c94fed83",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el canal”?",
+  "options": [
+   "Is this novel yours?",
+   "to download music",
+   "the channel",
+   "an interesting subject/matter"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el canal” means: the channel"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:c374c41d",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “¿Es tuya esta novela?”?",
+  "options": [
+   "to download music",
+   "Is this novel yours?",
+   "to download a song",
+   "what I like most"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“¿Es tuya esta novela?” means: Is this novel yours?"
+  }
+ },
+ {
+  "id": "spanish:4-2-music-tv-film-and-reading:match:4f72ebcf",
+  "pageId": "spanish:4-2-music-tv-film-and-reading",
+  "pageName": "4.2 Music, TV, Film and Reading",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “bajar una canción”?",
+  "options": [
+   "the singer",
+   "an interesting subject/matter",
+   "the concert",
+   "to download a song"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“bajar una canción” means: to download a song"
   }
  },
  {
@@ -16271,6 +22463,44 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:5-1-food-customs-and-daily-life:mcq:16476135",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘recibir a los invitados’ mean?",
+  "options": [
+   "to welcome/receive the guests",
+   "to say goodbye to the guests",
+   "to invite guests for next year",
+   "to cook a meal for one person"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "recibir = to welcome/receive; the traps confuse it with saying goodbye, inviting, or an unrelated action."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:mcq:2eb3708f",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘el riesgo’ mean?",
+  "options": [
+   "the risk",
+   "the advice",
+   "the landscape",
+   "the building"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el riesgo = the risk. The distractors are other common nouns students may confuse it with."
+  }
+ },
+ {
   "id": "spanish:5-1-food-customs-and-daily-life:tf:b0e7434c",
   "pageId": "spanish:5-1-food-customs-and-daily-life",
   "pageName": "5.1 Food Customs and Daily Life",
@@ -16375,6 +22605,45 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:5-1-food-customs-and-daily-life:tf:974351c1",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘La costumbre’ means ‘the custom’ or ‘the habit’.",
+  "key": {
+   "answer": true,
+   "explain": "la costumbre = the custom/habit — a key word for this whole topic."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tf:01462523",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘El puesto’ can mean a stall at a market.",
+  "key": {
+   "answer": true,
+   "explain": "el puesto = the stall (as well as ‘the position/job’ in other contexts)."
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:tf:62497518",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Caminar’ means ‘to drive a car’.",
+  "key": {
+   "answer": false,
+   "explain": "caminar = to walk. To drive is conducir."
+  }
+ },
+ {
   "id": "spanish:5-1-food-customs-and-daily-life:learn:47ea7af7",
   "pageId": "spanish:5-1-food-customs-and-daily-life",
   "pageName": "5.1 Food Customs and Daily Life",
@@ -16382,7 +22651,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about mealtimes?",
-  "reading": "<p>Spanish families usually eat three main meals, plus a light snack in the afternoon. Tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el desayuno\">el desayuno</span></td><td>breakfast</td><td><span data-say=\"la comida\">la comida</span></td><td>lunch</td></tr>\n              <tr><td><span data-say=\"la merienda\">la merienda</span></td><td>afternoon snack</td><td><span data-say=\"la cena\">la cena</span></td><td>dinner</td></tr>\n              <tr><td><span data-say=\"desayunar\">desayunar</span></td><td>to have breakfast</td><td><span data-say=\"cenar\">cenar</span></td><td>to have dinner</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"En España, se cena muy tarde, normalmente a las diez de la noche.\">En España, se cena muy tarde, normalmente a las diez de la noche.</span> — <em>In Spain, people have dinner very late, usually at ten at night.</em></p>",
+  "reading": "<p>Spanish families usually eat three main meals, plus a light snack in the afternoon. Tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el desayuno\">el desayuno</span></td><td>breakfast</td><td><span data-say=\"la comida\">la comida</span></td><td>lunch</td></tr>\n              <tr><td><span data-say=\"la merienda\">la merienda</span></td><td>afternoon snack</td><td><span data-say=\"la cena\">la cena</span></td><td>dinner</td></tr>\n              <tr><td><span data-say=\"desayunar\">desayunar</span></td><td>to have breakfast</td><td><span data-say=\"cenar\">cenar</span></td><td>to have dinner</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"En España, se cena muy tarde, normalmente a las diez de la noche.\">En España, se cena muy tarde, normalmente a las diez de la noche.</span> — <em>In Spain, people have dinner very late, usually at ten at night.</em></p>\n            <p><span class=\"tier-h\">H</span> It is also a <span data-say=\"costumbre\">costumbre</span> (custom) in many Spanish homes to <span data-say=\"recibir a los invitados con mucha comida\">recibir a los invitados con mucha comida</span> — to welcome guests with lots of food. <span data-say=\"Por otra parte, en el Reino Unido no es tan común recibir a los invitados con una comida tan grande.\">Por otra parte, en el Reino Unido no es tan común recibir a los invitados con una comida tan grande.</span> — <em>On the other hand, in the UK it isn't as common to welcome guests with such a big meal.</em></p>",
   "question": "What is ‘la merienda’?",
   "options": [
    "a light snack eaten in the afternoon",
@@ -16403,7 +22672,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "What is typical Spanish food?",
-  "reading": "<p>Some dishes come up again and again in reading and listening exams:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la tortilla de patatas\">la tortilla de patatas</span></td><td>Spanish omelette</td><td><span data-say=\"la paella\">la paella</span></td><td>paella (rice dish)</td></tr>\n              <tr><td><span data-say=\"las tapas\">las tapas</span></td><td>small shared dishes</td><td><span data-say=\"el gazpacho\">el gazpacho</span></td><td>cold tomato soup</td></tr>\n              <tr><td><span data-say=\"el jamón\">el jamón</span></td><td>ham</td><td><span data-say=\"el pan\">el pan</span></td><td>bread</td></tr>\n            </table>\n            <p><span data-say=\"el aceite de oliva\">el aceite de oliva</span> (olive oil) is used in almost everything. Model sentence: <span data-say=\"Me gusta mucho la tortilla porque es muy rica.\">Me gusta mucho la tortilla porque es muy rica.</span> — <em>I really like the omelette because it is very tasty.</em></p>",
+  "reading": "<p>Some dishes come up again and again in reading and listening exams:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la tortilla de patatas\">la tortilla de patatas</span></td><td>Spanish omelette</td><td><span data-say=\"la paella\">la paella</span></td><td>paella (rice dish)</td></tr>\n              <tr><td><span data-say=\"las tapas\">las tapas</span></td><td>small shared dishes</td><td><span data-say=\"el gazpacho\">el gazpacho</span></td><td>cold tomato soup</td></tr>\n              <tr><td><span data-say=\"el jamón\">el jamón</span></td><td>ham</td><td><span data-say=\"el pan\">el pan</span></td><td>bread</td></tr>\n            </table>\n            <p><span data-say=\"el aceite de oliva\">el aceite de oliva</span> (olive oil) is used in almost everything. Model sentence: <span data-say=\"Me gusta mucho la tortilla porque es muy rica.\">Me gusta mucho la tortilla porque es muy rica.</span> — <em>I really like the omelette because it is very tasty.</em></p>\n            <p>At a Spanish market you will see <span data-say=\"puestos\">puestos</span> (stalls) selling fresh <span data-say=\"uvas\">uvas</span> (grapes) and <span data-say=\"caramelos\">caramelos</span> (sweets) for the children. Many adults drink <span data-say=\"vino\">vino</span> (wine) with a meal, though it is <span data-say=\"cierto\">cierto</span> (true/certain) that eating too much fatty food is a <span data-say=\"riesgo\">riesgo</span> (risk) for your health. <span data-say=\"En el mercado hay puestos que venden uvas, y es cierto que el vino es típico en las comidas, pero comer demasiada grasa es un riesgo para la salud.\">En el mercado hay puestos que venden uvas, y es cierto que el vino es típico en las comidas, pero comer demasiada grasa es un riesgo para la salud.</span> — <em>At the market there are stalls that sell grapes, and it's true that wine is typical at meals, but eating too much fat is a risk to your health.</em></p>",
   "question": "‘El gazpacho’ is best described as…",
   "options": [
    "a cold tomato soup",
@@ -16424,7 +22693,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I describe my daily routine?",
-  "reading": "<p>Routine verbs are <strong>reflexive</strong> — the action is done to yourself, so they need <strong>me / te / se</strong>.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"levantarse\">levantarse</span> → <span data-say=\"me levanto\">me levanto</span></td><td>to get up → I get up</td></tr>\n              <tr><td><span data-say=\"ducharse\">ducharse</span> → <span data-say=\"me ducho\">me ducho</span></td><td>to shower → I shower</td></tr>\n              <tr><td><span data-say=\"vestirse\">vestirse</span> → <span data-say=\"me visto\">me visto</span></td><td>to get dressed → I get dressed</td></tr>\n              <tr><td><span data-say=\"acostarse\">acostarse</span> → <span data-say=\"me acuesto\">me acuesto</span></td><td>to go to bed → I go to bed</td></tr>\n            </table>\n            <p>After breakfast: <span data-say=\"voy al instituto\">voy al instituto</span> (I go to school); after school: <span data-say=\"vuelvo a casa\">vuelvo a casa</span> (I return home). Many Spaniards also have <span data-say=\"la siesta\">la siesta</span> — a short afternoon rest.</p>\n            <p>Model sentence: <span data-say=\"Todos los días me levanto, me ducho y desayuno antes de ir al instituto.\">Todos los días me levanto, me ducho y desayuno antes de ir al instituto.</span></p>",
+  "reading": "<p>Routine verbs are <strong>reflexive</strong> — the action is done to yourself, so they need <strong>me / te / se</strong>.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"levantarse\">levantarse</span> → <span data-say=\"me levanto\">me levanto</span></td><td>to get up → I get up</td></tr>\n              <tr><td><span data-say=\"ducharse\">ducharse</span> → <span data-say=\"me ducho\">me ducho</span></td><td>to shower → I shower</td></tr>\n              <tr><td><span data-say=\"vestirse\">vestirse</span> → <span data-say=\"me visto\">me visto</span></td><td>to get dressed → I get dressed</td></tr>\n              <tr><td><span data-say=\"acostarse\">acostarse</span> → <span data-say=\"me acuesto\">me acuesto</span></td><td>to go to bed → I go to bed</td></tr>\n            </table>\n            <p>After breakfast: <span data-say=\"voy al instituto\">voy al instituto</span> (I go to school); after school: <span data-say=\"vuelvo a casa\">vuelvo a casa</span> (I return home). Many Spaniards also have <span data-say=\"la siesta\">la siesta</span> — a short afternoon rest.</p>\n            <p>Model sentence: <span data-say=\"Todos los días me levanto, me ducho y desayuno antes de ir al instituto.\">Todos los días me levanto, me ducho y desayuno antes de ir al instituto.</span></p>\n            <p>Not everyone drives — many students <span data-say=\"caminan\">caminan</span> (walk) to school: <span data-say=\"voy caminando por el mismo camino todos los días\">voy caminando por el mismo camino todos los días</span> — I walk along the same route every day. At home, food is often cooked <span data-say=\"a fuego lento\">a fuego lento</span> (on a low flame), and after lunch, <span data-say=\"incluso\">incluso</span> (even) grandparents rest <span data-say=\"a la sombra\">a la sombra</span> (in the shade) during the siesta.</p>",
   "question": "Why does ‘levantarse’ become ‘me levanto’ for ‘I get up’?",
   "options": [
    "it is reflexive, so it needs a pronoun (me/te/se)",
@@ -16466,7 +22735,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do Spanish and British customs compare?",
-  "reading": "<p>Use the <strong>impersonal se</strong> to describe what ‘people’ or ‘one’ generally does — perfect for comparing countries.</p>\n            <ul>\n              <li><span data-say=\"en España se cena tarde\">en España se cena tarde</span> — in Spain, people have dinner late</li>\n              <li><span data-say=\"en el Reino Unido se cena más temprano\">en el Reino Unido se cena más temprano</span> — in the UK, people have dinner earlier</li>\n            </ul>\n            <p>Compare with <span data-say=\"diferente\">diferente</span> (different) and <span data-say=\"parecido\">parecido</span> (similar): <span data-say=\"En mi opinión, las costumbres son bastante diferentes.\">En mi opinión, las costumbres son bastante diferentes.</span></p>",
+  "reading": "<p>Use the <strong>impersonal se</strong> to describe what ‘people’ or ‘one’ generally does — perfect for comparing countries.</p>\n            <ul>\n              <li><span data-say=\"en España se cena tarde\">en España se cena tarde</span> — in Spain, people have dinner late</li>\n              <li><span data-say=\"en el Reino Unido se cena más temprano\">en el Reino Unido se cena más temprano</span> — in the UK, people have dinner earlier</li>\n            </ul>\n            <p>Compare with <span data-say=\"diferente\">diferente</span> (different) and <span data-say=\"parecido\">parecido</span> (similar): <span data-say=\"En mi opinión, las costumbres son bastante diferentes.\">En mi opinión, las costumbres son bastante diferentes.</span></p>\n            <p><span class=\"tier-h\">H</span> When you compare customs, add real opinion language: <span data-say=\"Tengo mucho interés en las costumbres españolas.\">Tengo mucho interés en las costumbres españolas.</span> (I have a lot of interest in Spanish customs), and <span data-say=\"en realidad\">en realidad</span> (in reality/actually), the <span data-say=\"organización\">organización</span> (organisation) of a Spanish day is quite different — <span data-say=\"conocimiento\">conocimiento</span> (knowledge) of these differences helps in the exam. From my <span data-say=\"punto de vista\">punto de vista</span> (point of view), the <span data-say=\"habitantes\">habitantes</span> (inhabitants) of a small town near the <span data-say=\"puerto\">puerto</span> (port) often keep older customs, and there is a real <span data-say=\"posibilidad\">posibilidad</span> (possibility) they still eat later than in the UK. <span data-say=\"¡Ojalá! pudiera probarlo yo mismo algún día.\">¡Ojalá! pudiera probarlo yo mismo algún día.</span> (I wish / hopefully I could try it myself one day!)</p>",
   "question": "What does ‘se cena’ mean in ‘en España se cena tarde’?",
   "options": [
    "people (in general) have dinner",
@@ -16487,7 +22756,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Higher: a fuller routine and past habits",
-  "reading": "<p><span class=\"tier-h\">H</span> For the top band, link several reflexive actions in order and add an opinion:</p>\n            <p><span data-say=\"Después de desayunar, me visto rápidamente y salgo de casa a las ocho.\">Después de desayunar, me visto rápidamente y salgo de casa a las ocho.</span> <span class=\"tier-h\">H</span></p>\n            <p>To describe a <strong>past habit</strong> (what you used to do), use the <strong>imperfect tense</strong>: <span data-say=\"de pequeño\">de pequeño</span> (as a child) + <span data-say=\"me acostaba temprano\">me acostaba temprano</span> (I used to go to bed early).</p>\n            <p>Example: <span data-say=\"De pequeño, me acostaba muy temprano, pero ahora me acuesto mucho más tarde.\">De pequeño, me acostaba muy temprano, pero ahora me acuesto mucho más tarde.</span> <span class=\"tier-h\">H</span> — <em>As a child, I used to go to bed very early, but now I go to bed much later.</em></p>",
+  "reading": "<p><span class=\"tier-h\">H</span> For the top band, link several reflexive actions in order and add an opinion:</p>\n            <p><span data-say=\"Después de desayunar, me visto rápidamente y salgo de casa a las ocho.\">Después de desayunar, me visto rápidamente y salgo de casa a las ocho.</span> <span class=\"tier-h\">H</span></p>\n            <p>To describe a <strong>past habit</strong> (what you used to do), use the <strong>imperfect tense</strong>: <span data-say=\"de pequeño\">de pequeño</span> (as a child) + <span data-say=\"me acostaba temprano\">me acostaba temprano</span> (I used to go to bed early).</p>\n            <p>Example: <span data-say=\"De pequeño, me acostaba muy temprano, pero ahora me acuesto mucho más tarde.\">De pequeño, me acostaba muy temprano, pero ahora me acuesto mucho más tarde.</span> <span class=\"tier-h\">H</span> — <em>As a child, I used to go to bed very early, but now I go to bed much later.</em></p>\n            <p><span class=\"tier-h\">H</span> More imperfect-tense practice: <span data-say=\"De pequeño tenía un caballo y otros animales en el pueblo de mis abuelos.\">De pequeño tenía un caballo y otros animales en el pueblo de mis abuelos.</span> <span class=\"tier-h\">H</span> — <em>As a child I had a horse and other animals in my grandparents' village.</em> <span data-say=\"También me interesaba mucho la lengua y la literatura españolas.\">También me interesaba mucho la lengua y la literatura españolas.</span> <span class=\"tier-h\">H</span> — <em>I was also very interested in the Spanish language and literature.</em></p>",
   "question": "What tense is ‘me acostaba’ in ‘de pequeño me acostaba temprano’?",
   "options": [
    "the imperfect tense, for a past habit",
@@ -16678,10 +22947,10 @@ window.QUESTION_BANK = [
   "question": "Me _____ a las siete. <span data-say=\"Me levanto a las siete.\" data-listen>Me levanto a las siete.</span>",
   "blankOptions": {
    "B1": [
+    "acostaba",
     "Después",
     "levanto",
-    "jamón",
-    "acostaba"
+    "jamón"
    ]
   },
   "key": {
@@ -16700,10 +22969,10 @@ window.QUESTION_BANK = [
   "question": "En España, se _____ muy tarde, normalmente a las diez. <span data-say=\"En España, se cena muy tarde, normalmente a las diez.\" data-listen>En España, se cena muy tarde, normalmente a las diez.</span>",
   "blankOptions": {
    "B1": [
-    "levanto",
-    "desayuno",
+    "cena",
     "jamón",
-    "cena"
+    "fría",
+    "levanto"
    ]
   },
   "key": {
@@ -16723,9 +22992,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "fría",
-    "desayuno",
     "acostaba",
-    "jamón"
+    "cena",
+    "levanto"
    ]
   },
   "key": {
@@ -16744,8 +23013,8 @@ window.QUESTION_BANK = [
   "question": "Todos los días me ducho y _____ antes de ir al instituto. (I have breakfast)",
   "blankOptions": {
    "B1": [
-    "levanto",
     "Después",
+    "caballo",
     "acostaba",
     "desayuno"
    ]
@@ -16766,10 +23035,10 @@ window.QUESTION_BANK = [
   "question": "_____ del instituto, hago los deberes y ceno con mi familia. (afterwards)",
   "blankOptions": {
    "B1": [
-    "desayuno",
-    "fría",
+    "jamón",
     "Después",
-    "levanto"
+    "desayuno",
+    "caballo"
    ]
   },
   "key": {
@@ -16788,10 +23057,10 @@ window.QUESTION_BANK = [
   "question": "De pequeño, me _____ muy temprano, pero ahora me acuesto más tarde. (used to go to bed)",
   "blankOptions": {
    "B1": [
-    "desayuno",
-    "Después",
-    "fría",
-    "acostaba"
+    "acostaba",
+    "caballo",
+    "vino",
+    "Después"
    ]
   },
   "key": {
@@ -16810,15 +23079,81 @@ window.QUESTION_BANK = [
   "question": "Muchas familias españolas comen _____ con pan y aceite de oliva. (ham)",
   "blankOptions": {
    "B1": [
-    "levanto",
-    "acostaba",
+    "jamón",
+    "fría",
     "desayuno",
-    "jamón"
+    "vino"
    ]
   },
   "key": {
    "blanks": {
     "B1": "jamón"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:fib:0c3940f8",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "En el mercado hay _____ que venden fruta fresca. (market stalls)",
+  "blankOptions": {
+   "B1": [
+    "acostaba",
+    "jamón",
+    "Después",
+    "puestos"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "puestos"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:fib:8d703184",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Muchos españoles beben _____ con la comida. (wine)",
+  "blankOptions": {
+   "B1": [
+    "fría",
+    "jamón",
+    "levanto",
+    "vino"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "vino"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:fib:3c59b6c6",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "De pequeño, mi abuelo tenía un _____ en el pueblo. (horse)",
+  "blankOptions": {
+   "B1": [
+    "puestos",
+    "caballo",
+    "cena",
+    "jamón"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "caballo"
    }
   }
  },
@@ -16832,9 +23167,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “el desayuno”?",
   "options": [
    "breakfast",
-   "every day",
-   "Spanish omelette",
-   "I get up"
+   "the interest",
+   "I get up",
+   "to receive / to welcome"
   ],
   "key": {
    "answer": 0,
@@ -16850,9 +23185,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la merienda”?",
   "options": [
-   "I shower",
-   "I go to bed",
-   "as a child",
+   "the wine",
+   "the market stall",
+   "the custom / the habit",
    "afternoon snack"
   ],
   "key": {
@@ -16869,10 +23204,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la cena”?",
   "options": [
-   "small shared dishes",
+   "I go to bed",
    "dinner",
    "breakfast",
-   "Spanish omelette"
+   "I get up"
   ],
   "key": {
    "answer": 1,
@@ -16889,9 +23224,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “la tortilla de patatas”?",
   "options": [
    "Spanish omelette",
-   "afternoon snack",
-   "as a child",
-   "breakfast"
+   "dinner",
+   "small shared dishes",
+   "afternoon snack"
   ],
   "key": {
    "answer": 0,
@@ -16907,13 +23242,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “las tapas”?",
   "options": [
-   "cold tomato soup",
    "in the morning",
    "small shared dishes",
-   "Spanish omelette"
+   "the shade",
+   "the interest"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“las tapas” means: small shared dishes"
   }
  },
@@ -16926,10 +23261,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el gazpacho”?",
   "options": [
-   "every day",
+   "the interest",
    "cold tomato soup",
-   "afternoon snack",
-   "I go to bed"
+   "dinner",
+   "to walk"
   ],
   "key": {
    "answer": 1,
@@ -16945,9 +23280,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me levanto”?",
   "options": [
+   "in the morning",
+   "every day",
    "small shared dishes",
-   "as a child",
-   "dinner",
    "I get up"
   ],
   "key": {
@@ -16964,10 +23299,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me ducho”?",
   "options": [
-   "cold tomato soup",
+   "to receive / to welcome",
    "I shower",
-   "I get up",
-   "Spanish omelette"
+   "the animal",
+   "the wine"
   ],
   "key": {
    "answer": 1,
@@ -16983,13 +23318,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me acuesto”?",
   "options": [
-   "as a child",
-   "I shower",
-   "breakfast",
-   "I go to bed"
+   "I go to bed",
+   "the tongue / the language",
+   "the animal",
+   "to walk"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“me acuesto” means: I go to bed"
   }
  },
@@ -17002,13 +23337,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “por la mañana”?",
   "options": [
-   "Spanish omelette",
-   "dinner",
    "in the morning",
-   "every day"
+   "I shower",
+   "cold tomato soup",
+   "to receive / to welcome"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“por la mañana” means: in the morning"
   }
  },
@@ -17021,10 +23356,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “todos los días”?",
   "options": [
-   "I shower",
+   "to walk",
    "every day",
-   "Spanish omelette",
-   "small shared dishes"
+   "the tongue / the language",
+   "the animal"
   ],
   "key": {
    "answer": 1,
@@ -17040,14 +23375,242 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “de pequeño”?",
   "options": [
-   "I go to bed",
-   "I shower",
+   "the shade",
+   "the market stall",
    "as a child",
-   "every day"
+   "the risk"
   ],
   "key": {
    "answer": 2,
    "explain": "“de pequeño” means: as a child"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:ffbcb3bd",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “recibir”?",
+  "options": [
+   "to receive / to welcome",
+   "the interest",
+   "the risk",
+   "to walk"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“recibir” means: to receive / to welcome"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:3bb2c74e",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la costumbre”?",
+  "options": [
+   "I get up",
+   "small shared dishes",
+   "the inhabitant",
+   "the custom / the habit"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“la costumbre” means: the custom / the habit"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:4018301a",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el vino”?",
+  "options": [
+   "cold tomato soup",
+   "the tongue / the language",
+   "the shade",
+   "the wine"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el vino” means: the wine"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:f1e7becf",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el puesto”?",
+  "options": [
+   "breakfast",
+   "in the morning",
+   "the tongue / the language",
+   "the market stall"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el puesto” means: the market stall"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:4c168f46",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “caminar”?",
+  "options": [
+   "breakfast",
+   "the market stall",
+   "to walk",
+   "every day"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“caminar” means: to walk"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:7d90c9d0",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la sombra”?",
+  "options": [
+   "to receive / to welcome",
+   "cold tomato soup",
+   "the risk",
+   "the shade"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“la sombra” means: the shade"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:4b9af06d",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el riesgo”?",
+  "options": [
+   "the risk",
+   "the wine",
+   "the custom / the habit",
+   "I go to bed"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el riesgo” means: the risk"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:a92316b7",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el interés”?",
+  "options": [
+   "the horse",
+   "breakfast",
+   "as a child",
+   "the interest"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el interés” means: the interest"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:9b1c521d",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el habitante”?",
+  "options": [
+   "the shade",
+   "the inhabitant",
+   "cold tomato soup",
+   "the interest"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el habitante” means: the inhabitant"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:9118d5af",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el animal”?",
+  "options": [
+   "the animal",
+   "the horse",
+   "cold tomato soup",
+   "to receive / to welcome"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el animal” means: the animal"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:212c07da",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el caballo”?",
+  "options": [
+   "the animal",
+   "the horse",
+   "to receive / to welcome",
+   "I get up"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el caballo” means: the horse"
+  }
+ },
+ {
+  "id": "spanish:5-1-food-customs-and-daily-life:match:23f14d29",
+  "pageId": "spanish:5-1-food-customs-and-daily-life",
+  "pageName": "5.1 Food Customs and Daily Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la lengua”?",
+  "options": [
+   "to receive / to welcome",
+   "afternoon snack",
+   "the tongue / the language",
+   "the shade"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la lengua” means: the tongue / the language"
   }
  },
  {
@@ -17274,6 +23837,44 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:5-2-festivals-and-traditions:mcq:500a1353",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘atraer turistas’ mean?",
+  "options": [
+   "to attract tourists",
+   "to avoid tourists",
+   "to charge tourists money",
+   "to guide tourists home"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "atraer = to attract. The traps are other things a festival might do to/with tourists."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:mcq:2990a4ca",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What is ‘la plaza de toros’?",
+  "options": [
+   "the bullring",
+   "the town hall square",
+   "the central market square",
+   "the football stadium"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la plaza de toros = the bullring, where events like San Fermín's bullfights take place."
+  }
+ },
+ {
   "id": "spanish:5-2-festivals-and-traditions:tf:d248eb41",
   "pageId": "spanish:5-2-festivals-and-traditions",
   "pageName": "5.2 Festivals and Traditions",
@@ -17378,6 +23979,45 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:5-2-festivals-and-traditions:tf:6697f1a0",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘La mezquita’ is a Christian church.",
+  "key": {
+   "answer": false,
+   "explain": "la mezquita = the mosque, a Muslim place of worship. A church is la iglesia."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tf:d0f5f637",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Los Sanfermines’ refers to the same festival as San Fermín.",
+  "key": {
+   "answer": true,
+   "explain": "los Sanfermines is another name for the San Fermín festival in Pamplona."
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:tf:34e1b24e",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Roto’ means ‘broken’.",
+  "key": {
+   "answer": true,
+   "explain": "roto/rota = broken, e.g. una piñata rota."
+  }
+ },
+ {
   "id": "spanish:5-2-festivals-and-traditions:learn:fe5d548a",
   "pageId": "spanish:5-2-festivals-and-traditions",
   "pageName": "5.2 Festivals and Traditions",
@@ -17385,7 +24025,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about festivals and special days?",
-  "reading": "<p>The key verb is <span data-say=\"celebrar\">celebrar</span> (to celebrate). Here is the core festival vocabulary — tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la fiesta\">la fiesta</span></td><td>the party / festival</td><td><span data-say=\"el festival\">el festival</span></td><td>the festival</td></tr>\n              <tr><td><span data-say=\"la Navidad\">la Navidad</span></td><td>Christmas</td><td><span data-say=\"la Nochebuena\">la Nochebuena</span></td><td>Christmas Eve</td></tr>\n              <tr><td><span data-say=\"el Año Nuevo\">el Año Nuevo</span></td><td>New Year</td><td><span data-say=\"los Reyes Magos\">los Reyes Magos</span></td><td>the Three Kings (6 Jan)</td></tr>\n              <tr><td><span data-say=\"la Semana Santa\">la Semana Santa</span></td><td>Holy Week</td><td><span data-say=\"el cumpleaños\">el cumpleaños</span></td><td>birthday</td></tr>\n              <tr><td><span data-say=\"Feliz Navidad\">Feliz Navidad</span></td><td>Merry Christmas</td><td><span data-say=\"Feliz Año Nuevo\">Feliz Año Nuevo</span></td><td>Happy New Year</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Celebramos la Navidad con toda la familia.\">Celebramos la Navidad con toda la familia.</span> — <em>We celebrate Christmas with the whole family.</em></p>",
+  "reading": "<p>The key verb is <span data-say=\"celebrar\">celebrar</span> (to celebrate). Here is the core festival vocabulary — tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la fiesta\">la fiesta</span></td><td>the party / festival</td><td><span data-say=\"el festival\">el festival</span></td><td>the festival</td></tr>\n              <tr><td><span data-say=\"la Navidad\">la Navidad</span></td><td>Christmas</td><td><span data-say=\"la Nochebuena\">la Nochebuena</span></td><td>Christmas Eve</td></tr>\n              <tr><td><span data-say=\"el Año Nuevo\">el Año Nuevo</span></td><td>New Year</td><td><span data-say=\"los Reyes Magos\">los Reyes Magos</span></td><td>the Three Kings (6 Jan)</td></tr>\n              <tr><td><span data-say=\"la Semana Santa\">la Semana Santa</span></td><td>Holy Week</td><td><span data-say=\"el cumpleaños\">el cumpleaños</span></td><td>birthday</td></tr>\n              <tr><td><span data-say=\"Feliz Navidad\">Feliz Navidad</span></td><td>Merry Christmas</td><td><span data-say=\"Feliz Año Nuevo\">Feliz Año Nuevo</span></td><td>Happy New Year</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Celebramos la Navidad con toda la familia.\">Celebramos la Navidad con toda la familia.</span> — <em>We celebrate Christmas with the whole family.</em></p>\n            <p>Some celebrations connect to a <span data-say=\"santo\">santo</span> (saint) — many Spaniards celebrate <span data-say=\"el día del santo\">el día del santo</span> (their saint's day) as well as their birthday. The <span data-say=\"Día de Reyes\">Día de Reyes</span> (short for los Reyes Magos) is named after the <span data-say=\"rey\">rey</span> (king) — actually three kings — and it is a <span data-say=\"tradición\">tradición</span> (tradition) that goes back many <span data-say=\"siglos\">siglos</span> (centuries). <span data-say=\"El Día de Reyes es una tradición muy antigua, de hace muchos siglos.\">El Día de Reyes es una tradición muy antigua, de hace muchos siglos.</span> — <em>Día de Reyes is a very old tradition, from many centuries ago.</em></p>",
   "question": "What is ‘la Nochebuena’?",
   "options": [
    "Christmas Eve",
@@ -17406,7 +24046,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about celebrating together?",
-  "reading": "<p>Celebrations centre on family and food. Key phrases:</p>\n            <ul>\n              <li><span data-say=\"la familia se reúne\">la familia se reúne</span> — the family gets together (reflexive!)</li>\n              <li><span data-say=\"los regalos\">los regalos</span> — the presents; <span data-say=\"regalar\">regalar</span> — to give (as a present)</li>\n              <li><span data-say=\"cenar juntos\">cenar juntos</span> — to have dinner together</li>\n              <li><span data-say=\"bailar\">bailar</span> — to dance; <span data-say=\"los fuegos artificiales\">los fuegos artificiales</span> — fireworks</li>\n            </ul>\n            <p>Example: <span data-say=\"En Nochevieja, vemos los fuegos artificiales y bailamos toda la noche.\">En Nochevieja, vemos los fuegos artificiales y bailamos toda la noche.</span> — <em>On New Year's Eve, we watch the fireworks and dance all night.</em></p>",
+  "reading": "<p>Celebrations centre on family and food. Key phrases:</p>\n            <ul>\n              <li><span data-say=\"la familia se reúne\">la familia se reúne</span> — the family gets together (reflexive!)</li>\n              <li><span data-say=\"los regalos\">los regalos</span> — the presents; <span data-say=\"regalar\">regalar</span> — to give (as a present)</li>\n              <li><span data-say=\"cenar juntos\">cenar juntos</span> — to have dinner together</li>\n              <li><span data-say=\"bailar\">bailar</span> — to dance; <span data-say=\"los fuegos artificiales\">los fuegos artificiales</span> — fireworks</li>\n            </ul>\n            <p>Example: <span data-say=\"En Nochevieja, vemos los fuegos artificiales y bailamos toda la noche.\">En Nochevieja, vemos los fuegos artificiales y bailamos toda la noche.</span> — <em>On New Year's Eve, we watch the fireworks and dance all night.</em></p>\n            <p>People don't just watch — they <span data-say=\"participan\">participan</span> (take part) actively: friends <span data-say=\"invitan a toda la familia\">invitan a toda la familia</span> (invite the whole family), everyone <span data-say=\"canta\">canta</span> (sings) traditional songs, and some festivals are decorated with <span data-say=\"flores\">flores</span> (flowers). All of this creates real <span data-say=\"alegría\">alegría</span> (joy). <span data-say=\"Cuando participamos en la fiesta, cantamos, bailamos y hay mucha alegría.\">Cuando participamos en la fiesta, cantamos, bailamos y hay mucha alegría.</span> — <em>When we take part in the festival, we sing, we dance and there is a lot of joy.</em></p>",
   "question": "Why does ‘reunirse’ need ‘se’ in ‘la familia se reúne’?",
   "options": [
    "it is reflexive — the family gathers itself",
@@ -17427,7 +24067,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about costumes, processions and famous fiestas?",
-  "reading": "<p>Some celebrations involve costumes and processions:</p>\n            <ul>\n              <li><span data-say=\"disfrazarse\">disfrazarse</span> — to dress up / wear a costume; <span data-say=\"el disfraz\">el disfraz</span> — the costume</li>\n              <li><span data-say=\"la procesión\">la procesión</span> — the procession; <span data-say=\"el encierro\">el encierro</span> — the running of the bulls</li>\n            </ul>\n            <p>Famous Spanish and Hispanic festivals:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"Las Fallas\">Las Fallas</span></td><td>Valencia, March — giant sculptures are burned</td></tr>\n              <tr><td><span data-say=\"La Tomatina\">La Tomatina</span></td><td>Buñol, August — a huge tomato fight</td></tr>\n              <tr><td><span data-say=\"San Fermín\">San Fermín</span></td><td>Pamplona, July — the running of the bulls</td></tr>\n              <tr><td><span data-say=\"el Día de los Muertos\">el Día de los Muertos</span></td><td>Mexico, 1–2 November — remembering the dead</td></tr>\n            </table>\n            <p><span data-say=\"En Semana Santa hay procesiones grandes por las calles.\">En Semana Santa hay procesiones grandes por las calles.</span></p>",
+  "reading": "<p>Some celebrations involve costumes and processions:</p>\n            <ul>\n              <li><span data-say=\"disfrazarse\">disfrazarse</span> — to dress up / wear a costume; <span data-say=\"el disfraz\">el disfraz</span> — the costume</li>\n              <li><span data-say=\"la procesión\">la procesión</span> — the procession; <span data-say=\"el encierro\">el encierro</span> — the running of the bulls</li>\n            </ul>\n            <p>Famous Spanish and Hispanic festivals:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"Las Fallas\">Las Fallas</span></td><td>Valencia, March — giant sculptures are burned</td></tr>\n              <tr><td><span data-say=\"La Tomatina\">La Tomatina</span></td><td>Buñol, August — a huge tomato fight</td></tr>\n              <tr><td><span data-say=\"San Fermín\">San Fermín</span></td><td>Pamplona, July — the running of the bulls</td></tr>\n              <tr><td><span data-say=\"el Día de los Muertos\">el Día de los Muertos</span></td><td>Mexico, 1–2 November — remembering the dead</td></tr>\n            </table>\n            <p><span data-say=\"En Semana Santa hay procesiones grandes por las calles.\">En Semana Santa hay procesiones grandes por las calles.</span></p>\n            <p>These events aren't just for locals — an <span data-say=\"evento\">evento</span> (event) like San Fermín (also called <span data-say=\"los Sanfermines\">los Sanfermines</span>) can <span data-say=\"atraer\">atraer</span> (attract) thousands of visitors from other countries. People often wear a traditional <span data-say=\"traje\">traje</span> (outfit/costume) — white with a red scarf for San Fermín — and some say it feels a little <span data-say=\"loco\">loco</span> (crazy) to run in front of bulls in the <span data-say=\"plaza de toros\">plaza de toros</span> (bullring)!</p>\n            <p>Mexico's <span data-say=\"Día de Muertos\">Día de Muertos</span> (another name for el Día de los Muertos) is calmer: instead of fearing <span data-say=\"la muerte\">la muerte</span> (death), families remember those who have died with music and flowers.</p>\n            <p>Spain's religious buildings reflect its history too: alongside Catholic churches there are also a few <span data-say=\"mezquitas\">mezquitas</span> (mosques), <span data-say=\"sinagogas\">sinagogas</span> (synagogues) and ancient <span data-say=\"templos\">templos</span> (temples). If you get jostled in a crowd watching a procession, you say <span data-say=\"¡Perdón!\">¡Perdón!</span> (Sorry!); and at a children's party, a <span data-say=\"piñata rota\">piñata rota</span> (broken piñata) means the sweets have fallen out — a moment everyone walking <span data-say=\"detrás\">detrás</span> (behind) the piñata loves!</p>",
   "question": "Where does ‘La Tomatina’ take place?",
   "options": [
    "Buñol",
@@ -17448,7 +24088,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I say what happened at a festival? (preterite)",
-  "reading": "<p>Use the <strong>preterite</strong> for a completed action at a specific past festival — what happened once:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"celebramos\">celebramos</span></td><td>we celebrated</td><td><span data-say=\"fui\">fui</span></td><td>I went</td></tr>\n              <tr><td><span data-say=\"comimos\">comimos</span></td><td>we ate</td><td><span data-say=\"bailamos\">bailamos</span></td><td>we danced</td></tr>\n              <tr><td><span data-say=\"lo pasé bien\">lo pasé bien</span></td><td>I had a good time</td><td><span data-say=\"lo pasé genial\">lo pasé genial</span></td><td>I had a great time</td></tr>\n            </table>\n            <p>Example: <span data-say=\"El año pasado celebramos la Navidad en casa de mis abuelos y lo pasé genial.\">El año pasado celebramos la Navidad en casa de mis abuelos y lo pasé genial.</span> — <em>Last year we celebrated Christmas at my grandparents' house and I had a great time.</em></p>",
+  "reading": "<p>Use the <strong>preterite</strong> for a completed action at a specific past festival — what happened once:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"celebramos\">celebramos</span></td><td>we celebrated</td><td><span data-say=\"fui\">fui</span></td><td>I went</td></tr>\n              <tr><td><span data-say=\"comimos\">comimos</span></td><td>we ate</td><td><span data-say=\"bailamos\">bailamos</span></td><td>we danced</td></tr>\n              <tr><td><span data-say=\"lo pasé bien\">lo pasé bien</span></td><td>I had a good time</td><td><span data-say=\"lo pasé genial\">lo pasé genial</span></td><td>I had a great time</td></tr>\n            </table>\n            <p>Example: <span data-say=\"El año pasado celebramos la Navidad en casa de mis abuelos y lo pasé genial.\">El año pasado celebramos la Navidad en casa de mis abuelos y lo pasé genial.</span> — <em>Last year we celebrated Christmas at my grandparents' house and I had a great time.</em></p>\n            <p>You can also describe festivals from other Spanish-speaking countries using nationality adjectives: <span data-say=\"cubano\">cubano</span> (Cuban), <span data-say=\"mexicano\">mexicano</span> (Mexican), <span data-say=\"argentino\">argentino</span> (Argentine) and <span data-say=\"colombiano\">colombiano</span> (Colombian). Example: <span data-say=\"El verano pasado, fui a un festival cubano y probé la música tradicional.\">El verano pasado, fui a un festival cubano y probé la música tradicional.</span> — <em>Last summer, I went to a Cuban festival and tried the traditional music.</em></p>",
   "question": "Which time phrase signals you need the PRETERITE, not the present?",
   "options": [
    "el año pasado (last year)",
@@ -17469,7 +24109,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I say what usually happens? (imperfect / soler)",
-  "reading": "<p>For habits and things that happened <strong>repeatedly</strong>, use <strong>soler</strong> + infinitive or the imperfect tense:</p>\n            <ul>\n              <li><span data-say=\"solemos reunirnos\">solemos reunirnos</span> — we usually get together (present habit)</li>\n              <li><span data-say=\"solíamos ir\">solíamos ir</span> — we used to go (past habit) <span class=\"tier-h\">H</span></li>\n              <li><span data-say=\"normalmente celebramos\">normalmente celebramos</span> — we normally celebrate</li>\n              <li><span data-say=\"todos los años\">todos los años</span> — every year</li>\n            </ul>\n            <p>Example: <span data-say=\"Cuando era niño, solíamos ir a ver los fuegos artificiales cada Año Nuevo.\">Cuando era niño, solíamos ir a ver los fuegos artificiales cada Año Nuevo.</span> — <em>When I was a child, we used to go and see the fireworks every New Year.</em></p>",
+  "reading": "<p>For habits and things that happened <strong>repeatedly</strong>, use <strong>soler</strong> + infinitive or the imperfect tense:</p>\n            <ul>\n              <li><span data-say=\"solemos reunirnos\">solemos reunirnos</span> — we usually get together (present habit)</li>\n              <li><span data-say=\"solíamos ir\">solíamos ir</span> — we used to go (past habit) <span class=\"tier-h\">H</span></li>\n              <li><span data-say=\"normalmente celebramos\">normalmente celebramos</span> — we normally celebrate</li>\n              <li><span data-say=\"todos los años\">todos los años</span> — every year</li>\n            </ul>\n            <p>Example: <span data-say=\"Cuando era niño, solíamos ir a ver los fuegos artificiales cada Año Nuevo.\">Cuando era niño, solíamos ir a ver los fuegos artificiales cada Año Nuevo.</span> — <em>When I was a child, we used to go and see the fireworks every New Year.</em></p>\n            <p>Many festivals have a <span data-say=\"religioso\">religioso</span> (religious) origin. Spain's main <span data-say=\"religión\">religión</span> (religion) is <span data-say=\"cristiana\">cristiana</span> (Christian), specifically <span data-say=\"católica\">católica</span> (Catholic) — which is why Semana Santa is so important. But Spain is also home to <span data-say=\"judías\">judías</span> (Jewish) and <span data-say=\"musulmanas\">musulmanas</span> (Muslim) communities, who suelen celebrar (usually celebrate) their own festivals too. <span data-say=\"Mucha gente en España es católica, pero también hay comunidades judías y musulmanas que suelen celebrar sus propias fiestas.\">Mucha gente en España es católica, pero también hay comunidades judías y musulmanas que suelen celebrar sus propias fiestas.</span> — <em>Many people in Spain are Catholic, but there are also Jewish and Muslim communities who usually celebrate their own festivals.</em></p>",
   "question": "‘Solíamos ir a ver los fuegos artificiales’ describes…",
   "options": [
    "a repeated habit in the past",
@@ -17490,7 +24130,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Higher: combining preterite and imperfect",
-  "reading": "<p><span class=\"tier-h\">H</span> The strongest Higher-tier answers <strong>combine</strong> the imperfect (background/description) with the preterite (the event that interrupted it):</p>\n            <ul>\n              <li><span data-say=\"Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme.\">Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme.</span> <span class=\"tier-h\">H</span></li>\n              <li><span data-say=\"Hacía mucho calor durante La Tomatina cuando alguien me tiró un tomate.\">Hacía mucho calor durante La Tomatina cuando alguien me tiró un tomate.</span> <span class=\"tier-h\">H</span></li>\n            </ul>\n            <p>Pattern: <strong>imperfect</strong> (era / estaba / hacía…) sets the scene, <strong>preterite</strong> (preparó / tiró…) is the action that happened.</p>",
+  "reading": "<p><span class=\"tier-h\">H</span> The strongest Higher-tier answers <strong>combine</strong> the imperfect (background/description) with the preterite (the event that interrupted it):</p>\n            <ul>\n              <li><span data-say=\"Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme.\">Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme.</span> <span class=\"tier-h\">H</span></li>\n              <li><span data-say=\"Hacía mucho calor durante La Tomatina cuando alguien me tiró un tomate.\">Hacía mucho calor durante La Tomatina cuando alguien me tiró un tomate.</span> <span class=\"tier-h\">H</span></li>\n            </ul>\n            <p>Pattern: <strong>imperfect</strong> (era / estaba / hacía…) sets the scene, <strong>preterite</strong> (preparó / tiró…) is the action that happened.</p>\n            <p><span class=\"tier-h\">H</span> Another strong combination: <span data-say=\"La gente se pintaba la cara de colores cuando de repente empezaron los fuegos artificiales, y me sorprendió mucho.\">La gente se pintaba la cara de colores cuando de repente empezaron los fuegos artificiales, y me sorprendió mucho.</span> <span class=\"tier-h\">H</span> — <em>People were painting their faces with colours when suddenly the fireworks started, and it surprised me a lot.</em></p>",
   "question": "In ‘Era Navidad y toda la familia estaba en casa cuando mi abuela preparó una cena enorme’, which verb is the PRETERITE?",
   "options": [
    "preparó",
@@ -17681,10 +24321,10 @@ window.QUESTION_BANK = [
   "question": "Celebramos la _____ con mi familia el 24 de diciembre. <span data-say=\"Celebramos la Nochebuena con mi familia el 24 de diciembre.\" data-listen>Celebramos la Nochebuena con mi familia el 24 de diciembre.</span>",
   "blankOptions": {
    "B1": [
-    "solíamos",
-    "pasé",
+    "disfrazamos",
     "Nochebuena",
-    "disfrazamos"
+    "pasé",
+    "solíamos"
    ]
   },
   "key": {
@@ -17703,10 +24343,10 @@ window.QUESTION_BANK = [
   "question": "El seis de enero celebramos el día de los _____ Magos. (Three Kings)",
   "blankOptions": {
    "B1": [
-    "Nochebuena",
     "solíamos",
+    "pinta",
     "Reyes",
-    "reúne"
+    "Nochebuena"
    ]
   },
   "key": {
@@ -17725,10 +24365,10 @@ window.QUESTION_BANK = [
   "question": "En Navidad, toda la familia se _____ en casa de mis abuelos. (reunirse)",
   "blankOptions": {
    "B1": [
-    "Reyes",
-    "solíamos",
     "disfrazamos",
-    "reúne"
+    "pasé",
+    "reúne",
+    "muerte"
    ]
   },
   "key": {
@@ -17747,10 +24387,10 @@ window.QUESTION_BANK = [
   "question": "Vemos los _____ artificiales a medianoche en Nochevieja. (fireworks)",
   "blankOptions": {
    "B1": [
-    "pasé",
     "fuegos",
-    "Nochebuena",
-    "solíamos"
+    "Reyes",
+    "reúne",
+    "pasé"
    ]
   },
   "key": {
@@ -17769,10 +24409,10 @@ window.QUESTION_BANK = [
   "question": "Para Halloween, nos _____ de personajes de miedo. (disfrazarse — we dress up)",
   "blankOptions": {
    "B1": [
-    "solíamos",
-    "Reyes",
-    "pasé",
-    "disfrazamos"
+    "disfrazamos",
+    "siglo",
+    "reúne",
+    "solíamos"
    ]
   },
   "key": {
@@ -17791,10 +24431,10 @@ window.QUESTION_BANK = [
   "question": "El año pasado, lo _____ genial en la fiesta de cumpleaños. <span data-say=\"El año pasado, lo pasé genial en la fiesta de cumpleaños.\" data-listen>El año pasado, lo pasé genial en la fiesta de cumpleaños.</span>",
   "blankOptions": {
    "B1": [
-    "reúne",
-    "solíamos",
     "pasé",
-    "Reyes"
+    "reúne",
+    "fuegos",
+    "solíamos"
    ]
   },
   "key": {
@@ -17813,15 +24453,81 @@ window.QUESTION_BANK = [
   "question": "Cuando éramos pequeños, _____ ir a ver la procesión de Semana Santa. (soler, imperfect)",
   "blankOptions": {
    "B1": [
-    "pasé",
-    "Reyes",
-    "fuegos",
-    "solíamos"
+    "solíamos",
+    "siglo",
+    "Nochebuena",
+    "muerte"
    ]
   },
   "key": {
    "blanks": {
     "B1": "solíamos"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:fib:31783245",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Esta tradición tiene más de un _____ de historia. (century)",
+  "blankOptions": {
+   "B1": [
+    "pinta",
+    "pasé",
+    "reúne",
+    "siglo"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "siglo"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:fib:23d3f364",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El Día de los Muertos honra a los que ya no están, sin miedo a la _____ . (death)",
+  "blankOptions": {
+   "B1": [
+    "Nochebuena",
+    "pasé",
+    "siglo",
+    "muerte"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "muerte"
+   }
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:fib:aa9f262d",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Durante la fiesta, mucha gente se _____ la cara de colores. (pintarse — paints)",
+  "blankOptions": {
+   "B1": [
+    "solíamos",
+    "pinta",
+    "Reyes",
+    "reúne"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "pinta"
    }
   }
  },
@@ -17835,9 +24541,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “la fiesta”?",
   "options": [
    "the party / festival",
-   "Christmas Eve",
-   "Holy Week",
-   "birthday"
+   "the Three Kings",
+   "fireworks",
+   "the procession"
   ],
   "key": {
    "answer": 0,
@@ -17853,9 +24559,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “celebrar”?",
   "options": [
-   "the Three Kings",
-   "to dress up / wear a costume",
-   "the family gets together",
+   "birthday",
+   "Catholic",
+   "we usually get together",
    "to celebrate"
   ],
   "key": {
@@ -17872,10 +24578,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la Nochebuena”?",
   "options": [
-   "to celebrate",
+   "Holy Week",
    "Christmas Eve",
-   "fireworks",
-   "the family gets together"
+   "the tradition",
+   "we usually get together"
   ],
   "key": {
    "answer": 1,
@@ -17892,9 +24598,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “los Reyes Magos”?",
   "options": [
    "the Three Kings",
-   "to dress up / wear a costume",
-   "Christmas Eve",
-   "to celebrate"
+   "to sing",
+   "birthday",
+   "Christmas Eve"
   ],
   "key": {
    "answer": 0,
@@ -17910,8 +24616,8 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la Semana Santa”?",
   "options": [
-   "fireworks",
-   "Christmas Eve",
+   "joy / happiness",
+   "the family gets together",
    "the party / festival",
    "Holy Week"
   ],
@@ -17929,10 +24635,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el cumpleaños”?",
   "options": [
-   "I had a great time",
+   "the mosque",
    "birthday",
-   "we usually get together",
-   "the family gets together"
+   "Cuban",
+   "we usually get together"
   ],
   "key": {
    "answer": 1,
@@ -17948,10 +24654,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la familia se reúne”?",
   "options": [
-   "I had a great time",
-   "fireworks",
+   "the mosque",
+   "the tradition",
    "the family gets together",
-   "to celebrate"
+   "Christmas Eve"
   ],
   "key": {
    "answer": 2,
@@ -17968,9 +24674,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “los fuegos artificiales”?",
   "options": [
    "fireworks",
-   "birthday",
-   "to dress up / wear a costume",
-   "the procession"
+   "we usually get together",
+   "to sing",
+   "the event"
   ],
   "key": {
    "answer": 0,
@@ -17986,10 +24692,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “disfrazarse”?",
   "options": [
-   "Holy Week",
+   "I had a great time",
    "to dress up / wear a costume",
-   "the family gets together",
-   "I had a great time"
+   "joy / happiness",
+   "the mosque"
   ],
   "key": {
    "answer": 1,
@@ -18005,10 +24711,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la procesión”?",
   "options": [
-   "the Three Kings",
+   "fireworks",
    "the procession",
    "the party / festival",
-   "we usually get together"
+   "Cuban"
   ],
   "key": {
    "answer": 1,
@@ -18024,13 +24730,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “lo pasé genial”?",
   "options": [
+   "the event",
+   "the procession",
    "I had a great time",
-   "we usually get together",
-   "to dress up / wear a costume",
-   "Holy Week"
+   "the Three Kings"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“lo pasé genial” means: I had a great time"
   }
  },
@@ -18043,14 +24749,204 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “solemos reunirnos”?",
   "options": [
-   "the procession",
-   "I had a great time",
-   "fireworks",
+   "the mosque",
+   "the bullring",
+   "to sing",
    "we usually get together"
   ],
   "key": {
    "answer": 3,
    "explain": "“solemos reunirnos” means: we usually get together"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:1a40e244",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el rey”?",
+  "options": [
+   "the king",
+   "birthday",
+   "Catholic",
+   "the family gets together"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el rey” means: the king"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:dd933c16",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la tradición”?",
+  "options": [
+   "to dress up / wear a costume",
+   "Holy Week",
+   "the tradition",
+   "the party / festival"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la tradición” means: the tradition"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:07fb560b",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la alegría”?",
+  "options": [
+   "the king",
+   "joy / happiness",
+   "to sing",
+   "to celebrate"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la alegría” means: joy / happiness"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:a0fc1526",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “cantar”?",
+  "options": [
+   "Christmas Eve",
+   "to sing",
+   "the bullring",
+   "to dress up / wear a costume"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“cantar” means: to sing"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:4ddbb792",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “católico”?",
+  "options": [
+   "the king",
+   "Catholic",
+   "the procession",
+   "the event"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“católico” means: Catholic"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:c749737e",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el evento”?",
+  "options": [
+   "the event",
+   "to sing",
+   "Holy Week",
+   "the family gets together"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el evento” means: the event"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:9521644e",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “atraer”?",
+  "options": [
+   "to attract",
+   "we usually get together",
+   "the king",
+   "to dress up / wear a costume"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“atraer” means: to attract"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:0445e4de",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la plaza de toros”?",
+  "options": [
+   "the bullring",
+   "I had a great time",
+   "to dress up / wear a costume",
+   "to celebrate"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la plaza de toros” means: the bullring"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:0233e511",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la mezquita”?",
+  "options": [
+   "Holy Week",
+   "the mosque",
+   "the party / festival",
+   "Catholic"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la mezquita” means: the mosque"
+  }
+ },
+ {
+  "id": "spanish:5-2-festivals-and-traditions:match:8e7323da",
+  "pageId": "spanish:5-2-festivals-and-traditions",
+  "pageName": "5.2 Festivals and Traditions",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “cubano”?",
+  "options": [
+   "the procession",
+   "Cuban",
+   "to celebrate",
+   "birthday"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“cubano” means: Cuban"
   }
  },
  {
@@ -18277,6 +25173,196 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:5119c29b",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘reconocer a alguien’ mean?",
+  "options": [
+   "to recognise someone",
+   "to interview someone on the radio",
+   "to lose weight before an event",
+   "to give a short television interview"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "reconocer = to recognise. Fans often ‘reconocen’ a celebrity in the street."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:254ff4ab",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘un aficionado del fútbol’ mean?",
+  "options": [
+   "a football fan",
+   "a football referee",
+   "a professional football player",
+   "a worker at a football stadium"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "un aficionado / una aficionada = a fan or enthusiast, not a professional — that word is jugador (player)."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:2415cfcb",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘engañar a los fans’ mean?",
+  "options": [
+   "to deceive the fans",
+   "to thank the fans warmly",
+   "to meet the fans in person",
+   "to disappoint the fans slightly"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "engañar = to deceive or trick. A scandal often happens when a celebrity is caught engañando (deceiving) the public."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:f1bcac72",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Muchos famosos promueven un estilo de vida saludable. What does ‘promover’ mean?",
+  "options": [
+   "to promote",
+   "to forbid completely",
+   "to copy exactly",
+   "to criticise very heavily"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "promover = to promote. Celebrities often use their platform to promover (promote) good causes."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:f12f384d",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "In celebrity news, what does ‘un problema con las drogas’ describe?",
+  "options": [
+   "a drug problem",
+   "a money problem",
+   "a marriage problem",
+   "a problem with the press"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la droga = drug(s). This phrase is common in stories about a celebrity's struggles."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:9fda324f",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘la letra de la canción’ mean?",
+  "options": [
+   "the lyrics of the song",
+   "the melody and rhythm of a song",
+   "the price of a single song download",
+   "the length of the song in minutes"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la letra = the lyrics (of a song) — also means ‘letter’ of the alphabet in other contexts."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:e8a70673",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘un buen comportamiento’ mean?",
+  "options": [
+   "good behaviour",
+   "a good haircut",
+   "a good salary",
+   "a good relationship with fans"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el comportamiento = behaviour. The press often comments on a celebrity's comportamiento."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:06cb6763",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘relacionarse con los fans’ mean?",
+  "options": [
+   "to interact with the fans",
+   "to ignore the fans completely",
+   "to avoid meeting the fans",
+   "to sell tickets to the fans"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "relacionarse con = to interact / relate to. Many celebrities relacionarse con (interact with) fans on social media."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:a6bc403e",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which phrase correctly means ‘the best actor’?",
+  "options": [
+   "el mejor actor",
+   "el más actor",
+   "el actor mejor que",
+   "un actor más bueno"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘el mejor’ is the irregular superlative of bueno and already means ‘the best’ — Spanish never adds ‘más’ in front of it."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:mcq:6d60c470",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘Estoy seguro de que va a ganar el premio’ mean?",
+  "options": [
+   "I am sure that she is going to win the prize",
+   "I am afraid that she is going to lose the prize",
+   "I hope that she is going to win the prize eventually",
+   "I doubt that she is ever going to win the prize"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "estar seguro de que = to be sure that. The other options change the meaning to fear, hope or doubt."
+  }
+ },
+ {
   "id": "spanish:6-1-celebrities-influencers-and-fame:tf:4550d6ee",
   "pageId": "spanish:6-1-celebrities-influencers-and-fame",
   "pageName": "6.1 Celebrities, Influencers and Fame",
@@ -18378,6 +25464,71 @@ window.QUESTION_BANK = [
   "key": {
    "answer": false,
    "explain": "Losing your privacy (perder la privacidad) is a DISADVANTAGE, not an advantage."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:5b42cbea",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Estoy seguro de que…’ means ‘I doubt that…’.",
+  "key": {
+   "answer": false,
+   "explain": "estar seguro de que = to be sure that — the opposite of doubting (dudar que)."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:903eb1b8",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘el mejor actor’ means ‘the best actor’.",
+  "key": {
+   "answer": true,
+   "explain": "el mejor is the irregular superlative of bueno, meaning ‘the best’."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:3e73d192",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Se separaron el año pasado’ means they got married last year.",
+  "key": {
+   "answer": false,
+   "explain": "separarse = to split up, the opposite of casarse (to get married)."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:c5c45e65",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘la telerrealidad’ refers to reality TV shows.",
+  "key": {
+   "answer": true,
+   "explain": "la telerrealidad = reality TV, a genre closely linked to celebrity culture."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:tf:8f459c01",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Tiene mucho talento’ means ‘she has a lot of luck’.",
+  "key": {
+   "answer": false,
+   "explain": "el talento = talent; luck is la suerte — a common mix-up."
   }
  },
  {
@@ -18504,6 +25655,111 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "no creo que + subjunctive → sea. Option B wrongly uses the indicative ‘es’ (plus ‘de verdad’, really); C uses the subjunctive after a POSITIVE opinion by mistake."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:learn:0c551198",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Love, marriage and family status",
+  "reading": "<p>Celebrity gossip often centres on <span data-say=\"el amor\">el amor</span> (love) and <span data-say=\"la relación\">la relación</span> (relationship). Two people who are together are <span data-say=\"la pareja\">la pareja</span> (a couple/partner).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"casarse con\">casarse (con)</span></td><td>to get married (to)</td><td><span data-say=\"casado\">casado / casada</span></td><td>married</td></tr>\n              <tr><td><span data-say=\"el matrimonio\">el matrimonio</span></td><td>marriage</td><td><span data-say=\"el marido\">el marido</span></td><td>husband</td></tr>\n              <tr><td><span data-say=\"separarse\">separarse</span></td><td>to split up</td><td><span data-say=\"divorciarse\">divorciarse</span></td><td>to get divorced</td></tr>\n              <tr><td><span data-say=\"soltero\">soltero / soltera</span></td><td>single</td><td><span data-say=\"nacer\">nacer</span></td><td>to be born</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"La actriz se casó con el cantante en 2019, pero se separaron el año pasado y ahora está soltera otra vez.\">La actriz se casó con el cantante en 2019, pero se separaron el año pasado y ahora está soltera otra vez.</span> — <em>The actress married the singer in 2019, but they split up last year and now she is single again.</em></p>\n            <p>Sadly, some stars have <span data-say=\"muerto\">muerto</span> (died) young — the press calls this a tragedy.</p>",
+  "question": "What does ‘se separaron’ mean?",
+  "options": [
+   "they split up",
+   "they got married",
+   "they were born",
+   "they became famous overnight"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "separarse = to split up / separate. It is the opposite of casarse (to get married)."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:learn:d7c7f5e4",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Media: press, TV, radio and interviews",
+  "reading": "<p>Fame is created and spread by <span data-say=\"los medios de comunicación\">los medios de comunicación</span> (the media): <span data-say=\"la prensa\">la prensa</span> (the press), <span data-say=\"la radio\">la radio</span> (radio) and <span data-say=\"la tele\">la tele</span> / <span data-say=\"la televisión\">la televisión</span> (TV).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la entrevista\">la entrevista</span></td><td>the interview</td><td><span data-say=\"el comentario\">el comentario</span></td><td>comment</td></tr>\n              <tr><td><span data-say=\"el anuncio\">el anuncio</span></td><td>advert / announcement</td><td><span data-say=\"el espectáculo\">el espectáculo</span></td><td>the show</td></tr>\n              <tr><td><span data-say=\"grabar\">grabar</span></td><td>to record</td><td><span data-say=\"el sonido\">el sonido</span></td><td>sound</td></tr>\n              <tr><td><span data-say=\"digital\">digital</span> <span class=\"tier-h\">H</span></td><td>digital</td><td><span data-say=\"la telerrealidad\">la telerrealidad</span></td><td>reality TV</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"En la entrevista, la estrella hizo un comentario sobre la telerrealidad y luego grabó un anuncio para la tele.\">En la entrevista, la estrella hizo un comentario sobre la telerrealidad y luego grabó un anuncio para la tele.</span> — <em>In the interview, the star made a comment about reality TV and then recorded an advert for TV.</em></p>",
+  "question": "What is ‘la telerrealidad’?",
+  "options": [
+   "reality TV",
+   "a local radio station",
+   "a newspaper article",
+   "a live outdoor concert"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la telerrealidad = reality TV, a TV genre often linked to celebrity culture."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:learn:bc349a52",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Fame, society, nation and politics",
+  "reading": "<p>Some celebrities use their fame to talk about <span data-say=\"la sociedad\">la sociedad</span> (society) and <span data-say=\"la política\">la política</span> <span class=\"tier-h\">H</span> (politics) — for example, encouraging fans to <span data-say=\"votar\">votar</span> (to vote).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"nacional\">nacional</span> <span class=\"tier-h\">H</span></td><td>national</td><td><span data-say=\"internacional\">internacional</span> <span class=\"tier-h\">H</span></td><td>international</td></tr>\n              <tr><td><span data-say=\"mundial\">mundial</span> <span class=\"tier-h\">H</span></td><td>world(wide)</td><td><span data-say=\"la cultura\">la cultura</span></td><td>culture</td></tr>\n              <tr><td><span data-say=\"cultural\">cultural</span></td><td>cultural</td><td><span data-say=\"la identidad\">la identidad</span></td><td>identity</td></tr>\n              <tr><td><span data-say=\"la nacionalidad\">la nacionalidad</span> <span class=\"tier-h\">H</span></td><td>nationality</td><td><span data-say=\"la discriminación\">la discriminación</span> <span class=\"tier-h\">H</span></td><td>discrimination</td></tr>\n              <tr><td><span data-say=\"el conflicto\">el conflicto</span> <span class=\"tier-h\">H</span></td><td>conflict</td><td><span data-say=\"la víctima\">la víctima</span> <span class=\"tier-h\">H</span></td><td>victim</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Es una cantante de fama mundial que habla sobre la discriminación en la sociedad y anima a sus fans a votar.\">Es una cantante de fama mundial que habla sobre la discriminación en la sociedad y anima a sus fans a votar.</span> — <em>She is a singer of worldwide fame who talks about discrimination in society and encourages her fans to vote.</em></p>\n            <p>Some celebrities campaign for the <span data-say=\"la realidad\">la realidad</span> (reality) of the <span data-say=\"víctimas\">víctimas</span> of conflict to be taken seriously.</p>",
+  "question": "What does ‘la discriminación’ mean?",
+  "options": [
+   "discrimination",
+   "a discount on a concert ticket",
+   "a type of TV discussion show",
+   "a national election result"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la discriminación = discrimination — many celebrities campaign against it in society."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:learn:633f8c13",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Careers in the arts and sport",
+  "reading": "<p>Fame comes from many different careers — <span data-say=\"la carrera\">la carrera</span> (career). Someone creative is <span data-say=\"el artista\">el artista / la artista</span> (artist).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el escritor\">el escritor / la escritora</span></td><td>writer</td><td><span data-say=\"el autor\">el autor / la autora</span></td><td>author</td></tr>\n              <tr><td><span data-say=\"el músico\">el músico / la música</span></td><td>musician</td><td><span data-say=\"la banda\">la banda</span></td><td>band</td></tr>\n              <tr><td><span data-say=\"el pintor\">el pintor / la pintora</span></td><td>painter</td><td><span data-say=\"el protagonista\">el/la protagonista</span> <span class=\"tier-h\">H</span></td><td>main character</td></tr>\n              <tr><td><span data-say=\"el deportista\">el/la deportista</span></td><td>sportsperson</td><td><span data-say=\"el jugador\">el jugador / la jugadora</span></td><td>player</td></tr>\n              <tr><td><span data-say=\"el personaje\">el personaje</span></td><td>the character</td><td><span data-say=\"la obra\">la obra</span> <span class=\"tier-h\">H</span></td><td>the (creative) work</td></tr>\n            </table>\n            <p>To start something new, use <span data-say=\"fundar\">fundar</span> <span class=\"tier-h\">H</span> (to found) and <span data-say=\"dirigir\">dirigir</span> <span class=\"tier-h\">H</span> (to direct/manage). Example: <span data-say=\"El escritor fundó su propia editorial y ahora dirige un nuevo proyecto en la industria musical.\">El escritor fundó su propia editorial y ahora dirige un nuevo proyecto en la industria musical.</span> — <em>The writer founded his own publishing house and now directs a new project in the music industry.</em></p>",
+  "question": "What does ‘dirigir’ mean in this context?",
+  "options": [
+   "to direct or manage",
+   "to write a whole song's lyrics",
+   "to sell tickets for a concert",
+   "to give a short television interview"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "dirigir = to direct or manage (a project, a company, a film)."
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:learn:f1749651",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Personality, talent, image and trends",
+  "reading": "<p>Fans often discuss a celebrity's <span data-say=\"la personalidad\">la personalidad</span> (personality) and <span data-say=\"el carácter\">el carácter</span> (character) — plus their <span data-say=\"la imagen\">la imagen</span> (image) and <span data-say=\"el estilo\">el estilo</span> (style).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el talento\">el talento</span> <span class=\"tier-h\">H</span></td><td>talent</td><td><span data-say=\"la generación\">la generación</span> <span class=\"tier-h\">H</span></td><td>generation</td></tr>\n              <tr><td><span data-say=\"artístico\">artístico / artística</span></td><td>artistic</td><td><span data-say=\"musical\">musical</span></td><td>musical</td></tr>\n              <tr><td><span data-say=\"la moda\">la moda</span></td><td>fashion</td><td><span data-say=\"de moda\">de moda</span></td><td>fashionable / trendy</td></tr>\n              <tr><td><span data-say=\"la tendencia\">la tendencia</span> <span class=\"tier-h\">H</span></td><td>trend</td><td><span data-say=\"el lujo\">el lujo</span> <span class=\"tier-h\">H</span></td><td>luxury</td></tr>\n              <tr><td><span data-say=\"el sueño\">el sueño</span></td><td>dream</td><td><span data-say=\"la imaginación\">la imaginación</span> <span class=\"tier-h\">H</span></td><td>imagination</td></tr>\n              <tr><td><span data-say=\"orgulloso\">orgulloso / orgullosa</span> <span class=\"tier-h\">H</span></td><td>proud</td><td><span data-say=\"apropiado\">apropiado / apropiada</span> <span class=\"tier-h\">H</span></td><td>appropriate</td></tr>\n              <tr><td><span data-say=\"guapo\">guapo / guapa</span></td><td>good-looking</td><td colspan=\"2\"></td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Tiene mucho talento e imaginación, siempre lleva ropa de moda y está muy orgullosa de su estilo artístico.\">Tiene mucho talento e imaginación, siempre lleva ropa de moda y está muy orgullosa de su estilo artístico.</span> — <em>She has a lot of talent and imagination, she always wears fashionable clothes and is very proud of her artistic style.</em></p>",
+  "question": "What does ‘orgullosa’ describe in this sentence?",
+  "options": [
+   "feeling proud",
+   "feeling embarrassed",
+   "feeling completely exhausted",
+   "feeling nervous about an interview"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "orgulloso/orgullosa = proud. It agrees in gender with the person it describes."
   }
  },
  {
@@ -18684,10 +25940,10 @@ window.QUESTION_BANK = [
   "question": "Mi ídolo es una _____. <span data-say=\"Mi ídolo es una cantante.\" data-listen>Mi ídolo es una cantante.</span>",
   "blankOptions": {
    "B1": [
+    "llorar",
     "cantante",
-    "sienten",
-    "privacidad",
-    "benéficas"
+    "popular",
+    "marca"
    ]
   },
   "key": {
@@ -18706,10 +25962,10 @@ window.QUESTION_BANK = [
   "question": "Los famosos _____ mucha presión. <span data-say=\"Los famosos sienten mucha presión.\" data-listen>Los famosos sienten mucha presión.</span>",
   "blankOptions": {
    "B1": [
-    "privacidad",
-    "a",
+    "actuación",
+    "miembro",
     "sienten",
-    "sea"
+    "benéficas"
    ]
   },
   "key": {
@@ -18728,10 +25984,10 @@ window.QUESTION_BANK = [
   "question": "Sigo _____ mi cantante favorita en Instagram. (the personal preposition before a person)",
   "blankOptions": {
    "B1": [
-    "privacidad",
-    "sea",
-    "benéficas",
-    "a"
+    "marca",
+    "a",
+    "especial",
+    "popular"
    ]
   },
   "key": {
@@ -18750,10 +26006,10 @@ window.QUESTION_BANK = [
   "question": "Creo que _____ un buen modelo a seguir. (to be — present tense, positive opinion)",
   "blankOptions": {
    "B1": [
+    "es",
+    "premio",
     "sea",
-    "privacidad",
-    "benéficas",
-    "es"
+    "impuesto"
    ]
   },
   "key": {
@@ -18772,10 +26028,10 @@ window.QUESTION_BANK = [
   "question": "No creo que la fama _____ fácil. (H — to be, subjunctive after a negative opinion)",
   "blankOptions": {
    "B1": [
-    "es",
-    "cantante",
-    "sienten",
-    "sea"
+    "sea",
+    "a",
+    "impuesto",
+    "nombre"
    ]
   },
   "key": {
@@ -18794,10 +26050,10 @@ window.QUESTION_BANK = [
   "question": "Los famosos pierden la _____. (privacy)",
   "blankOptions": {
    "B1": [
-    "sea",
-    "a",
+    "premio",
+    "marca",
     "privacidad",
-    "es"
+    "juegas"
    ]
   },
   "key": {
@@ -18817,14 +26073,256 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "benéficas",
-    "es",
+    "nombre",
     "sea",
-    "cantante"
+    "a"
    ]
   },
   "key": {
    "blanks": {
     "B1": "benéficas"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:c6cd88d8",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Su _____ artístico es distinto de su identidad legal real. (stage name)",
+  "blankOptions": {
+   "B1": [
+    "cantante",
+    "nombre",
+    "privacidad",
+    "sienten"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "nombre"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:fc88e92e",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Tú _____ un papel muy importante en esta película, ¿verdad? (you play — tú form)",
+  "blankOptions": {
+   "B1": [
+    "nombre",
+    "especial",
+    "marca",
+    "juegas"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "juegas"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:79f256ab",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Esta estrella tiene un talento muy _____ para la música. (special)",
+  "blankOptions": {
+   "B1": [
+    "llorar",
+    "benéficas",
+    "especial",
+    "marca"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "especial"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:9f3d19fc",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Ella es _____ del grupo desde 2015. (member)",
+  "blankOptions": {
+   "B1": [
+    "es",
+    "miembro",
+    "a",
+    "especial"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "miembro"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:43078e69",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El actor empezó a _____ durante la entrevista emotiva. (to cry)",
+  "blankOptions": {
+   "B1": [
+    "popular",
+    "premio",
+    "llorar",
+    "sea"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "llorar"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:7530a271",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Los famosos ricos tienen que pagar mucho _____ cada año. (tax)",
+  "blankOptions": {
+   "B1": [
+    "es",
+    "respeto",
+    "impuesto",
+    "sea"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "impuesto"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:3b85133a",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Esta cantante es muy _____ entre los jóvenes. (popular)",
+  "blankOptions": {
+   "B1": [
+    "benéficas",
+    "popular",
+    "juegas",
+    "llorar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "popular"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:25e4b06f",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Ganó un _____ importante por su nuevo álbum. (prize)",
+  "blankOptions": {
+   "B1": [
+    "impuesto",
+    "popular",
+    "llorar",
+    "premio"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "premio"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:828454bf",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Los fans le tienen mucho _____ a su ídolo. (respect)",
+  "blankOptions": {
+   "B1": [
+    "respeto",
+    "juegas",
+    "a",
+    "miembro"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "respeto"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:ea9efd85",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El futbolista tiene su propia _____ de ropa deportiva. (brand)",
+  "blankOptions": {
+   "B1": [
+    "actuación",
+    "marca",
+    "popular",
+    "llorar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "marca"
+   }
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:fib:564c266c",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Todo el público aplaudió su _____ en el concierto. (H — performance)",
+  "blankOptions": {
+   "B1": [
+    "sienten",
+    "popular",
+    "nombre",
+    "actuación"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "actuación"
    }
   }
  },
@@ -18837,13 +26335,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “famoso / famosa”?",
   "options": [
-   "to be successful",
-   "famous",
+   "cool / great (informal)",
    "to give money to charities",
-   "singer"
+   "famous",
+   "to be successful"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“famoso / famosa” means: famous"
   }
  },
@@ -18857,9 +26355,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “la fama”?",
   "options": [
    "fame",
-   "singer",
-   "actor / actress",
-   "social media"
+   "the best",
+   "sure / safe",
+   "nowadays / currently (false friend – not ‘actually’)"
   ],
   "key": {
    "answer": 0,
@@ -18875,13 +26373,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la estrella”?",
   "options": [
-   "my idol",
-   "footballer",
-   "to be successful",
-   "the star (celebrity)"
+   "next",
+   "good morning",
+   "the star (celebrity)",
+   "September"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“la estrella” means: the star (celebrity)"
   }
  },
@@ -18894,10 +26392,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el/la cantante”?",
   "options": [
-   "actor / actress",
+   "the beginning / principle",
    "singer",
-   "to follow (someone)",
-   "my idol"
+   "the event",
+   "September"
   ],
   "key": {
    "answer": 1,
@@ -18913,10 +26411,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el actor / la actriz”?",
   "options": [
-   "singer",
-   "follower",
+   "the way / manner",
+   "negative",
    "actor / actress",
-   "social media"
+   "the distance"
   ],
   "key": {
    "answer": 2,
@@ -18932,10 +26430,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el/la futbolista”?",
   "options": [
-   "the star (celebrity)",
+   "to be successful",
    "footballer",
-   "my idol",
-   "famous"
+   "singer",
+   "cool / great (informal)"
   ],
   "key": {
    "answer": 1,
@@ -18952,9 +26450,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “las redes sociales”?",
   "options": [
    "social media",
-   "famous",
-   "follower",
-   "actor / actress"
+   "fame",
+   "negative",
+   "the object"
   ],
   "key": {
    "answer": 0,
@@ -18970,13 +26468,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “seguir a (alguien)”?",
   "options": [
-   "follower",
-   "my idol",
-   "to give money to charities",
-   "to follow (someone)"
+   "to follow (someone)",
+   "a lot (of) / loads (of)",
+   "the initiative",
+   "September"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“seguir a (alguien)” means: to follow (someone)"
   }
  },
@@ -18989,10 +26487,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el/la seguidor(a)”?",
   "options": [
-   "actor / actress",
-   "to give money to charities",
+   "the object",
+   "mine",
    "follower",
-   "to follow (someone)"
+   "a lot (of) / loads (of)"
   ],
   "key": {
    "answer": 2,
@@ -19008,13 +26506,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “tener éxito”?",
   "options": [
-   "to give money to charities",
-   "to follow (someone)",
+   "a lot (of) / loads (of)",
    "to be successful",
-   "footballer"
+   "shame / pity (¡qué pena! = what a shame!)",
+   "the difference"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“tener éxito” means: to be successful"
   }
  },
@@ -19027,13 +26525,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “mi ídolo”?",
   "options": [
+   "permission",
+   "follower",
    "my idol",
-   "to be successful",
-   "to follow (someone)",
    "the star (celebrity)"
   ],
   "key": {
-   "answer": 0,
+   "answer": 2,
    "explain": "“mi ídolo” means: my idol"
   }
  },
@@ -19046,14 +26544,470 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “dar dinero a organizaciones benéficas”?",
   "options": [
-   "fame",
    "to follow (someone)",
-   "footballer",
+   "negative",
+   "the distance",
    "to give money to charities"
   ],
   "key": {
    "answer": 3,
    "explain": "“dar dinero a organizaciones benéficas” means: to give money to charities"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:5f340a6f",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el mejor / la mejor”?",
+  "options": [
+   "the best",
+   "March",
+   "next",
+   "footballer"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el mejor / la mejor” means: the best"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:3791f2dc",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la manera”?",
+  "options": [
+   "actor / actress",
+   "nowadays / currently (false friend – not ‘actually’)",
+   "the way / manner",
+   "my idol"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la manera” means: the way / manner"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:97222b79",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “igual”?",
+  "options": [
+   "September",
+   "Tuesday",
+   "equal / the same",
+   "the expression"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“igual” means: equal / the same"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:626dc61e",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el principio”?",
+  "options": [
+   "the beginning / principle",
+   "sure / safe",
+   "mine",
+   "Tuesday"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el principio” means: the beginning / principle"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:4db989f1",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “seguro / segura”?",
+  "options": [
+   "sure / safe",
+   "the best",
+   "the distance",
+   "permission"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“seguro / segura” means: sure / safe"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:10de305d",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “próximo / próxima”?",
+  "options": [
+   "next",
+   "good morning",
+   "March",
+   "footballer"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“próximo / próxima” means: next"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:a889657c",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la diferencia”?",
+  "options": [
+   "the expression",
+   "the distance",
+   "the difference",
+   "a lot (of) / loads (of)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la diferencia” means: the difference"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:19c2b425",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el objeto”?",
+  "options": [
+   "the object",
+   "the distance",
+   "mine",
+   "to be successful"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el objeto” means: the object"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:875e08d5",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “mío / mía”?",
+  "options": [
+   "mine",
+   "actor / actress",
+   "the distance",
+   "the expression"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“mío / mía” means: mine"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:0138b834",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la pena”?",
+  "options": [
+   "the initiative",
+   "March",
+   "the event",
+   "shame / pity (¡qué pena! = what a shame!)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“la pena” means: shame / pity (¡qué pena! = what a shame!)"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:554ba1d8",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la expresión”?",
+  "options": [
+   "permission",
+   "the expression",
+   "the event",
+   "footballer"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la expresión” means: the expression"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:44a8ce82",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la distancia”?",
+  "options": [
+   "sure / safe",
+   "mine",
+   "the distance",
+   "willing"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la distancia” means: the distance"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:656d3251",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “actualmente”?",
+  "options": [
+   "to be successful",
+   "footballer",
+   "the object",
+   "nowadays / currently (false friend – not ‘actually’)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“actualmente” means: nowadays / currently (false friend – not ‘actually’)"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:5d2fe1b0",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “septiembre”?",
+  "options": [
+   "to follow (someone)",
+   "September",
+   "the initiative",
+   "the difference"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“septiembre” means: September"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:7695770d",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “marzo”?",
+  "options": [
+   "Tuesday",
+   "March",
+   "the way / manner",
+   "the distance"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“marzo” means: March"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:e34c68d0",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “dispuesto / dispuesta”?",
+  "options": [
+   "willing",
+   "sure / safe",
+   "the star (celebrity)",
+   "famous"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“dispuesto / dispuesta” means: willing"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:c749737e",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el evento”?",
+  "options": [
+   "the event",
+   "March",
+   "the object",
+   "shame / pity (¡qué pena! = what a shame!)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el evento” means: the event"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:e3295dbe",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la iniciativa”?",
+  "options": [
+   "willing",
+   "the distance",
+   "mine",
+   "the initiative"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“la iniciativa” means: the initiative"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:388d18b3",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “un montón (de)”?",
+  "options": [
+   "actor / actress",
+   "famous",
+   "next",
+   "a lot (of) / loads (of)"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“un montón (de)” means: a lot (of) / loads (of)"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:0d850be7",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “negativo / negativa”?",
+  "options": [
+   "the way / manner",
+   "my idol",
+   "negative",
+   "cool / great (informal)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“negativo / negativa” means: negative"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:2abe59d2",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el permiso”?",
+  "options": [
+   "to give money to charities",
+   "the star (celebrity)",
+   "permission",
+   "singer"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el permiso” means: permission"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:fb2577d5",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el martes”?",
+  "options": [
+   "Tuesday",
+   "social media",
+   "the object",
+   "my idol"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el martes” means: Tuesday"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:e51207ad",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “buenos días”?",
+  "options": [
+   "follower",
+   "nowadays / currently (false friend – not ‘actually’)",
+   "good morning",
+   "March"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“buenos días” means: good morning"
+  }
+ },
+ {
+  "id": "spanish:6-1-celebrities-influencers-and-fame:match:193c01c7",
+  "pageId": "spanish:6-1-celebrities-influencers-and-fame",
+  "pageName": "6.1 Celebrities, Influencers and Fame",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “guay”?",
+  "options": [
+   "nowadays / currently (false friend – not ‘actually’)",
+   "the star (celebrity)",
+   "cool / great (informal)",
+   "the best"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“guay” means: cool / great (informal)"
   }
  },
  {
@@ -19280,6 +27234,63 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:7-1-holidays-transport-and-places:mcq:7627356e",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘disfrutar de las vacaciones’ mean?",
+  "options": [
+   "to enjoy the holidays",
+   "to complain about the holidays",
+   "to book the holidays online",
+   "to postpone the holidays again"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "disfrutar de = to enjoy. The distractors are other real holiday-related actions students confuse it with."
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:mcq:4448ed6c",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘el hotel estaba lleno’ mean?",
+  "options": [
+   "the hotel was full",
+   "the hotel was very cheap (barato)",
+   "the hotel was very expensive (caro)",
+   "the hotel was completely empty"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "lleno = full. barato = cheap and caro = expensive are real distractor nouns from the same accommodation vocabulary; ‘empty’ is the opposite meaning."
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:mcq:cd58a284",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘un billete de ida y vuelta directo’ mean?",
+  "options": [
+   "a direct return ticket",
+   "a one-way ticket with two changes",
+   "a cheap last-minute single ticket",
+   "a delayed connecting flight ticket"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "billete de ida y vuelta = return ticket; directo = direct (no changes). The distractors invent plausible but wrong ticket types."
+  }
+ },
+ {
   "id": "spanish:7-1-holidays-transport-and-places:tf:89490509",
   "pageId": "spanish:7-1-holidays-transport-and-places",
   "pageName": "7.1 Holidays, Transport and Places",
@@ -19384,6 +27395,32 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:7-1-holidays-transport-and-places:tf:02504411",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Practicar deportes’ means ‘to practise sports’.",
+  "key": {
+   "answer": true,
+   "explain": "practicar = to practise/do (an activity); deportes = sports."
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:tf:63da4923",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘La letra pequeña’ means ‘the big letter’.",
+  "key": {
+   "answer": false,
+   "explain": "la letra pequeña = the small print (literally ‘the small letter’); pequeña = small, not big."
+  }
+ },
+ {
   "id": "spanish:7-1-holidays-transport-and-places:learn:3541e433",
   "pageId": "spanish:7-1-holidays-transport-and-places",
   "pageName": "7.1 Holidays, Transport and Places",
@@ -19391,7 +27428,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about holidays and places?",
-  "reading": "<p>The key expression is <span data-say=\"ir de vacaciones\">ir de vacaciones</span> (to go on holiday). Here is the core vocabulary for holiday destinations — tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"las vacaciones\">las vacaciones</span></td><td>holidays</td><td><span data-say=\"ir de vacaciones\">ir de vacaciones</span></td><td>to go on holiday</td></tr>\n              <tr><td><span data-say=\"la playa\">la playa</span></td><td>the beach</td><td><span data-say=\"la montaña\">la montaña</span></td><td>the mountain</td></tr>\n              <tr><td><span data-say=\"el campo\">el campo</span></td><td>the countryside</td><td><span data-say=\"el pasaporte\">el pasaporte</span></td><td>passport</td></tr>\n              <tr><td><span data-say=\"el turista\">el turista</span></td><td>tourist (m)</td><td><span data-say=\"la turista\">la turista</span></td><td>tourist (f)</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"En verano, me gusta ir de vacaciones a la playa.\">En verano, me gusta ir de vacaciones a la playa.</span> — <em>In summer, I like to go on holiday to the beach.</em></p>",
+  "reading": "<p>The key expression is <span data-say=\"ir de vacaciones\">ir de vacaciones</span> (to go on holiday). Here is the core vocabulary for holiday destinations — tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"las vacaciones\">las vacaciones</span></td><td>holidays</td><td><span data-say=\"ir de vacaciones\">ir de vacaciones</span></td><td>to go on holiday</td></tr>\n              <tr><td><span data-say=\"la playa\">la playa</span></td><td>the beach</td><td><span data-say=\"la montaña\">la montaña</span></td><td>the mountain</td></tr>\n              <tr><td><span data-say=\"el campo\">el campo</span></td><td>the countryside</td><td><span data-say=\"el pasaporte\">el pasaporte</span></td><td>passport</td></tr>\n              <tr><td><span data-say=\"el turista\">el turista</span></td><td>tourist (m)</td><td><span data-say=\"la turista\">la turista</span></td><td>tourist (f)</td></tr>\n              <tr><td><span data-say=\"Sudamérica\">Sudamérica</span></td><td>South America</td><td><span data-say=\"disfrutar de\">disfrutar de</span></td><td>to enjoy</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"En verano, me gusta ir de vacaciones a la playa.\">En verano, me gusta ir de vacaciones a la playa.</span> — <em>In summer, I like to go on holiday to the beach.</em></p>\n            <p>Some students dream of travelling further afield: <span data-say=\"Me gustaría viajar a Sudamérica y disfrutar de la cultura.\">Me gustaría viajar a Sudamérica y disfrutar de la cultura.</span> — <em>I would like to travel to South America and enjoy the culture.</em></p>",
   "question": "What does ‘la montaña’ mean?",
   "options": [
    "the mountain",
@@ -19412,7 +27449,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about accommodation?",
-  "reading": "<p>To describe where you stay, you need these nouns and verbs — tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el hotel\">el hotel</span></td><td>the hotel</td><td><span data-say=\"el camping\">el camping</span></td><td>the campsite</td></tr>\n              <tr><td><span data-say=\"la maleta\">la maleta</span></td><td>the suitcase</td><td><span data-say=\"reservar\">reservar</span></td><td>to book</td></tr>\n              <tr><td><span data-say=\"la habitación\">la habitación</span></td><td>the room</td><td><span data-say=\"alojarse\">alojarse</span></td><td>to stay (lodge)</td></tr>\n              <tr><td><span data-say=\"quedarse\">quedarse</span></td><td>to stay</td><td><span data-say=\"hacer la maleta\">hacer la maleta</span></td><td>to pack</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Reservé una habitación en un hotel cerca de la playa.\">Reservé una habitación en un hotel cerca de la playa.</span> — <em>I booked a room in a hotel near the beach.</em></p>",
+  "reading": "<p>To describe where you stay, you need these nouns and verbs — tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el hotel\">el hotel</span></td><td>the hotel</td><td><span data-say=\"el camping\">el camping</span></td><td>the campsite</td></tr>\n              <tr><td><span data-say=\"la maleta\">la maleta</span></td><td>the suitcase</td><td><span data-say=\"reservar\">reservar</span></td><td>to book</td></tr>\n              <tr><td><span data-say=\"la habitación\">la habitación</span></td><td>the room</td><td><span data-say=\"alojarse\">alojarse</span></td><td>to stay (lodge)</td></tr>\n              <tr><td><span data-say=\"quedarse\">quedarse</span></td><td>to stay</td><td><span data-say=\"hacer la maleta\">hacer la maleta</span></td><td>to pack</td></tr>\n              <tr><td><span data-say=\"el alojamiento\">el alojamiento</span></td><td>the accommodation</td><td><span data-say=\"la llave\">la llave</span></td><td>the key</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Reservé una habitación en un hotel cerca de la playa.\">Reservé una habitación en un hotel cerca de la playa.</span> — <em>I booked a room in a hotel near the beach.</em></p>\n            <p>Not everything goes to plan: <span data-say=\"El alojamiento era barato, pero tuve que quejarme porque el hotel estaba lleno.\">El alojamiento era barato, pero tuve que quejarme porque el hotel estaba lleno.</span> — <em>The accommodation was cheap, but I had to complain because the hotel was full.</em> <span data-say=\"El otro hotel era más caro, pero tenía la llave lista para nosotros.\">El otro hotel era más caro, pero tenía la llave lista para nosotros.</span> — <em>The other hotel was more expensive, but had the key ready for us.</em></p>\n            <p>When booking, remember to check the date: <span data-say=\"Reservé el alojamiento para el diez de octubre.\">Reservé el alojamiento para el diez de octubre.</span> — <em>I booked the accommodation for the tenth of October.</em> <span data-say=\"No podía cambiar la fecha de la reserva.\">No podía cambiar la fecha de la reserva.</span> — <em>I couldn't change the date of the booking.</em></p>",
   "question": "What does ‘la habitación’ mean?",
   "options": [
    "the room",
@@ -19433,7 +27470,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about transport?",
-  "reading": "<p>Use <strong>viajar en</strong> + transport (to travel by), or <strong>coger</strong>/<strong>tomar</strong> (to catch/take) + transport. Note that Spanish uses <strong>en</strong>, not ‘by’.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el tren\">el tren</span></td><td>the train</td><td><span data-say=\"el avión\">el avión</span></td><td>the plane</td></tr>\n              <tr><td><span data-say=\"el autobús\">el autobús</span></td><td>the bus</td><td><span data-say=\"el coche\">el coche</span></td><td>the car</td></tr>\n              <tr><td><span data-say=\"el barco\">el barco</span></td><td>the boat</td><td><span data-say=\"la bicicleta\">la bicicleta</span></td><td>the bicycle</td></tr>\n              <tr><td><span data-say=\"coger el tren\">coger el tren</span></td><td>to catch the train</td><td><span data-say=\"tomar el autobús\">tomar el autobús</span></td><td>to take the bus</td></tr>\n            </table>\n            <p>Model sentences: <span data-say=\"Normalmente viajamos en avión, pero el año pasado cogimos el tren.\">Normalmente viajamos en avión, pero el año pasado cogimos el tren.</span> — <em>We normally travel by plane, but last year we caught the train.</em> <span data-say=\"Mis padres siempre viajan en coche.\">Mis padres siempre viajan en coche.</span> — <em>My parents always travel by car.</em></p>",
+  "reading": "<p>Use <strong>viajar en</strong> + transport (to travel by), or <strong>coger</strong>/<strong>tomar</strong> (to catch/take) + transport. Note that Spanish uses <strong>en</strong>, not ‘by’.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el tren\">el tren</span></td><td>the train</td><td><span data-say=\"el avión\">el avión</span></td><td>the plane</td></tr>\n              <tr><td><span data-say=\"el autobús\">el autobús</span></td><td>the bus</td><td><span data-say=\"el coche\">el coche</span></td><td>the car</td></tr>\n              <tr><td><span data-say=\"el barco\">el barco</span></td><td>the boat</td><td><span data-say=\"la bicicleta\">la bicicleta</span></td><td>the bicycle</td></tr>\n              <tr><td><span data-say=\"coger el tren\">coger el tren</span></td><td>to catch the train</td><td><span data-say=\"tomar el autobús\">tomar el autobús</span></td><td>to take the bus</td></tr>\n              <tr><td><span data-say=\"el billete\">el billete</span></td><td>the ticket</td><td><span data-say=\"un vuelo directo\">un vuelo directo</span></td><td>a direct flight</td></tr>\n            </table>\n            <p>Model sentences: <span data-say=\"Normalmente viajamos en avión, pero el año pasado cogimos el tren.\">Normalmente viajamos en avión, pero el año pasado cogimos el tren.</span> — <em>We normally travel by plane, but last year we caught the train.</em> <span data-say=\"Mis padres siempre viajan en coche.\">Mis padres siempre viajan en coche.</span> — <em>My parents always travel by car.</em></p>\n            <p>Buying tickets takes care: <span data-say=\"Antes de comprar el billete, lee la letra pequeña.\">Antes de comprar el billete, lee la letra pequeña.</span> — <em>Before buying the ticket, read the small print.</em> <span data-say=\"Tuve dificultad para reservar un billete de ida y vuelta directo.\">Tuve dificultad para reservar un billete de ida y vuelta directo.</span> — <em>I had difficulty booking a direct return ticket.</em></p>",
   "question": "How do you say ‘we travelled by boat’?",
   "options": [
    "Viajamos en barco",
@@ -19454,7 +27491,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Exam skill: the PRETERITE for past holidays",
-  "reading": "<p>To describe a holiday that has already happened, use the <strong>preterite</strong> (simple past). These verbs come up constantly:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"fui\">fui</span></td><td>I went</td><td><span data-say=\"viajé\">viajé</span></td><td>I travelled</td></tr>\n              <tr><td><span data-say=\"visité\">visité</span></td><td>I visited</td><td><span data-say=\"saqué fotos\">saqué fotos</span></td><td>I took photos</td></tr>\n              <tr><td><span data-say=\"tomé el sol\">tomé el sol</span></td><td>I sunbathed</td><td><span data-say=\"compré recuerdos\">compré recuerdos</span></td><td>I bought souvenirs</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"El verano pasado fui a España. Viajé en avión y visité muchos lugares.\">El verano pasado fui a España. Viajé en avión y visité muchos lugares.</span> — <em>Last summer I went to Spain. I travelled by plane and visited many places.</em></p>",
+  "reading": "<p>To describe a holiday that has already happened, use the <strong>preterite</strong> (simple past). These verbs come up constantly:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"fui\">fui</span></td><td>I went</td><td><span data-say=\"viajé\">viajé</span></td><td>I travelled</td></tr>\n              <tr><td><span data-say=\"visité\">visité</span></td><td>I visited</td><td><span data-say=\"saqué fotos\">saqué fotos</span></td><td>I took photos</td></tr>\n              <tr><td><span data-say=\"tomé el sol\">tomé el sol</span></td><td>I sunbathed</td><td><span data-say=\"compré recuerdos\">compré recuerdos</span></td><td>I bought souvenirs</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"El verano pasado fui a España. Viajé en avión y visité muchos lugares.\">El verano pasado fui a España. Viajé en avión y visité muchos lugares.</span> — <em>Last summer I went to Spain. I travelled by plane and visited many places.</em></p>\n            <p>Not every holiday moment is perfect: <span data-say=\"Al final de las vacaciones, me sentí un poco triste.\">Al final de las vacaciones, me sentí un poco triste.</span> — <em>At the end of the holiday, I felt a little sad.</em></p>",
   "question": "Which sentence is in the PRETERITE (a completed past action)?",
   "options": [
    "Visité el museo el sábado.",
@@ -19475,7 +27512,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about activities and future plans?",
-  "reading": "<p>Holiday activities combine with the near future (<strong>voy a</strong> + infinitive) or the simple future (<strong>-é / -á / -án</strong>) to describe plans.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"visitar\">visitar</span></td><td>to visit</td><td><span data-say=\"hacer turismo\">hacer turismo</span></td><td>to go sightseeing</td></tr>\n              <tr><td><span data-say=\"descansar\">descansar</span></td><td>to relax/rest</td><td><span data-say=\"ir de compras\">ir de compras</span></td><td>to go shopping</td></tr>\n              <tr><td><span data-say=\"voy a visitar\">voy a visitar</span></td><td>I am going to visit</td><td><span data-say=\"iré a la playa\">iré a la playa</span></td><td>I will go to the beach</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"El año que viene voy a ir a Francia. Voy a hacer turismo y sacar muchas fotos.\">El año que viene voy a ir a Francia. Voy a hacer turismo y sacar muchas fotos.</span> — <em>Next year I am going to go to France. I am going to go sightseeing and take lots of photos.</em></p>",
+  "reading": "<p>Holiday activities combine with the near future (<strong>voy a</strong> + infinitive) or the simple future (<strong>-é / -á / -án</strong>) to describe plans.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"visitar\">visitar</span></td><td>to visit</td><td><span data-say=\"hacer turismo\">hacer turismo</span></td><td>to go sightseeing</td></tr>\n              <tr><td><span data-say=\"descansar\">descansar</span></td><td>to relax/rest</td><td><span data-say=\"ir de compras\">ir de compras</span></td><td>to go shopping</td></tr>\n              <tr><td><span data-say=\"voy a visitar\">voy a visitar</span></td><td>I am going to visit</td><td><span data-say=\"iré a la playa\">iré a la playa</span></td><td>I will go to the beach</td></tr>\n              <tr><td><span data-say=\"practicar deportes\">practicar deportes</span></td><td>to practise sports</td><td><span data-say=\"una actividad\">una actividad</span></td><td>an activity</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"El año que viene voy a ir a Francia. Voy a hacer turismo y sacar muchas fotos.\">El año que viene voy a ir a Francia. Voy a hacer turismo y sacar muchas fotos.</span> — <em>Next year I am going to go to France. I am going to go sightseeing and take lots of photos.</em></p>\n            <p>Deciding what to do takes time: <span data-say=\"De momento, no he tomado una decisión sobre las actividades.\">De momento, no he tomado una decisión sobre las actividades.</span> — <em>At the moment, I haven't made a decision about the activities.</em></p>",
   "question": "How do you say ‘I am going to go shopping tomorrow’?",
   "options": [
    "Voy a ir de compras mañana",
@@ -19687,10 +27724,10 @@ window.QUESTION_BANK = [
   "question": "El verano pasado _____ a España. <span data-say=\"El verano pasado fui a España.\" data-listen>El verano pasado fui a España.</span>",
   "blankOptions": {
    "B1": [
+    "era",
     "gustaría",
     "fui",
-    "tren",
-    "era"
+    "sacó"
    ]
   },
   "key": {
@@ -19709,10 +27746,10 @@ window.QUESTION_BANK = [
   "question": "Viajé en _____ porque es más rápido que el autobús. (train)",
   "blankOptions": {
    "B1": [
-    "gustaría",
-    "sacó",
-    "tren",
-    "fui"
+    "caro",
+    "octubre",
+    "iré",
+    "tren"
    ]
   },
   "key": {
@@ -19731,10 +27768,10 @@ window.QUESTION_BANK = [
   "question": "Voy a _____ una habitación en el hotel. (to book)",
   "blankOptions": {
    "B1": [
-    "fui",
+    "gustaría",
     "reservar",
     "iré",
-    "era"
+    "sacó"
    ]
   },
   "key": {
@@ -19753,10 +27790,10 @@ window.QUESTION_BANK = [
   "question": "El año que viene _____ a Portugal. (I will go — future tense)",
   "blankOptions": {
    "B1": [
-    "sacó",
-    "reservar",
     "iré",
-    "gustaría"
+    "gustaría",
+    "reservar",
+    "tren"
    ]
   },
   "key": {
@@ -19775,10 +27812,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano _____ fotos de la playa todos los días. <span data-say=\"Mi hermano sacó fotos de la playa todos los días.\" data-listen>Mi hermano sacó fotos de la playa todos los días.</span>",
   "blankOptions": {
    "B1": [
-    "tren",
-    "gustaría",
     "sacó",
-    "era"
+    "caro",
+    "octubre",
+    "tren"
    ]
   },
   "key": {
@@ -19797,10 +27834,10 @@ window.QUESTION_BANK = [
   "question": "Hacía sol y el hotel _____ muy grande. (was — imperfect) <span class=\"tier-h\">H</span>",
   "blankOptions": {
    "B1": [
-    "reservar",
     "era",
+    "tren",
     "fui",
-    "sacó"
+    "reservar"
    ]
   },
   "key": {
@@ -19819,15 +27856,59 @@ window.QUESTION_BANK = [
   "question": "Me _____ visitar México algún día. (I would like — conditional) <span class=\"tier-h\">H</span>",
   "blankOptions": {
    "B1": [
-    "tren",
-    "reservar",
-    "fui",
-    "gustaría"
+    "gustaría",
+    "caro",
+    "iré",
+    "tren"
    ]
   },
   "key": {
    "blanks": {
     "B1": "gustaría"
+   }
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:fib:b2b4041b",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Reservé el alojamiento para el diez de _____. (October)",
+  "blankOptions": {
+   "B1": [
+    "octubre",
+    "gustaría",
+    "caro",
+    "tren"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "octubre"
+   }
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:fib:eae944e4",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El primer hotel era barato, pero el segundo era más _____. (expensive)",
+  "blankOptions": {
+   "B1": [
+    "octubre",
+    "caro",
+    "sacó",
+    "iré"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "caro"
    }
   }
  },
@@ -19840,10 +27921,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “las vacaciones”?",
   "options": [
-   "the mountain",
-   "the plane",
+   "the hotel",
+   "the accommodation",
    "holidays",
-   "to travel by car"
+   "an activity"
   ],
   "key": {
    "answer": 2,
@@ -19859,10 +27940,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la playa”?",
   "options": [
-   "to book",
-   "to travel by car",
+   "at the moment, for now",
+   "South America",
    "the beach",
-   "the hotel"
+   "the plane"
   ],
   "key": {
    "answer": 2,
@@ -19878,10 +27959,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la montaña”?",
   "options": [
-   "the suitcase",
+   "to take photos",
    "the mountain",
-   "the hotel",
-   "passport"
+   "the train",
+   "the suitcase"
   ],
   "key": {
    "answer": 1,
@@ -19898,9 +27979,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “el pasaporte”?",
   "options": [
    "passport",
-   "the hotel",
-   "the mountain",
-   "I would like to visit"
+   "the train",
+   "the suitcase",
+   "the date"
   ],
   "key": {
    "answer": 0,
@@ -19916,10 +27997,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el hotel”?",
   "options": [
-   "passport",
-   "the beach",
+   "the train",
+   "the mountain",
    "the hotel",
-   "I would like to visit"
+   "the plane"
   ],
   "key": {
    "answer": 2,
@@ -19935,10 +28016,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la maleta”?",
   "options": [
-   "the plane",
-   "the beach",
+   "the accommodation",
+   "passport",
    "the suitcase",
-   "to book"
+   "I would like to visit"
   ],
   "key": {
    "answer": 2,
@@ -19954,10 +28035,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “reservar”?",
   "options": [
-   "to travel by car",
+   "South America",
    "to book",
-   "the plane",
-   "the train"
+   "the accommodation",
+   "sad"
   ],
   "key": {
    "answer": 1,
@@ -19974,9 +28055,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “el tren”?",
   "options": [
    "holidays",
-   "to travel by car",
+   "an activity",
    "the train",
-   "I would like to visit"
+   "the beach"
   ],
   "key": {
    "answer": 2,
@@ -19992,13 +28073,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el avión”?",
   "options": [
-   "holidays",
-   "the mountain",
    "the plane",
-   "I would like to visit"
+   "the beach",
+   "the hotel",
+   "the difficulty"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“el avión” means: the plane"
   }
  },
@@ -20011,9 +28092,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “viajar en coche”?",
   "options": [
-   "the suitcase",
-   "holidays",
-   "to book",
+   "at the moment, for now",
+   "the beach",
+   "sad",
    "to travel by car"
   ],
   "key": {
@@ -20030,10 +28111,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “sacar fotos”?",
   "options": [
-   "the plane",
+   "an activity",
    "to take photos",
-   "the suitcase",
-   "to travel by car"
+   "I would like to visit",
+   "at the moment, for now"
   ],
   "key": {
    "answer": 1,
@@ -20049,14 +28130,204 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “me gustaría visitar”?",
   "options": [
-   "the beach",
-   "to take photos",
-   "to book",
+   "the mountain",
+   "passport",
+   "a decision",
    "I would like to visit"
   ],
   "key": {
    "answer": 3,
    "explain": "“me gustaría visitar” means: I would like to visit"
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:match:16ac922e",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “de momento”?",
+  "options": [
+   "passport",
+   "at the moment, for now",
+   "an activity",
+   "to travel by car"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“de momento” means: at the moment, for now"
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:match:250c199e",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “una decisión”?",
+  "options": [
+   "the beach",
+   "a decision",
+   "passport",
+   "the accommodation"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“una decisión” means: a decision"
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:match:dff564cc",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “triste”?",
+  "options": [
+   "the plane",
+   "holidays",
+   "the suitcase",
+   "sad"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“triste” means: sad"
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:match:52d43644",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la llave”?",
+  "options": [
+   "the hotel",
+   "passport",
+   "the key",
+   "the mountain"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la llave” means: the key"
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:match:1d93fbbc",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el alojamiento”?",
+  "options": [
+   "the accommodation",
+   "to travel by car",
+   "a decision",
+   "sad"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el alojamiento” means: the accommodation"
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:match:824d3540",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “Sudamérica”?",
+  "options": [
+   "I would like to visit",
+   "an activity",
+   "South America",
+   "the train"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“Sudamérica” means: South America"
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:match:19bd3ce2",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “una actividad”?",
+  "options": [
+   "to complain",
+   "an activity",
+   "holidays",
+   "to book"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“una actividad” means: an activity"
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:match:98741e73",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la dificultad”?",
+  "options": [
+   "I would like to visit",
+   "South America",
+   "a decision",
+   "the difficulty"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“la dificultad” means: the difficulty"
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:match:324a84cf",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “quejarse”?",
+  "options": [
+   "the suitcase",
+   "sad",
+   "to complain",
+   "the hotel"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“quejarse” means: to complain"
+  }
+ },
+ {
+  "id": "spanish:7-1-holidays-transport-and-places:match:16e5139c",
+  "pageId": "spanish:7-1-holidays-transport-and-places",
+  "pageName": "7.1 Holidays, Transport and Places",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la fecha”?",
+  "options": [
+   "sad",
+   "the hotel",
+   "the date",
+   "the accommodation"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la fecha” means: the date"
   }
  },
  {
@@ -20283,6 +28554,44 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:7-2-my-region-and-places-of-interest:mcq:428edaeb",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Si estás perdido, mira el plano.\" data-listen></span><br>Listen. What should you do if you are lost?",
+  "options": [
+   "look at the map",
+   "ask a different tourist for help",
+   "go back to the hotel immediately",
+   "wait at the museum entrance"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "mira el plano = look at the map. The distractors are other plausible actions a lost tourist might take."
+  }
+ },
+ {
+  "id": "spanish:7-2-my-region-and-places-of-interest:mcq:6a4579fa",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "What does ‘todavía hay muchos sitios que visitar’ mean?",
+  "options": [
+   "there are still many places to visit",
+   "there were many places to visit before",
+   "there will be many places to visit soon",
+   "there aren't any places left to visit"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "todavía hay = there are still. The distractors swap in past, future and negative meanings — genuine tense/negation traps."
+  }
+ },
+ {
   "id": "spanish:7-2-my-region-and-places-of-interest:tf:a894f5fe",
   "pageId": "spanish:7-2-my-region-and-places-of-interest",
   "pageName": "7.2 My Region and Places of Interest",
@@ -20387,6 +28696,71 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:7-2-my-region-and-places-of-interest:tf:4280883d",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Ambos pueblos’ means ‘both towns’.",
+  "key": {
+   "answer": true,
+   "explain": "ambos = both; pueblos = towns."
+  }
+ },
+ {
+  "id": "spanish:7-2-my-region-and-places-of-interest:tf:2a38a100",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Mi propio pueblo’ means ‘someone else's town’.",
+  "key": {
+   "answer": false,
+   "explain": "propio = own; mi propio pueblo = my own town, not someone else's."
+  }
+ },
+ {
+  "id": "spanish:7-2-my-region-and-places-of-interest:tf:094afdbb",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Es evidente que…’ means ‘it is evident/obvious that…’.",
+  "key": {
+   "answer": true,
+   "explain": "evidente = evident/obvious, used to introduce an opinion."
+  }
+ },
+ {
+  "id": "spanish:7-2-my-region-and-places-of-interest:tf:c0dbeee7",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Consciente’ means ‘unaware’.",
+  "key": {
+   "answer": false,
+   "explain": "consciente = aware/conscious — the opposite of unaware."
+  }
+ },
+ {
+  "id": "spanish:7-2-my-region-and-places-of-interest:tf:d3f2dd2e",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘Hace falta visitar el castillo’ means ‘it isn't necessary to visit the castle’.",
+  "key": {
+   "answer": false,
+   "explain": "hace falta + infinitive = it is necessary to…; this does NOT mean unnecessary."
+  }
+ },
+ {
   "id": "spanish:7-2-my-region-and-places-of-interest:learn:cad90076",
   "pageId": "spanish:7-2-my-region-and-places-of-interest",
   "pageName": "7.2 My Region and Places of Interest",
@@ -20394,7 +28768,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I describe my area or region?",
-  "reading": "<p>Use these nouns to say what kind of place you live in, and the compass points to say where it is. Tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"mi región\">mi región</span></td><td>my region</td><td><span data-say=\"mi ciudad\">mi ciudad</span></td><td>my city</td></tr>\n              <tr><td><span data-say=\"el pueblo\">el pueblo</span></td><td>the town / village</td><td><span data-say=\"la costa\">la costa</span></td><td>the coast</td></tr>\n              <tr><td><span data-say=\"el campo\">el campo</span></td><td>the countryside</td><td><span data-say=\"el norte\">el norte</span></td><td>the north</td></tr>\n              <tr><td><span data-say=\"el sur\">el sur</span></td><td>the south</td><td><span data-say=\"el este\">el este</span></td><td>the east</td></tr>\n              <tr><td><span data-say=\"el oeste\">el oeste</span></td><td>the west</td><td><span data-say=\"vivo en\">vivo en…</span></td><td>I live in…</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Vivo en un pueblo pequeño en el norte de España, cerca de la costa.\">Vivo en un pueblo pequeño en el norte de España, cerca de la costa.</span> — <em>I live in a small town in the north of Spain, near the coast.</em></p>",
+  "reading": "<p>Use these nouns to say what kind of place you live in, and the compass points to say where it is. Tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"mi región\">mi región</span></td><td>my region</td><td><span data-say=\"mi ciudad\">mi ciudad</span></td><td>my city</td></tr>\n              <tr><td><span data-say=\"el pueblo\">el pueblo</span></td><td>the town / village</td><td><span data-say=\"la costa\">la costa</span></td><td>the coast</td></tr>\n              <tr><td><span data-say=\"el campo\">el campo</span></td><td>the countryside</td><td><span data-say=\"el norte\">el norte</span></td><td>the north</td></tr>\n              <tr><td><span data-say=\"el sur\">el sur</span></td><td>the south</td><td><span data-say=\"el este\">el este</span></td><td>the east</td></tr>\n              <tr><td><span data-say=\"el oeste\">el oeste</span></td><td>the west</td><td><span data-say=\"vivo en\">vivo en…</span></td><td>I live in…</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Vivo en un pueblo pequeño en el norte de España, cerca de la costa.\">Vivo en un pueblo pequeño en el norte de España, cerca de la costa.</span> — <em>I live in a small town in the north of Spain, near the coast.</em></p>\n            <p>Comparing towns is a great way to add detail: <span data-say=\"Ambos pueblos están cerca de la costa, pero tengo mi propio pueblo favorito porque es un lugar maravilloso.\">Ambos pueblos están cerca de la costa, pero tengo mi propio pueblo favorito porque es un lugar maravilloso.</span> — <em>Both towns are near the coast, but I have my own favourite town because it's a marvellous place.</em></p>",
   "question": "What does ‘el campo’ mean?",
   "options": [
    "the north coastline",
@@ -20415,7 +28789,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "What places of interest are there? (hay + noun)",
-  "reading": "<p>To say something exists somewhere, use <strong>hay</strong> (there is / there are) — it never changes form, whether the noun is singular or plural.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el museo\">el museo</span></td><td>the museum</td><td><span data-say=\"el castillo\">el castillo</span></td><td>the castle</td></tr>\n              <tr><td><span data-say=\"la catedral\">la catedral</span></td><td>the cathedral</td><td><span data-say=\"la iglesia\">la iglesia</span></td><td>the church</td></tr>\n              <tr><td><span data-say=\"la plaza\">la plaza</span></td><td>the square</td><td><span data-say=\"el monumento\">el monumento</span></td><td>the monument</td></tr>\n              <tr><td><span data-say=\"el parque\">el parque</span></td><td>the park</td><td><span data-say=\"el mercado\">el mercado</span></td><td>the market</td></tr>\n              <tr><td><span data-say=\"el teatro\">el teatro</span></td><td>the theatre</td><td><span data-say=\"hay\">hay</span></td><td>there is / are</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"En mi ciudad hay un castillo histórico, una catedral bonita y muchos museos.\">En mi ciudad hay un castillo histórico, una catedral bonita y muchos museos.</span> — <em>In my city there is a historic castle, a pretty cathedral and lots of museums.</em></p>",
+  "reading": "<p>To say something exists somewhere, use <strong>hay</strong> (there is / there are) — it never changes form, whether the noun is singular or plural.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el museo\">el museo</span></td><td>the museum</td><td><span data-say=\"el castillo\">el castillo</span></td><td>the castle</td></tr>\n              <tr><td><span data-say=\"la catedral\">la catedral</span></td><td>the cathedral</td><td><span data-say=\"la iglesia\">la iglesia</span></td><td>the church</td></tr>\n              <tr><td><span data-say=\"la plaza\">la plaza</span></td><td>the square</td><td><span data-say=\"el monumento\">el monumento</span></td><td>the monument</td></tr>\n              <tr><td><span data-say=\"el parque\">el parque</span></td><td>the park</td><td><span data-say=\"el mercado\">el mercado</span></td><td>the market</td></tr>\n              <tr><td><span data-say=\"el teatro\">el teatro</span></td><td>the theatre</td><td><span data-say=\"hay\">hay</span></td><td>there is / are</td></tr>\n              <tr><td><span data-say=\"un sitio turístico\">un sitio turístico</span></td><td>a tourist spot</td><td><span data-say=\"hace falta visitar\">hace falta visitar</span></td><td>it's necessary to visit</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"En mi ciudad hay un castillo histórico, una catedral bonita y muchos museos.\">En mi ciudad hay un castillo histórico, una catedral bonita y muchos museos.</span> — <em>In my city there is a historic castle, a pretty cathedral and lots of museums.</em></p>\n            <p>There's always more to see: <span data-say=\"Todavía hay muchos sitios turísticos que no he visitado; hace falta volver algún día.\">Todavía hay muchos sitios turísticos que no he visitado; hace falta volver algún día.</span> — <em>There are still many tourist spots I haven't visited; it's necessary to come back someday.</em></p>",
   "question": "Which word means ‘there is / there are’ and never changes form?",
   "options": [
    "está",
@@ -20436,7 +28810,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I describe places? (ser vs estar)",
-  "reading": "<p>Use <strong>ser</strong> for a permanent characteristic (what a place is like), and <strong>estar</strong> for where it is located — never mix them up.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"histórico\">histórico / histórica</span></td><td>historic</td><td><span data-say=\"turístico\">turístico / turística</span></td><td>touristy</td></tr>\n              <tr><td><span data-say=\"tranquilo\">tranquilo / tranquila</span></td><td>quiet, peaceful</td><td><span data-say=\"animado\">animado / animada</span></td><td>lively</td></tr>\n              <tr><td><span data-say=\"bonito\">bonito / bonita</span></td><td>pretty</td><td><span data-say=\"industrial\">industrial</span></td><td>industrial</td></tr>\n              <tr><td><span data-say=\"moderno\">moderno / moderna</span></td><td>modern</td><td><span data-say=\"antiguo\">antiguo / antigua</span></td><td>old, ancient</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Mi ciudad es muy turística y animada, pero está lejos de la costa.\">Mi ciudad es muy turística y animada, pero está lejos de la costa.</span> — <em>My city is very touristy and lively, but it is far from the coast.</em></p>",
+  "reading": "<p>Use <strong>ser</strong> for a permanent characteristic (what a place is like), and <strong>estar</strong> for where it is located — never mix them up.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"histórico\">histórico / histórica</span></td><td>historic</td><td><span data-say=\"turístico\">turístico / turística</span></td><td>touristy</td></tr>\n              <tr><td><span data-say=\"tranquilo\">tranquilo / tranquila</span></td><td>quiet, peaceful</td><td><span data-say=\"animado\">animado / animada</span></td><td>lively</td></tr>\n              <tr><td><span data-say=\"bonito\">bonito / bonita</span></td><td>pretty</td><td><span data-say=\"industrial\">industrial</span></td><td>industrial</td></tr>\n              <tr><td><span data-say=\"moderno\">moderno / moderna</span></td><td>modern</td><td><span data-say=\"antiguo\">antiguo / antigua</span></td><td>old, ancient</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Mi ciudad es muy turística y animada, pero está lejos de la costa.\">Mi ciudad es muy turística y animada, pero está lejos de la costa.</span> — <em>My city is very touristy and lively, but it is far from the coast.</em></p>\n            <p>Older buildings often stand out: <span data-say=\"El castillo es de la Edad Media, así que da una sensación de historia.\">El castillo es de la Edad Media, así que da una sensación de historia.</span> — <em>The castle is from the Middle Ages, so it gives a sense of history.</em> <span data-say=\"La mitad del pueblo es antigua y la otra mitad es moderna.\">La mitad del pueblo es antigua y la otra mitad es moderna.</span> — <em>Half the town is old and the other half is modern.</em></p>",
   "question": "Which verb do you use for ‘my town IS historic’ — a permanent characteristic?",
   "options": [
    "estar → mi pueblo está histórico",
@@ -20457,7 +28831,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I ask for and give directions?",
-  "reading": "<p>Use <strong>estar</strong> to say exactly where something is once it has already been introduced with hay.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"¿dónde está?\">¿Dónde está…?</span></td><td>Where is…?</td><td><span data-say=\"a la derecha\">a la derecha</span></td><td>to the right</td></tr>\n              <tr><td><span data-say=\"a la izquierda\">a la izquierda</span></td><td>to the left</td><td><span data-say=\"todo recto\">todo recto</span></td><td>straight on</td></tr>\n              <tr><td><span data-say=\"cerca de\">cerca de</span></td><td>close to, near</td><td><span data-say=\"lejos de\">lejos de</span></td><td>far from</td></tr>\n              <tr><td><span data-say=\"al lado de\">al lado de</span></td><td>next to</td><td><span data-say=\"en el centro\">en el centro</span></td><td>in the centre</td></tr>\n            </table>\n            <p>Example: <span data-say=\"El museo está al lado de la catedral: todo recto y luego a la derecha.\">El museo está al lado de la catedral: todo recto y luego a la derecha.</span> — <em>The museum is next to the cathedral: straight on and then to the right.</em></p>",
+  "reading": "<p>Use <strong>estar</strong> to say exactly where something is once it has already been introduced with hay.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"¿dónde está?\">¿Dónde está…?</span></td><td>Where is…?</td><td><span data-say=\"a la derecha\">a la derecha</span></td><td>to the right</td></tr>\n              <tr><td><span data-say=\"a la izquierda\">a la izquierda</span></td><td>to the left</td><td><span data-say=\"todo recto\">todo recto</span></td><td>straight on</td></tr>\n              <tr><td><span data-say=\"cerca de\">cerca de</span></td><td>close to, near</td><td><span data-say=\"lejos de\">lejos de</span></td><td>far from</td></tr>\n              <tr><td><span data-say=\"al lado de\">al lado de</span></td><td>next to</td><td><span data-say=\"en el centro\">en el centro</span></td><td>in the centre</td></tr>\n              <tr><td><span data-say=\"el plano\">el plano</span></td><td>the map</td><td><span data-say=\"delante de\">delante de</span></td><td>in front of</td></tr>\n            </table>\n            <p>Example: <span data-say=\"El museo está al lado de la catedral: todo recto y luego a la derecha.\">El museo está al lado de la catedral: todo recto y luego a la derecha.</span> — <em>The museum is next to the cathedral: straight on and then to the right.</em></p>\n            <p>Directions are easier with help: <span data-say=\"Si estás perdido, mira el plano: el museo está delante de la plaza.\">Si estás perdido, mira el plano: el museo está delante de la plaza.</span> — <em>If you are lost, look at the map: the museum is in front of the square.</em> <span data-say=\"¿Puede hablar más despacio, por favor?\">¿Puede hablar más despacio, por favor?</span> — <em>Can you speak more slowly, please?</em></p>",
   "question": "What does ‘lejos de’ mean?",
   "options": [
    "far from",
@@ -20478,7 +28852,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about the weather and climate?",
-  "reading": "<p>Weather is usually described with <strong>hacer</strong> or an impersonal verb like <strong>llover</strong> (to rain).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"hace sol\">hace sol</span></td><td>it’s sunny</td><td><span data-say=\"hace calor\">hace calor</span></td><td>it’s hot</td></tr>\n              <tr><td><span data-say=\"hace frío\">hace frío</span></td><td>it’s cold</td><td><span data-say=\"hace viento\">hace viento</span></td><td>it’s windy</td></tr>\n              <tr><td><span data-say=\"llueve\">llueve</span></td><td>it rains</td><td><span data-say=\"el clima\">el clima</span></td><td>the climate</td></tr>\n            </table>\n            <p>Example: <span data-say=\"En mi región el clima es agradable: hace sol en verano, pero llueve mucho en invierno.\">En mi región el clima es agradable: hace sol en verano, pero llueve mucho en invierno.</span> — <em>In my region the climate is pleasant: it’s sunny in summer, but it rains a lot in winter.</em></p>",
+  "reading": "<p>Weather is usually described with <strong>hacer</strong> or an impersonal verb like <strong>llover</strong> (to rain).</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"hace sol\">hace sol</span></td><td>it’s sunny</td><td><span data-say=\"hace calor\">hace calor</span></td><td>it’s hot</td></tr>\n              <tr><td><span data-say=\"hace frío\">hace frío</span></td><td>it’s cold</td><td><span data-say=\"hace viento\">hace viento</span></td><td>it’s windy</td></tr>\n              <tr><td><span data-say=\"llueve\">llueve</span></td><td>it rains</td><td><span data-say=\"el clima\">el clima</span></td><td>the climate</td></tr>\n            </table>\n            <p>Example: <span data-say=\"En mi región el clima es agradable: hace sol en verano, pero llueve mucho en invierno.\">En mi región el clima es agradable: hace sol en verano, pero llueve mucho en invierno.</span> — <em>In my region the climate is pleasant: it’s sunny in summer, but it rains a lot in winter.</em></p>\n            <p>Climate can vary a lot within one country: <span data-say=\"El clima en el sur es completamente diferente al clima en el norte.\">El clima en el sur es completamente diferente al clima en el norte.</span> — <em>The climate in the south is completely different to the climate in the north.</em></p>",
   "question": "What does ‘llueve’ mean?",
   "options": [
    "it is windy today",
@@ -20499,7 +28873,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Higher: relative clauses, superlatives and se puede",
-  "reading": "<p><span class=\"tier-h\">H</span> Use <strong>que</strong> to join two ideas about the same noun, a superlative for ‘the most…’, and <strong>se puede</strong> + infinitive for ‘you can…’.</p>\n            <ul>\n              <li><span data-say=\"una ciudad que tiene mucha historia\">una ciudad que tiene mucha historia</span> — a city that has a lot of history</li>\n              <li><span data-say=\"lo más interesante es el castillo\">lo más interesante es el castillo</span> — the most interesting thing is the castle</li>\n              <li><span data-say=\"se puede visitar el museo\">se puede visitar el museo</span> — you can visit the museum</li>\n            </ul>\n            <p>Combine for the top band: <span data-say=\"Lo más interesante de mi región es el castillo, que tiene más de quinientos años; se puede visitar todos los días.\">Lo más interesante de mi región es el castillo, que tiene más de quinientos años; se puede visitar todos los días.</span> <span class=\"tier-h\">H</span></p>",
+  "reading": "<p><span class=\"tier-h\">H</span> Use <strong>que</strong> to join two ideas about the same noun, a superlative for ‘the most…’, and <strong>se puede</strong> + infinitive for ‘you can…’.</p>\n            <ul>\n              <li><span data-say=\"una ciudad que tiene mucha historia\">una ciudad que tiene mucha historia</span> — a city that has a lot of history</li>\n              <li><span data-say=\"lo más interesante es el castillo\">lo más interesante es el castillo</span> — the most interesting thing is the castle</li>\n              <li><span data-say=\"se puede visitar el museo\">se puede visitar el museo</span> — you can visit the museum</li>\n            </ul>\n            <p>Combine for the top band: <span data-say=\"Lo más interesante de mi región es el castillo, que tiene más de quinientos años; se puede visitar todos los días.\">Lo más interesante de mi región es el castillo, que tiene más de quinientos años; se puede visitar todos los días.</span> <span class=\"tier-h\">H</span></p>\n            <p><span class=\"tier-h\">H</span> Higher-tier opinions often need impersonal expressions: <span data-say=\"Es evidente que hay mucho que hacer, pero hay que ser consciente del turismo excesivo.\">Es evidente que hay mucho que hacer, pero hay que ser consciente del turismo excesivo.</span> — <em>It's evident there's a lot to do, but you have to be aware of excessive tourism.</em> <span class=\"tier-h\">H</span></p>",
   "question": "Which sentence correctly uses the relative pronoun ‘que’?",
   "options": [
    "Es una ciudad quien tiene mucha historia",
@@ -20690,10 +29064,10 @@ window.QUESTION_BANK = [
   "question": "_____ <span data-say=\"En mi ciudad hay un castillo histórico.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "al lado",
     "hay",
-    "llueve",
-    "está"
+    "mitad",
+    "visitar",
+    "llueve"
    ]
   },
   "key": {
@@ -20712,10 +29086,10 @@ window.QUESTION_BANK = [
   "question": "Mi pueblo _____ en el norte de España. (location — estar)",
   "blankOptions": {
    "B1": [
-    "cerca",
     "está",
     "hay",
-    "llueve"
+    "al lado",
+    "visitar"
    ]
   },
   "key": {
@@ -20734,10 +29108,10 @@ window.QUESTION_BANK = [
   "question": "Mi ciudad _____ muy histórica y turística. (permanent description — ser)",
   "blankOptions": {
    "B1": [
+    "cerca",
     "hay",
     "es",
-    "está",
-    "al lado"
+    "llueve"
    ]
   },
   "key": {
@@ -20757,9 +29131,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "visitar",
-    "al lado",
     "está",
-    "llueve"
+    "mitad",
+    "al lado"
    ]
   },
   "key": {
@@ -20778,10 +29152,10 @@ window.QUESTION_BANK = [
   "question": "En mi región _____ mucho en invierno. (it rains)",
   "blankOptions": {
    "B1": [
-    "llueve",
     "hay",
-    "está",
-    "es"
+    "es",
+    "mitad",
+    "llueve"
    ]
   },
   "key": {
@@ -20800,8 +29174,8 @@ window.QUESTION_BANK = [
   "question": "Se puede _____ el castillo los fines de semana. (to visit — infinitive)",
   "blankOptions": {
    "B1": [
-    "llueve",
-    "cerca",
+    "despacio",
+    "está",
     "visitar",
     "al lado"
    ]
@@ -20822,15 +29196,59 @@ window.QUESTION_BANK = [
   "question": "El museo está _____, a diez minutos andando. (close by)",
   "blankOptions": {
    "B1": [
-    "cerca",
-    "al lado",
+    "visitar",
     "hay",
-    "llueve"
+    "cerca",
+    "mitad"
    ]
   },
   "key": {
    "blanks": {
     "B1": "cerca"
+   }
+  }
+ },
+ {
+  "id": "spanish:7-2-my-region-and-places-of-interest:fib:6069b9f7",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El castillo es de la Edad Media, así que la _____ del pueblo parece muy antigua. (half)",
+  "blankOptions": {
+   "B1": [
+    "visitar",
+    "está",
+    "al lado",
+    "mitad"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "mitad"
+   }
+  }
+ },
+ {
+  "id": "spanish:7-2-my-region-and-places-of-interest:fib:7d0fcbd2",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "¿Puede hablar más _____, por favor? (slowly)",
+  "blankOptions": {
+   "B1": [
+    "despacio",
+    "es",
+    "al lado",
+    "está"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "despacio"
    }
   }
  },
@@ -20843,13 +29261,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “mi región”?",
   "options": [
-   "the castle",
    "my region",
-   "close to, near",
-   "the countryside"
+   "the castle",
+   "in front of",
+   "marvellous, wonderful"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“mi región” means: my region"
   }
  },
@@ -20863,12 +29281,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “la costa”?",
   "options": [
    "the cathedral",
-   "quiet, peaceful",
    "the coast",
+   "quiet, peaceful",
    "close to, near"
   ],
   "key": {
-   "answer": 2,
+   "answer": 1,
    "explain": "“la costa” means: the coast"
   }
  },
@@ -20881,13 +29299,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el campo”?",
   "options": [
+   "completely",
    "close to, near",
    "my region",
-   "the countryside",
-   "historic"
+   "the countryside"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“el campo” means: the countryside"
   }
  },
@@ -20919,9 +29337,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la catedral”?",
   "options": [
+   "in front of",
    "the square",
    "quiet, peaceful",
-   "to the right",
    "the cathedral"
   ],
   "key": {
@@ -20939,12 +29357,12 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “la plaza”?",
   "options": [
    "lively",
-   "the cathedral",
-   "the market",
-   "the square"
+   "completely",
+   "the square",
+   "the cathedral"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“la plaza” means: the square"
   }
  },
@@ -20957,13 +29375,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el mercado”?",
   "options": [
-   "the coast",
-   "close to, near",
    "the market",
-   "to the right"
+   "completely",
+   "a feeling, a sensation",
+   "the coast"
   ],
   "key": {
-   "answer": 2,
+   "answer": 0,
    "explain": "“el mercado” means: the market"
   }
  },
@@ -20995,13 +29413,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “tranquilo”?",
   "options": [
-   "quiet, peaceful",
    "the square",
-   "the castle",
-   "lively"
+   "quiet, peaceful",
+   "close to, near",
+   "completely"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“tranquilo” means: quiet, peaceful"
   }
  },
@@ -21014,13 +29432,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “animado”?",
   "options": [
-   "lively",
    "to the right",
-   "the square",
-   "the castle"
+   "lively",
+   "marvellous, wonderful",
+   "the square"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“animado” means: lively"
   }
  },
@@ -21033,13 +29451,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “a la derecha”?",
   "options": [
-   "to the right",
    "my region",
+   "marvellous, wonderful",
    "the cathedral",
-   "the market"
+   "to the right"
   ],
   "key": {
-   "answer": 0,
+   "answer": 3,
    "explain": "“a la derecha” means: to the right"
   }
  },
@@ -21052,14 +29470,90 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “cerca de”?",
   "options": [
+   "close to, near",
    "to the right",
    "my region",
-   "lively",
-   "close to, near"
+   "in front of"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“cerca de” means: close to, near"
+  }
+ },
+ {
+  "id": "spanish:7-2-my-region-and-places-of-interest:match:1b32438e",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “maravilloso”?",
+  "options": [
+   "the countryside",
+   "in front of",
+   "to the right",
+   "marvellous, wonderful"
   ],
   "key": {
    "answer": 3,
-   "explain": "“cerca de” means: close to, near"
+   "explain": "“maravilloso” means: marvellous, wonderful"
+  }
+ },
+ {
+  "id": "spanish:7-2-my-region-and-places-of-interest:match:36388a20",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “una sensación”?",
+  "options": [
+   "the cathedral",
+   "completely",
+   "a feeling, a sensation",
+   "the market"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“una sensación” means: a feeling, a sensation"
+  }
+ },
+ {
+  "id": "spanish:7-2-my-region-and-places-of-interest:match:dc8a3fc5",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “completamente”?",
+  "options": [
+   "close to, near",
+   "lively",
+   "marvellous, wonderful",
+   "completely"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“completamente” means: completely"
+  }
+ },
+ {
+  "id": "spanish:7-2-my-region-and-places-of-interest:match:35acc194",
+  "pageId": "spanish:7-2-my-region-and-places-of-interest",
+  "pageName": "7.2 My Region and Places of Interest",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “delante de”?",
+  "options": [
+   "the countryside",
+   "a feeling, a sensation",
+   "the market",
+   "in front of"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“delante de” means: in front of"
   }
  },
  {
@@ -21286,6 +29780,291 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:92e82b7a",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which verb means ‘to charge’ (a device)?",
+  "options": [
+   "cargar",
+   "guardar",
+   "funcionar",
+   "conectar"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "cargar = to charge. guardar (to save), funcionar (to work) and conectar (to connect) are all real tech verbs, but different actions."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:b8935e2f",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Mi móvil no ___ bien hoy.’ (doesn’t work well today)",
+  "options": [
+   "funciona",
+   "funcionando",
+   "carga",
+   "conecta"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "The conjugated present-tense form is needed: funciona. funcionando wrongly uses the gerund; carga/conecta are the wrong verb entirely."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:a00aa225",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘to connect’?",
+  "options": [
+   "conectar",
+   "cargar",
+   "guardar",
+   "funcionar"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "conectar = to connect. The others are real tech verbs (to charge, to save, to work) but not this one."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:de4546ed",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Hay un retraso en la aplicación.\" data-listen></span><br>Listen. What is the problem?",
+  "options": [
+   "There is a delay in the app",
+   "There is a new app available",
+   "The app has been deleted",
+   "The app is very fast today"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘hay un retraso’ = there is a delay/lag. The traps invent an unrelated update, deletion or speed."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:3227be45",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which is the correct Spanish for ‘video game’?",
+  "options": [
+   "el videojuego",
+   "la videojuega",
+   "el video juego",
+   "los videojuego"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el videojuego is one word, masculine, singular. The others wrongly change the gender ending, split it into two words, or use a plural article with a singular noun."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:7fb6ba6e",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which phrase means ‘to save photos’?",
+  "options": [
+   "guardar fotos",
+   "subir fotos",
+   "descargar fotos",
+   "buscar fotos"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "guardar fotos = to save photos. subir (upload), descargar (download) and buscar (search for) are all real, easily confused tech verbs."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:814d6dbd",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Complete: ‘Uso la nube para ___ mis fotos.’ (to save)",
+  "options": [
+   "guardar",
+   "guardando",
+   "guardo",
+   "guardado"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘para’ is always followed by the infinitive: guardar. guardando/guardo/guardado are the gerund, conjugated and past-participle forms."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:9a136f09",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘incredible’?",
+  "options": [
+   "increíble",
+   "especial",
+   "último",
+   "siguiente"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "increíble = incredible. especial (special), último (last) and siguiente (next) are real opinion/sequence words, but different meanings."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:f27f7aae",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which phrase means ‘a benefit of technology’?",
+  "options": [
+   "un beneficio de la tecnología",
+   "una ventaja de la tecnología",
+   "una creación de la tecnología",
+   "un impacto de la tecnología"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "beneficio = benefit. ventaja (advantage), creación (creation) and impacto (impact) are all real, similar abstract nouns used about technology."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:cb9d0592",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which phrase means ‘a minute’?",
+  "options": [
+   "un minuto",
+   "una hora",
+   "un día",
+   "una semana"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "un minuto = a minute. hora (hour), día (day) and semana (week) are all real time units, but longer periods."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:789d5c27",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘clear’ or ‘light’ (describing a colour or a picture)?",
+  "options": [
+   "claro",
+   "oscuro",
+   "especial",
+   "siguiente"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "claro = clear/light. oscuro (dark) is its direct opposite; especial (special) and siguiente (next) are real adjectives, but different meanings."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:c45b38ba",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘next’ or ‘following’?",
+  "options": [
+   "siguiente",
+   "anterior",
+   "último",
+   "penúltimo"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "siguiente = next/following. anterior (previous), último (last) and penúltimo (second-to-last) are all genuine sequence words that a student can easily mix up."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:067431cb",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘last’ or ‘latest’?",
+  "options": [
+   "último",
+   "siguiente",
+   "especial",
+   "increíble"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "último = last/latest. siguiente (next), especial (special) and increíble (incredible) are real describing words, but different meanings."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:38069159",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘special’?",
+  "options": [
+   "especial",
+   "claro",
+   "siguiente",
+   "increíble"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "especial = special. claro (clear/of course), siguiente (next) and increíble (incredible) are all real adjectives easily confused with it."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:mcq:60ec9fed",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘creation’?",
+  "options": [
+   "creación",
+   "creador",
+   "crear",
+   "creativo"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "creación (noun) = creation. creador (creator), crear (to create) and creativo (creative) are the same word family in a different form — a classic part-of-speech mix-up."
+  }
+ },
+ {
   "id": "spanish:8-1-technology-in-everyday-life:tf:194eaa65",
   "pageId": "spanish:8-1-technology-in-everyday-life",
   "pageName": "8.1 Technology in Everyday Life",
@@ -21390,6 +30169,32 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:8-1-technology-in-everyday-life:tf:291c9d27",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘guardar’ means ‘to look at’ a photo.",
+  "key": {
+   "answer": false,
+   "explain": "guardar = to save, not to look at (mirar = to look at)."
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:tf:87fe894a",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘el retraso’ means ‘a delay’.",
+  "key": {
+   "answer": true,
+   "explain": "el retraso = a delay/lag — useful when technology is slow to connect."
+  }
+ },
+ {
   "id": "spanish:8-1-technology-in-everyday-life:learn:006590f9",
   "pageId": "spanish:8-1-technology-in-everyday-life",
   "pageName": "8.1 Technology in Everyday Life",
@@ -21397,7 +30202,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "What technology vocabulary do I need?",
-  "reading": "<p>Devices and gadgets — <strong>los aparatos</strong>. Tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el móvil\">el móvil</span></td><td>the mobile phone</td><td><span data-say=\"el teléfono\">el teléfono</span></td><td>the phone</td></tr>\n              <tr><td><span data-say=\"el ordenador\">el ordenador</span></td><td>the computer</td><td><span data-say=\"la tableta\">la tableta</span></td><td>the tablet</td></tr>\n              <tr><td><span data-say=\"el portátil\">el portátil</span></td><td>the laptop</td><td><span data-say=\"internet\">internet</span></td><td>the internet</td></tr>\n              <tr><td><span data-say=\"la aplicación\">la aplicación</span></td><td>the app</td><td><span data-say=\"la pantalla\">la pantalla</span></td><td>the screen</td></tr>\n            </table>\n            <p>Note the gender: <span data-say=\"el móvil\">el móvil</span> and <span data-say=\"el ordenador\">el ordenador</span> are both masculine, even though many tech words look like they could be feminine.</p>\n            <p>Model sentence: <span data-say=\"Tengo un móvil, una tableta y un portátil.\">Tengo un móvil, una tableta y un portátil.</span> — <em>I have a mobile phone, a tablet and a laptop.</em></p>",
+  "reading": "<p>Devices and gadgets — <strong>los aparatos</strong>. Tap 🔊 to hear each one.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el móvil\">el móvil</span></td><td>the mobile phone</td><td><span data-say=\"el teléfono\">el teléfono</span></td><td>the phone</td></tr>\n              <tr><td><span data-say=\"el ordenador\">el ordenador</span></td><td>the computer</td><td><span data-say=\"la tableta\">la tableta</span></td><td>the tablet</td></tr>\n              <tr><td><span data-say=\"el portátil\">el portátil</span></td><td>the laptop</td><td><span data-say=\"internet\">internet</span></td><td>the internet</td></tr>\n              <tr><td><span data-say=\"la aplicación\">la aplicación</span></td><td>the app</td><td><span data-say=\"la pantalla\">la pantalla</span></td><td>the screen</td></tr>\n            </table>\n            <p>Note the gender: <span data-say=\"el móvil\">el móvil</span> and <span data-say=\"el ordenador\">el ordenador</span> are both masculine, even though many tech words look like they could be feminine.</p>\n            <p>Model sentence: <span data-say=\"Tengo un móvil, una tableta y un portátil.\">Tengo un móvil, una tableta y un portátil.</span> — <em>I have a mobile phone, a tablet and a laptop.</em></p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"cargar\">cargar</span></td><td>to charge (a device)</td><td><span data-say=\"funcionar\">funcionar</span></td><td>to work / to function</td></tr>\n            </table>\n            <p>Extra: <span data-say=\"Cargo el móvil todos los días porque si no, no funciona.\">Cargo el móvil todos los días porque si no, no funciona.</span> — <em>I charge my phone every day because otherwise it doesn't work.</em></p>",
   "question": "Which word means ‘the screen’?",
   "options": [
    "el ordenador",
@@ -21418,7 +30223,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I say what I do online?",
-  "reading": "<p>Everyday internet actions, all in the present tense (yo form):</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"navego por internet\">navegar por internet</span></td><td>to browse the internet</td><td><span data-say=\"mando mensajes\">mandar / enviar mensajes</span></td><td>to send messages</td></tr>\n              <tr><td><span data-say=\"descargo aplicaciones\">descargar</span></td><td>to download</td><td><span data-say=\"subo fotos\">subir fotos</span></td><td>to upload photos</td></tr>\n              <tr><td><span data-say=\"busco información\">buscar información</span></td><td>to search for information</td><td><span data-say=\"juego a videojuegos\">jugar a videojuegos</span></td><td>to play videogames</td></tr>\n              <tr><td><span data-say=\"veo vídeos\">ver vídeos</span></td><td>to watch videos</td><td><span data-say=\"hago los deberes\">hacer los deberes</span></td><td>to do homework</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Todos los días navego por internet, mando mensajes y veo vídeos.\">Todos los días navego por internet, mando mensajes y veo vídeos.</span></p>",
+  "reading": "<p>Everyday internet actions, all in the present tense (yo form):</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"navego por internet\">navegar por internet</span></td><td>to browse the internet</td><td><span data-say=\"mando mensajes\">mandar / enviar mensajes</span></td><td>to send messages</td></tr>\n              <tr><td><span data-say=\"descargo aplicaciones\">descargar</span></td><td>to download</td><td><span data-say=\"subo fotos\">subir fotos</span></td><td>to upload photos</td></tr>\n              <tr><td><span data-say=\"busco información\">buscar información</span></td><td>to search for information</td><td><span data-say=\"juego a videojuegos\">jugar a videojuegos</span></td><td>to play videogames</td></tr>\n              <tr><td><span data-say=\"veo vídeos\">ver vídeos</span></td><td>to watch videos</td><td><span data-say=\"hago los deberes\">hacer los deberes</span></td><td>to do homework</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Todos los días navego por internet, mando mensajes y veo vídeos.\">Todos los días navego por internet, mando mensajes y veo vídeos.</span></p>\n            <p>Extra: <span data-say=\"Guardo mis fotos favoritas y juego a un videojuego nuevo.\">Guardo mis fotos favoritas y juego a un videojuego nuevo.</span> — <em>I save my favourite photos and I play a new video game.</em> A veces hay <span data-say=\"un retraso\">un retraso</span> (a delay/lag) cuando intento <span data-say=\"conectar\">conectar</span> el móvil a internet.</p>",
   "question": "Which phrase means ‘to search for information’?",
   "options": [
    "subir fotos",
@@ -21460,7 +30265,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I give opinions about technology?",
-  "reading": "<p>Opinion adjectives for technology — tap 🔊:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"útil\">útil</span></td><td>useful</td><td><span data-say=\"práctico\">práctico</span></td><td>practical</td></tr>\n              <tr><td><span data-say=\"imprescindible\">imprescindible</span></td><td>essential</td><td><span data-say=\"rápido\">rápido</span></td><td>fast</td></tr>\n              <tr><td><span data-say=\"una pérdida de tiempo\">una pérdida de tiempo</span></td><td>a waste of time</td><td><span data-say=\"adicto\">adicto / adicta</span></td><td>addicted</td></tr>\n            </table>\n            <p>Use <strong>gustar</strong> / <strong>encantar</strong> — the verb agrees with what follows, not with you:</p>\n            <ul>\n              <li>ONE thing / an infinitive → <span data-say=\"me gusta\">me gusta</span>: <span data-say=\"Me gusta navegar por internet.\">Me gusta navegar por internet.</span></li>\n              <li>MORE THAN ONE thing → <span data-say=\"me encantan\">me encantan</span>: <span data-say=\"Me encantan los videojuegos.\">Me encantan los videojuegos.</span></li>\n            </ul>",
+  "reading": "<p>Opinion adjectives for technology — tap 🔊:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"útil\">útil</span></td><td>useful</td><td><span data-say=\"práctico\">práctico</span></td><td>practical</td></tr>\n              <tr><td><span data-say=\"imprescindible\">imprescindible</span></td><td>essential</td><td><span data-say=\"rápido\">rápido</span></td><td>fast</td></tr>\n              <tr><td><span data-say=\"una pérdida de tiempo\">una pérdida de tiempo</span></td><td>a waste of time</td><td><span data-say=\"adicto\">adicto / adicta</span></td><td>addicted</td></tr>\n            </table>\n            <p>Use <strong>gustar</strong> / <strong>encantar</strong> — the verb agrees with what follows, not with you:</p>\n            <ul>\n              <li>ONE thing / an infinitive → <span data-say=\"me gusta\">me gusta</span>: <span data-say=\"Me gusta navegar por internet.\">Me gusta navegar por internet.</span></li>\n              <li>MORE THAN ONE thing → <span data-say=\"me encantan\">me encantan</span>: <span data-say=\"Me encantan los videojuegos.\">Me encantan los videojuegos.</span></li>\n            </ul>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"claro\">claro / clara</span></td><td>clear, light</td><td><span data-say=\"especial\">especial</span></td><td>special</td></tr>\n            </table>\n            <p>Extra: <span data-say=\"Esta foto es muy clara y el videojuego es especial e increíble.\">Esta foto es muy clara y el videojuego es especial e increíble.</span> — <em>This photo is very clear and the video game is special and incredible.</em></p>",
   "question": "Which sentence is grammatically correct?",
   "options": [
    "Me encanta los videojuegos",
@@ -21481,7 +30286,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I say how often I use technology?",
-  "reading": "<p>Frequency expressions — combine with a reason using <strong>porque</strong>:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"todos los días\">todos los días</span></td><td>every day</td></tr>\n              <tr><td><span data-say=\"siempre\">siempre</span></td><td>always</td></tr>\n              <tr><td><span data-say=\"a menudo\">a menudo</span></td><td>often</td></tr>\n              <tr><td><span data-say=\"nunca\">nunca</span></td><td>never</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Uso el móvil todos los días porque es muy práctico.\">Uso el móvil todos los días porque es muy práctico.</span> — <em>I use my phone every day because it is very practical.</em></p>",
+  "reading": "<p>Frequency expressions — combine with a reason using <strong>porque</strong>:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"todos los días\">todos los días</span></td><td>every day</td></tr>\n              <tr><td><span data-say=\"siempre\">siempre</span></td><td>always</td></tr>\n              <tr><td><span data-say=\"a menudo\">a menudo</span></td><td>often</td></tr>\n              <tr><td><span data-say=\"nunca\">nunca</span></td><td>never</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Uso el móvil todos los días porque es muy práctico.\">Uso el móvil todos los días porque es muy práctico.</span> — <em>I use my phone every day because it is very practical.</em></p>\n            <p>Extra: <span data-say=\"Paso solo un minuto en la aplicación antes de pasar a la siguiente.\">Paso solo un minuto en la aplicación antes de pasar a la siguiente.</span> — <em>I spend only a minute on the app before moving on to the next one.</em> Mi <span data-say=\"último móvil\">último móvil</span> es mucho más rápido. — <em>My latest phone is much faster.</em></p>",
   "question": "Which phrase means ‘often’?",
   "options": [
    "siempre",
@@ -21502,7 +30307,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Higher: advantages, disadvantages and the subjunctive",
-  "reading": "<p><span class=\"tier-h\">H</span> Structure an advantage or a disadvantage with <strong>es que</strong>:</p>\n            <ul>\n              <li><span data-say=\"Una ventaja de la tecnología es que es muy útil.\">Una ventaja de la tecnología es que es muy útil.</span> — An advantage of technology is that it is very useful.</li>\n              <li><span data-say=\"Una desventaja es que es fácil hacerse adicto.\">Una desventaja es que es fácil hacerse adicto.</span> — A disadvantage is that it is easy to become addicted.</li>\n            </ul>\n            <p><span class=\"tier-h\">H</span> After <strong>es importante que</strong> the verb switches into the <strong>subjunctive</strong>:</p>\n            <ul>\n              <li><span data-say=\"Es importante que uses el móvil con cuidado.\">Es importante que uses el móvil con cuidado.</span> <span class=\"tier-h\">H</span> — It is important that you use your phone carefully.</li>\n            </ul>",
+  "reading": "<p><span class=\"tier-h\">H</span> Structure an advantage or a disadvantage with <strong>es que</strong>:</p>\n            <ul>\n              <li><span data-say=\"Una ventaja de la tecnología es que es muy útil.\">Una ventaja de la tecnología es que es muy útil.</span> — An advantage of technology is that it is very useful.</li>\n              <li><span data-say=\"Una desventaja es que es fácil hacerse adicto.\">Una desventaja es que es fácil hacerse adicto.</span> — A disadvantage is that it is easy to become addicted.</li>\n            </ul>\n            <p><span class=\"tier-h\">H</span> After <strong>es importante que</strong> the verb switches into the <strong>subjunctive</strong>:</p>\n            <ul>\n              <li><span data-say=\"Es importante que uses el móvil con cuidado.\">Es importante que uses el móvil con cuidado.</span> <span class=\"tier-h\">H</span> — It is important that you use your phone carefully.</li>\n            </ul>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"Un beneficio de la tecnología es la creación de aplicaciones nuevas cada día.\">Un beneficio de la tecnología es la creación de aplicaciones nuevas cada día.</span> — <em>A benefit of technology is the creation of new apps every day.</em></p>",
   "question": "Which sentence correctly uses the subjunctive after ‘es importante que’?",
   "options": [
    "Es importante que usas el móvil con cuidado",
@@ -21693,9 +30498,9 @@ window.QUESTION_BANK = [
   "question": "Uso el _____ para navegar por internet. <span data-say=\"Uso el móvil para navegar por internet.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "adicto",
-    "móvil",
     "mensajes",
+    "móvil",
+    "minuto",
     "útil"
    ]
   },
@@ -21715,10 +30520,10 @@ window.QUESTION_BANK = [
   "question": "Mando _____ a mis amigos todos los días. <span data-say=\"Mando mensajes a mis amigos todos los días.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "aplicaciones",
-    "Navegar",
+    "minuto",
     "mensajes",
-    "adicto"
+    "retraso",
+    "beneficio"
    ]
   },
   "key": {
@@ -21737,10 +30542,10 @@ window.QUESTION_BANK = [
   "question": "Descargo _____ en mi tableta. (apps)",
   "blankOptions": {
    "B1": [
-    "Navegar",
     "aplicaciones",
-    "adicto",
-    "útil"
+    "mensajes",
+    "móvil",
+    "beneficio"
    ]
   },
   "key": {
@@ -21759,10 +30564,10 @@ window.QUESTION_BANK = [
   "question": "Uso el ordenador para _____ los deberes. (to do)",
   "blankOptions": {
    "B1": [
-    "útil",
-    "aplicaciones",
-    "mensajes",
-    "hacer"
+    "minuto",
+    "cargar",
+    "hacer",
+    "mensajes"
    ]
   },
   "key": {
@@ -21781,10 +30586,10 @@ window.QUESTION_BANK = [
   "question": "Internet es muy _____ para buscar información. (useful)",
   "blankOptions": {
    "B1": [
-    "Navegar",
-    "mensajes",
-    "móvil",
-    "útil"
+    "hacer",
+    "conectar",
+    "útil",
+    "cargar"
    ]
   },
   "key": {
@@ -21803,10 +30608,10 @@ window.QUESTION_BANK = [
   "question": "Paso demasiado tiempo en el móvil — ¡soy _____! (addicted)",
   "blankOptions": {
    "B1": [
-    "hacer",
+    "aplicaciones",
+    "beneficio",
     "móvil",
-    "adicto",
-    "útil"
+    "adicto"
    ]
   },
   "key": {
@@ -21825,15 +30630,147 @@ window.QUESTION_BANK = [
   "question": "_____ por internet es una pérdida de tiempo, en mi opinión. (browsing)",
   "blankOptions": {
    "B1": [
-    "Navegar",
-    "aplicaciones",
-    "útil",
-    "hacer"
+    "adicto",
+    "cargar",
+    "minuto",
+    "Navegar"
    ]
   },
   "key": {
    "blanks": {
     "B1": "Navegar"
+   }
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:fib:b55d8390",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Tengo que _____ el móvil porque la batería está baja. (to charge)",
+  "blankOptions": {
+   "B1": [
+    "minuto",
+    "Navegar",
+    "retraso",
+    "cargar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "cargar"
+   }
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:fib:a149e15f",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Mi ordenador no _____ bien hoy. <span data-say=\"Mi ordenador no funciona bien hoy.\" data-listen></span>",
+  "blankOptions": {
+   "B1": [
+    "hacer",
+    "funciona",
+    "mensajes",
+    "cargar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "funciona"
+   }
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:fib:bb08ee70",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Quiero _____ mi portátil a internet. (to connect)",
+  "blankOptions": {
+   "B1": [
+    "conectar",
+    "hacer",
+    "funciona",
+    "beneficio"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "conectar"
+   }
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:fib:aae1fa3a",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Hay un _____ en la aplicación esta noche. <span data-say=\"Hay un retraso en la aplicación esta noche.\" data-listen></span>",
+  "blankOptions": {
+   "B1": [
+    "móvil",
+    "hacer",
+    "beneficio",
+    "retraso"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "retraso"
+   }
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:fib:213ab78d",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Solo tengo un _____ para revisar mis mensajes. (minute)",
+  "blankOptions": {
+   "B1": [
+    "retraso",
+    "minuto",
+    "aplicaciones",
+    "adicto"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "minuto"
+   }
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:fib:4c58b763",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Un _____ de la tecnología es que puedes aprender cosas nuevas. (benefit)",
+  "blankOptions": {
+   "B1": [
+    "conectar",
+    "útil",
+    "mensajes",
+    "beneficio"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "beneficio"
    }
   }
  },
@@ -21846,13 +30783,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el móvil”?",
   "options": [
-   "to browse the internet",
-   "the tablet",
-   "the mobile phone",
-   "to send messages"
+   "to charge (a device)",
+   "the app",
+   "special",
+   "the mobile phone"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“el móvil” means: the mobile phone"
   }
  },
@@ -21865,9 +30802,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el ordenador”?",
   "options": [
-   "the laptop",
    "to browse the internet",
-   "to upload photos",
+   "to charge (a device)",
+   "clear, light",
    "the computer"
   ],
   "key": {
@@ -21884,10 +30821,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la tableta”?",
   "options": [
-   "a waste of time",
-   "to browse the internet",
+   "special",
+   "the creation",
    "the tablet",
-   "the laptop"
+   "the minute"
   ],
   "key": {
    "answer": 2,
@@ -21903,13 +30840,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el portátil”?",
   "options": [
-   "to send messages",
-   "the laptop",
-   "to download",
-   "a waste of time"
+   "to save",
+   "awful / terrible",
+   "to connect",
+   "the laptop"
   ],
   "key": {
-   "answer": 1,
+   "answer": 3,
    "explain": "“el portátil” means: the laptop"
   }
  },
@@ -21922,10 +30859,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la aplicación”?",
   "options": [
-   "to download",
-   "to search for information",
+   "the delay",
+   "last / latest",
    "the app",
-   "the mobile phone"
+   "the computer"
   ],
   "key": {
    "answer": 2,
@@ -21941,13 +30878,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la pantalla”?",
   "options": [
-   "to browse the internet",
-   "to upload photos",
-   "the screen",
-   "to send messages"
+   "to charge (a device)",
+   "the video game",
+   "your (plural, familiar)",
+   "the screen"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“la pantalla” means: the screen"
   }
  },
@@ -21960,13 +30897,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “navegar por internet”?",
   "options": [
-   "to search for information",
-   "the app",
-   "the mobile phone",
-   "to browse the internet"
+   "to browse the internet",
+   "incredible",
+   "last / latest",
+   "to search for information"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“navegar por internet” means: to browse the internet"
   }
  },
@@ -21979,13 +30916,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “mandar mensajes”?",
   "options": [
-   "the mobile phone",
+   "the computer",
+   "to browse the internet",
    "to send messages",
-   "the laptop",
-   "the screen"
+   "heavy / annoying, boring"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“mandar mensajes” means: to send messages"
   }
  },
@@ -21998,9 +30935,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “descargar”?",
   "options": [
-   "to send messages",
-   "the screen",
+   "the delay",
    "a waste of time",
+   "the minute",
    "to download"
   ],
   "key": {
@@ -22017,10 +30954,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “subir fotos”?",
   "options": [
-   "the app",
-   "the laptop",
+   "to search for information",
+   "the creation",
    "to upload photos",
-   "to download"
+   "to send messages"
   ],
   "key": {
    "answer": 2,
@@ -22036,13 +30973,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “buscar información”?",
   "options": [
-   "a waste of time",
-   "the laptop",
-   "the screen",
-   "to search for information"
+   "special",
+   "to send messages",
+   "to search for information",
+   "the benefit"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“buscar información” means: to search for information"
   }
  },
@@ -22056,13 +30993,355 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “una pérdida de tiempo”?",
   "options": [
    "a waste of time",
+   "clear, light",
    "to download",
-   "the app",
-   "the mobile phone"
+   "the computer"
   ],
   "key": {
    "answer": 0,
    "explain": "“una pérdida de tiempo” means: a waste of time"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:af26baf8",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “cargar”?",
+  "options": [
+   "the good thing",
+   "the app",
+   "to charge (a device)",
+   "the benefit"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“cargar” means: to charge (a device)"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:3545be3c",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “funcionar”?",
+  "options": [
+   "to work / to function",
+   "a waste of time",
+   "the video game",
+   "heavy / annoying, boring"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“funcionar” means: to work / to function"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:585085d1",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “guardar”?",
+  "options": [
+   "special",
+   "the creation",
+   "to save",
+   "to work / to function"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“guardar” means: to save"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:02874e55",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “conectar”?",
+  "options": [
+   "to connect",
+   "the tablet",
+   "the benefit",
+   "to work / to function"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“conectar” means: to connect"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:b2e3527a",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el retraso”?",
+  "options": [
+   "last / latest",
+   "the delay",
+   "the benefit",
+   "to upload photos"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el retraso” means: the delay"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:b1a1b3cd",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el videojuego”?",
+  "options": [
+   "the computer",
+   "to charge (a device)",
+   "the video game",
+   "incredible"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el videojuego” means: the video game"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:8742bda7",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “claro / clara”?",
+  "options": [
+   "the computer",
+   "clear, light",
+   "to search for information",
+   "the screen"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“claro / clara” means: clear, light"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:04faebc8",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “último”?",
+  "options": [
+   "your (plural, familiar)",
+   "last / latest",
+   "to charge (a device)",
+   "the app"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“último” means: last / latest"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:c4a1d8c5",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “siguiente”?",
+  "options": [
+   "next / following",
+   "the benefit",
+   "heavy / annoying, boring",
+   "to charge (a device)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“siguiente” means: next / following"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:40f2d6a0",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “especial”?",
+  "options": [
+   "to download",
+   "the tablet",
+   "awful / terrible",
+   "special"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“especial” means: special"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:a2ade379",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el minuto”?",
+  "options": [
+   "the video game",
+   "the minute",
+   "awful / terrible",
+   "to connect"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el minuto” means: the minute"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:5ad438a4",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la creación”?",
+  "options": [
+   "the creation",
+   "the laptop",
+   "heavy / annoying, boring",
+   "your (plural, familiar)"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la creación” means: the creation"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:e1cf1c0c",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el beneficio”?",
+  "options": [
+   "the benefit",
+   "the screen",
+   "special",
+   "clear, light"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el beneficio” means: the benefit"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:6acbef7b",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “increíble”?",
+  "options": [
+   "incredible",
+   "special",
+   "the creation",
+   "to connect"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“increíble” means: incredible"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:9ada428b",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “vuestro / vuestra”?",
+  "options": [
+   "your (plural, familiar)",
+   "to upload photos",
+   "the delay",
+   "to browse the internet"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“vuestro / vuestra” means: your (plural, familiar)"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:158936f1",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “pesado”?",
+  "options": [
+   "the tablet",
+   "the computer",
+   "clear, light",
+   "heavy / annoying, boring"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“pesado” means: heavy / annoying, boring"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:d816a928",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “fatal”?",
+  "options": [
+   "your (plural, familiar)",
+   "awful / terrible",
+   "to download",
+   "the benefit"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“fatal” means: awful / terrible"
+  }
+ },
+ {
+  "id": "spanish:8-1-technology-in-everyday-life:match:acb37811",
+  "pageId": "spanish:8-1-technology-in-everyday-life",
+  "pageName": "8.1 Technology in Everyday Life",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “lo bueno”?",
+  "options": [
+   "the mobile phone",
+   "clear, light",
+   "the good thing",
+   "incredible"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“lo bueno” means: the good thing"
   }
  },
  {
@@ -22289,6 +31568,234 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:8-2-social-media-and-online-safety:mcq:903f1ef8",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘the user’?",
+  "options": [
+   "el usuario",
+   "el ordenador",
+   "la aplicación",
+   "la tecnología"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el usuario = the user. The other three are real tech nouns, but they name a device or concept, not a person."
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:mcq:0da5a581",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which verb means ‘to comment’?",
+  "options": [
+   "comentar",
+   "compartir",
+   "publicar",
+   "chatear"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "comentar = to comment. compartir (to share), publicar (to post) and chatear (to chat) are all real social-media verbs, but different actions."
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:mcq:97580a5c",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘emoji’ or ‘emoticon’?",
+  "options": [
+   "el emoticón",
+   "el comentario",
+   "el mensaje",
+   "el perfil"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el emoticón = emoji/emoticon. comentario (comment), mensaje (message) and perfil (profile) are all real social-media nouns, but different things."
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:mcq:34b2b2ba",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "<span data-say=\"Actualizo mi estado con un emoticón divertido.\" data-listen></span><br>Listen. What does the person update?",
+  "options": [
+   "their status, with a fun emoji",
+   "their password, with new letters",
+   "their profile picture only",
+   "their list of followers"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘actualizo mi estado con un emoticón divertido’ = I update my status with a fun emoji. The traps swap in a password, a photo or a follower list."
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:mcq:9ebdc3db",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which sentence means ‘It’s important to feel safe online’?",
+  "options": [
+   "Es importante sentirte seguro en línea",
+   "Es importante sentirte perdido en línea",
+   "Es importante sentirte solo en línea",
+   "Es importante sentirte triste en línea"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "seguro = safe. perdido (lost), solo (alone) and triste (sad) are real feeling-words that fit the same sentence shape, but change the meaning."
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:mcq:355ae977",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘safe’?",
+  "options": [
+   "seguro",
+   "peligroso",
+   "divertido",
+   "importante"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "seguro = safe. peligroso (dangerous) is its direct opposite — a very common mix-up; divertido (fun) and importante (important) are unrelated."
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:mcq:91f348b1",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘consequence’?",
+  "options": [
+   "la consecuencia",
+   "la preocupación",
+   "el peligro",
+   "el impacto"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la consecuencia = consequence. preocupación (worry), peligro (danger) and impacto (impact) are all similar abstract nouns about risk, easily confused."
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:mcq:7b0248cd",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which phrase describes ‘the worst mistake’?",
+  "options": [
+   "el peor error",
+   "el mejor error",
+   "el último error",
+   "el mismo error"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "el peor = the worst. el mejor (the best) is the opposite; el último (the last) and el mismo (the same) are other real describing words."
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:mcq:c03998dd",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘occasion’, as in ‘on one occasion’?",
+  "options": [
+   "la ocasión",
+   "la opción",
+   "la ocupación",
+   "la operación"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la ocasión = occasion. opción (option), ocupación (occupation) and operación (operation) look similar in writing but mean something different."
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:mcq:8250b67c",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘attitude’?",
+  "options": [
+   "la actitud",
+   "la aptitud",
+   "la actividad",
+   "la atención"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la actitud = attitude. la aptitud (aptitude) is the classic confusable pair; actividad (activity) and atención (attention) look similar too."
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:mcq:7fbcec33",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘a smile’?",
+  "options": [
+   "una sonrisa",
+   "una sorpresa",
+   "una sombra",
+   "una sonata"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "una sonrisa = a smile. sorpresa (surprise), sombra (shadow) and sonata (sonata) all start similarly, so read carefully."
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:mcq:e3bdb501",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means ‘impression’?",
+  "options": [
+   "la impresión",
+   "la expresión",
+   "la impresora",
+   "la depresión"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la impresión = impression. la impresora looks almost identical but is a false friend meaning ‘printer’; expresión (expression) and depresión (depression) are other look-alikes."
+  }
+ },
+ {
   "id": "spanish:8-2-social-media-and-online-safety:tf:7ed49132",
   "pageId": "spanish:8-2-social-media-and-online-safety",
   "pageName": "8.2 Social Media and Online Safety",
@@ -22393,6 +31900,32 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:8-2-social-media-and-online-safety:tf:198831e6",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘seguro’ means ‘dangerous’.",
+  "key": {
+   "answer": false,
+   "explain": "seguro = safe; peligroso = dangerous — opposite meanings."
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:tf:90e02d5d",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘la actitud’ means ‘attitude’, not ‘aptitude’ (that’s ‘la aptitud’).",
+  "key": {
+   "answer": true,
+   "explain": "actitud and aptitud are easily confused look-alikes with different meanings."
+  }
+ },
+ {
   "id": "spanish:8-2-social-media-and-online-safety:learn:fb1a07f8",
   "pageId": "spanish:8-2-social-media-and-online-safety",
   "pageName": "8.2 Social Media and Online Safety",
@@ -22400,7 +31933,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I talk about social media?",
-  "reading": "<p>The key noun is <span data-say=\"la red social\">la red social</span> (the social network) / <span data-say=\"las redes sociales\">las redes sociales</span> (social media). Note: on its own, <strong>‘red’</strong> means <em>network</em>, not the colour red! Tap 🔊 to hear each word.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el perfil\">el perfil</span></td><td>profile</td><td><span data-say=\"publicar\">publicar</span></td><td>to post</td></tr>\n              <tr><td><span data-say=\"compartir\">compartir</span></td><td>to share</td><td><span data-say=\"seguir a\">seguir a</span></td><td>to follow</td></tr>\n              <tr><td><span data-say=\"el seguidor\">el seguidor / la seguidora</span></td><td>follower</td><td><span data-say=\"el mensaje\">el mensaje</span></td><td>message</td></tr>\n              <tr><td><span data-say=\"chatear\">chatear</span></td><td>to chat</td><td><span data-say=\"en línea\">en línea</span></td><td>online</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Publico fotos en mi perfil y sigo a mis amigos.\">Publico fotos en mi perfil y sigo a mis amigos.</span> — <em>I post photos on my profile and I follow my friends.</em></p>",
+  "reading": "<p>The key noun is <span data-say=\"la red social\">la red social</span> (the social network) / <span data-say=\"las redes sociales\">las redes sociales</span> (social media). Note: on its own, <strong>‘red’</strong> means <em>network</em>, not the colour red! Tap 🔊 to hear each word.</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el perfil\">el perfil</span></td><td>profile</td><td><span data-say=\"publicar\">publicar</span></td><td>to post</td></tr>\n              <tr><td><span data-say=\"compartir\">compartir</span></td><td>to share</td><td><span data-say=\"seguir a\">seguir a</span></td><td>to follow</td></tr>\n              <tr><td><span data-say=\"el seguidor\">el seguidor / la seguidora</span></td><td>follower</td><td><span data-say=\"el mensaje\">el mensaje</span></td><td>message</td></tr>\n              <tr><td><span data-say=\"chatear\">chatear</span></td><td>to chat</td><td><span data-say=\"en línea\">en línea</span></td><td>online</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"Publico fotos en mi perfil y sigo a mis amigos.\">Publico fotos en mi perfil y sigo a mis amigos.</span> — <em>I post photos on my profile and I follow my friends.</em></p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el usuario\">el usuario / la usuaria</span></td><td>the user</td><td><span data-say=\"comentar\">comentar</span></td><td>to comment</td></tr>\n            </table>\n            <p>Extra: <span data-say=\"Como usuario, comento las fotos y actualizo mi estado con un emoticón.\">Como usuario, comento las fotos y actualizo mi estado con un emoticón.</span> — <em>As a user, I comment on photos and update my status with an emoji.</em></p>",
   "question": "What does ‘la red social’ mean?",
   "options": [
    "a social network",
@@ -22421,7 +31954,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "What are the advantages of social media?",
-  "reading": "<p>Reasons people give for using social media:</p>\n            <ul>\n              <li><span data-say=\"estar en contacto con\">estar en contacto con</span> — to be/stay in contact with</li>\n              <li><span data-say=\"conocer gente\">conocer gente</span> — to meet people</li>\n              <li><span data-say=\"compartir fotos\">compartir fotos</span> — to share photos</li>\n              <li><span data-say=\"es divertido\">es divertido</span> — it is fun</li>\n            </ul>\n            <p>Model sentence: <span data-say=\"Me gusta usar las redes sociales porque puedo estar en contacto con mis amigos y es divertido.\">Me gusta usar las redes sociales porque puedo estar en contacto con mis amigos y es divertido.</span> — <em>I like using social media because I can stay in contact with my friends and it is fun.</em></p>",
+  "reading": "<p>Reasons people give for using social media:</p>\n            <ul>\n              <li><span data-say=\"estar en contacto con\">estar en contacto con</span> — to be/stay in contact with</li>\n              <li><span data-say=\"conocer gente\">conocer gente</span> — to meet people</li>\n              <li><span data-say=\"compartir fotos\">compartir fotos</span> — to share photos</li>\n              <li><span data-say=\"es divertido\">es divertido</span> — it is fun</li>\n            </ul>\n            <p>Model sentence: <span data-say=\"Me gusta usar las redes sociales porque puedo estar en contacto con mis amigos y es divertido.\">Me gusta usar las redes sociales porque puedo estar en contacto con mis amigos y es divertido.</span> — <em>I like using social media because I can stay in contact with my friends and it is fun.</em></p>\n            <p>Extra: <span data-say=\"Una sonrisa o un comentario positivo puede cambiar la actitud de una persona.\">Una sonrisa o un comentario positivo puede cambiar la actitud de una persona.</span> — <em>A smile or a positive comment can change someone's attitude.</em></p>",
   "question": "What does ‘estar en contacto con’ mean?",
   "options": [
    "to stay in contact with",
@@ -22442,7 +31975,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "What are the dangers of the internet?",
-  "reading": "<p>Important safety vocabulary — the exam rewards recognising these:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el peligro\">el peligro</span></td><td>danger</td><td><span data-say=\"peligroso\">peligroso / peligrosa</span></td><td>dangerous</td></tr>\n              <tr><td><span data-say=\"el ciberacoso\">el ciberacoso</span></td><td>cyberbullying</td><td><span data-say=\"la privacidad\">la privacidad</span></td><td>privacy</td></tr>\n              <tr><td><span data-say=\"los datos personales\">los datos personales</span></td><td>personal data</td><td><span data-say=\"la contraseña\">la contraseña</span></td><td>password</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"El ciberacoso es un gran peligro en las redes sociales.\">El ciberacoso es un gran peligro en las redes sociales.</span> — <em>Cyberbullying is a big danger on social media.</em></p>",
+  "reading": "<p>Important safety vocabulary — the exam rewards recognising these:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el peligro\">el peligro</span></td><td>danger</td><td><span data-say=\"peligroso\">peligroso / peligrosa</span></td><td>dangerous</td></tr>\n              <tr><td><span data-say=\"el ciberacoso\">el ciberacoso</span></td><td>cyberbullying</td><td><span data-say=\"la privacidad\">la privacidad</span></td><td>privacy</td></tr>\n              <tr><td><span data-say=\"los datos personales\">los datos personales</span></td><td>personal data</td><td><span data-say=\"la contraseña\">la contraseña</span></td><td>password</td></tr>\n            </table>\n            <p>Model sentence: <span data-say=\"El ciberacoso es un gran peligro en las redes sociales.\">El ciberacoso es un gran peligro en las redes sociales.</span> — <em>Cyberbullying is a big danger on social media.</em></p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"seguro\">seguro / segura</span></td><td>safe</td></tr>\n            </table>\n            <p>Extra: <span data-say=\"Si no tienes cuidado, la consecuencia puede ser un problema serio.\">Si no tienes cuidado, la consecuencia puede ser un problema serio.</span> — <em>If you are not careful, the consequence can be a serious problem.</em> Es importante sentirte <span data-say=\"seguro en línea\">seguro</span> en línea. — <em>It's important to feel safe online.</em></p>",
   "question": "What does ‘el ciberacoso’ mean?",
   "options": [
    "cyberbullying",
@@ -22484,7 +32017,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "How do I give advice about online safety?",
-  "reading": "<p>Reuse the advice structures — each is followed by an <strong>infinitive</strong>:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"se debe proteger la contraseña\">se debe proteger la contraseña</span></td><td>one should protect your password</td></tr>\n              <tr><td><span data-say=\"no se debe compartir datos personales\">no se debe compartir datos personales</span></td><td>one must not share personal data</td></tr>\n              <tr><td><span data-say=\"hay que tener cuidado\">hay que tener cuidado</span></td><td>you have to be careful</td></tr>\n              <tr><td><span data-say=\"es importante proteger tu contraseña\">es importante proteger tu contraseña</span></td><td>it is important to protect your password</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Es importante proteger tu contraseña y no se debe compartir datos personales.\">Es importante proteger tu contraseña y no se debe compartir datos personales.</span></p>",
+  "reading": "<p>Reuse the advice structures — each is followed by an <strong>infinitive</strong>:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"se debe proteger la contraseña\">se debe proteger la contraseña</span></td><td>one should protect your password</td></tr>\n              <tr><td><span data-say=\"no se debe compartir datos personales\">no se debe compartir datos personales</span></td><td>one must not share personal data</td></tr>\n              <tr><td><span data-say=\"hay que tener cuidado\">hay que tener cuidado</span></td><td>you have to be careful</td></tr>\n              <tr><td><span data-say=\"es importante proteger tu contraseña\">es importante proteger tu contraseña</span></td><td>it is important to protect your password</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Es importante proteger tu contraseña y no se debe compartir datos personales.\">Es importante proteger tu contraseña y no se debe compartir datos personales.</span></p>\n            <p>Extra: <span data-say=\"En alguna ocasión, el peor error es compartir tu contraseña.\">En alguna ocasión, el peor error es compartir tu contraseña.</span> — <em>On some occasions, the worst mistake is sharing your password.</em></p>",
   "question": "What follows ‘se debe’, ‘hay que’ and ‘es importante’?",
   "options": [
    "an infinitive (proteger, compartir…)",
@@ -22505,7 +32038,7 @@ window.QUESTION_BANK = [
   "type": "mcq",
   "marks": 1,
   "readingTitle": "Higher: opinions and advice with the subjunctive",
-  "reading": "<p><span class=\"tier-h\">H</span> After <strong>es importante que</strong>, the verb changes to the <strong>subjunctive</strong>:</p>\n            <ul>\n              <li><span data-say=\"es importante que tengas cuidado\">es importante que tengas cuidado</span> <span class=\"tier-h\">H</span> — it is important that you are careful (tengas, not tienes)</li>\n              <li><span data-say=\"es importante que protejas tus datos personales\">es importante que protejas tus datos personales</span> <span class=\"tier-h\">H</span></li>\n            </ul>\n            <p>Combine with the conditional for the top band:</p>\n            <ul>\n              <li><span data-say=\"Se debería tener más cuidado en línea.\">Se debería tener más cuidado en línea.</span> <span class=\"tier-h\">H</span> — One should be more careful online.</li>\n            </ul>",
+  "reading": "<p><span class=\"tier-h\">H</span> After <strong>es importante que</strong>, the verb changes to the <strong>subjunctive</strong>:</p>\n            <ul>\n              <li><span data-say=\"es importante que tengas cuidado\">es importante que tengas cuidado</span> <span class=\"tier-h\">H</span> — it is important that you are careful (tengas, not tienes)</li>\n              <li><span data-say=\"es importante que protejas tus datos personales\">es importante que protejas tus datos personales</span> <span class=\"tier-h\">H</span></li>\n            </ul>\n            <p>Combine with the conditional for the top band:</p>\n            <ul>\n              <li><span data-say=\"Se debería tener más cuidado en línea.\">Se debería tener más cuidado en línea.</span> <span class=\"tier-h\">H</span> — One should be more careful online.</li>\n            </ul>\n            <p><span class=\"tier-h\">H</span> <span data-say=\"La privacidad es una cuestión importante y da una buena impresión si tienes cuidado.\">La privacidad es una cuestión importante y da una buena impresión si tienes cuidado.</span> — <em>Privacy is an important issue and it gives a good impression if you are careful.</em></p>",
   "question": "Which sentence correctly uses the subjunctive after ‘es importante que’?",
   "options": [
    "Es importante que tengas cuidado",
@@ -22696,10 +32229,10 @@ window.QUESTION_BANK = [
   "question": "Sigo a mis amigos en las redes _____. <span data-say=\"Sigo a mis amigos en las redes sociales.\" data-listen>Sigo a mis amigos en las redes sociales.</span>",
   "blankOptions": {
    "B1": [
+    "tiempo",
+    "estado",
     "sociales",
-    "perfil",
-    "cuidado",
-    "contraseña"
+    "usuario"
    ]
   },
   "key": {
@@ -22718,9 +32251,9 @@ window.QUESTION_BANK = [
   "question": "Es importante proteger la _____. <span data-say=\"Es importante proteger la contraseña.\" data-listen>Es importante proteger la contraseña.</span>",
   "blankOptions": {
    "B1": [
-    "tiempo",
+    "consecuencia",
+    "emoticón",
     "compartir",
-    "peligro",
     "contraseña"
    ]
   },
@@ -22740,10 +32273,10 @@ window.QUESTION_BANK = [
   "question": "El ciberacoso es un gran _____ en línea. <span data-say=\"El ciberacoso es un gran peligro en línea.\" data-listen>El ciberacoso es un gran peligro en línea.</span>",
   "blankOptions": {
    "B1": [
-    "cuidado",
-    "perfil",
+    "estado",
+    "contraseña",
     "peligro",
-    "contraseña"
+    "comentar"
    ]
   },
   "key": {
@@ -22762,10 +32295,10 @@ window.QUESTION_BANK = [
   "question": "Hay que tener _____ en las redes sociales. (be careful)",
   "blankOptions": {
    "B1": [
+    "contraseña",
     "cuidado",
-    "sociales",
-    "peligro",
-    "compartir"
+    "perfil",
+    "emoticón"
    ]
   },
   "key": {
@@ -22784,10 +32317,10 @@ window.QUESTION_BANK = [
   "question": "Publico muchas fotos en mi _____. (profile)",
   "blankOptions": {
    "B1": [
-    "compartir",
-    "contraseña",
+    "cuidado",
     "perfil",
-    "cuidado"
+    "consecuencia",
+    "sociales"
    ]
   },
   "key": {
@@ -22806,10 +32339,10 @@ window.QUESTION_BANK = [
   "question": "No se debe _____ datos personales. <span data-say=\"no se debe compartir datos personales\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "tiempo",
     "compartir",
-    "perfil",
-    "cuidado"
+    "peligro",
+    "sociales",
+    "emoticón"
    ]
   },
   "key": {
@@ -22828,15 +32361,147 @@ window.QUESTION_BANK = [
   "question": "Paso demasiado _____ en línea. <span data-say=\"paso demasiado tiempo en línea\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "tiempo",
-    "cuidado",
-    "sociales",
-    "compartir"
+    "usuario",
+    "compartir",
+    "seguro",
+    "tiempo"
    ]
   },
   "key": {
    "blanks": {
     "B1": "tiempo"
+   }
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:fib:d986d580",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Soy un _____ nuevo en esta aplicación. (user)",
+  "blankOptions": {
+   "B1": [
+    "sociales",
+    "usuario",
+    "cuidado",
+    "consecuencia"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "usuario"
+   }
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:fib:9df50f65",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Me gusta _____ las fotos de mis amigos. (to comment on)",
+  "blankOptions": {
+   "B1": [
+    "compartir",
+    "comentar",
+    "seguro",
+    "perfil"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "comentar"
+   }
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:fib:700c7b68",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Actualizo mi _____ con una foto nueva. <span data-say=\"Actualizo mi estado con una foto nueva.\" data-listen></span>",
+  "blankOptions": {
+   "B1": [
+    "estado",
+    "cuidado",
+    "usuario",
+    "seguro"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "estado"
+   }
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:fib:e59df022",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Envío un _____ para expresar que estoy feliz. (emoji)",
+  "blankOptions": {
+   "B1": [
+    "emoticón",
+    "usuario",
+    "peligro",
+    "cuidado"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "emoticón"
+   }
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:fib:a53f0447",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Es importante sentirte _____ en línea. (safe)",
+  "blankOptions": {
+   "B1": [
+    "usuario",
+    "estado",
+    "sociales",
+    "seguro"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "seguro"
+   }
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:fib:e05c0ded",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Compartir tu contraseña puede tener una _____ grave. (consequence)",
+  "blankOptions": {
+   "B1": [
+    "perfil",
+    "cuidado",
+    "peligro",
+    "consecuencia"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "consecuencia"
    }
   }
  },
@@ -22850,9 +32515,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “las redes sociales”?",
   "options": [
    "social media",
+   "cyberbullying",
    "message",
-   "to share",
-   "danger"
+   "the status (update)"
   ],
   "key": {
    "answer": 0,
@@ -22868,10 +32533,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el perfil”?",
   "options": [
-   "online",
+   "the emoji / emoticon",
    "profile",
-   "danger",
-   "to follow"
+   "the impression",
+   "the status (update)"
   ],
   "key": {
    "answer": 1,
@@ -22887,13 +32552,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “publicar”?",
   "options": [
-   "cyberbullying",
-   "profile",
-   "to chat",
-   "to post"
+   "the occasion",
+   "the smile",
+   "to post",
+   "to follow"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“publicar” means: to post"
   }
  },
@@ -22906,13 +32571,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “compartir”?",
   "options": [
-   "to post",
    "to share",
-   "profile",
-   "password"
+   "the key / code",
+   "message",
+   "to follow"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“compartir” means: to share"
   }
  },
@@ -22925,10 +32590,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “seguir a”?",
   "options": [
-   "personal data",
-   "profile",
+   "the attitude",
+   "the key / code",
    "to follow",
-   "message"
+   "to share"
   ],
   "key": {
    "answer": 2,
@@ -22944,10 +32609,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el mensaje”?",
   "options": [
-   "to chat",
-   "cyberbullying",
+   "the impression",
+   "personal data",
    "message",
-   "personal data"
+   "the attitude"
   ],
   "key": {
    "answer": 2,
@@ -22963,13 +32628,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “chatear”?",
   "options": [
-   "to share",
-   "online",
-   "to chat",
-   "danger"
+   "danger",
+   "the emoji / emoticon",
+   "the impact",
+   "to chat"
   ],
   "key": {
-   "answer": 2,
+   "answer": 3,
    "explain": "“chatear” means: to chat"
   }
  },
@@ -22983,9 +32648,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “en línea”?",
   "options": [
    "online",
-   "to post",
-   "personal data",
-   "danger"
+   "message",
+   "to follow",
+   "the status (update)"
   ],
   "key": {
    "answer": 0,
@@ -23001,10 +32666,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el peligro”?",
   "options": [
-   "profile",
+   "to share",
    "danger",
-   "to chat",
-   "to follow"
+   "to comment",
+   "cyberbullying"
   ],
   "key": {
    "answer": 1,
@@ -23020,13 +32685,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el ciberacoso”?",
   "options": [
-   "to post",
+   "message",
+   "the impression",
    "cyberbullying",
-   "to follow",
-   "message"
+   "password"
   ],
   "key": {
-   "answer": 1,
+   "answer": 2,
    "explain": "“el ciberacoso” means: cyberbullying"
   }
  },
@@ -23039,13 +32704,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la contraseña”?",
   "options": [
-   "profile",
-   "personal data",
-   "to follow",
-   "password"
+   "to share",
+   "agreed / OK",
+   "password",
+   "to post"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“la contraseña” means: password"
   }
  },
@@ -23058,14 +32723,318 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “los datos personales”?",
   "options": [
-   "cyberbullying",
-   "profile",
    "personal data",
-   "social media"
+   "the consequence",
+   "the impression",
+   "the key / code"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“los datos personales” means: personal data"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:417d0108",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el usuario / la usuaria”?",
+  "options": [
+   "personal data",
+   "safe",
+   "to share",
+   "the user"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el usuario / la usuaria” means: the user"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:9aa72968",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “comentar”?",
+  "options": [
+   "the worry / concern",
+   "to comment",
+   "safe",
+   "to share"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“comentar” means: to comment"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:b51617ce",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el emoticón”?",
+  "options": [
+   "social media",
+   "the emoji / emoticon",
+   "to chat",
+   "the smile"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el emoticón” means: the emoji / emoticon"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:6ce16183",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el estado”?",
+  "options": [
+   "the impression",
+   "the status (update)",
+   "online",
+   "the issue / matter"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el estado” means: the status (update)"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:953c9523",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “seguro / segura”?",
+  "options": [
+   "safe",
+   "the worry / concern",
+   "the issue / matter",
+   "to chat"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“seguro / segura” means: safe"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:210d831a",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la cuestión”?",
+  "options": [
+   "social media",
+   "the smile",
+   "the issue / matter",
+   "the worry / concern"
   ],
   "key": {
    "answer": 2,
-   "explain": "“los datos personales” means: personal data"
+   "explain": "“la cuestión” means: the issue / matter"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:efb6f986",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la ocasión”?",
+  "options": [
+   "the worst",
+   "danger",
+   "the occasion",
+   "to chat"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la ocasión” means: the occasion"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:d9f02612",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el peor / la peor”?",
+  "options": [
+   "to follow",
+   "the worst",
+   "the impact",
+   "the status (update)"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el peor / la peor” means: the worst"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:1712c2b0",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la consecuencia”?",
+  "options": [
+   "to chat",
+   "the consequence",
+   "the impact",
+   "the key / code"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la consecuencia” means: the consequence"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:9a00e8f9",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la actitud”?",
+  "options": [
+   "the attitude",
+   "the smile",
+   "the occasion",
+   "the impression"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la actitud” means: the attitude"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:b3afb9a0",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la sonrisa”?",
+  "options": [
+   "the status (update)",
+   "the smile",
+   "danger",
+   "the consequence"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la sonrisa” means: the smile"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:30763baa",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la impresión”?",
+  "options": [
+   "the impression",
+   "the key / code",
+   "the impact",
+   "to share"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la impresión” means: the impression"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:36a88005",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la clave”?",
+  "options": [
+   "safe",
+   "the impression",
+   "the key / code",
+   "the attitude"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la clave” means: the key / code"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:5af81e0d",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la preocupación”?",
+  "options": [
+   "online",
+   "the worry / concern",
+   "cyberbullying",
+   "to follow"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la preocupación” means: the worry / concern"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:bb6de1f6",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el impacto”?",
+  "options": [
+   "the issue / matter",
+   "personal data",
+   "to chat",
+   "the impact"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el impacto” means: the impact"
+  }
+ },
+ {
+  "id": "spanish:8-2-social-media-and-online-safety:match:c8721816",
+  "pageId": "spanish:8-2-social-media-and-online-safety",
+  "pageName": "8.2 Social Media and Online Safety",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “de acuerdo”?",
+  "options": [
+   "safe",
+   "to chat",
+   "to comment",
+   "agreed / OK"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“de acuerdo” means: agreed / OK"
   }
  },
  {
@@ -23292,6 +33261,120 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:9-1-my-town-home-and-local-area:mcq:fc877b00",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'distance'?",
+  "options": [
+   "la distancia",
+   "la velocidad",
+   "la altura",
+   "el ruido"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la distancia = distance. la velocidad = speed, la altura = height, el ruido = noise — related measurements, but each is different."
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:mcq:3d771dd1",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'to steal'?",
+  "options": [
+   "robar",
+   "cobrar",
+   "devolver",
+   "cometer"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "robar = to steal. cobrar = to charge/get paid, devolver = to give back, cometer = to commit (e.g. cometer un delito)."
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:mcq:a639ba66",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'a crime'?",
+  "options": [
+   "un delito",
+   "un accidente",
+   "una señal",
+   "una venta"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "un delito = a crime. un accidente = an accident, una señal = a sign/signal, una venta = a sale — all things a local news story might mention."
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:mcq:647caac4",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'empty'?",
+  "options": [
+   "vacío",
+   "hermoso",
+   "grande",
+   "pequeño"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "vacío = empty. hermoso = beautiful, grande = big, pequeño = small — all common adjectives for describing a house or place."
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:mcq:3fbe332e",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'height'?",
+  "options": [
+   "la altura",
+   "el tamaño",
+   "la distancia",
+   "la velocidad"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la altura = height. el tamaño = size, la distancia = distance, la velocidad = speed — all measurements, but each means something different."
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:mcq:fddc8d15",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'a sign' or 'a signal'?",
+  "options": [
+   "una señal",
+   "un delito",
+   "un accidente",
+   "una venta"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "una señal = a sign/signal (e.g. a road sign). un delito = a crime, un accidente = an accident, una venta = a sale."
+  }
+ },
+ {
   "id": "spanish:9-1-my-town-home-and-local-area:tf:e9cd7dba",
   "pageId": "spanish:9-1-my-town-home-and-local-area",
   "pageName": "9.1 My Town, Home and Local Area",
@@ -23393,6 +33476,58 @@ window.QUESTION_BANK = [
   "key": {
    "answer": false,
    "explain": "en las afueras = on the outskirts; el centro = the town centre."
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:tf:0d077e62",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘el vecino’ means ‘the neighbour’.",
+  "key": {
+   "answer": true,
+   "explain": "el vecino / la vecina = neighbour."
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:tf:caab4cc1",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘abandonado’ means ‘brand new’.",
+  "key": {
+   "answer": false,
+   "explain": "abandonado means abandoned/deserted, not brand new (nuevo)."
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:tf:1cca150d",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘cruzar’ means ‘to cross’.",
+  "key": {
+   "answer": true,
+   "explain": "cruzar la calle = to cross the street."
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:tf:bc6d2e16",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘la piedra’ means ‘brick’.",
+  "key": {
+   "answer": false,
+   "explain": "la piedra means stone; a brick is un ladrillo."
   }
  },
  {
@@ -23519,6 +33654,48 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "vivía is the imperfect tense = I used to live. It describes a past habitual state, not the present or future."
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:learn:48262144",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I ask for and give directions?",
+  "reading": "<p>Use <span data-say=\"la dirección\">la dirección</span> (address/direction) to ask the way, <span data-say=\"cruzar\">cruzar</span> (to cross) and <span data-say=\"el punto\">el punto</span> (point) to describe a route, and <span data-say=\"fuera\">fuera</span> (outside) to say where something is.</p>\n            <p><span data-say=\"Perdón, ¿me puede dar la dirección al ayuntamiento?\">— Perdón, ¿me puede dar la dirección al ayuntamiento?</span><br>\n            <span data-say=\"Sí, claro. Tiene que cruzar la plaza; el punto de información turística está justo fuera de la estación.\">— Sí, claro. Tiene que cruzar la plaza; el punto de información turística está justo fuera de la estación.</span><br>\n            <span data-say=\"Muchas gracias.\">— Muchas gracias.</span></p>",
+  "question": "According to the dialogue, where exactly is the tourist information point?",
+  "options": [
+   "just outside the station",
+   "inside the town hall, near the plaza entrance",
+   "opposite the train station main entrance",
+   "next to the shopping centre car park entrance"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘fuera de la estación’ = outside the station. The other options invent a different building or location that isn’t in the dialogue."
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:learn:787e8b97",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "How do I describe my neighbourhood in more detail?",
+  "reading": "<p>More vocabulary for describing where you live:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el lugar\">el lugar</span></td><td>place</td><td><span data-say=\"el sitio\">el sitio</span></td><td>site / place</td></tr>\n              <tr><td><span data-say=\"la comunidad\">la comunidad</span></td><td>community</td><td><span data-say=\"el vecino\">el vecino / la vecina</span></td><td>neighbour</td></tr>\n              <tr><td><span data-say=\"la entrada\">la entrada</span></td><td>entrance</td><td><span data-say=\"la pared\">la pared</span></td><td>wall</td></tr>\n              <tr><td><span data-say=\"la piedra\">la piedra</span></td><td>stone</td><td><span data-say=\"el metro\">el metro</span></td><td>metre / underground</td></tr>\n            </table>\n            <p>Model paragraph: <span data-say=\"Vivo en un lugar pequeño, casi como una isla tranquila, en un sitio cerca del río. Es una comunidad muy unida donde los vecinos se ayudan. La entrada de mi casa tiene una pared de piedra, y a diez metros hay una plaza de estilo colonial donde se venden productos locales. El espacio físico del pueblo no es grande — su tamaño es pequeño — y ahora mismo hay obras cerca de la iglesia, que lleva el nombre de un santo; por eso, algunas tiendas están abandonadas temporalmente.\">Vivo en un lugar pequeño, casi como una isla tranquila, en un sitio cerca del río. Es una comunidad muy unida donde los vecinos se ayudan. La entrada de mi casa tiene una pared de piedra, y a diez metros hay una plaza de estilo colonial donde se venden productos locales. El espacio físico del pueblo no es grande — su tamaño es pequeño — y ahora mismo hay obras cerca de la iglesia, que lleva el nombre de un santo; por eso, algunas tiendas están abandonadas temporalmente.</span> — <em>I live in a small place, almost like a quiet island, on a site near the river. It's a very close-knit community where the neighbours help each other. My house's entrance has a stone wall, and ten metres away there's a colonial-style square where local products are sold. The physical space of the village isn't big — its size is small — and right now there are roadworks near the church, which is named after a saint; because of this, some shops are temporarily abandoned.</em></p>",
+  "question": "According to the paragraph, why are some shops temporarily closed?",
+  "options": [
+   "because of roadworks near the church",
+   "because the whole community voted to close them down",
+   "because the village is too small to need any shops",
+   "because the neighbours all abandoned the square together"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘hay obras cerca de la iglesia… algunas tiendas están abandonadas temporalmente’ = there are roadworks near the church, so some shops are temporarily closed/abandoned."
   }
  },
  {
@@ -23700,9 +33877,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "hay",
-    "abajo",
-    "centro comercial",
-    "puede"
+    "arquitectura",
+    "vivía",
+    "tranquilo"
    ]
   },
   "key": {
@@ -23721,10 +33898,10 @@ window.QUESTION_BANK = [
   "question": "Mi dormitorio está <span data-say=\"arriba\">arriba</span> y la cocina está _____. (downstairs)",
   "blankOptions": {
    "B1": [
-    "tranquilo",
     "abajo",
-    "puede",
-    "vivía"
+    "tranquilo",
+    "arquitectura",
+    "oro"
    ]
   },
   "key": {
@@ -23743,10 +33920,10 @@ window.QUESTION_BANK = [
   "question": "En mi pueblo hay un polideportivo y un _____ cerca del ayuntamiento. (shopping centre)",
   "blankOptions": {
    "B1": [
-    "hay",
-    "vivía",
+    "kilómetro",
+    "tranquilo",
     "centro comercial",
-    "está"
+    "hay"
    ]
   },
   "key": {
@@ -23765,10 +33942,10 @@ window.QUESTION_BANK = [
   "question": "Se _____ nadar en el polideportivo. (you can — se puede)",
   "blankOptions": {
    "B1": [
-    "vivía",
-    "centro comercial",
+    "abajo",
+    "puede",
     "está",
-    "puede"
+    "tranquilo"
    ]
   },
   "key": {
@@ -23788,9 +33965,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "centro comercial",
+    "puede",
     "tranquilo",
-    "hay",
-    "está"
+    "oro"
    ]
   },
   "key": {
@@ -23810,9 +33987,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "vivía",
-    "está",
-    "centro comercial",
-    "hay"
+    "tranquilo",
+    "puede",
+    "oro"
    ]
   },
   "key": {
@@ -23831,15 +34008,125 @@ window.QUESTION_BANK = [
   "question": "El parque _____ entre la estación y el centro comercial. (is — estar for location)",
   "blankOptions": {
    "B1": [
-    "está",
     "abajo",
-    "vivía",
-    "puede"
+    "está",
+    "kilómetro",
+    "esquina"
    ]
   },
   "key": {
    "blanks": {
     "B1": "está"
+   }
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:fib:e42c8d4e",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El anillo de _____ que compré en el mercado es precioso. (gold)",
+  "blankOptions": {
+   "B1": [
+    "hay",
+    "está",
+    "abajo",
+    "oro"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "oro"
+   }
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:fib:dec186a8",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "La _____ de la catedral de mi ciudad es de estilo gótico. (architecture)",
+  "blankOptions": {
+   "B1": [
+    "puede",
+    "tranquilo",
+    "está",
+    "arquitectura"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "arquitectura"
+   }
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:fib:9c43eef9",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Hay una _____ muy bonita en la pared del salón. (painting)",
+  "blankOptions": {
+   "B1": [
+    "está",
+    "pintura",
+    "centro comercial",
+    "hay"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "pintura"
+   }
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:fib:3304304e",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "El supermercado está a un _____ de mi casa. (kilometre)",
+  "blankOptions": {
+   "B1": [
+    "tranquilo",
+    "abajo",
+    "centro comercial",
+    "kilómetro"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "kilómetro"
+   }
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:fib:00f139af",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Dobla a la izquierda en la _____ y sigue todo recto. (corner)",
+  "blankOptions": {
+   "B1": [
+    "puede",
+    "kilómetro",
+    "esquina",
+    "centro comercial"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "esquina"
    }
   }
  },
@@ -23852,13 +34139,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la casa”?",
   "options": [
-   "on the outskirts",
    "house",
-   "shops",
-   "there is / there are"
+   "the tower",
+   "ugly",
+   "happiness"
   ],
   "key": {
-   "answer": 1,
+   "answer": 0,
    "explain": "“la casa” means: house"
   }
  },
@@ -23872,9 +34159,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “el piso”?",
   "options": [
    "house",
-   "town hall",
+   "the surroundings / outskirts",
    "flat / apartment",
-   "shops"
+   "the corner / nook"
   ],
   "key": {
    "answer": 2,
@@ -23890,10 +34177,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el dormitorio”?",
   "options": [
-   "quiet",
-   "kitchen",
+   "next to",
+   "the cost",
    "bedroom",
-   "neighbourhood"
+   "cash"
   ],
   "key": {
    "answer": 2,
@@ -23909,13 +34196,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la cocina”?",
   "options": [
+   "situated / located",
    "kitchen",
-   "there is / there are",
-   "quiet",
-   "flat / apartment"
+   "you can / one can",
+   "shops"
   ],
   "key": {
-   "answer": 0,
+   "answer": 1,
    "explain": "“la cocina” means: kitchen"
   }
  },
@@ -23928,13 +34215,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el barrio”?",
   "options": [
-   "on the outskirts",
-   "quiet",
-   "flat / apartment",
-   "neighbourhood"
+   "neighbourhood",
+   "I'm sorry",
+   "you can / one can",
+   "the airport"
   ],
   "key": {
-   "answer": 3,
+   "answer": 0,
    "explain": "“el barrio” means: neighbourhood"
   }
  },
@@ -23947,9 +34234,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el ayuntamiento”?",
   "options": [
-   "bedroom",
-   "you can / one can",
-   "next to",
+   "the shopping / purchases",
+   "the heating",
+   "the lift / elevator",
    "town hall"
   ],
   "key": {
@@ -23966,13 +34253,13 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “las tiendas”?",
   "options": [
-   "kitchen",
-   "bedroom",
-   "quiet",
-   "shops"
+   "happiness",
+   "on the outskirts",
+   "shops",
+   "the supermarket"
   ],
   "key": {
-   "answer": 3,
+   "answer": 2,
    "explain": "“las tiendas” means: shops"
   }
  },
@@ -23985,10 +34272,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “hay”?",
   "options": [
-   "flat / apartment",
+   "neighbourhood",
    "there is / there are",
-   "kitchen",
-   "bedroom"
+   "clock / watch",
+   "on the outskirts"
   ],
   "key": {
    "answer": 1,
@@ -24004,9 +34291,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “se puede”?",
   "options": [
-   "kitchen",
-   "town hall",
-   "there is / there are",
+   "children's (e.g. parque infantil)",
+   "behind",
+   "the discount",
    "you can / one can"
   ],
   "key": {
@@ -24023,9 +34310,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “tranquilo”?",
   "options": [
-   "there is / there are",
-   "shops",
-   "town hall",
+   "the heating",
+   "ugly",
+   "expensive",
    "quiet"
   ],
   "key": {
@@ -24042,10 +34329,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “al lado de”?",
   "options": [
-   "neighbourhood",
-   "you can / one can",
+   "the surroundings / outskirts",
+   "on the outskirts",
    "next to",
-   "bedroom"
+   "the discount"
   ],
   "key": {
    "answer": 2,
@@ -24061,14 +34348,432 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “en las afueras”?",
   "options": [
-   "you can / one can",
+   "the heating",
    "on the outskirts",
-   "there is / there are",
-   "flat / apartment"
+   "shops",
+   "I'm sorry"
   ],
   "key": {
    "answer": 1,
    "explain": "“en las afueras” means: on the outskirts"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:847d4e34",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “las compras”?",
+  "options": [
+   "you can / one can",
+   "expensive",
+   "ugly",
+   "the shopping / purchases"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“las compras” means: the shopping / purchases"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:c2a07da6",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la felicidad”?",
+  "options": [
+   "the supermarket",
+   "the surroundings / outskirts",
+   "happiness",
+   "neighbourhood"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la felicidad” means: happiness"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:60199f58",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el reloj”?",
+  "options": [
+   "the road / highway",
+   "clock / watch",
+   "house",
+   "the supermarket"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“el reloj” means: clock / watch"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:e2a1580d",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “infantil”?",
+  "options": [
+   "children's (e.g. parque infantil)",
+   "town hall",
+   "the heating",
+   "you can / one can"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“infantil” means: children's (e.g. parque infantil)"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:d6bd630c",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el costo”?",
+  "options": [
+   "behind",
+   "clock / watch",
+   "you can / one can",
+   "the cost"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el costo” means: the cost"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:0be31ca6",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la carretera”?",
+  "options": [
+   "the road / highway",
+   "the corner / nook",
+   "on the outskirts",
+   "I'm sorry"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la carretera” means: the road / highway"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:5dc1b9ed",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “efectivo”?",
+  "options": [
+   "neighbourhood",
+   "cash",
+   "expensive",
+   "the tower"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“efectivo” means: cash"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:5823c67d",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la escalera”?",
+  "options": [
+   "the cost",
+   "the surroundings / outskirts",
+   "the stairs",
+   "ideal"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la escalera” means: the stairs"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:b035be2c",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “los alrededores”?",
+  "options": [
+   "the surroundings / outskirts",
+   "situated / located",
+   "I'm sorry",
+   "the airport"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“los alrededores” means: the surroundings / outskirts"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:3f32cdc7",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el rincón”?",
+  "options": [
+   "the tower",
+   "the airport",
+   "the corner / nook",
+   "quiet"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el rincón” means: the corner / nook"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:d84ea0c6",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “detrás”?",
+  "options": [
+   "ugly",
+   "the shopping / purchases",
+   "the corner / nook",
+   "behind"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“detrás” means: behind"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:56aa5a84",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la torre”?",
+  "options": [
+   "the tower",
+   "the airport",
+   "children's (e.g. parque infantil)",
+   "the discount"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la torre” means: the tower"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:396784d5",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “caro”?",
+  "options": [
+   "the heating",
+   "the road / highway",
+   "expensive",
+   "there is / there are"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“caro” means: expensive"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:7dd19414",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “feo”?",
+  "options": [
+   "the surroundings / outskirts",
+   "ugly",
+   "the tower",
+   "I'm sorry"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“feo” means: ugly"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:eb645697",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “ideal”?",
+  "options": [
+   "children's (e.g. parque infantil)",
+   "flat / apartment",
+   "ideal",
+   "the supermarket"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“ideal” means: ideal"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:1e523052",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el aeropuerto”?",
+  "options": [
+   "happiness",
+   "flat / apartment",
+   "the airport",
+   "cash"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el aeropuerto” means: the airport"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:31b7ee40",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “situado”?",
+  "options": [
+   "the heating",
+   "the shopping / purchases",
+   "house",
+   "situated / located"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“situado” means: situated / located"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:bb0291a9",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el ascensor”?",
+  "options": [
+   "the lift / elevator",
+   "clock / watch",
+   "kitchen",
+   "the supermarket"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el ascensor” means: the lift / elevator"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:b0b8be93",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la calefacción”?",
+  "options": [
+   "quiet",
+   "the corner / nook",
+   "house",
+   "the heating"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“la calefacción” means: the heating"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:3b2087de",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el descuento”?",
+  "options": [
+   "happiness",
+   "there is / there are",
+   "the tower",
+   "the discount"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el descuento” means: the discount"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:0aa05e48",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el supermercado”?",
+  "options": [
+   "bedroom",
+   "neighbourhood",
+   "on the outskirts",
+   "the supermarket"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el supermercado” means: the supermarket"
+  }
+ },
+ {
+  "id": "spanish:9-1-my-town-home-and-local-area:match:b34ff082",
+  "pageId": "spanish:9-1-my-town-home-and-local-area",
+  "pageName": "9.1 My Town, Home and Local Area",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “lo siento”?",
+  "options": [
+   "the stairs",
+   "there is / there are",
+   "situated / located",
+   "I'm sorry"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“lo siento” means: I'm sorry"
   }
  },
  {
@@ -24295,6 +35000,139 @@ window.QUESTION_BANK = [
   }
  },
  {
+  "id": "spanish:9-2-the-environment-and-global-issues:mcq:bc4d8f7f",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'to save' (rescue)?",
+  "options": [
+   "salvar",
+   "destruir",
+   "contribuir",
+   "advertir"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "salvar = to save/rescue. destruir = to destroy (the opposite!), contribuir = to contribute, advertir = to warn."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:mcq:c55e6a73",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'a solution'?",
+  "options": [
+   "una solución",
+   "una intención",
+   "un motivo",
+   "una clave"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "una solución = a solution. una intención = an intention, un motivo = a reason/motive, una clave = a key/crucial point — all abstract nouns you might meet discussing a problem."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:mcq:144c390c",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'a citizen'?",
+  "options": [
+   "un ciudadano",
+   "un vecino",
+   "una población",
+   "un país"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "un ciudadano = a citizen. un vecino = a neighbour, una población = a population, un país = a country — all people/place words that are easy to muddle."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:mcq:6ad93f51",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'pure'?",
+  "options": [
+   "puro",
+   "profundo",
+   "seco",
+   "eléctrico"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "puro = pure (e.g. aire puro). profundo = deep, seco = dry, eléctrico = electric — other adjectives used to describe nature and energy."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:mcq:7ad71836",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'a degree' (of temperature)?",
+  "options": [
+   "un grado",
+   "una temperatura",
+   "un factor",
+   "un dato"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "un grado = a degree. una temperatura = a temperature (a close relative, but not the same word), un factor = a factor, un dato = a piece of data."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:mcq:1a75030f",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'wood' (the material)?",
+  "options": [
+   "la madera",
+   "la piedra",
+   "el bosque",
+   "el cultivo"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "la madera = wood, the material. la piedra = stone, el bosque = the forest (where wood comes from, but not the material itself), el cultivo = the crop/cultivation."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:mcq:1964d3b0",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "mcq",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which word means 'to warn'?",
+  "options": [
+   "advertir",
+   "conservar",
+   "contribuir",
+   "destruir"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "advertir = to warn (e.g. scientists warn us). conservar = to conserve, contribuir = to contribute, destruir = to destroy."
+  }
+ },
+ {
   "id": "spanish:9-2-the-environment-and-global-issues:tf:f7f5b8d8",
   "pageId": "spanish:9-2-the-environment-and-global-issues",
   "pageName": "9.2 The Environment and Global Issues",
@@ -24396,6 +35234,58 @@ window.QUESTION_BANK = [
   "key": {
    "answer": true,
    "explain": "Impersonal expressions of opinion/necessity trigger the present subjunctive."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:tf:6b44079b",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘el árbol’ means ‘the tree’.",
+  "key": {
+   "answer": true,
+   "explain": "el árbol = the tree."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:tf:06f50447",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘pobre’ means ‘rich’.",
+  "key": {
+   "answer": false,
+   "explain": "pobre means poor; rich is rico."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:tf:9b26e9ab",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘la paz’ means ‘war’.",
+  "key": {
+   "answer": false,
+   "explain": "la paz means peace; war is la guerra."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:tf:da6db875",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "tf",
+  "type": "tf",
+  "marks": 1,
+  "question": "‘la pobreza’ and ‘pobre’ are related words meaning ‘poverty’ and ‘poor’.",
+  "key": {
+   "answer": true,
+   "explain": "la pobreza (poverty) comes from the same root as pobre (poor)."
   }
  },
  {
@@ -24522,6 +35412,69 @@ window.QUESTION_BANK = [
   "key": {
    "answer": 0,
    "explain": "Impersonal expressions like ‘es importante que’ trigger the present subjunctive: reciclemos, not reciclamos."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:learn:ecd26dc8",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Bigger environmental ideas: cause and effect",
+  "reading": "<p><span class=\"tier-h\">H</span> Wider vocabulary for talking about environmental causes and effects:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"existir\">existir</span></td><td>to exist</td><td><span data-say=\"la tierra\">la tierra</span></td><td>earth / land</td></tr>\n              <tr><td><span data-say=\"el efecto\">el efecto</span></td><td>effect</td><td><span data-say=\"económico\">económico</span></td><td>economic</td></tr>\n              <tr><td><span data-say=\"el dato\">el dato</span></td><td>piece of data</td><td><span data-say=\"la cantidad\">la cantidad</span></td><td>quantity</td></tr>\n              <tr><td><span data-say=\"aumentar\">aumentar</span></td><td>to increase</td><td><span data-say=\"crecer\">crecer</span></td><td>to grow</td></tr>\n            </table>\n            <p>Example: <span data-say=\"En la Tierra existen muchos problemas medioambientales. El efecto invernadero es una causa importante del cambio climático, y tiene consecuencias económicas graves para muchos países. Según los datos científicos, la cantidad de gases en la atmósfera aumenta y el problema crece cada año — por eso el cielo de las grandes ciudades ya no está tan limpio.\">En la Tierra existen muchos problemas medioambientales. El efecto invernadero es una causa importante del cambio climático, y tiene consecuencias económicas graves para muchos países. Según los datos científicos, la cantidad de gases en la atmósfera aumenta y el problema crece cada año — por eso el cielo de las grandes ciudades ya no está tan limpio.</span> — <em>On Earth, many environmental problems exist. The greenhouse effect is an important cause of climate change, and it has serious economic consequences for many countries. According to the scientific data, the amount of gases in the atmosphere is increasing and the problem grows every year — that's why the sky of big cities is no longer as clean.</em></p>",
+  "question": "According to the text, what does the writer say is increasing every year?",
+  "options": [
+   "the amount of harmful gases in the air",
+   "the number of totally pollution-free countries in the world",
+   "the price families pay for renewable energy every year",
+   "the size of the world's remaining rainforests and parks"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘la cantidad de gases en la atmósfera aumenta … cada año’ = the amount of gases in the atmosphere increases every year. The other options invent facts not in the text."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:learn:fd3ec1f0",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Global problems: poverty, population and solutions",
+  "reading": "<p><span class=\"tier-h\">H</span> Vocabulary for discussing world problems and who is trying to solve them:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"la población\">la población</span></td><td>population</td><td><span data-say=\"pobre\">pobre</span></td><td>poor</td></tr>\n              <tr><td><span data-say=\"sufrir\">sufrir</span></td><td>to suffer</td><td><span data-say=\"la diferencia\">la diferencia</span></td><td>difference</td></tr>\n              <tr><td><span data-say=\"la organización\">la organización</span></td><td>organisation</td><td><span data-say=\"la paz\">la paz</span></td><td>peace</td></tr>\n              <tr><td><span data-say=\"la fuente\">la fuente</span></td><td>source</td><td><span data-say=\"desaparecer\">desaparecer</span></td><td>to disappear</td></tr>\n            </table>\n            <p>Example: <span data-say=\"La población mundial sigue creciendo, y muchas personas pobres sufren de hambre y falta de agua potable. Hay una gran diferencia entre los países ricos y los países en desarrollo. Organizaciones como la ONU trabajan por la paz y buscan fuentes de energía limpia para que los bosques no desaparezcan. El peor problema es que muchos gobiernos no actúan lo suficiente.\">La población mundial sigue creciendo, y muchas personas pobres sufren de hambre y falta de agua potable. Hay una gran diferencia entre los países ricos y los países en desarrollo. Organizaciones como la ONU trabajan por la paz y buscan fuentes de energía limpia para que los bosques no desaparezcan. El peor problema es que muchos gobiernos no actúan lo suficiente.</span> — <em>The world population keeps growing, and many poor people suffer from hunger and a lack of drinking water. There is a big difference between rich countries and developing countries. Organisations like the UN work for peace and look for sources of clean energy so that forests don't disappear. The worst problem is that many governments don't act enough.</em></p>",
+  "question": "According to the text, what do organisations like the UN look for?",
+  "options": [
+   "clean sources of energy",
+   "new countries to develop and industrialise",
+   "cheaper food for poor families everywhere",
+   "bigger cities to house a growing population"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘buscan fuentes de energía limpia’ = they look for clean sources of energy. The other options are not stated in the text."
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:learn:1cd9f073",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "learn",
+  "type": "mcq",
+  "marks": 1,
+  "readingTitle": "Nature under threat: trees, forests and deforestation",
+  "reading": "<p><span class=\"tier-h\">H</span> More vocabulary for talking about nature and deforestation:</p>\n            <table class=\"vocab-tbl\">\n              <tr><td><span data-say=\"el árbol\">el árbol</span></td><td>tree</td><td><span data-say=\"cortar\">cortar</span></td><td>to cut</td></tr>\n              <tr><td><span data-say=\"utilizar\">utilizar</span></td><td>to use</td><td><span data-say=\"el estado\">el estado</span></td><td>state / condition</td></tr>\n              <tr><td><span data-say=\"la época\">la época</span></td><td>era / time period</td><td><span data-say=\"la duda\">la duda</span></td><td>doubt</td></tr>\n              <tr><td><span data-say=\"apenas\">apenas</span></td><td>hardly / barely</td><td><span data-say=\"igual\">igual</span></td><td>equal / the same</td></tr>\n            </table>\n            <p>Example: <span data-say=\"Cada año se cortan miles de árboles para utilizar la madera o crear más tierras de cultivo. En esta época de cambio climático, no hay duda de que el estado de los bosques del mundo está empeorando: en algunas zonas apenas quedan árboles, y esto no es igual en todos los países — algunos protegen sus bosques mucho mejor que otros.\">Cada año se cortan miles de árboles para utilizar la madera o crear más tierras de cultivo. En esta época de cambio climático, no hay duda de que el estado de los bosques del mundo está empeorando: en algunas zonas apenas quedan árboles, y esto no es igual en todos los países — algunos protegen sus bosques mucho mejor que otros.</span> — <em>Every year thousands of trees are cut down to use the wood or create more farmland. In this era of climate change, there is no doubt that the state of the world's forests is getting worse: in some areas hardly any trees are left, and this isn't the same in every country — some protect their forests much better than others.</em></p>",
+  "question": "According to the text, what has happened in some areas because of deforestation?",
+  "options": [
+   "hardly any trees are left",
+   "every country now protects its forests equally well",
+   "the climate has completely stopped changing",
+   "more farmland has been turned back into forest"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "‘apenas quedan árboles’ = hardly any trees are left. The other options invent facts not in the text."
   }
  },
  {
@@ -24702,10 +35655,10 @@ window.QUESTION_BANK = [
   "question": "Se debe _____ el papel y el vidrio. <span data-say=\"Se debe reciclar el papel y el vidrio.\" data-listen>Se debe reciclar el papel y el vidrio.</span>",
   "blankOptions": {
    "B1": [
-    "malgastar",
-    "contaminación",
     "cambio",
-    "reciclar"
+    "luces",
+    "reciclar",
+    "reciente"
    ]
   },
   "key": {
@@ -24724,10 +35677,10 @@ window.QUESTION_BANK = [
   "question": "Hay que _____ energía en casa. <span data-say=\"Hay que ahorrar energía en casa.\" data-listen>Hay que ahorrar energía en casa.</span>",
   "blankOptions": {
    "B1": [
+    "negar",
     "ahorrar",
-    "reciclemos",
-    "malgastar",
-    "luces"
+    "clave",
+    "reciclemos"
    ]
   },
   "key": {
@@ -24747,9 +35700,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "reciclemos",
-    "cambio",
-    "luces",
-    "ahorrar"
+    "luchar",
+    "clave",
+    "cambio"
    ]
   },
   "key": {
@@ -24769,9 +35722,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "malgastar",
-    "ahorrar",
-    "luces",
-    "contaminación"
+    "contaminación",
+    "clave",
+    "negar"
    ]
   },
   "key": {
@@ -24790,10 +35743,10 @@ window.QUESTION_BANK = [
   "question": "Hay que apagar las _____ cuando sales de una habitación. (lights)",
   "blankOptions": {
    "B1": [
-    "reciclemos",
+    "cambio",
     "luces",
-    "malgastar",
-    "reciclar"
+    "reciclemos",
+    "reciente"
    ]
   },
   "key": {
@@ -24812,10 +35765,10 @@ window.QUESTION_BANK = [
   "question": "No se debe _____ el agua; es un recurso muy valioso. (waste)",
   "blankOptions": {
    "B1": [
-    "contaminación",
+    "luces",
     "malgastar",
-    "reciclar",
-    "reciclemos"
+    "reciclemos",
+    "planta"
    ]
   },
   "key": {
@@ -24834,15 +35787,169 @@ window.QUESTION_BANK = [
   "question": "Es importante que _____ más para proteger la naturaleza. (we recycle — subjunctive)",
   "blankOptions": {
    "B1": [
-    "ahorrar",
     "reciclemos",
-    "malgastar",
-    "cambio"
+    "luchar",
+    "recoger",
+    "clave"
    ]
   },
   "key": {
    "blanks": {
     "B1": "reciclemos"
+   }
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:fib:78b7d9e0",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Mi abuela cultiva una _____ de tomates en el jardín. (plant)",
+  "blankOptions": {
+   "B1": [
+    "clave",
+    "contaminación",
+    "reciclemos",
+    "planta"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "planta"
+   }
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:fib:9972f42a",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "No se puede _____ que el planeta está en peligro. (deny)",
+  "blankOptions": {
+   "B1": [
+    "reciclar",
+    "negar",
+    "luchar",
+    "recoger"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "negar"
+   }
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:fib:4e49fba5",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Los voluntarios van a _____ botellas de plástico de la playa este sábado. (collect)",
+  "blankOptions": {
+   "B1": [
+    "reciente",
+    "recoger",
+    "negar",
+    "luchar"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "recoger"
+   }
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:fib:8b21bef3",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Es importante _____ contra la pobreza en todo el mundo. (to fight)",
+  "blankOptions": {
+   "B1": [
+    "reciclemos",
+    "luchar",
+    "luces",
+    "planta"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "luchar"
+   }
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:fib:7a802d52",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "La contaminación puede causar mucho _____ a los animales marinos. (damage)",
+  "blankOptions": {
+   "B1": [
+    "reciclemos",
+    "reciclar",
+    "cambio",
+    "daño"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "daño"
+   }
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:fib:937f08c1",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "Según un estudio _____, las temperaturas van a subir dos grados. (recent)",
+  "blankOptions": {
+   "B1": [
+    "negar",
+    "reciente",
+    "malgastar",
+    "recoger"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "reciente"
+   }
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:fib:a40454a0",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "fib",
+  "type": "fib",
+  "marks": 1,
+  "question": "La energía solar es la _____ para reducir la contaminación. (key)",
+  "blankOptions": {
+   "B1": [
+    "malgastar",
+    "contaminación",
+    "clave",
+    "daño"
+   ]
+  },
+  "key": {
+   "blanks": {
+    "B1": "clave"
    }
   }
  },
@@ -24856,9 +35963,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “el medio ambiente”?",
   "options": [
    "the environment",
-   "deforestation",
-   "poverty",
-   "to recycle"
+   "to survive",
+   "the environment / surroundings",
+   "to turn off the lights"
   ],
   "key": {
    "answer": 0,
@@ -24874,10 +35981,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la contaminación”?",
   "options": [
-   "climate change",
+   "the cloud",
    "pollution",
-   "to recycle",
-   "recycling"
+   "poverty",
+   "climate change"
   ],
   "key": {
    "answer": 1,
@@ -24894,9 +36001,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “el reciclaje”?",
   "options": [
    "recycling",
-   "global warming",
-   "to turn off the lights",
-   "pollution"
+   "to emit",
+   "spring",
+   "global warming"
   ],
   "key": {
    "answer": 0,
@@ -24912,9 +36019,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “reciclar”?",
   "options": [
-   "recycling",
-   "you have to save energy",
-   "global warming",
+   "to turn off the lights",
+   "the disaster",
+   "sand",
    "to recycle"
   ],
   "key": {
@@ -24931,10 +36038,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la basura”?",
   "options": [
-   "pollution",
-   "rubbish",
    "climate change",
-   "to recycle"
+   "rubbish",
+   "the border",
+   "protection"
   ],
   "key": {
    "answer": 1,
@@ -24950,9 +36057,9 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el cambio climático”?",
   "options": [
-   "poverty",
-   "global warming",
+   "to emit",
    "the environment",
+   "the fire",
    "climate change"
   ],
   "key": {
@@ -24969,10 +36076,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “el calentamiento global”?",
   "options": [
-   "to recycle",
-   "climate change",
+   "to turn on / light",
+   "the landscape",
    "global warming",
-   "you have to save energy"
+   "the disaster"
   ],
   "key": {
    "answer": 2,
@@ -24988,10 +36095,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la sequía”?",
   "options": [
-   "poverty",
+   "gas",
    "drought",
-   "rubbish",
-   "you have to save energy"
+   "the disaster",
+   "to turn on / light"
   ],
   "key": {
    "answer": 1,
@@ -25008,9 +36115,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “la deforestación”?",
   "options": [
    "deforestation",
-   "to recycle",
-   "global warming",
-   "rubbish"
+   "the forest",
+   "smoke",
+   "gas"
   ],
   "key": {
    "answer": 0,
@@ -25027,9 +36134,9 @@ window.QUESTION_BANK = [
   "question": "Which definition matches the key term “hay que ahorrar energía”?",
   "options": [
    "you have to save energy",
-   "global warming",
-   "climate change",
-   "drought"
+   "fair / just",
+   "the landscape",
+   "the environment / surroundings"
   ],
   "key": {
    "answer": 0,
@@ -25045,10 +36152,10 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “apagar las luces”?",
   "options": [
-   "global warming",
+   "smoke",
    "to turn off the lights",
-   "recycling",
-   "pollution"
+   "poverty",
+   "global warming"
   ],
   "key": {
    "answer": 1,
@@ -25064,14 +36171,565 @@ window.QUESTION_BANK = [
   "marks": 1,
   "question": "Which definition matches the key term “la pobreza”?",
   "options": [
-   "to turn off the lights",
-   "climate change",
-   "to recycle",
+   "to emit",
+   "the forest",
+   "the mountain",
    "poverty"
   ],
   "key": {
    "answer": 3,
    "explain": "“la pobreza” means: poverty"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:4c41868e",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el aumento”?",
+  "options": [
+   "worry / concern",
+   "the crop / cultivation",
+   "the increase",
+   "it smells (of)"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el aumento” means: the increase"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:b082dc07",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la protección”?",
+  "options": [
+   "fair / just",
+   "protection",
+   "drought",
+   "aware / conscious"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la protección” means: protection"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:40e8ff0d",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “encender”?",
+  "options": [
+   "sand",
+   "autumn",
+   "the lake",
+   "to turn on / light"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“encender” means: to turn on / light"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:9a65fd0d",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el bosque”?",
+  "options": [
+   "the crop / cultivation",
+   "to turn on / light",
+   "the forest",
+   "disappointing"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el bosque” means: the forest"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:6c58a7af",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “fresco”?",
+  "options": [
+   "to survive",
+   "fresh / cool",
+   "protection",
+   "the lake"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“fresco” means: fresh / cool"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:7fc55ba8",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la nube”?",
+  "options": [
+   "the cloud",
+   "disappointing",
+   "the lake",
+   "fair / just"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la nube” means: the cloud"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:4b3adf86",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la frontera”?",
+  "options": [
+   "the border",
+   "the cloud",
+   "disappointing",
+   "the forest"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la frontera” means: the border"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:16caaee0",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el gas”?",
+  "options": [
+   "gas",
+   "the fire",
+   "the increase",
+   "the mountain"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el gas” means: gas"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:df363bac",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la preocupación”?",
+  "options": [
+   "it smells (of)",
+   "to turn on / light",
+   "the environment",
+   "worry / concern"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“la preocupación” means: worry / concern"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:df3aca46",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la cifra”?",
+  "options": [
+   "sand",
+   "to survive",
+   "the figure / number",
+   "protection"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“la cifra” means: the figure / number"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:4c9081d5",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “emitir”?",
+  "options": [
+   "smoke",
+   "to emit",
+   "poverty",
+   "global warming"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“emitir” means: to emit"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:c19a6db3",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la arena”?",
+  "options": [
+   "sand",
+   "the crop / cultivation",
+   "climate change",
+   "to recycle"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“la arena” means: sand"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:f25a0553",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el paisaje”?",
+  "options": [
+   "to turn on / light",
+   "aware / conscious",
+   "the environment / surroundings",
+   "the landscape"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el paisaje” means: the landscape"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:bc616025",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “gris”?",
+  "options": [
+   "the environment",
+   "the increase",
+   "to recycle",
+   "grey"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“gris” means: grey"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:17a16c22",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el humo”?",
+  "options": [
+   "the landscape",
+   "climate change",
+   "the disaster",
+   "smoke"
+  ],
+  "key": {
+   "answer": 3,
+   "explain": "“el humo” means: smoke"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:03dd65e5",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “justo”?",
+  "options": [
+   "fair / just",
+   "fresh / cool",
+   "spring",
+   "the increase"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“justo” means: fair / just"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:259d2d39",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “consciente”?",
+  "options": [
+   "the border",
+   "aware / conscious",
+   "global warming",
+   "the crop / cultivation"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“consciente” means: aware / conscious"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:61a53a67",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el entorno”?",
+  "options": [
+   "sand",
+   "fresh / cool",
+   "the environment / surroundings",
+   "smoke"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el entorno” means: the environment / surroundings"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:82ebf171",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “preferible”?",
+  "options": [
+   "worry / concern",
+   "to turn off the lights",
+   "preferable",
+   "the mountain"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“preferible” means: preferable"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:43a9df3b",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “sobrevivir”?",
+  "options": [
+   "to survive",
+   "pollution",
+   "poverty",
+   "fresh / cool"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“sobrevivir” means: to survive"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:68768e31",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “huele (a)”?",
+  "options": [
+   "fresh / cool",
+   "the mountain",
+   "it smells (of)",
+   "the figure / number"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“huele (a)” means: it smells (of)"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:d61da999",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el monte”?",
+  "options": [
+   "to turn off the lights",
+   "it smells (of)",
+   "the mountain",
+   "grey"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el monte” means: the mountain"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:91c18c86",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el cultivo”?",
+  "options": [
+   "aware / conscious",
+   "disappointing",
+   "the crop / cultivation",
+   "global warming"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el cultivo” means: the crop / cultivation"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:1defeb8b",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el lago”?",
+  "options": [
+   "the lake",
+   "the environment / surroundings",
+   "spring",
+   "preferable"
+  ],
+  "key": {
+   "answer": 0,
+   "explain": "“el lago” means: the lake"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:adeb9ca5",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el desastre”?",
+  "options": [
+   "to turn off the lights",
+   "to recycle",
+   "the disaster",
+   "global warming"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el desastre” means: the disaster"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:67c4b8da",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el incendio”?",
+  "options": [
+   "you have to save energy",
+   "the landscape",
+   "the fire",
+   "grey"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el incendio” means: the fire"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:aa233ac0",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “la primavera”?",
+  "options": [
+   "fresh / cool",
+   "spring",
+   "to recycle",
+   "gas"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“la primavera” means: spring"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:76e9cab6",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “el otoño”?",
+  "options": [
+   "sand",
+   "fresh / cool",
+   "autumn",
+   "aware / conscious"
+  ],
+  "key": {
+   "answer": 2,
+   "explain": "“el otoño” means: autumn"
+  }
+ },
+ {
+  "id": "spanish:9-2-the-environment-and-global-issues:match:72965244",
+  "pageId": "spanish:9-2-the-environment-and-global-issues",
+  "pageName": "9.2 The Environment and Global Issues",
+  "source": "match",
+  "type": "mcq",
+  "marks": 1,
+  "question": "Which definition matches the key term “decepcionante”?",
+  "options": [
+   "the cloud",
+   "disappointing",
+   "to turn off the lights",
+   "the mountain"
+  ],
+  "key": {
+   "answer": 1,
+   "explain": "“decepcionante” means: disappointing"
   }
  },
  {
@@ -25704,10 +37362,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermano tiene el pelo _____. <span data-say=\"Mi hermano tiene el pelo rizado.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "jueves",
-    "rizado",
+    "hermano",
+    "zapatos",
     "grande",
-    "predecir"
+    "rizado"
    ]
   },
   "key": {
@@ -25729,7 +37387,7 @@ window.QUESTION_BANK = [
     "rizado",
     "hermano",
     "grande",
-    "español"
+    "jueves"
    ]
   },
   "key": {
@@ -25748,7 +37406,7 @@ window.QUESTION_BANK = [
   "question": "Compré unos _____ nuevos para el gimnasio. <span data-say=\"Compré unos zapatos nuevos para el gimnasio.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "español",
+    "grande",
     "hermano",
     "jueves",
     "zapatos"
@@ -25770,10 +37428,10 @@ window.QUESTION_BANK = [
   "question": "Voy a la piscina todos los _____. <span data-say=\"Voy a la piscina todos los jueves.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "hermano",
-    "grande",
-    "español",
-    "jueves"
+    "predecir",
+    "jueves",
+    "zapatos",
+    "español"
    ]
   },
   "key": {
@@ -25792,10 +37450,10 @@ window.QUESTION_BANK = [
   "question": "Tengo un _____ que se llama Pablo. <span data-say=\"Tengo un hermano que se llama Pablo.\" data-listen></span>",
   "blankOptions": {
    "B1": [
+    "hermano",
+    "zapatos",
     "jueves",
-    "predecir",
-    "grande",
-    "hermano"
+    "grande"
    ]
   },
   "key": {
@@ -25814,10 +37472,10 @@ window.QUESTION_BANK = [
   "question": "Estudio _____ en el instituto. <span data-say=\"Estudio español en el instituto.\" data-listen></span>",
   "blankOptions": {
    "B1": [
-    "zapatos",
-    "predecir",
+    "español",
     "hermano",
-    "español"
+    "grande",
+    "predecir"
    ]
   },
   "key": {
@@ -25836,9 +37494,9 @@ window.QUESTION_BANK = [
   "question": "Usa el tiempo de lectura para _____ lo que se va a preguntar. (to predict)",
   "blankOptions": {
    "B1": [
+    "jueves",
     "hermano",
     "zapatos",
-    "jueves",
     "predecir"
    ]
   },
@@ -26706,10 +38364,10 @@ window.QUESTION_BANK = [
   "question": "<span data-say=\"Fui al cine.\">Fui al cine.</span> = I _____ to the cinema. (pretérito — a completed action)",
   "blankOptions": {
    "B1": [
-    "used",
-    "went",
-    "has",
-    "long"
+    "clothes",
+    "long",
+    "embarazada",
+    "went"
    ]
   },
   "key": {
@@ -26729,9 +38387,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "used",
+    "embarazada",
     "has",
-    "clothes",
-    "embarazada"
+    "long"
    ]
   },
   "key": {
@@ -26751,9 +38409,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "embarazada",
-    "went",
-    "used",
-    "has"
+    "forgot",
+    "has",
+    "went"
    ]
   },
   "key": {
@@ -26772,10 +38430,10 @@ window.QUESTION_BANK = [
   "question": "Mi hermana está _____. <span data-say=\"Mi hermana está embarazada.\" data-listen>Mi hermana está embarazada.</span>",
   "blankOptions": {
    "B1": [
-    "has",
+    "clothes",
+    "used",
     "embarazada",
-    "long",
-    "clothes"
+    "has"
    ]
   },
   "key": {
@@ -26794,10 +38452,10 @@ window.QUESTION_BANK = [
   "question": "<span data-say=\"La ropa es cara.\">La ropa es cara.</span> In English, 'ropa' means _____, not 'rope'.",
   "blankOptions": {
    "B1": [
+    "clothes",
+    "forgot",
     "embarazada",
-    "long",
-    "has",
-    "clothes"
+    "went"
    ]
   },
   "key": {
@@ -26816,10 +38474,10 @@ window.QUESTION_BANK = [
   "question": "<span data-say=\"Se me olvidó el cumpleaños de mi amigo.\">Se me olvidó el cumpleaños de mi amigo.</span> = I _____ my friend's birthday. (idiom — translate the natural meaning, not word for word)",
   "blankOptions": {
    "B1": [
+    "long",
     "forgot",
-    "used",
-    "has",
-    "clothes"
+    "clothes",
+    "went"
    ]
   },
   "key": {
@@ -26838,10 +38496,10 @@ window.QUESTION_BANK = [
   "question": "<span data-say=\"El texto es largo.\">El texto es largo.</span> In English, 'largo' means _____, not 'large'.",
   "blankOptions": {
    "B1": [
-    "forgot",
+    "has",
     "long",
-    "went",
-    "used"
+    "used",
+    "clothes"
    ]
   },
   "key": {
@@ -27708,10 +39366,10 @@ window.QUESTION_BANK = [
   "question": "En la foto _____ dos personas. <span data-say=\"En la foto hay dos personas.\" data-listen>En la foto hay dos personas.</span>",
   "blankOptions": {
    "B1": [
-    "leyendo",
-    "comiendo",
     "alta",
-    "hay"
+    "porque",
+    "hay",
+    "leyendo"
    ]
   },
   "key": {
@@ -27730,10 +39388,10 @@ window.QUESTION_BANK = [
   "question": "También _____ un perro pequeño en el jardín. <span data-say=\"También veo un perro pequeño en el jardín.\" data-listen>También veo un perro pequeño en el jardín.</span>",
   "blankOptions": {
    "B1": [
-    "porque",
+    "leyendo",
     "comiendo",
-    "veo",
-    "leyendo"
+    "porque",
+    "veo"
    ]
   },
   "key": {
@@ -27752,10 +39410,10 @@ window.QUESTION_BANK = [
   "question": "La familia está _____ en el jardín. <span data-say=\"La familia está comiendo en el jardín.\" data-listen>La familia está comiendo en el jardín.</span>",
   "blankOptions": {
    "B1": [
-    "comiendo",
-    "veo",
+    "porque",
     "alta",
-    "hay"
+    "comiendo",
+    "jugando"
    ]
   },
   "key": {
@@ -27774,10 +39432,10 @@ window.QUESTION_BANK = [
   "question": "Los niños están _____ al fútbol. <span data-say=\"Los niños están jugando al fútbol.\" data-listen>Los niños están jugando al fútbol.</span>",
   "blankOptions": {
    "B1": [
-    "leyendo",
+    "hay",
+    "veo",
     "jugando",
-    "comiendo",
-    "alta"
+    "porque"
    ]
   },
   "key": {
@@ -27796,9 +39454,9 @@ window.QUESTION_BANK = [
   "question": "Creo que están felices _____ están de vacaciones. <span data-say=\"Creo que están felices porque están de vacaciones.\" data-listen>Creo que están felices porque están de vacaciones.</span>",
   "blankOptions": {
    "B1": [
-    "jugando",
+    "hay",
+    "comiendo",
     "porque",
-    "veo",
     "alta"
    ]
   },
@@ -27819,8 +39477,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "alta",
-    "veo",
-    "comiendo",
+    "leyendo",
+    "jugando",
     "porque"
    ]
   },
@@ -27840,10 +39498,10 @@ window.QUESTION_BANK = [
   "question": "El chico está _____ un libro en la foto. <span data-say=\"El chico está leyendo un libro en la foto.\" data-listen>El chico está leyendo un libro en la foto.</span>",
   "blankOptions": {
    "B1": [
-    "jugando",
-    "veo",
+    "comiendo",
     "alta",
-    "leyendo"
+    "leyendo",
+    "jugando"
    ]
   },
   "key": {
@@ -28710,10 +40368,10 @@ window.QUESTION_BANK = [
   "question": "Hay dos personas en la _____. <span data-say=\"Hay dos personas en la foto.\" data-listen>Hay dos personas en la foto.</span>",
   "blankOptions": {
    "B1": [
-    "porque",
     "foto",
-    "palabras",
-    "pero"
+    "porque",
+    "pero",
+    "fui"
    ]
   },
   "key": {
@@ -28732,10 +40390,10 @@ window.QUESTION_BANK = [
   "question": "Me gusta el fútbol, _____ prefiero el baloncesto. (contrast)",
   "blankOptions": {
    "B1": [
-    "Sin",
+    "fui",
+    "iré",
     "pero",
-    "foto",
-    "porque"
+    "Sin"
    ]
   },
   "key": {
@@ -28757,7 +40415,7 @@ window.QUESTION_BANK = [
     "iré",
     "fui",
     "porque",
-    "pero"
+    "Sin"
    ]
   },
   "key": {
@@ -28776,10 +40434,10 @@ window.QUESTION_BANK = [
   "question": "Ayer _____ al cine con mis amigos. <span data-say=\"Ayer fui al cine con mis amigos.\" data-listen>Ayer fui al cine con mis amigos.</span>",
   "blankOptions": {
    "B1": [
+    "iré",
     "porque",
-    "palabras",
-    "fui",
-    "pero"
+    "pero",
+    "fui"
    ]
   },
   "key": {
@@ -28798,9 +40456,9 @@ window.QUESTION_BANK = [
   "question": "La traducción debe tener un mínimo de treinta y cinco _____. (words)",
   "blankOptions": {
    "B1": [
-    "iré",
+    "pero",
+    "fui",
     "palabras",
-    "Sin",
     "porque"
    ]
   },
@@ -28820,10 +40478,10 @@ window.QUESTION_BANK = [
   "question": "_____ embargo, prefiero estudiar en casa por la tarde. (however)",
   "blankOptions": {
    "B1": [
-    "porque",
-    "Sin",
     "foto",
-    "palabras"
+    "Sin",
+    "palabras",
+    "porque"
    ]
   },
   "key": {
@@ -28842,10 +40500,10 @@ window.QUESTION_BANK = [
   "question": "El año que viene, _____ a la universidad. (will go — future tense)",
   "blankOptions": {
    "B1": [
-    "Sin",
-    "pero",
     "iré",
-    "fui"
+    "Sin",
+    "fui",
+    "foto"
    ]
   },
   "key": {
