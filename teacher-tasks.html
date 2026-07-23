@@ -2247,10 +2247,15 @@ $('suggestMarksBtn').addEventListener('click', async () => {
     const parts = [`✨ ${result.suggested} suggestion${result.suggested === 1 ? '' : 's'} added`];
     if (result.failed) parts.push(`${result.failed} failed`);
     if (result.remaining) parts.push(`${result.remaining} left — click again`);
-    showMsg(msgEl, parts.join(' · '), true);
+    let msg = parts.join(' · ');
+    if (result.failed && result.failures && result.failures.length) {
+      console.error('suggest-marks failures', result.failures);
+      msg += ` (${result.failures[0].error})`;
+    }
+    showMsg(msgEl, msg, result.suggested > 0 || !result.failed);
   } catch (err) {
     if (err.code === 'missing_api_key') {
-      showMsg(msgEl, 'Add GEMINI_API_KEY in Netlify (see SETUP.md) to turn this on.', false);
+      showMsg(msgEl, 'Add MARKING_GEMINI_API_KEY in Netlify (see SETUP.md) to turn this on.', false);
     } else {
       showMsg(msgEl, err.message, false);
     }

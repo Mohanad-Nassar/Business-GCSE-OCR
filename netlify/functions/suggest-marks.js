@@ -37,11 +37,20 @@ const SUGGESTION_SCHEMA = {
     required: ['marks', 'feedback', 'reasoning', 'confidence'],
 };
 
-function buildPrompt({ question, maxMarks, markScheme, modelAnswer, studentAnswer }) {
+// Per-subject notes on how to read the answer text itself — most subjects
+// are plain extended writing and need nothing extra here.
+const SUBJECT_GUIDANCE = {
+    'additional-maths': "The student's answer may include mathematical working, formulas, or LaTeX-style notation (e.g. \\frac{}{}, ^, _) — read it as maths notation, not literal text, and credit correct method/working as well as the final value where the mark scheme allows.",
+    'computer-science': "The student's answer may include code, pseudocode, or algorithm steps — judge logical/functional correctness rather than exact wording, and be tolerant of minor syntax differences that don't change the logic.",
+    spanish: "The student's answer is written in Spanish — mark for accuracy of Spanish vocabulary, grammar and meaning; do not penalise for not answering in English.",
+};
+
+function buildPrompt({ subjectLabel, subjectSlug, question, maxMarks, markScheme, modelAnswer, studentAnswer }) {
     return [
-        'You are an experienced GCSE Business Studies (OCR J204) teacher marking one written exam-style answer.',
+        `You are an experienced ${subjectLabel} teacher marking one written exam-style answer.`,
         'Mark strictly against the mark scheme below and award partial marks where the mark scheme allows it.',
-        'If the answer is missing, off-topic, or contains no creditable business content, award 0.',
+        'If the answer is missing, off-topic, or contains no creditable subject content, award 0.',
+        ...(SUBJECT_GUIDANCE[subjectSlug] ? [SUBJECT_GUIDANCE[subjectSlug]] : []),
         '',
         `Question (worth ${maxMarks} mark${maxMarks === 1 ? '' : 's'}):`,
         question,
@@ -138,16 +147,26 @@ exports.handler = async (event) => {
         const { task_id: taskId } = JSON.parse(event.body || '{}');
         if (!taskId) return jsonResponse(400, { error: 'task_id is required' });
 
-        const apiKey = process.env.GEMINI_API_KEY;
+        // Deliberately NOT named GEMINI_API_KEY: Netlify Dev auto-detects AI
+        // coding agents (via its own AI_AGENT env var) and silently swaps
+        // GEMINI_API_KEY/ANTHROPIC_API_KEY/OPENAI_API_KEY for its own AI
+        // Gateway proxy credentials in that case, which breaks calls straight
+        // to Google's API. A name outside that reserved list sidesteps it.
+        const apiKey = process.env.MARKING_GEMINI_API_KEY;
         if (!apiKey) {
-            return jsonResponse(500, { error: 'GEMINI_API_KEY is not configured', code: 'missing_api_key' });
+            return jsonResponse(500, { error: 'MARKING_GEMINI_API_KEY is not configured', code: 'missing_api_key' });
         }
 
         const { data: task, error: taskErr } = await admin
-            .from('tasks').select('id, teacher_id').eq('id', taskId).single();
+            .from('tasks').select('id, teacher_id, classes(subjects(slug, name, exam_board, spec_code))').eq('id', taskId).single();
         if (taskErr || !task || task.teacher_id !== teacher.id) {
             return jsonResponse(403, { error: 'Task not found or not owned by this teacher' });
         }
+        const subject = task.classes && task.classes.subjects;
+        const subjectSlug = subject && subject.slug;
+        const subjectLabel = subject && subject.name
+            ? `${subject.name}${subject.exam_board ? ` (${subject.exam_board}${subject.spec_code ? ' ' + subject.spec_code : ''})` : ''}`
+            : 'GCSE';
 
         const { data: questions, error: qErr } = await admin
             .from('task_questions').select('id, marks, snapshot, answer_key')
@@ -201,6 +220,8 @@ exports.handler = async (event) => {
             const key = q.answer_key || {};
             const questionText = [snapshot.caseStudy, snapshot.question].filter(Boolean).join('\n\n');
             const prompt = buildPrompt({
+                subjectLabel,
+                subjectSlug,
                 question: questionText,
                 maxMarks: Number(q.marks),
                 markScheme: key.markScheme || key.explain || '',

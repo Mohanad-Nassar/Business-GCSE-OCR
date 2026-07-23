@@ -155,13 +155,14 @@ Automated logic tests exist too: `python tools/logic_test.py`.
 - [ ] "How tasks work" strip shows; build a 2-question task through the
       3 steps and publish; student sees it on their dashboard, the Submit
       button shows "(n/N answered)" while sitting it.
-- [ ] With `GEMINI_API_KEY` set and an unmarked written answer in a task's
-      Marking queue, click **✨ Suggest marks** — a suggestion card (marks,
-      feedback, reasoning, confidence) appears; **Use this** fills the mark
-      + feedback boxes but does NOT save (Save mark is still required, and
-      the answer stays in the queue until you press it). Without
-      `GEMINI_API_KEY` set, the button shows the "Add GEMINI_API_KEY in
-      Netlify" message instead of erroring silently.
+- [ ] With `MARKING_GEMINI_API_KEY` set and an unmarked written answer in a
+      task's Marking queue, click **✨ Suggest marks** — a suggestion card
+      (marks, feedback, reasoning, confidence) appears; **Use this** fills
+      the mark + feedback boxes but does NOT save (Save mark is still
+      required, and the answer stays in the queue until you press it).
+      Without `MARKING_GEMINI_API_KEY` set, the button shows the "Add
+      MARKING_GEMINI_API_KEY in Netlify" message instead of erroring
+      silently.
 
 ## Pacing enforcement (student, class set to "In order")
 - [ ] Tabs after the first unfinished activity show 🔒 and bounce with

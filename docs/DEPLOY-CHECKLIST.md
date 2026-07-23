@@ -56,7 +56,7 @@ self-diagnoses if any WP-A7/A9 SQL is missing.
 |-----|-----------|-------|
 | `SUPABASE_URL` | already set | — |
 | `SUPABASE_SERVICE_ROLE_KEY` | already set | delete-student, generate-students, seed-demo-class, weekly-retry |
-| `GEMINI_API_KEY` | already set | AI marking |
+| `MARKING_GEMINI_API_KEY` | already set | AI marking |
 | **`CRON_SECRET`** | **NEW (WP-A7)** | Authorizes manual HTTP triggers of weekly-retry-tasks; the real cron doesn't need it. Optional but recommended. A generated value: `<CRON_SECRET — set in Netlify env, do NOT commit>` (or make your own). |
 | `CONTENT_GATE_DISABLED` | optional kill switch | set `true` to bypass the content gate entirely. |
 
