@@ -208,7 +208,8 @@
               <tr><td><span data-say="el hermano mayor">el hermano mayor</span></td><td>older brother</td><td><span data-say="la hermana menor">la hermana menor</span></td><td>younger sister</td></tr>
               <tr><td><span data-say="el tío">el tío / la tía</span></td><td>uncle / aunt</td><td><span data-say="el primo">el primo / la prima</span></td><td>cousin</td></tr>
             </table>
-            <p><span data-say="Soy hijo único.">Soy hijo único.</span> = I’m an only child. <span data-say="En mi familia hay cuatro personas.">En mi familia hay cuatro personas.</span></p>`,
+            <p><span data-say="Soy hijo único.">Soy hijo único.</span> = I’m an only child. <span data-say="En mi familia hay cuatro personas.">En mi familia hay cuatro personas.</span></p>
+            <p><span data-say="Mis primos forman parte de mi familia numerosa.">Mis primos forman parte de mi familia numerosa.</span> = My cousins are part of my large family. <span data-say="A veces oigo a mi hermano cantar en su cuarto.">A veces oigo a mi hermano cantar en su cuarto.</span> = Sometimes I hear my brother singing in his room. <span data-say="Recibo muchos mensajes de mi familia cuando viajo.">Recibo muchos mensajes de mi familia cuando viajo.</span> = I receive lots of messages from my family when I travel.</p>`,
             readCheck: { q: "What does ‘mi hermana menor’ mean?", opts: ["my younger sister", "my older sister", "my younger brother", "my cousin"], ans: 0, explain: "hermana = sister; menor = younger. mayor = older." }
         },
         {
@@ -232,6 +233,7 @@
               <li>Quantifiers: <span data-say="bastante alto">bastante alto</span> (quite tall), <span data-say="un poco tímido">un poco tímido</span> (a bit shy). <span class="tier-h">H</span></li>
               <li>Relative ‘que’: <span data-say="Tengo un hermano que se llama Luis.">Tengo un hermano que se llama Luis.</span> <span class="tier-h">H</span></li>
               <li>Combine appearance + who: <span data-say="Mi hermana mayor, que es muy alta, tiene el pelo largo y rizado.">Mi hermana mayor, que es muy alta, tiene el pelo largo y rizado.</span> <span class="tier-h">H</span></li>
+              <li>Perfect tense (‘has/have’): <span data-say="Mi madre siempre me ha dicho que soy parecido a mi abuelo.">Mi madre siempre me ha dicho que soy parecido a mi abuelo.</span> — My mother has always told me I look like my grandfather. <span class="tier-h">H</span></li>
             </ul>`,
             readCheck: { q: "‘Tengo un hermano que se llama Luis’ — what does ‘que’ do here?", opts: ["it links two ideas (‘who’ / ‘that’)", "it is used to ask a question meaning ‘what?’", "it means ‘because’", "it makes the sentence a plan"], ans: 0, explain: "Relative ‘que’ = who/that; it joins ‘I have a brother’ + ‘he is called Luis’." }
         },
@@ -264,7 +266,8 @@
               <tr><td><span data-say="hermoso">hermoso / hermosa</span></td><td>beautiful</td><td><span data-say="precioso">precioso / preciosa</span></td><td>beautiful, gorgeous</td></tr>
               <tr><td><span data-say="un tatuaje">un tatuaje</span></td><td>a tattoo</td><td><span data-say="parecerse a">parecerse a</span></td><td>to look like, resemble</td></tr>
             </table>
-            <p>Family resemblance: <span data-say="Me parezco mucho a mi madre; somos muy semejantes.">Me parezco mucho a mi madre; somos muy semejantes.</span> = I look a lot like my mother; we are very similar. Forms often ask your <span data-say="sexo">sexo</span> (sex/gender) as well as your name and age.</p>`,
+            <p>Family resemblance: <span data-say="Me parezco mucho a mi madre; somos muy semejantes.">Me parezco mucho a mi madre; somos muy semejantes.</span> = I look a lot like my mother; we are very similar. Forms often ask your <span data-say="sexo">sexo</span> (sex/gender) as well as your name and age.</p>
+            <p><span data-say="Puedo identificar a mi padre en cualquier foto por su pelo moreno.">Puedo identificar a mi padre en cualquier foto por su pelo moreno.</span> = I can identify my father in any photo by his dark hair. <span data-say="Me sorprende lo mucho que me parezco a mi padre.">Me sorprende lo mucho que me parezco a mi padre.</span> = It surprises me how much I look like my father. <span data-say="Le agradezco a mi abuela cada recuerdo que tengo.">Le agradezco a mi abuela cada recuerdo que tengo.</span> = I'm grateful to my grandmother for every memory I have.</p>`,
             readCheck: { q: "What does ‘me parezco a mi padre’ mean?", opts: ["I look like my father", "I disagree with my father", "I live apart from my father", "I get on badly with my father, not well at all"], ans: 0, explain: "parecerse a = to look like/resemble. Don't confuse it with ‘discutir’ (to argue) or ‘llevarse mal’ (get on badly)." }
         }
     ];
@@ -287,7 +290,9 @@
         { q: "‘Aquí tienes mis datos personales: nombre, edad y sexo.’ — what are ‘datos personales’?", opts: ["personal details/data", "personal opinions and beliefs", "personal belongings, like a bag", "a personal diary or journal"], ans: 0, explain: "datos personales = personal details/data (name, age, etc.), not opinions or objects." },
         { q: `<span data-say="Mi amigo Hans es alemán." data-listen></span><br>Listen. Where is Hans from?`, opts: ["Germany", "Italy", "Britain", "China"], ans: 0, explain: "alemán = German. The other options are the other nationalities on this page." },
         { q: "‘Tengo un recuerdo precioso de mi abuela.’ — what is ‘un recuerdo’?", opts: ["a memory", "a present, a gift", "a photograph, nothing more", "a letter or postcard"], ans: 0, explain: "un recuerdo = a memory (also can mean souvenir), not simply a gift or photo." },
-        { q: "Which word means ‘Chinese’?", opts: ["chino", "chico", "china (the country only)", "checo"], ans: 0, explain: "chino = Chinese. ‘chico’ = boy; ‘checo’ = Czech — classic mix-ups." }
+        { q: "Which word means ‘Chinese’?", opts: ["chino", "chico", "china (the country only)", "checo"], ans: 0, explain: "chino = Chinese. ‘chico’ = boy; ‘checo’ = Czech — classic mix-ups." },
+        { q: `<span data-say="Oigo a mi hermano cantar en su cuarto." data-listen></span><br>Listen. What is being said?`, opts: ["I can hear my brother singing in his room", "I can see my brother dancing in the garden", "I can hear my sister singing in the kitchen", "I want my brother to stop singing right now"], ans: 0, explain: "oigo = I hear/can hear. Distractors swap the sense verb, the sibling or the place." },
+        { q: "‘Mi madre siempre me ha dicho que soy parecido a mi abuelo.’ — what does ‘ha dicho’ mean here?", opts: ["has said / has told", "is going to say tomorrow", "used to say a long time ago", "never said anything at all"], ans: 0, explain: "‘ha dicho’ is the perfect tense of decir (to say/tell) = has said/told." }
     ];
 
     const matchData = [
@@ -310,7 +315,10 @@
         { term: "imposible", def: "impossible" },
         { term: "adiós", def: "goodbye" },
         { term: "¡Enhorabuena!", def: "Congratulations!" },
-        { term: "ocupado", def: "busy" }
+        { term: "ocupado", def: "busy" },
+        { term: "recibir", def: "to receive" },
+        { term: "identificar", def: "to identify" },
+        { term: "sorprender", def: "to surprise" }
     ];
 
     const fibData = [
@@ -323,9 +331,11 @@
         { display: `Me _____ Ana y vivo en Madrid. (my name is)`, blanks: { B1: "llamo" } },
         { display: `Me _____ mucho a mi madre. <span data-say="Me parezco mucho a mi madre." data-listen>Me parezco mucho a mi madre.</span>`, blanks: { B1: "parezco" } },
         { display: `Soy el _____ hijo de mi familia. (third)`, blanks: { B1: "tercer" } },
-        { display: `Mi abuelo es _____ y tiene el pelo gris. (elderly man)`, blanks: { B1: "anciano" } }
+        { display: `Mi abuelo es _____ y tiene el pelo gris. (elderly man)`, blanks: { B1: "anciano" } },
+        { display: `Mis primos _____ parte de mi familia numerosa. <span data-say="Mis primos forman parte de mi familia numerosa." data-listen>Mis primos forman parte de mi familia numerosa.</span>`, blanks: { B1: "forman" } },
+        { display: `Le _____ a mi abuela todo su cariño. (I thank/am grateful — yo form)`, blanks: { B1: "agradezco" } }
     ];
-    const fibWords = ["Tengo", "castaño", "lleva", "marrones", "Mis", "único", "llamo", "parezco", "tercer", "anciano"];
+    const fibWords = ["Tengo", "castaño", "lleva", "marrones", "Mis", "único", "llamo", "parezco", "tercer", "anciano", "forman", "agradezco"];
 
     const tfData = [
         { statement: "For age, Spanish uses ‘tener’ — ‘tengo quince años’.", answer: true, explanation: "You literally ‘have’ years: tengo… años. ‘Soy… años’ is wrong." },
@@ -412,7 +422,14 @@
         { term: "padrastro", def: "stepfather", say: "el padrastro" },
         { term: "tatuaje", def: "tattoo", say: "un tatuaje" },
         { term: "¡Enhorabuena!", def: "Congratulations!", say: "¡Enhorabuena!" },
-        { term: "ocupado / ocupada", def: "busy", say: "ocupado" }
+        { term: "ocupado / ocupada", def: "busy", say: "ocupado" },
+        { term: "recibir", def: "to receive", say: "recibo muchos mensajes de mi familia" },
+        { term: "formar (parte de)", def: "to form (to be part of)", say: "mis primos forman parte de mi familia" },
+        { term: "identificar", def: "to identify", say: "puedo identificar a mi padre" },
+        { term: "agradecer", def: "to thank, be grateful for", say: "le agradezco a mi abuela" },
+        { term: "sorprender", def: "to surprise", say: "me sorprende" },
+        { term: "oír", def: "to hear", say: "oigo a mi hermano cantar" },
+        { term: "dicho (past participle of decir)", def: "said, told", say: "mi madre me ha dicho" }
     ];
 
     const EXAM_CASE_STUDIES = {

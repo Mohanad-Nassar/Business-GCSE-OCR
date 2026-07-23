@@ -250,6 +250,21 @@
             </ul>
             <p><span class="tier-h">H</span> <span data-say="Un beneficio de la tecnología es la creación de aplicaciones nuevas cada día.">Un beneficio de la tecnología es la creación de aplicaciones nuevas cada día.</span> — <em>A benefit of technology is the creation of new apps every day.</em></p>`,
             readCheck: { q: "Which sentence correctly uses the subjunctive after ‘es importante que’?", opts: ["Es importante que usas el móvil con cuidado", "Es importante que usa el móvil con cuidado", "Es importante que uses el móvil con cuidado", "Es importante que usar el móvil con cuidado"], ans: 2, explain: "es importante que triggers the subjunctive: uses. The other options wrongly use the indicative (usas/usa) or the infinitive (usar)." }
+        },
+        {
+            title: "More verbs for describing how I use technology",
+            tag: "Key concept",
+            content: `<p>Extra verbs that come up constantly when you describe your everyday tech habits — tap 🔊:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="encontrar">encontrar</span></td><td>to find</td><td><span data-say="entrar">entrar (en)</span></td><td>to enter / to log into</td></tr>
+              <tr><td><span data-say="abrir">abrir</span></td><td>to open</td><td><span data-say="continuar">continuar</span></td><td>to continue</td></tr>
+              <tr><td><span data-say="mover">mover</span></td><td>to move</td><td><span data-say="crecer">crecer</span></td><td>to grow</td></tr>
+              <tr><td><span data-say="escoger">escoger</span></td><td>to choose</td></tr>
+            </table>
+            <p>Model sentences: <span data-say="Encuentro muchas aplicaciones útiles en internet.">Encuentro muchas aplicaciones útiles en internet.</span> — <em>I find lots of useful apps on the internet.</em> <span data-say="Entro en la aplicación todos los días.">Entro en la aplicación todos los días.</span> — <em>I log into the app every day.</em></p>
+            <p><span data-say="Abro la aplicación y continúo navegando después de cenar.">Abro la aplicación y continúo navegando después de cenar.</span> — <em>I open the app and continue browsing after dinner.</em> A veces la pantalla <span data-say="se abre">se abre</span> sola cuando el móvil se cae. — <em>Sometimes the screen opens by itself when the phone falls.</em></p>
+            <p>Extra: <span data-say="Muevo los archivos a otra carpeta y escojo el mejor móvil según el precio.">Muevo los archivos a otra carpeta y escojo el mejor móvil según el precio.</span> — <em>I move the files to another folder and I choose the best phone according to the price.</em> <span data-say="La tecnología crece muy rápido cada año.">La tecnología crece muy rápido cada año.</span> — <em>Technology grows very fast every year.</em></p>`,
+            readCheck: { q: "Which verb means ‘to grow’?", opts: ["crecer", "escoger", "continuar", "encontrar"], ans: 0, explain: "crecer = to grow. escoger (to choose), continuar (to continue) and encontrar (to find) are all real everyday verbs, but different meanings." }
         }
     ];
 
@@ -278,7 +293,13 @@
         { q: "Which word means ‘next’ or ‘following’?", opts: ["siguiente", "anterior", "último", "penúltimo"], ans: 0, explain: "siguiente = next/following. anterior (previous), último (last) and penúltimo (second-to-last) are all genuine sequence words that a student can easily mix up." },
         { q: "Which word means ‘last’ or ‘latest’?", opts: ["último", "siguiente", "especial", "increíble"], ans: 0, explain: "último = last/latest. siguiente (next), especial (special) and increíble (incredible) are real describing words, but different meanings." },
         { q: "Which word means ‘special’?", opts: ["especial", "claro", "siguiente", "increíble"], ans: 0, explain: "especial = special. claro (clear/of course), siguiente (next) and increíble (incredible) are all real adjectives easily confused with it." },
-        { q: "Which word means ‘creation’?", opts: ["creación", "creador", "crear", "creativo"], ans: 0, explain: "creación (noun) = creation. creador (creator), crear (to create) and creativo (creative) are the same word family in a different form — a classic part-of-speech mix-up." }
+        { q: "Which word means ‘creation’?", opts: ["creación", "creador", "crear", "creativo"], ans: 0, explain: "creación (noun) = creation. creador (creator), crear (to create) and creativo (creative) are the same word family in a different form — a classic part-of-speech mix-up." },
+        { q: "Which verb means ‘to enter’ or ‘to log into’ (an app)?", opts: ["entrar", "salir", "abrir", "cerrar"], ans: 0, explain: "entrar (en) = to enter/log into. salir (to exit), abrir (to open) and cerrar (to close) are all real related actions, but different ones." },
+        { q: `<span data-say="Escojo el mejor móvil según el precio." data-listen></span><br>Listen. What is the person doing?`, opts: ["choosing the best phone based on price", "buying the most expensive phone available", "finding a cheap phone online for a friend", "comparing two identical phones before buying"], ans: 0, explain: "‘escojo el mejor móvil según el precio’ = I choose the best phone according to the price. escoger = to choose, not to buy or compare." },
+        { q: "Complete: ‘La tecnología ___ muy rápido cada año.’ (grows)", opts: ["crece", "creciendo", "crecido", "crecer"], ans: 0, explain: "The conjugated present-tense form is needed: crece. creciendo is the gerund, crecido the past participle, crecer the infinitive." },
+        { q: "Which verb means ‘to move’ (e.g. files)?", opts: ["mover", "guardar", "cargar", "borrar"], ans: 0, explain: "mover = to move. guardar (to save), cargar (to charge) and borrar (to delete) are all real device actions, but different ones." },
+        { q: "Complete: ‘Abro la aplicación y ___ navegando.’ (I continue)", opts: ["continúo", "continuando", "continuado", "continuar"], ans: 0, explain: "The conjugated present-tense (yo) form is needed: continúo. The others are the gerund, past participle and infinitive." },
+        { q: "Which verb means ‘to find’ (the result of searching)?", opts: ["encontrar", "buscar", "descargar", "escoger"], ans: 0, explain: "encontrar = to find. buscar (to search for) is the verb for the action before you find something — a common mix-up; descargar (to download) and escoger (to choose) are unrelated actions." }
     ];
 
     const matchData = [
@@ -311,7 +332,14 @@
         { term: "vuestro / vuestra", def: "your (plural, familiar)" },
         { term: "pesado", def: "heavy / annoying, boring" },
         { term: "fatal", def: "awful / terrible" },
-        { term: "lo bueno", def: "the good thing" }
+        { term: "lo bueno", def: "the good thing" },
+        { term: "encontrar", def: "to find" },
+        { term: "entrar (en)", def: "to enter / to log into" },
+        { term: "abrir; abrirse", def: "to open; to open by itself" },
+        { term: "continuar", def: "to continue" },
+        { term: "mover", def: "to move" },
+        { term: "crecer", def: "to grow" },
+        { term: "escoger", def: "to choose" }
     ];
 
     const fibData = [
@@ -327,9 +355,12 @@
         { display: `Quiero _____ mi portátil a internet. (to connect)`, blanks: { B1: "conectar" } },
         { display: `Hay un _____ en la aplicación esta noche. <span data-say="Hay un retraso en la aplicación esta noche." data-listen></span>`, blanks: { B1: "retraso" } },
         { display: `Solo tengo un _____ para revisar mis mensajes. (minute)`, blanks: { B1: "minuto" } },
-        { display: `Un _____ de la tecnología es que puedes aprender cosas nuevas. (benefit)`, blanks: { B1: "beneficio" } }
+        { display: `Un _____ de la tecnología es que puedes aprender cosas nuevas. (benefit)`, blanks: { B1: "beneficio" } },
+        { display: `_____ el mejor móvil según el precio. (I choose)`, blanks: { B1: "Escojo" } },
+        { display: `La aplicación se _____ automáticamente cuando enciendo el móvil. (opens)`, blanks: { B1: "abre" } },
+        { display: `_____ muchas aplicaciones útiles en internet. (I find)`, blanks: { B1: "Encuentro" } }
     ];
-    const fibWords = ["móvil", "mensajes", "aplicaciones", "hacer", "útil", "adicto", "Navegar", "cargar", "funciona", "conectar", "retraso", "minuto", "beneficio"];
+    const fibWords = ["móvil", "mensajes", "aplicaciones", "hacer", "útil", "adicto", "Navegar", "cargar", "funciona", "conectar", "retraso", "minuto", "beneficio", "Escojo", "abre", "Encuentro"];
 
     const tfData = [
         { statement: "After ‘para’, the verb always stays as the infinitive.", answer: true, explanation: "para mandar mensajes, para ver vídeos — never conjugated after para." },
@@ -341,7 +372,9 @@
         { statement: "‘una ventaja’ means ‘a disadvantage’.", answer: false, explanation: "una ventaja = an advantage; una desventaja = a disadvantage." },
         { statement: "‘adicto/a’ agrees with gender like a normal adjective.", answer: true, explanation: "soy adicto (masc.) / soy adicta (fem.)." },
         { statement: "‘guardar’ means ‘to look at’ a photo.", answer: false, explanation: "guardar = to save, not to look at (mirar = to look at)." },
-        { statement: "‘el retraso’ means ‘a delay’.", answer: true, explanation: "el retraso = a delay/lag — useful when technology is slow to connect." }
+        { statement: "‘el retraso’ means ‘a delay’.", answer: true, explanation: "el retraso = a delay/lag — useful when technology is slow to connect." },
+        { statement: "‘entrar’ means ‘to exit’.", answer: false, explanation: "entrar = to enter/log into; salir = to exit — opposite actions." },
+        { statement: "‘crecer’ means ‘to grow’.", answer: true, explanation: "crecer = to grow, e.g. la tecnología crece muy rápido." }
     ];
 
     const miscData = [
@@ -394,7 +427,14 @@
         { term: "vuestro / vuestra (H)", def: "your (plural, familiar)", say: "vuestro móvil" },
         { term: "pesado / pesada (H)", def: "heavy / annoying, boring", say: "es un poco pesado" },
         { term: "fatal (H)", def: "awful, terrible", say: "fatal" },
-        { term: "lo bueno", def: "the good thing", say: "lo bueno es que es rápido" }
+        { term: "lo bueno", def: "the good thing", say: "lo bueno es que es rápido" },
+        { term: "encontrar", def: "to find", say: "encontrar información" },
+        { term: "entrar (en)", def: "to enter / to log into", say: "entrar en la aplicación" },
+        { term: "abrir; abrirse", def: "to open; to open by itself", say: "abrir la aplicación" },
+        { term: "continuar", def: "to continue", say: "continuar navegando" },
+        { term: "mover", def: "to move", say: "mover los archivos" },
+        { term: "crecer", def: "to grow", say: "la tecnología crece" },
+        { term: "escoger", def: "to choose", say: "escoger el mejor móvil" }
     ];
 
     const EXAM_CASE_STUDIES = {

@@ -270,6 +270,21 @@
             <p>Example: <span data-say="Bienvenidos a mi canal — hoy voy a colgar un vídeo sobre mi blog de música.">Bienvenidos a mi canal — hoy voy a colgar un vídeo sobre mi blog de música.</span> — <em>Welcome to my channel — today I'm going to post a video about my music blog.</em></p>
             <p><span class="tier-h">H</span> <span data-say="Veo mis series favoritas en cualquier dispositivo, no solo en la tele.">Veo mis series favoritas en cualquier dispositivo, no solo en la tele.</span> <span class="tier-h">H</span> — <em>I watch my favourite series on any device, not just on the TV.</em></p>`,
             readCheck: { q: "What does ‘colgar un vídeo’ mean?", opts: ["to post/upload a video", "to delete a video completely", "to watch a video twice", "to hang a poster on the wall"], ans: 0, explain: "colgar (online) = to post/upload. The literal meaning ‘to hang’ is why a poster-on-the-wall trap is included, but online it means upload." }
+        },
+        {
+            title: "Higher: deciding, using and appreciating media",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> Choosing what to watch or listen to often needs <span data-say="decidir">decidir</span> (to decide) and <span data-say="utilizar">utilizar</span> (to use):</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="decidir">decidir</span></td><td>to decide</td><td><span data-say="utilizar">utilizar</span></td><td>to use</td></tr>
+              <tr><td><span data-say="aumentar">aumentar</span></td><td>to increase</td><td><span data-say="consistir en">consistir en</span></td><td>to consist of</td></tr>
+            </table>
+            <p>Model: <span data-say="Es difícil decidir qué película ver, así que utilizo una aplicación para elegir.">Es difícil decidir qué película ver, así que utilizo una aplicación para elegir.</span> — <em>It's hard to decide which film to watch, so I use an app to choose.</em> <span data-say="La audiencia de mi canal favorito aumenta cada año, y la serie consiste en diez episodios.">La audiencia de mi canal favorito aumenta cada año, y la serie consiste en diez episodios.</span> — <em>My favourite channel's audience increases every year, and the series consists of ten episodes.</em></p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="tardar">tardar</span></td><td>to take time / be a while</td><td><span data-say="apreciar">apreciar</span></td><td>to appreciate</td></tr>
+            </table>
+            <p><span class="tier-h">H</span> <span data-say="Tardo mucho en descargar canciones con este móvil, pero aprecio mucho la música clásica y el flamenco.">Tardo mucho en descargar canciones con este móvil, pero aprecio mucho la música clásica y el flamenco.</span> <span class="tier-h">H</span> — <em>I take a long time to download songs with this phone, but I really appreciate classical music and flamenco.</em></p>`,
+            readCheck: { q: "What does ‘la serie consiste en diez episodios’ mean?", opts: ["the series consists of ten episodes", "the series consists of twenty seasons instead", "the series will only ever have one single episode", "the series used to consist of ten episodes long ago"], ans: 0, explain: "consistir en = to consist of. The distractors swap the number/unit or shift the tense." }
         }
     ];
 
@@ -285,7 +300,8 @@
         { q: `<span data-say="Prefiero la música pop a la clásica.">Prefiero la música pop a la clásica.</span> <span class="tier-h">H</span> — what does this mean?`, opts: ["I prefer pop music to classical music", "I prefer classical music to pop music", "I only like classical music", "I don't like any type of music"], ans: 0, explain: "preferir X a Y = to prefer X to Y, so pop is preferred over classical. B reverses the comparison." },
         { q: `<span data-say="Lo que más me gusta es leer novelas.">Lo que más me gusta es leer novelas.</span> <span class="tier-h">H</span> — what does this mean?`, opts: ["What I like most is reading novels", "What I like least is reading novels", "I sometimes like reading a novel", "I used to like reading novels, but not anymore"], ans: 0, explain: "‘lo que más me gusta es…’ = what I like most is…, a Higher-tier opinion structure." },
         { q: "Which sentence uses the imperfect tense correctly for ‘you used to watch cartoons’?", opts: ["Veías dibujos animados", "Ves dibujos animados", "Viste dibujos animados", "Verás dibujos animados"], ans: 0, explain: "‘veías’ is the imperfect (tú form) — a repeated past habit. B is present, C is preterite (a single past event), D is future." },
-        { q: "What does ‘mi tema favorito del álbum’ mean?", opts: ["my favourite track on the album", "my favourite singer on the album", "my least favourite track on the album", "my favourite album from last year"], ans: 0, explain: "‘el tema’ here means the track/song. Traps swap track→singer, add ‘least’, or swap track→album." }
+        { q: "What does ‘mi tema favorito del álbum’ mean?", opts: ["my favourite track on the album", "my favourite singer on the album", "my least favourite track on the album", "my favourite album from last year"], ans: 0, explain: "‘el tema’ here means the track/song. Traps swap track→singer, add ‘least’, or swap track→album." },
+        { q: "What does ‘tardo mucho en descargar canciones’ mean?", opts: ["I take a long time to download songs", "I refuse to ever download any songs", "I quickly download songs every single day", "I used to take a long time to download songs"], ans: 0, explain: "tardar (en) + infinitive = to take time to do something. The distractors invert speed, add a daily habit, or shift to the imperfect." }
     ];
 
     const matchData = [
@@ -306,7 +322,9 @@
         { term: "el comienzo", def: "the beginning" },
         { term: "el canal", def: "the channel" },
         { term: "¿Es tuya esta novela?", def: "Is this novel yours?" },
-        { term: "bajar una canción", def: "to download a song" }
+        { term: "bajar una canción", def: "to download a song" },
+        { term: "consistir en", def: "to consist of" },
+        { term: "tardar en", def: "to take time to" }
     ];
 
     const fibData = [
@@ -319,9 +337,15 @@
         { display: `Ayer _____ una canción nueva en mi móvil. <span data-say="Ayer descargué una canción nueva en mi móvil." data-listen>Ayer descargué una canción nueva en mi móvil.</span>`, blanks: { B1: "descargué" } },
         { display: `_____ veo telenovelas, prefiero los documentales. (never)`, blanks: { B1: "Nunca" } },
         { display: `Cada cantante tiene un estilo _____. (different)`, blanks: { B1: "distinto" } },
-        { display: `Vi el _____ de la temporada en un fin de semana. (the rest)`, blanks: { B1: "resto" } }
+        { display: `Vi el _____ de la temporada en un fin de semana. (the rest)`, blanks: { B1: "resto" } },
+        { display: `Es difícil _____ qué película ver. (to decide — infinitive)`, blanks: { B1: "decidir" } },
+        { display: `_____ una aplicación para descargar canciones. (I use — yo form)`, blanks: { B1: "Utilizo" } },
+        { display: `La audiencia de mi canal favorito _____ cada año. (increases — él form)`, blanks: { B1: "aumenta" } },
+        { display: `La serie _____ en diez episodios. (consists — él form)`, blanks: { B1: "consiste" } },
+        { display: `_____ mucho en descargar canciones con este móvil. (I take a long time — yo form)`, blanks: { B1: "Tardo" } },
+        { display: `_____ mucho la música clásica y el flamenco. (I appreciate — yo form)`, blanks: { B1: "Aprecio" } }
     ];
-    const fibWords = ["encanta", "gustan", "vi", "guitarra", "leo", "leer", "descargué", "Nunca", "distinto", "resto"];
+    const fibWords = ["encanta", "gustan", "vi", "guitarra", "leo", "leer", "descargué", "Nunca", "distinto", "resto", "decidir", "Utilizo", "aumenta", "consiste", "Tardo", "Aprecio"];
 
     const tfData = [
         { statement: "‘Me gustan las películas de acción’ uses the plural verb because ‘películas’ is plural.", answer: true, explanation: "gustar/encantar agree with the noun that follows — plural noun, plural verb." },
@@ -334,7 +358,9 @@
         { statement: "‘Prefiero la música pop a la clásica’ means ‘I prefer classical music to pop music’.", answer: false, explanation: "preferir X a Y = prefer X TO Y — here pop is preferred over classical, the opposite of the statement." },
         { statement: "‘la mayoría’ means ‘the majority/most’.", answer: true, explanation: "la mayoría = the majority/most (of something)." },
         { statement: "‘aprender’ means ‘to teach’.", answer: false, explanation: "aprender = to learn; to teach is enseñar." },
-        { statement: "‘un artículo’ can mean a magazine or newspaper article.", answer: true, explanation: "un artículo = an article (in a magazine, blog or newspaper)." }
+        { statement: "‘un artículo’ can mean a magazine or newspaper article.", answer: true, explanation: "un artículo = an article (in a magazine, blog or newspaper)." },
+        { statement: "‘apreciar’ means ‘to appreciate’.", answer: true, explanation: "apreciar = to appreciate, e.g. aprecio mucho la música clásica." },
+        { statement: "‘aumentar’ means ‘to decrease’.", answer: false, explanation: "aumentar = to increase; to decrease is disminuir/reducir." }
     ];
 
     const miscData = [
@@ -406,7 +432,13 @@
         { term: "el flamenco", def: "flamenco (music/dance)", say: "el flamenco" },
         { term: "horrible", def: "horrible", say: "horrible" },
         { term: "vale la pena", def: "it's worth it", say: "vale la pena" },
-        { term: "nunca", def: "never", say: "nunca" }
+        { term: "nunca", def: "never", say: "nunca" },
+        { term: "decidir", def: "to decide", say: "decidir" },
+        { term: "utilizar", def: "to use", say: "utilizar" },
+        { term: "aumentar", def: "to increase", say: "aumentar" },
+        { term: "consistir en", def: "to consist of", say: "consistir en" },
+        { term: "tardar (en)", def: "to take time / be a while (to)", say: "tardar" },
+        { term: "apreciar", def: "to appreciate", say: "apreciar" }
     ];
 
     const EXAM_CASE_STUDIES = {

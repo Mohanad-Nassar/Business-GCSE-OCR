@@ -289,6 +289,24 @@
             <p>Example: <span data-say="Vi el partido entero en directo: fue un partido justo, pero mi jugador favorito se hizo una herida y perdió la copa.">Vi el partido entero en directo: fue un partido justo, pero mi jugador favorito se hizo una herida y perdió la copa.</span> — <em>I watched the whole match live: it was a fair match, but my favourite player got injured and lost the cup.</em></p>
             <p><span class="tier-h">H</span> <span data-say="El entrenamiento físico fue muy duro, y debido a la lluvia, el partido se canceló. Afortunadamente, nadie se enojó.">El entrenamiento físico fue muy duro, y debido a la lluvia, el partido se canceló. Afortunadamente, nadie se enojó.</span> <span class="tier-h">H</span> — <em>The physical training was very hard, and due to the rain, the match was cancelled. Fortunately, nobody got angry.</em> Hacer ejercicio físico ayuda a controlar el peso.</p>`,
             readCheck: { q: "What does ‘debido a la lluvia’ mean?", opts: ["due to the rain", "in spite of the rain", "instead of the rain falling", "long before the rain started"], ans: 0, explain: "debido a = due to/because of. The distractors reverse or misplace the cause-and-effect link." }
+        },
+        {
+            title: "Higher: obligations, effort and control in sport",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> Talking about what you must do uses <span data-say="deber">deber</span> + infinitive:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="deber">deber</span></td><td>must / should</td><td><span data-say="comenzar">comenzar</span></td><td>to begin / start</td></tr>
+              <tr><td><span data-say="exigir">exigir</span></td><td>to demand / require</td><td><span data-say="mantener">mantener</span></td><td>to maintain / keep</td></tr>
+            </table>
+            <p>Model: <span data-say="Debemos mantener la forma física si queremos jugar bien, y el partido comienza a las tres.">Debemos mantener la forma física si queremos jugar bien, y el partido comienza a las tres.</span> — <em>We must keep fit if we want to play well, and the match begins at three.</em> <span data-say="El deporte exige mucha disciplina y esfuerzo.">El deporte exige mucha disciplina y esfuerzo.</span> — <em>Sport demands a lot of discipline and effort.</em></p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="dedicar">dedicar</span></td><td>to dedicate</td><td><span data-say="indicar">indicar</span></td><td>to indicate</td></tr>
+              <tr><td><span data-say="controlar">controlar</span></td><td>to control</td><td><span data-say="temer">temer</span></td><td>to fear</td></tr>
+              <tr><td><span data-say="acercarse">acercarse</span></td><td>to approach / get closer</td><td><span data-say="acercarse a la portería">acercarse a la portería</span></td><td>to approach the goal</td></tr>
+            </table>
+            <p><span class="tier-h">H</span> <span data-say="Dedico mi tiempo libre a entrenar todos los días, y mi entrenador me ayuda a controlar los nervios antes del partido.">Dedico mi tiempo libre a entrenar todos los días, y mi entrenador me ayuda a controlar los nervios antes del partido.</span> <span class="tier-h">H</span> — <em>I dedicate my free time to training every day, and my coach helps me control my nerves before the match.</em></p>
+            <p><span data-say="El árbitro indica una falta con el silbato, aunque muchos jugadores temen perder en la final.">El árbitro indica una falta con el silbato, aunque muchos jugadores temen perder en la final.</span> — <em>The referee indicates a foul with the whistle, although many players fear losing in the final.</em> <span data-say="El jugador se acercó a la portería antes de marcar el gol.">El jugador se acercó a la portería antes de marcar el gol.</span> — <em>The player approached the goal before scoring.</em></p>`,
+            readCheck: { q: "What does ‘el deporte exige mucha disciplina’ mean?", opts: ["sport demands a lot of discipline", "sport forbids any kind of discipline", "sport occasionally needs a little discipline", "sport never really needs any discipline"], ans: 0, explain: "exigir = to demand/require. The distractors invert or weaken what sport actually requires." }
         }
     ];
 
@@ -306,7 +324,8 @@
         { q: `<span data-say="Mi equipo ganó la copa después de un partido muy justo." data-listen></span><br>Listen. What happened?`, opts: ["My team won the cup after a very fair match", "My team lost the cup after a very fair match", "My team won the cup after a very unfair match", "My team won a medal after a friendly match"], ans: 0, explain: "‘ganó la copa’ = won the cup; ‘un partido muy justo’ = a very fair match. Traps flip win/lose, flip fair/unfair, or swap cup→medal." },
         { q: "How do you say ‘It cost me a lot of money’?", opts: ["Me costó mucho dinero", "Me costará mucho dinero", "Me cuesta mucho dinero ayer", "Me costaba mucho dinero mañana"], ans: 0, explain: "‘costó’ is the preterite (a completed cost). B shifts to the future; C and D mix a present/imperfect verb with a past or future time word, which cannot go together." },
         { q: "What does ‘se hizo una herida’ mean?", opts: ["he/she got injured", "he/she felt very happy", "he/she scored a goal", "he/she won the trophy easily"], ans: 0, explain: "hacerse una herida = to get injured/hurt yourself. The distractors describe unrelated, positive match outcomes." },
-        { q: "Which sentence means ‘I like trying new activities’?", opts: ["Me gusta probar actividades nuevas", "Me gusta probar actividades viejas", "No me gusta probar actividades nuevas", "Me gustaba probar actividades nuevas"], ans: 0, explain: "probar actividades nuevas = to try new activities. Traps swap new→old, add a negative, or shift into the imperfect (used to like)." }
+        { q: "Which sentence means ‘I like trying new activities’?", opts: ["Me gusta probar actividades nuevas", "Me gusta probar actividades viejas", "No me gusta probar actividades nuevas", "Me gustaba probar actividades nuevas"], ans: 0, explain: "probar actividades nuevas = to try new activities. Traps swap new→old, add a negative, or shift into the imperfect (used to like)." },
+        { q: "What does ‘controlar los nervios’ mean?", opts: ["to control your nerves", "to lose all your nerves completely", "to celebrate winning a match", "to injure yourself badly before playing"], ans: 0, explain: "controlar los nervios = to control your nerves (stay calm). The distractors invent unrelated match outcomes." }
     ];
 
     const matchData = [
@@ -327,7 +346,10 @@
         { term: "el destino", def: "the destination" },
         { term: "la exposición", def: "the exhibition" },
         { term: "el euro", def: "the euro" },
-        { term: "la copa", def: "the cup / trophy" }
+        { term: "la copa", def: "the cup / trophy" },
+        { term: "mantener la forma física", def: "to keep fit" },
+        { term: "dedicar tiempo a", def: "to dedicate time to" },
+        { term: "acercarse a", def: "to approach / get closer to" }
     ];
 
     const fibData = [
@@ -340,9 +362,18 @@
         { display: `Suelo _____ los sábados por la noche. (to go out — infinitive after soler) <span class="tier-h">H</span>`, blanks: { B1: "salir" } },
         { display: `Me gusta probar una _____ nueva cada mes. (activity)`, blanks: { B1: "actividad" } },
         { display: `No me gustan mis _____ porque gasto demasiado. (expenses)`, blanks: { B1: "gastos" } },
-        { display: `Nos gusta _____ en el parque después del partido. (to chat)`, blanks: { B1: "charlar" } }
+        { display: `Nos gusta _____ en el parque después del partido. (to chat)`, blanks: { B1: "charlar" } },
+        { display: `El entrenador dice que _____ mantener la disciplina en el equipo. (we must — deber)`, blanks: { B1: "debemos" } },
+        { display: `El partido _____ a las tres de la tarde. (to begin — él form)`, blanks: { B1: "comienza" } },
+        { display: `El deporte _____ mucha disciplina y esfuerzo. (to demand — él form)`, blanks: { B1: "exige" } },
+        { display: `Debemos _____ la forma física si queremos jugar bien. (to maintain — infinitive)`, blanks: { B1: "mantener" } },
+        { display: `_____ mi tiempo libre a entrenar todos los días. (I dedicate — yo form)`, blanks: { B1: "Dedico" } },
+        { display: `El árbitro _____ una falta con el silbato. (to indicate — él form)`, blanks: { B1: "indica" } },
+        { display: `Mi entrenador me ayuda a _____ los nervios antes del partido. (to control — infinitive)`, blanks: { B1: "controlar" } },
+        { display: `Muchos jugadores _____ perder en la final. (to fear — ellos form)`, blanks: { B1: "temen" } },
+        { display: `El jugador se _____ a la portería antes de marcar. (approached — preterite)`, blanks: { B1: "acercó" } }
     ];
-    const fibWords = ["fútbol", "coleccionar", "jugar", "quedo", "jugué", "fiestas", "salir", "actividad", "gastos", "charlar"];
+    const fibWords = ["fútbol", "coleccionar", "jugar", "quedo", "jugué", "fiestas", "salir", "actividad", "gastos", "charlar", "debemos", "comienza", "exige", "mantener", "Dedico", "indica", "controlar", "temen", "acercó"];
 
     const tfData = [
         { statement: "‘jugar al fútbol’ needs the word ‘al’ before a ball sport.", answer: true, explanation: "jugar takes a+el=al before a ball/racquet sport: jugar al fútbol." },
@@ -355,7 +386,9 @@
         { statement: "‘soler + infinitive’ describes a usual habit, and is Higher tier.", answer: true, explanation: "soler + infinitive = to usually do something, e.g. suelo salir los sábados." },
         { statement: "‘sentarse’ means ‘to sit down’.", answer: true, explanation: "sentarse (reflexive) = to sit down." },
         { statement: "‘la cámara’ means ‘the bedroom’.", answer: false, explanation: "la cámara = the camera; the bedroom is el dormitorio/la habitación." },
-        { statement: "‘gratis’ means the same as ‘caro’ (expensive).", answer: false, explanation: "gratis = free (no cost); caro = expensive — opposites." }
+        { statement: "‘gratis’ means the same as ‘caro’ (expensive).", answer: false, explanation: "gratis = free (no cost); caro = expensive — opposites." },
+        { statement: "‘temer’ means ‘to fear’.", answer: true, explanation: "temer = to fear, e.g. muchos jugadores temen perder." },
+        { statement: "‘exigir’ means ‘to forbid something completely’.", answer: false, explanation: "exigir = to demand/require; to forbid is prohibir." }
     ];
 
     const miscData = [
@@ -432,7 +465,16 @@
         { term: "entero", def: "whole / entire", say: "entero" },
         { term: "correcto", def: "correct", say: "correcto" },
         { term: "aun", def: "even (still)", say: "aun" },
-        { term: "justo", def: "fair", say: "justo" }
+        { term: "justo", def: "fair", say: "justo" },
+        { term: "deber (+ infinitive)", def: "must / should", say: "debemos mantener la forma física" },
+        { term: "comenzar", def: "to begin / start", say: "comenzar" },
+        { term: "acercarse (a)", def: "to approach / get closer (to)", say: "acercarse" },
+        { term: "dedicar (tiempo a)", def: "to dedicate (time to)", say: "dedicar tiempo a" },
+        { term: "indicar", def: "to indicate / point out", say: "indicar" },
+        { term: "exigir", def: "to demand / require", say: "exigir" },
+        { term: "controlar", def: "to control", say: "controlar" },
+        { term: "temer", def: "to fear", say: "temer" },
+        { term: "mantener (la forma física)", def: "to maintain / keep (fit)", say: "mantener la forma física" }
     ];
 
     const EXAM_CASE_STUDIES = {
