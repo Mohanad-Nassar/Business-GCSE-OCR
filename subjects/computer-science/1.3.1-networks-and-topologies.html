@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.3 Computer Networks, Connections and Protocols</div>
             <h1>1.3.1 Networks and Topologies</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,10 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.3.1 Networks and Topologies — placeholder, content not yet written
+    //  DATA: 1.3.1 Networks and Topologies
+    //  ORIGINAL clean-room content — all scenarios, company names, questions
+    //  and mark schemes authored from the OCR J277 §1.3.1 spec scope
+    //  (CS-CONTENT-PLAN.md Appendix B), NOT transcribed from any past paper.
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-3-1-networks-and-topologies',
@@ -268,21 +271,1240 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.3.1 Networks and Topologies</strong> will appear here soon.</p>`
+            title: "What's the difference between a LAN and a WAN?",
+            tag: "Comparison",
+            content: `<h4>Two networks, defined by scale</h4>
+<ul>
+<li>A <strong>LAN (Local Area Network)</strong> connects devices across a small geographical area — usually a single site, such as one building or a small group of nearby buildings (a school, an office, a home).</li>
+<li>A <strong>WAN (Wide Area Network)</strong> connects devices across a large geographical area — different cities, different countries, or the whole globe.</li>
+<li>The <strong>Internet</strong> is itself the largest WAN in existence: a worldwide collection of interconnected networks, not owned by any single organisation.</li>
+</ul>
+<h4>Who owns and controls the infrastructure?</h4>
+<ul>
+<li>A LAN's cabling, switches and other hardware are normally owned and fully controlled by the single organisation that uses it — a school's IT department owns and manages its own LAN.</li>
+<li>A WAN usually relies on infrastructure that is NOT entirely owned by the organisation using it. Connecting distant sites means renting/leasing lines and equipment from telecommunications companies, who own and maintain the wider infrastructure in between.</li>
+</ul>
+<h4>Everyday examples</h4>
+<ul>
+<li><strong>LAN examples:</strong> the computers in one school building; a small office's network; a home Wi-Fi network.</li>
+<li><strong>WAN examples:</strong> a bank's network connecting branches in different cities; a supermarket chain linking its stores nationwide; the Internet itself.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is the clearest example of a WAN rather than a LAN?",
+                opts: ["A network spanning many cities, connecting a company's branches nationwide", "A network inside a single small classroom connecting six laptops to one shared printer", "A network connecting the computers in one office to a shared local server", "A home network connecting a laptop and a phone to one Wi-Fi router"],
+                ans: 0,
+                explain: "A WAN covers a large geographical area — multiple cities in this case — whereas the other three options describe devices confined to a single site, which is a LAN."
+            }
+        },
+        {
+            title: "What factors affect how well a network performs?",
+            tag: "Key concept",
+            content: `<h4>Bandwidth — and sharing it</h4>
+<ul>
+<li><strong>Bandwidth</strong> is the maximum amount of data that can be transferred across a network connection in a given time.</li>
+<li>Bandwidth is <strong>shared</strong> between everyone using the connection at once. The more users or devices actively sending/receiving data at the same time, the smaller each one's share becomes — which is why a school network can feel much slower at busy times of day.</li>
+</ul>
+<h4>Number of users and devices</h4>
+<ul>
+<li>Simply having more devices <strong>connected</strong> to a network does not by itself slow it down — but more devices <strong>actively transferring data at the same time</strong> means more competition for the same limited bandwidth, and therefore slower performance for everyone.</li>
+</ul>
+<h4>Transmission media</h4>
+<ul>
+<li><strong>Copper cable</strong> is cheap and widely used, but slower than fibre and more affected by electrical interference.</li>
+<li><strong>Fibre-optic cable</strong> sends data as pulses of light through glass strands — much faster than copper and unaffected by electrical interference, but more expensive to install.</li>
+<li><strong>Wireless</strong> connections are convenient (no cables needed) but are generally slower and less reliable than a wired connection of the same quality.</li>
+</ul>
+<h4>Interference, latency and distance from a wireless access point</h4>
+<ul>
+<li><strong>Interference</strong> — from other wireless devices, thick walls, or electrical equipment — can weaken or corrupt a signal, forcing data to be resent and slowing the network down.</li>
+<li><strong>Latency</strong> is the delay between data being sent and it arriving at its destination; a longer physical distance, or data passing through more devices along the way, increases latency.</li>
+<li>The <strong>further a wireless device is from its access point</strong>, the weaker its signal, which usually means a slower and less reliable connection.</li>
+</ul>`,
+            readCheck: {
+                q: "Why can a school's wireless network feel noticeably slower at busy times of the school day?",
+                opts: ["More devices are actively sharing the same limited bandwidth at once", "Wireless signals always slow down permanently once a school day begins", "The school's router automatically reduces its own performance overnight", "Bandwidth only ever affects wired connections, never wireless ones"],
+                ans: 0,
+                explain: "Bandwidth is shared. When many devices are actively transferring data at the same time, each one gets a smaller share of the available bandwidth, so the network feels slower."
+            }
+        },
+        {
+            title: "Client-server vs peer-to-peer networks",
+            tag: "Comparison",
+            content: `<h4>The roles of the computers involved</h4>
+<ul>
+<li>In a <strong>client-server</strong> network, one or more dedicated, powerful central computers (<strong>servers</strong>) provide services and resources — such as storing files, managing user accounts, or controlling a shared printer. Other computers (<strong>clients</strong>) request and use those services.</li>
+<li>In a <strong>peer-to-peer (P2P)</strong> network, every computer (a <strong>peer</strong>, or node) has equal status. Each one can act as both a client and a server, sharing files or resources directly with other peers — there is no single dedicated managing machine.</li>
+</ul>
+<h4>Client-server: advantages and disadvantages</h4>
+<ul>
+<li><strong>Advantage:</strong> centralised control makes it far easier to manage security, user accounts and backups from one place.</li>
+<li><strong>Disadvantage:</strong> it needs a dedicated, often expensive server plus IT expertise to maintain it — and if the server fails, the whole network's shared services can be disrupted.</li>
+</ul>
+<h4>Peer-to-peer: advantages and disadvantages</h4>
+<ul>
+<li><strong>Advantage:</strong> cheap and simple to set up, since no dedicated server or extra hardware is required.</li>
+<li><strong>Disadvantage:</strong> harder to keep secure and consistently backed up, since data is spread across many individual peers rather than managed centrally — this makes it unsuitable for large organisations.</li>
+</ul>
+<h4>Typical use cases</h4>
+<ul>
+<li><strong>Client-server</strong> suits schools, businesses and any setting where centralised control, security and reliability matter.</li>
+<li><strong>Peer-to-peer</strong> suits small, informal networks — a handful of home computers sharing files directly, or a small club with no budget for a dedicated server.</li>
+</ul>`,
+            readCheck: {
+                q: "In a client-server network, what is the role of the server?",
+                opts: ["It provides shared services and resources that client computers request and use", "It is simply the first computer that was ever connected to the network", "It only stores a backup copy of data in case a client computer breaks", "It physically converts wireless radio signals into wired network signals for every other connected device"],
+                ans: 0,
+                explain: "The server is the dedicated computer that provides services (files, accounts, printing) which client computers then request and use — that is its defining role."
+            }
+        },
+        {
+            title: "What hardware connects stand-alone computers into a LAN?",
+            tag: "Real world",
+            content: `<h4>NIC — Network Interface Card</h4>
+<ul>
+<li>A <strong>NIC</strong> is the hardware, built into or fitted inside a computer, that lets it physically connect to a network. Every networked device needs one, wired or wireless.</li>
+</ul>
+<h4>Switch vs router — the key distinction</h4>
+<ul>
+<li>A <strong>switch</strong> connects multiple wired devices together <strong>within the same LAN</strong>. It reads the destination address of each piece of data and forwards it only to the specific device it is meant for, rather than sending it to every device.</li>
+<li>A <strong>router</strong> connects <strong>different networks</strong> together — most commonly, it connects a LAN to another network such as the Internet, directing (routing) data between the two based on IP addresses.</li>
+<li><strong>The distinction that matters for the exam:</strong> a switch works within one LAN, joining devices to each other; a router works between networks, joining one network to another.</li>
+</ul>
+<h4>WAP — Wireless Access Point</h4>
+<ul>
+<li>A <strong>WAP</strong> allows wireless devices to join a wired LAN. It converts between the wired network's signals and wireless radio signals, so a laptop or phone can connect without a cable.</li>
+</ul>
+<h4>Transmission media</h4>
+<ul>
+<li>The physical (or wireless) pathway the data actually travels along — <strong>copper cable</strong>, <strong>fibre-optic cable</strong>, or <strong>wireless</strong> radio signals — is what physically links all of this hardware together into one working LAN.</li>
+</ul>`,
+            readCheck: {
+                q: "A small office already has a working wired LAN. Which piece of hardware would let staff also connect their laptops wirelessly to that same LAN?",
+                opts: ["A wireless access point (WAP)", "A second network interface card fitted inside the existing switch", "A router configured to only forward data to wired devices", "A longer length of fibre-optic transmission cable"],
+                ans: 0,
+                explain: "A wireless access point converts between the wired LAN's signals and wireless radio signals, letting wireless devices join a network that was originally built using cables."
+            }
+        },
+        {
+            title: "The Internet, DNS and hosting",
+            tag: "Key concept",
+            content: `<h4>Web servers, clients, URLs and IP addresses</h4>
+<ul>
+<li>A <strong>web server</strong> stores a website's files and sends them to a device when requested. The <strong>client</strong> is the user's device (running a browser) making that request.</li>
+<li>A <strong>URL</strong> (e.g. www.example.com) is the human-readable web address a person types in. An <strong>IP address</strong> (e.g. 192.168.1.1) is the numerical address that computers actually use to find and communicate with each other across a network.</li>
+</ul>
+<h4>DNS — how a lookup actually works</h4>
+<ul>
+<li>The <strong>Domain Name System (DNS)</strong> is a distributed system of servers whose job is to convert a URL into the matching IP address, step by step:</li>
+<li><strong>Step 1:</strong> the browser first checks whether it already has that URL's IP address stored (cached) from a previous visit.</li>
+<li><strong>Step 2:</strong> if not, the browser sends the URL to a DNS server.</li>
+<li><strong>Step 3:</strong> the DNS server looks up the matching IP address in its own records — or, if it does not hold that record, asks another DNS server on the DNS server's behalf.</li>
+<li><strong>Step 4:</strong> the DNS server returns the correct IP address to the browser, which then uses it to request the actual webpage from the correct web server.</li>
+</ul>
+<h4>Hosting</h4>
+<ul>
+<li><strong>Hosting</strong> means storing a website's files on a web server — usually rented space paid for by the website's owner — so the site is accessible over the Internet at any time.</li>
+</ul>
+<h4>The Cloud: benefits and drawbacks</h4>
+<ul>
+<li><strong>The cloud</strong> means storing data, or running software, on remote servers accessed over the Internet, rather than on local hardware you own.</li>
+<li><strong>Benefits:</strong> data can be accessed from anywhere with an Internet connection; backups and maintenance are handled by the provider; storage can be scaled up easily without buying new hardware; several people can collaborate on the same files.</li>
+<li><strong>Drawbacks:</strong> a reliable Internet connection is required to access your own data; there is usually an ongoing subscription cost; you are trusting a third party with your data's security and privacy; you have no control if an outage happens at the provider's end.</li>
+</ul>`,
+            readCheck: {
+                q: "What job does a DNS server actually do?",
+                opts: ["It converts a URL that a user types in into the matching IP address", "It permanently stores every website's files so they load faster for everyone", "It physically connects a school's wired LAN to its wireless devices", "It encrypts a user's password before it is sent to a website"],
+                ans: 0,
+                explain: "DNS looks up the numerical IP address that matches the human-readable URL a user has typed, so the browser knows which web server to actually contact."
+            }
+        },
+        {
+            title: "Star topology",
+            tag: "Key concept",
+            content: `<h4>How a star topology is wired</h4>
+<ul>
+<li>Every device connects <strong>individually</strong> to one central device (usually a switch), each with its own dedicated cable. There are no direct connections between the other devices themselves.</li>
+<li>Data sent from one device to another always passes through the central device first, which then forwards it on to the correct destination.</li>
+</ul>
+<svg viewBox="0 0 240 220" width="220" height="202" role="img" aria-label="Star topology diagram: a central switch connected by its own individual cable to four separate PCs and a server, arranged around it — no device is connected directly to another device">
+<line x1="120" y1="120" x2="120" y2="24" stroke="currentColor" stroke-width="2"/>
+<line x1="120" y1="120" x2="211" y2="90" stroke="currentColor" stroke-width="2"/>
+<line x1="120" y1="120" x2="176" y2="198" stroke="currentColor" stroke-width="2"/>
+<line x1="120" y1="120" x2="64" y2="198" stroke="currentColor" stroke-width="2"/>
+<line x1="120" y1="120" x2="29" y2="90" stroke="currentColor" stroke-width="2"/>
+<rect x="104" y="104" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="120" y="124" font-size="10" text-anchor="middle" fill="currentColor">SW</text>
+<circle cx="120" cy="24" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="120" y="28" font-size="10" text-anchor="middle" fill="currentColor">PC1</text>
+<circle cx="211" cy="90" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="211" y="94" font-size="10" text-anchor="middle" fill="currentColor">PC2</text>
+<circle cx="176" cy="198" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="176" y="202" font-size="10" text-anchor="middle" fill="currentColor">PC3</text>
+<circle cx="64" cy="198" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="64" y="202" font-size="10" text-anchor="middle" fill="currentColor">PC4</text>
+<circle cx="29" cy="90" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="29" y="94" font-size="9" text-anchor="middle" fill="currentColor">SRV</text>
+</svg>
+<h4>Advantages of a star topology</h4>
+<ul>
+<li>If one cable or one non-central device fails, only that single device is affected — the rest of the network keeps working normally.</li>
+<li>Performance stays consistent and fast, since each device has its own dedicated cable rather than sharing one single line with everyone else.</li>
+<li>New devices are easy to add — just run a new cable to the central device.</li>
+</ul>
+<h4>Disadvantages of a star topology</h4>
+<ul>
+<li>If the central device (the switch) fails, the <strong>whole network</strong> goes down, since every device relies on it.</li>
+<li>It needs more cabling overall than some alternative layouts, since every single device needs its own separate cable back to the centre.</li>
+<li>Adding a device requires a free port on the central switch — once the switch's ports are full, it must be replaced or another switch added.</li>
+</ul>`,
+            readCheck: {
+                q: "In a star topology, what happens if the central switch fails completely?",
+                opts: ["The whole network stops working, because every device depends on the switch", "Nothing at all changes, because every device is also already connected directly to each other", "Only the single closest device to the switch loses its connection", "The network automatically rewires itself into a mesh topology"],
+                ans: 0,
+                explain: "Every device's own cable in a star topology leads only to the central switch, so if that one central device fails, the entire network loses its connections."
+            }
+        },
+        {
+            title: "Mesh topology",
+            tag: "Comparison",
+            content: `<h4>How a mesh topology is wired</h4>
+<ul>
+<li>In a (full) mesh topology, <strong>every device connects directly to every other device</strong> — there is no central device that the others depend on.</li>
+<li>The number of cables needed grows quickly as devices are added, following the rule <strong>n(n − 1) ÷ 2</strong> for n devices — 5 devices need 5 × 4 ÷ 2 = <strong>10</strong> separate cables.</li>
+</ul>
+<svg viewBox="0 0 240 220" width="220" height="202" role="img" aria-label="Mesh topology diagram: four PCs and a server, with every device connected directly to every other device by its own cable — ten cables in total, no central device">
+<line x1="120" y1="24" x2="211" y2="90" stroke="currentColor" stroke-width="2"/>
+<line x1="120" y1="24" x2="176" y2="198" stroke="currentColor" stroke-width="2"/>
+<line x1="120" y1="24" x2="64" y2="198" stroke="currentColor" stroke-width="2"/>
+<line x1="120" y1="24" x2="29" y2="90" stroke="currentColor" stroke-width="2"/>
+<line x1="211" y1="90" x2="176" y2="198" stroke="currentColor" stroke-width="2"/>
+<line x1="211" y1="90" x2="64" y2="198" stroke="currentColor" stroke-width="2"/>
+<line x1="211" y1="90" x2="29" y2="90" stroke="currentColor" stroke-width="2"/>
+<line x1="176" y1="198" x2="64" y2="198" stroke="currentColor" stroke-width="2"/>
+<line x1="176" y1="198" x2="29" y2="90" stroke="currentColor" stroke-width="2"/>
+<line x1="64" y1="198" x2="29" y2="90" stroke="currentColor" stroke-width="2"/>
+<circle cx="120" cy="24" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="120" y="28" font-size="10" text-anchor="middle" fill="currentColor">PC1</text>
+<circle cx="211" cy="90" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="211" y="94" font-size="10" text-anchor="middle" fill="currentColor">PC2</text>
+<circle cx="176" cy="198" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="176" y="202" font-size="10" text-anchor="middle" fill="currentColor">PC3</text>
+<circle cx="64" cy="198" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="64" y="202" font-size="10" text-anchor="middle" fill="currentColor">PC4</text>
+<circle cx="29" cy="90" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="29" y="94" font-size="9" text-anchor="middle" fill="currentColor">SRV</text>
+</svg>
+<h4>Advantages of a mesh topology</h4>
+<ul>
+<li>Highly <strong>resilient</strong> — if one cable or device fails, data can simply be re-routed along a different path, so the rest of the network keeps working.</li>
+<li>There is no single central device whose failure could bring down the whole network, unlike a star topology's switch.</li>
+</ul>
+<h4>Disadvantages of a mesh topology</h4>
+<ul>
+<li>Needs <strong>far more cabling</strong> as devices are added — the n(n − 1) ÷ 2 rule means the number of cables grows much faster than the number of devices.</li>
+<li>More expensive and much more complex to install, wire and maintain than a star topology, especially as the network grows.</li>
+</ul>
+<h4>Choosing between them</h4>
+<ul>
+<li>A <strong>star</strong> topology suits most everyday offices and schools, where keeping cost and complexity down matters, and an occasional (rare) switch failure is an acceptable risk.</li>
+<li>A <strong>mesh</strong> topology suits systems that must almost never go down regardless of cost — for example, emergency-services communications or a data centre — because it has no single point of failure.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is a mesh topology generally considered more resilient than a star topology?",
+                opts: ["It has no single central device whose failure could bring down the whole network", "It always uses fewer cables in total than a star topology needs", "It only ever needs one shared cable connecting every device together", "It automatically detects and repairs any damaged cable itself, without any human intervention required"],
+                ans: 0,
+                explain: "Because every device connects directly to every other device, there is no central point (like a star's switch) that the whole network depends on — one failure can be routed around."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which of these best describes a Wide Area Network (WAN)?",
+            opts: ["A network spanning a large area, such as multiple cities or countries", "A network that only ever connects exactly two computers directly together, without any hardware", "A network confined to a single building or a small group of nearby buildings", "A network that can only ever be built using wireless access points and never any cables"],
+            ans: 0,
+            explain: "A WAN covers a large geographical area, unlike the other options, which either describe a LAN or describe made-up restrictions that don't define any real network type."
+        },
+        {
+            q: "A company owns and fully manages every switch and cable inside its head office network. What does this tell you about that network?",
+            opts: ["It is most likely a LAN, since the organisation itself owns its infrastructure", "It must be a WAN, since owning hardware always means covering a large area", "It cannot be considered a genuine network at all unless it has a router connecting it out to the wider Internet", "It proves the company has no wireless devices anywhere on its premises"],
+            ans: 0,
+            explain: "Full ownership and control of the infrastructure by a single organisation, confined to one site, is characteristic of a LAN — WANs typically rely on infrastructure leased from telecoms providers."
+        },
+        {
+            q: "Why does a network typically feel slower when many devices are actively transferring data at the same time?",
+            opts: ["Because the available bandwidth is shared, so each device gets a smaller portion of it", "Because every device automatically and permanently halves its own processing speed once it first connects", "Because wireless connections switch off completely once ten devices are joined", "Because routers can only ever process data from a single connected device"],
+            ans: 0,
+            explain: "Bandwidth is the finite amount of data a connection can carry in a given time; more devices actively using it at once means less of it is available to each device."
+        },
+        {
+            q: "Which transmission medium generally offers the fastest speeds and is unaffected by electrical interference?",
+            opts: ["Fibre-optic cable, which carries data as pulses of light through glass", "Standard copper cable, since it has been used in networks for the longest time", "Wireless radio signals, since no cabling is involved at all", "Any transmission medium performs identically once installed correctly"],
+            ans: 0,
+            explain: "Fibre-optic cable sends data as light through glass strands, giving it very high speeds and immunity to the electrical interference that affects copper cable."
+        },
+        {
+            q: "In a client-server network, what is the defining role of a client computer?",
+            opts: ["It requests and makes use of services or resources provided by a server", "It permanently stores every other device's files as an automatic backup", "It converts wireless signals into wired signals for the rest of the network", "It manages user accounts and security settings for the whole network"],
+            ans: 0,
+            explain: "Clients are the computers that request and use the services (files, printing, accounts) that a dedicated server provides — that request-and-use relationship is the defining feature."
+        },
+        {
+            q: "What is a genuine disadvantage of a peer-to-peer network compared to a client-server network?",
+            opts: ["It is generally harder to keep data secure and consistently backed up across all peers", "It always requires noticeably far more expensive specialist hardware than any client-server network ever needs", "It cannot physically connect more than two computers together at once", "It automatically stops working the moment more than one file is shared"],
+            ans: 0,
+            explain: "Without one dedicated, centrally managed server, security and backups depend on each individual peer, which is much harder to guarantee consistently than in a managed client-server setup."
+        },
+        {
+            q: "What is the purpose of a NIC (network interface card)?",
+            opts: ["It is the hardware that lets a computer physically connect to a network", "It converts a URL into the matching IP address for a website", "It permanently stores every one of a website's files so browsers can request and load them instantly", "It boosts a wireless signal so it reaches devices much further away"],
+            ans: 0,
+            explain: "A NIC is the piece of hardware, built in or fitted, that allows a device to physically join a network — every networked device, wired or wireless, needs one."
+        },
+        {
+            q: "What is the key difference between what a switch does and what a router does?",
+            opts: ["A switch connects devices within one LAN; a router connects one network to another network", "A switch only works wirelessly, while a router only works using copper cable", "A switch and a router actually perform exactly the same underlying job, just marketed and sold under two completely different product names", "A switch stores webpages, while a router looks up IP addresses using DNS"],
+            ans: 0,
+            explain: "A switch forwards data between devices that are already part of the same LAN, whereas a router directs data between separate networks, such as a LAN and the Internet."
+        },
+        {
+            q: "A wired office network wants to let staff connect their phones and laptops wirelessly. Which device makes this possible?",
+            opts: ["A wireless access point (WAP)", "An additional length of fibre-optic transmission cable", "A second router configured to ignore all wireless requests", "A switch with its wireless functionality permanently disabled"],
+            ans: 0,
+            explain: "A WAP converts between the wired network's signals and wireless radio signals, letting wireless devices join a network that was originally built using cables."
+        },
+        {
+            q: "What is the main purpose of a DNS server on the Internet?",
+            opts: ["To look up the IP address that matches a URL a user has typed in", "To permanently store the actual files of every website in the world", "To physically deliver data packets between two nearby wireless devices", "To decide which websites a school's students are and aren't allowed to visit"],
+            ans: 0,
+            explain: "DNS's job is the lookup itself — converting the human-readable URL into the numerical IP address a browser needs in order to actually contact the correct web server."
+        },
+        {
+            q: "How does a URL differ from an IP address?",
+            opts: ["A URL is the human-readable address typed in; an IP address is the numerical address devices use", "A URL is always longer in length than any IP address could ever be", "An IP address is only ever used for accessing websites, while a URL can be used for absolutely any device on any network", "A URL and an IP address are simply two different names for the exact same thing"],
+            ans: 0,
+            explain: "A URL (like www.example.com) is written for people to read and type; the matching IP address is the numerical form that computers actually use to route data."
+        },
+        {
+            q: "Why is a star topology generally considered less resilient than a mesh topology?",
+            opts: ["A single failure of its central switch can bring down the entire network", "It requires far more total cabling than a mesh topology of the same size", "It cannot ever be used to connect more than two devices at once", "Every device in a star topology must share one single physical cable"],
+            ans: 0,
+            explain: "Because every device in a star topology depends on the one central switch, that single device failing takes the whole network down — a risk a mesh topology avoids by having no central point."
+        }
+    ];
+
+    const matchData = [
+        { term: "LAN", def: "A network confined to a single site, such as one building or a small group of nearby buildings" },
+        { term: "WAN", def: "A network spanning a large geographical area, such as multiple cities or countries" },
+        { term: "Bandwidth", def: "The maximum amount of data that can be transferred across a connection in a given time" },
+        { term: "Latency", def: "The delay between data being sent and it arriving at its destination" },
+        { term: "Interference", def: "Electrical or physical disruption (walls, other devices) that weakens or corrupts a signal" },
+        { term: "Client (role)", def: "Requests and makes use of the services or resources a server provides" },
+        { term: "Server (role)", def: "Provides shared services or resources that client computers request and use" },
+        { term: "Peer-to-peer network", def: "Every computer has equal status and can act as both client and server, with no dedicated central machine" },
+        { term: "NIC", def: "Hardware, built into or fitted inside a device, that lets it physically connect to a network" },
+        { term: "Switch", def: "Connects multiple wired devices within the same LAN, forwarding data to the addressed device only" },
+        { term: "Router", def: "Connects one network to a different network, such as a LAN to the Internet" },
+        { term: "WAP", def: "Lets wireless devices join a wired LAN by converting between wired and wireless signals" },
+        { term: "DNS", def: "The system of servers that converts a URL into the matching IP address" },
+        { term: "The cloud", def: "Storing data or running services on remote servers accessed over the Internet, rather than locally" }
+    ];
+
+    const fibData = [
+        {
+            display: "A _____ connects devices within a single site, such as one building or a small group of nearby buildings.",
+            blanks: { B1: "LAN" }
+        },
+        {
+            display: "A _____ connects devices across a large geographical area, such as different cities or countries.",
+            blanks: { B1: "WAN" }
+        },
+        {
+            display: "The maximum amount of data that can be transferred across a network connection in a given time is called its _____.",
+            blanks: { B1: "bandwidth" }
+        },
+        {
+            display: "Every device needs a _____ fitted before it can physically connect to a network.",
+            blanks: { B1: "network interface card" }
+        },
+        {
+            display: "A _____ connects multiple wired devices within the same LAN and forwards data only to the device it is addressed to.",
+            blanks: { B1: "switch" }
+        },
+        {
+            display: "A _____ connects a LAN to a different network, such as the Internet.",
+            blanks: { B1: "router" }
+        },
+        {
+            display: "The system of servers that converts a URL into the matching IP address is called _____.",
+            blanks: { B1: "DNS" }
+        },
+        {
+            display: "In a _____ topology, every device connects directly to every other device, giving high resilience but needing many more cables.",
+            blanks: { B1: "mesh" }
+        }
+    ];
+    const fibWords = ["LAN", "WAN", "bandwidth", "network interface card", "switch", "router", "DNS", "mesh"];
+
+    const tfData = [
+        {
+            statement: "A LAN is normally confined to a single site, such as one building.",
+            answer: true,
+            explanation: "Correct — a LAN's defining feature is its small geographical scale, usually one site or a small group of nearby buildings."
+        },
+        {
+            statement: "Bandwidth is unlimited, so having more users on a network never affects its performance.",
+            answer: false,
+            explanation: "Bandwidth is finite and shared between everyone using the connection at once — more active users means a smaller share, and slower performance, for each."
+        },
+        {
+            statement: "In a client-server network, every computer has exactly equal status, with no dedicated server.",
+            answer: false,
+            explanation: "That describes a peer-to-peer network. In a client-server network, one or more dedicated servers provide services that client computers request and use."
+        },
+        {
+            statement: "A switch connects devices together within a single LAN.",
+            answer: true,
+            explanation: "Correct — a switch forwards data between wired devices that are already part of the same LAN."
+        },
+        {
+            statement: "A router's main job is to connect one network to a different network.",
+            answer: true,
+            explanation: "Correct — a router directs data between separate networks, most commonly a LAN and the Internet, unlike a switch which works within one LAN."
+        },
+        {
+            statement: "DNS stores the actual files of every website so browsers can display them instantly.",
+            answer: false,
+            explanation: "DNS only looks up the IP address matching a URL — it does not store website content. The website's files are stored on a web server."
+        },
+        {
+            statement: "Storing data in the cloud means it is not stored on any physical hardware anywhere.",
+            answer: false,
+            explanation: "Cloud storage still uses real physical servers — just ones owned and managed by someone else (a cloud provider), accessed over the Internet rather than stored locally."
+        },
+        {
+            statement: "A mesh topology generally needs more cabling than a star topology connecting the same number of devices.",
+            answer: true,
+            explanation: "Correct — a mesh topology's n(n − 1) ÷ 2 cabling rule grows much faster than a star topology's one-cable-per-device requirement."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Believing a switch and a router do exactly the same job, just under two different names.",
+            correct: "A <strong>switch</strong> connects devices <em>within</em> the same LAN, forwarding data only to the device it's addressed to. A <strong>router</strong> connects <em>different networks</em> together — most commonly, a LAN to the Internet. One works inside a network; the other works between networks.",
+            readCheck: {
+                q: "Which statement correctly separates what a switch does from what a router does?",
+                opts: ["A switch works within one LAN; a router connects that LAN to a different network", "A switch and a router perform identical jobs, just marketed under different names", "A router only ever works wirelessly, while a switch only works using cables", "A switch stores webpages, while a router looks up matching IP addresses"],
+                ans: 0,
+                explain: "A switch's job is entirely within one LAN (device-to-device); a router's job is connecting that LAN to a separate network, such as the Internet."
+            }
+        },
+        {
+            wrong: "Assuming a wireless connection is always faster than a wired one, since Wi-Fi feels newer and more convenient.",
+            correct: "A good wired connection — especially fibre-optic cable — is generally <strong>faster and more reliable</strong> than wireless. Wireless is convenient because it removes cables, but it is more affected by interference and distance from the access point, and typically slower than an equivalent wired link.",
+            readCheck: {
+                q: "Why is a wired fibre-optic connection generally considered faster and more reliable than a wireless one?",
+                opts: ["It is less affected by interference and does not weaken with distance from an access point the way wireless does", "Wireless connections are physically and completely incapable of ever transferring more than a few tiny bytes of data at once", "All wired connections are automatically free, while every wireless connection has a cost", "Fibre-optic cable is a form of wireless technology that simply looks like a cable"],
+                ans: 0,
+                explain: "Wireless signals weaken with distance and can be disrupted by interference; a wired connection, especially fibre, avoids both issues, which is why it's typically faster and more consistent."
+            }
+        },
+        {
+            wrong: "Thinking a mesh topology, like a star, still relies on one central device that every connection passes through.",
+            correct: "A mesh topology has <strong>no central device</strong> at all — every device connects <em>directly</em> to every other device. It is a star topology that relies on one central device (usually a switch), which is exactly why a mesh is more resilient to a single point of failure.",
+            readCheck: {
+                q: "Does a mesh topology rely on one central device that every other device connects through?",
+                opts: ["No — every device connects directly to every other device, with no central device", "Yes — a mesh topology always uses a central switch device, exactly just like a star topology does", "Yes, but only when there are fewer than three devices connected", "No — a mesh topology uses no cables of any kind between its devices"],
+                ans: 0,
+                explain: "The defining feature of a mesh topology is direct device-to-device connections with no central point — that's what makes it resilient to any single device failing."
+            }
+        },
+        {
+            wrong: "Assuming more bandwidth always guarantees a faster network, no matter how many devices are using it at once.",
+            correct: "Bandwidth only sets the <strong>maximum</strong> a connection can carry. Real performance still depends on how many users or devices are <em>actively</em> competing for that same bandwidth at any one moment — a high-bandwidth connection shared by hundreds of active users can still feel slow.",
+            readCheck: {
+                q: "A network has very high bandwidth, but 200 devices are streaming video on it at the same time. What is most likely to happen?",
+                opts: ["Performance can still slow down, because the bandwidth is shared between all the active devices", "Performance is completely guaranteed to stay fast at all times, regardless of how many devices are actively connected", "The extra devices will have no effect at all on the network's available bandwidth", "Bandwidth automatically increases itself whenever more devices connect"],
+                ans: 0,
+                explain: "Bandwidth is a shared, finite resource. Even a high-bandwidth connection can slow down once enough devices are actively competing for a share of it at the same time."
+            }
+        },
+        {
+            wrong: "Believing the cloud is some kind of storage that exists without any physical hardware, literally 'in the sky'.",
+            correct: "Cloud storage is still stored on <strong>real, physical servers</strong> — just servers owned and managed by someone else, in a data centre, accessed remotely over the Internet rather than on hardware you own locally.",
+            readCheck: {
+                q: "Is data stored 'in the cloud' stored without using any physical storage hardware at all?",
+                opts: ["No — it is stored on real physical servers owned by a cloud provider, accessed over the Internet", "Yes — cloud data exists purely as radio signals with no physical storage involved", "Yes, because cloud storage providers never use any physical data centres or storage equipment whatsoever", "No — but only for the first year of a paid cloud storage subscription"],
+                ans: 0,
+                explain: "Cloud storage is real, physical storage — just located on a provider's own servers rather than the user's local device — accessed remotely over an Internet connection."
+            }
+        },
+        {
+            wrong: "Describing the LAN/WAN difference only by 'a WAN is just a really big LAN', without mentioning ownership of the infrastructure.",
+            correct: "Scale is only half the answer. A LAN's infrastructure is normally owned and controlled by the single organisation using it, while a WAN typically relies on infrastructure <strong>leased from telecommunications companies</strong> that connect distant sites together — a full answer should mention both scale AND who controls the infrastructure.",
+            readCheck: {
+                q: "Besides geographical scale, what else usually distinguishes a WAN from a LAN?",
+                opts: ["Who owns and controls the network infrastructure being used", "The total number of computers connected, regardless of location", "Whether the network uses electricity to transfer any of its data", "Whether the network was installed before or after the year 2000"],
+                ans: 0,
+                explain: "A full comparison includes ownership: a LAN's infrastructure is usually owned by the one organisation using it, while a WAN typically relies on infrastructure leased from telecoms providers."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "Command-word ladder: a 4-mark 'describe' on the DNS lookup process",
+            pills: ["AO1", "4 marks", "Describe", "Step-by-step"],
+            content: `<p>A typical question: <em>"Describe how a DNS lookup converts a URL into the correct IP address."</em> [4 marks] The same idea, shown at every level:</p>
+
+<p><strong>❌ 0-1 marks:</strong> "DNS finds the website's address."</p>
+<ul>
+<li>True in spirit, but far too vague to be creditable — it doesn't describe a PROCESS at all, just restates what DNS is for.</li>
+</ul>
+
+<p><strong>⚠️ 2 marks:</strong> "The browser sends the URL to a DNS server, which looks up the matching IP address and sends it back."</p>
+<ul>
+<li>This captures the middle of the process, but skips the browser's own cache check at the start and what happens once the IP address comes back.</li>
+</ul>
+
+<p><strong>✅ 4 marks:</strong> "First the browser checks its own cache for the IP address. If it isn't there, the browser sends the URL to a DNS server. The DNS server looks up the matching IP address in its records (asking another DNS server if needed). Finally, the DNS server returns the IP address to the browser, which uses it to request the page from the correct web server."</p>
+
+<p><strong>Why this matters:</strong> "describe how X works" questions on this topic are almost always marked as a numbered SEQUENCE of steps, one mark per genuine step. Naming DNS's purpose is not the same as describing its process — write the steps in order, and don't skip the first one (checking the cache) or the last one (using the IP address that comes back).</p>`,
+            readCheck: {
+                q: "A student answers 'Describe how a DNS lookup works' by writing only 'DNS looks up IP addresses for websites'. Why does this likely score very few of the 4 marks?",
+                opts: ["It states the purpose of DNS but doesn't describe the actual step-by-step process", "It is factually incorrect about what DNS does for a website", "It is far too long and detailed an answer for a 4-mark question to ever reward fully", "DNS lookups cannot be described in words, only diagrams can be credited"],
+                ans: 0,
+                explain: "'Describe how' questions need the actual sequence of steps — checking cache, contacting a DNS server, the lookup, returning the IP address — not just a restatement of DNS's overall purpose."
+            }
+        },
+        {
+            type: "tip",
+            title: "'Give one advantage and one disadvantage' — don't double up on one side",
+            pills: ["AO1/AO2", "2+ marks", "Grouped marking", "Common trap"],
+            content: `<p>This exact style of question appears constantly on this topic — comparing topologies, client-server vs peer-to-peer, cloud vs local storage, wired vs wireless. The trap is always the same.</p>
+
+<p><strong>❌ The trap:</strong> writing two advantages (or two disadvantages) because you're more confident about one side, hoping both will count. They won't — the mark scheme groups the marks as ONE for a genuine advantage and ONE for a genuine disadvantage, so two advantages score only half marks at best, never full marks.</p>
+
+<p><strong>✅ The reliable method:</strong> before writing anything, plan explicitly: "Advantage: ___. Disadvantage: ___." One clear sentence for each, addressing BOTH sides the question actually asked for.</p>
+
+<p><strong>Worked example — cloud storage vs local storage:</strong></p>
+<ul>
+<li><strong>Advantage:</strong> data stored in the cloud can be accessed from any device with an Internet connection, not just the one it was saved on.</li>
+<li><strong>Disadvantage:</strong> accessing that data depends entirely on having a working Internet connection — no connection means no access, even to your own files.</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks for one advantage and one disadvantage of cloud storage [2 marks]. A student writes two separate advantages, no disadvantage. What is the maximum they can score?",
+                opts: ["1 mark, since only one genuine advantage can be credited without any disadvantage given", "2 marks, since two separate correct points about cloud storage were made in total across the answer", "0 marks, because the question specifically required exactly one sentence", "2 marks, as long as both advantages are longer than three lines each"],
+                ans: 0,
+                explain: "The mark scheme awards one mark for a genuine advantage and one for a genuine disadvantage. With no disadvantage attempted, only the advantage mark is available — maximum 1 of 2."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "The 8-mark 'discuss' ladder: choosing between star and mesh",
+            pills: ["AO2", "8 marks", "Discuss", "Banded"],
+            content: `<p>An 8-mark discuss question gives you a scenario and asks you to weigh up a choice — here, star vs mesh topology for a given organisation. Roughly 10-12 minutes; plan before writing.</p>
+
+<p><strong>The structure that reaches the top band:</strong></p>
+<ul>
+<li><strong>1. How each topology is wired</strong> — briefly state the mechanism of both (star = central device, mesh = every device to every other device) so the marker knows you understand what you're comparing.</li>
+<li><strong>2. A chain for topology A</strong> — factor → effect → consequence. E.g. "a star topology needs less cabling (factor) → which keeps installation cost and complexity down (effect) → making it affordable for an organisation with a limited IT budget (consequence)."</li>
+<li><strong>3. A counterpoint</strong> — the same factor from the OTHER topology's side. E.g. "however, the star topology's single point of failure at the switch means one fault can take down the entire network."</li>
+<li><strong>4. A second, different issue</strong> — don't just repeat cabling; also weigh resilience, or cost, or scalability, depending which you haven't covered yet.</li>
+<li><strong>5. A separate, justified conclusion</strong> — state which topology suits THIS scenario specifically, and why, rather than which topology is "better" in general.</li>
+</ul>
+
+<p><strong>Why this matters:</strong> the top mark band on OCR's discuss questions rewards weighing BOTH sides against the actual scenario given, not simply listing everything you know about star and mesh topologies in general.</p>`,
+            readCheck: {
+                q: "An 8-mark 'discuss' answer lists five correct facts about star and mesh topologies, but never applies any of them to the scenario given in the question. Which band is this most likely to land in?",
+                opts: ["A lower band, since the top band requires the discussion to be applied to the given scenario", "The top band automatically, since every single fact that was listed happens to be technically accurate", "Zero marks, since listing facts is never creditable on any exam question", "It cannot be marked at all without a diagram included in the answer"],
+                ans: 0,
+                explain: "Correct but generic facts, never applied to the specific scenario, are exactly what keeps a discuss answer out of the top band — application to context is what the higher bands reward."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "LAN", def: "A network confined to a single site — one building or a small group of nearby buildings" },
+        { term: "WAN", def: "A network spanning a large geographical area, such as multiple cities or countries" },
+        { term: "Bandwidth", def: "The maximum amount of data a connection can carry in a given time, shared between all active users" },
+        { term: "Latency", def: "The delay between data being sent and it arriving at its destination" },
+        { term: "Interference", def: "Disruption (walls, other devices, electrical equipment) that weakens or corrupts a signal" },
+        { term: "Transmission media", def: "The physical or wireless pathway data travels along: copper, fibre-optic, or wireless" },
+        { term: "Client-server network", def: "A network with dedicated server(s) providing services that client computers request and use" },
+        { term: "Peer-to-peer network", def: "Every computer has equal status, acting as both client and server, with no dedicated central machine" },
+        { term: "NIC", def: "Network interface card — hardware that lets a device physically connect to a network" },
+        { term: "Switch", def: "Connects multiple wired devices within the same LAN, forwarding data to the addressed device only" },
+        { term: "Router", def: "Connects one network to a different network, such as a LAN to the Internet" },
+        { term: "WAP", def: "Wireless access point — lets wireless devices join a wired LAN" },
+        { term: "DNS", def: "The system of servers that converts a URL into the matching IP address" },
+        { term: "URL vs IP address", def: "A URL is the human-readable web address; an IP address is the numerical address devices use" },
+        { term: "Web server", def: "Stores a website's files and sends them to a client when requested" },
+        { term: "Hosting", def: "Storing a website's files on a web server so it is accessible over the Internet" },
+        { term: "The cloud", def: "Storing data or running services on remote servers accessed over the Internet, not locally" },
+        { term: "Star vs mesh topology", def: "Star: every device wired to one central device. Mesh: every device wired directly to every other device" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-21) ──
+    // Authored from scratch against the §1.3.1 spec scope, using invented
+    // scenarios/company names — NOT transcribed from any OCR ExamBuilder PDF
+    // or past paper (CS-CONTENT-PLAN.md §6.2, 2026-07-17 owner decision).
+    const EXAM_CASE_STUDIES = {
+        "keswick-studio": `<p>Keswick Design Studio is a small graphic design company based in a single rented office. It has four desktop PCs and one dedicated file server, all connected together with cables so staff can share design files and a network printer.</p>`,
+        "parkview-academy": `<p>Parkview Academy is a secondary school with classrooms spread across three buildings on one site. The school also runs a small after-school computing club, and has recently opened a satellite sixth-form centre in a nearby town that needs to access the same student records system.</p>`,
+        "sunnyside-bakery": `<p>Sunnyside Bakery is a small chain of three shops. It currently keeps all of its sales records and staff rotas on a single computer in the back office of its main shop, and is considering moving this data to a cloud storage service instead.</p>`,
+        "brightweb-shop": `<p>A customer opens their web browser and types www.brightweb-shop.co.uk to visit an online shop's website, which is stored on a web server owned by the shop's hosting company.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "N1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Identify which of these networks is best described as a WAN rather than a LAN.</p>`,
+            options: ["A network connecting a supermarket chain's stores in different cities across the country", "A network connecting six computers in a single classroom to one shared printer", "A network connecting the till and stockroom computer in one small shop", "A home network connecting a laptop and a phone to a single Wi-Fi router"],
+            answer: 0,
+            hint: "Look for the option that covers a large geographical area spanning more than one site.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>A network connecting a supermarket chain's stores in different cities across the country — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>The other three options all describe a network confined to a single site, which is a LAN, not a WAN.</li>
+</ul>
+</div>`,
+            modelAnswer: "A network connecting a supermarket chain's stores in different cities across the country."
+        },
+        {
+            num: "N2",
+            marks: 1,
+            type: "mcq",
+            caseId: "keswick-studio",
+            question: `<p>Keswick Design Studio wants a piece of hardware that will let its four PCs and one server share files and a printer within the same office. Identify the hardware that does this job.</p>`,
+            options: ["A switch", "A router", "A DNS server", "A web server"],
+            answer: 0,
+            hint: "Think about which device connects multiple wired devices together within one LAN, rather than connecting to a different network.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>A switch — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>A router connects different networks together, and a DNS server/web server play no role in wiring devices together within one office LAN.</li>
+</ul>
+</div>`,
+            modelAnswer: "A switch."
+        },
+        {
+            num: "N3",
+            marks: 1,
+            type: "mcq",
+            caseId: "brightweb-shop",
+            question: `<p>Identify what a DNS server converts a URL into.</p>`,
+            options: ["The matching IP address", "A backup copy of the website's files", "An encrypted version of the same URL", "The physical location of the web server's building"],
+            answer: 0,
+            hint: "DNS's entire job is one specific conversion — think about what a computer actually needs in order to contact a web server.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>The matching IP address — CAO (correct answer only)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>DNS performs a lookup only; it does not store files, encrypt data, or record physical locations.</li>
+</ul>
+</div>`,
+            modelAnswer: "The matching IP address."
+        },
+        {
+            num: "N4",
+            marks: 1,
+            type: "written",
+            caseId: "parkview-academy",
+            question: `<p>Parkview Academy's new sixth-form centre, in a nearby town, needs to connect back to the main school site's network. State one reason why this connection would be classed as a WAN rather than a LAN.</p>`,
+            hint: "Think about the geographical scale involved, not the number of computers.",
+            starter: "This connection is a WAN because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>The sixth-form centre and the main school site are in different geographical locations (different towns) // it connects two separate sites over a large distance, rather than devices within one site</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any answer that correctly links the WAN classification to geographical scale/distance between separate sites.</li>
+</ul>
+</div>`,
+            modelAnswer: "This connection is a WAN because the sixth-form centre is in a different town from the main school site — the two locations are geographically far apart rather than being part of one single site."
+        },
+        {
+            num: "N5",
+            marks: 2,
+            type: "written",
+            caseId: "keswick-studio",
+            question: `<p>Describe what the switch in Keswick Design Studio's office does.</p>`,
+            hint: "Two separate points: what it connects, and how it decides where to send data.",
+            starter: "The switch connects… It forwards data by…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>Connects the multiple wired PCs and the server together within the studio's own LAN</li>
+<li>Forwards each piece of data only to the specific device it is addressed to, rather than to every device</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both points must be about a switch specifically (not a router) to be credited.</li>
+</ul>
+</div>`,
+            modelAnswer: "The switch connects the studio's PCs and server together within its own LAN. It reads the destination of each piece of data and forwards it only to the specific device it is addressed to, rather than sending it to every device."
+        },
+        {
+            num: "N6",
+            marks: 2,
+            type: "written",
+            caseId: "keswick-studio",
+            question: `<p>Keswick Design Studio later adds a router so that staff can access the Internet. Describe what this router does.</p>`,
+            hint: "A router's job is different from a switch's job — think about which networks it connects, not which devices.",
+            starter: "The router connects… It directs data by…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>Connects the studio's own LAN to a different network — the Internet</li>
+<li>Directs (routes) data between the studio's network and the Internet based on IP addresses</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both points must be about a router specifically; describing a switch's job here earns no marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "The router connects the studio's own LAN to a different network — the Internet. It directs data between the studio's network and the Internet, using IP addresses to work out where each piece of data needs to go."
+        },
+        {
+            num: "N7",
+            marks: 2,
+            type: "written",
+            caseId: "parkview-academy",
+            question: `<p>Parkview Academy's student records system uses a client-server network, with one central server storing all student data. Identify the role of the client and the role of the server in this network.</p>`,
+            hint: "One role requests and uses data; the other role stores and provides it.",
+            starter: "The client's role is… The server's role is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>The client (a teacher's computer) requests and makes use of student data held on the server</li>
+<li>The server stores the student data centrally and provides/sends it to client computers when requested</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each role must be correctly matched to client or server, not swapped.</li>
+</ul>
+</div>`,
+            modelAnswer: "The client (e.g. a teacher's computer) requests and uses student data when needed. The server stores that student data centrally and provides it to client computers whenever they request it."
+        },
+        {
+            num: "N8",
+            marks: 2,
+            type: "written",
+            caseId: "parkview-academy",
+            question: `<p>Parkview Academy's after-school computing club has five laptops. The club wants to share files directly between the laptops without setting up a dedicated server. Justify why a peer-to-peer network would suit the club better than a client-server network.</p>`,
+            hint: "Give your choice, then a reason linked to the club's situation (small, informal, no budget for a dedicated server).",
+            starter: "A peer-to-peer network would suit the club because…",
+            markPoints: {
+                note: "Two independent judgements: does the student correctly choose peer-to-peer, and do they justify it with a reason that fits the club's actual situation (small scale, no dedicated server/budget/IT staff)?",
+                groups: [
+                    {
+                        label: "Your choice", max: 1, points: [
+                            { text: "Correctly identifies peer-to-peer (not client-server) as the better fit", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your justification", max: 1, points: [
+                            { text: "Gives a valid reason linked to the club's situation, e.g. no need for an expensive dedicated server / simple and cheap to set up for a small number of devices / no IT staff required to manage it", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark: correctly chooses peer-to-peer</li>
+<li>1 mark: valid justification, e.g. cheap/simple to set up for a small number of devices with no dedicated server or IT expertise needed</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>The justification mark requires a reason that fits THIS scenario (small, informal, no budget) — a generic unlinked fact about peer-to-peer alone is not enough.</li>
+</ul>
+</div>`,
+            modelAnswer: "A peer-to-peer network would suit the club better, because it is cheap and simple to set up for just five laptops, with no need to buy a dedicated server or hire IT expertise to manage it — appropriate for a small, informal after-school club."
+        },
+        {
+            num: "N9",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Give one advantage and one disadvantage of using a wireless connection compared to a wired connection.</p>`,
+            hint: "One clear advantage, one clear disadvantage — don't give two of the same side.",
+            starter: "Advantage: … Disadvantage: …",
+            markPoints: {
+                note: "Two separate judgements. A student who gives two advantages (or two disadvantages) can only ever earn the one group that applies, never both.",
+                groups: [
+                    {
+                        label: "Your advantage", max: 1, points: [
+                            { text: "Gives a genuine advantage of wireless over wired, e.g. no cables needed / devices can move around freely / easier and cheaper to add new devices", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your disadvantage", max: 1, points: [
+                            { text: "Gives a genuine disadvantage of wireless over wired, e.g. generally slower / more affected by interference or distance from the access point / less reliable", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks</h5>
+<ul>
+<li>1 mark for a genuine advantage, e.g. no cables needed, devices can move freely, easier to add devices</li>
+<li>1 mark for a genuine disadvantage, e.g. generally slower, more affected by interference/distance from the access point</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Two advantages (or two disadvantages) score a maximum of 1 mark, not 2.</li>
+</ul>
+</div>`,
+            modelAnswer: "Advantage: wireless devices can connect without any cables, so they can be used anywhere within range of the access point. Disadvantage: wireless connections are generally slower and less reliable than a wired connection, being more affected by interference and distance from the access point."
+        },
+        {
+            num: "N10",
+            marks: 2,
+            type: "written",
+            caseId: "brightweb-shop",
+            question: `<p>Describe the difference between the URL the customer types in and the IP address used to actually locate Brightweb Shop's web server.</p>`,
+            hint: "One is written for people; the other is used by computers to route data.",
+            starter: "The URL is… The IP address is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>The URL (www.brightweb-shop.co.uk) is the human-readable web address the customer types in</li>
+<li>The IP address is the numerical address that computers actually use to find and communicate with the correct web server</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both points must be present; simply naming "URL" and "IP address" without describing what each actually is scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "The URL is the human-readable web address that the customer types into their browser. The IP address is the numerical address that computers actually use to locate and communicate with the correct web server — DNS converts one into the other."
+        },
+        {
+            num: "N11",
+            marks: 2,
+            type: "written",
+            caseId: "brightweb-shop",
+            question: `<p>Describe the roles of the web server and the client (browser) when the customer requests Brightweb Shop's website.</p>`,
+            hint: "One side stores and sends the files; the other side asks for and displays them.",
+            starter: "The web server's role is… The client's role is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per point)</h5>
+<ul>
+<li>The web server stores the website's files and sends them when requested</li>
+<li>The client (the customer's browser) requests the webpage and displays the files it receives back</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both roles must be correctly matched — swapping web server and client earns no marks.</li>
+</ul>
+</div>`,
+            modelAnswer: "The web server stores Brightweb Shop's website files and sends them out when a request is received. The client is the customer's browser, which requests the webpage and then displays the files it receives back from the web server."
+        },
+        {
+            num: "N12",
+            marks: 3,
+            type: "written",
+            caseId: "parkview-academy",
+            question: `<p>At busy times of the school day, many students at Parkview Academy connect to the wireless network at once. Explain how this affects the network's performance.</p>`,
+            hint: "Link the number of active users to the shared, limited resource, then to the effect students would actually notice.",
+            starter: "Bandwidth is… When many students connect at once…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point, to a maximum of 3)</h5>
+<ul>
+<li>Bandwidth (the maximum amount of data the connection can carry) is a shared, limited resource</li>
+<li>When many students are actively using the network at the same time, each device gets a smaller share of that bandwidth</li>
+<li>This results in slower performance for everyone — e.g. webpages and files take longer to load</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Full marks needs the chain from "shared bandwidth" through to a real, noticeable effect, not just naming bandwidth alone.</li>
+</ul>
+</div>`,
+            modelAnswer: "Bandwidth is the maximum amount of data the network's connection can carry at once, and it is shared between everyone using it. When many students connect and use the network at the same busy time, each device gets a smaller share of that limited bandwidth. As a result, the network feels noticeably slower for everyone — webpages and files take longer to load than at quieter times of day."
+        },
+        {
+            num: "N13",
+            marks: 3,
+            type: "written",
+            caseId: "parkview-academy",
+            question: `<p>Parkview Academy's wireless network sometimes performs badly in classrooms with thick stone walls, even when few students are connected. Explain how interference could cause this.</p>`,
+            hint: "Link the physical cause (walls/interference) to what happens to the signal, then to the effect on performance.",
+            starter: "Thick walls and other equipment can cause interference by…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point, to a maximum of 3)</h5>
+<ul>
+<li>Thick walls and other electrical equipment can cause interference with the wireless radio signal</li>
+<li>This interference weakens or corrupts the signal as it travels between the device and the wireless access point</li>
+<li>Data may need to be resent as a result, which slows down the network's performance in that classroom</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award marks for the chain from cause (interference) to mechanism (weakened/corrupted signal) to effect (resending data, slower performance).</li>
+</ul>
+</div>`,
+            modelAnswer: "Thick stone walls and nearby electrical equipment can interfere with the wireless radio signal travelling between a device and the access point. This interference weakens or corrupts the signal, meaning data sometimes has to be resent. This resending slows the network down in that classroom, even though relatively few students are actually connected there."
+        },
+        {
+            num: "N14",
+            marks: 3,
+            type: "written",
+            caseId: "keswick-studio",
+            question: `<p>Keswick Design Studio is deciding how to wire its five devices (four PCs and one server) into a star topology, using its existing switch as the central device. Draw a diagram to show how these five devices should be connected in a star topology.</p><p>(This question is best answered by sketching your diagram on paper — describe it clearly in words if you are typing your answer.)</p>`,
+            hint: "Every device needs its own individual cable running to the central switch, and to nowhere else.",
+            starter: "The switch sits at the centre. Each of the five devices…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point, to a maximum of 3)</h5>
+<ul>
+<li>Shows one central device (the switch), drawn once</li>
+<li>Shows each of the other five devices connected to the central switch by its own individual cable</li>
+<li>Shows no direct connections between any of the five other devices themselves (only to the switch)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>A diagram with any device wired directly to another device (other than the switch) loses the third mark, since that would not be a true star topology.</li>
+</ul>
+</div>`,
+            modelAnswer: "The switch is drawn once at the centre of the diagram. Each of the four PCs and the server is drawn around it, with exactly one cable running from each device straight to the central switch. No device is connected directly to any other device — every connection passes through the switch."
+        },
+        {
+            num: "N15",
+            marks: 3,
+            type: "written",
+            caseId: "keswick-studio",
+            question: `<p>Keswick Design Studio is also considering rewiring its five devices into a mesh topology instead. Describe how a mesh topology would connect these devices.</p>`,
+            hint: "Say what connects to what, then use the cabling rule to say how many cables this would actually need for five devices.",
+            starter: "In a mesh topology, every device…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point, to a maximum of 3)</h5>
+<ul>
+<li>Every device connects directly to every other device</li>
+<li>There is no central device (no switch needed) that the connections depend on</li>
+<li>For 5 devices this needs n(n − 1) ÷ 2 = 5 × 4 ÷ 2 = 10 separate cables</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept the correct cable total (10) shown either using the formula or by systematic counting.</li>
+</ul>
+</div>`,
+            modelAnswer: "In a mesh topology, every one of the five devices connects directly to every other device, with no central device such as a switch required. Using the rule n(n − 1) ÷ 2 for n devices, connecting all five devices this way needs 5 × 4 ÷ 2 = 10 separate cables in total."
+        },
+        {
+            num: "N16",
+            marks: 3,
+            type: "written",
+            caseId: "sunnyside-bakery",
+            question: `<p>Sunnyside Bakery is deciding whether to move its sales records and staff rotas from the single computer in its main shop to a cloud storage service instead. Justify which option you would recommend, giving one advantage and one disadvantage of your chosen option.</p>`,
+            hint: "State your recommendation first, then a reason it suits a small business with three shops, then a genuine advantage and disadvantage of that option.",
+            starter: "I would recommend… because… An advantage of this is… A disadvantage of this is…",
+            markPoints: {
+                note: "Three separate judgements: the choice itself, a justification linking it to the bakery's three-shop situation, and a genuine advantage/disadvantage of the chosen option.",
+                groups: [
+                    {
+                        label: "Your choice", max: 1, points: [
+                            { text: "Clearly recommends either cloud storage or keeping the data locally", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your justification", max: 1, points: [
+                            { text: "Gives a reason linked to the bakery's situation, e.g. cloud lets staff at all three shops access the same up-to-date records, or local avoids ongoing subscription costs/depending on an Internet connection", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your advantage or disadvantage", max: 1, points: [
+                            { text: "Gives one further genuine advantage or disadvantage of the chosen option, not already used as the justification", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks</h5>
+<ul>
+<li>1 mark: a clear recommendation (cloud storage or local storage)</li>
+<li>1 mark: a justification linked to the bakery having three separate shops</li>
+<li>1 mark: a further genuine advantage or disadvantage of the recommended option</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both cloud storage and local storage can score full marks if justified consistently and correctly for the bakery's situation.</li>
+</ul>
+</div>`,
+            modelAnswer: "I would recommend cloud storage, because it would let staff at all three of Sunnyside Bakery's shops access the same up-to-date sales records and rotas from any device with an Internet connection, rather than everything being stuck on one computer in the main shop. A further advantage is that the cloud provider handles backups automatically, reducing the risk of losing data if the main shop's computer failed."
+        },
+        {
+            num: "N17",
+            marks: 4,
+            type: "written",
+            caseId: "brightweb-shop",
+            question: `<p>Describe, step by step, how a DNS lookup converts the URL the customer typed in into the IP address needed to actually reach Brightweb Shop's web server.</p>`,
+            hint: "There are four distinct steps: what the browser checks first, what it does next, what the DNS server does, and what happens once the address comes back.",
+            starter: "Step 1: … Step 2: … Step 3: … Step 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per step)</h5>
+<ul>
+<li>The browser first checks whether it already has the matching IP address stored (cached) from an earlier visit</li>
+<li>If not found, the browser sends the URL to a DNS server</li>
+<li>The DNS server looks up the matching IP address in its records, asking another DNS server if it does not hold that record itself</li>
+<li>The DNS server returns the IP address to the browser, which then uses it to request the page from the correct web server</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each of the four steps is credited independently, in any order they are described, provided the overall sequence is logically consistent.</li>
+</ul>
+</div>`,
+            modelAnswer: "First, the browser checks whether it already has the matching IP address cached from an earlier visit. If it doesn't, the browser sends the URL to a DNS server. The DNS server looks up the matching IP address in its own records, or asks another DNS server if it doesn't hold that record. Finally, the DNS server returns the IP address to the browser, which uses it to request the actual webpage from the correct web server."
+        },
+        {
+            num: "N18",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseId: "parkview-academy",
+            question: `<p>Parkview Academy's IT technician is classifying different parts of the school's network. Tick (✓) <strong>one</strong> box in each row to identify whether each example is best described as a LAN or a WAN.</p>`,
+            grid: {
+                cols: ["LAN", "WAN"],
+                rows: [
+                    { label: "The connection linking the sixth-form centre in a nearby town back to the main school site", correct: [1] },
+                    { label: "The network connecting computers across the school's three on-site buildings", correct: [0] },
+                    { label: "A national exam board's network linking schools in different cities to submit results", correct: [1] },
+                    { label: "The wireless network inside a single classroom connecting to one access point", correct: [0] }
+                ]
+            },
+            hint: "Ask whether each example is confined to one site (LAN) or spans a large geographical area between separate sites (WAN).",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Sixth-form centre link → <strong>WAN</strong> (separate town/site)</li>
+<li>Three on-site buildings → <strong>LAN</strong> (one site)</li>
+<li>Exam board network across cities → <strong>WAN</strong> (large geographical area)</li>
+<li>Single classroom wireless network → <strong>LAN</strong> (confined to one site)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently. Two ticks in the same row scores 0 for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1 (sixth-form centre link): WAN. Row 2 (three on-site buildings): LAN. Row 3 (exam board across cities): WAN. Row 4 (single classroom wireless network): LAN."
+        },
+        {
+            num: "N19",
+            marks: 4,
+            type: "written",
+            caseId: "keswick-studio",
+            question: `<p>Keswick Design Studio is choosing between a star topology and a mesh topology for its five devices. Give one advantage and one disadvantage of a star topology, and one advantage and one disadvantage of a mesh topology.</p>`,
+            hint: "Four separate points needed — plan them as a 2x2 grid before you write: star advantage, star disadvantage, mesh advantage, mesh disadvantage.",
+            starter: "Star advantage: … Star disadvantage: … Mesh advantage: … Mesh disadvantage: …",
+            markPoints: {
+                note: "Four independent judgements — one per cell of the 2x2 grid. A student who gives two star points and none for mesh (or vice-versa) can only ever earn the two groups that genuinely apply.",
+                groups: [
+                    {
+                        label: "Advantage of a star topology", max: 1, points: [
+                            { text: "Gives a genuine advantage, e.g. a single cable/device failure only affects that one device, consistent fast performance, easy to add devices", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Disadvantage of a star topology", max: 1, points: [
+                            { text: "Gives a genuine disadvantage, e.g. the whole network fails if the central switch fails, needs more cabling than some layouts", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Advantage of a mesh topology", max: 1, points: [
+                            { text: "Gives a genuine advantage, e.g. highly resilient/no single point of failure, data can be re-routed if a cable/device fails", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Disadvantage of a mesh topology", max: 1, points: [
+                            { text: "Gives a genuine disadvantage, e.g. needs far more cabling as devices are added, expensive and complex to install", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per point)</h5>
+<ul>
+<li>Star advantage: a single cable/device failure only affects that one device // consistent, fast performance // easy to add new devices</li>
+<li>Star disadvantage: the whole network fails if the central switch fails // needs more cabling than some alternative layouts</li>
+<li>Mesh advantage: highly resilient — no single point of failure, since data can be re-routed if a cable/device fails</li>
+<li>Mesh disadvantage: needs far more cabling as devices are added (n(n − 1) ÷ 2) // expensive and complex to install</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each of the four points is marked independently against its own cell — extra points on one topology cannot substitute for a missing point on the other.</li>
+</ul>
+</div>`,
+            modelAnswer: "Star advantage: if one cable or device fails, only that device is affected, and the rest of the network keeps working. Star disadvantage: if the central switch fails, the whole network goes down. Mesh advantage: it is highly resilient, since data can be re-routed around a failed cable or device, with no single point of failure. Mesh disadvantage: it needs far more cabling as devices are added, making it expensive and complex to install."
+        },
+        {
+            num: "N20",
+            marks: 5,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each piece of network hardware to the job it actually performs.</p><p>(There are more job descriptions than hardware items — one description is not used.)</p>`,
+            match: {
+                left: ["NIC", "Switch", "Router", "WAP", "Fibre-optic cable"],
+                right: ["Connects wireless devices to a wired LAN", "Connects multiple wired devices within the same LAN", "Connects one network to a different network, such as the Internet", "Looks up the IP address matching a URL", "Carries data as pulses of light through glass, at high speed", "Lets a device physically connect to a network at all"],
+                answer: { "0": 5, "1": 1, "2": 2, "3": 0, "4": 4 },
+                decoys: [3]
+            },
+            hint: "Match each device to what it actually DOES, not just where it sounds like it belongs — watch for the DNS-lookup description, which belongs to none of these five items.",
+            starter: "NIC → …, Switch → …, Router → …, WAP → …, Fibre-optic cable → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 5 marks (1 mark per correct line)</h5>
+<ul>
+<li>NIC → <strong>F</strong> (lets a device physically connect to a network at all)</li>
+<li>Switch → <strong>B</strong> (connects multiple wired devices within the same LAN)</li>
+<li>Router → <strong>C</strong> (connects one network to a different network, such as the Internet)</li>
+<li>WAP → <strong>A</strong> (connects wireless devices to a wired LAN)</li>
+<li>Fibre-optic cable → <strong>E</strong> (carries data as pulses of light through glass, at high speed)</li>
+<li>D ("looks up the IP address matching a URL") is the unused decoy — that is DNS's job, not any of these five items.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Any 2 lines from 1 hardware item scores 0 marks for that item.</li>
+</ul>
+</div>`,
+            modelAnswer: "NIC: lets a device physically connect to a network at all. Switch: connects multiple wired devices within the same LAN. Router: connects one network to a different network. WAP: connects wireless devices to a wired LAN. Fibre-optic cable: carries data as pulses of light through glass, at high speed."
+        },
+        {
+            num: "N21",
+            marks: 6,
+            type: "written",
+            caseId: "sunnyside-bakery",
+            question: `<p>Explain the benefits and drawbacks of Sunnyside Bakery moving its sales records and staff rotas to cloud storage, instead of keeping them on the single computer it currently uses.</p>`,
+            hint: "Cover several distinct benefits AND several distinct drawbacks — don't repeat the same idea reworded, and don't only argue one side.",
+            starter: "Benefits of cloud storage include… Drawbacks of cloud storage include…",
+            markPoints: {
+                note: "Two groups: up to 3 marks for genuinely distinct benefits, up to 3 marks for genuinely distinct drawbacks. A student who gives six benefits and no drawbacks can still only earn the 3 benefit marks, never all 6.",
+                groups: [
+                    {
+                        label: "Your benefits (up to 3)", max: 3, points: [
+                            { text: "Staff at all three shops could access the same up-to-date records from any device with an Internet connection", marks: 1 },
+                            { text: "Backups and server maintenance are handled by the cloud provider, rather than the bakery itself", marks: 1 },
+                            { text: "Storage can be scaled up easily as the bakery's records grow, without buying new local hardware", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your drawbacks (up to 3)", max: 3, points: [
+                            { text: "Accessing the records depends entirely on having a reliable Internet connection", marks: 1 },
+                            { text: "There is usually an ongoing subscription cost, rather than a one-off hardware purchase", marks: 1 },
+                            { text: "The bakery has to trust a third-party provider with the security and privacy of its sales data", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks (up to 3 for benefits, up to 3 for drawbacks)</h5>
+<ul>
+<li>Benefit: staff at all three shops can access the same up-to-date records from any device with an Internet connection</li>
+<li>Benefit: backups and maintenance are handled by the cloud provider, not the bakery</li>
+<li>Benefit: storage can be scaled up easily without buying new local hardware</li>
+<li>Drawback: access depends entirely on having a reliable Internet connection</li>
+<li>Drawback: an ongoing subscription cost is likely, rather than a one-off purchase</li>
+<li>Drawback: the bakery must trust a third party with the security/privacy of its sales data</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award up to 3 marks for genuinely distinct benefits and up to 3 for genuinely distinct drawbacks; a sixth benefit cannot be credited in place of a missing drawback.</li>
+</ul>
+</div>`,
+            modelAnswer: "Benefits: staff at all three of Sunnyside Bakery's shops could access the same up-to-date sales records and rotas from any device with an Internet connection; backups and server maintenance would be handled by the cloud provider rather than the bakery itself; and storage could be scaled up easily as records grow, without buying new local hardware. Drawbacks: accessing the records would depend entirely on having a reliable Internet connection at each shop; there is usually an ongoing subscription cost rather than a one-off purchase; and the bakery would have to trust a third-party provider with the security and privacy of its sales data."
+        },
+        {
+            num: "N22",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseId: "keswick-studio",
+            question: `<p>Keswick Design Studio is expanding and must choose how to wire its network: a star topology (using its existing switch) or a mesh topology connecting all its devices directly to each other.</p><p>Discuss which topology Keswick Design Studio should choose for its office network.</p><p>In your answer you might consider:</p><ul><li>how each topology is wired, and the cabling this requires as the studio grows</li><li>the effect on the network's resilience if a cable or device fails</li><li>the cost and complexity of installing and maintaining each topology</li><li>which topology you would recommend for this studio, and why</li></ul>`,
+            hint: "Use all four bullets as your plan. Explain how each topology works, follow the mechanism through to a REAL consequence for a growing design studio, and weigh cost against resilience for a top-band answer.",
+            starter: "A star topology connects every device to…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (levelled) — indicative content</h5>
+<p>The following is indicative of possible factors/evidence that candidates may refer to but is not prescriptive or exhaustive:</p>
+<ul>
+<li><strong>How each topology is wired and cabling required</strong> — a star topology connects every device individually to the central switch (one cable per device); a mesh topology connects every device directly to every other device, needing n(n − 1) ÷ 2 cables, which grows much faster as the studio adds more devices.</li>
+<li><strong>Effect on resilience</strong> — in a star topology, a single device/cable failure only affects that device, but the central switch failing brings down the whole network; in a mesh topology, there is no single point of failure, since data can be re-routed around any failed cable or device.</li>
+<li><strong>Cost and complexity</strong> — a star topology is cheaper and simpler to install and maintain, especially for a smaller studio; a mesh topology is far more expensive and complex to wire and maintain as more devices are added, since every new device needs a cable to every existing device.</li>
+<li><strong>Recommendation</strong> — the better choice depends on how much Keswick Design Studio values guaranteed uptime versus cost: a star topology suits a growing but budget-conscious studio where an occasional switch failure is an acceptable risk; a mesh topology would only be justified if the studio's work could never tolerate any network downtime, regardless of the extra cost and cabling complexity.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given — levels of response</h5>
+<ul>
+<li><strong>Mark Band 3 — High Level (6–8 marks):</strong> Thorough knowledge and understanding of star and mesh topologies, applied directly and consistently to Keswick Design Studio's situation. The response weighs up both topologies (resilience against cost/complexity) and covers all four areas from the bullet list with clear, logically structured reasoning, ending in a justified recommendation.</li>
+<li><strong>Mark Band 2 — Mid Level (3–5 marks):</strong> Reasonable knowledge, generally accurate but at times underdeveloped or only partly applied to the studio's context. Most of the four areas are addressed, with some structure, though the discussion may not fully weigh both topologies or the recommendation may be unjustified.</li>
+<li><strong>Mark Band 1 — Low Level (1–2 marks):</strong> Basic knowledge with limited understanding shown; the material may contain inaccuracies or barely refer to the studio's context. Little more than an unsupported assertion, e.g. "star is better" with no working explanation of why.</li>
+<li><strong>0 marks:</strong> No attempt to answer the question or response is not worthy of credit.</li>
+</ul>
+</div>`,
+            modelAnswer: "A star topology connects every device individually to the studio's central switch, needing one cable per device; a mesh topology connects every device directly to every other device, needing n(n − 1) ÷ 2 cables — for five devices, 10 cables, a number that grows much faster than a star's as the studio expands.\n\nThis has a direct effect on resilience: in the star topology, a single PC or cable failing only affects that one device, but if the central switch itself fails, the entire studio network goes down. In the mesh topology, there is no single point of failure at all, since data can always be re-routed around a failed cable or device.\n\nHowever, this resilience comes at a real cost: the star topology is far cheaper and simpler to install and maintain, which matters for a small, growing design studio watching its budget. The mesh topology would become expensive and complicated very quickly, since every new device added needs a direct cable to every existing device, not just to one central switch.\n\nOn balance, I would recommend a star topology for Keswick Design Studio. An occasional switch failure is a manageable, fixable risk for a small design business, and the lower cost and simpler cabling of a star topology are more important than mesh's extra resilience, which would only be worth the expense for a business that truly could never tolerate any network downtime at all."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

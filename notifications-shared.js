@@ -734,8 +734,13 @@ async function deriveTeacherNotifications(client, uid) {
   cursor:pointer;font-size:13px;padding:2px 5px;border-radius:4px;line-height:1;}
 .gcse-notif-dismiss:hover{background:var(--cream,#ede7d9);color:var(--ink,#1a2332);}
 @media (max-width:520px){
-  .gcse-notif-panel{position:fixed !important;top:auto !important;bottom:0 !important;left:0;right:0;
-    width:100%;max-width:100%;max-height:60vh;border-radius:14px 14px 0 0;}
+  /* Left drawer, full height — pinned to the viewport so it's visible without
+     scrolling and never stacks under the account bottom-sheet (which opening
+     the bell also closes). */
+  .gcse-notif-panel{position:fixed !important;top:0 !important;bottom:0 !important;left:0 !important;right:auto !important;
+    width:min(360px,86vw);max-width:86vw;max-height:100vh;border-radius:0 16px 16px 0;
+    box-shadow:0 0 44px rgba(0,0,0,.4);}
+  .gcse-notif-wrap.gcse-notif-fixed .gcse-notif-panel{top:0 !important;bottom:0 !important;}
 }
         `;
         document.head.appendChild(s);
@@ -754,6 +759,17 @@ async function deriveTeacherNotifications(client, uid) {
         btn.addEventListener('click', e => {
             e.stopPropagation();
             const willShow = !panel.classList.contains('show');
+            // The bell stops propagation, so the account menu's own outside-click
+            // close never fires — on mobile both would end up open and the notif
+            // drawer would sit under the account sheet. Close it explicitly.
+            if (willShow) {
+                const accMenu = document.querySelector('.gcse-profile-menu.show');
+                if (accMenu) {
+                    accMenu.classList.remove('show');
+                    const accBtn = document.querySelector('.gcse-profile-btn');
+                    if (accBtn) accBtn.setAttribute('aria-expanded', 'false');
+                }
+            }
             panel.classList.toggle('show', willShow);
             btn.setAttribute('aria-expanded', String(willShow));
         });

@@ -458,6 +458,7 @@ function taskRichText(str) {
   return taskEscapeHtml(str)
     .replace(/&lt;(\/?)(p|ul|ol|li|strong|em|b|i|u|br|hr|table|thead|tbody|tr|th|td|caption|sup|sub|h[3-6]|blockquote|pre|code)\s*\/?&gt;/gi, '<$1$2>')
     .replace(/&lt;img\b[\s\S]*?&gt;/gi, taskRestoreImg)
+    .replace(/&lt;span(?:\s+data-say=&quot;[\s\S]*?&quot;|\s+data-listen)+\s*&gt;[\s\S]*?&lt;\/span&gt;/gi, taskRestoreSay)
     .replace(/>\s*\n\s*</g, '><');
 }
 
@@ -497,6 +498,25 @@ function fibBlankTokens(text) {
 // `reading`/`markScheme` fields), so this is a safety net, not the primary
 // guard. Unescape &amp; last so entities like `&amp;lt;` don't double-decode.
 function taskRestoreImg(escaped) {
+  const raw = escaped
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/&amp;/g, '&');
+  if (/\son\w+\s*=/i.test(raw) || /javascript:/i.test(raw)) return escaped;
+  return raw;
+}
+
+// Restore an escaped audio span produced by taskEscapeHtml. The Spanish content
+// build marks audible text with `<span data-say="…" data-listen>…</span>`; on the
+// topic pages speech.js walks these real elements and gives each a 🔊 button
+// (data-listen also hides the written answer). The other activities (daily
+// revise, task, review) render `snap.question` through taskRichText, which would
+// otherwise leave the tag as inert literal text — so the button never appears.
+// The regex above matches ONLY spans whose attributes are data-say/data-listen
+// (nothing else), and this restores the whole open→content→close as real HTML.
+// Same trust model / on*+javascript: reject as taskRestoreImg. Any page that
+// wants the buttons must also load /speech.js (it self-installs and self-gates).
+function taskRestoreSay(escaped) {
   const raw = escaped
     .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"').replace(/&#39;/g, "'")

@@ -207,6 +207,24 @@ grant execute on function _lb_window_metrics(uuid[], text, timestamptz, timestam
 -- Current day-streak for every student in a set of classes, scoped to a
 -- subject's events. Same "islands" technique and today-or-yesterday rule as
 -- get_class_streaks()/get_my_streak(); returned as a flat table for joining.
+-- Streak-freeze shields (WP-5): dates that count as "active" for a subject's
+-- streak. Table + RLS are created TOGETHER here (never split) so streak_shields
+-- can NEVER exist without RLS, whichever file runs first — a bare table would be
+-- world-writable via the anon key (a student could forge streaks). This is a SQL
+-- function below, so the table must exist at creation time. rewards-store.sql
+-- carries the identical block as canonical. Writes only via use_perk (definer).
+create table if not exists streak_shields (
+    student_id   uuid not null references profiles(id) on delete cascade,
+    subject_slug text not null references subjects(slug),
+    shield_date  date not null,
+    created_at   timestamptz not null default now(),
+    primary key (student_id, subject_slug, shield_date)
+);
+alter table streak_shields enable row level security;
+drop policy if exists "streak_shields_self_select" on streak_shields;
+create policy "streak_shields_self_select" on streak_shields for select using (student_id = auth.uid());
+grant select on streak_shields to authenticated;
+
 create or replace function _lb_streaks(p_class_ids uuid[], p_subject text)
 returns table (student_id uuid, streak int)
 language sql security definer stable set search_path = public as $$
@@ -217,6 +235,12 @@ language sql security definer stable set search_path = public as $$
         where cs.class_id = any(p_class_ids)
           and pe.page_id like p_subject || ':%'
         group by cs.student_id, (pe.answered_at at time zone 'utc')::date
+        union   -- streak-freeze shields count as active days (WP-5)
+        select cs.student_id, ss.shield_date
+        from class_students cs
+        join streak_shields ss on ss.student_id = cs.student_id
+        where cs.class_id = any(p_class_ids)
+          and ss.subject_slug = p_subject
     ),
     islands as (
         select student_id, d,
@@ -386,6 +410,7 @@ begin
              ),
              base as (
                 select r.student_id, r.class_id, r.class_name, p.username,
+                       sa.character_id av_character, sa.loadout av_loadout,
                        coalesce(cur.attempts,0) attempts, coalesce(cur.distinct_q,0) distinct_q,
                        coalesce(cur.answered,0) answered, coalesce(cur.correct,0) correct,
                        case when p_window='all' then coalesce(dr.total_mastered,0) else coalesce(cur.mastered,0) end mastered,
@@ -399,6 +424,7 @@ begin
                 left join prev on prev.student_id=r.student_id
                 left join dr on dr.student_id=r.student_id
                 left join st on st.student_id=r.student_id
+                left join student_avatar sa on sa.student_id=r.student_id
              ),
              maxes as (
                 select nullif(max(distinct_q),0)::numeric mx_q, nullif(max(mastered),0)::numeric mx_m,
@@ -452,6 +478,16 @@ begin
                     'delta', case when ws.rnk is not null and ws.prnk is not null then ws.prnk - ws.rnk end,
                     'is_self', ws.is_self,
                     'name', case when ws.name_ok then ws.username else null end,
+                    -- Avatar rides the SAME visibility gate as the name: an
+                    -- equipped character is as identifying as a username, so a
+                    -- student never sees the avatar of anyone they can't name.
+                    -- A student who never picked one falls back to their stable
+                    -- default starter (same one their own header shows).
+                    'avatar', case when ws.name_ok
+                                   then jsonb_build_object(
+                                            'character', coalesce(ws.av_character, _default_starter(ws.student_id)),
+                                            'loadout', coalesce(ws.av_loadout, '{}'::jsonb))
+                                   else null end,
                     'class_name', ws.class_name,
                     'id', case when ws.is_self then ws.student_id::text else null end,
                     'distinct_q', ws.distinct_q, 'attempts', ws.attempts,

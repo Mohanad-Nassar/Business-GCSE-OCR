@@ -4,297 +4,393 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6.1 Celebrities, Influencers and Fame – Interactive Study Guide</title>
+    <title>6.1 Celebrities, Influencers and Fame – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Theme 2 · 6. Celebrity Culture</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 2 · 6. Celebrity Culture</div>
             <h1>6.1 Celebrities, Influencers and Fame</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Los famosos, los influencers y la fama · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: 6.1 Celebrities, Influencers and Fame — placeholder, content not yet written
-    // ══════════════════════════════════════
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 6.1 Celebrities, influencers and fame  (AQA 8692, Theme 2 Topic 3)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
     const pageMeta = {
-            id: '6-1-celebrities-influencers-and-fame',
-            badge: 'AQA GCSE Spanish — Theme 2 · 6. Celebrity Culture',
-            title: '6.1 Celebrities, Influencers and Fame',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+        id: '6-1-celebrities-influencers-and-fame',
+        badge: 'AQA GCSE Spanish (8692) — Theme 2 · 6. Celebrity Culture',
+        title: '6.1 Celebrities, Influencers and Fame',
+        subtitle: 'Interactive study guide',
+        subject: 'spanish',
+    };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>6.1 Celebrities, Influencers and Fame</strong> will appear here soon.</p>`
+            title: "Who and what is famous? (fame vocabulary)",
+            tag: "Key concept",
+            content: `<p>The key noun is <span data-say="la fama">la fama</span> (fame). Someone who has it is <span data-say="famoso">famoso</span> / <span data-say="famosa">famosa</span> (famous). Tap 🔊 to hear the core vocabulary.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la estrella">la estrella</span></td><td>the star (celebrity)</td><td><span data-say="el cantante">el cantante / la cantante</span></td><td>singer</td></tr>
+              <tr><td><span data-say="el actor">el actor</span></td><td>actor</td><td><span data-say="la actriz">la actriz</span></td><td>actress</td></tr>
+              <tr><td><span data-say="el futbolista">el futbolista / la futbolista</span></td><td>footballer</td><td><span data-say="el influencer">el influencer / la influencer</span></td><td>influencer</td></tr>
+            </table>
+            <p>Model sentence: <span data-say="Mi ídolo es una cantante muy famosa.">Mi ídolo es una cantante muy famosa.</span> — <em>My idol is a very famous singer.</em></p>`,
+            readCheck: { q: "What does ‘la estrella’ mean in this context?", opts: ["the (celebrity) star", "the actual night sky", "a type of award ceremony", "a person who dislikes fame"], ans: 0, explain: "la estrella = the star, meaning a famous celebrity — not a star in the sky." }
+        },
+        {
+            title: "Social media and success",
+            tag: "Key concept",
+            content: `<p>Fame today is closely linked to <span data-say="las redes sociales">las redes sociales</span> (social media). To follow someone, use <strong>seguir a</strong> — always with the personal <strong>a</strong> before a person.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="seguir a">seguir a (alguien)</span></td><td>to follow (someone)</td><td><span data-say="el seguidor">el seguidor / la seguidora</span></td><td>follower</td></tr>
+              <tr><td><span data-say="tener éxito">tener éxito</span></td><td>to be successful</td><td><span data-say="el éxito">el éxito</span></td><td>success</td></tr>
+              <tr><td><span data-say="ser rico">ser rico / rica</span></td><td>to be rich</td><td><span data-say="ganar mucho dinero">ganar mucho dinero</span></td><td>to earn a lot of money</td></tr>
+            </table>
+            <p>Example: <span data-say="Sigo a mi cantante favorita porque tiene mucho éxito.">Sigo a mi cantante favorita porque tiene mucho éxito.</span> — <em>I follow my favourite singer because she is very successful.</em></p>`,
+            readCheck: { q: "‘tener éxito’ is a false friend. What does it actually mean?", opts: ["to be successful", "to have an exit", "to lose all your money", "to feel very tired"], ans: 0, explain: "tener éxito = to be successful. It looks like the English word ‘exit’ but does not mean that at all." }
+        },
+        {
+            title: "How do I give an opinion about a celebrity?",
+            tag: "Exam skill",
+            content: `<p>Start an opinion with a set phrase, then give a <strong>reason</strong> with <span data-say="porque">porque</span>:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="creo que">creo que…</span></td><td>I think that…</td><td><span data-say="pienso que">pienso que…</span></td><td>I think that…</td></tr>
+              <tr><td><span data-say="en mi opinión">en mi opinión…</span></td><td>in my opinion…</td><td><span data-say="me parece que">me parece que…</span></td><td>it seems to me that…</td></tr>
+            </table>
+            <p>Role-model vocabulary: <span data-say="mi ídolo">mi ídolo</span> (my idol), <span data-say="admirar">admirar</span> (to admire), <span data-say="respetar">respetar</span> (to respect), and <span data-say="un buen modelo a seguir">un buen modelo a seguir</span> / <span data-say="un mal modelo a seguir">un mal modelo a seguir</span> (a good / bad role model).</p>
+            <p>Example: <span data-say="Creo que es un buen modelo a seguir porque ayuda a mucha gente.">Creo que es un buen modelo a seguir porque ayuda a mucha gente.</span></p>`,
+            readCheck: { q: "Which word introduces the REASON in an opinion sentence?", opts: ["porque (because)", "sin embargo (however)", "cuando (when)", "donde (where)"], ans: 0, explain: "porque = because, introducing the reason after an opinion phrase like ‘creo que’. ‘sin embargo’ is a genuine trap — it also links ideas, but it means ‘however’, not ‘because’." }
+        },
+        {
+            title: "The advantages of fame",
+            tag: "Key concept",
+            content: `<p>Famous people can use their platform positively:</p>
+            <ul>
+              <li><span data-say="la ventaja">la ventaja</span> — the advantage</li>
+              <li><span data-say="ayudar a la gente">ayudar a la gente</span> — to help people</li>
+              <li><span data-say="dar dinero a organizaciones benéficas">dar dinero a organizaciones benéficas</span> — to give money to charities</li>
+              <li><span data-say="ser una buena influencia">ser una buena influencia</span> — to be a good influence</li>
+            </ul>
+            <p>Example: <span data-say="Una ventaja de la fama es que puedes ayudar a la gente y dar dinero a organizaciones benéficas.">Una ventaja de la fama es que puedes ayudar a la gente y dar dinero a organizaciones benéficas.</span></p>`,
+            readCheck: { q: "‘dar dinero a organizaciones benéficas’ means…", opts: ["to give money to charities", "to borrow money from a bank", "to earn money from adverts", "to spend money on clothes"], ans: 0, explain: "dar dinero a organizaciones benéficas = to give money to charities — a common advantage of fame in exam answers." }
+        },
+        {
+            title: "The disadvantages of fame",
+            tag: "Exam skill",
+            content: `<p>Exam answers should also weigh up the negatives — <span data-say="la desventaja">la desventaja</span> (the disadvantage):</p>
+            <ul>
+              <li><span data-say="perder la privacidad">perder la privacidad</span> — to lose your privacy</li>
+              <li><span data-say="sentir mucha presión">sentir mucha presión</span> — to feel a lot of pressure</li>
+              <li><span data-say="ser una mala influencia">ser una mala influencia</span> — to be a bad influence</li>
+            </ul>
+            <p>Example: <span data-say="Sin embargo, los famosos pierden la privacidad y sienten mucha presión.">Sin embargo, los famosos pierden la privacidad y sienten mucha presión.</span> — <em>However, celebrities lose their privacy and feel a lot of pressure.</em></p>`,
+            readCheck: { q: "What is ‘sentir mucha presión’ describing?", opts: ["feeling a lot of pressure", "feeling completely relaxed", "earning a lot of money", "losing a lot of followers"], ans: 0, explain: "sentir mucha presión = to feel a lot of pressure, a key disadvantage of fame." }
+        },
+        {
+            title: "Higher: the subjunctive and comparatives",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> After a <strong>POSITIVE</strong> opinion, Spanish uses the normal indicative: <span data-say="Creo que es un buen modelo a seguir.">Creo que es un buen modelo a seguir.</span></p>
+            <p><span class="tier-h">H</span> But after a <strong>NEGATIVE</strong> opinion (<em>no creo que…</em>), Spanish switches to the <strong>subjunctive</strong>:</p>
+            <ul>
+              <li><span data-say="No creo que sea un buen modelo a seguir.">No creo que sea un buen modelo a seguir.</span> <span class="tier-h">H</span> — I don’t think he/she is a good role model.</li>
+              <li><span data-say="No creo que la fama sea fácil.">No creo que la fama sea fácil.</span> <span class="tier-h">H</span> — I don’t think fame is easy.</li>
+            </ul>
+            <p>Comparatives use <strong>más… que</strong> (more… than):</p>
+            <p><span data-say="Es más famoso que su hermano.">Es más famoso que su hermano.</span> — <em>He is more famous than his brother.</em></p>`,
+            readCheck: { q: "Which sentence correctly uses the subjunctive after a NEGATIVE opinion?", opts: ["No creo que sea un buen modelo a seguir.", "No creo que es un buen modelo a seguir de verdad.", "Creo que sea un buen modelo a seguir.", "No creo un buen modelo a seguir."], ans: 0, explain: "no creo que + subjunctive → sea. Option B wrongly uses the indicative ‘es’ (plus ‘de verdad’, really); C uses the subjunctive after a POSITIVE opinion by mistake." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Mi ídolo es una cantante." data-listen></span><br>Listen. What does the speaker say?`, opts: ["Her idol is a singer", "Her idol is a famous footballer", "Her idol is a very rich actress", "Her idol used to be a singer"], ans: 0, explain: "‘Mi ídolo es una cantante’ = my idol is a singer. The traps swap the profession or add untrue extra detail (very rich, used to be)." },
+        { q: `<span data-say="Sigo a muchos famosos en las redes sociales." data-listen></span><br>Listen. What does she say?`, opts: ["She follows lots of celebrities on social media", "She never follows any celebrities on social media at all", "She used to follow one celebrity online", "She only follows one influencer nowadays"], ans: 0, explain: "‘sigo a muchos famosos en las redes sociales’ = I follow lots of celebrities on social media. B reverses it with ‘nunca’; C/D change the quantity and the tense." },
+        { q: "What does ‘tener éxito’ mean?", opts: ["to be successful", "to have an exit nearby", "to feel very tired", "to lose all your money"], ans: 0, explain: "tener éxito = to be successful / have success. It is a classic false-friend trap — ‘éxito’ looks like ‘exit’ but does not mean that." },
+        { q: "Complete: ‘Creo que Rosalía ___ un buen modelo a seguir.’", opts: ["es", "sea", "está", "fue"], ans: 0, explain: "A POSITIVE opinion (creo que) takes the ordinary indicative → es. ‘sea’ (subjunctive) is only needed after a NEGATIVE opinion like ‘no creo que’." },
+        { q: "Higher: complete: ‘No creo que la fama ___ fácil.’", opts: ["sea", "es", "será", "era"], ans: 0, explain: "After the NEGATIVE opinion ‘no creo que’, Spanish needs the SUBJUNCTIVE → sea, not the indicative ‘es’." },
+        { q: "What does ‘perder la privacidad’ mean?", opts: ["to lose your privacy", "to win a privacy prize", "to protect your privacy well", "to share your privacy online"], ans: 0, explain: "perder la privacidad = to lose your privacy, a key disadvantage of fame. The other options invert or misdirect the meaning." },
+        { q: `<span data-say="Los famosos sienten mucha presión." data-listen></span><br>Listen. What is being described?`, opts: ["Celebrities feel a lot of pressure", "Celebrities never feel any pressure", "Celebrities enjoy a little pressure", "Celebrities used to feel pressure"], ans: 0, explain: "‘sienten mucha presión’ = they feel a lot of pressure. B reverses it with ‘nunca’; C weakens ‘mucha’ to ‘a little’; D changes the tense." },
+        { q: "Which sentence uses ‘seguir a’ correctly?", opts: ["Sigo a mi cantante favorita en Instagram.", "Sigo mi cantante favorita en Instagram.", "Sigo de mi cantante favorita en Instagram.", "Soy sigo mi cantante favorita en Instagram."], ans: 0, explain: "seguir a + a person needs the personal ‘a’: sigo A mi cantante favorita. B drops the ‘a’; C/D use the wrong preposition or an extra verb." },
+        { q: "How do you say ‘more famous than’?", opts: ["más famoso que", "más famoso como", "tan famoso que", "el más famoso"], ans: 0, explain: "Comparative ‘more … than’ = más + adjective + QUE. ‘como’ means ‘as’; ‘tan…que’ is a different structure; ‘el más’ is the superlative." },
+        { q: "Which sentence combines an OPINION with a REASON (porque)?", opts: ["Creo que es un buen modelo a seguir porque ayuda a mucha gente.", "Es muy famosa y tiene mucho dinero y mucho éxito todo el tiempo.", "Pienso que es famosa.", "Ayuda a la gente."], ans: 0, explain: "Only option A has an opinion phrase (creo que) AND a reason (porque). B is just a longer list of facts with no opinion phrase or reason at all." }
+    ];
+
+    const matchData = [
+        { term: "famoso / famosa", def: "famous" },
+        { term: "la fama", def: "fame" },
+        { term: "la estrella", def: "the star (celebrity)" },
+        { term: "el/la cantante", def: "singer" },
+        { term: "el actor / la actriz", def: "actor / actress" },
+        { term: "el/la futbolista", def: "footballer" },
+        { term: "las redes sociales", def: "social media" },
+        { term: "seguir a (alguien)", def: "to follow (someone)" },
+        { term: "el/la seguidor(a)", def: "follower" },
+        { term: "tener éxito", def: "to be successful" },
+        { term: "mi ídolo", def: "my idol" },
+        { term: "dar dinero a organizaciones benéficas", def: "to give money to charities" }
+    ];
+
+    const fibData = [
+        { display: `Mi ídolo es una _____. <span data-say="Mi ídolo es una cantante." data-listen>Mi ídolo es una cantante.</span>`, blanks: { B1: "cantante" } },
+        { display: `Los famosos _____ mucha presión. <span data-say="Los famosos sienten mucha presión." data-listen>Los famosos sienten mucha presión.</span>`, blanks: { B1: "sienten" } },
+        { display: `Sigo _____ mi cantante favorita en Instagram. (the personal preposition before a person)`, blanks: { B1: "a" } },
+        { display: `Creo que _____ un buen modelo a seguir. (to be — present tense, positive opinion)`, blanks: { B1: "es" } },
+        { display: `No creo que la fama _____ fácil. (H — to be, subjunctive after a negative opinion)`, blanks: { B1: "sea" } },
+        { display: `Los famosos pierden la _____. (privacy)`, blanks: { B1: "privacidad" } },
+        { display: `Da dinero a organizaciones _____. (charitable)`, blanks: { B1: "benéficas" } }
+    ];
+    const fibWords = ["cantante", "sienten", "a", "es", "sea", "privacidad", "benéficas"];
+
+    const tfData = [
+        { statement: "‘la fama’ means ‘the family’.", answer: false, explanation: "la fama = fame; la familia = family — similar spelling, different meaning." },
+        { statement: "‘seguir a’ + a person needs the personal ‘a’.", answer: true, explanation: "Sigo A mi cantante favorita — the personal ‘a’ is required before a person." },
+        { statement: "After ‘creo que’ (a positive opinion), Spanish uses the ordinary indicative: creo que es…", answer: true, explanation: "Positive opinions keep the indicative; only a NEGATIVE opinion triggers the subjunctive." },
+        { statement: "After ‘no creo que’ (a negative opinion), Spanish uses the subjunctive: no creo que sea…", answer: true, explanation: "H: no creo que + subjunctive (sea), not the indicative (es)." },
+        { statement: "‘tener éxito’ means ‘to have an exit’.", answer: false, explanation: "False friend! tener éxito means to be successful." },
+        { statement: "‘más famoso que’ means ‘as famous as’.", answer: false, explanation: "más…que = more…than. ‘As…as’ would be tan…como." },
+        { statement: "Giving money to charity is an example of using fame in a positive way.", answer: true, explanation: "dar dinero a organizaciones benéficas is a classic advantage of fame." },
+        { statement: "Losing your privacy is listed as an ADVANTAGE of being famous.", answer: false, explanation: "Losing your privacy (perder la privacidad) is a DISADVANTAGE, not an advantage." }
+    ];
+
+    const miscData = [
+        { wrong: "Sigo mi cantante favorita.", correct: "Sigo a mi cantante favorita.", readCheck: { q: "What is missing from ‘Sigo mi cantante favorita’?", opts: ["the personal ‘a’ before a person", "an accent on the word ‘cantante’", "the article ‘la’ before ‘cantante’", "the reflexive pronoun ‘me’"], ans: 0, explain: "seguir a + a person always needs the personal ‘a’: sigo A mi cantante favorita." } },
+        { wrong: "Creo que es un modelo a seguir bueno.", correct: "Creo que es un buen modelo a seguir.", readCheck: { q: "Why does ‘bueno’ change to ‘buen’ here?", opts: ["‘bueno’ shortens to ‘buen’ before a masculine singular noun", "‘bueno’ is always spelt ‘buen’ in Spanish", "‘modelo’ is actually a feminine noun, so the adjective form has to change here", "adjectives always go after the noun in Spanish"], ans: 0, explain: "bueno shortens to buen directly before a masculine singular noun (un buen modelo), unlike most adjectives which follow the noun. ‘modelo’ is in fact masculine, which is what makes option C a real trap." } },
+        { wrong: "No creo que es un buen modelo a seguir.", correct: "No creo que sea un buen modelo a seguir.", readCheck: { q: "Why is ‘No creo que es…’ wrong at Higher tier?", opts: ["a negative opinion (no creo que) always needs the verb in the subjunctive, here ‘sea’", "‘es’ should always become ‘está’ after the word ‘que’, whatever the opinion happens to be", "the sentence needs the word ‘porque’ added", "‘creo’ should be ‘creí’ (past tense)"], ans: 0, explain: "H: no creo que + SUBJUNCTIVE (sea). Using the indicative ‘es’ after a negative opinion is the classic Higher-tier error." } },
+        { wrong: "Tiene mucho éxito. (I understand this as ‘has many exits’)", correct: "Tiene mucho éxito. (= is very successful)", readCheck: { q: "What does ‘éxito’ really mean here?", opts: ["success", "an exit from a building", "money or riches", "fame on social media only"], ans: 0, explain: "éxito = success (false friend with English ‘exit’, which in Spanish is ‘la salida’)." } },
+        { wrong: "Es más famoso como su hermano.", correct: "Es más famoso que su hermano.", readCheck: { q: "Which linking word completes a comparative (‘more…than’)?", opts: ["que", "como", "cuando", "donde"], ans: 0, explain: "más + adjective + QUE = more…than. ‘como’ (as) is used in a different structure (tan…como)." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Dictation (listening)", pills: ["Listening", "Dictation"], content: "Celebrity-culture sentences reuse chunks you know: ‘creo que…’, ‘sigo a…’, ‘tiene éxito’. Listen for whether an opinion is positive (creo que + indicative) or negative (no creo que + subjunctive) — the verb ending changes.", readCheck: { q: "You hear ‘…no creo que sea…’. What form is ‘sea’?", opts: ["the subjunctive, after a negative opinion", "just the ordinary present tense, nothing special", "a completed past-tense action", "a direct command"], ans: 0, explain: "‘sea’ is the subjunctive form of ser, triggered by the negative opinion ‘no creo que’." } },
+        { type: "tip", title: "Paper 3 — Reading &amp; translation into English", pills: ["Reading", "Translation"], content: "Watch the false friends: ‘éxito’ = success, not exit; ‘privacidad’ = privacy. Keep translations natural: ‘she loses her privacy’, not a word-for-word rendering.", readCheck: { q: "‘Los famosos pierden la privacidad y sienten mucha presión’ =", opts: ["Celebrities lose their privacy and feel a lot of pressure", "Celebrities carefully protect their privacy and feel very relaxed", "Celebrities earn a lot of money and gain many followers", "Celebrities admire their idols and respect their fans"], ans: 0, explain: "pierden la privacidad = lose their privacy; sienten mucha presión = feel a lot of pressure." } },
+        { type: "evaluate", title: "Paper 4 — Writing &amp; translation into Spanish", pills: ["Writing", "Higher"], content: "Combine an opinion, a reason and a weighed-up view: ‘Creo que es un buen modelo a seguir porque ayuda a la gente, pero no creo que la fama sea fácil.’ At Higher, the subjunctive after a negative opinion is a strong feature to include.", readCheck: { q: "Which answer reaches the top band?", opts: ["Creo que es un buen modelo a seguir porque ayuda a la gente, pero no creo que la fama sea fácil", "Es famosa y muy famosa y increíblemente famosa y tiene mucho dinero y mucho éxito todo el tiempo sin parar nunca", "Es famosa", "Tiene éxito"], ans: 0, explain: "It links a positive opinion with a reason AND a Higher-tier subjunctive clause — range and accuracy beats a rambling, repetitive list of adjectives." } }
+    ];
+
+    const flashcards = [
+        { term: "famoso / famosa", def: "famous", say: "famoso, famosa" },
+        { term: "la fama", def: "fame", say: "la fama" },
+        { term: "la estrella", def: "the star (celebrity)", say: "la estrella" },
+        { term: "el/la cantante", def: "singer", say: "el cantante, la cantante" },
+        { term: "el actor / la actriz", def: "actor / actress", say: "el actor, la actriz" },
+        { term: "el/la futbolista", def: "footballer", say: "el futbolista, la futbolista" },
+        { term: "el/la influencer", def: "influencer", say: "el influencer, la influencer" },
+        { term: "las redes sociales", def: "social media", say: "las redes sociales" },
+        { term: "seguir a (alguien)", def: "to follow (someone)", say: "seguir a alguien" },
+        { term: "el/la seguidor(a)", def: "follower", say: "el seguidor, la seguidora" },
+        { term: "tener éxito", def: "to be successful", say: "tener éxito" },
+        { term: "ganar mucho dinero", def: "to earn a lot of money", say: "ganar mucho dinero" },
+        { term: "mi ídolo", def: "my idol", say: "mi ídolo" },
+        { term: "un buen / mal modelo a seguir", def: "a good / bad role model", say: "un buen modelo a seguir, un mal modelo a seguir" },
+        { term: "la ventaja · la desventaja", def: "advantage · disadvantage", say: "la ventaja, la desventaja" },
+        { term: "perder la privacidad", def: "to lose your privacy", say: "perder la privacidad" },
+        { term: "dar dinero a organizaciones benéficas", def: "to give money to charities", say: "dar dinero a organizaciones benéficas" },
+        { term: "no creo que sea… (H)", def: "I don’t think it is… (subjunctive)", say: "no creo que sea un buen modelo a seguir" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "sofia-idolo": `<p><strong>Lee lo que dice Sofía.</strong></p>
+        <p><em>"Mi ídolo es Rosalía, una cantante española. La admiro mucho porque tiene mucho éxito, pero también ayuda a la gente y da dinero a organizaciones benéficas. Creo que es un buen modelo a seguir. Sin embargo, pienso que la fama tiene desventajas: los famosos pierden la privacidad y sienten mucha presión. En mi opinión, no me gustaría ser famosa porque prefiero mi vida tranquila."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "sofia-idolo",
+            question: "Read what Sofía says. Answer <strong>in English</strong>.<br>(a) Who is Sofía's idol and what does she do? (1)<br>(b) Give <strong>one</strong> reason Sofía admires her. (1)<br>(c) Name <strong>one</strong> disadvantage of fame mentioned. (1)<br>(d) Why doesn't Sofía want to be famous? (1)",
+            hint: "Find the profession after ‘una cantante española’, the reasons after ‘porque’, the disadvantages after ‘desventajas’, and the final reason after the last ‘porque’.",
+            starter: "(a) Her idol is… (b) She admires her because… (c) One disadvantage is… (d) She doesn't want to be famous because…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> Rosalía / a (Spanish) singer <em>(1)</em>.</li>
+                <li><strong>(b)</strong> she is successful / she helps people / she gives money to charities (ANY ONE) <em>(1)</em>.</li>
+                <li><strong>(c)</strong> losing privacy / feeling a lot of pressure (ANY ONE) <em>(1)</em>.</li>
+                <li><strong>(d)</strong> she prefers her quiet/calm life <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Rosalía, a Spanish singer. (b) She is successful (or: she helps people / gives money to charities). (c) Losing your privacy (or: feeling a lot of pressure). (d) Because she prefers her quiet/calm life.",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) idol — 1", max: 1, points: ["Rosalía / a Spanish singer"] },
+                { label: "(b) reason to admire — 1", max: 1, points: ["successful / helps people / gives money to charities"] },
+                { label: "(c) disadvantage — 1", max: 1, points: ["losing privacy / feeling a lot of pressure"] },
+                { label: "(d) why not famous — 1", max: 1, points: ["prefers her quiet/calm life"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) In my opinion, she is a good role model. <br>(b) I don't think fame is easy. <br>(c) Footballers earn a lot of money because they have a lot of success.",
+            hint: "‘In my opinion’ = En mi opinión… ‘I don't think’ (negative opinion) needs the SUBJUNCTIVE: No creo que… sea… ‘have a lot of success’ = tienen mucho éxito.",
+            starter: "(a) En mi opinión… (b) No creo que… (c) Los futbolistas ganan… porque…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> En mi opinión, es un buen modelo a seguir. <em>(1)</em></li>
+                <li><strong>(b)</strong> No creo que la fama sea fácil. <em>(1)</em></li>
+                <li><strong>(c)</strong> Los futbolistas ganan mucho dinero <em>(1)</em> porque <em>(1)</em> tienen mucho éxito <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. ‘No creo que la fama sea fácil’ must use the subjunctive ‘sea’, not ‘es’.</li>
+            </ul></div>`,
+            modelAnswer: "(a) En mi opinión, es un buen modelo a seguir. (b) No creo que la fama sea fácil. (c) Los futbolistas ganan mucho dinero porque tienen mucho éxito.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["En mi opinión, es un buen modelo a seguir"] },
+                { label: "(b)", max: 1, points: ["No creo que la fama sea fácil"] },
+                { label: "(c)", max: 3, points: ["Los futbolistas ganan mucho dinero", "porque", "tienen mucho éxito"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

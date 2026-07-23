@@ -4,297 +4,389 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.2 Music, TV, Film and Reading – Interactive Study Guide</title>
+    <title>4.2 Music, TV, Film and Reading – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Theme 2 · 4. Free-Time Activities</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 2 · 4. Free-Time Activities</div>
             <h1>4.2 Music, TV, Film and Reading</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>La música, la tele, el cine y la lectura · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: 4.2 Music, TV, Film and Reading — placeholder, content not yet written
-    // ══════════════════════════════════════
-    const pageMeta = {
-            id: '4-2-music-tv-film-and-reading',
-            badge: 'AQA GCSE Spanish — Theme 2 · 4. Free-Time Activities',
-            title: '4.2 Music, TV, Film and Reading',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 4.2 Music, TV, film and reading  (AQA 8692, Theme 2 Topic 1)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = { id: '4-2-music-tv-film-and-reading', badge: 'AQA GCSE Spanish (8692) — Theme 2 · 4. Free-Time Activities', title: '4.2 Music, TV, Film and Reading', subtitle: 'Interactive study guide', subject: 'spanish' };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>4.2 Music, TV, Film and Reading</strong> will appear here soon.</p>`
+            title: "How do I talk about music?",
+            tag: "Key concept",
+            content: `<p>The key verb is <span data-say="escuchar música">escuchar música</span> (to listen to music). Here is the core vocabulary — tap 🔊 to hear each one.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la música">la música</span></td><td>music</td><td><span data-say="la canción">la canción</span></td><td>the song</td></tr>
+              <tr><td><span data-say="el cantante">el cantante / la cantante</span></td><td>the singer</td><td><span data-say="el grupo">el grupo</span></td><td>the band/group</td></tr>
+              <tr><td><span data-say="tocar la guitarra">tocar la guitarra</span></td><td>to play the guitar</td><td><span data-say="tocar el piano">tocar el piano</span></td><td>to play the piano</td></tr>
+              <tr><td><span data-say="el concierto">el concierto</span></td><td>the concert</td><td><span data-say="el pop, el rock, el rap">el pop / el rock / el rap</span></td><td>pop / rock / rap</td></tr>
+            </table>
+            <p>Because <strong>gustar</strong> and <strong>encantar</strong> agree with the noun that follows, watch the plural: <span data-say="Me encantan las canciones de mi grupo favorito.">Me encantan las canciones de mi grupo favorito.</span> — <em>I love the songs of my favourite band.</em> (plural canciones → encantan)</p>`,
+            readCheck: { q: "Why does the verb end in ‘-an’ in ‘Me encantan las canciones’?", opts: ["‘las canciones’ is plural, so the verb agrees with it", "‘encantar’ is an irregular verb that always ends in ‘-an’", "the subject of this particular sentence is ‘yo’, not ‘tú’", "it is describing a single completed action in the simple past tense"], ans: 0, explain: "Like gustar, encantar agrees with the noun that follows it; a plural noun (las canciones) needs the plural verb form (encantan)." }
+        },
+        {
+            title: "How do I talk about TV programmes?",
+            tag: "Key concept",
+            content: `<p>The key verb is <span data-say="ver la tele">ver la tele</span> (to watch TV).</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la televisión">la televisión</span></td><td>television</td><td><span data-say="el programa">el programa</span></td><td>the programme</td></tr>
+              <tr><td><span data-say="la serie">la serie</span></td><td>the series</td><td><span data-say="las noticias">las noticias</span></td><td>the news</td></tr>
+              <tr><td><span data-say="los dibujos animados">los dibujos animados</span></td><td>cartoons</td><td><span data-say="el actor">el actor / la actriz</span></td><td>the actor / actress</td></tr>
+            </table>
+            <p>Model sentence: <span data-say="Veo la tele todos los días, sobre todo las series.">Veo la tele todos los días, sobre todo las series.</span> — <em>I watch TV every day, especially series.</em></p>`,
+            readCheck: { q: "What does ‘los dibujos animados’ mean?", opts: ["cartoons", "the news", "a drawing competition", "a documentary about animals"], ans: 0, explain: "los dibujos animados = cartoons/animated shows. It is not the news (las noticias) nor a documentary." }
+        },
+        {
+            title: "How do I talk about films and give opinions?",
+            tag: "Exam skill",
+            content: `<p>Learn the film genres and reuse the opinion + reason pattern from earlier topics.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la película">la película</span></td><td>the film</td><td><span data-say="una película de terror">una película de terror</span></td><td>a horror film</td></tr>
+              <tr><td><span data-say="una película de acción">una película de acción</span></td><td>an action film</td><td><span data-say="una película de ciencia ficción">una película de ciencia ficción</span></td><td>a sci-fi film</td></tr>
+              <tr><td><span data-say="una comedia">una comedia</span></td><td>a comedy</td><td><span data-say="divertido, emocionante, aburrido, gracioso">divertido / emocionante / aburrido / gracioso</span></td><td>fun / exciting / boring / funny</td></tr>
+            </table>
+            <p>Example with plural agreement: <span data-say="Me gustan las películas de acción porque son emocionantes.">Me gustan las películas de acción porque son emocionantes.</span> — <em>I like action films because they are exciting.</em></p>`,
+            readCheck: { q: "In ‘Me gustan las películas de acción porque son emocionantes’, why is it ‘gustan’ and not ‘gusta’?", opts: ["‘las películas de acción’ is plural", "‘acción’ is a feminine noun", "the sentence gives a reason with ‘porque’", "‘emocionante’ is an adjective, not a verb"], ans: 0, explain: "gustar agrees with the plural noun ‘las películas de acción’, so it must be ‘gustan’." }
+        },
+        {
+            title: "How do I talk about reading?",
+            tag: "Key concept",
+            content: `<p>The key verb is <span data-say="leer">leer</span> (to read).</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el libro">el libro</span></td><td>the book</td><td><span data-say="la novela">la novela</span></td><td>the novel</td></tr>
+              <tr><td><span data-say="la revista">la revista</span></td><td>the magazine</td><td><span data-say="el periódico">el periódico</span></td><td>the newspaper</td></tr>
+            </table>
+            <p>Careful with gender: <span data-say="la revista">la revista</span> is feminine, so it is always <strong>la revista</strong>, never <em>el revista</em>. Example: <span data-say="Cada noche, leo una novela antes de dormir.">Cada noche, leo una novela antes de dormir.</span> — <em>Every night, I read a novel before I sleep.</em></p>`,
+            readCheck: { q: "Which article goes with ‘revista’ (magazine)?", opts: ["la revista — it is feminine", "el revista — it is masculine", "los revista — it is plural", "un revista — no article is needed"], ans: 0, explain: "‘revista’ is a feminine noun, so it takes ‘la’: la revista, never el revista." }
+        },
+        {
+            title: "How do I say what I did yesterday, and talk about going online?",
+            tag: "Exam skill",
+            content: `<p>Compare a <strong>present-tense habit</strong> with a <strong>preterite</strong> (completed past) action:</p>
+            <ul>
+              <li>habit → <span data-say="Veo la tele todos los días.">Veo la tele todos los días.</span> (I watch TV every day.)</li>
+              <li>preterite → <span data-say="Ayer vi una película de terror con mis amigos.">Ayer vi una película de terror con mis amigos.</span> (Yesterday I watched a horror film with my friends.)</li>
+            </ul>
+            <p>Online/downloading vocabulary:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="descargar">descargar</span></td><td>to download</td><td><span data-say="en línea">en línea</span></td><td>online</td></tr>
+              <tr><td><span data-say="el móvil">el móvil</span></td><td>the mobile phone</td><td><span data-say="Ayer descargué una canción nueva en mi móvil.">Ayer descargué una canción nueva en mi móvil.</span></td><td>Yesterday I downloaded a new song on my phone.</td></tr>
+            </table>`,
+            readCheck: { q: "Which word tells you the verb must be in the preterite (past)?", opts: ["ayer (yesterday)", "todos los días (every day)", "normalmente (normally)", "siempre (always)"], ans: 0, explain: "‘ayer’ signals a completed action in the past, so the verb changes to the preterite (vi, not veo)." }
+        },
+        {
+            title: "Higher: giving stronger opinions and comparing",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> Use <strong>lo que más me gusta es…</strong> (what I like most is…) to add range:</p>
+            <ul>
+              <li><span data-say="Lo que más me gusta es leer novelas.">Lo que más me gusta es leer novelas.</span> <span class="tier-h">H</span> — What I like most is reading novels.</li>
+            </ul>
+            <p>Use <strong>preferir + a</strong> to compare two things:</p>
+            <ul>
+              <li><span data-say="Prefiero la música pop a la clásica.">Prefiero la música pop a la clásica.</span> <span class="tier-h">H</span> — I prefer pop music to classical music.</li>
+            </ul>`,
+            readCheck: { q: "What does ‘Lo que más me gusta es leer novelas’ mean?", opts: ["What I like most is reading novels", "What I like least is reading novels", "I sometimes like reading a novel", "I used to like reading novels"], ans: 0, explain: "‘lo que más me gusta es…’ = what I like most is…, a Higher-tier structure for a stronger opinion." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Me gustan las películas de acción." data-listen></span><br>Listen. What does the speaker like?`, opts: ["action films (more than one)", "one action film in particular", "adventure films instead", "she doesn't like action films"], ans: 0, explain: "‘me gustan las películas de acción’ = I like action films (plural). The traps narrow it to one film, swap the genre, or reverse the meaning." },
+        { q: `<span data-say="Ayer vi una película de terror." data-listen></span><br>Listen. What is being described?`, opts: ["Yesterday I watched a horror film", "Tomorrow I will watch a horror film", "Yesterday I watched a comedy film", "I watch horror films every single day"], ans: 0, explain: "‘ayer vi…’ = yesterday I watched (preterite). Trap B swaps to the future, C swaps the genre, D swaps to a present-tense habit." },
+        { q: `<span data-say="Toco la guitarra en un grupo." data-listen></span><br>Listen. What does the speaker do?`, opts: ["Plays the guitar in a band", "Sings in a band without playing an instrument", "Listens to a band's guitar music", "Plays the piano in a band"], ans: 0, explain: "‘toco la guitarra’ = I play the guitar. The traps swap the action to singing/listening, or swap the instrument to piano." },
+        { q: "Which sentence correctly agrees with the plural noun?", opts: ["Me gustan las películas de acción", "Me gusta las películas de acción", "Me gusto las películas de acción", "Me gustas las películas de acción"], ans: 0, explain: "gustar agrees with the plural noun that follows → gustan. B fails to agree; C/D wrongly conjugate gustar for ‘I/you’ instead of the thing liked." },
+        { q: "What does ‘el periódico’ mean?", opts: ["the newspaper", "a period of time", "the magazine", "the weekly TV guide"], ans: 0, explain: "el periódico = the newspaper. It is a false friend — it does NOT mean ‘period’ (that is ‘el período’)." },
+        { q: "What does ‘la revista’ mean?", opts: ["the magazine", "a review of a film", "the newspaper", "the weekly TV schedule"], ans: 0, explain: "la revista = the magazine. It is not a ‘review’ (that would be ‘la reseña/crítica’) nor the newspaper (el periódico)." },
+        { q: "Which sentence correctly uses the preterite of ‘ver’ (to watch/see)?", opts: ["Ayer vi una película con mis amigos", "Ayer veo una película con mis amigos", "Ayer viendo una película con mis amigos", "Ayer ver una película con mis amigos"], ans: 0, explain: "‘ayer’ needs the preterite: vi. B is present tense, C is a gerund, D is the infinitive — none fit after ‘ayer’." },
+        { q: "Which is the grammatically correct article for ‘serie’ (series)?", opts: ["una serie interesante", "un serie interesante", "unos serie interesante", "uno serie interesante"], ans: 0, explain: "‘serie’ is feminine, so it takes ‘una’: una serie. The others wrongly use masculine or plural forms." },
+        { q: `<span data-say="Prefiero la música pop a la clásica.">Prefiero la música pop a la clásica.</span> <span class="tier-h">H</span> — what does this mean?`, opts: ["I prefer pop music to classical music", "I prefer classical music to pop music", "I only like classical music", "I don't like any type of music"], ans: 0, explain: "preferir X a Y = to prefer X to Y, so pop is preferred over classical. B reverses the comparison." },
+        { q: `<span data-say="Lo que más me gusta es leer novelas.">Lo que más me gusta es leer novelas.</span> <span class="tier-h">H</span> — what does this mean?`, opts: ["What I like most is reading novels", "What I like least is reading novels", "I sometimes like reading a novel", "I used to like reading novels, but not anymore"], ans: 0, explain: "‘lo que más me gusta es…’ = what I like most is…, a Higher-tier opinion structure." }
+    ];
+
+    const matchData = [
+        { term: "la canción", def: "the song" },
+        { term: "el cantante / la cantante", def: "the singer" },
+        { term: "tocar la guitarra", def: "to play the guitar" },
+        { term: "el concierto", def: "the concert" },
+        { term: "ver la tele", def: "to watch TV" },
+        { term: "las noticias", def: "the news" },
+        { term: "los dibujos animados", def: "cartoons" },
+        { term: "una película de terror", def: "a horror film" },
+        { term: "la revista", def: "the magazine" },
+        { term: "el periódico", def: "the newspaper" },
+        { term: "descargar música", def: "to download music" },
+        { term: "lo que más me gusta", def: "what I like most" }
+    ];
+
+    const fibData = [
+        { display: `Me _____ mucho la música pop. <span data-say="Me encanta mucho la música pop." data-listen>Me encanta mucho la música pop.</span>`, blanks: { B1: "encanta" } },
+        { display: `Me _____ las películas de acción porque son emocionantes. (plural gustar)`, blanks: { B1: "gustan" } },
+        { display: `Ayer _____ una película de terror con mis amigos. (preterite of ver)`, blanks: { B1: "vi" } },
+        { display: `Toco la _____ en un grupo de música. (guitar)`, blanks: { B1: "guitarra" } },
+        { display: `Cada noche, _____ una novela antes de dormir. <span data-say="Cada noche, leo una novela antes de dormir." data-listen>Cada noche, leo una novela antes de dormir.</span>`, blanks: { B1: "leo" } },
+        { display: `Se debe _____ más para mejorar el vocabulario. (to read)`, blanks: { B1: "leer" } },
+        { display: `Ayer _____ una canción nueva en mi móvil. <span data-say="Ayer descargué una canción nueva en mi móvil." data-listen>Ayer descargué una canción nueva en mi móvil.</span>`, blanks: { B1: "descargué" } }
+    ];
+    const fibWords = ["encanta", "gustan", "vi", "guitarra", "leo", "leer", "descargué"];
+
+    const tfData = [
+        { statement: "‘Me gustan las películas de acción’ uses the plural verb because ‘películas’ is plural.", answer: true, explanation: "gustar/encantar agree with the noun that follows — plural noun, plural verb." },
+        { statement: "‘la revista’ means ‘the newspaper’.", answer: false, explanation: "la revista = the magazine; the newspaper is el periódico." },
+        { statement: "‘Vi’ is the preterite (past) form of ‘ver’ (to watch/see).", answer: true, explanation: "ver → vi (preterite, I watched/saw)." },
+        { statement: "‘los dibujos animados’ means ‘the news’.", answer: false, explanation: "los dibujos animados = cartoons; the news is las noticias." },
+        { statement: "To say you play an instrument, you use ‘tocar’ + the instrument, e.g. ‘toco la guitarra’.", answer: true, explanation: "tocar la guitarra / el piano = to play the guitar / piano." },
+        { statement: "‘una comedia’ is a type of book, not a type of film.", answer: false, explanation: "una comedia = a comedy FILM (a genre, like terror or acción)." },
+        { statement: "‘Lo que más me gusta es…’ is a Higher-tier structure meaning ‘What I like most is…’.", answer: true, explanation: "Correct — it is used to give a stronger, more developed opinion." },
+        { statement: "‘Prefiero la música pop a la clásica’ means ‘I prefer classical music to pop music’.", answer: false, explanation: "preferir X a Y = prefer X TO Y — here pop is preferred over classical, the opposite of the statement." }
+    ];
+
+    const miscData = [
+        { wrong: "Me gusta las películas de acción.", correct: "Me gustan las películas de acción.", readCheck: { q: "Why is ‘Me gusta las películas de acción’ wrong?", opts: ["‘películas’ is plural, so it must be ‘gustan’", "the verb ‘gustar’ never changes its form no matter what follows it", "‘acción’ needs a written accent added", "the pronoun should be ‘te’ rather than ‘me’"], ans: 0, explain: "gustar agrees with the plural noun that follows; plural noun → gustan." } },
+        { wrong: "Leo el revista todos los meses.", correct: "Leo la revista todos los meses.", readCheck: { q: "Why is ‘el revista’ wrong?", opts: ["‘revista’ is a feminine noun, so it needs ‘la’", "‘revista’ is actually a plural noun, so it should take ‘los’ instead", "‘revista’ never takes an article", "‘el’ is only used for people, not objects"], ans: 0, explain: "revista is feminine → la revista, never el revista." } },
+        { wrong: "Ayer veo una película con mi familia.", correct: "Ayer vi una película con mi familia.", readCheck: { q: "Why is ‘Ayer veo…’ wrong?", opts: ["‘ayer’ signals the past, so the verb must be preterite ‘vi’", "‘veo’ is spelt incorrectly and should be ‘veio’", "‘película’ needs a plural verb", "‘ayer’ can only ever be used together with ‘ir a’ + infinitive"], ans: 0, explain: "‘ayer’ (yesterday) needs a completed past action: vi, not the present veo." } },
+        { wrong: "Me gusta mucho los dibujos animados.", correct: "Me gustan mucho los dibujos animados.", readCheck: { q: "Why must it be ‘gustan’ here?", opts: ["‘los dibujos animados’ is plural", "‘dibujos’ is a feminine noun", "‘mucho’ forces the singular form", "cartoons are always described with ‘es’"], ans: 0, explain: "los dibujos animados is plural, so gustar agrees: gustan, not gusta." } },
+        { wrong: "El periódico significa ‘el período de tiempo’.", correct: "El periódico significa ‘el diario / the newspaper’.", readCheck: { q: "What does ‘el periódico’ actually mean?", opts: ["the newspaper", "a period of time, as you might guess", "a magazine published every week", "a school timetable"], ans: 0, explain: "Classic false friend: periódico = newspaper, NOT ‘period’ (that word is período)." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Dictation (listening)", pills: ["Listening", "Dictation"], content: "Media sentences reuse chunks you know: ‘me gustan…’, ‘ayer vi…’, ‘toco la guitarra…’. Listen for whether the noun is singular or plural — it changes ‘gusta’ to ‘gustan’ — and whether the verb is present or preterite.", readCheck: { q: "You hear ‘…gustan…’ instead of ‘…gusta…’. What does that tell you?", opts: ["the thing being liked is plural", "the sentence is definitely about the past", "the speaker dislikes the thing", "the sentence is a question"], ans: 0, explain: "The -n ending of ‘gustan’ signals a plural noun (las películas, las canciones…)." } },
+        { type: "tip", title: "Paper 3 — Translation into English", pills: ["Reading", "Translation"], content: "Watch the false friends: ‘periódico’ = newspaper (not ‘period’), ‘revista’ = magazine (not ‘review’). Keep ‘me gustan las películas de acción’ natural: ‘I like action films’, not ‘to me they like the films of action’.", readCheck: { q: "‘Prefiero leer una novela a ver la tele’ =", opts: ["I prefer reading a novel to watching TV", "I prefer watching TV to reading a novel", "I never read novels, only watch TV", "I used to prefer watching TV"], ans: 0, explain: "preferir X a Y = prefer X to Y; here reading a novel is preferred over watching TV." } },
+        { type: "evaluate", title: "Paper 4 — Writing & translation into Spanish", pills: ["Writing", "Higher"], content: "Combine an activity, an opinion and a reason: ‘Me gustan las películas de acción porque son emocionantes.’ At Higher, add a comparison and a stronger opinion structure: ‘Prefiero…a…’, ‘Lo que más me gusta es…’.", readCheck: { q: "Which answer reaches the top band?", opts: ["Me encantan las películas de ciencia ficción porque son emocionantes, pero lo que más me gusta es leer novelas", "Me gustan las películas, las series, los libros y las canciones, pero nunca digo las razones por las que de verdad me gustan", "Veo la tele y leo un libro y veo la tele otra vez sin parar nunca", "Me gusta"], ans: 0, explain: "It links an opinion, a reason, and a Higher-tier structure (lo que más me gusta) — range and accuracy, not just a long list with no reasons." } }
+    ];
+
+    const flashcards = [
+        { term: "la música", def: "music", say: "la música" },
+        { term: "el cantante / la cantante", def: "the singer", say: "el cantante, la cantante" },
+        { term: "la canción", def: "the song", say: "la canción" },
+        { term: "el grupo", def: "the band / group", say: "el grupo" },
+        { term: "tocar la guitarra", def: "to play the guitar", say: "tocar la guitarra" },
+        { term: "tocar el piano", def: "to play the piano", say: "tocar el piano" },
+        { term: "el concierto", def: "the concert", say: "el concierto" },
+        { term: "ver la tele", def: "to watch TV", say: "ver la tele" },
+        { term: "el programa · la serie", def: "the programme · the series", say: "el programa, la serie" },
+        { term: "las noticias", def: "the news", say: "las noticias" },
+        { term: "los dibujos animados", def: "cartoons", say: "los dibujos animados" },
+        { term: "el actor · la actriz", def: "the actor · the actress", say: "el actor, la actriz" },
+        { term: "una película de terror / de acción", def: "a horror film / an action film", say: "una película de terror, una película de acción" },
+        { term: "una comedia · de ciencia ficción", def: "a comedy · a sci-fi film", say: "una comedia, una película de ciencia ficción" },
+        { term: "leer · la novela", def: "to read · the novel", say: "leer, la novela" },
+        { term: "la revista · el periódico", def: "the magazine · the newspaper", say: "la revista, el periódico" },
+        { term: "descargar en línea / en el móvil", def: "to download online / on your phone", say: "descargar en línea, en el móvil" },
+        { term: "lo que más me gusta es… (H)", def: "what I like most is…", say: "lo que más me gusta es leer novelas" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "carlos-media": `<p><strong>Lee lo que dice Carlos.</strong></p>
+        <p><em>"Me llamo Carlos y me encantan la música y el cine. Toco la guitarra en un grupo con mis amigos y escucho música pop y rock. Los fines de semana veo muchas películas: prefiero las películas de ciencia ficción a las películas de terror porque son más emocionantes. Ayer vi una comedia con mi hermana y fue muy graciosa. También me gusta leer — leo una novela casi todas las noches antes de dormir. Lo que más me gusta es descargar canciones nuevas en mi móvil."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "carlos-media",
+            question: "Read what Carlos says. Answer <strong>in English</strong>.<br>(a) Name <strong>one</strong> instrument Carlos plays. (1)<br>(b) Which type of film does he prefer, and why? (1)<br>(c) What did he do yesterday? (1)<br>(d) What does he do most nights before he sleeps? (1)",
+            hint: "Find the instrument after ‘toco’, the preference after ‘prefiero’, the past action after ‘ayer’, and the habit after ‘leo’.",
+            starter: "(a) He plays… (b) He prefers… because… (c) Yesterday he… (d) He…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> the guitar <em>(1)</em>.</li>
+                <li><strong>(b)</strong> sci-fi films, because they are more exciting <em>(1)</em>.</li>
+                <li><strong>(c)</strong> watched a comedy with his sister (and it was very funny) <em>(1)</em>.</li>
+                <li><strong>(d)</strong> reads a novel (almost every night before he sleeps) <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "(a) The guitar. (b) Sci-fi films, because they are more exciting. (c) He watched a comedy with his sister. (d) He reads a novel almost every night before he sleeps.",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) instrument — 1", max: 1, points: ["the guitar"] },
+                { label: "(b) preference + reason — 1", max: 1, points: ["sci-fi films because more exciting"] },
+                { label: "(c) yesterday — 1", max: 1, points: ["watched a comedy with his sister"] },
+                { label: "(d) nightly habit — 1", max: 1, points: ["reads a novel before he sleeps"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) I like watching series. <br>(b) One must read more. <br>(c) Yesterday I downloaded a song because it is very good.",
+            hint: "‘I like watching series’ = Me gusta ver series. ‘One must read more’ = Se debe leer más. ‘Yesterday I downloaded’ = Ayer descargué…",
+            starter: "(a) Me gusta… (b) Se debe… (c) Ayer descargué… porque…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Me gusta ver series. <em>(1)</em></li>
+                <li><strong>(b)</strong> Se debe leer más. <em>(1)</em></li>
+                <li><strong>(c)</strong> Ayer descargué una canción <em>(1)</em> porque <em>(1)</em> es muy buena <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. ‘Ayer descargué’ must use the preterite ‘descargué’, not the present.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Me gusta ver series. (b) Se debe leer más. (c) Ayer descargué una canción porque es muy buena.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Me gusta ver series"] },
+                { label: "(b)", max: 1, points: ["Se debe leer más"] },
+                { label: "(c)", max: 3, points: ["Ayer descargué una canción", "porque", "es muy buena"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

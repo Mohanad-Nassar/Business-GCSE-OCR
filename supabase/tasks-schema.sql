@@ -64,7 +64,7 @@ create table if not exists task_questions (
     question_key text not null,           -- stable id from question-bank.js
     page_id      text not null,           -- topic page the question came from
     source       text not null,           -- 'exam' | 'mcq' | 'tf' | 'learn' | 'misc' | 'tips' | 'fib' | 'match'
-    qtype        text not null check (qtype in ('mcq', 'tf', 'written', 'fib')),
+    qtype        text not null check (qtype in ('mcq', 'tf', 'written', 'fib', 'numeric')),
     marks        numeric not null default 1 check (marks > 0),
     snapshot     jsonb not null,          -- student-visible: question, options, case study…
     answer_key   jsonb not null default '{}'::jsonb -- correct answer, mark scheme, model answer
@@ -431,6 +431,10 @@ begin
                     select 1 from jsonb_each_text(q.answer_key->'blanks') kb
                     where lower(btrim(coalesce(a.answer->'value'->>kb.key, '')))
                           <> lower(btrim(kb.value)))
+            when q.qtype = 'numeric' then
+                a.answer is not null and (q.answer_key ? 'numeric') and not exists (
+                    select 1 from jsonb_object_keys(q.answer_key->'numeric') k
+                    where not numeric_answer_correct(a.answer->'value'->>k, q.answer_key->'numeric'->k))
             end,
         awarded    = case
             when q.qtype in ('mcq', 'tf') then
@@ -443,6 +447,11 @@ begin
                                                        = lower(btrim(kb.value))))
                              / greatest(count(*), 1), 2)
                 from jsonb_each_text(q.answer_key->'blanks') kb), 0)
+            when q.qtype = 'numeric' then coalesce((
+                select round(q.marks
+                             * (count(*) filter (where numeric_answer_correct(a.answer->'value'->>k, q.answer_key->'numeric'->k)))
+                             / greatest(count(*), 1), 2)
+                from jsonb_object_keys(q.answer_key->'numeric') k), 0)
             end,
         marked_by  = 'auto',
         marked_at  = now(),
@@ -450,7 +459,23 @@ begin
     from task_questions q
     where a.attempt_id = p_attempt_id
       and q.id = a.task_question_id
-      and q.qtype in ('mcq', 'tf', 'fib');
+      and q.qtype in ('mcq', 'tf', 'fib', 'numeric');
+
+    -- Homework counts as showing up: log one progress_event per ANSWERED
+    -- question so task work feeds the practice heatmap and the day-streak,
+    -- exactly like topic / Daily-Revise / Review practice. It deliberately
+    -- does NOT touch progress_summary, so XP, levels and topic-completion
+    -- stay tied to the student's own practice and teacher-set homework can't
+    -- inflate the leaderboard. page_id comes from the question's own topic,
+    -- so it lands in the right subject. Unanswered (blank) rows are skipped —
+    -- opening a task without answering isn't "showing up". Written answers
+    -- are logged with is_correct null until a teacher/AI marks them.
+    insert into progress_events (student_id, page_id, section, question_id, answer, is_correct)
+    select v_uid, q.page_id, 'task', q.question_key, a.answer, a.is_correct
+    from task_answers a
+    join task_questions q on q.id = a.task_question_id
+    where a.attempt_id = p_attempt_id
+      and a.answer is not null;
 
     update task_attempts att
     set status             = 'submitted',

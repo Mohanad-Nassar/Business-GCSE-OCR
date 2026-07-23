@@ -64,6 +64,7 @@
     return b;
   }
   function injectStyleOnce(id, css) {
+    if (typeof document === 'undefined') return; // Node (unit tests) — no DOM
     if (document.getElementById(id)) return;
     var s = document.createElement('style');
     s.id = id;
@@ -473,6 +474,216 @@
     };
   }
 
+  // ── 'numeric' — typed numeric answer, AUTO-marked (ADM-B B1) ──────
+  // The question carries q.numeric, a map of blank-id → answer key:
+  //   q.numeric = { "1": { value: 2.45, tol: 0.005, accept: ["-3+2root5"] } }
+  // (one key is the common case; multi-key supports multi-part numeric).
+  // Normalisation MUST stay byte-identical to the server graders'
+  // numeric_answer_correct() (supabase/numeric-normalise.sql) or the live
+  // mark diverges from what the student sees — change both together.
+  //
+  //   normNumeric(s): lowercase, √→root, strip spaces/commas/£/$/€/%.
+  //   value match:    parse a plain decimal OR an a/b fraction, then
+  //                   |parsed − key.value| ≤ (key.tol ?? 0.0005).
+  //   exact-form match: normNumeric(student) === normNumeric(any accept[]).
+  function normNumeric(s) {
+    return String(s == null ? '' : s)
+      .toLowerCase()
+      .replace(/√/g, 'root')      // √ → root
+      .replace(/[\s,£$€%]/g, '');
+  }
+  function evalNumericValue(ns) {
+    // leading '+' deliberately NOT accepted — keeps the parse identical to the
+    // server, where '+3'::numeric is not portable. Students type '-3', not '+3'.
+    if (/^-?\d+(\.\d+)?$/.test(ns)) return parseFloat(ns);
+    var m = /^(-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)$/.exec(ns);
+    if (m) { var d = parseFloat(m[2]); if (d !== 0) return parseFloat(m[1]) / d; }
+    return null; // not a bare number/fraction — only an accept-form can match
+  }
+  function numericKeyCorrect(raw, key) {
+    if (!key) return false;
+    var ns = normNumeric(raw);
+    if (ns === '') return false;
+    var accept = key.accept || [];
+    for (var i = 0; i < accept.length; i++) { if (ns === normNumeric(accept[i])) return true; }
+    var v = evalNumericValue(ns);
+    if (v === null) return false;
+    var tol = (key.tol != null) ? key.tol : 0.0005;
+    return Math.abs(v - key.value) <= tol + 1e-12;
+  }
+
+  function mountNumeric(elc, q, qi, opts) {
+    injectStyleOnce('csew-numeric-style', [
+      '.csew-numeric { font-family: "DM Mono","Consolas",monospace; font-size: 15px; padding: 9px 11px; min-height: 42px; width: 100%; max-width: 260px; box-sizing: border-box; border: 1px solid var(--border); border-radius: 7px; background: var(--cream); color: var(--ink); }',
+      '.csew-numeric:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }',
+      '.csew-numeric.csew-correct { border-color: var(--success); box-shadow: 0 0 0 1px var(--success); }',
+      '.csew-numeric.csew-incorrect { border-color: #c0392b; box-shadow: 0 0 0 1px #c0392b; }',
+      '.csew-numeric-fb { font-size: 13.5px; font-weight: 600; margin: 8px 0 0; }',
+      '.csew-numeric-fb.ok { color: var(--success); }',
+      '.csew-numeric-fb.no { color: #c0392b; }',
+    ].join('\n'));
+
+    var keys = q.numeric || {};
+    var ids = Object.keys(keys);
+    if (!ids.length) return factories['lines'](elc, q, qi, opts); // no key → self-mark fallback
+
+    var inputs = {};
+    ids.forEach(function (id) {
+      var k = keys[id];
+      if (k.label || ids.length > 1) elc.appendChild(el('div', 'csew-lines-label', k.label || ('Answer ' + id)));
+      var inp = document.createElement('input');
+      inp.type = 'text';
+      inp.className = 'csew-numeric';
+      inp.autocomplete = 'off';
+      inp.spellcheck = false;
+      inp.setAttribute('aria-label', k.label || ('Numeric answer ' + id));
+      inputs[id] = inp;
+      elc.appendChild(inp);
+    });
+    elc.appendChild(el('div', 'csew-marksright', '[' + q.marks + ']'));
+    var submit = btn('✓ Check my answer');
+    elc.appendChild(submit);
+    var fb = el('div', 'csew-numeric-fb');
+    elc.appendChild(fb);
+
+    var answered = false;
+    function stateOf() { var t = {}; ids.forEach(function (id) { t[id] = inputs[id].value; }); return { values: t }; }
+    function markInputs() {
+      var correct = 0;
+      ids.forEach(function (id) {
+        var ok = numericKeyCorrect(inputs[id].value, keys[id]);
+        inputs[id].classList.toggle('csew-correct', ok);
+        inputs[id].classList.toggle('csew-incorrect', !ok);
+        inputs[id].disabled = true;
+        if (ok) correct++;
+      });
+      return correct;
+    }
+    function grade() {
+      var correct = markInputs();
+      var mark = Math.round((q.marks || 0) * correct / ids.length);
+      submit.disabled = true;
+      var all = correct === ids.length;
+      fb.className = 'csew-numeric-fb ' + (all ? 'ok' : 'no');
+      fb.textContent = all ? ('Correct — ' + mark + ' / ' + q.marks)
+        : (correct ? 'Partly right — ' + mark + ' / ' + q.marks : 'Not correct — 0 / ' + q.marks) + '. Check the mark scheme for the method.';
+      opts.reveal();
+      opts.save({ mark: mark, max: q.marks, state: { values: stateOf().values, _mark: mark } });
+    }
+    submit.addEventListener('click', function () { if (answered) return; answered = true; grade(); });
+    ids.forEach(function (id) {
+      inputs[id].addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); if (!answered) { answered = true; grade(); } } });
+    });
+
+    return {
+      getState: stateOf,
+      setState: function (s, locked) {
+        if (s && s.values) ids.forEach(function (id) { if (s.values[id] != null) inputs[id].value = s.values[id]; });
+        if (locked) { answered = true; markInputs(); submit.disabled = true; opts.reveal(); }
+      },
+    };
+  }
+
+  // ── 'mathParts' — multi-part question (ADM-B B2) ──────────────────
+  // q.parts = [ { label:'(a)', marks, prompt?, markScheme?, ...one of:
+  //               numeric:{…}  → that part AUTO-marks (reuses the numeric
+  //                              comparator), or
+  //               markPoints/markScheme → that part SELF-marks via the tick
+  //               panel } ]
+  // Each part marks independently; the widget aggregates the part marks into
+  // ONE opts.save({mark, max}) once every part is marked. No script.js change —
+  // _epUseWidget keys on q.format.
+  function mountMathParts(elc, q, qi, opts) {
+    injectStyleOnce('csew-mathparts-style', [
+      '.csew-part { border-left: 3px solid var(--border); padding: 4px 0 10px 14px; margin: 0 0 14px; }',
+      '.csew-part-head { font-size: 14.5px; margin-bottom: 8px; line-height: 1.5; }',
+      '.csew-part-marks { color: var(--mid); font-family: "DM Mono","Consolas",monospace; font-size: 12px; }',
+      '.csew-part-scheme { margin-top: 10px; }',
+    ].join('\n'));
+
+    var parts = q.parts || [];
+    if (!parts.length) return factories['lines'](elc, q, qi, opts); // malformed → self-mark fallback
+    var totalMax = q.marks || parts.reduce(function (s, p) { return s + (p.marks || 0); }, 0);
+    var awarded = {};   // part index → awarded mark
+    var pctl = [];      // per-part controller: { getState, restore }
+
+    function tally() { var t = 0; for (var i = 0; i < parts.length; i++) t += awarded[i] || 0; return Math.min(t, totalMax); }
+    function maybeSave() {
+      if (Object.keys(awarded).length < parts.length) return;
+      opts.save({ mark: tally(), max: totalMax, state: { parts: pctl.map(function (c) { return c.getState(); }), _mark: tally() } });
+    }
+
+    parts.forEach(function (part, i) {
+      var pmax = part.marks || 0;
+      var wrap = el('div', 'csew-part'); elc.appendChild(wrap);
+      var head = el('div', 'csew-part-head');
+      head.innerHTML = (part.label ? '<strong>' + part.label + '</strong> ' : '') + (part.prompt || '') +
+        ' <span class="csew-part-marks">[' + pmax + ']</span>';
+      wrap.appendChild(head);
+      var body = el('div'); wrap.appendChild(body);
+      var scheme = el('div', 'csew-part-scheme'); scheme.style.display = 'none'; scheme.innerHTML = part.markScheme || '';
+      wrap.appendChild(scheme);
+      function revealScheme() { if (part.markScheme) scheme.style.display = ''; if (typeof renderMathIn === 'function') renderMathIn(wrap); }
+
+      if (part.numeric && Object.keys(part.numeric).length) {
+        // AUTO-marked numeric part
+        var keys = Object.keys(part.numeric), inputs = {};
+        keys.forEach(function (id) {
+          var k = part.numeric[id];
+          if (k.label || keys.length > 1) body.appendChild(el('div', 'csew-lines-label', k.label || ('Answer ' + id)));
+          var inp = document.createElement('input');
+          inp.type = 'text'; inp.className = 'csew-numeric'; inp.autocomplete = 'off'; inp.spellcheck = false;
+          inputs[id] = inp; body.appendChild(inp);
+        });
+        var chk = btn('✓ Check'); body.appendChild(chk);
+        var fb = el('div', 'csew-numeric-fb'); body.appendChild(fb);
+        var done = false;
+        function grade() {
+          if (done) return; done = true;
+          var c = 0;
+          keys.forEach(function (id) {
+            var okv = numericKeyCorrect(inputs[id].value, part.numeric[id]);
+            inputs[id].classList.toggle('csew-correct', okv);
+            inputs[id].classList.toggle('csew-incorrect', !okv);
+            inputs[id].disabled = true; if (okv) c++;
+          });
+          var m = Math.round(pmax * c / keys.length); awarded[i] = m; chk.disabled = true;
+          fb.className = 'csew-numeric-fb ' + (c === keys.length ? 'ok' : 'no');
+          fb.textContent = (c === keys.length ? 'Correct' : (c ? 'Partly right' : 'Not correct')) + ' — ' + m + ' / ' + pmax;
+          revealScheme(); maybeSave();
+        }
+        chk.addEventListener('click', grade);
+        keys.forEach(function (id) { inputs[id].addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); grade(); } }); });
+        pctl.push({
+          getState: function () { var v = {}; keys.forEach(function (id) { v[id] = inputs[id].value; }); return { kind: 'numeric', values: v, _mark: awarded[i] }; },
+          restore: function (st, locked) { if (st && st.values) keys.forEach(function (id) { if (st.values[id] != null) inputs[id].value = st.values[id]; }); if (locked) grade(); },
+        });
+      } else {
+        // SELF-marked written part (method / working marks)
+        var ta = makeLineBox(clampLines(part.lines || Math.ceil(pmax || 1))); body.appendChild(ta);
+        var submit = btn('📋 Submit part'); body.appendChild(submit);
+        var panelHandle = null, savedState = null;
+        function answerState() { return { text: ta.value }; }
+        function openPanel(restoreState, lockedMark) {
+          submit.disabled = true; ta.disabled = true; revealScheme();
+          panelHandle = buildSelfMarkPanel(body, { marks: pmax, markScheme: part.markScheme, markPoints: part.markPoints },
+            { reveal: function () {}, save: function (pl) { awarded[i] = pl.mark; savedState = pl.state; maybeSave(); } }, answerState);
+          if (restoreState) panelHandle.restore(restoreState, lockedMark);
+        }
+        submit.addEventListener('click', function () { openPanel(); });
+        pctl.push({
+          getState: function () { return Object.assign({ kind: 'written' }, savedState || answerState(), awarded[i] != null ? { _mark: awarded[i] } : {}); },
+          restore: function (st, locked) { if (st && st.text != null) { ta.value = st.text; autoGrow(ta); } if (locked) openPanel(st, st && st._mark != null ? st._mark : undefined); },
+        });
+      }
+    });
+
+    return {
+      getState: function () { return { parts: pctl.map(function (c) { return c.getState(); }) }; },
+      setState: function (s, locked) { if (s && s.parts) pctl.forEach(function (c, i) { c.restore(s.parts[i], locked); }); },
+    };
+  }
+
   window.CsExamWidgets = {
     register: function (format, factory) { factories[format] = factory; },
     supports: function (format) { return !!factories[format]; },
@@ -489,9 +700,15 @@
       el: el, btn: btn, injectStyleOnce: injectStyleOnce,
       parseMarkPoints: parseMarkPoints, buildSelfMarkPanel: buildSelfMarkPanel,
       lockPanel: lockPanel, bandsFor: bandsFor,
+      // numeric normalisation/compare — exposed so tests (and any future
+      // caller) use the SAME logic the server graders mirror.
+      normNumeric: normNumeric, evalNumericValue: evalNumericValue,
+      numericAnswerCorrect: numericKeyCorrect,
     },
   };
 
   window.CsExamWidgets.register('lines', mountLines);
   window.CsExamWidgets.register('banded', mountBanded);
+  window.CsExamWidgets.register('numeric', mountNumeric);
+  window.CsExamWidgets.register('mathParts', mountMathParts);
 })();

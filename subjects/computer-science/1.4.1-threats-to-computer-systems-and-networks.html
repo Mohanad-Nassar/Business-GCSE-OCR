@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.4 Network Security</div>
             <h1>1.4.1 Threats to Computer Systems and Networks</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.4.1 Threats to Computer Systems and Networks — placeholder, content not yet written
+    //  DATA: 1.4.1 Threats to Computer Systems and Networks
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-4-1-threats-to-computer-systems-and-networks',
@@ -268,21 +268,1290 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.4.1 Threats to Computer Systems and Networks</strong> will appear here soon.</p>`
+            title: "What is malware, and what can it actually do?",
+            tag: "Key concept",
+            content: `<h4>Malware = malicious software</h4>
+<ul>
+<li><strong>Malware</strong> is any software that has been deliberately written to damage, disrupt, or gain unauthorised access to a computer system or network.</li>
+<li>It is defined by what it was designed to DO, not by how it arrives — malware can reach a victim through an email attachment, an infected download, a fake app, or an infected USB stick.</li>
+<li>Once it is running, malware can: <strong>delete or corrupt</strong> files, <strong>lock a user out</strong> of their own data, <strong>steal</strong> personal or financial information, <strong>spy</strong> on what a user types or does, or quietly use the victim's computer to help attack somebody else.</li>
+</ul>
+<h4>One family, several very different shapes</h4>
+<ul>
+<li>"Malware" is an umbrella term. A <strong>virus</strong>, a <strong>worm</strong>, a <strong>trojan</strong>, <strong>ransomware</strong> and <strong>spyware</strong> are all different shapes of malware — each one spreads in a different way and does a different job once it is running.</li>
+<li>The exam skill across this whole family is telling these shapes apart: HOW each one spreads, and WHAT it actually does to the victim.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is the best definition of malware?",
+                opts: ["Any fault in a computer's hardware that causes it to run more slowly than usual over time", "Software deliberately written to damage, disrupt or gain unauthorised access to a system", "A weak password that is easy for an attacker to guess correctly", "Any file that has become too large for its storage device to hold comfortably"],
+                ans: 1,
+                explain: "Malware is defined by its deliberate, malicious purpose — the other options describe unrelated hardware or password issues, not malicious software."
+            }
+        },
+        {
+            title: "Computer viruses — how do they spread?",
+            tag: "Key concept",
+            content: `<h4>A virus needs a host — and needs the user to run it</h4>
+<ul>
+<li>A <strong>virus</strong> is malware that attaches itself to a legitimate file or program (its "host").</li>
+<li>Crucially, a virus <strong>cannot spread on its own</strong> — it only starts spreading once a user runs (opens or executes) the infected host file, for example by opening an infected document or launching an infected program.</li>
+<li>Once run, it can copy itself into other files or programs on the same computer, and often tries to spread further when an infected file is shared, e.g. emailed to someone else or copied onto a USB stick.</li>
+<li>Because it depends on user action, avoiding suspicious downloads and attachments is a genuinely effective defence against a virus.</li>
+</ul>`,
+            readCheck: {
+                q: "What must happen before a virus can start to spread?",
+                opts: ["A user must run (open) the infected file it is attached to", "The computer must be connected to the internet for more than an hour", "Another piece of malware must already be installed on the computer", "The computer's antivirus software must be switched off completely"],
+                ans: 0,
+                explain: "A virus is inactive until the infected host file is actually run — that single action is what triggers it to start copying itself."
+            }
+        },
+        {
+            title: "Worms — spreading without any help from the user",
+            tag: "Comparison",
+            content: `<h4>Self-replicating, and needs no user action at all</h4>
+<ul>
+<li>A <strong>worm</strong> is malware that can copy (replicate) itself and spread across a network entirely <strong>by itself</strong>.</li>
+<li>Unlike a virus, a worm does <strong>not</strong> need a user to open an infected file, click a link, or take any action whatsoever — it can move from computer to computer on its own, often by exploiting a weakness (vulnerability) in software or in how a network is set up.</li>
+<li>Because it spreads unaided, a worm can infect huge numbers of computers extremely quickly once it is loose on a network.</li>
+</ul>
+<h4>The exam's favourite contrast</h4>
+<ul>
+<li><strong>Virus</strong> = needs the user to run an infected file. <strong>Worm</strong> = spreads completely on its own. If a question describes malware spreading "without the user doing anything", it is describing a worm, not a virus.</li>
+</ul>`,
+            readCheck: {
+                q: "What makes a worm different from a virus?",
+                opts: ["A worm only affects computers that are not connected to any network", "A worm can spread across a network by itself, without any user action", "A worm cannot copy itself onto any other computer at all", "A worm always needs a matching virus to already be present before it is able to run at all"],
+                ans: 1,
+                explain: "A worm is fully self-replicating and self-spreading — it needs no user action, which is exactly what separates it from a virus."
+            }
+        },
+        {
+            title: "Trojans — malware in disguise",
+            tag: "Key concept",
+            content: `<h4>Willingly installed, not self-replicating</h4>
+<ul>
+<li>A <strong>trojan</strong> disguises itself as legitimate, useful or wanted software — a free game, a "helpful" tool, a cracked version of paid software — so the victim installs it <strong>willingly</strong>, believing it is safe.</li>
+<li>Once installed, a trojan can do many things: open a hidden "backdoor" for an attacker, steal data, or quietly install further malware.</li>
+<li>The key exam fact: a trojan does <strong>NOT</strong> self-replicate. Unlike a virus or a worm, it does not copy itself onto other files or other computers — it relies entirely on tricking a person into installing it in the first place.</li>
+</ul>`,
+            readCheck: {
+                q: "Which statement about trojans is correct?",
+                opts: ["A trojan copies itself onto other files completely automatically, spreading in exactly the same way as a virus does", "A trojan disguises itself as wanted software and does not copy itself onto other files", "A trojan can only run on computers that are not connected to the internet", "A trojan always encrypts a victim's files and demands a ransom payment"],
+                ans: 1,
+                explain: "A trojan tricks the user into installing it by pretending to be something wanted — but unlike a virus or worm, it does not self-replicate."
+            }
+        },
+        {
+            title: "Ransomware — locking a victim out of their own files",
+            tag: "Key concept",
+            content: `<h4>Encrypts first, then demands payment</h4>
+<ul>
+<li><strong>Ransomware</strong> is malware that <strong>encrypts</strong> the victim's files, scrambling them using a key that only the attacker holds.</li>
+<li>Once the files are encrypted, the victim can no longer open or use them — the attacker then demands a <strong>ransom payment</strong> (often in cryptocurrency) in exchange for the decryption key needed to unlock the files again.</li>
+<li>The files are not deleted or stolen in the usual sense — they still exist on the victim's computer, just locked. Paying the ransom is never guaranteed to actually restore access, which is why businesses are advised to keep secure backups instead of relying on payment.</li>
+</ul>`,
+            readCheck: {
+                q: "What does ransomware specifically do to a victim's files?",
+                opts: ["It permanently deletes every file stored on the infected computer", "It encrypts the files and demands payment for the key to unlock them", "It slowly and permanently corrupts each individual file until none of them will open properly", "It copies every file onto a hidden folder on the same hard drive"],
+                ans: 1,
+                explain: "Ransomware's defining feature is encryption plus a ransom demand — the files still exist, but the victim cannot access them without the attacker's key."
+            }
+        },
+        {
+            title: "Spyware and keyloggers — watching in secret",
+            tag: "Key concept",
+            content: `<h4>Designed to go unnoticed</h4>
+<ul>
+<li><strong>Spyware</strong> is malware that secretly monitors a user's activity — which websites they visit, what files they open, even what is shown on their screen — and sends that information back to an attacker.</li>
+<li>A <strong>keylogger</strong> is a specific type of spyware that records every key a user presses. Because it captures exactly what is typed, a keylogger is especially effective at stealing <strong>passwords</strong> and other sensitive text the moment the victim types it in.</li>
+<li>Both are dangerous specifically because they are hard to notice — unlike ransomware, which announces itself with a ransom demand, spyware works best when the victim has no idea it is there at all.</li>
+</ul>`,
+            readCheck: {
+                q: "What is a keylogger specifically designed to record?",
+                opts: ["Every key a user presses on their keyboard, including passwords", "The total number of hours a computer has been switched on", "How many files are currently saved on the computer's hard drive", "The exact temperature of the computer's processor over time"],
+                ans: 0,
+                explain: "A keylogger records keystrokes — that means it can capture passwords, messages and other sensitive text exactly as the victim types them."
+            }
+        },
+        {
+            title: "What is social engineering, and why do people matter so much?",
+            tag: "Key concept",
+            content: `<h4>Attacking the person, not the software</h4>
+<ul>
+<li><strong>Social engineering</strong> means manipulating a PERSON, rather than exploiting a weakness in software, into revealing information or breaking normal security procedures.</li>
+<li>It works because people can be trusting, busy, polite, or afraid of getting into trouble — an attacker exploits exactly those very human instincts.</li>
+<li>This is why people are often called <strong>"the weakest link"</strong> in security: even the strongest encryption, firewall or password policy is useless if a person can simply be talked into handing over access voluntarily.</li>
+</ul>`,
+            readCheck: {
+                q: "What does a social engineering attack primarily target?",
+                opts: ["A weakness in a website's encryption algorithm", "A person, by manipulating them into giving up information or access", "A gap in a network's physical cabling", "An out-of-date version of an operating system that has never been patched or updated"],
+                ans: 1,
+                explain: "Social engineering bypasses technical security entirely by targeting a person's trust, habits or fear — not a flaw in the software itself."
+            }
+        },
+        {
+            title: "Phishing — the most common social engineering attack",
+            tag: "Real world",
+            content: `<h4>Fake messages from a 'trusted' source</h4>
+<ul>
+<li><strong>Phishing</strong> uses fake emails, text messages or websites that <strong>impersonate a trusted organisation</strong> — a bank, a delivery company, a school, an online shop — to trick the victim.</li>
+<li>The goal is usually to get the victim to click a malicious link, download an infected attachment, or type their username, password or card details directly into a fake login page.</li>
+<li>Common warning signs: an urgent or threatening tone ("your account will be closed"), a sender address that looks almost right but isn't, generic greetings ("Dear Customer"), and links that don't quite match the real organisation's website.</li>
+</ul>`,
+            readCheck: {
+                q: "What is phishing?",
+                opts: ["Automatically guessing thousands of different password combinations very quickly using software", "Fake messages that impersonate a trusted organisation to trick a victim", "Physically watching someone type their password over their shoulder", "Flooding a website with traffic so genuine users cannot access it"],
+                ans: 1,
+                explain: "Phishing is a type of social engineering built entirely around impersonating a trusted sender to trick the victim into acting."
+            }
+        },
+        {
+            title: "Blagging and shouldering — two more social engineering tricks",
+            tag: "Key concept",
+            content: `<h4>Blagging (pretexting) — inventing a story</h4>
+<ul>
+<li><strong>Blagging</strong>, also called pretexting, means inventing a false scenario — a "pretext" — to persuade a victim into handing over information or access. For example, an attacker phones pretending to be from the IT department and asks a member of staff to "confirm" their password.</li>
+</ul>
+<h4>Shouldering (shoulder surfing) — watching, not talking</h4>
+<ul>
+<li><strong>Shouldering</strong> means simply watching over someone's shoulder as they type a password, PIN or other sensitive information — at an ATM, on a laptop on a train, or at a login screen.</li>
+<li>It requires no technical skill at all, just observation, which makes it easy to defend against (shielding the keypad, being aware of who is nearby) but easy to fall for if a victim isn't paying attention.</li>
+</ul>`,
+            readCheck: {
+                q: "An attacker phones an employee, pretends to be from the company's IT support team, and persuades them to reveal their password. What is this an example of?",
+                opts: ["Shouldering", "Blagging (pretexting)", "A brute-force attack", "A denial of service attack"],
+                ans: 1,
+                explain: "Inventing a false scenario — posing as IT support — to talk a victim out of information is exactly what blagging (pretexting) means."
+            }
+        },
+        {
+            title: "Brute-force attacks — guessing at speed",
+            tag: "Key concept",
+            content: `<h4>Trying every possible combination</h4>
+<ul>
+<li>A <strong>brute-force attack</strong> uses software to automatically try huge numbers of possible password combinations, one after another, until it finds the one that works.</li>
+<li>It doesn't rely on tricking a person at all, unlike social engineering — it is a purely technical attack on the login system itself.</li>
+<li>A short, simple password has far fewer possible combinations, so it can be cracked quickly. A long password mixing upper/lower case letters, numbers and symbols has vastly more possible combinations, making the attack take far longer — often long enough to be impractical.</li>
+<li>Systems can defend against brute-force attacks by locking an account after a small number of failed attempts, or by slowing down each login attempt.</li>
+</ul>`,
+            readCheck: {
+                q: "What does a brute-force attack do?",
+                opts: ["It tricks a victim into revealing their password directly", "It automatically tries huge numbers of password combinations until one works", "It floods a login page with an overwhelming amount of traffic so that nobody at all can access it", "It secretly records every key a victim presses while they type"],
+                ans: 1,
+                explain: "A brute-force attack is a purely automated, technical guessing attack — it does not involve tricking the victim or flooding a server."
+            }
+        },
+        {
+            title: "Denial of Service and DDoS — making a service unavailable",
+            tag: "Comparison",
+            content: `<h4>DoS: flooding, not stealing</h4>
+<ul>
+<li>A <strong>Denial of Service (DoS)</strong> attack floods a server with an overwhelming number of requests, using up its resources until it can no longer respond to genuine users.</li>
+<li>Crucially, a DoS attack does <strong>NOT</strong> steal, read or change any data — the goal is purely to make a service <strong>unavailable</strong>, not to break into it.</li>
+</ul>
+<h4>DDoS: the same idea, from many directions at once</h4>
+<ul>
+<li>A <strong>Distributed</strong> Denial of Service (DDoS) attack is the same idea, but the flood of traffic comes from <strong>many different computers at once</strong> — usually a <strong>botnet</strong>, a large network of computers that have already been infected with malware and are being secretly controlled by the attacker.</li>
+<li>A DDoS attack is much harder to stop than a single-source DoS attack, because the traffic arrives from thousands of different addresses simultaneously — blocking one source does nothing, since traffic keeps arriving from all the others.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the main purpose of a Denial of Service attack?",
+                opts: ["To read, copy and secretly transfer sensitive data stored on the target server", "To make a server or service unavailable to its genuine users", "To secretly install spyware onto the target's computer", "To trick a specific employee into revealing their password"],
+                ans: 1,
+                explain: "A DoS/DDoS attack is about availability, not data — it floods a service so genuine users cannot use it, without stealing or altering anything."
+            }
+        },
+        {
+            title: "Data interception and theft",
+            tag: "Key concept",
+            content: `<h4>Catching data as it travels</h4>
+<ul>
+<li><strong>Data interception</strong> means capturing data while it is travelling across a network, rather than attacking the computer that stores it — sometimes called <strong>packet sniffing</strong> or eavesdropping.</li>
+<li>This is a particular risk on <strong>unsecured (unencrypted) networks</strong>, such as open public Wi-Fi in a café or airport, where data can travel in a form an attacker can simply read.</li>
+<li>Intercepted data might include login details, card or payment information, or private messages — anything the victim sends while connected.</li>
+<li>Encrypting data before it is sent, so it looks scrambled to anyone intercepting it, is the main defence — which is why sites using HTTPS are considered much safer for entering sensitive information than ones that don't.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is sending sensitive data over an unsecured public Wi-Fi network risky?",
+                opts: ["Public Wi-Fi automatically shares your files with every other connected device", "An attacker can more easily intercept and read data as it travels across the network", "Unsecured networks can physically damage any device that attempts to connect to them at all", "Public Wi-Fi routers can only be used by one device at any given time"],
+                ans: 1,
+                explain: "Without encryption, data travelling across the network can be captured ('sniffed') and read directly by anyone intercepting it."
+            }
+        },
+        {
+            title: "SQL injection — attacking a database through an input box",
+            tag: "Key concept",
+            content: `<h4>Typing code where data was expected</h4>
+<ul>
+<li>Many websites store information — usernames, orders, product details — in a <strong>database</strong>, and use a language called <strong>SQL</strong> to read from and write to it.</li>
+<li>A <strong>SQL injection</strong> attack means typing malicious SQL code into a website's input box, such as a login box or a search box, instead of the data the box was expecting.</li>
+<li>If the website doesn't check its input properly, that malicious code gets passed straight into the database's real command — letting the attacker <strong>view</strong>, <strong>change</strong> or <strong>delete</strong> data they should never see, or even log in without knowing a real password at all.</li>
+</ul>`,
+            readCheck: {
+                q: "What does a SQL injection attack involve?",
+                opts: ["Flooding a database server with an enormous, continuous number of requests all at once", "Entering malicious SQL code into a website's input box to attack its database", "Physically stealing the hard drive that a database is stored on", "Guessing a database administrator's password using automated software"],
+                ans: 1,
+                explain: "SQL injection specifically exploits an input box that doesn't check its data properly, letting malicious SQL code reach the real database command."
+            }
+        },
+        {
+            title: "Why people and poor policy really are the weakest link",
+            tag: "Exam skill",
+            content: `<h4>Technology can only do so much</h4>
+<ul>
+<li>A business can install the best anti-malware, firewalls and encryption available — and still be compromised, because so many attacks target <strong>people</strong> and <strong>policy</strong> rather than the technology itself.</li>
+<li>Common weak points: <strong>weak or reused passwords</strong> that a brute-force attack can crack quickly; <strong>unpatched (out-of-date) software</strong> that still has known vulnerabilities a worm or attacker can exploit; and a lack of <strong>user access levels</strong>, meaning any single compromised account can reach far more data than it should.</li>
+<li>This is exactly why social engineering attacks like phishing remain so effective: no software flaw is required at all if a person can simply be persuaded to hand over what an attacker needs.</li>
+<li>This topic sets up the next one directly — <strong>1.4.2</strong> covers the specific defences (passwords, access levels, firewalls, training and more) that exist to close each of these weak points.</li>
+</ul>`,
+            readCheck: {
+                q: "Why can a business with strong technical security still be successfully attacked?",
+                opts: ["Because firewalls and anti-malware software automatically stop working properly after about one year", "Because attacks like social engineering target people and policy, not just technology", "Because encryption always slows a network down too much to be practical", "Because antivirus software cannot be installed on more than one computer"],
+                ans: 1,
+                explain: "Weak passwords, unpatched software and susceptible people all create openings that no amount of purely technical security can close on its own."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "Which type of malware needs a user to run an infected file before it can spread to other files?",
+            opts: ["A worm, since it copies itself and spreads automatically across an entire network without any user action", "A virus, since it attaches to a file and needs that file to be run", "A trojan, since it disguises itself as wanted software", "Ransomware, since it encrypts files as soon as it is downloaded"],
+            ans: 1,
+            explain: "A virus depends entirely on the user running its infected host file — that is what separates it from a worm, which spreads unaided."
+        },
+        {
+            q: "Which statement about worms is correct?",
+            opts: ["A worm needs the user to open an infected file before it can spread", "A worm copies itself across a network without any action from the user", "A worm disguises itself as useful software the user chooses to install", "A worm can only infect one single computer and cannot spread further"],
+            ans: 1,
+            explain: "A worm is self-replicating and spreads across a network entirely by itself, with no user action required."
+        },
+        {
+            q: "What makes a trojan different from a virus or a worm?",
+            opts: ["A trojan spreads automatically across a network with no user action", "A trojan does not copy itself onto other files or other computers", "A trojan can only affect files stored on a removable USB drive", "A trojan is not capable of stealing or damaging any data at all"],
+            ans: 1,
+            explain: "A trojan tricks a user into installing it by disguising itself as wanted software, but unlike a virus or worm it does not self-replicate."
+        },
+        {
+            q: "What does ransomware do to a victim's files?",
+            opts: ["It permanently deletes every file stored on the computer, leaving nothing behind to recover", "It encrypts the files and demands payment for the decryption key", "It slows the computer down until the files can no longer open", "It copies the files onto the attacker's own computer only"],
+            ans: 1,
+            explain: "Ransomware encrypts the victim's files and holds the decryption key to ransom — the files still exist, but cannot be opened without paying."
+        },
+        {
+            q: "What is the main purpose of spyware?",
+            opts: ["To secretly monitor a user's activity and steal information such as passwords", "To flood a server with an overwhelming amount of traffic so real users cannot access it at all", "To display unwanted adverts whenever the user opens a browser", "To physically damage the storage device a computer is using"],
+            ans: 0,
+            explain: "Spyware is designed to go unnoticed while it secretly monitors what a user does and sends that information back to an attacker."
+        },
+        {
+            q: "Why are people often described as 'the weakest link' in computer security?",
+            opts: ["Because most computers are physically weaker and more prone to hardware failure than the software running on them", "Because a person can be tricked or manipulated into bypassing strong technical security", "Because human passwords are always stored using weaker encryption than files", "Because people are legally not allowed to report a suspected cyber-attack"],
+            ans: 1,
+            explain: "Even the strongest technical defences are useless if an attacker can simply persuade a person to hand over access voluntarily."
+        },
+        {
+            q: "An employee receives an email that looks like it is from their bank, asking them to click a link and confirm their account password. What type of attack is this?",
+            opts: ["Brute-force attack", "Phishing", "Denial of Service", "SQL injection"],
+            ans: 1,
+            explain: "A fake message impersonating a trusted organisation (the bank) to trick the victim into revealing details is a classic phishing attack."
+        },
+        {
+            q: "What is 'blagging' (pretexting) in the context of social engineering?",
+            opts: ["Automatically guessing thousands of possible password combinations very quickly using software", "Inventing a false scenario to persuade a victim into giving up information", "Watching over someone's shoulder as they type in a password", "Flooding a company's server with fake requests until it crashes"],
+            ans: 1,
+            explain: "Blagging (pretexting) means making up a believable false story to talk a victim into handing over information or access."
+        },
+        {
+            q: "A website locks a user's account for ten minutes after five incorrect password attempts in a row. Which attack is this rule specifically designed to slow down?",
+            opts: ["Phishing", "SQL injection", "Brute-force attack", "A denial of service attack"],
+            ans: 2,
+            explain: "Locking an account after repeated failed logins directly targets brute-force attacks, which rely on trying combination after combination quickly."
+        },
+        {
+            q: "A shopping website suddenly becomes very slow and eventually stops responding after receiving an enormous, coordinated surge of traffic from thousands of different computers at once. What is this attack most likely to be?",
+            opts: ["A virus infection", "A distributed denial of service (DDoS) attack", "A single trojan that was secretly installed on the server by an employee", "A SQL injection attack"],
+            ans: 1,
+            explain: "Traffic arriving from thousands of different computers at once, aimed at overwhelming the server, is the defining feature of a DDoS attack."
+        },
+        {
+            q: "Why is using an unsecured public Wi-Fi network risky for sending personal data?",
+            opts: ["The Wi-Fi signal automatically deletes any data sent over it", "Data sent over the network can more easily be intercepted and read by an attacker", "Unsecured networks always run at a much slower connection speed than properly secured ones", "Public Wi-Fi routers cannot connect to more than one device at a time"],
+            ans: 1,
+            explain: "Without encryption, data travelling across an unsecured network can be captured and read by anyone intercepting it."
+        },
+        {
+            q: "What does a SQL injection attack involve?",
+            opts: ["Overloading a server with an enormous number of simultaneous requests until it can no longer respond", "Entering malicious code into a website's input box to manipulate its database", "Physically watching a user type their password into a system", "Sending a fake email that pretends to be from a trusted organisation"],
+            ans: 1,
+            explain: "SQL injection means typing malicious SQL code into an input box so the database runs the attacker's command instead of the expected one."
+        }
+    ];
+
+    const matchData = [
+        { term: "Malware", def: "Software deliberately written to damage, disrupt or gain unauthorised access to a system" },
+        { term: "Virus", def: "Attaches itself to a file or program and spreads when a user runs the infected host file" },
+        { term: "Worm", def: "Self-replicating malware that spreads across a network by itself, without any user action" },
+        { term: "Trojan", def: "Malware disguised as legitimate, wanted software that a user installs willingly; does not self-replicate" },
+        { term: "Ransomware", def: "Encrypts a victim's files and demands payment in exchange for the decryption key" },
+        { term: "Spyware", def: "Secretly monitors a user's activity and sends the information back to an attacker" },
+        { term: "Social engineering", def: "Manipulating a person, rather than a system, into revealing information or breaking security procedures" },
+        { term: "Phishing", def: "Fake emails, texts or websites that impersonate a trusted organisation to trick a user into revealing details" },
+        { term: "Blagging (pretexting)", def: "Inventing a false scenario to persuade a victim into handing over information or access" },
+        { term: "Shouldering (shoulder surfing)", def: "Watching over someone's shoulder as they type a password or enter other sensitive information" },
+        { term: "Brute-force attack", def: "Automatically trying huge numbers of password combinations until the correct one is found" },
+        { term: "Denial of Service (DoS)", def: "Flooding a server with traffic so that it cannot respond to genuine users' requests" },
+        { term: "Data interception", def: "Capturing data as it travels across a network, especially an unsecured one" },
+        { term: "SQL injection", def: "Entering malicious SQL code into an input box to read, change or damage a database" }
+    ];
+
+    const fibData = [
+        {
+            display: "A _____ attaches itself to a file or program and can only spread once a user runs that infected file.",
+            blanks: { B1: "virus" }
+        },
+        {
+            display: "A _____ is malware that self-replicates and spreads across a network on its own, without the user doing anything.",
+            blanks: { B1: "worm" }
+        },
+        {
+            display: "A _____ disguises itself as wanted, legitimate software, but unlike a virus or worm it does not copy itself onto other files.",
+            blanks: { B1: "trojan" }
+        },
+        {
+            display: "_____ encrypts a victim's files and demands a payment before the attacker will provide the key to unlock them again.",
+            blanks: { B1: "ransomware" }
+        },
+        {
+            display: "_____ secretly monitors what a user does, often to steal passwords or other personal data.",
+            blanks: { B1: "spyware" }
+        },
+        {
+            display: "_____ is a type of social engineering that uses fake emails, texts or websites pretending to be a trusted organisation.",
+            blanks: { B1: "phishing" }
+        },
+        {
+            display: "A _____ attack tries huge numbers of password combinations automatically until it finds the correct one.",
+            blanks: { B1: "brute-force" }
+        },
+        {
+            display: "A distributed denial of service attack uses a _____, a network of infected computers controlled by an attacker, to flood a server with traffic from many directions at once.",
+            blanks: { B1: "botnet" }
+        }
+    ];
+    const fibWords = ["virus", "worm", "trojan", "ransomware", "spyware", "phishing", "brute-force", "botnet"];
+
+    const tfData = [
+        {
+            statement: "A worm needs the user to open an infected file before it can spread.",
+            answer: false,
+            explanation: "That describes a virus. A worm spreads across a network entirely by itself, without needing any action from the user."
+        },
+        {
+            statement: "A trojan copies itself onto other files, spreading in the same way as a virus.",
+            answer: false,
+            explanation: "A trojan does NOT self-replicate. It relies on tricking the user into installing it by disguising itself as wanted software."
+        },
+        {
+            statement: "Ransomware encrypts a victim's files rather than simply hiding or deleting them.",
+            answer: true,
+            explanation: "Correct — ransomware scrambles the files with an encryption key and demands payment for the key needed to unlock them."
+        },
+        {
+            statement: "Social engineering attacks target weaknesses in software, rather than weaknesses in people.",
+            answer: false,
+            explanation: "It's the opposite — social engineering deliberately targets a PERSON, manipulating them, rather than exploiting a technical software flaw."
+        },
+        {
+            statement: "Phishing is a type of social engineering attack.",
+            answer: true,
+            explanation: "Correct — phishing tricks a person using a fake message impersonating a trusted organisation, which makes it a form of social engineering."
+        },
+        {
+            statement: "A Denial of Service attack is designed to steal data from a server.",
+            answer: false,
+            explanation: "A DoS attack does not steal or alter any data — it floods a server so genuine users cannot access it. Stealing data is not its purpose."
+        },
+        {
+            statement: "A brute-force attack tries many possible passwords automatically until one works.",
+            answer: true,
+            explanation: "Correct — brute-force attacks are a purely automated, technical guessing attack against a login system."
+        },
+        {
+            statement: "SQL injection involves entering malicious code into an input box to attack a database.",
+            answer: true,
+            explanation: "Correct — the attacker types SQL code into a box like a login or search field, hoping the website passes it straight into a database command."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Thinking a virus and a worm are basically the same thing because both 'infect' a computer.",
+            correct: "A <strong>virus</strong> attaches to a file and only spreads once a user RUNS that infected file — it needs human action. A <strong>worm</strong> is fully self-replicating: it spreads across a network by itself, with no user action needed at all. That difference — needs the user, or doesn't — is the exam's favourite trap on this pair.",
+            readCheck: {
+                q: "What is the key difference between a virus and a worm?",
+                opts: ["A virus only affects mobile devices, while a worm only affects desktop computers", "A virus needs the user to run an infected file; a worm spreads by itself", "A worm can be removed by antivirus software, but a virus cannot", "A virus always demands a ransom payment, while a worm never does"],
+                ans: 1,
+                explain: "A virus depends on the user running an infected host file; a worm spreads across a network entirely on its own."
+            }
+        },
+        {
+            wrong: "Believing a trojan copies itself onto other files and spreads like a virus, because it's 'in the malware family'.",
+            correct: "A <strong>trojan</strong> does NOT self-replicate. It disguises itself as software the user actually WANTS and installs willingly — a free game, a 'useful' tool. The trick is in the disguise, not in copying itself onto other files.",
+            readCheck: {
+                q: "Why doesn't a trojan need to copy itself onto other files to spread?",
+                opts: ["Because it relies on the user willingly installing it, believing it is wanted software", "Because it can only ever infect a single computer before being destroyed immediately afterwards", "Because trojans are always removed automatically within a few minutes", "Because trojans only exist as physical malware on USB sticks"],
+                ans: 0,
+                explain: "A trojan's method is deception, not replication — the victim installs it themselves because it looks like something they want."
+            }
+        },
+        {
+            wrong: "Assuming ransomware just hides or deletes a victim's files.",
+            correct: "Ransomware specifically <strong>encrypts</strong> the victim's files, scrambling them with a key only the attacker holds, then demands a ransom payment in exchange for that key. The files still exist — they are locked, not gone — though there is no guarantee paying gets them back.",
+            readCheck: {
+                q: "What actually happens to a victim's files during a ransomware attack?",
+                opts: ["They are permanently and irreversibly deleted from every location on the computer", "They are encrypted, so they still exist but cannot be opened without a key", "They are copied to a public website for anyone to view", "They are automatically backed up to a secure server"],
+                ans: 1,
+                explain: "Ransomware locks files using encryption — the files are not deleted, but they cannot be used without the attacker's decryption key."
+            }
+        },
+        {
+            wrong: "Thinking social engineering means hacking into a system using code.",
+            correct: "Social engineering has nothing to do with exploiting software — it means manipulating a PERSON into handing over information or access voluntarily, using a fake phone call, email or pretext. It is called 'the weakest link' precisely because these tricks bypass technical security altogether.",
+            readCheck: {
+                q: "Why is social engineering not considered a technical (software-based) attack?",
+                opts: ["Because it always requires very expensive, specialist hacking equipment to carry out successfully", "Because it works by manipulating a person, not by exploiting a flaw in software", "Because it can only be carried out over a telephone, never online", "Because social engineering attacks are illegal in every country in the world"],
+                ans: 1,
+                explain: "Social engineering succeeds by tricking a human being, so it bypasses technical defences completely — no software vulnerability is required."
+            }
+        },
+        {
+            wrong: "Believing a Denial of Service attack steals or damages the data on a server.",
+            correct: "A DoS attack does not touch the data at all — it floods the server with so many requests that it cannot respond to genuine users. The goal is to make a service UNAVAILABLE, not to read, copy or change anything stored on it.",
+            readCheck: {
+                q: "What does a Denial of Service attack actually achieve if it succeeds?",
+                opts: ["It quietly steals and copies the login details of every user who happens to visit the site", "It makes the service unavailable to genuine users, without touching the data", "It quietly rewrites the data stored in the server's database", "It installs ransomware onto every device that connects to the server"],
+                ans: 1,
+                explain: "A DoS attack's entire goal is denying access — it overwhelms the server's resources rather than interacting with the data stored on it."
+            }
+        },
+        {
+            wrong: "Assuming SQL injection is a network-based attack, like intercepting data as it travels.",
+            correct: "SQL injection targets a website's <strong>database</strong> through an input field, such as a login box, not the network connection. The attacker types malicious SQL code instead of a normal username, tricking the database into running a command it shouldn't.",
+            readCheck: {
+                q: "What does a SQL injection attack actually target?",
+                opts: ["Data as it travels across a network connection", "A website's database, through an input box such as a login or search field", "The physical cabling and hardware connecting a server directly to the internet", "A user's keyboard, by recording every key they press"],
+                ans: 1,
+                explain: "SQL injection exploits a website input field that fails to check its data properly, letting malicious code reach the real database command."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "Command-word ladder: a 3-mark 'Describe how a worm spreads'",
+            pills: ["AO1", "3 marks", "Describe", "Mechanism"],
+            content: `<p>A typical question: <em>"Describe how a worm is able to spread from one computer to another across a network."</em> [3 marks] Here is the same answer at every level:</p>
+
+<p><strong>❌ 0 marks:</strong> "A worm is a type of virus that spreads to other computers."</p>
+<ul>
+<li>Calling a worm "a type of virus" is itself a factual error, and nothing about the MECHANISM of spreading is explained.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "A worm copies itself and spreads to other computers."</p>
+<ul>
+<li>Technically true, but far too vague for 3 marks. It doesn't say HOW it spreads (across a network) or that it needs no user action — the two facts that actually earn the extra marks.</li>
+</ul>
+
+<p><strong>✅ 3 marks:</strong> "A worm is able to make copies of itself <strong>(1)</strong>. It spreads across a network entirely by itself, without needing a user to open a file or take any action <strong>(1)</strong>. It typically does this by exploiting a weakness in software or in the network to move from one computer to the next <strong>(1)</strong>."</p>
+
+<p><strong>Why this matters:</strong> "Describe" at 3 marks nearly always wants a chain of separate, specific facts — not one vague sentence repeated in different words. Naming the mechanism (self-replication), the key distinguishing detail (no user action) and how it actually moves (exploiting a weakness) is what separates 1 mark from full marks.</p>`,
+            readCheck: {
+                q: "A student writes only 'A worm copies itself and spreads to other computers' for this 3-mark question. What is most likely missing for full marks?",
+                opts: ["Nothing at all — the answer already explains the full spreading mechanism perfectly clearly", "The detail that it spreads without user action, and how it moves across the network", "A diagram showing the worm's binary code in full", "The exact date the first computer worm was ever created"],
+                ans: 1,
+                explain: "The answer is too vague — it needs the specific facts that a worm needs no user action and typically exploits a weakness to move between computers."
+            }
+        },
+        {
+            type: "tip",
+            title: "Telling virus, worm and trojan apart under exam pressure",
+            pills: ["AO1", "Key skill", "Elimination", "Malware family"],
+            content: `<p>These three are constantly mixed up under exam pressure because they all "spread" or "infect" — but each one is defined by ONE precise, testable detail.</p>
+
+<p><strong>Ask these three questions, in order:</strong></p>
+<ul>
+<li><strong>1. Does it need the user to run an infected file before it does anything?</strong> If yes → it's a <strong>virus</strong>.</li>
+<li><strong>2. Does it spread across a network completely on its own, with no user action at all?</strong> If yes → it's a <strong>worm</strong>.</li>
+<li><strong>3. Does it disguise itself as wanted software, and NOT copy itself onto other files?</strong> If yes → it's a <strong>trojan</strong>.</li>
+</ul>
+
+<p><strong>Worked example:</strong> "Malware spreads across a school's network overnight without anyone opening a single file." → Question 2 answers yes immediately: this is a <strong>worm</strong>, because it needed no user action at all.</p>
+
+<p>Ransomware and spyware are usually easier to spot because they name their OWN effect directly — "encrypts files and demands payment" is always ransomware; "secretly records what the user does" is always spyware.</p>`,
+            readCheck: {
+                q: "A piece of malware only starts working once an employee opens an infected email attachment. Using the three-question method, what is it most likely to be?",
+                opts: ["A worm, since malware always spreads across networks", "A virus, since it depends on the user running the infected file", "Ransomware, since all malware eventually asks for a payment of some kind", "A DDoS attack, since it affects more than one computer"],
+                ans: 1,
+                explain: "Needing the user to open (run) an infected file before anything happens is the defining test for a virus, not the other options."
+            }
+        },
+        {
+            type: "evaluate",
+            title: "The 8-mark 'Discuss' ladder: weighing up more than one threat",
+            pills: ["AO2", "8 marks", "Discuss", "Banded"],
+            content: `<p>An 8-mark "discuss" question on threats always gives you several bullet points to structure your answer around, and always rewards WEIGHING UP more than one threat or factor, not just describing them one after another.</p>
+
+<p><strong>A reliable structure (~10–12 minutes):</strong></p>
+<ul>
+<li><strong>1. Explain the mechanism</strong> of each relevant threat — HOW it actually works, in your own words.</li>
+<li><strong>2. Follow each mechanism through to a real consequence</strong> for the specific scenario in the question (lost data, downed website, stolen money, damaged reputation) — a factor → effect → consequence chain, not just a one-word label.</li>
+<li><strong>3. Weigh the threats against each other</strong> — which is more likely, more costly, or more damaging for THIS business, and why? This comparison step is what separates a Band 2 answer from a Band 3 answer.</li>
+<li><strong>4. Reach a separate, justified conclusion</strong> — don't let your final recommendation just repeat what you already said; add a clear "therefore…" sentence.</li>
+</ul>
+
+<p><strong>The band descriptors, in plain English:</strong></p>
+<ul>
+<li><strong>Band 3 (6–8 marks):</strong> thorough, accurate knowledge applied directly to the scenario, multiple threats properly weighed against each other, clear structure, justified conclusion.</li>
+<li><strong>Band 2 (3–5 marks):</strong> generally accurate but a bit generic or one-sided; most bullet points covered but the threats aren't really compared against each other.</li>
+<li><strong>Band 1 (1–2 marks):</strong> basic, unsupported statements with little real explanation or application to the scenario given.</li>
+</ul>`,
+            readCheck: {
+                q: "What is most likely to separate a Band 3 (top-band) answer from a Band 2 answer on an 8-mark 'discuss the threats' question?",
+                opts: ["Using noticeably longer and more grammatically complicated sentences throughout the whole answer", "Explicitly weighing the threats against each other, not just describing them separately", "Naming as many different technical terms as possible, in any order", "Writing the answer in bullet points instead of full sentences"],
+                ans: 1,
+                explain: "Top-band 'discuss' answers actively compare and weigh up the threats against each other and the scenario — description alone caps the mark in the middle band."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Malware", def: "Software deliberately written to damage, disrupt or gain unauthorised access to a system" },
+        { term: "Virus", def: "Malware that attaches to a file and spreads once a user runs that infected file" },
+        { term: "Worm", def: "Self-replicating malware that spreads across a network by itself, without user action" },
+        { term: "Trojan", def: "Malware disguised as wanted software; installed willingly; does not self-replicate" },
+        { term: "Ransomware", def: "Encrypts a victim's files and demands payment for the decryption key" },
+        { term: "Spyware", def: "Secretly monitors a user's activity and sends the information to an attacker" },
+        { term: "Keylogger", def: "Spyware that records every key a user presses, capturing passwords as they're typed" },
+        { term: "Social engineering", def: "Manipulating a person into revealing information or breaking security procedures" },
+        { term: "Phishing", def: "Fake emails, texts or websites impersonating a trusted organisation to trick a victim" },
+        { term: "Blagging (pretexting)", def: "Inventing a false scenario to persuade a victim into giving up information" },
+        { term: "Shouldering", def: "Watching over someone's shoulder as they type a password or PIN" },
+        { term: "Brute-force attack", def: "Automatically trying huge numbers of password combinations until one works" },
+        { term: "Denial of Service (DoS)", def: "Flooding a server with traffic so genuine users cannot access it" },
+        { term: "Distributed Denial of Service (DDoS)", def: "A DoS attack launched from many computers at once, usually a botnet" },
+        { term: "Botnet", def: "A network of infected computers secretly controlled by an attacker" },
+        { term: "Data interception", def: "Capturing data as it travels across a network, especially an unsecured one" },
+        { term: "Packet sniffing", def: "Using software to intercept and read data packets travelling across a network" },
+        { term: "SQL injection", def: "Entering malicious SQL code into an input box to attack a database" }
+    ];
+
+    // ── Original clean-room exam questions (2026-07-22) ──
+    // Written from scratch against the §1.4.1 spec scope (CS-CONTENT-PLAN.md
+    // §6.2 clean-room rule) — NOT transcribed from any OCR ExamBuilder PDF or
+    // past paper. Tariff spread and format mix mirror the profile the owner
+    // supplied from the real papers: 1x2, 2x4, 3x5, 4x6, 6x3, 8x1(banded) =
+    // 21 questions / 75 marks. See docs/SELF-MARK-POINTS-AUTHORING.md for the
+    // markPoints convention used on every compound scheme below.
+    const EXAM_CASE_STUDIES = {
+        "greenleaf": `<p>GreenLeaf Grocers is a small online supermarket. Customers create an account, save their card details, and place orders through the company's website and a mobile app. The website's database stores customer names, addresses, order history and saved payment details.</p>`,
+        "brightfutures": `<p>Bright Futures College is a sixth-form college. Staff and students connect to a single shared Wi-Fi network, and most teaching staff use the same email account for work and personal messages. Coursework and student records are stored on a central server that every staff computer can access.</p>`
+    };
+
+    const examQuestions = [
+        {
+            num: "Q1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the type of malware that disguises itself as a legitimate, wanted program but does not copy itself onto other files.</p>`,
+            options: ["Virus", "Worm", "Trojan", "Ransomware"],
+            answer: 2,
+            hint: "Focus on the two facts given: disguised as something wanted, and does NOT self-replicate — only one of the four options fits both.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>Trojan</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; 2 or more ticks scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "Trojan."
+        },
+        {
+            num: "Q2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box to identify the type of attack that floods a server with a huge number of requests so that real users cannot access the service, without stealing or changing any data.</p>`,
+            options: ["Denial of Service (DoS)", "Data interception and theft", "SQL injection", "Social engineering"],
+            answer: 0,
+            hint: "The question tells you the goal is stopping ACCESS, not reading or changing data — that rules out three of the four options straight away.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>Denial of Service (DoS)</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; 2 or more ticks scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "Denial of Service (DoS)."
+        },
+        {
+            num: "Q3",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["1", "2"],
+            question: `<p>Give <strong>two</strong> examples of malware.</p>`,
+            hint: "Name two different TYPES from the malware family — e.g. two of virus, worm, trojan, ransomware, spyware — not two examples of the same type.",
+            starter: "1: … 2: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per correct example, max 2)</h5>
+<ul>
+<li>Virus</li>
+<li>Worm</li>
+<li>Trojan</li>
+<li>Ransomware</li>
+<li>Spyware / keylogger</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any two distinct named types of malware from the list above (or another genuine example of malware).</li>
+<li>Do not accept phishing, brute-force attack, denial of service or SQL injection — these are attacks, not malware.</li>
+</ul>
+</div>`,
+            modelAnswer: "1: Virus. 2: Ransomware."
+        },
+        {
+            num: "Q4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["1", "2"],
+            question: `<p>Write down <strong>two</strong> features of a phishing email that should make a recipient suspicious.</p>`,
+            hint: "Think about the sender, the tone, and the links — three good places a fake message usually gives itself away.",
+            starter: "1: … 2: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per correct feature, max 2)</h5>
+<ul>
+<li>An urgent or threatening tone, e.g. "your account will be closed"</li>
+<li>A sender address that looks similar to a real one but is not exactly right</li>
+<li>A generic greeting rather than the recipient's actual name, e.g. "Dear Customer"</li>
+<li>A link that does not match the real organisation's website when hovered over/checked</li>
+<li>A request to reveal a password or personal/financial details directly</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any two distinct valid warning signs from the list above, or an equally valid alternative.</li>
+</ul>
+</div>`,
+            modelAnswer: "1: The email creates a false sense of urgency, e.g. threatening to close the account. 2: The sender's email address looks similar to the real organisation's but is not quite correct."
+        },
+        {
+            num: "Q5",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["1", "2"],
+            question: `<p>State <strong>two</strong> consequences a business could face after a successful ransomware attack.</p>`,
+            hint: "Think beyond just 'losing files' — consider the knock-on effects on the business itself.",
+            starter: "1: … 2: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per correct consequence, max 2)</h5>
+<ul>
+<li>Important files/data become inaccessible (encrypted)</li>
+<li>Business operations are disrupted or halted while files remain locked</li>
+<li>Financial cost of a ransom payment, with no guarantee the files are returned</li>
+<li>Cost and time of recovery, e.g. restoring systems from backups</li>
+<li>Reputational damage or loss of customer trust</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any two distinct valid consequences from the list above, or an equally valid alternative.</li>
+</ul>
+</div>`,
+            modelAnswer: "1: The business cannot access important files needed to operate, disrupting normal work. 2: The business may lose money, either by paying the ransom or by paying to recover the systems another way."
+        },
+        {
+            num: "Q6",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            stubs: ["1", "2"],
+            question: `<p>Name <strong>two</strong> techniques an attacker could use as part of a social engineering attack.</p>`,
+            hint: "These are techniques that manipulate a PERSON, not a technical flaw in software.",
+            starter: "1: … 2: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per correct technique, max 2)</h5>
+<ul>
+<li>Phishing</li>
+<li>Blagging / pretexting</li>
+<li>Shouldering / shoulder surfing</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any two distinct named techniques from the list above.</li>
+<li>Do not accept brute-force attack, denial of service or SQL injection — these do not manipulate a person.</li>
+</ul>
+</div>`,
+            modelAnswer: "1: Phishing. 2: Shouldering (shoulder surfing)."
+        },
+        {
+            num: "Q7",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Describe how a worm is able to spread from one computer to another across a network.</p>`,
+            hint: "Give three separate facts: what it does to itself, whether the user is involved, and how it actually moves between computers.",
+            starter: "A worm is able to…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point, max 3)</h5>
+<ul>
+<li>A worm is self-replicating / makes copies of itself</li>
+<li>It spreads across a network on its own, without needing a user to open a file or take any action</li>
+<li>It typically spreads by exploiting a weakness (vulnerability) in software or a network connection to move from one computer to the next</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per distinct valid point, to a maximum of 3.</li>
+<li>The "no user action" point is central and should be explicit, not just implied.</li>
+</ul>
+</div>`,
+            modelAnswer: "A worm is able to make copies of itself and spread across a network entirely on its own, without needing a user to open a file or take any action. It typically does this by exploiting a weakness in software or in the network to move from one computer to the next."
+        },
+        {
+            num: "Q8",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Explain why a brute-force attack is much less likely to succeed against a long, complex password than against a short, simple one.</p>`,
+            hint: "Explain the method first (trying combinations), then link password length to how many combinations there are to try.",
+            starter: "A brute-force attack works by…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point, max 3)</h5>
+<ul>
+<li>A brute-force attack works by automatically trying combination after combination of characters until the correct password is found</li>
+<li>A short/simple password has far fewer possible combinations, so it can be tried (and found) much faster</li>
+<li>A long password mixing character types (letters, numbers, symbols) has vastly more possible combinations, so trying every one takes far longer — often long enough to make the attack impractical</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per distinct valid point, to a maximum of 3.</li>
+</ul>
+</div>`,
+            modelAnswer: "A brute-force attack works by automatically trying huge numbers of password combinations until it finds the one that works. A short, simple password has far fewer possible combinations to try, so it can be cracked quickly. A long, complex password has vastly more possible combinations, so trying every one takes far longer, often long enough to make the attack impractical."
+        },
+        {
+            num: "Q9",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Describe how a phishing attack tries to trick its victim.</p>`,
+            hint: "Cover what is sent, who it pretends to be from, and what it is actually trying to get the victim to do.",
+            starter: "A phishing attack sends…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point, max 3)</h5>
+<ul>
+<li>Sends a fake email, text message or website</li>
+<li>That impersonates a trusted organisation or person the victim is likely to trust, e.g. a bank, a workplace, a delivery company</li>
+<li>To trick the victim into clicking a malicious link, downloading an infected attachment, or revealing personal or financial details directly</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per distinct valid point, to a maximum of 3.</li>
+</ul>
+</div>`,
+            modelAnswer: "A phishing attack sends a fake email, text message or website that impersonates a trusted organisation, such as a bank. It does this to trick the victim into clicking a malicious link, downloading an infected attachment, or typing their personal or financial details directly into a fake page."
+        },
+        {
+            num: "Q10",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Outline how "shoulder surfing" could allow an attacker to steal a person's PIN or password.</p>`,
+            hint: "This technique needs no software or technical skill at all — describe exactly what the attacker physically does.",
+            starter: "The attacker…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per point, max 3)</h5>
+<ul>
+<li>The attacker physically watches the victim, over their shoulder, as they type</li>
+<li>This happens in a location where the victim is entering sensitive information, e.g. at an ATM, on a laptop in a public place, or at a login screen</li>
+<li>The attacker directly observes and memorises the characters being typed, without needing any technical skill or software at all</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per distinct valid point, to a maximum of 3.</li>
+</ul>
+</div>`,
+            modelAnswer: "The attacker physically watches over the victim's shoulder as they type their PIN or password, for example at an ATM or on a laptop in a public place. Because the attacker directly observes and memorises what is typed, no technical skill or software is needed at all."
+        },
+        {
+            num: "Q11",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            stubs: ["1", "2", "3"],
+            question: `<p>Name <strong>three</strong> warning signs that an email might be a phishing attempt.</p>`,
+            hint: "Think about the sender's address, the tone of the message, and what it is asking the reader to do.",
+            starter: "1: … 2: … 3: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 mark per correct sign, max 3)</h5>
+<ul>
+<li>A sender address that looks similar to a real one but is not exactly right</li>
+<li>An urgent or threatening tone, e.g. "your account will be closed"</li>
+<li>A generic greeting rather than the recipient's actual name</li>
+<li>A link that does not match the real organisation's website</li>
+<li>A request to reveal a password or personal/financial details directly</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any three distinct valid warning signs from the list above, or an equally valid alternative.</li>
+</ul>
+</div>`,
+            modelAnswer: "1: A sender address that looks almost right but is not exactly correct. 2: An urgent, threatening tone pushing the reader to act quickly. 3: A link that does not match the real organisation's actual website."
+        },
+        {
+            num: "Q12",
+            marks: 4,
+            type: "written",
+            format: "tableFill",
+            caseStudy: "",
+            question: `<p>Complete the table by writing one thing each threat DOES once it successfully attacks a computer.</p>`,
+            table: {
+                headers: ["Threat", "What it does once it succeeds"],
+                rows: [
+                    ["Worm", null],
+                    ["Trojan", null],
+                    ["Ransomware", null],
+                    ["Spyware", null]
+                ],
+                openChoice: true
+            },
+            hint: "Keep each row specific to THAT threat — a worm's answer is about how it moves on, not what it does once it arrives; the other three rows are about their effect on the victim.",
+            starter: "Worm: … | Trojan: … | Ransomware: … | Spyware: …",
+            markPoints: {
+                note: "One mark per row for a correct, distinct effect. Do not credit an answer that actually describes a different row's threat (e.g. 'copies itself onto other files' for Trojan).",
+                groups: [
+                    { label: "Worm", max: 1, points: [{ text: "Says the worm copies/spreads itself onto other computers across the network, without any user action", marks: 1 }] },
+                    { label: "Trojan", max: 1, points: [{ text: "Says the trojan lets an attacker in by disguising itself as wanted software the user installs (e.g. opens a backdoor, delivers other malware, steals data) — not that it copies itself, which is a virus/worm feature", marks: 1 }] },
+                    { label: "Ransomware", max: 1, points: [{ text: "Says ransomware encrypts (locks) the victim's files and demands a payment for the decryption key", marks: 1 }] },
+                    { label: "Spyware", max: 1, points: [{ text: "Says spyware secretly monitors or records the user's activity to steal data such as passwords", marks: 1 }] }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Worm — copies/spreads itself onto other computers across the network, without user action</li>
+<li>Trojan — lets an attacker in by disguising itself as wanted software the user installs (e.g. opens a backdoor, delivers other malware)</li>
+<li>Ransomware — encrypts the victim's files and demands payment for the decryption key</li>
+<li>Spyware — secretly monitors or records the user's activity to steal data such as passwords</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently against its own threat.</li>
+<li>Do not credit an answer that describes a different threat's behaviour in the wrong row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Worm: copies itself onto other computers across the network without any user action. Trojan: disguises itself as wanted software so the user installs it, letting the attacker in. Ransomware: encrypts the victim's files and demands payment for the key. Spyware: secretly monitors the user's activity to steal data such as passwords."
+        },
+        {
+            num: "Q13",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>Tick <strong>one</strong> box in each row to identify which type of malware each statement describes.</p>`,
+            grid: {
+                cols: ["Virus", "Worm", "Trojan", "Ransomware"],
+                rows: [
+                    { label: "Spreads across a network by itself, without the user needing to do anything", correct: [1] },
+                    { label: "Only spreads once a user runs the infected file it is attached to", correct: [0] },
+                    { label: "Encrypts the victim's files and demands a payment for the decryption key", correct: [3] },
+                    { label: "Disguises itself as legitimate software the user installs willingly, and does not copy itself onto other files", correct: [2] }
+                ]
+            },
+            hint: "Match each statement to the ONE precise, defining detail it describes — user action needed, no user action needed, encrypts + ransom, or disguise + no self-replication.",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Row 1 → <strong>Worm</strong></li>
+<li>Row 2 → <strong>Virus</strong></li>
+<li>Row 3 → <strong>Ransomware</strong></li>
+<li>Row 4 → <strong>Trojan</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently; 2+ ticks in a single row scores 0 for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1: Worm. Row 2: Virus. Row 3: Ransomware. Row 4: Trojan."
+        },
+        {
+            num: "Q14",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each threat to the description that correctly matches it.</p><p>(There are more descriptions than threats — one description is not used.)</p>`,
+            match: {
+                left: ["Phishing", "Brute-force attack", "Data interception", "SQL injection"],
+                right: ["Fake emails or websites that impersonate a trusted organisation to trick a user into revealing details", "Automatically trying huge numbers of password combinations until the correct one works", "Capturing data as it travels across a network, especially on an unsecured connection", "Entering malicious code into a website's input box to read or damage its database", "Flooding a server with traffic so that real users cannot access it"],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Match each threat to what it actually DOES — watch for the description of flooding a server, which belongs to Denial of Service, not to any of these four threats.",
+            starter: "Phishing → …, Brute-force attack → …, Data interception → …, SQL injection → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line)</h5>
+<ul>
+<li>Phishing → <strong>A</strong> (fake emails or websites that impersonate a trusted organisation to trick a user into revealing details)</li>
+<li>Brute-force attack → <strong>B</strong> (automatically trying huge numbers of password combinations until the correct one works)</li>
+<li>Data interception → <strong>C</strong> (capturing data as it travels across a network, especially on an unsecured connection)</li>
+<li>SQL injection → <strong>D</strong> (entering malicious code into a website's input box to read or damage its database)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>1 mark for each correct line. Two lines drawn from one threat score 0 for that threat.</li>
+<li>Description E (flooding a server) is a decoy describing Denial of Service, not used by any of the four threats.</li>
+</ul>
+</div>`,
+            modelAnswer: "Phishing → fake emails or websites impersonating a trusted organisation. Brute-force attack → trying huge numbers of password combinations. Data interception → capturing data as it travels across a network. SQL injection → entering malicious code into an input box to attack a database."
+        },
+        {
+            num: "Q15",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Difference 1", "Difference 2"],
+            question: `<p>Describe <strong>two</strong> differences between a virus and a worm.</p>`,
+            hint: "Write BOTH sides of each difference in the same space — 'a virus needs X, whereas a worm doesn't' — not just a fact about one of them.",
+            starter: "A virus…, whereas a worm…",
+            markPoints: {
+                note: "Two groups, one per difference the student gives. Each difference needs BOTH sides stated (the virus side AND the contrasting worm side) to earn both marks in that group.",
+                groups: [
+                    {
+                        label: "Your first difference", max: 2, points: [
+                            { text: "States that a virus needs the user to run the infected host file before it can spread", marks: 1 },
+                            { text: "Contrasts this correctly with a worm, which spreads across a network by itself, without the user doing anything", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your second difference", max: 2, points: [
+                            { text: "States that a virus attaches to (needs) an existing file or program in order to spread", marks: 1 },
+                            { text: "Contrasts this correctly with a worm, which is a standalone piece of malware and does not need to attach itself to another file", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark: a virus needs the user to run the infected file before it can spread</li>
+<li>1 mark: a worm spreads across a network by itself, without any user action</li>
+<li>1 mark: a virus attaches to (needs) an existing file or program to spread</li>
+<li>1 mark: a worm is a standalone program and does not need to attach itself to another file</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each difference must correctly state BOTH sides (the virus fact and the contrasting worm fact) to earn both of its marks.</li>
+<li>A difference given the wrong way round (virus and worm facts swapped) does not earn credit.</li>
+</ul>
+</div>`,
+            modelAnswer: "A virus needs the user to run the infected file before it can spread, whereas a worm spreads across a network by itself, without any user action. A virus also attaches itself to an existing file or program to spread, whereas a worm is a standalone piece of malware that does not need to attach itself to anything else."
+        },
+        {
+            num: "Q16",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Explain how a DDoS attack differs from a DoS attack, and why a DDoS attack can be more difficult for a website to defend against.</p>`,
+            hint: "First explain the source of the traffic (one computer vs many), then explain why that specifically makes blocking the attack harder.",
+            starter: "A DoS attack comes from…, whereas a DDoS attack…",
+            markPoints: {
+                note: "Two groups: up to 2 marks for correctly explaining how DDoS differs from DoS, and up to 2 marks for explaining why that difference makes DDoS harder to stop.",
+                groups: [
+                    {
+                        label: "How DDoS differs from DoS", max: 2, points: [
+                            { text: "States that a DoS attack comes from a single computer or source", marks: 1 },
+                            { text: "States that a DDoS attack comes from many computers at once, usually a botnet of compromised/infected devices controlled by the attacker", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Why DDoS is harder to stop", max: 2, points: [
+                            { text: "Explains that the traffic arrives from many different computers/addresses at the same time", marks: 1 },
+                            { text: "Explains that this means simply blocking one source does not stop the attack, because traffic keeps arriving from many others", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark: DoS comes from a single computer/source</li>
+<li>1 mark: DDoS comes from many computers at once, usually a botnet</li>
+<li>1 mark: traffic arrives from many different computers/addresses simultaneously</li>
+<li>1 mark: blocking one source does not stop the attack, since traffic keeps arriving from many others</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Full marks requires both the correct DoS/DDoS distinction AND a valid explanation of why that specifically makes DDoS harder to defend against.</li>
+</ul>
+</div>`,
+            modelAnswer: "A DoS attack comes from a single computer, whereas a DDoS attack floods the server with traffic from many computers at once, usually a botnet of infected devices controlled by the attacker. This makes a DDoS attack harder to stop because the traffic arrives from thousands of different addresses simultaneously, so blocking one source does nothing — traffic keeps arriving from all the others."
+        },
+        {
+            num: "Q17",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Describe how data interception could take place on an unsecured public Wi-Fi network, and describe one piece of information an attacker could steal as a result.</p>`,
+            hint: "Explain HOW the interception is possible on an unsecured network, then give a specific example of what gets stolen and why that matters.",
+            starter: "On an unsecured network…",
+            markPoints: {
+                note: "Two groups: up to 2 marks for correctly describing how the interception happens, and up to 2 marks for a specific consequence.",
+                groups: [
+                    {
+                        label: "How the interception happens", max: 2, points: [
+                            { text: "Says the attacker uses software to intercept ('sniff') data as it travels across the network", marks: 1 },
+                            { text: "Explains that on an unsecured/unencrypted network, the data travels in a form the attacker can directly read", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "What could be stolen and the consequence", max: 2, points: [
+                            { text: "Identifies a specific type of data that could be intercepted, e.g. login details, card/payment details, or private messages", marks: 1 },
+                            { text: "States a plausible consequence for the victim, e.g. their account being accessed, money being stolen, or their identity being used fraudulently", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks</h5>
+<ul>
+<li>1 mark: attacker uses software to intercept ('sniff') data as it travels across the network</li>
+<li>1 mark: on an unsecured/unencrypted network, the data travels in a readable form</li>
+<li>1 mark: identifies a specific type of data that could be stolen, e.g. login or card details</li>
+<li>1 mark: states a plausible consequence, e.g. account takeover or financial loss</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Full marks needs both a correct explanation of the mechanism AND a specific, plausible example of the consequence.</li>
+</ul>
+</div>`,
+            modelAnswer: "On an unsecured public Wi-Fi network, an attacker can use software to intercept ('sniff') data as it travels across the network, since the data is not encrypted and travels in a form the attacker can read directly. This could allow the attacker to steal a victim's login details, letting them access the victim's account without permission."
+        },
+        {
+            num: "Q18",
+            marks: 6,
+            type: "written",
+            caseId: "brightfutures",
+            question: `<p>Describe how an employee at Bright Futures College falling for a phishing email could lead to a ransomware infection spreading through the college's network, and the impact this could have on the college.</p>`,
+            hint: "Trace the whole chain step by step: the phishing email, what the employee does, how the ransomware then spreads and locks files, and finally the real-world impact on the college.",
+            starter: "First, the phishing email…",
+            markPoints: {
+                note: "Two groups: up to 4 marks for correctly tracing the attack chain, and up to 2 marks for a specific impact linked to the college's situation.",
+                groups: [
+                    {
+                        label: "The attack chain", max: 4, points: [
+                            { text: "Says the phishing email tricks the employee into clicking a malicious link or opening an infected attachment", marks: 1 },
+                            { text: "Says this downloads/installs ransomware onto the employee's device", marks: 1 },
+                            { text: "Says the ransomware can then spread to, or encrypt files on, the shared central server, since staff share access to it", marks: 1 },
+                            { text: "Says the affected files become encrypted/locked and inaccessible", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Impact on the college", max: 2, points: [
+                            { text: "Identifies a specific impact, e.g. staff/students cannot access coursework or records, cost of a ransom payment or of recovering from backups, or reputational damage", marks: 1 },
+                            { text: "Links the impact specifically back to the scenario, e.g. the shared server or shared staff email use making the disruption worse or wider-reaching", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks</h5>
+<ul>
+<li>1 mark: the phishing email tricks the employee into clicking a link/opening an attachment</li>
+<li>1 mark: this installs ransomware onto the employee's device</li>
+<li>1 mark: the ransomware spreads to/encrypts files on the shared central server</li>
+<li>1 mark: the affected files become encrypted/locked and inaccessible</li>
+<li>1 mark: a specific impact on the college is identified, e.g. staff/students losing access to work, ransom/recovery cost, reputational damage</li>
+<li>1 mark: the impact is linked back to the college's specific situation (shared server/shared access)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Marks are awarded for a logically ordered chain from the phishing email through to a real consequence, not for isolated facts about phishing or ransomware in general.</li>
+</ul>
+</div>`,
+            modelAnswer: "The phishing email tricks the employee into clicking a malicious link or opening an infected attachment, which installs ransomware onto their device. Because staff at Bright Futures College share access to a central server, the ransomware can then spread to and encrypt files stored there too, locking staff and students out of coursework and records. This disrupts normal college operations and could cost the college money, either by paying the ransom or by paying to recover the systems another way, as well as damaging the college's reputation."
+        },
+        {
+            num: "Q19",
+            marks: 6,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Discuss why social engineering attacks can be difficult for a business to prevent using technical security measures alone.</p>`,
+            hint: "Explain WHY technical measures don't stop this type of attack, then explain what kind of measure actually does help.",
+            starter: "Technical measures such as firewalls and anti-malware software are designed to…",
+            markPoints: {
+                note: "Two groups: up to 3 marks for explaining why technical measures alone are not enough, and up to 3 marks for what else genuinely helps.",
+                groups: [
+                    {
+                        label: "Why technical measures alone don't stop it", max: 3, points: [
+                            { text: "Explains that technical measures like firewalls and anti-malware defend against SOFTWARE-based attacks, not against a person being deceived", marks: 1 },
+                            { text: "Explains that a social engineering attack targets the PERSON directly, e.g. by phone, email or in person, bypassing technical defences entirely if the person is deceived", marks: 1 },
+                            { text: "Explains that even a strong password or encryption is useless if the victim voluntarily hands over the information or access themselves", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "What else genuinely helps", max: 3, points: [
+                            { text: "States that staff training and awareness are also needed, so people learn to recognise a scam", marks: 1 },
+                            { text: "States that clear procedures/policies help, e.g. verifying a caller's identity before sharing any information", marks: 1 },
+                            { text: "Notes that technical measures still play a supporting role, e.g. spam filters catching some phishing emails before they reach a person", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks</h5>
+<ul>
+<li>1 mark: technical measures defend against software-based attacks, not a person being deceived</li>
+<li>1 mark: social engineering targets the person directly, bypassing technical defences</li>
+<li>1 mark: strong passwords/encryption are useless if the victim hands over information voluntarily</li>
+<li>1 mark: staff training/awareness is needed so people can recognise a scam</li>
+<li>1 mark: clear procedures/policies help, e.g. verifying identity before sharing information</li>
+<li>1 mark: technical measures still play a supporting role, e.g. spam filters</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per distinct valid point across both groups, up to the group maximum.</li>
+</ul>
+</div>`,
+            modelAnswer: "Technical measures such as firewalls and anti-malware software are designed to defend against software-based attacks, not against a person being deceived. A social engineering attack targets the person directly — by phone, email or in person — bypassing technical defences entirely if the person is tricked into cooperating, since even a strong password is useless if the victim hands it over voluntarily. Because of this, staff training and awareness are essential, teaching people to recognise the warning signs of a scam, alongside clear procedures such as verifying a caller's identity before sharing information. Technical measures still play a supporting role, for example spam filters catching some phishing emails before they ever reach a person, but they cannot solve the problem alone."
+        },
+        {
+            num: "Q20",
+            marks: 6,
+            type: "written",
+            caseId: "greenleaf",
+            question: `<p>Describe how a SQL injection attack could allow an attacker to view or change data stored in GreenLeaf Grocers' customer database, giving an example of what could go wrong.</p>`,
+            hint: "Explain the mechanism step by step (what the attacker types, and why that reaches the database), then give one concrete, GreenLeaf-specific example of the consequence.",
+            starter: "The attacker enters…",
+            markPoints: {
+                note: "Two groups: up to 3 marks for correctly explaining the attack mechanism, and up to 3 marks for a specific, scenario-linked example of the consequence.",
+                groups: [
+                    {
+                        label: "How the attack works", max: 3, points: [
+                            { text: "Says the attacker enters malicious SQL code into an input box on the website, e.g. the login or search box, instead of the expected data", marks: 1 },
+                            { text: "Says this happens because the website does not check/validate the input properly before using it", marks: 1 },
+                            { text: "Says the malicious code is passed into the database's real command, so the database runs the attacker's command instead of, or as well as, the intended one", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Example of what could go wrong", max: 3, points: [
+                            { text: "Gives a plausible consequence, e.g. viewing customers' names, addresses or saved payment details", marks: 1 },
+                            { text: "Explains why this is possible for GreenLeaf specifically, e.g. its database stores customer details and saved card information", marks: 1 },
+                            { text: "Identifies a further consequence for GreenLeaf, e.g. data being changed or deleted, or an attacker logging in without a real password", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 6 marks</h5>
+<ul>
+<li>1 mark: attacker enters malicious SQL code into an input box (e.g. login/search box) instead of expected data</li>
+<li>1 mark: this is possible because the website does not check/validate the input properly</li>
+<li>1 mark: the malicious code is passed into the database's real command, running the attacker's command</li>
+<li>1 mark: a plausible consequence is given, e.g. viewing customer names, addresses or saved card details</li>
+<li>1 mark: the consequence is linked to GreenLeaf's own database (stores customer/payment data)</li>
+<li>1 mark: a further consequence is identified, e.g. data changed/deleted, or bypassing login</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Full marks needs both an accurate mechanism AND a consequence clearly linked to GreenLeaf's own scenario, not a generic example.</li>
+</ul>
+</div>`,
+            modelAnswer: "The attacker enters malicious SQL code into an input box on the GreenLeaf website, such as the login or search box, instead of the data the box expects. Because the website does not check this input properly, the code is passed straight into the database's real command, so the database runs the attacker's command instead of the intended one. This could let the attacker view customers' saved names, addresses and payment details stored in GreenLeaf's database, or even change or delete order data, or log in to an account without knowing a real password."
+        },
+        {
+            num: "Q21",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseId: "greenleaf",
+            question: `<p>GreenLeaf Grocers is reviewing the security risks facing its website and customer database.</p><p>Discuss the threats an online business like GreenLeaf Grocers faces, and how serious each one is.</p><p>In your answer you might consider:</p><ul><li>malware, including how it could reach GreenLeaf's systems</li><li>social engineering, including phishing aimed at GreenLeaf's staff or customers</li><li>a Denial of Service attack against GreenLeaf's website</li><li>SQL injection against GreenLeaf's customer database</li><li>which threat(s) you believe are most serious for a business like GreenLeaf, and why</li></ul>`,
+            hint: "Use the bullet list as your plan. For each threat: explain the mechanism, follow it through to a real consequence FOR GREENLEAF specifically, then weigh the threats against each other before giving a justified overall view.",
+            starter: "One threat GreenLeaf faces is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (levelled) — indicative content</h5>
+<p>The following is indicative of possible factors/evidence that candidates may refer to but is not prescriptive or exhaustive:</p>
+<ul>
+<li><strong>Malware</strong> — malware could reach GreenLeaf's systems through infected email attachments, malicious downloads or infected devices connecting to the network; a virus or trojan could steal or damage data, while ransomware could encrypt GreenLeaf's order/customer database and halt trading until it is unlocked or restored.</li>
+<li><strong>Social engineering / phishing</strong> — an attacker could send a phishing email pretending to be from a supplier, a delivery partner, or GreenLeaf's own IT team, tricking a staff member into revealing login details or installing malware; because this targets a person rather than the technology, it can succeed even if GreenLeaf's technical security is strong.</li>
+<li><strong>Denial of Service</strong> — a DoS/DDoS attack could flood GreenLeaf's website with traffic, taking it offline; for an online-only supermarket this directly stops customers from placing orders, causing an immediate and highly visible loss of sales while the site is down, though no customer data is stolen.</li>
+<li><strong>SQL injection</strong> — an attacker could exploit GreenLeaf's website input boxes to reach the customer database directly, potentially viewing or stealing customers' saved names, addresses and payment details; this is especially serious because it risks a wide-reaching data breach and lasting loss of customer trust, not just a temporary outage.</li>
+<li><strong>Weighing seriousness</strong> — a strong answer compares the threats rather than just listing them, e.g. arguing SQL injection or a major ransomware attack pose the greatest long-term risk (large-scale data loss, legal/reputational consequences, cost of recovery) versus a DoS attack, which is disruptive and costly in lost sales but temporary and does not compromise stored customer data.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given — levels of response</h5>
+<ul>
+<li><strong>Mark Band 3 — High Level (6–8 marks):</strong> Thorough, accurate knowledge of multiple threats, applied directly and consistently to GreenLeaf's situation as an online business. The response weighs the threats against each other (e.g. by likelihood, cost, or scale of consequence) and reaches a clear, justified view on which is most serious, with logically structured reasoning throughout.</li>
+<li><strong>Mark Band 2 — Mid Level (3–5 marks):</strong> Reasonable, generally accurate knowledge of more than one threat, but application to GreenLeaf may be generic or only partly developed. Some structure is present, and most bullet points are addressed, but the threats are not fully weighed against each other, or the concluding view is underdeveloped or unjustified.</li>
+<li><strong>Mark Band 1 — Low Level (1–2 marks):</strong> Basic knowledge shown, with limited understanding or accuracy, and little clear reference to GreenLeaf's own situation. The response may name threats without explaining how they work or what their consequence would be.</li>
+<li><strong>0 marks:</strong> No attempt to answer the question, or response is not worthy of credit.</li>
+</ul>
+</div>`,
+            modelAnswer: "GreenLeaf faces several threats. Malware could reach its systems through an infected email attachment or download, and ransomware in particular could encrypt GreenLeaf's order and customer database, halting trading until it is restored — a serious operational and financial risk. Social engineering, especially phishing aimed at staff, could trick an employee into revealing login details or installing malware; because it targets a person rather than the technology, it can succeed even against strong technical defences. A Denial of Service attack could take GreenLeaf's website offline, immediately stopping customers from ordering and causing a visible, if temporary, loss of sales — but it does not touch stored data. SQL injection is arguably the most serious threat here: by exploiting GreenLeaf's website input boxes, an attacker could reach the customer database directly and view or steal customers' saved names, addresses and payment details, risking a large-scale data breach with lasting reputational and legal consequences that outlast a short website outage. On balance, SQL injection and ransomware pose the greatest long-term risk to GreenLeaf because they threaten the customer data itself, whereas a DoS attack, though costly, is a temporary disruption rather than a lasting breach of trust."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

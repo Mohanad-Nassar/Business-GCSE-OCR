@@ -538,16 +538,28 @@ def build_bank(slug, pages):
             if not q or not q.get("question"):
                 continue
             is_mcq = q.get("type") == "mcq"
+            fmt = q.get("format") or None
+            # ADM-B: a numeric exam question (format:"numeric" + a numeric answer
+            # key) is server-gradeable, so it gets type 'numeric' (not 'written')
+            # → included in bank_rows with qtype 'numeric' + answer_key.numeric.
+            # mathParts stays 'written' (multi-part self-marks client-side) but
+            # its `parts` ride along so the client bank / mock can render it.
+            is_numeric = fmt == "numeric" and isinstance(q.get("numeric"), dict) and q["numeric"]
+            qtype = "mcq" if is_mcq else ("numeric" if is_numeric else "written")
             bank.append(prune({
                 "id": unique_id("exam", q["question"]),
                 "pageId": page_id, "pageName": page_name,
                 "source": "exam",
-                # 'written' and 'extended' both need free-text answers + manual marking
-                "type": "mcq" if is_mcq else "written",
+                "type": qtype,
                 "marks": q.get("marks") or 1,
                 "num": q.get("num") or None,
                 "question": q["question"],
                 "options": q.get("options") if is_mcq else None,
+                # `format` is student-safe (it only says HOW to answer) so it goes
+                # in the snapshot; `parts` (mathParts) too — self-marked, no server
+                # answer to hide. The numeric answer VALUE stays in `key` (hidden).
+                "format": fmt,
+                "parts": q.get("parts") if fmt == "mathParts" else None,
                 "caseStudy": resolve_case(q) or None,
                 "hint": q.get("hint") or None,
                 "starter": q.get("starter") or None,
@@ -555,6 +567,7 @@ def build_bank(slug, pages):
                     "answer": q.get("answer") if is_mcq else None,
                     "markScheme": q.get("markScheme") or "",
                     "modelAnswer": q.get("modelAnswer") or "",
+                    "numeric": q.get("numeric") if is_numeric else None,
                 }),
             }))
 

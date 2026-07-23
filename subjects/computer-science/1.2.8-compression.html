@@ -16,7 +16,7 @@
         <div>
             <div class="badge">OCR GCSE Computer Science — Paper 1 · 1.2 Memory and Storage</div>
             <h1>1.2.8 Compression</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Interactive revision guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
@@ -256,7 +256,7 @@
 
 <script>
     // ══════════════════════════════════════
-    //  DATA: 1.2.8 Compression — placeholder, content not yet written
+    //  DATA: 1.2.8 Compression
     // ══════════════════════════════════════
     const pageMeta = {
             id: '1-2-8-compression',
@@ -268,21 +268,888 @@
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>1.2.8 Compression</strong> will appear here soon.</p>`
+            title: "Why do computer files need to be compressed?",
+            tag: "Key concept",
+            content: `<h4>The three real-world pressures behind compression</h4>
+<ul>
+<li>A <strong>compressed</strong> file has been processed so that it takes up <strong>less storage space</strong> than the original, uncompressed file.</li>
+<li>Smaller files mean more of them fit on a limited storage device — a phone, a memory card, a company's servers — without having to buy extra storage.</li>
+<li>Smaller files also <strong>transfer faster</strong>: they take less time to upload to a website, download onto a device, or send as an email attachment.</li>
+<li>Every network connection has a maximum <strong>bandwidth</strong> — the amount of data it can carry in a given time. Compressed files use less of that bandwidth, which matters when many people share the same connection (e.g. a school Wi-Fi network) or when a connection is slow.</li>
+<li><strong>Streaming</strong> video or music depends on compression: an uncompressed film would be far too large to send fast enough to play smoothly as it arrives, so it has to be compressed first.</li>
+</ul>
+<h4>The trade-off compression always involves</h4>
+<ul>
+<li>Compression is not free — reducing a file's size always means changing HOW the data is stored, and, for one of the two methods you need to know, can mean losing some of the original data permanently.</li>
+<li>This is exactly why there are two different approaches, <strong>lossy</strong> and <strong>lossless</strong>, and why choosing the right one for a given file is itself an exam skill.</li>
+</ul>`,
+            readCheck: {
+                q: "A company wants to publish its training videos on its website. Which of these is a genuine reason to compress the video files first?",
+                opts: ["It stops the videos from being copied or downloaded by any visitor to the site", "It reduces the video files' size, so less server storage is used and streaming is faster", "It automatically improves the resolution and colour quality of every video without recompressing it", "It converts the videos into a file type that only the company's own website is able to open"],
+                ans: 1,
+                explain: "Smaller video files need less server storage, transfer more quickly, and use less of the network's limited bandwidth — the three real reasons files are compressed."
+            }
+        },
+        {
+            title: "What is lossy compression?",
+            tag: "Key concept",
+            content: `<h4>The definition</h4>
+<ul>
+<li><strong>Lossy compression</strong> permanently removes some of a file's data during compression. It targets detail that people are <strong>less likely to notice</strong> — for example, very subtle colour differences in an image, or extremely high or low sound frequencies in an audio file.</li>
+<li>Because data is genuinely thrown away, the file <strong>cannot be restored to its exact original state</strong> once it has been compressed — decompressing it gives a close copy, not an identical one.</li>
+</ul>
+<h4>What lossy compression is good at</h4>
+<ul>
+<li>It produces a <strong>much smaller file size</strong> than lossless compression can usually achieve on the same content, because it isn't forced to keep every bit.</li>
+<li>The trade-off is a <strong>reduction in quality</strong> — but for the file types it's normally used on, that reduction is small enough that most people never notice it.</li>
+</ul>
+<h4>Where it is normally used</h4>
+<ul>
+<li>Lossy compression suits <strong>images, audio and video</strong> — files where a small, targeted loss of detail is very unlikely to be noticed, but a big drop in file size is extremely valuable (streaming, uploading photos, downloading music).</li>
+<li>It is not suitable for files where every bit matters, such as text documents or program code — that's covered on the next card.</li>
+</ul>`,
+            readCheck: {
+                q: "Why can a file compressed with lossy compression never be restored to its exact original state?",
+                opts: ["Because lossy compression always encrypts the file with a password", "Because some of the original data was permanently removed and cannot be recovered", "Because lossy compression can only ever be applied to files that were never saved correctly", "Because the file format automatically changes every time it is opened"],
+                ans: 1,
+                explain: "Lossy compression deletes some data as part of shrinking the file. That data is gone for good, so decompressing produces a close approximation, not the exact original."
+            }
+        },
+        {
+            title: "What is lossless compression?",
+            tag: "Key concept",
+            content: `<h4>The definition</h4>
+<ul>
+<li><strong>Lossless compression</strong> removes no data at all. Instead, it stores the same information in a more efficient way, so the file still shrinks — but nothing is thrown away.</li>
+<li>Because no data is lost, the original file can be <strong>reconstructed exactly</strong>, bit for bit, when it is decompressed.</li>
+</ul>
+<h4>What lossless compression is good at</h4>
+<ul>
+<li>It guarantees the decompressed file is <strong>identical</strong> to the file before it was compressed — every character, formula, pixel or instruction is preserved.</li>
+<li>The trade-off is that it usually achieves a <strong>smaller reduction</strong> in file size than lossy compression manages on the same content, since it isn't allowed to discard anything.</li>
+</ul>
+<h4>Where it is normally used</h4>
+<ul>
+<li>Lossless compression is required for files where <strong>every bit matters</strong>: text documents, spreadsheets, program code, and some images where exact detail is essential (e.g. a company logo or a diagram with fine lines).</li>
+<li>If a spreadsheet's formulas or a program's code were compressed using a lossy method, even one permanently altered character could break the formula or stop the program running — which is why lossless is the only safe choice for these file types.</li>
+</ul>`,
+            readCheck: {
+                q: "A company's source code for its main product must be compressed before being backed up. Why must lossless compression be used rather than lossy?",
+                opts: ["Because lossless compression always produces a much smaller file size than lossy compression ever manages", "Because source code files are too large for lossy compression to work on", "Because even one permanently altered character could break the code, so nothing can be safely discarded", "Because lossy compression can only be applied to image and audio files"],
+                ans: 2,
+                explain: "Program code needs every character to be exact. Lossless compression guarantees the decompressed code is identical to the original, whereas lossy compression could permanently corrupt it."
+            }
+        },
+        {
+            title: "Lossy vs lossless: the real difference",
+            tag: "Comparison",
+            content: `<h4>Side by side</h4>
+<table>
+<tr><th>Factor</th><th>Lossy compression</th><th>Lossless compression</th></tr>
+<tr><td>Data removed?</td><td>Yes — permanently</td><td>No — none at all</td></tr>
+<tr><td>Can the original be restored exactly?</td><td>No — only a close approximation</td><td>Yes — exactly, bit for bit</td></tr>
+<tr><td>Typical size reduction</td><td>Much larger reduction</td><td>Smaller reduction</td></tr>
+<tr><td>Best suited to</td><td>Images, audio, video</td><td>Text, spreadsheets, program code, some images</td></tr>
+</table>
+<h4>The trap examiners set</h4>
+<ul>
+<li>Students often describe the difference by WHERE each type is used ("lossy is for pictures, lossless is for documents") instead of describing the actual mechanism — WHAT happens to the data itself. A full-marks "explain the difference" answer must state that one method removes data permanently and the other does not, before (or as well as) giving an example.</li>
+<li>Neither type is simply "better" than the other. Lossy compression is not a worse or broken version of lossless — it is the right tool when a smaller file matters more than keeping every bit, and lossless is the right tool when accuracy matters more than file size.</li>
+</ul>`,
+            readCheck: {
+                q: "Which sentence correctly explains the difference between lossy and lossless compression, rather than just naming where each is used?",
+                opts: ["Lossy compression is for photos and music; lossless compression is for documents and code", "Lossy compression permanently removes data so it can't be restored exactly; lossless removes none, so it can", "Lossy compression is simply an older and worse technique that lossless compression has now completely replaced everywhere", "Lossy compression makes files bigger, while lossless compression makes files smaller"],
+                ans: 1,
+                explain: "A full explanation describes the mechanism — whether data is permanently removed or not — not just a list of example file types."
+            }
+        },
+        {
+            title: "Choosing and justifying lossy or lossless for a scenario",
+            tag: "Exam skill",
+            content: `<h4>The two questions to ask</h4>
+<ul>
+<li><strong>1. Does every bit of this file matter?</strong> If losing even a small amount of detail would make the file wrong, broken or unusable (text, spreadsheets, code, some images), lossless is required.</li>
+<li><strong>2. Would a small, unnoticeable loss of detail be an acceptable trade-off for a much smaller, faster-moving file?</strong> If so (typical images, audio, video, especially for streaming or upload/download), lossy is usually the better choice.</li>
+</ul>
+<h4>How to structure a "choose and justify" answer</h4>
+<ul>
+<li><strong>Commit to ONE type first</strong> — lossy OR lossless, stated clearly. Do not hedge by describing both types and refusing to pick.</li>
+<li><strong>Then give reasons that only make sense for that chosen type</strong>, linked to the specific scenario in the question (storage limits, network speed, how critical exact accuracy is).</li>
+<li>A reason that actually supports the OTHER type earns nothing, even if it's a true statement — justification marks are awarded only when the reason matches the choice.</li>
+</ul>
+<h4>Worked example</h4>
+<table>
+<tr><th>Scenario detail</th><th>What it tells you</th></tr>
+<tr><td>"Users expect a song to start playing within a couple of seconds"</td><td>Points to lossy — a much smaller file streams and starts playing faster</td></tr>
+<tr><td>"The documents must remain word-for-word readable forever"</td><td>Points to lossless — no detail can ever be permanently lost</td></tr>
+</table>`,
+            readCheck: {
+                q: "A justify-your-choice answer states: 'Lossy compression, because it never loses any of the original data.' Why does this earn no justification marks?",
+                opts: ["Because lossy compression justification questions are never actually worth any marks on this topic at all", "Because the reason given actually describes lossless compression, not the lossy choice that was made", "Because the answer is too short to be marked at all", "Because only lossless compression can ever be justified in an exam answer"],
+                ans: 1,
+                explain: "The stated reason contradicts the chosen type — 'never loses any data' describes lossless compression, so it cannot support a lossy choice and earns nothing."
+            }
+        },
+        {
+            title: "Compression in the real world",
+            tag: "Real world",
+            content: `<h4>Formats you may see named in a question</h4>
+<ul>
+<li><strong>JPEG</strong> — a widely used <strong>lossy</strong> format for photographs, where a small loss of detail keeps file sizes manageable for cameras, phones and websites.</li>
+<li><strong>MP3</strong> — a widely used <strong>lossy</strong> format for music and audio, removing sound detail that is largely inaudible to most listeners.</li>
+<li><strong>PNG</strong> — a <strong>lossless</strong> image format, often chosen for logos, screenshots and diagrams where sharp, exact edges and colours must be kept.</li>
+<li><strong>ZIP</strong> — a <strong>lossless</strong> format for bundling and shrinking any file type, commonly used for documents, program files and email attachments where nothing can be safely discarded.</li>
+</ul>
+<h4>What the exam does and does not expect</h4>
+<ul>
+<li>You are expected to know that lossy and lossless compression exist, understand what each one does to the data, and be able to choose and justify one for a scenario.</li>
+<li>You are <strong>not</strong> expected to know the internal algorithm any of these formats actually use, or to perform a compression calculation by hand — the specification for this topic is conceptual, not calculation-based.</li>
+</ul>`,
+            readCheck: {
+                q: "Which pair correctly matches a real-world file format to the type of compression it is known for?",
+                opts: ["ZIP uses lossy compression, and JPEG uses lossless compression", "MP3 uses lossless compression, and PNG uses lossy compression", "JPEG uses lossy compression, and PNG uses lossless compression", "ZIP and MP3 both use exactly the same lossy compression method"],
+                ans: 2,
+                explain: "JPEG (photos) and MP3 (audio) are well-known lossy formats; PNG (images needing exact detail) and ZIP (general files) are well-known lossless formats."
+            }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        {
+            q: "What is the main effect of compressing a computer file?",
+            opts: ["The file becomes password protected so that only certain people can open it", "The file's size is reduced, so it needs less storage space and transfers faster", "The file's contents are automatically translated into a completely different language", "The file is permanently deleted from the device and moved into an online backup"],
+            ans: 1,
+            explain: "Compression reduces a file's size, which means it uses less storage and transfers more quickly — it does not change what the file contains or does."
+        },
+        {
+            q: "Which statement correctly describes lossy compression?",
+            opts: ["It permanently removes some of the original data, so the file cannot be restored exactly afterwards", "It keeps every single piece of the original data, so nothing is ever removed from the file at any point", "It only ever works correctly on text files, and it cannot be applied to any images, audio or video files", "It automatically increases the resolution and quality of an image while shrinking its file size"],
+            ans: 0,
+            explain: "Lossy compression discards some data permanently to shrink the file — that data cannot be recovered, so the original state cannot be restored exactly."
+        },
+        {
+            q: "Which statement correctly describes lossless compression?",
+            opts: ["It removes any data that the file's creator marks as unimportant before saving", "It shrinks a file by more than lossy compression does, on the exact same content", "It removes no data at all, so the original file can be reconstructed exactly", "It can only be applied once, and the file cannot be compressed a second time"],
+            ans: 2,
+            explain: "Lossless compression stores the same data more efficiently without discarding anything, so decompressing it gives back exactly the original file."
+        },
+        {
+            q: "Which of these file types would usually be the WORST candidate for lossy compression?",
+            opts: ["A photo taken on a smartphone camera and shared widely across several social media platforms", "Source code for a computer program that a company relies on every day", "A song downloaded onto a phone to listen to during a commute", "A short video clip recorded for a video-sharing app"],
+            ans: 1,
+            explain: "Program code needs every character to be exact — a single permanently altered character from lossy compression could stop the program working, so lossless compression is required instead."
+        },
+        {
+            q: "A streaming service wants users to be able to start watching a film within a couple of seconds. Which type of compression best supports this?",
+            opts: ["Lossless compression, because it guarantees the film's every pixel is stored exactly", "Lossy compression, because it produces a much smaller file that downloads and streams faster", "No compression at all, because streaming always requires the full, completely uncompressed original file", "Lossless compression, because it always produces a smaller file than lossy compression"],
+            ans: 1,
+            explain: "Lossy compression usually achieves a far bigger size reduction, so the film's data arrives and can start playing much sooner."
+        },
+        {
+            q: "Which of these is a genuine reason for compressing files before sending them over the internet?",
+            opts: ["Compressed files use less of the network's limited bandwidth while being sent", "Compressed files can no longer be opened by the person receiving them", "Compressed files are automatically protected from computer viruses during transfer", "Compressed files always arrive at their destination in a completely different format"],
+            ans: 0,
+            explain: "Smaller, compressed files use less bandwidth and transfer faster — a genuine, practical reason for compressing files sent over a network."
+        },
+        {
+            q: "Why is lossless compression essential for a company's financial spreadsheet, rather than lossy compression?",
+            opts: ["Because spreadsheets are always much larger in file size than photos or videos", "Because lossy compression cannot technically be applied to any file made in office software", "Because every number and formula must remain exact, or the figures could become wrong", "Because spreadsheets need to be compressed twice in a row to reach an acceptable size"],
+            ans: 2,
+            explain: "A spreadsheet's numbers and formulas must stay perfectly accurate — lossless compression guarantees nothing is altered, whereas lossy compression could corrupt a value."
+        },
+        {
+            q: "A digital photo is compressed using lossy compression before being emailed. What happens to the photo's quality?",
+            opts: ["The quality improves, because compression sharpens the details in every pixel", "The quality is unaffected, because lossy compression never changes any pixel data", "The quality is reduced, because some image detail has been permanently discarded", "The quality becomes impossible to predict until the photo is opened again"],
+            ans: 2,
+            explain: "Lossy compression permanently removes some image detail to shrink the file, which reduces quality — even if the loss is often hard to notice."
+        },
+        {
+            q: "Which pair correctly matches a real-world file format to the type of compression it uses?",
+            opts: ["MP3 uses lossless compression, and ZIP uses lossy compression", "JPEG uses lossy compression, and PNG uses lossless compression", "ZIP uses lossy compression, and JPEG uses lossless compression", "PNG uses lossy compression, and MP3 uses lossless compression"],
+            ans: 1,
+            explain: "JPEG is a widely used lossy image format; PNG is a widely used lossless image format — the two are commonly confused in the opposite direction."
+        },
+        {
+            q: "A hospital stores medical scan images that doctors must be able to examine in full, exact detail. Which type of compression should it use?",
+            opts: ["Lossy compression, because doctors will not notice any missing image detail", "No compression at all, because medical images cannot legally be compressed", "Lossless compression, because no detail in the scan can be permanently lost", "Lossy compression, because it is the only method that can be applied to images"],
+            ans: 2,
+            explain: "Where exact detail is critical for a decision (like a medical diagnosis), lossless compression is required so nothing is permanently discarded."
+        },
+        {
+            q: "What is the main drawback of choosing lossy compression over lossless compression?",
+            opts: ["Lossy compressed files always take up more storage space than the original", "Some of the original file's data and quality is lost and cannot be recovered", "Lossy compression cannot legally be used for any type of file stored on the internet", "Lossy compressed files always take much longer to transfer over a network"],
+            ans: 1,
+            explain: "The trade-off for lossy compression's much smaller file size is a permanent, unrecoverable loss of some data and quality."
+        },
+        {
+            q: "A word-processed report needs to be edited and re-saved many times without any of its text or formatting being permanently damaged. Which type of compression is appropriate?",
+            opts: ["Lossy compression, since text files are always small enough not to need lossless", "Either type works equally well, since repeatedly editing a document has no real effect on this", "Lossless compression, since every character and formatting detail must be kept exactly", "Lossy compression, since it always compresses text more effectively than lossless"],
+            ans: 2,
+            explain: "A document that must stay exactly correct through repeated edits needs lossless compression, which guarantees nothing is ever permanently lost."
+        }
+    ];
+
+    const matchData = [
+        { term: "Compression", def: "The process of reducing a file's size so it uses less storage or transfers faster" },
+        { term: "Lossy compression", def: "Compression that permanently removes some data, so the file cannot be restored exactly" },
+        { term: "Lossless compression", def: "Compression that removes no data at all, so the file can be restored exactly" },
+        { term: "Bandwidth", def: "The maximum amount of data a network connection can carry in a given time" },
+        { term: "Streaming", def: "Playing audio or video from the internet as it downloads, without saving the whole file first" },
+        { term: "A text document", def: "A file type that must use lossless compression, since every character matters" },
+        { term: "A digital photo for a website", def: "A file type usually compressed with lossy compression, since minor detail loss often goes unnoticed" },
+        { term: "Program source code", def: "A file type that must use lossless compression, since a single altered character could break it" },
+        { term: "A streamed music track", def: "A file type usually compressed with lossy compression, so it downloads and plays smoothly" },
+        { term: "ZIP file", def: "A common real-world example of a lossless compression format, often used for documents" },
+        { term: "JPEG image", def: "A common real-world example of a lossy compression format, used for photographs" },
+        { term: "MP3 audio", def: "A common real-world example of a lossy compression format, used for music" },
+        { term: "PNG image", def: "A common real-world example of a lossless compression format, used where exact detail matters" },
+        { term: "Why files are compressed", def: "Smaller files use less storage, transfer faster, and use less network bandwidth" }
+    ];
+
+    const fibData = [
+        {
+            display: "Compression makes a file _____, so it uses less storage space and transfers faster.",
+            blanks: { B1: "smaller" }
+        },
+        {
+            display: "A method of compression that permanently removes some data, so the original cannot be restored exactly, is called _____ compression.",
+            blanks: { B1: "lossy" }
+        },
+        {
+            display: "A method of compression that removes no data at all, so the original file can be reconstructed exactly, is called _____ compression.",
+            blanks: { B1: "lossless" }
+        },
+        {
+            display: "Lossy compression is well suited to files such as images, audio and video, where some quality loss is unlikely to be _____ by most people.",
+            blanks: { B1: "noticed" }
+        },
+        {
+            display: "Lossless compression must be used for files such as _____ documents, spreadsheets and program code, where every bit matters.",
+            blanks: { B1: "text" }
+        },
+        {
+            display: "The maximum amount of data a network connection can carry in a given time is called its _____.",
+            blanks: { B1: "bandwidth" }
+        },
+        {
+            display: "_____ is a common real-world example of a lossless compression format, often used for documents and program files.",
+            blanks: { B1: "ZIP" }
+        },
+        {
+            display: "Choosing lossy compression instead of lossless usually means accepting a reduction in file _____ in exchange for a much smaller file size.",
+            blanks: { B1: "quality" }
+        }
+    ];
+    const fibWords = ["smaller", "lossy", "lossless", "noticed", "text", "bandwidth", "ZIP", "quality"];
+
+    const tfData = [
+        {
+            statement: "Compression makes a file smaller so it uses less storage and transfers faster.",
+            answer: true,
+            explanation: "Correct — this is the core purpose of compression."
+        },
+        {
+            statement: "Lossy compression can always be reversed to restore the exact original file.",
+            answer: false,
+            explanation: "Lossy compression permanently removes some data — decompressing gives a close copy, not an exact one. Only lossless compression guarantees exact restoration."
+        },
+        {
+            statement: "Lossless compression removes no data, so the original file can be reconstructed exactly.",
+            answer: true,
+            explanation: "Correct — that is the defining feature of lossless compression."
+        },
+        {
+            statement: "Lossless compression is generally suited to text documents, spreadsheets and program code.",
+            answer: true,
+            explanation: "Correct — these are files where every bit matters, so nothing can be safely discarded."
+        },
+        {
+            statement: "Lossy compression is generally suited to images, audio and video, where minor quality loss often goes unnoticed.",
+            answer: true,
+            explanation: "Correct — a small, targeted loss of detail in these file types is often imperceptible to most people."
+        },
+        {
+            statement: "Lossless compression usually reduces file size by more than lossy compression does on the same file.",
+            answer: false,
+            explanation: "The opposite is generally true: lossy compression usually achieves a much bigger size reduction, because it permanently discards data rather than keeping everything."
+        },
+        {
+            statement: "Bandwidth is the maximum amount of data a network connection can carry in a given time.",
+            answer: true,
+            explanation: "Correct — and compressed files use less of that available bandwidth."
+        },
+        {
+            statement: "JPEG and ZIP are both examples of lossless compression formats.",
+            answer: false,
+            explanation: "JPEG is a lossy format (used for photos); ZIP is a lossless format (used for documents and program files) — they are not the same type."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Believing lossy compression removes data completely at random, like deleting random parts of a file.",
+            correct: "It targets <strong>specific</strong> detail that people are least likely to notice — for example, very high or low sound frequencies, or subtle colour differences in an image. It is a deliberate, targeted reduction, not random deletion.",
+            readCheck: {
+                q: "How does lossy compression decide which data to remove from a file?",
+                opts: ["It removes data completely at random, picking bits and bytes with no pattern anywhere across the whole file", "It targets specific detail that people are unlikely to notice, such as subtle colour or sound differences", "It removes the first half of the file and keeps the second half unchanged", "It asks the user to manually select exactly which parts of the file to delete"],
+                ans: 1,
+                explain: "Lossy compression targets detail that is least likely to be noticed, rather than deleting data randomly."
+            }
+        },
+        {
+            wrong: "Believing lossless compression achieves a smaller file size than lossy compression on the same file.",
+            correct: "The opposite is usually true. Lossless compression keeps every original bit of data, so it typically produces a <strong>bigger</strong> file than lossy compression on the same content, which permanently throws detail away to get much smaller.",
+            readCheck: {
+                q: "On the same original file, which type of compression usually produces the smaller result?",
+                opts: ["Lossless compression, because it is the more advanced of the two methods", "Lossy compression, because it permanently discards some data rather than keeping everything", "They always produce exactly the same file size, whichever method is used", "Neither — the resulting file size depends only on the file's original format, not the method used"],
+                ans: 1,
+                explain: "Lossy compression usually achieves a much bigger reduction, since it is allowed to permanently discard data that lossless compression must keep."
+            }
+        },
+        {
+            wrong: "Believing a file compressed with lossy compression can always be restored to its exact original state by decompressing it.",
+            correct: "It cannot. Data removed during lossy compression is gone permanently — decompressing produces a copy that is close to, but <strong>not identical</strong> to, the true original. Only lossless compression guarantees an exact restoration.",
+            readCheck: {
+                q: "A photo is compressed using lossy compression, then later decompressed. What is true of the result?",
+                opts: ["It is guaranteed to be pixel-for-pixel identical to the original photo", "It is a close copy of the original, but some detail has been permanently lost", "It becomes a completely different photo altogether, entirely unrelated to the original", "It is always restored to a higher quality than the original photo"],
+                ans: 1,
+                explain: "Lossy compression permanently discards some data, so decompressing it can never produce an exact match of the original file."
+            }
+        },
+        {
+            wrong: "Believing any file type can safely use lossy compression, as long as the resulting file is smaller.",
+            correct: "Files where every bit matters — text documents, spreadsheets, program code — must use <strong>lossless</strong> compression, since lossy compression could permanently corrupt characters, formulas or code and make the file unusable.",
+            readCheck: {
+                q: "Why is it unsafe to compress a spreadsheet of financial data using lossy compression?",
+                opts: ["Because spreadsheets are always too large for any compression method to work on", "Because a permanently altered number or formula could make the figures wrong", "Because lossy compression only works on files stored on the internet", "Because spreadsheets automatically reject any attempt to compress them"],
+                ans: 1,
+                explain: "Lossy compression can permanently change data. In a spreadsheet, that could silently corrupt a number or formula, so lossless compression must be used instead."
+            }
+        },
+        {
+            wrong: "Believing compression is only really about saving storage space.",
+            correct: "It is just as much about <strong>transfer</strong> — smaller files upload and download faster and use less of a network's limited bandwidth, which is essential for streaming video or audio smoothly.",
+            readCheck: {
+                q: "Besides saving storage space, what is another genuine reason files are compressed?",
+                opts: ["Compression makes a file completely impossible for anyone else to ever open or copy", "Smaller files transfer faster and use less of a network's limited bandwidth", "Compression automatically fixes any errors that exist inside the file", "Compression permanently increases the resolution of an image file"],
+                ans: 1,
+                explain: "Faster transfer and reduced bandwidth use are just as important a reason for compression as saving storage space."
+            }
+        },
+        {
+            wrong: "Believing that because lossy compression reduces file size by more, it is always the better choice.",
+            correct: "The 'better' choice depends entirely on whether losing some data permanently is acceptable for that file and its purpose — a bigger size reduction is worthless if the file becomes unusable, such as corrupted program code.",
+            readCheck: {
+                q: "Why is lossy compression not automatically the 'better' choice, even though it usually shrinks a file by more?",
+                opts: ["Because lossy compression always takes noticeably longer to perform than lossless compression does", "Because permanently losing data can make some files (e.g. program code) unusable, even if smaller", "Because lossy compression can only ever be applied to text files", "Because lossy compression always costs money to use, unlike lossless compression"],
+                ans: 1,
+                explain: "A bigger size reduction is only useful if the permanent data loss doesn't matter for that file's purpose — for code or exact records, it does matter, so lossless is required instead."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "explain",
+            title: "The 1–2 mark 'state/define' ladder",
+            pills: ["AO1", "1-2 marks", "State/Define", "Precise wording"],
+            content: `<p>A typical question: <em>"Define lossless compression."</em> [2 marks] Here is the same idea answered at every level:</p>
+
+<p><strong>❌ 0 marks:</strong> "It makes the file smaller."</p>
+<ul>
+<li>This is true of compression in general, but it doesn't describe LOSSLESS compression specifically — it would also be true of lossy compression, so it can't be credited as a definition of this particular method.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "It doesn't lose any of the data."</p>
+<ul>
+<li>A genuinely correct point, but "define" needs the CONSEQUENCE too — what does not losing any data actually let you do? Without that second half, only one of the two marks is available.</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "No data is removed during compression <strong>(1)</strong>, so the original file can be reconstructed/decompressed back to exactly what it was before <strong>(1)</strong>."</p>
+
+<p><strong>Why this matters:</strong> "State/define" answers on this topic need to name what happens to the data AND the consequence that follows from it — a one-line vague answer like "makes it smaller" applies to compression in general, not to the specific method being asked about.</p>`,
+            readCheck: {
+                q: "A student answers 'Lossless compression: it keeps the file's quality the same' for a 2-mark 'define lossless compression' question. What is this likely to score?",
+                opts: ["2 marks, because quality staying the same is a correct and complete definition", "0 marks, because the answer given is entirely unrelated to the topic of compression itself", "Partial marks at best — it hints at the idea but doesn't clearly state that no data is removed", "Full marks, because any true statement made about lossless compression always scores the maximum"],
+                ans: 2,
+                explain: "The answer gestures at the right idea but doesn't clearly state the two creditable points — no data removed, and exact reconstruction — so it is unlikely to reach full marks."
+            }
+        },
+        {
+            type: "explain",
+            title: "The 2-mark 'explain the difference' ladder",
+            pills: ["AO1", "2 marks", "Explain", "Compare both sides"],
+            content: `<p>A typical question: <em>"Explain the difference between lossy and lossless compression."</em> [2 marks]</p>
+
+<p><strong>❌ 0 marks:</strong> "Lossy is for pictures and lossless is for documents."</p>
+<ul>
+<li>This states WHERE each type is used, not WHAT the actual difference in the compression process is — it could be true and still miss the mechanism the question is asking about.</li>
+</ul>
+
+<p><strong>⚠️ 1 mark:</strong> "Lossy loses some data but lossless doesn't."</p>
+<ul>
+<li>A genuinely correct point, but "explain the difference" wants BOTH sides properly described, and this only develops the lossy half of the comparison.</li>
+</ul>
+
+<p><strong>✅ 2 marks:</strong> "Lossy compression permanently removes some data so the file cannot be restored exactly <strong>(1)</strong>; lossless compression removes no data at all, so the file can be restored to exactly what it was before <strong>(1)</strong>."</p>
+
+<p><strong>The pattern:</strong> a 2-mark "difference" question on this topic almost always splits into one mark for each side of the comparison — write about lossy AND lossless, not just one of them.</p>`,
+            readCheck: {
+                q: "A 2-mark 'explain the difference' question is answered with only 'Lossy compression removes some data permanently.' What is the most likely outcome?",
+                opts: ["Full marks, since the statement given is completely accurate", "Only 1 of the 2 marks, since the lossless side of the comparison is missing entirely", "0 marks, since the statement given doesn't mention file size or bandwidth anywhere at all", "Full marks, since only one correct fact is needed to explain any difference"],
+                ans: 1,
+                explain: "A difference question needs both sides described. A correct statement about only lossy compression can earn at most half the marks."
+            }
+        },
+        {
+            type: "tip",
+            title: "The 'choose + justify' ladder (3–4 marks): commit to ONE type",
+            pills: ["AO2", "3-4 marks", "Choice + justification", "Don't hedge"],
+            content: `<p>"Justify a choice" questions on this topic always need TWO things in the right order: a committed choice (lossy OR lossless), then reasons that genuinely apply to THAT choice in THIS scenario.</p>
+
+<p><strong>❌ 0–1 marks:</strong> "Lossy compression is smaller but loses quality, and lossless keeps everything but is bigger, so it depends."</p>
+<ul>
+<li>This hedges between both types instead of committing to one, so the justification marks can't be credited against a clear choice.</li>
+</ul>
+
+<p><strong>⚠️ Partial marks:</strong> "Lossless, because it doesn't lose any data."</p>
+<ul>
+<li>A valid, committed choice — but only ONE justification point is given where the question wants more, developed and linked to the scenario.</li>
+</ul>
+
+<p><strong>✅ Full marks:</strong> "Lossless compression, because it removes no data <strong>(1)</strong>, so the archived legal documents can always be reconstructed exactly, with every word intact even after years of storage <strong>(1)</strong>, and no detail can be permanently altered, which matters for an official record <strong>(1)</strong>."</p>
+
+<p>Two rules that catch real candidates out: commit to ONE type first, not a brand or a vague "it depends" — and make sure every justification point clearly matches the type you chose. A reason that only applies to the OTHER type earns nothing, even if it's a true statement.</p>`,
+            readCheck: {
+                q: "You justify 'lossy compression' using 'it removes no data, so nothing is ever lost.' Why does this earn no justification marks?",
+                opts: ["Because lossy compression justification questions on this specific topic are never worth any marks whatsoever at all", "Because the reason given actually describes lossless compression, contradicting the lossy choice that was made", "Because the answer is too short to be marked, regardless of what it says", "Because only lossless compression can ever be justified correctly in an exam answer"],
+                ans: 1,
+                explain: "The stated reason contradicts the chosen type — 'removes no data' describes lossless compression, so it cannot support a lossy choice and earns nothing."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Compression", def: "Reducing a file's size so it uses less storage or transfers faster" },
+        { term: "Lossy compression", def: "Permanently removes some data — the file cannot be restored exactly" },
+        { term: "Lossless compression", def: "Removes no data at all — the file can be restored exactly" },
+        { term: "Bandwidth", def: "The maximum amount of data a network connection can carry in a given time" },
+        { term: "Streaming", def: "Playing audio/video from the internet as it downloads, without saving the whole file first" },
+        { term: "Why compression saves storage", def: "Smaller files mean more of them fit on a limited storage device" },
+        { term: "Why compression speeds up transfer", def: "Smaller files upload, download and stream faster, using less bandwidth" },
+        { term: "ZIP", def: "A real-world lossless compression format, often used for documents and program files" },
+        { term: "JPEG", def: "A real-world lossy compression format, commonly used for photographs" },
+        { term: "MP3", def: "A real-world lossy compression format, commonly used for music/audio" },
+        { term: "PNG", def: "A real-world lossless image format, used where exact pixel detail matters" },
+        { term: "Quality loss (lossy)", def: "The reduction in a file's quality caused by permanently discarding some data" },
+        { term: "Exact reconstruction (lossless)", def: "Decompressing recreates the file bit-for-bit identical to the original" },
+        { term: "Files suited to lossy compression", def: "Images, audio and video, where minor detail loss often goes unnoticed" },
+        { term: "Files suited to lossless compression", def: "Text, spreadsheets, program code, and images needing exact detail" },
+        { term: "Upload", def: "Sending a file from a device to a server or website over a network" },
+        { term: "Download", def: "Receiving a file from a server or website onto a device over a network" },
+        { term: "The size vs quality trade-off", def: "Lossy compression trades a permanent quality loss for a much smaller file size" }
+    ];
+
+    // ── C1–C13: original clean-room questions (2026-07-19) ──
+    // Written from scratch against the §1.2.4 (page 1.2.8) spec scope — the
+    // course requires ONLY lossy vs lossless compression, not RLE/Huffman —
+    // NOT transcribed from any past paper or the CS resources/ PDFs. Fresh
+    // scenarios/numbers throughout. See docs/SELF-MARK-POINTS-AUTHORING.md
+    // for the markPoints convention used on the compound/justify questions.
+    const examQuestions = [
+        {
+            num: "C1",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick (✓) <strong>one</strong> box to identify the statement that correctly defines lossy compression.</p>`,
+            options: ["It permanently removes some data, so the original file cannot be restored exactly", "It removes no data at all, so the original file can be restored exactly", "It only ever works on text files and program code", "It always produces a larger file than the original, uncompressed file"],
+            answer: 0,
+            hint: "Think about what happens to the DATA itself, not just the file size.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>It permanently removes some data, so the original file cannot be restored exactly</strong> (box 1)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; 2 or more ticks scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "It permanently removes some data, so the original file cannot be restored exactly."
+        },
+        {
+            num: "C2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick (✓) <strong>one</strong> box to identify the statement that correctly defines lossless compression.</p>`,
+            options: ["It removes data at random until the file reaches an acceptable size", "It removes no data at all, so the original file can be reconstructed exactly", "It can only be applied to files smaller than 1 megabyte", "It always achieves a bigger size reduction than lossy compression"],
+            answer: 1,
+            hint: "Lossless means exactly what it says — nothing is lost.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>It removes no data at all, so the original file can be reconstructed exactly</strong> (box 2)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; 2 or more ticks scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "It removes no data at all, so the original file can be reconstructed exactly."
+        },
+        {
+            num: "C3",
+            marks: 1,
+            type: "written",
+            caseStudy: "",
+            question: `<p>State what happens to a file's data when lossy compression is used.</p>`,
+            hint: "One clear sentence about the data itself, not about the file size.",
+            starter: "When lossy compression is used, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li>Some of the file's data is permanently removed/discarded/lost</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any wording that clearly states data is permanently removed. Do not accept a vague "the file gets smaller" with no reference to data being removed.</li>
+</ul>
+</div>`,
+            modelAnswer: "Some of the file's original data is permanently removed/discarded."
+        },
+        {
+            num: "C4",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Define lossless compression.</p>`,
+            hint: "Say what happens to the data, then say what that lets you do afterwards.",
+            starter: "Lossless compression is a method of compression where…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per bullet)</h5>
+<ul>
+<li>No data is removed/lost during compression</li>
+<li>The original file can be reconstructed/decompressed to be exactly the same as it was before compression</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both points are needed for full marks. A vague "it keeps the quality the same" without stating no data is removed AND exact reconstruction is possible scores at most 1.</li>
+</ul>
+</div>`,
+            modelAnswer: "Lossless compression is a method of compression where no data is removed at all, so the original file can be reconstructed exactly as it was before it was compressed."
+        },
+        {
+            num: "C5",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Explain the difference between lossy and lossless compression.</p>`,
+            hint: "Write about BOTH types — one mark is usually for each side of the comparison.",
+            starter: "Lossy compression… whereas lossless compression…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per bullet)</h5>
+<ul>
+<li>Lossy compression permanently removes some data, so the file cannot be restored exactly</li>
+<li>Lossless compression removes no data, so the file can be restored/reconstructed exactly</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Both sides of the comparison must be addressed for full marks. A correct statement about only one type scores a maximum of 1.</li>
+</ul>
+</div>`,
+            modelAnswer: "Lossy compression permanently removes some of the file's data, so it cannot be restored exactly. Lossless compression removes no data at all, so the file can be reconstructed exactly as it was before compression."
+        },
+        {
+            num: "C6",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>State two reasons why a company might choose to compress files before making them available to download from its website.</p>`,
+            hint: "Think about storage, transfer speed, and bandwidth — give any two distinct reasons.",
+            starter: "Reason 1: … Reason 2: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 mark per reason, up to 2)</h5>
+<ul>
+<li>The compressed files use less storage space on the company's servers</li>
+<li>The compressed files download faster for visitors to the website</li>
+<li>The compressed files use less of the network's/website's available bandwidth</li>
+<li>Faster downloads/less storage means the company can serve more visitors or files without extra cost</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Award 1 mark per distinct valid reason, up to a maximum of 2. Two versions of the same reason (e.g. "saves space" and "uses less storage") only score once.</li>
+</ul>
+</div>`,
+            modelAnswer: "Compressing the files means they use less storage space on the company's servers, and they download faster for visitors using less of the website's available bandwidth."
+        },
+        {
+            num: "C7",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Compression type", "Justification"],
+            question: `<p>A local council is archiving scanned copies of important planning permission documents. The documents must remain word-for-word readable, and their content must never be altered, even after being stored for many years.</p><p>State whether the council should compress these documents using lossy or lossless compression. Justify your choice.</p>`,
+            hint: "Think about what happens if even one detail is permanently changed — then pick the type that guarantees nothing is lost.",
+            starter: "Type: … Justification: …",
+            markPoints: {
+                note: "1 mark for choosing lossless compression; up to 3 marks for justification points that genuinely match lossless compression for this scenario. Reasons that only apply to lossy compression earn nothing.",
+                groups: [
+                    {
+                        label: "Your compression type", max: 1, points: [
+                            { text: "States lossless compression", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your justification", max: 3, points: [
+                            { text: "States that lossless compression removes/loses no data, so the exact original document can always be reconstructed/restored", marks: 1 },
+                            { text: "Links this to the scenario: the documents are text-based legal records where every character must remain readable and unchanged, so no detail can be permanently discarded", marks: 1 },
+                            { text: "Gives a further valid reason matching lossless compression (e.g. a long-term archive needs a trustworthy, unaltered copy even after many years; a lossy method could permanently corrupt legal wording, which is unacceptable for an official record)", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 for choice of lossless; 1 mark per bullet to max 3 for justification)</h5>
+<ul>
+<li>Lossless compression removes no data, so the document can always be reconstructed exactly</li>
+<li>Every word/character in the legal document must remain readable and unchanged — nothing can be permanently discarded</li>
+<li>A trustworthy, unaltered archive copy is needed even after years of storage; a lossy method risks permanently corrupting legal wording</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Justification must match the chosen type. If lossy is chosen instead, do not award any justification marks based on lossless reasoning.</li>
+<li>Mark the first compression type given.</li>
+</ul>
+</div>`,
+            modelAnswer: "Type: Lossless compression\n\nJustification: Lossless compression removes no data, so the scanned documents can always be reconstructed exactly as they originally were. Because these are legal planning documents, every word and detail must remain accurate and unchanged — even a small permanent loss of detail from lossy compression could make part of the text unreadable or legally unreliable. Using lossless compression also means the council can trust the archived copy to be identical to the original even after being stored for many years."
+        },
+        {
+            num: "C8",
+            marks: 4,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Compression type", "Justification"],
+            question: `<p>A music streaming app sends songs to users' phones over mobile data connections. Many users have a limited monthly data allowance and expect a song to start playing within a couple of seconds of pressing play.</p><p>State whether the app should compress its songs using lossy or lossless compression. Justify your choice.</p>`,
+            hint: "Think about file size versus data allowance and how quickly a song needs to start playing.",
+            starter: "Type: … Justification: …",
+            markPoints: {
+                note: "1 mark for choosing lossy compression; up to 3 marks for justification points that genuinely match lossy compression for this scenario. Reasons that only apply to lossless compression earn nothing.",
+                groups: [
+                    {
+                        label: "Your compression type", max: 1, points: [
+                            { text: "States lossy compression", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your justification", max: 3, points: [
+                            { text: "States that lossy compression produces a much smaller file, which uses less of the user's limited mobile data allowance", marks: 1 },
+                            { text: "Links smaller file size to the song downloading/buffering fast enough to start playing almost immediately, giving smooth streaming", marks: 1 },
+                            { text: "States that the small loss of audio detail from lossy compression is generally not noticeable to most listeners (e.g. through phone speakers/earbuds), so the quality trade-off is acceptable", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 for choice of lossy; 1 mark per bullet to max 3 for justification)</h5>
+<ul>
+<li>Lossy compression produces a much smaller file, using less of the user's limited mobile data allowance</li>
+<li>The smaller file downloads/buffers fast enough for the song to start playing almost immediately</li>
+<li>The small loss of audio detail is usually not noticeable to most listeners, so the quality trade-off is acceptable</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Justification must match the chosen type. If lossless is chosen instead, do not award any justification marks based on lossy reasoning.</li>
+<li>Mark the first compression type given.</li>
+</ul>
+</div>`,
+            modelAnswer: "Type: Lossy compression\n\nJustification: Lossy compression produces a much smaller file than lossless compression would, which uses less of a user's limited mobile data allowance when the song is downloaded or streamed. The smaller file also downloads or buffers quickly enough for playback to start almost immediately, which meets users' expectations. The small amount of audio detail lost is usually not noticeable to most listeners, especially through phone speakers or earbuds, so the reduction in quality is an acceptable trade-off for faster, cheaper streaming."
+        },
+        {
+            num: "C9",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: `<p>Describe one drawback of using lossy compression.</p>`,
+            hint: "State the effect on the file, then develop it by explaining why that effect cannot be undone.",
+            starter: "One drawback of lossy compression is…",
+            markPoints: {
+                note: "2 marks for one developed drawback: 1 mark for stating the effect, 1 mark for developing WHY it is a genuine drawback (that the loss is permanent).",
+                groups: [
+                    {
+                        label: "Your drawback", max: 2, points: [
+                            { text: "States that the quality of the file is reduced / some detail is lost", marks: 1 },
+                            { text: "Develops this by stating the lost data is permanent and the original file CANNOT be restored/recovered exactly", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (1 for the drawback, 1 for development)</h5>
+<ul>
+<li>The quality of the file is reduced / some detail is lost <strong>(1)</strong> … and this loss is permanent, so the original file cannot be restored/recovered exactly <strong>(1)</strong></li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Accept any correctly developed drawback linked to the permanent, unrecoverable loss of data/quality.</li>
+</ul>
+</div>`,
+            modelAnswer: "A drawback of lossy compression is that the quality of the file is reduced, because some of the original data has been permanently removed. This loss is permanent, so the original file can never be restored or recovered exactly, even by decompressing it again."
+        },
+        {
+            num: "C10",
+            marks: 4,
+            type: "written",
+            format: "tickGrid",
+            caseStudy: "",
+            question: `<p>For each file type below, tick (✓) <strong>one</strong> box to identify whether lossy or lossless compression is the more suitable choice.</p>`,
+            grid: {
+                cols: ["Lossy compression is more suitable", "Lossless compression is more suitable"],
+                rows: [
+                    { label: "A Word-processed report that must be edited later without losing any formatting", correct: [1] },
+                    { label: "A holiday photo shared on social media", correct: [0] },
+                    { label: "Source code for a computer program", correct: [1] },
+                    { label: "A live video call over the internet", correct: [0] }
+                ]
+            },
+            hint: "Ask: does every bit of this file matter, or would a small, unnoticeable loss of detail be an acceptable trade-off for a smaller file?",
+            starter: "Row 1: … | Row 2: … | Row 3: … | Row 4: …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark for each row)</h5>
+<ul>
+<li>Word-processed report → <strong>Lossless</strong> (formatting/text must not be permanently altered)</li>
+<li>Holiday photo for social media → <strong>Lossy</strong> (small file size matters more than tiny, unnoticeable detail loss)</li>
+<li>Source code → <strong>Lossless</strong> (a single altered character could break the program)</li>
+<li>Live video call → <strong>Lossy</strong> (a much smaller data stream is needed to send video in real time)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Each row is marked independently. Two or more ticks in the same row scores 0 for that row.</li>
+</ul>
+</div>`,
+            modelAnswer: "Row 1 (Word-processed report): Lossless. Row 2 (holiday photo): Lossy. Row 3 (source code): Lossless. Row 4 (live video call): Lossy."
+        },
+        {
+            num: "C11",
+            marks: 4,
+            type: "written",
+            format: "matchLine",
+            caseStudy: "",
+            question: `<p>Draw <strong>one</strong> line from each real-world file example to the description that correctly matches it.</p><p>(There are more descriptions than examples — one description is not used.)</p>`,
+            match: {
+                left: ["ZIP archive of Word documents", "JPEG holiday photograph", "MP3 music track", "PNG website logo"],
+                right: ["Lossless — every byte of the original documents must be restored exactly, or the files could be corrupted or unreadable", "Lossy — permanently discards some visual detail people are unlikely to notice, to make the picture file much smaller", "Lossy — permanently discards some audio detail listeners are unlikely to notice, to make the song file much smaller", "Lossless — needs sharp, exact edges and colours, so no pixel detail can be permanently lost", "Uses no compression at all, so every bit of the original file is stored at full, uncompressed size"],
+                answer: { "0": 0, "1": 1, "2": 2, "3": 3 },
+                decoys: [4]
+            },
+            hint: "Match each example to its type of compression AND the reason that type suits it — watch for the decoy that describes no compression at all.",
+            starter: "ZIP → …, JPEG → …, MP3 → …, PNG → …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (1 mark per correct line from example to description)</h5>
+<ul>
+<li>ZIP archive → <strong>A</strong> (lossless — every byte of the documents must be restored exactly)</li>
+<li>JPEG photograph → <strong>B</strong> (lossy — discards unnoticeable visual detail)</li>
+<li>MP3 track → <strong>C</strong> (lossy — discards unnoticeable audio detail)</li>
+<li>PNG logo → <strong>D</strong> (lossless — needs sharp, exact detail)</li>
+<li>E ("no compression at all") is the unused decoy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Any 2 lines from 1 example scores 0 marks for that example.</li>
+</ul>
+</div>`,
+            modelAnswer: "ZIP → A, JPEG → B, MP3 → C, PNG → D"
+        },
+        {
+            num: "C12",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: `<p>Tick (✓) <strong>one</strong> box to identify a real-world example of a LOSSLESS compression format.</p>`,
+            options: ["JPEG, commonly used for photographs on the web", "MP3, commonly used for music and audio files", "ZIP, commonly used for documents and program files", "A format that always discards half of an image's pixels"],
+            answer: 2,
+            hint: "Three of these options are either lossy formats or aren't real formats at all.",
+            starter: "",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark</h5>
+<ul>
+<li><strong>ZIP, commonly used for documents and program files</strong> (box 3)</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Only the correct option scores; 2 or more ticks scores 0.</li>
+</ul>
+</div>`,
+            modelAnswer: "ZIP, commonly used for documents and program files."
+        },
+        {
+            num: "C13",
+            marks: 3,
+            type: "written",
+            caseStudy: "",
+            stubs: ["Compression type", "Justification"],
+            question: `<p>A photo-sharing app lets users upload as many photos as they like for free, but the company's servers have a limited amount of storage space, and users on slow mobile connections expect their photos to upload quickly.</p><p>State whether the app should compress photos using lossy or lossless compression before storing them. Justify your choice.</p>`,
+            hint: "Think about storage across millions of uploaded photos, and upload speed on a slow connection.",
+            starter: "Type: … Justification: …",
+            markPoints: {
+                note: "1 mark for choosing lossy compression; up to 2 marks for justification points that genuinely match lossy compression for this scenario. Reasons that only apply to lossless compression earn nothing.",
+                groups: [
+                    {
+                        label: "Your compression type", max: 1, points: [
+                            { text: "States lossy compression", marks: 1 }
+                        ]
+                    },
+                    {
+                        label: "Your justification", max: 2, points: [
+                            { text: "States that lossy compression reduces file size by much more than lossless would, saving significant server storage across a large number of uploaded photos", marks: 1 },
+                            { text: "States that the smaller file uploads faster, which matters for users on slow mobile connections, and that any lost detail is usually not noticeable when photos are viewed on a phone screen", marks: 1 }
+                        ]
+                    }
+                ]
+            },
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 3 marks (1 for choice of lossy; 1 mark per bullet to max 2 for justification)</h5>
+<ul>
+<li>Lossy compression reduces file size by much more than lossless, saving significant server storage across many uploaded photos</li>
+<li>The smaller file uploads faster on a slow connection, and the small loss of detail is usually unnoticeable on a phone screen</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>How the marks are given</h5>
+<ul>
+<li>Justification must match the chosen type. If lossless is chosen instead, do not award any justification marks based on lossy reasoning.</li>
+</ul>
+</div>`,
+            modelAnswer: "Type: Lossy compression\n\nJustification: Lossy compression reduces each photo's file size by much more than lossless compression would, which saves a significant amount of server storage once millions of users have uploaded photos. The smaller files also upload faster for users on slow mobile connections, and the small amount of detail lost is usually not noticeable when the photos are viewed on a phone screen."
+        }
+    ];
 </script>
     <script src="/script.js"></script>
 <script src="section-totals.js"></script>

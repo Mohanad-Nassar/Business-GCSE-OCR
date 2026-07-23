@@ -845,7 +845,13 @@ ${q.modelAnswer ? '<div class="marks-section"><h5>✓ Model Answer</h5><div clas
             caseStudy: partIdx === 0 ? (q.caseStudy || '') : '', // stimulus shown once per unit
             markScheme: q.key.markScheme,
             modelAnswer: q.key.modelAnswer || '',
-            format: 'lines',
+            // Use the question's real widget format so numeric parts auto-mark
+            // and mathParts render multi-part; plain exam Qs (no format) → 'lines'
+            // (the tick-the-scheme self-mark panel). Carry the answer keys the
+            // numeric/mathParts widgets need.
+            format: q.format || 'lines',
+            numeric: (q.key && q.key.numeric) || undefined,
+            parts: q.parts || undefined,
           });
         });
       });

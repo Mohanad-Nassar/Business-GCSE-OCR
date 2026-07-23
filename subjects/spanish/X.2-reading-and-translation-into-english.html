@@ -4,297 +4,398 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>X.2 Reading and Translation into English – Interactive Study Guide</title>
+    <title>X.2 Reading and Translation into English – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Exam Skills · X. Exam Skills</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Exam Skills · Paper 3 Reading</div>
             <h1>X.2 Reading and Translation into English</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>El examen de comprensión lectora y la traducción al inglés · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: X.2 Reading and Translation into English — placeholder, content not yet written
-    // ══════════════════════════════════════
-    const pageMeta = {
-            id: 'x-2-reading-and-translation-into-english',
-            badge: 'AQA GCSE Spanish — Exam Skills · X. Exam Skills',
-            title: 'X.2 Reading and Translation into English',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: X.2 Reading and Translation into English  (AQA 8692, Paper 3 — Reading)
+    //  Paper 3 is a WRITTEN reading exam: 45 min (F) / 1 hour (H), 50 marks, 25% of
+    //  the GCSE. Section A = comprehension in English, answered in English or
+    //  non-verbally (40 marks) incl. inferring unknown words from context. Section B
+    //  = translation from Spanish INTO English, min. 35 words (F) / 50 words (H),
+    //  10 marks. Audible Spanish carries data-say="…"; data-listen makes a prompt
+    //  audio-only (no transcript shown). Higher-tier items marked
+    //  <span class="tier-h">H</span>. Option-writing follows docs/QUESTION-AUTHORING.md
+    //  (no length tell; distractors = real errors students make).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = { id: 'x-2-reading-and-translation-into-english', badge: 'AQA GCSE Spanish (8692) — Exam Skills · Paper 3 Reading', title: 'X.2 Reading and Translation into English', subtitle: 'Interactive study guide', subject: 'spanish' };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>X.2 Reading and Translation into English</strong> will appear here soon.</p>`
+            title: "What does AQA Paper 3 actually test?",
+            tag: "Exam overview",
+            content: `<p>Paper 3 is a <strong>written Reading exam</strong>: <span data-say="cuarenta y cinco minutos">45 minutes</span> at Foundation, <span data-say="una hora">1 hour</span> at Higher. It is worth <strong>50 marks</strong> — <strong>25%</strong> of your final GCSE grade.</p>
+            <table class="vocab-tbl">
+              <tr><td>Section A</td><td>Reading comprehension — questions <strong>in English</strong>, answered <strong>in English or non-verbally</strong> (a tick, box or letter). 40 marks. Includes inferring the meaning of an unknown word from context.</td></tr>
+              <tr><td>Section B</td><td><strong>Translation</strong> of a Spanish text <strong>into English</strong>. Minimum <span data-say="treinta y cinco palabras">35 words</span> (Foundation) / <span data-say="cincuenta palabras">50 words</span> (Higher). 10 marks.</td></tr>
+            </table>
+            <p>Instruction you will see on the paper: <span data-say="Traduce este texto al inglés.">Traduce este texto al inglés.</span> — <em>Translate this text into English.</em></p>`,
+            readCheck: { q: "How many marks is Paper 3 worth in total?", opts: ["50 marks", "40 marks", "60 marks", "25 marks"], ans: 0, explain: "Paper 3 is worth 50 marks in total — 40 for Section A and 10 for Section B — and is 25% of the GCSE." }
+        },
+        {
+            title: "Section A: how to read strategically",
+            tag: "Exam skill",
+            content: `<p>Don't read word by word from the top. Use a two-step strategy:</p>
+            <ol>
+              <li><strong>Skim</strong> the whole text quickly first, for the general gist — what is it about?</li>
+              <li>Then <strong>scan</strong> for the specific detail each question asks for.</li>
+            </ol>
+            <p>Spotting these connectors while skimming helps you follow the logic of a text:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="sin embargo">sin embargo</span></td><td>however</td><td><span data-say="además">además</span></td><td>furthermore / also</td></tr>
+              <tr><td><span data-say="por eso">por eso</span></td><td>that's why / so</td><td><span data-say="aunque">aunque</span></td><td>although</td></tr>
+            </table>`,
+            readCheck: { q: "What should you do FIRST when reading a text in Section A?", opts: ["Skim the whole text quickly for the general gist", "Look up every unknown word in a dictionary immediately", "Translate the entire text into English word by word", "Answer question 1 without reading the rest of the text"], ans: 0, explain: "Skim first for the gist, then scan for the specific detail each question needs — don't translate the whole thing or dictionary-hunt every word." }
+        },
+        {
+            title: "Inferring the meaning of unknown words",
+            tag: "Exam skill",
+            content: `<p>Section A also tests whether you can work out a <strong>plausible meaning</strong> for a word you don't already know, using context and word families — you are not expected to know every word.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="descubrir">descubrir</span></td><td>des- + cubrir (to cover) → to discover / uncover</td></tr>
+              <tr><td><span data-say="inolvidable">inolvidable</span></td><td>in- + olvidar (to forget) + -able → unforgettable</td></tr>
+              <tr><td><span data-say="desconocido">desconocido</span></td><td>des- + conocido (known) → unknown</td></tr>
+              <tr><td><span data-say="rápidamente">rápidamente</span></td><td>rápido (fast) + -mente → quickly</td></tr>
+            </table>
+            <p>Example: <span data-say="Los científicos descubrieron una nueva especie de pájaro.">Los científicos descubrieron una nueva especie de pájaro.</span> — <em>The scientists discovered a new species of bird.</em></p>`,
+            readCheck: { q: "In 'descubrieron' (des- + cubrir), what does the prefix 'des-' generally signal?", opts: ["a reversal or undoing of the root word's action", "that the word must be a false friend you cannot trust at all", "that the verb is definitely in the future tense", "that the word describes a physical size"], ans: 0, explain: "des- typically reverses or undoes the root: cubrir (to cover) → descubrir (to uncover/discover)." }
+        },
+        {
+            title: "False friends — the #1 trap",
+            tag: "Exam skill",
+            content: `<p>A <strong>false friend</strong> looks like an English word but means something different. Learn these before Paper 3:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="sensible">sensible</span></td><td>sensitive (NOT sensible)</td></tr>
+              <tr><td><span data-say="constipado">constipado</span></td><td>having a cold (NOT constipated)</td></tr>
+              <tr><td><span data-say="éxito">éxito</span></td><td>success (NOT exit)</td></tr>
+              <tr><td><span data-say="ropa">ropa</span></td><td>clothes (NOT rope)</td></tr>
+              <tr><td><span data-say="largo">largo</span></td><td>long (NOT large)</td></tr>
+              <tr><td><span data-say="embarazada">embarazada</span></td><td>pregnant (NOT embarrassed)</td></tr>
+            </table>
+            <p>Examples: <span data-say="Mi madre está embarazada.">Mi madre está embarazada.</span> (My mother is pregnant.) · <span data-say="Estoy constipado.">Estoy constipado.</span> (I have a cold.)</p>`,
+            readCheck: { q: "Which of these correctly matches the Spanish word to its true English meaning?", opts: ["constipado = having a cold", "sensible = sensible / practical", "éxito = an exit", "ropa = a rope"], ans: 0, explain: "constipado = having a cold. The other three are the WRONG literal guesses — exactly the false-friend trap examiners test." }
+        },
+        {
+            title: "Section B: how the translation is marked",
+            tag: "Exam skill",
+            content: `<p>Section B gives you a short Spanish text to translate <strong>into English</strong>. It is marked in <strong>chunks of meaning</strong>, not word by word — the examiner ticks each idea you translate correctly.</p>
+            <ul>
+              <li>Translate the <strong>sense</strong> of each phrase naturally — don't translate word for word.</li>
+              <li>Keep the <strong>tense</strong> of the Spanish verb: <span data-say="fui">fui</span> = I went (one completed action); <span data-say="iba">iba</span> = I used to go / I was going (an ongoing or repeated action).</li>
+              <li>Idioms need a natural English equivalent: <span data-say="Se me olvidó el cumpleaños de mi amigo.">Se me olvidó el cumpleaños de mi amigo.</span> = I forgot my friend's birthday — NOT "it forgot itself to me".</li>
+              <li>Never leave a gap. If a word is unknown, use context or a cognate to make a sensible attempt.</li>
+            </ul>`,
+            readCheck: { q: "Section B is worth how many marks, and what is it testing?", opts: ["10 marks — translating a Spanish passage into English", "40 marks — answering comprehension questions in English", "50 marks — the whole of Paper 3 combined", "25 marks — a mix of reading and writing tasks"], ans: 0, explain: "Section B is the translation task, worth 10 of the paper's 50 marks." }
+        },
+        {
+            title: "Higher: tense accuracy and natural English",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> Higher-tier translation passages add more complex tenses. You must still keep the tense in your English:</p>
+            <ul>
+              <li><span data-say="Había terminado los deberes antes de cenar.">Había terminado los deberes antes de cenar.</span> <span class="tier-h">H</span> — I had finished my homework before dinner (pluperfect: an action before another past action).</li>
+              <li><span data-say="Si tuviera más tiempo, viajaría más.">Si tuviera más tiempo, viajaría más.</span> <span class="tier-h">H</span> — If I had more time, I would travel more (conditional).</li>
+              <li><span data-say="Aunque llovía, decidimos salir.">Aunque llovía, decidimos salir.</span> <span class="tier-h">H</span> — Although it was raining, we decided to go out.</li>
+            </ul>
+            <p>Once you have a draft translation, always re-read it and ask: <em>does this sound like natural English, or does it sound translated?</em></p>`,
+            readCheck: { q: "Which translation correctly reflects the tense of 'Había terminado los deberes antes de cenar'?", opts: ["I had finished my homework before having dinner", "I finish my homework before having dinner", "I will finish my homework before having dinner", "I am currently in the middle of finishing my homework before dinner"], ans: 0, explain: "'había terminado' is the pluperfect — an action completed before another past action — so it must be 'I had finished'." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Fui al cine ayer." data-listen></span><br>Listen. What is the correct translation?`, opts: ["I go to the cinema every day", "I went to the cinema yesterday", "I am going to the cinema now", "I have been to the cinema many times before"], ans: 1, explain: "'fui' = I went (pretérito, one completed past action). The traps swap to a habit, a present plan, or the present perfect." },
+        { q: `<span data-say="Iba al gimnasio todos los días." data-listen></span><br>Listen. What is the correct translation?`, opts: ["I went to the gym just once, yesterday afternoon", "I have never really gone to the gym before", "I used to go to the gym every day", "I am going to the gym today, just this once"], ans: 2, explain: "'iba' = I used to go (imperfecto, a repeated/ongoing past habit). Trap A wrongly uses the preterite (one single event)." },
+        { q: `In the sentence <span data-say="Mi madre está embarazada.">"Mi madre está embarazada,"</span> what does <em>embarazada</em> mean?`, opts: ["pregnant", "embarrassed", "in a hurry", "on holiday"], ans: 0, explain: "embarazada = pregnant. It is a classic false friend — it does NOT mean embarrassed." },
+        { q: `What does <em>sensible</em> mean when used in Spanish, as in <span data-say="Es una persona muy sensible.">"Es una persona muy sensible"</span>?`, opts: ["sensible / practical", "intelligent", "friendly", "sensitive"], ans: 3, explain: "sensible = sensitive. The English-looking meaning ('sensible/practical') is the false-friend trap." },
+        { q: `Read: "Los científicos descubrieron una nueva especie de pájaro en la selva." Using the word family "des-" + "cubrir" (to cover), what does <em>descubrieron</em> most likely mean?`, opts: ["covered up", "destroyed", "described", "discovered"], ans: 3, explain: "des- + cubrir → discovered/uncovered. 'covered up' is the literal-but-wrong trap; 'destroyed' and 'described' sound similar but are wrong." },
+        { q: "In Section A of Paper 3, how should you answer the comprehension questions (unless told otherwise)?", opts: ["Always in full Spanish sentences copied from the text", "In Spanish, using your own words only", "In English, or non-verbally (e.g. a tick or box)", "With a single Spanish word for every answer"], ans: 2, explain: "Section A questions are in English and answered in English or non-verbally. Copying Spanish sentences does not answer the question." },
+        { q: "Which approach is correct for the Section B translation task?", opts: ["Translate every single word literally, one by one, in the exact Spanish word order", "Translate the sense of each phrase naturally, keeping the correct tense", "Skip any sentence containing a word you don't recognise", "Copy the Spanish words directly into your English answer unchanged"], ans: 1, explain: "Translate the sense of each phrase and keep the tense. Word-for-word literal translation is the #1 error examiners penalise." },
+        { q: `Translate: <span data-say="Está constipado.">"Está constipado."</span>`, opts: ["He is constipated", "He is very tired", "He is in a rush", "He has a cold"], ans: 3, explain: "constipado = having a cold. 'He is constipated' is the obvious but wrong false-friend translation." },
+        { q: "What is the minimum word count for the Section B translation at Higher tier?", opts: ["50 words", "35 words", "25 words", "100 words"], ans: 0, explain: "Higher tier requires a minimum of 50 words; Foundation requires 35 words — a common mix-up." },
+        { q: "How many marks is the Section B translation task worth?", opts: ["40 marks", "25 marks", "10 marks", "50 marks"], ans: 2, explain: "Section B (translation) is worth 10 marks; 40 is Section A, 50 is the whole paper, 25 is the % weighting — not a mark total." }
+    ];
+
+    const matchData = [
+        { term: "Fui al cine.", def: "I went to the cinema." },
+        { term: "Iba a la playa cada verano.", def: "I used to go to the beach every summer." },
+        { term: "constipado", def: "having a cold" },
+        { term: "sensible", def: "sensitive" },
+        { term: "éxito", def: "success" },
+        { term: "ropa", def: "clothes" },
+        { term: "largo", def: "long" },
+        { term: "embarazada", def: "pregnant" },
+        { term: "descubrir", def: "to discover" },
+        { term: "adivinar", def: "to guess" },
+        { term: "resumir", def: "to summarise" },
+        { term: "el resumen", def: "the summary" }
+    ];
+
+    const fibData = [
+        { display: `<span data-say="Fui al cine.">Fui al cine.</span> = I _____ to the cinema. (pretérito — a completed action)`, blanks: { B1: "went" } },
+        { display: `<span data-say="Iba a la playa cada verano.">Iba a la playa cada verano.</span> = I _____ to go to the beach every summer. (imperfecto — a repeated action)`, blanks: { B1: "used" } },
+        { display: `<span data-say="Está constipado.">Está constipado.</span> = He _____ a cold. (NOT constipated — false friend!)`, blanks: { B1: "has" } },
+        { display: `Mi hermana está _____. <span data-say="Mi hermana está embarazada." data-listen>Mi hermana está embarazada.</span>`, blanks: { B1: "embarazada" } },
+        { display: `<span data-say="La ropa es cara.">La ropa es cara.</span> In English, 'ropa' means _____, not 'rope'.`, blanks: { B1: "clothes" } },
+        { display: `<span data-say="Se me olvidó el cumpleaños de mi amigo.">Se me olvidó el cumpleaños de mi amigo.</span> = I _____ my friend's birthday. (idiom — translate the natural meaning, not word for word)`, blanks: { B1: "forgot" } },
+        { display: `<span data-say="El texto es largo.">El texto es largo.</span> In English, 'largo' means _____, not 'large'.`, blanks: { B1: "long" } }
+    ];
+    const fibWords = ["went", "used", "has", "embarazada", "clothes", "forgot", "long"];
+
+    const tfData = [
+        { statement: "Paper 3 is a listening exam.", answer: false, explanation: "Paper 3 is a WRITTEN Reading exam (45 min Foundation / 1 hour Higher)." },
+        { statement: "In Section A, you must answer the comprehension questions in English or non-verbally.", answer: true, explanation: "Section A questions are in English and answered in English or non-verbally (40 marks)." },
+        { statement: "Section B is a translation from Spanish into English worth 10 marks.", answer: true, explanation: "Section B = translation into English, 10 marks; minimum 35 (F) / 50 (H) words." },
+        { statement: "The minimum word count for the Higher tier translation is 35 words.", answer: false, explanation: "35 words is the Foundation minimum — Higher tier needs a minimum of 50 words." },
+        { statement: `<span data-say="sensible">'Sensible'</span> in Spanish means the same as 'sensible' in English.`, answer: false, explanation: "False friend — Spanish 'sensible' means sensitive, not practical/sensible." },
+        { statement: `When translating <span data-say="Fui al cine.">"Fui al cine"</span> into English, you should keep the tense of the original Spanish verb.`, answer: true, explanation: "'fui' (went) and 'iba' (used to go) must not be switched to the present tense in your translation." },
+        { statement: "If you don't know a word in the translation, it's best to leave that part blank.", answer: false, explanation: "Never leave a gap — use context, word families or cognates to make a sensible attempt." },
+        { statement: "Paper 3 makes up 25% of the GCSE Spanish grade.", answer: true, explanation: "Each of the four skills papers (Listening, Speaking, Reading, Writing) is worth 25%." }
+    ];
+
+    const miscData = [
+        { wrong: "Fui al cine. → translated as 'I go to the cinema.'", correct: "Fui al cine. → I went to the cinema. (pretérito = a completed action, not the present)", readCheck: { q: "What tense is 'fui' in 'Fui al cine', and what does that mean for the translation?", opts: ["Preterite — a single completed action, so it must be 'I went'", "Present — an ongoing habit, so it should be 'I go'", "Future — a plan, so it should be 'I will go'", "Imperfect — a repeated or ongoing action, so it should be 'I used to go'"], ans: 0, explain: "'fui' is the preterite of ir — a single completed action in the past, so it must translate as 'I went'." } },
+        { wrong: `<span data-say="Está constipado.">Está constipado.</span> → 'He is constipated.'`, correct: "Está constipado. → He has a cold. (false friend)", readCheck: { q: "Why is 'He is constipated' the wrong translation of 'Está constipado'?", opts: ["'constipado' is a false friend that actually means 'having a cold'", "'constipado' is a rare medical term that never appears on a GCSE reading paper at all", "'está' means 'he was' in the imperfect tense, not 'he is' right now", "the sentence is actually posed as a question, not a statement"], ans: 0, explain: "constipado = having a cold — a classic Spanish/English false friend." } },
+        { wrong: "Se me olvidó el libro. → translated word-for-word as 'It forgot itself to me the book.'", correct: "Se me olvidó el libro. → I forgot the book. (translate the natural English meaning, not each word)", readCheck: { q: "What is the natural English translation of 'Se me olvidó el libro'?", opts: ["I forgot the book", "It forgot itself to me the book", "The book has forgotten me completely", "I remembered the book just in time"], ans: 0, explain: "Idioms like 'se me olvidó' need a natural English equivalent — 'I forgot' — not a literal word-for-word rendering." } },
+        { wrong: "Leaving a gap in the translation because a word is unknown.", correct: "Use context, word family or a cognate to make a sensible, plausible attempt — never leave a gap.", readCheck: { q: "What should you do with a word you don't recognise during the translation task?", opts: ["Use context and word-family clues to attempt a sensible translation", "Leave a blank gap so you don't risk losing extra marks for a wrong guess", "Copy the Spanish word into your English answer unchanged", "Skip the whole sentence that word appears in"], ans: 0, explain: "You can often infer a plausible meaning from context, cognates or the word's root — never leave a gap." } },
+        { wrong: `<span data-say="Es una persona muy sensible.">Es una persona muy sensible.</span> → 'He is a very sensible person.'`, correct: "Es una persona muy sensible. → He is a very sensitive person. (false friend)", readCheck: { q: "Why is 'a very sensible person' the wrong translation of 'una persona muy sensible'?", opts: ["Spanish 'sensible' means sensitive, not practical/sensible", "'persona' does not mean 'person' at all anywhere in this whole sentence", "'muy' changes the whole sentence into a question instead of a statement", "the sentence is written in the future tense, not the present"], ans: 0, explain: "sensible = sensitive in Spanish — the English-looking meaning is the false-friend trap." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Section A — skim, then scan", pills: ["Reading", "Section A"], content: "Skim the whole text first for the general gist, then go back and scan for the specific detail each question needs. Don't translate the whole text in your head before answering — that wastes time you need for later questions.", readCheck: { q: "Why skim a text before answering any questions?", opts: ["To get the general gist quickly before hunting for detail", "Because the exam board requires a full written translation before you answer", "Because scanning for detail is not allowed anywhere in Section A", "To find and note down every single unknown word first"], ans: 0, explain: "Skimming gives you the gist fast; you then scan for the specific detail each question is really asking about." } },
+        { type: "tip", title: "Section B — translate the sense, not the words", pills: ["Translation", "Section B"], content: "Translate each phrase as a whole idea, keep the Spanish verb's tense in your English, and make idioms sound natural (e.g. 'se me olvidó' = 'I forgot', not a literal word-for-word version). Never leave a translation gap — a sensible attempt can still earn marks.", readCheck: { q: "'Estoy resfriado y me duele la garganta' should be translated as…", opts: ["I have a cold and my throat hurts", "I have a cold and my throat hurt yesterday", "I am tired and my whole back hurts", "I am fit and my legs hurt after running"], ans: 0, explain: "estar resfriado = to have a cold; la garganta = throat. Keep it in the present tense, as in the Spanish." } },
+        { type: "evaluate", title: "Higher tier — tense accuracy earns marks", pills: ["Higher", "Translation"], content: "At Higher tier, passages mix tenses: pretérito, imperfecto, pluperfect ('había + past participle') and conditional ('-ría'). Translate each one accurately — swapping 'había terminado' (had finished) for 'finished' loses the mark even if the rest of the sentence is right.", readCheck: { q: "Which English translation correctly matches 'Si tuviera más tiempo, viajaría más'?", opts: ["If I had more time, I would travel more", "If I have more time, I will travel more often", "I had more time, so I travelled more", "I would have had more time to travel more"], ans: 0, explain: "'tuviera' (imperfect subjunctive) + 'viajaría' (conditional) = the classic 'if I had… I would…' structure." } }
+    ];
+
+    const flashcards = [
+        { term: "Paper 3", def: "Reading exam: 45 min (Foundation) / 1 hour (Higher), 50 marks total, 25% of the GCSE", say: "el examen de lectura" },
+        { term: "Section A", def: "Reading comprehension — questions in English, answered in English or non-verbally (40 marks)", say: "la comprensión de lectura" },
+        { term: "Section B", def: "Translation from Spanish into English (10 marks)", say: "la traducción" },
+        { term: "número mínimo de palabras", def: "minimum word count: 35 words (Foundation) / 50 words (Higher)", say: "el número mínimo de palabras" },
+        { term: "cognado", def: "cognate — a word that looks/sounds similar in Spanish and English, e.g. 'información'", say: "información" },
+        { term: "falso amigo", def: "false friend — looks similar to an English word but means something different", say: "un falso amigo" },
+        { term: "constipado", def: "having a cold (NOT constipated)", say: "constipado" },
+        { term: "sensible", def: "sensitive (NOT sensible / practical)", say: "sensible" },
+        { term: "éxito", def: "success (NOT exit)", say: "éxito" },
+        { term: "ropa", def: "clothes (NOT rope)", say: "ropa" },
+        { term: "largo", def: "long (NOT large)", say: "largo" },
+        { term: "embarazada", def: "pregnant (NOT embarrassed)", say: "embarazada" },
+        { term: "fui (pretérito)", def: "I went — one completed action in the past", say: "fui al cine" },
+        { term: "iba (imperfecto)", def: "I used to go / I was going — an ongoing or repeated past action", say: "iba al gimnasio todos los días" },
+        { term: "traducir el sentido", def: "translate the sense/meaning of a phrase, not word for word", say: "traducir el sentido, no palabra por palabra" },
+        { term: "había hecho (H)", def: "I had done — pluperfect tense, for an action before another past action", say: "había terminado los deberes" },
+        { term: "inferir por contexto", def: "to infer an unknown word's meaning from context or its word family", say: "inferir por contexto" },
+        { term: "skim y scan", def: "skim for the general gist first, then scan for specific details", say: "leer rápido para la idea general" }
+    ];
+
+    const EXAM_CASE_STUDIES = {};
+
+    const examQuestions = [
+        {
+            num: 1, marks: 10, type: "written",
+            question: `Translate this Spanish text into English.<br><br><em>"Vivo en una ciudad pequeña con mi familia. Todos los días, voy al instituto en autobús. Ayer, jugué al fútbol con mis amigos y después fuimos al cine. Normalmente, hago mis deberes por la tarde, pero anoche estaba muy cansado."</em>`,
+            hint: "Translate phrase by phrase, not word for word. Watch the tenses: 'voy' is present, 'jugué'/'fuimos' are pretérito (completed actions) — and 'instituto' means secondary school, not 'institute'.",
+            starter: "I live in… Every day, I go… Yesterday, I played… and afterwards…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 10 marks (AO4 Reading: translation)</h5><ul>
+                <li><strong>Chunk 1</strong> "Vivo en una ciudad pequeña con mi familia." → I live in a small city/town with my family. <em>(2)</em></li>
+                <li><strong>Chunk 2</strong> "Todos los días, voy al instituto en autobús." → Every day, I go to school by bus. <em>(2)</em></li>
+                <li><strong>Chunk 3</strong> "Ayer, jugué al fútbol con mis amigos" → Yesterday, I played football with my friends. <em>(2)</em></li>
+                <li><strong>Chunk 4</strong> "y después fuimos al cine." → and afterwards we went to the cinema. <em>(2)</em></li>
+                <li><strong>Chunk 5</strong> "Normalmente, hago mis deberes por la tarde, pero anoche estaba muy cansado." → Normally, I do my homework in the afternoon, but last night I was very tired. <em>(2)</em></li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>One tick per chunk translated with the correct sense and tense; do not penalise minor spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "I live in a small city with my family. Every day, I go to school by bus. Yesterday, I played football with my friends and afterwards we went to the cinema. Normally, I do my homework in the afternoon, but last night I was very tired.",
+            markPoints: { note: "One tick per chunk translated correctly (sense + tense); cap at 10.", groups: [
+                { label: "Chunk 1 — live/family", max: 2, points: ["I live in a small city/town with my family"] },
+                { label: "Chunk 2 — school routine", max: 2, points: ["Every day I go to school by bus"] },
+                { label: "Chunk 3 — yesterday, football", max: 2, points: ["Yesterday I played football with my friends"] },
+                { label: "Chunk 4 — cinema", max: 2, points: ["and afterwards we went to the cinema"] },
+                { label: "Chunk 5 — homework/tired", max: 2, points: ["Normally I do my homework in the afternoon, but last night I was very tired"] }
+            ] }
+        },
+        {
+            num: 2, marks: 10, type: "written",
+            question: `Translate this Spanish text into English.<br><br><em>"El mes pasado, estuve enfermo y tuve que quedarme en casa. Me dolía la cabeza y estaba muy cansado. Sin embargo, no era nada grave. Mientras estaba en cama, leí un libro muy interesante sobre la historia de España. Espero sentirme mejor pronto."</em>`,
+            hint: "'estuve enfermo' and 'tuve que' are pretérito. 'Me dolía la cabeza' works like gustar — keep it natural: 'my head hurt/ached'. 'Sin embargo' = however.",
+            starter: "Last month, I was ill… My head… However… While I was in bed, I read… I hope…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 10 marks (AO4 Reading: translation)</h5><ul>
+                <li><strong>Chunk 1</strong> "El mes pasado, estuve enfermo y tuve que quedarme en casa." → Last month, I was ill and I had to stay at home. <em>(2)</em></li>
+                <li><strong>Chunk 2</strong> "Me dolía la cabeza y estaba muy cansado." → My head hurt/ached and I was very tired. <em>(2)</em></li>
+                <li><strong>Chunk 3</strong> "Sin embargo, no era nada grave." → However, it wasn't anything serious. <em>(2)</em></li>
+                <li><strong>Chunk 4</strong> "Mientras estaba en cama, leí un libro muy interesante sobre la historia de España." → While I was in bed, I read a very interesting book about the history of Spain. <em>(2)</em></li>
+                <li><strong>Chunk 5</strong> "Espero sentirme mejor pronto." → I hope to feel better soon. <em>(2)</em></li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept natural equivalents (e.g. 'my head ached'); penalise only if the sense or tense is wrong.</li>
+            </ul></div>`,
+            modelAnswer: "Last month, I was ill and I had to stay at home. My head hurt and I was very tired. However, it wasn't anything serious. While I was in bed, I read a very interesting book about the history of Spain. I hope to feel better soon.",
+            markPoints: { note: "One tick per chunk translated correctly (sense + tense); cap at 10.", groups: [
+                { label: "Chunk 1 — ill, stayed home", max: 2, points: ["Last month I was ill and had to stay at home"] },
+                { label: "Chunk 2 — head hurt, tired", max: 2, points: ["My head hurt and I was very tired"] },
+                { label: "Chunk 3 — not serious", max: 2, points: ["However it wasn't anything serious"] },
+                { label: "Chunk 4 — reading in bed", max: 2, points: ["While I was in bed I read a very interesting book about the history of Spain"] },
+                { label: "Chunk 5 — hope to feel better", max: 2, points: ["I hope to feel better soon"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

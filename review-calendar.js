@@ -915,7 +915,7 @@ function applyQuizFeedback(q, result) {
   // Gamification — identical to daily-revise. XP was already durably credited
   // server-side via the mastery path, so the toast is real.
   if (typeof gamificationPlaySound === 'function') gamificationPlaySound(correct ? 'correct' : 'wrong');
-  if (typeof _gamBumpDaily === 'function') _gamBumpDaily();
+  if (typeof _gamBumpDaily === 'function') _gamBumpDaily(!!correct);
   if (correct && typeof gamificationShowXpToast === 'function') {
     gamificationShowXpToast(GAMIFICATION_XP_PER_QUESTION);
   }

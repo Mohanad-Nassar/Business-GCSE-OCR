@@ -4,297 +4,390 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.1 Food Customs and Daily Life – Interactive Study Guide</title>
+    <title>5.1 Food Customs and Daily Life – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Theme 2 · 5. Customs, Festivals and Celebrations</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 2 · 5. Customs, Festivals and Celebrations</div>
             <h1>5.1 Food Customs and Daily Life</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Las costumbres de comida y la vida diaria · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: 5.1 Food Customs and Daily Life — placeholder, content not yet written
-    // ══════════════════════════════════════
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 5.1 Food customs and daily life  (AQA 8692, Theme 2 Topic 2)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
     const pageMeta = {
-            id: '5-1-food-customs-and-daily-life',
-            badge: 'AQA GCSE Spanish — Theme 2 · 5. Customs, Festivals and Celebrations',
-            title: '5.1 Food Customs and Daily Life',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+        id: '5-1-food-customs-and-daily-life',
+        badge: 'AQA GCSE Spanish (8692) — Theme 2 · 5. Customs, Festivals and Celebrations',
+        title: '5.1 Food Customs and Daily Life',
+        subtitle: 'Interactive study guide',
+        subject: 'spanish',
+    };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>5.1 Food Customs and Daily Life</strong> will appear here soon.</p>`
+            title: "How do I talk about mealtimes?",
+            tag: "Key concept",
+            content: `<p>Spanish families usually eat three main meals, plus a light snack in the afternoon. Tap 🔊 to hear each one.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el desayuno">el desayuno</span></td><td>breakfast</td><td><span data-say="la comida">la comida</span></td><td>lunch</td></tr>
+              <tr><td><span data-say="la merienda">la merienda</span></td><td>afternoon snack</td><td><span data-say="la cena">la cena</span></td><td>dinner</td></tr>
+              <tr><td><span data-say="desayunar">desayunar</span></td><td>to have breakfast</td><td><span data-say="cenar">cenar</span></td><td>to have dinner</td></tr>
+            </table>
+            <p>Model sentence: <span data-say="En España, se cena muy tarde, normalmente a las diez de la noche.">En España, se cena muy tarde, normalmente a las diez de la noche.</span> — <em>In Spain, people have dinner very late, usually at ten at night.</em></p>`,
+            readCheck: { q: "What is ‘la merienda’?", opts: ["a light snack eaten in the afternoon", "the main hot meal of the day", "a big hot meal that is eaten very late at night", "a small coffee before breakfast"], ans: 0, explain: "la merienda = a light afternoon snack, eaten between la comida and la cena." }
+        },
+        {
+            title: "What is typical Spanish food?",
+            tag: "Key concept",
+            content: `<p>Some dishes come up again and again in reading and listening exams:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la tortilla de patatas">la tortilla de patatas</span></td><td>Spanish omelette</td><td><span data-say="la paella">la paella</span></td><td>paella (rice dish)</td></tr>
+              <tr><td><span data-say="las tapas">las tapas</span></td><td>small shared dishes</td><td><span data-say="el gazpacho">el gazpacho</span></td><td>cold tomato soup</td></tr>
+              <tr><td><span data-say="el jamón">el jamón</span></td><td>ham</td><td><span data-say="el pan">el pan</span></td><td>bread</td></tr>
+            </table>
+            <p><span data-say="el aceite de oliva">el aceite de oliva</span> (olive oil) is used in almost everything. Model sentence: <span data-say="Me gusta mucho la tortilla porque es muy rica.">Me gusta mucho la tortilla porque es muy rica.</span> — <em>I really like the omelette because it is very tasty.</em></p>`,
+            readCheck: { q: "‘El gazpacho’ is best described as…", opts: ["a cold tomato soup", "a hot meat stew served in winter", "a type of sweet dessert pastry", "a hot spicy rice dish with chicken"], ans: 0, explain: "el gazpacho = a cold tomato soup, typically eaten in summer. Students often wrongly assume all soup is hot." }
+        },
+        {
+            title: "How do I describe my daily routine?",
+            tag: "Exam skill",
+            content: `<p>Routine verbs are <strong>reflexive</strong> — the action is done to yourself, so they need <strong>me / te / se</strong>.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="levantarse">levantarse</span> → <span data-say="me levanto">me levanto</span></td><td>to get up → I get up</td></tr>
+              <tr><td><span data-say="ducharse">ducharse</span> → <span data-say="me ducho">me ducho</span></td><td>to shower → I shower</td></tr>
+              <tr><td><span data-say="vestirse">vestirse</span> → <span data-say="me visto">me visto</span></td><td>to get dressed → I get dressed</td></tr>
+              <tr><td><span data-say="acostarse">acostarse</span> → <span data-say="me acuesto">me acuesto</span></td><td>to go to bed → I go to bed</td></tr>
+            </table>
+            <p>After breakfast: <span data-say="voy al instituto">voy al instituto</span> (I go to school); after school: <span data-say="vuelvo a casa">vuelvo a casa</span> (I return home). Many Spaniards also have <span data-say="la siesta">la siesta</span> — a short afternoon rest.</p>
+            <p>Model sentence: <span data-say="Todos los días me levanto, me ducho y desayuno antes de ir al instituto.">Todos los días me levanto, me ducho y desayuno antes de ir al instituto.</span></p>`,
+            readCheck: { q: "Why does ‘levantarse’ become ‘me levanto’ for ‘I get up’?", opts: ["it is reflexive, so it needs a pronoun (me/te/se)", "all -arse verbs drop the final -o in the present tense", "‘levanto’ on its own already means ‘I get up’", "the pronoun ‘me’ is only used with irregular verbs"], ans: 0, explain: "Reflexive verbs take a matching pronoun: (yo) me levanto, (tú) te levantas, (él/ella) se levanta." }
+        },
+        {
+            title: "How do I sequence my day with time phrases?",
+            tag: "Key concept",
+            content: `<p>Use clock times and sequencing words to build a full routine paragraph.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="por la mañana">por la mañana</span></td><td>in the morning</td><td><span data-say="por la tarde">por la tarde</span></td><td>in the afternoon</td></tr>
+              <tr><td><span data-say="por la noche">por la noche</span></td><td>at night</td><td><span data-say="todos los días">todos los días</span></td><td>every day</td></tr>
+              <tr><td><span data-say="primero">primero</span></td><td>first</td><td><span data-say="luego">luego</span></td><td>then</td></tr>
+              <tr><td><span data-say="después">después</span></td><td>afterwards</td><td><span data-say="normalmente">normalmente</span></td><td>normally</td></tr>
+            </table>
+            <p>Model sentence: <span data-say="Normalmente me levanto a las siete, luego desayuno y después voy al instituto.">Normalmente me levanto a las siete, luego desayuno y después voy al instituto.</span></p>`,
+            readCheck: { q: "Which word means ‘afterwards / after that’?", opts: ["después", "primero", "normalmente", "todos los días"], ans: 0, explain: "después = afterwards; primero = first; normalmente = normally; todos los días = every day." }
+        },
+        {
+            title: "How do Spanish and British customs compare?",
+            tag: "Exam skill",
+            content: `<p>Use the <strong>impersonal se</strong> to describe what ‘people’ or ‘one’ generally does — perfect for comparing countries.</p>
+            <ul>
+              <li><span data-say="en España se cena tarde">en España se cena tarde</span> — in Spain, people have dinner late</li>
+              <li><span data-say="en el Reino Unido se cena más temprano">en el Reino Unido se cena más temprano</span> — in the UK, people have dinner earlier</li>
+            </ul>
+            <p>Compare with <span data-say="diferente">diferente</span> (different) and <span data-say="parecido">parecido</span> (similar): <span data-say="En mi opinión, las costumbres son bastante diferentes.">En mi opinión, las costumbres son bastante diferentes.</span></p>`,
+            readCheck: { q: "What does ‘se cena’ mean in ‘en España se cena tarde’?", opts: ["people (in general) have dinner", "she personally is having dinner right now", "you must have dinner immediately", "dinner has already finished"], ans: 0, explain: "The impersonal se + verb describes what people in general do — se cena = people have dinner / one has dinner." }
+        },
+        {
+            title: "Higher: a fuller routine and past habits",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> For the top band, link several reflexive actions in order and add an opinion:</p>
+            <p><span data-say="Después de desayunar, me visto rápidamente y salgo de casa a las ocho.">Después de desayunar, me visto rápidamente y salgo de casa a las ocho.</span> <span class="tier-h">H</span></p>
+            <p>To describe a <strong>past habit</strong> (what you used to do), use the <strong>imperfect tense</strong>: <span data-say="de pequeño">de pequeño</span> (as a child) + <span data-say="me acostaba temprano">me acostaba temprano</span> (I used to go to bed early).</p>
+            <p>Example: <span data-say="De pequeño, me acostaba muy temprano, pero ahora me acuesto mucho más tarde.">De pequeño, me acostaba muy temprano, pero ahora me acuesto mucho más tarde.</span> <span class="tier-h">H</span> — <em>As a child, I used to go to bed very early, but now I go to bed much later.</em></p>`,
+            readCheck: { q: "What tense is ‘me acostaba’ in ‘de pequeño me acostaba temprano’?", opts: ["the imperfect tense, for a past habit", "the present tense, for something happening now", "the near future, for an upcoming plan", "a direct command telling someone what to do"], ans: 0, explain: "‘de pequeño’ signals a repeated past habit, so the imperfect (me acostaba) is used, not the present (me acuesto)." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Desayuno a las siete y media." data-listen></span><br>Listen. What time is breakfast?`, opts: ["Half past seven", "Seven o'clock exactly", "Half past eight", "A quarter past seven"], ans: 0, explain: "‘a las siete y media’ = at half past seven. The traps swap the hour or the minutes." },
+        { q: `<span data-say="Nos levantamos muy temprano los lunes." data-listen></span><br>Listen. What happens on Mondays?`, opts: ["We get up very early", "We go to bed very early", "We get up quite late", "They get up very early"], ans: 0, explain: "‘nos levantamos temprano’ = we get up early. B swaps the reflexive verb; C reverses ‘temprano’; D changes the subject." },
+        { q: "What does ‘la merienda’ mean?", opts: ["a light snack in the afternoon", "the biggest meal of the whole day", "a formal three-course dinner", "a hot drink taken before bedtime"], ans: 0, explain: "la merienda = a light afternoon snack, between comida and cena." },
+        { q: "Which food is ‘el aceite de oliva’?", opts: ["olive oil", "cold tomato soup", "cured ham on bread", "a rice dish with seafood"], ans: 0, explain: "el aceite de oliva = olive oil, used in almost every Spanish dish." },
+        { q: "Complete: ‘Todos los días (yo) ___ a las siete.’", opts: ["me levanto", "levanto", "se levanta", "levantarse"], ans: 0, explain: "‘yo’ needs the reflexive pronoun ‘me’: me levanto. B drops the pronoun, C is ‘he/she’, D is the infinitive." },
+        { q: "What does the impersonal ‘se’ mean in ‘en España se cena tarde’?", opts: ["people in general have dinner", "she is having dinner by herself", "you personally must eat now", "dinner was cancelled today"], ans: 0, explain: "Impersonal se describes what people generally do: se cena = people have dinner. It is not the reflexive ‘herself’." },
+        { q: "Which sentence correctly uses a reflexive verb?", opts: ["Me acuesto a las diez", "Acuesto a las diez cada noche", "Yo acuesto muy tarde siempre", "Se acuesto a las diez"], ans: 0, explain: "acostarse is reflexive: (yo) me acuesto. B drops ‘me’, C/D use the wrong pronoun form." },
+        { q: "‘El gazpacho’ often surprises students because…", opts: ["it is a soup that is served cold", "it is actually a type of sweet dessert", "it contains no vegetables at all", "it is only ever eaten at breakfast"], ans: 0, explain: "gazpacho is a cold tomato soup — students often assume soup must be hot." },
+        { q: "Which word means ‘first’, used to start a routine paragraph?", opts: ["primero", "después", "normalmente", "todos los días"], ans: 0, explain: "primero = first; después = afterwards; normalmente = normally; todos los días = every day." },
+        { q: "‘De pequeño, me acostaba temprano’ describes…", opts: ["a habit from the past, using the imperfect tense", "something that is happening right at this very moment", "a plan for tomorrow, using the near future", "an instruction telling someone what to do"], ans: 0, explain: "‘de pequeño’ + the imperfect (me acostaba) describes a repeated childhood habit." }
+    ];
+
+    const matchData = [
+        { term: "el desayuno", def: "breakfast" },
+        { term: "la merienda", def: "afternoon snack" },
+        { term: "la cena", def: "dinner" },
+        { term: "la tortilla de patatas", def: "Spanish omelette" },
+        { term: "las tapas", def: "small shared dishes" },
+        { term: "el gazpacho", def: "cold tomato soup" },
+        { term: "me levanto", def: "I get up" },
+        { term: "me ducho", def: "I shower" },
+        { term: "me acuesto", def: "I go to bed" },
+        { term: "por la mañana", def: "in the morning" },
+        { term: "todos los días", def: "every day" },
+        { term: "de pequeño", def: "as a child" }
+    ];
+
+    const fibData = [
+        { display: `Me _____ a las siete. <span data-say="Me levanto a las siete." data-listen>Me levanto a las siete.</span>`, blanks: { B1: "levanto" } },
+        { display: `En España, se _____ muy tarde, normalmente a las diez. <span data-say="En España, se cena muy tarde, normalmente a las diez." data-listen>En España, se cena muy tarde, normalmente a las diez.</span>`, blanks: { B1: "cena" } },
+        { display: `El gazpacho es una sopa de tomate que se come _____. (cold)`, blanks: { B1: "fría" } },
+        { display: `Todos los días me ducho y _____ antes de ir al instituto. (I have breakfast)`, blanks: { B1: "desayuno" } },
+        { display: `_____ del instituto, hago los deberes y ceno con mi familia. (afterwards)`, blanks: { B1: "Después" } },
+        { display: `De pequeño, me _____ muy temprano, pero ahora me acuesto más tarde. (used to go to bed)`, blanks: { B1: "acostaba" } },
+        { display: `Muchas familias españolas comen _____ con pan y aceite de oliva. (ham)`, blanks: { B1: "jamón" } }
+    ];
+    const fibWords = ["levanto", "cena", "fría", "desayuno", "Después", "acostaba", "jamón"];
+
+    const tfData = [
+        { statement: "‘La merienda’ is a light snack eaten in the afternoon.", answer: true, explanation: "Correct — la merienda comes between la comida and la cena." },
+        { statement: "In Spain, ‘la cena’ usually happens earlier than in the UK.", answer: false, explanation: "The opposite is true — Spanish dinner (la cena) is usually much later, often around ten." },
+        { statement: "‘El gazpacho’ is normally served hot.", answer: false, explanation: "Gazpacho is a cold tomato soup, typically eaten in summer." },
+        { statement: "‘Levantarse’ is a reflexive verb, so ‘I get up’ is ‘me levanto’.", answer: true, explanation: "Reflexive: me levanto, te levantas, se levanta." },
+        { statement: "The impersonal ‘se’ (as in ‘se cena tarde’) describes what people in general do.", answer: true, explanation: "se cena tarde = people (in general) have dinner late." },
+        { statement: "‘Por la mañana’ means ‘at night’.", answer: false, explanation: "por la mañana = in the morning; por la noche = at night." },
+        { statement: "‘De pequeño me acostaba temprano’ uses the imperfect tense for a past habit.", answer: true, explanation: "de pequeño signals a repeated past habit → the imperfect (me acostaba)." },
+        { statement: "‘El aceite de oliva’ means ‘orange juice’.", answer: false, explanation: "el aceite de oliva = olive oil. Orange juice is el zumo de naranja." }
+    ];
+
+    const miscData = [
+        { wrong: "Levanto a las siete.", correct: "Me levanto a las siete.", readCheck: { q: "What is missing from ‘Levanto a las siete’?", opts: ["the reflexive pronoun ‘me’ (me levanto)", "an accent on the word ‘siete’", "the definite article ‘la’ before the word ‘siete’", "the word ‘hay’ at the start"], ans: 0, explain: "levantarse is reflexive; you must include me/te/se — me levanto." } },
+        { wrong: "En España se cena temprano.", correct: "En España se cena tarde.", readCheck: { q: "Why is ‘se cena temprano’ wrong for Spain?", opts: ["Spanish dinner is usually late, not early", "‘temprano’ is not a real Spanish word", "‘cena’ should be ‘cenar’ in this sentence", "the impersonal se cannot be used with cenar"], ans: 0, explain: "Spanish dinner customs are usually much later than in the UK — se cena tarde, not temprano." } },
+        { wrong: "El gazpacho se come caliente.", correct: "El gazpacho se come frío.", readCheck: { q: "What mistake is in ‘El gazpacho se come caliente’?", opts: ["gazpacho is a soup eaten cold, not hot", "‘caliente’ is spelt incorrectly", "gazpacho is a drink, not a food", "the verb ‘comer’ cannot be used with soup"], ans: 0, explain: "Gazpacho is famously served cold — caliente (hot) is the opposite of the truth." } },
+        { wrong: "Me acuesto temprano cada noche, sin excepción, siempre a la misma hora exacta.", correct: "Me acuesto temprano.", readCheck: { q: "What is the real problem with the ‘wrong’ version here?", opts: ["it is unnecessarily long and repeats the same idea three times", "it uses the wrong reflexive pronoun for the subject of the sentence", "‘temprano’ should be replaced with ‘tarde’", "it is missing the verb completely"], ans: 0, explain: "The grammar is fine, but padding a sentence with repeated ideas does not add marks — clear, accurate Spanish does." } },
+        { wrong: "La merienda es la comida principal del día.", correct: "La comida es la comida principal del día.", readCheck: { q: "Why is calling ‘la merienda’ the main meal wrong?", opts: ["la merienda is only a light afternoon snack", "‘merienda’ actually means breakfast, not a snack", "Spanish people never eat a main meal at midday", "‘principal’ is the wrong word for ‘main’"], ans: 0, explain: "la merienda is a light snack — la comida (lunch) is the main hot meal of the day in Spain." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Dictation (listening)", pills: ["Listening", "Dictation"], content: "Mealtime and routine sentences reuse chunks you know: ‘me levanto…’, ‘se cena…’, ‘desayuno a las…’. Listen carefully for the clock time and for whether the verb has a reflexive pronoun (me/se) or not.", readCheck: { q: "You hear ‘se cena a las diez’. What should you write down?", opts: ["se cena a las diez", "me ceno a las diez", "cena a la diez y media", "se cenó a las diez"], ans: 0, explain: "Dictation needs the exact impersonal form and time heard: se cena a las diez." } },
+        { type: "tip", title: "Paper 3 — Reading comprehension", pills: ["Reading", "Comprehension"], content: "Watch for the impersonal ‘se’ (se cena, se come) when comparing Spanish and British customs, and don’t confuse ‘la comida’ (lunch) with ‘la merienda’ (a small afternoon snack) or ‘la cena’ (dinner).", readCheck: { q: "‘En España se come a las dos y se cena a las diez’ means…", opts: ["people eat lunch at two and dinner at ten", "people only eat once, at two in the afternoon", "breakfast is at two and lunch is at ten", "nobody eats dinner in Spain at all"], ans: 0, explain: "se come = people have lunch; se cena = people have dinner — at the times given." } },
+        { type: "evaluate", title: "Paper 4 — Writing & translation into Spanish", pills: ["Writing", "Higher"], content: "Combine routine, time phrases, food opinions and a past-habit comparison: ‘Normalmente me levanto a las siete, pero de pequeño me levantaba mucho más tarde.’ At Higher, always try to add the imperfect for extra range.", readCheck: { q: "Which answer reaches the top band?", opts: ["Normalmente ceno a las nueve, pero de pequeño cenaba mucho antes", "Como", "Ceno ceno ceno todos los días sin parar nunca jamás en toda mi vida", "Me gusta"], ans: 0, explain: "It links a present routine with a contrasting past habit (imperfect) — range and accuracy, not just length." } }
+    ];
+
+    const flashcards = [
+        { term: "el desayuno", def: "breakfast", say: "el desayuno" },
+        { term: "la comida", def: "lunch", say: "la comida" },
+        { term: "la merienda", def: "afternoon snack", say: "la merienda" },
+        { term: "la cena", def: "dinner", say: "la cena" },
+        { term: "desayunar · cenar", def: "to have breakfast · to have dinner", say: "desayunar, cenar" },
+        { term: "la tortilla de patatas", def: "Spanish omelette", say: "la tortilla de patatas" },
+        { term: "la paella", def: "paella (rice dish)", say: "la paella" },
+        { term: "las tapas", def: "small shared dishes", say: "las tapas" },
+        { term: "el gazpacho", def: "cold tomato soup", say: "el gazpacho" },
+        { term: "el aceite de oliva", def: "olive oil", say: "el aceite de oliva" },
+        { term: "levantarse → me levanto", def: "to get up → I get up", say: "levantarse, me levanto" },
+        { term: "ducharse → me ducho", def: "to shower → I shower", say: "ducharse, me ducho" },
+        { term: "acostarse → me acuesto", def: "to go to bed → I go to bed", say: "acostarse, me acuesto" },
+        { term: "la siesta", def: "afternoon rest", say: "la siesta" },
+        { term: "por la mañana / tarde / noche", def: "in the morning / afternoon / at night", say: "por la mañana, por la tarde, por la noche" },
+        { term: "se cena / se come (H)", def: "people have dinner / lunch (impersonal se)", say: "se cena, se come" },
+        { term: "de pequeño (H)", def: "as a child", say: "de pequeño" },
+        { term: "me acostaba (H)", def: "I used to go to bed (imperfect)", say: "me acostaba temprano" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "carlos-routine": `<p><strong>Lee lo que dice Carlos.</strong></p>
+        <p><em>"Normalmente me levanto a las siete y desayuno pan con aceite de oliva. Como a las dos — mi plato favorito es la tortilla de patatas porque es muy rica. Por la tarde meriendo algo pequeño y luego hago los deberes. En mi casa se cena bastante tarde, casi siempre a las diez, y después me acuesto. De pequeño me acostaba mucho más temprano, sobre las ocho y media, pero ahora prefiero acostarme tarde."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "carlos-routine",
+            question: "Read what Carlos says. Answer <strong>in English</strong>.<br>(a) What time does Carlos get up? (1)<br>(b) What is his favourite dish and why? (1)<br>(c) What time is dinner in his house? (1)<br>(d) How has his bedtime changed since he was a child? (1)",
+            hint: "Find the time after ‘me levanto’, the dish after ‘mi plato favorito es’, the time after ‘se cena’, and compare ‘de pequeño’ with ‘ahora’.",
+            starter: "(a) He gets up… (b) His favourite dish is… because… (c) Dinner is at… (d) As a child he…, but now he…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> (at) seven (o'clock) <em>(1)</em>.</li>
+                <li><strong>(b)</strong> Spanish omelette / tortilla de patatas, because it is (very) tasty <em>(1)</em>.</li>
+                <li><strong>(c)</strong> (at) ten (o'clock) <em>(1)</em>.</li>
+                <li><strong>(d)</strong> he used to go to bed earlier (around half past eight) / now he goes to bed later <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "(a) At seven o'clock. (b) Spanish omelette, because it is very tasty. (c) At ten o'clock. (d) He used to go to bed earlier (around half past eight) but now he prefers to go to bed later.",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) time — 1", max: 1, points: ["seven (o'clock)"] },
+                { label: "(b) dish + reason — 1", max: 1, points: ["Spanish omelette / tortilla de patatas — (very) tasty"] },
+                { label: "(c) dinner time — 1", max: 1, points: ["ten (o'clock)"] },
+                { label: "(d) comparison — 1", max: 1, points: ["used to go to bed earlier / now goes to bed later"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) I get up at seven. <br>(b) In Spain, people have dinner late. <br>(c) I like the omelette because it is very tasty.",
+            hint: "‘I get up’ = reflexive (me levanto). ‘People have dinner’ = impersonal se (se cena). ‘I like’ = me gusta + noun.",
+            starter: "(a) Me levanto… (b) En España, se cena… (c) Me gusta… porque…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Me levanto a las siete. <em>(1)</em></li>
+                <li><strong>(b)</strong> En España, se cena tarde. <em>(1)</em></li>
+                <li><strong>(c)</strong> Me gusta la tortilla <em>(1)</em> porque <em>(1)</em> es muy rica <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. ‘Me levanto’ must keep the reflexive pronoun ‘me’.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Me levanto a las siete. (b) En España, se cena tarde. (c) Me gusta la tortilla porque es muy rica.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Me levanto a las siete"] },
+                { label: "(b)", max: 1, points: ["En España, se cena tarde"] },
+                { label: "(c)", max: 3, points: ["Me gusta la tortilla", "porque", "es muy rica"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

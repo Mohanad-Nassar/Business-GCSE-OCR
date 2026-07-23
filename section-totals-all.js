@@ -2,7 +2,7 @@
 // ALL SECTION TOTALS — GENERATED FILE, DO NOT EDIT BY HAND
 // Built by tools/build_question_bank.py: every subject's section
 // totals merged into one map keyed by subject-prefixed page id.
-// Generated: 2026-07-18T16:24:22Z
+// Generated: 2026-07-18T23:34:09Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS_ALL = {
  "additional-maths:1-1-notation-functions-and-indices": {
@@ -1249,6 +1249,193 @@ window.SECTION_TOTALS_ALL = {
   "flashcards": 18
  },
  "spanish:2-2-exercise-health-problems-and-advice": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:3-1-school-life-and-subjects": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:3-2-future-study-jobs-and-ambitions": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:4-1-sport-hobbies-and-going-out": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:4-2-music-tv-film-and-reading": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:5-1-food-customs-and-daily-life": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:5-2-festivals-and-traditions": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:6-1-celebrities-influencers-and-fame": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:7-1-holidays-transport-and-places": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:7-2-my-region-and-places-of-interest": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:8-1-technology-in-everyday-life": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:8-2-social-media-and-online-safety": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:9-1-my-town-home-and-local-area": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:9-2-the-environment-and-global-issues": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:x-1-listening-and-dictation": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:x-2-reading-and-translation-into-english": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:x-3-speaking-read-aloud-and-photo-card": {
+  "exam": 2,
+  "mcq": 10,
+  "tf": 8,
+  "learn": 6,
+  "misc": 5,
+  "tips": 3,
+  "fib": 7,
+  "match": 12,
+  "flashcards": 18
+ },
+ "spanish:x-4-writing-and-translation-into-spanish": {
   "exam": 2,
   "mcq": 10,
   "tf": 8,

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Locker — Vidya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="business-style.css"/>
+  <style>
+    /* business-style.css lays the body out as a grid; standalone pages reset it. */
+    html, body { display:block !important; grid-template-columns:none !important; grid-template-rows:none !important; grid-template-areas:none !important; }
+    header, main { grid-area: unset !important; }
+    body { background: var(--paper); color: var(--ink); min-height: 100vh; }
+    :focus-visible { outline:3px solid var(--accent); outline-offset:2px; border-radius:6px; }
+
+    :root{
+      --lk-common:#8b93a8; --lk-uncommon:#3fae5a; --lk-rare:#3b82f6; --lk-epic:#a855f7; --lk-legendary:#e0a52e; --lk-mythic:#ec4899;
+    }
+
+    header {
+      background-color: var(--chrome, var(--ink)); border-bottom: 3px solid var(--accent);
+      padding: 24px 40px 22px; position: relative;
+    }
+    .site-band { display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:16px; }
+    .sb-brand { color:var(--chrome-text, var(--paper)); text-decoration:none; font-family:'DM Mono',monospace; font-size:12px; font-weight:500; }
+    .nav-link { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--chrome-text, var(--paper)); font-family:'DM Mono',monospace; font-size:11px; padding:8px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; transition:background .15s,border-color .15s; }
+    .nav-link:hover { background:rgba(255,255,255,.18); border-color:var(--gold); }
+    .gcse-account-bar { display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-family:'DM Mono',monospace; font-size:11px; color:rgba(245,240,232,.75); margin-left:auto; }
+    .header-inner { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .header-badge { display:inline-block; background:var(--accent); color:#fff; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:4px 12px; border-radius:3px; margin-bottom:12px; }
+    header h1 { font-family:'Playfair Display',serif; font-size:clamp(22px,3.5vw,30px); font-weight:700; color:var(--chrome-text, var(--paper)); line-height:1.15; margin-bottom:4px; }
+    header p { font-size:13px; color:rgba(245,240,232,.6); }
+    .lk-coins { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); color:var(--gold); border-radius:99px; padding:9px 17px; font-family:'DM Mono',monospace; font-weight:700; font-size:15px; }
+
+    main { max-width:1100px; margin:0 auto; padding:28px 22px 90px; }
+    .lk-grid { display:grid; grid-template-columns:320px 1fr; gap:22px; align-items:start; }
+    /* Small screens: the "You are" card shrinks to a compact strip so it sits
+       beside the options instead of filling the screen, and the section tabs
+       collapse into an animated dropdown (.lk-tabselect, built in the script). */
+    @media (max-width:820px){ .lk-grid { grid-template-columns:minmax(112px,150px) 1fr; gap:14px; } }
+    @media (max-width:430px){ .lk-grid { grid-template-columns:1fr; } }
+
+    .lk-stagecard { background:var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:22px; position:sticky; top:16px; display:flex; flex-direction:column; align-items:center; gap:12px; }
+    @media (max-width:820px){
+      .lk-stagecard { position:static; padding:14px 12px; gap:7px; border-radius:16px; }
+      .lk-stagecard .lk-stage { width:100%; height:auto; aspect-ratio:250/296; }
+      .lk-stagecard .lk-blurb, .lk-stagecard .lk-traits, .lk-stagecard .lk-tagline, .lk-stagecard .lk-wearing { display:none; }
+      .lk-stagecard .lk-who { font-size:16px; }
+      .lk-stagecard .lk-arch { font-size:9px; letter-spacing:.1em; }
+      .lk-stagecard .lk-eyebrow { font-size:9px; }
+    }
+    @media (max-width:430px){
+      .lk-stagecard .lk-stage { max-width:150px; margin-inline:auto; }
+    }
+    .lk-eyebrow { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--mid); }
+    .lk-stage { width:250px; height:296px; max-width:100%; border-radius:18px; overflow:hidden; border:1px solid var(--border); background:radial-gradient(120% 90% at 50% 10%, var(--cream), var(--card-bg)); display:grid; place-items:center; }
+    .lk-stage svg { width:90%; height:auto; }
+    .lk-arch { font-family:'DM Mono',monospace; font-size:10.5px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); display:flex; align-items:center; gap:6px; }
+    .lk-arch::before { content:'◆'; font-size:8px; }
+    .lk-arch:empty { display:none; }
+    .lk-who { font-family:'Playfair Display',serif; font-weight:700; font-size:22px; text-transform:capitalize; margin-top:-2px; }
+    .lk-tagline { font-size:13.5px; font-weight:600; color:var(--ink); line-height:1.35; text-align:center; max-width:260px; }
+    .lk-tagline:empty { display:none; }
+    .lk-blurb { font-size:12.5px; color:var(--mid); line-height:1.5; text-align:center; max-width:270px; margin:0; }
+    .lk-blurb:empty { display:none; }
+    .lk-traits { list-style:none; margin:2px 0 0; padding:0; display:flex; flex-direction:column; gap:5px; width:100%; }
+    .lk-traits:empty { display:none; }
+    .lk-traits li { font-size:12px; color:var(--ink); line-height:1.3; padding-left:16px; position:relative; }
+    .lk-traits li::before { content:''; position:absolute; left:2px; top:6px; width:6px; height:6px; border-radius:50%; background:var(--accent); }
+    .lk-wearing { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-top:4px; }
+    .lk-wtag { font-size:11px; background:var(--cream); border:1px solid var(--border); border-radius:99px; padding:3px 10px; color:var(--mid); text-transform:capitalize; }
+    .lk-wtag.lk-empty { opacity:.6; }
+
+    .lk-panel { background:var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:20px; }
+    .lk-tabs { display:flex; gap:7px; margin-bottom:16px; flex-wrap:wrap; }
+    .lk-tabs button { border:1px solid var(--border); background:var(--cream); color:var(--mid); border-radius:99px; padding:8px 17px; font-family:'DM Sans',sans-serif; font-weight:700; font-size:13.5px; cursor:pointer; transition:.15s; }
+    .lk-tabs button:hover { color:var(--ink); border-color:var(--accent); }
+    .lk-tabs button[aria-selected="true"] { background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); border-color:var(--chrome, var(--ink)); }
+
+    /* Animated section dropdown (shown ≤820px in place of the tab row). Built
+       by the inline script from the real tabs, so it proxies to locker.js. */
+    .lk-tabselect { display:none; position:relative; margin-bottom:16px; }
+    .lk-ts-btn { width:100%; display:flex; align-items:center; justify-content:space-between; gap:8px; border:1px solid var(--chrome, var(--ink)); background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); border-radius:12px; padding:12px 16px; font-family:'DM Sans',sans-serif; font-weight:700; font-size:15px; cursor:pointer; }
+    .lk-ts-chev { transition:transform .25s ease; font-size:12px; }
+    .lk-tabselect.open .lk-ts-chev { transform:rotate(180deg); }
+    .lk-ts-menu { list-style:none; margin:6px 0 0; padding:6px; position:absolute; left:0; right:0; z-index:20; background:var(--card-bg); border:1px solid var(--border); border-radius:12px; box-shadow:0 16px 34px rgba(0,0,0,.16); opacity:0; visibility:hidden; transform:translateY(-8px); transition:opacity .2s ease, transform .2s ease, visibility .2s; }
+    .lk-tabselect.open .lk-ts-menu { opacity:1; visibility:visible; transform:translateY(0); }
+    .lk-ts-menu li { padding:11px 14px; border-radius:9px; font-weight:700; font-size:14px; color:var(--ink); cursor:pointer; }
+    .lk-ts-menu li:hover { background:var(--cream); }
+    .lk-ts-menu li[aria-selected="true"] { background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); }
+    @media (max-width:820px){ .lk-tabs { display:none; } .lk-tabselect { display:block; } }
+    @media (prefers-reduced-motion:reduce){ .lk-ts-menu { transition:opacity .15s; } .lk-ts-chev { transition:none; } }
+    .lk-sub { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--mid); margin:16px 0 9px; }
+    .lk-sub:first-child { margin-top:0; }
+    .lk-hint { color:var(--mid); font-size:13px; margin:0 0 10px; }
+
+    .lk-items { display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:12px; }
+    .lk-card { position:relative; border:1.5px solid var(--border); border-radius:16px; overflow:hidden; background:var(--cream); display:flex; flex-direction:column; }
+    .lk-card.eq { border-color:var(--success); box-shadow:0 0 0 1px var(--success); }
+    .lk-p { height:104px; display:grid; place-items:center; background:radial-gradient(90% 80% at 50% 20%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 66%); }
+    .lk-p svg { height:96px; width:auto; }
+    .lk-sw { width:46px; height:46px; border-radius:12px; border:2px solid rgba(0,0,0,.12); }
+    .lk-cm { padding:8px 11px 11px; display:flex; flex-direction:column; gap:7px; flex:1; }
+    .lk-nm { font-weight:700; font-size:12.5px; line-height:1.15; text-transform:capitalize; }
+    .lk-rar { position:absolute; top:8px; right:8px; width:9px; height:9px; border-radius:50%; box-shadow:0 0 0 2px var(--cream); }
+    .lk-btn { border:none; border-radius:9px; padding:8px 10px; font-family:'DM Sans',sans-serif; font-weight:700; font-size:12.5px; cursor:pointer; width:100%; display:flex; align-items:center; justify-content:center; gap:5px; }
+    .lk-btn.buy { background:var(--gold); color:#2a1e05; }
+    .lk-btn.buy:hover { filter:brightness(1.05); }
+    .lk-btn.buy:disabled { background:var(--card-bg); color:var(--mid); border:1px solid var(--border); cursor:default; }
+    .lk-btn.equip { background:var(--accent); color:#fff; }
+    .lk-btn.equip:hover { filter:brightness(1.05); }
+    .lk-btn.equipped { background:none; color:var(--success); border:1px solid var(--success); cursor:default; }
+    .lk-btn.locked { background:none; color:var(--mid); border:1px dashed var(--border); cursor:default; }
+
+    /* Perks tab */
+    .lk-perk { display:flex; gap:14px; align-items:flex-start; border:1.5px solid var(--border); border-radius:16px; background:var(--cream); padding:14px 16px; margin-bottom:12px; }
+    .lk-perk-ico { font-size:30px; line-height:1; flex-shrink:0; }
+    .lk-perk-body { flex:1; min-width:0; }
+    .lk-perk-top { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .lk-perk-name { font-weight:700; font-size:15px; }
+    .lk-perk-qty { font-family:'DM Mono',monospace; font-size:11px; color:var(--success); background:color-mix(in srgb, var(--success) 14%, transparent); border-radius:99px; padding:2px 9px; }
+    .lk-perk-desc { font-size:13px; color:var(--mid); line-height:1.5; margin:6px 0 10px; }
+    .lk-perk-actions { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .lk-perk-actions .lk-btn { width:auto; padding:8px 16px; }
+    .lk-perk-subj { border:1px solid var(--border); background:var(--card-bg); border-radius:8px; padding:8px 11px; font-family:'DM Sans',sans-serif; font-size:13px; color:var(--ink); }
+
+    .lk-toast { position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px); background:var(--chrome, var(--ink)); color:var(--chrome-text, var(--paper)); padding:11px 22px; border-radius:99px; font-family:'DM Sans',sans-serif; font-weight:700; font-size:14px; opacity:0; transition:.25s; pointer-events:none; z-index:600; box-shadow:0 12px 34px rgba(0,0,0,.28); }
+    .lk-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+    .lk-toast.lk-big { background:linear-gradient(135deg, var(--gold,#d4a843), #b8860b); color:#2a1e05; font-size:15px; padding:13px 26px; }
+
+    /* First-purchase confetti — a short, tasteful gold-led burst (not childish). */
+    .lk-confetti { position:fixed; inset:0; pointer-events:none; z-index:590; overflow:hidden; }
+    .lk-confetti i { position:absolute; top:40%; left:50%; width:8px; height:13px; border-radius:2px; opacity:0; will-change:transform,opacity; animation:lk-fall 1100ms cubic-bezier(.2,.6,.4,1) forwards; }
+    @keyframes lk-fall { 0%{ opacity:1; transform:translate(-50%,-50%) rotate(0); } 100%{ opacity:0; transform:translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)); } }
+    @media (prefers-reduced-motion:reduce){ .lk-confetti{ display:none; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="site-band" aria-label="Site">
+    <a class="sb-brand" href="/hub.html"><span aria-hidden="true">🏡</span> All Topics</a>
+    <a class="nav-link" href="dashboard.html">📊 My Progress</a>
+    <a class="nav-link" href="badges.html">🏅 Badges</a>
+    <span class="gcse-account-bar" id="accountBar"></span>
+  </nav>
+  <div class="header-inner">
+    <div>
+      <div class="header-badge">Rewards Store</div>
+      <h1>🛍️ The Locker</h1>
+      <p>Spend the coins you've earned — pick a character, dress it up, make it yours.</p>
+    </div>
+    <div class="header-links">
+      <span class="lk-coins">✦ <span id="lkBal">0</span></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="lk-grid">
+    <div class="lk-stagecard">
+      <div class="lk-eyebrow">You are</div>
+      <div class="lk-stage" id="lkStage"></div>
+      <div class="lk-arch" id="lkArch"></div>
+      <div class="lk-who" id="lkWho">…</div>
+      <div class="lk-tagline" id="lkTagline"></div>
+      <p class="lk-blurb" id="lkBlurb"></p>
+      <ul class="lk-traits" id="lkTraits"></ul>
+      <div class="lk-wearing" id="lkWearing"></div>
+    </div>
+    <div class="lk-panel">
+      <div class="lk-tabs" id="lkTabs" role="tablist" aria-label="Locker sections">
+        <button type="button" role="tab" data-tab="character" aria-selected="true">Characters</button>
+        <button type="button" role="tab" data-tab="style" aria-selected="false">Style</button>
+        <button type="button" role="tab" data-tab="wardrobe" aria-selected="false">Wardrobe</button>
+        <button type="button" role="tab" data-tab="perks" aria-selected="false">Perks</button>
+      </div>
+      <div id="lkBody" role="tabpanel"><p class="lk-hint">Loading your Locker…</p></div>
+    </div>
+  </div>
+</main>
+
+<div class="lk-toast" id="lkToast" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/page-groups-all.js"></script>
+<script src="/section-totals-all.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/tasks-shared.js"></script>
+<script src="/account-cluster.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/content-protect.js"></script>
+<script src="/theme.js"></script>
+<script src="/avatar.js"></script>
+<script src="/locker.js"></script>
+<script>
+  // Small-screen enhancement: mirror the section tabs as an animated dropdown
+  // (the tab row is hidden by CSS ≤820px). It proxies clicks to the real tab
+  // buttons so locker.js's switching logic stays the single source of truth; a
+  // MutationObserver keeps the dropdown label in sync with the active tab.
+  (function () {
+    var tabs = document.getElementById('lkTabs');
+    if (!tabs) return;
+    var btns = Array.prototype.slice.call(tabs.querySelectorAll('[data-tab]'));
+    if (!btns.length) return;
+    var currentBtn = function () {
+      return btns.filter(function (b) { return b.getAttribute('aria-selected') === 'true'; })[0] || btns[0];
+    };
+
+    var wrap = document.createElement('div');
+    wrap.className = 'lk-tabselect';
+    wrap.innerHTML =
+      '<button type="button" class="lk-ts-btn" aria-haspopup="listbox" aria-expanded="false">' +
+        '<span class="lk-ts-label">' + currentBtn().textContent + '</span>' +
+        '<span class="lk-ts-chev" aria-hidden="true">▾</span>' +
+      '</button>' +
+      '<ul class="lk-ts-menu" role="listbox">' +
+        btns.map(function (b) {
+          return '<li role="option" data-tab="' + b.dataset.tab + '" aria-selected="' + (b === currentBtn()) + '">' + b.textContent + '</li>';
+        }).join('') +
+      '</ul>';
+    tabs.parentNode.insertBefore(wrap, tabs);
+
+    var tsBtn = wrap.querySelector('.lk-ts-btn');
+    var tsLabel = wrap.querySelector('.lk-ts-label');
+    var tsMenu = wrap.querySelector('.lk-ts-menu');
+    function close() { wrap.classList.remove('open'); tsBtn.setAttribute('aria-expanded', 'false'); }
+
+    tsBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = wrap.classList.toggle('open');
+      tsBtn.setAttribute('aria-expanded', String(open));
+    });
+    tsMenu.addEventListener('click', function (e) {
+      var li = e.target.closest('[data-tab]'); if (!li) return;
+      var target = btns.filter(function (b) { return b.dataset.tab === li.dataset.tab; })[0];
+      if (target) target.click();   // hand off to locker.js's tab switching
+      close();
+    });
+    document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+
+    function sync() {
+      var sel = currentBtn();
+      tsLabel.textContent = sel.textContent;
+      tsMenu.querySelectorAll('[data-tab]').forEach(function (li) {
+        li.setAttribute('aria-selected', String(li.dataset.tab === sel.dataset.tab));
+      });
+    }
+    new MutationObserver(sync).observe(tabs, { attributes: true, subtree: true, attributeFilter: ['aria-selected'] });
+  })();
+</script>
+<script src="/footer-legal.js"></script>
+</body>
+</html>
