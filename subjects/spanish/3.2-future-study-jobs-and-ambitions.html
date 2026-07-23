@@ -4,297 +4,400 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.2 Future Study, Jobs and Ambitions – Interactive Study Guide</title>
+    <title>3.2 Future Study, Jobs and Ambitions – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Theme 1 · 3. Education and Work</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 1 · 3. Education and Work</div>
             <h1>3.2 Future Study, Jobs and Ambitions</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>Los estudios futuros, el trabajo y las ambiciones · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: 3.2 Future Study, Jobs and Ambitions — placeholder, content not yet written
-    // ══════════════════════════════════════
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 3.2 Future study, jobs and ambitions  (AQA 8692, Theme 1 Topic 3)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
     const pageMeta = {
-            id: '3-2-future-study-jobs-and-ambitions',
-            badge: 'AQA GCSE Spanish — Theme 1 · 3. Education and Work',
-            title: '3.2 Future Study, Jobs and Ambitions',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+        id: '3-2-future-study-jobs-and-ambitions',
+        badge: 'AQA GCSE Spanish (8692) — Theme 1 · 3. Education and Work',
+        title: '3.2 Future Study, Jobs and Ambitions',
+        subtitle: 'Interactive study guide',
+        subject: 'spanish',
+    };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>3.2 Future Study, Jobs and Ambitions</strong> will appear here soon.</p>`
+            title: "How do I say what job someone does?",
+            tag: "Key concept",
+            content: `<p>The key structure is <strong>ser + job</strong> — and Spanish drops the article: <span data-say="Soy profesor.">Soy profesor.</span> (I am a teacher), NOT “soy un profesor”.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el médico">el médico</span></td><td>doctor (m)</td><td><span data-say="la médica">la médica</span></td><td>doctor (f)</td></tr>
+              <tr><td><span data-say="el profesor">el profesor</span></td><td>teacher (m)</td><td><span data-say="la profesora">la profesora</span></td><td>teacher (f)</td></tr>
+              <tr><td><span data-say="el abogado">el abogado</span></td><td>lawyer (m)</td><td><span data-say="la abogada">la abogada</span></td><td>lawyer (f)</td></tr>
+              <tr><td><span data-say="el ingeniero">el ingeniero</span></td><td>engineer (m)</td><td><span data-say="la ingeniera">la ingeniera</span></td><td>engineer (f)</td></tr>
+              <tr><td><span data-say="el enfermero">el enfermero</span></td><td>nurse (m)</td><td><span data-say="la enfermera">la enfermera</span></td><td>nurse (f)</td></tr>
+            </table>
+            <p>Model: <span data-say="Mi madre es ingeniera y mi padre es enfermero.">Mi madre es ingeniera y mi padre es enfermero.</span> — My mum is an engineer and my dad is a nurse.</p>`,
+            readCheck: { q: "Which sentence follows the Spanish rule for stating a job?", opts: ["Soy profesor", "Soy un profesor", "Soy profesor bueno", "Trabajo profesor"], ans: 0, explain: "ser + job takes NO article: Soy profesor. Adding ‘un’ (a false transfer from English) or misplacing the adjective are the common errors." }
+        },
+        {
+            title: "More jobs — masculine and feminine endings",
+            tag: "Key concept",
+            content: `<p>More jobs on the wordlist. Notice the feminine pattern <strong>-ero → -era</strong>:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="el dependiente">el dependiente</span></td><td>shop assistant (m)</td><td><span data-say="la dependienta">la dependienta</span></td><td>shop assistant (f)</td></tr>
+              <tr><td><span data-say="el camarero">el camarero</span></td><td>waiter</td><td><span data-say="la camarera">la camarera</span></td><td>waitress</td></tr>
+              <tr><td><span data-say="el mecánico">el mecánico</span></td><td>mechanic (m)</td><td><span data-say="la mecánica">la mecánica</span></td><td>mechanic (f)</td></tr>
+              <tr><td><span data-say="el peluquero">el peluquero</span></td><td>hairdresser (m)</td><td><span data-say="la peluquera">la peluquera</span></td><td>hairdresser (f)</td></tr>
+              <tr><td><span data-say="el hombre de negocios">el hombre de negocios</span></td><td>businessman</td><td><span data-say="la mujer de negocios">la mujer de negocios</span></td><td>businesswoman</td></tr>
+            </table>
+            <p>Also useful: <span data-say="el trabajo">el trabajo</span> (job/work) and <span data-say="la profesión">la profesión</span> (profession). Example: <span data-say="Mi hermana es dependienta y trabaja en una tienda.">Mi hermana es dependienta y trabaja en una tienda.</span></p>`,
+            readCheck: { q: "Which pair correctly shows the masculine and feminine forms of ‘hairdresser’?", opts: ["el peluquero / la peluquera", "el peluquero / la peluquero", "el peluquera / la peluquero", "el peluquero / el peluquera"], ans: 0, explain: "Feminine -ero jobs change to -era: el peluquero → la peluquera. Forgetting the ending or mixing up ‘el/la’ are the traps here." }
+        },
+        {
+            title: "How do I talk about my ambitions?",
+            tag: "Exam skill",
+            content: `<p>Three levels of certainty for future ambitions — all followed by ser/estudiar with NO article after ser:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="quiero ser">quiero ser</span></td><td>I want to be</td></tr>
+              <tr><td><span data-say="me gustaría ser">me gustaría ser</span></td><td>I would like to be</td></tr>
+              <tr><td><span data-say="voy a estudiar">voy a estudiar</span></td><td>I am going to study</td></tr>
+              <tr><td><span data-say="en el futuro">en el futuro</span></td><td>in the future</td></tr>
+            </table>
+            <p>Example: <span data-say="Quiero ser médica en el futuro.">Quiero ser médica en el futuro.</span> — I want to be a doctor in the future.</p>
+            <p>Another: <span data-say="Me gustaría ser abogado porque me interesa la ley.">Me gustaría ser abogado porque me interesa la ley.</span></p>`,
+            readCheck: { q: "Which sentence correctly expresses an ambition?", opts: ["Quiero ser médica", "Quiero ser una médica", "Quiero ser médica bien", "Quiero a ser médica"], ans: 0, explain: "quiero ser + job, with no article and no extra preposition. ‘una’, a stray adjective, or an unwanted ‘a’ are all real slips." }
+        },
+        {
+            title: "How do I talk about further study?",
+            tag: "Key concept",
+            content: `<p>Two routes after school — academic or vocational:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la universidad">la universidad</span></td><td>university</td></tr>
+              <tr><td><span data-say="seguir estudiando">seguir estudiando</span></td><td>to continue studying</td></tr>
+              <tr><td><span data-say="hacer un aprendizaje">hacer un aprendizaje</span></td><td>to do an apprenticeship</td></tr>
+              <tr><td><span data-say="sacar buenas notas">sacar buenas notas</span></td><td>to get good marks</td></tr>
+              <tr><td><span data-say="aprobar los exámenes">aprobar los exámenes</span></td><td>to pass the exams</td></tr>
+            </table>
+            <p>Example: <span data-say="Voy a seguir estudiando en la universidad si apruebo los exámenes.">Voy a seguir estudiando en la universidad si apruebo los exámenes.</span></p>
+            <p>Or a vocational route: <span data-say="Prefiero hacer un aprendizaje en vez de ir a la universidad.">Prefiero hacer un aprendizaje en vez de ir a la universidad.</span></p>`,
+            readCheck: { q: "What does ‘hacer un aprendizaje’ mean?", opts: ["to do an apprenticeship after school", "to keep on studying at the same school", "to pass all of this year's exams", "to get the best possible marks"], ans: 0, explain: "hacer un aprendizaje = to do an apprenticeship (a vocational route). Confusing it with ‘seguir estudiando’ (to continue studying) is the classic trap." }
+        },
+        {
+            title: "How do I give reasons for my choice?",
+            tag: "Exam skill",
+            content: `<p>Give reasons with <strong>porque</strong> (because + clause) or <strong>para</strong> (in order to + infinitive):</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="porque me interesa">porque me interesa</span></td><td>because it interests me</td></tr>
+              <tr><td><span data-say="para ganar dinero">para ganar dinero</span></td><td>in order to earn money</td></tr>
+              <tr><td><span data-say="para ayudar a la gente">para ayudar a la gente</span></td><td>in order to help people</td></tr>
+              <tr><td><span data-say="para viajar">para viajar</span></td><td>in order to travel</td></tr>
+            </table>
+            <p>Example: <span data-say="Quiero ser médica porque me interesa la ciencia y para ayudar a la gente.">Quiero ser médica porque me interesa la ciencia y para ayudar a la gente.</span></p>`,
+            readCheck: { q: "After ‘para’, what form of the verb do you use?", opts: ["the infinitive (ganar, viajar, ayudar)", "a present-tense verb conjugated for ‘yo’", "the past participle (ganado, viajado)", "the present subjunctive form of the verb"], ans: 0, explain: "para + infinitive: para ganar dinero. Conjugating the verb after para (e.g. ‘para gano dinero’) is a very common error." }
+        },
+        {
+            title: "Higher: cuando + present subjunctive",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> For a future idea with <strong>cuando</strong> (when), Spanish uses the <strong>present subjunctive</strong>, not the present indicative:</p>
+            <ul>
+              <li><span data-say="cuando sea mayor">cuando sea mayor</span> — when I am older</li>
+              <li><span data-say="Cuando sea mayor, quiero ser abogada.">Cuando sea mayor, quiero ser abogada.</span> <span class="tier-h">H</span></li>
+            </ul>
+            <p>Compare: <span data-say="Cuando soy mayor">Cuando soy mayor</span> (present indicative) is WRONG for a future idea — examiners reward <span data-say="sea">sea</span> here.</p>
+            <p>Combine with a reason for the top band: <span data-say="Cuando sea mayor, me gustaría trabajar en el extranjero para viajar y ganar dinero.">Cuando sea mayor, me gustaría trabajar en el extranjero para viajar y ganar dinero.</span> <span class="tier-h">H</span></p>`,
+            readCheck: { q: "Which is correct for a future idea with ‘cuando’?", opts: ["Cuando sea mayor, quiero ser médica", "Cuando soy mayor, quiero ser médica", "Cuando era mayor, quiero ser médica", "Cuando seré mayor, quiero ser médica"], ans: 0, explain: "cuando + present subjunctive (sea) for future time clauses. soy = present indicative, era = imperfect, seré wrongly duplicates the future — all real learner slips." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Quiero ser médica." data-listen></span><br>Listen. What is the ambition?`, opts: ["To become a doctor", "To become a lawyer", "To become an engineer", "To become a nurse"], ans: 0, explain: "‘quiero ser médica’ = I want to be a doctor. All four are plausible jobs — you must catch médica specifically." },
+        { q: `<span data-say="Voy a hacer un aprendizaje." data-listen></span><br>Listen. What is the plan?`, opts: ["To do an apprenticeship after school", "To go to a big university to study law", "To pass all of this year's exams", "To travel around Europe for a year"], ans: 0, explain: "‘voy a hacer un aprendizaje’ = I’m going to do an apprenticeship. Every option is a real future-plan phrase — listen for the specific verb." },
+        { q: `<span data-say="No quiero ir a la universidad." data-listen></span><br>Listen. Which is correct?`, opts: ["I don't want to go to university", "I want to go to university", "I don't want to do an apprenticeship", "I have already finished university"], ans: 0, explain: "‘No quiero ir a la universidad’ = I don't want to go to university. Distractors flip the negative or swap the destination." },
+        { q: "How do you say ‘I would like to be an engineer’?", opts: ["Me gustaría ser ingeniera", "Me gustaría ser una ingeniera", "Quiero ser ingeniera ya", "Me gusta ser ingeniera"], ans: 0, explain: "‘me gustaría’ = I would like (conditional). ‘una’ is the article error again; ‘me gusta’ is wrongly present tense." },
+        { q: "Complete: ‘Quiero ser abogado porque ___ la ley.’", opts: ["me interesa", "me interesan", "me gusta", "me gustan"], ans: 0, explain: "interesar works like gustar: singular subject (la ley) → interesa. A plural verb or the wrong verb (gustar) are common slips." },
+        { q: "Which sentence uses ‘para + infinitive’ correctly for a reason?", opts: ["Trabajo mucho para ganar dinero", "Trabajo mucho para gano dinero", "Trabajo mucho porque ganar dinero", "Trabajo mucho para dinero"], ans: 0, explain: "para + infinitive (para ganar dinero). Conjugating after para, using porque with an infinitive, or dropping the verb are the classic slips." },
+        { q: "‘Voy a seguir estudiando’ means…", opts: ["I am going to continue studying", "I have already stopped studying", "I want to start studying again", "I used to study a long time ago"], ans: 0, explain: "‘voy a seguir estudiando’ = I'm going to continue studying — a near-future plan, not a past or a stop." },
+        { q: "Which shows the correct feminine form of ‘hairdresser’?", opts: ["la peluquera", "la peluquero", "el peluquera", "las peluquero"], ans: 0, explain: "-ero → -era for feminine: la peluquera. Forgetting the ending change or mixing up articles are common." },
+        { q: "Higher: complete ‘Cuando ___ mayor, quiero ser dentista.’", opts: ["sea", "soy", "era", "seré"], ans: 0, explain: "cuando + present subjunctive (sea) for future time. soy/era/seré are all real tense-confusion errors here." },
+        { q: "How do you say ‘I want to earn money to travel’?", opts: ["Quiero ganar dinero para viajar", "Quiero ganar dinero porque viajar", "Quiero ganar dinero para viajo", "Quiero gano dinero para viajar"], ans: 0, explain: "para + infinitive (para viajar). ‘porque’ + infinitive, a conjugated verb after ‘para’, or a double-conjugated ‘quiero gano’ are the traps." }
+    ];
+
+    const matchData = [
+        { term: "quiero ser", def: "I want to be" },
+        { term: "me gustaría ser", def: "I would like to be" },
+        { term: "voy a estudiar", def: "I am going to study" },
+        { term: "en el futuro", def: "in the future" },
+        { term: "la universidad", def: "university" },
+        { term: "seguir estudiando", def: "to continue studying" },
+        { term: "hacer un aprendizaje", def: "to do an apprenticeship" },
+        { term: "sacar buenas notas", def: "to get good marks" },
+        { term: "aprobar los exámenes", def: "to pass the exams" },
+        { term: "porque me interesa", def: "because it interests me" },
+        { term: "para ganar dinero", def: "in order to earn money" },
+        { term: "cuando sea mayor", def: "when I am older" }
+    ];
+
+    const fibData = [
+        { display: `Quiero _____ médica. <span data-say="Quiero ser médica." data-listen>Quiero ser médica.</span>`, blanks: { B1: "ser" } },
+        { display: `Me _____ ser abogado porque me interesa la ley. (would like)`, blanks: { B1: "gustaría" } },
+        { display: `Voy a seguir _____ en la universidad. (studying)`, blanks: { B1: "estudiando" } },
+        { display: `Quiero hacer un _____ en vez de ir a la universidad. (apprenticeship)`, blanks: { B1: "aprendizaje" } },
+        { display: `Trabajo mucho para _____ dinero. (to earn)`, blanks: { B1: "ganar" } },
+        { display: `Cuando _____ mayor, quiero ser dentista. <span data-say="Cuando sea mayor, quiero ser dentista." data-listen>Cuando sea mayor, quiero ser dentista.</span>`, blanks: { B1: "sea" } },
+        { display: `Para _____ a la gente, quiero ser enfermera. (to help)`, blanks: { B1: "ayudar" } }
+    ];
+    const fibWords = ["ser", "gustaría", "estudiando", "aprendizaje", "ganar", "sea", "ayudar"];
+
+    const tfData = [
+        { statement: "‘Soy profesor’ does not need an article before the job.", answer: true, explanation: "ser + job drops the article in Spanish: soy profesor, not soy un profesor." },
+        { statement: "‘la dependienta’ means a male shop assistant.", answer: false, explanation: "la dependienta is female; el dependiente is the male form." },
+        { statement: "‘me gustaría’ is the conditional form meaning ‘I would like’.", answer: true, explanation: "me gustaría ser = I would like to be — conditional tense." },
+        { statement: "After ‘para’, you use a verb conjugated for ‘yo’.", answer: false, explanation: "para is followed by the infinitive: para ganar dinero, not para gano dinero." },
+        { statement: "‘sacar buenas notas’ means ‘to get good marks’.", answer: true, explanation: "sacar buenas notas = to get good marks/grades." },
+        { statement: "‘cuando sea mayor’ uses the present subjunctive because it refers to future time.", answer: true, explanation: "cuando + subjunctive (sea) is required for a future time clause — a Higher-tier feature." },
+        { statement: "‘hacer un aprendizaje’ means ‘to go to university’.", answer: false, explanation: "hacer un aprendizaje = to do an apprenticeship, the vocational alternative to university." },
+        { statement: "‘porque me interesa’ is followed by an infinitive, just like ‘para’.", answer: false, explanation: "porque is followed by a full clause with a conjugated verb, not an infinitive." }
+    ];
+
+    const miscData = [
+        { wrong: "Soy un profesor.", correct: "Soy profesor.", readCheck: { q: "Why is ‘un’ wrong here?", opts: ["ser + job drops the article in Spanish", "‘profesor’ needs a feminine ending instead", "the verb should be ‘estoy’, not ‘soy’, here", "‘un’ should come after the noun"], ans: 0, explain: "Spanish never uses an article between ser and an unmodified job: soy profesor." } },
+        { wrong: "La dependiente trabaja en la tienda.", correct: "La dependienta trabaja en la tienda.", readCheck: { q: "What's wrong with ‘la dependiente’?", opts: ["the feminine form is ‘la dependienta’, not ‘la dependiente’", "‘dependiente’ should never follow the article ‘la’ at all, ever", "‘tienda’ should be spelt ‘tiendo’ instead", "the verb ‘trabaja’ is spelt wrong here"], ans: 0, explain: "dependiente/dependienta is an irregular feminine pattern — it doesn't just drop the -e." } },
+        { wrong: "Trabajo para gano dinero.", correct: "Trabajo para ganar dinero.", readCheck: { q: "Why is ‘para gano’ incorrect?", opts: ["‘para’ must be followed by an infinitive (ganar)", "‘gano’ should be ‘ganamos’ to agree with ‘trabajo’", "‘para’ should simply be replaced with ‘porque’", "the sentence needs an extra ‘un’ before ‘dinero’"], ans: 0, explain: "para always takes the infinitive, never a conjugated verb form." } },
+        { wrong: "Cuando soy mayor, quiero ser dentista.", correct: "Cuando sea mayor, quiero ser dentista.", readCheck: { q: "Why does the Higher answer need ‘sea’, not ‘soy’?", opts: ["‘cuando’ + future time needs the present subjunctive", "‘soy’ is actually a plural verb form here", "‘dentista’ must agree in gender with ‘soy’", "‘cuando’ is only ever correctly used with the past tense"], ans: 0, explain: "A future-time clause with cuando triggers the present subjunctive: cuando sea mayor." } },
+        { wrong: "Me gusta ser ingeniera.", correct: "Me gustaría ser ingeniera.", readCheck: { q: "What's the error in using ‘me gusta’ for an ambition?", opts: ["‘me gusta’ is present tense; ‘I would like’ needs the conditional ‘me gustaría’", "‘me gusta’ should agree with a plural noun such as ‘las ingenieras’ in this exact case", "‘ingeniera’ needs the indefinite article ‘una’ placed before it", "‘ser’ should be ‘estar’ here"], ans: 0, explain: "‘me gusta’ says what you like now, not what you would like to become — that needs the conditional me gustaría." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Listening for job vocabulary", pills: ["Listening", "Vocabulary"], content: "Job vocabulary is everywhere in Paper 1. Listen for the ending of the job noun (-o masculine, -a feminine: ingeniero/ingeniera) and for whether the tense is quiero ser (ambition), soy (current job) or voy a (near-future plan).", readCheck: { q: "You hear ‘Quiero ser ingeniera’. What does this tell you?", opts: ["The speaker (female) wants to be an engineer", "The speaker (male) wants to be an engineer instead", "The speaker (female) wants to be a teacher one day", "The speaker (male) already works as an engineer eventually"], ans: 0, explain: "‘ingeniera’ (-a ending) signals a female speaker; ‘quiero ser’ = I want to be (an ambition, not a current job)." } },
+        { type: "tip", title: "Paper 3 — Reading: ser without an article", pills: ["Reading", "Grammar"], content: "When you read ‘Mi hermano es mecánico’ or ‘Quiero ser abogada’, translate naturally into English WITH ‘a’/‘an’ — Spanish drops the article, English needs it. Don't be thrown by the missing ‘un/una’.", readCheck: { q: "How should you translate ‘Mi hermano es mecánico’?", opts: ["My brother is a mechanic", "My brother is mechanic", "My brother is the mechanic", "My brothers are mechanics"], ans: 0, explain: "Spanish drops the article (es mecánico); English needs ‘a mechanic’. Omitting ‘a’, adding ‘the’, or making it plural are the traps." } },
+        { type: "evaluate", title: "Paper 4 — Writing & speaking: giving reasons", pills: ["Writing", "Speaking", "Higher"], content: "Top-band answers combine an ambition, a reason and a time phrase: ‘Cuando sea mayor, me gustaría ser abogada porque me interesa la justicia.’ At Higher, cuando + subjunctive and a clear reason clause both show range.", readCheck: { q: "Which answer reaches the top band?", opts: ["Cuando sea mayor, me gustaría ser abogada porque me interesa la justicia", "Quiero ser abogada porque me interesa la abogada y la abogada y la abogada", "Voy a ser abogada un día quizás en el futuro tal vez algún día", "Me gustaría ser abogada"], ans: 0, explain: "It combines cuando + subjunctive, an ambition and a genuine reason. Repetition without added meaning, vague hedging, or a bare statement don't reach the top band." } }
+    ];
+
+    const flashcards = [
+        { term: "quiero ser", def: "I want to be", say: "quiero ser" },
+        { term: "me gustaría ser", def: "I would like to be", say: "me gustaría ser" },
+        { term: "voy a estudiar", def: "I am going to study", say: "voy a estudiar" },
+        { term: "en el futuro", def: "in the future", say: "en el futuro" },
+        { term: "el médico / la médica", def: "doctor", say: "el médico, la médica" },
+        { term: "el profesor / la profesora", def: "teacher", say: "el profesor, la profesora" },
+        { term: "el abogado / la abogada", def: "lawyer", say: "el abogado, la abogada" },
+        { term: "el ingeniero / la ingeniera", def: "engineer", say: "el ingeniero, la ingeniera" },
+        { term: "el enfermero / la enfermera", def: "nurse", say: "el enfermero, la enfermera" },
+        { term: "el dependiente / la dependienta", def: "shop assistant", say: "el dependiente, la dependienta" },
+        { term: "el camarero / la camarera", def: "waiter / waitress", say: "el camarero, la camarera" },
+        { term: "el peluquero / la peluquera", def: "hairdresser", say: "el peluquero, la peluquera" },
+        { term: "el hombre / la mujer de negocios", def: "businessman / businesswoman", say: "el hombre de negocios, la mujer de negocios" },
+        { term: "la universidad", def: "university", say: "la universidad" },
+        { term: "seguir estudiando", def: "to continue studying", say: "seguir estudiando" },
+        { term: "hacer un aprendizaje", def: "to do an apprenticeship", say: "hacer un aprendizaje" },
+        { term: "para ganar dinero", def: "in order to earn money", say: "para ganar dinero" },
+        { term: "cuando sea mayor (H)", def: "when I am older", say: "cuando sea mayor" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "carlos-future": `<p><strong>Lee lo que dice Carlos.</strong></p>
+        <p><em>"En el futuro, me gustaría ser ingeniero porque me interesa mucho la tecnología. El año que viene voy a seguir estudiando en el instituto para sacar buenas notas en mis exámenes. Después, quiero ir a la universidad, pero mi hermana prefiere hacer un aprendizaje porque quiere ganar dinero rápido. Cuando sea mayor, espero trabajar en el extranjero para viajar por el mundo."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "carlos-future",
+            question: "Read what Carlos says. Answer <strong>in English</strong>.<br>(a) What job would Carlos like to do, and why? (2)<br>(b) What does Carlos want to do after school, according to the text? (1)<br>(c) Why does his sister prefer to do an apprenticeship? (1)",
+            hint: "Find the job after ‘me gustaría ser’, the reason after ‘porque’, his plan after ‘quiero’, and his sister's reason after ‘porque quiere’.",
+            starter: "(a) He would like to be a/an … because … (b) He wants to … (c) Because she wants to …",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> engineer <em>(1)</em> + because he is (very) interested in technology <em>(1)</em>.</li>
+                <li><strong>(b)</strong> go to university <em>(1)</em>.</li>
+                <li><strong>(c)</strong> (because) she wants to earn money quickly <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Engineer, because he is very interested in technology. (b) Go to university. (c) Because she wants to earn money quickly.",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) job — 1", max: 1, points: ["engineer"] },
+                { label: "(a) reason — 1", max: 1, points: ["interested in technology"] },
+                { label: "(b) after school — 1", max: 1, points: ["go to university"] },
+                { label: "(c) sister's reason — 1", max: 1, points: ["wants to earn money quickly"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) I want to be a nurse. <br>(b) I would like to study at university. <br>(c) When I am older, I am going to travel to earn money.",
+            hint: "‘I want to be’ = Quiero ser (no article). ‘I would like to’ = Me gustaría + infinitive. ‘When I am older’ (future) = Cuando sea mayor + subjunctive.",
+            starter: "(a) Quiero ser… (b) Me gustaría… (c) Cuando sea mayor, voy a…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Quiero ser enfermera. <em>(1)</em></li>
+                <li><strong>(b)</strong> Me gustaría estudiar en la universidad. <em>(1)</em></li>
+                <li><strong>(c)</strong> Cuando sea mayor <em>(1)</em>, voy a viajar <em>(1)</em> para ganar dinero <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. ‘Cuando sea mayor’ must use the subjunctive ‘sea’.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Quiero ser enfermera. (b) Me gustaría estudiar en la universidad. (c) Cuando sea mayor, voy a viajar para ganar dinero.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Quiero ser enfermera"] },
+                { label: "(b)", max: 1, points: ["Me gustaría estudiar en la universidad"] },
+                { label: "(c)", max: 3, points: ["Cuando sea mayor", "voy a viajar", "para ganar dinero"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

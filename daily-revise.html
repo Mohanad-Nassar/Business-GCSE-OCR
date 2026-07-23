@@ -62,6 +62,29 @@
     .muted { color:var(--mid); font-size:12px; }
     .empty { padding:24px; text-align:center; color:var(--mid); font-style:italic; font-size:13px; }
 
+    /* "How it works" explainer. The Rule of 3 reliably confuses students AND
+       teachers ("answer it 3 times" gets read as "answer 3 questions"), so it's
+       spelled out here rather than only in the header one-liner. Collapsible;
+       opens itself once, on a student's first visit. */
+    .dr-help { border:1.5px solid var(--border); border-radius:14px; background:var(--card-bg); margin-bottom:18px; overflow:hidden; }
+    .dr-help > summary { cursor:pointer; list-style:none; padding:13px 18px; font-weight:700; font-size:14.5px; color:var(--ink); display:flex; align-items:center; gap:8px; background:var(--cream); }
+    .dr-help > summary::-webkit-details-marker { display:none; }
+    .dr-help > summary::after { content:'▾'; margin-left:auto; color:var(--mid); transition:transform .15s; }
+    .dr-help[open] > summary::after { transform:rotate(180deg); }
+    .dr-help > summary:hover { color:var(--accent); }
+    .dr-help-body { padding:16px 18px 18px; border-top:1px solid var(--border); }
+    .dr-help-body h3 { font-size:13.5px; font-weight:700; margin:17px 0 7px; color:var(--ink); }
+    .dr-help-body h3:first-child { margin-top:0; }
+    .dr-help-body p { font-size:13.5px; line-height:1.6; color:var(--mid); margin:0 0 9px; }
+    .dr-help-body a { color:var(--accent); }
+    .dr-help-steps { margin:0 0 10px; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px; }
+    .dr-help-steps li { font-size:13.5px; line-height:1.5; color:var(--mid); display:flex; gap:10px; align-items:baseline; }
+    .dr-help-n { flex-shrink:0; font-family:'DM Mono',monospace; font-size:11px; font-weight:700; color:#fff; background:var(--accent); border-radius:99px; padding:2px 10px; }
+    .dr-help-warn { background:color-mix(in srgb, var(--gold) 14%, transparent); border-left:3px solid var(--gold); padding:10px 13px; border-radius:0 8px 8px 0; }
+    .dr-help-coins { margin:0 0 9px; padding-left:20px; }
+    .dr-help-coins li { font-size:13.5px; line-height:1.75; color:var(--mid); }
+    .dr-help-teacher { border-top:1px dashed var(--border); padding-top:13px; margin-top:16px; }
+
     .dr-stats { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:22px; font-family:'DM Mono',monospace; font-size:12px; color:var(--mid); }
     .dr-stats .stat { display:flex; align-items:center; gap:6px; }
     .dr-stats .stat b { color:var(--ink); font-size:14px; }
@@ -177,6 +200,49 @@
 </header>
 
 <main>
+  <details class="dr-help" id="drHelp">
+    <summary>ℹ️ How Daily Revise works — and how you earn coins</summary>
+    <div class="dr-help-body">
+      <h3>Mastering a question: the Rule of 3</h3>
+      <p>A question isn't finished the first time you get it right. You have to answer <strong>that same question</strong> correctly <strong>three separate times</strong>, spread over days, before it counts as <em>mastered</em>. (It's three goes at <em>one</em> question — not three different questions.)</p>
+      <ol class="dr-help-steps">
+        <li><span class="dr-help-n">1st</span><span>Correct — the question comes back in a day or so.</span></li>
+        <li><span class="dr-help-n">2nd</span><span>Correct again — it returns once more, further apart.</span></li>
+        <li><span class="dr-help-n">3rd</span><span>Correct a third time — <strong>mastered</strong>. It stops appearing in your daily set.</span></li>
+      </ol>
+      <p class="dr-help-warn">Get it <strong>wrong</strong> at any point and the count goes back to zero. That's deliberate — anything you've forgotten comes back until it genuinely sticks. It's not a punishment, and it <strong>never takes coins away</strong>.</p>
+
+      <h3>Earning coins ✦</h3>
+      <p>You get paid as you learn — each correct answer of the same question is worth more than the last:</p>
+      <ul class="dr-help-coins">
+        <li><strong>1st</strong> time correct → <strong>1 ✦</strong></li>
+        <li><strong>2nd</strong> time correct → <strong>2 ✦</strong></li>
+        <li><strong>3rd</strong> time correct (mastered) → <strong>3 ✦</strong></li>
+      </ul>
+      <p>That's <strong>6 coins for every question you master</strong>. Wrong answers earn nothing, but they never cost you anything either. Spend what you earn in <a href="/locker.html">The Locker 🛍️</a>.</p>
+      <p>You also earn <strong>5 ✦</strong> for completing a review, and <strong>10 ✦</strong> for completing a task your teacher set — paid when you submit it, whatever you score.</p>
+
+      <div class="dr-help-teacher">
+        <h3>For teachers</h3>
+        <p>Mastery is tracked <strong>per question, per student</strong>: the count rises on a correct answer and resets to zero on a wrong one, so "mastered" reflects genuine retention across spaced repetitions rather than one lucky guess. Questions a student has mastered drop out of the daily queue; forgotten ones re-surface automatically.</p>
+        <p>Coins are computed <strong>on the server</strong> from that same signal and banked in a ledger that never decreases — so re-climbing a ladder a student has already been paid for earns nothing. There is no way to farm coins by deliberately answering wrong and re-answering, and a daily cap bounds how fast coins can build up. Coins are cosmetic-only: they never affect marks, mastery, or your reports.</p>
+      </div>
+    </div>
+  </details>
+  <script>
+    // Open the explainer once, on a student's first visit; respect their choice after.
+    (function () {
+      try {
+        var h = document.getElementById('drHelp');
+        if (!h) return;
+        if (!localStorage.getItem('gcse_dr_help_seen')) h.open = true;
+        h.addEventListener('toggle', function () {
+          if (!h.open) { try { localStorage.setItem('gcse_dr_help_seen', '1'); } catch (e) {} }
+        });
+      } catch (e) {}
+    })();
+  </script>
+
   <div class="dr-stats" id="drStats"></div>
 
   <div id="drFilterToggleRow" style="display:none; margin-bottom:12px;">
@@ -242,6 +308,7 @@
 <script src="progress-shared.js"></script>
 <script src="tasks-shared.js"></script>
 <script src="/math-render.js"></script>
+<script src="/speech.js"></script>
 <script src="/account-cluster.js"></script>
 <script src="/notifications-shared.js"></script>
 <script src="/content-protect.js"></script>

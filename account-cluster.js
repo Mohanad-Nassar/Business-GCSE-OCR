@@ -86,6 +86,11 @@ function _gcseInjectAccountBarStyles() {
             font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink,#1a2332);}
         .gcse-profile-menu .gpm-subject-select:hover{border-color:var(--accent,#4a6fa5);}
         .gcse-profile-menu button.gpm-logout{color:#c84b31;font-weight:600;}
+        /* Art mode: the equipped avatar (WP-3) replaces the initial letter. The
+           bust crop is square, so it fills the circle; a neutral ground shows
+           through characters whose background cosmetic is "none". */
+        .gcse-avatar.gcse-avatar-art{background:#e9edf3;padding:0;overflow:hidden;}
+        .gcse-avatar.gcse-avatar-art svg{width:100%;height:100%;display:block;}
         @media (max-width:520px){
             .gcse-profile-name{display:none;}
             .gcse-profile-btn{padding:4px 10px 4px 5px;}
@@ -161,6 +166,7 @@ function _gcseInjectAccountBar() {
            <a class="gpm-item" href="/daily-revise.html${subjQ}"><span aria-hidden="true">🎯</span> Daily Revise</a>
            <a class="gpm-item" href="/tasks.html${subjQ}"><span aria-hidden="true">📋</span> Tasks</a>
            <a class="gpm-item" href="/review-calendar.html${subjQ}"><span aria-hidden="true">🗓️</span> Calendar</a>
+           <a class="gpm-item" href="/locker.html"><span aria-hidden="true">🛍️</span> The Locker</a>
            <a class="gpm-item" href="/notifications.html"><span aria-hidden="true">🔔</span> Notifications</a>
            <a class="gpm-item" href="/manage-account.html"><span aria-hidden="true">⚙️</span> Manage account</a>`;
 
@@ -189,11 +195,27 @@ function _gcseInjectAccountBar() {
         </div>`;
     mount.appendChild(cluster);
 
+    // WP-3: swap the initial letter for the student's equipped avatar (cached
+    // render first, then revalidate from the DB). Students only; teachers and
+    // students who haven't picked a character keep the letter.
+    if (role === 'student') { try { _gcseHydrateAvatar(name); } catch (e) {} }
+
     const btn = cluster.querySelector('.gcse-profile-btn');
     const menu = cluster.querySelector('.gcse-profile-menu');
     btn.addEventListener('click', e => {
         e.stopPropagation();
         const willShow = !menu.classList.contains('show');
+        // This button stops propagation, so the notification bell's outside-click
+        // close never fires — on mobile both would be open and overlap. Close the
+        // notif panel explicitly so the two are always mutually exclusive.
+        if (willShow) {
+            const notifPanel = document.querySelector('.gcse-notif-panel.show');
+            if (notifPanel) {
+                notifPanel.classList.remove('show');
+                const notifBtn = document.querySelector('.gcse-notif-btn');
+                if (notifBtn) notifBtn.setAttribute('aria-expanded', 'false');
+            }
+        }
         menu.classList.toggle('show', willShow);
         btn.setAttribute('aria-expanded', String(willShow));
     });
@@ -237,6 +259,86 @@ function _gcseInjectAccountBar() {
     // WP-A4: "Switch subject" section for multi-subject students — never
     // awaited, the menu works fine without it if the RPC isn't there yet.
     try { _gcseLoadSubjectSwitcher(menu, role); } catch (e) {}
+}
+
+// ── WP-3: equipped-avatar in the header circle ──────────────────────────────
+// avatar.js is NOT included on most pages, so load it on demand (the same
+// dynamic-load trick script.js uses for this file). One shared promise so
+// concurrent callers never inject the tag twice.
+function _gcseEnsureAvatarLib() {
+    if (window.VidyaAvatar) return Promise.resolve(true);
+    if (window._gcseAvatarLibPromise) return window._gcseAvatarLibPromise;
+    window._gcseAvatarLibPromise = new Promise(resolve => {
+        const s = document.createElement('script');
+        s.src = '/avatar.js';
+        s.onload = () => resolve(!!window.VidyaAvatar);
+        s.onerror = () => resolve(false);
+        document.head.appendChild(s);
+    });
+    return window._gcseAvatarLibPromise;
+}
+
+// Paint the composed bust into every .gcse-avatar in the cluster (the button +
+// the dropdown head). The SVG is sized to fill via CSS, so it works even while
+// the dropdown is display:none (offsetWidth would read 0).
+function _gcsePaintAvatar(character, loadout) {
+    const cluster = document.getElementById('gcseProfileCluster');
+    if (!cluster || !window.VidyaAvatar || !VidyaAvatar.has(character)) return;
+    const lo = { character };
+    if (loadout && typeof loadout === 'object') {
+        Object.keys(loadout).forEach(k => { if (loadout[k]) lo[k] = loadout[k]; });
+    }
+    let svg;
+    try { svg = VidyaAvatar.compose(lo, { size: 40, crop: 'bust' }); } catch (e) { return; }
+    cluster.querySelectorAll('.gcse-avatar').forEach(el => {
+        el.classList.add('gcse-avatar-art');
+        el.innerHTML = svg;
+    });
+}
+
+// Cache-then-revalidate: render the last-known avatar instantly from
+// localStorage, then confirm/refresh from get_my_avatar_or_default (the equipped
+// character, or a stable free-starter default for students who haven't picked).
+// No client / no lib / teacher → the initial letter simply stays.
+async function _gcseHydrateAvatar(name) {
+    let cached = null;
+    try { cached = JSON.parse(localStorage.getItem('gcse_avatar_v1') || 'null'); } catch (e) {}
+    const ok = await _gcseEnsureAvatarLib();
+    if (!ok) return;
+    if (cached && cached.u === name && cached.character && VidyaAvatar.has(cached.character)) {
+        _gcsePaintAvatar(cached.character, cached.loadout || {});
+        _gcseMountBuddy(cached.character, cached.loadout || {});
+    }
+    const client = window._gcseSupabaseClient;
+    if (!client) return;
+    let res;
+    try { res = await client.rpc('get_my_avatar_or_default'); }
+    catch (e) { return; }
+    if (!res || res.error || !res.data || !res.data.character) return;  // teacher / no starters
+    const ch = res.data.character, lo = res.data.loadout || {};
+    if (!VidyaAvatar.has(ch)) return;
+    _gcsePaintAvatar(ch, lo);
+    _gcseMountBuddy(ch, lo);
+    try { localStorage.setItem('gcse_avatar_v1', JSON.stringify({ u: name, character: ch, loadout: lo })); } catch (e) {}
+}
+
+// WP-3b: the equipped character also appears as a small floating companion on
+// app pages (avatar-buddy.js), fed the same resolved character+loadout. Loaded
+// on demand, once; students only (only ever called from _gcseHydrateAvatar).
+// avatar-buddy.js self-guards (skips the Locker, mobile and dismissed sessions).
+function _gcseMountBuddy(character, loadout) {
+    if (!character) return;
+    const go = () => { try { if (window.VidyaBuddy) window.VidyaBuddy.show(character, loadout || {}); } catch (e) {} };
+    if (window.VidyaBuddy) return go();
+    if (window._gcseBuddyPromise) { window._gcseBuddyPromise.then(go); return; }
+    window._gcseBuddyPromise = new Promise(resolve => {
+        const s = document.createElement('script');
+        s.src = '/avatar-buddy.js';
+        s.onload = () => resolve(true);
+        s.onerror = () => resolve(false);
+        document.head.appendChild(s);
+    });
+    window._gcseBuddyPromise.then(go);
 }
 
 // One entry per entitled subject (get_my_entitlements, WP-A3), current

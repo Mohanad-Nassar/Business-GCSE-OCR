@@ -916,13 +916,36 @@ solve/show-that/detailed-reasoning written items (defaults to `lines`).
 
 | OCR form | format |
 |---|---|
-| Numeric / exact-value / trig-equation answer entry | `numeric` (NEW) |
-| Multi-part with working (a/b/c, models, log-linearisation) | `mathParts` (NEW) |
-| Plot / sketch / Venn / tree (paper + overlay self-check) | `sketch` (NEW) |
+| Numeric / exact-value / trig-equation answer entry | `numeric` (BUILT — ADM-B B1) |
+| Multi-part with working (a/b/c, models, log-linearisation) | `mathParts` (BUILT — ADM-B B2) |
+| Plot / sketch / Venn / tree (paper + overlay self-check) | `sketch` (NEW — not built) |
 | Complete a table (log values, function values) | `tableFill` (reuse CS) |
 | 6/8-mark banded extended response | `banded` (reuse CS) |
 | Tick-one / MCQ | `type:"mcq"` |
 | (plain written: solve, show-that, DR, unstructured) | omit -> `lines` |
+
+**`numeric` authoring (ADM-B B1, BUILT 2026-07-19).** A numeric question sets
+`format:"numeric"` and carries an answer key `q.numeric`, a map of blank-id →
+`{ value, tol?, accept? }` (one key = the common single-answer case):
+
+```js
+numeric: { "1": { value: 2.45, tol: 0.005, accept: ["-3+2root5", "(-6+root80)/2"] } }
+```
+
+- `value` — the numeric target. `tol` — absolute tolerance (default `0.0005`).
+- `accept` — optional exact-form strings for surds/symbolic answers.
+- **Marking rule (client `cs-lab/exam-widgets.js` = server `supabase/numeric-normalise.sql`, kept identical):** normalise = lower-case, `√`→`root`, strip spaces / commas / `£ $ € %`; a student string is correct if it equals a normalised `accept[]` form, OR parses as a plain decimal or `a/b` fraction within `tol` of `value`. Leading `+` is NOT accepted (write `-3`, never `+3`).
+- Multi-key = multi-part numeric; each key contributes an equal share of `q.marks` (client shows partial credit; the server records binary correct = all keys right, like `fib`).
+- Still author a `markScheme` (+ `markPoints` for any method marks) — the widget reveals it after checking so method/M marks are visible. Server grading needs `qtype:"numeric"` + `answer_key.numeric` — the build pipeline mapping for that is PENDING (see below).
+
+**`mathParts` authoring (ADM-B B2, BUILT 2026-07-19).** A multi-part question sets `format:"mathParts"` and carries `q.parts`, an array where each part is `{ label:"(a)", marks, prompt?, markScheme? }` plus ONE of:
+
+```js
+{ label:"(a)", marks:2, prompt:"Find x.", numeric:{ "1":{value:3,tol:0.005} } }   // auto-marks
+{ label:"(b)", marks:3, prompt:"Show that…", markScheme:"…", markPoints:{groups:[…]} }  // self-marks
+```
+
+Numeric parts reuse the B1 comparator; written parts reuse the tick panel. The widget marks each part independently and aggregates into ONE mark (`q.marks` = sum of part marks). **Client-only** — multi-part questions self-mark on the server (no grader/qtype change), so `mathParts` needs no SQL. Author `markPoints` per written part or the tick panel falls back to `<li>` parsing.
 
 ## Appendix E - Delegation prompt templates
 

@@ -44,7 +44,7 @@ begin
         select 1 from task_answers a
         join task_questions q on q.id = a.task_question_id
         where a.attempt_id = p_source_attempt_id
-          and q.qtype in ('mcq', 'tf', 'fib')
+          and q.qtype in ('mcq', 'tf', 'fib', 'numeric')
           and a.is_correct = false
     ) then
         raise exception 'No auto-marked wrong answers to retry from this attempt';
@@ -68,7 +68,7 @@ begin
         from task_answers a
         join task_questions q on q.id = a.task_question_id
         where a.attempt_id = p_source_attempt_id
-          and q.qtype in ('mcq', 'tf', 'fib')
+          and q.qtype in ('mcq', 'tf', 'fib', 'numeric')
           and a.is_correct = false
         order by q.q_order
         limit 10

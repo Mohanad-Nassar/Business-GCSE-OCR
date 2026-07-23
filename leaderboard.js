@@ -42,6 +42,12 @@ let lbSel = { scope: 'class', metric: 'overall', window: 'all', classId: null, g
 // Teacher admin data (classes + link groups for this subject), loaded lazily.
 let lbAdmin = null;
 
+// WP-3: equipped avatars. Rows carry an `avatar` {character, loadout} ONLY where
+// the RPC also returned a name (same privacy gate). Rendering is a post-pass:
+// each row stashes its avatar here keyed by index, then lbPaintAvatars() swaps
+// the initial for the composed bust once avatar.js has loaded. Reset per render.
+let lbAvatarQueue = [];
+
 // Short-TTL client cache so flipping tabs back and forth doesn't hammer the
 // RPC (the underlying data changes slowly). Keyed by the full selection.
 const lbCache = new Map();
@@ -142,6 +148,8 @@ async function init() {
     document.getElementById('accountBar').innerHTML =
       `<span>Logged in as <strong>${esc(auth.username || 'you')}</strong></span>`;
   }
+  // Warm the avatar library so the first board paints with faces, not initials.
+  if (typeof _gcseEnsureAvatarLib === 'function') _gcseEnsureAvatarLib();
 
   // Which subjects can this viewer pick from? (Multi-subject teachers/students.)
   try {
@@ -326,6 +334,7 @@ function renderIndividual(rows, meta) {
   const board = document.getElementById('lbBoard');
   const banners = document.getElementById('lbBanners');
   const cols = lbColumns(false);
+  lbAvatarQueue = [];
   board.classList.add('lb-multi');
   lbSetGrid(board, cols.length);
 
@@ -352,6 +361,7 @@ function renderIndividual(rows, meta) {
   }).join('');
 
   board.innerHTML = headerRow(cols, false) + body;
+  lbPaintAvatars();
 
   // If a student isn't ranked yet, nudge them under the board.
   if (!lbIsTeacher && meta.self_rank == null) {
@@ -381,11 +391,13 @@ function individualRow(r, cols, showClassTag) {
   const rankCell = r.rank ? rankHtml(r.rank, r.delta, lbMetric(lbSel.metric)) : '<span class="lb-rank">—</span>';
   const classTag = (showClassTag && r.class_name)
     ? `<span class="lb-classtag" title="${esc(r.class_name)}">${esc(r.class_name)}</span>` : '';
+  // Stash the avatar (only present on named rows) for the post-render paint pass.
+  const avKey = (named && r.avatar && r.avatar.character) ? (lbAvatarQueue.push(r.avatar) - 1) : -1;
   return `
     <div class="lb-rowitem ${self ? 'is-self' : ''}">
       ${rankCell}
       <div class="lb-who">
-        <span class="lb-avatar ${named ? '' : 'anon'}" aria-hidden="true">${initial}</span>
+        <span class="lb-avatar ${named ? '' : 'anon'}"${avKey >= 0 ? ` data-avkey="${avKey}"` : ''} aria-hidden="true">${initial}</span>
         <span class="lb-name-wrap">
           <span class="lb-name">${displayName}${self ? '<span class="lb-you-pill">YOU</span>' : ''}</span>
           ${classTag}
@@ -437,6 +449,37 @@ function rankHtml(rank, delta, m) {
 }
 
 function fmtNum(n) { return (n == null) ? '—' : Number(n).toLocaleString(); }
+
+// WP-3: after a board renders, swap each named row's initial for its equipped
+// avatar bust. avatar.js is loaded on demand via account-cluster's shared
+// loader; if it (or the lib) is unavailable, the initials simply remain.
+async function lbPaintAvatars() {
+  if (!lbAvatarQueue.length || typeof _gcseEnsureAvatarLib !== 'function') return;
+  const ok = await _gcseEnsureAvatarLib();
+  if (!ok || !window.VidyaAvatar) return;
+  const board = document.getElementById('lbBoard');
+  if (!board) return;
+  board.querySelectorAll('.lb-avatar[data-avkey]').forEach(el => {
+    const a = lbAvatarQueue[+el.dataset.avkey];
+    if (!a || !a.character || !VidyaAvatar.has(a.character)) return;
+    const lo = { character: a.character }, l = a.loadout || {};
+    Object.keys(l).forEach(k => { if (l[k]) lo[k] = l[k]; });
+    try {
+      el.innerHTML = VidyaAvatar.compose(lo, { size: 40, crop: 'bust' });
+      el.classList.add('lb-avatar-art');
+    } catch (e) {}
+  });
+}
+
+// Art-mode styling for leaderboard avatars (mirrors the header treatment).
+(function ensureLbAvatarArt() {
+  if (document.getElementById('lb-avatar-art')) return;
+  const st = document.createElement('style');
+  st.id = 'lb-avatar-art';
+  st.textContent = '.lb-avatar.lb-avatar-art{background:#e9edf3;overflow:hidden;padding:0;}'
+    + '.lb-avatar.lb-avatar-art svg{width:100%;height:100%;display:block;}';
+  document.head.appendChild(st);
+})();
 
 function banner(kind, emoji, html) {
   return `<div class="lb-banner ${kind}"><span class="lb-b-emoji" aria-hidden="true">${emoji}</span><span>${html}</span></div>`;

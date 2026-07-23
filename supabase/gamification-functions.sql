@@ -21,6 +21,23 @@
 -- profile-wide view). Dropped-then-recreated because the signature changed —
 -- keeping the old 0-arg version around would make the no-arg call ambiguous.
 drop function if exists get_my_streak();
+-- Streak-freeze shields (WP-5): dates that count as "active" for a subject's
+-- streak. Table + RLS are created TOGETHER here (never split) so streak_shields
+-- can NEVER exist without RLS, whichever file runs first — a bare table would be
+-- world-writable via the anon key (a student could forge streaks). rewards-store.sql
+-- carries the identical block as canonical. Writes only via use_perk (definer).
+create table if not exists streak_shields (
+    student_id   uuid not null references profiles(id) on delete cascade,
+    subject_slug text not null references subjects(slug),
+    shield_date  date not null,
+    created_at   timestamptz not null default now(),
+    primary key (student_id, subject_slug, shield_date)
+);
+alter table streak_shields enable row level security;
+drop policy if exists "streak_shields_self_select" on streak_shields;
+create policy "streak_shields_self_select" on streak_shields for select using (student_id = auth.uid());
+grant select on streak_shields to authenticated;
+
 create or replace function get_my_streak(p_subject text default null) returns jsonb
 language plpgsql security definer stable set search_path = public as $$
 declare
@@ -42,11 +59,25 @@ begin
     where student_id = v_uid
       and (p_subject is null or page_id like p_subject || ':%');
 
-    select coalesce(array_agg(distinct (answered_at at time zone 'utc')::date order by (answered_at at time zone 'utc')::date), '{}')
+    -- Active days = real practice UNION any streak-freeze shields (WP-5), so a
+    -- frozen day bridges the chain exactly like a practised one.
+    -- NOTE: qualify the aggregated column as x.d — the loop variable below is
+    -- also named `d`, so a bare `array_agg(d order by d)` raises 42702
+    -- ("column reference d is ambiguous") and the whole function throws, which
+    -- the client swallows and every streak silently reads 0. Keep it qualified.
+    select coalesce(array_agg(x.d order by x.d), '{}')
     into v_days
-    from progress_events
-    where student_id = v_uid
-      and (p_subject is null or page_id like p_subject || ':%');
+    from (
+        select distinct (answered_at at time zone 'utc')::date as d
+        from progress_events
+        where student_id = v_uid
+          and (p_subject is null or page_id like p_subject || ':%')
+        union
+        select shield_date as d
+        from streak_shields
+        where student_id = v_uid
+          and (p_subject is null or subject_slug = p_subject)
+    ) x;
 
     if v_days is null or array_length(v_days, 1) is null then
         return jsonb_build_object('current', 0, 'longest', 0, 'last_active', null);

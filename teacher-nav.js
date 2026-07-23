@@ -82,6 +82,15 @@
             '.teacher-nav a:hover{color:var(--chrome-text, var(--paper,#f5f0e8));}',
             '.teacher-nav a.active{color:var(--chrome-text, var(--paper,#f5f0e8));border-bottom-color:var(--accent,#d4a843);font-weight:500;}',
             '.teacher-nav a .tn-ic{font-size:13px;}',
+            // business-style.css gives header{z-index:10} at ≥900px (for the
+            // topic-page grid, which teacher pages disable). That turns the
+            // header into a stacking context and TRAPS the injected profile
+            // dropdown (z:502) / bell panel (z:501) BELOW this sticky nav
+            // (z:40) — the nav then paints over the middle of the open menu.
+            // Teacher pages don't use that grid, so clear it: the panels then
+            // escape to the root stacking context and paint above the nav, per
+            // the z-index ladder in style.css.
+            'header:has(#accountBar){z-index:auto;}',
             '@media (max-width:640px){.teacher-nav{padding:0 14px;}.teacher-nav a{padding:10px 10px;font-size:11px;}',
             '.teacher-nav a .tn-lbl{display:none;}.teacher-nav a .tn-ic{font-size:16px;}}',
         ].join('');

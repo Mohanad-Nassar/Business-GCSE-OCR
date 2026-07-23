@@ -610,7 +610,11 @@ function applyFeedback(q, result) {
   });
 
   if (typeof gamificationPlaySound === 'function') gamificationPlaySound(correct ? 'correct' : 'wrong');
-  if (typeof _gamBumpDaily === 'function') _gamBumpDaily();
+  if (typeof _gamBumpDaily === 'function') _gamBumpDaily(!!correct);
+  // Lets the avatar buddy offer reassurance — decoupled the same way as
+  // gamification.js's 'vidya:celebrate' (see avatar-buddy.js): a no-op if
+  // the buddy isn't mounted or this fires on a page without it.
+  if (!correct) { try { window.dispatchEvent(new CustomEvent('vidya:mistake')); } catch (e) {} }
   // Real XP — record_mastery_answer() has already durably credited this to
   // daily_revise_stats (see the header comment), so the toast isn't fake.
   if (correct && typeof gamificationShowXpToast === 'function') {

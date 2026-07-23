@@ -4,297 +4,388 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>9.2 The Environment and Global Issues – Interactive Study Guide</title>
+    <title>9.2 The Environment and Global Issues – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Theme 3 · 9. Environment and Where People Live</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 3 · 9. Environment and Where People Live</div>
             <h1>9.2 The Environment and Global Issues</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>El medio ambiente y los problemas globales · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: 9.2 The Environment and Global Issues — placeholder, content not yet written
-    // ══════════════════════════════════════
-    const pageMeta = {
-            id: '9-2-the-environment-and-global-issues',
-            badge: 'AQA GCSE Spanish — Theme 3 · 9. Environment and Where People Live',
-            title: '9.2 The Environment and Global Issues',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 9.2 The Environment and Global Issues  (AQA 8692, Theme 3 Topic 3)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = { id: '9-2-the-environment-and-global-issues', badge: 'AQA GCSE Spanish (8692) — Theme 3 · 9. Environment and Where People Live', title: '9.2 The Environment and Global Issues', subtitle: 'Interactive study guide', subject: 'spanish' };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>9.2 The Environment and Global Issues</strong> will appear here soon.</p>`
+            title: "How do I talk about the environment?",
+            tag: "Key concept",
+            content: `<p>The key phrase is <span data-say="el medio ambiente">el medio ambiente</span> (the environment). Here is the core vocabulary — tap 🔊 to hear each one.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la contaminación">la contaminación</span></td><td>pollution</td><td><span data-say="el reciclaje">el reciclaje</span></td><td>recycling</td></tr>
+              <tr><td><span data-say="reciclar">reciclar</span></td><td>to recycle</td><td><span data-say="la basura">la basura</span></td><td>rubbish</td></tr>
+              <tr><td><span data-say="la naturaleza">la naturaleza</span></td><td>nature</td><td><span data-say="los recursos naturales">los recursos naturales</span></td><td>natural resources</td></tr>
+              <tr><td><span data-say="la energía">la energía</span></td><td>energy</td><td><span data-say="proteger">proteger</span></td><td>to protect</td></tr>
+            </table>
+            <p>Model sentence: <span data-say="Es importante proteger el medio ambiente y reciclar la basura.">Es importante proteger el medio ambiente y reciclar la basura.</span> — <em>It is important to protect the environment and recycle rubbish.</em></p>`,
+            readCheck: { q: "What does ‘el medio ambiente’ mean?", opts: ["the environment", "the average weather", "the middle of the city", "a natural resource"], ans: 0, explain: "el medio ambiente = the environment. On its own ‘ambiente’ can mean atmosphere, but this fixed phrase means environment." }
+        },
+        {
+            title: "How do I describe environmental problems?",
+            tag: "Exam skill",
+            content: `<p>Problems facing the planet — tap 🔊 to hear each one.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="la contaminación del aire">la contaminación del aire</span></td><td>air pollution</td><td><span data-say="el tráfico">el tráfico</span></td><td>traffic</td></tr>
+              <tr><td><span data-say="la deforestación">la deforestación</span></td><td>deforestation</td><td><span data-say="la sequía">la sequía</span></td><td>drought</td></tr>
+              <tr><td><span data-say="el cambio climático">el cambio climático</span></td><td>climate change</td><td><span data-say="el calentamiento global">el calentamiento global</span></td><td>global warming</td></tr>
+            </table>
+            <p>Example: <span data-say="El tráfico causa mucha contaminación del aire en las ciudades.">El tráfico causa mucha contaminación del aire en las ciudades.</span> — <em>Traffic causes a lot of air pollution in cities.</em></p>`,
+            readCheck: { q: "What is ‘la sequía’?", opts: ["drought", "flooding", "a heatwave", "heavy rain"], ans: 0, explain: "la sequía = drought, a long period without rain. Do not confuse it with inundación (flood) or una ola de calor (heatwave)." }
+        },
+        {
+            title: "How do I give environmental advice?",
+            tag: "Exam skill",
+            content: `<p>Reuse the advice structures you already know — each is followed by an <strong>infinitive</strong>:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="se debe reciclar">se debe reciclar</span></td><td>one should recycle</td></tr>
+              <tr><td><span data-say="no se debe malgastar agua">no se debe malgastar agua</span></td><td>one must not waste water</td></tr>
+              <tr><td><span data-say="hay que ahorrar energía">hay que ahorrar energía</span></td><td>you have to save energy</td></tr>
+              <tr><td><span data-say="hay que apagar las luces">hay que apagar las luces</span></td><td>you have to turn off the lights</td></tr>
+              <tr><td><span data-say="se debería usar el transporte público">se debería usar el transporte público</span> <span class="tier-h">H</span></td><td>one should use public transport</td></tr>
+            </table>
+            <p>Example: <span data-say="Para proteger el medio ambiente, se debe reciclar y no se debe malgastar el agua.">Para proteger el medio ambiente, se debe reciclar y no se debe malgastar el agua.</span></p>`,
+            readCheck: { q: "What follows ‘se debe’, ‘hay que’ and ‘se debería’?", opts: ["an infinitive (reciclar, ahorrar…)", "a verb in the preterite past tense", "an adjective that must agree", "a plural noun on its own"], ans: 0, explain: "All three advice structures are followed by an infinitive, never a conjugated verb." }
+        },
+        {
+            title: "How do I talk about global issues?",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> At Higher tier you also need wider world problems, not just local ones:</p>
+            <ul>
+              <li><span data-say="los problemas globales">los problemas globales</span> — global problems</li>
+              <li><span data-say="la pobreza">la pobreza</span> — poverty</li>
+              <li><span data-say="el hambre">el hambre</span> — hunger</li>
+              <li><span data-say="los países en desarrollo">los países en desarrollo</span> — developing countries</li>
+            </ul>
+            <p>Example: <span data-say="La pobreza y el hambre son problemas globales muy graves.">La pobreza y el hambre son problemas globales muy graves.</span> — <em>Poverty and hunger are very serious global problems.</em></p>`,
+            readCheck: { q: "What does ‘el hambre’ mean?", opts: ["hunger", "poverty", "a natural disaster", "a global war"], ans: 0, explain: "el hambre = hunger. It uses ‘el’ even though the noun is feminine, because ‘hambre’ starts with a stressed ‘a’ sound." }
+        },
+        {
+            title: "Higher: predicting the future of the planet",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> Use the simple future (will) to make predictions — take the infinitive and add the future endings:</p>
+            <ul>
+              <li><span data-say="el planeta estará en peligro">el planeta estará en peligro</span> — the planet will be in danger</li>
+              <li><span data-say="la situación empeorará">la situación empeorará</span> — the situation will get worse</li>
+              <li><span data-say="habrá menos agua en el futuro">habrá menos agua en el futuro</span> — there will be less water in the future</li>
+            </ul>
+            <p>Example: <span data-say="Si no reciclamos, el planeta estará en peligro.">Si no reciclamos, el planeta estará en peligro.</span></p>`,
+            readCheck: { q: "‘El planeta estará en peligro’ is which tense?", opts: ["the future (will be)", "the present tense", "a command form", "the preterite past tense"], ans: 0, explain: "‘estará’ is the future tense of estar — ‘will be’." }
+        },
+        {
+            title: "Higher: the subjunctive after ‘es importante que’",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> After certain impersonal expressions of opinion or necessity, Spanish uses the <strong>present subjunctive</strong>:</p>
+            <ul>
+              <li><span data-say="es importante que reciclemos">es importante que reciclemos</span> — it is important that we recycle</li>
+              <li><span data-say="es necesario que protejamos la naturaleza">es necesario que protejamos la naturaleza</span> — it is necessary that we protect nature</li>
+            </ul>
+            <p>Compare: <span data-say="Reciclamos el papel.">Reciclamos el papel.</span> (we recycle — a simple statement) with <span data-say="Es importante que reciclemos el papel.">Es importante que reciclemos el papel.</span> (it is important that we recycle — subjunctive after ‘que’).</p>`,
+            readCheck: { q: "Why is it ‘reciclemos’, not ‘reciclamos’, after ‘es importante que’?", opts: ["‘es importante que’ triggers the subjunctive", "‘reciclemos’ is simply the ‘we’ form of the present tense", "the subject has changed from ‘we’ to ‘they’", "it describes a completed action in the past"], ans: 0, explain: "Impersonal expressions like ‘es importante que’ trigger the present subjunctive: reciclemos, not reciclamos." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Hay que ahorrar energía en casa." data-listen></span><br>Listen. What must you do?`, opts: ["Save energy at home", "Waste energy at home", "Sell energy to your neighbours", "Buy more electrical appliances"], ans: 0, explain: "‘hay que ahorrar energía en casa’ = you have to save energy at home. The traps reverse the meaning or invent unrelated actions." },
+        { q: `<span data-say="Se debe reciclar el vidrio y el plástico." data-listen></span><br>Listen. What should be recycled?`, opts: ["Glass and plastic", "Paper and cardboard", "Glass only, never plastic", "Plastic and metal cans"], ans: 0, explain: "‘se debe reciclar el vidrio y el plástico’ = glass and plastic should be recycled. Every distractor swaps in a different, plausible pair of materials." },
+        { q: "How do you say ‘air pollution’ in Spanish?", opts: ["la contaminación del aire", "la contaminación del agua", "el aire contaminado del tráfico", "la basura del aire y del mar"], ans: 0, explain: "la contaminación del aire = air pollution (aire = air). Option B swaps in agua (water), a genuine near-miss." },
+        { q: "Which sentence gives correct, positive environmental advice?", opts: ["Se debe reciclar el papel y el vidrio", "No se debe reciclar nunca el papel", "Se debe malgastar el agua y la energía", "Hay que tirar la basura al río"], ans: 0, explain: "‘se debe reciclar el papel y el vidrio’ = one should recycle paper and glass. The others reverse the advice or recommend something harmful." },
+        { q: "Which word means ‘drought’?", opts: ["la sequía", "la contaminación", "la deforestación", "el calentamiento"], ans: 0, explain: "la sequía = drought. contaminación = pollution, deforestación = deforestation, calentamiento = warming." },
+        { q: "Which sentence correctly uses ‘hay que’ + infinitive?", opts: ["Hay que ahorrar agua en casa", "Hay que ahorramos agua en casa", "Hay que ahorrando agua en casa", "Hay que ahorrado agua en casa"], ans: 0, explain: "‘hay que’ must be followed by an infinitive (ahorrar), never a conjugated verb, a gerund or a past participle." },
+        { q: "Complete: ‘Para proteger el medio ambiente, hay que ___ menos electricidad.’", opts: ["usar", "uso", "usando", "usado"], ans: 0, explain: "‘hay que’ takes an infinitive → usar. The others are the noun, the gerund and the past participle." },
+        { q: "What does ‘los recursos naturales’ mean?", opts: ["natural resources", "natural disasters", "national parks", "national resources"], ans: 0, explain: "recursos = resources, naturales = natural. Distractors swap in ‘disasters’, ‘parks’ or the false friend ‘national’." },
+        { q: "Which is the odd one out — NOT a cause of pollution?", opts: ["reciclar", "el tráfico", "la contaminación del aire", "la deforestación"], ans: 0, explain: "reciclar (to recycle) is a solution, not a cause. Traffic, air pollution and deforestation are all problems." },
+        { q: "Which sentence correctly uses the subjunctive after ‘es importante que’?", opts: ["Es importante que reciclemos más", "Es importante que reciclamos más", "Es importante que reciclar más", "Es importante que reciclado más"], ans: 0, explain: "‘es importante que’ triggers the present subjunctive: reciclemos, not the present tense, the infinitive or the past participle." }
+    ];
+
+    const matchData = [
+        { term: "el medio ambiente", def: "the environment" },
+        { term: "la contaminación", def: "pollution" },
+        { term: "el reciclaje", def: "recycling" },
+        { term: "reciclar", def: "to recycle" },
+        { term: "la basura", def: "rubbish" },
+        { term: "el cambio climático", def: "climate change" },
+        { term: "el calentamiento global", def: "global warming" },
+        { term: "la sequía", def: "drought" },
+        { term: "la deforestación", def: "deforestation" },
+        { term: "hay que ahorrar energía", def: "you have to save energy" },
+        { term: "apagar las luces", def: "to turn off the lights" },
+        { term: "la pobreza", def: "poverty" }
+    ];
+
+    const fibData = [
+        { display: `Se debe _____ el papel y el vidrio. <span data-say="Se debe reciclar el papel y el vidrio." data-listen>Se debe reciclar el papel y el vidrio.</span>`, blanks: { B1: "reciclar" } },
+        { display: `Hay que _____ energía en casa. <span data-say="Hay que ahorrar energía en casa." data-listen>Hay que ahorrar energía en casa.</span>`, blanks: { B1: "ahorrar" } },
+        { display: `El _____ climático es un problema muy grave. <span data-say="El cambio climático es un problema muy grave." data-listen>El cambio climático es un problema muy grave.</span>`, blanks: { B1: "cambio" } },
+        { display: `La _____ del aire es peor en las ciudades grandes. (pollution)`, blanks: { B1: "contaminación" } },
+        { display: `Hay que apagar las _____ cuando sales de una habitación. (lights)`, blanks: { B1: "luces" } },
+        { display: `No se debe _____ el agua; es un recurso muy valioso. (waste)`, blanks: { B1: "malgastar" } },
+        { display: `Es importante que _____ más para proteger la naturaleza. (we recycle — subjunctive)`, blanks: { B1: "reciclemos" } }
+    ];
+    const fibWords = ["reciclar", "ahorrar", "cambio", "contaminación", "luces", "malgastar", "reciclemos"];
+
+    const tfData = [
+        { statement: "‘reciclar’ means ‘to recycle’.", answer: true, explanation: "reciclar = to recycle, from ‘el reciclaje’ (recycling)." },
+        { statement: "‘la sequía’ means ‘flooding’.", answer: false, explanation: "la sequía means drought — the opposite of flooding (inundación)." },
+        { statement: "‘hay que’ is followed by an infinitive.", answer: true, explanation: "hay que reciclar / ahorrar / proteger — always an infinitive." },
+        { statement: "‘se debe’ and ‘no se debe’ mean the same thing.", answer: false, explanation: "‘se debe’ = one should; ‘no se debe’ = one must not — opposite meanings." },
+        { statement: "‘el calentamiento global’ means ‘global warming’.", answer: true, explanation: "calentamiento = warming, global = global." },
+        { statement: "‘la pobreza’ means ‘wealth’.", answer: false, explanation: "la pobreza means poverty, not wealth (la riqueza)." },
+        { statement: "Higher: ‘el planeta estará en peligro’ uses the future tense.", answer: true, explanation: "‘estará’ is the future of estar — the planet WILL BE in danger." },
+        { statement: "Higher: after ‘es importante que’, Spanish uses the subjunctive (e.g. reciclemos).", answer: true, explanation: "Impersonal expressions of opinion/necessity trigger the present subjunctive." }
+    ];
+
+    const miscData = [
+        { wrong: `<span data-say="Se debe malgastar el agua.">Se debe malgastar el agua.</span>`, correct: `<span data-say="No se debe malgastar el agua.">No se debe malgastar el agua.</span>`, readCheck: { q: "What does ‘malgastar’ mean?", opts: ["to waste", "to save", "to recycle", "to protect"], ans: 0, explain: "malgastar = to waste. It is often confused with ‘ahorrar’ (to save) because both appear beside environment vocabulary." } },
+        { wrong: `<span data-say="la sequía">la sequía</span> significa “flooding”.`, correct: `<span data-say="la sequía">la sequía</span> significa “drought”.`, readCheck: { q: "Why is ‘la sequía’ NOT ‘flooding’?", opts: ["it means the opposite — a lack of rain (drought)", "it is simply another word that means exactly the same as ‘inundación’", "it only ever refers to snow falling in winter", "it means ‘a rainy season’ that lasts several months"], ans: 0, explain: "la sequía = drought, a long dry period with no rain — the opposite of a flood." } },
+        { wrong: `<span data-say="la contaminación del aire">la contaminación del aire</span> = water pollution`, correct: `<span data-say="la contaminación del aire">la contaminación del aire</span> = air pollution`, readCheck: { q: "‘la contaminación del aire’ is pollution of…", opts: ["the air", "the water", "the soil", "the ocean only"], ans: 0, explain: "aire = air. Students often mishear or confuse it with agua (water)." } },
+        { wrong: `<span data-say="hay que reciclando">Hay que reciclando.</span>`, correct: `<span data-say="hay que reciclar">Hay que reciclar.</span>`, readCheck: { q: "Why is ‘Hay que reciclando’ wrong?", opts: ["‘hay que’ is a fixed structure that must be followed by an infinitive, not a gerund", "‘reciclando’ is not actually a real word anywhere at all in the whole Spanish language", "‘hay que’ can only be used in negative sentences", "the verb needs to agree with a subject pronoun first"], ans: 0, explain: "hay que + infinitive: hay que reciclar, never the -ando gerund form." } },
+        { wrong: `<span data-say="es importante que reciclamos">Es importante que reciclamos.</span>`, correct: `<span data-say="es importante que reciclemos">Es importante que reciclemos.</span>`, readCheck: { q: "Why does ‘es importante que’ need ‘reciclemos’, not ‘reciclamos’?", opts: ["it triggers the present subjunctive", "‘reciclamos’ is simply a spelling mistake", "the subject silently changes to ‘ellos’", "it describes a finished past action"], ans: 0, explain: "es importante que + subjunctive: reciclemos, not the ordinary present tense reciclamos." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Dictation (listening)", pills: ["Listening", "Dictation"], content: "Environment sentences reuse chunks you know: ‘se debe…’, ‘hay que…’, ‘es importante que…’. Listen carefully for the difference between ‘el aire’ (air) and ‘el agua’ (water) — they sound similar but completely change the meaning of a pollution sentence.", readCheck: { q: "You hear ‘la contaminación del agua’. What is being polluted?", opts: ["the water", "the air outside", "the soil nearby", "the food supply"], ans: 0, explain: "agua = water; do not confuse it with aire (air), which sounds similar." } },
+        { type: "tip", title: "Paper 3 — Reading & translation into English", pills: ["Reading", "Translation"], content: "Watch for near-miss vocabulary: ‘la sequía’ (drought) is not ‘la lluvia’ (rain), and ‘los recursos’ (resources) is not ‘los recuerdos’ (memories) — a classic false-friend trap. Keep translations natural: ‘hay que ahorrar energía’ = ‘you have to save energy’.", readCheck: { q: "‘Hay que proteger los recursos naturales’ means…", opts: ["You have to protect natural resources", "You have to remember lots of natural things", "There is a natural protector nearby", "You must forget about the resources"], ans: 0, explain: "recursos = resources, not recuerdos (memories) — a classic false-friend pair." } },
+        { type: "evaluate", title: "Paper 4 — Writing & translation into Spanish (Higher)", pills: ["Writing", "Higher"], content: "Combine a problem, advice and a prediction: ‘La contaminación es un problema grave, así que se debe reciclar más.’ At Higher, add the future and the subjunctive: ‘Si no actuamos, el planeta estará en peligro’ and ‘es importante que reciclemos’.", readCheck: { q: "Which answer reaches the top band?", opts: ["La contaminación es grave; hay que reciclar y es importante que protejamos la naturaleza", "La contaminación es mala. La contaminación es mala otra vez y otra vez sin parar", "Hay mucha contaminación, mucha basura, mucho tráfico y muchísimos problemas graves cada día", "Reciclamos el papel y usamos el transporte público y siempre apagamos las luces en casa"], ans: 0, explain: "It links a problem, advice and the subjunctive — range and accuracy score higher than length alone; simple repeated statements or a plain list of present-tense facts score lower even at similar length." } }
+    ];
+
+    const flashcards = [
+        { term: "el medio ambiente", def: "the environment", say: "el medio ambiente" },
+        { term: "la contaminación", def: "pollution", say: "la contaminación" },
+        { term: "reciclar", def: "to recycle", say: "reciclar" },
+        { term: "la basura", def: "rubbish", say: "la basura" },
+        { term: "la naturaleza", def: "nature", say: "la naturaleza" },
+        { term: "los recursos naturales", def: "natural resources", say: "los recursos naturales" },
+        { term: "la energía", def: "energy", say: "la energía" },
+        { term: "la contaminación del aire", def: "air pollution", say: "la contaminación del aire" },
+        { term: "el tráfico", def: "traffic", say: "el tráfico" },
+        { term: "la deforestación", def: "deforestation", say: "la deforestación" },
+        { term: "la sequía", def: "drought", say: "la sequía" },
+        { term: "el cambio climático", def: "climate change", say: "el cambio climático" },
+        { term: "el calentamiento global", def: "global warming", say: "el calentamiento global" },
+        { term: "hay que ahorrar energía", def: "you have to save energy", say: "hay que ahorrar energía" },
+        { term: "apagar las luces", def: "to turn off the lights", say: "apagar las luces" },
+        { term: "la pobreza · el hambre (H)", def: "poverty · hunger", say: "la pobreza, el hambre" },
+        { term: "se debería (H)", def: "one should (conditional)", say: "se debería" },
+        { term: "es importante que reciclemos (H)", def: "it’s important that we recycle (subjunctive)", say: "es importante que reciclemos" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "carlos-environment": `<p><strong>Lee lo que dice Carlos.</strong></p>
+        <p><em>"En mi ciudad hay mucha contaminación del aire a causa del tráfico. Por eso, siempre uso el transporte público y nunca compro un coche. En casa, reciclamos el papel y el vidrio, y apagamos las luces para ahorrar energía. El mes que viene vamos a plantar árboles porque es importante que protejamos la naturaleza."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "carlos-environment",
+            question: "Read what Carlos says. Answer <strong>in English</strong>.<br>(a) What causes air pollution in his city? (1)<br>(b) Name <strong>one</strong> thing his family recycles at home. (1)<br>(c) Why do they turn off the lights? (1)<br>(d) What are they going to do next month, and why? (1)",
+            hint: "Find the cause after ‘a causa de’, the recycled items after ‘reciclamos’, the reason after ‘para’, and the plan and reason after ‘vamos a’ / ‘porque’.",
+            starter: "(a) It is caused by… (b) They recycle… (c) They turn off the lights to… (d) They are going to… because…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> traffic <em>(1)</em>.</li>
+                <li><strong>(b)</strong> paper / glass (ANY ONE) <em>(1)</em>.</li>
+                <li><strong>(c)</strong> to save energy <em>(1)</em>.</li>
+                <li><strong>(d)</strong> (they are going to) plant trees, because it is important to protect nature <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Traffic. (b) Paper (or glass). (c) To save energy. (d) They are going to plant trees, because it is important to protect nature.",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) cause — 1", max: 1, points: ["traffic"] },
+                { label: "(b) recycled item — 1", max: 1, points: ["paper OR glass"] },
+                { label: "(c) reason — 1", max: 1, points: ["to save energy"] },
+                { label: "(d) plan + reason — 1", max: 1, points: ["plant trees / important to protect nature"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) We must recycle paper and glass. <br>(b) One should not waste water. <br>(c) It is important that we protect the environment because the planet will be in danger.",
+            hint: "‘We must’ = se debe / hay que + infinitive. ‘One should not’ = no se debe. ‘It is important that’ triggers the subjunctive: es importante que + subjunctive verb.",
+            starter: "(a) Se debe… (b) No se debe… (c) Es importante que… porque el planeta…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Se debe reciclar el papel y el vidrio. <em>(1)</em></li>
+                <li><strong>(b)</strong> No se debe malgastar el agua. <em>(1)</em></li>
+                <li><strong>(c)</strong> Es importante que protejamos el medio ambiente <em>(1)</em> porque <em>(1)</em> el planeta estará en peligro <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. Part (c) needs the subjunctive ‘protejamos’ and the future ‘estará’.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Se debe reciclar el papel y el vidrio. (b) No se debe malgastar el agua. (c) Es importante que protejamos el medio ambiente porque el planeta estará en peligro.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Se debe reciclar el papel y el vidrio"] },
+                { label: "(b)", max: 1, points: ["No se debe malgastar el agua"] },
+                { label: "(c)", max: 3, points: ["Es importante que protejamos el medio ambiente", "porque", "el planeta estará en peligro"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>

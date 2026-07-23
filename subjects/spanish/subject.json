@@ -123,15 +123,13 @@
           "id": "3-1-school-life-and-subjects",
           "name": "3.1 School Life and Subjects",
           "sub": "Education and Work",
-          "file": "3.1-school-life-and-subjects.html",
-          "noQuestions": true
+          "file": "3.1-school-life-and-subjects.html"
         },
         {
           "id": "3-2-future-study-jobs-and-ambitions",
           "name": "3.2 Future Study, Jobs and Ambitions",
           "sub": "Education and Work",
-          "file": "3.2-future-study-jobs-and-ambitions.html",
-          "noQuestions": true
+          "file": "3.2-future-study-jobs-and-ambitions.html"
         }
       ]
     },
@@ -145,15 +143,13 @@
           "id": "4-1-sport-hobbies-and-going-out",
           "name": "4.1 Sport, Hobbies and Going Out",
           "sub": "Free-Time Activities",
-          "file": "4.1-sport-hobbies-and-going-out.html",
-          "noQuestions": true
+          "file": "4.1-sport-hobbies-and-going-out.html"
         },
         {
           "id": "4-2-music-tv-film-and-reading",
           "name": "4.2 Music, TV, Film and Reading",
           "sub": "Free-Time Activities",
-          "file": "4.2-music-tv-film-and-reading.html",
-          "noQuestions": true
+          "file": "4.2-music-tv-film-and-reading.html"
         }
       ]
     },
@@ -167,15 +163,13 @@
           "id": "5-1-food-customs-and-daily-life",
           "name": "5.1 Food Customs and Daily Life",
           "sub": "Customs, Festivals and Celebrations",
-          "file": "5.1-food-customs-and-daily-life.html",
-          "noQuestions": true
+          "file": "5.1-food-customs-and-daily-life.html"
         },
         {
           "id": "5-2-festivals-and-traditions",
           "name": "5.2 Festivals and Traditions",
           "sub": "Customs, Festivals and Celebrations",
-          "file": "5.2-festivals-and-traditions.html",
-          "noQuestions": true
+          "file": "5.2-festivals-and-traditions.html"
         }
       ]
     },
@@ -189,8 +183,7 @@
           "id": "6-1-celebrities-influencers-and-fame",
           "name": "6.1 Celebrities, Influencers and Fame",
           "sub": "Celebrity Culture",
-          "file": "6.1-celebrities-influencers-and-fame.html",
-          "noQuestions": true
+          "file": "6.1-celebrities-influencers-and-fame.html"
         }
       ]
     },
@@ -204,15 +197,13 @@
           "id": "7-1-holidays-transport-and-places",
           "name": "7.1 Holidays, Transport and Places",
           "sub": "Travel and Tourism",
-          "file": "7.1-holidays-transport-and-places.html",
-          "noQuestions": true
+          "file": "7.1-holidays-transport-and-places.html"
         },
         {
           "id": "7-2-my-region-and-places-of-interest",
           "name": "7.2 My Region and Places of Interest",
           "sub": "Travel and Tourism",
-          "file": "7.2-my-region-and-places-of-interest.html",
-          "noQuestions": true
+          "file": "7.2-my-region-and-places-of-interest.html"
         }
       ]
     },
@@ -226,15 +217,13 @@
           "id": "8-1-technology-in-everyday-life",
           "name": "8.1 Technology in Everyday Life",
           "sub": "Media and Technology",
-          "file": "8.1-technology-in-everyday-life.html",
-          "noQuestions": true
+          "file": "8.1-technology-in-everyday-life.html"
         },
         {
           "id": "8-2-social-media-and-online-safety",
           "name": "8.2 Social Media and Online Safety",
           "sub": "Media and Technology",
-          "file": "8.2-social-media-and-online-safety.html",
-          "noQuestions": true
+          "file": "8.2-social-media-and-online-safety.html"
         }
       ]
     },
@@ -248,15 +237,13 @@
           "id": "9-1-my-town-home-and-local-area",
           "name": "9.1 My Town, Home and Local Area",
           "sub": "Environment and Where People Live",
-          "file": "9.1-my-town-home-and-local-area.html",
-          "noQuestions": true
+          "file": "9.1-my-town-home-and-local-area.html"
         },
         {
           "id": "9-2-the-environment-and-global-issues",
           "name": "9.2 The Environment and Global Issues",
           "sub": "Environment and Where People Live",
-          "file": "9.2-the-environment-and-global-issues.html",
-          "noQuestions": true
+          "file": "9.2-the-environment-and-global-issues.html"
         }
       ]
     },
@@ -270,29 +257,25 @@
           "id": "x-1-listening-and-dictation",
           "name": "X.1 Listening and Dictation",
           "sub": "Exam Skills",
-          "file": "X.1-listening-and-dictation.html",
-          "noQuestions": true
+          "file": "X.1-listening-and-dictation.html"
         },
         {
           "id": "x-2-reading-and-translation-into-english",
           "name": "X.2 Reading and Translation into English",
           "sub": "Exam Skills",
-          "file": "X.2-reading-and-translation-into-english.html",
-          "noQuestions": true
+          "file": "X.2-reading-and-translation-into-english.html"
         },
         {
           "id": "x-3-speaking-read-aloud-and-photo-card",
           "name": "X.3 Speaking: Read-Aloud and Photo Card",
           "sub": "Exam Skills",
-          "file": "X.3-speaking-read-aloud-and-photo-card.html",
-          "noQuestions": true
+          "file": "X.3-speaking-read-aloud-and-photo-card.html"
         },
         {
           "id": "x-4-writing-and-translation-into-spanish",
           "name": "X.4 Writing and Translation into Spanish",
           "sub": "Exam Skills",
-          "file": "X.4-writing-and-translation-into-spanish.html",
-          "noQuestions": true
+          "file": "X.4-writing-and-translation-into-spanish.html"
         }
       ]
     }

@@ -4,297 +4,392 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.1 Sport, Hobbies and Going Out – Interactive Study Guide</title>
+    <title>4.1 Sport, Hobbies and Going Out – GCSE Spanish</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* 🔊 audio-button + Audio-panel styling is injected by /speech.js (shared).
+         Only page-specific styles live here. */
+      .vocab-tbl{width:100%;border-collapse:collapse;margin:8px 0}
+      .vocab-tbl td{border-bottom:1px solid var(--line,#e4e8f0);padding:6px 8px;vertical-align:top}
+      .vocab-tbl td:first-child{font-weight:600;white-space:nowrap}
+      .tier-h{display:inline-block;font-size:.72em;font-weight:700;color:#8a5a00;
+        background:#fff3d6;border-radius:5px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+    </style>
 </head>
 
 <body>
     <header>
         <div>
-            <div class="badge">AQA GCSE Spanish — Theme 2 · 4. Free-Time Activities</div>
+            <div class="badge">AQA GCSE Spanish (8692) — Theme 2 · 4. Free-Time Activities</div>
             <h1>4.1 Sport, Hobbies and Going Out</h1>
-            <p>Interactive revision guide · Content coming soon</p>
+            <p>El deporte, los pasatiempos y salir · Interactive study guide</p>
         </div>
         <a href="/index.html" class="home-link">← 🏡 Home</a>
     </header>
 
     <nav class="tab-bar" id="tabBar">
-        <button class="tab-btn active" onclick="switchTab('learn', this)">
-            📚 Key Learning
-        </button>
-        <button class="tab-btn" onclick="switchTab('mcq', this)">
-            ❓ MCQ Quiz
-        </button>
-        <button class="tab-btn" onclick="switchTab('matching', this)">
-            🔗 Matching
-        </button>
-        <button class="tab-btn" onclick="switchTab('fib', this)">
-            ✏️ Fill the Blanks
-        </button>
-        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
-            ⚠️ Misconceptions
-        </button>
-        <button class="tab-btn" onclick="switchTab('examtips', this)">
-            🎯 Exam Tips
-        </button>
-        <button class="tab-btn" onclick="switchTab('flashcards', this)">
-            🃏 Flashcards
-        </button>
-        <button class="tab-btn" onclick="switchTab('truefalse', this)">
-            ✅ True / False
-        </button>
-        <button class="tab-btn" onclick="switchTab('exampractice', this)">
-            📝 Exam Practice
-        </button>
+        <button class="tab-btn active" onclick="switchTab('learn', this)">📚 Key Learning</button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">❓ MCQ Quiz</button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">🔗 Matching</button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">✏️ Fill the Blanks</button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">⚠️ Misconceptions</button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">🎯 Exam Tips</button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">🃏 Flashcards</button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">✅ True / False</button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">📝 Exam Practice</button>
     </nav>
 
     <main>
         <div class="tab-panel active" id="tab-learn">
             <h2 class="section-title">Key Learning Topics</h2>
-            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <p class="section-sub">Click any card to expand. Tap 🔊 to hear the Spanish.</p>
             <div class="topic-grid" id="topicGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-mcq">
             <h2 class="section-title">Multiple Choice Questions</h2>
-            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <p class="section-sub">Some questions play audio — tap 🔊 and choose the meaning.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="mcqScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">
-                        correct answers
-                    </div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    out of <strong id="mcqTotal">0</strong> attempted
-                </div>
+                <div><div class="score-num" id="mcqScore">0</div><div style="font-size:12px;color:var(--mid)">correct answers</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="mcqTotal">0</strong> attempted</div>
                 <button class="reset-btn" onclick="resetMCQ()">RESET</button>
             </div>
             <div class="quiz-wrap" id="mcqWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-matching">
             <h2 class="section-title">Matching Activity</h2>
-            <p class="section-sub">
-                Click a term on the left, then click the matching definition on the
-                right.
-            </p>
-            <div style="margin-bottom: 16px">
-                <div class="score-bar">
-                    <div>
-                        <div class="score-num" id="matchScore">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">matched</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="matchTotal">0</strong>
-                    </div>
-                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
-                </div>
-            </div>
+            <p class="section-sub">Click a term on the left, then its match on the right.</p>
+            <div style="margin-bottom:16px"><div class="score-bar">
+                <div><div class="score-num" id="matchScore">0</div><div style="font-size:12px;color:var(--mid)">matched</div></div>
+                <div style="font-size:13px;color:var(--mid)">out of <strong id="matchTotal">0</strong></div>
+                <button class="reset-btn" onclick="resetMatch()">RESET</button>
+            </div></div>
             <div class="match-grid">
-                <div>
-                    <div class="match-label">TERMS</div>
-                    <div class="match-col" id="matchLeft"></div>
-                </div>
-                <div>
-                    <div class="match-label">DEFINITIONS</div>
-                    <div class="match-col" id="matchRight"></div>
-                </div>
+                <div><div class="match-label">TERMS</div><div class="match-col" id="matchLeft"></div></div>
+                <div><div class="match-label">DEFINITIONS</div><div class="match-col" id="matchRight"></div></div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-fib">
             <h2 class="section-title">Fill in the Blanks</h2>
-            <p class="section-sub">
-                Click each dropdown and choose the correct word. Wrong answers reset —
-                try again!
-            </p>
+            <p class="section-sub">Choose the correct word. Dictation rows play audio — tap 🔊, then fill the gap.</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="fibScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="fibTotal">0</strong> blanks
-                </div>
+                <div><div class="score-num" id="fibScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="fibTotal">0</strong> blanks</div>
                 <button class="reset-btn" onclick="resetFIB()">RESET</button>
             </div>
             <div class="fib-wrap" id="fibWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-misconceptions">
             <h2 class="section-title">Common Misconceptions</h2>
-            <p class="section-sub">
-                What students often think — and what examiners actually want.
-            </p>
+            <p class="section-sub">The mistakes GCSE Spanish students make most.</p>
             <div class="misc-list" id="miscList"></div>
         </div>
-
         <div class="tab-panel" id="tab-examtips">
             <h2 class="section-title">Exam Questions &amp; Tips</h2>
-            <p class="section-sub">
-                Most repeated question types and mark-scheme structures from real OCR
-                papers.
-            </p>
+            <p class="section-sub">How each of the four papers rewards this topic.</p>
             <div class="tips-grid" id="tipsGrid"></div>
         </div>
-
         <div class="tab-panel" id="tab-flashcards">
             <h2 class="section-title">Flashcards</h2>
-            <p class="section-sub">
-                Test yourself! Flip the card and rate your knowledge. Review your weak
-                areas at the end.
-            </p>
-
+            <p class="section-sub">Test yourself! Flip the card and rate your knowledge.</p>
             <div class="fc-container">
-                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
-                    <div>
-                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
-                        <div style="font-size: 12px; color: var(--mid)">known</div>
-                    </div>
-                    <div>
-                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
-                            0
-                        </div>
-                        <div style="font-size: 12px; color: var(--mid)">learning</div>
-                    </div>
-                    <div style="font-size: 13px; color: var(--mid)">
-                        out of <strong id="fcTotalTrack">0</strong>
-                    </div>
+                <div class="score-bar" id="fcScoreBar" style="display:none;margin-bottom:20px">
+                    <div><div class="score-num" id="fcKnown" style="color:#2d7a4f">0</div><div style="font-size:12px;color:var(--mid)">known</div></div>
+                    <div><div class="score-num" id="fcUnknown" style="color:#c84b31">0</div><div style="font-size:12px;color:var(--mid)">learning</div></div>
+                    <div style="font-size:13px;color:var(--mid)">out of <strong id="fcTotalTrack">0</strong></div>
                     <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
                 </div>
-
                 <div id="fcActiveArea">
                     <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
                     <div class="flashcard" id="flashcard" onclick="flipCard()">
                         <div class="fc-inner">
-                            <div class="fc-front">
-                                <div class="fc-label">KEY TERM</div>
-                                <div class="fc-term" id="fcTerm"></div>
-                            </div>
-                            <div class="fc-back">
-                                <div class="fc-def" id="fcDef"></div>
-                            </div>
+                            <div class="fc-front"><div class="fc-label">SPANISH</div><div class="fc-term" id="fcTerm"></div></div>
+                            <div class="fc-back"><div class="fc-def" id="fcDef"></div></div>
                         </div>
                     </div>
                     <p class="fc-hint">👆 Click card to flip</p>
-
                     <div class="fc-nav" id="fcNavDefault">
-                        <button class="fc-btn outline" onclick="prevCard()">
-                            ← Prev
-                        </button>
+                        <button class="fc-btn outline" onclick="prevCard()">← Prev</button>
                         <button class="fc-btn outline" onclick="flipCard()">Flip</button>
                         <button class="fc-btn" onclick="nextCard()">Next →</button>
                     </div>
-
-                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
-                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
-                            onclick="markCard(false)">
-                            ❌ Still Learning
-                        </button>
-                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
-                            onclick="markCard(true)">
-                            ✅ Got It
-                        </button>
+                    <div class="fc-nav" id="fcNavAssess" style="display:none;gap:15px">
+                        <button class="fc-btn outline" style="border-color:#c84b31;color:#c84b31;flex:1" onclick="markCard(false)">❌ Still Learning</button>
+                        <button class="fc-btn" style="background:#2d7a4f;border-color:#2d7a4f;flex:1" onclick="markCard(true)">✅ Got It</button>
                     </div>
                 </div>
-
-                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                <div id="fcSummaryArea" style="display:none;text-align:center;padding:40px 20px">
                     <h3>Session Complete! 🎉</h3>
-                    <p style="margin: 15px 0">
-                        You knew <strong id="fcSummaryKnown">0</strong> out of
-                        <strong id="fcSummaryTotal">0</strong> cards.
-                    </p>
-                    <div style="
-                margin-top: 25px;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-                flex-wrap: wrap;
-              ">
-                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
-                            style="background: #c84b31; border-color: #c84b31">
-                            Review Incorrect
-                        </button>
-                        <button class="fc-btn outline" onclick="resetFlashcards()">
-                            Practice All Again
-                        </button>
+                    <p style="margin:15px 0">You knew <strong id="fcSummaryKnown">0</strong> out of <strong id="fcSummaryTotal">0</strong> cards.</p>
+                    <div style="margin-top:25px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()" style="background:#c84b31;border-color:#c84b31">Review Incorrect</button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">Practice All Again</button>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="tab-panel" id="tab-truefalse">
             <h2 class="section-title">True or False?</h2>
-            <p class="section-sub">Test your knowledge with these statements.</p>
+            <p class="section-sub">¿Verdadero o falso?</p>
             <div class="score-bar">
-                <div>
-                    <div class="score-num" id="tfScore">0</div>
-                    <div style="font-size: 12px; color: var(--mid)">correct</div>
-                </div>
-                <div style="font-size: 13px; color: var(--mid)">
-                    of <strong id="tfTotal">0</strong> answered
-                </div>
+                <div><div class="score-num" id="tfScore">0</div><div style="font-size:12px;color:var(--mid)">correct</div></div>
+                <div style="font-size:13px;color:var(--mid)">of <strong id="tfTotal">0</strong> answered</div>
                 <button class="reset-btn" onclick="resetTF()">RESET</button>
             </div>
             <div class="tf-wrap" id="tfWrap"></div>
         </div>
-
         <div class="tab-panel" id="tab-exampractice">
             <h2 class="section-title">Exam Practice Questions</h2>
-            <p class="section-sub">
-                Full exam questions with case studies. Use <strong>Hint</strong>,
-                <strong>Sentence Starter</strong> and
-                <strong>Submit &amp; See Mark Scheme</strong> for each question.
-            </p>
+            <p class="section-sub">Reading comprehension and translation. Use <strong>Hint</strong>, <strong>Sentence Starter</strong> and <strong>Submit &amp; See Mark Scheme</strong>.</p>
             <div class="ep-list" id="epList"></div>
         </div>
     </main>
 
 <script>
-    // ══════════════════════════════════════
-    //  DATA: 4.1 Sport, Hobbies and Going Out — placeholder, content not yet written
-    // ══════════════════════════════════════
-    const pageMeta = {
-            id: '4-1-sport-hobbies-and-going-out',
-            badge: 'AQA GCSE Spanish — Theme 2 · 4. Free-Time Activities',
-            title: '4.1 Sport, Hobbies and Going Out',
-            subtitle: 'Interactive revision guide',
-            subject: 'spanish',
-        };
+    // ══════════════════════════════════════════════════════════════════
+    //  DATA: 4.1 Sport, hobbies and going out  (AQA 8692, Theme 2 Topic 1)
+    //  All taught Spanish is on the prescribed wordlist. Audible Spanish carries
+    //  data-say="…"; data-listen makes a prompt audio-only (no transcript shown).
+    //  Higher-tier items marked <span class="tier-h">H</span>. Option-writing follows
+    //  docs/QUESTION-AUTHORING.md (no length tell; distractors = real errors).
+    // ══════════════════════════════════════════════════════════════════
+    const pageMeta = { id: '4-1-sport-hobbies-and-going-out', badge: 'AQA GCSE Spanish (8692) — Theme 2 · 4. Free-Time Activities', title: '4.1 Sport, Hobbies and Going Out', subtitle: 'Interactive study guide', subject: 'spanish' };
 
     const topics = [
         {
-            title: "This topic is being written",
-            tag: "Coming soon",
-            content: `<p>🚧 <strong>Content for this topic is on its way.</strong> Key Learning notes, practice questions and exam-style questions for <strong>4.1 Sport, Hobbies and Going Out</strong> will appear here soon.</p>`
+            title: "How do I talk about playing sport? (jugar al vs hacer)",
+            tag: "Key concept",
+            content: `<p>Use <span data-say="jugar">jugar</span> + <strong>a + el = al</strong> for ball / racquet sports, but <span data-say="hacer">hacer</span> for other kinds of sport.</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="jugar al fútbol">jugar al fútbol</span></td><td>to play football</td><td><span data-say="jugar al baloncesto">jugar al baloncesto</span></td><td>to play basketball</td></tr>
+              <tr><td><span data-say="jugar al tenis">jugar al tenis</span></td><td>to play tennis</td><td><span data-say="el equipo">el equipo</span></td><td>the team</td></tr>
+              <tr><td><span data-say="hacer deporte">hacer deporte</span></td><td>to do sport</td><td><span data-say="nadar">nadar</span></td><td>to swim</td></tr>
+              <tr><td><span data-say="montar en bicicleta">montar en bicicleta</span></td><td>to cycle</td><td><span data-say="el deporte">el deporte</span></td><td>sport</td></tr>
+            </table>
+            <p>Model: <span data-say="Juego al fútbol con mi equipo los sábados.">Juego al fútbol con mi equipo los sábados.</span> — <em>I play football with my team on Saturdays.</em></p>`,
+            readCheck: { q: "Which is correct for ‘I play tennis’?", opts: ["Juego al tenis", "Juego tenis", "Hago al tenis", "Juega el tenis"], ans: 0, explain: "jugar takes ‘al’ before a ball/racquet sport: juego al tenis. Dropping ‘al’ or swapping in ‘hago’ are the classic errors." }
+        },
+        {
+            title: "How do I talk about hobbies and free time?",
+            tag: "Key concept",
+            content: `<p>Key nouns: <span data-say="el tiempo libre">el tiempo libre</span> (free time), <span data-say="el pasatiempo">el pasatiempo</span> (hobby/pastime), <span data-say="la afición">la afición</span> (hobby/interest).</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="coleccionar">coleccionar</span></td><td>to collect</td><td><span data-say="coleccionar sellos">coleccionar sellos</span></td><td>to collect stamps</td></tr>
+              <tr><td><span data-say="cocinar">cocinar</span></td><td>to cook</td><td><span data-say="leer">leer</span></td><td>to read</td></tr>
+              <tr><td><span data-say="tocar un instrumento">tocar un instrumento</span></td><td>to play an instrument</td><td><span data-say="jugar a videojuegos">jugar a videojuegos</span></td><td>to play video games</td></tr>
+            </table>
+            <p>Example: <span data-say="En mi tiempo libre, mi afición es coleccionar sellos.">En mi tiempo libre, mi afición es coleccionar sellos.</span> — <em>In my free time, my hobby is collecting stamps.</em></p>`,
+            readCheck: { q: "What does ‘el pasatiempo’ mean?", opts: ["hobby / pastime", "a time in the past", "a paid job", "a type of team sport played daily"], ans: 0, explain: "el pasatiempo = a hobby/pastime — a false-friend trap is confusing it with ‘pasado’ (past)." }
+        },
+        {
+            title: "How do I say what I like doing? (gustar/encantar + infinitive)",
+            tag: "Exam skill",
+            content: `<p><span data-say="gustar">gustar</span> and <span data-say="encantar">encantar</span> work like ‘doler’ — before an infinitive they always stay <strong>singular</strong>, even if you name more than one activity.</p>
+            <ul>
+              <li><span data-say="me gusta jugar al fútbol">me gusta jugar al fútbol</span> — I like playing football (ONE infinitive → gusta)</li>
+              <li><span data-say="me gustan los deportes de equipo">me gustan los deportes de equipo</span> — I like team sports (PLURAL noun → gustan)</li>
+              <li><span data-say="me encanta salir con amigos">me encanta salir con amigos</span> — I love going out with friends</li>
+              <li><span data-say="no me gusta nada cocinar">no me gusta nada cocinar</span> — I don’t like cooking at all</li>
+            </ul>
+            <p>Model: <span data-say="Me encanta jugar al baloncesto, pero no me gusta nada nadar.">Me encanta jugar al baloncesto, pero no me gusta nada nadar.</span></p>`,
+            readCheck: { q: "Complete: ‘Me ___ jugar al tenis.’ (I like playing tennis)", opts: ["gusta", "gustan", "gusto", "gustaría"], ans: 0, explain: "Before a single infinitive, gustar stays singular: me gusta jugar. ‘gustan’ is only for plural nouns; ‘gustaría’ shifts to the conditional." }
+        },
+        {
+            title: "How do I talk about going out with friends?",
+            tag: "Key concept",
+            content: `<p>Common ways to talk about going out (<strong>salir</strong>):</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="salir con amigos">salir con amigos</span></td><td>to go out with friends</td><td><span data-say="quedar con">quedar con</span></td><td>to meet up with</td></tr>
+              <tr><td><span data-say="ir al cine">ir al cine</span></td><td>to go to the cinema</td><td><span data-say="ir al parque">ir al parque</span></td><td>to go to the park</td></tr>
+              <tr><td><span data-say="ir a la bolera">ir a la bolera</span></td><td>to go bowling</td><td><span data-say="la fiesta">la fiesta</span></td><td>the party</td></tr>
+              <tr><td><span data-say="bailar">bailar</span></td><td>to dance</td><td><span data-say="dar un paseo">dar un paseo</span></td><td>to go for a walk</td></tr>
+            </table>
+            <p>Example: <span data-say="Normalmente quedo con mis amigos y vamos a la bolera o al cine.">Normalmente quedo con mis amigos y vamos a la bolera o al cine.</span></p>`,
+            readCheck: { q: "What does ‘quedar con’ mean?", opts: ["to meet up with (someone)", "to stay at home alone all day", "to remain completely silent", "to complain loudly about something"], ans: 0, explain: "quedar con = to meet up / arrange to meet with someone — a false-friend trap with ‘quedarse’ (to stay)." }
+        },
+        {
+            title: "How do I say how often I do something?",
+            tag: "Exam skill",
+            content: `<p>Frequency expressions usually sit at the start or end of the sentence:</p>
+            <table class="vocab-tbl">
+              <tr><td><span data-say="a menudo">a menudo</span></td><td>often</td><td><span data-say="a veces">a veces</span></td><td>sometimes</td></tr>
+              <tr><td><span data-say="todos los días">todos los días</span></td><td>every day</td><td><span data-say="una vez a la semana">una vez a la semana</span></td><td>once a week</td></tr>
+              <tr><td><span data-say="los fines de semana">los fines de semana</span></td><td>at weekends</td><td><span data-say="nunca">nunca</span></td><td>never</td></tr>
+            </table>
+            <p>Example: <span data-say="A menudo salgo con amigos, pero nunca voy a la bolera.">A menudo salgo con amigos, pero nunca voy a la bolera.</span></p>`,
+            readCheck: { q: "‘Nunca voy a la bolera’ means…", opts: ["I never go bowling", "I sometimes go bowling", "I go bowling every single day", "I used to go bowling"], ans: 0, explain: "nunca = never. It negates the verb completely — not ‘sometimes’, ‘every day’ or ‘used to’." }
+        },
+        {
+            title: "Higher: last weekend (preterite) and soler + infinitive",
+            tag: "Higher tier",
+            content: `<p><span class="tier-h">H</span> To talk about <strong>last weekend</strong>, use the <strong>preterite</strong> (simple past):</p>
+            <ul>
+              <li><span data-say="jugar">jugar</span> → <span data-say="jugué al tenis">jugué al tenis</span> (I played tennis)</li>
+              <li><span data-say="ir">ir</span> → <span data-say="fui al cine">fui al cine</span> (I went to the cinema) — irregular!</li>
+              <li><span data-say="salir">salir</span> → <span data-say="salí con amigos">salí con amigos</span> (I went out with friends)</li>
+            </ul>
+            <p>Model: <span data-say="El fin de semana pasado jugué al tenis y luego fui a una fiesta.">El fin de semana pasado jugué al tenis y luego fui a una fiesta.</span> <span class="tier-h">H</span></p>
+            <p><span class="tier-h">H</span> For habits, use <strong>soler + infinitive</strong> (to usually do something):</p>
+            <ul>
+              <li><span data-say="suelo salir los sábados">suelo salir los sábados</span> — I usually go out on Saturdays <span class="tier-h">H</span></li>
+            </ul>`,
+            readCheck: { q: "‘El fin de semana pasado jugué al tenis’ is in which tense?", opts: ["the preterite (a completed past action)", "the ordinary present tense", "the near future, using voy a + the infinitive form", "the conditional (would)"], ans: 0, explain: "jugué is the yo form of the preterite — a single completed action last weekend, signalled by ‘el fin de semana pasado’." }
         }
     ];
 
-    const mcqData = [];
-    const matchData = [];
-    const fibData = [];
-    const fibWords = [];
-    const tfData = [];
-    const miscData = [];
-    const examTips = [];
-    const flashcards = [];
-    const examQuestions = [];
+    const mcqData = [
+        { q: `<span data-say="Juego al fútbol los sábados." data-listen></span><br>Listen. What is being said?`, opts: ["I play football on Saturdays", "I play football every day", "I watch football on Saturdays", "I played football last Saturday"], ans: 0, explain: "‘juego al fútbol los sábados’ = I play football on Saturdays. Traps swap the frequency, the verb (watch) or the tense (played)." },
+        { q: `<span data-say="Me encanta salir con amigos los fines de semana." data-listen></span><br>Listen. What does the speaker say?`, opts: ["I love going out with friends at weekends", "I hate going out with friends at weekends", "I love going out with family at weekends", "I sometimes go out with friends at weekends"], ans: 0, explain: "‘me encanta’ = I love; ‘con amigos’ = with friends. Traps reverse the opinion, swap friends→family, or weaken encanta to ‘sometimes’." },
+        { q: `<span data-say="Suelo jugar al tenis los domingos." data-listen></span><br>Listen. What is the habit?`, opts: ["Usually playing tennis on Sundays", "Usually playing football on Saturdays", "Never playing tennis on Sundays", "Having played tennis last Sunday"], ans: 0, explain: "‘suelo jugar al tenis los domingos’ = I usually play tennis on Sundays. Traps swap sport/day, negate it, or shift it to the past." },
+        { q: "How do you say ‘I play basketball’ correctly?", opts: ["Juego al baloncesto", "Juego baloncesto", "Hago al baloncesto", "Juega al baloncesto cada semana"], ans: 0, explain: "jugar takes ‘al’ before a ball sport: juego al baloncesto. B drops ‘al’, C swaps in hacer, D uses the wrong subject (juega = he/she, not yo)." },
+        { q: "Complete: ‘Me ___ los deportes de equipo.’ (I like team sports)", opts: ["gustan", "gusta", "gustas", "gustaría"], ans: 0, explain: "‘los deportes’ is plural, so gustar agrees: me gustan. ‘gusta’ fails to agree; ‘gustaría’ shifts to the conditional (I would like)." },
+        { q: "Which sentence means ‘I never go to parties’?", opts: ["Nunca voy a fiestas", "Voy a veces a fiestas", "Siempre voy a fiestas", "Nunca voy a fiestas los fines de semana solamente"], ans: 0, explain: "nunca = never. B swaps in ‘sometimes’, C reverses it to ‘always’, D adds a limiting detail (weekends only) that changes the meaning." },
+        { q: "‘Fui al cine el sábado pasado’ means…", opts: ["I went to the cinema last Saturday", "I go to the cinema every Saturday", "I am going to the cinema next Saturday", "I would go to the cinema on Saturdays"], ans: 0, explain: "fui (preterite of ir) + el sábado pasado = I went last Saturday. The traps swap in present, future or conditional." },
+        { q: "Which sentence uses ‘soler + infinitive’ correctly for a habit?", opts: ["Suelo salir los sábados por la noche", "Suelo salgo los sábados por la noche", "Soy salir los sábados por la noche", "Suelo saliendo los sábados por la noche"], ans: 0, explain: "soler is followed by an infinitive: suelo salir. B conjugates salir again, C uses the wrong verb (soy), D uses the gerund (saliendo)." },
+        { q: "Which is correct for ‘I do (go) swimming’?", opts: ["Hago natación", "Juego a natación", "Juego al natación", "Hace natación yo"], ans: 0, explain: "Swimming isn’t a ‘jugar’ sport — use hacer + noun: hago natación. Adding ‘a’/‘al’ or swapping the subject are the traps." },
+        { q: "What does ‘dar un paseo’ mean?", opts: ["to go for a walk", "to give a present or gift", "to pass an exam easily", "to pay for a bus ticket"], ans: 0, explain: "dar un paseo = to go for a walk. False-friend traps: ‘dar’ (to give) and ‘paseo’ sounding like ‘pasar’/‘pagar’." }
+    ];
+
+    const matchData = [
+        { term: "jugar al fútbol", def: "to play football" },
+        { term: "hacer natación", def: "to do swimming" },
+        { term: "el equipo", def: "the team" },
+        { term: "el tiempo libre", def: "free time" },
+        { term: "el pasatiempo", def: "hobby / pastime" },
+        { term: "coleccionar sellos", def: "to collect stamps" },
+        { term: "quedar con", def: "to meet up with" },
+        { term: "ir a la bolera", def: "to go bowling" },
+        { term: "dar un paseo", def: "to go for a walk" },
+        { term: "a menudo", def: "often" },
+        { term: "los fines de semana", def: "at weekends" },
+        { term: "suelo salir", def: "I usually go out" }
+    ];
+
+    const fibData = [
+        { display: `Juego al _____ con mi equipo. <span data-say="Juego al fútbol con mi equipo." data-listen>Juego al fútbol con mi equipo.</span>`, blanks: { B1: "fútbol" } },
+        { display: `Mi afición es _____ sellos. (to collect)`, blanks: { B1: "coleccionar" } },
+        { display: `Me gusta _____ al baloncesto. (to play — infinitive after gustar)`, blanks: { B1: "jugar" } },
+        { display: `Normalmente _____ con mis amigos los sábados. (to meet up — yo form)`, blanks: { B1: "quedo" } },
+        { display: `El fin de semana pasado _____ al tenis. (I played — preterite)`, blanks: { B1: "jugué" } },
+        { display: `Nunca voy a _____. (parties)`, blanks: { B1: "fiestas" } },
+        { display: `Suelo _____ los sábados por la noche. (to go out — infinitive after soler) <span class="tier-h">H</span>`, blanks: { B1: "salir" } }
+    ];
+    const fibWords = ["fútbol", "coleccionar", "jugar", "quedo", "jugué", "fiestas", "salir"];
+
+    const tfData = [
+        { statement: "‘jugar al fútbol’ needs the word ‘al’ before a ball sport.", answer: true, explanation: "jugar takes a+el=al before a ball/racquet sport: jugar al fútbol." },
+        { statement: "‘hacer natación’ is used because swimming is not a ‘jugar’ sport.", answer: true, explanation: "Non-ball activities use hacer + noun: hago natación." },
+        { statement: "‘Me gusta jugar’ should really be ‘Me gustan jugar’ because jugar is an activity.", answer: false, explanation: "Before a single infinitive, gustar stays singular: me gusta jugar. ‘gustan’ is only for plural nouns." },
+        { statement: "‘quedar con’ means ‘to stay at home’.", answer: false, explanation: "quedar con = to meet up with someone; quedarse (reflexive) = to stay." },
+        { statement: "Frequency words like ‘a menudo’ and ‘a veces’ can go at the start or end of a sentence.", answer: true, explanation: "Both positions are correct in Spanish." },
+        { statement: "‘Fui al cine’ is in the present tense.", answer: false, explanation: "‘fui’ is the (irregular) preterite of ir — a completed past action." },
+        { statement: "‘nunca’ means ‘sometimes’.", answer: false, explanation: "nunca = never; a veces = sometimes." },
+        { statement: "‘soler + infinitive’ describes a usual habit, and is Higher tier.", answer: true, explanation: "soler + infinitive = to usually do something, e.g. suelo salir los sábados." }
+    ];
+
+    const miscData = [
+        { wrong: "Juego fútbol los sábados.", correct: "Juego al fútbol los sábados.", readCheck: { q: "What is missing in ‘Juego fútbol’?", opts: ["the word ‘al’ (a + el) before the sport", "an accent on the letter ó in fútbol", "the pronoun ‘yo’ written at the very start of the sentence", "the article ‘la’ before fútbol"], ans: 0, explain: "jugar is always followed by ‘al’ before a ball sport: juego al fútbol." } },
+        { wrong: "Hago fútbol todos los días.", correct: "Juego al fútbol todos los días.", readCheck: { q: "Why is ‘Hago fútbol’ wrong?", opts: ["ball sports use jugar al, not hacer", "fútbol must always be written with a capital letter", "hacer needs a written accent here", "todos los días has to come first"], ans: 0, explain: "‘hacer’ is for non-ball activities (hacer natación); ball sports use jugar al: juego al fútbol." } },
+        { wrong: "Me gustan jugar al tenis.", correct: "Me gusta jugar al tenis.", readCheck: { q: "Why is ‘Me gustan jugar’ incorrect?", opts: ["before a single infinitive, gustar always stays singular", "jugar always needs a plural verb form because ‘tenis’ ends in -s", "‘tenis’ is treated as a plural noun in Spanish", "gustar can never appear before an infinitive"], ans: 0, explain: "gustar/encantar + infinitive is always singular, whatever the infinitive is: me gusta jugar." } },
+        { wrong: "Quedo en casa todo el fin de semana. (= I meet up all weekend)", correct: "Me quedo en casa todo el fin de semana. (= I stay home all weekend)", readCheck: { q: "What is the real difference between ‘quedar con’ and ‘quedarse’?", opts: ["quedar con = to meet up; quedarse = to stay (reflexive)", "they are simply two different spellings of exactly the same verb", "quedarse can only be used in the future tense", "quedar con is only ever used with family members"], ans: 0, explain: "quedar con alguien = to arrange to meet someone; quedarse (reflexive) = to stay/remain." } },
+        { wrong: "El sábado pasado juego al tenis.", correct: "El sábado pasado jugué al tenis.", readCheck: { q: "Why is ‘juego’ wrong after ‘el sábado pasado’?", opts: ["‘el sábado pasado’ signals the past, so it needs the preterite jugué", "‘juego’ is correct in absolutely any tense you choose", "‘pasado’ must always be immediately followed by an infinitive verb", "the sentence actually needs ‘voy a’ placed in front of the verb instead"], ans: 0, explain: "‘el sábado pasado’ (last Saturday) is a past-time marker, so the verb must be preterite: jugué." } }
+    ];
+
+    const examTips = [
+        { type: "tip", title: "Paper 1 — Listening for frequency and habits", pills: ["Listening", "Frequency"], content: "Listen for the frequency word AND the verb ending together: ‘suelo salir’ (habit) vs ‘salí’ (one past event) vs ‘voy a salir’ (future plan) sound different but are easy to confuse under time pressure.", readCheck: { q: "You hear ‘…suelo jugar…’. What does that signal?", opts: ["a usual habit, not a single past event", "something that happened only once, yesterday", "a plan for next weekend only", "a command telling someone else to play"], ans: 0, explain: "soler + infinitive describes a regular habit — not a one-off past action or a command." } },
+        { type: "tip", title: "Paper 3 — Reading: gustar/encantar agreement", pills: ["Reading", "Grammar"], content: "When you read ‘me gustan’ vs ‘me gusta’, check what follows: a plural noun (los deportes) takes gustan; an infinitive (jugar, salir) always takes the singular gusta, however many activities you list.", readCheck: { q: "‘Me gustan el fútbol y el baloncesto’ — why plural gustan?", opts: ["two nouns together are treated as a plural subject", "gustar is always plural before a noun", "fútbol on its own is a plural word", "encantar and gustar always agree with the subject pronoun ‘yo’"], ans: 0, explain: "Two (or more) nouns joined by ‘y’ act as a plural subject, so gustar agrees: gustan." } },
+        { type: "evaluate", title: "Paper 4 — Writing: mixing tenses and soler for range", pills: ["Writing", "Higher"], content: "For the top band, combine a present habit, a preterite last-weekend action and an opinion with a reason: ‘Suelo jugar al fútbol los sábados. El fin de semana pasado fui a una fiesta y me encantó porque bailé mucho.’", readCheck: { q: "Which answer reaches the top band?", opts: ["Suelo jugar al fútbol, pero el sábado pasado fui a una fiesta", "Me gusta el deporte y me gusta el deporte y también me gusta mucho salir", "Juego al fútbol", "Salgo"], ans: 0, explain: "It mixes a present habit (suelo) with a past event (fui) and links ideas — range and accuracy, not just length." } }
+    ];
+
+    const flashcards = [
+        { term: "jugar al fútbol / al baloncesto / al tenis", def: "to play football / basketball / tennis", say: "jugar al fútbol, jugar al baloncesto, jugar al tenis" },
+        { term: "hacer deporte", def: "to do sport", say: "hacer deporte" },
+        { term: "hacer natación", def: "to do swimming (not jugar!)", say: "hacer natación" },
+        { term: "el equipo", def: "the team", say: "el equipo" },
+        { term: "montar en bicicleta", def: "to cycle", say: "montar en bicicleta" },
+        { term: "el tiempo libre", def: "free time", say: "el tiempo libre" },
+        { term: "el pasatiempo · la afición", def: "hobby / pastime · hobby / interest", say: "el pasatiempo, la afición" },
+        { term: "coleccionar sellos", def: "to collect stamps", say: "coleccionar sellos" },
+        { term: "cocinar", def: "to cook", say: "cocinar" },
+        { term: "me gusta / me gustan", def: "I like (+ infinitive / + plural noun)", say: "me gusta jugar, me gustan los deportes" },
+        { term: "me encanta salir con amigos", def: "I love going out with friends", say: "me encanta salir con amigos" },
+        { term: "quedar con", def: "to meet up with (someone)", say: "quedar con" },
+        { term: "ir a la bolera · la fiesta", def: "to go bowling · the party", say: "ir a la bolera, la fiesta" },
+        { term: "bailar · dar un paseo", def: "to dance · to go for a walk", say: "bailar, dar un paseo" },
+        { term: "ir de compras", def: "to go shopping", say: "ir de compras" },
+        { term: "a menudo · a veces · nunca", def: "often · sometimes · never", say: "a menudo, a veces, nunca" },
+        { term: "jugué al tenis / fui al cine (H)", def: "I played tennis / I went to the cinema (preterite)", say: "jugué al tenis, fui al cine" },
+        { term: "soler + infinitive (H)", def: "to usually do something", say: "suelo salir los sábados" }
+    ];
+
+    const EXAM_CASE_STUDIES = {
+        "carlos-freetime": `<p><strong>Lee lo que dice Carlos.</strong></p>
+        <p><em>"En mi tiempo libre, mi pasatiempo favorito es coleccionar sellos, pero también juego al baloncesto los fines de semana con mi equipo. Suelo salir con amigos los sábados por la noche — a veces vamos al cine y a veces vamos a la bolera. El fin de semana pasado fui a una fiesta y bailé toda la noche. Nunca voy de compras porque no me gusta nada."</em></p>`
+    };
+
+    const examQuestions = [
+        {
+            num: 1, marks: 4, type: "written", caseId: "carlos-freetime",
+            question: "Read what Carlos says. Answer <strong>in English</strong>.<br>(a) What is Carlos's favourite hobby? (1)<br>(b) When does he play basketball? (1)<br>(c) What did he do last weekend? (1)<br>(d) Why does he never go shopping? (1)",
+            hint: "Find the hobby after ‘mi pasatiempo favorito es’, the timing after ‘los fines de semana’, the past action after ‘el fin de semana pasado’, and the reason after ‘porque’.",
+            starter: "(a) His favourite hobby is… (b) He plays basketball… (c) Last weekend he… (d) He never goes shopping because…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 4 marks (AO3 Reading)</h5><ul>
+                <li><strong>(a)</strong> collecting stamps <em>(1)</em>.</li>
+                <li><strong>(b)</strong> at weekends (with his team) <em>(1)</em>.</li>
+                <li><strong>(c)</strong> went to a party / danced all night (ANY ONE) <em>(1)</em>.</li>
+                <li><strong>(d)</strong> (because) he doesn't like it at all <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Answers in English; do not penalise spelling if the meaning is clear.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Collecting stamps. (b) At weekends, with his team. (c) He went to a party and danced all night. (d) Because he doesn't like it at all.",
+            markPoints: { note: "One tick per correct detail; cap at 4.", groups: [
+                { label: "(a) hobby — 1", max: 1, points: ["collecting stamps"] },
+                { label: "(b) when — 1", max: 1, points: ["at weekends / on Saturdays and Sundays"] },
+                { label: "(c) last weekend — 1", max: 1, points: ["went to a party / danced all night"] },
+                { label: "(d) reason — 1", max: 1, points: ["(because) he doesn't like it at all"] }
+            ] }
+        },
+        {
+            num: 2, marks: 5, type: "written",
+            question: "Translate these sentences <strong>into Spanish</strong>.<br>(a) I play football with my team. <br>(b) I love going out with my friends. <br>(c) Last weekend I went to the cinema because I like films.",
+            hint: "‘I play football’ = jugar al fútbol. ‘I love going out’ = Me encanta + infinitive. ‘Last weekend I went’ = El fin de semana pasado + preterite (fui).",
+            starter: "(a) Juego… (b) Me encanta… (c) El fin de semana pasado…",
+            markScheme: `<div class="marks-section"><h5>Mark Scheme — 5 marks (AO4 Writing: translation)</h5><ul>
+                <li><strong>(a)</strong> Juego al fútbol con mi equipo. <em>(1)</em></li>
+                <li><strong>(b)</strong> Me encanta salir con mis amigos. <em>(1)</em></li>
+                <li><strong>(c)</strong> El fin de semana pasado <em>(1)</em> fui al cine <em>(1)</em> porque me gustan las películas <em>(1)</em>.</li>
+            </ul></div>
+            <div class="marks-section"><h5>How the marks are given</h5><ul>
+                <li>Accept minor accent errors. ‘Fui al cine’ must use the preterite, not the present.</li>
+            </ul></div>`,
+            modelAnswer: "(a) Juego al fútbol con mi equipo. (b) Me encanta salir con mis amigos. (c) El fin de semana pasado fui al cine porque me gustan las películas.",
+            markPoints: { note: "One tick per scheme point; cap at 5.", groups: [
+                { label: "(a)", max: 1, points: ["Juego al fútbol con mi equipo"] },
+                { label: "(b)", max: 1, points: ["Me encanta salir con mis amigos"] },
+                { label: "(c)", max: 3, points: ["El fin de semana pasado", "fui al cine", "porque me gustan las películas"] }
+            ] }
+        }
+    ];
 </script>
+
+    <!-- Spanish voice capability (SPANISH-CONTENT-PLAN.md §8.1). Self-installs the 🔊
+         buttons + speed/voice panel + tab observer. Loads before /script.js. -->
     <script src="/speech.js"></script>
+    <!-- Exam self-marking: tick-the-mark-scheme panel (shared with CS / Additional Maths;
+         docs/SELF-MARK-POINTS-AUTHORING.md). -->
     <script src="/cs-lab/exam-widgets.js"></script>
     <script src="/script.js"></script>
-<script src="section-totals.js"></script>
-<script src="page-groups.js"></script>
-<script src="/progress-shared.js"></script>
-<script src="/gamification.js"></script>
-<script src="/topic-guard.js"></script>
-<script src="/notifications-shared.js"></script>
-<script src="/onboarding-tour.js"></script>
-<script src="/footer-legal.js"></script>
+    <script src="section-totals.js"></script>
+    <script src="page-groups.js"></script>
+    <script src="/progress-shared.js"></script>
+    <script src="/gamification.js"></script>
+    <script src="/topic-guard.js"></script>
+    <script src="/notifications-shared.js"></script>
+    <script src="/onboarding-tour.js"></script>
+    <script src="/footer-legal.js"></script>
 </body>
 
 </html>
