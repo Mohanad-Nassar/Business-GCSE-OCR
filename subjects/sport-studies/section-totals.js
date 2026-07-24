@@ -5,7 +5,7 @@
 // independent of any student's progress — used to fix progress
 // stats so a topic a student has engaged with counts ALL of its
 // sections' totals, not just the ones they've personally started.
-// Generated: 2026-07-24T05:56:40Z
+// Generated: 2026-07-24T07:26:30Z
 // ══════════════════════════════════════════════════════════════
 window.SECTION_TOTALS = {
  "sport-studies:1-1-user-groups": {

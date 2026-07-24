@@ -69,9 +69,12 @@
       '<a href="/accessibility.html">Accessibility</a>' +
       '<a href="mailto:' + CONTACT_EMAIL + '">Contact</a>' +
     '</nav>' +
-    '<p class="flf-note">This is a teacher-led revision resource for OCR GCSE Business ' +
-      'Studies (J204). Formal adoption by Avanti Schools Trust is pending — see the ' +
-      '<a href="/privacy-policy.html">Privacy Policy</a> for current data-protection contact details.</p>';
+    '<p class="flf-note">An independent, teacher-led revision resource. It is <strong>not affiliated ' +
+      'with, endorsed by, or connected to any awarding body</strong> (including OCR and AQA). ' +
+      'Qualification names, specification codes and command words are used only to indicate which ' +
+      'courses this material supports; all notes, questions and mark schemes are original and were ' +
+      'written for this site. Formal adoption by Avanti Schools Trust is pending — see the ' +
+      '<a href="/privacy-policy.html">Privacy Policy</a> for data-protection contact details.</p>';
 
   document.body.appendChild(footer);
 })();
