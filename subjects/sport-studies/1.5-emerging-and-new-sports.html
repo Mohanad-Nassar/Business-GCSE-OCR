@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.5 Emerging and New Sports – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 1. Issues Affecting Participation</div>
+            <h1>1.5 Emerging and New Sports</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.5 Emerging and New Sports
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-5-emerging-and-new-sports',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 1. Issues Affecting Participation',
+            title: '1.5 Emerging and New Sports',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What is an 'emerging' or 'new' sport? — examples in the UK today",
+            tag: "Key concept",
+            content: `<h4>The idea</h4>
+<ul>
+<li>An <strong>emerging (or new) sport</strong> is a sport that is <strong>newly growing</strong> in popularity, provision and participation in the UK — more people are starting to play it, and more places are starting to offer it.</li>
+<li>It does not have to be a brand-new invention. Many emerging sports already existed elsewhere, or on a small scale, and are only now becoming widely available in the UK.</li>
+</ul>
+<h4>Examples you can use in the exam</h4>
+<ul>
+<li><strong>Padel</strong> — a racket sport played in a small, walled court, usually in doubles. New courts have appeared at leisure centres and tennis clubs across the UK over recent years.</li>
+<li><strong>Walking football</strong> — a slower, no-running version of football, originally aimed at people who want to keep playing without the impact of the full-speed game.</li>
+<li><strong>Ultimate frisbee</strong> — a non-contact team sport where players score by catching a flying disc in an end zone; growing at universities and club level.</li>
+<li><strong>Competitive gaming (esports)</strong> — organised, competitive video-game play, watched live and via streaming, now run through organised leagues and school/college clubs.</li>
+<li>You can use any genuine example you know, as long as you can explain <em>why</em> it counts as newly growing.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best describes an 'emerging' or 'new' sport?",
+                opts: ["A sport that is newly growing in popularity, provision and participation in the UK", "A sport that has stayed exactly the same size and popularity in the UK for over half a century", "A sport that only exists at full-time, professional, elite level", "A sport that has been removed from a major international competition"],
+                ans: 0,
+                explain: "An emerging sport is newly growing — in players, provision and participation. A sport that never changes, or has been removed from competition, is the opposite of that."
+            }
+        },
+        {
+            title: "How emerging sports develop — and the opportunities to take part",
+            tag: "Core knowledge",
+            content: `<h4>Where the growth comes from</h4>
+<ul>
+<li><strong>New clubs and facilities</strong> — as a sport grows, leisure centres, schools and private operators start to offer it, so there are simply more places to try it.</li>
+<li><strong>Media exposure</strong> — TV highlights, online clips and news coverage introduce people to a sport they might never otherwise see.</li>
+<li><strong>Social media</strong> — short clips and online content can make a sport look exciting almost overnight, reaching audiences that traditional TV coverage misses.</li>
+<li><strong>Accessible, low-cost formats</strong> — many emerging sports are deliberately kept cheap and simple to start (free taster sessions, adapted rules, borrowed equipment), which removes cost and confidence as barriers.</li>
+<li><strong>Role models</strong> — a well-known player, or even a respected local coach, can persuade people who would not otherwise try the sport to give it a go.</li>
+</ul>
+<h4>The opportunities this creates</h4>
+<ul>
+<li>Beginners can join at a genuinely beginner level, because the whole sport is still new — there is less pressure to already be skilled.</li>
+<li>New clubs often need people to help shape the sport locally, as coaches, organisers or committee members — a different kind of opportunity to joining an already-established sport.</li>
+</ul>`,
+            readCheck: {
+                q: "Which factor most directly explains why a brand-new club can suddenly attract first-time participants?",
+                opts: ["Short clips of the sport are shared widely and reach people who had never seen it before", "The sport has existed completely unchanged in the UK for over a century without any promotion", "The national governing body has decided to increase membership fees for every beginner", "Local facilities offering the sport have permanently stopped running any sessions at all"],
+                ans: 0,
+                explain: "Wide exposure (media/social media) is what introduces a growing sport to new people. An unchanged, unpromoted sport, higher fees, or closed facilities would not attract first-timers."
+            }
+        },
+        {
+            title: "The exam skill: link the sport's growth to the FACTOR driving it",
+            tag: "Exam skill",
+            content: `<h4>Don't just describe the sport — explain WHY it's growing</h4>
+<ul>
+<li>Weak answer: <em>"Padel is becoming popular."</em> That's a statement with no explanation.</li>
+<li>Strong answer: <em>"Padel is becoming popular because new courts have opened at local leisure centres, and short clips of matches are shared widely on social media, which introduces the sport to people who had never seen it played before."</em></li>
+</ul>
+<h4>This links straight back to 1.4 Popularity</h4>
+<ul>
+<li>The same factors that make ANY sport more or less popular — <strong>media coverage, role models, provision/facilities, accessibility (including cost) and social acceptability</strong> — also explain why an emerging sport grows.</li>
+<li>So when a question asks about an emerging sport, apply the popularity factors you already know to the NEW example, rather than learning a separate list.</li>
+</ul>
+<h4>Common trap</h4>
+<ul>
+<li>Simply naming an emerging sport ("padel", "walking football") earns very little on its own. The marks are for the FACTOR driving its growth and the REASON that factor matters.</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks why an emerging sport is increasing its participation. Which answer is most likely to score well?",
+                opts: ["Naming the factor behind the growth (e.g. media coverage) and explaining why it increases participation", "Writing only the name of the emerging sport, with nothing else added at all", "Describing the official rules of the sport in as much extensive technical detail as you possibly can manage", "Listing as many different emerging sports as you are able to remember from revision"],
+                ans: 0,
+                explain: "Explain questions reward a factor plus a reason. Naming the sport, describing its rules, or listing more sports does not show the understanding the mark scheme rewards."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What best defines an emerging or new sport?",
+            opts: ["A sport that is newly growing in popularity, provision and participation in the UK", "A sport that has kept exactly the same number of players and clubs for decades without any change", "A sport that can only ever be played by full-time professional athletes", "A sport that has been removed from a major international competition programme"],
+            ans: 0,
+            explain: "An emerging sport is one newly growing in popularity, provision and participation. Staying unchanged for decades, being elite-only, or being dropped from competition are the opposite of 'emerging'."
+        },
+        {
+            q: "Which of these is a genuine example of a sport that has recently been growing in the UK?",
+            opts: ["A sport that has stayed at exactly the same participation level in the UK for over half a century", "Padel — a racket sport played in a small, walled court, usually in doubles", "A sport that no UK leisure centre or club currently offers to anyone", "A sport played only by full-time Olympic gold medallists at elite level"],
+            ans: 1,
+            explain: "Padel is a real example of a sport with newly opened courts and clubs across the UK. A stagnant, unavailable, or elite-only activity is not 'emerging'."
+        },
+        {
+            q: "Which change is most likely to help an emerging sport grow by making it easier to actually try?",
+            opts: ["A national governing body removes every beginner session from its yearly calendar", "The sport's only professional league doubles its ticket prices for spectators", "A local leisure centre opens a new facility so people have somewhere nearby to try the sport", "All existing facilities and every beginner session for the sport are permanently closed without warning"],
+            ans: 2,
+            explain: "New, nearby provision is what lets first-timers actually try a sport. Removing sessions, raising prices, or closing facilities would all make it harder, not easier."
+        },
+        {
+            q: "How can social media help an emerging sport attract new participants?",
+            opts: ["It guarantees that every single viewer will immediately join a local sports club on that very same day without exception", "It only reaches people who already compete in the sport at an elite, professional level", "It replaces the need for any coaches, clubs or facilities to ever exist at all", "Short clips of matches and taster sessions can reach people who would never otherwise see the sport"],
+            ans: 3,
+            explain: "Social media widens exposure to people who wouldn't otherwise see the sport. It doesn't guarantee instant sign-ups, doesn't only reach elite players, and doesn't remove the need for real facilities."
+        },
+        {
+            q: "Why can a well-known role model help an emerging sport grow?",
+            opts: ["Role models are legally required by law to try out every single emerging sport once a year without any exception whatsoever", "A respected player or coach can persuade people who would not otherwise try the sport to give it a go", "A role model automatically funds every new facility that the sport will ever need to succeed", "Role models only ever affect sports that are already extremely well established and popular"],
+            ans: 1,
+            explain: "A role model's example builds trust and interest, encouraging new people to try the sport. There's no legal requirement, no automatic funding, and role models can help sports at any stage, not only established ones."
+        },
+        {
+            q: "A student explains padel's growth by writing only 'padel is popular now'. What is missing from this answer?",
+            opts: ["Nothing at all — naming the sport is already enough to gain full marks here", "A complete, highly technical list of every single rule used in an official padel match, printed out in full", "A specific factor driving the growth (e.g. new facilities or media coverage) and a reason why it matters", "The exact date and country in which padel was first ever invented anywhere"],
+            ans: 2,
+            explain: "The marks come from a named factor plus a reason it drives growth — not from the sport's name alone, its rulebook, or its invention date."
+        }
+    ];
+
+    const matchData = [
+        { term: "Emerging sport", def: "A sport that is newly growing in popularity, provision and participation in the UK" },
+        { term: "Padel", def: "A racket sport played in a small, walled court, usually in doubles" },
+        { term: "Walking football", def: "A slower, no-running version of football aimed at lower-impact participation" },
+        { term: "Ultimate frisbee", def: "A non-contact team sport where players score by catching a flying disc in an end zone" },
+        { term: "Provision (growth factor)", def: "New clubs, facilities or sessions that give people somewhere nearby to try a sport" },
+        { term: "Role model (growth factor)", def: "A well-known player or coach whose example persuades new people to try a sport" }
+    ];
+
+    const fibData = [
+        {
+            display: "An emerging sport is one that is newly _____ in popularity, provision and participation in the UK.",
+            blanks: { B1: "growing" }
+        },
+        {
+            display: "Padel is a racket sport played in a small, walled _____, usually in doubles.",
+            blanks: { B1: "court" }
+        },
+        {
+            display: "Walking football is a slower, no-running version of football aimed at players who want lower _____.",
+            blanks: { B1: "impact" }
+        },
+        {
+            display: "New clubs and facilities give people somewhere _____ to try an emerging sport for the first time.",
+            blanks: { B1: "nearby" }
+        },
+        {
+            display: "Short clips shared on social _____ can introduce a sport to people who would never otherwise see it.",
+            blanks: { B1: "media" }
+        }
+    ];
+    const fibWords = ["growing", "court", "impact", "nearby", "media"];
+
+    const tfData = [
+        {
+            statement: "An emerging sport must be a completely new invention that has never existed anywhere in the world.",
+            answer: false,
+            explanation: "Many emerging sports already existed elsewhere, or on a small scale, for years. 'Emerging' means newly growing in UK popularity, provision and participation, not necessarily brand new."
+        },
+        {
+            statement: "Padel is an example of a racket sport that has recently been growing in the UK.",
+            answer: true,
+            explanation: "New padel courts and clubs have opened at leisure centres and tennis clubs across the UK in recent years, making it a genuine emerging-sport example."
+        },
+        {
+            statement: "Media coverage and social media can help introduce an emerging sport to people who would not otherwise see it.",
+            answer: true,
+            explanation: "Wider exposure through TV, news or online clips is one of the main ways an emerging sport reaches people who had never come across it before."
+        },
+        {
+            statement: "Naming an emerging sport is enough on its own to earn full marks in an 'explain' question.",
+            answer: false,
+            explanation: "Explain questions need a factor driving the growth plus a reason it matters — naming the sport alone earns very little."
+        },
+        {
+            statement: "Walking football is designed to be a slower, lower-impact version of football.",
+            answer: true,
+            explanation: "It removes running and reduces impact, which is exactly why it can attract people who want to play without the demands of the full-speed game."
+        },
+        {
+            statement: "New facilities and low-cost taster sessions have no real effect on whether people try an emerging sport.",
+            answer: false,
+            explanation: "New, nearby facilities and free or low-cost sessions remove distance, cost and confidence as barriers, which can have a big effect on whether people take part."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "An 'emerging sport' just means a brand new sport that nobody has ever played before anywhere in the world.",
+            correct: "'Emerging' means newly growing in UK popularity, provision and participation — not necessarily a brand-new invention. Many examples (like padel) already existed elsewhere, or on a small scale, and are only now becoming widely available here.",
+            readCheck: {
+                q: "Which is the most accurate description of an 'emerging sport'?",
+                opts: ["A sport that has only just been invented and never existed anywhere before", "A sport that is newly growing in popularity, provision and participation, even if it already existed elsewhere", "A sport that has been played at fully professional level in the UK continuously for well over a hundred years without any change", "A sport that has recently been removed from a major international competition"],
+                ans: 1,
+                explain: "Emerging just means newly growing here — the sport does not have to be a brand-new invention, and being long-established or removed from competition is the opposite idea."
+            }
+        },
+        {
+            wrong: "If a sport just gets media coverage, that's the only thing that helps it grow — local facilities don't matter.",
+            correct: "Growth usually needs more than one factor together. Media coverage builds awareness, but if there is nowhere nearby to actually try the sport, that interest cannot easily turn into participation. Provision and exposure work together.",
+            readCheck: {
+                q: "A sport gets a lot of media coverage but has no local clubs or facilities nearby. What is most likely?",
+                opts: ["Interest will still convert fully into participation with absolutely no other changes needed", "People who become interested may struggle to actually take part without nearby provision", "Media coverage always guarantees that new facilities will appear immediately", "Facilities have no effect whatsoever on whether people can take part in a sport"],
+                ans: 1,
+                explain: "Awareness alone does not create participation — without nearby provision, interested people have nowhere to actually try the sport."
+            }
+        },
+        {
+            wrong: "Naming an emerging sport like 'padel' or 'walking football' is enough to answer an explain question.",
+            correct: "Naming the sport earns very little. The marks come from identifying the FACTOR driving its growth (media, provision, role models, accessible/low-cost formats) and explaining WHY that factor increases participation.",
+            readCheck: {
+                q: "An exam question asks you to explain why an emerging sport is growing. What earns the marks?",
+                opts: ["Simply writing the name of the sport with nothing else added at all", "Naming the factor behind the growth and explaining why it increases participation", "Listing every emerging sport that you happen to know about", "Describing the exact, official rules of the sport in complete technical detail from memory"],
+                ans: 1,
+                explain: "The mark scheme rewards a named factor plus a reason it drives participation, not the sport's name, a list of sports, or its rulebook."
+            }
+        },
+        {
+            wrong: "Emerging sports only appeal to young, fit, sporty people.",
+            correct: "Many emerging sports are deliberately designed to be accessible to a wide range of ages and abilities (walking football is a clear example), which is part of why they can grow quickly among people who felt excluded from the traditional version.",
+            readCheck: {
+                q: "Why might an emerging sport like walking football appeal to a wider range of people?",
+                opts: ["It is deliberately designed as a slower, lower-impact format accessible to more people", "It is only ever played by elite, full-time professional athletes", "It requires exactly the same high level of competitive fitness as senior traditional football", "It has stricter age restrictions than the traditional version of the sport"],
+                ans: 0,
+                explain: "Its slower, lower-impact design is exactly what widens who can take part, compared with the traditional, more demanding version."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "Describe", "Explain", "Discuss"],
+            content: `<p>Emerging-sport questions range from short recall to longer applied or evaluative answers. Match your answer to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify one emerging sport" = one name, 1 mark.</li>
+<li><strong>Describe</strong> — say what the sport or the change involves, without necessarily giving a reason.</li>
+<li><strong>Explain</strong> — give a reason, using "because". Link the sport's growth to a FACTOR (media coverage, role models, provision, accessibility, cost).</li>
+<li><strong>Discuss / Evaluate</strong> — weigh up more than one factor, apply them to a scenario, and reach a judgement about which matters most.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [4] in Section B usually wants two factors applied to the scenario; [6]/[8] levelled answers want balance and a justified judgement.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify one emerging sport currently growing in the UK [1]'. What is the safest answer?",
+                opts: ["A one-line explanation of why the sport is popular right now", "The name of one emerging sport, nothing more", "A full paragraph describing the sport's entire history", "A list of every emerging sport you can possibly think of"],
+                ans: 1,
+                explain: "'Identify' + [1] = one name, one mark. Explaining, writing a history, or listing several sports wastes time and risks marks being capped at one anyway."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the FACTOR and explain WHY it drives growth",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The most common way to lose marks here is naming the sport with no factor. Build every answer as <strong>factor → effect on participation</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "Padel is growing."</li>
+<li><strong>✅ full marks:</strong> "Padel is growing because new courts have opened at local leisure centres, giving people somewhere nearby to try it for the first time."</li>
+</ul>
+<p>In <strong>Section B</strong> you are given a scenario. Use a detail <em>from that scenario</em> (a named club, a named change) rather than a general example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario about a named club promoting an emerging sport, your explanation should be based on...",
+                opts: ["any emerging sport that you personally happen to enjoy the most", "the details given in the scenario you are given", "a professional athlete not mentioned anywhere in the question", "your own school's usual PE lesson only, regardless of the scenario"],
+                ans: 1,
+                explain: "Section B is applied — the marks are for using the scenario in front of you, not a general example that ignores it."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> emerging sports appear as quick recall in <strong>Section A</strong> (name a sport/factor), as applied points in <strong>Section B</strong> scenarios about a club or provider promoting a new sport, and can feed a <strong>Section C</strong> Discuss/Evaluate answer about increasing participation.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Keep two or three real examples ready (e.g. padel, walking football, ultimate frisbee) so you always have something to apply.</li>
+<li>For every example, memorise ONE factor driving its growth — that factor is usually where the mark is.</li>
+<li>Link back to 1.4 Popularity: the same factors (media, role models, provision, accessibility, social acceptability) explain growth here too.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One way [sport] could increase its participation is… because…"</li>
+<li>"This matters because it removes the barrier of…"</li>
+<li>"However, this change might not help everyone, because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to link an emerging sport's growth back to the popularity factors from 1.4?",
+                opts: ["Because it lets you reuse understanding you already have, applied to a new example", "Because emerging sports use a completely different, unrelated set of factors", "Because the exam never asks about emerging sports in Section B or C", "Because popularity factors only ever apply to sports that are already well established"],
+                ans: 0,
+                explain: "The same factors (media, role models, provision, accessibility, social acceptability) explain growth for both established and emerging sports, so you can reuse what you already know."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Emerging / new sport", def: "A sport newly growing in popularity, provision and participation in the UK" },
+        { term: "Padel", def: "A racket sport played in a small, walled court, usually in doubles" },
+        { term: "Walking football", def: "A slower, no-running version of football aimed at lower-impact play" },
+        { term: "Ultimate frisbee", def: "A non-contact team sport scored by catching a flying disc in an end zone" },
+        { term: "Provision (growth factor)", def: "New clubs, facilities or sessions giving people somewhere nearby to try a sport" },
+        { term: "Media/social media exposure", def: "Coverage and online clips that introduce a sport to people who wouldn't otherwise see it" },
+        { term: "Role model (growth factor)", def: "A well-known player or coach who persuades new people to try the sport" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> examples of emerging or new sports currently growing in the UK.",
+            hint: "Pick any two real emerging sports — for example padel, walking football, ultimate frisbee, or a fast-growing form of competitive gaming.",
+            starter: "One emerging sport is… Another emerging sport is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct, DIFFERENT emerging or new sport named, to a maximum of two. Accept any genuine example, including:</strong></p>
+<ul>
+<li>Padel</li>
+<li>Walking football</li>
+<li>Ultimate frisbee</li>
+<li>Competitive gaming / esports</li>
+<li>Any other sport the student can justify as newly growing in the UK</li>
+</ul>
+<p>Do not credit the same sport written twice.</p>
+</div>`,
+            modelAnswer: "One emerging sport is padel.\n\nAnother emerging sport is walking football.",
+            markPoints: { note: "One tick per correct, DIFFERENT emerging sport; cap at 2.", groups: [
+                { label: "Your first example", max: 1, points: ["Names a genuine emerging/new sport growing in the UK"] },
+                { label: "Your second example", max: 1, points: ["Names a DIFFERENT genuine emerging/new sport (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which factor is most likely to help an emerging sport attract first-time participants?",
+            options: ["Removing every beginner session from the sport's yearly calendar", "Short clips of the sport being shared widely on social media", "Permanently closing all local facilities that offer the sport", "Doubling the price of every entry-level session available"],
+            answer: 1,
+            hint: "Think about what actually introduces new people to a sport they've never seen before.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Short clips of the sport being shared widely on social media.</strong></p>
+<ul>
+<li>Wide social media exposure introduces the sport to people who would never otherwise see it played.</li>
+<li>Removing sessions, closing facilities or raising prices would each make it harder, not easier, to attract first-timers.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Northfield Padel Club</strong></p><p>The local council has just opened Northfield Padel Club, built on a redeveloped car park. To launch it, the club arranged a free open day led by a former professional tennis player who now lives locally, and posted short video clips of the taster sessions on social media.</p>`,
+            question: "Explain how Northfield Padel Club's launch could help padel grow as an emerging sport.",
+            hint: "Look for TWO separate factors in the scenario (a role model/media point, and a low-cost/accessible point) and explain why each one helps growth.",
+            starter: "One factor is… because…\n\nAnother factor is… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per factor: 1 for identifying a relevant factor from the scenario, 1 for explaining why it helps growth. Answers may include:</strong></p>
+<ul>
+<li><strong>Role model / media exposure</strong> — the ex-professional player and the social media clips reach people who would never otherwise see padel being played, raising awareness that the sport, and the club, exist.</li>
+<li><strong>Free, accessible entry point</strong> — the free open day removes cost as a barrier, letting unsure or curious people try padel with nothing to lose.</li>
+</ul>
+<p>Accept any other reasonable, scenario-linked answer. A factor with no explanation, or an explanation not linked to the scenario, earns 1 of the 2 marks for that factor.</p>
+</div>`,
+            modelAnswer: "The former professional player running the open day acts as a role model, and the social media clips reach people who would never otherwise see padel being played, so more people become aware the sport and the club exist.\n\nThe open day is also free, which removes cost as a barrier, so people who were unsure can try padel with nothing to lose.",
+            markPoints: { note: "Mark each factor out of 2: one tick for identifying it in the scenario, one for explaining why it helps growth.", groups: [
+                { label: "Role model / media exposure", max: 2, points: [
+                    { text: "Identifies the ex-professional player and/or social media clips as a factor from the scenario", marks: 1 },
+                    { text: "Explains why this helps growth (introduces the sport to people who would not otherwise see it)", marks: 1 }
+                ] },
+                { label: "Free / accessible entry point", max: 2, points: [
+                    { text: "Identifies the free open day as a factor from the scenario", marks: 1 },
+                    { text: "Explains why this helps growth (removes cost/confidence as a barrier to trying it)", marks: 1 }
+                ] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Northfield Padel Club</strong></p><p>Since opening, Northfield Padel Club has grown from one court to three, and now runs weekly sessions for several different age groups. The council wants to understand how new and emerging sports like padel can keep increasing participation across the wider area.</p>`,
+            question: "Discuss how a new or emerging sport could increase its participation in the UK.",
+            hint: "Choose two or three factors (media/role models, provision/facilities, accessible/low-cost formats). Explain how each helps, then weigh up the limits. Finish with a judgement on which matters most.",
+            starter: "One way an emerging sport could increase its participation is… because…\n\nAnother factor is…\n\nHowever, this depends on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several factors, showing clearly how each could raise participation AND weighing the limits (funding, whether exposure is followed up with real provision, one factor not being enough alone), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one factor with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names factors and/or sports with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Media coverage / role models:</strong> a well-known player or online clips introduce the sport to people who had never seen it, raising awareness.</li>
+<li><strong>Provision / facilities:</strong> new courts, clubs or sessions give newly-aware people somewhere nearby to actually try the sport.</li>
+<li><strong>Accessible, low-cost formats:</strong> free taster sessions or adapted rules remove cost and confidence as barriers, especially for beginners.</li>
+<li><strong>Evaluation:</strong> awareness rarely converts into participation if no local provision follows it up; new facilities depend on funding that councils or clubs may not always have; a role model's effect may fade quickly if there is nothing local to join afterwards.</li>
+<li><strong>Judgement:</strong> combining exposure with genuine, affordable local provision is more likely to sustain growth than any single factor alone, because awareness without a place to try the sport rarely leads anywhere.</li>
+</ul>
+</div>`,
+            modelAnswer: "A new sport like padel can increase its participation through several factors working together. Media coverage and role models, such as a well-known player running a taster session, introduce the sport to people who would never otherwise see it. New facilities, like an extra court at a local club, then give those interested people somewhere nearby to actually try it. Low-cost, accessible formats such as free open days remove cost and confidence as barriers, especially for beginners.\n\nHowever, media exposure alone rarely sustains growth if no local provision follows it up, and building new facilities depends on funding that councils and clubs may not always have.\n\nOverall, combining exposure with genuine, affordable local provision is the most effective way to grow an emerging sport, because awareness alone rarely converts into lasting participation."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

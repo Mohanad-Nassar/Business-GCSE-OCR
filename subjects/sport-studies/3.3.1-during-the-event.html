@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.3.1 During the Event – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 3. Hosting a Major Sporting Event</div>
+            <h1>3.3.1 During the Event</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 3.3.1 During the Event — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '3-3-1-during-the-event',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 3. Hosting a Major Sporting Event',
+            title: '3.3.1 During the Event',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "During the event — the middle stage of hosting",
+            tag: "Key concept",
+            content: `<h4>Three stages, one event</h4>
+<ul>
+<li>Hosting a major event is usually looked at in three stages: <strong>before</strong> the event (bidding, building, investing), <strong>during</strong> the event (this page), and <strong>after</strong> the event (the long-term legacy).</li>
+<li>The during-event stage covers everything that happens <strong>while the event is actually running</strong> — from the opening moment to the final result, whatever the sport.</li>
+</ul>
+<h4>Why the exam keeps the stages separate</h4>
+<ul>
+<li>Some effects only exist <strong>while the crowds, athletes and media are physically there</strong> — a full stadium, live rolling coverage, a short-term spike in visitor numbers. These fade away once the event finishes.</li>
+<li>You must keep the stages straight in an answer: an effect that happens <strong>during</strong> the event (like a burst of national interest) is not the same as one that happens <strong>before</strong> it (like a construction job) or <strong>after</strong> it (like an empty stadium sitting unused).</li>
+<li>Just like the other two stages, during-event effects can be <strong>positive or negative</strong> at the very same time, for the very same event.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best describes the 'during the event' stage that this page covers?",
+                opts: ["Everything that happens while the event is actually running, from start to finish", "The years spent bidding for the right to host the event before it is even confirmed", "What happens to the venues once the whole event has completely finished and closed", "The construction of new stadiums and transport links that takes place before the event opens"],
+                ans: 0,
+                explain: "During-the-event effects only exist while the event is running. Bidding and building happen before it; what happens to venues afterwards is the post-event/legacy stage."
+            }
+        },
+        {
+            title: "The positives while the event is on",
+            tag: "Core knowledge",
+            content: `<h4>Community and pride</h4>
+<ul>
+<li><strong>Improved national morale and social cohesion</strong> — a shared, feel-good sense of pride can bring people from across the country together while the event is running.</li>
+<li><strong>Increased national status</strong> — hosting successfully can raise how the country is seen and respected by other nations while it is in the international spotlight.</li>
+<li><strong>Greater national interest in the sport(s)</strong> — people who do not normally follow the sport(s) often start watching and talking about them while the event is on home soil.</li>
+</ul>
+<h4>Facilities, tourism and jobs</h4>
+<ul>
+<li><strong>Improved social infrastructure in use</strong> — venues, transport links and facilities that were built or upgraded beforehand are now genuinely being used, by visitors and local residents alike.</li>
+<li><strong>A rise in direct tourism</strong> — spending tied straight to the event itself, such as match tickets and hotel stays close to a venue.</li>
+<li><strong>A rise in indirect tourism</strong> — extra spending nearby that is not part of the event itself, such as restaurants, shops and sightseeing that visitors pay for while they are in the area.</li>
+<li><strong>An increase in short-term employment</strong> — temporary jobs (stewarding, security, hospitality, transport) created just to cover the event period.</li>
+</ul>
+<h4>Media</h4>
+<ul>
+<li><strong>Increased media coverage of the sport(s)</strong> — a rise in the amount of national and international press, TV and online coverage the sport(s) receive, well above their usual level.</li>
+</ul>`,
+            readCheck: {
+                q: "A shared feeling of pride that brings people across the country together while a major event is on is best described as...",
+                opts: ["increased national morale and social cohesion", "an increase in short-term employment created just for the event period", "a rise in indirect tourism spending near the venues while visitors are in town", "extra litter, noise and transport pressure around the host venues, which local residents notice straight away"],
+                ans: 0,
+                explain: "That shared feel-good sense of pride and unity is national morale/social cohesion — the other options describe jobs, tourism spending and a negative effect, not this one."
+            }
+        },
+        {
+            title: "The negatives while the event is on",
+            tag: "Core knowledge",
+            content: `<h4>Everyday strain on the host area</h4>
+<ul>
+<li><strong>Increased transport, litter and noise</strong> — large crowds moving through a host area put real pressure on roads, public transport, rubbish collection and general noise levels.</li>
+</ul>
+<h4>Safety and security</h4>
+<ul>
+<li><strong>Potential for increased terrorism and crime</strong> — a major event gathers huge crowds and international attention in one place, which can raise the security risk for the time it is running.</li>
+</ul>
+<h4>Performance and fairness</h4>
+<ul>
+<li><strong>Poor performance by the home nation or team</strong> — if the host team does badly, it can damage the very national pride and morale that hosting was supposed to build.</li>
+<li><strong>Regional areas not involved can feel neglected</strong> — parts of the country away from the actual venues may feel under-invested and left out, while attention and spending are focused on the host area only.</li>
+</ul>
+<h4>Media</h4>
+<ul>
+<li><strong>Negative media coverage of organisational or facility problems</strong> — issues such as ticketing chaos, transport failures or an unfinished venue getting reported instead of the sport itself.</li>
+</ul>`,
+            readCheck: {
+                q: "What does 'regional areas feeling neglected' mean as a during-event negative?",
+                opts: ["Parts of the country away from the host venues feeling left out while investment and attention focus on the host area", "The host nation's team losing every single one of its matches at every different venue right through the whole event and every round", "A rise in litter and noise directly around the main stadium during the opening ceremony", "Extra security staff being hired only for the week the event is taking place"],
+                ans: 0,
+                explain: "Regional neglect is about non-host areas feeling overlooked and under-invested — not about results, litter, or extra security staffing."
+            }
+        },
+        {
+            title: "Weighing positives against negatives — the exam skill",
+            tag: "Exam skill",
+            content: `<h4>Naming effects is only the start</h4>
+<ul>
+<li>Weak answer: <em>"A positive is national pride. A negative is crime."</em> That names two effects but shows no real understanding.</li>
+<li>Strong answer: <em>"National morale can rise if the home team does well in front of a home crowd, but if the venue suffers ticketing problems, the negative media coverage of that failure can cancel out the goodwill just as quickly."</em></li>
+<li>Higher-mark questions want you to <strong>weigh</strong> positives against negatives — which one matters more, in this specific situation, and why — before reaching a judgement.</li>
+</ul>
+<h4>Using a scenario properly</h4>
+<ul>
+<li>Section B and C questions usually give you a made-up event or host area. Pick out a detail from <em>that</em> scenario — a named area, a named problem — rather than writing a general answer that ignores it.</li>
+<li>A good during-event answer often shows that the <strong>same event</strong> can be producing a positive and a negative <strong>at the same time</strong>, for different groups of people.</li>
+</ul>`,
+            readCheck: {
+                q: "In a scenario question about a named host city, the strongest answers usually...",
+                opts: ["use a detail from the scenario and weigh it against another effect before reaching a judgement", "name as many user groups and pieces of technology as can possibly be remembered from earlier topics", "describe only the positives, because negatives are not worth mentioning", "copy the exact wording printed in the question back into the answer"],
+                ans: 0,
+                explain: "The best answers apply a detail from the scenario, set a positive against a negative, and reach a judgement — not a one-sided list or a repeat of the question."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Which of these is an example of 'improved social infrastructure in use' during a major event?",
+            opts: ["Trains and roads that were built for the event are now busy carrying spectators and staff", "A national team is knocked out in the opening round in front of a disappointed home crowd", "Newspapers and broadcasters give the sport far more coverage than it usually receives", "Temporary stewarding and security jobs are created just to cover the event period, then end"],
+            ans: 0,
+            explain: "Using new or upgraded transport and venues that were built beforehand is social infrastructure in use. The other options describe results, media coverage and employment instead."
+        },
+        {
+            q: "Which of these is most likely to be a NEGATIVE effect while a major event is being staged?",
+            opts: ["Increased litter, noise and transport pressure building up around the busy host venues", "A rise in national interest in the sport(s) being played across the whole country", "An increase in short-term jobs, such as stewarding and security, created just to cover the event period", "A rise in direct tourism spending on tickets and hotels close to the venues"],
+            ans: 0,
+            explain: "Extra litter, noise and transport pressure on the host area is a during-event negative. The other three are all named positives of the during-event stage."
+        },
+        {
+            q: "A host nation's team performs badly and is knocked out early. What is the most likely effect of this?",
+            opts: ["It can damage the national pride and morale that hosting the event was meant to build", "It always causes a permanent, nationwide collapse in interest in every sport forever", "It automatically leads to every local business near the venues closing down immediately", "It has no effect at all on how people in the host country feel about the event"],
+            ans: 0,
+            explain: "Poor performance by the host nation can hurt national pride and morale — it does not wipe out all sport forever, close businesses, or leave feelings unaffected."
+        },
+        {
+            q: "What is meant by 'indirect tourism' during a major event?",
+            opts: ["Spending nearby that is not part of the event itself, such as meals, shops and sightseeing", "Money spent directly on match tickets and hotel rooms right next to the venue itself", "The wages paid to permanent, full-time staff who already worked at the venue long beforehand", "The cost of building a brand new stadium in the years before the event even opens"],
+            ans: 0,
+            explain: "Indirect tourism is extra spending near the event that is not the event itself, like meals and sightseeing. Ticket/hotel spend is direct tourism; wages and construction are different effects."
+        },
+        {
+            q: "Why might regional areas away from the host venues feel neglected during a major event?",
+            opts: ["Investment, media attention and spending can focus heavily on the host area, leaving them out", "Every part of the country always receives an exactly identical share of investment and coverage", "Regional areas are legally required to close all of their sports facilities during the event", "National governing bodies are banned from operating anywhere outside the host city itself"],
+            ans: 0,
+            explain: "Attention and investment concentrate on the host area, so non-host regions can feel left out and under-invested — the other options are not real effects of hosting."
+        },
+        {
+            q: "A stadium suffers ticketing chaos and this is widely reported by journalists during the event. This is best described as...",
+            opts: ["negative media coverage of an organisational or facility problem", "an increase in short-term employment created for the event period", "a rise in direct tourism spending on tickets close to the venue", "improved national status because the event is receiving so much coverage"],
+            ans: 0,
+            explain: "Reporting on an organisational failure like ticketing chaos is negative media coverage — it is not employment, tourism spend, or a status boost."
+        }
+    ];
+
+    const matchData = [
+        { term: "Social infrastructure in use", def: "Venues, transport and facilities built beforehand now genuinely being used by visitors and residents" },
+        { term: "National morale / social cohesion", def: "A shared, feel-good sense of pride and unity across the country while the event is running" },
+        { term: "National status", def: "How the country is seen and respected by other nations while it is in the international spotlight" },
+        { term: "Direct tourism", def: "Visitor spending tied straight to the event, such as tickets and hotel stays right next to a venue" },
+        { term: "Indirect tourism", def: "Extra visitor spending nearby that is not the event itself, such as meals and sightseeing" },
+        { term: "Short-term employment", def: "Temporary jobs, such as stewarding and security, created only to cover the event period" },
+        { term: "Regional neglect", def: "Areas away from the host venues feeling left out while attention and money focus elsewhere" },
+        { term: "Terrorism and crime risk", def: "The chance of a security threat rising because a major event gathers huge crowds in one place" }
+    ];
+
+    const fibData = [
+        {
+            display: "Venues and transport built for the event now being used is called social _____ in use.",
+            blanks: { B1: "infrastructure" }
+        },
+        {
+            display: "A shared sense of national pride and unity while the event is on is called national morale and social _____.",
+            blanks: { B1: "cohesion" }
+        },
+        {
+            display: "Temporary jobs created only to cover the event period, such as stewarding, are called _____ employment.",
+            blanks: { B1: "short-term" }
+        },
+        {
+            display: "Spending tied straight to the event itself, like tickets and nearby hotels, is called _____ tourism.",
+            blanks: { B1: "direct" }
+        },
+        {
+            display: "Areas away from the host venues can feel _____ if attention and money focus elsewhere.",
+            blanks: { B1: "neglected" }
+        },
+        {
+            display: "If the host team performs badly, this can damage the national _____ that hosting was meant to build.",
+            blanks: { B1: "pride" }
+        }
+    ];
+    const fibWords = ["infrastructure", "cohesion", "short-term", "direct", "neglected", "pride"];
+
+    const tfData = [
+        {
+            statement: "Using new venues and transport links that were built for the event is a during-event positive.",
+            answer: true,
+            explanation: "This is 'improved social infrastructure in use' — a genuine positive that only exists once the built infrastructure is actually being used."
+        },
+        {
+            statement: "Regional areas away from the host venues almost always benefit just as much as the host area itself.",
+            answer: false,
+            explanation: "Attention and investment concentrate on the host area, so other regions can feel neglected and under-invested instead of benefiting equally."
+        },
+        {
+            statement: "An increase in short-term jobs, such as stewarding and security, is a during-event positive.",
+            answer: true,
+            explanation: "Temporary roles created just to cover the event period are a genuine short-term employment positive of the during-event stage."
+        },
+        {
+            statement: "Negative media coverage during a major event is always about which team wins or loses.",
+            answer: false,
+            explanation: "Negative coverage is often about organisational or facility problems, like ticketing chaos or transport failures, not just results."
+        },
+        {
+            statement: "Gathering huge crowds in one place for a major event can raise the risk of crime.",
+            answer: true,
+            explanation: "Large crowds and high-profile international attention can increase the potential for terrorism and crime while the event is on."
+        },
+        {
+            statement: "A poor performance by the host nation's team has no effect on national morale.",
+            answer: false,
+            explanation: "The opposite is true — poor home performance can directly damage the national pride and morale that hosting was meant to build."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "The 'during the event' stage is basically the same as the pre-event stage, since it's all just part of 'hosting'.",
+            correct: "The exam treats them as separate stages with separate effects. Pre-event (3.2) covers bidding, building and investing BEFORE the event opens. During-event (this page) only covers effects that exist WHILE the event is actually running — a busy stadium, live coverage, a short-term tourism spike. Mixing the two loses marks because you have named the wrong stage's effect.",
+            readCheck: {
+                q: "A question specifically asks about the 'during the event' stage. Which answer fits?",
+                opts: ["A short-term rise in visitor spending while the event is actually taking place", "The years spent putting together the bid to host the event in the first place", "Construction jobs created while building a brand new stadium before the event opens", "Money spent maintaining an empty stadium for years after the whole event has ended"],
+                ans: 0,
+                explain: "Only the visitor-spending answer happens while the event is running. The others describe the pre-event bidding/building stage or the post-event legacy stage."
+            }
+        },
+        {
+            wrong: "A good answer on this topic only needs to list positives, because that's what hosting is 'supposed' to bring.",
+            correct: "Higher-mark questions want a BALANCED answer — genuine negatives (transport strain, crime risk, regional neglect, negative coverage) sit alongside the positives, often for the very same event. A one-sided list of only positives is capped in the higher bands, even if every point named is accurate.",
+            readCheck: {
+                q: "Why does a one-sided list of only positives lose marks on a higher-tariff question?",
+                opts: ["Because higher bands reward a balanced discussion, weighing positives against negatives", "Because positives are never actually true at any single point during a major sporting event", "Because examiners only ever accept negative points on this specific topic", "Because listing more than three positives is against the exam's rules"],
+                ans: 0,
+                explain: "Level-of-response marking rewards weighing both sides and reaching a judgement — a one-sided list, however accurate, cannot reach the top band."
+            }
+        },
+        {
+            wrong: "'National status' and 'national morale' mean exactly the same thing, so you can use either word for either idea.",
+            correct: "They are related but different. National STATUS is about how the country is seen and respected by OTHER nations while it hosts. National MORALE/cohesion is about how people INSIDE the country feel — their own shared pride and unity. A strong answer keeps the two separate rather than treating them as interchangeable.",
+            readCheck: {
+                q: "Which of these describes 'national status' rather than 'national morale'?",
+                opts: ["How the host country is seen and respected by other nations during the event", "A shared feel-good sense of pride felt by people within the host country itself", "The temporary jobs created to help run the event while it is taking place", "The rubbish, noise and transport pressure that builds up around a busy venue"],
+                ans: 0,
+                explain: "National status is about the country's external reputation abroad. Internal shared pride is morale/cohesion; the other two options are unrelated effects."
+            }
+        },
+        {
+            wrong: "Negative media coverage during a major event must mean the athletes played badly.",
+            correct: "It is usually about organisational or facility problems instead — things like ticketing chaos, transport failures, or an unfinished venue. A country can host superb sport and still receive negative coverage because of how the event itself was run, not how anyone actually performed.",
+            readCheck: {
+                q: "Negative media coverage during a major event most often reports on...",
+                opts: ["organisational or facility problems, such as ticketing chaos or transport failures", "the exact final score of every single fixture played right through the whole event", "the weather forecast for the week the event is scheduled to take place", "the total number of tickets sold before the event had even opened"],
+                ans: 0,
+                explain: "It is problems with how the event is organised or run — not scores, weather, or advance ticket sales — that usually generate negative coverage."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain", "Discuss"],
+            content: `<p>Questions on this topic range from quick recall to a full extended response. Match your answer to the command word and the mark tariff:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify one negative during-event effect [1]" = one named effect, nothing more.</li>
+<li><strong>Describe</strong> — add a feature or detail. "Describe a during-event positive" = say what it involves, not just its name.</li>
+<li><strong>Explain</strong> — give a reason, usually using the word <em>because</em>. "Explain why regional areas may feel neglected" wants the effect PLUS why it happens.</li>
+<li><strong>Discuss / Evaluate</strong> — the 6/8-mark levelled question. Weigh positives against negatives, apply the scenario, and end with a judgement.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1]–[2] wants named points; a 4-mark Section B question wants points applied to a scenario; an 8-mark Section C question wants balance and a judgement.</p>`,
+            readCheck: {
+                q: "A question says: 'State one positive effect during a major event [1]'. What is the safest answer?",
+                opts: ["One named positive effect", "A full paragraph weighing several positives and negatives", "Two negative effects instead of a positive", "A description of the event's opening ceremony"],
+                ans: 0,
+                explain: "'State' + [1] = one named point. Writing a full discussion, giving negatives instead, or describing a ceremony all miss what a 1-mark 'state' question wants."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: weigh it up, don't just list it",
+            pills: ["Section B", "Section C", "AO2/AO3"],
+            content: `<p>The most common way to lose marks on Discuss/Evaluate questions here is writing a one-sided list. Build a higher-mark answer as <strong>positive → negative → judgement</strong>:</p>
+<ul>
+<li><strong>❌ low band:</strong> "A positive is national pride. Another positive is tourism. Another positive is jobs."</li>
+<li><strong>✅ higher band:</strong> "National pride can rise if the home team performs well, HOWEVER a facility problem reported in the media can undo that goodwill just as quickly — so the overall effect during the event depends heavily on how smoothly things run."</li>
+</ul>
+<p>In <strong>Section B</strong>, use a detail FROM the scenario you are given — a named area, a named problem — not a general example that ignores it.</p>`,
+            readCheck: {
+                q: "What turns a list of positives into a higher-band Discuss answer?",
+                opts: ["Weighing a positive against a negative and reaching a judgement", "Naming as many different positives as possible in the time you have available", "Repeating the exact same point using slightly different words", "Leaving out any mention of negatives completely"],
+                ans: 0,
+                explain: "Higher bands reward balance and a judgement, not volume — a longer list of only positives still caps in the lower bands."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> during-event effects appear as quick recall in <strong>Section A</strong> (identify/state a positive or negative), as applied points in <strong>Section B</strong> scenarios about a named host area, and feed <strong>Section C</strong> 8-mark answers discussing how successful hosting an event has been.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the positives and negatives in themes (community/pride, facilities/tourism/jobs, media, safety) so you can always recall several.</li>
+<li>Remember the same event can produce a positive AND a negative at the same time — that overlap is a strong evaluation point.</li>
+<li>Keep the three stages (before/during/after) straight — an effect from the wrong stage earns nothing, however accurate it is.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One positive during the event is… because…"</li>
+<li>"This matters because…"</li>
+<li>"On the other hand, a negative effect is… because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to notice that the same event can produce a positive AND a negative at once?",
+                opts: ["It gives you a strong point for a balanced, higher-band Discuss answer", "It means the whole event has definitely failed and cannot be defended by anyone", "It proves that user groups and during-event effects are the same idea", "It replaces the need to name any effects at all in your answer"],
+                ans: 0,
+                explain: "Showing that one event produces both at once is exactly the kind of balanced, applied point that lifts a Section C answer into a higher band."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Social infrastructure in use", def: "Venues, transport and facilities built beforehand now genuinely being used during the event" },
+        { term: "National morale / social cohesion", def: "A shared, feel-good sense of pride and unity across the country while the event is on" },
+        { term: "National status", def: "How the host country is seen and respected by OTHER nations during the event" },
+        { term: "Direct tourism", def: "Visitor spending tied straight to the event, e.g. tickets and hotels near the venue" },
+        { term: "Indirect tourism", def: "Extra spending nearby that isn't the event itself, e.g. meals and sightseeing" },
+        { term: "Short-term employment", def: "Temporary jobs (stewarding, security) created only to cover the event period" },
+        { term: "Regional neglect", def: "Non-host areas feeling left out while attention and money focus elsewhere" },
+        { term: "Negative media coverage", def: "Reporting on organisational or facility problems, e.g. ticketing chaos" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> positive effects a major sporting event can have while it is actually taking place.",
+            hint: "Pick two different ones from: social infrastructure in use, national morale/cohesion, national status, interest in the sport, media coverage, direct/indirect tourism, short-term employment.",
+            starter: "One positive effect is… Another positive effect is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct, DIFFERENT during-event positive named, to a maximum of two. Accept any two from:</strong></p>
+<ul>
+<li>Improved social infrastructure in use</li>
+<li>Improved national morale / social cohesion</li>
+<li>Increased national status</li>
+<li>Greater national interest in the sport(s)</li>
+<li>Increased media coverage of the sport(s)</li>
+<li>A rise in direct and/or indirect tourism</li>
+<li>An increase in short-term employment during the event</li>
+</ul>
+<p>Do not credit the same effect written twice, or a pre-event/post-event effect.</p>
+</div>`,
+            modelAnswer: "One positive effect is a rise in national morale and social cohesion.\n\nAnother positive effect is an increase in short-term employment during the event.",
+            markPoints: { note: "One tick per correct, DIFFERENT during-event positive; cap at 2.", groups: [
+                { label: "Your first positive effect", max: 1, points: ["Names a valid during-event positive effect"] },
+                { label: "Your second positive effect", max: 1, points: ["Names a DIFFERENT valid during-event positive effect (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is most likely to be a NEGATIVE effect while a major sporting event is being staged?",
+            options: ["Increased litter, noise and transport pressure around the busy host venues", "A rise in national interest in the sport(s) being played across the whole country", "An increase in short-term jobs created just to cover the period the event is running", "A rise in direct tourism spending on tickets and hotels close to the venues"],
+            answer: 0,
+            hint: "Three of these are named during-event positives. Only one is a genuine negative.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — Increased litter, noise and transport pressure around the busy host venues.</strong></p>
+<ul>
+<li>This is a genuine during-event negative — the strain large crowds put on the host area.</li>
+<li>Interest, jobs and tourism are all named during-event positives, not negatives.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Northgate 2027 Games</strong></p><p>The town of Northgate is hosting an international multi-sport event. During the event, the brand-new tram line and refurbished stadium are running at full capacity every day, carrying spectators and staff. Meanwhile, several villages 40 miles from Northgate, which received none of the new investment, say they have seen no benefit at all and feel completely overlooked.</p>`,
+            question: "Using the scenario, explain <strong>one</strong> positive and <strong>one</strong> negative effect that Northgate is experiencing during the event.",
+            hint: "Use the tram line/stadium detail for the positive, and the villages' comment for the negative. For each, name the effect and explain it using a detail from the scenario.",
+            starter: "One positive effect is… because the scenario shows…\n\nOne negative effect is… because the scenario shows…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks for the positive, up to 2 marks for the negative: 1 for identifying the effect, 1 for linking it to a detail in the scenario.</strong></p>
+<ul>
+<li><strong>Positive</strong> — improved social infrastructure in use: the new tram line and stadium, built for the event, are now genuinely being used at full capacity by spectators and staff.</li>
+<li><strong>Negative</strong> — regional neglect: villages away from Northgate received none of the investment and feel overlooked, showing that non-host areas can be left out.</li>
+</ul>
+<p>Accept any other reasonable, scenario-linked positive or negative. A named effect with no scenario link earns 1 of the 2 marks for that half.</p>
+</div>`,
+            modelAnswer: "One positive effect is improved social infrastructure in use: the new tram line and refurbished stadium, built for the event, are now running at full capacity carrying spectators and staff, showing the investment is genuinely being used.\n\nOne negative effect is regional neglect: villages 40 miles away received none of the new investment and feel completely overlooked, showing that areas outside the host town can miss out while attention focuses on Northgate.",
+            markPoints: { note: "Mark each half out of 2: one tick for naming the effect, one for linking it to the scenario.", groups: [
+                { label: "Your positive effect", max: 2, points: ["Names a valid during-event positive (e.g. social infrastructure in use)", "Links it to a detail from the scenario (the tram line/stadium running at full capacity)"] },
+                { label: "Your negative effect", max: 2, points: ["Names a valid during-event negative (e.g. regional neglect)", "Links it to a detail from the scenario (the villages receiving no investment and feeling overlooked)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Northgate 2027 Games</strong></p><p>Northgate's Games are now underway. The new tram line and stadium are busy every day, national morale has lifted after the host nation won its opening event, and media coverage is high. However, the host town's roads are jammed with extra traffic and litter, and villages away from Northgate say they feel forgotten.</p>`,
+            question: "Discuss how successfully Northgate is managing the effects of hosting its Games <strong>during</strong> the event itself.",
+            hint: "Pick two or three effects from the scenario, both positive and negative. Explain each, then weigh which matters more here, and finish with a judgement on how successful the during-event stage has been overall.",
+            starter: "One positive Northgate is experiencing is… because…\n\nHowever, a negative is… because…\n\nOverall, the extent to which hosting has been successful during the event depends on…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several during-event effects, showing clearly how the positives and negatives interact in Northgate's case AND weighing which matters more, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one effect with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names effects with little application to Northgate and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Positives:</strong> social infrastructure in use (tram/stadium busy daily); improved national morale after the host nation's win; increased media coverage.</li>
+<li><strong>Negatives:</strong> increased transport and litter around the host town; regional neglect (villages feeling forgotten).</li>
+<li><strong>Evaluation:</strong> the win-driven morale boost could reverse quickly if the home nation performs badly later; heavy traffic/litter could itself generate negative media coverage, undoing some of the goodwill; the neglected villages show that success is not shared evenly across the whole country.</li>
+<li><strong>Judgement:</strong> Northgate is managing the during-event stage reasonably well because the infrastructure and morale gains are real and visible — but it is not a complete success, since the traffic/litter strain and the regional neglect mean the benefits are concentrated narrowly rather than shared.</li>
+</ul>
+</div>`,
+            modelAnswer: "Northgate is seeing real during-event positives: the tram and stadium, built for the Games, are busy every day, and national morale has lifted after the host nation's opening win. Media coverage is also high, raising the country's national status while the world is watching.\n\nHowever, jammed roads and litter around the host town could themselves attract negative coverage, and villages away from Northgate feel forgotten, showing the benefits are not shared nationally.\n\nOverall, Northgate is managing the during-event stage reasonably well, because the infrastructure and morale gains are genuine, but it is not a full success, since the traffic strain and regional neglect show the benefits are concentrated on the host town rather than spread more widely."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

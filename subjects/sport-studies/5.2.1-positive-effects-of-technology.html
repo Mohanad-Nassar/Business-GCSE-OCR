@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.2.1 Positive Effects of Technology – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport</div>
+            <h1>5.2.1 Positive Effects of Technology</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 5.2.1 Positive Effects of Technology
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '5-2-1-positive-effects-of-technology',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport',
+            title: '5.2.1 Positive Effects of Technology',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Enhanced performance and a lower risk of injury",
+            tag: "Core knowledge",
+            content: `<h4>Enhanced performance</h4>
+<ul>
+<li>Technology can give performers and coaches <strong>precise data</strong> that the human eye simply cannot collect — for example, a <strong>GPS vest</strong> worn by a rugby player records exact distance covered, sprint speed and how hard each session was.</li>
+<li>Because training can then target the <em>real</em> weakness shown by the data, rather than a coach's guess, performance improves faster than it would through trial and error.</li>
+<li>A cyclist using a <strong>power meter</strong> can see the exact wattage they are producing on a climb, so the next session is planned around a genuine number instead of how tired their legs feel.</li>
+</ul>
+<h4>Lower risk of injury</h4>
+<ul>
+<li>Wearable sensors can flag dangerous forces before they cause an injury. A rugby player's <strong>impact-sensing mouthguard</strong> can record the force of a collision, so medical staff know when to check a player over rather than waiting for a visible symptom.</li>
+<li>Better-designed protective equipment — closer-fitting boots, padded headguards — reduces the chance that a normal knock in a contact sport turns into a serious injury.</li>
+<li>Together, this means technology does not just react to injuries; it helps <strong>prevent</strong> some from happening at all.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best explains how a GPS vest could lead to 'enhanced performance'?",
+                opts: ["It gives an exact number for things like distance and speed, so training can target the real weakness it shows", "It automatically and permanently raises the total wages a professional performer is paid by their club every season", "It stops every player at the club from ever picking up an injury again in future", "It plays calming music to the performer throughout a match to help them relax"],
+                ans: 0,
+                explain: "A GPS vest measures genuine performance data (distance, speed, effort), letting training target the actual weakness it reveals — not wages, an injury guarantee, or music."
+            }
+        },
+        {
+            title: "Quicker recovery from injury and more accurate decisions",
+            tag: "Core knowledge",
+            content: `<h4>Quicker recovery from injury</h4>
+<ul>
+<li>When a performer IS injured, technology can speed up a safe return. A <strong>cryotherapy chamber</strong> exposes the body to extreme cold for a short time, which can reduce swelling and pain in the days straight after an injury.</li>
+<li><strong>Compression garments</strong> and underwater treadmills let an injured performer keep some fitness and blood flow moving while the injury itself is still protected.</li>
+<li>Medical staff can also track healing with scans and data instead of guesswork, so a performer returns to full training when the evidence says they are ready — not simply when they say they "feel fine."</li>
+</ul>
+<h4>More accurate decisions</h4>
+<ul>
+<li>Ball-tracking and video-review technology gives officials evidence a human eye alone can miss. In tennis, a line-calling system can show whether a ball landed a few millimetres in or out; in football, goal-line technology confirms whether the whole ball crossed the line.</li>
+<li>Because the correct decision is reached more often, the result of the contest is fairer to both sides — settling an argument over a mistaken call that technology could resolve instantly.</li>
+</ul>`,
+            readCheck: {
+                q: "Why can ball-tracking or goal-line technology lead to 'more accurate decisions'?",
+                opts: ["It gives officials clear evidence the naked eye can miss, so the correct decision is reached more often", "It removes the need for a match official to be present at the fixture at all", "It always makes the crowd cheer louder for the home team throughout the fixture", "It guarantees that every single decision from now on will always favour whichever team is currently losing"],
+                ans: 0,
+                explain: "Ball-tracking gives evidence the eye can miss, so officials reach the correct decision more often — it does not remove officials, sway crowds, or favour a team."
+            }
+        },
+        {
+            title: "Technical analysis — and explaining a positive effect fully",
+            tag: "Exam skill",
+            content: `<h4>Technical analysis</h4>
+<ul>
+<li><strong>Technical analysis</strong> means using data or video to study a performer's technique closely, so a coach can see exactly what to change instead of relying on memory of what happened.</li>
+<li>Filming a swimmer's stroke, then reviewing it frame by frame, can reveal a small technical flaw — such as an early arm entry — that would be almost impossible to spot live, at full speed, from the poolside.</li>
+<li>Combining video with data such as heart rate or stride length gives an even fuller picture, so feedback to the performer is specific rather than a vague impression.</li>
+</ul>
+<h4>Explaining a positive effect fully — the exam skill</h4>
+<ul>
+<li>A weak answer just names an effect: <em>"Technology helps with recovery."</em> A strong answer names the effect, says HOW the technology produces it, and gives a named sporting example.</li>
+<li>Strong version: <em>"A cryotherapy chamber can speed up recovery from injury, because the extreme cold reduces swelling in the days straight after the injury happens — for example for an injured rugby player."</em></li>
+<li>Keep five positive effects ready to draw on: enhanced performance, lower risk of injury, quicker recovery from injury, more accurate decisions, and technical analysis.</li>
+</ul>`,
+            readCheck: {
+                q: "What makes an exam answer about a positive effect of technology 'full', rather than basic?",
+                opts: ["Naming the effect, explaining how the technology produces it, and giving a named sporting example", "Simply writing down the name of one piece of sports technology", "Listing as many different pieces of sports technology as you possibly can fit onto the entire page", "Describing your own personal opinion of a professional sports team"],
+                ans: 0,
+                explain: "Full marks come from naming the effect, explaining HOW it happens, and applying it to a sporting example — not a bare name, a long list, or an opinion."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "A cyclist uses a power meter to see the exact wattage they produce on a climb. Which positive effect of technology does this best show?",
+            opts: ["More accurate decisions, because the power meter overturns any decision an official makes in a road race", "Quicker recovery from injury, because the power meter treats sore muscles after every training ride", "Enhanced performance, because training can now target the exact weakness the wattage data reveals", "Technical analysis, because the power meter replaces the need for a coach to ever watch the rider"],
+            ans: 2,
+            explain: "Seeing exact wattage lets training target a genuine weakness, which is enhanced performance. A power meter does not overturn decisions, treat muscles, or replace a coach."
+        },
+        {
+            q: "A rugby player wears an impact-sensing mouthguard that records the force of collisions. Which positive effect does this best show?",
+            opts: ["Technical analysis, because the mouthguard automatically studies and redesigns the player's entire long-term training programme", "Lower risk of injury, because the recorded force can prompt a medical check before a visible symptom appears", "More accurate decisions, because the mouthguard decides every refereeing call made during the match", "Enhanced performance, because wearing the mouthguard alone guarantees the player will run faster"],
+            ans: 1,
+            explain: "Flagging dangerous force lets staff check a player before symptoms show — that lowers injury risk. It does not redesign training, referee, or guarantee speed."
+        },
+        {
+            q: "After surgery, a footballer uses a cryotherapy chamber and an underwater treadmill during rehabilitation. Which positive effect does this best show?",
+            opts: ["Enhanced performance, because the treadmill instantly and permanently makes the footballer much better than before the injury ever happened", "More accurate decisions, because the chamber overturns the referee's original decision from the match", "Technical analysis, because this equipment films the footballer's stroke technique frame by frame", "Quicker recovery from injury, because the cold reduces swelling and the treadmill keeps fitness moving safely"],
+            ans: 3,
+            explain: "Cold reducing swelling plus safe, protected fitness work is quicker recovery from injury — not instant improvement, a reversed decision, or filmed technique."
+        },
+        {
+            q: "A cricket umpire uses ball-tracking technology to check whether a batter would have been out. Which positive effect does this best show?",
+            opts: ["More accurate decisions, because the technology gives evidence of the ball's path that the eye alone can miss", "Quicker recovery from injury, because the tracking technology instantly and completely heals any injury the batter currently happens to have", "Enhanced performance, because the tracking data alone will make the batter score more runs next innings", "Technical analysis, because the umpire uses the footage to completely redesign the batter's technique"],
+            ans: 0,
+            explain: "Ball-tracking gives evidence the eye can miss, so the correct decision is reached more often — that is more accurate decisions, not healing, scoring, or redesigning technique."
+        },
+        {
+            q: "A swimming coach films a swimmer's stroke and studies it frame by frame after every session. Which positive effect does this best show?",
+            opts: ["More accurate decisions, because the footage can completely change the result of a race that has already finished and been announced", "Lower risk of injury, because filming a swimmer's stroke prevents every possible muscle strain", "Technical analysis, because the coach can spot a small technical flaw that is hard to see live at full speed", "Enhanced performance, because owning a camera alone raises how fast the swimmer can swim"],
+            ans: 2,
+            explain: "Studying video closely to spot a precise flaw is technical analysis — footage does not change a finished result, prevent all strains, or speed a swimmer up by itself."
+        },
+        {
+            q: "Which of these describes something that is NOT one of the five positive effects covered on this page?",
+            opts: ["Enhanced performance from a coach using detailed session data", "More accurate decisions made using ball-tracking or video-review technology", "Reduced flow of the game while officials stop to check a replay screen", "Quicker recovery from injury after treatment in a cryotherapy chamber"],
+            ans: 2,
+            explain: "A slower, more stop-start game is a downside of technology, not a positive effect — the other three options are all on this page's list of five positive effects."
+        }
+    ];
+
+    const matchData = [
+        { term: "Enhanced performance", def: "Training data lets a performer or coach target a genuine weakness rather than guessing" },
+        { term: "Lower risk of injury", def: "Sensors and improved kit can flag danger early or reduce the harm of a normal knock" },
+        { term: "Quicker recovery", def: "Treatments such as extreme cold or protected exercise help someone return to fitness sooner" },
+        { term: "More accurate decisions", def: "Ball-tracking or video review gives officials evidence a human eye alone can miss" },
+        { term: "Technical analysis", def: "Studying video or data closely to see exactly what a technique needs to change" },
+        { term: "GPS vest", def: "A wearable device that records a performer's distance covered, speed and effort in a session" }
+    ];
+
+    const fibData = [
+        {
+            display: "Detailed training data can help target a performer's weakness, which is a form of enhanced _____.",
+            blanks: { B1: "performance" }
+        },
+        {
+            display: "Sensors that flag dangerous forces early can help lower the risk of _____.",
+            blanks: { B1: "injury" }
+        },
+        {
+            display: "A cryotherapy chamber can reduce swelling, helping a performer make a quicker _____ from injury.",
+            blanks: { B1: "recovery" }
+        },
+        {
+            display: "Ball-tracking technology gives officials evidence a human eye can miss, leading to more _____ decisions.",
+            blanks: { B1: "accurate" }
+        },
+        {
+            display: "Studying video or data closely to see exactly what to change is called technical _____.",
+            blanks: { B1: "analysis" }
+        }
+    ];
+    const fibWords = ["performance", "injury", "recovery", "accurate", "analysis"];
+
+    const tfData = [
+        {
+            statement: "Technology can give coaches exact data, such as distance or speed, that the human eye cannot collect alone.",
+            answer: true,
+            explanation: "That data is exactly what lets training target a performer's real weakness — the basis of enhanced performance."
+        },
+        {
+            statement: "Wearable sensors can only be used to punish a performer after an injury has already happened.",
+            answer: false,
+            explanation: "Sensors can flag dangerous forces BEFORE an injury, prompting a medical check early — that helps prevent harm, not just react to it."
+        },
+        {
+            statement: "A cryotherapy chamber is an example of technology helping a performer recover more quickly from injury.",
+            answer: true,
+            explanation: "The extreme cold can reduce swelling and pain in the days after an injury, supporting a quicker, safer recovery."
+        },
+        {
+            statement: "Ball-tracking and video-review technology can never make an officiating decision more accurate.",
+            answer: false,
+            explanation: "It gives evidence the human eye can miss, so the correct decision is reached more often — that IS more accurate decisions."
+        },
+        {
+            statement: "Technical analysis means using data or video to study technique closely, rather than relying on memory alone.",
+            answer: true,
+            explanation: "That is the definition — frame-by-frame footage or measurements reveal detail a coach's memory of the session cannot."
+        },
+        {
+            statement: "A strong exam answer about a positive effect only needs to name the effect, with no explanation or example.",
+            answer: false,
+            explanation: "Naming the effect earns little on its own — full marks need HOW the technology produces it and a named sporting example."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "If I just name a positive effect, like 'enhanced performance', that is enough for the marks.",
+            correct: "Naming the effect is usually only the first mark, if that. The examiner wants you to explain HOW the technology produces the effect, ideally with a named sporting example. Basic answer: \"Technology gives enhanced performance.\" Full-marks answer: \"A GPS vest gives a rugby player exact distance and speed data, so training can target their real weakness — enhancing performance.\" The difference is the explanation and the example.",
+            readCheck: {
+                q: "An 'Explain' question asks how technology produces a positive effect. What earns the marks?",
+                opts: ["Naming as many different pieces of sports technology as you can possibly remember", "Naming the effect, then explaining HOW the technology produces it", "Writing the effect's name in a longer sentence", "Describing your own favourite sports team"],
+                ans: 1,
+                explain: "Explain = effect + mechanism (how it happens). Naming technology or lengthening the same sentence without a mechanism does not show the understanding the mark scheme rewards."
+            }
+        },
+        {
+            wrong: "'Technical analysis' just means a coach watching the match normally, the same as always.",
+            correct: "Normal watching, at full speed and from a distance, is exactly what technical analysis improves on. It specifically means using video or data — reviewed frame by frame, or measured precisely — to spot a detail (like an early arm entry) that live watching would miss. If your answer could describe any coach on any touchline, it has not shown technical analysis.",
+            readCheck: {
+                q: "What is the key difference between 'technical analysis' and simply watching a match live?",
+                opts: ["There is no real difference at all between the two things, they are exactly the same idea", "Technical analysis studies video or data closely to spot detail live watching would miss", "Technical analysis means a coach stops watching matches completely", "Technical analysis only ever happens after a performer retires"],
+                ans: 1,
+                explain: "Technical analysis uses close, repeatable study (frame by frame, or measured data) to catch detail that live, full-speed watching cannot — that precision is the whole point."
+            }
+        },
+        {
+            wrong: "'More accurate decisions' and 'quicker decisions' mean exactly the same thing.",
+            correct: "They are different ideas. 'More accurate' means the correct decision is reached more often, because officials have better evidence. It says nothing about speed — reviewing footage can even take longer than a snap judgement. Don't swap 'accurate' for 'quick' in an answer; they test different understanding.",
+            readCheck: {
+                q: "Why is 'more accurate decisions' a different claim from 'quicker decisions'?",
+                opts: ["Accuracy is about reaching the correct decision, which is separate from how fast it is reached", "A quick decision is always the same thing as a correct decision", "Accurate decisions can only ever be reached completely instantly, and never at all after any kind of review", "There is no meaningful difference between accuracy and speed"],
+                ans: 0,
+                explain: "Accuracy is about correctness, not speed — a review can be slower yet still more accurate, so the two ideas must not be confused in an answer."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — matching your answer to the tariff",
+            pills: ["Identify", "Describe", "Explain", "Evaluate"],
+            content: `<p>Positive-effects questions can be short recall or longer applied writing. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name the effect. "Identify one positive effect of technology" = write its name. 1 mark.</li>
+<li><strong>Describe</strong> — say what the technology does. "Describe how a cryotherapy chamber helps a performer" = describe the process.</li>
+<li><strong>Explain</strong> — give the mechanism. Use the word <em>because</em>. "Explain how video analysis benefits a swimmer" = the effect PLUS how it happens.</li>
+<li><strong>Discuss / Evaluate</strong> — weigh positives against a limit or a negative, then reach a judgement (usually 6 or 8 marks).</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [4] usually wants two effects applied to a scenario; [6]/[8] level-of-response wants balance and a justified judgement.</p>`,
+            readCheck: {
+                q: "A question says: 'Explain one positive effect that technology can have on a performer's recovery. [2]' What is the safest structure?",
+                opts: ["Name a piece of technology only, with absolutely no further detail given at all", "Name the effect, then explain how the technology produces it", "List every positive effect you can remember", "Describe an unrelated piece of sports equipment"],
+                ans: 1,
+                explain: "'Explain' + [2] rewards a mechanism, not just a name. Listing several effects or describing something unrelated wastes the two marks on offer."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the effect, explain how, then give an example",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is stopping at the effect's name. Build every answer as <strong>effect → mechanism → sporting example</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "Technology helps with recovery."</li>
+<li><strong>✅ full marks:</strong> "A cryotherapy chamber speeds up recovery from injury, because the extreme cold reduces swelling in the days after the injury happens — for example for an injured rugby player."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named club, a named piece of technology). You must then use a detail <em>from that scenario</em>, not a generic example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario about a named club buying named technology, your explanation should be built around...",
+                opts: ["any sport that you personally happen to enjoy watching in your own free time", "the specific technology and scenario you are given", "a famous athlete unrelated to the scenario", "your own school's PE lessons only"],
+                ans: 1,
+                explain: "Section B is applied — the marks are for using the scenario's own technology and detail. A generic example that ignores the scenario is capped."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this topic appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> positive effects appear as quick recall in <strong>Section A</strong> (identify/explain), as applied points in <strong>Section B</strong> scenarios about a club or performer using new technology, and they feed <strong>Section C</strong> 8-mark Discuss/Evaluate answers weighing technology's positives against its costs or limits.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Keep all five effects ready: enhanced performance, lower risk of injury, quicker recovery, more accurate decisions, technical analysis.</li>
+<li>For every effect, memorise one worked mechanism (like the cryotherapy example) so you always have a full sentence ready.</li>
+<li>In a longer answer, don't just list effects — pick two or three and develop each one properly.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One positive effect here is… because…"</li>
+<li>"This benefits the performer by… which shows…"</li>
+<li>"However, this benefit depends on… so overall…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it better to develop two or three positive effects properly than to list five?",
+                opts: ["Listing five effects by name is always worth far more marks than developing just two of them", "A developed explanation with a mechanism earns more than a bare list of names", "The exam only ever allows one effect to be mentioned", "Developing an effect means giving your personal opinion instead"],
+                ans: 1,
+                explain: "Marks come from mechanism and application, not from how many names appear — two well-developed effects out-score five bare names."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Enhanced performance", def: "Precise data (e.g. GPS, power meter) lets training target a performer's real weakness" },
+        { term: "Lower risk of injury", def: "Sensors and better equipment can flag danger early or reduce harm from a normal knock" },
+        { term: "Quicker recovery from injury", def: "Treatments like cryotherapy or protected exercise help a performer return to fitness sooner" },
+        { term: "More accurate decisions", def: "Ball-tracking/video review gives officials evidence the eye alone can miss" },
+        { term: "Technical analysis", def: "Studying video or data closely (e.g. frame by frame) to see exactly what to change" },
+        { term: "Cryotherapy chamber", def: "Extreme-cold treatment that can reduce swelling in the days after an injury" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> positive effects that technology can have on sports performers.",
+            hint: "Just name two — pick from the five on this page: enhanced performance, lower risk of injury, quicker recovery from injury, more accurate decisions, technical analysis.",
+            starter: "One positive effect is… Another positive effect is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct positive effect named, to a maximum of two. Accept any two different effects from:</strong></p>
+<ul>
+<li>Enhanced performance</li>
+<li>Lower risk of injury</li>
+<li>Quicker recovery from injury</li>
+<li>More accurate decisions</li>
+<li>Technical analysis</li>
+</ul>
+<p>Do not credit the same effect written twice.</p>
+</div>`,
+            modelAnswer: "One positive effect is enhanced performance.\n\nAnother positive effect is quicker recovery from injury.",
+            markPoints: { note: "One tick per correct, DIFFERENT positive effect; cap at 2.", groups: [
+                { label: "Your first positive effect", max: 1, points: ["Names a valid positive effect from the specification"] },
+                { label: "Your second positive effect", max: 1, points: ["Names a DIFFERENT valid positive effect (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is an example of technology producing a positive effect through 'more accurate decisions'?",
+            options: ["A GPS vest recording a rugby player's total distance covered in a session", "Ball-tracking technology confirming exactly where a tennis ball landed", "A cryotherapy chamber reducing swelling in the days after an injury", "Video footage helping a coach spot a small flaw in a swimmer's stroke"],
+            answer: 1,
+            hint: "Think about which option gives officials evidence the eye alone can miss.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Ball-tracking technology confirming exactly where a tennis ball landed.</strong></p>
+<ul>
+<li>This gives an official evidence the eye alone can miss, so the correct decision is reached more often.</li>
+<li>The other options show enhanced performance, quicker recovery, and technical analysis instead.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Thornfield RFC</strong></p><p>Thornfield RFC, a rugby club, has just invested in <strong>GPS vests</strong> for every player and a <strong>cryotherapy chamber</strong> at its training ground. The coaching staff hope the investment will benefit players both on the training pitch and when they are injured.</p>`,
+            question: "Explain how Thornfield RFC's investment in GPS vests and a cryotherapy chamber could produce <strong>two</strong> positive effects for its players.",
+            hint: "Take each piece of technology in turn. Name the positive effect it produces, then explain how, using details from the scenario.",
+            starter: "The GPS vests could produce… because…\n\nThe cryotherapy chamber could produce… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per piece of technology: 1 for identifying a relevant positive effect, 1 for explaining it using the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>GPS vests</strong> — enhanced performance: the vests record exact distance and effort for every Thornfield player, so training can target each player's real weakness rather than a guess.</li>
+<li><strong>Cryotherapy chamber</strong> — quicker recovery from injury: the extreme cold reduces swelling in the days after an injury, helping an injured Thornfield player return to training sooner.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. An effect with no mechanism, or a mechanism not linked to the scenario, earns 1 of the 2 marks for that item.</p>
+</div>`,
+            modelAnswer: "The GPS vests could enhance performance, because they record each player's exact distance covered and effort in training, so Thornfield's coaches can target a specific player's real weakness instead of guessing.\n\nThe cryotherapy chamber could produce quicker recovery from injury, because the extreme cold reduces swelling in the days straight after an injury, helping an injured player return to full training sooner.",
+            markPoints: { note: "Mark each piece of technology out of 2: one tick for the effect, one for a scenario-linked explanation.", groups: [
+                { label: "GPS vests", max: 2, points: ["Identifies a relevant positive effect (e.g. enhanced performance)", "Explains it using the scenario (e.g. distance/effort data lets Thornfield target a player's real weakness)"] },
+                { label: "Cryotherapy chamber", max: 2, points: ["Identifies a relevant positive effect (e.g. quicker recovery from injury)", "Explains it using the scenario (e.g. reduced swelling helps an injured Thornfield player return sooner)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Portway Swimming Academy</strong></p><p>Portway Swimming Academy is deciding whether to invest heavily in technology for its squad: a full video-analysis suite, wearable trackers for every swimmer, and touch-pad timing technology for close finishes. The cost would be significant, and the academy currently spends very little on technology.</p>`,
+            question: "Discuss the extent to which investing in technology would produce positive effects for Portway Swimming Academy's swimmers.",
+            hint: "Pick two or three positive effects and apply each to Portway's plan. Then weigh it up — what limits how much the investment would really help? Finish with a judgement.",
+            starter: "One positive effect for Portway is… because…\n\nAnother is…\n\nHowever, the extent to which this helps depends on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several positive effects for Portway, showing clearly how the technology would benefit swimmers AND weighing the limits (cost, staff skill, whether the data is actually used well), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one effect with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names effects and/or technology with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Wearable trackers:</strong> give exact effort and speed data for each swimmer, so training can target a genuine weakness — enhanced performance.</li>
+<li><strong>Video-analysis suite:</strong> lets a coach study a swimmer's stroke frame by frame, spotting a small technical flaw live watching would miss — technical analysis.</li>
+<li><strong>Touch-pad timing technology:</strong> gives a far more accurate result in a close finish than a human eye could judge alone — more accurate decisions.</li>
+<li><strong>Evaluation:</strong> the benefit only appears if coaching staff have the time and skill to act on the data, not just collect it; the equipment is expensive for an academy that currently spends little on technology; a smaller or poorer academy might not be able to match this investment at all.</li>
+<li><strong>Judgement:</strong> investing in technology is likely to help Portway's swimmers improve, because it targets real weaknesses and details that watching alone would miss — but the benefit depends on the academy affording it and using the data well, not on owning the equipment alone.</li>
+</ul>
+</div>`,
+            modelAnswer: "Investing in technology could bring several positive effects for Portway's swimmers. A wearable tracker gives genuine effort and speed data, so training can target a swimmer's real weakness, enhancing performance. A video-analysis suite lets a coach review a stroke frame by frame, spotting a small flaw such as an early arm entry that is nearly impossible to see live — this is technical analysis. Touch-pad timing also gives a far more accurate result in a close finish than a human eye could judge.\n\nHowever, a full suite and trackers are expensive for an academy that currently spends little on technology, and the benefit depends on staff having time and skill to act on the data, not simply collect it.\n\nOverall, the investment is likely to help Portway's swimmers improve, but only if the academy can afford the technology and use it well."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

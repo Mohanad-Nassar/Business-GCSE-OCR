@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.5.5 Education Against PEDs – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values</div>
+            <h1>2.5.5 Education Against PEDs</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.5.5 Education Against PEDs — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-5-5-education-against-peds',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values',
+            title: '2.5.5 Education Against PEDs',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Educating athletes to prevent doping — the big idea",
+            tag: "Key concept",
+            content: `<h4>Why education, not just punishment</h4>
+<ul>
+<li>Sport does not only rely on catching cheats after the fact — a large amount of anti-doping work happens <strong>before</strong> an athlete ever considers taking a banned substance.</li>
+<li><strong>Education</strong> means teaching athletes the facts, the risks and the values of sport so that they choose not to dope in the first place, instead of only being deterred by the threat of a later sanction.</li>
+<li>Prevention through education matters because a drugs test can only catch someone who has already taken a substance — by that point, damage to health and to the sport's reputation may already be done.</li>
+</ul>
+<h4>Campaigns that discourage use</h4>
+<ul>
+<li>Governing bodies, clubs and schools run <strong>awareness campaigns</strong> — posters, workshops, talks and online resources — aimed at putting athletes off using performance-enhancing drugs before they are ever tempted.</li>
+<li>A good campaign does more than say "don't do it": it explains the health risks, the unfairness to other competitors, and the personal cost of being caught, in a way that actually changes behaviour rather than being ignored.</li>
+<li>Campaigns often target younger or developing athletes, because the attitudes formed early in a career are the ones most likely to last.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the main advantage of educating athletes BEFORE they dope, compared with only punishing them afterwards?",
+                opts: ["It removes the need for any drug testing at competitions from that point onwards", "It can stop the health damage and the unfairness from ever happening in the first place", "It guarantees that every athlete who takes part will certainly win a medal at their next event", "It means governing bodies no longer need any written rules about banned substances"],
+                ans: 1,
+                explain: "Education tries to stop doping before it starts, so the health damage and unfairness never happen — testing alone can only react once the damage is already done."
+            }
+        },
+        {
+            title: "Who does the educating — role models, peers and family",
+            tag: "Core knowledge",
+            content: `<h4>Role models</h4>
+<ul>
+<li>A <strong>role model</strong> is someone an athlete looks up to and copies — often a more experienced athlete, a coach, or a well-known performer in their sport.</li>
+<li>When a role model speaks openly about competing clean, and is clearly seen rejecting shortcuts, it makes "clean sport" feel like the normal way to behave, rather than a rule forced on athletes from outside.</li>
+<li>A role model who stays silent, or who is seen bending the rules, sends the opposite message — which is why governing bodies use respected role models deliberately in education programmes.</li>
+</ul>
+<h4>Peers and team-mates</h4>
+<ul>
+<li>Athletes spend most of their training time with people of a similar age and ability, so <strong>peers and team-mates</strong> shape day-to-day decisions more than any single poster or leaflet ever could.</li>
+<li>A team-mate who questions a risky choice, or reports a concern, can stop doping before it starts; a team-mate who treats it as normal makes doping feel more acceptable.</li>
+</ul>
+<h4>Family</h4>
+<ul>
+<li><strong>Family</strong> shape an athlete's attitude to fairness and honesty from a young age, long before any formal anti-doping education ever begins.</li>
+<li>A family that values effort and fair competition over winning at any cost reduces the pressure a young athlete feels to look for a shortcut later on.</li>
+</ul>`,
+            readCheck: {
+                q: "Why are peers and team-mates an important part of educating athletes against PED use?",
+                opts: ["They are legally responsible for drug-testing every single athlete in their squad each week", "They train alongside the athlete most days, so their everyday attitudes shape real choices", "They make posters and leaflets unnecessary for any governing body ever again", "They only matter once an athlete has already reached full international level"],
+                ans: 1,
+                explain: "Team-mates are around an athlete constantly, so what they treat as normal or unacceptable has a daily influence that a poster or a one-off talk cannot match."
+            }
+        },
+        {
+            title: "What athletes must know — risks and clean sport",
+            tag: "Exam skill",
+            content: `<h4>The serious health risks</h4>
+<ul>
+<li>Education programmes teach athletes that performance-enhancing drugs are not a free shortcut — they carry <strong>serious health risks</strong>, including long-term damage to the body, disrupted hormones, and psychological effects such as dependency.</li>
+<li>Many of these risks only appear years later, which is exactly why athletes need to be warned about them in advance rather than finding out from experience.</li>
+</ul>
+<h4>The value of clean sport</h4>
+<ul>
+<li>Education also teaches the <strong>value of clean sport</strong> — the idea that a result only means something if every competitor had a genuinely fair chance of achieving it.</li>
+<li>Athletes are encouraged to see fair competition as something worth protecting for its own sake, rather than just a rule imposed on them by someone else.</li>
+</ul>
+<h4>Knowing exactly what is banned — and why</h4>
+<ul>
+<li>A large part of education is making sure athletes know <strong>precisely which substances and methods are banned</strong>, so that they never dope by accident — for example through an unchecked supplement or an everyday medicine.</li>
+<li>Athletes are taught to check any product against the current banned list, and to ask a doctor or official before taking anything unfamiliar, instead of assuming it must be fine.</li>
+<li>Understanding <em>why</em> something is banned (an unfair advantage, a health danger, or going against the spirit of sport) helps the rule make sense, rather than just feeling arbitrary.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does education include teaching athletes exactly what is banned, rather than only that 'doping is against the rules'?",
+                opts: ["So that they never accidentally take a banned substance in something like an unchecked supplement", "So that every athlete memorises the entire full banned list word for word before any single competition", "So that governing bodies can stop testing athletes at competitions altogether", "So that athletes never need to ask a doctor about any medicine again in future"],
+                ans: 0,
+                explain: "Knowing precisely what is banned, and why, protects athletes from doping by accident — the goal is informed choices, not word-for-word memorising or removing testing."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What is the main aim of an anti-doping awareness campaign run by a club or governing body?",
+            opts: ["To put athletes off using banned substances before they are ever tempted to try them", "To remove the requirement for any athlete to ever be tested at a competition of any kind", "To reward athletes with prize money for reporting other competitors who dope", "To replace the entire set of written rules a sport has about banned substances"],
+            ans: 0,
+            explain: "Campaigns are a form of prevention — posters, workshops and talks aim to discourage use before an athlete ever considers it, not to change testing rules or offer rewards."
+        },
+        {
+            q: "How can a respected role model help educate athletes against doping?",
+            opts: ["By refusing to discuss the topic of doping with any athlete they coach or compete alongside", "By showing, through their own visible behaviour, that competing clean is the normal way to behave", "By guaranteeing that the athletes who copy them will win every future competition they ever enter", "By replacing the need for any official governing-body anti-doping campaign whatsoever"],
+            ans: 1,
+            explain: "A role model's visible behaviour makes clean sport feel like the expected norm, which is far more persuasive than staying silent or claiming to remove the need for campaigns."
+        },
+        {
+            q: "Why do peers and team-mates have such a strong influence on whether an athlete considers doping?",
+            opts: ["They are with the athlete for most of their day-to-day training, shaping normal, everyday choices", "They are the only people who are ever legally allowed to discuss banned substances", "They are automatically better informed about doping than any qualified coach or governing body could ever be", "They have no real influence at all once an athlete has joined a senior squad"],
+            ans: 0,
+            explain: "Constant daily contact means peers shape what feels 'normal', which is why their attitude matters more than a one-off talk from someone the athlete rarely sees."
+        },
+        {
+            q: "What role can a family play in educating a young athlete against future PED use?",
+            opts: ["Shaping the athlete's early attitudes to fairness, so winning at any cost feels less acceptable", "Legally banning the athlete from ever taking part in competitive sport again", "Testing the athlete for banned substances before every single training session without exception", "Replacing the athlete's coach as the only source of anti-doping information"],
+            ans: 0,
+            explain: "Family shape attitudes to honesty and fair play from a young age, long before formal education begins — they are not testers, and they do not replace coaches."
+        },
+        {
+            q: "Why do anti-doping education programmes teach athletes about the health risks of PEDs?",
+            opts: ["So athletes understand the real personal cost, since many risks only appear years later", "So athletes can safely reduce a health risk by taking a slightly smaller, measured dose", "So that governing bodies never need to mention the topic of health again after year one", "So that only elite, full-time professional athletes are ever warned about any risk at all"],
+            ans: 0,
+            explain: "Naming the real, often long-delayed health risks in advance is the point — there is no 'safe smaller dose', and every level of athlete needs the same warning, not just elite ones."
+        },
+        {
+            q: "An athlete is offered an unfamiliar supplement by a training partner. What has good anti-doping education taught them to do?",
+            opts: ["Take it immediately, because a training partner would never suggest something risky", "Check it against the current banned list, or ask a doctor, before taking anything unfamiliar", "Assume it is safe as long as it was bought legally from an ordinary high-street shop", "Say nothing to anyone and decide entirely alone, since checking would waste valuable training time anyway"],
+            ans: 1,
+            explain: "Education teaches athletes to check anything unfamiliar against the banned list or ask a professional first — trusting a training partner or a shop label is exactly how accidental doping happens."
+        }
+    ];
+
+    const matchData = [
+        { term: "Anti-doping campaign", def: "Posters, workshops and talks aimed at putting athletes off using banned substances before they are tempted" },
+        { term: "Role model", def: "A respected figure whose own visible behaviour shows athletes what counts as normal" },
+        { term: "Peer influence", def: "The everyday effect team-mates have on each other's choices during training" },
+        { term: "Family education", def: "The attitudes to fairness and honesty a young athlete picks up at home from an early age" },
+        { term: "Clean sport", def: "The idea that a result only means something if every competitor had a genuinely fair chance" },
+        { term: "Checking the banned list", def: "Confirming a supplement or medicine is allowed before taking it, to avoid doping by accident" }
+    ];
+
+    const fibData = [
+        {
+            display: "Anti-doping _____ use posters, workshops and talks to put athletes off using banned substances before they are ever tempted.",
+            blanks: { B1: "campaigns" }
+        },
+        {
+            display: "A role _____ who is clearly seen competing clean makes fair play feel like the normal way to behave.",
+            blanks: { B1: "model" }
+        },
+        {
+            display: "Team-mates shape each other's everyday choices, which is why _____ matter so much in anti-doping education.",
+            blanks: { B1: "peers" }
+        },
+        {
+            display: "Athletes are taught to check any supplement against the banned list so they do not dope by _____.",
+            blanks: { B1: "accident" }
+        },
+        {
+            display: "Clean sport matters because a result should only count if every competitor had a genuinely fair _____.",
+            blanks: { B1: "chance" }
+        }
+    ];
+    const fibWords = ["campaigns", "model", "peers", "accident", "chance"];
+
+    const tfData = [
+        {
+            statement: "Anti-doping education aims to stop athletes doping before it happens, not only to punish them afterwards.",
+            answer: true,
+            explanation: "That is the whole point of education — prevention. Punishing athletes who have already doped is a separate, reactive response."
+        },
+        {
+            statement: "Only elite, famous athletes can ever act as a role model who influences someone against doping.",
+            answer: false,
+            explanation: "A role model can be a senior team-mate, a local coach or a family member — anyone an athlete looks up to and copies, not only famous professionals."
+        },
+        {
+            statement: "Team-mates can influence each other's day-to-day choices about whether to use banned substances.",
+            answer: true,
+            explanation: "Because athletes train alongside team-mates constantly, what team-mates treat as normal has a real, daily influence on individual choices."
+        },
+        {
+            statement: "Once a supplement is legal to buy in an ordinary shop, it is automatically safe for an athlete to take.",
+            answer: false,
+            explanation: "Some legal supplements contain substances that are banned in sport but not clearly listed — athletes must check the banned list, not just the shop label."
+        },
+        {
+            statement: "Understanding WHY a substance is banned can help the rule make more sense to an athlete.",
+            answer: true,
+            explanation: "Knowing the reason (unfair advantage, health danger, or against the spirit of sport) turns a rule from something arbitrary into something an athlete understands and accepts."
+        },
+        {
+            statement: "Family have no real influence on an athlete's attitude to fair play because doping is entirely a personal decision.",
+            answer: false,
+            explanation: "Family shape attitudes to honesty and fairness from a young age, well before any formal anti-doping education — so their influence is real, not irrelevant."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Education against PEDs is basically the same thing as punishing athletes who get caught doping.",
+            correct: "Education and punishment are two separate tools. Education is PROACTIVE — it teaches facts, risks and values BEFORE any decision is made, aiming to stop doping happening at all. Punishment (sanctions) is REACTIVE — it responds after someone has already doped. An exam answer that only describes a sanction has not described an educational strategy.",
+            readCheck: {
+                q: "What is the key difference between EDUCATION and PUNISHMENT in anti-doping work?",
+                opts: ["There is no real difference between the two at all", "Education happens before a decision is made; punishment happens after doping has occurred", "Punishment is always run by family members rather than governing bodies", "Education can only ever be delivered to athletes who have already been caught doping in competition"],
+                ans: 1,
+                explain: "Education tries to prevent doping before it happens; punishment reacts once it already has. Mixing the two up loses marks in an exam that asks specifically about education."
+            }
+        },
+        {
+            wrong: "Only elite, famous athletes can act as a role model who influences someone against doping.",
+            correct: "A role model is simply someone an athlete looks up to and copies — this can be a senior team-mate, a local coach, or a family member, just as much as a famous professional. Peers and family often have MORE day-to-day influence than a distant elite athlete an individual rarely meets in person.",
+            readCheck: {
+                q: "Which of these could act as a genuine role model in anti-doping education?",
+                opts: ["A famous international athlete the person has never actually met", "A respected senior team-mate the athlete trains with every week", "Both a well-known professional AND a respected senior team-mate", "Neither of these, because only official campaigns can educate athletes"],
+                ans: 2,
+                explain: "Role models exist at every level — a famous athlete AND a respected team-mate can both shape attitudes, so limiting it to elite athletes alone misses the closer, daily influence."
+            }
+        },
+        {
+            wrong: "If a product is a legal supplement bought on the high street, it must be safe for an athlete to use in competition.",
+            correct: "Some legal, over-the-counter supplements can contain substances that are banned in sport without this being made obvious on the packaging. Education teaches athletes to check any unfamiliar product against the current banned list, or ask a doctor or official first, rather than trusting that 'legal to buy' means 'safe to compete with'.",
+            readCheck: {
+                q: "Why can a legal, high-street supplement still be risky for a competing athlete?",
+                opts: ["Because all supplements are illegal to sell in ordinary shops", "Because it might contain a banned substance not made clear on the packaging", "Because supplements are always more expensive than banned substances", "Because shops are legally required to report every single customer who buys one"],
+                ans: 1,
+                explain: "'Legal to buy' is not the same as 'safe to compete with' — some supplements contain undisclosed banned substances, which is exactly why checking the list matters."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain", "Discuss"],
+            content: `<p>Questions on educating athletes against PEDs are usually short recall or applied, but Section C can extend into a levelled discussion. Match your answer to the command word and the mark tariff:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify two groups who can educate an athlete" = two names, nothing more. 1 mark each.</li>
+<li><strong>Describe</strong> — give the features of a strategy, e.g. what an awareness campaign actually involves.</li>
+<li><strong>Explain</strong> — name a strategy AND give a reason it reduces doping. Use the word <em>because</em>.</li>
+<li><strong>Discuss</strong> — weigh up more than one side (for example education vs punishment) before reaching a judgement.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1]–[2] wants one or two clear points; higher marks in Section B want those points applied to the scenario in front of you.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify two people or groups who can educate an athlete against doping [2]'. What is the safest answer?",
+                opts: ["A detailed paragraph explaining only one group in full depth", "Two clearly named people or groups, such as a role model and family", "A list of every group you can possibly think of, however many that is", "A description of your own personal opinion about doping in sport"],
+                ans: 1,
+                explain: "'Identify' plus [2] wants two clear names — role models, peers/team-mates or family, for example — not one long explanation, an endless list, or a personal opinion."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the strategy AND explain why it works",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The most common way to lose marks here is naming a strategy without saying why it reduces doping. Build every answer as <strong>strategy → who it reaches → why it helps</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "Campaigns."</li>
+<li><strong>✅ full marks:</strong> "Awareness campaigns explain the health risks of PEDs, which puts athletes off before they are ever tempted to try them."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario — a named club or athlete. You must link your strategy to a detail <em>from that scenario</em>, not a general example that ignores it.</p>`,
+            readCheck: {
+                q: "In a Section B scenario about a named athlete offered an unfamiliar supplement, your answer should link your strategy to...",
+                opts: ["any general example you already happen to know well", "the specific detail given in the scenario", "a famous international athlete not mentioned anywhere in the question", "the exam board's own official published guidance documents"],
+                ans: 1,
+                explain: "Section B rewards applying your knowledge to the scenario given — a general point that ignores the supplement detail in front of you is capped."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> quick recall of who educates athletes (role models, peers, family, campaigns) in <strong>Section A</strong>; applied scenarios about a club or athlete in <strong>Section B</strong>; and it can feed a <strong>Section C</strong> discussion comparing education against punishment as ways to reduce doping.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Keep education and punishment separate in your head — one prevents, the other reacts.</li>
+<li>For every strategy, memorise one reason it works — that reason is usually where the mark sits.</li>
+<li>Remember athletes can dope <em>by accident</em> — education about checking the banned list is a strategy in its own right.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One way athletes are educated against doping is… because…"</li>
+<li>"This matters because it reaches athletes before…"</li>
+<li>"On the other hand, education alone may not…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to remember that education can prevent ACCIDENTAL doping, not just deliberate doping?",
+                opts: ["It shows a strategy (checking the banned list) that punishment cannot replace", "It proves that deliberate doping no longer happens in any sport", "It means checking a banned list is now completely unnecessary", "It replaces every single other educational strategy covered anywhere on this entire topic"],
+                ans: 0,
+                explain: "Accidental doping is a real risk education specifically targets (via checking the banned list) — a point punishment cannot address, since it only reacts once doping has occurred."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Anti-doping campaign", def: "Posters/workshops/talks aimed at putting athletes off PEDs before they are tempted" },
+        { term: "Role model", def: "A respected figure whose visible behaviour shows what counts as normal" },
+        { term: "Peer influence", def: "The everyday effect team-mates have on each other's choices" },
+        { term: "Family education", def: "Attitudes to fairness and honesty picked up at home from a young age" },
+        { term: "Clean sport", def: "The value that a result only counts if every competitor had a fair chance" },
+        { term: "Checking the banned list", def: "Confirming a product is allowed before taking it, to avoid doping by accident" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> people or groups who can play a role in educating an athlete against using banned substances.",
+            hint: "Pick two from: role models, peers/team-mates, family, or anti-doping campaigns run by clubs or governing bodies.",
+            starter: "One group is… Another group is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correctly named group, to a maximum of two. Accept any two different groups, including:</strong></p>
+<ul>
+<li>Role models (experienced athletes, coaches)</li>
+<li>Peers / team-mates</li>
+<li>Family</li>
+<li>Clubs / schools running awareness campaigns</li>
+<li>National governing bodies</li>
+</ul>
+<p>Do not credit the same group written twice.</p>
+</div>`,
+            modelAnswer: "One group is peers and team-mates.\n\nAnother group is family.",
+            markPoints: { note: "One tick per correct, DIFFERENT group named; cap at 2.", groups: [
+                { label: "Your first group", max: 1, points: ["Names a valid group who can educate athletes against PED use"] },
+                { label: "Your second group", max: 1, points: ["Names a DIFFERENT valid group (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these best explains why family can play a role in educating a young athlete against future PED use?",
+            options: ["They shape the athlete's early attitudes to fairness and honesty, long before formal education begins", "They are legally required to drug-test the athlete before every single training session without exception", "They replace the athlete's coach as the only source of anti-doping information", "They guarantee the athlete will never be tempted to use a banned substance"],
+            answer: 0,
+            hint: "Think about when family influence happens compared with formal anti-doping education.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — They shape the athlete's early attitudes to fairness and honesty, long before formal education begins.</strong></p>
+<ul>
+<li>Family influence attitudes from a young age, before any club or governing body programme starts.</li>
+<li>Family are not testers, and they do not replace a coach — those are different roles entirely.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Riverside Athletics Club</strong></p><p>Jamie is a promising young sprinter at Riverside Athletics Club. An older training partner has offered Jamie an unfamiliar supplement, claiming it will speed up recovery between sessions. Jamie has not checked whether it contains anything banned. The club's coach wants to strengthen how the club educates its athletes against PED use.</p>`,
+            question: "Explain how Riverside Athletics Club could use education to reduce the risk of an athlete like Jamie using a banned substance, whether on purpose or by accident.",
+            hint: "Give two different strategies. For each, name it and explain how it addresses the specific risk in the scenario (the unchecked supplement from the training partner).",
+            starter: "One strategy the club could use is… because…\n\nAnother strategy the club could use is… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per strategy: 1 for a relevant educational strategy, 1 for explaining how it addresses the risk in THIS scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Teaching Jamie to check the banned list</strong> — before taking any unfamiliar supplement, so the untested product from the training partner is not taken blindly, stopping accidental doping.</li>
+<li><strong>Using a role model or the coach to reinforce clean sport</strong> — a respected senior athlete or the coach speaking to Jamie directly can counter the training partner's suggestion and make refusing it feel normal, not awkward.</li>
+</ul>
+<p>Accept any other reasonable, applied strategy. A strategy named with no link to Jamie's scenario earns 1 of the 2 marks for that strategy.</p>
+</div>`,
+            modelAnswer: "One strategy is teaching Jamie to check any supplement against the current banned list before taking it, because this stops the untested product from the training partner being taken blindly, which would risk accidental doping.\n\nAnother strategy is having the coach or a respected senior athlete talk to Jamie about clean sport, because this counters the training partner's suggestion and makes it feel normal to say no rather than risky to refuse.",
+            markPoints: { note: "Mark each strategy out of 2: one tick for naming a relevant strategy, one for linking it to Jamie's specific scenario.", groups: [
+                { label: "Your first strategy", max: 2, points: ["Names a relevant educational strategy (e.g. checking the banned list before taking anything unfamiliar)", "Links it to Jamie's scenario (e.g. stops the untested supplement from the training partner causing accidental doping)"] },
+                { label: "Your second strategy", max: 2, points: ["Names a DIFFERENT relevant strategy (e.g. a role model or coach reinforcing clean sport)", "Links it to Jamie's scenario (e.g. counters the training partner's influence so refusing feels normal)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Riverside Athletics Club</strong></p><p>After the incident involving Jamie, Riverside Athletics Club's committee is reviewing its whole approach to anti-doping. Some committee members want to focus on stronger punishments for anyone caught doping; others want to invest more heavily in educating athletes before problems arise.</p>`,
+            question: "Discuss whether educating athletes or punishing them is more effective at stopping doping in sport.",
+            hint: "Explain the strengths of education (prevention, reaching accidental doping, role models/peers/family). Explain the strengths of punishment (deterrence, dealing with those education doesn't reach). Weigh them up and give a judgement.",
+            starter: "Education is effective because… \n\nHowever, punishment is also important because…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of both education and punishment, showing clearly how each reduces doping AND weighing their limits, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding of at least one side with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names education and/or punishment with little explanation and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Education:</strong> prevents doping before it happens; reaches accidental doping (checking the banned list) which punishment cannot touch; role models, peers and family reinforce it daily.</li>
+<li><strong>Punishment:</strong> deters athletes who understand the risks but are tempted anyway; testing and sanctions catch those education fails to reach; gives the sport a visible consequence.</li>
+<li><strong>Limits of education:</strong> depends on athletes actually listening; slower to show results; cannot guarantee behaviour change on its own.</li>
+<li><strong>Limits of punishment:</strong> only reacts after harm is already done; can feel inconsistent or unfair if applied unevenly; does nothing to prevent accidental doping.</li>
+<li><strong>Judgement:</strong> education is arguably more effective long-term because it prevents the damage rather than reacting to it, but works best combined with punishment as a backstop for those education does not convince.</li>
+</ul>
+</div>`,
+            modelAnswer: "Education can stop doping before it starts, because it teaches athletes the health risks, the value of clean sport, and exactly what is banned, so fewer athletes dope by accident or by choice. Role models, team-mates and family reinforce this daily, which testing alone cannot do. However, punishment still matters: strict sanctions deter athletes who understand the risks but are tempted anyway, and testing catches those education fails to reach. Education is slower to work and depends on athletes actually listening, while punishment only reacts once harm is already done. Overall, education is the more effective approach because it prevents the damage rather than just reacting to it, but it works best alongside sanctions that deter anyone education does not convince."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

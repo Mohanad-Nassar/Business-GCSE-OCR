@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.5.2 Why Performers Should Not Use PEDs – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values</div>
+            <h1>2.5.2 Why Performers Should Not Use PEDs</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.5.2 Why Performers Should Not Use PEDs
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-5-2-why-performers-should-not-use-peds',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values',
+            title: '2.5.2 Why Performers Should Not Use PEDs',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "The health risks of using PEDs",
+            tag: "Key concept",
+            content: `<h4>Short-term effects</h4>
+<ul>
+<li>Even a short course of PEDs can bring on sudden mood swings, aggression, disturbed sleep and a higher risk of injury from training harder than the body is ready for.</li>
+<li>Some substances put an immediate strain on the heart and liver as the body tries to cope with them.</li>
+</ul>
+<h4>Long-term effects</h4>
+<ul>
+<li>Months or years of use can leave lasting damage to the heart, liver and kidneys, and can upset the body's normal hormone balance.</li>
+<li>Some of this damage does not reverse once a performer stops using the substance — the risk does not end when the use does.</li>
+</ul>
+<h4>Why this matters for the exam</h4>
+<ul>
+<li>A vague line such as "it damages your body" earns little. Naming a <strong>short-term</strong> effect and a separate <strong>long-term</strong> one shows the depth an examiner is looking for.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is best described as a LONG-TERM health risk of using PEDs, rather than a short-term one?",
+                opts: ["Feeling unusually irritable during the very first week or two of starting the substance", "Lasting damage to organs such as the heart, liver or kidneys after months of use", "A single night of poor sleep straight after an evening training session", "A sudden mood swing that a training partner happens to notice"],
+                ans: 1,
+                explain: "Organ damage and disrupted hormones typically build up over months or years of use, and can outlast the use itself — that makes it long-term, unlike a mood swing or one bad night's sleep."
+            }
+        },
+        {
+            title: "Why using PEDs is cheating — and often against the law",
+            tag: "Core knowledge",
+            content: `<h4>Unfair on clean athletes</h4>
+<ul>
+<li>Sport is meant to test natural ability, training and skill. A performer who uses PEDs gains an advantage that a clean rival has not agreed to and cannot fairly match, however hard that rival trains.</li>
+<li>This is why using PEDs is <strong>cheating</strong>, not simply a risky personal choice — it can change who actually wins.</li>
+</ul>
+<h4>Against the rules of the sport</h4>
+<ul>
+<li>Every governing body bans PEDs in its own rules. Using them breaks those rules whether or not a performer is ever caught by a test.</li>
+</ul>
+<h4>Often against the law too</h4>
+<ul>
+<li>Many performance-enhancing substances are controlled under UK law, so possessing, using or supplying them can lead to criminal trouble as well as sporting trouble.</li>
+<li>A performer who uses PEDs can end up breaking two separate sets of rules at once: the sport's own rules, and the law of the land.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is using PEDs described as 'cheating', rather than just a risky personal choice?",
+                opts: ["Because it gives an advantage a clean rival has not agreed to and cannot fairly match", "Because every performer who tries it is caught by a drugs test within days", "Because it always costs a lot more money than training naturally without any banned substances", "Because coaches personally disapprove of it on moral grounds in every single case"],
+                ans: 0,
+                explain: "The advantage is unearned and cannot be matched by fair training, which is what turns it from a personal risk into cheating that affects the whole competition."
+            }
+        },
+        {
+            title: "The fallout: sanctions, career and being a role model",
+            tag: "Consequences",
+            content: `<h4>Sporting sanctions</h4>
+<ul>
+<li>A performer caught using PEDs can be banned from competing, fined, and stripped of any titles or medals won while using the substance.</li>
+<li>A ban can end a career outright, especially for a performer whose competitive years are already limited.</li>
+</ul>
+<h4>Career and reputation</h4>
+<ul>
+<li>A positive test is usually made public, so a performer can lose sponsorship deals, income and the trust of fans and teammates — often for good.</li>
+</ul>
+<h4>Being a role model</h4>
+<ul>
+<li>Elite performers are watched and copied by young fans. A performer who uses PEDs risks teaching those fans that cheating is an acceptable shortcut to success.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is 'being a role model' a genuine reason for a performer not to use PEDs?",
+                opts: ["Because role models are legally banned from ever taking part in competitive sport", "Because young fans may copy the choices they see successful performers make", "Because it has no real connection to a performer's own personal decisions", "Because only performers who already have sponsorship deals count as role models"],
+                ans: 1,
+                explain: "Fans, especially young ones, often copy the behaviour of performers they look up to — so a performer's choice to use PEDs can spread beyond their own career."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "A performer has used PEDs for over a year. Which of these is most likely to be a LONG-TERM effect of that use?",
+            opts: ["A single restless night before an important competition", "Lasting damage to the heart, liver or kidneys, and disrupted hormones", "Feeling nervous just before stepping out to compete", "A short burst of extra confidence and energy lasting only for one single afternoon"],
+            ans: 1,
+            explain: "Sustained use over months or years is what causes lasting organ damage and hormone disruption. The other options describe brief, one-off feelings, not lasting harm."
+        },
+        {
+            q: "A sprinter says, 'It's not cheating if it just helps me train harder.' Why is this argument wrong?",
+            opts: ["Because using PEDs gives an advantage a clean rival cannot fairly match, so it is cheating", "Because sprinters are never actually tested for banned substances at all", "Because training harder is always against the rules of every sport", "Because only substances that are completely legal to buy in an ordinary shop count as cheating"],
+            ans: 0,
+            explain: "Whatever a performer's intention, PEDs create an advantage a clean rival has not agreed to and cannot match through training alone — that is what makes it cheating."
+        },
+        {
+            q: "Which statement correctly links PED use to the law, not just to sporting rules?",
+            opts: ["PEDs are always freely and completely legally available from any high-street pharmacy", "Many PEDs are controlled substances, so using them can also be a criminal matter", "Sporting rules and UK law always say exactly the same thing about PEDs", "The law only applies to performers who compete at international level"],
+            ans: 1,
+            explain: "Because many PEDs are controlled substances, a performer can face criminal consequences on top of sporting ones — sporting rules and the law are separate but can both apply."
+        },
+        {
+            q: "A performer is found to have used PEDs during a competition they won. What is a likely sporting sanction?",
+            opts: ["An official warning with absolutely no other consequence attached to it", "Being stripped of the title or medal, alongside a ban and possibly a fine", "A guaranteed place in the following year's national training squad", "A formal invitation to become an ambassador for the sport's governing body"],
+            ans: 1,
+            explain: "Stripping the title or medal, a ban and a fine are the standard sporting sanctions — the other options describe rewards, which would never follow a positive test."
+        },
+        {
+            q: "Why might a positive PED test damage a performer's career even after any ban ends?",
+            opts: ["Because governing bodies automatically double every performer's future funding", "Because sponsors and fans may permanently lose trust, costing income and reputation", "Because a ban legally prevents the performer from ever training again", "Because the media are legally required by law to permanently stop reporting on that performer"],
+            ans: 1,
+            explain: "Lost sponsorship, income and public trust can outlast the ban itself — reputational damage is often the longer-lasting consequence, not a legal block on training."
+        },
+        {
+            q: "A youth coach says PEDs are 'a private choice that only affects the performer using them.' Why is this misleading?",
+            opts: ["Because young fans may copy the behaviour of performers they admire", "Because it is completely accurate and no one else is ever affected by it", "Because only coaches, and never fans, are influenced by a performer's choices", "Because private choices are never relevant to any sporting rules whatsoever"],
+            ans: 0,
+            explain: "Elite performers are watched and copied, especially by young fans, so a 'private' choice to use PEDs can spread its influence well beyond the performer themselves."
+        }
+    ];
+
+    const matchData = [
+        { term: "Short-term health risk", def: "Mood swings, poor sleep and raised injury risk that can appear within days of starting to use a substance" },
+        { term: "Long-term health risk", def: "Lasting damage to organs and disrupted hormones that can follow months or years of use" },
+        { term: "Cheating", def: "Gaining an advantage that a clean rival has not agreed to and cannot fairly match" },
+        { term: "Breaking the rules", def: "Going against a sport's own ban on banned substances, and often UK law on controlled substances too" },
+        { term: "Sporting sanction", def: "A ban, a fine or the loss of a title or medal given to someone caught using a banned substance" },
+        { term: "Role-model responsibility", def: "The duty elite performers have, because young fans may copy the choices they see them make" }
+    ];
+
+    const fibData = [
+        {
+            display: "Using PEDs can cause serious _____ risks, both straight away and years later.",
+            blanks: { B1: "health" }
+        },
+        {
+            display: "PED use is a form of _____ because it creates an advantage a clean rival cannot fairly match.",
+            blanks: { B1: "cheating" }
+        },
+        {
+            display: "Many PEDs are controlled substances, so using them can break the _____ as well as the rules of the sport.",
+            blanks: { B1: "law" }
+        },
+        {
+            display: "A performer caught using PEDs can be _____ from competition and lose any titles they won.",
+            blanks: { B1: "banned" }
+        },
+        {
+            display: "Elite performers are role models, so young fans may _____ risky choices they see them make.",
+            blanks: { B1: "copy" }
+        }
+    ];
+    const fibWords = ["health", "cheating", "law", "banned", "copy"];
+
+    const tfData = [
+        {
+            statement: "PEDs can cause serious health problems that only appear years after a performer stops using them.",
+            answer: true,
+            explanation: "Long-term damage to organs and hormone balance can build up over time and can outlast the period of use — the risk does not simply end when the substance stops."
+        },
+        {
+            statement: "Using PEDs is only a genuine problem if a performer actually gets caught by a drugs test.",
+            answer: false,
+            explanation: "The health risks and the unfair advantage both exist whether or not a performer is ever tested — getting caught only adds sporting and legal consequences on top."
+        },
+        {
+            statement: "PED use can break UK law as well as the rules of a sport.",
+            answer: true,
+            explanation: "Many PEDs are controlled substances, so possessing, using or supplying them can be a criminal matter in addition to a breach of sporting rules."
+        },
+        {
+            statement: "A performer who is banned for using PEDs usually keeps any medals they won while using the substance.",
+            answer: false,
+            explanation: "Sanctions typically include being stripped of titles or medals won while using the substance, alongside a ban and possibly a fine."
+        },
+        {
+            statement: "Losing sponsorship deals is a realistic risk for a performer whose PED use becomes public.",
+            answer: true,
+            explanation: "A positive test is usually made public, and sponsors can withdraw support once trust with fans and the public is damaged."
+        },
+        {
+            statement: "Whether a performer is seen as a role model has nothing to do with whether they should use PEDs.",
+            answer: false,
+            explanation: "It is directly relevant — young fans often copy the choices of performers they admire, so a performer's decision can influence people beyond themselves."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "PEDs are only a problem if you get caught — if nobody finds out, no real harm has been done.",
+            correct: "Getting caught only adds sporting and legal consequences on top of harms that exist either way. The health risks happen to the performer's own body regardless of any test result, and the unfair advantage over clean rivals exists the moment the substance is used, whether or not anyone ever finds out.",
+            readCheck: {
+                q: "What is wrong with the idea that PED use 'doesn't matter unless you get caught'?",
+                opts: ["Nothing at all — getting caught is genuinely the only real consequence that ever exists", "The health risks and unfair advantage exist regardless of whether anyone finds out", "Drugs tests are so accurate that every single user is always caught immediately", "Being caught actually removes all of the health risks a performer has taken"],
+                ans: 1,
+                explain: "The harm to the performer's own health, and the unfair advantage over clean rivals, both exist the moment PEDs are used — detection only adds further consequences."
+            }
+        },
+        {
+            wrong: "Using PEDs is basically the same as any other risky training method, such as training too hard.",
+            correct: "Overtraining is risky, but it is not against the rules or the law, and it does not create an unearned advantage over rivals. PED use is different because it is a deliberate breach of a sport's rules (and often the law), designed specifically to gain an edge a rival cannot fairly match — that combination is what makes it cheating, not just a training risk.",
+            readCheck: {
+                q: "How does PED use differ from a risky training method like overtraining?",
+                opts: ["It doesn't — the two carry exactly the same risks and consequences for a performer", "PED use deliberately breaks a sport's rules (and often the law) to gain an unfair edge", "Overtraining is actually more strictly banned by governing bodies than PED use is", "Only PED use can ever possibly lead to any kind of physical injury occurring during training"],
+                ans: 1,
+                explain: "Overtraining is not a rule-break; PED use is a deliberate breach of the sport's rules, and often the law, aimed at gaining an advantage rivals cannot fairly match."
+            }
+        },
+        {
+            wrong: "The only real consequence of using PEDs is being banned from competing.",
+            correct: "A ban is just one of several consequences. A performer can also be fined, stripped of titles or medals, lose sponsorship and income, damage their reputation with fans for good, face legal trouble because many PEDs are controlled substances, and risk their own long-term health — a ban rarely stands alone.",
+            readCheck: {
+                q: "Besides a ban, which of these is also a realistic consequence of using PEDs?",
+                opts: ["An automatic and guaranteed improvement in the performer's public reputation", "Being fined, stripped of titles, and losing sponsorship income", "A guaranteed place on the national governing body's board", "Permanent removal of every health risk the substance caused"],
+                ans: 1,
+                explain: "Fines, stripped titles and lost sponsorship commonly accompany a ban — reputation, legal and health consequences can follow too, so a ban is rarely the only outcome."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words and mark tariffs for this topic",
+            pills: ["Identify", "State", "Explain", "Discuss / Evaluate"],
+            content: `<p>Questions on why performers should not use PEDs are set at every level of demand:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name a reason. "Identify one reason performers should not use PEDs [1]" wants a single named reason, nothing more.</li>
+<li><strong>Explain</strong> — give a reason plus a "because". "Explain why PED use is considered cheating [2]" wants the idea (unfair advantage) plus why that makes it cheating.</li>
+<li><strong>Discuss / Evaluate</strong> — weigh both sides of an issue and reach a justified judgement. These carry the highest tariffs (6 or 8 marks) and appear in Sections B and C.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [4] in Section B wants points applied to a scenario; [8] in Section C wants balance and a judgement, not a list.</p>`,
+            readCheck: {
+                q: "A question says: 'Explain one reason why performers should not use PEDs [2]'. What earns full marks?",
+                opts: ["Naming as many reasons as possible without any explanation", "A named reason plus a linked 'because' that develops it", "A single word with no further detail at all", "A long list of every sanction a performer could ever face"],
+                ans: 1,
+                explain: "'Explain' plus [2] wants a reason developed with a reason why — a bare list, a single word, or an undeveloped list of sanctions would not reach both marks."
+            }
+        },
+        {
+            type: "tip",
+            title: "Building a balanced Discuss / Evaluate answer",
+            pills: ["Section C", "AO2", "AO3"],
+            content: `<p>The 8-mark question on this topic usually asks you to weigh the risks of PED use against any possible gains, then reach a judgement. Use this shape:</p>
+<ul>
+<li>Give a risk (health, cheating, sanctions, career) and explain why it matters.</li>
+<li>Acknowledge a possible gain a performer might hope for (better performance, faster results), so your answer is balanced, not one-sided.</li>
+<li>Weigh them against each other, then commit to a judgement — don't just describe both sides and stop.</li>
+</ul>
+<p><strong>Three sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One serious risk of using PEDs is… because…"</li>
+<li>"However, some performers might feel the possible gain of… is worth it because…"</li>
+<li>"Overall, the risks outweigh the gains because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why should a Discuss / Evaluate answer on this topic mention a possible gain, not only the risks?",
+                opts: ["It shouldn't — only listing risks ever earns any marks at all", "Acknowledging both sides shows the balance a top-band answer needs", "Gains are always more important to mention than any of the risks", "Mentioning gains is required only in Section A multiple-choice questions"],
+                ans: 1,
+                explain: "Top-band levelled answers are balanced — they weigh a possible gain against the risks before reaching a judgement, rather than only listing one side."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this topic shows up across the paper",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> quick recall in <strong>Section A</strong> (identify/state a reason, or a single mark-scheme fact about sanctions); applied Explain questions in <strong>Section B</strong>, often built around a named performer in a scenario; and the topic feeds naturally into a <strong>Section C</strong> Discuss/Evaluate question weighing risks against gains.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the six reasons in pairs: health (short/long term), fairness/rules, and consequences (sanctions and reputation).</li>
+<li>In Section B, always link your reason to the named performer or scenario in front of you — a general answer is capped.</li>
+<li>For the 8-mark answer, keep one risk in reserve as your "however" point so you never run out of balance.</li>
+</ul>`,
+            readCheck: {
+                q: "In a Section B scenario about a named performer, your explanation should be linked to...",
+                opts: ["a completely different sport you happen to prefer", "the named performer and details in the scenario given", "a famous athlete not mentioned anywhere in the question", "your own personal opinion of that sport in general"],
+                ans: 1,
+                explain: "Section B rewards application — using the scenario's own details. A general answer that ignores the named performer is capped below full marks."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Short-term health risk", def: "Mood swings, poor sleep and raised injury risk appearing within days of use" },
+        { term: "Long-term health risk", def: "Lasting organ damage and disrupted hormones from months or years of use" },
+        { term: "Cheating", def: "Gaining an advantage a clean rival has not agreed to and cannot fairly match" },
+        { term: "Rules and the law", def: "PED use breaks a sport's own ban, and often UK law on controlled substances" },
+        { term: "Sporting sanction", def: "A ban, fine, or loss of a title/medal for a performer caught using PEDs" },
+        { term: "Role-model responsibility", def: "Young fans may copy the choices they see elite performers make" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> reasons why performers should not use PEDs.",
+            hint: "Pick two DIFFERENT reasons — for example health risks, cheating, breaking rules/the law, sanctions, loss of reputation or being a role model.",
+            starter: "One reason is… Another reason is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct, DIFFERENT reason named, to a maximum of two. Accept any two from:</strong></p>
+<ul>
+<li>Serious health risks (short-term or long-term)</li>
+<li>It is cheating / unfair on clean performers</li>
+<li>It breaks the rules of the sport, and often the law</li>
+<li>Risk of bans, fines or being stripped of titles/medals</li>
+<li>Loss of reputation, sponsorship or career</li>
+<li>Failing the responsibility of being a role model to young fans</li>
+</ul>
+<p>Do not credit the same reason written twice in different words.</p>
+</div>`,
+            modelAnswer: "One reason is that PEDs carry serious health risks.\n\nAnother reason is that using them is unfair on clean performers who have not used any substance.",
+            markPoints: { note: "One tick per correct, DIFFERENT reason; cap at 2.", groups: [
+                { label: "Your first reason", max: 1, points: ["Names a valid reason against PED use from the list above"] },
+                { label: "Your second reason", max: 1, points: ["Names a DIFFERENT valid reason (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is a sporting sanction a performer could face for using PEDs?",
+            options: ["A guaranteed improvement in their long-term physical fitness levels", "Being banned from competition and stripped of any titles they won", "An automatic invitation to compete at the next major international event", "A permanent increase in the size of their sponsorship deals"],
+            answer: 1,
+            hint: "Think about what actually happens to someone caught using a banned substance, not what a performer might hope for.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Being banned from competition and stripped of any titles they won.</strong></p>
+<ul>
+<li>Bans, fines and stripped titles/medals are real sanctions for PED use.</li>
+<li>The other options describe rewards, which would never follow a positive test.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Jamie Ellison</strong></p><p>Jamie Ellison is a 22-year-old club sprinter preparing for the regional championships. A training partner offers Jamie a course of anabolic steroids, saying it will help Jamie close the gap on faster rivals before the qualifying deadline.</p>`,
+            question: "Explain <strong>two</strong> reasons why Jamie should refuse to use the steroids.",
+            hint: "Take each reason in turn. Name the reason, then link it to Jamie's situation (the qualifying deadline, the rivals, Jamie's own career).",
+            starter: "One reason Jamie should refuse is… because…\n\nAnother reason is… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per reason: 1 for identifying a relevant reason, 1 for linking it to Jamie's scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Health risk</strong> — steroids carry short- and long-term health risks; taking them just to catch faster rivals before a deadline does not remove that risk.</li>
+<li><strong>Cheating / unfair</strong> — Jamie's rivals would not have agreed to Jamie gaining an advantage this way, so closing the gap through steroids would be cheating rather than fair competition.</li>
+<li><strong>Sanctions / career</strong> — if caught, Jamie could be banned and stripped of any result from the championships, damaging the very career the steroids were meant to help.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A reason with no link to Jamie's scenario earns 1 of the 2 marks for that reason.</p>
+</div>`,
+            modelAnswer: "Jamie should refuse because steroids carry serious health risks, and taking them just to beat faster rivals before the deadline would not remove that danger.\n\nJamie should also refuse because the rivals have not agreed to this advantage, so closing the gap this way would be cheating rather than fair competition — and if caught, Jamie could be banned and stripped of any result, damaging the career the steroids were meant to help.",
+            markPoints: { note: "Mark each reason out of 2: one tick for the reason, one for linking it to Jamie's scenario.", groups: [
+                { label: "Your first reason", max: 2, points: ["Identifies a relevant reason (e.g. health risk, cheating, or sanctions/career)", "Links it to Jamie's scenario (e.g. the deadline, the rivals, or Jamie's own career)"] },
+                { label: "Your second reason", max: 2, points: ["Identifies a DIFFERENT relevant reason from the first", "Links it to Jamie's scenario, not just stated in general terms"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Regional Athletics Squad</strong></p><p>A regional governing body is reviewing why some talented young athletes are tempted to use performance-enhancing drugs despite the rules against them. It wants coaches to be able to explain clearly and fairly whether the risks of using PEDs outweigh any possible gains.</p>`,
+            question: "Discuss whether the risks of using PEDs outweigh the possible gains for a performer.",
+            hint: "Choose two or three risks (health, cheating/rules, sanctions/career) and explain each. Acknowledge a possible gain a performer might hope for. Weigh them up, then give a clear judgement.",
+            starter: "One risk of using PEDs is… because…\n\nA possible gain some performers hope for is…\n\nHowever, …\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several risks AND a genuine possible gain, weighing them against each other, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding of more than one risk with some analysis, but the discussion may be one-sided (risks only) or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names risks and/or sanctions with little explanation and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Health risks:</strong> short-term effects (mood swings, injury risk) and long-term effects (lasting organ or hormone damage) that do not disappear once use stops.</li>
+<li><strong>Cheating / rules:</strong> an unearned advantage over clean rivals, and a breach of the sport's rules, often the law too.</li>
+<li><strong>Sanctions / career:</strong> bans, fines, stripped titles, lost sponsorship and damaged reputation, which can end a career the substance was meant to help.</li>
+<li><strong>Role-model responsibility:</strong> young fans may copy a performer's choices, spreading the harm beyond the performer themselves.</li>
+<li><strong>Possible gain (for balance):</strong> a performer may hope for faster results, improved performance or a better chance of selection/income before a deadline.</li>
+<li><strong>Judgement:</strong> the risks are wide-ranging and can be permanent (health, career, reputation), while any gain is short-lived and depends on not being caught — so the risks generally outweigh the gains, especially once sanctions and long-term health are considered.</li>
+</ul>
+</div>`,
+            modelAnswer: "Using PEDs carries serious health risks, from short-term mood swings and injury to long-term organ or hormone damage that can outlast the use itself. It is also cheating, since it creates an advantage a clean rival cannot fairly match, and it breaks the sport's rules and often the law.\n\nSome performers might feel the possible gain of faster results before a deadline is worth it. However, if caught, a performer faces bans, fines, stripped titles and lost sponsorship, which can end the very career the substance was meant to help — and young fans may copy the choice, spreading the harm further.\n\nOverall, the risks outweigh the gains, because health, career and reputational damage can be permanent, while any performance gain is short-lived and depends entirely on not being caught."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

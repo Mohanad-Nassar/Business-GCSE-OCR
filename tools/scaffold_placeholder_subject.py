@@ -311,6 +311,68 @@ SUBJECTS = {
             ]),
         ],
     },
+    "sport-studies": {
+        # OCR Cambridge Nationals Sport Studies L1/L2 (J829), Unit R184 only —
+        # SPORT-CONTENT-PLAN.md §3/§4. R184 is the sole externally-assessed unit
+        # (70 marks, 1h15, Sections A/B/C); R185/R186/R187 are NEA coursework and
+        # out of scope. FINEST-GRAIN map (owner directive): one page per spec
+        # sub-topic AND per sub-sub-topic — 6 groups / 31 pages. Pages are
+        # 3-tuples (spec-number, title, file) so 2.4.1 / 2.5.6 / 5.2.3 keep their
+        # real J829 numbering. FIRST fully copyright-free subject: zero verbatim,
+        # even in examQuestions. Reuses the CS self-mark machinery (exam-widgets.js);
+        # no new engineering.
+        "header": {
+            "slug": "sport-studies", "name": "Sport Studies",
+            "key_stage": "ks4", "level": "Level 1/Level 2", "exam_board": "OCR",
+            "spec_code": "J829", "exam_date": "2027-05-11",  # OCR J829/R184 exam: Tue 11 May 2027 PM
+            "colour": "#16a34a", "icon": "\U0001F3C5",
+        },
+        "units": [
+            ("1", "Issues Affecting Participation", "R184 · Contemporary Issues in Sport", [
+                ("1.1", "User Groups", "1.1-user-groups.html"),
+                ("1.2", "Barriers to Participation", "1.2-barriers-to-participation.html"),
+                ("1.3", "Solutions to Barriers", "1.3-solutions-to-barriers.html"),
+                ("1.4", "Popularity of Sport in the UK", "1.4-popularity-of-sport-in-the-uk.html"),
+                ("1.5", "Emerging and New Sports", "1.5-emerging-and-new-sports.html"),
+            ]),
+            ("2", "The Role of Sport in Promoting Values", "R184 · Contemporary Issues in Sport", [
+                ("2.1", "Values Promoted Through Sport", "2.1-values-promoted-through-sport.html"),
+                ("2.2", "The Olympic & Paralympic Movement", "2.2-the-olympic-and-paralympic-movement.html"),
+                ("2.3", "Initiatives and Campaigns", "2.3-initiatives-and-campaigns.html"),
+                ("2.4.1", "Etiquette of Performers", "2.4.1-etiquette-of-performers.html"),
+                ("2.4.2", "Etiquette of Spectators", "2.4.2-etiquette-of-spectators.html"),
+                ("2.5.1", "Why Performers Use PEDs", "2.5.1-why-performers-use-peds.html"),
+                ("2.5.2", "Why Performers Should Not Use PEDs", "2.5.2-why-performers-should-not-use-peds.html"),
+                ("2.5.3", "The Role of WADA", "2.5.3-the-role-of-wada.html"),
+                ("2.5.4", "Sanctions Against PEDs", "2.5.4-sanctions-against-peds.html"),
+                ("2.5.5", "Education Against PEDs", "2.5.5-education-against-peds.html"),
+                ("2.5.6", "The Impact of PEDs on Sport", "2.5.6-the-impact-of-peds-on-sport.html"),
+            ]),
+            ("3", "Hosting a Major Sporting Event", "R184 · Contemporary Issues in Sport", [
+                ("3.1.1", "Types of Major Events", "3.1.1-types-of-major-events.html"),
+                ("3.1.2", "Participants and Spectators", "3.1.2-participants-and-spectators.html"),
+                ("3.2", "Pre-Event Aspects", "3.2-pre-event-aspects.html"),
+                ("3.3.1", "During the Event", "3.3.1-during-the-event.html"),
+                ("3.3.2", "Post-Event and Legacy", "3.3.2-post-event-and-legacy.html"),
+            ]),
+            ("4", "National Governing Bodies", "R184 · Contemporary Issues in Sport", [
+                ("4.1", "The Role of NGBs", "4.1-the-role-of-ngbs.html"),
+            ]),
+            ("5", "Technology in Sport", "R184 · Contemporary Issues in Sport", [
+                ("5.1.1", "Technology to Enhance Performance", "5.1.1-technology-to-enhance-performance.html"),
+                ("5.1.2", "Technology to Increase Safety", "5.1.2-technology-to-increase-safety.html"),
+                ("5.1.3", "Technology and Officiating", "5.1.3-technology-and-officiating.html"),
+                ("5.1.4", "Technology to Enhance Spectatorship", "5.1.4-technology-to-enhance-spectatorship.html"),
+                ("5.2.1", "Positive Effects of Technology", "5.2.1-positive-effects-of-technology.html"),
+                ("5.2.2", "Negative Effects of Technology", "5.2.2-negative-effects-of-technology.html"),
+                ("5.2.3", "Technology and the Spectator Experience", "5.2.3-technology-and-the-spectator-experience.html"),
+            ]),
+            ("6", "Exam Preparation", "R184 · Contemporary Issues in Sport", [
+                ("6.1", "Command Words and Exam Sections", "6.1-command-words-and-exam-sections.html"),
+                ("6.2", "Extended-Response Technique", "6.2-extended-response-technique.html"),
+            ]),
+        ],
+    },
 }
 
 
@@ -327,10 +389,17 @@ def build_manifest(slug):
             group_sub = f"Unit {unit_num}"
         pages = []
         for i, entry in enumerate(topics, start=1):
-            topic_num = f"{unit_num}.{i}"
-            if isinstance(entry, tuple):
+            if isinstance(entry, tuple) and len(entry) == 3:
+                # explicit (number, title, file) — the page's spec number is
+                # given verbatim (e.g. "2.4.1", "2.5.6"), NOT derived from the
+                # unit + index, so sub-sub-topic pages keep their real spec
+                # numbering. Sport Studies (J829 R184) uses this for every page.
+                topic_num, title, file = entry
+            elif isinstance(entry, tuple):
+                topic_num = f"{unit_num}.{i}"
                 title, file = entry  # explicit (title, file) — exact filenames given for this subject
             else:
+                topic_num = f"{unit_num}.{i}"
                 title = entry
                 # Business's own convention: underscore-separated topic
                 # number, lowercase underscore-separated words.
@@ -987,7 +1056,15 @@ def scaffold_subject(slug, force_pages=False):
                     # BEFORE /script.js. Zero vendor bytes / no CSP change.
                     ('\n    <script src="/speech.js"></script>'
                      '\n    <script src="/cs-lab/exam-widgets.js"></script>')
-                    if slug == "spanish" else ""),
+                    if slug == "spanish" else
+                    # Sport Studies is prose + self-marked written answers only
+                    # (SPORT-CONTENT-PLAN.md §7): no KaTeX, no TTS, no Lab. It needs
+                    # ONLY the shared tick-the-mark-scheme self-mark panel, loaded
+                    # before /script.js so the widget exists when script.js's exam
+                    # builder runs. markPoints (grouped/flat) + format:'banded' both
+                    # live in exam-widgets.js.
+                    ('\n    <script src="/cs-lab/exam-widgets.js"></script>')
+                    if slug == "sport-studies" else ""),
                 # CS pages get the Practice Lab framework + the exam-widget
                 # registry (CS-CONTENT-PLAN §7/§7.3); both self-noop when a
                 # page has nothing for them. Widgets load as normal scripts so

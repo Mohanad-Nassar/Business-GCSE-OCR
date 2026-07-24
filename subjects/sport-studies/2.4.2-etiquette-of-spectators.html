@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.4.2 Etiquette of Spectators – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values</div>
+            <h1>2.4.2 Etiquette of Spectators</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.4.2 Etiquette of Spectators — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-4-2-etiquette-of-spectators',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values',
+            title: '2.4.2 Etiquette of Spectators',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What 'spectator etiquette' means",
+            tag: "Key concept",
+            content: `<h4>The idea</h4>
+<ul>
+<li><strong>Etiquette</strong> is the accepted, respectful way of behaving in a situation. For spectators, it means the accepted way to behave while <strong>watching</strong> a sport — not while playing it.</li>
+<li>This is a different topic from performer etiquette (fairness and sportsmanship on the pitch). Here the exam question is always: <strong>how should someone in the crowd behave?</strong></li>
+</ul>
+<h4>Why it matters</h4>
+<ul>
+<li>Sport only works as a spectacle if the crowd lets it happen properly — a performer who cannot concentrate, or a spectator whose enjoyment is ruined by others, both lose out.</li>
+<li>Good spectator etiquette protects three things at once: the <strong>performers'</strong> ability to compete fairly, <strong>other spectators'</strong> enjoyment, and everyone's <strong>safety</strong>.</li>
+</ul>`,
+            readCheck: {
+                q: "Spectator etiquette is best described as...",
+                opts: ["the accepted way of behaving in the crowd while watching sport", "a set of tactical rules that only professional performers are trained to follow before a competition", "the official rulebook a referee uses to award points during a match", "a list of penalties for players who commit deliberate fouls during play"],
+                ans: 0,
+                explain: "Etiquette for spectators is about how the crowd behaves while watching — not a tactical rulebook for performers, an officials' scoring system, or a list of foul penalties."
+            }
+        },
+        {
+            title: "Appropriate behaviour when watching",
+            tag: "Core knowledge",
+            content: `<h4>Quiet at the right moments</h4>
+<ul>
+<li>Some sports need silence at a precise moment because noise can break a performer's concentration and affect a fair outcome. Classic examples: staying <strong>quiet during a tennis serve</strong>, and staying <strong>quiet while a golfer is putting</strong>.</li>
+<li>This is not the same as staying silent for the whole match — cheering and applause are expected and welcome between points, at the end of a rally, or after a good shot.</li>
+</ul>
+<h4>Not distracting or abusing players and officials</h4>
+<ul>
+<li>Spectators must not deliberately put a performer off — for example shouting during a run-up, waving objects, or using banned lights or flashes near the field of play.</li>
+<li>Etiquette also rules out <strong>abusing</strong> players or officials: no verbal abuse, threats, or aggressive criticism of a decision. Disagreeing with a decision is normal; abusing someone for it is not.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these is an example of appropriate spectator behaviour?",
+                opts: ["Staying quiet while a golfer lines up and takes a crucial putt", "Shouting loudly at the exact moment a tennis player begins their serve to put them off", "Screaming personal abuse at the referee every time a decision goes against your team", "Standing up and waving a large flag directly in a sprinter's line of sight as the race starts"],
+                ans: 0,
+                explain: "Staying quiet at a genuinely crucial moment protects a fair contest. Deliberately distracting a server, abusing an official, or blocking a sprinter's sightline are all etiquette breaches."
+            }
+        },
+        {
+            title: "Responsibility to others — and to safety",
+            tag: "Exam skill",
+            content: `<h4>Two audiences to respect</h4>
+<ul>
+<li>A spectator has a responsibility to <strong>fellow spectators</strong> — not blocking their view, not pushing through a crowd, and not spoiling their enjoyment with disruptive or aggressive behaviour.</li>
+<li>A spectator also has a responsibility to <strong>the players</strong> — not intimidating them, not invading their space, and reacting to decisions in a way that does not threaten anyone.</li>
+</ul>
+<h4>Safety — not endangering others</h4>
+<ul>
+<li>Etiquette includes basic safety: never throwing objects onto a pitch, court or course; never invading the playing area; not crowding walkways or blocking an exit.</li>
+<li>A strong exam answer names the <strong>group affected</strong> (fellow spectators, players, or both) and the specific <strong>behaviour or risk</strong> — not just "be safe" or "be nice".</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks you to explain a spectator's responsibility to OTHER spectators. Which answer fits best?",
+                opts: ["Not blocking another spectator's view or pushing through the crowd", "Staying completely silent for the entire duration of the fixture from start to finish", "Buying the most expensive ticket available for the stand", "Arriving before the players so you get the best seat in the ground"],
+                ans: 0,
+                explain: "Responsibility to fellow spectators is about consideration — not blocking views or pushing through crowds — not about silence, ticket price, or arrival time."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Why do spectators stay quiet during a tennis serve or a golf putt?",
+            opts: ["Because sudden noise at that moment could distract the performer and affect a fair outcome", "Because officials can issue a fine to any spectator heard whispering during a changeover", "Because the venue's insurance policy legally requires total silence throughout the whole match", "Because performers are physically unable to continue if any sound at all is heard nearby"],
+            ans: 0,
+            explain: "Quiet at key moments protects concentration and fairness. It has nothing to do with fines, insurance rules, or an inability to continue."
+        },
+        {
+            q: "A spectator shouts loudly just as a sprinter is about to start a race, on purpose. This spectator has...",
+            opts: ["shown good etiquette by creating an exciting atmosphere for the crowd around them", "broken etiquette, because they have deliberately tried to distract a performer", "followed the correct procedure for encouraging a nervous competitor before a big race", "committed an action that automatically disqualifies the sprinter from the whole competition"],
+            ans: 1,
+            explain: "Deliberately distracting a performer at a crucial moment breaks etiquette — it is not exciting atmosphere, correct procedure, or grounds to disqualify the sprinter."
+        },
+        {
+            q: "A supporter disagrees with a refereeing decision. Which reaction best fits spectator etiquette?",
+            opts: ["Shouting personal abuse at the referee until the decision is reversed", "Showing disagreement without abusing or threatening the official", "Invading the pitch to confront the referee face to face immediately", "Refusing to accept any decision the referee makes for the rest of the fixture, however small"],
+            ans: 1,
+            explain: "Disagreeing is normal; abuse, invading the pitch, and refusing to accept every future decision are all etiquette breaches, not acceptable reactions."
+        },
+        {
+            q: "Which shows good spectator etiquette towards the people sitting around you?",
+            opts: ["Standing up and blocking other people's view whenever you personally feel like it", "Being considerate of other spectators, for example not pushing through the crowd", "Taking the best seat available regardless of the ticket you originally bought", "Talking as loudly as possible throughout the whole event so everyone can hear you"],
+            ans: 1,
+            explain: "Consideration for fellow spectators — not pushing through crowds — is the etiquette point. Blocking views, seat-taking, and constant loud talking all disregard others."
+        },
+        {
+            q: "A spectator throws an object onto the pitch during play. This is a problem mainly because...",
+            opts: ["it could injure a player, official or another spectator nearby", "the referee is required to award a penalty to the away team automatically", "the match ball becomes too heavy to kick accurately for the rest of the game", "every spectator in that stand must be moved to a completely different seat"],
+            ans: 0,
+            explain: "Throwing objects is primarily a safety risk to people nearby — it does not change the ball's weight, trigger an automatic penalty, or force a mass reseating."
+        },
+        {
+            q: "Which statement about spectator behaviour is most accurate?",
+            opts: ["Spectators should stay completely silent for the full duration of every single fixture", "Spectators can cheer and applaud, but should be quiet at specific key moments", "Spectators are never allowed to make any noise once a competition has begun", "Spectators should always cheer as loudly as possible no matter what is happening"],
+            ans: 1,
+            explain: "Cheering and applause are normal; only specific key moments (like a serve or a putt) call for quiet — total silence and constant loud cheering are both wrong."
+        }
+    ];
+
+    const matchData = [
+        { term: "Spectator etiquette", def: "The accepted, respectful way of behaving while watching sport" },
+        { term: "Quiet moments", def: "Times such as a tennis serve or a golf putt when noise could unfairly affect the outcome" },
+        { term: "Distracting a performer", def: "Deliberately shouting, waving or flashing lights to put a competitor off" },
+        { term: "Abusing an official", def: "Verbal abuse or threats aimed at a referee or umpire over a decision" },
+        { term: "Responsibility to fellow spectators", def: "Behaving in a way that does not spoil other people's enjoyment or safety" },
+        { term: "Safety at a venue", def: "Not throwing objects, invading the playing area, or endangering anyone nearby" }
+    ];
+
+    const fibData = [
+        {
+            display: "Spectator etiquette is the accepted, respectful way of _____ while watching a sport.",
+            blanks: { B1: "behaving" }
+        },
+        {
+            display: "Spectators should stay _____ during a tennis serve or a golf putt, because noise could distract the performer.",
+            blanks: { B1: "quiet" }
+        },
+        {
+            display: "Disagreeing with an official's decision is normal, but _____ them is not.",
+            blanks: { B1: "abusing" }
+        },
+        {
+            display: "A good spectator is considerate towards _____ spectators as well as the players.",
+            blanks: { B1: "fellow" }
+        },
+        {
+            display: "Throwing objects onto the playing area can _____ a player, official or another spectator.",
+            blanks: { B1: "injure" }
+        }
+    ];
+    const fibWords = ["behaving", "quiet", "abusing", "fellow", "injure"];
+
+    const tfData = [
+        {
+            statement: "Spectators should stay quiet during a tennis serve or a golf putt.",
+            answer: true,
+            explanation: "Noise at that exact moment could unfairly distract the performer, so quiet at these key moments protects a fair contest."
+        },
+        {
+            statement: "Cheering and applause are never acceptable at any point during a sporting fixture.",
+            answer: false,
+            explanation: "Cheering and applause are normal and welcome between points or after a good shot — only specific key moments call for quiet."
+        },
+        {
+            statement: "Disagreeing with a referee's decision is against spectator etiquette.",
+            answer: false,
+            explanation: "Disagreeing is normal. What breaks etiquette is HOW you disagree — abusing or threatening the official is the actual problem."
+        },
+        {
+            statement: "A spectator who blocks another spectator's view is showing poor etiquette.",
+            answer: true,
+            explanation: "Spectators have a responsibility to be considerate of fellow spectators, including not blocking their view."
+        },
+        {
+            statement: "Throwing an object onto the pitch during play is a safety issue as well as an etiquette issue.",
+            answer: true,
+            explanation: "It could injure a player, official or another spectator, so it breaks both safety rules and spectator etiquette."
+        },
+        {
+            statement: "Spectator etiquette only concerns how you treat the players, not other people in the crowd.",
+            answer: false,
+            explanation: "It also concerns responsibility to fellow spectators — not blocking views or spoiling their enjoyment — not just the players."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Etiquette for spectators just means being quiet all the time.",
+            correct: "Etiquette means being quiet at specific key moments (like a serve or a putt), but cheering and applause are expected and welcome at other times. Confusing 'quiet at the right moment' with 'silent the whole match' misdescribes the behaviour and loses marks.",
+            readCheck: {
+                q: "What does spectator etiquette actually say about noise during a fixture?",
+                opts: ["Stay quiet at specific key moments, but cheering and applause elsewhere are normal", "Make no sound whatsoever from the very first whistle to the very last whistle of the game", "Only match officials are permitted to make any noise inside the stadium at any point", "Cheer as loudly as possible without any pause for the entire length of the fixture"],
+                ans: 0,
+                explain: "It is quiet at KEY moments, not total silence — the other options describe rules that do not exist."
+            }
+        },
+        {
+            wrong: "Disagreeing with a referee's decision breaks spectator etiquette.",
+            correct: "Disagreement itself is normal and expected — supporters will not always agree with a decision. What breaks etiquette is HOW you disagree: abuse, threats or invading the pitch. The exam rewards naming the specific behaviour (abuse/threats), not just 'disagreeing'.",
+            readCheck: {
+                q: "What actually breaks spectator etiquette when you disagree with a referee's decision?",
+                opts: ["Abusing or threatening the official, rather than simply disagreeing with the decision", "Sitting in complete silence and refusing to react to the decision at all for the rest of the match", "Politely applauding every single decision the referee makes throughout the whole game", "Discussing the decision quietly with the people sitting in the seats around you"],
+                ans: 0,
+                explain: "Disagreement is normal; abuse or threats are what break etiquette, not silence, applause, or a quiet discussion with neighbours."
+            }
+        },
+        {
+            wrong: "Spectator etiquette is only about how you treat the players.",
+            correct: "It covers responsibility to fellow spectators too — not blocking views, not pushing through crowds, not spoiling others' enjoyment — as well as responsibility to the players and safety for everyone.",
+            readCheck: {
+                q: "Spectator etiquette covers responsibility towards...",
+                opts: ["both fellow spectators and the players, not just one of these groups", "only the performers taking part, with no responsibility owed to anyone else in the crowd at all", "only the match officials, since spectators cannot affect anyone else at a fixture", "nobody in particular, because spectators are not covered by any etiquette rules"],
+                ans: 0,
+                explain: "It covers BOTH fellow spectators and players — restricting it to only performers, only officials, or nobody misses half the topic."
+            }
+        },
+        {
+            wrong: "Etiquette for performers and for spectators is the same thing, so a spectator question can be answered with performer points.",
+            correct: "They are different topics on the exam. Performer etiquette (2.4.1) is about how competitors behave when they play — fairness and sportsmanship. Spectator etiquette (this topic) is about how the crowd behaves while watching. A question naming 'spectators' needs spectator-specific points (quiet moments, responsibility to others, safety), not performer points like gamesmanship.",
+            readCheck: {
+                q: "A question specifically asks about SPECTATOR etiquette. What should you avoid writing about?",
+                opts: ["Points that are really about performer behaviour, such as gamesmanship on the pitch", "The specific quiet moments and examples of appropriate crowd behaviour that this exact topic wants you to give", "A spectator's responsibility to the people sitting around them in the crowd", "Basic safety points about not throwing objects onto the playing area"],
+                ans: 0,
+                explain: "Performer points like gamesmanship belong to a different topic (2.4.1) — a spectator question needs spectator-specific points, not performer ones."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "Describe", "Explain", "Discuss"],
+            content: `<p>Spectator-etiquette questions are usually short. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify one example of appropriate spectator behaviour [1]" = one named example, nothing more.</li>
+<li><strong>Describe</strong> — say what the behaviour looks like in a bit more detail.</li>
+<li><strong>Explain</strong> — give a reason. Use the word <em>because</em>. "Explain why spectators should be quiet during a golf putt" = the behaviour <em>plus</em> why it matters.</li>
+<li><strong>Discuss</strong> — used for the big 8-mark answers; balance points and reach a judgement.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; short Section A items usually want one point per mark; Section C's 8 marks want a balanced, judged discussion.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify one example of appropriate spectator behaviour [1]'. What is the safest answer?",
+                opts: ["One clear example, such as staying quiet during a serve", "A full paragraph explaining several different examples in a lot of detail", "A long list of every single example you can possibly think of", "An example of performer behaviour instead of spectator behaviour"],
+                ans: 0,
+                explain: "'Identify' + [1] wants one named example. A paragraph, a long list, or the wrong topic (performers) all waste the mark."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: behaviour → who it affects → why",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is naming a behaviour with nothing else. Build every answer as <strong>behaviour → who it affects → why it matters</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "Being quiet."</li>
+<li><strong>✅ full marks:</strong> "Spectators should be quiet during a golf putt, because noise at that moment could distract the golfer and affect a fair outcome."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named venue, named incidents). Then you must use a detail <em>from that scenario</em>, not a general example.</p>`,
+            readCheck: {
+                q: "Which answer about spectator behaviour is most likely to earn full marks?",
+                opts: ["Naming the behaviour, who it affects, and why it matters", "Just naming a behaviour with no further detail at all", "Listing as many different behaviours as you can remember", "Describing your own personal opinion of a professional athlete"],
+                ans: 0,
+                explain: "Full marks come from behaviour + who it affects + why — a bare name, a long list, or a personal opinion do not show that understanding."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this topic appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> spectator etiquette appears as quick recall in <strong>Section A</strong> (identify/state), as applied points in <strong>Section B</strong> scenarios about specific incidents, and it feeds <strong>Section C</strong> 8-mark answers discussing behaviour across a whole sport.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Always separate "quiet at key moments" from "silent the whole match" — the exam rewards precision, not blanket rules.</li>
+<li>Name WHO is affected (a performer, fellow spectators, or both) — it shows you understand responsibility, not just rules.</li>
+<li>Remember safety is its own point, distinct from noise or abuse — don't forget objects, pitch invasions and crowding.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One way spectator behaviour affects this sport is… because…"</li>
+<li>"This matters because…"</li>
+<li>"However, the extent to which this matters depends on…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is 'safety' a useful point to add to a longer spectator-etiquette answer?",
+                opts: ["It shows you understand a spectator's responsibility beyond just noise", "It simply fills space in the answer without needing to explain anything else properly", "It means spectator behaviour has no effect on anyone else nearby", "It replaces the need to mention performers or officials at all"],
+                ans: 0,
+                explain: "Safety is a distinct, creditable point showing wider understanding — it is not filler, and it doesn't remove the need for other points."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Spectator etiquette", def: "The accepted, respectful way of behaving while watching sport" },
+        { term: "Quiet moments", def: "Points such as a tennis serve or golf putt where noise could unfairly distract" },
+        { term: "Distracting a performer", def: "Deliberately shouting, waving or flashing lights to put them off" },
+        { term: "Abusing an official", def: "Verbal abuse or threats aimed at a referee over a decision" },
+        { term: "Responsibility to fellow spectators", def: "Not blocking views or spoiling others' enjoyment" },
+        { term: "Responsibility to players", def: "Not intimidating a performer or invading their space" },
+        { term: "Safety at a venue", def: "Not throwing objects, invading the pitch, or endangering others" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> examples of appropriate spectator behaviour at a sporting event.",
+            hint: "Think about quiet moments (a serve, a putt), not distracting performers, or not abusing officials.",
+            starter: "One example of appropriate spectator behaviour is… Another example is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct, DIFFERENT example, to a maximum of two. Accept any genuine example, including:</strong></p>
+<ul>
+<li>Staying quiet during a tennis serve or a golf putt</li>
+<li>Not shouting or waving to distract a performer</li>
+<li>Not abusing or threatening a player or official</li>
+<li>Not blocking another spectator's view</li>
+<li>Not invading the playing area</li>
+<li>Not throwing objects onto the pitch, court or course</li>
+</ul>
+<p>Do not credit the same example written twice.</p>
+</div>`,
+            modelAnswer: "One example of appropriate spectator behaviour is staying quiet while a tennis player is serving.\n\nAnother example is not shouting abuse at the referee when you disagree with a decision.",
+            markPoints: { note: "One tick per correct, DIFFERENT example; cap at 2.", groups: [
+                { label: "Your first example", max: 1, points: ["Names a genuine example of appropriate spectator behaviour"] },
+                { label: "Your second example", max: 1, points: ["Names a DIFFERENT genuine example of appropriate spectator behaviour"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these best shows a spectator meeting their responsibility to the people sitting around them?",
+            options: ["Standing up in front of other spectators and blocking their view of the pitch whenever it suits you", "Being considerate of other spectators, for example not pushing through the crowd", "Taking whichever seat looks best regardless of the ticket you actually bought", "Talking as loudly as possible for the entire duration of the fixture"],
+            answer: 1,
+            hint: "Think about who is being protected — the people around you in the crowd.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Being considerate of other spectators, for example not pushing through the crowd.</strong></p>
+<ul>
+<li>This directly protects other spectators' enjoyment and safety.</li>
+<li>The other options describe behaviour that disregards the people around you.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Riverside Athletics Meeting</strong></p><p>At a Riverside Athletics Club evening meeting, one spectator shouts loudly right at the start of the 100m sprint, and a small group of spectators push to the front of the crowd, blocking the view of the families standing behind them.</p>`,
+            question: "Explain how <strong>each</strong> of these two incidents at Riverside breaks spectator etiquette.",
+            hint: "Take each incident in turn. Name who is affected (the sprinter, or the other spectators) and why the behaviour is a problem, using details from the scenario.",
+            starter: "The spectator who shouted at the start of the race… because…\n\nThe group who pushed to the front…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per incident: 1 for identifying who is affected and how, 1 for linking it to the etiquette rule broken. Answers may include:</strong></p>
+<ul>
+<li><strong>Shouting at the start of the sprint</strong> — this could distract the sprinter at a crucial moment, breaking the rule that spectators should not deliberately distract a performer during a key moment.</li>
+<li><strong>Pushing to the front of the crowd</strong> — this blocks the view of the families behind, breaking a spectator's responsibility to be considerate of fellow spectators.</li>
+</ul>
+<p>Accept any other reasonable, applied answer linked to the scenario.</p>
+</div>`,
+            modelAnswer: "Shouting right as the sprint starts could distract the runner at the exact moment they need to concentrate, breaking the rule that spectators should not deliberately put a performer off.\n\nPushing to the front blocks the families behind from seeing the race, breaking a spectator's responsibility to be considerate of the people around them.",
+            markPoints: { note: "Mark each incident out of 2: one tick for identifying the effect, one for linking it to the etiquette rule.", groups: [
+                { label: "The shouting incident", max: 2, points: ["Identifies that it could distract/put off the sprinter at a crucial moment", "Links this to the rule about not deliberately distracting a performer"] },
+                { label: "The pushing incident", max: 2, points: ["Identifies that it blocks the view of/disadvantages other spectators", "Links this to a spectator's responsibility towards fellow spectators"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Millbrook Sunday League Derby</strong></p><p>Millbrook FC are hosting a local derby watched by a large, passionate crowd. In recent seasons the fixture has been affected by players arguing with officials, and by a small number of spectators shouting abuse from the sidelines.</p>`,
+            question: "Discuss how the behaviour of both performers and spectators affects a sport like this derby.",
+            hint: "Cover both groups: what performers do (fairness, gamesmanship) and what spectators do (quiet moments, abuse, safety). Weigh up the effect of good AND poor behaviour, then give a judgement on which matters most.",
+            starter: "One way performer behaviour affects the sport is… because…\n\nOne way spectator behaviour affects the sport is…\n\nHowever, …\n\nOverall, the most important factor is… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion covering BOTH performer and spectator behaviour, showing clearly how each affects fairness, safety and enjoyment, weighing good against poor behaviour, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to performer AND/OR spectator behaviour with some analysis, but the discussion may be one-sided (covering only one group) or the judgement is unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names behaviours with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Performer behaviour:</strong> arguing with officials undermines respect for decisions and can inflame the crowd; good sportsmanship (accepting decisions, fair play) keeps the derby competitive without conflict.</li>
+<li><strong>Spectator behaviour:</strong> abuse from the sidelines can intimidate players and officials and put off families from attending; quiet, respectful support (and staying off the pitch) keeps the event safe and enjoyable.</li>
+<li><strong>Interaction between the two:</strong> poor performer conduct can encourage worse spectator behaviour, and a hostile crowd can pressure officials or wind up players — the two groups affect each other, not just the sport separately.</li>
+<li><strong>Evaluation:</strong> performer conduct is closer to the action and shapes the atmosphere, but spectator conduct affects far more people (the whole crowd) and long-term attendance.</li>
+<li><strong>Judgement:</strong> both matter, but spectator behaviour may be the bigger long-term risk because it affects whether families feel safe to keep coming — though performer conduct often sets the tone spectators react to.</li>
+</ul>
+</div>`,
+            modelAnswer: "Performer behaviour affects the derby directly — players arguing with officials undermines respect for decisions and can inflame an already passionate crowd, whereas accepting decisions keeps the game competitive without conflict. Spectator behaviour matters just as much: abuse from the sidelines can intimidate players and officials and put off families from attending, while quiet, respectful support keeps the event safe and enjoyable. The two interact — poor conduct from players can provoke worse behaviour from the crowd, and a hostile crowd can pressure officials in turn.\n\nHowever, spectator behaviour may carry the bigger long-term risk, because it affects the whole crowd's safety and whether families keep coming back, not just the players on the pitch. Overall, both groups shape the derby, but protecting spectator conduct protects the sport's future audience."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

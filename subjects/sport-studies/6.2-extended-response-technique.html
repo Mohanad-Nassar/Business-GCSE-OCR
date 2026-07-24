@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.2 Extended-Response Technique – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 6. Exam Preparation</div>
+            <h1>6.2 Extended-Response Technique</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 6.2 Extended-Response Technique — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '6-2-extended-response-technique',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 6. Exam Preparation',
+            title: '6.2 Extended-Response Technique',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "The 3-step method for a top-band answer",
+            tag: "Key method",
+            content: `<h4>Why facts alone are not enough</h4>
+<ul>
+<li>"Discuss" and "Evaluate" questions are never marked on facts alone. A page of accurate points, with no thinking done to them, still lands near the bottom of the mark range.</li>
+<li>Build every levelled answer with the same three steps, in order.</li>
+</ul>
+<h4>Step 1 — Apply</h4>
+<ul>
+<li>Link your very first point to the scenario in front of you — a named event, place or situation — rather than a general point that could belong to any question.</li>
+</ul>
+<h4>Step 2 — Analyse both sides</h4>
+<ul>
+<li>For each point: state it, <strong>develop</strong> it (explain the effect), then ask <strong>"so what?"</strong> — what does this actually mean for the people or organisation in the scenario?</li>
+<li>Do this for <strong>one side</strong> of the issue, then do it again for the <strong>other side</strong>. Both sides must appear, or the analysis stays incomplete.</li>
+</ul>
+<h4>Step 3 — Reach a justified judgement</h4>
+<ul>
+<li>Finish by saying <strong>which side matters more</strong>, or <strong>what it depends on</strong> — and give a reason drawn from your own analysis, not a new, unexplained point.</li>
+<li>A judgement is a decision. A sentence that only restates your points is a summary, not a judgement, and does not earn the same credit.</li>
+</ul>`,
+            readCheck: {
+                q: "In the 3-step method, what is the main job of the 'analyse' step?",
+                opts: ["Weighing up both sides of the issue and explaining the effect of each point in turn", "Naming the scenario you were given, with no further comment added to it", "Copying out extra facts about the topic that were not actually asked for anywhere in the question", "Writing a one-line summary of the question before you start your answer"], ans: 0,
+                explain: "Analysis means developing a point on each side and explaining its effect — naming the scenario is 'apply', and copying facts or summarising the question skips analysis altogether."
+            }
+        },
+        {
+            title: "The band structure — what actually moves you up a band",
+            tag: "Level of response",
+            content: `<h4>Three bands, one method</h4>
+<ul>
+<li><strong>Band 1 (basic, bottom marks):</strong> a short, one-sided answer that mostly lists points, with little or no link to the scenario.</li>
+<li><strong>Band 2 (reasonable, middle marks):</strong> sound understanding, applied to the scenario, with some analysis — but it may still lean to one side, or end without a judgement that is properly supported.</li>
+<li><strong>Band 3 (thorough, top marks):</strong> a balanced discussion of both sides, applied throughout, that reaches a judgement and explains why that judgement was reached.</li>
+</ul>
+<h4>The two things that lift Band 2 into Band 3</h4>
+<ul>
+<li><strong>Add the other side.</strong> A Band 2 answer often only explores one side well; adding a developed point on the opposite side is usually the single biggest gain available.</li>
+<li><strong>Add a reasoned judgement.</strong> Not "overall, both are important" — instead, name which matters more <em>in this scenario</em>, or what it depends on, and say why.</li>
+</ul>
+<h4>What band marks are NOT about</h4>
+<ul>
+<li>They are not about writing more words. A short, balanced, judged answer beats a long, one-sided list every time.</li>
+</ul>`,
+            readCheck: {
+                q: "A student's answer explores one side well and applies it to the scenario, but never mentions the other side. Which band does this best fit?",
+                opts: ["Band 1, because nothing at all in the answer is applied to the given scenario", "Band 3, because one side is thoroughly and fully explained in detail", "Band 2, because it is applied with some analysis but is not yet balanced", "No band, because an unbalanced answer earns zero marks regardless"], ans: 2,
+                explain: "Applied, some analysis, but one-sided is the Band 2 pattern — Band 3 needs both sides plus a judgement, and an unbalanced answer still earns credit, just not full marks."
+            }
+        },
+        {
+            title: "Sentence scaffolds for building the answer",
+            tag: "Writing technique",
+            content: `<p>Use a fixed set of starters so you never forget a step. Each starter has a job.</p>
+<h4>Starting a point (apply + develop)</h4>
+<ul>
+<li><strong>"One reason [X] matters here is…"</strong> — states the point and links it to the scenario.</li>
+<li><strong>"This means that…"</strong> — forces the "so what?" development the mark scheme rewards.</li>
+</ul>
+<h4>Moving to the other side</h4>
+<ul>
+<li><strong>"On the other hand…"</strong> — signals to the examiner (and to you) that you are now covering the opposite side, which is exactly what turns Band 2 into Band 3.</li>
+</ul>
+<h4>Reaching the judgement</h4>
+<ul>
+<li><strong>"Overall, the most important [factor] is… because…"</strong> — names a decision and gives a reason, rather than just restating both sides.</li>
+<li><strong>"This depends on…"</strong> — a valid judgement when the honest answer is "it varies", as long as you say what it varies with.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does the starter 'On the other hand…' matter so much in a levelled answer?",
+                opts: ["It makes the answer noticeably longer without changing its content in any way", "It signals the switch to the second side of the argument, which balance needs", "It replaces the need to reach any final judgement at the end", "It is only useful in Section A multiple-choice questions"], ans: 1,
+                explain: "'On the other hand' marks the point where you bring in the opposite side — the exact move that lifts a one-sided Band 2 answer towards Band 3."
+            }
+        },
+        {
+            title: "Classic failings that cap your mark",
+            tag: "Common errors",
+            content: `<h4>1. Being one-sided</h4>
+<ul>
+<li>Only exploring the side you find easiest caps you in Band 2, however well that one side is written.</li>
+</ul>
+<h4>2. Just listing</h4>
+<ul>
+<li><em>Weak:</em> "Technology helps officials. It also helps spectators. It is used in many sports." Three true facts, zero development — this is a list, not analysis.</li>
+<li><em>Stronger:</em> "Technology helps officials by reviewing close decisions, which means fewer errors reach the final result and the sport is seen as fairer."</li>
+</ul>
+<h4>3. A conclusion that only summarises</h4>
+<ul>
+<li><em>Weak:</em> "So, in conclusion, there are advantages and disadvantages to this." That sentence makes no decision — it is a summary wearing a judgement's clothing.</li>
+<li><em>Stronger:</em> "Overall, the disadvantages matter more here because the cost involved would stop smaller clubs from ever using this technology."</li>
+</ul>
+<h4>4. Ignoring the scenario</h4>
+<ul>
+<li>A general point about "sport" instead of the named event, team or situation in front of you loses the application marks, even if the point itself is accurate.</li>
+</ul>`,
+            readCheck: {
+                q: "A student ends an answer with: 'So overall, there are good points and bad points to this.' What is the main problem?",
+                opts: ["It uses the word 'overall', which examiners never want to see in an answer", "It is too short to be read by the examiner marking the paper", "It summarises rather than judging — it makes no decision or reasoned call", "It should have been written in the very first sentence of the answer instead"], ans: 2,
+                explain: "A real judgement decides something and gives a reason. Restating that there are 'good and bad points' is a summary, not a judgement, and does not earn top-band credit."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Which of these best describes what a justified judgement adds to a levelled answer?",
+            opts: ["A decision about which side matters more, or what it depends on, with a reason", "A restatement of the points already made, written in slightly different words", "An extra fact about the topic that has not been mentioned anywhere before", "A promise that the student has checked their spelling and punctuation carefully"], ans: 0,
+            explain: "A judgement decides something and gives a reason drawn from the analysis — restating points, adding an unrelated fact, or mentioning spelling does not count as one."
+        },
+        {
+            q: "A Band 2 answer applies one side well but never covers the opposite side. What single change is most likely to move it towards Band 3?",
+            opts: ["Making the one side that is already covered even longer and more detailed than before", "Adding a developed point on the other side, then a reasoned judgement", "Repeating the same point using different, more advanced vocabulary", "Removing the link to the scenario so the answer reads more generally"], ans: 1,
+            explain: "Band 3 needs balance and a judgement. Lengthening one side, repeating a point, or removing the scenario link does not add the missing balance."
+        },
+        {
+            q: "Which sentence below is an example of 'just listing' rather than analysis?",
+            opts: ["Technology helps officials. It also helps spectators. It is used in lots of sports.", "Technology helps officials review close calls, which reduces errors in the final result.", "Technology gives an advantage to teams that can afford the most advanced equipment.", "Technology can slow the game down, which may reduce enjoyment for some spectators."], ans: 0,
+            explain: "The first option states three separate facts with no 'so what?' development. The others each explain an effect, which is what analysis needs."
+        },
+        {
+            q: "In a Section B or C scenario question, where should your supporting example come from?",
+            opts: ["Any sport you personally follow, regardless of what the question describes", "The scenario or case study printed on the question paper itself", "The most famous athlete you can remember from any competition", "A general example that could apply to almost any similar question"], ans: 1,
+            explain: "Application marks are for using the scenario given, not a general or personal example — even a well-written general point is capped if it ignores the case study."
+        },
+        {
+            q: "Why does a one-sided answer stay capped in Band 2, even if that one side is detailed and well explained?",
+            opts: ["Because Band 3 needs the discussion to cover both sides before a judgement", "Because detailed answers are always penalised for going into too much depth", "Because only Section C questions are ever marked using bands at all", "Because one-sided answers are usually far too short to reach any band"], ans: 0,
+            explain: "Depth on one side is not the same as balance. Band 3 specifically requires both sides to be covered, however well one side alone is written."
+        },
+        {
+            q: "A student writes: 'So overall, there are advantages and disadvantages to hosting a major event.' Why does this fail to earn full judgement marks?",
+            opts: ["It mentions the specific name of the event, which should never appear anywhere in a conclusion", "It restates that both sides exist instead of deciding which matters more, and why", "It is placed at the end of the answer instead of somewhere in the middle", "It does not use the word 'overall' in the correct grammatical position"], ans: 1,
+            explain: "That sentence only confirms both sides exist — a real judgement names which side is stronger (or what it depends on) and gives a reason for that call."
+        }
+    ];
+
+    const matchData = [
+        { term: "Apply", def: "Linking a point to the named scenario you have been given, not a general example" },
+        { term: "Analyse", def: "Developing a point and explaining its effect, on one side and then the other" },
+        { term: "Justified judgement", def: "A decision about which side matters more, or what it depends on, with a reason" },
+        { term: "Band 1 (basic)", def: "A short, one-sided answer that mostly lists points with little application" },
+        { term: "Band 2 (reasonable)", def: "Applied, with some analysis, but may stay one-sided or lack a supported judgement" },
+        { term: "Band 3 (thorough)", def: "A balanced, applied discussion of both sides that reaches a reasoned judgement" },
+        { term: "One-sided answer", def: "An answer that explores only one side of the issue, however well it is written" },
+        { term: "Listing", def: "Stating several true points with no development of their effect at all" }
+    ];
+
+    const fibData = [
+        {
+            display: "The first step of a top-band answer is to _____ your point to the scenario you have been given.",
+            blanks: { B1: "apply" }
+        },
+        {
+            display: "The second step is to analyse _____ sides of the issue, not just the side you find easiest.",
+            blanks: { B1: "both" }
+        },
+        {
+            display: "The final step is to reach a justified _____ about which side matters more, or what it depends on.",
+            blanks: { B1: "judgement" }
+        },
+        {
+            display: "An answer that only states true facts with no development of their effect is called _____.",
+            blanks: { B1: "listing" }
+        },
+        {
+            display: "In Section B and C, your example must come from the _____ you have been given, not a general one.",
+            blanks: { B1: "scenario" }
+        },
+        {
+            display: "Band 3 needs a _____ discussion — covering both sides fairly before reaching a judgement.",
+            blanks: { B1: "balanced" }
+        }
+    ];
+    const fibWords = ["apply", "both", "judgement", "listing", "scenario", "balanced"];
+
+    const tfData = [
+        {
+            statement: "A Band 3 answer must cover both sides of the issue, not just the side you find easiest.",
+            answer: true,
+            explanation: "Balance is one of the two things (with a reasoned judgement) that separates Band 3 from Band 2."
+        },
+        {
+            statement: "As long as every sentence you write is a true fact, your answer is guaranteed to reach Band 3.",
+            answer: false,
+            explanation: "A list of true, undeveloped facts stays in Band 1 — marks come from developing points and reaching a judgement, not from accuracy alone."
+        },
+        {
+            statement: "A conclusion that only restates that 'there are advantages and disadvantages' is the same as a justified judgement.",
+            answer: false,
+            explanation: "That sentence is a summary. A real judgement decides which side matters more, or what it depends on, and gives a reason."
+        },
+        {
+            statement: "In a Section B or C scenario question, your supporting example should come from the case study you were given.",
+            answer: true,
+            explanation: "Application marks reward using the scenario in front of you — a general example, however accurate, is capped."
+        },
+        {
+            statement: "Moving from Band 2 to Band 3 usually means adding the other side of the argument and a reasoned judgement.",
+            answer: true,
+            explanation: "Those are the two changes most likely to lift a one-sided, applied answer into the top band."
+        },
+        {
+            statement: "A one-sided answer can still reach Band 3 as long as that one side is written in great detail.",
+            answer: false,
+            explanation: "Depth on one side does not replace balance. Band 3 specifically requires both sides to be covered before the judgement."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "If I write lots of accurate facts about the topic, I should get full marks.",
+            correct: "Accuracy is not the same as analysis. A list of true facts with no development ('technology helps officials, it also helps spectators, it is used in many sports') stays in Band 1. Marks come from developing a point ('this means that…'), covering both sides, and reaching a judgement — not from the number of correct facts on the page.",
+            readCheck: {
+                q: "A student writes five accurate, undeveloped facts about a topic. Which band does this best match?",
+                opts: ["Band 3, because every fact stated is completely accurate and true", "Band 1, because listing facts with no development shows little analysis", "No band, because only inaccurate answers are ever marked this particular way", "Band 2, because five facts is usually considered enough for that band"], ans: 1,
+                explain: "Accuracy alone is a Band 1 pattern. Reaching Band 2 or 3 needs development, application and — for the top band — balance and a judgement."
+            }
+        },
+        {
+            wrong: "I only need to explain one side of the argument really well to get full marks.",
+            correct: "A single, well-developed side caps you in Band 2. Band 3 specifically asks for both sides — so plan two developed points, one for each side, before you reach your judgement. Depth on one side is valuable, but it cannot replace balance.",
+            readCheck: {
+                q: "Why can't a very detailed, one-sided answer reach the top band?",
+                opts: ["Because detailed answers are penalised for taking too long to mark", "Because the top band specifically requires both sides to be covered", "Because one-sided answers must always contain at least one factual error", "Because only short answers are ever placed into the top band"], ans: 1,
+                explain: "The top band's descriptor requires balance across both sides, on top of depth — so one side alone, however detailed, is capped below it."
+            }
+        },
+        {
+            wrong: "My conclusion just needs to sum up the points I already made.",
+            correct: "A summary restates; a judgement decides. Compare: 'So there are advantages and disadvantages' (summary — no decision) with 'Overall, the disadvantages matter more here because the cost would stop smaller clubs using it' (judgement — a decision, with a reason). Only the second earns top-band credit.",
+            readCheck: {
+                q: "What is missing from the sentence 'So, overall, there are advantages and disadvantages to this'?",
+                opts: ["It is missing a decision about which side matters more, and a reason why", "It is missing the specific word 'overall', which has been left out completely", "It is missing a link to any user group affected by the topic", "It is missing a command word taken from the original question"], ans: 0,
+                explain: "That sentence never decides anything — a judgement needs a call (which side, or what it depends on) plus a reason drawn from the analysis."
+            }
+        },
+        {
+            wrong: "I can use any example I like in a scenario question — it doesn't need to come from the case study.",
+            correct: "Section B and C questions give you a scenario so that you APPLY your knowledge to it. A general, unlinked example — even if accurate — loses the application marks. Always pull a name, place or detail from the case study into your first sentence on each point.",
+            readCheck: {
+                q: "A scenario question names a specific stadium and event. What should your example use?",
+                opts: ["A completely different, unrelated event that the student prefers instead", "Details from the named stadium and event given in the scenario", "The most famous stadium in the world, regardless of the question", "No example at all, since Section B never asks for application"], ans: 1,
+                explain: "Application marks reward using the scenario you were actually given — swapping in an unrelated example, however well known, does not earn them."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Discuss vs Evaluate — what the marks actually demand",
+            pills: ["Discuss", "Evaluate", "6/8-mark"],
+            content: `<p>Both command words trigger the same 3-step method (apply → analyse both sides → judgement), but read the exact wording of the question before you start:</p>
+<ul>
+<li><strong>Discuss</strong> — weigh up the issue from more than one angle; a supported judgement is still expected at the top band.</li>
+<li><strong>Evaluate</strong> — the word itself points more directly at the final judgement, so make sure your last paragraph clearly states a decision, not just a summary.</li>
+</ul>
+<p><strong>Mark-count signal:</strong> 6 and 8 marks are always level-of-response (banded) — there is no fixed list of "correct" points, only bands describing HOW WELL you argue and judge.</p>`,
+            readCheck: {
+                q: "What do both 'Discuss' and 'Evaluate' questions have in common at the top band?",
+                opts: ["Neither one ever requires you to mention the scenario given at all", "Both expect both sides to be covered and a judgement to be reached", "Both are always worth exactly one mark each on the paper", "Neither one is ever marked using bands or level descriptors"], ans: 1,
+                explain: "Whichever command word is used, 6/8-mark answers are levelled, and the top band always needs balance plus a justified judgement."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where levelled questions appear + how to plan first",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where they show up:</strong> Section A carries one 8-mark levelled question; Section B often includes a 6-mark levelled question inside a scenario; Section C's extended response ends with an 8-mark Discuss/Evaluate.</p>
+<p><strong>Plan for 60 seconds before writing:</strong></p>
+<ul>
+<li>Jot ONE point for each side of the issue, linked to the scenario.</li>
+<li>Decide your judgement <em>before</em> you write the final paragraph, so your analysis builds towards it instead of surprising you at the end.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to decide your judgement before writing the final paragraph?",
+                opts: ["So the analysis in the middle of the answer can build towards it", "So you can avoid mentioning the scenario anywhere in your answer", "So the answer can be written without covering the opposite side at all", "So you never need to write a final paragraph at all"], ans: 0,
+                explain: "Planning the judgement first means every earlier point can be chosen to support it, rather than bolting on a rushed decision at the end."
+            }
+        },
+        {
+            type: "tip",
+            title: "Sentence starters + a worked mini-example",
+            pills: ["Scaffold", "Worked example"],
+            content: `<p><strong>Starters to reuse in any topic:</strong></p>
+<ul>
+<li>"One reason [X] matters here is… This means that…"</li>
+<li>"On the other hand…"</li>
+<li>"Overall, the most important [factor] is… because…"</li>
+</ul>
+<p><strong>Worked mini-example (technology in sport):</strong> "One reason video review helps this event is that it corrects close refereeing decisions. This means that results are seen as fairer, which protects the competition's reputation. On the other hand, reviewing decisions takes time, which can slow the game and frustrate spectators watching live. Overall, fairness matters more here because a wrong result damages trust in the sport for far longer than a short delay is remembered."</p>`,
+            readCheck: {
+                q: "In the worked mini-example, which phrase signals the move to the opposing side?",
+                opts: ["\"One reason… matters here\"", "\"This means that…\"", "\"On the other hand…\"", "\"Overall, the most important…\""], ans: 2,
+                explain: "\"On the other hand\" is the scaffold that switches the answer to the second side — the move that makes the discussion balanced."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Apply", def: "Link a point to the named scenario you were given, not a general example" },
+        { term: "Analyse", def: "Develop a point and explain its effect, on one side and then the other" },
+        { term: "Justified judgement", def: "A decision on which side matters more (or what it depends on), with a reason" },
+        { term: "Band 1", def: "1–2 marks: short, one-sided, mostly lists points, little application" },
+        { term: "Band 2", def: "Middle marks: applied, some analysis, may stay one-sided or lack a supported judgement" },
+        { term: "Band 3", def: "Top marks: balanced, applied discussion of both sides with a reasoned judgement" },
+        { term: "Listing", def: "Stating several true points with no development of their effect" },
+        { term: "Summary (not a judgement)", def: "Restating that both sides exist, without deciding which matters more" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "State <strong>two</strong> things a Band 3 (top-band) Discuss/Evaluate answer must show that a Band 1 answer does not.",
+            hint: "Think about what the band descriptors add as you move up — balance, application, analysis, or a supported judgement.",
+            starter: "One thing a Band 3 answer shows is… Another thing it shows is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct feature named, to a maximum of two. Accept any two DIFFERENT features from:</strong></p>
+<ul>
+<li>Covers both sides of the issue (balance)</li>
+<li>Applies points clearly to the scenario throughout</li>
+<li>Develops points with analysis (explains the effect), not just listing them</li>
+<li>Reaches a justified judgement, with a reason, rather than a summary</li>
+</ul>
+<p>Do not credit the same feature written twice in different words.</p>
+</div>`,
+            modelAnswer: "One thing a Band 3 answer shows is balance — it covers both sides of the issue.\n\nAnother thing it shows is a justified judgement, giving a reason for the decision reached.",
+            markPoints: { note: "One tick per correct, DIFFERENT feature of a Band 3 answer; cap at 2.", groups: [
+                { label: "Your first feature", max: 1, points: ["Names a genuine feature that separates Band 3 from Band 1 (balance, application, analysis or a justified judgement)"] },
+                { label: "Your second feature", max: 1, points: ["Names a DIFFERENT genuine feature from the first (not a repeat in different words)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which command word most directly requires you to weigh up both sides of an issue and reach a supported decision?",
+            options: ["Identify — simply name a relevant point, with no further detail required at all", "Describe — give a straightforward account of a feature, without giving any reasons", "Evaluate — weigh up both sides of the issue and reach a justified decision", "State — give a short, factual answer without any explanation attached to it"],
+            answer: 2,
+            hint: "Think about which command word points most directly at the final step of the 3-step method — the judgement.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: C — Evaluate.</strong></p>
+<ul>
+<li>Evaluate points most directly at reaching a supported decision, though Discuss questions are marked the same way.</li>
+<li>Identify, Describe and State are all lower-tariff command words that do not require a judgement.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Sample student answer</strong> — part of a response to a 6-mark Discuss question about video-review technology at a football match:</p><p><em>"Video review helps referees. It also helps spectators understand decisions. Video review is used in many sports. It is a good piece of technology."</em></p>`,
+            question: "Explain <strong>two</strong> reasons why this sample answer would not reach Band 3, even though every sentence in it is accurate.",
+            hint: "Look at what the answer does NOT do. Does it develop its points? Does it cover the other side? Does it reach a judgement?",
+            starter: "One reason it would not reach Band 3 is… This means that…\n\nAnother reason is… This means that…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO3: analysis)</h5>
+<p><strong>Up to 2 marks per reason: 1 for identifying a genuine failing, 1 for explaining why it stops the answer reaching Band 3. Answers may include:</strong></p>
+<ul>
+<li><strong>It lists points without developing them</strong> — each sentence states a fact but never explains its effect ("so what?"), so it shows little analysis.</li>
+<li><strong>It is one-sided</strong> — every sentence is positive; there is no mention of a drawback (e.g. slower play, cost), so it cannot be balanced.</li>
+<li><strong>It reaches no judgement</strong> — the answer ends without deciding whether the benefits outweigh any drawback, or what that would depend on.</li>
+</ul>
+<p>Accept any two different, genuine failings. A failing identified with no explanation of its effect earns 1 of the 2 marks for that reason.</p>
+</div>`,
+            modelAnswer: "One reason is that it only lists points — each sentence states a fact but never develops its effect, so it shows little analysis.\n\nAnother reason is that it is entirely one-sided, with no drawback mentioned, so it cannot reach the balance Band 3 requires.",
+            markPoints: { note: "Mark each reason out of 2: one tick for identifying a genuine failing, one for explaining why it caps the mark.", groups: [
+                { label: "Your first reason", max: 2, points: ["Identifies a genuine failing in the sample (e.g. lists points with no development, is one-sided, or reaches no judgement)", "Explains why that failing stops the answer reaching Band 3"] },
+                { label: "Your second reason", max: 2, points: ["Identifies a DIFFERENT genuine failing from the first reason", "Explains why that second failing stops the answer reaching Band 3"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Northgate Arena</strong></p><p>Northgate Arena has introduced instant-replay review technology and large spectator screens for its major fixtures. Some fans say the ground feels fairer and more exciting; others complain that matches now take longer and that ticket prices have risen to help pay for it.</p>`,
+            question: "Discuss the extent to which introducing technology like this has improved sport for spectators.",
+            hint: "Cover a benefit (fairness, understanding decisions on the big screen) and a drawback (delays, cost) applied to Northgate Arena, then reach a judgement on which matters more, or what it depends on.",
+            starter: "One reason this technology has improved things for spectators at Northgate Arena is… This means that…\n\nOn the other hand…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of both the benefits and drawbacks for Northgate Arena's spectators, with analysis of effect, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to the scenario with some analysis, but the discussion may stay one-sided or the judgement may be unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names benefits and/or drawbacks with little application and no real judgement; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Benefits for spectators:</strong> the big screens let fans see replays of close calls, so they understand decisions instead of being confused by them; this can make the event feel fairer and more engaging to watch.</li>
+<li><strong>Drawbacks for spectators:</strong> reviews pause play, which can break the atmosphere and frustrate fans who came for a fast-moving occasion; the cost of the technology may be passed on through higher ticket prices, which can put off fans on lower incomes.</li>
+<li><strong>Evaluation:</strong> whether this is an improvement may depend on the type of fan (a fan who values accuracy over pace) and on whether prices rise enough to exclude some spectators altogether.</li>
+<li><strong>Judgement:</strong> the technology is likely an improvement for most spectators because it builds trust in decisions, but only while price rises stay small enough that ordinary fans are not priced out of attending.</li>
+</ul>
+</div>`,
+            modelAnswer: "The big screens and review technology at Northgate Arena let fans see close decisions replayed, which means they understand what has happened instead of being left confused. This builds trust that results are fair.\n\nOn the other hand, reviews stop play, which can break the atmosphere for fans who came for a fast, exciting occasion, and the cost of the technology may be passed on through higher ticket prices, putting off fans on lower incomes.\n\nOverall, the technology is likely an improvement for most spectators, because trust in fair decisions matters more than a short delay — but this depends on ticket prices staying low enough that ordinary fans are not priced out of watching."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

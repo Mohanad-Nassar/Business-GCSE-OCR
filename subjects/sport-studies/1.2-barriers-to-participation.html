@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.2 Barriers to Participation – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 1. Issues Affecting Participation</div>
+            <h1>1.2 Barriers to Participation</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 1.2 Barriers to Participation — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '1-2-barriers-to-participation',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 1. Issues Affecting Participation',
+            title: '1.2 Barriers to Participation',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What a 'barrier' is — and why it's not the same as a user group",
+            tag: "Key concept",
+            content: `<h4>The idea</h4>
+<ul>
+<li>A <strong>barrier</strong> is anything that stops or discourages someone from taking part in sport — a practical, personal or social obstacle in their way.</li>
+<li>This is a different idea from a <strong>user group</strong>, which you met in 1.1. A user group is <em>WHO</em> might take part (such as teenagers or carers). A barrier is <em>WHAT</em> stops them.</li>
+</ul>
+<h4>The exam skill: link the barrier to a group, and explain why</h4>
+<ul>
+<li>Weak answer: <em>"A barrier is lack of transport."</em> That names a barrier but shows no understanding.</li>
+<li>Strong answer: <em>"Lack of transport is a barrier that particularly affects people without a car, such as some carers, because they cannot physically reach a leisure centre that is far from public transport routes."</em></li>
+<li>The mark almost always comes from <strong>naming the barrier, saying who it affects most, and explaining why</strong> — not from the name on its own.</li>
+</ul>
+<h4>One barrier can affect several groups</h4>
+<ul>
+<li>A barrier is rarely limited to one group. Lack of disposable income can affect unemployed people, some carers and some teenagers all at once — but the exam still rewards a clear, well-explained link to one named group.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best explains the difference between a 'user group' and a 'barrier'?",
+                opts: ["A user group is a category of people; a barrier is something that stops or discourages them from taking part", "They are two different names for exactly the same idea, so either word can always be used instead of the other", "A barrier is a category of people, and a user group is what stops them taking part in sport", "A user group only ever refers to teenagers, while a barrier only ever refers to cost"],
+                ans: 0,
+                explain: "A user group is WHO might take part; a barrier is WHAT stops them. They are related, but they are not interchangeable words, and 'barrier' is not limited to cost."
+            }
+        },
+        {
+            title: "Barriers of money, time and getting there",
+            tag: "Core knowledge",
+            content: `<p>Several of the most commonly tested barriers come down to <strong>having enough money, enough free time, or a way to get there</strong>.</p>
+<h4>Work and money</h4>
+<ul>
+<li><strong>Employment</strong> — people in work can face long or awkward hours (shifts, evenings, weekends) that clash with the times sessions run.</li>
+<li><strong>Unemployment</strong> — people without a job often have very little spare money, so cost becomes the barrier instead of time.</li>
+<li><strong>Lack of disposable income</strong> — even people in work may not have money left over for the cost of kit, a membership fee and the travel to get there. All three add up.</li>
+</ul>
+<h4>Time and family</h4>
+<ul>
+<li><strong>Family commitments</strong> and <strong>being a carer</strong> — looking after children or a relative leaves little free time to take part, and sessions rarely fit around caring duties.</li>
+</ul>
+<h4>Getting there</h4>
+<ul>
+<li><strong>Lack of transport</strong> — even a great, affordable session is no use if someone cannot physically reach the venue, especially in areas with poor public transport.</li>
+</ul>`,
+            readCheck: {
+                q: "A person works irregular evening shifts and says they can never get to a 6pm class. Which barrier is this?",
+                opts: ["Lack of transport", "Employment (long or awkward working hours)", "Lack of positive family role models", "Unequal media coverage of the sport they want to play"],
+                ans: 1,
+                explain: "Their working hours, not transport, role models or media coverage, are what clash with the session time — this is the employment barrier."
+            }
+        },
+        {
+            title: "Barriers of role models, provision and awareness",
+            tag: "Core knowledge",
+            content: `<h4>Role models</h4>
+<ul>
+<li><strong>Lack of positive sporting role models</strong> — without visible people to admire or copy in a sport, it can feel like "not for someone like me", which lowers the urge to try it.</li>
+<li><strong>Lack of positive family role models or family support</strong> — if the adults around someone never took part in sport or actively discourage it, a young person gets far less encouragement to start.</li>
+</ul>
+<h4>Provision</h4>
+<ul>
+<li><strong>Lack of appropriate activity provision</strong> — sometimes there is simply no suitable session, club or facility near enough to someone, for their age, ability or interest.</li>
+<li><strong>Lack of awareness of appropriate provision</strong> — this is a different problem: the session or facility already exists locally, but the person has never heard about it, so it might as well not exist for them.</li>
+</ul>
+<h4>Why the exam separates these two "provision" barriers</h4>
+<ul>
+<li>Examiners reward you for spotting the difference: one is "it isn't there", the other is "it's there, but nobody told them". A good promotion campaign fixes the second even when nothing new has been built.</li>
+</ul>`,
+            readCheck: {
+                q: "A leisure centre already runs a low-cost beginners' swimming class, but almost nobody local knows it exists. Which barrier is this?",
+                opts: ["Lack of positive sporting role models", "Lack of transport to the leisure centre", "Lack of awareness of appropriate provision", "Lack of appropriate activity provision for this specific age group"],
+                ans: 2,
+                explain: "The session already exists — the problem is that people don't know about it. That is awareness of provision, not a missing session, transport or role models."
+            }
+        },
+        {
+            title: "Media coverage — and the exam skill in action",
+            tag: "Exam skill",
+            content: `<h4>Unequal media coverage</h4>
+<ul>
+<li>Some sports, genders and ethnic groups get far less media coverage than others. Less coverage means <strong>fewer visible role models</strong> to inspire people, and sometimes lazy stereotyping about who "should" play a sport.</li>
+<li>This is a barrier because it works on people's <em>attitudes</em> before they even reach a leisure centre — if you rarely see people like you competing on TV, it can feel like the sport isn't meant for you.</li>
+<li>Unequal coverage by <strong>gender</strong> and by <strong>ethnicity</strong> are both named in the specification, and both work the same way: less visibility, fewer role models, lower participation.</li>
+</ul>
+<h4>Worked example of the exam skill</h4>
+<ul>
+<li><strong>Barrier:</strong> unequal media coverage by gender.</li>
+<li><strong>Group it affects:</strong> girls and women taking up a sport that is rarely shown on TV.</li>
+<li><strong>Why:</strong> with few elite women visible in that sport, girls have fewer role models to copy and may not realise the pathway exists — so fewer take it up.</li>
+</ul>
+<h4>Putting it all together</h4>
+<ul>
+<li>Whatever barrier you are asked about, the strongest answers always finish the sentence: "...which stops or discourages [named group], because [reason]."</li>
+</ul>`,
+            readCheck: {
+                q: "Why does unequal media coverage by gender or ethnicity reduce participation?",
+                opts: ["It gives fewer visible role models and can reinforce stereotypes about who plays a sport", "It has no real effect at all on whether people choose to take part in a sport", "It always makes tickets for live matches more expensive to buy", "It only affects people who already play sport at a professional, elite level, not anyone starting out"],
+                ans: 0,
+                explain: "Fewer visible role models and reinforced stereotypes lower participation before someone even tries a sport — it is not really about ticket prices, and it affects beginners, not only elite performers."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What is meant by a 'barrier to participation'?",
+            opts: ["A category of people who share a feature affecting their participation in sport", "Something that stops or discourages someone from taking part in sport", "A national governing body's official list of registered members", "The score a team needs to reach to qualify for a major competition"],
+            ans: 1,
+            explain: "A barrier stops or discourages participation. Option A is actually the definition of a user group, not a barrier — a common mix-up."
+        },
+        {
+            q: "A single parent works full-time and says they simply have no spare time to attend evening sessions. Which barrier does this best show?",
+            opts: ["Lack of transport", "Lack of disposable income", "Family commitments and being a carer, combined with employment", "Unequal media coverage of the specific sport this parent would like to try"],
+            ans: 2,
+            explain: "Caring for children alongside a full-time job leaves no free time — this is family commitments and employment together, not transport, income or media coverage."
+        },
+        {
+            q: "Which pair correctly matches a barrier with the specific problem it describes?",
+            opts: ["Lack of awareness of provision — a suitable club exists locally but people do not know about it", "Lack of appropriate provision — a suitable club exists locally and is well advertised to everyone", "Lack of transport — a person owns a car but simply prefers to walk to their local gym", "Lack of disposable income — a person has plenty of money but simply dislikes exercising"],
+            ans: 0,
+            explain: "Awareness of provision is exactly this: the session exists, but people don't know. B describes the opposite (good provision, well advertised), and C/D describe personal choice, not a barrier."
+        },
+        {
+            q: "Which of these is most likely to reduce participation by removing visible role models for a group?",
+            opts: ["Lack of transport links to the leisure centre", "Unequal media coverage by gender or ethnicity", "A short-term rise in the price of replica kit for one single season only", "A minor change to a competition's kick-off time"],
+            ans: 1,
+            explain: "Unequal media coverage directly reduces how visible role models are for a group. Transport, kit prices and kick-off times are barriers, but they don't remove role models."
+        },
+        {
+            q: "Someone knows a low-cost, beginner-friendly class exists two streets from their house, but has never been able to attend because there is no bus route and they don't drive. Which barrier is most directly shown here?",
+            opts: ["Lack of awareness of appropriate provision", "Lack of positive sporting role models", "Lack of appropriate activity provision", "Lack of transport"],
+            ans: 3,
+            explain: "They already know the class exists and it's suitable — the problem is physically getting there, which is lack of transport, not awareness or role models."
+        },
+        {
+            q: "A teenager says nobody in their family has ever really done sport, and nobody at home encourages them to try a new club. Which barrier does this describe?",
+            opts: ["Lack of positive family role models or family support", "Lack of transport to any sports facility that is reasonably nearby", "Unequal media coverage of the sport in question", "Lack of disposable income to pay for equipment"],
+            ans: 0,
+            explain: "No sporting habit or encouragement at home is a lack of positive family role models/support — not transport, media coverage or cost, which aren't mentioned here."
+        }
+    ];
+
+    const matchData = [
+        { term: "Barrier to participation", def: "Anything that stops or discourages someone from taking part in sport" },
+        { term: "Employment", def: "Long or awkward working hours that clash with when sessions run" },
+        { term: "Unemployment", def: "Having very little spare money because a person is without a job" },
+        { term: "Family commitments / being a carer", def: "Looking after children or a relative, leaving little free time to attend sessions" },
+        { term: "Lack of disposable income", def: "Not having spare money left over for kit, membership and travel costs" },
+        { term: "Lack of transport", def: "Not having a practical way of physically reaching a facility or venue" },
+        { term: "Lack of positive role models", def: "Having nobody visible in sport or at home to admire, copy or be encouraged by" },
+        { term: "Lack of awareness of provision", def: "Not knowing that a suitable local session or facility already exists" }
+    ];
+
+    const fibData = [
+        {
+            display: "A barrier to participation is anything that stops or _____ someone from taking part in sport.",
+            blanks: { B1: "discourages" }
+        },
+        {
+            display: "People in work can face long or _____ hours that clash with when sessions run.",
+            blanks: { B1: "awkward" }
+        },
+        {
+            display: "A lack of _____ income means there is no spare money for kit, membership or travel.",
+            blanks: { B1: "disposable" }
+        },
+        {
+            display: "Even a great session is no use if someone cannot physically reach it because of a lack of _____.",
+            blanks: { B1: "transport" }
+        },
+        {
+            display: "Lack of _____ of appropriate provision means a session already exists locally, but people have never heard about it.",
+            blanks: { B1: "awareness" }
+        },
+        {
+            display: "Unequal media _____ by gender or ethnicity means fewer visible role models for some groups.",
+            blanks: { B1: "coverage" }
+        }
+    ];
+    const fibWords = ["discourages", "awkward", "disposable", "transport", "awareness", "coverage"];
+
+    const tfData = [
+        {
+            statement: "A 'barrier' and a 'user group' mean exactly the same thing.",
+            answer: false,
+            explanation: "A user group is WHO might take part. A barrier is WHAT stops or discourages them. They are related ideas but not the same thing."
+        },
+        {
+            statement: "Lack of disposable income can include the added-up cost of kit, membership fees and travel.",
+            answer: true,
+            explanation: "All three costs can combine, so someone in work can still be short of the spare money needed to take part."
+        },
+        {
+            statement: "Lack of transport can only ever be a barrier for people who do not own a car.",
+            answer: false,
+            explanation: "It can also affect car owners if the nearest suitable facility is too far, or if fuel and parking costs are too high — it's about practically reaching the venue, not just car ownership."
+        },
+        {
+            statement: "'Lack of appropriate provision' and 'lack of awareness of provision' describe exactly the same problem.",
+            answer: false,
+            explanation: "One means no suitable session exists; the other means a suitable session exists but people don't know about it. The exam rewards spotting the difference."
+        },
+        {
+            statement: "Positive role models can come from within a person's own family, not only from elite sport.",
+            answer: true,
+            explanation: "A family member who takes part in and encourages sport is a positive role model too, just as much as a professional athlete can be."
+        },
+        {
+            statement: "Unequal media coverage by gender or ethnicity can reduce participation by reducing the number of visible role models.",
+            answer: true,
+            explanation: "Less coverage means fewer visible role models for that group, which can make a sport feel less 'for them' before they even try it."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "To answer a barriers question, I just need to name a barrier, like 'lack of transport'.",
+            correct: "Naming is only the first mark at most. The examiner is looking for you to link the barrier to a GROUP it affects and WHY. Level 1 answer: \"A barrier is lack of transport.\" Full-marks answer: \"Lack of transport is a barrier for carers who don't drive, because they cannot physically reach a leisure centre without a reliable bus route.\" The difference is the group and the reason.",
+            readCheck: {
+                q: "An 'Explain' question asks about a barrier to participation. What earns the marks?",
+                opts: ["Naming as many different barriers as you possibly can, without explaining any of them", "Naming the barrier, then the group it affects and a reason", "Writing the barrier's name in bold", "Describing your own weekend sport in detail"],
+                ans: 1,
+                explain: "Explain = point + reason, applied to a group. Naming the barrier alone, or listing several, does not show the understanding the mark scheme rewards."
+            }
+        },
+        {
+            wrong: "A 'barrier' and a 'user group' are basically the same thing.",
+            correct: "They are two different ideas the exam keeps side by side. A user group is a category of PEOPLE (who might take part). A barrier is something that STOPS people taking part (cost, transport, lack of provision). A question can ask you to link them — 'which barrier affects this group?' — but they are not the same word.",
+            readCheck: {
+                q: "Which of these is a barrier, not a user group?",
+                opts: ["Teenagers", "Lack of disposable income", "People with disabilities", "Retired people and the over-60s"],
+                ans: 1,
+                explain: "Lack of disposable income is something that stops participation — a barrier. The other three are categories of people — user groups."
+            }
+        },
+        {
+            wrong: "'Lack of appropriate provision' and 'lack of awareness of appropriate provision' both just mean 'there's no session'.",
+            correct: "They describe two different problems. Lack of appropriate provision means no suitable session or facility actually exists nearby. Lack of awareness of provision means a suitable session DOES exist, but the person has never heard about it — so, from their point of view, it might as well not exist. Fixing the first needs new provision; fixing the second just needs better promotion.",
+            readCheck: {
+                q: "A council already runs a free wheelchair basketball session, but hardly anyone locally knows about it. Which barrier is shown?",
+                opts: ["Lack of appropriate activity provision for that age or ability group", "Lack of awareness of appropriate provision", "Lack of positive sporting role models", "Lack of disposable income"],
+                ans: 1,
+                explain: "The session already exists — the problem is that people don't know about it, which is lack of awareness, not a missing session, role models or cost."
+            }
+        },
+        {
+            wrong: "Unequal media coverage as a barrier only really matters to people who want to become professional athletes.",
+            correct: "It affects far more than future professionals. Media coverage shapes whether ORDINARY people feel a sport is 'for them' at all. If a group rarely sees people like themselves competing on TV, that can put someone off ever trying a beginner session — long before elite performance is anywhere in the picture.",
+            readCheck: {
+                q: "Who can unequal media coverage put off from taking part in a sport?",
+                opts: ["Only people who are already competing at a professional, elite level, and nobody else at all", "Beginners deciding whether to try a sport at all, not just elite performers", "Nobody — media coverage has no effect on participation", "Only people who already own a season ticket"],
+                ans: 1,
+                explain: "Fewer visible role models can put off a complete beginner from ever trying a sport — the effect starts long before anyone reaches elite level."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain"],
+            content: `<p>Barriers questions are usually short. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify one barrier to participation [1]" = write one barrier name, nothing more.</li>
+<li><strong>Describe</strong> — say what the barrier is or how it works. "Describe a barrier facing unemployed people [2]" = give the features of that barrier.</li>
+<li><strong>Explain</strong> — give a reason. Use the word <em>because</em>. "Explain why lack of transport can stop someone taking part" = the barrier <em>plus</em> why it stops them.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2] usually wants two points, or one point developed; [4] in Section B wants points applied to the scenario.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify two barriers to participation [2]'. What is the safest answer?",
+                opts: ["A long paragraph about one barrier", "Two barrier names", "One barrier name explained in detail", "A list of six barriers"],
+                ans: 1,
+                explain: "'Identify' + [2] = two names, one mark each. Explaining one barrier, or listing six, wastes time and risks the examiner marking only the first two anyway."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the barrier, the group, AND why",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is stopping at the name. Build every answer as <strong>barrier → group it affects → reason</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "Lack of transport."</li>
+<li><strong>✅ full marks:</strong> "Lack of transport is a barrier for people without a car, because they cannot physically reach a leisure centre that isn't on a bus route."</li>
+</ul>
+<p>In <strong>Section B</strong> the question gives you a scenario (a named place, a named person). Then you must use a detail <em>from that scenario</em>, not a general example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario question about a named person facing a barrier, your explanation should come from...",
+                opts: ["absolutely any barrier that you happen to remember", "the scenario you are given", "a famous athlete's biography", "your own school only"],
+                ans: 1,
+                explain: "Section B is applied — the marks are for using the scenario in front of you. A general point that ignores the scenario is capped."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where barriers appear + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> barriers appear as quick recall in <strong>Section A</strong> (identify/state/describe), and as applied points in <strong>Section B</strong> scenarios about a named person or centre. They also feed <strong>Section C</strong> 8-mark answers about how a provider could increase participation by tackling barriers.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the barriers in themes (money/time, getting there, role models, provision, media) so you can always recall a few.</li>
+<li>For every barrier, memorise <em>one</em> typical group it affects, and <em>why</em> — that reason is usually where the mark is.</li>
+<li>Never confuse "lack of provision" (nothing suitable exists) with "lack of awareness of provision" (it exists but nobody knows) — the exam tests the difference.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One barrier affecting this group is… because…"</li>
+<li>"This barrier stops them because… so the provider could…"</li>
+<li>"However, this change might not remove every barrier, because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to link a barrier to a specific reason it stops a group, rather than just naming it?",
+                opts: ["It fills space in the answer", "It shows understanding of HOW and WHY participation is affected", "It means the barrier no longer applies", "It replaces the need to name any barrier at all, so nothing else is required"],
+                ans: 1,
+                explain: "Naming plus a reason shows real understanding of how the barrier works — the kind of point the mark scheme is built to reward."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Barrier to participation", def: "Anything that stops or discourages someone from taking part in sport" },
+        { term: "Employment", def: "Long or awkward working hours that can clash with sessions" },
+        { term: "Unemployment", def: "Very little spare money because a person is without a job" },
+        { term: "Family commitments / being a carer", def: "Looking after children or a relative, leaving little free time" },
+        { term: "Lack of disposable income", def: "No spare money for kit, membership and travel" },
+        { term: "Lack of transport", def: "No practical way to physically reach a venue" },
+        { term: "Lack of role models (sporting or family)", def: "Nobody visible to admire, copy or encourage them" },
+        { term: "Lack of awareness of provision", def: "Not knowing a suitable local session already exists" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> different barriers that can stop people taking part in sport.",
+            hint: "Just name two — pick from money/time, getting there, role models, provision or media coverage (for example lack of transport, lack of disposable income, unemployment).",
+            starter: "One barrier is… Another barrier is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct barrier named, to a maximum of two. Accept any two different barriers from the specification, including:</strong></p>
+<ul>
+<li>Employment (long/awkward hours)</li>
+<li>Unemployment</li>
+<li>Family commitments / being a carer</li>
+<li>Lack of disposable income</li>
+<li>Lack of transport</li>
+<li>Lack of positive sporting role models</li>
+<li>Lack of positive family role models / support</li>
+<li>Lack of appropriate activity provision</li>
+<li>Lack of awareness of appropriate provision</li>
+<li>Unequal media coverage (gender or ethnicity)</li>
+</ul>
+<p>Do not credit the same barrier written twice.</p>
+</div>`,
+            modelAnswer: "One barrier is lack of transport.\n\nAnother barrier is lack of disposable income.",
+            markPoints: { note: "One tick per correct, DIFFERENT barrier; cap at 2.", groups: [
+                { label: "Your first barrier", max: 1, points: ["Names a valid barrier from the specification"] },
+                { label: "Your second barrier", max: 1, points: ["Names a DIFFERENT valid barrier (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which barrier best describes someone who cannot afford membership fees, kit or travel costs?",
+            options: ["Lack of transport to the facility", "Lack of disposable income", "Lack of positive sporting role models to copy", "Unequal media coverage of the sport they enjoy"],
+            answer: 1,
+            hint: "Think about which barrier is about spare money overall, not any single cost on its own.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Lack of disposable income.</strong></p>
+<ul>
+<li>Membership, kit and travel are all costs that add up — this is a lack of spare (disposable) income.</li>
+<li>The other options describe different barriers that are not about affording these specific costs.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Riverside Community Sports Hub</strong></p><p>Aiden is 17. He works long weekend shifts stacking shelves at a supermarket, often finishing at 9pm. He does not drive, and the nearest bus stop is a 40-minute walk from Riverside Community Sports Hub. The last bus home leaves at 7pm.</p>`,
+            question: "Explain <strong>two</strong> barriers to participation shown in this scenario, and how each one affects Aiden.",
+            hint: "Take each barrier in turn. Say what the barrier is, then explain why it stops Aiden using a detail from the scenario (his shift times, or the bus times).",
+            starter: "One barrier is… which affects Aiden because…\n\nAnother barrier is… which affects Aiden because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per barrier: 1 for identifying a relevant barrier, 1 for explaining it using the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Employment (long/awkward hours)</strong> — Aiden's shifts often finish at 9pm, which clashes with evening sessions at Riverside.</li>
+<li><strong>Lack of transport</strong> — Aiden does not drive, and the last bus home leaves at 7pm, so he cannot get home safely after a normal evening session.</li>
+</ul>
+<p>Accept any other reasonable, applied barrier (e.g. lack of disposable income if travel cost is discussed). A barrier with no explanation, or an explanation not linked to the scenario, earns 1 of the 2 marks for that barrier.</p>
+</div>`,
+            modelAnswer: "Aiden's long, late working shifts are a barrier, because he often finishes at 9pm, which clashes with evening sessions at Riverside. Lack of transport is also a barrier, because he doesn't drive and the last bus home leaves at 7pm, so he cannot get home safely after a normal evening session.",
+            markPoints: { note: "Mark each barrier out of 2: one tick for identifying it, one for explaining it with a scenario detail.", groups: [
+                { label: "Your first barrier", max: 2, points: ["Identifies a relevant barrier shown in the scenario (e.g. employment / long or awkward working hours)", "Explains why it stops Aiden, using a scenario detail (e.g. shifts finish at 9pm, clashing with evening sessions)"] },
+                { label: "Your second barrier", max: 2, points: ["Identifies a DIFFERENT relevant barrier shown in the scenario (e.g. lack of transport)", "Explains why it stops Aiden, using a scenario detail (e.g. no car, last bus home at 7pm)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Riverside Community Sports Hub</strong></p><p>Riverside Community Sports Hub is based in an area with many shift workers, several families who do not own a car, and residents on low incomes. The hub currently runs most sessions between 10am and 4pm, charges £6 per session, and advertises mainly through posters inside the building.</p>`,
+            question: "Discuss how Riverside could reduce the barriers facing local people, in order to increase participation.",
+            hint: "Choose two or three barriers shown in the scenario. For each, explain the barrier and a change that would reduce it. Then weigh it up — what are the limits or costs of doing this? Finish with a judgement on how much it would really help.",
+            starter: "One barrier facing local people is… so Riverside could…\n\nAnother barrier is…\n\nHowever, the extent to which this increases participation depends on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several barriers, showing clearly how reducing them would raise participation AND weighing the limits (cost, one change not suiting every barrier, staffing), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one barrier with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names barriers and/or effects with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, reward valid alternatives)</h5>
+<ul>
+<li><strong>Employment:</strong> the 10am–4pm timing clashes with shift workers' hours, so adding early-morning, evening or weekend sessions would open up times they can attend.</li>
+<li><strong>Lack of disposable income:</strong> £6 a session adds up for low-income residents, so concession pricing or free taster sessions would remove cost as a barrier.</li>
+<li><strong>Lack of transport:</strong> families without a car may not reach the hub at all, so a shuttle bus or a satellite session at a closer, smaller venue would help.</li>
+<li><strong>Lack of awareness of provision:</strong> in-building posters only reach people who already visit, so advertising through local schools, workplaces or social media would reach people who don't yet know Riverside exists.</li>
+<li><strong>Evaluation:</strong> reducing barriers only helps if the centre can resource the changes (a shuttle bus and lower prices both cost money); one change can suit one barrier but not another (evening sessions help shift workers but not people who still can't get there); the biggest gains may come from tackling the barrier stopping the largest group first.</li>
+<li><strong>Judgement:</strong> understanding these barriers is powerful because it lets Riverside target the SPECIFIC obstacle each group faces — but it increases participation only if the hub can afford the changes and accepts that no single change removes every barrier at once.</li>
+</ul>
+</div>`,
+            modelAnswer: "Riverside can reduce barriers by matching changes to what's stopping people. Shift workers can't attend 10am–4pm sessions, so evening and weekend slots would open up times they can use. Low-income residents may find £6 a barrier, so concession pricing would remove cost. Families without a car may not reach the hub at all, so a shuttle bus or a nearer satellite session would help.\n\nHowever, this only works if Riverside can afford it — a shuttle bus and lower prices both cost money — and one change can help one barrier while leaving another untouched, such as evening sessions not helping someone who still can't physically get there.\n\nOverall, tackling barriers is Riverside's strongest tool for raising participation because it targets real, specific obstacles, but it only works fully if the hub can fund several changes together rather than just one."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

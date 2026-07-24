@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.1.2 Participants and Spectators – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 3. Hosting a Major Sporting Event</div>
+            <h1>3.1.2 Participants and Spectators</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 3.1.2 Participants and Spectators
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '3-1-2-participants-and-spectators',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 3. Hosting a Major Sporting Event',
+            title: '3.1.2 Participants and Spectators',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Why a major event's participants are international",
+            tag: "Key concept",
+            content: `<h4>The idea</h4>
+<ul>
+<li>A <strong>major sporting event</strong> (an Olympic Games, a World Cup, a continental championship) is not a domestic fixture. It is <strong>international</strong> — competitors normally travel in from <strong>two or more different countries</strong> to take part under one shared set of rules, in one host location.</li>
+<li>This is one of the features that separates a "major event" from a routine local or regional competition, where every competitor usually comes from the same area.</li>
+</ul>
+<h4>What this means for the host</h4>
+<ul>
+<li>Because competitors arrive from abroad, a host city or country has to plan for things a purely local competition never needs: visas and travel for overseas teams, translation, and accommodation for squads from many nations at once.</li>
+<li>The mix of nations competing is part of the spectacle itself — it is a large part of why people want to watch.</li>
+</ul>`,
+            readCheck: {
+                q: "What makes the participants at a major sporting event different from those at a small local competition?",
+                opts: ["They usually travel in from two or more different countries to compete", "They must all be full-time professional athletes earning a large salary", "They are always selected using exactly the same method in every single country", "They only ever compete in events lasting a single afternoon"],
+                ans: 0,
+                explain: "A major event draws competitors from multiple nations, not just professional status, identical selection rules, or event length — none of those make an event 'major'."
+            }
+        },
+        {
+            title: "Two kinds of international spectator",
+            tag: "Core knowledge",
+            content: `<h4>Live, in-venue spectators</h4>
+<ul>
+<li>The crowd physically inside the stadium or venue is usually a mix of <strong>local residents</strong> and <strong>visitors who have travelled from other countries</strong> specifically to attend.</li>
+<li>These crowds are large — major events fill the biggest venues a host country has, often for many sessions in a row.</li>
+</ul>
+<h4>Remote spectators — the global audience</h4>
+<ul>
+<li>Far more people watch a major event on <strong>television or online</strong> than could ever fit in a venue. This remote audience is spread across <strong>many countries at once</strong>, often watching in different languages and time zones.</li>
+<li>This global broadcast audience is usually the biggest reason a major event reaches so many more people than any domestic fixture.</li>
+</ul>
+<h4>Putting the two together</h4>
+<ul>
+<li>A major event therefore has an international mix on both sides: <strong>participants</strong> from many nations, and <strong>spectators</strong> split between an international live crowd and a far larger international broadcast audience.</li>
+</ul>`,
+            readCheck: {
+                q: "Which statement correctly separates the two kinds of spectator at a major sporting event?",
+                opts: ["Live spectators are inside the venue; remote spectators watch worldwide via TV or online", "Live spectators only ever exist for indoor events, while remote spectators only exist for outdoor ones", "Remote spectators are always fewer in number than the people inside the venue", "There is no real difference between a live spectator and a remote spectator"],
+                ans: 0,
+                explain: "Live spectators attend in person; remote spectators are the much larger worldwide TV/online audience. The other options invert or deny that split."
+            }
+        },
+        {
+            title: "Why the international scale matters",
+            tag: "Exam skill",
+            content: `<h4>It is part of what makes an event "major"</h4>
+<ul>
+<li>An event only really counts as <strong>major</strong> once its competitors and its audience stretch across national borders. Scale is a defining feature, not a side effect — a competition with one nation's athletes and only local spectators stays a domestic event, however well it is run.</li>
+</ul>
+<h4>It drives the impact on the host</h4>
+<ul>
+<li>The international scale is <strong>why</strong> a major event attracts heavy media coverage, sponsorship and investment — broadcasters and sponsors are paying for access to a huge, worldwide audience, not a local one.</li>
+<li>It is also why hosting brings the host country international exposure: the whole point of a global audience is that people <em>outside</em> the host country are watching it.</li>
+</ul>
+<h4>Exam skill: link scale to reason</h4>
+<ul>
+<li>A weak answer just states the scale ("lots of people watch"). A strong answer explains <strong>why the scale matters</strong> — for example, that a global TV audience is what makes broadcast rights and sponsorship so valuable to a host.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does the international scale of participants and spectators matter to a host country?",
+                opts: ["It is a large part of what makes an event 'major' and drives its media and investment value", "It has no real effect at all on how much investment or media coverage an event ever receives", "It only ever matters for events that are held in winter rather than in the summer months", "It matters solely because it makes ticket prices slightly cheaper for local residents"],
+                ans: 0,
+                explain: "The international scale is what defines 'major' and is why broadcasters, sponsors and investors are interested — it isn't irrelevant, seasonal, or about ticket price."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Which feature best shows that a sporting event has reached 'major' international scale?",
+            opts: ["The event being organised entirely by unpaid local volunteers from the host town", "Every ticket for the event being sold to a local resident only, with none sold abroad", "Competitors and spectators drawn from two or more different countries", "The competition using exactly the same rules as it did in last year's edition"],
+            ans: 2,
+            explain: "International scale means competitors and audiences crossing borders — ticket buyers being local, volunteer organisation and unchanged rules do not make an event major."
+        },
+        {
+            q: "A host venue is full of people watching live, while millions more follow on television across dozens of countries. What are the millions on television called?",
+            opts: ["The remote or broadcast spectators", "The participants competing in the event", "The host nation's own athletes", "The in-venue crowd, who are physically inside the stadium watching live"],
+            ans: 0,
+            explain: "People watching via TV/online rather than in person are remote (broadcast) spectators — not participants, home athletes, or the physical in-venue crowd."
+        },
+        {
+            q: "Why do broadcasters and sponsors pay large amounts of money for access to a major sporting event?",
+            opts: ["Because a global audience across many countries makes that access highly valuable", "Because every major event legally requires at least one paying sponsor to proceed", "Because the host country's government fixes each sponsor's price by law", "Because local spectators alone are usually enough to justify the cost"],
+            ans: 0,
+            explain: "It is the huge, international audience that makes broadcast rights and sponsorship valuable — not a legal requirement, a fixed government price, or local attendance alone."
+        },
+        {
+            q: "A small regional five-a-side tournament features only teams and fans from the same town. Why would this NOT be classed as a major sporting event?",
+            opts: ["Its participants and spectators are local rather than drawn from other countries", "Because five-a-side football can never be considered a serious, competitive sport", "Because it does not charge any of its spectators an entry fee to attend at all", "Because it is organised by a school rather than by a national governing body"],
+            ans: 0,
+            explain: "Scale — international participants and spectators — is what 'major' requires; the sport itself, entry fees and who organises it are not the deciding factor here."
+        },
+        {
+            q: "Which of these best describes the make-up of a live, in-venue crowd at a major sporting event?",
+            opts: ["Usually a mix of local residents and visitors who have travelled from abroad", "Always made up entirely of people from the host country and nowhere else", "Always made up entirely of overseas visitors, with no local residents at all", "Exactly the same in size as the remote television audience"],
+            ans: 0,
+            explain: "In-venue crowds typically blend local residents with international visitors — they are not purely local, purely overseas, nor the same size as the (much bigger) TV audience."
+        },
+        {
+            q: "A student writes: 'A major event matters because lots of people watch it.' What is missing from this answer?",
+            opts: ["A very detailed description of the exact stadium seating capacity, given in the total number of seats", "A mention of the word 'sport' occurring anywhere at all in the sentence", "The full official name of the sporting event that is being discussed", "An explanation of why that huge international scale actually matters to the host country"],
+            ans: 3,
+            explain: "Naming the scale isn't enough — the mark comes from explaining why that scale matters (media value, investment, exposure), which this answer never reaches."
+        }
+    ];
+
+    const matchData = [
+        { term: "Major sporting event", def: "A competition whose participants and spectators are drawn from two or more countries" },
+        { term: "Participants", def: "The competitors taking part, typically travelling in from multiple different nations" },
+        { term: "Live spectators", def: "The crowd physically inside the venue, usually a mix of local and overseas visitors" },
+        { term: "Remote spectators", def: "The much larger television or online audience, spread across many countries at once" },
+        { term: "Global audience", def: "The combined worldwide viewership that makes broadcast rights and sponsorship valuable" },
+        { term: "International scale", def: "The cross-border reach of competitors and viewers that is part of what makes an event 'major'" }
+    ];
+
+    const fibData = [
+        {
+            display: "A major sporting event usually has competitors travelling in from two or more different _____.",
+            blanks: { B1: "countries" }
+        },
+        {
+            display: "People watching a major event live inside the stadium are called _____ spectators.",
+            blanks: { B1: "live" }
+        },
+        {
+            display: "People following a major event on television or online, often from many countries at once, are called _____ spectators.",
+            blanks: { B1: "remote" }
+        },
+        {
+            display: "The huge, worldwide television audience is what makes broadcast rights and sponsorship so _____ to a host.",
+            blanks: { B1: "valuable" }
+        },
+        {
+            display: "International scale is part of what makes an event count as _____, rather than a purely local competition.",
+            blanks: { B1: "major" }
+        }
+    ];
+    const fibWords = ["countries", "live", "remote", "valuable", "major"];
+
+    const tfData = [
+        {
+            statement: "A major sporting event usually has competitors from two or more different countries.",
+            answer: true,
+            explanation: "That international mix of competitors is one of the defining features of a 'major' event, as opposed to a purely local competition."
+        },
+        {
+            statement: "The live, in-venue crowd at a major event is always made up entirely of people from the host country.",
+            answer: false,
+            explanation: "In-venue crowds are usually a mix of local residents and visitors who have travelled from other countries to attend."
+        },
+        {
+            statement: "Remote (television/online) spectators are usually far more numerous than the live in-venue crowd.",
+            answer: true,
+            explanation: "A stadium can only hold so many people, but the broadcast/online audience reaches many more people across many countries."
+        },
+        {
+            statement: "The international scale of a major event is irrelevant to how much money broadcasters and sponsors are willing to pay.",
+            answer: false,
+            explanation: "It is the opposite — the size and international reach of the audience is exactly why broadcast rights and sponsorship are so valuable."
+        },
+        {
+            statement: "A small tournament with only local teams and local fans could still be classed as a 'major' sporting event.",
+            answer: false,
+            explanation: "Without competitors and spectators from other countries, an event stays local/regional rather than reaching 'major' international scale."
+        },
+        {
+            statement: "Simply stating that 'a lot of people watch' a major event is enough to explain why its scale matters.",
+            answer: false,
+            explanation: "Naming the scale only gets you started — the mark is for explaining why that scale matters, e.g. its effect on media value and investment."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Any event with a big crowd inside the stadium counts as a 'major' international sporting event.",
+            correct: "A big local crowd is not the same as international scale. What defines a major event is competitors AND spectators being drawn from two or more different countries — including the much larger remote (TV/online) audience across the world, not just how full one venue looks on the day.",
+            readCheck: {
+                q: "What actually shows that a sporting event has reached 'major' international scale?",
+                opts: ["Competitors and spectators being drawn from two or more countries, including the global broadcast audience", "The stadium simply being full to its absolute maximum seating capacity on every single day of the entire event", "The event lasting for more than one single day from start to finish in total", "The home nation's team winning the majority of its matches at the event"],
+                ans: 0,
+                explain: "A full stadium, a long event, or the home team winning does not define 'major' — the cross-border reach of competitors and viewers does."
+            }
+        },
+        {
+            wrong: "'Spectators' at a major event just means the people sitting in the stadium.",
+            correct: "That only covers HALF the spectators. The specification splits spectators into live, in-venue spectators AND the much bigger remote audience watching on television or online across many countries. Forgetting the remote audience under-states the true scale of a major event.",
+            readCheck: {
+                q: "Which group of spectators is often forgotten when students describe a major event's audience?",
+                opts: ["The remote television or online audience, following the event across many different countries", "The athletes who are actually competing directly in the event itself, out on the field of play", "The officials who referee and run the competition throughout the whole event", "The volunteers who help to run the venue on the day of the event"],
+                ans: 0,
+                explain: "Students often only picture the in-venue crowd and forget the far larger remote broadcast audience — both make up 'spectators'."
+            }
+        },
+        {
+            wrong: "Explaining why international scale 'matters' just means repeating that lots of people are involved.",
+            correct: "Restating the scale earns little on its own. The exam rewards a REASON: the scale matters because it is what makes broadcast rights, sponsorship and investment so valuable, and because it is what gives the host country genuine international exposure — not just the raw number of people.",
+            readCheck: {
+                q: "What is most likely to earn marks when a question asks why international scale 'matters' to a host?",
+                opts: ["A reason linking the scale to its effect, such as its media value or investment", "Simply repeating, in different words, that a very large number of people are involved", "Listing as many different countries as you can possibly remember off by heart", "A description of what the host country's national flag actually looks like"],
+                ans: 0,
+                explain: "'Why it matters' questions need a linked reason (media value, sponsorship, exposure) — restating the number or listing countries does not explain anything."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words on this topic — what each one wants",
+            pills: ["Identify", "State", "Describe", "Explain"],
+            content: `<p>Questions on participants and spectators are usually short recall or one step of application. Match your answer length to the command word and the marks:</p>
+<ul>
+<li><strong>Identify / State [1 mark each]</strong> — name a feature. "State one way a major event's spectators are international" = one short point, nothing more.</li>
+<li><strong>Describe [2 marks]</strong> — add a feature or detail. Two linked points, or one point plus a detail.</li>
+<li><strong>Explain [2–4 marks]</strong> — give a reason, using the word <em>because</em>. Say WHY the international scale matters, not just that it exists.</li>
+</ul>
+<p><strong>Read the mark tariff</strong>: a [1] wants one point; a [4] in Section B wants points applied to the scenario you are given, not a general list.</p>`,
+            readCheck: {
+                q: "A question says: 'State one feature that shows a major event's participants are international [1]'. What is the safest answer?",
+                opts: ["One short, clear point", "A long paragraph covering several ideas", "A list of every country you can name", "A description of your favourite sport"],
+                ans: 0,
+                explain: "'State' plus [1] mark wants a single clear point — a long paragraph, a list of countries or an unrelated description all waste time for no extra credit."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the scale AND why it matters",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The most common way to lose marks here is stopping at description. Build longer answers as <strong>feature → why it matters</strong>:</p>
+<ul>
+<li><strong>❌ weak:</strong> "The event has spectators from lots of countries."</li>
+<li><strong>✅ strong:</strong> "The event has a global television audience across many countries, which is why broadcasters and sponsors pay so much for access to it."</li>
+</ul>
+<p>In <strong>Section B</strong> you will usually be given a scenario with numbers (countries represented, crowd size, broadcast reach). Use those exact figures in your answer instead of a general example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario question with numbers for crowd size and countries represented, your answer should...",
+                opts: ["use those specific figures from the scenario", "ignore the figures given and describe a different event entirely", "only describe the host country's own fans", "avoid mentioning numbers of any kind"],
+                ans: 0,
+                explain: "Section B rewards application — using the scenario's own figures shows you can apply the idea, rather than writing a generic answer."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> short recall in <strong>Section A</strong> (identify/state a feature of international participants or spectators); applied points in <strong>Section B</strong> scenarios with real numbers; and it can feed a <strong>Section C</strong> 8-mark discussion of why hosting a major event matters to a country.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Always split spectators into two groups: live, in-venue AND remote/broadcast — examiners often want both.</li>
+<li>Never just restate the scale ("lots of people watch") — pair it with a reason it matters.</li>
+<li>In Section B, quote the scenario's own numbers (countries, crowd size) rather than a generic example.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One way the participants/spectators here are international is… because…"</li>
+<li>"This matters because a bigger, international audience means…"</li>
+<li>"However, this scale also brings…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to split 'spectators' into live and remote in a longer answer?",
+                opts: ["It shows you understand both parts of the true international audience, not just half of it", "It fills space in a longer written answer without adding any real understanding of the topic at all", "It proves that the host venue itself was too small for the event to take place", "It replaces the need to explain why the scale actually matters at all"],
+                ans: 0,
+                explain: "Naming both live and remote spectators shows a fuller, more accurate picture of the audience — but you still need to explain why the scale matters."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Major sporting event", def: "A competition whose competitors and spectators are drawn from two or more countries" },
+        { term: "Participants", def: "Competitors who typically travel in from multiple different nations to compete" },
+        { term: "Live spectators", def: "The crowd physically inside the venue — usually a mix of local and overseas visitors" },
+        { term: "Remote spectators", def: "The much larger TV/online audience, spread across many countries at once" },
+        { term: "Global audience", def: "The combined worldwide viewership that makes broadcast rights and sponsorship valuable" },
+        { term: "Why scale matters", def: "It is part of what makes an event 'major' and drives its media, sponsorship and investment value" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> features that show a major sporting event's participants and spectators are international, rather than local.",
+            hint: "Think about who is competing, who is in the crowd, and who is watching remotely — pick any two different features.",
+            starter: "One feature is… Another feature is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct feature identified, to a maximum of two. Accept any two DIFFERENT features, including:</strong></p>
+<ul>
+<li>Competitors travel in from two or more different countries</li>
+<li>The live, in-venue crowd includes visitors from other countries, not only local residents</li>
+<li>A remote/broadcast audience follows the event on television or online across many countries</li>
+</ul>
+<p>Do not credit the same feature written twice in different words.</p>
+</div>`,
+            modelAnswer: "One feature is that competitors travel in from two or more different countries to compete.\n\nAnother feature is that a remote audience watches on television or online across many countries.",
+            markPoints: { note: "One tick per correct, DIFFERENT feature; cap at 2.", groups: [
+                { label: "Your first feature", max: 1, points: ["Names a valid international feature of participants or spectators"] },
+                { label: "Your second feature", max: 1, points: ["Names a DIFFERENT valid feature (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these best explains why broadcasters pay large amounts of money for the rights to show a major sporting event?",
+            options: ["Because the event reaches a huge, international audience across many countries", "Because every host country sets a fixed legal minimum price for all broadcasters", "Because the in-venue crowd alone is normally enough to cover the whole cost", "Because major events are always held in exactly the same country every time"],
+            answer: 0,
+            hint: "Think about what makes the audience for a major event so much bigger than a local match.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — Because the event reaches a huge, international audience across many countries.</strong></p>
+<ul>
+<li>It is the scale and international reach of the audience that makes broadcast access valuable.</li>
+<li>There is no fixed legal minimum price, the in-venue crowd alone is far smaller than the broadcast audience, and major events do not stay in one country.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Dunholm City Games</strong></p><p>Dunholm has been chosen to host the "Dunholm City Games", a new multi-sport competition. Organisers expect competitors from <strong>45 different countries</strong>, a live in-venue crowd of <strong>60,000 people</strong> (many travelling from abroad), and a television/online audience broadcast to <strong>over 90 countries worldwide</strong>.</p>`,
+            question: "Explain how the details above show that the Dunholm City Games has reached the international scale of a major sporting event.",
+            hint: "Take participants and spectators in turn. Use the exact figures given (45 countries, 60,000 crowd, 90+ countries broadcast) rather than a general example.",
+            starter: "The participants show international scale because… The spectators show international scale because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks for participants, up to 2 marks for spectators. 1 mark for identifying the relevant scenario detail, 1 mark for linking it to international scale. Answers may include:</strong></p>
+<ul>
+<li><strong>Participants</strong> — competitors from 45 different countries are taking part, which shows the event is drawing competitors from across the world rather than one nation.</li>
+<li><strong>Spectators</strong> — a 60,000 live crowd including overseas visitors, plus a broadcast reaching over 90 countries, shows both the live and remote audiences are international in scale.</li>
+</ul>
+<p>Accept any other reasonable answer that correctly uses a figure from the scenario. A figure quoted with no link to international scale earns 1 of the 2 marks for that half.</p>
+</div>`,
+            modelAnswer: "The participants show international scale because competitors are travelling in from 45 different countries, not just from Dunholm itself, which is the mark of a major rather than local event.\n\nThe spectators show international scale because the 60,000 live crowd includes visitors from abroad, and the event is broadcast to over 90 countries — meaning far more people follow it remotely than could ever fit in the venue.",
+            markPoints: { note: "Mark each half out of 2: one tick for using a scenario figure, one for linking it to international scale.", groups: [
+                { label: "Participants", max: 2, points: ["Uses a scenario detail (e.g. competitors from 45 countries)", "Links it to international scale (shows it is not a single-nation event)"] },
+                { label: "Spectators", max: 2, points: ["Uses a scenario detail (e.g. 60,000 live crowd and/or broadcast to 90+ countries)", "Links it to international scale (live AND/OR remote audience reaching beyond Dunholm)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Dunholm City Games</strong></p><p>Dunholm's organisers point to the 45 competing countries, the 60,000-strong live crowd and the broadcast reaching over 90 countries as proof that the Games matter to Dunholm as a host. Some local residents ask why this international scale should matter to them at all.</p>`,
+            question: "Discuss why the international scale of participants and spectators matters to a host country like Dunholm.",
+            hint: "Explain at least two reasons the scale matters (media/sponsorship value, international exposure). Then weigh up limits — does scale alone guarantee benefit for local residents? Finish with a judgement.",
+            starter: "One reason the scale matters is… because…\n\nAnother reason is…\n\nHowever, scale alone does not guarantee…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion linking the scenario's scale to at least two clear reasons it matters, AND weighing genuine limits, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied with some reasoning, but may cover only one side or reach an unsupported judgement.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> restates the scenario's figures with little explanation and no real evaluation; largely descriptive.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Media and sponsorship value:</strong> a broadcast reaching 90+ countries makes broadcast rights and sponsorship far more valuable to Dunholm than a local fixture ever could be.</li>
+<li><strong>International exposure:</strong> competitors and visitors from 45 countries, plus a worldwide broadcast, put Dunholm's name in front of an audience it could never otherwise reach.</li>
+<li><strong>Investment case:</strong> that exposure and revenue can help justify investment in facilities and transport that outlast the event.</li>
+<li><strong>Evaluation:</strong> scale alone does not guarantee local benefit — a 60,000 crowd and global broadcast can bring costs (policing, congestion) that residents feel more than any media value; benefits depend on how the revenue and exposure are actually used afterwards.</li>
+<li><strong>Judgement:</strong> the international scale matters because it is what creates Dunholm's media, sponsorship and exposure opportunity in the first place — but it only translates into a real benefit for residents if that opportunity is managed and reinvested well.</li>
+</ul>
+</div>`,
+            modelAnswer: "The scale matters because a broadcast reaching over 90 countries and competitors from 45 nations make Dunholm's Games far more valuable to sponsors and broadcasters than a local event, and put Dunholm in front of an audience it could not otherwise reach. This exposure can help justify investment in facilities and transport.\n\nHowever, scale alone does not guarantee residents benefit — a 60,000 crowd and global attention can bring congestion and cost that locals feel directly, and the value only appears if revenue and exposure are reinvested well.\n\nOverall, the international scale matters most as the source of Dunholm's opportunity, but the real benefit to residents depends on how well that opportunity is managed afterwards."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

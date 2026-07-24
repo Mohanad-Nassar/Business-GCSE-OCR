@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.5.6 The Impact of PEDs on Sport – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values</div>
+            <h1>2.5.6 The Impact of PEDs on Sport</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 2.5.6 The Impact of PEDs on Sport — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '2-5-6-the-impact-of-peds-on-sport',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 2. The Role of Sport in Promoting Values',
+            title: '2.5.6 The Impact of PEDs on Sport',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Reputation and public trust — the sport takes the hit",
+            tag: "Key concept",
+            content: `<h4>It isn't only the athlete's name that suffers</h4>
+<ul>
+<li>When one performer is caught using a <strong>performance-enhancing drug (PED)</strong>, the story rarely stays about that person for long. Journalists, fans and rival competitors start asking whether the <strong>whole sport</strong> has a doping problem.</li>
+<li>That shift matters because it damages the <strong>sport's reputation</strong> — not only the reputation of the individual who was caught.</li>
+</ul>
+<h4>Public trust and interest can fall</h4>
+<ul>
+<li>Once people suspect that some winners might be cheating, they can start to doubt <strong>every</strong> result in that sport — including performances that were completely clean.</li>
+<li>That loss of trust can shrink the audience: fewer people watch, follow or care about a sport they no longer believe is being won fairly, so <strong>public trust and interest can fall</strong>.</li>
+<li>A sport with a long history of doping cases can carry that damaged reputation for years, even long after it tightens its rules.</li>
+</ul>`,
+            readCheck: {
+                q: "A PED scandal involving one athlete breaks in the news. Why can this damage the sport as a whole?",
+                opts: ["Because fans and the media can start to doubt every result in that sport, not only the athlete who was caught", "Because journalists automatically assume every single competitor in that sport must also be using banned substances", "Because the scandal has no effect on anyone except the one athlete who was actually caught doping", "Because governing bodies must permanently close down the sport within a year of any doping case being proven"],
+                ans: 0,
+                explain: "Doping scandals spread doubt onto the whole sport — damaging its reputation and public trust — not only the individual who was caught. The other options either overstate the effect or wrongly claim there is no wider effect at all."
+            }
+        },
+        {
+            title: "Unfair results — and the clean athletes who lose out",
+            tag: "Fairness",
+            content: `<h4>Records and results built on a lie</h4>
+<ul>
+<li>A performance boosted by PEDs is not a fair contest — the result is <strong>unfair or dishonest</strong>, because the performer gained an advantage that their rivals were not allowed to use.</li>
+<li>If a record is later shown to have been set by a doped athlete, the record itself becomes tainted, even if it takes years for testing to catch up with it.</li>
+</ul>
+<h4>Clean athletes are the ones who really lose out</h4>
+<ul>
+<li>Every place a doped athlete takes on a podium is a place a <strong>clean athlete</strong> did not get. That can mean lost medals, lost prize money, lost funding and lost sponsorship for someone who did nothing wrong.</li>
+<li>Some clean athletes only receive their medal, title or funding years later, once a doping case is finally proven — by which point the moment, and often the money, has already gone.</li>
+</ul>`,
+            readCheck: {
+                q: "Why are clean athletes described as the group who 'lose out' when a rival uses PEDs?",
+                opts: ["Because they are automatically banned from competing again once someone else is caught doping", "Because a doped rival can take the medals, funding and sponsorship that a clean performance would otherwise have earned", "Because clean athletes are always physically slower than any athlete who has ever used a PED", "Because the governing body always disqualifies the clean athlete instead of the one who actually doped, even years after the case is proven"],
+                ans: 1,
+                explain: "A doped rival can take the medal, funding or sponsorship a clean athlete's genuine performance would have earned — that is the real cost to clean athletes, not a ban or a disqualification of the wrong person."
+            }
+        },
+        {
+            title: "The ongoing cost to the sport — money and policing",
+            tag: "Cost & finance",
+            content: `<h4>Sponsors do not want to be linked to a 'tainted' sport</h4>
+<ul>
+<li>Sponsors pay to have their brand linked to something exciting and trustworthy. A sport with a doping scandal can become <strong>"tainted"</strong> in the public eye, so sponsors may pull their money out rather than risk being linked to cheating.</li>
+<li>That loss of sponsorship and broadcast income can hit the whole sport financially — from the top level down to grassroots clubs that relied on money trickling down from it.</li>
+</ul>
+<h4>Testing and policing never really stop</h4>
+<ul>
+<li>To protect its reputation, a sport has to keep testing and monitoring performers — that is an <strong>ongoing cost</strong>, in money and staff time, that never truly ends.</li>
+<li>People looking to cheat keep finding new substances and methods, so testers must keep updating what they test for. That constant effort is a direct cost of PED use existing in the sport at all.</li>
+</ul>`,
+            readCheck: {
+                q: "Why does PED use create an 'ongoing' cost for a sport, rather than a one-off cost?",
+                opts: ["Because testing and policing have to continue and adapt constantly, which keeps costing money and staff time", "Because testing only ever has to happen once, on the very first day an athlete joins a professional sporting team", "Because every sponsor is legally required to pay the exact same fine to the sport every single year", "Because testing equipment never needs to be replaced or updated once it has first been bought"],
+                ans: 0,
+                explain: "New substances and methods keep appearing, so testing and policing must keep adapting — that ongoing effort and expense is why the cost never truly stops, unlike a single one-off payment."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Which of these best describes how a doping scandal can affect a SPORT, rather than just the one performer caught?",
+            opts: ["It guarantees that the sport receives a large increase in government funding during the following season", "It has no lasting impact on anything once the individual performer has served their ban", "It can damage the sport's overall reputation, because people start to question other results too", "It automatically doubles ticket sales for every future event the sport holds afterwards"],
+            ans: 2,
+            explain: "A scandal can damage the whole sport's reputation, because people start doubting other results too — it does not guarantee extra funding, higher ticket sales, or simply vanish once one ban is served."
+        },
+        {
+            q: "What can happen to public interest in a sport after repeated doping scandals?",
+            opts: ["Public interest always rises very sharply after each scandal, because controversy makes the sport feel more exciting to watch", "Public trust and interest can fall, because fans no longer feel confident that results are genuine", "Nothing changes at all, because fans never pay attention to how a result was actually achieved", "Every broadcaster is legally required to stop showing the sport completely and permanently"],
+            ans: 1,
+            explain: "Repeated scandals can make fans doubt whether results are genuine, so trust and interest can fall — scandal does not reliably boost interest, and coverage is not simply banned outright."
+        },
+        {
+            q: "Why is a result achieved using PEDs described as 'unfair or dishonest'?",
+            opts: ["Because the performer received a harsher training schedule than everyone else in the competition", "Because the performer gained an advantage that their rivals were not allowed to use", "Because judges are legally required to disqualify every competitor immediately after the event", "Because the whole event has to be replayed in full from the very beginning the following week"],
+            ans: 1,
+            explain: "The result is unfair because the doped performer had an advantage rivals were not allowed to use — a harsher schedule, blanket disqualification and full replays are not what makes it dishonest."
+        },
+        {
+            q: "A clean athlete finishes fourth behind a rival who is later proven to have doped. How does this show the impact of PEDs on a sport?",
+            opts: ["It shows that clean athletes always end up receiving more prize money than any doped rival eventually does", "It shows that doping bans are automatically cancelled once a result has already been publicly announced", "It shows that governing bodies refuse to ever re-examine a result once the medals have been given out", "It shows that a clean athlete can lose medals, funding and recognition to a rival who cheated"],
+            ans: 3,
+            explain: "The clean athlete missed out on medals, funding and recognition that their genuine performance should have earned — that lost opportunity is the real impact, not a guaranteed pay-out or a frozen result."
+        },
+        {
+            q: "Why might sponsors withdraw funding from a sport after a major doping scandal?",
+            opts: ["Sponsors are legally forced by government regulators to withdraw all funding from that sport", "Sponsors always increase their funding straight away, because scandals attract more media coverage", "Sponsors do not want their brand linked to a sport that now looks 'tainted' by cheating", "Sponsors are only ever interested in individual athletes and never fund a sport as a whole"],
+            ans: 2,
+            explain: "Sponsors protect their brand by avoiding a 'tainted' sport — it is a reputational choice, not a legal requirement, and scandal does not reliably attract extra sponsorship money."
+        },
+        {
+            q: "Which statement best explains why anti-doping testing is described as an 'ongoing cost' for a sport?",
+            opts: ["Testing only ever has to happen once, right at the very start of an athlete's professional sporting career", "Testing and policing have to continue constantly, because new substances and methods keep appearing", "Testing is completely free for every governing body, so it has no real cost to the sport at all", "Testing is cancelled automatically for a sport as soon as one athlete is caught and banned"],
+            ans: 1,
+            explain: "New substances and methods keep appearing, so testing and policing must keep adapting — that is why the cost is ongoing, not a single free or one-off event."
+        }
+    ];
+
+    const matchData = [
+        { term: "Reputation damage", def: "A sport's fairness and trustworthiness is doubted by the public after a doping scandal" },
+        { term: "Public trust and interest", def: "Confidence that results are genuine, and the level of attention fans give the sport" },
+        { term: "Unfair / dishonest result", def: "An outcome shaped by a performance advantage rivals were not allowed to use" },
+        { term: "Clean athlete disadvantage", def: "Losing medals, funding or sponsorship to a rival who is later proven to have doped" },
+        { term: "'Tainted' sport", def: "How sponsors may see a sport once it becomes strongly linked with doping cases" },
+        { term: "Ongoing testing cost", def: "Money and staff time a sport must keep spending because doping methods keep changing" }
+    ];
+
+    const fibData = [
+        {
+            display: "A doping scandal can damage a sport's _____, making fans doubt every result.",
+            blanks: { B1: "reputation" }
+        },
+        {
+            display: "Public trust and _____ in a sport can fall once fans suspect cheating is happening.",
+            blanks: { B1: "interest" }
+        },
+        {
+            display: "A result boosted by PEDs is unfair because the performer gained an _____ that rivals were not allowed to use.",
+            blanks: { B1: "advantage" }
+        },
+        {
+            display: "Clean athletes can lose medals and _____ to a rival who is later proven to have doped.",
+            blanks: { B1: "funding" }
+        },
+        {
+            display: "Sponsors may pull their money out once a sport looks _____ by repeated doping cases.",
+            blanks: { B1: "tainted" }
+        }
+    ];
+    const fibWords = ["reputation", "interest", "advantage", "funding", "tainted"];
+
+    const tfData = [
+        {
+            statement: "A doping scandal involving one athlete can damage the reputation of the whole sport.",
+            answer: true,
+            explanation: "Once one performer is caught, fans and the media often start to question the whole sport, not just that individual — the reputation damage spreads beyond one person."
+        },
+        {
+            statement: "Public trust in a sport always increases straight after a doping scandal.",
+            answer: false,
+            explanation: "The opposite is more likely — fans can start doubting whether results are genuine, so trust and interest tend to fall, not rise."
+        },
+        {
+            statement: "A result achieved using PEDs is still fair, as long as the performer also trained hard.",
+            answer: false,
+            explanation: "Training hard does not cancel out the unfair advantage a PED gives — the result is still dishonest because rivals were not allowed to use the same boost."
+        },
+        {
+            statement: "Clean athletes can lose medals, funding or sponsorship to a rival who is later proven to have doped.",
+            answer: true,
+            explanation: "Every podium place a doped athlete takes is one a clean athlete did not get, which can cost them medals, funding and sponsorship they otherwise would have earned."
+        },
+        {
+            statement: "Sponsors always increase their spending on a sport straight after a doping scandal breaks.",
+            answer: false,
+            explanation: "Sponsors more often pull money OUT of a sport that looks 'tainted', because they do not want their brand linked to cheating."
+        },
+        {
+            statement: "Anti-doping testing is an ongoing cost, because new substances and methods keep appearing.",
+            answer: true,
+            explanation: "Cheats keep finding new ways to dope, so testers must keep adapting what they test for — that constant effort is a genuine ongoing cost, not a one-off payment."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Doping only really affects the one athlete who gets caught — it's their problem, not the sport's.",
+            correct: "The exam wants you to explain the impact on the SPORT, not only the individual. A scandal can damage the sport's reputation, reduce public trust and interest, disadvantage clean athletes who lose medals or funding, push sponsors to leave a 'tainted' sport, and add an ongoing cost of testing and policing. An answer that only mentions the athlete's own ban misses almost every mark available.",
+            readCheck: {
+                q: "A question asks you to explain the impact of PED use ON A SPORT. What should your answer focus on?",
+                opts: ["Only the length of the individual athlete's ban", "Effects on the sport itself — reputation, trust, clean athletes, sponsors and testing costs", "Only what happens to the athlete's own personal fitness and training programme in the years afterwards", "Only the name of the substance the athlete used"],
+                ans: 1,
+                explain: "'Impact on the sport' means reputation, public trust, fairness to clean athletes, sponsor money and the cost of policing — not just the individual's own ban or fitness."
+            }
+        },
+        {
+            wrong: "If a doped result stood for years before anyone was caught, it doesn't really matter any more.",
+            correct: "It still matters. The result was unfair or dishonest at the time it was won, and any clean athlete who missed out on a medal, funding or recognition lost that opportunity permanently — a late correction does not give them back the years they lost. It also shows why ongoing testing matters: cases can take years to prove, during which the sport's reputation keeps being damaged.",
+            readCheck: {
+                q: "A doping case is only proven years after the event. Why does this still matter to a clean athlete who finished just behind?",
+                opts: ["It doesn't matter, because the result cannot ever be looked at again by anyone", "They permanently lost medals, funding or recognition during the years before the case was proven", "It only matters to the governing body, never to the athlete", "The clean athlete automatically becomes ineligible to compete in any future event once the case is proven"],
+                ans: 1,
+                explain: "The clean athlete missed out on real opportunities — medals, funding, recognition — during the years before the case was proven, and that loss cannot simply be reversed later."
+            }
+        },
+        {
+            wrong: "Testing and policing are a one-off cost a sport pays once, and then never worries about again.",
+            correct: "Testing and policing are an ONGOING cost. New substances and methods keep appearing, so a sport must keep updating what it tests for and keep paying staff and laboratories to do it — the effort never really stops as long as the temptation to dope exists.",
+            readCheck: {
+                q: "Why can't a sport just test athletes once and consider the job finished?",
+                opts: ["Because testing laboratories always close down after their very first year of operation", "Because new substances and methods keep appearing, so testing must keep adapting", "Because athletes are only ever tested during their very first competition", "Because governing bodies are not allowed to test the same athlete twice"],
+                ans: 1,
+                explain: "New substances and methods keep appearing, which is exactly why testing and policing must be an ongoing effort rather than a single completed task."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "Describe", "Explain", "Discuss"],
+            content: `<p>Impact-of-PEDs questions vary a lot in length. Match your answer to the command word and the mark tariff:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name an impact. "Identify one impact of PED use on a sport" = one named effect, e.g. "loss of public trust". 1 mark.</li>
+<li><strong>Describe</strong> — say what the impact actually looks like, not just its name.</li>
+<li><strong>Explain</strong> — give a reason. Use the word <em>because</em>. "Explain how PED use can affect sponsorship" = the impact, plus why it happens.</li>
+<li><strong>Discuss</strong> — weigh up more than one impact and reach a judgement about which matters most, or how serious the overall damage is.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [4] in Section B wants two developed, applied points; [8] wants balanced analysis of several impacts plus a justified judgement.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify one impact of PED use on a sport [1]'. What is the safest answer?",
+                opts: ["A full paragraph explaining every possible impact", "One named impact, such as loss of public trust", "A list of every impact you can remember", "A description of the athlete's own punishment"],
+                ans: 1,
+                explain: "'Identify' + [1] = one named impact. A full paragraph or a long list wastes time for a single mark, and the athlete's own punishment is not an impact on the sport."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: impact on the SPORT, not the individual",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The single most common way to lose marks here is writing about the athlete's own ban instead of the sport. Keep asking yourself: <strong>who does this sentence actually affect?</strong></p>
+<ul>
+<li><strong>❌ Off-target:</strong> "The athlete is banned for four years and loses their funding."</li>
+<li><strong>✅ On-target:</strong> "The sport's reputation is damaged, because fans start to doubt whether other results in the same competition were also achieved fairly."</li>
+</ul>
+<p>In <strong>Section B</strong> you are given a scenario. Use a detail <em>from that scenario</em> (a named event, sponsor or governing body) rather than a generic example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario about a doping case, your answer should focus mainly on...",
+                opts: ["the athlete's personal fitness routine", "the impact on the sport itself, using detail from the scenario", "an unrelated sport you happen to prefer", "the exact chemical name of the banned substance that was used in the case"],
+                ans: 1,
+                explain: "Section B rewards applying the impact-on-the-sport idea to the scenario you are given — personal fitness, an unrelated sport, or the chemical name earn nothing here."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> quick recall in <strong>Section A</strong> (identify/describe an impact); applied points in <strong>Section B</strong> scenarios about a specific doping case; and it feeds <strong>Section C</strong> 8-mark Discuss/Evaluate answers about how serious the overall damage to a sport really is.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the six impacts in pairs: reputation + trust, fairness + clean athletes, sponsors + testing cost.</li>
+<li>Always link an impact to WHY it happens — "sponsors leave BECAUSE the sport now looks tainted."</li>
+<li>For a Discuss/Evaluate answer, pick two or three impacts and finish with a judgement on which does the most lasting damage.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One impact on the sport is… because…"</li>
+<li>"This matters because it affects…"</li>
+<li>"However, a bigger long-term impact might be… because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is it useful to link each impact to a reason ('because…') in a longer answer?",
+                opts: ["It fills space without adding anything", "It shows understanding of WHY the impact happens, which is what earns marks", "It replaces the need to ever mention more than one impact anywhere in the whole answer", "It means you never need to reach a judgement"],
+                ans: 1,
+                explain: "Explaining WHY an impact happens shows real understanding, rather than just naming it — and a longer answer still needs a range of impacts plus a final judgement."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Impact on reputation", def: "A doping scandal can make fans and the media doubt the whole sport, not just the athlete caught" },
+        { term: "Public trust and interest", def: "Confidence results are genuine, and how much fans watch, follow and care about the sport" },
+        { term: "Unfair / dishonest result", def: "An outcome shaped by an advantage rivals were not allowed to use" },
+        { term: "Clean athletes losing out", def: "Missing medals, funding or sponsorship to a rival later proven to have doped" },
+        { term: "Sponsors leaving", def: "Sponsors may withdraw money rather than be linked to a sport that looks 'tainted'" },
+        { term: "Ongoing testing cost", def: "Money and staff time a sport must keep spending as new substances keep appearing" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> ways in which PED use can impact a sport, other than the individual performer's own ban.",
+            hint: "Pick two from: reputation damage, loss of public trust/interest, unfair or dishonest results, clean athletes losing out, sponsors leaving, or the ongoing cost of testing and policing.",
+            starter: "One impact on the sport is… Another impact on the sport is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct, DIFFERENT impact named, to a maximum of two. Accept any two from:</strong></p>
+<ul>
+<li>Damage to the sport's reputation</li>
+<li>Loss of public trust and/or interest</li>
+<li>Unfair or dishonest results/records</li>
+<li>Clean athletes disadvantaged / losing out</li>
+<li>Sponsors and money leaving a 'tainted' sport</li>
+<li>The ongoing cost and effort of testing and policing</li>
+</ul>
+<p>Do not credit the athlete's own personal ban or fine — that is an impact on the individual, not the sport.</p>
+</div>`,
+            modelAnswer: "One impact on the sport is a damaged reputation.\n\nAnother impact on the sport is sponsors leaving because it now looks tainted.",
+            markPoints: { note: "One tick per correct, DIFFERENT impact on the sport (not the individual); cap at 2.", groups: [
+                { label: "Your first impact", max: 1, points: ["Names a valid impact on the sport from the list above (not the individual's own ban/fine)"] },
+                { label: "Your second impact", max: 1, points: ["Names a DIFFERENT valid impact on the sport (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is most likely to happen to sponsors after a sport suffers a major, repeated doping scandal?",
+            options: ["Sponsors increase their spending immediately, because doping scandals always attract far more media attention", "Sponsors may withdraw funding, because they do not want their brand linked to a 'tainted' sport", "Sponsors are legally required to keep funding the sport for a further ten years", "Sponsors have no interest in a sport's reputation at all"],
+            answer: 1,
+            hint: "Think about why a company pays to have its brand seen alongside a sport in the first place.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — Sponsors may withdraw funding, because they do not want their brand linked to a 'tainted' sport.</strong></p>
+<ul>
+<li>Sponsors protect their own brand's reputation, so a repeated scandal is a real financial risk to them.</li>
+<li>There is no legal requirement to keep funding, and scandal does not reliably increase sponsor spending.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Elmsworth National Athletics Championships</strong></p><p>A leading sprinter wins the 100m final at the Elmsworth National Athletics Championships. Two weeks later, they test positive for a banned PED and the result is provisionally suspended. Elmsworth's main sponsor, a sportswear company, says it is now "reviewing" its three-year sponsorship deal with the championships, and ticket sales for next year's event have started to fall.</p>`,
+            question: "Explain <strong>two</strong> ways this doping case could impact the Elmsworth National Athletics Championships as an event, using details from the scenario.",
+            hint: "Take one impact at a time. Name it, then use a detail from the scenario (the sponsor reviewing its deal, or falling ticket sales) to explain why it is happening.",
+            starter: "One impact is… because, in the scenario,…\n\nAnother impact is… because, in the scenario,…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per impact: 1 for identifying a relevant impact, 1 for explaining it using a detail from the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Loss of sponsorship / money leaving:</strong> the sponsor reviewing its three-year deal shows sponsors pulling back from a championships now linked with doping.</li>
+<li><strong>Loss of public trust and interest:</strong> falling ticket sales for next year's event shows fans losing confidence in / interest in the championships.</li>
+<li><strong>Damage to reputation:</strong> the case linking the championships' own showpiece final to doping harms how the event is seen more widely.</li>
+</ul>
+<p>Accept any other reasonable, applied impact. An impact with no scenario detail, or a scenario detail with no named impact, earns 1 of the 2 marks for that impact.</p>
+</div>`,
+            modelAnswer: "One impact is a loss of sponsorship money, because in the scenario the main sponsor is reviewing its three-year deal now that the championships are linked to doping.\n\nAnother impact is falling public interest, because in the scenario ticket sales for next year's event have already started to fall, showing fans are losing confidence in the event.",
+            markPoints: { note: "Mark each impact out of 2: one tick for naming a valid impact, one for explaining it using a scenario detail.", groups: [
+                { label: "Your first impact", max: 2, points: ["Identifies a relevant impact on the championships (e.g. lost sponsorship, lost trust/interest, damaged reputation)", "Explains it using a detail from the scenario (e.g. the sponsor reviewing its deal, or falling ticket sales)"] },
+                { label: "Your second impact", max: 2, points: ["Identifies a DIFFERENT relevant impact on the championships", "Explains it using a detail from the scenario, different from the first impact's detail"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Cranfield National Cycling Tour</strong></p><p>Over several years, a number of riders in the Cranfield National Cycling Tour have tested positive for banned PEDs. Broadcast viewing figures for the Tour have fallen, one long-standing sponsor has ended its deal early, and the organisers now spend a much larger share of their budget on testing than they did a decade ago.</p>`,
+            question: "Discuss how much a doping scandal like this can damage a sport such as cycling.",
+            hint: "Choose two or three impacts (reputation, trust/interest, fairness to clean riders, sponsors, testing cost). Explain each using the scenario, then weigh up how serious and how lasting the damage really is, finishing with a judgement.",
+            starter: "One serious impact is… shown by…\n\nAnother impact is…\n\nHowever, the extent of the damage may depend on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several impacts, showing clearly how each damages the sport AND weighing how serious/lasting the damage is (e.g. some impacts recover, others don't), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one impact with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names impacts with little application to the scenario and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Reputation and trust:</strong> repeated cases can make fans doubt every result, shown here by falling viewing figures.</li>
+<li><strong>Sponsors / money:</strong> a sponsor ending its deal early shows real, immediate financial damage.</li>
+<li><strong>Clean riders disadvantaged:</strong> riders who never doped can still lose recognition and opportunities because the whole Tour is viewed with suspicion.</li>
+<li><strong>Ongoing cost of testing:</strong> a much larger share of the budget now goes on testing, which is money the sport cannot spend elsewhere.</li>
+<li><strong>Evaluation:</strong> some damage may be temporary (viewing figures can recover if the sport is seen to act firmly), but reputational damage and higher testing costs can last for years; the scale of damage may depend on how the organisers respond, not only on the scandal itself.</li>
+<li><strong>Judgement:</strong> a doping scandal can seriously damage a sport across several fronts at once (trust, money, fairness, cost) — but the overall extent of the damage often depends on how quickly and visibly the sport responds, not on the scandal alone.</li>
+</ul>
+</div>`,
+            modelAnswer: "A doping scandal can damage cycling in several ways. Falling viewing figures show that fans trust the Tour less, because they can no longer be sure results are genuine. The sponsor ending its deal early shows a direct financial cost, and clean riders can lose recognition simply because the whole event is viewed with suspicion. The organisers now spend far more of their budget on testing, which is money that cannot be spent elsewhere.\n\nHowever, some of this damage may not be permanent — viewing figures can recover if the sport is seen to punish cheats firmly and quickly, whereas the higher testing costs are likely to stay.\n\nOverall, the scandal damages cycling across trust, money and fairness at once, but how lasting that damage is depends heavily on how firmly and visibly the sport responds, not only on the scandal itself."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

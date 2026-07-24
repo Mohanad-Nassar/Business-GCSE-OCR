@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.2.3 Technology and the Spectator Experience – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport</div>
+            <h1>5.2.3 Technology and the Spectator Experience</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 5.2.3 Technology and the Spectator Experience — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '5-2-3-technology-and-the-spectator-experience',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport',
+            title: '5.2.3 Technology and the Spectator Experience',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Technology and the crowd inside the stadium — the positives",
+            tag: "Positive effects",
+            content: `<h4>Understanding decisions, not just guessing</h4>
+<ul>
+<li>Many sports now show a <strong>technology-based decision</strong> on the stadium's big screen — for example a video review of a contested goal, or a graphic showing whether a shot landed in or out.</li>
+<li>Seeing the same replay the officials used helps spectators <strong>follow the action and understand why a decision was given</strong>, instead of hearing an announcement with no evidence behind it.</li>
+<li>This makes big decisions feel more open and fair, because the whole crowd can judge the evidence for itself rather than simply trusting an official's word.</li>
+</ul>
+<h4>Big screens do more than show replays</h4>
+<ul>
+<li>Big screens can also show <strong>scores and stats from other fixtures</strong>, close-up replays of skilful moments, and information that keeps spectators engaged even during a stoppage in play.</li>
+<li><strong>Named example:</strong> at a football match, a big screen showing the video-review footage of a disputed goal-line incident lets the crowd see the same picture the video official is using, rather than waiting for an announcement alone.</li>
+</ul>`,
+            readCheck: {
+                q: "What does a stadium big screen replay mainly give spectators?",
+                opts: ["A guarantee that the crowd's preferred team will always benefit from the final decision", "The power to personally replace an official who has made an unpopular decision", "The same evidence the officials used, helping them understand why a decision was given", "A permanent recording that spectators are allowed to keep and take home after the match"],
+                ans: 2,
+                explain: "The value of a replay is that it shows fans the evidence behind a decision, building understanding — not favouring a team, replacing officials, or acting as a keepsake."
+            }
+        },
+        {
+            title: "Technology and the audience watching from home — the positives",
+            tag: "Positive effects",
+            content: `<h4>A deeper picture than a stadium seat can give</h4>
+<ul>
+<li>Broadcasters can add <strong>graphics and statistics</strong> to the picture — for example a graphic showing possession, distance covered, or exactly where a ball crossed a line — detail a spectator in a stadium seat cannot see.</li>
+<li>Multiple camera angles and slow-motion replays let a home viewer study a controversial moment from angles the on-field official never had, adding to their understanding and enjoyment of the contest.</li>
+</ul>
+<h4>Named example</h4>
+<ul>
+<li><strong>Ball-tracking technology</strong>, used in sports such as cricket and tennis broadcasts, turns a fast, hard-to-see moment into a clear graphic, so a home viewer can follow a decision as confidently as an expert watching live.</li>
+<li>Overall, this extra layer of detail is one reason many fans say watching from home has become a genuinely richer experience than it used to be.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best explains why home viewing has been enhanced by technology?",
+                opts: ["Home viewers now receive a private vote on every contested decision during the game", "Broadcast graphics, statistics and extra camera angles add detail a stadium seat cannot give", "Every home broadcast is now required by law to remove all forms of camera replay", "Home viewers can only ever watch short highlights and are never shown the match as it happens live"],
+                ans: 1,
+                explain: "Extra graphics, stats and camera angles are the genuine reason home viewing has improved — there is no viewer vote, no ban on replays, and live coverage still happens."
+            }
+        },
+        {
+            title: "The negatives — and judging whether technology is \"suitable\"",
+            tag: "Negative effects & evaluation",
+            content: `<h4>Waiting breaks the atmosphere</h4>
+<ul>
+<li>A video review can take a minute or more, and that wait can <strong>break the atmosphere and tension</strong> in the stadium — the crowd's noise dies down and the pace of the contest is interrupted.</li>
+</ul>
+<h4>Screens can distract from the live action</h4>
+<ul>
+<li>Spectators (and sometimes commentators) can end up staring at a screen replay of the last incident and <strong>miss the next passage of play</strong> happening live in front of them — an over-reliance on screens.</li>
+</ul>
+<h4>Cost</h4>
+<ul>
+<li>Cameras, review systems and big screens are expensive to install and run. That cost can be passed on through <strong>higher ticket prices or paid subscription tiers</strong>, which can price some spectators out altogether.</li>
+</ul>
+<h4>Feeling less "human"</h4>
+<ul>
+<li>Some fans feel a contest loses some of its human character when every close moment is paused for a technological check, rather than trusting an official's instant judgement.</li>
+</ul>
+<h4>Suitability — the evaluation skill</h4>
+<ul>
+<li>Not every sport, venue or decision needs the same level of technology. The real question is whether a review is <strong>important enough to justify its cost and delay</strong> — a major final may justify it more than a small local fixture.</li>
+<li><strong>Named example:</strong> a small, non-televised local match is unlikely to have (or need) the same big-screen review system as a major televised final, because the cost would not be justified by the benefit.</li>
+</ul>`,
+            readCheck: {
+                q: "Judging the \"suitability\" of technology for the spectator experience mainly means...?",
+                opts: ["Assuming every single venue must install the most expensive technology that is currently available", "Ignoring how much a review costs, since only the delay it causes really matters", "Deciding that no sport should ever use any form of review technology at all", "Weighing whether the benefit of using it is worth its cost and delay for that event"],
+                ans: 3,
+                explain: "Suitability is about weighing benefit against cost and delay for that particular event — not assuming maximum technology everywhere, ignoring cost, or banning it outright."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What is the main benefit of a big screen replay for spectators inside a stadium?",
+            opts: ["It lets fans see the same replay evidence as the match officials, which builds trust in the decision", "It gives the crowd a formal vote that can overturn any refereeing decision it strongly dislikes, no matter what", "It ends the referee's involvement in the game completely from that moment onwards", "It exists only to fill the silence while the refreshment stalls remain open for business"],
+            ans: 0,
+            explain: "Seeing the same evidence as the officials helps fans understand a decision and builds trust. It does not give the crowd a vote, remove the referee, or exist only to sell refreshments."
+        },
+        {
+            q: "Why can watching a match at home now be a richer experience than in the past?",
+            opts: ["Broadcast graphics and statistics on screen help viewers understand the contest in far more depth", "Home viewers are given a private link that lets them personally overrule any decision that is given", "Every match can now legally only be watched on a television screen and nowhere else at all", "Extra camera angles are shown, but broadcasters are never permitted to include any replay"],
+            ans: 0,
+            explain: "Extra statistics and graphics genuinely add understanding for a home audience. Viewers cannot overrule decisions, matches are not television-only, and replays are a normal part of modern broadcasts."
+        },
+        {
+            q: "What is a genuine negative effect of a long wait for a technology-based decision?",
+            opts: ["It can break the atmosphere and tension that the crowd had built up before the review", "It always guarantees that the original, on-field decision will be proven completely correct", "It permanently removes the need for any official to be present at future matches", "It stops every single spectator from being able to follow the rest of that match"],
+            ans: 0,
+            explain: "A long delay genuinely interrupts a stadium's pace and quietens the crowd. It does not guarantee the original decision was right, remove officials, or stop fans following the rest of the game."
+        },
+        {
+            q: "How can over-reliance on big screens reduce a spectator's experience?",
+            opts: ["Spectators can end up watching the replay so closely that they miss the next live action", "Spectators are legally required to look only at the pitch and never at any screen", "Screens automatically make every single crowd completely silent for the rest of the match", "Screens remove all further need for spectators to buy a ticket in future"],
+            ans: 0,
+            explain: "Staring at a replay can mean missing what happens live next, which is the real downside. There is no legal rule about where fans look, and screens do not silence crowds or remove the need for tickets."
+        },
+        {
+            q: "How can the cost of spectator technology affect fans?",
+            opts: ["It can be passed on through higher ticket prices or a paid subscription for extra footage", "It always reduces every single ticket price at every stadium that installs brand new technology", "It has no effect at all on prices because governing bodies fully cover every cost", "It only affects players' wages and never touches anything that a spectator pays"],
+            ans: 0,
+            explain: "Clubs and broadcasters often recover the cost of technology through fans' ticket or subscription prices. It does not reduce prices, get fully covered elsewhere, or avoid spectators altogether."
+        },
+        {
+            q: "What does it mean to judge the 'suitability' of technology for a fixture?",
+            opts: ["Weighing whether the benefit of a review is worth its cost and delay for that particular event", "Assuming every single fixture, however small in size, needs the exact same amount of review technology", "Deciding that only the most expensive technology available can ever be worth using", "Ignoring cost completely, since delay is the only thing that ever matters to a crowd"],
+            ans: 0,
+            explain: "Suitability means balancing the benefit of getting a decision right against the cost and delay involved for that event. It is not about using maximum technology everywhere, or ignoring cost."
+        }
+    ];
+
+    const matchData = [
+        { term: "Big screen replay", def: "Stadium footage of a technology-based decision that lets fans see the evidence and understand a call" },
+        { term: "Broadcast graphics", def: "On-screen statistics and detail added for people watching at home, deepening their understanding" },
+        { term: "Ball-tracking technology", def: "A system that turns a fast or hard-to-see moment into a clear graphic for viewers" },
+        { term: "Atmosphere", def: "The crowd's noise, tension and excitement, which a long technology-based delay can interrupt" },
+        { term: "Over-reliance on screens", def: "Watching a replay so closely that you miss the next live action happening in front of you" },
+        { term: "Suitability of technology", def: "Weighing whether a review is worth its cost and delay for that sport, venue or decision" }
+    ];
+
+    const fibData = [
+        {
+            display: "Big screens let fans see the same _____ the officials used to reach a decision.",
+            blanks: { B1: "evidence" }
+        },
+        {
+            display: "Broadcast graphics and _____ help home viewers understand the contest in more depth.",
+            blanks: { B1: "statistics" }
+        },
+        {
+            display: "A long wait for a video review can break the _____ inside the stadium.",
+            blanks: { B1: "atmosphere" }
+        },
+        {
+            display: "Installing and running review technology is expensive, which can raise ticket or subscription _____.",
+            blanks: { B1: "prices" }
+        },
+        {
+            display: "Judging whether a review is worth its cost and delay for a fixture is about the _____ of the technology.",
+            blanks: { B1: "suitability" }
+        }
+    ];
+    const fibWords = ["evidence", "statistics", "atmosphere", "prices", "suitability"];
+
+    const tfData = [
+        {
+            statement: "Big screen replays can help spectators understand why a decision was given.",
+            answer: true,
+            explanation: "Seeing the same evidence as the officials is exactly why replays help spectators follow and understand the game."
+        },
+        {
+            statement: "Watching a match at home has become richer partly because of on-screen statistics and graphics.",
+            answer: true,
+            explanation: "Broadcast graphics and stats add detail a stadium seat cannot give, which is a genuine positive effect for home viewers."
+        },
+        {
+            statement: "A long wait for a technology-based decision has no effect on a stadium's atmosphere.",
+            answer: false,
+            explanation: "A long review genuinely breaks the crowd's atmosphere and interrupts the pace of the contest — it is a real negative effect."
+        },
+        {
+            statement: "The cost of installing review technology can never affect ticket or subscription prices.",
+            answer: false,
+            explanation: "Clubs and broadcasters often pass the cost of technology on through higher ticket prices or paid subscriptions."
+        },
+        {
+            statement: "Every sport and venue needs exactly the same amount of review technology, regardless of cost.",
+            answer: false,
+            explanation: "Suitability means weighing the benefit against the cost and delay for that event — a small fixture may not need what a major final does."
+        },
+        {
+            statement: "Some fans feel a contest can feel less \"human\" when every close moment is checked by technology.",
+            answer: true,
+            explanation: "This is a genuine criticism — some spectators feel the game loses spontaneity when officials' instant judgement is replaced by a pause for review."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "For a longer question on this topic, naming one positive effect of technology is enough to answer it well.",
+            correct: "Naming one effect only ever earns a fraction of the marks. Section B and C questions expect BOTH a positive and a negative effect, applied to the scenario, and Section C additionally wants a final judgement about which matters more. A single named effect caps the answer in the lowest band.",
+            readCheck: {
+                q: "For a Section C 'Discuss' question on this topic, naming one positive effect alone will...?",
+                opts: ["Always earn full marks, because one clearly named effect is all that is ever required", "Cap the answer in the lowest band, since both sides and a judgement are expected", "Automatically move the answer into the top band without needing anything else", "Disqualify the whole answer completely, scoring zero marks under any circumstances"],
+                ans: 1,
+                explain: "Discuss/Evaluate questions need both sides plus a judgement; one named effect on its own caps the answer in the basic band, though it is not disqualified outright."
+            }
+        },
+        {
+            wrong: "A long video review doesn't really matter to the crowd because it only takes a minute or so.",
+            correct: "Even a short delay is credited as a genuine negative effect, because it interrupts the atmosphere and pace the crowd had built up. Mark schemes reward students who explain WHY the wait matters (broken tension, quietened crowd), not just that a wait happened.",
+            readCheck: {
+                q: "Why does a mark scheme credit 'a long wait for a decision' as a genuine negative effect?",
+                opts: ["Because waiting always causes every single official's original decision to be reversed", "Because a wait of any length is against the official rules of every sport", "Because even a short delay can break the crowd's atmosphere and interrupt the pace", "Because waiting removes any further need for spectators to hold a valid ticket"],
+                ans: 2,
+                explain: "The genuine negative is the interruption to atmosphere and pace, however brief the wait feels — it is not about rule-breaking, guaranteed reversals, or tickets."
+            }
+        },
+        {
+            wrong: "Every stadium and every sport should use as much review technology as possible, since more technology is always better.",
+            correct: "The exam rewards the opposite idea: suitability. A review is only worth having if its benefit (accuracy, fan understanding) justifies its cost and the delay it causes for that particular fixture. A small local match may not need — or be able to afford — the same technology as a major televised final.",
+            readCheck: {
+                q: "Why is 'more technology is always better' a misconception on this topic?",
+                opts: ["Because suitability means weighing a review's benefit against its real cost and delay", "Because technology has never once been shown to help any spectator understand a decision", "Because every governing body has permanently banned technology from all major events", "Because spectators are legally forbidden from watching any form of screen replay"],
+                ans: 0,
+                explain: "The correct idea is suitability — balancing benefit against cost and delay — not that technology never helps, is banned, or that replays are forbidden."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "Explain", "Discuss", "Evaluate"],
+            content: `<p>Questions on the spectator experience are usually applied or evaluative. Match your answer to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name an effect. "Identify one positive effect of technology on spectators [1]" = one clear effect, nothing more.</li>
+<li><strong>Explain</strong> — give a reason. "Explain how technology could reduce a spectator's experience" = an effect <em>plus</em> why it reduces the experience.</li>
+<li><strong>Discuss / Evaluate</strong> — weigh BOTH sides (positive and negative) and reach a judgement about which matters more, using the scenario.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1]–[2] wants brief points; higher-mark Section B questions want points applied to the scenario; the 8-mark Section C question always wants both sides plus a judgement.</p>`,
+            readCheck: {
+                q: "A question says: 'Discuss whether technology has improved the spectator experience [8]'. What earns the top band?",
+                opts: ["Naming a single positive effect and stopping the answer there", "Listing as many effects as possible with no explanation of any of them", "Describing your own personal favourite piece of sports technology in far greater detail than needed", "A balanced look at both positive and negative effects, ending in a justified judgement"],
+                ans: 3,
+                explain: "The top band needs balance across both sides plus a judgement — a single effect, a bare list, or a personal favourite would all be capped much lower."
+            }
+        },
+        {
+            type: "tip",
+            title: "Balance is everything — both sides, then a judgement",
+            pills: ["Section B", "Section C", "AO3"],
+            content: `<p>The most common way to lose marks on this topic is writing about only positives, or only negatives. Build your answer as <strong>positive → negative → judgement</strong>:</p>
+<ul>
+<li><strong>❌ weak:</strong> "Technology is good because it shows replays." (one-sided, no negative, no judgement.)</li>
+<li><strong>✅ strong:</strong> "Big screen replays help fans understand decisions, but the wait for a review can break the atmosphere. Overall, the benefit to understanding probably outweighs the loss of atmosphere for a big decision."</li>
+</ul>
+<p>Also weigh <strong>suitability</strong>: not every fixture needs, or can afford, the same level of technology as a major final.</p>`,
+            readCheck: {
+                q: "Why should you weigh up the 'suitability' of technology in a longer answer on this topic?",
+                opts: ["It shows you understand that not every fixture needs or can justify the same technology", "It proves that every single possible piece of technology should be used at every single match", "It removes any requirement to mention a single negative effect in your answer", "It replaces the need to reach any final judgement at the end of your answer"],
+                ans: 0,
+                explain: "Suitability shows deeper understanding — that the right amount of technology depends on the event — it does not mean 'use everything', skip negatives, or avoid a judgement."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> quick recall of positive/negative effects appears in <strong>Section A</strong>. Applied questions about a named stadium, club or event appear in <strong>Section B</strong>. The balanced 8-mark <strong>Discuss/Evaluate</strong> question in <strong>Section C</strong> often asks whether technology has "improved" the spectator experience overall.</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Always pair a positive with a genuine negative — examiners reward balance, not a one-sided list.</li>
+<li>Use the scenario's own details (the stadium, the club, the ticket price) rather than a generic example.</li>
+<li>Finish with a judgement that says WHICH matters more and WHY, not just "it depends".</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One positive effect of technology here is… because…"</li>
+<li>"However, a negative effect is… because…"</li>
+<li>"Overall, I think technology has/has not improved the experience because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is finishing a longer answer with a clear judgement important?",
+                opts: ["Because a judgement lets you avoid mentioning any negative effects at all", "Because a judgement is only ever needed in Section A multiple-choice questions", "Because it shows which effect matters more and why, not just that both exist", "Because examiners only read the very first sentence of any longer answer"],
+                ans: 2,
+                explain: "A judgement shows you can weigh the effects and decide which matters more and why — simply listing both sides without deciding is not enough for the top band."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Big screen replay", def: "Stadium footage of a decision that lets fans see the evidence and understand the call" },
+        { term: "Broadcast graphics", def: "On-screen statistics and info added for home viewers, deepening their understanding" },
+        { term: "Ball-tracking technology", def: "Turns a fast or hard-to-see moment into a clear graphic for viewers" },
+        { term: "Atmosphere", def: "The crowd's noise, tension and excitement — often interrupted by a long delay" },
+        { term: "Over-reliance on screens", def: "Watching a replay so closely that you miss the next live action in front of you" },
+        { term: "Suitability of technology", def: "Whether a review is worth its cost and delay for that sport, venue or decision" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>one</strong> positive effect and <strong>one</strong> negative effect that technology can have on the spectator experience.",
+            hint: "Give one genuine positive (e.g. replays aiding understanding, richer broadcasts) and one genuine negative (e.g. a long wait, cost, feeling less human).",
+            starter: "One positive effect is… One negative effect is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for a valid positive effect; 1 mark for a valid negative effect (must be a different effect from the positive).</strong></p>
+<ul>
+<li>Positive effects include: big screen replays helping spectators follow/understand decisions; richer broadcast graphics and statistics; an enhanced experience for people watching from home.</li>
+<li>Negative effects include: long waits for a technology-based decision breaking the atmosphere; over-reliance on screens distracting from the live action; the cost of technology raising ticket or subscription prices; the experience feeling less "human".</li>
+</ul>
+</div>`,
+            modelAnswer: "One positive effect is that big screen replays help spectators understand a decision.\n\nOne negative effect is that a long wait for a review can break the atmosphere in the stadium.",
+            markPoints: { note: "One tick for a valid positive effect, one tick for a valid negative effect; cap at 2.", groups: [
+                { label: "Your positive effect", max: 1, points: ["States a genuine positive effect of technology on the spectator experience (e.g. replays/big screens aiding understanding, richer broadcast graphics/stats, enhanced home viewing)"] },
+                { label: "Your negative effect", max: 1, points: ["States a genuine negative effect of technology on the spectator experience (e.g. long waits breaking atmosphere, over-reliance on screens, higher cost, feeling less human)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is a genuine negative effect of technology on the spectator experience?",
+            options: ["A long wait for a video review can break the crowd's atmosphere and tension", "Big screens always guarantee that every decision given is completely correct", "Broadcast graphics remove the need for any spectator to understand the rules", "Extra camera angles make it impossible for any home viewer to enjoy a match"],
+            answer: 0,
+            hint: "Think about which option is a genuine, realistic downside rather than an exaggerated claim.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — A long wait for a video review can break the crowd's atmosphere and tension.</strong></p>
+<ul>
+<li>This is a genuine negative effect: the delay interrupts the pace of the contest and quietens the crowd.</li>
+<li>The other options overstate what technology can do (guaranteeing correctness, removing the need to understand rules, or making enjoyment "impossible"), which is not accurate.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Bramwell City FC</strong></p><p>Bramwell City's new stadium has a big screen that shows instant video reviews of contested decisions, and the club also sells a paid live-stream subscription for fans who cannot get to the ground. A regular home fan, Priya, buys a ticket for every match and also often checks the live-stream highlights afterwards.</p>`,
+            question: "Explain how technology could both improve and reduce Priya's experience of watching a match at Bramwell City's stadium.",
+            hint: "Give one way technology improves her experience in the stadium (e.g. understanding decisions) and one way it could reduce it (e.g. cost or a long wait), linked to the scenario.",
+            starter: "Technology could improve Priya's experience because…\n\nHowever, it could also reduce her experience because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks for how technology improves Priya's experience, up to 2 marks for how it could reduce it. 1 mark for identifying a relevant effect, 1 mark for linking it to Priya/the scenario.</strong></p>
+<ul>
+<li><strong>Improves:</strong> the big screen replay helps Priya understand a contested decision while she is at the stadium (positive effect applied to her attending in person).</li>
+<li><strong>Reduces:</strong> the paid live-stream subscription is an added cost for Priya, and/or a long video review during a match she attends could break the atmosphere she came to enjoy.</li>
+</ul>
+<p>Accept any other reasonable, applied answer linked to the scenario.</p>
+</div>`,
+            modelAnswer: "Technology improves Priya's experience because the big screen lets her see the evidence behind a contested decision while she is at the stadium, helping her understand the game. However, it could also reduce her experience: the club's paid live-stream subscription adds a cost for highlights, and a long video review during a match she attends can break the atmosphere she came for.",
+            markPoints: { note: "Mark each half out of 2: one tick for identifying the effect, one for linking it to Priya/the scenario.", groups: [
+                { label: "How technology improves Priya's experience", max: 2, points: ["Identifies a genuine positive effect (e.g. the big screen replay helping her understand a decision)", "Links it to Priya/the scenario (e.g. she attends every match and sees the review pitch-side)"] },
+                { label: "How technology could reduce Priya's experience", max: 2, points: ["Identifies a genuine negative effect (e.g. cost of the subscription, or a long review breaking the atmosphere)", "Links it to Priya/the scenario (e.g. she pays for the live-stream subscription, or attends the match with the long wait)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Frameworth Arena</strong></p><p>Frameworth Arena is hosting this year's national cup final. The arena has invested heavily in big screens, instant video reviews and a premium broadcast package with extra camera angles and statistics, but ticket prices have risen to help cover the cost.</p>`,
+            question: "Discuss whether technology has improved the experience for spectators watching the cup final at Frameworth Arena.",
+            hint: "Give positive effects (in the stadium and for broadcast/home viewers), negative effects (delay, distraction, cost, feeling less human), think about whether the technology is suitable for an event this big, then reach a judgement.",
+            starter: "One positive effect of the technology at Frameworth Arena is…\n\nHowever, a negative effect is…\n\nOverall, I think technology has/has not improved the experience because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced discussion using both positive and negative effects, applied to the Frameworth Arena scenario, weighing the suitability of the technology for an event this size, ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding of positive and/or negative effects with some application to the scenario, but the answer may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names effects with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, reward valid alternatives)</h5>
+<ul>
+<li><strong>Positives:</strong> big screen replays help the crowd understand decisions; broadcast graphics/stats and extra camera angles deepen engagement for home viewers.</li>
+<li><strong>Negatives:</strong> a long review breaks the stadium atmosphere; spectators can over-rely on screens and miss live action; the cost of the technology is reflected in higher ticket prices; some fans feel it is less "human".</li>
+<li><strong>Suitability:</strong> a major final may justify expensive technology more than a small local fixture, because the importance of getting the decision right (and the size of the audience) is much greater.</li>
+<li><strong>Judgement:</strong> technology likely improves accuracy and depth of understanding, but this comes at a real cost to atmosphere and affordability, so the overall improvement depends on what a spectator values most.</li>
+</ul>
+</div>`,
+            modelAnswer: "Technology has improved parts of the Frameworth Arena final. Big screens let the crowd see the evidence behind a contested decision, making big calls feel fairer, and extra broadcast angles and statistics deepen understanding for people watching at home.\n\nHowever, a review can take over a minute, breaking the crowd's atmosphere at the biggest moments, and the raised ticket prices show this technology has a real cost some spectators must cover. Some also feel a final loses some human drama when every close call is paused for a check.\n\nOverall, technology has probably improved accuracy and understanding, but at the cost of atmosphere and affordability — so whether it improved the experience depends on how much a spectator values a correct decision over a flowing, cheaper occasion."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

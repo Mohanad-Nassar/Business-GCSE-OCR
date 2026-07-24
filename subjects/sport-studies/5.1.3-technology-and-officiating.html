@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.1.3 Technology and Officiating – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport</div>
+            <h1>5.1.3 Technology and Officiating</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 5.1.3 Technology and Officiating — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '5-1-3-technology-and-officiating',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport',
+            title: '5.1.3 Technology and Officiating',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Video review technology: giving officials a second look",
+            tag: "Key technology",
+            content: `<h4>What it does</h4>
+<ul>
+<li>Video review technology lets officials pause and study a <strong>replay</strong> of a contentious moment, often in slow motion and from more than one camera angle, instead of relying only on what they saw live at full speed.</li>
+<li>This matters because live sport moves fast — a single glance from one angle can miss a foul, an offside position, or contact that happened out of sight.</li>
+</ul>
+<h4>Named examples you must know</h4>
+<ul>
+<li><strong>TMO (Television Match Official)</strong> in rugby union — an off-field official who watches video feeds and advises the referee on tries and serious foul play.</li>
+<li><strong>VAR (Video Assistant Referee)</strong> in football — a team of officials who review footage of goals, penalties, red cards and mistaken identity, then advise the referee, who still makes the final decision.</li>
+<li><strong>DRS (Decision Review System)</strong> in cricket — lets a player formally challenge an umpire's decision (such as lbw or a catch), which is then checked using replays and ball-tracking data.</li>
+</ul>
+<h4>Why it increases fair play</h4>
+<ul>
+<li>It gives officials extra recorded evidence before a big decision is finalised, so a mistake made at normal speed can be corrected.</li>
+<li>Players and fans can see that a decision was checked properly, which builds trust that the result was fair.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the main purpose of video review technology such as VAR or the TMO?",
+                opts: ["To let officials check a contentious decision using recorded replay footage before it is finalised", "To automatically overturn any refereeing decision the instant a TV camera happens to catch a replay of it", "To replace the referee completely so that no human ever has to make a decision during a match", "To slow every match down by pausing play the moment any fan on social media disagrees with a call"],
+                ans: 0,
+                explain: "Video review gives officials extra recorded evidence to check a decision — it does not remove the referee, and no decision is made automatically or by outside fans."
+            }
+        },
+        {
+            title: "Goal-line and ball-tracking technology: proving exactly where the ball went",
+            tag: "Key technology",
+            content: `<h4>What it does</h4>
+<ul>
+<li>Goal-line technology uses cameras or sensors positioned around the goal to detect the exact moment the whole ball crosses the line, sending an instant signal to the referee's watch.</li>
+<li>Ball-tracking technology follows the path of a ball across many camera frames per second and can show precisely where it landed or where it was heading.</li>
+</ul>
+<h4>Named examples</h4>
+<ul>
+<li><strong>Goal-line technology</strong> in football — confirms whether a goal should be given when the ball crosses the line at speed and players' bodies block the officials' view.</li>
+<li><strong>Hawk-Eye (ball-tracking)</strong> in tennis — shows whether a serve or shot landed inside or outside the line when a player challenges the call.</li>
+<li><strong>Ball-tracking</strong> in cricket — part of DRS, used to predict the ball's path and help decide lbw appeals.</li>
+</ul>
+<h4>Why it increases accuracy</h4>
+<ul>
+<li>A ball can cross a line in a fraction of a second — far faster than the human eye can judge reliably from pitch-side or on the baseline.</li>
+<li>Because the technology gives an instant, evidence-based answer, the correct decision is given even in very close, fast-moving situations.</li>
+</ul>`,
+            readCheck: {
+                q: "Why is goal-line technology needed in football, even though officials are already watching the game?",
+                opts: ["Because the ball can cross the line faster than the human eye can reliably judge when players block the view", "Because a photo-finish camera can only ever be used to separate sprinters at the end of an athletics race, never in football", "Because referees are not permitted to make any decisions at all about goals under the laws of the game", "Because it gives spectators extra time to buy refreshments while officials wait for a signal"],
+                ans: 0,
+                explain: "The ball can cross the line too fast for a human to judge reliably, especially when players block the view — goal-line technology exists for exactly that gap, not because referees are banned from deciding goals."
+            }
+        },
+        {
+            title: "Electronic timing and measurement: officiating close finishes fairly",
+            tag: "Key technology",
+            content: `<h4>What it does</h4>
+<ul>
+<li>In sports decided by very small differences in time or distance, electronic timing and measurement systems record results far more precisely than a human with a stopwatch or the naked eye ever could.</li>
+<li>Electronic timing usually starts automatically from the starting gun or blocks and stops the instant a competitor's body or a touchpad crosses the line, removing human reaction-time error from the recorded result.</li>
+</ul>
+<h4>Named examples</h4>
+<ul>
+<li><strong>Photo-finish cameras</strong> in athletics — take a continuous image of the finish line so officials can separate sprinters who finish within hundredths of a second of one another.</li>
+<li><strong>Electronic touchpads</strong> in swimming — detect the exact moment each swimmer touches the wall, ending any argument over who finished first.</li>
+</ul>
+<h4>Why it increases fair play</h4>
+<ul>
+<li>A human judge glancing at a finish line simply cannot separate athletes who cross within a hundredth of a second of each other — the camera can.</li>
+<li>Because every competitor is timed by the same automatic system, no athlete can be given an unfair advantage or disadvantage by an official's reaction time.</li>
+</ul>`,
+            readCheck: {
+                q: "Why do athletics and swimming rely on electronic timing rather than an official's stopwatch alone?",
+                opts: ["Because electronic timing removes human reaction-time error and can separate finishes within hundredths of a second", "Because a stopwatch is completely banned under the official rules of every athletics and swimming competition in the world", "Because officials are no longer allowed to attend athletics or swimming events once the race has started", "Because it makes each race last considerably longer than it otherwise would without the equipment"],
+                ans: 0,
+                explain: "Electronic timing removes human reaction-time error and can separate finishes within hundredths of a second — something a stopwatch or the naked eye cannot do reliably."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "Which of these is something VAR (Video Assistant Referee) checks in football?",
+            opts: ["Whether a player's boots meet the technical specifications set by the competition organisers", "Goals, penalty decisions, red cards and cases of mistaken identity", "The exact wind speed recorded pitch-side during the match", "How many replacement footballs are stored behind each goal"],
+            ans: 1,
+            explain: "VAR reviews goals, penalties, red cards and mistaken identity — it is not used to check equipment, weather or spare footballs."
+        },
+        {
+            q: "What does the TMO (Television Match Official) do in rugby union?",
+            opts: ["Sells tickets for international rugby union fixtures at the stadium entrance", "Coaches the players during every break in play by showing them video replays on a pitch-side screen", "Watches video replays and advises the on-field referee about tries and serious foul play", "Times each half of the match using a handheld stopwatch on the touchline"],
+            ans: 2,
+            explain: "The TMO is an off-field official who reviews video and advises the referee on tries and serious foul play — not a coach, ticket seller or timekeeper."
+        },
+        {
+            q: "How does goal-line technology confirm a goal in football?",
+            opts: ["By asking a panel of supporters in the crowd to vote on whether they believe the ball crossed the line", "By replaying slow-motion footage exclusively to television pundits sitting in a studio, without informing the match officials at all", "By measuring the exact weight of the match ball before kick-off", "By using cameras or sensors around the goal to detect the ball crossing the line and signalling the referee"],
+            ans: 3,
+            explain: "Sensors or cameras around the goal detect the ball fully crossing the line and send a signal straight to the referee — there is no crowd vote, weigh-in, or studio-only replay."
+        },
+        {
+            q: "What does Hawk-Eye (ball-tracking technology) show in tennis?",
+            opts: ["Whether a serve or shot landed inside or outside the line when a player challenges the call", "The exact heart rate of each player during a five-set match", "Whether the crowd noise exceeded the stadium's permitted decibel limit", "The manufacturer of the tennis balls being used in the tournament, printed on-screen for viewers at home"],
+            ans: 0,
+            explain: "Hawk-Eye tracks the ball's path to show whether it landed in or out — it does not measure heart rate, crowd noise, or display the ball brand."
+        },
+        {
+            q: "Why is a photo-finish camera used at the end of an athletics sprint?",
+            opts: ["Because it allows the race organisers to sell far more advertising space around the finish line during a televised event", "Because human eyes cannot reliably separate sprinters who finish within hundredths of a second of one another", "Because it decides which athlete receives a post-race media interview first", "Because it replaces the need for a starting gun at the beginning of the race"],
+            ans: 1,
+            explain: "A photo-finish camera exists because the human eye cannot reliably split sprinters finishing hundredths of a second apart — it is about accuracy, not advertising, interviews or starts."
+        },
+        {
+            q: "What do video review, goal-line technology and electronic timing all have in common?",
+            opts: ["They all rely on the crowd's reaction to decide whether a call was correct", "They all give officials extra, evidence-based information so decisions are more accurate and fair", "They all replace officials completely so that no human judgement is ever required at any point during a match or race", "They are all only used once every four years at major international events"],
+            ans: 1,
+            explain: "Each technology gives officials additional recorded or automatic evidence to make more accurate, fairer decisions — none of them hand the decision to the crowd or remove officials entirely."
+        }
+    ];
+
+    const matchData = [
+        { term: "VAR (Video Assistant Referee)", def: "A team of officials in football who review footage of goals, penalties, red cards and mistaken identity" },
+        { term: "TMO (Television Match Official)", def: "An off-field official in rugby union who checks tries and serious foul play using video replays" },
+        { term: "DRS (Decision Review System)", def: "A cricket system letting a player challenge an umpire's decision, checked using replays and ball-tracking" },
+        { term: "Goal-line technology", def: "Cameras or sensors around a football goal that confirm whether the whole ball crossed the line" },
+        { term: "Hawk-Eye (ball-tracking)", def: "A camera-based system used in tennis and cricket to track exactly where a ball landed or was heading" },
+        { term: "Photo-finish / electronic timing", def: "Camera and automatic timing systems in athletics and swimming that separate finishes within hundredths of a second" }
+    ];
+
+    const fibData = [
+        {
+            display: "VAR stands for Video _____ Referee, and reviews goals, penalties, red cards and mistaken identity.",
+            blanks: { B1: "Assistant" }
+        },
+        {
+            display: "The TMO advises the rugby union referee using video _____ of tries and serious foul play.",
+            blanks: { B1: "replays" }
+        },
+        {
+            display: "Goal-line technology sends an instant _____ to the referee's watch once the ball fully crosses the line.",
+            blanks: { B1: "signal" }
+        },
+        {
+            display: "Hawk-Eye is a _____-tracking system used in tennis and cricket to show exactly where the ball went.",
+            blanks: { B1: "ball" }
+        },
+        {
+            display: "A photo-finish camera lets officials separate sprinters who finish within _____ of a second of each other.",
+            blanks: { B1: "hundredths" }
+        }
+    ];
+    const fibWords = ["Assistant", "replays", "signal", "ball", "hundredths"];
+
+    const tfData = [
+        {
+            statement: "VAR reviews replay footage, but the final decision in football is still made by the on-field referee.",
+            answer: true,
+            explanation: "VAR advises using recorded footage — the referee watches the review and makes the final call, so the human decision-maker is not removed."
+        },
+        {
+            statement: "The TMO in rugby union is a player on the pitch who reviews decisions during a break in play.",
+            answer: false,
+            explanation: "The TMO is an off-field official, not a player — they watch video feeds and advise the referee on tries and serious foul play."
+        },
+        {
+            statement: "Goal-line technology can confirm a goal even when the ball crosses the line too fast for officials to see clearly.",
+            answer: true,
+            explanation: "That is exactly why it exists — cameras and sensors detect the crossing far faster and more reliably than the human eye can from pitch-side."
+        },
+        {
+            statement: "Hawk-Eye ball-tracking is the technology football uses to confirm whether a goal has been scored.",
+            answer: false,
+            explanation: "Football uses goal-line technology for that job. Hawk-Eye ball-tracking is used in sports like tennis and cricket to show where a ball landed or was heading."
+        },
+        {
+            statement: "Electronic timing in athletics removes human reaction-time error from the recorded result.",
+            answer: true,
+            explanation: "Because the system starts and stops automatically, it takes the timekeeper's own reaction speed out of the recorded time completely."
+        },
+        {
+            statement: "A photo-finish camera is needed because human eyes can reliably separate two sprinters who finish a hundredth of a second apart.",
+            answer: false,
+            explanation: "The opposite is true — human eyes cannot reliably separate finishes that close, which is precisely why the camera is needed."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "VAR takes the decision away from the referee completely — the computer decides.",
+            correct: "VAR only reviews and advises. In football, the on-field referee still watches the review footage and makes the final decision — the technology provides extra evidence, it does not decide the outcome on its own.",
+            readCheck: {
+                q: "Who makes the final decision after a VAR review in football?",
+                opts: ["The on-field referee, using the additional evidence from the replay", "A computer program that calculates the outcome automatically without any human input at all", "The two team captains, who vote together on the correct outcome", "The television broadcaster's commentary team covering the match"],
+                ans: 0,
+                explain: "The referee reviews the footage and still makes the call — VAR supplies evidence, it does not replace human judgement, a vote, or the commentary team."
+            }
+        },
+        {
+            wrong: "Goal-line technology and the TMO are basically the same system, just used in different sports.",
+            correct: "They are different systems doing different jobs. Goal-line technology is specific to football and only checks whether the ball fully crossed the line. The TMO is a rugby union official who reviews general video replay of tries and foul play — not a single shared piece of equipment.",
+            readCheck: {
+                q: "What is the key difference between goal-line technology and the TMO?",
+                opts: ["Goal-line technology is a football system checking the ball crossing the line; the TMO is a rugby union official reviewing footage", "There is no real difference at all — they are exactly the same system used in every single sport", "Goal-line technology is used only in cricket to time each ball that is bowled, while the TMO is a type of stopwatch used only in swimming", "The TMO is a type of camera, while goal-line technology is a type of human official standing pitch-side"],
+                ans: 0,
+                explain: "Goal-line technology is a football-specific sensor system for one narrow job (the line crossing); the TMO is a rugby union person reviewing broader video evidence — not interchangeable, and not the reverse of what the other options claim."
+            }
+        },
+        {
+            wrong: "All of this technology is only there to slow the game down and annoy players and fans.",
+            correct: "That criticism does exist, but the core purpose of video review, goal-line and timing technology is to increase the accuracy of decisions and support fair play — giving officials extra evidence so the correct outcome is more likely to be given. Its wider effect on the flow of the game is a separate debate.",
+            readCheck: {
+                q: "What is the core purpose of officiating technology like VAR, goal-line technology and electronic timing?",
+                opts: ["To increase the accuracy of decisions and support fair play by giving officials extra evidence", "To make the sport last as long as possible so that broadcasters can sell more advertising space", "To remove all officials from professional sport within the next few years", "To give spectators something new to complain about during a match"],
+                ans: 0,
+                explain: "The purpose taught here is accuracy and fairness — extra advertising time, removing officials and giving fans something to complain about are not why this technology exists."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["State", "Explain", "Discuss"],
+            content: `<p>Officiating-technology questions test recall and application. Match your answer length to the command word:</p>
+<ul>
+<li><strong>State / Identify</strong> — just name the technology. "State one technology that helps officials [1]" = one name, nothing more.</li>
+<li><strong>Explain</strong> — say what the technology does, <em>then</em> use <em>because</em> to link it to accuracy or fairness. Name plus reason, not name alone.</li>
+<li><strong>Discuss / Evaluate</strong> (8 marks) — apply the technology to the scenario, weigh a benefit against a limitation (cost, or that a human still interprets the footage), then give a judgement.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2] often wants a technology plus its sport, or two named technologies; [4] in Section B wants each technology linked to the scenario.</p>`,
+            readCheck: {
+                q: "A question says: 'State two technologies used to help officials make accurate decisions [2]'. What is the safest answer?",
+                opts: ["A long paragraph explaining one piece of technology in great detail", "Two named technologies, one for each mark", "Six different named technologies, even though only two marks are on offer", "One technology explained fully, with no second one given at all"],
+                ans: 1,
+                explain: "'State' + [2] = two names, one mark each. A long explanation of one, six names, or only one name each miss the tariff."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: name the technology AND link it to accuracy or fairness",
+            pills: ["Section A", "Section B", "AO2"],
+            content: `<p>The most common way to lose marks here is stopping at the name. Build every answer as <strong>technology → what it does → why that improves accuracy or fairness</strong>:</p>
+<ul>
+<li><strong>❌ 0–1 marks:</strong> "VAR."</li>
+<li><strong>✅ full marks:</strong> "VAR lets officials review footage of an incident, so a clear mistake made at full speed can be corrected before a goal is given."</li>
+</ul>
+<p>In <strong>Section B</strong> you get a scenario (a named match, league or event). Marks come from linking your technology to the <em>specific</em> problem in that scenario — not a general example.</p>`,
+            readCheck: {
+                q: "In a Section B scenario about a specific match or event, your example of technology should…",
+                opts: ["ignore the scenario completely and describe your favourite team instead", "list as many different technologies as you can recall, regardless of the scenario", "link to the specific detail given in the scenario you have been given", "repeat the question word for word without adding any new information"],
+                ans: 2,
+                explain: "Section B is applied — the marks are for using the detail in front of you, not for ignoring it, listing everything you know, or restating the question."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this topic appears in the exam + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> quick recall of named technologies in <strong>Section A</strong>; an applied scenario in <strong>Section B</strong> asking how a technology would help officials in a specific situation; and a balanced <strong>Section C</strong> discussion of how far this technology actually delivers fairer, more accurate officiating.</p>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One piece of technology that could help here is… because…"</li>
+<li>"This would improve accuracy by… so the official could…"</li>
+<li>"However, the extent to which this guarantees a fair decision depends on…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why is 'however, the extent to which this guarantees fairness depends on…' a useful sentence starter in an 8-mark answer?",
+                opts: ["It fills space without needing any real content behind it", "It signals that you are about to weigh up a limitation before giving a judgement", "It means you never need to reach an overall judgement at the end", "It completely replaces the need to mention any named piece of technology or sport at all in your answer"],
+                ans: 1,
+                explain: "The phrase signals a shift into evaluation — weighing a limitation before the final judgement — which is exactly what Section C rewards, not empty filler or an excuse to skip named technology."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "VAR (Video Assistant Referee)", def: "Reviews goals, penalties, red cards & mistaken identity in football; referee makes the final call" },
+        { term: "TMO (Television Match Official)", def: "Rugby union off-field official checking tries & serious foul play via video replay" },
+        { term: "DRS (Decision Review System)", def: "Cricket system letting players challenge umpire calls using replay & ball-tracking" },
+        { term: "Goal-line technology", def: "Sensors/cameras confirming whether the whole ball crossed the football goal line" },
+        { term: "Hawk-Eye (ball-tracking)", def: "Camera system tracking a ball's path in tennis & cricket" },
+        { term: "Photo-finish / electronic timing", def: "Camera & automatic timing separating athletics/swimming finishes by hundredths of a second" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>one</strong> piece of technology that helps officials make accurate decisions, and name a sport in which it is used.",
+            hint: "Pick a technology you know well and match it to a sport that actually uses it (e.g. VAR/goal-line technology → football; TMO → rugby union; DRS/ball-tracking → cricket; Hawk-Eye → tennis; photo-finish/electronic timing → athletics or swimming).",
+            starter: "One piece of technology is… and it is used in…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for naming a valid technology used to help officials. A further 1 mark ONLY if the sport named actually uses that technology. Accept any correct pairing, including:</strong></p>
+<ul>
+<li>VAR or goal-line technology → football</li>
+<li>TMO → rugby union</li>
+<li>DRS or ball-tracking → cricket</li>
+<li>Hawk-Eye / ball-tracking → tennis</li>
+<li>Photo-finish camera or electronic timing → athletics or swimming</li>
+</ul>
+<p>A correct technology paired with a sport that does not use it earns 1 mark only.</p>
+</div>`,
+            modelAnswer: "One piece of technology is VAR (Video Assistant Referee), and it is used in football.",
+            markPoints: { note: "One tick for a valid named technology; the second tick ONLY if the sport actually uses that technology.", groups: [
+                { label: "Your technology and sport", max: 2, points: [
+                    { text: "Names a valid technology used to help officials (e.g. VAR, TMO, DRS, goal-line technology, Hawk-Eye/ball-tracking, photo-finish/electronic timing)", marks: 1 },
+                    { text: "Names a sport that actually uses that technology (wrong pairing scores nothing here)", marks: 1 }
+                ] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these best describes what goal-line technology does in football?",
+            options: ["Confirms whether the whole ball has crossed the goal line, using cameras or sensors around the goal", "Reviews footage of penalty decisions and cases of mistaken identity for the referee to consider", "Advises the referee on rugby union tries and serious foul play from the touchline", "Lets a cricket player formally challenge an umpire's lbw or catch decision using video replay and ball-tracking evidence"],
+            answer: 0,
+            hint: "Think about the one specific job goal-line technology does — and only in football.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — confirms whether the whole ball has crossed the goal line, using cameras or sensors around the goal.</strong></p>
+<ul>
+<li>This is goal-line technology's one specific job in football.</li>
+<li>The other options describe VAR (penalties/mistaken identity), the TMO (rugby union) and DRS (cricket) — different systems, different sports.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Cranmoor Sunday Football League</strong></p><p>In last season's cup final, the referee at Cranmoor Sunday Football League failed to notice that the ball had already crossed the goal line during a goalmouth scramble, because several players were blocking his view. The league committee is now considering introducing <strong>goal-line technology</strong> and a <strong>video review system</strong> for future cup finals.</p>`,
+            question: "Explain how introducing goal-line technology and a video review system could help Cranmoor's officials make more accurate decisions in future cup finals.",
+            hint: "Take each technology in turn: say what it does, then link it to the exact problem in the scenario (players blocking the referee's view of the goal line).",
+            starter: "Goal-line technology would help because…\n\nA video review system would help because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per technology: 1 for what it does, 1 for linking it to the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Goal-line technology</strong> — uses cameras/sensors around the goal to confirm the whole ball crossed the line, signalling the referee instantly. This would help because it does not rely on eyesight, so it would still give the correct decision even when players blocked the referee's view during the scramble.</li>
+<li><strong>Video review system</strong> — lets an official check recorded replay footage of an incident again, often from more than one angle. This would help because the goalmouth incident could be reviewed after the scramble, correcting a decision the referee missed live.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A technology described with no link to the scenario earns 1 of the 2 marks for that technology.</p>
+</div>`,
+            modelAnswer: "Goal-line technology uses cameras or sensors around the goal to detect the moment the whole ball crosses the line, sending an instant signal to the referee's watch. This would help at Cranmoor because it does not rely on eyesight, so it would still give the correct decision even when players blocked the referee's view during the scramble.\n\nA video review system would let an official check recorded replay footage of the goalmouth incident from more than one angle. This would help because the referee could then correct the missed goal, rather than the result depending on what one official happened to see live.",
+            markPoints: { note: "Mark each technology out of 2: one tick for what it does, one for linking it to the scenario.", groups: [
+                { label: "Goal-line technology", max: 2, points: ["Explains that it uses cameras/sensors around the goal to confirm the whole ball crossed the line", "Links this to the scenario — it would give the correct decision even when players blocked the referee's view"] },
+                { label: "Video review system", max: 2, points: ["Explains that it lets officials check the incident again using recorded replay footage", "Links this to the scenario — a review after the goalmouth scramble could correct the referee's missed decision"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Cranmoor Sunday Football League (continued)</strong></p><p>Encouraged by how well a single trial match went, the league committee is now deciding whether to fully adopt goal-line technology and video review for <strong>every</strong> future cup final, not just one trial fixture.</p>`,
+            question: "Discuss how far introducing goal-line technology and video review would actually make officiating at Cranmoor's cup finals fairer and more accurate.",
+            hint: "Apply both technologies to the scenario, weigh up a genuine limitation (cost for a small league, or that a review still needs human interpretation), then give a supported overall judgement.",
+            starter: "Goal-line technology and video review would help because…\n\nHowever, a limitation of relying on this technology is…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of both technologies, showing clearly how they would improve accuracy/fairness at Cranmoor AND weighing a genuine limitation (cost, sustainability for a small league, technology still needing human interpretation), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to the scenario with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names the technologies and/or a general benefit with little application to Cranmoor and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Goal-line technology:</strong> removes the exact problem seen last season (players blocking the referee's view), giving an instant, evidence-based answer rather than relying on eyesight.</li>
+<li><strong>Video review:</strong> allows any other contested goalmouth incident to be checked from multiple angles after the event, correcting mistakes made at full speed.</li>
+<li><strong>Evaluation:</strong> a small Sunday league may struggle to afford or maintain this equipment every season; a video review still depends on an official correctly interpreting what the footage shows, so it cannot guarantee a perfect decision every single time; the benefit may be greatest specifically for cup finals, where a wrong decision matters most.</li>
+<li><strong>Judgement:</strong> the technology would meaningfully reduce the kind of error seen last season, but how much fairer Cranmoor's officiating becomes depends on whether the league can sustain the cost and whether officials use the review evidence correctly.</li>
+</ul>
+</div>`,
+            modelAnswer: "Goal-line technology and video review would make Cranmoor's cup finals more accurate because both rely on recorded evidence rather than one official's eyesight — the exact problem behind last season's missed goal. Goal-line sensors would confirm a crossing instantly, and video review would let officials correct any other contested incident using replay footage.\n\nHowever, a small Sunday league may struggle to afford and maintain this equipment every season, and a review still depends on an official interpreting what the footage shows, so it cannot guarantee a perfect decision every time.\n\nOverall, the technology would meaningfully reduce the kind of error seen last season, but how much fairer Cranmoor's officiating becomes depends on whether the league can sustain the cost long-term."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

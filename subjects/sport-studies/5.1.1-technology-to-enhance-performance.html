@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.1.1 Technology to Enhance Performance – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport</div>
+            <h1>5.1.1 Technology to Enhance Performance</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 5.1.1 Technology to Enhance Performance — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '5-1-1-technology-to-enhance-performance',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 5. Technology in Sport',
+            title: '5.1.1 Technology to Enhance Performance',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "Streamlined clothing and aerodynamic materials",
+            tag: "Core knowledge",
+            content: `<h4>Why 'aerodynamic' and 'streamlined' matter</h4>
+<ul>
+<li><strong>Aerodynamic</strong> equipment or clothing is shaped and made from materials that let air or water flow around the body with less resistance ("drag"). Less drag means a performer can move faster for the same amount of effort.</li>
+<li><strong>Streamlined</strong> clothing is cut close to the body, often from smooth, tight-fitting fabric, so it does not "catch" the air or water as the performer moves.</li>
+</ul>
+<h4>Named examples</h4>
+<ul>
+<li><strong>Swimming</strong> — competitive swimmers wear low-drag racing suits made from smooth, compressive fabric that reduces resistance moving through water, letting them hold a faster pace for longer.</li>
+<li><strong>Track cycling</strong> — sprint and time-trial cyclists wear one-piece aerodynamic skinsuits and aero helmets shaped to cut through the air, which matters hugely at high speed.</li>
+<li><strong>Alpine skiing</strong> — skiers wear tight, smooth racing suits so wind resistance does not slow their descent.</li>
+<li><strong>Athletics</strong> — sprinters often wear fitted, lightweight suits rather than loose kit, again to reduce air resistance over a short, explosive race.</li>
+</ul>
+<h4>The exam point</h4>
+<ul>
+<li>Always link the material/design feature to the actual effect: <em>close-fitting, smooth material → less drag → more speed for the same effort</em>. Naming "swimsuits" alone earns little; explaining the drag reduction is what earns marks.</li>
+</ul>`,
+            readCheck: {
+                q: "Why do elite cyclists and swimmers often wear tight-fitting, streamlined suits during competition?",
+                opts: ["To reduce drag/resistance so they can move through air or water more efficiently", "To display sponsor logos more clearly to television audiences watching at home", "To meet a required uniform colour scheme set by the event's organising committee", "To keep the performer warmer throughout a long, low-intensity training session"],
+                ans: 0,
+                explain: "Streamlined suits reduce drag through air or water, letting the performer move faster for the same effort — the other options describe branding, rules or warmth, not performance."
+            }
+        },
+        {
+            title: "Lighter, better-designed equipment",
+            tag: "Core knowledge",
+            content: `<h4>Why lighter, stiffer equipment helps</h4>
+<ul>
+<li>Modern materials (such as carbon fibre and graphite) let manufacturers build equipment that is <strong>lighter</strong> (less effort to move) and <strong>stiffer</strong> (less energy wasted flexing), so more of the performer's effort turns into speed, power or control.</li>
+</ul>
+<h4>Named examples</h4>
+<ul>
+<li><strong>Rackets</strong> — modern tennis and badminton rackets use carbon-fibre frames that are lighter and stiffer than older wooden or metal frames, giving players more power and control with less arm fatigue.</li>
+<li><strong>Bikes</strong> — competitive road and track bikes use carbon-fibre frames and wheels that are lighter and more aerodynamic than steel frames, so cyclists produce more speed for the same pedalling effort.</li>
+<li><strong>Footwear</strong> — running shoes with cushioned, energy-returning soles (some with a stiff supportive plate) help runners push off with less wasted effort; football boots are made lighter with studs designed for grip and quick changes of direction.</li>
+</ul>
+<h4>The exam point</h4>
+<ul>
+<li>Explain the mechanism, not just the object: a lighter racket lets a player swing faster with less effort; a stiffer frame transfers more of the rider's power into speed instead of losing it to flex.</li>
+</ul>`,
+            readCheck: {
+                q: "Why do elite road cyclists usually race on carbon-fibre bike frames rather than heavier steel frames?",
+                opts: ["Steel frames are banned outright by every national governing body across world cycling", "Carbon fibre is lighter and stiffer, so more of the rider's effort converts into speed", "Carbon-fibre frames are the only frame type that cycling events officially allow riders to use", "Carbon fibre is simply a cheaper material for manufacturers to buy in bulk than steel tubing"],
+                ans: 1,
+                explain: "Carbon fibre is lighter and stiffer than steel, so less of the rider's effort is wasted and more converts into speed — it is not a rule, a ban or mainly about cost."
+            }
+        },
+        {
+            title: "Data, GPS and video analysis for training and technique",
+            tag: "Exam skill",
+            content: `<h4>Using data to improve training</h4>
+<ul>
+<li><strong>GPS trackers</strong> (worn in a vest between the shoulder blades) are common in football and rugby. They record distance covered, sprint speed and how hard a player worked in a match or session.</li>
+<li>Coaches use this data to see whether a player is overtraining, undertraining, or ready to return after injury, and to plan the next session's intensity.</li>
+</ul>
+<h4>Using video to improve technique</h4>
+<ul>
+<li><strong>Video analysis</strong> lets a coach slow footage down, frame by frame, to spot a technical fault a player cannot feel themselves — for example a golfer's swing plane, a sprinter's start position, or a swimmer's stroke technique.</li>
+<li>Comparing footage of a performer over time (or against a model performer) helps target practice on the exact part of the technique that needs work.</li>
+</ul>
+<h4>The exam point</h4>
+<ul>
+<li>The link the exam wants: <em>data/video → spot a specific weakness → adjust training → improved performance.</em> Simply saying "GPS is used in football" without this chain earns little.</li>
+</ul>`,
+            readCheck: {
+                q: "What is the main reason a football coach uses GPS-tracking vests during training?",
+                opts: ["To broadcast a player's exact live location to supporters watching in the stadium seats", "To automatically award a yellow card whenever a player runs at an unsafe sprinting speed", "To collect data on distance and speed so training load can be planned accurately", "To replace the need for a referee to make any decisions at all during the match"],
+                ans: 2,
+                explain: "GPS vests collect data on distance, speed and effort so a coach can plan training load accurately — they do not broadcast locations, issue cards or replace referees."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "A time-trial cyclist wears a one-piece skinsuit and an aero helmet. What is this designed to do?",
+            opts: ["Reduce air resistance so the cyclist can hold a faster speed for the same effort", "Make it easier for television commentators to identify which team the rider is racing for", "Meet a strict minimum-weight rule set out by the event's national governing body", "Keep the cyclist noticeably warmer during a long, cold winter training ride outdoors"],
+            ans: 0,
+            explain: "A skinsuit and aero helmet cut air resistance, letting the cyclist hold a faster speed for the same effort — identification, weight rules and warmth are not the purpose."
+        },
+        {
+            q: "Why might a badminton player choose a modern carbon-fibre racket over an old wooden one?",
+            opts: ["It is heavier overall, which helps generate much more power on every single shot played", "It is lighter and stiffer, giving more power and control with less arm fatigue", "It is the only racket type that badminton's national governing body allows in competition", "It is made from the same dense wood that professional rackets always used in the past"],
+            ans: 1,
+            explain: "Carbon fibre is lighter and stiffer than wood, giving more power and control with less fatigue. It is not heavier, not the only legal type, and not the same material as before."
+        },
+        {
+            q: "Which feature of modern running shoes helps some runners push off the ground with less wasted effort?",
+            opts: ["A heavier sole added purely to increase the overall stability of the shoe", "An extra-wide sole shaped only to make the shoe more comfortable to walk in", "A cushioned, energy-returning sole, sometimes with a stiff supportive plate", "A plain rubber sole identical to the design used in football boots decades ago"],
+            ans: 2,
+            explain: "A cushioned, energy-returning sole reduces wasted effort on push-off. Extra weight, comfort-only width and an old plain design do not give this performance benefit."
+        },
+        {
+            q: "A rugby coach studies a player's GPS data from a match. What is this mainly used for?",
+            opts: ["To broadcast the player's exact position live to spectators in the crowd around the pitch", "To decide automatically which player should be sent off for an unsafe, high tackle", "To replace the referee's decisions on foul play during the whole ninety minutes", "To see how much distance and effort the player covered, to plan future training"],
+            ans: 3,
+            explain: "GPS data mainly shows distance and effort so the coach can plan training — it does not broadcast positions, send players off, or replace refereeing decisions."
+        },
+        {
+            q: "A swimming coach films a swimmer's stroke and slows the footage down frame by frame. Why?",
+            opts: ["To check the swimmer's racing suit matches the exact colour of their team's kit", "To spot a technical fault in the stroke that the swimmer cannot feel themselves", "To measure how loudly the crowd is cheering for that swimmer during the race", "To confirm the swimming pool itself is exactly the regulation length required"],
+            ans: 1,
+            explain: "Slowed footage lets a coach spot a technical fault the swimmer cannot feel — kit colour, crowd noise and pool length are unrelated to this use of video."
+        },
+        {
+            q: "Why do some elite sprinters wear tight-fitting, lightweight racing suits rather than loose training kit?",
+            opts: ["Loose kit is banned completely under global athletics competition clothing rules", "Tight kit is required so photo-finish cameras can read the sprinter's race number", "Tight, lightweight kit reduces air resistance over the short, explosive race", "Tight kit keeps the sprinter's whole body noticeably warmer throughout the race"],
+            ans: 2,
+            explain: "Tight, lightweight kit reduces air resistance over a short sprint, aiding speed — it is not about a ban, reading race numbers, or keeping warm."
+        }
+    ];
+
+    const matchData = [
+        { term: "Streamlined clothing", def: "Close-fitting, smooth-fabric kit that reduces drag through air or water" },
+        { term: "Aerodynamic", def: "Shaped or designed so air or water flows past with less resistance" },
+        { term: "Carbon-fibre racket", def: "A lighter, stiffer frame giving more power and control with less arm fatigue" },
+        { term: "GPS tracking vest", def: "Worn between the shoulder blades to record distance and speed for training data" },
+        { term: "Video analysis", def: "Slowed-down footage used to spot and correct a specific technical fault" },
+        { term: "Energy-returning sole", def: "A cushioned running-shoe design that reduces wasted effort when pushing off the ground" }
+    ];
+
+    const fibData = [
+        {
+            display: "Close-fitting, smooth-fabric clothing is described as _____ because it reduces drag through air or water.",
+            blanks: { B1: "streamlined" }
+        },
+        {
+            display: "Carbon-fibre rackets and bike frames are lighter and _____, so less effort is wasted flexing.",
+            blanks: { B1: "stiffer" }
+        },
+        {
+            display: "GPS trackers are usually worn in a _____ between the shoulder blades to record distance and speed.",
+            blanks: { B1: "vest" }
+        },
+        {
+            display: "Video analysis lets a coach slow footage down to spot a technical _____ in a performer's technique.",
+            blanks: { B1: "fault" }
+        },
+        {
+            display: "Cushioned, energy-returning soles help runners push off the ground with less wasted _____.",
+            blanks: { B1: "effort" }
+        }
+    ];
+    const fibWords = ["streamlined", "stiffer", "vest", "fault", "effort"];
+
+    const tfData = [
+        {
+            statement: "Streamlined swimwear is designed to reduce drag so a swimmer can hold a faster pace.",
+            answer: true,
+            explanation: "Low-drag, close-fitting racing suits reduce resistance moving through water, letting a swimmer hold a faster pace for longer."
+        },
+        {
+            statement: "A carbon-fibre racket is heavier than an old wooden racket, which is why it improves performance.",
+            answer: false,
+            explanation: "It is the opposite — carbon fibre is lighter and stiffer than wood, giving more power and control with less arm fatigue."
+        },
+        {
+            statement: "GPS trackers mainly measure a player's distance covered and effort during a session.",
+            answer: true,
+            explanation: "GPS vests record distance, speed and effort so a coach can plan training load — that is their main use."
+        },
+        {
+            statement: "Video analysis is used to spot technical faults a performer cannot feel themselves.",
+            answer: true,
+            explanation: "Slowing footage down lets a coach see a specific fault, such as a start position or swing plane, that the performer cannot feel while doing it."
+        },
+        {
+            statement: "Any equipment worn during a match, including a padded headguard, counts as technology that enhances performance.",
+            answer: false,
+            explanation: "A headguard's main job is protecting the performer, not improving their performance — that makes it safety technology, not performance technology."
+        },
+        {
+            statement: "Naming a piece of technology without linking it to an effect on performance is usually enough to earn full marks.",
+            answer: false,
+            explanation: "Naming alone earns little. Marks come from linking the named technology to its specific effect on performance (lighter, stiffer, more aerodynamic, or better data)."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "Any new piece of sports equipment counts as 'technology to enhance performance', including things like padded headguards or shin pads.",
+            correct: "This topic is specifically about equipment, clothing or data that helps a performer produce a BETTER performance (more speed, power, accuracy or improved technique) — not equipment whose main job is protecting the performer from injury. A shin pad protecting a footballer is safety technology, not performance technology, even though it is worn during a match. Keep the two ideas separate in an exam answer.",
+            readCheck: {
+                q: "A boxer wears a padded headguard during sparring. Which type of technology is this?",
+                opts: ["Performance technology, because every headguard is specifically designed to increase the accuracy of each punch thrown", "Safety technology, because its main purpose is to protect the boxer rather than improve performance", "Officiating technology, because referees use it to help decide who has won a bout", "Spectator technology, because it helps the crowd see the fight more clearly from their seats"],
+                ans: 1,
+                explain: "A headguard's main purpose is protecting the boxer, so it is safety technology — it is not mainly about accuracy, officiating, or the spectator's view."
+            }
+        },
+        {
+            wrong: "Writing 'technology helps performance' is enough to answer a question on this topic.",
+            correct: "A vague answer like that earns almost nothing. You must name the actual technology or equipment (for example a carbon-fibre racket, or a GPS vest), the sport it is used in, and the specific effect it has (lighter, so less arm fatigue and more power). Point + named example + effect is what the mark scheme rewards.",
+            readCheck: {
+                q: "Which answer would earn the most marks on this topic?",
+                opts: ["'Technology helps sport a lot these days in many different ways.'", "'Equipment is important because absolutely everybody uses some kind of equipment whenever they play any sport at all.'", "'Athletes today have access to a very large amount of modern sporting technology.'", "'Carbon-fibre tennis rackets are lighter and stiffer, giving players more power with less arm fatigue.'"],
+                ans: 3,
+                explain: "The last answer names a real technology, links it to a mechanism (lighter/stiffer) and a specific effect (more power). The others are vague statements that name nothing specific."
+            }
+        },
+        {
+            wrong: "GPS trackers and video analysis are only used to measure fitness, never to improve technique.",
+            correct: "GPS data mainly tracks physical output (distance, speed, effort) so coaches can manage training load — but video analysis is used specifically to improve TECHNIQUE, by spotting faults a performer cannot feel themselves. The two tools do different jobs: one is about physical workload, the other about movement quality.",
+            readCheck: {
+                q: "What is the key difference between GPS data and video analysis in training?",
+                opts: ["GPS mainly tracks physical output; video analysis mainly targets technique", "There is no real difference at all — the two tools do exactly the same job", "GPS is only used in swimming, while video analysis is only used in football", "Video analysis measures distance covered, while GPS measures technique quality"],
+                ans: 0,
+                explain: "GPS tracks physical workload (distance, speed, effort); video analysis targets technique by spotting faults. They are not identical, not sport-locked, and not swapped round."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words and mark tariffs for this topic",
+            pills: ["Identify", "Describe", "Explain"],
+            content: `<p>Technology questions are usually short recall or short explain. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name the technology or equipment. "Identify one piece of equipment used to enhance performance [1]" = one named item, nothing more.</li>
+<li><strong>Describe</strong> — say what the technology is or does, in your own words, without necessarily explaining why it helps.</li>
+<li><strong>Explain</strong> — give the mechanism. Use the chain: named technology → named sport → the specific effect on performance (speed, power, control or technique).</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [2] usually wants a named example plus one linked effect; [4] wants two developed examples, each with its own effect.</p>`,
+            readCheck: {
+                q: "A question says 'Explain how one piece of equipment enhances performance [2]'. What earns both marks?",
+                opts: ["Naming a general sport without describing any specific piece of equipment at all", "Listing as many different pieces of equipment as you can possibly think of", "Naming the equipment, then linking it to a specific effect on performance", "Describing how much the equipment usually costs to buy in a shop"],
+                ans: 2,
+                explain: "Explain [2] wants the named equipment linked to its effect on performance — a general sport name, a long list, or the cost do not earn these marks."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this appears in the exam + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> this topic appears as quick recall in <strong>Section A</strong> (identify/state a technology), and as an applied point in <strong>Section B</strong> scenarios about a named performer or team wanting to improve. It can also feed a <strong>Section C</strong> 8-mark answer discussing technology's overall impact.</p>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One piece of technology that enhances performance is… because…"</li>
+<li>"This helps the performer because it… which means…"</li>
+<li>"However, the same technology only helps if…"</li>
+</ul>`,
+            readCheck: {
+                q: "In a Section B scenario about a named athlete, your equipment example should come from...",
+                opts: ["the scenario you are given, applied to that athlete's situation", "any sport you personally enjoy watching at the weekend", "a piece of equipment you happen to own yourself", "a famous athlete who is never actually mentioned anywhere in the question"],
+                ans: 0,
+                explain: "Section B is applied — the marks are for using the scenario in front of you, not a general example unconnected to it."
+            }
+        },
+        {
+            type: "tip",
+            title: "Three habits that lift a performance-technology answer",
+            pills: ["AO1", "AO2"],
+            content: `<p>Three punchy tips:</p>
+<ul>
+<li>Always name a <strong>real sport</strong> alongside the technology — "swimwear" on its own is vague; "low-drag racing suits in competitive swimming" is precise.</li>
+<li>State the <strong>effect</strong>, not just the object: lighter, stiffer, or more aerodynamic → less wasted effort/drag → faster, more powerful or more accurate performance.</li>
+<li>Keep this topic separate from safety, officiating and spectator technology — here, the technology's job is specifically to make the performer BETTER, not safer or better refereed.</li>
+</ul>`,
+            readCheck: {
+                q: "Which of these best fits THIS topic (technology to enhance performance)?",
+                opts: ["A carbon-fibre racket that is lighter and stiffer, giving more power and control", "A big screen that lets stadium spectators watch a controversial decision replayed", "A padded headguard that protects a boxer's head during sparring sessions", "A video-review system that helps a referee confirm a marginal decision"],
+                ans: 0,
+                explain: "A lighter, stiffer racket improves the performer's power and control — the other options are spectator, safety and officiating technology, covered on other pages."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Streamlined", def: "Shaped/cut close to the body to reduce drag through air or water" },
+        { term: "Aerodynamic", def: "Designed so air flows past with less resistance, aiding speed" },
+        { term: "Carbon-fibre equipment", def: "Lighter and stiffer than older materials — more power, less fatigue" },
+        { term: "Energy-returning sole", def: "Cushioned shoe sole that reduces wasted effort on push-off" },
+        { term: "GPS tracking vest", def: "Worn between the shoulders; records distance, speed and effort" },
+        { term: "Video analysis", def: "Slowed footage used to spot a specific technical fault" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "State one piece of technology, equipment or clothing used to enhance performance in a named sport, and explain the effect it has on performance.",
+            hint: "Name something specific (not just 'equipment') and a named sport, then say exactly what it does — lighter, stiffer, more aerodynamic, or gives better data — and how that helps performance.",
+            starter: "One piece of technology used in… is… This helps performance because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1/AO2)</h5>
+<p><strong>1 mark for naming a specific piece of technology, equipment or clothing linked to a named sport; 1 mark for explaining an effect that matches it, such as:</strong></p>
+<ul>
+<li>Streamlined/aerodynamic clothing (e.g. swimming, cycling, skiing) — reduces drag, so faster movement for the same effort.</li>
+<li>Lighter/stiffer equipment (e.g. rackets, bikes, footwear) — less wasted effort, more power/control.</li>
+<li>GPS trackers or video analysis — provides data or footage that identifies a training or technique improvement.</li>
+</ul>
+<p>Accept any other valid, named technology with a matching effect.</p>
+</div>`,
+            modelAnswer: "One piece of technology used in track cycling is a carbon-fibre, aerodynamic skinsuit. This helps performance because it reduces drag, letting the cyclist hold a faster speed for the same amount of effort.",
+            markPoints: { note: "One tick for the named technology, one for an effect that genuinely matches it; cap at 2.", groups: [
+                { label: "Your named technology", max: 2, points: ["Names a specific piece of technology, equipment or clothing used to enhance performance, linked to a named sport", "Gives an effect on performance that matches THAT technology (e.g. less drag, more power, better training data)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which of these is an example of technology used to <strong>enhance performance</strong>?",
+            options: ["A big screen inside the stadium that replays a controversial decision for the crowd", "A GPS vest that records a footballer's distance and sprint speed in training", "A padded headguard that protects a boxer during a sparring session", "A video-review system that helps a match official confirm a close decision"],
+            answer: 1,
+            hint: "Think about which option is about improving performance, not safety, officiating or spectators.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: B — A GPS vest that records a footballer's distance and sprint speed in training.</strong></p>
+<ul>
+<li>GPS data is used to inform training decisions and improve performance.</li>
+<li>The big screen, headguard and video-review system are spectator, safety and officiating technology — covered elsewhere.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Kelso Harriers Athletics Club</strong></p><p>Priya Shaw is a sprinter at Kelso Harriers. She currently trains in loose, all-purpose kit, and her coach has no way of measuring her sprint speed or reviewing her technique — training decisions are based on how sessions "feel". Priya wants to lower her 100m time before the regional championships.</p>`,
+            question: "Explain how <strong>two</strong> different pieces of sporting technology could help Priya improve her performance.",
+            hint: "Pick two DIFFERENT types of technology (for example clothing, and a data or video tool). For each, name it, then explain its specific effect on Priya's performance, using details from the scenario.",
+            starter: "One piece of technology that could help Priya is… because…\n\nA second piece of technology is… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks per technology: 1 for naming a technology relevant to sprinting, 1 for an effect that uses the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Streamlined/lightweight racing kit</strong> — replacing Priya's loose kit would reduce air resistance and help her hold a faster pace over the short sprint distance.</li>
+<li><strong>Video analysis</strong> — filming her races and slowing the footage down would let her coach spot a specific fault in her start or technique, instead of relying on how the session "feels".</li>
+<li><strong>GPS/timing data</strong> — would let the coach measure her sprint speed accurately and track whether training is actually improving it.</li>
+</ul>
+<p>Accept any other reasonable, applied answer. A named technology with no scenario-linked effect earns 1 of the 2 marks for that item.</p>
+</div>`,
+            modelAnswer: "Priya could wear a tight-fitting, lightweight racing suit instead of her loose kit, which would reduce air resistance and help her hold a faster pace over the short sprint distance.\n\nHer coach could also film her races and slow the footage down to analyse her start and running technique, spotting a specific fault to correct instead of relying on how the session 'feels'.",
+            markPoints: { note: "Mark each technology out of 2: one tick for naming it, one for a scenario-linked effect.", groups: [
+                { label: "Your first technology", max: 2, points: ["Names a technology, equipment or clothing relevant to sprint performance (not safety/officiating)", "Explains its effect on Priya's performance, using the scenario (e.g. replacing her loose kit, reducing drag)"] },
+                { label: "Your second technology", max: 2, points: ["Names a DIFFERENT technology relevant to sprint performance", "Explains its effect on Priya's performance, using the scenario (e.g. replacing judgements based on 'feel' with real data or footage)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Kelso Harriers Athletics Club</strong></p><p>Kelso Harriers is considering spending a large part of its annual budget on GPS trackers, video-analysis software and lightweight racing kit for its sprint squad, hoping this will improve results at the regional championships.</p>`,
+            question: "Discuss how far technology, equipment and clothing can improve the performance of Kelso Harriers' sprint squad.",
+            hint: "Cover more than one type of technology and explain how each genuinely helps performance. Then weigh up the limits — cost, whether every athlete benefits equally, whether hard training still matters most — before giving a judgement.",
+            starter: "One way technology could improve performance is… because…\n\nAnother example is…\n\nHowever, the extent to which this helps depends on…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion of several technologies (clothing, equipment, data/video), showing clearly HOW each raises performance, AND weighing genuine limits (cost, uneven benefit across the squad, technology not replacing training or effort), ending in a justified judgement.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to more than one technology with some analysis, but the discussion may be one-sided or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names technologies with little application and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Streamlined/lightweight kit:</strong> reduces drag and fatigue, directly raising sprint speed.</li>
+<li><strong>GPS trackers:</strong> give the coach real data on distance, speed and effort, so training load can be planned precisely instead of guessed.</li>
+<li><strong>Video analysis:</strong> lets the coach spot a specific technical fault (e.g. a slow start) an athlete cannot feel themselves, and correct it.</li>
+<li><strong>Evaluation:</strong> these tools only help if the club can afford them and the coach is trained to use the data; technology cannot replace natural ability, sound coaching or the athlete's own training effort; benefits may be uneven across a squad, since different athletes need different support.</li>
+<li><strong>Judgement:</strong> technology can meaningfully improve performance because it removes small inefficiencies (drag, fatigue, unseen technical faults) a coach could otherwise miss — but it only works alongside good coaching, not instead of it.</li>
+</ul>
+</div>`,
+            modelAnswer: "Technology can genuinely raise the sprint squad's performance. Lightweight, streamlined kit reduces drag and fatigue, directly improving sprint speed. GPS trackers give the coach real data on distance and effort, so training load can be planned precisely instead of guessed. Video analysis lets the coach spot a specific technical fault, such as a slow start, that an athlete cannot feel themselves.\n\nHowever, these tools only help if Kelso Harriers can afford them and the coach is trained to use the data properly, and technology cannot replace natural talent, sound coaching or the athlete's own training effort.\n\nOverall, technology is a valuable addition because it removes small inefficiencies a coach could otherwise miss — but it only improves performance when paired with good coaching, not used instead of it."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>

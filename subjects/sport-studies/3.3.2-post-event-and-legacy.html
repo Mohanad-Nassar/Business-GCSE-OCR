@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.3.2 Post-Event and Legacy – Interactive Study Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <div class="badge">OCR Level 1/Level 2 Sport Studies — R184 · 3. Hosting a Major Sporting Event</div>
+            <h1>3.3.2 Post-Event and Legacy</h1>
+            <p>Interactive revision guide · Content coming soon</p>
+        </div>
+        <a href="/index.html" class="home-link">← 🏡 Home</a>
+    </header>
+
+    <nav class="tab-bar" id="tabBar">
+        <button class="tab-btn active" onclick="switchTab('learn', this)">
+            📚 Key Learning
+        </button>
+        <button class="tab-btn" onclick="switchTab('mcq', this)">
+            ❓ MCQ Quiz
+        </button>
+        <button class="tab-btn" onclick="switchTab('matching', this)">
+            🔗 Matching
+        </button>
+        <button class="tab-btn" onclick="switchTab('fib', this)">
+            ✏️ Fill the Blanks
+        </button>
+        <button class="tab-btn" onclick="switchTab('misconceptions', this)">
+            ⚠️ Misconceptions
+        </button>
+        <button class="tab-btn" onclick="switchTab('examtips', this)">
+            🎯 Exam Tips
+        </button>
+        <button class="tab-btn" onclick="switchTab('flashcards', this)">
+            🃏 Flashcards
+        </button>
+        <button class="tab-btn" onclick="switchTab('truefalse', this)">
+            ✅ True / False
+        </button>
+        <button class="tab-btn" onclick="switchTab('exampractice', this)">
+            📝 Exam Practice
+        </button>
+    </nav>
+
+    <main>
+        <div class="tab-panel active" id="tab-learn">
+            <h2 class="section-title">Key Learning Topics</h2>
+            <p class="section-sub">Click any card to expand detailed notes.</p>
+            <div class="topic-grid" id="topicGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-mcq">
+            <h2 class="section-title">Multiple Choice Questions</h2>
+            <p class="section-sub">Select an answer to reveal instant feedback.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="mcqScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">
+                        correct answers
+                    </div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    out of <strong id="mcqTotal">0</strong> attempted
+                </div>
+                <button class="reset-btn" onclick="resetMCQ()">RESET</button>
+            </div>
+            <div class="quiz-wrap" id="mcqWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-matching">
+            <h2 class="section-title">Matching Activity</h2>
+            <p class="section-sub">
+                Click a term on the left, then click the matching definition on the
+                right.
+            </p>
+            <div style="margin-bottom: 16px">
+                <div class="score-bar">
+                    <div>
+                        <div class="score-num" id="matchScore">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">matched</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="matchTotal">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetMatch()">RESET</button>
+                </div>
+            </div>
+            <div class="match-grid">
+                <div>
+                    <div class="match-label">TERMS</div>
+                    <div class="match-col" id="matchLeft"></div>
+                </div>
+                <div>
+                    <div class="match-label">DEFINITIONS</div>
+                    <div class="match-col" id="matchRight"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-fib">
+            <h2 class="section-title">Fill in the Blanks</h2>
+            <p class="section-sub">
+                Click each dropdown and choose the correct word. Wrong answers reset —
+                try again!
+            </p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="fibScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="fibTotal">0</strong> blanks
+                </div>
+                <button class="reset-btn" onclick="resetFIB()">RESET</button>
+            </div>
+            <div class="fib-wrap" id="fibWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-misconceptions">
+            <h2 class="section-title">Common Misconceptions</h2>
+            <p class="section-sub">
+                What students often think — and what examiners actually want.
+            </p>
+            <div class="misc-list" id="miscList"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-examtips">
+            <h2 class="section-title">Exam Questions &amp; Tips</h2>
+            <p class="section-sub">
+                Most repeated question types and mark-scheme structures from real OCR
+                papers.
+            </p>
+            <div class="tips-grid" id="tipsGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-flashcards">
+            <h2 class="section-title">Flashcards</h2>
+            <p class="section-sub">
+                Test yourself! Flip the card and rate your knowledge. Review your weak
+                areas at the end.
+            </p>
+
+            <div class="fc-container">
+                <div class="score-bar" id="fcScoreBar" style="display: none; margin-bottom: 20px">
+                    <div>
+                        <div class="score-num" id="fcKnown" style="color: #2d7a4f">0</div>
+                        <div style="font-size: 12px; color: var(--mid)">known</div>
+                    </div>
+                    <div>
+                        <div class="score-num" id="fcUnknown" style="color: #c84b31">
+                            0
+                        </div>
+                        <div style="font-size: 12px; color: var(--mid)">learning</div>
+                    </div>
+                    <div style="font-size: 13px; color: var(--mid)">
+                        out of <strong id="fcTotalTrack">0</strong>
+                    </div>
+                    <button class="reset-btn" onclick="resetFlashcards()">RESET</button>
+                </div>
+
+                <div id="fcActiveArea">
+                    <div class="fc-progress" id="fcProgress">Card 1 of 0</div>
+                    <div class="flashcard" id="flashcard" onclick="flipCard()">
+                        <div class="fc-inner">
+                            <div class="fc-front">
+                                <div class="fc-label">KEY TERM</div>
+                                <div class="fc-term" id="fcTerm"></div>
+                            </div>
+                            <div class="fc-back">
+                                <div class="fc-def" id="fcDef"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="fc-hint">👆 Click card to flip</p>
+
+                    <div class="fc-nav" id="fcNavDefault">
+                        <button class="fc-btn outline" onclick="prevCard()">
+                            ← Prev
+                        </button>
+                        <button class="fc-btn outline" onclick="flipCard()">Flip</button>
+                        <button class="fc-btn" onclick="nextCard()">Next →</button>
+                    </div>
+
+                    <div class="fc-nav" id="fcNavAssess" style="display: none; gap: 15px">
+                        <button class="fc-btn outline" style="border-color: #c84b31; color: #c84b31; flex: 1"
+                            onclick="markCard(false)">
+                            ❌ Still Learning
+                        </button>
+                        <button class="fc-btn" style="background: #2d7a4f; border-color: #2d7a4f; flex: 1"
+                            onclick="markCard(true)">
+                            ✅ Got It
+                        </button>
+                    </div>
+                </div>
+
+                <div id="fcSummaryArea" style="display: none; text-align: center; padding: 40px 20px">
+                    <h3>Session Complete! 🎉</h3>
+                    <p style="margin: 15px 0">
+                        You knew <strong id="fcSummaryKnown">0</strong> out of
+                        <strong id="fcSummaryTotal">0</strong> cards.
+                    </p>
+                    <div style="
+                margin-top: 25px;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+              ">
+                        <button class="fc-btn" id="btnReviewWrong" onclick="reviewWrong()"
+                            style="background: #c84b31; border-color: #c84b31">
+                            Review Incorrect
+                        </button>
+                        <button class="fc-btn outline" onclick="resetFlashcards()">
+                            Practice All Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-truefalse">
+            <h2 class="section-title">True or False?</h2>
+            <p class="section-sub">Test your knowledge with these statements.</p>
+            <div class="score-bar">
+                <div>
+                    <div class="score-num" id="tfScore">0</div>
+                    <div style="font-size: 12px; color: var(--mid)">correct</div>
+                </div>
+                <div style="font-size: 13px; color: var(--mid)">
+                    of <strong id="tfTotal">0</strong> answered
+                </div>
+                <button class="reset-btn" onclick="resetTF()">RESET</button>
+            </div>
+            <div class="tf-wrap" id="tfWrap"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-exampractice">
+            <h2 class="section-title">Exam Practice Questions</h2>
+            <p class="section-sub">
+                Full exam questions with case studies. Use <strong>Hint</strong>,
+                <strong>Sentence Starter</strong> and
+                <strong>Submit &amp; See Mark Scheme</strong> for each question.
+            </p>
+            <div class="ep-list" id="epList"></div>
+        </div>
+    </main>
+
+<script>
+    // ══════════════════════════════════════
+    //  DATA: 3.3.2 Post-Event and Legacy — placeholder, content not yet written
+    // ══════════════════════════════════════
+    const pageMeta = {
+            id: '3-3-2-post-event-and-legacy',
+            badge: 'OCR Level 1/Level 2 Sport Studies — R184 · 3. Hosting a Major Sporting Event',
+            title: '3.3.2 Post-Event and Legacy',
+            subtitle: 'Interactive revision guide',
+            subject: 'sport-studies',
+        };
+
+    const topics = [
+        {
+            title: "What happens after the event — and what 'legacy' means",
+            tag: "Key concept",
+            content: `<h4>The three stages the spec splits an event into</h4>
+<ul>
+<li>The specification looks at hosting a major event in three separate stages: <strong>before</strong> the event (bidding and building), <strong>during</strong> the event itself, and <strong>after</strong> the event has finished.</li>
+<li>This page covers the <strong>after</strong> stage only — what a host city or nation is left with once the event is over. (Pre-event aspects and during-event aspects are covered on their own pages.)</li>
+</ul>
+<h4>What 'legacy' means</h4>
+<ul>
+<li><strong>Legacy</strong> is the lasting effect an event leaves behind once the excitement of the event itself has faded — the facilities, habits, reputation and investment that remain months or years later.</li>
+<li>A legacy can show up <strong>immediately</strong> (within months) or only become clear <strong>long-term</strong> (years later), and it can be <strong>positive, negative, or both at the same time</strong>.</li>
+<li>The exam keeps testing whether you can treat legacy as a <strong>balance</strong> to weigh up — not just list one side of it.</li>
+</ul>`,
+            readCheck: {
+                q: "Which stage of hosting a major event does the word 'legacy' describe?",
+                opts: ["The stage where cities compete to be chosen as the host", "What is left behind once the event itself has finished", "The build-up in the weeks immediately before the opening ceremony", "The rules officials use to run the competition during the event"],
+                ans: 1,
+                explain: "Legacy is the after-stage — what remains once the event has ended. Bidding is the before-stage, and officiating rules apply during the event, not after it."
+            }
+        },
+        {
+            title: "The positives: the legacy a major event can leave behind",
+            tag: "Core knowledge",
+            content: `<h4>Facilities, transport and infrastructure</h4>
+<ul>
+<li>A host city is often left with a <strong>legacy of improved or new sporting facilities</strong> — stadiums, pools and tracks built or upgraded for the event that local people can keep using for years afterwards.</li>
+<li>Preparing to host often forces a city to improve its <strong>transport and social infrastructure</strong> too — new roads, rail links or wider town regeneration that outlasts the event itself.</li>
+</ul>
+<h4>Participation and profile</h4>
+<ul>
+<li>Watching a sport at a major event can inspire people to try it, giving an <strong>increase in participation</strong> in the sports involved — local clubs often report more new members in the years after.</li>
+<li>The same exposure can raise a sport's <strong>profile</strong> — more media coverage, more sponsorship and more public interest than it had before the event.</li>
+</ul>
+<h4>Status and future money</h4>
+<ul>
+<li>A well-run event can leave the host with a <strong>raised international profile and status</strong> — the world now associates that place with successfully staging a huge event.</li>
+<li>That reputation can attract <strong>increased future financial investment</strong>, since businesses, tourists and future event organisers are more willing to invest once a host has proved it can deliver.</li>
+</ul>`,
+            readCheck: {
+                q: "A local swimming club reports far more new junior members two years after their city hosted a major swimming event. This is best described as...",
+                opts: ["a rise in participation, one of the positive legacies of hosting", "clear proof that the event lost far more money than it earned", "an example of a pre-event objection raised before the bid succeeded", "evidence that the pool built for the event has become a white elephant"],
+                ans: 0,
+                explain: "More people taking up the sport afterwards is a participation legacy — a positive outcome, not evidence of financial loss, a bidding objection, or an unused venue."
+            }
+        },
+        {
+            title: "The negatives: when the legacy goes wrong",
+            tag: "Core knowledge",
+            content: `<h4>Cost versus revenue</h4>
+<ul>
+<li>Hosting is hugely expensive, and there is no guarantee the money comes back: the <strong>event may end up costing more to host than the revenue it generates</strong>, leaving the host with a bill long after the closing ceremony.</li>
+</ul>
+<h4>'White elephants'</h4>
+<ul>
+<li>Purpose-built venues need a use afterwards. When a stadium or arena is <strong>left unused once the event is over</strong>, it is often nicknamed a <strong>'white elephant'</strong> — expensive to build and maintain, but bringing in little or no ongoing income.</li>
+<li>A venue is more likely to become a white elephant if it was built for a sport with a small local following, or if nobody planned what it would be used for after the closing ceremony.</li>
+</ul>
+<h4>Reputational loss</h4>
+<ul>
+<li>A negative legacy is not only financial. A host nation can suffer a <strong>loss of national reputation or status</strong> if the event was <strong>badly organised</strong>, if the <strong>host nation's own athletes performed poorly</strong>, or if a <strong>scandal</strong> (for example, corruption or a doping story) emerged during or after the event.</li>
+</ul>`,
+            readCheck: {
+                q: "A purpose-built arena stands empty and unused for years after the event it was built for. What is this usually called?",
+                opts: ["a legacy of improved social infrastructure that benefits residents", "a 'white elephant'", "a rise in participation across the sports involved", "a positive transport legacy for the host city"],
+                ans: 1,
+                explain: "A costly venue with no ongoing use is a 'white elephant' — the opposite of a positive facility or transport legacy."
+            }
+        },
+        {
+            title: "Weighing it up — the exam skill",
+            tag: "Exam skill",
+            content: `<h4>Legacy is rarely all good or all bad</h4>
+<ul>
+<li>Most real events produce <strong>both</strong> positives and negatives at once — a new pool that boosts participation, and an arena that stands empty, in the very same city.</li>
+<li>Weak answer: naming a single positive or a single negative in isolation. Strong answer: weighing the lasting <strong>benefits</strong> against the lasting <strong>costs</strong>, then reaching a judgement about whether the legacy was worth it overall.</li>
+</ul>
+<h4>Building a balanced answer</h4>
+<ul>
+<li>Use a scenario's actual detail — a named facility, a stated cost, a stated rise in membership — rather than a generic point that could apply to any host city.</li>
+<li>Finish with a <strong>justified judgement</strong>: say which side of the balance is bigger, and explain why, given what the scenario shows.</li>
+</ul>`,
+            readCheck: {
+                q: "A question asks you to discuss a city's post-event legacy. What is most likely to earn the highest marks?",
+                opts: ["Listing every positive legacy you can remember, one after another", "Weighing lasting benefits against lasting costs and reaching a judgement", "Describing the opening ceremony of the event in as much detail as possible", "Naming only the host city, without any further detail at all"],
+                ans: 1,
+                explain: "Discuss/evaluate questions reward a balanced weigh-up finishing in a judgement — a one-sided list of positives, ceremony detail, or a bare name earns little."
+            }
+        }
+    ];
+
+    const mcqData = [
+        {
+            q: "What does the word 'legacy' mean in the context of hosting a major sporting event?",
+            opts: ["The lasting effect that remains once the event itself has finished", "The total number of tickets sold across every day of the event", "The official title given to the host city during the opening ceremony", "The list of sports included in that particular event's programme"],
+            ans: 0,
+            explain: "Legacy is what is left behind afterwards — facilities, participation, profile, reputation and investment — not ticket sales, a ceremonial title, or the sports list."
+        },
+        {
+            q: "Which of these is an example of a positive transport and infrastructure legacy?",
+            opts: ["A new rail line built for the event that continues to serve the city for years afterwards", "A temporary road closure put in place for the event that is lifted the moment the closing ceremony finally ends", "A short-term security operation that stops once the last spectator has left", "A rise in hotel prices during the fortnight the event is actually taking place"],
+            ans: 0,
+            explain: "A rail line that keeps serving the city afterwards is a lasting infrastructure legacy. Temporary closures, short-term security and event-week price rises all end when the event does."
+        },
+        {
+            q: "A national governing body notices far more people signing up for its sport in the two years after a major event was held in the country. This shows...",
+            opts: ["a legacy of increased participation and a raised profile for that sport", "that the international status and reputation of the host nation has clearly fallen since the event finished", "that the event's main facilities have become white elephants", "that ticket revenue exceeded the total cost of hosting the event"],
+            ans: 0,
+            explain: "More people taking up the sport, and more attention on it, is exactly what a participation-and-profile legacy looks like — the other options describe unrelated or opposite outcomes."
+        },
+        {
+            q: "A city spends far more hosting an event than it earns back from tickets, sponsorship and tourism. This is best described as...",
+            opts: ["a legacy of improved social infrastructure for local residents", "the event costing more to host than the revenue it generated", "a rise in participation across the sports that were involved", "an increase in future financial investment in the city"],
+            ans: 1,
+            explain: "Spending more than the event earns back is the cost-versus-revenue negative — not an infrastructure legacy, a participation rise, or increased investment."
+        },
+        {
+            q: "Which best describes a raised international profile as a legacy of hosting a major event?",
+            opts: ["The host is seen worldwide as capable of delivering a major event, attracting future investment", "The host nation's own athletes are permanently guaranteed to win more medals at every single major event held after this one", "The host city automatically loses the right to bid for any future event", "Ticket prices for the event rise sharply during the closing ceremony itself"],
+            ans: 0,
+            explain: "A raised profile is about international reputation and future investment, not guaranteed medals, losing future bidding rights, or ceremony-week ticket prices."
+        },
+        {
+            q: "A newly built arena stands empty for years after the closing ceremony, while the host nation is also criticised internationally for how badly the event was organised. This scenario shows...",
+            opts: ["two positive legacies: new facilities in constant use, and a raised international profile", "a 'white elephant' venue combined with a loss of national reputation", "an increase in participation together with a rise in the sport's profile", "improved transport infrastructure alongside increased future investment"],
+            ans: 1,
+            explain: "An unused venue is a white elephant, and international criticism of the organisation is reputational loss — both negative legacies, not the positive pairs in the other options."
+        }
+    ];
+
+    const matchData = [
+        { term: "Legacy", def: "The lasting effect an event leaves behind once it has finished, which can be positive or negative" },
+        { term: "Facility legacy", def: "New or improved sporting venues that continue to be used by the public after the event" },
+        { term: "Participation legacy", def: "A rise in the number of people taking part in the sports that featured at the event" },
+        { term: "Profile legacy", def: "Increased media coverage, sponsorship and public interest in a sport after an event" },
+        { term: "Transport and infrastructure legacy", def: "New roads, rail links or town regeneration built for the event that continue to serve the area" },
+        { term: "International status", def: "A city or nation being seen worldwide as capable of successfully staging a major event" },
+        { term: "'White elephant'", def: "A purpose-built venue left unused once the event it was built for has finished" },
+        { term: "Reputational loss", def: "Damage to a host nation's standing caused by poor organisation, poor host performance or a scandal" }
+    ];
+
+    const fibData = [
+        {
+            display: "The lasting effect that remains after a major event has finished is called its _____.",
+            blanks: { B1: "legacy" }
+        },
+        {
+            display: "New or upgraded stadiums that local clubs keep using for years afterwards are an example of a _____ legacy.",
+            blanks: { B1: "facility" }
+        },
+        {
+            display: "A rise in the number of people trying a sport after watching it at a major event is a legacy of increased _____.",
+            blanks: { B1: "participation" }
+        },
+        {
+            display: "A venue that is built for an event but then stands _____ afterwards is nicknamed a 'white elephant'.",
+            blanks: { B1: "unused" }
+        },
+        {
+            display: "If a host nation's event is badly organised, it can suffer a loss of national _____.",
+            blanks: { B1: "reputation" }
+        },
+        {
+            display: "An event that costs more to host than the _____ it generates leaves the host with a financial loss.",
+            blanks: { B1: "revenue" }
+        }
+    ];
+    const fibWords = ["legacy", "facility", "participation", "unused", "reputation", "revenue"];
+
+    const tfData = [
+        {
+            statement: "A 'legacy' can only ever be a positive result of hosting a major event.",
+            answer: false,
+            explanation: "Legacy can be positive, negative, or both at once — a host can gain a busy new pool AND an empty arena from the same event."
+        },
+        {
+            statement: "A rise in participation in the sports featured at an event is an example of a positive legacy.",
+            answer: true,
+            explanation: "More people taking up the sports involved, inspired by watching the event, is exactly what a positive participation legacy looks like."
+        },
+        {
+            statement: "A 'white elephant' is the nickname for a venue that stays in constant public use long after the event has finished.",
+            answer: false,
+            explanation: "It is the opposite — a 'white elephant' is a venue left unused once the event is over, not one that is thriving afterwards."
+        },
+        {
+            statement: "Hosting a major event is always guaranteed to bring in more revenue than it costs to host.",
+            answer: false,
+            explanation: "There is no such guarantee — the event may end up costing more to host than the revenue it generates, leaving a financial loss."
+        },
+        {
+            statement: "A host nation's international reputation can be damaged by poor organisation or a scandal, even after the event has ended.",
+            answer: true,
+            explanation: "Reputational loss is a genuine negative legacy — bad organisation, poor host performance, or a scandal can all damage standing that outlasts the event."
+        },
+        {
+            statement: "Improved transport and social infrastructure built for an event can continue to benefit the local area long after the event finishes.",
+            answer: true,
+            explanation: "That is exactly what a positive transport and infrastructure legacy means — new roads, rail links or regeneration that outlast the event itself."
+        }
+    ];
+
+    const miscData = [
+        {
+            wrong: "The 'legacy' of hosting an event is really just whether it made a profit or a loss.",
+            correct: "Legacy is much broader than the finances. It includes facilities (are they still used?), participation (did more people take up the sport?), profile (did the sport get more attention?), transport and infrastructure, and international status and reputation — as well as the money. A financially break-even event can still have a strong or weak legacy depending on these other factors.",
+            readCheck: {
+                q: "Which of these is part of an event's legacy, alongside its finances?",
+                opts: ["Only whether the event made a profit or a loss overall, once the final accounts were settled", "Facilities, participation, profile, infrastructure and reputation as well as finances", "Only the number of tickets sold on the very first day of the event", "Only the weather recorded during the opening ceremony itself"],
+                ans: 1,
+                explain: "Legacy covers facilities, participation, profile, infrastructure and reputation together with the finances — not the finances alone, ticket sales, or the weather."
+            }
+        },
+        {
+            wrong: "If a stadium is built specifically for an event, it is automatically a 'white elephant' afterwards.",
+            correct: "A purpose-built venue only becomes a white elephant if it is left unused once the event has finished. Plenty of purpose-built facilities go on to be busy, well-used venues for years — that is a positive facility legacy, not a white elephant. The difference is what happens to the venue AFTER the closing ceremony, not how or why it was built.",
+            readCheck: {
+                q: "What actually decides whether a purpose-built venue becomes a 'white elephant'?",
+                opts: ["Whether it was built specifically for the event in the first place", "Whether it is left unused once the event has finished", "How expensive the venue was to construct originally", "How many spectators attended on the opening night"],
+                ans: 1,
+                explain: "It's ongoing use afterwards that matters, not the fact it was purpose-built, its original cost, or opening-night attendance."
+            }
+        },
+        {
+            wrong: "Post-event legacy is only about the first few months right after the event finishes.",
+            correct: "Legacy includes long-term effects too — a rise in participation or a facility's popularity may only become clear years later, and a reputational or financial legacy can take just as long to settle. Judging legacy well means looking beyond the first few months.",
+            readCheck: {
+                q: "Why is it wrong to judge an event's legacy only from its first few months?",
+                opts: ["Because legacy includes long-term effects that may only become clear years later", "Because legacy is only ever measured in the very first month after the closing ceremony", "Because only the opening ceremony counts towards legacy", "Because legacy is decided entirely before the event even begins"],
+                ans: 0,
+                explain: "Legacy can take years to become clear — participation, facility use and reputation can all shift long after the first few months."
+            }
+        },
+        {
+            wrong: "One positive legacy point, like new facilities, automatically cancels out any negative legacy point, like a cost overrun.",
+            correct: "The exam wants you to weigh both sides against each other and reach a justified judgement — not assume one positive automatically outweighs a negative, or the other way round. Sometimes a strong facility legacy genuinely outweighs a cost overrun; sometimes it doesn't. You have to argue it using the scenario, not assume it.",
+            readCheck: {
+                q: "How should a positive legacy point and a negative legacy point be treated in a discuss/evaluate answer?",
+                opts: ["The positive point should always be assumed to automatically cancel out any negative point in every single case", "They should be weighed against each other, with a judgement based on the scenario", "The negative point should always be assumed to win automatically, whatever the scenario shows", "Only the positive points need to be mentioned at all"],
+                ans: 1,
+                explain: "A good answer weighs both sides against the scenario's actual detail and reaches a judgement — it never just assumes one side automatically wins."
+            }
+        }
+    ];
+
+    const examTips = [
+        {
+            type: "tip",
+            title: "Command words for this topic — what each one wants",
+            pills: ["Identify", "Describe", "Explain", "Discuss"],
+            content: `<p>Post-event and legacy questions range from quick recall to full evaluation. Match your answer length to the command word:</p>
+<ul>
+<li><strong>Identify / State</strong> — just name it. "Identify one positive legacy" = write one legacy, nothing more. 1 mark each.</li>
+<li><strong>Describe</strong> — say what it is or what it looks like in practice, without needing a reason.</li>
+<li><strong>Explain</strong> — give a reason, using the word <em>because</em>. "Explain why an unused venue is a negative legacy" = the point plus why it costs the host.</li>
+<li><strong>Discuss / Evaluate</strong> — weigh positives against negatives and give a justified judgement.</li>
+</ul>
+<p><strong>Read the mark tariff:</strong> [1] wants one point; [4] in Section B wants points applied to the scenario; [6]/[8] levelled answers want both sides plus a judgement.</p>`,
+            readCheck: {
+                q: "A question says: 'Identify one negative legacy of hosting a major event [1]'. What is the safest answer?",
+                opts: ["A full paragraph explaining several negative legacies in detail", "One negative legacy, named", "A list of every negative legacy you can remember", "An explanation of a positive legacy instead"],
+                ans: 1,
+                explain: "'Identify' + [1] = one clearly named point. A long paragraph, a long list, or the wrong side of the argument all waste time for no extra credit."
+            }
+        },
+        {
+            type: "tip",
+            title: "The golden rule: weigh the benefit against the cost",
+            pills: ["Section B", "Section C", "AO3"],
+            content: `<p>The single most common way to lose marks on this topic is answering only one side. Build longer answers as <strong>benefit vs cost, then judgement</strong>:</p>
+<ul>
+<li><strong>❌ weak:</strong> "Hosting the event gave the city a new stadium." (one-sided, no weighing up)</li>
+<li><strong>✅ stronger:</strong> "Hosting gave the city a busy new stadium, but the cost ran well over budget, so the legacy is genuinely mixed rather than simply good."</li>
+</ul>
+<p>In <strong>Section B and C</strong>, the question usually gives you a scenario (a named host city, a stated cost or membership figure). Use that detail directly — a generic point that could apply to any city earns less.</p>`,
+            readCheck: {
+                q: "In a scenario question about a named host city's legacy, your answer should be built around...",
+                opts: ["only the positive side of the argument, ignored entirely for negatives", "weighing the benefit and the cost using detail from the scenario", "a completely different event that you happen to know more about", "the opening ceremony, regardless of what the question actually asks"],
+                ans: 1,
+                explain: "Weighing benefit against cost, using the scenario's own detail, is what separates a strong legacy answer from a one-sided list."
+            }
+        },
+        {
+            type: "tip",
+            title: "Where this appears + sentence starters",
+            pills: ["Section A", "Section B", "Section C"],
+            content: `<p><strong>Where it shows up:</strong> post-event legacy appears as quick recall in <strong>Section A</strong> (identify a positive or negative legacy), as applied points in <strong>Section B</strong> scenarios about a specific host, and it regularly feeds <strong>Section C</strong> 8-mark discuss/evaluate answers about whether hosting was "worth it".</p>
+<p><strong>Three punchy tips:</strong></p>
+<ul>
+<li>Learn the positives and negatives as two short lists so you can always recall at least one of each.</li>
+<li>For every point you make, tie it to a scenario detail (a named facility, a stated cost, a stated membership figure).</li>
+<li>Always end a longer answer with a judgement — don't just stop after listing both sides.</li>
+</ul>
+<p><strong>Sentence starters for a longer answer:</strong></p>
+<ul>
+<li>"One positive legacy here is… because…"</li>
+<li>"However, a negative legacy is… because…"</li>
+<li>"Overall, the legacy is… because…"</li>
+</ul>`,
+            readCheck: {
+                q: "Why does a strong Section C legacy answer always finish with a judgement?",
+                opts: ["Because a judgement is entirely optional and adds nothing at all to the final mark awarded", "Because discuss/evaluate questions reward weighing both sides and then deciding", "Because judgements replace the need to use the scenario at all", "Because only Section A questions require any kind of ending"],
+                ans: 1,
+                explain: "Discuss/evaluate questions are marked on balance AND judgement — stopping after listing both sides leaves the strongest mark band unreached."
+            }
+        }
+    ];
+
+    const flashcards = [
+        { term: "Legacy", def: "The lasting effect an event leaves behind once it has finished — can be positive or negative" },
+        { term: "Facility legacy", def: "New or improved venues that stay in public use after the event" },
+        { term: "Participation legacy", def: "More people taking up the sports that featured at the event" },
+        { term: "Profile legacy", def: "More media coverage, sponsorship and public interest in a sport after the event" },
+        { term: "Transport and infrastructure legacy", def: "New roads, rail links or regeneration that outlast the event itself" },
+        { term: "International status", def: "Being seen worldwide as capable of successfully staging a major event" },
+        { term: "'White elephant'", def: "A purpose-built venue left unused once the event has finished" },
+        { term: "Reputational loss", def: "Damage to standing from poor organisation, poor host performance, or scandal" }
+    ];
+
+    const examQuestions = [
+        {
+            num: "1",
+            marks: 2,
+            type: "written",
+            caseStudy: "",
+            question: "Identify <strong>two</strong> different positive legacies a host country might gain after a major sporting event.",
+            hint: "Pick two from different areas — for example facilities, participation, profile, transport/infrastructure, international status, or future investment.",
+            starter: "One positive legacy is… Another positive legacy is…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 2 marks (AO1)</h5>
+<p><strong>1 mark for each correct positive legacy named, to a maximum of two. Accept any two DIFFERENT legacies from the specification, including:</strong></p>
+<ul>
+<li>A legacy of improved or new sporting facilities</li>
+<li>An increase in participation in the sports involved</li>
+<li>A rise in the profile of those sports</li>
+<li>A legacy of improved transport and social infrastructure</li>
+<li>A raised international profile/status for the city or nation</li>
+<li>Increased future financial investment</li>
+</ul>
+<p>Do not credit the same legacy written twice, and do not credit a negative legacy.</p>
+</div>`,
+            modelAnswer: "One positive legacy is a legacy of new or improved sporting facilities.\n\nAnother positive legacy is a rise in participation in the sports involved.",
+            markPoints: { note: "One tick per correct, DIFFERENT positive legacy; cap at 2.", groups: [
+                { label: "Your first positive legacy", max: 1, points: ["Names a valid positive legacy from the specification"] },
+                { label: "Your second positive legacy", max: 1, points: ["Names a DIFFERENT valid positive legacy (not a repeat of the first)"] }
+            ] }
+        },
+        {
+            num: "2",
+            marks: 1,
+            type: "mcq",
+            caseStudy: "",
+            question: "Which best describes a 'white elephant' in the context of an event's legacy?",
+            options: ["A purpose-built venue that is left unused once the event has finished", "A new rail line that continues to serve passengers for years afterwards", "A local sports club that gains hundreds of new members after the event", "A rise in ticket sales for the sport that featured at the event"],
+            answer: 0,
+            hint: "Think about which option describes a venue with no ongoing use, rather than a positive outcome.",
+            starter: "The correct answer is...",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 1 mark (AO2)</h5>
+<p><strong>Answer: A — A purpose-built venue that is left unused once the event has finished.</strong></p>
+<ul>
+<li>A 'white elephant' is specifically a venue with no ongoing use or income after the closing ceremony.</li>
+<li>The other options all describe positive legacies (a lasting transport link, a participation rise, or a profile rise), not a white elephant.</li>
+</ul>
+</div>`,
+            modelAnswer: ""
+        },
+        {
+            num: "3",
+            marks: 4,
+            type: "written",
+            caseStudy: `<p><strong>Scenario — Fenmouth and the International Combined Games</strong></p><p>Fenmouth hosted the International Combined Games three years ago. Since then, the new 8,000-seat swimming centre has become the busiest pool in the region, and local swimming club membership has doubled. However, a purpose-built beach-volleyball arena on the edge of town has stood empty since the closing ceremony, and the final cost of hosting came in £60 million over the original budget.</p>`,
+            question: "Explain <strong>one positive legacy</strong> and <strong>one negative legacy</strong> shown in this scenario.",
+            hint: "Take each legacy in turn. Name it, then explain why it counts as positive or negative using a detail from the scenario (the pool, the membership figure, the empty arena, or the £60 million figure).",
+            starter: "One positive legacy is… because…\n\nOne negative legacy is… because…",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 4 marks (AO2: application)</h5>
+<p><strong>Up to 2 marks for the positive legacy, up to 2 marks for the negative legacy: 1 for identifying it, 1 for explaining it using the scenario. Answers may include:</strong></p>
+<ul>
+<li><strong>Positive:</strong> a facility and/or participation legacy — the swimming centre is now the busiest pool in the region and club membership has doubled, showing the venue is genuinely being used and more people are taking part.</li>
+<li><strong>Negative:</strong> a 'white elephant' and/or a cost overrun — the beach-volleyball arena has stood empty since the closing ceremony, and the event cost £60 million more than budgeted, showing a real financial and use-of-venue cost.</li>
+</ul>
+<p>Accept any other reasonable, scenario-linked answer. A legacy named with no explanation, or an explanation not linked to the scenario, earns 1 of the 2 marks for that side.</p>
+</div>`,
+            modelAnswer: "One positive legacy is the new swimming centre, which has become the busiest pool in the region and helped local club membership double — a genuine facility and participation legacy.\n\nOne negative legacy is the beach-volleyball arena, which has stood empty since the closing ceremony. This is a 'white elephant', built for the event but bringing no ongoing use or income, and it contributed to the £60 million cost overrun.",
+            markPoints: { note: "Mark each side out of 2: one tick for identifying the legacy, one for explaining it using the scenario.", groups: [
+                { label: "The positive legacy you identified", max: 2, points: ["Identifies a genuine positive legacy shown in the scenario (e.g. the busy new swimming centre, or doubled club membership)", "Explains why it counts as positive, using a detail from the scenario (e.g. the venue is in constant use, or participation has clearly risen)"] },
+                { label: "The negative legacy you identified", max: 2, points: ["Identifies a genuine negative legacy shown in the scenario (e.g. the empty beach-volleyball arena, or the £60 million cost overrun)", "Explains why it counts as negative, using a detail from the scenario (e.g. it is a 'white elephant', or the cost exceeded the original budget)"] }
+            ] }
+        },
+        {
+            num: "4",
+            marks: 8,
+            type: "written",
+            format: "banded",
+            caseStudy: `<p><strong>Scenario — Fenmouth and the International Combined Games</strong></p><p>Fenmouth hosted the International Combined Games three years ago. Since then, the new 8,000-seat swimming centre has become the busiest pool in the region, and local swimming club membership has doubled. However, a purpose-built beach-volleyball arena on the edge of town has stood empty since the closing ceremony, and the final cost of hosting came in £60 million over the original budget. Fenmouth's sports development team is now reviewing whether hosting the Games was worth it.</p>`,
+            question: "Discuss whether hosting the International Combined Games has left Fenmouth with an overall positive legacy.",
+            hint: "Use the scenario's positives (the busy pool, doubled membership) and negatives (the empty arena, the £60 million overrun). Weigh them against each other before giving your judgement.",
+            starter: "One positive legacy for Fenmouth is… because…\n\nHowever, a negative legacy is… because…\n\nOverall, …",
+            markScheme: `<div class="marks-section">
+<h5>Mark Scheme — 8 marks (level-of-response). Read the band you fit, then pick a mark.</h5>
+<ul>
+<li><strong>Band 3 (thorough), 6–8:</strong> a balanced, well-applied discussion using both the positive and negative detail in the scenario, weighing them against each other, and ending in a justified judgement about the overall legacy.</li>
+<li><strong>Band 2 (reasonable), 3–5:</strong> sound understanding applied to the scenario with some analysis, but the discussion may be one-sided (mostly positives or mostly negatives) or the judgement unsupported.</li>
+<li><strong>Band 1 (basic), 1–2:</strong> names a positive and/or negative legacy with little application to the scenario and no real evaluation; largely a list.</li>
+<li><strong>0 marks:</strong> nothing creditworthy.</li>
+</ul>
+</div>
+<div class="marks-section">
+<h5>Indicative content (indicative, not a checklist — reward valid alternatives)</h5>
+<ul>
+<li><strong>Positive legacy:</strong> the swimming centre is now the busiest pool in the region, showing a genuine facility legacy; local club membership has doubled, showing a real participation legacy.</li>
+<li><strong>Negative legacy:</strong> the beach-volleyball arena has stood empty since the closing ceremony — a 'white elephant' with no ongoing income; the final cost was £60 million over budget, showing the event cost more to host than planned.</li>
+<li><strong>Evaluation:</strong> a busy, well-used pool does not automatically outweigh an unused arena and a large budget overrun, and vice versa; the scale of the overrun (£60 million) compared with the ongoing value of a doubled membership is central to the judgement; a purely short-term view (three years on) may understate or overstate the legacy compared to a longer-term view.</li>
+<li><strong>Judgement:</strong> Fenmouth's legacy is genuinely mixed — strong facility and participation gains sit alongside a costly unused venue and a large overspend — so it cannot fairly be called simply positive or simply negative; whether it counts as "worth it" depends on how much weight is placed on the ongoing sporting benefit versus the financial cost.</li>
+</ul>
+</div>`,
+            modelAnswer: "Fenmouth's legacy is mixed. The new swimming centre is a genuine success: it is now the busiest pool in the region and has helped local club membership double, showing a real rise in participation and facility use. This suggests hosting can leave a lasting sporting benefit.\n\nHowever, the beach-volleyball arena has stood empty since the closing ceremony, making it a 'white elephant' that brings no ongoing income, and the final cost came in £60 million over budget — a serious financial negative that a busy pool alone cannot repay.\n\nOverall, Fenmouth's legacy is not simply positive or negative but a genuine balance: one popular facility does not cancel out an unused venue and a large budget overrun, so hosting can only be judged a partial success."
+        }
+    ];
+</script>
+    <script src="/cs-lab/exam-widgets.js"></script>
+    <script src="/script.js"></script>
+<script src="section-totals.js"></script>
+<script src="page-groups.js"></script>
+<script src="/progress-shared.js"></script>
+<script src="/gamification.js"></script>
+<script src="/topic-guard.js"></script>
+<script src="/notifications-shared.js"></script>
+<script src="/onboarding-tour.js"></script>
+<script src="/footer-legal.js"></script>
+</body>
+
+</html>
