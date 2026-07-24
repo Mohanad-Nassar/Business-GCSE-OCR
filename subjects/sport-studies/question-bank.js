@@ -3,7 +3,7 @@
 // Built by tools/build_question_bank.py from the question arrays
 // embedded in every topic page. Regenerate after editing questions:
 //     python tools/build_question_bank.py
-// Generated: 2026-07-24T05:54:03Z · 1186 questions
+// Generated: 2026-07-24T05:56:40Z · 1186 questions
 // ══════════════════════════════════════════════════════════════
 window.QUESTION_BANK = [
  {
@@ -492,7 +492,7 @@ window.QUESTION_BANK = [
   "question": "A user group is a _____ of people who share characteristics that affect their participation.",
   "blankOptions": {
    "B1": [
-    "goals",
+    "disabilities",
     "category",
     "flexible",
     "disadvantaged"
@@ -514,10 +514,10 @@ window.QUESTION_BANK = [
   "question": "Providers study user groups because each one can have different needs, _____ and requirements.",
   "blankOptions": {
    "B1": [
-    "disadvantaged",
     "disabilities",
-    "low",
-    "goals"
+    "goals",
+    "category",
+    "flexible"
    ]
   },
   "key": {
@@ -536,10 +536,10 @@ window.QUESTION_BANK = [
   "question": "Retired people and the over-60s often prefer _____-impact activities that are also sociable.",
   "blankOptions": {
    "B1": [
-    "disadvantaged",
     "goals",
-    "disabilities",
-    "low"
+    "flexible",
+    "low",
+    "disadvantaged"
    ]
   },
   "key": {
@@ -559,9 +559,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "flexible",
+    "low",
     "disadvantaged",
-    "category",
-    "disabilities"
+    "category"
    ]
   },
   "key": {
@@ -580,9 +580,9 @@ window.QUESTION_BANK = [
   "question": "Unemployed or economically _____ people often need free or reduced-price sessions.",
   "blankOptions": {
    "B1": [
-    "disabilities",
-    "low",
+    "goals",
     "disadvantaged",
+    "disabilities",
     "category"
    ]
   },
@@ -602,8 +602,8 @@ window.QUESTION_BANK = [
   "question": "People with _____ may need accessible facilities and inclusive coaching to take part.",
   "blankOptions": {
    "B1": [
-    "disabilities",
     "disadvantaged",
+    "disabilities",
     "flexible",
     "goals"
    ]
@@ -1273,10 +1273,10 @@ window.QUESTION_BANK = [
   "question": "A barrier to participation is anything that stops or _____ someone from taking part in sport.",
   "blankOptions": {
    "B1": [
+    "transport",
     "discourages",
     "awkward",
-    "awareness",
-    "disposable"
+    "awareness"
    ]
   },
   "key": {
@@ -1295,10 +1295,10 @@ window.QUESTION_BANK = [
   "question": "People in work can face long or _____ hours that clash with when sessions run.",
   "blankOptions": {
    "B1": [
-    "discourages",
+    "awareness",
     "awkward",
     "transport",
-    "awareness"
+    "discourages"
    ]
   },
   "key": {
@@ -1317,10 +1317,10 @@ window.QUESTION_BANK = [
   "question": "A lack of _____ income means there is no spare money for kit, membership or travel.",
   "blankOptions": {
    "B1": [
-    "transport",
-    "awkward",
+    "disposable",
+    "coverage",
     "discourages",
-    "disposable"
+    "awareness"
    ]
   },
   "key": {
@@ -1339,10 +1339,10 @@ window.QUESTION_BANK = [
   "question": "Even a great session is no use if someone cannot physically reach it because of a lack of _____.",
   "blankOptions": {
    "B1": [
-    "discourages",
-    "coverage",
+    "awareness",
     "transport",
-    "awkward"
+    "disposable",
+    "coverage"
    ]
   },
   "key": {
@@ -1362,9 +1362,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "transport",
-    "coverage",
-    "discourages",
-    "awareness"
+    "disposable",
+    "awareness",
+    "coverage"
    ]
   },
   "key": {
@@ -1383,9 +1383,9 @@ window.QUESTION_BANK = [
   "question": "Unequal media _____ by gender or ethnicity means fewer visible role models for some groups.",
   "blankOptions": {
    "B1": [
+    "awareness",
+    "disposable",
     "coverage",
-    "discourages",
-    "awkward",
     "transport"
    ]
   },
@@ -2054,10 +2054,10 @@ window.QUESTION_BANK = [
   "question": "Offering the right programmes, sessions and _____ for a specific user group is called provision.",
   "blankOptions": {
    "B1": [
-    "concession",
-    "equipment",
     "times",
-    "access"
+    "equipment",
+    "role",
+    "taster"
    ]
   },
   "key": {
@@ -2076,10 +2076,10 @@ window.QUESTION_BANK = [
   "question": "Using a well-known figure connected to a user group in adverts is called using a _____ model.",
   "blankOptions": {
    "B1": [
-    "role",
-    "access",
     "times",
-    "equipment"
+    "role",
+    "equipment",
+    "concession"
    ]
   },
   "key": {
@@ -2098,10 +2098,10 @@ window.QUESTION_BANK = [
   "question": "A free _____ session lets a group try an activity before paying anything at all.",
   "blankOptions": {
    "B1": [
-    "concession",
-    "role",
+    "times",
     "taster",
-    "equipment"
+    "equipment",
+    "concession"
    ]
   },
   "key": {
@@ -2121,7 +2121,7 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "equipment",
-    "times",
+    "taster",
     "concession",
     "access"
    ]
@@ -2143,9 +2143,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "taster",
-    "role",
+    "times",
     "access",
-    "times"
+    "concession"
    ]
   },
   "key": {
@@ -2164,10 +2164,10 @@ window.QUESTION_BANK = [
   "question": "A reduced price aimed at a group such as students or over-60s is called a _____.",
   "blankOptions": {
    "B1": [
-    "times",
-    "access",
     "taster",
-    "concession"
+    "access",
+    "concession",
+    "equipment"
    ]
   },
   "key": {
@@ -2814,10 +2814,10 @@ window.QUESTION_BANK = [
   "question": "A sport tends to become more popular when the number of people _____ in it increases.",
   "blankOptions": {
    "B1": [
-    "models",
+    "acceptability",
     "participating",
     "climate",
-    "acceptability"
+    "coverage"
    ]
   },
   "key": {
@@ -2836,9 +2836,9 @@ window.QUESTION_BANK = [
   "question": "Plentiful, accessible sports _____ make it easier for people to take up a sport in the first place.",
   "blankOptions": {
    "B1": [
-    "climate",
-    "models",
     "facilities",
+    "acceptability",
+    "climate",
     "participating"
    ]
   },
@@ -2858,10 +2858,10 @@ window.QUESTION_BANK = [
   "question": "A sport that needs reliable snow or ice can struggle to grow across the UK because of the _____.",
   "blankOptions": {
    "B1": [
-    "participating",
     "climate",
+    "facilities",
     "models",
-    "coverage"
+    "acceptability"
    ]
   },
   "key": {
@@ -2880,10 +2880,10 @@ window.QUESTION_BANK = [
   "question": "Extensive media _____ keeps a sport visible to the public and can attract new fans.",
   "blankOptions": {
    "B1": [
-    "participating",
-    "climate",
     "coverage",
-    "models"
+    "climate",
+    "participating",
+    "facilities"
    ]
   },
   "key": {
@@ -2902,10 +2902,10 @@ window.QUESTION_BANK = [
   "question": "A wider range of positive role _____ encourages more people who relate to them to get involved.",
   "blankOptions": {
    "B1": [
-    "models",
     "participating",
+    "models",
     "facilities",
-    "climate"
+    "acceptability"
    ]
   },
   "key": {
@@ -2924,10 +2924,10 @@ window.QUESTION_BANK = [
   "question": "Concerns about violence or cruelty can lower a sport's social _____ to some people.",
   "blankOptions": {
    "B1": [
-    "models",
     "coverage",
+    "acceptability",
     "climate",
-    "acceptability"
+    "participating"
    ]
   },
   "key": {
@@ -3575,9 +3575,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "impact",
+    "media",
     "growing",
-    "court",
-    "nearby"
+    "court"
    ]
   },
   "key": {
@@ -3596,10 +3596,10 @@ window.QUESTION_BANK = [
   "question": "Padel is a racket sport played in a small, walled _____, usually in doubles.",
   "blankOptions": {
    "B1": [
+    "court",
     "nearby",
     "media",
-    "growing",
-    "court"
+    "impact"
    ]
   },
   "key": {
@@ -3619,7 +3619,7 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "impact",
-    "media",
+    "nearby",
     "growing",
     "court"
    ]
@@ -3640,10 +3640,10 @@ window.QUESTION_BANK = [
   "question": "New clubs and facilities give people somewhere _____ to try an emerging sport for the first time.",
   "blankOptions": {
    "B1": [
+    "court",
     "impact",
-    "media",
-    "growing",
-    "nearby"
+    "nearby",
+    "growing"
    ]
   },
   "key": {
@@ -3662,10 +3662,10 @@ window.QUESTION_BANK = [
   "question": "Short clips shared on social _____ can introduce a sport to people who would never otherwise see it.",
   "blankOptions": {
    "B1": [
-    "court",
+    "impact",
+    "growing",
     "nearby",
-    "media",
-    "growing"
+    "media"
    ]
   },
   "key": {
@@ -4295,10 +4295,10 @@ window.QUESTION_BANK = [
   "question": "Team _____ means supporting and encouraging your teammates as you work together toward a shared goal.",
   "blankOptions": {
    "B1": [
-    "effort",
-    "spirit",
+    "cultures",
     "community",
-    "cheat"
+    "effort",
+    "spirit"
    ]
   },
   "key": {
@@ -4319,7 +4319,7 @@ window.QUESTION_BANK = [
    "B1": [
     "cheat",
     "effort",
-    "spirit",
+    "cultures",
     "community"
    ]
   },
@@ -4339,10 +4339,10 @@ window.QUESTION_BANK = [
   "question": "Citizenship means using sport to build positive links within the local _____.",
   "blankOptions": {
    "B1": [
-    "opportunity",
+    "effort",
+    "community",
     "cultures",
-    "spirit",
-    "community"
+    "opportunity"
    ]
   },
   "key": {
@@ -4361,10 +4361,10 @@ window.QUESTION_BANK = [
   "question": "Tolerance and respect together mean gaining a greater understanding of other _____.",
   "blankOptions": {
    "B1": [
-    "opportunity",
     "spirit",
-    "effort",
-    "cultures"
+    "cultures",
+    "cheat",
+    "community"
    ]
   },
   "key": {
@@ -4383,10 +4383,10 @@ window.QUESTION_BANK = [
   "question": "Inclusion means giving people from every social group an equal _____ to take part.",
   "blankOptions": {
    "B1": [
-    "spirit",
+    "cheat",
     "opportunity",
-    "effort",
-    "cultures"
+    "community",
+    "effort"
    ]
   },
   "key": {
@@ -4405,10 +4405,10 @@ window.QUESTION_BANK = [
   "question": "Excellence means striving to be your best by giving maximum _____.",
   "blankOptions": {
    "B1": [
+    "effort",
     "spirit",
     "cultures",
-    "effort",
-    "cheat"
+    "community"
    ]
   },
   "key": {
@@ -5057,10 +5057,10 @@ window.QUESTION_BANK = [
   "question": "The Olympic symbol is made up of five interlocking _____.",
   "blankOptions": {
    "B1": [
-    "Equality",
-    "rings",
+    "result",
     "continents",
-    "Respect"
+    "Equality",
+    "rings"
    ]
   },
   "key": {
@@ -5079,10 +5079,10 @@ window.QUESTION_BANK = [
   "question": "The five rings represent the coming together of the five _____ through sport.",
   "blankOptions": {
    "B1": [
-    "rings",
-    "Equality",
     "continents",
-    "up"
+    "Equality",
+    "Respect",
+    "result"
    ]
   },
   "key": {
@@ -5101,10 +5101,10 @@ window.QUESTION_BANK = [
   "question": "The three Olympic values are Excellence, Friendship and _____.",
   "blankOptions": {
    "B1": [
-    "rings",
-    "Equality",
+    "result",
+    "Respect",
     "continents",
-    "Respect"
+    "Equality"
    ]
   },
   "key": {
@@ -5123,10 +5123,10 @@ window.QUESTION_BANK = [
   "question": "The four Paralympic values are Courage, Determination, Inspiration and _____.",
   "blankOptions": {
    "B1": [
+    "Equality",
     "rings",
     "up",
-    "Respect",
-    "Equality"
+    "result"
    ]
   },
   "key": {
@@ -5145,9 +5145,9 @@ window.QUESTION_BANK = [
   "question": "The Olympic Creed teaches that honest effort matters as much as the final _____.",
   "blankOptions": {
    "B1": [
+    "Respect",
     "result",
-    "Equality",
-    "continents",
+    "up",
     "rings"
    ]
   },
@@ -5167,10 +5167,10 @@ window.QUESTION_BANK = [
   "question": "Determination is a Paralympic value about refusing to give _____ despite setbacks.",
   "blankOptions": {
    "B1": [
-    "Respect",
-    "rings",
+    "Equality",
     "up",
-    "Equality"
+    "rings",
+    "result"
    ]
   },
   "key": {
@@ -5817,10 +5817,10 @@ window.QUESTION_BANK = [
   "question": "An _____ is a planned scheme set up by an organisation to work towards a goal.",
   "blankOptions": {
    "B1": [
-    "staged",
     "time",
     "initiative",
-    "take"
+    "national",
+    "local"
    ]
   },
   "key": {
@@ -5839,10 +5839,10 @@ window.QUESTION_BANK = [
   "question": "A campaign is an organised effort with a message, run over _____, to change attitudes.",
   "blankOptions": {
    "B1": [
-    "initiative",
-    "staged",
     "time",
-    "national"
+    "take",
+    "staged",
+    "initiative"
    ]
   },
   "key": {
@@ -5861,10 +5861,10 @@ window.QUESTION_BANK = [
   "question": "An event is a specific, _____ occasion, such as a festival or open day.",
   "blankOptions": {
    "B1": [
-    "staged",
-    "take",
+    "national",
     "time",
-    "initiative"
+    "staged",
+    "local"
    ]
   },
   "key": {
@@ -5883,10 +5883,10 @@ window.QUESTION_BANK = [
   "question": "A scheme run by one club for its own community is operating at _____ level.",
   "blankOptions": {
    "B1": [
-    "staged",
     "take",
-    "national",
-    "local"
+    "local",
+    "staged",
+    "national"
    ]
   },
   "key": {
@@ -5906,9 +5906,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "national",
-    "staged",
-    "take",
-    "time"
+    "initiative",
+    "time",
+    "take"
    ]
   },
   "key": {
@@ -5927,9 +5927,9 @@ window.QUESTION_BANK = [
   "question": "Free taster sessions mainly encourage _____-up rather than raise awareness.",
   "blankOptions": {
    "B1": [
-    "initiative",
-    "national",
+    "local",
     "take",
+    "national",
     "time"
    ]
   },
@@ -6598,10 +6598,10 @@ window.QUESTION_BANK = [
   "question": "Etiquette is an _____ code of good conduct that goes beyond a sport's official rulebook.",
   "blankOptions": {
    "B1": [
-    "safety",
-    "spirit",
+    "technically",
+    "fairness",
     "unwritten",
-    "technically"
+    "spirit"
    ]
   },
   "key": {
@@ -6620,10 +6620,10 @@ window.QUESTION_BANK = [
   "question": "Sportsmanship means playing within the letter and the _____ of the rules.",
   "blankOptions": {
    "B1": [
-    "unwritten",
-    "spirit",
-    "reinforce",
-    "technically"
+    "fairness",
+    "technically",
+    "safety",
+    "spirit"
    ]
   },
   "key": {
@@ -6642,9 +6642,9 @@ window.QUESTION_BANK = [
   "question": "Gamesmanship means bending the rules to gain an edge without _____ breaking a written rule.",
   "blankOptions": {
    "B1": [
-    "spirit",
     "technically",
-    "fairness",
+    "unwritten",
+    "safety",
     "reinforce"
    ]
   },
@@ -6664,10 +6664,10 @@ window.QUESTION_BANK = [
   "question": "One reason performers observe etiquette is _____ — stopping an advantage that has nothing to do with skill.",
   "blankOptions": {
    "B1": [
-    "safety",
-    "reinforce",
+    "spirit",
     "fairness",
-    "spirit"
+    "reinforce",
+    "technically"
    ]
   },
   "key": {
@@ -6687,9 +6687,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "spirit",
-    "reinforce",
-    "safety",
-    "technically"
+    "unwritten",
+    "fairness",
+    "safety"
    ]
   },
   "key": {
@@ -6710,8 +6710,8 @@ window.QUESTION_BANK = [
    "B1": [
     "technically",
     "reinforce",
-    "spirit",
-    "safety"
+    "fairness",
+    "spirit"
    ]
   },
   "key": {
@@ -7339,10 +7339,10 @@ window.QUESTION_BANK = [
   "question": "Spectator etiquette is the accepted, respectful way of _____ while watching a sport.",
   "blankOptions": {
    "B1": [
+    "abusing",
     "quiet",
     "behaving",
-    "abusing",
-    "injure"
+    "fellow"
    ]
   },
   "key": {
@@ -7362,8 +7362,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "abusing",
-    "behaving",
     "injure",
+    "behaving",
     "quiet"
    ]
   },
@@ -7383,10 +7383,10 @@ window.QUESTION_BANK = [
   "question": "Disagreeing with an official's decision is normal, but _____ them is not.",
   "blankOptions": {
    "B1": [
-    "fellow",
     "quiet",
+    "fellow",
     "abusing",
-    "injure"
+    "behaving"
    ]
   },
   "key": {
@@ -7405,10 +7405,10 @@ window.QUESTION_BANK = [
   "question": "A good spectator is considerate towards _____ spectators as well as the players.",
   "blankOptions": {
    "B1": [
-    "fellow",
-    "injure",
     "abusing",
-    "behaving"
+    "quiet",
+    "fellow",
+    "injure"
    ]
   },
   "key": {
@@ -7427,10 +7427,10 @@ window.QUESTION_BANK = [
   "question": "Throwing objects onto the playing area can _____ a player, official or another spectator.",
   "blankOptions": {
    "B1": [
-    "abusing",
+    "behaving",
     "injure",
-    "quiet",
-    "behaving"
+    "fellow",
+    "abusing"
    ]
   },
   "key": {
@@ -8017,10 +8017,10 @@ window.QUESTION_BANK = [
   "question": "A PED is a _____ substance taken to make the body perform better than training alone could.",
   "blankOptions": {
    "B1": [
-    "terms",
-    "sponsorship",
     "banned",
-    "psychological"
+    "psychological",
+    "succeed",
+    "terms"
    ]
   },
   "key": {
@@ -8039,10 +8039,10 @@ window.QUESTION_BANK = [
   "question": "Some performers feel intense pressure to _____, which can push them towards doping.",
   "blankOptions": {
    "B1": [
-    "sponsorship",
+    "succeed",
     "terms",
     "banned",
-    "succeed"
+    "psychological"
    ]
   },
   "key": {
@@ -8061,10 +8061,10 @@ window.QUESTION_BANK = [
   "question": "Losing form could cost a performer their income and their _____ deals.",
   "blankOptions": {
    "B1": [
-    "banned",
-    "sponsorship",
+    "terms",
     "succeed",
-    "terms"
+    "psychological",
+    "sponsorship"
    ]
   },
   "key": {
@@ -8083,10 +8083,10 @@ window.QUESTION_BANK = [
   "question": "Believing that rivals are already doping can make a performer feel they must too, to compete on equal _____.",
   "blankOptions": {
    "B1": [
-    "terms",
-    "sponsorship",
     "banned",
-    "succeed"
+    "sponsorship",
+    "psychological",
+    "terms"
    ]
   },
   "key": {
@@ -8105,10 +8105,10 @@ window.QUESTION_BANK = [
   "question": "Some PEDs can dull the perception of pain, which is a _____ rather than physical effect.",
   "blankOptions": {
    "B1": [
-    "succeed",
-    "psychological",
     "terms",
-    "banned"
+    "sponsorship",
+    "succeed",
+    "psychological"
    ]
   },
   "key": {
@@ -8696,10 +8696,10 @@ window.QUESTION_BANK = [
   "question": "Using PEDs can cause serious _____ risks, both straight away and years later.",
   "blankOptions": {
    "B1": [
-    "copy",
-    "banned",
     "health",
-    "law"
+    "banned",
+    "cheating",
+    "copy"
    ]
   },
   "key": {
@@ -8718,9 +8718,9 @@ window.QUESTION_BANK = [
   "question": "PED use is a form of _____ because it creates an advantage a clean rival cannot fairly match.",
   "blankOptions": {
    "B1": [
-    "law",
-    "banned",
     "cheating",
+    "health",
+    "law",
     "copy"
    ]
   },
@@ -8740,10 +8740,10 @@ window.QUESTION_BANK = [
   "question": "Many PEDs are controlled substances, so using them can break the _____ as well as the rules of the sport.",
   "blankOptions": {
    "B1": [
+    "copy",
+    "banned",
     "law",
-    "health",
-    "cheating",
-    "copy"
+    "health"
    ]
   },
   "key": {
@@ -8762,10 +8762,10 @@ window.QUESTION_BANK = [
   "question": "A performer caught using PEDs can be _____ from competition and lose any titles they won.",
   "blankOptions": {
    "B1": [
-    "health",
-    "banned",
     "law",
-    "cheating"
+    "copy",
+    "banned",
+    "health"
    ]
   },
   "key": {
@@ -8784,10 +8784,10 @@ window.QUESTION_BANK = [
   "question": "Elite performers are role models, so young fans may _____ risky choices they see them make.",
   "blankOptions": {
    "B1": [
-    "banned",
-    "law",
+    "copy",
     "health",
-    "copy"
+    "cheating",
+    "law"
    ]
   },
   "key": {
@@ -9375,10 +9375,10 @@ window.QUESTION_BANK = [
   "question": "WADA stands for the World Anti-Doping _____.",
   "blankOptions": {
    "B1": [
-    "random",
-    "Agency",
+    "location",
     "passport",
-    "doping"
+    "doping",
+    "Agency"
    ]
   },
   "key": {
@@ -9397,10 +9397,10 @@ window.QUESTION_BANK = [
   "question": "The Whereabouts Rule means athletes must report their daily _____ so testers can find them for a test.",
   "blankOptions": {
    "B1": [
-    "Agency",
     "location",
+    "passport",
     "random",
-    "passport"
+    "Agency"
    ]
   },
   "key": {
@@ -9419,10 +9419,10 @@ window.QUESTION_BANK = [
   "question": "Testing carried out unannounced during training, rather than only at an event, is called out-of-competition or _____ testing.",
   "blankOptions": {
    "B1": [
-    "Agency",
-    "random",
     "passport",
-    "doping"
+    "Agency",
+    "location",
+    "random"
    ]
   },
   "key": {
@@ -9442,8 +9442,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "doping",
-    "passport",
     "Agency",
+    "location",
     "random"
    ]
   },
@@ -9463,10 +9463,10 @@ window.QUESTION_BANK = [
   "question": "The biological _____ tracks an athlete's own readings over time so any unusual change can be flagged.",
   "blankOptions": {
    "B1": [
-    "location",
+    "doping",
     "Agency",
     "passport",
-    "doping"
+    "random"
    ]
   },
   "key": {
@@ -10055,9 +10055,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "ban",
-    "fine",
     "lifetime",
-    "deter"
+    "deter",
+    "stripped"
    ]
   },
   "key": {
@@ -10076,10 +10076,10 @@ window.QUESTION_BANK = [
   "question": "Ban length can vary, and a repeat offender may be given a _____ ban with no end date.",
   "blankOptions": {
    "B1": [
-    "ban",
     "lifetime",
+    "stripped",
     "deter",
-    "fine"
+    "ban"
    ]
   },
   "key": {
@@ -10099,9 +10099,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "fine",
+    "lifetime",
     "ban",
-    "deter",
-    "lifetime"
+    "stripped"
    ]
   },
   "key": {
@@ -10120,9 +10120,9 @@ window.QUESTION_BANK = [
   "question": "A performer can be _____ of medals, titles and records won while using a prohibited substance.",
   "blankOptions": {
    "B1": [
-    "lifetime",
     "stripped",
     "ban",
+    "lifetime",
     "fine"
    ]
   },
@@ -10142,10 +10142,10 @@ window.QUESTION_BANK = [
   "question": "Sanctions are meant to _____ other performers from choosing to use PEDs in the first place.",
   "blankOptions": {
    "B1": [
-    "ban",
     "deter",
+    "ban",
     "lifetime",
-    "fine"
+    "stripped"
    ]
   },
   "key": {
@@ -10733,10 +10733,10 @@ window.QUESTION_BANK = [
   "question": "Anti-doping _____ use posters, workshops and talks to put athletes off using banned substances before they are ever tempted.",
   "blankOptions": {
    "B1": [
-    "campaigns",
-    "model",
+    "peers",
     "accident",
-    "peers"
+    "campaigns",
+    "chance"
    ]
   },
   "key": {
@@ -10755,10 +10755,10 @@ window.QUESTION_BANK = [
   "question": "A role _____ who is clearly seen competing clean makes fair play feel like the normal way to behave.",
   "blankOptions": {
    "B1": [
-    "accident",
-    "chance",
     "campaigns",
-    "model"
+    "model",
+    "peers",
+    "accident"
    ]
   },
   "key": {
@@ -10778,8 +10778,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "campaigns",
-    "peers",
     "model",
+    "peers",
     "accident"
    ]
   },
@@ -10799,10 +10799,10 @@ window.QUESTION_BANK = [
   "question": "Athletes are taught to check any supplement against the banned list so they do not dope by _____.",
   "blankOptions": {
    "B1": [
+    "peers",
+    "chance",
     "model",
-    "campaigns",
-    "accident",
-    "peers"
+    "accident"
    ]
   },
   "key": {
@@ -10823,7 +10823,7 @@ window.QUESTION_BANK = [
    "B1": [
     "model",
     "chance",
-    "campaigns",
+    "accident",
     "peers"
    ]
   },
@@ -11412,10 +11412,10 @@ window.QUESTION_BANK = [
   "question": "A doping scandal can damage a sport's _____, making fans doubt every result.",
   "blankOptions": {
    "B1": [
-    "reputation",
-    "advantage",
     "interest",
-    "tainted"
+    "advantage",
+    "tainted",
+    "reputation"
    ]
   },
   "key": {
@@ -11434,9 +11434,9 @@ window.QUESTION_BANK = [
   "question": "Public trust and _____ in a sport can fall once fans suspect cheating is happening.",
   "blankOptions": {
    "B1": [
+    "advantage",
     "interest",
     "reputation",
-    "tainted",
     "funding"
    ]
   },
@@ -11457,9 +11457,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "advantage",
-    "interest",
     "funding",
-    "tainted"
+    "tainted",
+    "reputation"
    ]
   },
   "key": {
@@ -11478,10 +11478,10 @@ window.QUESTION_BANK = [
   "question": "Clean athletes can lose medals and _____ to a rival who is later proven to have doped.",
   "blankOptions": {
    "B1": [
-    "advantage",
-    "funding",
+    "tainted",
     "interest",
-    "tainted"
+    "funding",
+    "advantage"
    ]
   },
   "key": {
@@ -11500,10 +11500,10 @@ window.QUESTION_BANK = [
   "question": "Sponsors may pull their money out once a sport looks _____ by repeated doping cases.",
   "blankOptions": {
    "B1": [
-    "advantage",
     "interest",
-    "funding",
-    "tainted"
+    "tainted",
+    "reputation",
+    "advantage"
    ]
   },
   "key": {
@@ -12133,10 +12133,10 @@ window.QUESTION_BANK = [
   "question": "A _____ event repeats on a schedule but is hosted in a different city each time it is held.",
   "blankOptions": {
    "B1": [
-    "infrastructure",
     "regular",
     "rarely",
-    "schedule"
+    "schedule",
+    "infrastructure"
    ]
   },
   "key": {
@@ -12155,10 +12155,10 @@ window.QUESTION_BANK = [
   "question": "A 'one-off' event is hosted in a particular city extremely _____, often only once in a generation.",
   "blankOptions": {
    "B1": [
-    "regular",
+    "infrastructure",
     "schedule",
-    "rarely",
-    "bid"
+    "regular",
+    "rarely"
    ]
   },
   "key": {
@@ -12177,10 +12177,10 @@ window.QUESTION_BANK = [
   "question": "A regular and _____ event returns to the same venue every time it is held.",
   "blankOptions": {
    "B1": [
-    "schedule",
+    "bid",
     "recurring",
-    "regular",
-    "infrastructure"
+    "rarely",
+    "regular"
    ]
   },
   "key": {
@@ -12200,9 +12200,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "bid",
-    "regular",
-    "infrastructure",
-    "schedule"
+    "recurring",
+    "schedule",
+    "rarely"
    ]
   },
   "key": {
@@ -12221,10 +12221,10 @@ window.QUESTION_BANK = [
   "question": "A regular event's rotating host means a new city can _____ to stage it each time.",
   "blankOptions": {
    "B1": [
-    "bid",
-    "rarely",
+    "regular",
     "schedule",
-    "regular"
+    "rarely",
+    "bid"
    ]
   },
   "key": {
@@ -12243,8 +12243,8 @@ window.QUESTION_BANK = [
   "question": "A 'one-off' host often has to build permanent _____ from scratch, since it may never host again.",
   "blankOptions": {
    "B1": [
-    "bid",
-    "recurring",
+    "schedule",
+    "regular",
     "infrastructure",
     "rarely"
    ]
@@ -12853,10 +12853,10 @@ window.QUESTION_BANK = [
   "question": "A major sporting event usually has competitors travelling in from two or more different _____.",
   "blankOptions": {
    "B1": [
+    "valuable",
     "live",
-    "major",
-    "countries",
-    "remote"
+    "remote",
+    "countries"
    ]
   },
   "key": {
@@ -12875,10 +12875,10 @@ window.QUESTION_BANK = [
   "question": "People watching a major event live inside the stadium are called _____ spectators.",
   "blankOptions": {
    "B1": [
-    "remote",
-    "live",
+    "countries",
+    "valuable",
     "major",
-    "countries"
+    "live"
    ]
   },
   "key": {
@@ -12897,10 +12897,10 @@ window.QUESTION_BANK = [
   "question": "People following a major event on television or online, often from many countries at once, are called _____ spectators.",
   "blankOptions": {
    "B1": [
-    "valuable",
-    "countries",
+    "major",
     "remote",
-    "major"
+    "valuable",
+    "live"
    ]
   },
   "key": {
@@ -12919,9 +12919,9 @@ window.QUESTION_BANK = [
   "question": "The huge, worldwide television audience is what makes broadcast rights and sponsorship so _____ to a host.",
   "blankOptions": {
    "B1": [
-    "live",
     "remote",
-    "major",
+    "countries",
+    "live",
     "valuable"
    ]
   },
@@ -12942,9 +12942,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "major",
-    "countries",
-    "live",
-    "remote"
+    "remote",
+    "valuable",
+    "live"
    ]
   },
   "key": {
@@ -13574,10 +13574,10 @@ window.QUESTION_BANK = [
   "question": "Bidding to host a major event is a _____ process, meaning several places apply for the same event.",
   "blankOptions": {
    "B1": [
-    "temporary",
-    "infrastructure",
-    "commercial",
-    "competitive"
+    "competitive",
+    "needs",
+    "risk",
+    "infrastructure"
    ]
   },
   "key": {
@@ -13596,10 +13596,10 @@ window.QUESTION_BANK = [
   "question": "Because a bid can fail, the money spent preparing it is often described as a financial _____.",
   "blankOptions": {
    "B1": [
-    "temporary",
-    "infrastructure",
     "risk",
-    "competitive"
+    "competitive",
+    "commercial",
+    "infrastructure"
    ]
   },
   "key": {
@@ -13618,7 +13618,7 @@ window.QUESTION_BANK = [
   "question": "New stadiums, roads and transport links built before an event are examples of _____ development.",
   "blankOptions": {
    "B1": [
-    "risk",
+    "needs",
     "infrastructure",
     "commercial",
     "temporary"
@@ -13640,10 +13640,10 @@ window.QUESTION_BANK = [
   "question": "Sponsors and investors provide _____ investment that can fund facilities public money alone might not cover.",
   "blankOptions": {
    "B1": [
+    "risk",
     "competitive",
-    "commercial",
-    "infrastructure",
-    "needs"
+    "temporary",
+    "commercial"
    ]
   },
   "key": {
@@ -13662,10 +13662,10 @@ window.QUESTION_BANK = [
   "question": "Construction work before a major event usually creates _____ employment that ends once the building finishes.",
   "blankOptions": {
    "B1": [
-    "needs",
-    "commercial",
-    "risk",
-    "temporary"
+    "competitive",
+    "infrastructure",
+    "temporary",
+    "risk"
    ]
   },
   "key": {
@@ -13684,10 +13684,10 @@ window.QUESTION_BANK = [
   "question": "Objectors often argue that bid money could be better spent on other local or national _____.",
   "blankOptions": {
    "B1": [
-    "risk",
     "needs",
+    "competitive",
     "commercial",
-    "competitive"
+    "infrastructure"
    ]
   },
   "key": {
@@ -14336,10 +14336,10 @@ window.QUESTION_BANK = [
   "question": "Venues and transport built for the event now being used is called social _____ in use.",
   "blankOptions": {
    "B1": [
-    "short-term",
-    "direct",
+    "infrastructure",
+    "cohesion",
     "pride",
-    "infrastructure"
+    "neglected"
    ]
   },
   "key": {
@@ -14358,9 +14358,9 @@ window.QUESTION_BANK = [
   "question": "A shared sense of national pride and unity while the event is on is called national morale and social _____.",
   "blankOptions": {
    "B1": [
+    "short-term",
     "direct",
     "cohesion",
-    "neglected",
     "pride"
    ]
   },
@@ -14380,8 +14380,8 @@ window.QUESTION_BANK = [
   "question": "Temporary jobs created only to cover the event period, such as stewarding, are called _____ employment.",
   "blankOptions": {
    "B1": [
-    "short-term",
     "infrastructure",
+    "short-term",
     "pride",
     "neglected"
    ]
@@ -14402,10 +14402,10 @@ window.QUESTION_BANK = [
   "question": "Spending tied straight to the event itself, like tickets and nearby hotels, is called _____ tourism.",
   "blankOptions": {
    "B1": [
-    "direct",
-    "cohesion",
-    "infrastructure",
-    "short-term"
+    "neglected",
+    "short-term",
+    "pride",
+    "direct"
    ]
   },
   "key": {
@@ -14424,10 +14424,10 @@ window.QUESTION_BANK = [
   "question": "Areas away from the host venues can feel _____ if attention and money focus elsewhere.",
   "blankOptions": {
    "B1": [
-    "pride",
     "direct",
-    "short-term",
-    "neglected"
+    "neglected",
+    "cohesion",
+    "short-term"
    ]
   },
   "key": {
@@ -14446,10 +14446,10 @@ window.QUESTION_BANK = [
   "question": "If the host team performs badly, this can damage the national _____ that hosting was meant to build.",
   "blankOptions": {
    "B1": [
-    "pride",
-    "short-term",
     "direct",
-    "neglected"
+    "infrastructure",
+    "neglected",
+    "pride"
    ]
   },
   "key": {
@@ -15117,10 +15117,10 @@ window.QUESTION_BANK = [
   "question": "The lasting effect that remains after a major event has finished is called its _____.",
   "blankOptions": {
    "B1": [
+    "revenue",
     "reputation",
-    "participation",
     "legacy",
-    "facility"
+    "unused"
    ]
   },
   "key": {
@@ -15139,9 +15139,9 @@ window.QUESTION_BANK = [
   "question": "New or upgraded stadiums that local clubs keep using for years afterwards are an example of a _____ legacy.",
   "blankOptions": {
    "B1": [
+    "revenue",
     "facility",
     "unused",
-    "legacy",
     "participation"
    ]
   },
@@ -15161,10 +15161,10 @@ window.QUESTION_BANK = [
   "question": "A rise in the number of people trying a sport after watching it at a major event is a legacy of increased _____.",
   "blankOptions": {
    "B1": [
-    "revenue",
-    "legacy",
     "participation",
-    "facility"
+    "legacy",
+    "facility",
+    "unused"
    ]
   },
   "key": {
@@ -15183,10 +15183,10 @@ window.QUESTION_BANK = [
   "question": "A venue that is built for an event but then stands _____ afterwards is nicknamed a 'white elephant'.",
   "blankOptions": {
    "B1": [
-    "unused",
     "facility",
-    "participation",
-    "reputation"
+    "legacy",
+    "reputation",
+    "unused"
    ]
   },
   "key": {
@@ -15205,10 +15205,10 @@ window.QUESTION_BANK = [
   "question": "If a host nation's event is badly organised, it can suffer a loss of national _____.",
   "blankOptions": {
    "B1": [
-    "reputation",
-    "revenue",
-    "unused",
-    "facility"
+    "legacy",
+    "participation",
+    "facility",
+    "reputation"
    ]
   },
   "key": {
@@ -15227,10 +15227,10 @@ window.QUESTION_BANK = [
   "question": "An event that costs more to host than the _____ it generates leaves the host with a financial loss.",
   "blankOptions": {
    "B1": [
+    "participation",
     "unused",
-    "revenue",
     "legacy",
-    "participation"
+    "revenue"
    ]
   },
   "key": {
@@ -15898,10 +15898,10 @@ window.QUESTION_BANK = [
   "question": "A National Governing Body is the organisation officially in charge of running and _____ a single sport nationally.",
   "blankOptions": {
    "B1": [
-    "lobby",
     "levels",
+    "disciplinary",
     "developing",
-    "insurance"
+    "lobby"
    ]
   },
   "key": {
@@ -15920,10 +15920,10 @@ window.QUESTION_BANK = [
   "question": "NGBs promote _____ by running schemes and media campaigns that reach new audiences.",
   "blankOptions": {
    "B1": [
-    "lobby",
+    "levels",
     "insurance",
     "participation",
-    "disciplinary"
+    "lobby"
    ]
   },
   "key": {
@@ -15942,10 +15942,10 @@ window.QUESTION_BANK = [
   "question": "An NGB trains and qualifies coaches and officials through a system of _____.",
   "blankOptions": {
    "B1": [
-    "lobby",
-    "levels",
-    "developing",
-    "insurance"
+    "participation",
+    "insurance",
+    "disciplinary",
+    "levels"
    ]
   },
   "key": {
@@ -15964,10 +15964,10 @@ window.QUESTION_BANK = [
   "question": "When a player seriously breaks the rules, the NGB can apply its _____ procedures.",
   "blankOptions": {
    "B1": [
-    "participation",
-    "levels",
-    "developing",
-    "disciplinary"
+    "insurance",
+    "disciplinary",
+    "lobby",
+    "levels"
    ]
   },
   "key": {
@@ -15988,8 +15988,8 @@ window.QUESTION_BANK = [
    "B1": [
     "insurance",
     "levels",
-    "participation",
-    "lobby"
+    "disciplinary",
+    "developing"
    ]
   },
   "key": {
@@ -16009,9 +16009,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "levels",
-    "participation",
     "lobby",
-    "insurance"
+    "developing",
+    "participation"
    ]
   },
   "key": {
@@ -16637,10 +16637,10 @@ window.QUESTION_BANK = [
   "question": "Close-fitting, smooth-fabric clothing is described as _____ because it reduces drag through air or water.",
   "blankOptions": {
    "B1": [
-    "fault",
     "effort",
-    "streamlined",
-    "vest"
+    "fault",
+    "vest",
+    "streamlined"
    ]
   },
   "key": {
@@ -16659,10 +16659,10 @@ window.QUESTION_BANK = [
   "question": "Carbon-fibre rackets and bike frames are lighter and _____, so less effort is wasted flexing.",
   "blankOptions": {
    "B1": [
-    "stiffer",
-    "streamlined",
     "fault",
-    "vest"
+    "streamlined",
+    "vest",
+    "stiffer"
    ]
   },
   "key": {
@@ -16681,10 +16681,10 @@ window.QUESTION_BANK = [
   "question": "GPS trackers are usually worn in a _____ between the shoulder blades to record distance and speed.",
   "blankOptions": {
    "B1": [
-    "effort",
     "streamlined",
-    "vest",
-    "stiffer"
+    "effort",
+    "stiffer",
+    "vest"
    ]
   },
   "key": {
@@ -16703,10 +16703,10 @@ window.QUESTION_BANK = [
   "question": "Video analysis lets a coach slow footage down to spot a technical _____ in a performer's technique.",
   "blankOptions": {
    "B1": [
-    "vest",
-    "stiffer",
     "fault",
-    "streamlined"
+    "streamlined",
+    "vest",
+    "effort"
    ]
   },
   "key": {
@@ -16725,10 +16725,10 @@ window.QUESTION_BANK = [
   "question": "Cushioned, energy-returning soles help runners push off the ground with less wasted _____.",
   "blankOptions": {
    "B1": [
-    "fault",
-    "vest",
     "effort",
-    "streamlined"
+    "streamlined",
+    "fault",
+    "vest"
    ]
   },
   "key": {
@@ -17316,10 +17316,10 @@ window.QUESTION_BANK = [
   "question": "Cricket and American football helmets use a reinforced shell to reduce the _____ of a blow reaching the head.",
   "blankOptions": {
    "B1": [
-    "side-line",
     "neck",
+    "force",
     "fatigue",
-    "force"
+    "side-line"
    ]
   },
   "key": {
@@ -17338,10 +17338,10 @@ window.QUESTION_BANK = [
   "question": "Modern 3G/4G pitches use a shock-absorbing layer to reduce the impact on a falling player's _____.",
   "blankOptions": {
    "B1": [
+    "force",
+    "fatigue",
     "neck",
-    "side-line",
-    "joints",
-    "force"
+    "joints"
    ]
   },
   "key": {
@@ -17360,9 +17360,9 @@ window.QUESTION_BANK = [
   "question": "An instrumented mouthguard can measure the force of a head impact and alert _____ medical staff.",
   "blankOptions": {
    "B1": [
+    "side-line",
     "fatigue",
     "neck",
-    "side-line",
     "joints"
    ]
   },
@@ -17384,8 +17384,8 @@ window.QUESTION_BANK = [
    "B1": [
     "side-line",
     "neck",
-    "joints",
-    "force"
+    "force",
+    "joints"
    ]
   },
   "key": {
@@ -17406,8 +17406,8 @@ window.QUESTION_BANK = [
    "B1": [
     "joints",
     "force",
-    "neck",
-    "fatigue"
+    "fatigue",
+    "neck"
    ]
   },
   "key": {
@@ -17995,10 +17995,10 @@ window.QUESTION_BANK = [
   "question": "VAR stands for Video _____ Referee, and reviews goals, penalties, red cards and mistaken identity.",
   "blankOptions": {
    "B1": [
-    "hundredths",
-    "replays",
     "Assistant",
-    "ball"
+    "ball",
+    "signal",
+    "hundredths"
    ]
   },
   "key": {
@@ -18017,10 +18017,10 @@ window.QUESTION_BANK = [
   "question": "The TMO advises the rugby union referee using video _____ of tries and serious foul play.",
   "blankOptions": {
    "B1": [
-    "signal",
+    "hundredths",
+    "ball",
     "replays",
-    "Assistant",
-    "hundredths"
+    "Assistant"
    ]
   },
   "key": {
@@ -18039,10 +18039,10 @@ window.QUESTION_BANK = [
   "question": "Goal-line technology sends an instant _____ to the referee's watch once the ball fully crosses the line.",
   "blankOptions": {
    "B1": [
-    "ball",
-    "signal",
     "hundredths",
-    "Assistant"
+    "Assistant",
+    "signal",
+    "replays"
    ]
   },
   "key": {
@@ -18061,10 +18061,10 @@ window.QUESTION_BANK = [
   "question": "Hawk-Eye is a _____-tracking system used in tennis and cricket to show exactly where the ball went.",
   "blankOptions": {
    "B1": [
-    "ball",
+    "signal",
     "hundredths",
     "replays",
-    "signal"
+    "ball"
    ]
   },
   "key": {
@@ -18083,10 +18083,10 @@ window.QUESTION_BANK = [
   "question": "A photo-finish camera lets officials separate sprinters who finish within _____ of a second of each other.",
   "blankOptions": {
    "B1": [
-    "Assistant",
-    "signal",
+    "replays",
+    "hundredths",
     "ball",
-    "hundredths"
+    "signal"
    ]
   },
   "key": {
@@ -18675,9 +18675,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "watching",
-    "replay",
+    "angles",
     "graphics",
-    "app"
+    "replay"
    ]
   },
   "key": {
@@ -18697,9 +18697,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "replay",
-    "graphics",
     "watching",
-    "app"
+    "angles",
+    "graphics"
    ]
   },
   "key": {
@@ -18718,10 +18718,10 @@ window.QUESTION_BANK = [
   "question": "Broadcasters add on-screen _____ to give viewers extra information, such as a speed reading.",
   "blankOptions": {
    "B1": [
-    "graphics",
     "angles",
-    "watching",
-    "app"
+    "replay",
+    "graphics",
+    "watching"
    ]
   },
   "key": {
@@ -18740,9 +18740,9 @@ window.QUESTION_BANK = [
   "question": "Multiple camera _____ let broadcast viewers see an incident from more than one view.",
   "blankOptions": {
    "B1": [
-    "app",
-    "replay",
     "watching",
+    "graphics",
+    "replay",
     "angles"
    ]
   },
@@ -18762,10 +18762,10 @@ window.QUESTION_BANK = [
   "question": "A live-stats _____ lets a fan check extra statistics, such as split times, during an event.",
   "blankOptions": {
    "B1": [
-    "graphics",
-    "watching",
+    "app",
     "replay",
-    "app"
+    "watching",
+    "graphics"
    ]
   },
   "key": {
@@ -19353,10 +19353,10 @@ window.QUESTION_BANK = [
   "question": "Detailed training data can help target a performer's weakness, which is a form of enhanced _____.",
   "blankOptions": {
    "B1": [
-    "injury",
     "recovery",
-    "analysis",
-    "performance"
+    "accurate",
+    "performance",
+    "analysis"
    ]
   },
   "key": {
@@ -19376,9 +19376,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "performance",
-    "analysis",
     "injury",
-    "accurate"
+    "accurate",
+    "recovery"
    ]
   },
   "key": {
@@ -19397,10 +19397,10 @@ window.QUESTION_BANK = [
   "question": "A cryotherapy chamber can reduce swelling, helping a performer make a quicker _____ from injury.",
   "blankOptions": {
    "B1": [
+    "recovery",
     "performance",
-    "injury",
-    "accurate",
-    "recovery"
+    "analysis",
+    "accurate"
    ]
   },
   "key": {
@@ -19420,9 +19420,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "performance",
+    "analysis",
     "accurate",
-    "injury",
-    "recovery"
+    "injury"
    ]
   },
   "key": {
@@ -19441,10 +19441,10 @@ window.QUESTION_BANK = [
   "question": "Studying video or data closely to see exactly what to change is called technical _____.",
   "blankOptions": {
    "B1": [
+    "performance",
     "analysis",
-    "recovery",
     "accurate",
-    "injury"
+    "recovery"
    ]
   },
   "key": {
@@ -20032,10 +20032,10 @@ window.QUESTION_BANK = [
   "question": "Expensive new technology can create _____ access, since only wealthier teams or nations can afford it.",
   "blankOptions": {
    "B1": [
+    "flow",
     "cost",
     "affordability",
-    "unequal",
-    "flow"
+    "unequal"
    ]
   },
   "key": {
@@ -20054,10 +20054,10 @@ window.QUESTION_BANK = [
   "question": "The _____ of new sports technology tends to keep rising as it advances.",
   "blankOptions": {
    "B1": [
-    "availability",
-    "affordability",
+    "flow",
     "cost",
-    "unequal"
+    "affordability",
+    "availability"
    ]
   },
   "key": {
@@ -20077,9 +20077,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "affordability",
-    "cost",
     "availability",
-    "flow"
+    "unequal",
+    "cost"
    ]
   },
   "key": {
@@ -20099,8 +20099,8 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "affordability",
-    "flow",
     "availability",
+    "flow",
     "unequal"
    ]
   },
@@ -20120,10 +20120,10 @@ window.QUESTION_BANK = [
   "question": "Video review stoppages can reduce the _____ of the game by interrupting its rhythm.",
   "blankOptions": {
    "B1": [
-    "unequal",
-    "flow",
+    "availability",
     "cost",
-    "availability"
+    "unequal",
+    "flow"
    ]
   },
   "key": {
@@ -20711,9 +20711,9 @@ window.QUESTION_BANK = [
   "question": "Big screens let fans see the same _____ the officials used to reach a decision.",
   "blankOptions": {
    "B1": [
-    "atmosphere",
-    "statistics",
+    "suitability",
     "prices",
+    "statistics",
     "evidence"
    ]
   },
@@ -20733,10 +20733,10 @@ window.QUESTION_BANK = [
   "question": "Broadcast graphics and _____ help home viewers understand the contest in more depth.",
   "blankOptions": {
    "B1": [
-    "atmosphere",
     "suitability",
+    "prices",
     "statistics",
-    "evidence"
+    "atmosphere"
    ]
   },
   "key": {
@@ -20755,10 +20755,10 @@ window.QUESTION_BANK = [
   "question": "A long wait for a video review can break the _____ inside the stadium.",
   "blankOptions": {
    "B1": [
+    "suitability",
     "statistics",
     "evidence",
-    "atmosphere",
-    "prices"
+    "atmosphere"
    ]
   },
   "key": {
@@ -20777,9 +20777,9 @@ window.QUESTION_BANK = [
   "question": "Installing and running review technology is expensive, which can raise ticket or subscription _____.",
   "blankOptions": {
    "B1": [
-    "evidence",
-    "prices",
     "suitability",
+    "prices",
+    "atmosphere",
     "statistics"
    ]
   },
@@ -20799,10 +20799,10 @@ window.QUESTION_BANK = [
   "question": "Judging whether a review is worth its cost and delay for a fixture is about the _____ of the technology.",
   "blankOptions": {
    "B1": [
-    "evidence",
-    "statistics",
+    "prices",
     "suitability",
-    "prices"
+    "statistics",
+    "atmosphere"
    ]
   },
   "key": {
@@ -21431,8 +21431,8 @@ window.QUESTION_BANK = [
   "question": "The whole R184 exam paper is worth _____ marks in total.",
   "blankOptions": {
    "B1": [
+    "B",
     "70",
-    "C",
     "75",
     "Identify"
    ]
@@ -21453,10 +21453,10 @@ window.QUESTION_BANK = [
   "question": "You have _____ minutes in total to complete the R184 exam paper.",
   "blankOptions": {
    "B1": [
+    "C",
     "70",
-    "Identify",
-    "Evaluate",
-    "75"
+    "75",
+    "Evaluate"
    ]
   },
   "key": {
@@ -21478,7 +21478,7 @@ window.QUESTION_BANK = [
     "Evaluate",
     "B",
     "75",
-    "C"
+    "Identify"
    ]
   },
   "key": {
@@ -21497,10 +21497,10 @@ window.QUESTION_BANK = [
   "question": "Section _____ is worth 12 marks and includes an 8-mark Discuss or Evaluate question.",
   "blankOptions": {
    "B1": [
-    "Evaluate",
-    "C",
     "75",
-    "Identify"
+    "B",
+    "C",
+    "70"
    ]
   },
   "key": {
@@ -21520,9 +21520,9 @@ window.QUESTION_BANK = [
   "blankOptions": {
    "B1": [
     "Evaluate",
-    "C",
     "Identify",
-    "B"
+    "C",
+    "75"
    ]
   },
   "key": {
@@ -21541,9 +21541,9 @@ window.QUESTION_BANK = [
   "question": "The command word that asks you to weigh up both sides AND reach a justified judgement is _____.",
   "blankOptions": {
    "B1": [
-    "75",
-    "B",
+    "C",
     "70",
+    "75",
     "Evaluate"
    ]
   },
@@ -22212,10 +22212,10 @@ window.QUESTION_BANK = [
   "question": "The first step of a top-band answer is to _____ your point to the scenario you have been given.",
   "blankOptions": {
    "B1": [
-    "listing",
-    "apply",
     "balanced",
-    "judgement"
+    "apply",
+    "scenario",
+    "listing"
    ]
   },
   "key": {
@@ -22234,10 +22234,10 @@ window.QUESTION_BANK = [
   "question": "The second step is to analyse _____ sides of the issue, not just the side you find easiest.",
   "blankOptions": {
    "B1": [
-    "scenario",
     "judgement",
-    "balanced",
-    "both"
+    "both",
+    "listing",
+    "scenario"
    ]
   },
   "key": {
@@ -22256,10 +22256,10 @@ window.QUESTION_BANK = [
   "question": "The final step is to reach a justified _____ about which side matters more, or what it depends on.",
   "blankOptions": {
    "B1": [
-    "both",
-    "balanced",
+    "apply",
     "judgement",
-    "scenario"
+    "listing",
+    "both"
    ]
   },
   "key": {
@@ -22278,10 +22278,10 @@ window.QUESTION_BANK = [
   "question": "An answer that only states true facts with no development of their effect is called _____.",
   "blankOptions": {
    "B1": [
+    "scenario",
     "judgement",
-    "listing",
     "both",
-    "scenario"
+    "listing"
    ]
   },
   "key": {
@@ -22300,10 +22300,10 @@ window.QUESTION_BANK = [
   "question": "In Section B and C, your example must come from the _____ you have been given, not a general one.",
   "blankOptions": {
    "B1": [
-    "judgement",
+    "scenario",
     "apply",
-    "listing",
-    "scenario"
+    "balanced",
+    "listing"
    ]
   },
   "key": {
@@ -22322,10 +22322,10 @@ window.QUESTION_BANK = [
   "question": "Band 3 needs a _____ discussion — covering both sides fairly before reaching a judgement.",
   "blankOptions": {
    "B1": [
-    "balanced",
     "judgement",
-    "scenario",
-    "apply"
+    "balanced",
+    "listing",
+    "both"
    ]
   },
   "key": {
